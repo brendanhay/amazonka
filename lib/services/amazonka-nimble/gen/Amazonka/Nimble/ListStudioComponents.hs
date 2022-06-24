@@ -29,10 +29,10 @@ module Amazonka.Nimble.ListStudioComponents
     newListStudioComponents,
 
     -- * Request Lenses
-    listStudioComponents_states,
-    listStudioComponents_types,
     listStudioComponents_nextToken,
+    listStudioComponents_types,
     listStudioComponents_maxResults,
+    listStudioComponents_states,
     listStudioComponents_studioId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.Nimble.ListStudioComponents
     newListStudioComponentsResponse,
 
     -- * Response Lenses
-    listStudioComponentsResponse_studioComponents,
     listStudioComponentsResponse_nextToken,
+    listStudioComponentsResponse_studioComponents,
     listStudioComponentsResponse_httpStatus,
   )
 where
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStudioComponents' smart constructor.
 data ListStudioComponents = ListStudioComponents'
-  { -- | A list of states.
-    states :: Prelude.Maybe [Prelude.Text],
-    -- | The types.
-    types :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next set of results, or null if there are no more
+  { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The types.
+    types :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to be returned per request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A list of states.
+    states :: Prelude.Maybe [Prelude.Text],
     -- | The studio ID.
     studioId :: Prelude.Text
   }
@@ -77,14 +77,14 @@ data ListStudioComponents = ListStudioComponents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'states', 'listStudioComponents_states' - A list of states.
---
--- 'types', 'listStudioComponents_types' - The types.
---
 -- 'nextToken', 'listStudioComponents_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
 --
+-- 'types', 'listStudioComponents_types' - The types.
+--
 -- 'maxResults', 'listStudioComponents_maxResults' - The maximum number of results to be returned per request.
+--
+-- 'states', 'listStudioComponents_states' - A list of states.
 --
 -- 'studioId', 'listStudioComponents_studioId' - The studio ID.
 newListStudioComponents ::
@@ -93,29 +93,29 @@ newListStudioComponents ::
   ListStudioComponents
 newListStudioComponents pStudioId_ =
   ListStudioComponents'
-    { states = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       types = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      states = Prelude.Nothing,
       studioId = pStudioId_
     }
-
--- | A list of states.
-listStudioComponents_states :: Lens.Lens' ListStudioComponents (Prelude.Maybe [Prelude.Text])
-listStudioComponents_states = Lens.lens (\ListStudioComponents' {states} -> states) (\s@ListStudioComponents' {} a -> s {states = a} :: ListStudioComponents) Prelude.. Lens.mapping Lens.coerced
-
--- | The types.
-listStudioComponents_types :: Lens.Lens' ListStudioComponents (Prelude.Maybe [Prelude.Text])
-listStudioComponents_types = Lens.lens (\ListStudioComponents' {types} -> types) (\s@ListStudioComponents' {} a -> s {types = a} :: ListStudioComponents) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listStudioComponents_nextToken :: Lens.Lens' ListStudioComponents (Prelude.Maybe Prelude.Text)
 listStudioComponents_nextToken = Lens.lens (\ListStudioComponents' {nextToken} -> nextToken) (\s@ListStudioComponents' {} a -> s {nextToken = a} :: ListStudioComponents)
 
+-- | The types.
+listStudioComponents_types :: Lens.Lens' ListStudioComponents (Prelude.Maybe [Prelude.Text])
+listStudioComponents_types = Lens.lens (\ListStudioComponents' {types} -> types) (\s@ListStudioComponents' {} a -> s {types = a} :: ListStudioComponents) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of results to be returned per request.
 listStudioComponents_maxResults :: Lens.Lens' ListStudioComponents (Prelude.Maybe Prelude.Natural)
 listStudioComponents_maxResults = Lens.lens (\ListStudioComponents' {maxResults} -> maxResults) (\s@ListStudioComponents' {} a -> s {maxResults = a} :: ListStudioComponents)
+
+-- | A list of states.
+listStudioComponents_states :: Lens.Lens' ListStudioComponents (Prelude.Maybe [Prelude.Text])
+listStudioComponents_states = Lens.lens (\ListStudioComponents' {states} -> states) (\s@ListStudioComponents' {} a -> s {states = a} :: ListStudioComponents) Prelude.. Lens.mapping Lens.coerced
 
 -- | The studio ID.
 listStudioComponents_studioId :: Lens.Lens' ListStudioComponents Prelude.Text
@@ -152,27 +152,27 @@ instance Core.AWSRequest ListStudioComponents where
     Response.receiveJSON
       ( \s h x ->
           ListStudioComponentsResponse'
-            Prelude.<$> ( x Core..?> "studioComponents"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "studioComponents"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListStudioComponents where
   hashWithSalt _salt ListStudioComponents' {..} =
-    _salt `Prelude.hashWithSalt` states
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` types
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` states
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData ListStudioComponents where
   rnf ListStudioComponents' {..} =
-    Prelude.rnf states
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf types
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf states
       `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders ListStudioComponents where
@@ -197,23 +197,23 @@ instance Core.ToPath ListStudioComponents where
 instance Core.ToQuery ListStudioComponents where
   toQuery ListStudioComponents' {..} =
     Prelude.mconcat
-      [ "states"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> states),
+      [ "nextToken" Core.=: nextToken,
         "types"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> types),
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "states"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> states)
       ]
 
 -- | /See:/ 'newListStudioComponentsResponse' smart constructor.
 data ListStudioComponentsResponse = ListStudioComponentsResponse'
-  { -- | A collection of studio components.
-    studioComponents :: Prelude.Maybe [StudioComponent],
-    -- | The token for the next set of results, or null if there are no more
+  { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A collection of studio components.
+    studioComponents :: Prelude.Maybe [StudioComponent],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -227,10 +227,10 @@ data ListStudioComponentsResponse = ListStudioComponentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studioComponents', 'listStudioComponentsResponse_studioComponents' - A collection of studio components.
---
 -- 'nextToken', 'listStudioComponentsResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
+--
+-- 'studioComponents', 'listStudioComponentsResponse_studioComponents' - A collection of studio components.
 --
 -- 'httpStatus', 'listStudioComponentsResponse_httpStatus' - The response's http status code.
 newListStudioComponentsResponse ::
@@ -239,20 +239,20 @@ newListStudioComponentsResponse ::
   ListStudioComponentsResponse
 newListStudioComponentsResponse pHttpStatus_ =
   ListStudioComponentsResponse'
-    { studioComponents =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      studioComponents = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A collection of studio components.
-listStudioComponentsResponse_studioComponents :: Lens.Lens' ListStudioComponentsResponse (Prelude.Maybe [StudioComponent])
-listStudioComponentsResponse_studioComponents = Lens.lens (\ListStudioComponentsResponse' {studioComponents} -> studioComponents) (\s@ListStudioComponentsResponse' {} a -> s {studioComponents = a} :: ListStudioComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listStudioComponentsResponse_nextToken :: Lens.Lens' ListStudioComponentsResponse (Prelude.Maybe Prelude.Text)
 listStudioComponentsResponse_nextToken = Lens.lens (\ListStudioComponentsResponse' {nextToken} -> nextToken) (\s@ListStudioComponentsResponse' {} a -> s {nextToken = a} :: ListStudioComponentsResponse)
+
+-- | A collection of studio components.
+listStudioComponentsResponse_studioComponents :: Lens.Lens' ListStudioComponentsResponse (Prelude.Maybe [StudioComponent])
+listStudioComponentsResponse_studioComponents = Lens.lens (\ListStudioComponentsResponse' {studioComponents} -> studioComponents) (\s@ListStudioComponentsResponse' {} a -> s {studioComponents = a} :: ListStudioComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listStudioComponentsResponse_httpStatus :: Lens.Lens' ListStudioComponentsResponse Prelude.Int
@@ -260,6 +260,6 @@ listStudioComponentsResponse_httpStatus = Lens.lens (\ListStudioComponentsRespon
 
 instance Prelude.NFData ListStudioComponentsResponse where
   rnf ListStudioComponentsResponse' {..} =
-    Prelude.rnf studioComponents
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf studioComponents
       `Prelude.seq` Prelude.rnf httpStatus

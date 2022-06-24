@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScriptParameterKeyValue' smart constructor.
 data ScriptParameterKeyValue = ScriptParameterKeyValue'
-  { -- | A script parameter value.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | A script parameter key.
-    key :: Prelude.Maybe Prelude.Text
+  { -- | A script parameter key.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | A script parameter value.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data ScriptParameterKeyValue = ScriptParameterKeyValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'scriptParameterKeyValue_value' - A script parameter value.
---
 -- 'key', 'scriptParameterKeyValue_key' - A script parameter key.
+--
+-- 'value', 'scriptParameterKeyValue_value' - A script parameter value.
 newScriptParameterKeyValue ::
   ScriptParameterKeyValue
 newScriptParameterKeyValue =
   ScriptParameterKeyValue'
-    { value = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | A script parameter value.
-scriptParameterKeyValue_value :: Lens.Lens' ScriptParameterKeyValue (Prelude.Maybe Prelude.Text)
-scriptParameterKeyValue_value = Lens.lens (\ScriptParameterKeyValue' {value} -> value) (\s@ScriptParameterKeyValue' {} a -> s {value = a} :: ScriptParameterKeyValue)
 
 -- | A script parameter key.
 scriptParameterKeyValue_key :: Lens.Lens' ScriptParameterKeyValue (Prelude.Maybe Prelude.Text)
 scriptParameterKeyValue_key = Lens.lens (\ScriptParameterKeyValue' {key} -> key) (\s@ScriptParameterKeyValue' {} a -> s {key = a} :: ScriptParameterKeyValue)
+
+-- | A script parameter value.
+scriptParameterKeyValue_value :: Lens.Lens' ScriptParameterKeyValue (Prelude.Maybe Prelude.Text)
+scriptParameterKeyValue_value = Lens.lens (\ScriptParameterKeyValue' {value} -> value) (\s@ScriptParameterKeyValue' {} a -> s {value = a} :: ScriptParameterKeyValue)
 
 instance Core.FromJSON ScriptParameterKeyValue where
   parseJSON =
@@ -68,23 +68,23 @@ instance Core.FromJSON ScriptParameterKeyValue where
       "ScriptParameterKeyValue"
       ( \x ->
           ScriptParameterKeyValue'
-            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "key")
+            Prelude.<$> (x Core..:? "key") Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable ScriptParameterKeyValue where
   hashWithSalt _salt ScriptParameterKeyValue' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ScriptParameterKeyValue where
   rnf ScriptParameterKeyValue' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON ScriptParameterKeyValue where
   toJSON ScriptParameterKeyValue' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            ("key" Core..=) Prelude.<$> key
+          [ ("key" Core..=) Prelude.<$> key,
+            ("value" Core..=) Prelude.<$> value
           ]
       )

@@ -14,55 +14,17 @@
 module Amazonka.Nimble.Lens
   ( -- * Operations
 
-    -- ** PutLaunchProfileMembers
-    putLaunchProfileMembers_clientToken,
-    putLaunchProfileMembers_studioId,
-    putLaunchProfileMembers_members,
-    putLaunchProfileMembers_launchProfileId,
-    putLaunchProfileMembers_identityStoreId,
-    putLaunchProfileMembersResponse_httpStatus,
-
-    -- ** CreateStudio
-    createStudio_studioEncryptionConfiguration,
-    createStudio_clientToken,
-    createStudio_tags,
-    createStudio_displayName,
-    createStudio_studioName,
-    createStudio_userRoleArn,
-    createStudio_adminRoleArn,
-    createStudioResponse_studio,
-    createStudioResponse_httpStatus,
-
-    -- ** UpdateLaunchProfileMember
-    updateLaunchProfileMember_clientToken,
-    updateLaunchProfileMember_studioId,
-    updateLaunchProfileMember_persona,
-    updateLaunchProfileMember_principalId,
-    updateLaunchProfileMember_launchProfileId,
-    updateLaunchProfileMemberResponse_member,
-    updateLaunchProfileMemberResponse_httpStatus,
-
-    -- ** DeleteLaunchProfileMember
-    deleteLaunchProfileMember_clientToken,
-    deleteLaunchProfileMember_studioId,
-    deleteLaunchProfileMember_principalId,
-    deleteLaunchProfileMember_launchProfileId,
-    deleteLaunchProfileMemberResponse_httpStatus,
-
-    -- ** ListLaunchProfiles
-    listLaunchProfiles_states,
-    listLaunchProfiles_principalId,
-    listLaunchProfiles_nextToken,
-    listLaunchProfiles_maxResults,
-    listLaunchProfiles_studioId,
-    listLaunchProfilesResponse_launchProfiles,
-    listLaunchProfilesResponse_nextToken,
-    listLaunchProfilesResponse_httpStatus,
+    -- ** AcceptEulas
+    acceptEulas_clientToken,
+    acceptEulas_eulaIds,
+    acceptEulas_studioId,
+    acceptEulasResponse_eulaAcceptances,
+    acceptEulasResponse_httpStatus,
 
     -- ** CreateLaunchProfile
+    createLaunchProfile_tags,
     createLaunchProfile_clientToken,
     createLaunchProfile_description,
-    createLaunchProfile_tags,
     createLaunchProfile_ec2SubnetIds,
     createLaunchProfile_studioComponentIds,
     createLaunchProfile_studioId,
@@ -72,24 +34,126 @@ module Amazonka.Nimble.Lens
     createLaunchProfileResponse_launchProfile,
     createLaunchProfileResponse_httpStatus,
 
-    -- ** ListStreamingImages
-    listStreamingImages_owner,
-    listStreamingImages_nextToken,
-    listStreamingImages_studioId,
-    listStreamingImagesResponse_streamingImages,
-    listStreamingImagesResponse_nextToken,
-    listStreamingImagesResponse_httpStatus,
+    -- ** CreateStreamingImage
+    createStreamingImage_tags,
+    createStreamingImage_clientToken,
+    createStreamingImage_description,
+    createStreamingImage_studioId,
+    createStreamingImage_name,
+    createStreamingImage_ec2ImageId,
+    createStreamingImageResponse_streamingImage,
+    createStreamingImageResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** CreateStreamingSession
+    createStreamingSession_tags,
+    createStreamingSession_launchProfileId,
+    createStreamingSession_streamingImageId,
+    createStreamingSession_clientToken,
+    createStreamingSession_ec2InstanceType,
+    createStreamingSession_ownedBy,
+    createStreamingSession_studioId,
+    createStreamingSessionResponse_session,
+    createStreamingSessionResponse_httpStatus,
 
-    -- ** StartStudioSSOConfigurationRepair
-    startStudioSSOConfigurationRepair_clientToken,
-    startStudioSSOConfigurationRepair_studioId,
-    startStudioSSOConfigurationRepairResponse_studio,
-    startStudioSSOConfigurationRepairResponse_httpStatus,
+    -- ** CreateStreamingSessionStream
+    createStreamingSessionStream_clientToken,
+    createStreamingSessionStream_expirationInSeconds,
+    createStreamingSessionStream_studioId,
+    createStreamingSessionStream_sessionId,
+    createStreamingSessionStreamResponse_stream,
+    createStreamingSessionStreamResponse_httpStatus,
+
+    -- ** CreateStudio
+    createStudio_tags,
+    createStudio_clientToken,
+    createStudio_studioEncryptionConfiguration,
+    createStudio_displayName,
+    createStudio_studioName,
+    createStudio_userRoleArn,
+    createStudio_adminRoleArn,
+    createStudioResponse_studio,
+    createStudioResponse_httpStatus,
+
+    -- ** CreateStudioComponent
+    createStudioComponent_tags,
+    createStudioComponent_scriptParameters,
+    createStudioComponent_clientToken,
+    createStudioComponent_initializationScripts,
+    createStudioComponent_configuration,
+    createStudioComponent_description,
+    createStudioComponent_subtype,
+    createStudioComponent_ec2SecurityGroupIds,
+    createStudioComponent_studioId,
+    createStudioComponent_name,
+    createStudioComponent_type,
+    createStudioComponentResponse_studioComponent,
+    createStudioComponentResponse_httpStatus,
+
+    -- ** DeleteLaunchProfile
+    deleteLaunchProfile_clientToken,
+    deleteLaunchProfile_studioId,
+    deleteLaunchProfile_launchProfileId,
+    deleteLaunchProfileResponse_launchProfile,
+    deleteLaunchProfileResponse_httpStatus,
+
+    -- ** DeleteLaunchProfileMember
+    deleteLaunchProfileMember_clientToken,
+    deleteLaunchProfileMember_studioId,
+    deleteLaunchProfileMember_principalId,
+    deleteLaunchProfileMember_launchProfileId,
+    deleteLaunchProfileMemberResponse_httpStatus,
+
+    -- ** DeleteStreamingImage
+    deleteStreamingImage_clientToken,
+    deleteStreamingImage_studioId,
+    deleteStreamingImage_streamingImageId,
+    deleteStreamingImageResponse_streamingImage,
+    deleteStreamingImageResponse_httpStatus,
+
+    -- ** DeleteStreamingSession
+    deleteStreamingSession_clientToken,
+    deleteStreamingSession_studioId,
+    deleteStreamingSession_sessionId,
+    deleteStreamingSessionResponse_session,
+    deleteStreamingSessionResponse_httpStatus,
+
+    -- ** DeleteStudio
+    deleteStudio_clientToken,
+    deleteStudio_studioId,
+    deleteStudioResponse_studio,
+    deleteStudioResponse_httpStatus,
+
+    -- ** DeleteStudioComponent
+    deleteStudioComponent_clientToken,
+    deleteStudioComponent_studioId,
+    deleteStudioComponent_studioComponentId,
+    deleteStudioComponentResponse_studioComponent,
+    deleteStudioComponentResponse_httpStatus,
+
+    -- ** DeleteStudioMember
+    deleteStudioMember_clientToken,
+    deleteStudioMember_studioId,
+    deleteStudioMember_principalId,
+    deleteStudioMemberResponse_httpStatus,
+
+    -- ** GetEula
+    getEula_eulaId,
+    getEulaResponse_eula,
+    getEulaResponse_httpStatus,
+
+    -- ** GetLaunchProfile
+    getLaunchProfile_studioId,
+    getLaunchProfile_launchProfileId,
+    getLaunchProfileResponse_launchProfile,
+    getLaunchProfileResponse_httpStatus,
+
+    -- ** GetLaunchProfileDetails
+    getLaunchProfileDetails_studioId,
+    getLaunchProfileDetails_launchProfileId,
+    getLaunchProfileDetailsResponse_launchProfile,
+    getLaunchProfileDetailsResponse_studioComponentSummaries,
+    getLaunchProfileDetailsResponse_streamingImages,
+    getLaunchProfileDetailsResponse_httpStatus,
 
     -- ** GetLaunchProfileInitialization
     getLaunchProfileInitialization_studioId,
@@ -100,121 +164,18 @@ module Amazonka.Nimble.Lens
     getLaunchProfileInitializationResponse_launchProfileInitialization,
     getLaunchProfileInitializationResponse_httpStatus,
 
-    -- ** GetLaunchProfile
-    getLaunchProfile_studioId,
-    getLaunchProfile_launchProfileId,
-    getLaunchProfileResponse_launchProfile,
-    getLaunchProfileResponse_httpStatus,
+    -- ** GetLaunchProfileMember
+    getLaunchProfileMember_studioId,
+    getLaunchProfileMember_principalId,
+    getLaunchProfileMember_launchProfileId,
+    getLaunchProfileMemberResponse_member,
+    getLaunchProfileMemberResponse_httpStatus,
 
-    -- ** CreateStudioComponent
-    createStudioComponent_initializationScripts,
-    createStudioComponent_clientToken,
-    createStudioComponent_ec2SecurityGroupIds,
-    createStudioComponent_subtype,
-    createStudioComponent_scriptParameters,
-    createStudioComponent_configuration,
-    createStudioComponent_description,
-    createStudioComponent_tags,
-    createStudioComponent_studioId,
-    createStudioComponent_name,
-    createStudioComponent_type,
-    createStudioComponentResponse_studioComponent,
-    createStudioComponentResponse_httpStatus,
-
-    -- ** GetEula
-    getEula_eulaId,
-    getEulaResponse_eula,
-    getEulaResponse_httpStatus,
-
-    -- ** ListStudioComponents
-    listStudioComponents_states,
-    listStudioComponents_types,
-    listStudioComponents_nextToken,
-    listStudioComponents_maxResults,
-    listStudioComponents_studioId,
-    listStudioComponentsResponse_studioComponents,
-    listStudioComponentsResponse_nextToken,
-    listStudioComponentsResponse_httpStatus,
-
-    -- ** AcceptEulas
-    acceptEulas_clientToken,
-    acceptEulas_eulaIds,
-    acceptEulas_studioId,
-    acceptEulasResponse_eulaAcceptances,
-    acceptEulasResponse_httpStatus,
-
-    -- ** CreateStreamingSession
-    createStreamingSession_ownedBy,
-    createStreamingSession_clientToken,
-    createStreamingSession_ec2InstanceType,
-    createStreamingSession_launchProfileId,
-    createStreamingSession_streamingImageId,
-    createStreamingSession_tags,
-    createStreamingSession_studioId,
-    createStreamingSessionResponse_session,
-    createStreamingSessionResponse_httpStatus,
-
-    -- ** DeleteStudioComponent
-    deleteStudioComponent_clientToken,
-    deleteStudioComponent_studioId,
-    deleteStudioComponent_studioComponentId,
-    deleteStudioComponentResponse_studioComponent,
-    deleteStudioComponentResponse_httpStatus,
-
-    -- ** UpdateStudioComponent
-    updateStudioComponent_initializationScripts,
-    updateStudioComponent_clientToken,
-    updateStudioComponent_ec2SecurityGroupIds,
-    updateStudioComponent_subtype,
-    updateStudioComponent_name,
-    updateStudioComponent_scriptParameters,
-    updateStudioComponent_type,
-    updateStudioComponent_configuration,
-    updateStudioComponent_description,
-    updateStudioComponent_studioId,
-    updateStudioComponent_studioComponentId,
-    updateStudioComponentResponse_studioComponent,
-    updateStudioComponentResponse_httpStatus,
-
-    -- ** GetStudioMember
-    getStudioMember_studioId,
-    getStudioMember_principalId,
-    getStudioMemberResponse_member,
-    getStudioMemberResponse_httpStatus,
-
-    -- ** DeleteStudio
-    deleteStudio_clientToken,
-    deleteStudio_studioId,
-    deleteStudioResponse_studio,
-    deleteStudioResponse_httpStatus,
-
-    -- ** UpdateStudio
-    updateStudio_clientToken,
-    updateStudio_userRoleArn,
-    updateStudio_displayName,
-    updateStudio_adminRoleArn,
-    updateStudio_studioId,
-    updateStudioResponse_studio,
-    updateStudioResponse_httpStatus,
-
-    -- ** ListStudios
-    listStudios_nextToken,
-    listStudiosResponse_studios,
-    listStudiosResponse_nextToken,
-    listStudiosResponse_httpStatus,
-
-    -- ** GetStudioComponent
-    getStudioComponent_studioId,
-    getStudioComponent_studioComponentId,
-    getStudioComponentResponse_studioComponent,
-    getStudioComponentResponse_httpStatus,
-
-    -- ** ListEulas
-    listEulas_nextToken,
-    listEulas_eulaIds,
-    listEulasResponse_eulas,
-    listEulasResponse_nextToken,
-    listEulasResponse_httpStatus,
+    -- ** GetStreamingImage
+    getStreamingImage_studioId,
+    getStreamingImage_streamingImageId,
+    getStreamingImageResponse_streamingImage,
+    getStreamingImageResponse_httpStatus,
 
     -- ** GetStreamingSession
     getStreamingSession_studioId,
@@ -222,88 +183,29 @@ module Amazonka.Nimble.Lens
     getStreamingSessionResponse_session,
     getStreamingSessionResponse_httpStatus,
 
-    -- ** ListLaunchProfileMembers
-    listLaunchProfileMembers_nextToken,
-    listLaunchProfileMembers_maxResults,
-    listLaunchProfileMembers_studioId,
-    listLaunchProfileMembers_launchProfileId,
-    listLaunchProfileMembersResponse_members,
-    listLaunchProfileMembersResponse_nextToken,
-    listLaunchProfileMembersResponse_httpStatus,
+    -- ** GetStreamingSessionStream
+    getStreamingSessionStream_studioId,
+    getStreamingSessionStream_streamId,
+    getStreamingSessionStream_sessionId,
+    getStreamingSessionStreamResponse_stream,
+    getStreamingSessionStreamResponse_httpStatus,
 
-    -- ** DeleteLaunchProfile
-    deleteLaunchProfile_clientToken,
-    deleteLaunchProfile_studioId,
-    deleteLaunchProfile_launchProfileId,
-    deleteLaunchProfileResponse_launchProfile,
-    deleteLaunchProfileResponse_httpStatus,
+    -- ** GetStudio
+    getStudio_studioId,
+    getStudioResponse_studio,
+    getStudioResponse_httpStatus,
 
-    -- ** UpdateLaunchProfile
-    updateLaunchProfile_clientToken,
-    updateLaunchProfile_launchProfileProtocolVersions,
-    updateLaunchProfile_streamConfiguration,
-    updateLaunchProfile_name,
-    updateLaunchProfile_description,
-    updateLaunchProfile_studioComponentIds,
-    updateLaunchProfile_studioId,
-    updateLaunchProfile_launchProfileId,
-    updateLaunchProfileResponse_launchProfile,
-    updateLaunchProfileResponse_httpStatus,
+    -- ** GetStudioComponent
+    getStudioComponent_studioId,
+    getStudioComponent_studioComponentId,
+    getStudioComponentResponse_studioComponent,
+    getStudioComponentResponse_httpStatus,
 
-    -- ** CreateStreamingImage
-    createStreamingImage_clientToken,
-    createStreamingImage_description,
-    createStreamingImage_tags,
-    createStreamingImage_studioId,
-    createStreamingImage_name,
-    createStreamingImage_ec2ImageId,
-    createStreamingImageResponse_streamingImage,
-    createStreamingImageResponse_httpStatus,
-
-    -- ** CreateStreamingSessionStream
-    createStreamingSessionStream_expirationInSeconds,
-    createStreamingSessionStream_clientToken,
-    createStreamingSessionStream_studioId,
-    createStreamingSessionStream_sessionId,
-    createStreamingSessionStreamResponse_stream,
-    createStreamingSessionStreamResponse_httpStatus,
-
-    -- ** GetLaunchProfileDetails
-    getLaunchProfileDetails_studioId,
-    getLaunchProfileDetails_launchProfileId,
-    getLaunchProfileDetailsResponse_streamingImages,
-    getLaunchProfileDetailsResponse_launchProfile,
-    getLaunchProfileDetailsResponse_studioComponentSummaries,
-    getLaunchProfileDetailsResponse_httpStatus,
-
-    -- ** PutStudioMembers
-    putStudioMembers_clientToken,
-    putStudioMembers_studioId,
-    putStudioMembers_members,
-    putStudioMembers_identityStoreId,
-    putStudioMembersResponse_httpStatus,
-
-    -- ** DeleteStreamingImage
-    deleteStreamingImage_clientToken,
-    deleteStreamingImage_studioId,
-    deleteStreamingImage_streamingImageId,
-    deleteStreamingImageResponse_streamingImage,
-    deleteStreamingImageResponse_httpStatus,
-
-    -- ** UpdateStreamingImage
-    updateStreamingImage_clientToken,
-    updateStreamingImage_name,
-    updateStreamingImage_description,
-    updateStreamingImage_studioId,
-    updateStreamingImage_streamingImageId,
-    updateStreamingImageResponse_streamingImage,
-    updateStreamingImageResponse_httpStatus,
-
-    -- ** GetStreamingImage
-    getStreamingImage_studioId,
-    getStreamingImage_streamingImageId,
-    getStreamingImageResponse_streamingImage,
-    getStreamingImageResponse_httpStatus,
+    -- ** GetStudioMember
+    getStudioMember_studioId,
+    getStudioMember_principalId,
+    getStudioMemberResponse_member,
+    getStudioMemberResponse_httpStatus,
 
     -- ** ListEulaAcceptances
     listEulaAcceptances_nextToken,
@@ -313,71 +215,169 @@ module Amazonka.Nimble.Lens
     listEulaAcceptancesResponse_eulaAcceptances,
     listEulaAcceptancesResponse_httpStatus,
 
-    -- ** GetStreamingSessionStream
-    getStreamingSessionStream_studioId,
-    getStreamingSessionStream_streamId,
-    getStreamingSessionStream_sessionId,
-    getStreamingSessionStreamResponse_stream,
-    getStreamingSessionStreamResponse_httpStatus,
+    -- ** ListEulas
+    listEulas_nextToken,
+    listEulas_eulaIds,
+    listEulasResponse_eulas,
+    listEulasResponse_nextToken,
+    listEulasResponse_httpStatus,
+
+    -- ** ListLaunchProfileMembers
+    listLaunchProfileMembers_nextToken,
+    listLaunchProfileMembers_maxResults,
+    listLaunchProfileMembers_studioId,
+    listLaunchProfileMembers_launchProfileId,
+    listLaunchProfileMembersResponse_nextToken,
+    listLaunchProfileMembersResponse_members,
+    listLaunchProfileMembersResponse_httpStatus,
+
+    -- ** ListLaunchProfiles
+    listLaunchProfiles_principalId,
+    listLaunchProfiles_nextToken,
+    listLaunchProfiles_maxResults,
+    listLaunchProfiles_states,
+    listLaunchProfiles_studioId,
+    listLaunchProfilesResponse_nextToken,
+    listLaunchProfilesResponse_launchProfiles,
+    listLaunchProfilesResponse_httpStatus,
+
+    -- ** ListStreamingImages
+    listStreamingImages_nextToken,
+    listStreamingImages_owner,
+    listStreamingImages_studioId,
+    listStreamingImagesResponse_nextToken,
+    listStreamingImagesResponse_streamingImages,
+    listStreamingImagesResponse_httpStatus,
+
+    -- ** ListStreamingSessions
+    listStreamingSessions_nextToken,
+    listStreamingSessions_sessionIds,
+    listStreamingSessions_createdBy,
+    listStreamingSessions_ownedBy,
+    listStreamingSessions_studioId,
+    listStreamingSessionsResponse_nextToken,
+    listStreamingSessionsResponse_sessions,
+    listStreamingSessionsResponse_httpStatus,
+
+    -- ** ListStudioComponents
+    listStudioComponents_nextToken,
+    listStudioComponents_types,
+    listStudioComponents_maxResults,
+    listStudioComponents_states,
+    listStudioComponents_studioId,
+    listStudioComponentsResponse_nextToken,
+    listStudioComponentsResponse_studioComponents,
+    listStudioComponentsResponse_httpStatus,
+
+    -- ** ListStudioMembers
+    listStudioMembers_nextToken,
+    listStudioMembers_maxResults,
+    listStudioMembers_studioId,
+    listStudioMembersResponse_nextToken,
+    listStudioMembersResponse_members,
+    listStudioMembersResponse_httpStatus,
+
+    -- ** ListStudios
+    listStudios_nextToken,
+    listStudiosResponse_nextToken,
+    listStudiosResponse_studios,
+    listStudiosResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** PutLaunchProfileMembers
+    putLaunchProfileMembers_clientToken,
+    putLaunchProfileMembers_studioId,
+    putLaunchProfileMembers_members,
+    putLaunchProfileMembers_launchProfileId,
+    putLaunchProfileMembers_identityStoreId,
+    putLaunchProfileMembersResponse_httpStatus,
+
+    -- ** PutStudioMembers
+    putStudioMembers_clientToken,
+    putStudioMembers_studioId,
+    putStudioMembers_members,
+    putStudioMembers_identityStoreId,
+    putStudioMembersResponse_httpStatus,
+
+    -- ** StartStudioSSOConfigurationRepair
+    startStudioSSOConfigurationRepair_clientToken,
+    startStudioSSOConfigurationRepair_studioId,
+    startStudioSSOConfigurationRepairResponse_studio,
+    startStudioSSOConfigurationRepairResponse_httpStatus,
 
     -- ** TagResource
     tagResource_tags,
     tagResource_resourceArn,
     tagResourceResponse_httpStatus,
 
-    -- ** GetLaunchProfileMember
-    getLaunchProfileMember_studioId,
-    getLaunchProfileMember_principalId,
-    getLaunchProfileMember_launchProfileId,
-    getLaunchProfileMemberResponse_member,
-    getLaunchProfileMemberResponse_httpStatus,
-
-    -- ** DeleteStreamingSession
-    deleteStreamingSession_clientToken,
-    deleteStreamingSession_studioId,
-    deleteStreamingSession_sessionId,
-    deleteStreamingSessionResponse_session,
-    deleteStreamingSessionResponse_httpStatus,
-
     -- ** UntagResource
     untagResource_tagKeys,
     untagResource_resourceArn,
     untagResourceResponse_httpStatus,
 
-    -- ** ListStreamingSessions
-    listStreamingSessions_ownedBy,
-    listStreamingSessions_createdBy,
-    listStreamingSessions_nextToken,
-    listStreamingSessions_sessionIds,
-    listStreamingSessions_studioId,
-    listStreamingSessionsResponse_nextToken,
-    listStreamingSessionsResponse_sessions,
-    listStreamingSessionsResponse_httpStatus,
+    -- ** UpdateLaunchProfile
+    updateLaunchProfile_studioComponentIds,
+    updateLaunchProfile_name,
+    updateLaunchProfile_clientToken,
+    updateLaunchProfile_description,
+    updateLaunchProfile_streamConfiguration,
+    updateLaunchProfile_launchProfileProtocolVersions,
+    updateLaunchProfile_studioId,
+    updateLaunchProfile_launchProfileId,
+    updateLaunchProfileResponse_launchProfile,
+    updateLaunchProfileResponse_httpStatus,
 
-    -- ** GetStudio
-    getStudio_studioId,
-    getStudioResponse_studio,
-    getStudioResponse_httpStatus,
+    -- ** UpdateLaunchProfileMember
+    updateLaunchProfileMember_clientToken,
+    updateLaunchProfileMember_studioId,
+    updateLaunchProfileMember_persona,
+    updateLaunchProfileMember_principalId,
+    updateLaunchProfileMember_launchProfileId,
+    updateLaunchProfileMemberResponse_member,
+    updateLaunchProfileMemberResponse_httpStatus,
 
-    -- ** ListStudioMembers
-    listStudioMembers_nextToken,
-    listStudioMembers_maxResults,
-    listStudioMembers_studioId,
-    listStudioMembersResponse_members,
-    listStudioMembersResponse_nextToken,
-    listStudioMembersResponse_httpStatus,
+    -- ** UpdateStreamingImage
+    updateStreamingImage_name,
+    updateStreamingImage_clientToken,
+    updateStreamingImage_description,
+    updateStreamingImage_studioId,
+    updateStreamingImage_streamingImageId,
+    updateStreamingImageResponse_streamingImage,
+    updateStreamingImageResponse_httpStatus,
 
-    -- ** DeleteStudioMember
-    deleteStudioMember_clientToken,
-    deleteStudioMember_studioId,
-    deleteStudioMember_principalId,
-    deleteStudioMemberResponse_httpStatus,
+    -- ** UpdateStudio
+    updateStudio_clientToken,
+    updateStudio_adminRoleArn,
+    updateStudio_displayName,
+    updateStudio_userRoleArn,
+    updateStudio_studioId,
+    updateStudioResponse_studio,
+    updateStudioResponse_httpStatus,
+
+    -- ** UpdateStudioComponent
+    updateStudioComponent_scriptParameters,
+    updateStudioComponent_name,
+    updateStudioComponent_clientToken,
+    updateStudioComponent_type,
+    updateStudioComponent_initializationScripts,
+    updateStudioComponent_configuration,
+    updateStudioComponent_description,
+    updateStudioComponent_subtype,
+    updateStudioComponent_ec2SecurityGroupIds,
+    updateStudioComponent_studioId,
+    updateStudioComponent_studioComponentId,
+    updateStudioComponentResponse_studioComponent,
+    updateStudioComponentResponse_httpStatus,
 
     -- * Types
 
     -- ** ActiveDirectoryComputerAttribute
-    activeDirectoryComputerAttribute_value,
     activeDirectoryComputerAttribute_name,
+    activeDirectoryComputerAttribute_value,
 
     -- ** ActiveDirectoryConfiguration
     activeDirectoryConfiguration_directoryId,
@@ -389,66 +389,66 @@ module Amazonka.Nimble.Lens
     computeFarmConfiguration_endpoint,
 
     -- ** Eula
-    eula_createdAt,
+    eula_name,
     eula_eulaId,
     eula_content,
-    eula_name,
+    eula_createdAt,
     eula_updatedAt,
 
     -- ** EulaAcceptance
+    eulaAcceptance_eulaAcceptanceId,
     eulaAcceptance_accepteeId,
     eulaAcceptance_eulaId,
     eulaAcceptance_acceptedAt,
     eulaAcceptance_acceptedBy,
-    eulaAcceptance_eulaAcceptanceId,
 
     -- ** LaunchProfile
-    launchProfile_state,
-    launchProfile_arn,
-    launchProfile_createdAt,
-    launchProfile_createdBy,
-    launchProfile_launchProfileId,
-    launchProfile_updatedBy,
-    launchProfile_launchProfileProtocolVersions,
     launchProfile_ec2SubnetIds,
-    launchProfile_streamConfiguration,
-    launchProfile_name,
-    launchProfile_statusMessage,
-    launchProfile_updatedAt,
-    launchProfile_description,
     launchProfile_tags,
-    launchProfile_statusCode,
+    launchProfile_launchProfileId,
     launchProfile_studioComponentIds,
+    launchProfile_name,
+    launchProfile_updatedBy,
+    launchProfile_arn,
+    launchProfile_state,
+    launchProfile_description,
+    launchProfile_streamConfiguration,
+    launchProfile_launchProfileProtocolVersions,
+    launchProfile_statusCode,
+    launchProfile_createdBy,
+    launchProfile_statusMessage,
+    launchProfile_createdAt,
+    launchProfile_updatedAt,
 
     -- ** LaunchProfileInitialization
+    launchProfileInitialization_launchProfileId,
+    launchProfileInitialization_name,
     launchProfileInitialization_platform,
+    launchProfileInitialization_userInitializationScripts,
     launchProfileInitialization_activeDirectory,
     launchProfileInitialization_launchPurpose,
-    launchProfileInitialization_launchProfileId,
-    launchProfileInitialization_ec2SecurityGroupIds,
-    launchProfileInitialization_name,
     launchProfileInitialization_launchProfileProtocolVersion,
-    launchProfileInitialization_userInitializationScripts,
+    launchProfileInitialization_ec2SecurityGroupIds,
     launchProfileInitialization_systemInitializationScripts,
 
     -- ** LaunchProfileInitializationActiveDirectory
     launchProfileInitializationActiveDirectory_directoryId,
-    launchProfileInitializationActiveDirectory_studioComponentId,
-    launchProfileInitializationActiveDirectory_studioComponentName,
-    launchProfileInitializationActiveDirectory_dnsIpAddresses,
-    launchProfileInitializationActiveDirectory_computerAttributes,
-    launchProfileInitializationActiveDirectory_organizationalUnitDistinguishedName,
     launchProfileInitializationActiveDirectory_directoryName,
+    launchProfileInitializationActiveDirectory_computerAttributes,
+    launchProfileInitializationActiveDirectory_studioComponentId,
+    launchProfileInitializationActiveDirectory_organizationalUnitDistinguishedName,
+    launchProfileInitializationActiveDirectory_dnsIpAddresses,
+    launchProfileInitializationActiveDirectory_studioComponentName,
 
     -- ** LaunchProfileInitializationScript
-    launchProfileInitializationScript_script,
     launchProfileInitializationScript_studioComponentId,
     launchProfileInitializationScript_studioComponentName,
+    launchProfileInitializationScript_script,
 
     -- ** LaunchProfileMembership
-    launchProfileMembership_identityStoreId,
     launchProfileMembership_principalId,
     launchProfileMembership_persona,
+    launchProfileMembership_identityStoreId,
 
     -- ** LicenseServiceConfiguration
     licenseServiceConfiguration_endpoint,
@@ -462,21 +462,21 @@ module Amazonka.Nimble.Lens
     newStudioMember_principalId,
 
     -- ** ScriptParameterKeyValue
-    scriptParameterKeyValue_value,
     scriptParameterKeyValue_key,
+    scriptParameterKeyValue_value,
 
     -- ** SharedFileSystemConfiguration
-    sharedFileSystemConfiguration_fileSystemId,
     sharedFileSystemConfiguration_windowsMountDrive,
     sharedFileSystemConfiguration_linuxMountPoint,
+    sharedFileSystemConfiguration_fileSystemId,
     sharedFileSystemConfiguration_shareName,
     sharedFileSystemConfiguration_endpoint,
 
     -- ** StreamConfiguration
-    streamConfiguration_streamingImageIds,
     streamConfiguration_maxSessionLengthInMinutes,
-    streamConfiguration_clipboardMode,
+    streamConfiguration_streamingImageIds,
     streamConfiguration_ec2InstanceTypes,
+    streamConfiguration_clipboardMode,
 
     -- ** StreamConfigurationCreate
     streamConfigurationCreate_maxSessionLengthInMinutes,
@@ -485,120 +485,120 @@ module Amazonka.Nimble.Lens
     streamConfigurationCreate_ec2InstanceTypes,
 
     -- ** StreamingImage
-    streamingImage_state,
-    streamingImage_platform,
-    streamingImage_arn,
-    streamingImage_streamingImageId,
-    streamingImage_ec2ImageId,
-    streamingImage_owner,
-    streamingImage_name,
-    streamingImage_encryptionConfiguration,
-    streamingImage_statusMessage,
-    streamingImage_eulaIds,
-    streamingImage_description,
     streamingImage_tags,
+    streamingImage_streamingImageId,
+    streamingImage_name,
+    streamingImage_ec2ImageId,
+    streamingImage_arn,
+    streamingImage_state,
+    streamingImage_owner,
+    streamingImage_description,
+    streamingImage_platform,
+    streamingImage_eulaIds,
+    streamingImage_encryptionConfiguration,
     streamingImage_statusCode,
+    streamingImage_statusMessage,
 
     -- ** StreamingImageEncryptionConfiguration
     streamingImageEncryptionConfiguration_keyArn,
     streamingImageEncryptionConfiguration_keyType,
 
     -- ** StreamingSession
-    streamingSession_ownedBy,
-    streamingSession_state,
-    streamingSession_arn,
-    streamingSession_createdAt,
-    streamingSession_ec2InstanceType,
-    streamingSession_createdBy,
+    streamingSession_tags,
     streamingSession_launchProfileId,
     streamingSession_streamingImageId,
     streamingSession_updatedBy,
+    streamingSession_ec2InstanceType,
     streamingSession_terminateAt,
-    streamingSession_statusMessage,
-    streamingSession_updatedAt,
+    streamingSession_arn,
+    streamingSession_state,
     streamingSession_sessionId,
-    streamingSession_tags,
     streamingSession_statusCode,
+    streamingSession_createdBy,
+    streamingSession_statusMessage,
+    streamingSession_ownedBy,
+    streamingSession_createdAt,
+    streamingSession_updatedAt,
 
     -- ** StreamingSessionStream
-    streamingSessionStream_ownedBy,
     streamingSessionStream_state,
-    streamingSessionStream_createdAt,
-    streamingSessionStream_expiresAt,
-    streamingSessionStream_url,
-    streamingSessionStream_createdBy,
     streamingSessionStream_streamId,
+    streamingSessionStream_url,
+    streamingSessionStream_expiresAt,
     streamingSessionStream_statusCode,
+    streamingSessionStream_createdBy,
+    streamingSessionStream_ownedBy,
+    streamingSessionStream_createdAt,
 
     -- ** Studio
-    studio_studioEncryptionConfiguration,
-    studio_state,
-    studio_studioName,
-    studio_arn,
-    studio_createdAt,
     studio_studioId,
-    studio_userRoleArn,
-    studio_ssoClientId,
-    studio_homeRegion,
-    studio_statusMessage,
-    studio_displayName,
-    studio_updatedAt,
-    studio_studioUrl,
-    studio_adminRoleArn,
     studio_tags,
+    studio_studioName,
+    studio_ssoClientId,
+    studio_adminRoleArn,
+    studio_arn,
+    studio_displayName,
+    studio_state,
+    studio_studioEncryptionConfiguration,
+    studio_studioUrl,
+    studio_userRoleArn,
+    studio_homeRegion,
     studio_statusCode,
+    studio_statusMessage,
+    studio_createdAt,
+    studio_updatedAt,
 
     -- ** StudioComponent
-    studioComponent_initializationScripts,
-    studioComponent_state,
-    studioComponent_studioComponentId,
-    studioComponent_arn,
-    studioComponent_createdAt,
-    studioComponent_createdBy,
-    studioComponent_ec2SecurityGroupIds,
-    studioComponent_updatedBy,
-    studioComponent_subtype,
-    studioComponent_name,
-    studioComponent_statusMessage,
-    studioComponent_scriptParameters,
-    studioComponent_updatedAt,
-    studioComponent_type,
-    studioComponent_configuration,
-    studioComponent_description,
     studioComponent_tags,
+    studioComponent_scriptParameters,
+    studioComponent_name,
+    studioComponent_type,
+    studioComponent_updatedBy,
+    studioComponent_initializationScripts,
+    studioComponent_configuration,
+    studioComponent_arn,
+    studioComponent_state,
+    studioComponent_description,
+    studioComponent_studioComponentId,
+    studioComponent_subtype,
     studioComponent_statusCode,
+    studioComponent_createdBy,
+    studioComponent_statusMessage,
+    studioComponent_ec2SecurityGroupIds,
+    studioComponent_createdAt,
+    studioComponent_updatedAt,
 
     -- ** StudioComponentConfiguration
     studioComponentConfiguration_activeDirectoryConfiguration,
     studioComponentConfiguration_licenseServiceConfiguration,
-    studioComponentConfiguration_sharedFileSystemConfiguration,
     studioComponentConfiguration_computeFarmConfiguration,
+    studioComponentConfiguration_sharedFileSystemConfiguration,
 
     -- ** StudioComponentInitializationScript
-    studioComponentInitializationScript_script,
     studioComponentInitializationScript_platform,
-    studioComponentInitializationScript_runContext,
     studioComponentInitializationScript_launchProfileProtocolVersion,
+    studioComponentInitializationScript_runContext,
+    studioComponentInitializationScript_script,
 
     -- ** StudioComponentSummary
-    studioComponentSummary_studioComponentId,
-    studioComponentSummary_createdAt,
-    studioComponentSummary_createdBy,
-    studioComponentSummary_updatedBy,
-    studioComponentSummary_subtype,
     studioComponentSummary_name,
-    studioComponentSummary_updatedAt,
     studioComponentSummary_type,
+    studioComponentSummary_updatedBy,
     studioComponentSummary_description,
+    studioComponentSummary_studioComponentId,
+    studioComponentSummary_subtype,
+    studioComponentSummary_createdBy,
+    studioComponentSummary_createdAt,
+    studioComponentSummary_updatedAt,
 
     -- ** StudioEncryptionConfiguration
     studioEncryptionConfiguration_keyArn,
     studioEncryptionConfiguration_keyType,
 
     -- ** StudioMembership
-    studioMembership_identityStoreId,
     studioMembership_principalId,
     studioMembership_persona,
+    studioMembership_identityStoreId,
   )
 where
 

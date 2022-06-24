@@ -56,9 +56,9 @@ module Amazonka.Nimble.CreateStudio
     newCreateStudio,
 
     -- * Request Lenses
-    createStudio_studioEncryptionConfiguration,
-    createStudio_clientToken,
     createStudio_tags,
+    createStudio_clientToken,
+    createStudio_studioEncryptionConfiguration,
     createStudio_displayName,
     createStudio_studioName,
     createStudio_userRoleArn,
@@ -85,8 +85,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateStudio' smart constructor.
 data CreateStudio = CreateStudio'
-  { -- | The studio encryption configuration.
-    studioEncryptionConfiguration :: Prelude.Maybe StudioEncryptionConfiguration,
+  { -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | To make an idempotent API request using one of these actions, specify a
     -- client token in the request. You should not reuse the same client token
     -- for other API requests. If you retry a request that completed
@@ -96,9 +97,8 @@ data CreateStudio = CreateStudio'
     -- parameters are different, the retry fails with a ValidationException
     -- error.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A collection of labels, in the form of key:value pairs, that apply to
-    -- this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The studio encryption configuration.
+    studioEncryptionConfiguration :: Prelude.Maybe StudioEncryptionConfiguration,
     -- | A friendly name for the studio.
     displayName :: Prelude.Text,
     -- | The studio name that is used in the URL of the Nimble Studio portal when
@@ -121,7 +121,8 @@ data CreateStudio = CreateStudio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studioEncryptionConfiguration', 'createStudio_studioEncryptionConfiguration' - The studio encryption configuration.
+-- 'tags', 'createStudio_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
 --
 -- 'clientToken', 'createStudio_clientToken' - To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
@@ -132,8 +133,7 @@ data CreateStudio = CreateStudio'
 -- parameters are different, the retry fails with a ValidationException
 -- error.
 --
--- 'tags', 'createStudio_tags' - A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
+-- 'studioEncryptionConfiguration', 'createStudio_studioEncryptionConfiguration' - The studio encryption configuration.
 --
 -- 'displayName', 'createStudio_displayName' - A friendly name for the studio.
 --
@@ -161,19 +161,19 @@ newCreateStudio
   pUserRoleArn_
   pAdminRoleArn_ =
     CreateStudio'
-      { studioEncryptionConfiguration =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
         clientToken = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        studioEncryptionConfiguration = Prelude.Nothing,
         displayName = pDisplayName_,
         studioName = pStudioName_,
         userRoleArn = pUserRoleArn_,
         adminRoleArn = pAdminRoleArn_
       }
 
--- | The studio encryption configuration.
-createStudio_studioEncryptionConfiguration :: Lens.Lens' CreateStudio (Prelude.Maybe StudioEncryptionConfiguration)
-createStudio_studioEncryptionConfiguration = Lens.lens (\CreateStudio' {studioEncryptionConfiguration} -> studioEncryptionConfiguration) (\s@CreateStudio' {} a -> s {studioEncryptionConfiguration = a} :: CreateStudio)
+-- | A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
+createStudio_tags :: Lens.Lens' CreateStudio (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createStudio_tags = Lens.lens (\CreateStudio' {tags} -> tags) (\s@CreateStudio' {} a -> s {tags = a} :: CreateStudio) Prelude.. Lens.mapping Lens.coerced
 
 -- | To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
@@ -186,10 +186,9 @@ createStudio_studioEncryptionConfiguration = Lens.lens (\CreateStudio' {studioEn
 createStudio_clientToken :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
 createStudio_clientToken = Lens.lens (\CreateStudio' {clientToken} -> clientToken) (\s@CreateStudio' {} a -> s {clientToken = a} :: CreateStudio)
 
--- | A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
-createStudio_tags :: Lens.Lens' CreateStudio (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createStudio_tags = Lens.lens (\CreateStudio' {tags} -> tags) (\s@CreateStudio' {} a -> s {tags = a} :: CreateStudio) Prelude.. Lens.mapping Lens.coerced
+-- | The studio encryption configuration.
+createStudio_studioEncryptionConfiguration :: Lens.Lens' CreateStudio (Prelude.Maybe StudioEncryptionConfiguration)
+createStudio_studioEncryptionConfiguration = Lens.lens (\CreateStudio' {studioEncryptionConfiguration} -> studioEncryptionConfiguration) (\s@CreateStudio' {} a -> s {studioEncryptionConfiguration = a} :: CreateStudio)
 
 -- | A friendly name for the studio.
 createStudio_displayName :: Lens.Lens' CreateStudio Prelude.Text
@@ -223,10 +222,9 @@ instance Core.AWSRequest CreateStudio where
 
 instance Prelude.Hashable CreateStudio where
   hashWithSalt _salt CreateStudio' {..} =
-    _salt
-      `Prelude.hashWithSalt` studioEncryptionConfiguration
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` studioEncryptionConfiguration
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` studioName
       `Prelude.hashWithSalt` userRoleArn
@@ -234,9 +232,9 @@ instance Prelude.Hashable CreateStudio where
 
 instance Prelude.NFData CreateStudio where
   rnf CreateStudio' {..} =
-    Prelude.rnf studioEncryptionConfiguration
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf studioEncryptionConfiguration
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf studioName
       `Prelude.seq` Prelude.rnf userRoleArn
@@ -254,9 +252,9 @@ instance Core.ToJSON CreateStudio where
   toJSON CreateStudio' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("studioEncryptionConfiguration" Core..=)
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("studioEncryptionConfiguration" Core..=)
               Prelude.<$> studioEncryptionConfiguration,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("displayName" Core..= displayName),
             Prelude.Just ("studioName" Core..= studioName),
             Prelude.Just ("userRoleArn" Core..= userRoleArn),

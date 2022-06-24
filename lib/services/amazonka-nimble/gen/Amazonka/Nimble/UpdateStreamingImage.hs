@@ -27,8 +27,8 @@ module Amazonka.Nimble.UpdateStreamingImage
     newUpdateStreamingImage,
 
     -- * Request Lenses
-    updateStreamingImage_clientToken,
     updateStreamingImage_name,
+    updateStreamingImage_clientToken,
     updateStreamingImage_description,
     updateStreamingImage_studioId,
     updateStreamingImage_streamingImageId,
@@ -54,7 +54,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateStreamingImage' smart constructor.
 data UpdateStreamingImage = UpdateStreamingImage'
-  { -- | To make an idempotent API request using one of these actions, specify a
+  { -- | The name for the streaming image.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | To make an idempotent API request using one of these actions, specify a
     -- client token in the request. You should not reuse the same client token
     -- for other API requests. If you retry a request that completed
     -- successfully using the same client token and the same parameters, the
@@ -63,8 +65,6 @@ data UpdateStreamingImage = UpdateStreamingImage'
     -- parameters are different, the retry fails with a ValidationException
     -- error.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The name for the streaming image.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
@@ -82,6 +82,8 @@ data UpdateStreamingImage = UpdateStreamingImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'updateStreamingImage_name' - The name for the streaming image.
+--
 -- 'clientToken', 'updateStreamingImage_clientToken' - To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
 -- for other API requests. If you retry a request that completed
@@ -90,8 +92,6 @@ data UpdateStreamingImage = UpdateStreamingImage'
 -- successful request using the same client token, but one or more of the
 -- parameters are different, the retry fails with a ValidationException
 -- error.
---
--- 'name', 'updateStreamingImage_name' - The name for the streaming image.
 --
 -- 'description', 'updateStreamingImage_description' - The description.
 --
@@ -106,13 +106,16 @@ newUpdateStreamingImage ::
   UpdateStreamingImage
 newUpdateStreamingImage pStudioId_ pStreamingImageId_ =
   UpdateStreamingImage'
-    { clientToken =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
       studioId = pStudioId_,
       streamingImageId = pStreamingImageId_
     }
+
+-- | The name for the streaming image.
+updateStreamingImage_name :: Lens.Lens' UpdateStreamingImage (Prelude.Maybe Prelude.Text)
+updateStreamingImage_name = Lens.lens (\UpdateStreamingImage' {name} -> name) (\s@UpdateStreamingImage' {} a -> s {name = a} :: UpdateStreamingImage)
 
 -- | To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
@@ -124,10 +127,6 @@ newUpdateStreamingImage pStudioId_ pStreamingImageId_ =
 -- error.
 updateStreamingImage_clientToken :: Lens.Lens' UpdateStreamingImage (Prelude.Maybe Prelude.Text)
 updateStreamingImage_clientToken = Lens.lens (\UpdateStreamingImage' {clientToken} -> clientToken) (\s@UpdateStreamingImage' {} a -> s {clientToken = a} :: UpdateStreamingImage)
-
--- | The name for the streaming image.
-updateStreamingImage_name :: Lens.Lens' UpdateStreamingImage (Prelude.Maybe Prelude.Text)
-updateStreamingImage_name = Lens.lens (\UpdateStreamingImage' {name} -> name) (\s@UpdateStreamingImage' {} a -> s {name = a} :: UpdateStreamingImage)
 
 -- | The description.
 updateStreamingImage_description :: Lens.Lens' UpdateStreamingImage (Prelude.Maybe Prelude.Text)
@@ -156,16 +155,16 @@ instance Core.AWSRequest UpdateStreamingImage where
 
 instance Prelude.Hashable UpdateStreamingImage where
   hashWithSalt _salt UpdateStreamingImage' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` streamingImageId
 
 instance Prelude.NFData UpdateStreamingImage where
   rnf UpdateStreamingImage' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf streamingImageId

@@ -39,8 +39,8 @@ module Amazonka.Nimble.ListLaunchProfileMembers
     newListLaunchProfileMembersResponse,
 
     -- * Response Lenses
-    listLaunchProfileMembersResponse_members,
     listLaunchProfileMembersResponse_nextToken,
+    listLaunchProfileMembersResponse_members,
     listLaunchProfileMembersResponse_httpStatus,
   )
 where
@@ -147,8 +147,8 @@ instance Core.AWSRequest ListLaunchProfileMembers where
     Response.receiveJSON
       ( \s h x ->
           ListLaunchProfileMembersResponse'
-            Prelude.<$> (x Core..?> "members" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "members" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,11 +196,11 @@ instance Core.ToQuery ListLaunchProfileMembers where
 
 -- | /See:/ 'newListLaunchProfileMembersResponse' smart constructor.
 data ListLaunchProfileMembersResponse = ListLaunchProfileMembersResponse'
-  { -- | A list of members.
-    members :: Prelude.Maybe [LaunchProfileMembership],
-    -- | The token for the next set of results, or null if there are no more
+  { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of members.
+    members :: Prelude.Maybe [LaunchProfileMembership],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,10 +214,10 @@ data ListLaunchProfileMembersResponse = ListLaunchProfileMembersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'members', 'listLaunchProfileMembersResponse_members' - A list of members.
---
 -- 'nextToken', 'listLaunchProfileMembersResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
+--
+-- 'members', 'listLaunchProfileMembersResponse_members' - A list of members.
 --
 -- 'httpStatus', 'listLaunchProfileMembersResponse_httpStatus' - The response's http status code.
 newListLaunchProfileMembersResponse ::
@@ -226,20 +226,20 @@ newListLaunchProfileMembersResponse ::
   ListLaunchProfileMembersResponse
 newListLaunchProfileMembersResponse pHttpStatus_ =
   ListLaunchProfileMembersResponse'
-    { members =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      members = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of members.
-listLaunchProfileMembersResponse_members :: Lens.Lens' ListLaunchProfileMembersResponse (Prelude.Maybe [LaunchProfileMembership])
-listLaunchProfileMembersResponse_members = Lens.lens (\ListLaunchProfileMembersResponse' {members} -> members) (\s@ListLaunchProfileMembersResponse' {} a -> s {members = a} :: ListLaunchProfileMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listLaunchProfileMembersResponse_nextToken :: Lens.Lens' ListLaunchProfileMembersResponse (Prelude.Maybe Prelude.Text)
 listLaunchProfileMembersResponse_nextToken = Lens.lens (\ListLaunchProfileMembersResponse' {nextToken} -> nextToken) (\s@ListLaunchProfileMembersResponse' {} a -> s {nextToken = a} :: ListLaunchProfileMembersResponse)
+
+-- | A list of members.
+listLaunchProfileMembersResponse_members :: Lens.Lens' ListLaunchProfileMembersResponse (Prelude.Maybe [LaunchProfileMembership])
+listLaunchProfileMembersResponse_members = Lens.lens (\ListLaunchProfileMembersResponse' {members} -> members) (\s@ListLaunchProfileMembersResponse' {} a -> s {members = a} :: ListLaunchProfileMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLaunchProfileMembersResponse_httpStatus :: Lens.Lens' ListLaunchProfileMembersResponse Prelude.Int
@@ -250,6 +250,6 @@ instance
     ListLaunchProfileMembersResponse
   where
   rnf ListLaunchProfileMembersResponse' {..} =
-    Prelude.rnf members
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf members
       `Prelude.seq` Prelude.rnf httpStatus

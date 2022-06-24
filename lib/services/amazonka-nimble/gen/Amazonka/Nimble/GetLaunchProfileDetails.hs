@@ -39,9 +39,9 @@ module Amazonka.Nimble.GetLaunchProfileDetails
     newGetLaunchProfileDetailsResponse,
 
     -- * Response Lenses
-    getLaunchProfileDetailsResponse_streamingImages,
     getLaunchProfileDetailsResponse_launchProfile,
     getLaunchProfileDetailsResponse_studioComponentSummaries,
+    getLaunchProfileDetailsResponse_streamingImages,
     getLaunchProfileDetailsResponse_httpStatus,
   )
 where
@@ -104,11 +104,11 @@ instance Core.AWSRequest GetLaunchProfileDetails where
     Response.receiveJSON
       ( \s h x ->
           GetLaunchProfileDetailsResponse'
-            Prelude.<$> ( x Core..?> "streamingImages"
+            Prelude.<$> (x Core..?> "launchProfile")
+            Prelude.<*> ( x Core..?> "studioComponentSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "launchProfile")
-            Prelude.<*> ( x Core..?> "studioComponentSummaries"
+            Prelude.<*> ( x Core..?> "streamingImages"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -150,12 +150,12 @@ instance Core.ToQuery GetLaunchProfileDetails where
 
 -- | /See:/ 'newGetLaunchProfileDetailsResponse' smart constructor.
 data GetLaunchProfileDetailsResponse = GetLaunchProfileDetailsResponse'
-  { -- | A collection of streaming images.
-    streamingImages :: Prelude.Maybe [StreamingImage],
-    -- | The launch profile.
+  { -- | The launch profile.
     launchProfile :: Prelude.Maybe LaunchProfile,
     -- | A collection of studio component summaries.
     studioComponentSummaries :: Prelude.Maybe [StudioComponentSummary],
+    -- | A collection of streaming images.
+    streamingImages :: Prelude.Maybe [StreamingImage],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,11 +169,11 @@ data GetLaunchProfileDetailsResponse = GetLaunchProfileDetailsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamingImages', 'getLaunchProfileDetailsResponse_streamingImages' - A collection of streaming images.
---
 -- 'launchProfile', 'getLaunchProfileDetailsResponse_launchProfile' - The launch profile.
 --
 -- 'studioComponentSummaries', 'getLaunchProfileDetailsResponse_studioComponentSummaries' - A collection of studio component summaries.
+--
+-- 'streamingImages', 'getLaunchProfileDetailsResponse_streamingImages' - A collection of streaming images.
 --
 -- 'httpStatus', 'getLaunchProfileDetailsResponse_httpStatus' - The response's http status code.
 newGetLaunchProfileDetailsResponse ::
@@ -182,16 +182,12 @@ newGetLaunchProfileDetailsResponse ::
   GetLaunchProfileDetailsResponse
 newGetLaunchProfileDetailsResponse pHttpStatus_ =
   GetLaunchProfileDetailsResponse'
-    { streamingImages =
+    { launchProfile =
         Prelude.Nothing,
-      launchProfile = Prelude.Nothing,
       studioComponentSummaries = Prelude.Nothing,
+      streamingImages = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A collection of streaming images.
-getLaunchProfileDetailsResponse_streamingImages :: Lens.Lens' GetLaunchProfileDetailsResponse (Prelude.Maybe [StreamingImage])
-getLaunchProfileDetailsResponse_streamingImages = Lens.lens (\GetLaunchProfileDetailsResponse' {streamingImages} -> streamingImages) (\s@GetLaunchProfileDetailsResponse' {} a -> s {streamingImages = a} :: GetLaunchProfileDetailsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The launch profile.
 getLaunchProfileDetailsResponse_launchProfile :: Lens.Lens' GetLaunchProfileDetailsResponse (Prelude.Maybe LaunchProfile)
@@ -200,6 +196,10 @@ getLaunchProfileDetailsResponse_launchProfile = Lens.lens (\GetLaunchProfileDeta
 -- | A collection of studio component summaries.
 getLaunchProfileDetailsResponse_studioComponentSummaries :: Lens.Lens' GetLaunchProfileDetailsResponse (Prelude.Maybe [StudioComponentSummary])
 getLaunchProfileDetailsResponse_studioComponentSummaries = Lens.lens (\GetLaunchProfileDetailsResponse' {studioComponentSummaries} -> studioComponentSummaries) (\s@GetLaunchProfileDetailsResponse' {} a -> s {studioComponentSummaries = a} :: GetLaunchProfileDetailsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A collection of streaming images.
+getLaunchProfileDetailsResponse_streamingImages :: Lens.Lens' GetLaunchProfileDetailsResponse (Prelude.Maybe [StreamingImage])
+getLaunchProfileDetailsResponse_streamingImages = Lens.lens (\GetLaunchProfileDetailsResponse' {streamingImages} -> streamingImages) (\s@GetLaunchProfileDetailsResponse' {} a -> s {streamingImages = a} :: GetLaunchProfileDetailsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getLaunchProfileDetailsResponse_httpStatus :: Lens.Lens' GetLaunchProfileDetailsResponse Prelude.Int
@@ -210,7 +210,7 @@ instance
     GetLaunchProfileDetailsResponse
   where
   rnf GetLaunchProfileDetailsResponse' {..} =
-    Prelude.rnf streamingImages
-      `Prelude.seq` Prelude.rnf launchProfile
+    Prelude.rnf launchProfile
       `Prelude.seq` Prelude.rnf studioComponentSummaries
+      `Prelude.seq` Prelude.rnf streamingImages
       `Prelude.seq` Prelude.rnf httpStatus

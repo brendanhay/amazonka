@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchProfileInitializationScript' smart constructor.
 data LaunchProfileInitializationScript = LaunchProfileInitializationScript'
-  { -- | The initialization script.
-    script :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for a studio component resource.
+  { -- | The unique identifier for a studio component resource.
     studioComponentId :: Prelude.Maybe Prelude.Text,
     -- | The name for the studio component.
-    studioComponentName :: Prelude.Maybe Prelude.Text
+    studioComponentName :: Prelude.Maybe Prelude.Text,
+    -- | The initialization script.
+    script :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,20 @@ data LaunchProfileInitializationScript = LaunchProfileInitializationScript'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'script', 'launchProfileInitializationScript_script' - The initialization script.
---
 -- 'studioComponentId', 'launchProfileInitializationScript_studioComponentId' - The unique identifier for a studio component resource.
 --
 -- 'studioComponentName', 'launchProfileInitializationScript_studioComponentName' - The name for the studio component.
+--
+-- 'script', 'launchProfileInitializationScript_script' - The initialization script.
 newLaunchProfileInitializationScript ::
   LaunchProfileInitializationScript
 newLaunchProfileInitializationScript =
   LaunchProfileInitializationScript'
-    { script =
+    { studioComponentId =
         Prelude.Nothing,
-      studioComponentId = Prelude.Nothing,
-      studioComponentName = Prelude.Nothing
+      studioComponentName = Prelude.Nothing,
+      script = Prelude.Nothing
     }
-
--- | The initialization script.
-launchProfileInitializationScript_script :: Lens.Lens' LaunchProfileInitializationScript (Prelude.Maybe Prelude.Text)
-launchProfileInitializationScript_script = Lens.lens (\LaunchProfileInitializationScript' {script} -> script) (\s@LaunchProfileInitializationScript' {} a -> s {script = a} :: LaunchProfileInitializationScript)
 
 -- | The unique identifier for a studio component resource.
 launchProfileInitializationScript_studioComponentId :: Lens.Lens' LaunchProfileInitializationScript (Prelude.Maybe Prelude.Text)
@@ -70,6 +66,10 @@ launchProfileInitializationScript_studioComponentId = Lens.lens (\LaunchProfileI
 -- | The name for the studio component.
 launchProfileInitializationScript_studioComponentName :: Lens.Lens' LaunchProfileInitializationScript (Prelude.Maybe Prelude.Text)
 launchProfileInitializationScript_studioComponentName = Lens.lens (\LaunchProfileInitializationScript' {studioComponentName} -> studioComponentName) (\s@LaunchProfileInitializationScript' {} a -> s {studioComponentName = a} :: LaunchProfileInitializationScript)
+
+-- | The initialization script.
+launchProfileInitializationScript_script :: Lens.Lens' LaunchProfileInitializationScript (Prelude.Maybe Prelude.Text)
+launchProfileInitializationScript_script = Lens.lens (\LaunchProfileInitializationScript' {script} -> script) (\s@LaunchProfileInitializationScript' {} a -> s {script = a} :: LaunchProfileInitializationScript)
 
 instance
   Core.FromJSON
@@ -80,9 +80,9 @@ instance
       "LaunchProfileInitializationScript"
       ( \x ->
           LaunchProfileInitializationScript'
-            Prelude.<$> (x Core..:? "script")
-            Prelude.<*> (x Core..:? "studioComponentId")
+            Prelude.<$> (x Core..:? "studioComponentId")
             Prelude.<*> (x Core..:? "studioComponentName")
+            Prelude.<*> (x Core..:? "script")
       )
 
 instance
@@ -92,15 +92,15 @@ instance
   hashWithSalt
     _salt
     LaunchProfileInitializationScript' {..} =
-      _salt `Prelude.hashWithSalt` script
-        `Prelude.hashWithSalt` studioComponentId
+      _salt `Prelude.hashWithSalt` studioComponentId
         `Prelude.hashWithSalt` studioComponentName
+        `Prelude.hashWithSalt` script
 
 instance
   Prelude.NFData
     LaunchProfileInitializationScript
   where
   rnf LaunchProfileInitializationScript' {..} =
-    Prelude.rnf script
-      `Prelude.seq` Prelude.rnf studioComponentId
+    Prelude.rnf studioComponentId
       `Prelude.seq` Prelude.rnf studioComponentName
+      `Prelude.seq` Prelude.rnf script

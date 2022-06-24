@@ -24,26 +24,26 @@ module Amazonka.Nimble
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** InternalServerErrorException
     _InternalServerErrorException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -51,35 +51,11 @@ module Amazonka.Nimble
     -- * Operations
     -- $operations
 
-    -- ** PutLaunchProfileMembers
-    PutLaunchProfileMembers (PutLaunchProfileMembers'),
-    newPutLaunchProfileMembers,
-    PutLaunchProfileMembersResponse (PutLaunchProfileMembersResponse'),
-    newPutLaunchProfileMembersResponse,
-
-    -- ** CreateStudio
-    CreateStudio (CreateStudio'),
-    newCreateStudio,
-    CreateStudioResponse (CreateStudioResponse'),
-    newCreateStudioResponse,
-
-    -- ** UpdateLaunchProfileMember
-    UpdateLaunchProfileMember (UpdateLaunchProfileMember'),
-    newUpdateLaunchProfileMember,
-    UpdateLaunchProfileMemberResponse (UpdateLaunchProfileMemberResponse'),
-    newUpdateLaunchProfileMemberResponse,
-
-    -- ** DeleteLaunchProfileMember
-    DeleteLaunchProfileMember (DeleteLaunchProfileMember'),
-    newDeleteLaunchProfileMember,
-    DeleteLaunchProfileMemberResponse (DeleteLaunchProfileMemberResponse'),
-    newDeleteLaunchProfileMemberResponse,
-
-    -- ** ListLaunchProfiles (Paginated)
-    ListLaunchProfiles (ListLaunchProfiles'),
-    newListLaunchProfiles,
-    ListLaunchProfilesResponse (ListLaunchProfilesResponse'),
-    newListLaunchProfilesResponse,
+    -- ** AcceptEulas
+    AcceptEulas (AcceptEulas'),
+    newAcceptEulas,
+    AcceptEulasResponse (AcceptEulasResponse'),
+    newAcceptEulasResponse,
 
     -- ** CreateLaunchProfile
     CreateLaunchProfile (CreateLaunchProfile'),
@@ -87,59 +63,11 @@ module Amazonka.Nimble
     CreateLaunchProfileResponse (CreateLaunchProfileResponse'),
     newCreateLaunchProfileResponse,
 
-    -- ** ListStreamingImages (Paginated)
-    ListStreamingImages (ListStreamingImages'),
-    newListStreamingImages,
-    ListStreamingImagesResponse (ListStreamingImagesResponse'),
-    newListStreamingImagesResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** StartStudioSSOConfigurationRepair
-    StartStudioSSOConfigurationRepair (StartStudioSSOConfigurationRepair'),
-    newStartStudioSSOConfigurationRepair,
-    StartStudioSSOConfigurationRepairResponse (StartStudioSSOConfigurationRepairResponse'),
-    newStartStudioSSOConfigurationRepairResponse,
-
-    -- ** GetLaunchProfileInitialization
-    GetLaunchProfileInitialization (GetLaunchProfileInitialization'),
-    newGetLaunchProfileInitialization,
-    GetLaunchProfileInitializationResponse (GetLaunchProfileInitializationResponse'),
-    newGetLaunchProfileInitializationResponse,
-
-    -- ** GetLaunchProfile
-    GetLaunchProfile (GetLaunchProfile'),
-    newGetLaunchProfile,
-    GetLaunchProfileResponse (GetLaunchProfileResponse'),
-    newGetLaunchProfileResponse,
-
-    -- ** CreateStudioComponent
-    CreateStudioComponent (CreateStudioComponent'),
-    newCreateStudioComponent,
-    CreateStudioComponentResponse (CreateStudioComponentResponse'),
-    newCreateStudioComponentResponse,
-
-    -- ** GetEula
-    GetEula (GetEula'),
-    newGetEula,
-    GetEulaResponse (GetEulaResponse'),
-    newGetEulaResponse,
-
-    -- ** ListStudioComponents (Paginated)
-    ListStudioComponents (ListStudioComponents'),
-    newListStudioComponents,
-    ListStudioComponentsResponse (ListStudioComponentsResponse'),
-    newListStudioComponentsResponse,
-
-    -- ** AcceptEulas
-    AcceptEulas (AcceptEulas'),
-    newAcceptEulas,
-    AcceptEulasResponse (AcceptEulasResponse'),
-    newAcceptEulasResponse,
+    -- ** CreateStreamingImage
+    CreateStreamingImage (CreateStreamingImage'),
+    newCreateStreamingImage,
+    CreateStreamingImageResponse (CreateStreamingImageResponse'),
+    newCreateStreamingImageResponse,
 
     -- ** CreateStreamingSession
     CreateStreamingSession (CreateStreamingSession'),
@@ -147,65 +75,23 @@ module Amazonka.Nimble
     CreateStreamingSessionResponse (CreateStreamingSessionResponse'),
     newCreateStreamingSessionResponse,
 
-    -- ** DeleteStudioComponent
-    DeleteStudioComponent (DeleteStudioComponent'),
-    newDeleteStudioComponent,
-    DeleteStudioComponentResponse (DeleteStudioComponentResponse'),
-    newDeleteStudioComponentResponse,
+    -- ** CreateStreamingSessionStream
+    CreateStreamingSessionStream (CreateStreamingSessionStream'),
+    newCreateStreamingSessionStream,
+    CreateStreamingSessionStreamResponse (CreateStreamingSessionStreamResponse'),
+    newCreateStreamingSessionStreamResponse,
 
-    -- ** UpdateStudioComponent
-    UpdateStudioComponent (UpdateStudioComponent'),
-    newUpdateStudioComponent,
-    UpdateStudioComponentResponse (UpdateStudioComponentResponse'),
-    newUpdateStudioComponentResponse,
+    -- ** CreateStudio
+    CreateStudio (CreateStudio'),
+    newCreateStudio,
+    CreateStudioResponse (CreateStudioResponse'),
+    newCreateStudioResponse,
 
-    -- ** GetStudioMember
-    GetStudioMember (GetStudioMember'),
-    newGetStudioMember,
-    GetStudioMemberResponse (GetStudioMemberResponse'),
-    newGetStudioMemberResponse,
-
-    -- ** DeleteStudio
-    DeleteStudio (DeleteStudio'),
-    newDeleteStudio,
-    DeleteStudioResponse (DeleteStudioResponse'),
-    newDeleteStudioResponse,
-
-    -- ** UpdateStudio
-    UpdateStudio (UpdateStudio'),
-    newUpdateStudio,
-    UpdateStudioResponse (UpdateStudioResponse'),
-    newUpdateStudioResponse,
-
-    -- ** ListStudios (Paginated)
-    ListStudios (ListStudios'),
-    newListStudios,
-    ListStudiosResponse (ListStudiosResponse'),
-    newListStudiosResponse,
-
-    -- ** GetStudioComponent
-    GetStudioComponent (GetStudioComponent'),
-    newGetStudioComponent,
-    GetStudioComponentResponse (GetStudioComponentResponse'),
-    newGetStudioComponentResponse,
-
-    -- ** ListEulas (Paginated)
-    ListEulas (ListEulas'),
-    newListEulas,
-    ListEulasResponse (ListEulasResponse'),
-    newListEulasResponse,
-
-    -- ** GetStreamingSession
-    GetStreamingSession (GetStreamingSession'),
-    newGetStreamingSession,
-    GetStreamingSessionResponse (GetStreamingSessionResponse'),
-    newGetStreamingSessionResponse,
-
-    -- ** ListLaunchProfileMembers (Paginated)
-    ListLaunchProfileMembers (ListLaunchProfileMembers'),
-    newListLaunchProfileMembers,
-    ListLaunchProfileMembersResponse (ListLaunchProfileMembersResponse'),
-    newListLaunchProfileMembersResponse,
+    -- ** CreateStudioComponent
+    CreateStudioComponent (CreateStudioComponent'),
+    newCreateStudioComponent,
+    CreateStudioComponentResponse (CreateStudioComponentResponse'),
+    newCreateStudioComponentResponse,
 
     -- ** DeleteLaunchProfile
     DeleteLaunchProfile (DeleteLaunchProfile'),
@@ -213,35 +99,11 @@ module Amazonka.Nimble
     DeleteLaunchProfileResponse (DeleteLaunchProfileResponse'),
     newDeleteLaunchProfileResponse,
 
-    -- ** UpdateLaunchProfile
-    UpdateLaunchProfile (UpdateLaunchProfile'),
-    newUpdateLaunchProfile,
-    UpdateLaunchProfileResponse (UpdateLaunchProfileResponse'),
-    newUpdateLaunchProfileResponse,
-
-    -- ** CreateStreamingImage
-    CreateStreamingImage (CreateStreamingImage'),
-    newCreateStreamingImage,
-    CreateStreamingImageResponse (CreateStreamingImageResponse'),
-    newCreateStreamingImageResponse,
-
-    -- ** CreateStreamingSessionStream
-    CreateStreamingSessionStream (CreateStreamingSessionStream'),
-    newCreateStreamingSessionStream,
-    CreateStreamingSessionStreamResponse (CreateStreamingSessionStreamResponse'),
-    newCreateStreamingSessionStreamResponse,
-
-    -- ** GetLaunchProfileDetails
-    GetLaunchProfileDetails (GetLaunchProfileDetails'),
-    newGetLaunchProfileDetails,
-    GetLaunchProfileDetailsResponse (GetLaunchProfileDetailsResponse'),
-    newGetLaunchProfileDetailsResponse,
-
-    -- ** PutStudioMembers
-    PutStudioMembers (PutStudioMembers'),
-    newPutStudioMembers,
-    PutStudioMembersResponse (PutStudioMembersResponse'),
-    newPutStudioMembersResponse,
+    -- ** DeleteLaunchProfileMember
+    DeleteLaunchProfileMember (DeleteLaunchProfileMember'),
+    newDeleteLaunchProfileMember,
+    DeleteLaunchProfileMemberResponse (DeleteLaunchProfileMemberResponse'),
+    newDeleteLaunchProfileMemberResponse,
 
     -- ** DeleteStreamingImage
     DeleteStreamingImage (DeleteStreamingImage'),
@@ -249,35 +111,53 @@ module Amazonka.Nimble
     DeleteStreamingImageResponse (DeleteStreamingImageResponse'),
     newDeleteStreamingImageResponse,
 
-    -- ** UpdateStreamingImage
-    UpdateStreamingImage (UpdateStreamingImage'),
-    newUpdateStreamingImage,
-    UpdateStreamingImageResponse (UpdateStreamingImageResponse'),
-    newUpdateStreamingImageResponse,
+    -- ** DeleteStreamingSession
+    DeleteStreamingSession (DeleteStreamingSession'),
+    newDeleteStreamingSession,
+    DeleteStreamingSessionResponse (DeleteStreamingSessionResponse'),
+    newDeleteStreamingSessionResponse,
 
-    -- ** GetStreamingImage
-    GetStreamingImage (GetStreamingImage'),
-    newGetStreamingImage,
-    GetStreamingImageResponse (GetStreamingImageResponse'),
-    newGetStreamingImageResponse,
+    -- ** DeleteStudio
+    DeleteStudio (DeleteStudio'),
+    newDeleteStudio,
+    DeleteStudioResponse (DeleteStudioResponse'),
+    newDeleteStudioResponse,
 
-    -- ** ListEulaAcceptances (Paginated)
-    ListEulaAcceptances (ListEulaAcceptances'),
-    newListEulaAcceptances,
-    ListEulaAcceptancesResponse (ListEulaAcceptancesResponse'),
-    newListEulaAcceptancesResponse,
+    -- ** DeleteStudioComponent
+    DeleteStudioComponent (DeleteStudioComponent'),
+    newDeleteStudioComponent,
+    DeleteStudioComponentResponse (DeleteStudioComponentResponse'),
+    newDeleteStudioComponentResponse,
 
-    -- ** GetStreamingSessionStream
-    GetStreamingSessionStream (GetStreamingSessionStream'),
-    newGetStreamingSessionStream,
-    GetStreamingSessionStreamResponse (GetStreamingSessionStreamResponse'),
-    newGetStreamingSessionStreamResponse,
+    -- ** DeleteStudioMember
+    DeleteStudioMember (DeleteStudioMember'),
+    newDeleteStudioMember,
+    DeleteStudioMemberResponse (DeleteStudioMemberResponse'),
+    newDeleteStudioMemberResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** GetEula
+    GetEula (GetEula'),
+    newGetEula,
+    GetEulaResponse (GetEulaResponse'),
+    newGetEulaResponse,
+
+    -- ** GetLaunchProfile
+    GetLaunchProfile (GetLaunchProfile'),
+    newGetLaunchProfile,
+    GetLaunchProfileResponse (GetLaunchProfileResponse'),
+    newGetLaunchProfileResponse,
+
+    -- ** GetLaunchProfileDetails
+    GetLaunchProfileDetails (GetLaunchProfileDetails'),
+    newGetLaunchProfileDetails,
+    GetLaunchProfileDetailsResponse (GetLaunchProfileDetailsResponse'),
+    newGetLaunchProfileDetailsResponse,
+
+    -- ** GetLaunchProfileInitialization
+    GetLaunchProfileInitialization (GetLaunchProfileInitialization'),
+    newGetLaunchProfileInitialization,
+    GetLaunchProfileInitializationResponse (GetLaunchProfileInitializationResponse'),
+    newGetLaunchProfileInitializationResponse,
 
     -- ** GetLaunchProfileMember
     GetLaunchProfileMember (GetLaunchProfileMember'),
@@ -285,23 +165,23 @@ module Amazonka.Nimble
     GetLaunchProfileMemberResponse (GetLaunchProfileMemberResponse'),
     newGetLaunchProfileMemberResponse,
 
-    -- ** DeleteStreamingSession
-    DeleteStreamingSession (DeleteStreamingSession'),
-    newDeleteStreamingSession,
-    DeleteStreamingSessionResponse (DeleteStreamingSessionResponse'),
-    newDeleteStreamingSessionResponse,
+    -- ** GetStreamingImage
+    GetStreamingImage (GetStreamingImage'),
+    newGetStreamingImage,
+    GetStreamingImageResponse (GetStreamingImageResponse'),
+    newGetStreamingImageResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** GetStreamingSession
+    GetStreamingSession (GetStreamingSession'),
+    newGetStreamingSession,
+    GetStreamingSessionResponse (GetStreamingSessionResponse'),
+    newGetStreamingSessionResponse,
 
-    -- ** ListStreamingSessions (Paginated)
-    ListStreamingSessions (ListStreamingSessions'),
-    newListStreamingSessions,
-    ListStreamingSessionsResponse (ListStreamingSessionsResponse'),
-    newListStreamingSessionsResponse,
+    -- ** GetStreamingSessionStream
+    GetStreamingSessionStream (GetStreamingSessionStream'),
+    newGetStreamingSessionStream,
+    GetStreamingSessionStreamResponse (GetStreamingSessionStreamResponse'),
+    newGetStreamingSessionStreamResponse,
 
     -- ** GetStudio
     GetStudio (GetStudio'),
@@ -309,17 +189,137 @@ module Amazonka.Nimble
     GetStudioResponse (GetStudioResponse'),
     newGetStudioResponse,
 
+    -- ** GetStudioComponent
+    GetStudioComponent (GetStudioComponent'),
+    newGetStudioComponent,
+    GetStudioComponentResponse (GetStudioComponentResponse'),
+    newGetStudioComponentResponse,
+
+    -- ** GetStudioMember
+    GetStudioMember (GetStudioMember'),
+    newGetStudioMember,
+    GetStudioMemberResponse (GetStudioMemberResponse'),
+    newGetStudioMemberResponse,
+
+    -- ** ListEulaAcceptances (Paginated)
+    ListEulaAcceptances (ListEulaAcceptances'),
+    newListEulaAcceptances,
+    ListEulaAcceptancesResponse (ListEulaAcceptancesResponse'),
+    newListEulaAcceptancesResponse,
+
+    -- ** ListEulas (Paginated)
+    ListEulas (ListEulas'),
+    newListEulas,
+    ListEulasResponse (ListEulasResponse'),
+    newListEulasResponse,
+
+    -- ** ListLaunchProfileMembers (Paginated)
+    ListLaunchProfileMembers (ListLaunchProfileMembers'),
+    newListLaunchProfileMembers,
+    ListLaunchProfileMembersResponse (ListLaunchProfileMembersResponse'),
+    newListLaunchProfileMembersResponse,
+
+    -- ** ListLaunchProfiles (Paginated)
+    ListLaunchProfiles (ListLaunchProfiles'),
+    newListLaunchProfiles,
+    ListLaunchProfilesResponse (ListLaunchProfilesResponse'),
+    newListLaunchProfilesResponse,
+
+    -- ** ListStreamingImages (Paginated)
+    ListStreamingImages (ListStreamingImages'),
+    newListStreamingImages,
+    ListStreamingImagesResponse (ListStreamingImagesResponse'),
+    newListStreamingImagesResponse,
+
+    -- ** ListStreamingSessions (Paginated)
+    ListStreamingSessions (ListStreamingSessions'),
+    newListStreamingSessions,
+    ListStreamingSessionsResponse (ListStreamingSessionsResponse'),
+    newListStreamingSessionsResponse,
+
+    -- ** ListStudioComponents (Paginated)
+    ListStudioComponents (ListStudioComponents'),
+    newListStudioComponents,
+    ListStudioComponentsResponse (ListStudioComponentsResponse'),
+    newListStudioComponentsResponse,
+
     -- ** ListStudioMembers (Paginated)
     ListStudioMembers (ListStudioMembers'),
     newListStudioMembers,
     ListStudioMembersResponse (ListStudioMembersResponse'),
     newListStudioMembersResponse,
 
-    -- ** DeleteStudioMember
-    DeleteStudioMember (DeleteStudioMember'),
-    newDeleteStudioMember,
-    DeleteStudioMemberResponse (DeleteStudioMemberResponse'),
-    newDeleteStudioMemberResponse,
+    -- ** ListStudios (Paginated)
+    ListStudios (ListStudios'),
+    newListStudios,
+    ListStudiosResponse (ListStudiosResponse'),
+    newListStudiosResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** PutLaunchProfileMembers
+    PutLaunchProfileMembers (PutLaunchProfileMembers'),
+    newPutLaunchProfileMembers,
+    PutLaunchProfileMembersResponse (PutLaunchProfileMembersResponse'),
+    newPutLaunchProfileMembersResponse,
+
+    -- ** PutStudioMembers
+    PutStudioMembers (PutStudioMembers'),
+    newPutStudioMembers,
+    PutStudioMembersResponse (PutStudioMembersResponse'),
+    newPutStudioMembersResponse,
+
+    -- ** StartStudioSSOConfigurationRepair
+    StartStudioSSOConfigurationRepair (StartStudioSSOConfigurationRepair'),
+    newStartStudioSSOConfigurationRepair,
+    StartStudioSSOConfigurationRepairResponse (StartStudioSSOConfigurationRepairResponse'),
+    newStartStudioSSOConfigurationRepairResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateLaunchProfile
+    UpdateLaunchProfile (UpdateLaunchProfile'),
+    newUpdateLaunchProfile,
+    UpdateLaunchProfileResponse (UpdateLaunchProfileResponse'),
+    newUpdateLaunchProfileResponse,
+
+    -- ** UpdateLaunchProfileMember
+    UpdateLaunchProfileMember (UpdateLaunchProfileMember'),
+    newUpdateLaunchProfileMember,
+    UpdateLaunchProfileMemberResponse (UpdateLaunchProfileMemberResponse'),
+    newUpdateLaunchProfileMemberResponse,
+
+    -- ** UpdateStreamingImage
+    UpdateStreamingImage (UpdateStreamingImage'),
+    newUpdateStreamingImage,
+    UpdateStreamingImageResponse (UpdateStreamingImageResponse'),
+    newUpdateStreamingImageResponse,
+
+    -- ** UpdateStudio
+    UpdateStudio (UpdateStudio'),
+    newUpdateStudio,
+    UpdateStudioResponse (UpdateStudioResponse'),
+    newUpdateStudioResponse,
+
+    -- ** UpdateStudioComponent
+    UpdateStudioComponent (UpdateStudioComponent'),
+    newUpdateStudioComponent,
+    UpdateStudioComponentResponse (UpdateStudioComponentResponse'),
+    newUpdateStudioComponentResponse,
 
     -- * Types
 

@@ -29,10 +29,10 @@ module Amazonka.Nimble.ListLaunchProfiles
     newListLaunchProfiles,
 
     -- * Request Lenses
-    listLaunchProfiles_states,
     listLaunchProfiles_principalId,
     listLaunchProfiles_nextToken,
     listLaunchProfiles_maxResults,
+    listLaunchProfiles_states,
     listLaunchProfiles_studioId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.Nimble.ListLaunchProfiles
     newListLaunchProfilesResponse,
 
     -- * Response Lenses
-    listLaunchProfilesResponse_launchProfiles,
     listLaunchProfilesResponse_nextToken,
+    listLaunchProfilesResponse_launchProfiles,
     listLaunchProfilesResponse_httpStatus,
   )
 where
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLaunchProfiles' smart constructor.
 data ListLaunchProfiles = ListLaunchProfiles'
-  { -- | A list of states.
-    states :: Prelude.Maybe [Prelude.Text],
-    -- | The principal ID.
+  { -- | The principal ID.
     principalId :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to be returned per request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A list of states.
+    states :: Prelude.Maybe [Prelude.Text],
     -- | The studio ID.
     studioId :: Prelude.Text
   }
@@ -77,14 +77,14 @@ data ListLaunchProfiles = ListLaunchProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'states', 'listLaunchProfiles_states' - A list of states.
---
 -- 'principalId', 'listLaunchProfiles_principalId' - The principal ID.
 --
 -- 'nextToken', 'listLaunchProfiles_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
 --
 -- 'maxResults', 'listLaunchProfiles_maxResults' - The maximum number of results to be returned per request.
+--
+-- 'states', 'listLaunchProfiles_states' - A list of states.
 --
 -- 'studioId', 'listLaunchProfiles_studioId' - The studio ID.
 newListLaunchProfiles ::
@@ -93,16 +93,12 @@ newListLaunchProfiles ::
   ListLaunchProfiles
 newListLaunchProfiles pStudioId_ =
   ListLaunchProfiles'
-    { states = Prelude.Nothing,
-      principalId = Prelude.Nothing,
+    { principalId = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      states = Prelude.Nothing,
       studioId = pStudioId_
     }
-
--- | A list of states.
-listLaunchProfiles_states :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe [Prelude.Text])
-listLaunchProfiles_states = Lens.lens (\ListLaunchProfiles' {states} -> states) (\s@ListLaunchProfiles' {} a -> s {states = a} :: ListLaunchProfiles) Prelude.. Lens.mapping Lens.coerced
 
 -- | The principal ID.
 listLaunchProfiles_principalId :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe Prelude.Text)
@@ -116,6 +112,10 @@ listLaunchProfiles_nextToken = Lens.lens (\ListLaunchProfiles' {nextToken} -> ne
 -- | The maximum number of results to be returned per request.
 listLaunchProfiles_maxResults :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe Prelude.Natural)
 listLaunchProfiles_maxResults = Lens.lens (\ListLaunchProfiles' {maxResults} -> maxResults) (\s@ListLaunchProfiles' {} a -> s {maxResults = a} :: ListLaunchProfiles)
+
+-- | A list of states.
+listLaunchProfiles_states :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe [Prelude.Text])
+listLaunchProfiles_states = Lens.lens (\ListLaunchProfiles' {states} -> states) (\s@ListLaunchProfiles' {} a -> s {states = a} :: ListLaunchProfiles) Prelude.. Lens.mapping Lens.coerced
 
 -- | The studio ID.
 listLaunchProfiles_studioId :: Lens.Lens' ListLaunchProfiles Prelude.Text
@@ -152,25 +152,25 @@ instance Core.AWSRequest ListLaunchProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListLaunchProfilesResponse'
-            Prelude.<$> (x Core..?> "launchProfiles" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "launchProfiles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLaunchProfiles where
   hashWithSalt _salt ListLaunchProfiles' {..} =
-    _salt `Prelude.hashWithSalt` states
-      `Prelude.hashWithSalt` principalId
+    _salt `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` states
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData ListLaunchProfiles where
   rnf ListLaunchProfiles' {..} =
-    Prelude.rnf states
-      `Prelude.seq` Prelude.rnf principalId
+    Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf states
       `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders ListLaunchProfiles where
@@ -195,21 +195,21 @@ instance Core.ToPath ListLaunchProfiles where
 instance Core.ToQuery ListLaunchProfiles where
   toQuery ListLaunchProfiles' {..} =
     Prelude.mconcat
-      [ "states"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> states),
-        "principalId" Core.=: principalId,
+      [ "principalId" Core.=: principalId,
         "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "states"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> states)
       ]
 
 -- | /See:/ 'newListLaunchProfilesResponse' smart constructor.
 data ListLaunchProfilesResponse = ListLaunchProfilesResponse'
-  { -- | A collection of launch profiles.
-    launchProfiles :: Prelude.Maybe [LaunchProfile],
-    -- | The token for the next set of results, or null if there are no more
+  { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A collection of launch profiles.
+    launchProfiles :: Prelude.Maybe [LaunchProfile],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,10 +223,10 @@ data ListLaunchProfilesResponse = ListLaunchProfilesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchProfiles', 'listLaunchProfilesResponse_launchProfiles' - A collection of launch profiles.
---
 -- 'nextToken', 'listLaunchProfilesResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
+--
+-- 'launchProfiles', 'listLaunchProfilesResponse_launchProfiles' - A collection of launch profiles.
 --
 -- 'httpStatus', 'listLaunchProfilesResponse_httpStatus' - The response's http status code.
 newListLaunchProfilesResponse ::
@@ -235,20 +235,20 @@ newListLaunchProfilesResponse ::
   ListLaunchProfilesResponse
 newListLaunchProfilesResponse pHttpStatus_ =
   ListLaunchProfilesResponse'
-    { launchProfiles =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      launchProfiles = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A collection of launch profiles.
-listLaunchProfilesResponse_launchProfiles :: Lens.Lens' ListLaunchProfilesResponse (Prelude.Maybe [LaunchProfile])
-listLaunchProfilesResponse_launchProfiles = Lens.lens (\ListLaunchProfilesResponse' {launchProfiles} -> launchProfiles) (\s@ListLaunchProfilesResponse' {} a -> s {launchProfiles = a} :: ListLaunchProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listLaunchProfilesResponse_nextToken :: Lens.Lens' ListLaunchProfilesResponse (Prelude.Maybe Prelude.Text)
 listLaunchProfilesResponse_nextToken = Lens.lens (\ListLaunchProfilesResponse' {nextToken} -> nextToken) (\s@ListLaunchProfilesResponse' {} a -> s {nextToken = a} :: ListLaunchProfilesResponse)
+
+-- | A collection of launch profiles.
+listLaunchProfilesResponse_launchProfiles :: Lens.Lens' ListLaunchProfilesResponse (Prelude.Maybe [LaunchProfile])
+listLaunchProfilesResponse_launchProfiles = Lens.lens (\ListLaunchProfilesResponse' {launchProfiles} -> launchProfiles) (\s@ListLaunchProfilesResponse' {} a -> s {launchProfiles = a} :: ListLaunchProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLaunchProfilesResponse_httpStatus :: Lens.Lens' ListLaunchProfilesResponse Prelude.Int
@@ -256,6 +256,6 @@ listLaunchProfilesResponse_httpStatus = Lens.lens (\ListLaunchProfilesResponse' 
 
 instance Prelude.NFData ListLaunchProfilesResponse where
   rnf ListLaunchProfilesResponse' {..} =
-    Prelude.rnf launchProfiles
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf launchProfiles
       `Prelude.seq` Prelude.rnf httpStatus

@@ -38,8 +38,8 @@ module Amazonka.Nimble.ListStudioMembers
     newListStudioMembersResponse,
 
     -- * Response Lenses
-    listStudioMembersResponse_members,
     listStudioMembersResponse_nextToken,
+    listStudioMembersResponse_members,
     listStudioMembersResponse_httpStatus,
   )
 where
@@ -132,8 +132,8 @@ instance Core.AWSRequest ListStudioMembers where
     Response.receiveJSON
       ( \s h x ->
           ListStudioMembersResponse'
-            Prelude.<$> (x Core..?> "members" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "members" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,11 +177,11 @@ instance Core.ToQuery ListStudioMembers where
 
 -- | /See:/ 'newListStudioMembersResponse' smart constructor.
 data ListStudioMembersResponse = ListStudioMembersResponse'
-  { -- | A list of members.
-    members :: Prelude.Maybe [StudioMembership],
-    -- | The token for the next set of results, or null if there are no more
+  { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of members.
+    members :: Prelude.Maybe [StudioMembership],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,10 +195,10 @@ data ListStudioMembersResponse = ListStudioMembersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'members', 'listStudioMembersResponse_members' - A list of members.
---
 -- 'nextToken', 'listStudioMembersResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
+--
+-- 'members', 'listStudioMembersResponse_members' - A list of members.
 --
 -- 'httpStatus', 'listStudioMembersResponse_httpStatus' - The response's http status code.
 newListStudioMembersResponse ::
@@ -207,20 +207,20 @@ newListStudioMembersResponse ::
   ListStudioMembersResponse
 newListStudioMembersResponse pHttpStatus_ =
   ListStudioMembersResponse'
-    { members =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      members = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of members.
-listStudioMembersResponse_members :: Lens.Lens' ListStudioMembersResponse (Prelude.Maybe [StudioMembership])
-listStudioMembersResponse_members = Lens.lens (\ListStudioMembersResponse' {members} -> members) (\s@ListStudioMembersResponse' {} a -> s {members = a} :: ListStudioMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listStudioMembersResponse_nextToken :: Lens.Lens' ListStudioMembersResponse (Prelude.Maybe Prelude.Text)
 listStudioMembersResponse_nextToken = Lens.lens (\ListStudioMembersResponse' {nextToken} -> nextToken) (\s@ListStudioMembersResponse' {} a -> s {nextToken = a} :: ListStudioMembersResponse)
+
+-- | A list of members.
+listStudioMembersResponse_members :: Lens.Lens' ListStudioMembersResponse (Prelude.Maybe [StudioMembership])
+listStudioMembersResponse_members = Lens.lens (\ListStudioMembersResponse' {members} -> members) (\s@ListStudioMembersResponse' {} a -> s {members = a} :: ListStudioMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listStudioMembersResponse_httpStatus :: Lens.Lens' ListStudioMembersResponse Prelude.Int
@@ -228,6 +228,6 @@ listStudioMembersResponse_httpStatus = Lens.lens (\ListStudioMembersResponse' {h
 
 instance Prelude.NFData ListStudioMembersResponse where
   rnf ListStudioMembersResponse' {..} =
-    Prelude.rnf members
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf members
       `Prelude.seq` Prelude.rnf httpStatus

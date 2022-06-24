@@ -30,12 +30,12 @@ module Amazonka.Nimble.CreateStreamingSession
     newCreateStreamingSession,
 
     -- * Request Lenses
-    createStreamingSession_ownedBy,
-    createStreamingSession_clientToken,
-    createStreamingSession_ec2InstanceType,
+    createStreamingSession_tags,
     createStreamingSession_launchProfileId,
     createStreamingSession_streamingImageId,
-    createStreamingSession_tags,
+    createStreamingSession_clientToken,
+    createStreamingSession_ec2InstanceType,
+    createStreamingSession_ownedBy,
     createStreamingSession_studioId,
 
     -- * Destructuring the Response
@@ -59,8 +59,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateStreamingSession' smart constructor.
 data CreateStreamingSession = CreateStreamingSession'
-  { -- | The user ID of the user that owns the streaming session.
-    ownedBy :: Prelude.Maybe Prelude.Text,
+  { -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The launch profile ID.
+    launchProfileId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the streaming image.
+    streamingImageId :: Prelude.Maybe Prelude.Text,
     -- | To make an idempotent API request using one of these actions, specify a
     -- client token in the request. You should not reuse the same client token
     -- for other API requests. If you retry a request that completed
@@ -72,13 +77,8 @@ data CreateStreamingSession = CreateStreamingSession'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The EC2 Instance type used for the streaming session.
     ec2InstanceType :: Prelude.Maybe StreamingInstanceType,
-    -- | The launch profile ID.
-    launchProfileId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the streaming image.
-    streamingImageId :: Prelude.Maybe Prelude.Text,
-    -- | A collection of labels, in the form of key:value pairs, that apply to
-    -- this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The user ID of the user that owns the streaming session.
+    ownedBy :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
   }
@@ -92,7 +92,12 @@ data CreateStreamingSession = CreateStreamingSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownedBy', 'createStreamingSession_ownedBy' - The user ID of the user that owns the streaming session.
+-- 'tags', 'createStreamingSession_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
+--
+-- 'launchProfileId', 'createStreamingSession_launchProfileId' - The launch profile ID.
+--
+-- 'streamingImageId', 'createStreamingSession_streamingImageId' - The ID of the streaming image.
 --
 -- 'clientToken', 'createStreamingSession_clientToken' - To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
@@ -105,12 +110,7 @@ data CreateStreamingSession = CreateStreamingSession'
 --
 -- 'ec2InstanceType', 'createStreamingSession_ec2InstanceType' - The EC2 Instance type used for the streaming session.
 --
--- 'launchProfileId', 'createStreamingSession_launchProfileId' - The launch profile ID.
---
--- 'streamingImageId', 'createStreamingSession_streamingImageId' - The ID of the streaming image.
---
--- 'tags', 'createStreamingSession_tags' - A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
+-- 'ownedBy', 'createStreamingSession_ownedBy' - The user ID of the user that owns the streaming session.
 --
 -- 'studioId', 'createStreamingSession_studioId' - The studio ID.
 newCreateStreamingSession ::
@@ -119,18 +119,27 @@ newCreateStreamingSession ::
   CreateStreamingSession
 newCreateStreamingSession pStudioId_ =
   CreateStreamingSession'
-    { ownedBy = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      ec2InstanceType = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       launchProfileId = Prelude.Nothing,
       streamingImageId = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      ec2InstanceType = Prelude.Nothing,
+      ownedBy = Prelude.Nothing,
       studioId = pStudioId_
     }
 
--- | The user ID of the user that owns the streaming session.
-createStreamingSession_ownedBy :: Lens.Lens' CreateStreamingSession (Prelude.Maybe Prelude.Text)
-createStreamingSession_ownedBy = Lens.lens (\CreateStreamingSession' {ownedBy} -> ownedBy) (\s@CreateStreamingSession' {} a -> s {ownedBy = a} :: CreateStreamingSession)
+-- | A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
+createStreamingSession_tags :: Lens.Lens' CreateStreamingSession (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createStreamingSession_tags = Lens.lens (\CreateStreamingSession' {tags} -> tags) (\s@CreateStreamingSession' {} a -> s {tags = a} :: CreateStreamingSession) Prelude.. Lens.mapping Lens.coerced
+
+-- | The launch profile ID.
+createStreamingSession_launchProfileId :: Lens.Lens' CreateStreamingSession (Prelude.Maybe Prelude.Text)
+createStreamingSession_launchProfileId = Lens.lens (\CreateStreamingSession' {launchProfileId} -> launchProfileId) (\s@CreateStreamingSession' {} a -> s {launchProfileId = a} :: CreateStreamingSession)
+
+-- | The ID of the streaming image.
+createStreamingSession_streamingImageId :: Lens.Lens' CreateStreamingSession (Prelude.Maybe Prelude.Text)
+createStreamingSession_streamingImageId = Lens.lens (\CreateStreamingSession' {streamingImageId} -> streamingImageId) (\s@CreateStreamingSession' {} a -> s {streamingImageId = a} :: CreateStreamingSession)
 
 -- | To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
@@ -147,18 +156,9 @@ createStreamingSession_clientToken = Lens.lens (\CreateStreamingSession' {client
 createStreamingSession_ec2InstanceType :: Lens.Lens' CreateStreamingSession (Prelude.Maybe StreamingInstanceType)
 createStreamingSession_ec2InstanceType = Lens.lens (\CreateStreamingSession' {ec2InstanceType} -> ec2InstanceType) (\s@CreateStreamingSession' {} a -> s {ec2InstanceType = a} :: CreateStreamingSession)
 
--- | The launch profile ID.
-createStreamingSession_launchProfileId :: Lens.Lens' CreateStreamingSession (Prelude.Maybe Prelude.Text)
-createStreamingSession_launchProfileId = Lens.lens (\CreateStreamingSession' {launchProfileId} -> launchProfileId) (\s@CreateStreamingSession' {} a -> s {launchProfileId = a} :: CreateStreamingSession)
-
--- | The ID of the streaming image.
-createStreamingSession_streamingImageId :: Lens.Lens' CreateStreamingSession (Prelude.Maybe Prelude.Text)
-createStreamingSession_streamingImageId = Lens.lens (\CreateStreamingSession' {streamingImageId} -> streamingImageId) (\s@CreateStreamingSession' {} a -> s {streamingImageId = a} :: CreateStreamingSession)
-
--- | A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
-createStreamingSession_tags :: Lens.Lens' CreateStreamingSession (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createStreamingSession_tags = Lens.lens (\CreateStreamingSession' {tags} -> tags) (\s@CreateStreamingSession' {} a -> s {tags = a} :: CreateStreamingSession) Prelude.. Lens.mapping Lens.coerced
+-- | The user ID of the user that owns the streaming session.
+createStreamingSession_ownedBy :: Lens.Lens' CreateStreamingSession (Prelude.Maybe Prelude.Text)
+createStreamingSession_ownedBy = Lens.lens (\CreateStreamingSession' {ownedBy} -> ownedBy) (\s@CreateStreamingSession' {} a -> s {ownedBy = a} :: CreateStreamingSession)
 
 -- | The studio ID.
 createStreamingSession_studioId :: Lens.Lens' CreateStreamingSession Prelude.Text
@@ -179,22 +179,22 @@ instance Core.AWSRequest CreateStreamingSession where
 
 instance Prelude.Hashable CreateStreamingSession where
   hashWithSalt _salt CreateStreamingSession' {..} =
-    _salt `Prelude.hashWithSalt` ownedBy
-      `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` ec2InstanceType
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` launchProfileId
       `Prelude.hashWithSalt` streamingImageId
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` ec2InstanceType
+      `Prelude.hashWithSalt` ownedBy
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData CreateStreamingSession where
   rnf CreateStreamingSession' {..} =
-    Prelude.rnf ownedBy
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf ec2InstanceType
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf launchProfileId
       `Prelude.seq` Prelude.rnf streamingImageId
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf ec2InstanceType
+      `Prelude.seq` Prelude.rnf ownedBy
       `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders CreateStreamingSession where
@@ -209,14 +209,14 @@ instance Core.ToJSON CreateStreamingSession where
   toJSON CreateStreamingSession' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ownedBy" Core..=) Prelude.<$> ownedBy,
-            ("ec2InstanceType" Core..=)
-              Prelude.<$> ec2InstanceType,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("launchProfileId" Core..=)
               Prelude.<$> launchProfileId,
             ("streamingImageId" Core..=)
               Prelude.<$> streamingImageId,
-            ("tags" Core..=) Prelude.<$> tags
+            ("ec2InstanceType" Core..=)
+              Prelude.<$> ec2InstanceType,
+            ("ownedBy" Core..=) Prelude.<$> ownedBy
           ]
       )
 

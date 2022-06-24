@@ -37,8 +37,8 @@ module Amazonka.Nimble.ListStudios
     newListStudiosResponse,
 
     -- * Response Lenses
-    listStudiosResponse_studios,
     listStudiosResponse_nextToken,
+    listStudiosResponse_studios,
     listStudiosResponse_httpStatus,
   )
 where
@@ -104,8 +104,8 @@ instance Core.AWSRequest ListStudios where
     Response.receiveJSON
       ( \s h x ->
           ListStudiosResponse'
-            Prelude.<$> (x Core..?> "studios" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "studios" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,11 +136,11 @@ instance Core.ToQuery ListStudios where
 
 -- | /See:/ 'newListStudiosResponse' smart constructor.
 data ListStudiosResponse = ListStudiosResponse'
-  { -- | A collection of studios.
-    studios :: Prelude.Maybe [Studio],
-    -- | The token for the next set of results, or null if there are no more
+  { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A collection of studios.
+    studios :: Prelude.Maybe [Studio],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -154,10 +154,10 @@ data ListStudiosResponse = ListStudiosResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studios', 'listStudiosResponse_studios' - A collection of studios.
---
 -- 'nextToken', 'listStudiosResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
+--
+-- 'studios', 'listStudiosResponse_studios' - A collection of studios.
 --
 -- 'httpStatus', 'listStudiosResponse_httpStatus' - The response's http status code.
 newListStudiosResponse ::
@@ -166,19 +166,19 @@ newListStudiosResponse ::
   ListStudiosResponse
 newListStudiosResponse pHttpStatus_ =
   ListStudiosResponse'
-    { studios = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      studios = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A collection of studios.
-listStudiosResponse_studios :: Lens.Lens' ListStudiosResponse (Prelude.Maybe [Studio])
-listStudiosResponse_studios = Lens.lens (\ListStudiosResponse' {studios} -> studios) (\s@ListStudiosResponse' {} a -> s {studios = a} :: ListStudiosResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listStudiosResponse_nextToken :: Lens.Lens' ListStudiosResponse (Prelude.Maybe Prelude.Text)
 listStudiosResponse_nextToken = Lens.lens (\ListStudiosResponse' {nextToken} -> nextToken) (\s@ListStudiosResponse' {} a -> s {nextToken = a} :: ListStudiosResponse)
+
+-- | A collection of studios.
+listStudiosResponse_studios :: Lens.Lens' ListStudiosResponse (Prelude.Maybe [Studio])
+listStudiosResponse_studios = Lens.lens (\ListStudiosResponse' {studios} -> studios) (\s@ListStudiosResponse' {} a -> s {studios = a} :: ListStudiosResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listStudiosResponse_httpStatus :: Lens.Lens' ListStudiosResponse Prelude.Int
@@ -186,6 +186,6 @@ listStudiosResponse_httpStatus = Lens.lens (\ListStudiosResponse' {httpStatus} -
 
 instance Prelude.NFData ListStudiosResponse where
   rnf ListStudiosResponse' {..} =
-    Prelude.rnf studios
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf studios
       `Prelude.seq` Prelude.rnf httpStatus

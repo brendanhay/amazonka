@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStudioMembership' smart constructor.
 data StudioMembership = StudioMembership'
-  { -- | The ID of the identity store.
-    identityStoreId :: Prelude.Maybe Prelude.Text,
-    -- | The principal ID.
+  { -- | The principal ID.
     principalId :: Prelude.Maybe Prelude.Text,
     -- | The persona.
-    persona :: Prelude.Maybe StudioPersona
+    persona :: Prelude.Maybe StudioPersona,
+    -- | The ID of the identity store.
+    identityStoreId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,19 @@ data StudioMembership = StudioMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identityStoreId', 'studioMembership_identityStoreId' - The ID of the identity store.
---
 -- 'principalId', 'studioMembership_principalId' - The principal ID.
 --
 -- 'persona', 'studioMembership_persona' - The persona.
+--
+-- 'identityStoreId', 'studioMembership_identityStoreId' - The ID of the identity store.
 newStudioMembership ::
   StudioMembership
 newStudioMembership =
   StudioMembership'
-    { identityStoreId =
-        Prelude.Nothing,
-      principalId = Prelude.Nothing,
-      persona = Prelude.Nothing
+    { principalId = Prelude.Nothing,
+      persona = Prelude.Nothing,
+      identityStoreId = Prelude.Nothing
     }
-
--- | The ID of the identity store.
-studioMembership_identityStoreId :: Lens.Lens' StudioMembership (Prelude.Maybe Prelude.Text)
-studioMembership_identityStoreId = Lens.lens (\StudioMembership' {identityStoreId} -> identityStoreId) (\s@StudioMembership' {} a -> s {identityStoreId = a} :: StudioMembership)
 
 -- | The principal ID.
 studioMembership_principalId :: Lens.Lens' StudioMembership (Prelude.Maybe Prelude.Text)
@@ -72,25 +67,29 @@ studioMembership_principalId = Lens.lens (\StudioMembership' {principalId} -> pr
 studioMembership_persona :: Lens.Lens' StudioMembership (Prelude.Maybe StudioPersona)
 studioMembership_persona = Lens.lens (\StudioMembership' {persona} -> persona) (\s@StudioMembership' {} a -> s {persona = a} :: StudioMembership)
 
+-- | The ID of the identity store.
+studioMembership_identityStoreId :: Lens.Lens' StudioMembership (Prelude.Maybe Prelude.Text)
+studioMembership_identityStoreId = Lens.lens (\StudioMembership' {identityStoreId} -> identityStoreId) (\s@StudioMembership' {} a -> s {identityStoreId = a} :: StudioMembership)
+
 instance Core.FromJSON StudioMembership where
   parseJSON =
     Core.withObject
       "StudioMembership"
       ( \x ->
           StudioMembership'
-            Prelude.<$> (x Core..:? "identityStoreId")
-            Prelude.<*> (x Core..:? "principalId")
+            Prelude.<$> (x Core..:? "principalId")
             Prelude.<*> (x Core..:? "persona")
+            Prelude.<*> (x Core..:? "identityStoreId")
       )
 
 instance Prelude.Hashable StudioMembership where
   hashWithSalt _salt StudioMembership' {..} =
-    _salt `Prelude.hashWithSalt` identityStoreId
-      `Prelude.hashWithSalt` principalId
+    _salt `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` persona
+      `Prelude.hashWithSalt` identityStoreId
 
 instance Prelude.NFData StudioMembership where
   rnf StudioMembership' {..} =
-    Prelude.rnf identityStoreId
-      `Prelude.seq` Prelude.rnf principalId
+    Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf persona
+      `Prelude.seq` Prelude.rnf identityStoreId

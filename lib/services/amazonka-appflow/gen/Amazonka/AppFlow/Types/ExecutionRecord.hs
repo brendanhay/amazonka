@@ -30,23 +30,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExecutionRecord' smart constructor.
 data ExecutionRecord = ExecutionRecord'
-  { -- | Specifies the identifier of the given flow run.
-    executionId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the time of the most recent update.
+  { -- | Specifies the time of the most recent update.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | The timestamp that determines the first new or updated record to be
     -- transferred in the flow run.
     dataPullStartTime :: Prelude.Maybe Core.POSIX,
+    -- | Specifies the identifier of the given flow run.
+    executionId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the start time of the flow run.
+    startedAt :: Prelude.Maybe Core.POSIX,
+    -- | Describes the result of the given flow run.
+    executionResult :: Prelude.Maybe ExecutionResult,
     -- | Specifies the flow run status and whether it is in progress, has
     -- completed successfully, or has failed.
     executionStatus :: Prelude.Maybe ExecutionStatus,
-    -- | Specifies the start time of the flow run.
-    startedAt :: Prelude.Maybe Core.POSIX,
     -- | The timestamp that indicates the last new or updated record to be
     -- transferred in the flow run.
-    dataPullEndTime :: Prelude.Maybe Core.POSIX,
-    -- | Describes the result of the given flow run.
-    executionResult :: Prelude.Maybe ExecutionResult
+    dataPullEndTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,38 +58,34 @@ data ExecutionRecord = ExecutionRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'executionId', 'executionRecord_executionId' - Specifies the identifier of the given flow run.
---
 -- 'lastUpdatedAt', 'executionRecord_lastUpdatedAt' - Specifies the time of the most recent update.
 --
 -- 'dataPullStartTime', 'executionRecord_dataPullStartTime' - The timestamp that determines the first new or updated record to be
 -- transferred in the flow run.
 --
--- 'executionStatus', 'executionRecord_executionStatus' - Specifies the flow run status and whether it is in progress, has
--- completed successfully, or has failed.
+-- 'executionId', 'executionRecord_executionId' - Specifies the identifier of the given flow run.
 --
 -- 'startedAt', 'executionRecord_startedAt' - Specifies the start time of the flow run.
 --
+-- 'executionResult', 'executionRecord_executionResult' - Describes the result of the given flow run.
+--
+-- 'executionStatus', 'executionRecord_executionStatus' - Specifies the flow run status and whether it is in progress, has
+-- completed successfully, or has failed.
+--
 -- 'dataPullEndTime', 'executionRecord_dataPullEndTime' - The timestamp that indicates the last new or updated record to be
 -- transferred in the flow run.
---
--- 'executionResult', 'executionRecord_executionResult' - Describes the result of the given flow run.
 newExecutionRecord ::
   ExecutionRecord
 newExecutionRecord =
   ExecutionRecord'
-    { executionId = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
+    { lastUpdatedAt = Prelude.Nothing,
       dataPullStartTime = Prelude.Nothing,
-      executionStatus = Prelude.Nothing,
+      executionId = Prelude.Nothing,
       startedAt = Prelude.Nothing,
-      dataPullEndTime = Prelude.Nothing,
-      executionResult = Prelude.Nothing
+      executionResult = Prelude.Nothing,
+      executionStatus = Prelude.Nothing,
+      dataPullEndTime = Prelude.Nothing
     }
-
--- | Specifies the identifier of the given flow run.
-executionRecord_executionId :: Lens.Lens' ExecutionRecord (Prelude.Maybe Prelude.Text)
-executionRecord_executionId = Lens.lens (\ExecutionRecord' {executionId} -> executionId) (\s@ExecutionRecord' {} a -> s {executionId = a} :: ExecutionRecord)
 
 -- | Specifies the time of the most recent update.
 executionRecord_lastUpdatedAt :: Lens.Lens' ExecutionRecord (Prelude.Maybe Prelude.UTCTime)
@@ -100,23 +96,27 @@ executionRecord_lastUpdatedAt = Lens.lens (\ExecutionRecord' {lastUpdatedAt} -> 
 executionRecord_dataPullStartTime :: Lens.Lens' ExecutionRecord (Prelude.Maybe Prelude.UTCTime)
 executionRecord_dataPullStartTime = Lens.lens (\ExecutionRecord' {dataPullStartTime} -> dataPullStartTime) (\s@ExecutionRecord' {} a -> s {dataPullStartTime = a} :: ExecutionRecord) Prelude.. Lens.mapping Core._Time
 
--- | Specifies the flow run status and whether it is in progress, has
--- completed successfully, or has failed.
-executionRecord_executionStatus :: Lens.Lens' ExecutionRecord (Prelude.Maybe ExecutionStatus)
-executionRecord_executionStatus = Lens.lens (\ExecutionRecord' {executionStatus} -> executionStatus) (\s@ExecutionRecord' {} a -> s {executionStatus = a} :: ExecutionRecord)
+-- | Specifies the identifier of the given flow run.
+executionRecord_executionId :: Lens.Lens' ExecutionRecord (Prelude.Maybe Prelude.Text)
+executionRecord_executionId = Lens.lens (\ExecutionRecord' {executionId} -> executionId) (\s@ExecutionRecord' {} a -> s {executionId = a} :: ExecutionRecord)
 
 -- | Specifies the start time of the flow run.
 executionRecord_startedAt :: Lens.Lens' ExecutionRecord (Prelude.Maybe Prelude.UTCTime)
 executionRecord_startedAt = Lens.lens (\ExecutionRecord' {startedAt} -> startedAt) (\s@ExecutionRecord' {} a -> s {startedAt = a} :: ExecutionRecord) Prelude.. Lens.mapping Core._Time
 
+-- | Describes the result of the given flow run.
+executionRecord_executionResult :: Lens.Lens' ExecutionRecord (Prelude.Maybe ExecutionResult)
+executionRecord_executionResult = Lens.lens (\ExecutionRecord' {executionResult} -> executionResult) (\s@ExecutionRecord' {} a -> s {executionResult = a} :: ExecutionRecord)
+
+-- | Specifies the flow run status and whether it is in progress, has
+-- completed successfully, or has failed.
+executionRecord_executionStatus :: Lens.Lens' ExecutionRecord (Prelude.Maybe ExecutionStatus)
+executionRecord_executionStatus = Lens.lens (\ExecutionRecord' {executionStatus} -> executionStatus) (\s@ExecutionRecord' {} a -> s {executionStatus = a} :: ExecutionRecord)
+
 -- | The timestamp that indicates the last new or updated record to be
 -- transferred in the flow run.
 executionRecord_dataPullEndTime :: Lens.Lens' ExecutionRecord (Prelude.Maybe Prelude.UTCTime)
 executionRecord_dataPullEndTime = Lens.lens (\ExecutionRecord' {dataPullEndTime} -> dataPullEndTime) (\s@ExecutionRecord' {} a -> s {dataPullEndTime = a} :: ExecutionRecord) Prelude.. Lens.mapping Core._Time
-
--- | Describes the result of the given flow run.
-executionRecord_executionResult :: Lens.Lens' ExecutionRecord (Prelude.Maybe ExecutionResult)
-executionRecord_executionResult = Lens.lens (\ExecutionRecord' {executionResult} -> executionResult) (\s@ExecutionRecord' {} a -> s {executionResult = a} :: ExecutionRecord)
 
 instance Core.FromJSON ExecutionRecord where
   parseJSON =
@@ -124,31 +124,31 @@ instance Core.FromJSON ExecutionRecord where
       "ExecutionRecord"
       ( \x ->
           ExecutionRecord'
-            Prelude.<$> (x Core..:? "executionId")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
+            Prelude.<$> (x Core..:? "lastUpdatedAt")
             Prelude.<*> (x Core..:? "dataPullStartTime")
-            Prelude.<*> (x Core..:? "executionStatus")
+            Prelude.<*> (x Core..:? "executionId")
             Prelude.<*> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..:? "dataPullEndTime")
             Prelude.<*> (x Core..:? "executionResult")
+            Prelude.<*> (x Core..:? "executionStatus")
+            Prelude.<*> (x Core..:? "dataPullEndTime")
       )
 
 instance Prelude.Hashable ExecutionRecord where
   hashWithSalt _salt ExecutionRecord' {..} =
-    _salt `Prelude.hashWithSalt` executionId
-      `Prelude.hashWithSalt` lastUpdatedAt
+    _salt `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` dataPullStartTime
-      `Prelude.hashWithSalt` executionStatus
+      `Prelude.hashWithSalt` executionId
       `Prelude.hashWithSalt` startedAt
-      `Prelude.hashWithSalt` dataPullEndTime
       `Prelude.hashWithSalt` executionResult
+      `Prelude.hashWithSalt` executionStatus
+      `Prelude.hashWithSalt` dataPullEndTime
 
 instance Prelude.NFData ExecutionRecord where
   rnf ExecutionRecord' {..} =
-    Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
+    Prelude.rnf lastUpdatedAt
       `Prelude.seq` Prelude.rnf dataPullStartTime
-      `Prelude.seq` Prelude.rnf executionStatus
+      `Prelude.seq` Prelude.rnf executionId
       `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf dataPullEndTime
       `Prelude.seq` Prelude.rnf executionResult
+      `Prelude.seq` Prelude.rnf executionStatus
+      `Prelude.seq` Prelude.rnf dataPullEndTime

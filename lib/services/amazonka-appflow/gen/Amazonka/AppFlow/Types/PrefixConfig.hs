@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPrefixConfig' smart constructor.
 data PrefixConfig = PrefixConfig'
-  { -- | Determines the level of granularity that\'s included in the prefix.
-    prefixFormat :: Prelude.Maybe PrefixFormat,
-    -- | Determines the format of the prefix, and whether it applies to the file
+  { -- | Determines the format of the prefix, and whether it applies to the file
     -- name, file path, or both.
-    prefixType :: Prelude.Maybe PrefixType
+    prefixType :: Prelude.Maybe PrefixType,
+    -- | Determines the level of granularity that\'s included in the prefix.
+    prefixFormat :: Prelude.Maybe PrefixFormat
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,26 @@ data PrefixConfig = PrefixConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'prefixFormat', 'prefixConfig_prefixFormat' - Determines the level of granularity that\'s included in the prefix.
---
 -- 'prefixType', 'prefixConfig_prefixType' - Determines the format of the prefix, and whether it applies to the file
 -- name, file path, or both.
+--
+-- 'prefixFormat', 'prefixConfig_prefixFormat' - Determines the level of granularity that\'s included in the prefix.
 newPrefixConfig ::
   PrefixConfig
 newPrefixConfig =
   PrefixConfig'
-    { prefixFormat = Prelude.Nothing,
-      prefixType = Prelude.Nothing
+    { prefixType = Prelude.Nothing,
+      prefixFormat = Prelude.Nothing
     }
-
--- | Determines the level of granularity that\'s included in the prefix.
-prefixConfig_prefixFormat :: Lens.Lens' PrefixConfig (Prelude.Maybe PrefixFormat)
-prefixConfig_prefixFormat = Lens.lens (\PrefixConfig' {prefixFormat} -> prefixFormat) (\s@PrefixConfig' {} a -> s {prefixFormat = a} :: PrefixConfig)
 
 -- | Determines the format of the prefix, and whether it applies to the file
 -- name, file path, or both.
 prefixConfig_prefixType :: Lens.Lens' PrefixConfig (Prelude.Maybe PrefixType)
 prefixConfig_prefixType = Lens.lens (\PrefixConfig' {prefixType} -> prefixType) (\s@PrefixConfig' {} a -> s {prefixType = a} :: PrefixConfig)
+
+-- | Determines the level of granularity that\'s included in the prefix.
+prefixConfig_prefixFormat :: Lens.Lens' PrefixConfig (Prelude.Maybe PrefixFormat)
+prefixConfig_prefixFormat = Lens.lens (\PrefixConfig' {prefixFormat} -> prefixFormat) (\s@PrefixConfig' {} a -> s {prefixFormat = a} :: PrefixConfig)
 
 instance Core.FromJSON PrefixConfig where
   parseJSON =
@@ -74,25 +74,25 @@ instance Core.FromJSON PrefixConfig where
       "PrefixConfig"
       ( \x ->
           PrefixConfig'
-            Prelude.<$> (x Core..:? "prefixFormat")
-            Prelude.<*> (x Core..:? "prefixType")
+            Prelude.<$> (x Core..:? "prefixType")
+            Prelude.<*> (x Core..:? "prefixFormat")
       )
 
 instance Prelude.Hashable PrefixConfig where
   hashWithSalt _salt PrefixConfig' {..} =
-    _salt `Prelude.hashWithSalt` prefixFormat
-      `Prelude.hashWithSalt` prefixType
+    _salt `Prelude.hashWithSalt` prefixType
+      `Prelude.hashWithSalt` prefixFormat
 
 instance Prelude.NFData PrefixConfig where
   rnf PrefixConfig' {..} =
-    Prelude.rnf prefixFormat
-      `Prelude.seq` Prelude.rnf prefixType
+    Prelude.rnf prefixType
+      `Prelude.seq` Prelude.rnf prefixFormat
 
 instance Core.ToJSON PrefixConfig where
   toJSON PrefixConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("prefixFormat" Core..=) Prelude.<$> prefixFormat,
-            ("prefixType" Core..=) Prelude.<$> prefixType
+          [ ("prefixType" Core..=) Prelude.<$> prefixType,
+            ("prefixFormat" Core..=) Prelude.<$> prefixFormat
           ]
       )

@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSalesforceConnectorProfileProperties' smart constructor.
 data SalesforceConnectorProfileProperties = SalesforceConnectorProfileProperties'
-  { -- | The location of the Salesforce resource.
-    instanceUrl :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the connector profile applies to a sandbox or
+  { -- | Indicates whether the connector profile applies to a sandbox or
     -- production environment.
-    isSandboxEnvironment :: Prelude.Maybe Prelude.Bool
+    isSandboxEnvironment :: Prelude.Maybe Prelude.Bool,
+    -- | The location of the Salesforce resource.
+    instanceUrl :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,28 +44,27 @@ data SalesforceConnectorProfileProperties = SalesforceConnectorProfileProperties
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceUrl', 'salesforceConnectorProfileProperties_instanceUrl' - The location of the Salesforce resource.
---
 -- 'isSandboxEnvironment', 'salesforceConnectorProfileProperties_isSandboxEnvironment' - Indicates whether the connector profile applies to a sandbox or
 -- production environment.
+--
+-- 'instanceUrl', 'salesforceConnectorProfileProperties_instanceUrl' - The location of the Salesforce resource.
 newSalesforceConnectorProfileProperties ::
   SalesforceConnectorProfileProperties
 newSalesforceConnectorProfileProperties =
   SalesforceConnectorProfileProperties'
-    { instanceUrl =
+    { isSandboxEnvironment =
         Prelude.Nothing,
-      isSandboxEnvironment =
-        Prelude.Nothing
+      instanceUrl = Prelude.Nothing
     }
-
--- | The location of the Salesforce resource.
-salesforceConnectorProfileProperties_instanceUrl :: Lens.Lens' SalesforceConnectorProfileProperties (Prelude.Maybe Prelude.Text)
-salesforceConnectorProfileProperties_instanceUrl = Lens.lens (\SalesforceConnectorProfileProperties' {instanceUrl} -> instanceUrl) (\s@SalesforceConnectorProfileProperties' {} a -> s {instanceUrl = a} :: SalesforceConnectorProfileProperties)
 
 -- | Indicates whether the connector profile applies to a sandbox or
 -- production environment.
 salesforceConnectorProfileProperties_isSandboxEnvironment :: Lens.Lens' SalesforceConnectorProfileProperties (Prelude.Maybe Prelude.Bool)
 salesforceConnectorProfileProperties_isSandboxEnvironment = Lens.lens (\SalesforceConnectorProfileProperties' {isSandboxEnvironment} -> isSandboxEnvironment) (\s@SalesforceConnectorProfileProperties' {} a -> s {isSandboxEnvironment = a} :: SalesforceConnectorProfileProperties)
+
+-- | The location of the Salesforce resource.
+salesforceConnectorProfileProperties_instanceUrl :: Lens.Lens' SalesforceConnectorProfileProperties (Prelude.Maybe Prelude.Text)
+salesforceConnectorProfileProperties_instanceUrl = Lens.lens (\SalesforceConnectorProfileProperties' {instanceUrl} -> instanceUrl) (\s@SalesforceConnectorProfileProperties' {} a -> s {instanceUrl = a} :: SalesforceConnectorProfileProperties)
 
 instance
   Core.FromJSON
@@ -76,8 +75,8 @@ instance
       "SalesforceConnectorProfileProperties"
       ( \x ->
           SalesforceConnectorProfileProperties'
-            Prelude.<$> (x Core..:? "instanceUrl")
-            Prelude.<*> (x Core..:? "isSandboxEnvironment")
+            Prelude.<$> (x Core..:? "isSandboxEnvironment")
+            Prelude.<*> (x Core..:? "instanceUrl")
       )
 
 instance
@@ -87,16 +86,16 @@ instance
   hashWithSalt
     _salt
     SalesforceConnectorProfileProperties' {..} =
-      _salt `Prelude.hashWithSalt` instanceUrl
-        `Prelude.hashWithSalt` isSandboxEnvironment
+      _salt `Prelude.hashWithSalt` isSandboxEnvironment
+        `Prelude.hashWithSalt` instanceUrl
 
 instance
   Prelude.NFData
     SalesforceConnectorProfileProperties
   where
   rnf SalesforceConnectorProfileProperties' {..} =
-    Prelude.rnf instanceUrl
-      `Prelude.seq` Prelude.rnf isSandboxEnvironment
+    Prelude.rnf isSandboxEnvironment
+      `Prelude.seq` Prelude.rnf instanceUrl
 
 instance
   Core.ToJSON
@@ -105,8 +104,8 @@ instance
   toJSON SalesforceConnectorProfileProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("instanceUrl" Core..=) Prelude.<$> instanceUrl,
-            ("isSandboxEnvironment" Core..=)
-              Prelude.<$> isSandboxEnvironment
+          [ ("isSandboxEnvironment" Core..=)
+              Prelude.<$> isSandboxEnvironment,
+            ("instanceUrl" Core..=) Prelude.<$> instanceUrl
           ]
       )

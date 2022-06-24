@@ -30,19 +30,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSalesforceDestinationProperties' smart constructor.
 data SalesforceDestinationProperties = SalesforceDestinationProperties'
-  { -- | This specifies the type of write operation to be performed in
-    -- Salesforce. When the value is @UPSERT@, then @idFieldNames@ is required.
-    writeOperationType :: Prelude.Maybe WriteOperationType,
-    -- | The name of the field that Amazon AppFlow uses as an ID when performing
-    -- a write operation such as update or delete.
-    idFieldNames :: Prelude.Maybe [Prelude.Text],
-    -- | The settings that determine how Amazon AppFlow handles an error when
+  { -- | The settings that determine how Amazon AppFlow handles an error when
     -- placing data in the Salesforce destination. For example, this setting
     -- would determine if the flow should fail after one insertion error, or
     -- continue and attempt to insert every record regardless of the initial
     -- failure. @ErrorHandlingConfig@ is a part of the destination connector
     -- details.
     errorHandlingConfig :: Prelude.Maybe ErrorHandlingConfig,
+    -- | The name of the field that Amazon AppFlow uses as an ID when performing
+    -- a write operation such as update or delete.
+    idFieldNames :: Prelude.Maybe [Prelude.Text],
+    -- | This specifies the type of write operation to be performed in
+    -- Salesforce. When the value is @UPSERT@, then @idFieldNames@ is required.
+    writeOperationType :: Prelude.Maybe WriteOperationType,
     -- | The object specified in the Salesforce flow destination.
     object' :: Prelude.Text
   }
@@ -56,18 +56,18 @@ data SalesforceDestinationProperties = SalesforceDestinationProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'writeOperationType', 'salesforceDestinationProperties_writeOperationType' - This specifies the type of write operation to be performed in
--- Salesforce. When the value is @UPSERT@, then @idFieldNames@ is required.
---
--- 'idFieldNames', 'salesforceDestinationProperties_idFieldNames' - The name of the field that Amazon AppFlow uses as an ID when performing
--- a write operation such as update or delete.
---
 -- 'errorHandlingConfig', 'salesforceDestinationProperties_errorHandlingConfig' - The settings that determine how Amazon AppFlow handles an error when
 -- placing data in the Salesforce destination. For example, this setting
 -- would determine if the flow should fail after one insertion error, or
 -- continue and attempt to insert every record regardless of the initial
 -- failure. @ErrorHandlingConfig@ is a part of the destination connector
 -- details.
+--
+-- 'idFieldNames', 'salesforceDestinationProperties_idFieldNames' - The name of the field that Amazon AppFlow uses as an ID when performing
+-- a write operation such as update or delete.
+--
+-- 'writeOperationType', 'salesforceDestinationProperties_writeOperationType' - This specifies the type of write operation to be performed in
+-- Salesforce. When the value is @UPSERT@, then @idFieldNames@ is required.
 --
 -- 'object'', 'salesforceDestinationProperties_object' - The object specified in the Salesforce flow destination.
 newSalesforceDestinationProperties ::
@@ -76,22 +76,12 @@ newSalesforceDestinationProperties ::
   SalesforceDestinationProperties
 newSalesforceDestinationProperties pObject_ =
   SalesforceDestinationProperties'
-    { writeOperationType =
+    { errorHandlingConfig =
         Prelude.Nothing,
       idFieldNames = Prelude.Nothing,
-      errorHandlingConfig = Prelude.Nothing,
+      writeOperationType = Prelude.Nothing,
       object' = pObject_
     }
-
--- | This specifies the type of write operation to be performed in
--- Salesforce. When the value is @UPSERT@, then @idFieldNames@ is required.
-salesforceDestinationProperties_writeOperationType :: Lens.Lens' SalesforceDestinationProperties (Prelude.Maybe WriteOperationType)
-salesforceDestinationProperties_writeOperationType = Lens.lens (\SalesforceDestinationProperties' {writeOperationType} -> writeOperationType) (\s@SalesforceDestinationProperties' {} a -> s {writeOperationType = a} :: SalesforceDestinationProperties)
-
--- | The name of the field that Amazon AppFlow uses as an ID when performing
--- a write operation such as update or delete.
-salesforceDestinationProperties_idFieldNames :: Lens.Lens' SalesforceDestinationProperties (Prelude.Maybe [Prelude.Text])
-salesforceDestinationProperties_idFieldNames = Lens.lens (\SalesforceDestinationProperties' {idFieldNames} -> idFieldNames) (\s@SalesforceDestinationProperties' {} a -> s {idFieldNames = a} :: SalesforceDestinationProperties) Prelude.. Lens.mapping Lens.coerced
 
 -- | The settings that determine how Amazon AppFlow handles an error when
 -- placing data in the Salesforce destination. For example, this setting
@@ -101,6 +91,16 @@ salesforceDestinationProperties_idFieldNames = Lens.lens (\SalesforceDestination
 -- details.
 salesforceDestinationProperties_errorHandlingConfig :: Lens.Lens' SalesforceDestinationProperties (Prelude.Maybe ErrorHandlingConfig)
 salesforceDestinationProperties_errorHandlingConfig = Lens.lens (\SalesforceDestinationProperties' {errorHandlingConfig} -> errorHandlingConfig) (\s@SalesforceDestinationProperties' {} a -> s {errorHandlingConfig = a} :: SalesforceDestinationProperties)
+
+-- | The name of the field that Amazon AppFlow uses as an ID when performing
+-- a write operation such as update or delete.
+salesforceDestinationProperties_idFieldNames :: Lens.Lens' SalesforceDestinationProperties (Prelude.Maybe [Prelude.Text])
+salesforceDestinationProperties_idFieldNames = Lens.lens (\SalesforceDestinationProperties' {idFieldNames} -> idFieldNames) (\s@SalesforceDestinationProperties' {} a -> s {idFieldNames = a} :: SalesforceDestinationProperties) Prelude.. Lens.mapping Lens.coerced
+
+-- | This specifies the type of write operation to be performed in
+-- Salesforce. When the value is @UPSERT@, then @idFieldNames@ is required.
+salesforceDestinationProperties_writeOperationType :: Lens.Lens' SalesforceDestinationProperties (Prelude.Maybe WriteOperationType)
+salesforceDestinationProperties_writeOperationType = Lens.lens (\SalesforceDestinationProperties' {writeOperationType} -> writeOperationType) (\s@SalesforceDestinationProperties' {} a -> s {writeOperationType = a} :: SalesforceDestinationProperties)
 
 -- | The object specified in the Salesforce flow destination.
 salesforceDestinationProperties_object :: Lens.Lens' SalesforceDestinationProperties Prelude.Text
@@ -115,9 +115,9 @@ instance
       "SalesforceDestinationProperties"
       ( \x ->
           SalesforceDestinationProperties'
-            Prelude.<$> (x Core..:? "writeOperationType")
+            Prelude.<$> (x Core..:? "errorHandlingConfig")
             Prelude.<*> (x Core..:? "idFieldNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "errorHandlingConfig")
+            Prelude.<*> (x Core..:? "writeOperationType")
             Prelude.<*> (x Core..: "object")
       )
 
@@ -128,9 +128,9 @@ instance
   hashWithSalt
     _salt
     SalesforceDestinationProperties' {..} =
-      _salt `Prelude.hashWithSalt` writeOperationType
+      _salt `Prelude.hashWithSalt` errorHandlingConfig
         `Prelude.hashWithSalt` idFieldNames
-        `Prelude.hashWithSalt` errorHandlingConfig
+        `Prelude.hashWithSalt` writeOperationType
         `Prelude.hashWithSalt` object'
 
 instance
@@ -138,20 +138,20 @@ instance
     SalesforceDestinationProperties
   where
   rnf SalesforceDestinationProperties' {..} =
-    Prelude.rnf writeOperationType
+    Prelude.rnf errorHandlingConfig
       `Prelude.seq` Prelude.rnf idFieldNames
-      `Prelude.seq` Prelude.rnf errorHandlingConfig
+      `Prelude.seq` Prelude.rnf writeOperationType
       `Prelude.seq` Prelude.rnf object'
 
 instance Core.ToJSON SalesforceDestinationProperties where
   toJSON SalesforceDestinationProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("writeOperationType" Core..=)
-              Prelude.<$> writeOperationType,
-            ("idFieldNames" Core..=) Prelude.<$> idFieldNames,
-            ("errorHandlingConfig" Core..=)
+          [ ("errorHandlingConfig" Core..=)
               Prelude.<$> errorHandlingConfig,
+            ("idFieldNames" Core..=) Prelude.<$> idFieldNames,
+            ("writeOperationType" Core..=)
+              Prelude.<$> writeOperationType,
             Prelude.Just ("object" Core..= object')
           ]
       )

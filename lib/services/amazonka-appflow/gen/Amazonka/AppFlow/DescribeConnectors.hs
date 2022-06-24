@@ -40,8 +40,8 @@ module Amazonka.AppFlow.DescribeConnectors
     newDescribeConnectorsResponse,
 
     -- * Response Lenses
-    describeConnectorsResponse_connectorConfigurations,
     describeConnectorsResponse_nextToken,
+    describeConnectorsResponse_connectorConfigurations,
     describeConnectorsResponse_httpStatus,
   )
 where
@@ -98,10 +98,10 @@ instance Core.AWSRequest DescribeConnectors where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectorsResponse'
-            Prelude.<$> ( x Core..?> "connectorConfigurations"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "connectorConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,10 +144,10 @@ instance Core.ToQuery DescribeConnectors where
 
 -- | /See:/ 'newDescribeConnectorsResponse' smart constructor.
 data DescribeConnectorsResponse = DescribeConnectorsResponse'
-  { -- | The configuration that is applied to the connectors used in the flow.
-    connectorConfigurations :: Prelude.Maybe (Prelude.HashMap ConnectorType ConnectorConfiguration),
-    -- | The pagination token for the next page of data.
+  { -- | The pagination token for the next page of data.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The configuration that is applied to the connectors used in the flow.
+    connectorConfigurations :: Prelude.Maybe (Prelude.HashMap ConnectorType ConnectorConfiguration),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -161,9 +161,9 @@ data DescribeConnectorsResponse = DescribeConnectorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectorConfigurations', 'describeConnectorsResponse_connectorConfigurations' - The configuration that is applied to the connectors used in the flow.
---
 -- 'nextToken', 'describeConnectorsResponse_nextToken' - The pagination token for the next page of data.
+--
+-- 'connectorConfigurations', 'describeConnectorsResponse_connectorConfigurations' - The configuration that is applied to the connectors used in the flow.
 --
 -- 'httpStatus', 'describeConnectorsResponse_httpStatus' - The response's http status code.
 newDescribeConnectorsResponse ::
@@ -172,19 +172,19 @@ newDescribeConnectorsResponse ::
   DescribeConnectorsResponse
 newDescribeConnectorsResponse pHttpStatus_ =
   DescribeConnectorsResponse'
-    { connectorConfigurations =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      connectorConfigurations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The configuration that is applied to the connectors used in the flow.
-describeConnectorsResponse_connectorConfigurations :: Lens.Lens' DescribeConnectorsResponse (Prelude.Maybe (Prelude.HashMap ConnectorType ConnectorConfiguration))
-describeConnectorsResponse_connectorConfigurations = Lens.lens (\DescribeConnectorsResponse' {connectorConfigurations} -> connectorConfigurations) (\s@DescribeConnectorsResponse' {} a -> s {connectorConfigurations = a} :: DescribeConnectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token for the next page of data.
 describeConnectorsResponse_nextToken :: Lens.Lens' DescribeConnectorsResponse (Prelude.Maybe Prelude.Text)
 describeConnectorsResponse_nextToken = Lens.lens (\DescribeConnectorsResponse' {nextToken} -> nextToken) (\s@DescribeConnectorsResponse' {} a -> s {nextToken = a} :: DescribeConnectorsResponse)
+
+-- | The configuration that is applied to the connectors used in the flow.
+describeConnectorsResponse_connectorConfigurations :: Lens.Lens' DescribeConnectorsResponse (Prelude.Maybe (Prelude.HashMap ConnectorType ConnectorConfiguration))
+describeConnectorsResponse_connectorConfigurations = Lens.lens (\DescribeConnectorsResponse' {connectorConfigurations} -> connectorConfigurations) (\s@DescribeConnectorsResponse' {} a -> s {connectorConfigurations = a} :: DescribeConnectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConnectorsResponse_httpStatus :: Lens.Lens' DescribeConnectorsResponse Prelude.Int
@@ -192,6 +192,6 @@ describeConnectorsResponse_httpStatus = Lens.lens (\DescribeConnectorsResponse' 
 
 instance Prelude.NFData DescribeConnectorsResponse where
   rnf DescribeConnectorsResponse' {..} =
-    Prelude.rnf connectorConfigurations
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connectorConfigurations
       `Prelude.seq` Prelude.rnf httpStatus

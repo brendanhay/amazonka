@@ -27,17 +27,8 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListConnectorEntities $
---             newListConnectorEntities
---
---         , requestCreateConnectorProfile $
+--         [ requestCreateConnectorProfile $
 --             newCreateConnectorProfile
---
---         , requestStartFlow $
---             newStartFlow
---
---         , requestListTagsForResource $
---             newListTagsForResource
 --
 --         , requestCreateFlow $
 --             newCreateFlow
@@ -45,56 +36,56 @@ import Test.Tasty
 --         , requestDeleteConnectorProfile $
 --             newDeleteConnectorProfile
 --
---         , requestUpdateConnectorProfile $
---             newUpdateConnectorProfile
---
---         , requestDescribeFlow $
---             newDescribeFlow
---
---         , requestStopFlow $
---             newStopFlow
---
---         , requestDescribeConnectors $
---             newDescribeConnectors
+--         , requestDeleteFlow $
+--             newDeleteFlow
 --
 --         , requestDescribeConnectorEntity $
 --             newDescribeConnectorEntity
 --
---         , requestTagResource $
---             newTagResource
+--         , requestDescribeConnectorProfiles $
+--             newDescribeConnectorProfiles
 --
---         , requestListFlows $
---             newListFlows
+--         , requestDescribeConnectors $
+--             newDescribeConnectors
+--
+--         , requestDescribeFlow $
+--             newDescribeFlow
 --
 --         , requestDescribeFlowExecutionRecords $
 --             newDescribeFlowExecutionRecords
 --
+--         , requestListConnectorEntities $
+--             newListConnectorEntities
+--
+--         , requestListFlows $
+--             newListFlows
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestStartFlow $
+--             newStartFlow
+--
+--         , requestStopFlow $
+--             newStopFlow
+--
+--         , requestTagResource $
+--             newTagResource
+--
 --         , requestUntagResource $
 --             newUntagResource
+--
+--         , requestUpdateConnectorProfile $
+--             newUpdateConnectorProfile
 --
 --         , requestUpdateFlow $
 --             newUpdateFlow
 --
---         , requestDeleteFlow $
---             newDeleteFlow
---
---         , requestDescribeConnectorProfiles $
---             newDescribeConnectorProfiles
---
 --           ]
 
 --     , testGroup "response"
---         [ responseListConnectorEntities $
---             newListConnectorEntitiesResponse
---
---         , responseCreateConnectorProfile $
+--         [ responseCreateConnectorProfile $
 --             newCreateConnectorProfileResponse
---
---         , responseStartFlow $
---             newStartFlowResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
 --
 --         , responseCreateFlow $
 --             newCreateFlowResponse
@@ -102,70 +93,61 @@ import Test.Tasty
 --         , responseDeleteConnectorProfile $
 --             newDeleteConnectorProfileResponse
 --
---         , responseUpdateConnectorProfile $
---             newUpdateConnectorProfileResponse
---
---         , responseDescribeFlow $
---             newDescribeFlowResponse
---
---         , responseStopFlow $
---             newStopFlowResponse
---
---         , responseDescribeConnectors $
---             newDescribeConnectorsResponse
+--         , responseDeleteFlow $
+--             newDeleteFlowResponse
 --
 --         , responseDescribeConnectorEntity $
 --             newDescribeConnectorEntityResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseDescribeConnectorProfiles $
+--             newDescribeConnectorProfilesResponse
 --
---         , responseListFlows $
---             newListFlowsResponse
+--         , responseDescribeConnectors $
+--             newDescribeConnectorsResponse
+--
+--         , responseDescribeFlow $
+--             newDescribeFlowResponse
 --
 --         , responseDescribeFlowExecutionRecords $
 --             newDescribeFlowExecutionRecordsResponse
 --
+--         , responseListConnectorEntities $
+--             newListConnectorEntitiesResponse
+--
+--         , responseListFlows $
+--             newListFlowsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseStartFlow $
+--             newStartFlowResponse
+--
+--         , responseStopFlow $
+--             newStopFlowResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
+--         , responseUpdateConnectorProfile $
+--             newUpdateConnectorProfileResponse
+--
 --         , responseUpdateFlow $
 --             newUpdateFlowResponse
---
---         , responseDeleteFlow $
---             newDeleteFlowResponse
---
---         , responseDescribeConnectorProfiles $
---             newDescribeConnectorProfilesResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestListConnectorEntities :: ListConnectorEntities -> TestTree
-requestListConnectorEntities =
-  req
-    "ListConnectorEntities"
-    "fixture/ListConnectorEntities.yaml"
-
 requestCreateConnectorProfile :: CreateConnectorProfile -> TestTree
 requestCreateConnectorProfile =
   req
     "CreateConnectorProfile"
     "fixture/CreateConnectorProfile.yaml"
-
-requestStartFlow :: StartFlow -> TestTree
-requestStartFlow =
-  req
-    "StartFlow"
-    "fixture/StartFlow.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
 
 requestCreateFlow :: CreateFlow -> TestTree
 requestCreateFlow =
@@ -179,29 +161,11 @@ requestDeleteConnectorProfile =
     "DeleteConnectorProfile"
     "fixture/DeleteConnectorProfile.yaml"
 
-requestUpdateConnectorProfile :: UpdateConnectorProfile -> TestTree
-requestUpdateConnectorProfile =
+requestDeleteFlow :: DeleteFlow -> TestTree
+requestDeleteFlow =
   req
-    "UpdateConnectorProfile"
-    "fixture/UpdateConnectorProfile.yaml"
-
-requestDescribeFlow :: DescribeFlow -> TestTree
-requestDescribeFlow =
-  req
-    "DescribeFlow"
-    "fixture/DescribeFlow.yaml"
-
-requestStopFlow :: StopFlow -> TestTree
-requestStopFlow =
-  req
-    "StopFlow"
-    "fixture/StopFlow.yaml"
-
-requestDescribeConnectors :: DescribeConnectors -> TestTree
-requestDescribeConnectors =
-  req
-    "DescribeConnectors"
-    "fixture/DescribeConnectors.yaml"
+    "DeleteFlow"
+    "fixture/DeleteFlow.yaml"
 
 requestDescribeConnectorEntity :: DescribeConnectorEntity -> TestTree
 requestDescribeConnectorEntity =
@@ -209,17 +173,23 @@ requestDescribeConnectorEntity =
     "DescribeConnectorEntity"
     "fixture/DescribeConnectorEntity.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestDescribeConnectorProfiles :: DescribeConnectorProfiles -> TestTree
+requestDescribeConnectorProfiles =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "DescribeConnectorProfiles"
+    "fixture/DescribeConnectorProfiles.yaml"
 
-requestListFlows :: ListFlows -> TestTree
-requestListFlows =
+requestDescribeConnectors :: DescribeConnectors -> TestTree
+requestDescribeConnectors =
   req
-    "ListFlows"
-    "fixture/ListFlows.yaml"
+    "DescribeConnectors"
+    "fixture/DescribeConnectors.yaml"
+
+requestDescribeFlow :: DescribeFlow -> TestTree
+requestDescribeFlow =
+  req
+    "DescribeFlow"
+    "fixture/DescribeFlow.yaml"
 
 requestDescribeFlowExecutionRecords :: DescribeFlowExecutionRecords -> TestTree
 requestDescribeFlowExecutionRecords =
@@ -227,11 +197,53 @@ requestDescribeFlowExecutionRecords =
     "DescribeFlowExecutionRecords"
     "fixture/DescribeFlowExecutionRecords.yaml"
 
+requestListConnectorEntities :: ListConnectorEntities -> TestTree
+requestListConnectorEntities =
+  req
+    "ListConnectorEntities"
+    "fixture/ListConnectorEntities.yaml"
+
+requestListFlows :: ListFlows -> TestTree
+requestListFlows =
+  req
+    "ListFlows"
+    "fixture/ListFlows.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestStartFlow :: StartFlow -> TestTree
+requestStartFlow =
+  req
+    "StartFlow"
+    "fixture/StartFlow.yaml"
+
+requestStopFlow :: StopFlow -> TestTree
+requestStopFlow =
+  req
+    "StopFlow"
+    "fixture/StopFlow.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
+
+requestUpdateConnectorProfile :: UpdateConnectorProfile -> TestTree
+requestUpdateConnectorProfile =
+  req
+    "UpdateConnectorProfile"
+    "fixture/UpdateConnectorProfile.yaml"
 
 requestUpdateFlow :: UpdateFlow -> TestTree
 requestUpdateFlow =
@@ -239,27 +251,7 @@ requestUpdateFlow =
     "UpdateFlow"
     "fixture/UpdateFlow.yaml"
 
-requestDeleteFlow :: DeleteFlow -> TestTree
-requestDeleteFlow =
-  req
-    "DeleteFlow"
-    "fixture/DeleteFlow.yaml"
-
-requestDescribeConnectorProfiles :: DescribeConnectorProfiles -> TestTree
-requestDescribeConnectorProfiles =
-  req
-    "DescribeConnectorProfiles"
-    "fixture/DescribeConnectorProfiles.yaml"
-
 -- Responses
-
-responseListConnectorEntities :: ListConnectorEntitiesResponse -> TestTree
-responseListConnectorEntities =
-  res
-    "ListConnectorEntitiesResponse"
-    "fixture/ListConnectorEntitiesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListConnectorEntities)
 
 responseCreateConnectorProfile :: CreateConnectorProfileResponse -> TestTree
 responseCreateConnectorProfile =
@@ -268,22 +260,6 @@ responseCreateConnectorProfile =
     "fixture/CreateConnectorProfileResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateConnectorProfile)
-
-responseStartFlow :: StartFlowResponse -> TestTree
-responseStartFlow =
-  res
-    "StartFlowResponse"
-    "fixture/StartFlowResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartFlow)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateFlow :: CreateFlowResponse -> TestTree
 responseCreateFlow =
@@ -301,37 +277,13 @@ responseDeleteConnectorProfile =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteConnectorProfile)
 
-responseUpdateConnectorProfile :: UpdateConnectorProfileResponse -> TestTree
-responseUpdateConnectorProfile =
+responseDeleteFlow :: DeleteFlowResponse -> TestTree
+responseDeleteFlow =
   res
-    "UpdateConnectorProfileResponse"
-    "fixture/UpdateConnectorProfileResponse.proto"
+    "DeleteFlowResponse"
+    "fixture/DeleteFlowResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateConnectorProfile)
-
-responseDescribeFlow :: DescribeFlowResponse -> TestTree
-responseDescribeFlow =
-  res
-    "DescribeFlowResponse"
-    "fixture/DescribeFlowResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFlow)
-
-responseStopFlow :: StopFlowResponse -> TestTree
-responseStopFlow =
-  res
-    "StopFlowResponse"
-    "fixture/StopFlowResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopFlow)
-
-responseDescribeConnectors :: DescribeConnectorsResponse -> TestTree
-responseDescribeConnectors =
-  res
-    "DescribeConnectorsResponse"
-    "fixture/DescribeConnectorsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeConnectors)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFlow)
 
 responseDescribeConnectorEntity :: DescribeConnectorEntityResponse -> TestTree
 responseDescribeConnectorEntity =
@@ -341,21 +293,29 @@ responseDescribeConnectorEntity =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeConnectorEntity)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseDescribeConnectorProfiles :: DescribeConnectorProfilesResponse -> TestTree
+responseDescribeConnectorProfiles =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "DescribeConnectorProfilesResponse"
+    "fixture/DescribeConnectorProfilesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnectorProfiles)
 
-responseListFlows :: ListFlowsResponse -> TestTree
-responseListFlows =
+responseDescribeConnectors :: DescribeConnectorsResponse -> TestTree
+responseDescribeConnectors =
   res
-    "ListFlowsResponse"
-    "fixture/ListFlowsResponse.proto"
+    "DescribeConnectorsResponse"
+    "fixture/DescribeConnectorsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFlows)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnectors)
+
+responseDescribeFlow :: DescribeFlowResponse -> TestTree
+responseDescribeFlow =
+  res
+    "DescribeFlowResponse"
+    "fixture/DescribeFlowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFlow)
 
 responseDescribeFlowExecutionRecords :: DescribeFlowExecutionRecordsResponse -> TestTree
 responseDescribeFlowExecutionRecords =
@@ -365,6 +325,54 @@ responseDescribeFlowExecutionRecords =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeFlowExecutionRecords)
 
+responseListConnectorEntities :: ListConnectorEntitiesResponse -> TestTree
+responseListConnectorEntities =
+  res
+    "ListConnectorEntitiesResponse"
+    "fixture/ListConnectorEntitiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListConnectorEntities)
+
+responseListFlows :: ListFlowsResponse -> TestTree
+responseListFlows =
+  res
+    "ListFlowsResponse"
+    "fixture/ListFlowsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFlows)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseStartFlow :: StartFlowResponse -> TestTree
+responseStartFlow =
+  res
+    "StartFlowResponse"
+    "fixture/StartFlowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartFlow)
+
+responseStopFlow :: StopFlowResponse -> TestTree
+responseStopFlow =
+  res
+    "StopFlowResponse"
+    "fixture/StopFlowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopFlow)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -373,6 +381,14 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
+responseUpdateConnectorProfile :: UpdateConnectorProfileResponse -> TestTree
+responseUpdateConnectorProfile =
+  res
+    "UpdateConnectorProfileResponse"
+    "fixture/UpdateConnectorProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnectorProfile)
+
 responseUpdateFlow :: UpdateFlowResponse -> TestTree
 responseUpdateFlow =
   res
@@ -380,19 +396,3 @@ responseUpdateFlow =
     "fixture/UpdateFlowResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateFlow)
-
-responseDeleteFlow :: DeleteFlowResponse -> TestTree
-responseDeleteFlow =
-  res
-    "DeleteFlowResponse"
-    "fixture/DeleteFlowResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFlow)
-
-responseDescribeConnectorProfiles :: DescribeConnectorProfilesResponse -> TestTree
-responseDescribeConnectorProfiles =
-  res
-    "DescribeConnectorProfilesResponse"
-    "fixture/DescribeConnectorProfilesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeConnectorProfiles)

@@ -27,15 +27,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVeevaSourceProperties' smart constructor.
 data VeevaSourceProperties = VeevaSourceProperties'
-  { -- | Boolean value to include All Versions of files in Veeva document extract
-    -- flow.
-    includeAllVersions :: Prelude.Maybe Prelude.Bool,
-    -- | The document type specified in the Veeva document extract flow.
+  { -- | The document type specified in the Veeva document extract flow.
     documentType :: Prelude.Maybe Prelude.Text,
-    -- | Boolean value to include file renditions in Veeva document extract flow.
-    includeRenditions :: Prelude.Maybe Prelude.Bool,
     -- | Boolean value to include source files in Veeva document extract flow.
     includeSourceFiles :: Prelude.Maybe Prelude.Bool,
+    -- | Boolean value to include file renditions in Veeva document extract flow.
+    includeRenditions :: Prelude.Maybe Prelude.Bool,
+    -- | Boolean value to include All Versions of files in Veeva document extract
+    -- flow.
+    includeAllVersions :: Prelude.Maybe Prelude.Bool,
     -- | The object specified in the Veeva flow source.
     object' :: Prelude.Text
   }
@@ -49,14 +49,14 @@ data VeevaSourceProperties = VeevaSourceProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeAllVersions', 'veevaSourceProperties_includeAllVersions' - Boolean value to include All Versions of files in Veeva document extract
--- flow.
---
 -- 'documentType', 'veevaSourceProperties_documentType' - The document type specified in the Veeva document extract flow.
+--
+-- 'includeSourceFiles', 'veevaSourceProperties_includeSourceFiles' - Boolean value to include source files in Veeva document extract flow.
 --
 -- 'includeRenditions', 'veevaSourceProperties_includeRenditions' - Boolean value to include file renditions in Veeva document extract flow.
 --
--- 'includeSourceFiles', 'veevaSourceProperties_includeSourceFiles' - Boolean value to include source files in Veeva document extract flow.
+-- 'includeAllVersions', 'veevaSourceProperties_includeAllVersions' - Boolean value to include All Versions of files in Veeva document extract
+-- flow.
 --
 -- 'object'', 'veevaSourceProperties_object' - The object specified in the Veeva flow source.
 newVeevaSourceProperties ::
@@ -65,30 +65,30 @@ newVeevaSourceProperties ::
   VeevaSourceProperties
 newVeevaSourceProperties pObject_ =
   VeevaSourceProperties'
-    { includeAllVersions =
+    { documentType =
         Prelude.Nothing,
-      documentType = Prelude.Nothing,
-      includeRenditions = Prelude.Nothing,
       includeSourceFiles = Prelude.Nothing,
+      includeRenditions = Prelude.Nothing,
+      includeAllVersions = Prelude.Nothing,
       object' = pObject_
     }
-
--- | Boolean value to include All Versions of files in Veeva document extract
--- flow.
-veevaSourceProperties_includeAllVersions :: Lens.Lens' VeevaSourceProperties (Prelude.Maybe Prelude.Bool)
-veevaSourceProperties_includeAllVersions = Lens.lens (\VeevaSourceProperties' {includeAllVersions} -> includeAllVersions) (\s@VeevaSourceProperties' {} a -> s {includeAllVersions = a} :: VeevaSourceProperties)
 
 -- | The document type specified in the Veeva document extract flow.
 veevaSourceProperties_documentType :: Lens.Lens' VeevaSourceProperties (Prelude.Maybe Prelude.Text)
 veevaSourceProperties_documentType = Lens.lens (\VeevaSourceProperties' {documentType} -> documentType) (\s@VeevaSourceProperties' {} a -> s {documentType = a} :: VeevaSourceProperties)
 
+-- | Boolean value to include source files in Veeva document extract flow.
+veevaSourceProperties_includeSourceFiles :: Lens.Lens' VeevaSourceProperties (Prelude.Maybe Prelude.Bool)
+veevaSourceProperties_includeSourceFiles = Lens.lens (\VeevaSourceProperties' {includeSourceFiles} -> includeSourceFiles) (\s@VeevaSourceProperties' {} a -> s {includeSourceFiles = a} :: VeevaSourceProperties)
+
 -- | Boolean value to include file renditions in Veeva document extract flow.
 veevaSourceProperties_includeRenditions :: Lens.Lens' VeevaSourceProperties (Prelude.Maybe Prelude.Bool)
 veevaSourceProperties_includeRenditions = Lens.lens (\VeevaSourceProperties' {includeRenditions} -> includeRenditions) (\s@VeevaSourceProperties' {} a -> s {includeRenditions = a} :: VeevaSourceProperties)
 
--- | Boolean value to include source files in Veeva document extract flow.
-veevaSourceProperties_includeSourceFiles :: Lens.Lens' VeevaSourceProperties (Prelude.Maybe Prelude.Bool)
-veevaSourceProperties_includeSourceFiles = Lens.lens (\VeevaSourceProperties' {includeSourceFiles} -> includeSourceFiles) (\s@VeevaSourceProperties' {} a -> s {includeSourceFiles = a} :: VeevaSourceProperties)
+-- | Boolean value to include All Versions of files in Veeva document extract
+-- flow.
+veevaSourceProperties_includeAllVersions :: Lens.Lens' VeevaSourceProperties (Prelude.Maybe Prelude.Bool)
+veevaSourceProperties_includeAllVersions = Lens.lens (\VeevaSourceProperties' {includeAllVersions} -> includeAllVersions) (\s@VeevaSourceProperties' {} a -> s {includeAllVersions = a} :: VeevaSourceProperties)
 
 -- | The object specified in the Veeva flow source.
 veevaSourceProperties_object :: Lens.Lens' VeevaSourceProperties Prelude.Text
@@ -100,40 +100,40 @@ instance Core.FromJSON VeevaSourceProperties where
       "VeevaSourceProperties"
       ( \x ->
           VeevaSourceProperties'
-            Prelude.<$> (x Core..:? "includeAllVersions")
-            Prelude.<*> (x Core..:? "documentType")
-            Prelude.<*> (x Core..:? "includeRenditions")
+            Prelude.<$> (x Core..:? "documentType")
             Prelude.<*> (x Core..:? "includeSourceFiles")
+            Prelude.<*> (x Core..:? "includeRenditions")
+            Prelude.<*> (x Core..:? "includeAllVersions")
             Prelude.<*> (x Core..: "object")
       )
 
 instance Prelude.Hashable VeevaSourceProperties where
   hashWithSalt _salt VeevaSourceProperties' {..} =
-    _salt `Prelude.hashWithSalt` includeAllVersions
-      `Prelude.hashWithSalt` documentType
-      `Prelude.hashWithSalt` includeRenditions
+    _salt `Prelude.hashWithSalt` documentType
       `Prelude.hashWithSalt` includeSourceFiles
+      `Prelude.hashWithSalt` includeRenditions
+      `Prelude.hashWithSalt` includeAllVersions
       `Prelude.hashWithSalt` object'
 
 instance Prelude.NFData VeevaSourceProperties where
   rnf VeevaSourceProperties' {..} =
-    Prelude.rnf includeAllVersions
-      `Prelude.seq` Prelude.rnf documentType
-      `Prelude.seq` Prelude.rnf includeRenditions
+    Prelude.rnf documentType
       `Prelude.seq` Prelude.rnf includeSourceFiles
+      `Prelude.seq` Prelude.rnf includeRenditions
+      `Prelude.seq` Prelude.rnf includeAllVersions
       `Prelude.seq` Prelude.rnf object'
 
 instance Core.ToJSON VeevaSourceProperties where
   toJSON VeevaSourceProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("includeAllVersions" Core..=)
-              Prelude.<$> includeAllVersions,
-            ("documentType" Core..=) Prelude.<$> documentType,
-            ("includeRenditions" Core..=)
-              Prelude.<$> includeRenditions,
+          [ ("documentType" Core..=) Prelude.<$> documentType,
             ("includeSourceFiles" Core..=)
               Prelude.<$> includeSourceFiles,
+            ("includeRenditions" Core..=)
+              Prelude.<$> includeRenditions,
+            ("includeAllVersions" Core..=)
+              Prelude.<$> includeAllVersions,
             Prelude.Just ("object" Core..= object')
           ]
       )

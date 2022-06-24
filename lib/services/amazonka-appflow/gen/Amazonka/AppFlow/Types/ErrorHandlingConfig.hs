@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newErrorHandlingConfig' smart constructor.
 data ErrorHandlingConfig = ErrorHandlingConfig'
-  { -- | Specifies if the flow should fail after the first instance of a failure
-    -- when attempting to place data in the destination.
-    failOnFirstDestinationError :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the Amazon S3 bucket prefix.
+  { -- | Specifies the Amazon S3 bucket prefix.
     bucketPrefix :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the Amazon S3 bucket.
-    bucketName :: Prelude.Maybe Prelude.Text
+    bucketName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies if the flow should fail after the first instance of a failure
+    -- when attempting to place data in the destination.
+    failOnFirstDestinationError :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,26 +49,21 @@ data ErrorHandlingConfig = ErrorHandlingConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failOnFirstDestinationError', 'errorHandlingConfig_failOnFirstDestinationError' - Specifies if the flow should fail after the first instance of a failure
--- when attempting to place data in the destination.
---
 -- 'bucketPrefix', 'errorHandlingConfig_bucketPrefix' - Specifies the Amazon S3 bucket prefix.
 --
 -- 'bucketName', 'errorHandlingConfig_bucketName' - Specifies the name of the Amazon S3 bucket.
+--
+-- 'failOnFirstDestinationError', 'errorHandlingConfig_failOnFirstDestinationError' - Specifies if the flow should fail after the first instance of a failure
+-- when attempting to place data in the destination.
 newErrorHandlingConfig ::
   ErrorHandlingConfig
 newErrorHandlingConfig =
   ErrorHandlingConfig'
-    { failOnFirstDestinationError =
+    { bucketPrefix =
         Prelude.Nothing,
-      bucketPrefix = Prelude.Nothing,
-      bucketName = Prelude.Nothing
+      bucketName = Prelude.Nothing,
+      failOnFirstDestinationError = Prelude.Nothing
     }
-
--- | Specifies if the flow should fail after the first instance of a failure
--- when attempting to place data in the destination.
-errorHandlingConfig_failOnFirstDestinationError :: Lens.Lens' ErrorHandlingConfig (Prelude.Maybe Prelude.Bool)
-errorHandlingConfig_failOnFirstDestinationError = Lens.lens (\ErrorHandlingConfig' {failOnFirstDestinationError} -> failOnFirstDestinationError) (\s@ErrorHandlingConfig' {} a -> s {failOnFirstDestinationError = a} :: ErrorHandlingConfig)
 
 -- | Specifies the Amazon S3 bucket prefix.
 errorHandlingConfig_bucketPrefix :: Lens.Lens' ErrorHandlingConfig (Prelude.Maybe Prelude.Text)
@@ -78,37 +73,41 @@ errorHandlingConfig_bucketPrefix = Lens.lens (\ErrorHandlingConfig' {bucketPrefi
 errorHandlingConfig_bucketName :: Lens.Lens' ErrorHandlingConfig (Prelude.Maybe Prelude.Text)
 errorHandlingConfig_bucketName = Lens.lens (\ErrorHandlingConfig' {bucketName} -> bucketName) (\s@ErrorHandlingConfig' {} a -> s {bucketName = a} :: ErrorHandlingConfig)
 
+-- | Specifies if the flow should fail after the first instance of a failure
+-- when attempting to place data in the destination.
+errorHandlingConfig_failOnFirstDestinationError :: Lens.Lens' ErrorHandlingConfig (Prelude.Maybe Prelude.Bool)
+errorHandlingConfig_failOnFirstDestinationError = Lens.lens (\ErrorHandlingConfig' {failOnFirstDestinationError} -> failOnFirstDestinationError) (\s@ErrorHandlingConfig' {} a -> s {failOnFirstDestinationError = a} :: ErrorHandlingConfig)
+
 instance Core.FromJSON ErrorHandlingConfig where
   parseJSON =
     Core.withObject
       "ErrorHandlingConfig"
       ( \x ->
           ErrorHandlingConfig'
-            Prelude.<$> (x Core..:? "failOnFirstDestinationError")
-            Prelude.<*> (x Core..:? "bucketPrefix")
+            Prelude.<$> (x Core..:? "bucketPrefix")
             Prelude.<*> (x Core..:? "bucketName")
+            Prelude.<*> (x Core..:? "failOnFirstDestinationError")
       )
 
 instance Prelude.Hashable ErrorHandlingConfig where
   hashWithSalt _salt ErrorHandlingConfig' {..} =
-    _salt
-      `Prelude.hashWithSalt` failOnFirstDestinationError
-      `Prelude.hashWithSalt` bucketPrefix
+    _salt `Prelude.hashWithSalt` bucketPrefix
       `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` failOnFirstDestinationError
 
 instance Prelude.NFData ErrorHandlingConfig where
   rnf ErrorHandlingConfig' {..} =
-    Prelude.rnf failOnFirstDestinationError
-      `Prelude.seq` Prelude.rnf bucketPrefix
+    Prelude.rnf bucketPrefix
       `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf failOnFirstDestinationError
 
 instance Core.ToJSON ErrorHandlingConfig where
   toJSON ErrorHandlingConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("failOnFirstDestinationError" Core..=)
-              Prelude.<$> failOnFirstDestinationError,
-            ("bucketPrefix" Core..=) Prelude.<$> bucketPrefix,
-            ("bucketName" Core..=) Prelude.<$> bucketName
+          [ ("bucketPrefix" Core..=) Prelude.<$> bucketPrefix,
+            ("bucketName" Core..=) Prelude.<$> bucketName,
+            ("failOnFirstDestinationError" Core..=)
+              Prelude.<$> failOnFirstDestinationError
           ]
       )

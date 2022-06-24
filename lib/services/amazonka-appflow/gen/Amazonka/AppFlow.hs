@@ -51,26 +51,26 @@ module Amazonka.AppFlow
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** ConnectorAuthenticationException
+    _ConnectorAuthenticationException,
 
     -- ** UnsupportedOperationException
     _UnsupportedOperationException,
 
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ConnectorAuthenticationException
-    _ConnectorAuthenticationException,
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- ** ConnectorServerException
     _ConnectorServerException,
@@ -81,29 +81,11 @@ module Amazonka.AppFlow
     -- * Operations
     -- $operations
 
-    -- ** ListConnectorEntities
-    ListConnectorEntities (ListConnectorEntities'),
-    newListConnectorEntities,
-    ListConnectorEntitiesResponse (ListConnectorEntitiesResponse'),
-    newListConnectorEntitiesResponse,
-
     -- ** CreateConnectorProfile
     CreateConnectorProfile (CreateConnectorProfile'),
     newCreateConnectorProfile,
     CreateConnectorProfileResponse (CreateConnectorProfileResponse'),
     newCreateConnectorProfileResponse,
-
-    -- ** StartFlow
-    StartFlow (StartFlow'),
-    newStartFlow,
-    StartFlowResponse (StartFlowResponse'),
-    newStartFlowResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
 
     -- ** CreateFlow
     CreateFlow (CreateFlow'),
@@ -117,29 +99,11 @@ module Amazonka.AppFlow
     DeleteConnectorProfileResponse (DeleteConnectorProfileResponse'),
     newDeleteConnectorProfileResponse,
 
-    -- ** UpdateConnectorProfile
-    UpdateConnectorProfile (UpdateConnectorProfile'),
-    newUpdateConnectorProfile,
-    UpdateConnectorProfileResponse (UpdateConnectorProfileResponse'),
-    newUpdateConnectorProfileResponse,
-
-    -- ** DescribeFlow
-    DescribeFlow (DescribeFlow'),
-    newDescribeFlow,
-    DescribeFlowResponse (DescribeFlowResponse'),
-    newDescribeFlowResponse,
-
-    -- ** StopFlow
-    StopFlow (StopFlow'),
-    newStopFlow,
-    StopFlowResponse (StopFlowResponse'),
-    newStopFlowResponse,
-
-    -- ** DescribeConnectors
-    DescribeConnectors (DescribeConnectors'),
-    newDescribeConnectors,
-    DescribeConnectorsResponse (DescribeConnectorsResponse'),
-    newDescribeConnectorsResponse,
+    -- ** DeleteFlow
+    DeleteFlow (DeleteFlow'),
+    newDeleteFlow,
+    DeleteFlowResponse (DeleteFlowResponse'),
+    newDeleteFlowResponse,
 
     -- ** DescribeConnectorEntity
     DescribeConnectorEntity (DescribeConnectorEntity'),
@@ -147,17 +111,23 @@ module Amazonka.AppFlow
     DescribeConnectorEntityResponse (DescribeConnectorEntityResponse'),
     newDescribeConnectorEntityResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** DescribeConnectorProfiles
+    DescribeConnectorProfiles (DescribeConnectorProfiles'),
+    newDescribeConnectorProfiles,
+    DescribeConnectorProfilesResponse (DescribeConnectorProfilesResponse'),
+    newDescribeConnectorProfilesResponse,
 
-    -- ** ListFlows
-    ListFlows (ListFlows'),
-    newListFlows,
-    ListFlowsResponse (ListFlowsResponse'),
-    newListFlowsResponse,
+    -- ** DescribeConnectors
+    DescribeConnectors (DescribeConnectors'),
+    newDescribeConnectors,
+    DescribeConnectorsResponse (DescribeConnectorsResponse'),
+    newDescribeConnectorsResponse,
+
+    -- ** DescribeFlow
+    DescribeFlow (DescribeFlow'),
+    newDescribeFlow,
+    DescribeFlowResponse (DescribeFlowResponse'),
+    newDescribeFlowResponse,
 
     -- ** DescribeFlowExecutionRecords
     DescribeFlowExecutionRecords (DescribeFlowExecutionRecords'),
@@ -165,29 +135,59 @@ module Amazonka.AppFlow
     DescribeFlowExecutionRecordsResponse (DescribeFlowExecutionRecordsResponse'),
     newDescribeFlowExecutionRecordsResponse,
 
+    -- ** ListConnectorEntities
+    ListConnectorEntities (ListConnectorEntities'),
+    newListConnectorEntities,
+    ListConnectorEntitiesResponse (ListConnectorEntitiesResponse'),
+    newListConnectorEntitiesResponse,
+
+    -- ** ListFlows
+    ListFlows (ListFlows'),
+    newListFlows,
+    ListFlowsResponse (ListFlowsResponse'),
+    newListFlowsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** StartFlow
+    StartFlow (StartFlow'),
+    newStartFlow,
+    StartFlowResponse (StartFlowResponse'),
+    newStartFlowResponse,
+
+    -- ** StopFlow
+    StopFlow (StopFlow'),
+    newStopFlow,
+    StopFlowResponse (StopFlowResponse'),
+    newStopFlowResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateConnectorProfile
+    UpdateConnectorProfile (UpdateConnectorProfile'),
+    newUpdateConnectorProfile,
+    UpdateConnectorProfileResponse (UpdateConnectorProfileResponse'),
+    newUpdateConnectorProfileResponse,
+
     -- ** UpdateFlow
     UpdateFlow (UpdateFlow'),
     newUpdateFlow,
     UpdateFlowResponse (UpdateFlowResponse'),
     newUpdateFlowResponse,
-
-    -- ** DeleteFlow
-    DeleteFlow (DeleteFlow'),
-    newDeleteFlow,
-    DeleteFlowResponse (DeleteFlowResponse'),
-    newDeleteFlowResponse,
-
-    -- ** DescribeConnectorProfiles
-    DescribeConnectorProfiles (DescribeConnectorProfiles'),
-    newDescribeConnectorProfiles,
-    DescribeConnectorProfilesResponse (DescribeConnectorProfilesResponse'),
-    newDescribeConnectorProfilesResponse,
 
     -- * Types
 

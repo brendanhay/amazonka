@@ -33,18 +33,18 @@ module Amazonka.AppFlow.DescribeConnectorProfiles
     newDescribeConnectorProfiles,
 
     -- * Request Lenses
-    describeConnectorProfiles_connectorProfileNames,
     describeConnectorProfiles_nextToken,
     describeConnectorProfiles_connectorType,
     describeConnectorProfiles_maxResults,
+    describeConnectorProfiles_connectorProfileNames,
 
     -- * Destructuring the Response
     DescribeConnectorProfilesResponse (..),
     newDescribeConnectorProfilesResponse,
 
     -- * Response Lenses
-    describeConnectorProfilesResponse_connectorProfileDetails,
     describeConnectorProfilesResponse_nextToken,
+    describeConnectorProfilesResponse_connectorProfileDetails,
     describeConnectorProfilesResponse_httpStatus,
   )
 where
@@ -58,17 +58,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeConnectorProfiles' smart constructor.
 data DescribeConnectorProfiles = DescribeConnectorProfiles'
-  { -- | The name of the connector profile. The name is unique for each
-    -- @ConnectorProfile@ in the Amazon Web Services account.
-    connectorProfileNames :: Prelude.Maybe [Prelude.Text],
-    -- | The pagination token for the next page of data.
+  { -- | The pagination token for the next page of data.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of connector, such as Salesforce, Amplitude, and so on.
     connectorType :: Prelude.Maybe ConnectorType,
     -- | Specifies the maximum number of items that should be returned in the
     -- result set. The default for @maxResults@ is 20 (for all paginated API
     -- operations).
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the connector profile. The name is unique for each
+    -- @ConnectorProfile@ in the Amazon Web Services account.
+    connectorProfileNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,9 +80,6 @@ data DescribeConnectorProfiles = DescribeConnectorProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectorProfileNames', 'describeConnectorProfiles_connectorProfileNames' - The name of the connector profile. The name is unique for each
--- @ConnectorProfile@ in the Amazon Web Services account.
---
 -- 'nextToken', 'describeConnectorProfiles_nextToken' - The pagination token for the next page of data.
 --
 -- 'connectorType', 'describeConnectorProfiles_connectorType' - The type of connector, such as Salesforce, Amplitude, and so on.
@@ -90,21 +87,19 @@ data DescribeConnectorProfiles = DescribeConnectorProfiles'
 -- 'maxResults', 'describeConnectorProfiles_maxResults' - Specifies the maximum number of items that should be returned in the
 -- result set. The default for @maxResults@ is 20 (for all paginated API
 -- operations).
+--
+-- 'connectorProfileNames', 'describeConnectorProfiles_connectorProfileNames' - The name of the connector profile. The name is unique for each
+-- @ConnectorProfile@ in the Amazon Web Services account.
 newDescribeConnectorProfiles ::
   DescribeConnectorProfiles
 newDescribeConnectorProfiles =
   DescribeConnectorProfiles'
-    { connectorProfileNames =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       connectorType = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      connectorProfileNames = Prelude.Nothing
     }
-
--- | The name of the connector profile. The name is unique for each
--- @ConnectorProfile@ in the Amazon Web Services account.
-describeConnectorProfiles_connectorProfileNames :: Lens.Lens' DescribeConnectorProfiles (Prelude.Maybe [Prelude.Text])
-describeConnectorProfiles_connectorProfileNames = Lens.lens (\DescribeConnectorProfiles' {connectorProfileNames} -> connectorProfileNames) (\s@DescribeConnectorProfiles' {} a -> s {connectorProfileNames = a} :: DescribeConnectorProfiles) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token for the next page of data.
 describeConnectorProfiles_nextToken :: Lens.Lens' DescribeConnectorProfiles (Prelude.Maybe Prelude.Text)
@@ -120,6 +115,11 @@ describeConnectorProfiles_connectorType = Lens.lens (\DescribeConnectorProfiles'
 describeConnectorProfiles_maxResults :: Lens.Lens' DescribeConnectorProfiles (Prelude.Maybe Prelude.Natural)
 describeConnectorProfiles_maxResults = Lens.lens (\DescribeConnectorProfiles' {maxResults} -> maxResults) (\s@DescribeConnectorProfiles' {} a -> s {maxResults = a} :: DescribeConnectorProfiles)
 
+-- | The name of the connector profile. The name is unique for each
+-- @ConnectorProfile@ in the Amazon Web Services account.
+describeConnectorProfiles_connectorProfileNames :: Lens.Lens' DescribeConnectorProfiles (Prelude.Maybe [Prelude.Text])
+describeConnectorProfiles_connectorProfileNames = Lens.lens (\DescribeConnectorProfiles' {connectorProfileNames} -> connectorProfileNames) (\s@DescribeConnectorProfiles' {} a -> s {connectorProfileNames = a} :: DescribeConnectorProfiles) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.AWSRequest DescribeConnectorProfiles where
   type
     AWSResponse DescribeConnectorProfiles =
@@ -129,26 +129,26 @@ instance Core.AWSRequest DescribeConnectorProfiles where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectorProfilesResponse'
-            Prelude.<$> ( x Core..?> "connectorProfileDetails"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "connectorProfileDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeConnectorProfiles where
   hashWithSalt _salt DescribeConnectorProfiles' {..} =
-    _salt `Prelude.hashWithSalt` connectorProfileNames
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` connectorType
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` connectorProfileNames
 
 instance Prelude.NFData DescribeConnectorProfiles where
   rnf DescribeConnectorProfiles' {..} =
-    Prelude.rnf connectorProfileNames
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf connectorType
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf connectorProfileNames
 
 instance Core.ToHeaders DescribeConnectorProfiles where
   toHeaders =
@@ -165,11 +165,11 @@ instance Core.ToJSON DescribeConnectorProfiles where
   toJSON DescribeConnectorProfiles' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("connectorProfileNames" Core..=)
-              Prelude.<$> connectorProfileNames,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("connectorType" Core..=) Prelude.<$> connectorType,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("connectorProfileNames" Core..=)
+              Prelude.<$> connectorProfileNames
           ]
       )
 
@@ -181,12 +181,12 @@ instance Core.ToQuery DescribeConnectorProfiles where
 
 -- | /See:/ 'newDescribeConnectorProfilesResponse' smart constructor.
 data DescribeConnectorProfilesResponse = DescribeConnectorProfilesResponse'
-  { -- | Returns information about the connector profiles associated with the
-    -- flow.
-    connectorProfileDetails :: Prelude.Maybe [ConnectorProfile],
-    -- | The pagination token for the next page of data. If @nextToken=null@,
+  { -- | The pagination token for the next page of data. If @nextToken=null@,
     -- this means that all records have been fetched.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns information about the connector profiles associated with the
+    -- flow.
+    connectorProfileDetails :: Prelude.Maybe [ConnectorProfile],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,11 +200,11 @@ data DescribeConnectorProfilesResponse = DescribeConnectorProfilesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectorProfileDetails', 'describeConnectorProfilesResponse_connectorProfileDetails' - Returns information about the connector profiles associated with the
--- flow.
---
 -- 'nextToken', 'describeConnectorProfilesResponse_nextToken' - The pagination token for the next page of data. If @nextToken=null@,
 -- this means that all records have been fetched.
+--
+-- 'connectorProfileDetails', 'describeConnectorProfilesResponse_connectorProfileDetails' - Returns information about the connector profiles associated with the
+-- flow.
 --
 -- 'httpStatus', 'describeConnectorProfilesResponse_httpStatus' - The response's http status code.
 newDescribeConnectorProfilesResponse ::
@@ -213,21 +213,22 @@ newDescribeConnectorProfilesResponse ::
   DescribeConnectorProfilesResponse
 newDescribeConnectorProfilesResponse pHttpStatus_ =
   DescribeConnectorProfilesResponse'
-    { connectorProfileDetails =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      connectorProfileDetails =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Returns information about the connector profiles associated with the
--- flow.
-describeConnectorProfilesResponse_connectorProfileDetails :: Lens.Lens' DescribeConnectorProfilesResponse (Prelude.Maybe [ConnectorProfile])
-describeConnectorProfilesResponse_connectorProfileDetails = Lens.lens (\DescribeConnectorProfilesResponse' {connectorProfileDetails} -> connectorProfileDetails) (\s@DescribeConnectorProfilesResponse' {} a -> s {connectorProfileDetails = a} :: DescribeConnectorProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token for the next page of data. If @nextToken=null@,
 -- this means that all records have been fetched.
 describeConnectorProfilesResponse_nextToken :: Lens.Lens' DescribeConnectorProfilesResponse (Prelude.Maybe Prelude.Text)
 describeConnectorProfilesResponse_nextToken = Lens.lens (\DescribeConnectorProfilesResponse' {nextToken} -> nextToken) (\s@DescribeConnectorProfilesResponse' {} a -> s {nextToken = a} :: DescribeConnectorProfilesResponse)
+
+-- | Returns information about the connector profiles associated with the
+-- flow.
+describeConnectorProfilesResponse_connectorProfileDetails :: Lens.Lens' DescribeConnectorProfilesResponse (Prelude.Maybe [ConnectorProfile])
+describeConnectorProfilesResponse_connectorProfileDetails = Lens.lens (\DescribeConnectorProfilesResponse' {connectorProfileDetails} -> connectorProfileDetails) (\s@DescribeConnectorProfilesResponse' {} a -> s {connectorProfileDetails = a} :: DescribeConnectorProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConnectorProfilesResponse_httpStatus :: Lens.Lens' DescribeConnectorProfilesResponse Prelude.Int
@@ -238,6 +239,6 @@ instance
     DescribeConnectorProfilesResponse
   where
   rnf DescribeConnectorProfilesResponse' {..} =
-    Prelude.rnf connectorProfileDetails
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connectorProfileDetails
       `Prelude.seq` Prelude.rnf httpStatus

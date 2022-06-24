@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTask' smart constructor.
 data Task = Task'
-  { -- | A map used to store task-related information. The execution service
+  { -- | The operation to be performed on the provided source fields.
+    connectorOperator :: Prelude.Maybe ConnectorOperator,
+    -- | A map used to store task-related information. The execution service
     -- looks for particular information based on the @TaskType@.
     taskProperties :: Prelude.Maybe (Prelude.HashMap OperatorPropertiesKeys Prelude.Text),
-    -- | The operation to be performed on the provided source fields.
-    connectorOperator :: Prelude.Maybe ConnectorOperator,
     -- | A field in a destination connector, or a field value against which
     -- Amazon AppFlow validates a source field.
     destinationField :: Prelude.Maybe Prelude.Text,
@@ -55,10 +55,10 @@ data Task = Task'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectorOperator', 'task_connectorOperator' - The operation to be performed on the provided source fields.
+--
 -- 'taskProperties', 'task_taskProperties' - A map used to store task-related information. The execution service
 -- looks for particular information based on the @TaskType@.
---
--- 'connectorOperator', 'task_connectorOperator' - The operation to be performed on the provided source fields.
 --
 -- 'destinationField', 'task_destinationField' - A field in a destination connector, or a field value against which
 -- Amazon AppFlow validates a source field.
@@ -73,21 +73,21 @@ newTask ::
   Task
 newTask pTaskType_ =
   Task'
-    { taskProperties = Prelude.Nothing,
-      connectorOperator = Prelude.Nothing,
+    { connectorOperator = Prelude.Nothing,
+      taskProperties = Prelude.Nothing,
       destinationField = Prelude.Nothing,
       sourceFields = Prelude.mempty,
       taskType = pTaskType_
     }
 
+-- | The operation to be performed on the provided source fields.
+task_connectorOperator :: Lens.Lens' Task (Prelude.Maybe ConnectorOperator)
+task_connectorOperator = Lens.lens (\Task' {connectorOperator} -> connectorOperator) (\s@Task' {} a -> s {connectorOperator = a} :: Task)
+
 -- | A map used to store task-related information. The execution service
 -- looks for particular information based on the @TaskType@.
 task_taskProperties :: Lens.Lens' Task (Prelude.Maybe (Prelude.HashMap OperatorPropertiesKeys Prelude.Text))
 task_taskProperties = Lens.lens (\Task' {taskProperties} -> taskProperties) (\s@Task' {} a -> s {taskProperties = a} :: Task) Prelude.. Lens.mapping Lens.coerced
-
--- | The operation to be performed on the provided source fields.
-task_connectorOperator :: Lens.Lens' Task (Prelude.Maybe ConnectorOperator)
-task_connectorOperator = Lens.lens (\Task' {connectorOperator} -> connectorOperator) (\s@Task' {} a -> s {connectorOperator = a} :: Task)
 
 -- | A field in a destination connector, or a field value against which
 -- Amazon AppFlow validates a source field.
@@ -109,8 +109,8 @@ instance Core.FromJSON Task where
       "Task"
       ( \x ->
           Task'
-            Prelude.<$> (x Core..:? "taskProperties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "connectorOperator")
+            Prelude.<$> (x Core..:? "connectorOperator")
+            Prelude.<*> (x Core..:? "taskProperties" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "destinationField")
             Prelude.<*> (x Core..:? "sourceFields" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "taskType")
@@ -118,16 +118,16 @@ instance Core.FromJSON Task where
 
 instance Prelude.Hashable Task where
   hashWithSalt _salt Task' {..} =
-    _salt `Prelude.hashWithSalt` taskProperties
-      `Prelude.hashWithSalt` connectorOperator
+    _salt `Prelude.hashWithSalt` connectorOperator
+      `Prelude.hashWithSalt` taskProperties
       `Prelude.hashWithSalt` destinationField
       `Prelude.hashWithSalt` sourceFields
       `Prelude.hashWithSalt` taskType
 
 instance Prelude.NFData Task where
   rnf Task' {..} =
-    Prelude.rnf taskProperties
-      `Prelude.seq` Prelude.rnf connectorOperator
+    Prelude.rnf connectorOperator
+      `Prelude.seq` Prelude.rnf taskProperties
       `Prelude.seq` Prelude.rnf destinationField
       `Prelude.seq` Prelude.rnf sourceFields
       `Prelude.seq` Prelude.rnf taskType
@@ -136,10 +136,10 @@ instance Core.ToJSON Task where
   toJSON Task' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("taskProperties" Core..=)
-              Prelude.<$> taskProperties,
-            ("connectorOperator" Core..=)
+          [ ("connectorOperator" Core..=)
               Prelude.<$> connectorOperator,
+            ("taskProperties" Core..=)
+              Prelude.<$> taskProperties,
             ("destinationField" Core..=)
               Prelude.<$> destinationField,
             Prelude.Just ("sourceFields" Core..= sourceFields),

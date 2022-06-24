@@ -29,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newZendeskDestinationProperties' smart constructor.
 data ZendeskDestinationProperties = ZendeskDestinationProperties'
-  { writeOperationType :: Prelude.Maybe WriteOperationType,
+  { errorHandlingConfig :: Prelude.Maybe ErrorHandlingConfig,
     idFieldNames :: Prelude.Maybe [Prelude.Text],
-    errorHandlingConfig :: Prelude.Maybe ErrorHandlingConfig,
+    writeOperationType :: Prelude.Maybe WriteOperationType,
     -- | The object specified in the Zendesk flow destination.
     object' :: Prelude.Text
   }
@@ -45,11 +45,11 @@ data ZendeskDestinationProperties = ZendeskDestinationProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'writeOperationType', 'zendeskDestinationProperties_writeOperationType' - Undocumented member.
+-- 'errorHandlingConfig', 'zendeskDestinationProperties_errorHandlingConfig' - Undocumented member.
 --
 -- 'idFieldNames', 'zendeskDestinationProperties_idFieldNames' - Undocumented member.
 --
--- 'errorHandlingConfig', 'zendeskDestinationProperties_errorHandlingConfig' - Undocumented member.
+-- 'writeOperationType', 'zendeskDestinationProperties_writeOperationType' - Undocumented member.
 --
 -- 'object'', 'zendeskDestinationProperties_object' - The object specified in the Zendesk flow destination.
 newZendeskDestinationProperties ::
@@ -58,24 +58,24 @@ newZendeskDestinationProperties ::
   ZendeskDestinationProperties
 newZendeskDestinationProperties pObject_ =
   ZendeskDestinationProperties'
-    { writeOperationType =
+    { errorHandlingConfig =
         Prelude.Nothing,
       idFieldNames = Prelude.Nothing,
-      errorHandlingConfig = Prelude.Nothing,
+      writeOperationType = Prelude.Nothing,
       object' = pObject_
     }
 
 -- | Undocumented member.
-zendeskDestinationProperties_writeOperationType :: Lens.Lens' ZendeskDestinationProperties (Prelude.Maybe WriteOperationType)
-zendeskDestinationProperties_writeOperationType = Lens.lens (\ZendeskDestinationProperties' {writeOperationType} -> writeOperationType) (\s@ZendeskDestinationProperties' {} a -> s {writeOperationType = a} :: ZendeskDestinationProperties)
+zendeskDestinationProperties_errorHandlingConfig :: Lens.Lens' ZendeskDestinationProperties (Prelude.Maybe ErrorHandlingConfig)
+zendeskDestinationProperties_errorHandlingConfig = Lens.lens (\ZendeskDestinationProperties' {errorHandlingConfig} -> errorHandlingConfig) (\s@ZendeskDestinationProperties' {} a -> s {errorHandlingConfig = a} :: ZendeskDestinationProperties)
 
 -- | Undocumented member.
 zendeskDestinationProperties_idFieldNames :: Lens.Lens' ZendeskDestinationProperties (Prelude.Maybe [Prelude.Text])
 zendeskDestinationProperties_idFieldNames = Lens.lens (\ZendeskDestinationProperties' {idFieldNames} -> idFieldNames) (\s@ZendeskDestinationProperties' {} a -> s {idFieldNames = a} :: ZendeskDestinationProperties) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
-zendeskDestinationProperties_errorHandlingConfig :: Lens.Lens' ZendeskDestinationProperties (Prelude.Maybe ErrorHandlingConfig)
-zendeskDestinationProperties_errorHandlingConfig = Lens.lens (\ZendeskDestinationProperties' {errorHandlingConfig} -> errorHandlingConfig) (\s@ZendeskDestinationProperties' {} a -> s {errorHandlingConfig = a} :: ZendeskDestinationProperties)
+zendeskDestinationProperties_writeOperationType :: Lens.Lens' ZendeskDestinationProperties (Prelude.Maybe WriteOperationType)
+zendeskDestinationProperties_writeOperationType = Lens.lens (\ZendeskDestinationProperties' {writeOperationType} -> writeOperationType) (\s@ZendeskDestinationProperties' {} a -> s {writeOperationType = a} :: ZendeskDestinationProperties)
 
 -- | The object specified in the Zendesk flow destination.
 zendeskDestinationProperties_object :: Lens.Lens' ZendeskDestinationProperties Prelude.Text
@@ -87,9 +87,9 @@ instance Core.FromJSON ZendeskDestinationProperties where
       "ZendeskDestinationProperties"
       ( \x ->
           ZendeskDestinationProperties'
-            Prelude.<$> (x Core..:? "writeOperationType")
+            Prelude.<$> (x Core..:? "errorHandlingConfig")
             Prelude.<*> (x Core..:? "idFieldNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "errorHandlingConfig")
+            Prelude.<*> (x Core..:? "writeOperationType")
             Prelude.<*> (x Core..: "object")
       )
 
@@ -98,27 +98,27 @@ instance
     ZendeskDestinationProperties
   where
   hashWithSalt _salt ZendeskDestinationProperties' {..} =
-    _salt `Prelude.hashWithSalt` writeOperationType
+    _salt `Prelude.hashWithSalt` errorHandlingConfig
       `Prelude.hashWithSalt` idFieldNames
-      `Prelude.hashWithSalt` errorHandlingConfig
+      `Prelude.hashWithSalt` writeOperationType
       `Prelude.hashWithSalt` object'
 
 instance Prelude.NFData ZendeskDestinationProperties where
   rnf ZendeskDestinationProperties' {..} =
-    Prelude.rnf writeOperationType
+    Prelude.rnf errorHandlingConfig
       `Prelude.seq` Prelude.rnf idFieldNames
-      `Prelude.seq` Prelude.rnf errorHandlingConfig
+      `Prelude.seq` Prelude.rnf writeOperationType
       `Prelude.seq` Prelude.rnf object'
 
 instance Core.ToJSON ZendeskDestinationProperties where
   toJSON ZendeskDestinationProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("writeOperationType" Core..=)
-              Prelude.<$> writeOperationType,
-            ("idFieldNames" Core..=) Prelude.<$> idFieldNames,
-            ("errorHandlingConfig" Core..=)
+          [ ("errorHandlingConfig" Core..=)
               Prelude.<$> errorHandlingConfig,
+            ("idFieldNames" Core..=) Prelude.<$> idFieldNames,
+            ("writeOperationType" Core..=)
+              Prelude.<$> writeOperationType,
             Prelude.Just ("object" Core..= object')
           ]
       )

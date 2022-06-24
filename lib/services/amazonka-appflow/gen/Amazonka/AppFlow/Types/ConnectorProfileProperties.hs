@@ -44,39 +44,39 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectorProfileProperties' smart constructor.
 data ConnectorProfileProperties = ConnectorProfileProperties'
-  { -- | The connector-specific properties required by Snowflake.
-    snowflake :: Prelude.Maybe SnowflakeConnectorProfileProperties,
-    -- | The connector-specific properties required by Amazon Honeycode.
-    honeycode :: Prelude.Maybe HoneycodeConnectorProfileProperties,
-    -- | The connector-specific properties required by serviceNow.
-    serviceNow :: Prelude.Maybe ServiceNowConnectorProfileProperties,
-    -- | The connector-specific properties required by Dynatrace.
-    dynatrace :: Prelude.Maybe DynatraceConnectorProfileProperties,
-    -- | The connector-specific properties required by Marketo.
-    marketo :: Prelude.Maybe MarketoConnectorProfileProperties,
+  { -- | The connector-specific properties required by Zendesk.
+    zendesk :: Prelude.Maybe ZendeskConnectorProfileProperties,
     -- | The connector-specific properties required by Slack.
     slack :: Prelude.Maybe SlackConnectorProfileProperties,
     -- | The connector-specific properties required by Singular.
     singular :: Prelude.Maybe SingularConnectorProfileProperties,
-    -- | The connector-specific properties required by Infor Nexus.
-    inforNexus :: Prelude.Maybe InforNexusConnectorProfileProperties,
-    -- | The connector-specific properties required by Amplitude.
-    amplitude :: Prelude.Maybe AmplitudeConnectorProfileProperties,
-    -- | The connector-specific properties required by Datadog.
-    datadog :: Prelude.Maybe DatadogConnectorProfileProperties,
-    -- | The connector-specific properties required Google Analytics.
-    googleAnalytics :: Prelude.Maybe GoogleAnalyticsConnectorProfileProperties,
-    sAPOData :: Prelude.Maybe SAPODataConnectorProfileProperties,
+    -- | The connector-specific properties required by Veeva.
+    veeva :: Prelude.Maybe VeevaConnectorProfileProperties,
+    -- | The connector-specific properties required by Amazon Honeycode.
+    honeycode :: Prelude.Maybe HoneycodeConnectorProfileProperties,
     -- | The connector-specific properties required by Salesforce.
     salesforce :: Prelude.Maybe SalesforceConnectorProfileProperties,
-    -- | The connector-specific properties required by Zendesk.
-    zendesk :: Prelude.Maybe ZendeskConnectorProfileProperties,
-    -- | The connector-specific properties required by Trend Micro.
-    trendmicro :: Prelude.Maybe TrendmicroConnectorProfileProperties,
+    -- | The connector-specific properties required by Snowflake.
+    snowflake :: Prelude.Maybe SnowflakeConnectorProfileProperties,
+    sAPOData :: Prelude.Maybe SAPODataConnectorProfileProperties,
+    -- | The connector-specific properties required by Marketo.
+    marketo :: Prelude.Maybe MarketoConnectorProfileProperties,
     -- | The connector-specific properties required by Amazon Redshift.
     redshift :: Prelude.Maybe RedshiftConnectorProfileProperties,
-    -- | The connector-specific properties required by Veeva.
-    veeva :: Prelude.Maybe VeevaConnectorProfileProperties
+    -- | The connector-specific properties required by Trend Micro.
+    trendmicro :: Prelude.Maybe TrendmicroConnectorProfileProperties,
+    -- | The connector-specific properties required by Infor Nexus.
+    inforNexus :: Prelude.Maybe InforNexusConnectorProfileProperties,
+    -- | The connector-specific properties required by serviceNow.
+    serviceNow :: Prelude.Maybe ServiceNowConnectorProfileProperties,
+    -- | The connector-specific properties required by Datadog.
+    datadog :: Prelude.Maybe DatadogConnectorProfileProperties,
+    -- | The connector-specific properties required by Amplitude.
+    amplitude :: Prelude.Maybe AmplitudeConnectorProfileProperties,
+    -- | The connector-specific properties required by Dynatrace.
+    dynatrace :: Prelude.Maybe DynatraceConnectorProfileProperties,
+    -- | The connector-specific properties required Google Analytics.
+    googleAnalytics :: Prelude.Maybe GoogleAnalyticsConnectorProfileProperties
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,82 +88,66 @@ data ConnectorProfileProperties = ConnectorProfileProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snowflake', 'connectorProfileProperties_snowflake' - The connector-specific properties required by Snowflake.
---
--- 'honeycode', 'connectorProfileProperties_honeycode' - The connector-specific properties required by Amazon Honeycode.
---
--- 'serviceNow', 'connectorProfileProperties_serviceNow' - The connector-specific properties required by serviceNow.
---
--- 'dynatrace', 'connectorProfileProperties_dynatrace' - The connector-specific properties required by Dynatrace.
---
--- 'marketo', 'connectorProfileProperties_marketo' - The connector-specific properties required by Marketo.
+-- 'zendesk', 'connectorProfileProperties_zendesk' - The connector-specific properties required by Zendesk.
 --
 -- 'slack', 'connectorProfileProperties_slack' - The connector-specific properties required by Slack.
 --
 -- 'singular', 'connectorProfileProperties_singular' - The connector-specific properties required by Singular.
 --
--- 'inforNexus', 'connectorProfileProperties_inforNexus' - The connector-specific properties required by Infor Nexus.
+-- 'veeva', 'connectorProfileProperties_veeva' - The connector-specific properties required by Veeva.
 --
--- 'amplitude', 'connectorProfileProperties_amplitude' - The connector-specific properties required by Amplitude.
---
--- 'datadog', 'connectorProfileProperties_datadog' - The connector-specific properties required by Datadog.
---
--- 'googleAnalytics', 'connectorProfileProperties_googleAnalytics' - The connector-specific properties required Google Analytics.
---
--- 'sAPOData', 'connectorProfileProperties_sAPOData' - Undocumented member.
+-- 'honeycode', 'connectorProfileProperties_honeycode' - The connector-specific properties required by Amazon Honeycode.
 --
 -- 'salesforce', 'connectorProfileProperties_salesforce' - The connector-specific properties required by Salesforce.
 --
--- 'zendesk', 'connectorProfileProperties_zendesk' - The connector-specific properties required by Zendesk.
+-- 'snowflake', 'connectorProfileProperties_snowflake' - The connector-specific properties required by Snowflake.
 --
--- 'trendmicro', 'connectorProfileProperties_trendmicro' - The connector-specific properties required by Trend Micro.
+-- 'sAPOData', 'connectorProfileProperties_sAPOData' - Undocumented member.
+--
+-- 'marketo', 'connectorProfileProperties_marketo' - The connector-specific properties required by Marketo.
 --
 -- 'redshift', 'connectorProfileProperties_redshift' - The connector-specific properties required by Amazon Redshift.
 --
--- 'veeva', 'connectorProfileProperties_veeva' - The connector-specific properties required by Veeva.
+-- 'trendmicro', 'connectorProfileProperties_trendmicro' - The connector-specific properties required by Trend Micro.
+--
+-- 'inforNexus', 'connectorProfileProperties_inforNexus' - The connector-specific properties required by Infor Nexus.
+--
+-- 'serviceNow', 'connectorProfileProperties_serviceNow' - The connector-specific properties required by serviceNow.
+--
+-- 'datadog', 'connectorProfileProperties_datadog' - The connector-specific properties required by Datadog.
+--
+-- 'amplitude', 'connectorProfileProperties_amplitude' - The connector-specific properties required by Amplitude.
+--
+-- 'dynatrace', 'connectorProfileProperties_dynatrace' - The connector-specific properties required by Dynatrace.
+--
+-- 'googleAnalytics', 'connectorProfileProperties_googleAnalytics' - The connector-specific properties required Google Analytics.
 newConnectorProfileProperties ::
   ConnectorProfileProperties
 newConnectorProfileProperties =
   ConnectorProfileProperties'
-    { snowflake =
+    { zendesk =
         Prelude.Nothing,
-      honeycode = Prelude.Nothing,
-      serviceNow = Prelude.Nothing,
-      dynatrace = Prelude.Nothing,
-      marketo = Prelude.Nothing,
       slack = Prelude.Nothing,
       singular = Prelude.Nothing,
-      inforNexus = Prelude.Nothing,
-      amplitude = Prelude.Nothing,
-      datadog = Prelude.Nothing,
-      googleAnalytics = Prelude.Nothing,
-      sAPOData = Prelude.Nothing,
+      veeva = Prelude.Nothing,
+      honeycode = Prelude.Nothing,
       salesforce = Prelude.Nothing,
-      zendesk = Prelude.Nothing,
-      trendmicro = Prelude.Nothing,
+      snowflake = Prelude.Nothing,
+      sAPOData = Prelude.Nothing,
+      marketo = Prelude.Nothing,
       redshift = Prelude.Nothing,
-      veeva = Prelude.Nothing
+      trendmicro = Prelude.Nothing,
+      inforNexus = Prelude.Nothing,
+      serviceNow = Prelude.Nothing,
+      datadog = Prelude.Nothing,
+      amplitude = Prelude.Nothing,
+      dynatrace = Prelude.Nothing,
+      googleAnalytics = Prelude.Nothing
     }
 
--- | The connector-specific properties required by Snowflake.
-connectorProfileProperties_snowflake :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe SnowflakeConnectorProfileProperties)
-connectorProfileProperties_snowflake = Lens.lens (\ConnectorProfileProperties' {snowflake} -> snowflake) (\s@ConnectorProfileProperties' {} a -> s {snowflake = a} :: ConnectorProfileProperties)
-
--- | The connector-specific properties required by Amazon Honeycode.
-connectorProfileProperties_honeycode :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe HoneycodeConnectorProfileProperties)
-connectorProfileProperties_honeycode = Lens.lens (\ConnectorProfileProperties' {honeycode} -> honeycode) (\s@ConnectorProfileProperties' {} a -> s {honeycode = a} :: ConnectorProfileProperties)
-
--- | The connector-specific properties required by serviceNow.
-connectorProfileProperties_serviceNow :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe ServiceNowConnectorProfileProperties)
-connectorProfileProperties_serviceNow = Lens.lens (\ConnectorProfileProperties' {serviceNow} -> serviceNow) (\s@ConnectorProfileProperties' {} a -> s {serviceNow = a} :: ConnectorProfileProperties)
-
--- | The connector-specific properties required by Dynatrace.
-connectorProfileProperties_dynatrace :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe DynatraceConnectorProfileProperties)
-connectorProfileProperties_dynatrace = Lens.lens (\ConnectorProfileProperties' {dynatrace} -> dynatrace) (\s@ConnectorProfileProperties' {} a -> s {dynatrace = a} :: ConnectorProfileProperties)
-
--- | The connector-specific properties required by Marketo.
-connectorProfileProperties_marketo :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe MarketoConnectorProfileProperties)
-connectorProfileProperties_marketo = Lens.lens (\ConnectorProfileProperties' {marketo} -> marketo) (\s@ConnectorProfileProperties' {} a -> s {marketo = a} :: ConnectorProfileProperties)
+-- | The connector-specific properties required by Zendesk.
+connectorProfileProperties_zendesk :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe ZendeskConnectorProfileProperties)
+connectorProfileProperties_zendesk = Lens.lens (\ConnectorProfileProperties' {zendesk} -> zendesk) (\s@ConnectorProfileProperties' {} a -> s {zendesk = a} :: ConnectorProfileProperties)
 
 -- | The connector-specific properties required by Slack.
 connectorProfileProperties_slack :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe SlackConnectorProfileProperties)
@@ -173,45 +157,61 @@ connectorProfileProperties_slack = Lens.lens (\ConnectorProfileProperties' {slac
 connectorProfileProperties_singular :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe SingularConnectorProfileProperties)
 connectorProfileProperties_singular = Lens.lens (\ConnectorProfileProperties' {singular} -> singular) (\s@ConnectorProfileProperties' {} a -> s {singular = a} :: ConnectorProfileProperties)
 
--- | The connector-specific properties required by Infor Nexus.
-connectorProfileProperties_inforNexus :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe InforNexusConnectorProfileProperties)
-connectorProfileProperties_inforNexus = Lens.lens (\ConnectorProfileProperties' {inforNexus} -> inforNexus) (\s@ConnectorProfileProperties' {} a -> s {inforNexus = a} :: ConnectorProfileProperties)
+-- | The connector-specific properties required by Veeva.
+connectorProfileProperties_veeva :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe VeevaConnectorProfileProperties)
+connectorProfileProperties_veeva = Lens.lens (\ConnectorProfileProperties' {veeva} -> veeva) (\s@ConnectorProfileProperties' {} a -> s {veeva = a} :: ConnectorProfileProperties)
 
--- | The connector-specific properties required by Amplitude.
-connectorProfileProperties_amplitude :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe AmplitudeConnectorProfileProperties)
-connectorProfileProperties_amplitude = Lens.lens (\ConnectorProfileProperties' {amplitude} -> amplitude) (\s@ConnectorProfileProperties' {} a -> s {amplitude = a} :: ConnectorProfileProperties)
-
--- | The connector-specific properties required by Datadog.
-connectorProfileProperties_datadog :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe DatadogConnectorProfileProperties)
-connectorProfileProperties_datadog = Lens.lens (\ConnectorProfileProperties' {datadog} -> datadog) (\s@ConnectorProfileProperties' {} a -> s {datadog = a} :: ConnectorProfileProperties)
-
--- | The connector-specific properties required Google Analytics.
-connectorProfileProperties_googleAnalytics :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe GoogleAnalyticsConnectorProfileProperties)
-connectorProfileProperties_googleAnalytics = Lens.lens (\ConnectorProfileProperties' {googleAnalytics} -> googleAnalytics) (\s@ConnectorProfileProperties' {} a -> s {googleAnalytics = a} :: ConnectorProfileProperties)
-
--- | Undocumented member.
-connectorProfileProperties_sAPOData :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe SAPODataConnectorProfileProperties)
-connectorProfileProperties_sAPOData = Lens.lens (\ConnectorProfileProperties' {sAPOData} -> sAPOData) (\s@ConnectorProfileProperties' {} a -> s {sAPOData = a} :: ConnectorProfileProperties)
+-- | The connector-specific properties required by Amazon Honeycode.
+connectorProfileProperties_honeycode :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe HoneycodeConnectorProfileProperties)
+connectorProfileProperties_honeycode = Lens.lens (\ConnectorProfileProperties' {honeycode} -> honeycode) (\s@ConnectorProfileProperties' {} a -> s {honeycode = a} :: ConnectorProfileProperties)
 
 -- | The connector-specific properties required by Salesforce.
 connectorProfileProperties_salesforce :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe SalesforceConnectorProfileProperties)
 connectorProfileProperties_salesforce = Lens.lens (\ConnectorProfileProperties' {salesforce} -> salesforce) (\s@ConnectorProfileProperties' {} a -> s {salesforce = a} :: ConnectorProfileProperties)
 
--- | The connector-specific properties required by Zendesk.
-connectorProfileProperties_zendesk :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe ZendeskConnectorProfileProperties)
-connectorProfileProperties_zendesk = Lens.lens (\ConnectorProfileProperties' {zendesk} -> zendesk) (\s@ConnectorProfileProperties' {} a -> s {zendesk = a} :: ConnectorProfileProperties)
+-- | The connector-specific properties required by Snowflake.
+connectorProfileProperties_snowflake :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe SnowflakeConnectorProfileProperties)
+connectorProfileProperties_snowflake = Lens.lens (\ConnectorProfileProperties' {snowflake} -> snowflake) (\s@ConnectorProfileProperties' {} a -> s {snowflake = a} :: ConnectorProfileProperties)
 
--- | The connector-specific properties required by Trend Micro.
-connectorProfileProperties_trendmicro :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe TrendmicroConnectorProfileProperties)
-connectorProfileProperties_trendmicro = Lens.lens (\ConnectorProfileProperties' {trendmicro} -> trendmicro) (\s@ConnectorProfileProperties' {} a -> s {trendmicro = a} :: ConnectorProfileProperties)
+-- | Undocumented member.
+connectorProfileProperties_sAPOData :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe SAPODataConnectorProfileProperties)
+connectorProfileProperties_sAPOData = Lens.lens (\ConnectorProfileProperties' {sAPOData} -> sAPOData) (\s@ConnectorProfileProperties' {} a -> s {sAPOData = a} :: ConnectorProfileProperties)
+
+-- | The connector-specific properties required by Marketo.
+connectorProfileProperties_marketo :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe MarketoConnectorProfileProperties)
+connectorProfileProperties_marketo = Lens.lens (\ConnectorProfileProperties' {marketo} -> marketo) (\s@ConnectorProfileProperties' {} a -> s {marketo = a} :: ConnectorProfileProperties)
 
 -- | The connector-specific properties required by Amazon Redshift.
 connectorProfileProperties_redshift :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe RedshiftConnectorProfileProperties)
 connectorProfileProperties_redshift = Lens.lens (\ConnectorProfileProperties' {redshift} -> redshift) (\s@ConnectorProfileProperties' {} a -> s {redshift = a} :: ConnectorProfileProperties)
 
--- | The connector-specific properties required by Veeva.
-connectorProfileProperties_veeva :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe VeevaConnectorProfileProperties)
-connectorProfileProperties_veeva = Lens.lens (\ConnectorProfileProperties' {veeva} -> veeva) (\s@ConnectorProfileProperties' {} a -> s {veeva = a} :: ConnectorProfileProperties)
+-- | The connector-specific properties required by Trend Micro.
+connectorProfileProperties_trendmicro :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe TrendmicroConnectorProfileProperties)
+connectorProfileProperties_trendmicro = Lens.lens (\ConnectorProfileProperties' {trendmicro} -> trendmicro) (\s@ConnectorProfileProperties' {} a -> s {trendmicro = a} :: ConnectorProfileProperties)
+
+-- | The connector-specific properties required by Infor Nexus.
+connectorProfileProperties_inforNexus :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe InforNexusConnectorProfileProperties)
+connectorProfileProperties_inforNexus = Lens.lens (\ConnectorProfileProperties' {inforNexus} -> inforNexus) (\s@ConnectorProfileProperties' {} a -> s {inforNexus = a} :: ConnectorProfileProperties)
+
+-- | The connector-specific properties required by serviceNow.
+connectorProfileProperties_serviceNow :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe ServiceNowConnectorProfileProperties)
+connectorProfileProperties_serviceNow = Lens.lens (\ConnectorProfileProperties' {serviceNow} -> serviceNow) (\s@ConnectorProfileProperties' {} a -> s {serviceNow = a} :: ConnectorProfileProperties)
+
+-- | The connector-specific properties required by Datadog.
+connectorProfileProperties_datadog :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe DatadogConnectorProfileProperties)
+connectorProfileProperties_datadog = Lens.lens (\ConnectorProfileProperties' {datadog} -> datadog) (\s@ConnectorProfileProperties' {} a -> s {datadog = a} :: ConnectorProfileProperties)
+
+-- | The connector-specific properties required by Amplitude.
+connectorProfileProperties_amplitude :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe AmplitudeConnectorProfileProperties)
+connectorProfileProperties_amplitude = Lens.lens (\ConnectorProfileProperties' {amplitude} -> amplitude) (\s@ConnectorProfileProperties' {} a -> s {amplitude = a} :: ConnectorProfileProperties)
+
+-- | The connector-specific properties required by Dynatrace.
+connectorProfileProperties_dynatrace :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe DynatraceConnectorProfileProperties)
+connectorProfileProperties_dynatrace = Lens.lens (\ConnectorProfileProperties' {dynatrace} -> dynatrace) (\s@ConnectorProfileProperties' {} a -> s {dynatrace = a} :: ConnectorProfileProperties)
+
+-- | The connector-specific properties required Google Analytics.
+connectorProfileProperties_googleAnalytics :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe GoogleAnalyticsConnectorProfileProperties)
+connectorProfileProperties_googleAnalytics = Lens.lens (\ConnectorProfileProperties' {googleAnalytics} -> googleAnalytics) (\s@ConnectorProfileProperties' {} a -> s {googleAnalytics = a} :: ConnectorProfileProperties)
 
 instance Core.FromJSON ConnectorProfileProperties where
   parseJSON =
@@ -219,86 +219,86 @@ instance Core.FromJSON ConnectorProfileProperties where
       "ConnectorProfileProperties"
       ( \x ->
           ConnectorProfileProperties'
-            Prelude.<$> (x Core..:? "Snowflake")
-            Prelude.<*> (x Core..:? "Honeycode")
-            Prelude.<*> (x Core..:? "ServiceNow")
-            Prelude.<*> (x Core..:? "Dynatrace")
-            Prelude.<*> (x Core..:? "Marketo")
+            Prelude.<$> (x Core..:? "Zendesk")
             Prelude.<*> (x Core..:? "Slack")
             Prelude.<*> (x Core..:? "Singular")
-            Prelude.<*> (x Core..:? "InforNexus")
-            Prelude.<*> (x Core..:? "Amplitude")
-            Prelude.<*> (x Core..:? "Datadog")
-            Prelude.<*> (x Core..:? "GoogleAnalytics")
-            Prelude.<*> (x Core..:? "SAPOData")
-            Prelude.<*> (x Core..:? "Salesforce")
-            Prelude.<*> (x Core..:? "Zendesk")
-            Prelude.<*> (x Core..:? "Trendmicro")
-            Prelude.<*> (x Core..:? "Redshift")
             Prelude.<*> (x Core..:? "Veeva")
+            Prelude.<*> (x Core..:? "Honeycode")
+            Prelude.<*> (x Core..:? "Salesforce")
+            Prelude.<*> (x Core..:? "Snowflake")
+            Prelude.<*> (x Core..:? "SAPOData")
+            Prelude.<*> (x Core..:? "Marketo")
+            Prelude.<*> (x Core..:? "Redshift")
+            Prelude.<*> (x Core..:? "Trendmicro")
+            Prelude.<*> (x Core..:? "InforNexus")
+            Prelude.<*> (x Core..:? "ServiceNow")
+            Prelude.<*> (x Core..:? "Datadog")
+            Prelude.<*> (x Core..:? "Amplitude")
+            Prelude.<*> (x Core..:? "Dynatrace")
+            Prelude.<*> (x Core..:? "GoogleAnalytics")
       )
 
 instance Prelude.Hashable ConnectorProfileProperties where
   hashWithSalt _salt ConnectorProfileProperties' {..} =
-    _salt `Prelude.hashWithSalt` snowflake
-      `Prelude.hashWithSalt` honeycode
-      `Prelude.hashWithSalt` serviceNow
-      `Prelude.hashWithSalt` dynatrace
-      `Prelude.hashWithSalt` marketo
+    _salt `Prelude.hashWithSalt` zendesk
       `Prelude.hashWithSalt` slack
       `Prelude.hashWithSalt` singular
-      `Prelude.hashWithSalt` inforNexus
-      `Prelude.hashWithSalt` amplitude
-      `Prelude.hashWithSalt` datadog
-      `Prelude.hashWithSalt` googleAnalytics
-      `Prelude.hashWithSalt` sAPOData
-      `Prelude.hashWithSalt` salesforce
-      `Prelude.hashWithSalt` zendesk
-      `Prelude.hashWithSalt` trendmicro
-      `Prelude.hashWithSalt` redshift
       `Prelude.hashWithSalt` veeva
+      `Prelude.hashWithSalt` honeycode
+      `Prelude.hashWithSalt` salesforce
+      `Prelude.hashWithSalt` snowflake
+      `Prelude.hashWithSalt` sAPOData
+      `Prelude.hashWithSalt` marketo
+      `Prelude.hashWithSalt` redshift
+      `Prelude.hashWithSalt` trendmicro
+      `Prelude.hashWithSalt` inforNexus
+      `Prelude.hashWithSalt` serviceNow
+      `Prelude.hashWithSalt` datadog
+      `Prelude.hashWithSalt` amplitude
+      `Prelude.hashWithSalt` dynatrace
+      `Prelude.hashWithSalt` googleAnalytics
 
 instance Prelude.NFData ConnectorProfileProperties where
   rnf ConnectorProfileProperties' {..} =
-    Prelude.rnf snowflake
-      `Prelude.seq` Prelude.rnf honeycode
-      `Prelude.seq` Prelude.rnf serviceNow
-      `Prelude.seq` Prelude.rnf dynatrace
-      `Prelude.seq` Prelude.rnf marketo
+    Prelude.rnf zendesk
       `Prelude.seq` Prelude.rnf slack
       `Prelude.seq` Prelude.rnf singular
-      `Prelude.seq` Prelude.rnf inforNexus
-      `Prelude.seq` Prelude.rnf amplitude
-      `Prelude.seq` Prelude.rnf datadog
-      `Prelude.seq` Prelude.rnf googleAnalytics
-      `Prelude.seq` Prelude.rnf sAPOData
-      `Prelude.seq` Prelude.rnf salesforce
-      `Prelude.seq` Prelude.rnf zendesk
-      `Prelude.seq` Prelude.rnf trendmicro
-      `Prelude.seq` Prelude.rnf redshift
       `Prelude.seq` Prelude.rnf veeva
+      `Prelude.seq` Prelude.rnf honeycode
+      `Prelude.seq` Prelude.rnf salesforce
+      `Prelude.seq` Prelude.rnf snowflake
+      `Prelude.seq` Prelude.rnf sAPOData
+      `Prelude.seq` Prelude.rnf marketo
+      `Prelude.seq` Prelude.rnf redshift
+      `Prelude.seq` Prelude.rnf trendmicro
+      `Prelude.seq` Prelude.rnf inforNexus
+      `Prelude.seq` Prelude.rnf serviceNow
+      `Prelude.seq` Prelude.rnf datadog
+      `Prelude.seq` Prelude.rnf amplitude
+      `Prelude.seq` Prelude.rnf dynatrace
+      `Prelude.seq` Prelude.rnf googleAnalytics
 
 instance Core.ToJSON ConnectorProfileProperties where
   toJSON ConnectorProfileProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Snowflake" Core..=) Prelude.<$> snowflake,
-            ("Honeycode" Core..=) Prelude.<$> honeycode,
-            ("ServiceNow" Core..=) Prelude.<$> serviceNow,
-            ("Dynatrace" Core..=) Prelude.<$> dynatrace,
-            ("Marketo" Core..=) Prelude.<$> marketo,
+          [ ("Zendesk" Core..=) Prelude.<$> zendesk,
             ("Slack" Core..=) Prelude.<$> slack,
             ("Singular" Core..=) Prelude.<$> singular,
-            ("InforNexus" Core..=) Prelude.<$> inforNexus,
-            ("Amplitude" Core..=) Prelude.<$> amplitude,
-            ("Datadog" Core..=) Prelude.<$> datadog,
-            ("GoogleAnalytics" Core..=)
-              Prelude.<$> googleAnalytics,
-            ("SAPOData" Core..=) Prelude.<$> sAPOData,
+            ("Veeva" Core..=) Prelude.<$> veeva,
+            ("Honeycode" Core..=) Prelude.<$> honeycode,
             ("Salesforce" Core..=) Prelude.<$> salesforce,
-            ("Zendesk" Core..=) Prelude.<$> zendesk,
-            ("Trendmicro" Core..=) Prelude.<$> trendmicro,
+            ("Snowflake" Core..=) Prelude.<$> snowflake,
+            ("SAPOData" Core..=) Prelude.<$> sAPOData,
+            ("Marketo" Core..=) Prelude.<$> marketo,
             ("Redshift" Core..=) Prelude.<$> redshift,
-            ("Veeva" Core..=) Prelude.<$> veeva
+            ("Trendmicro" Core..=) Prelude.<$> trendmicro,
+            ("InforNexus" Core..=) Prelude.<$> inforNexus,
+            ("ServiceNow" Core..=) Prelude.<$> serviceNow,
+            ("Datadog" Core..=) Prelude.<$> datadog,
+            ("Amplitude" Core..=) Prelude.<$> amplitude,
+            ("Dynatrace" Core..=) Prelude.<$> dynatrace,
+            ("GoogleAnalytics" Core..=)
+              Prelude.<$> googleAnalytics
           ]
       )

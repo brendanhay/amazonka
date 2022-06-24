@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRedshiftDestinationProperties' smart constructor.
 data RedshiftDestinationProperties = RedshiftDestinationProperties'
-  { -- | The object key for the bucket in which Amazon AppFlow places the
-    -- destination files.
-    bucketPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The settings that determine how Amazon AppFlow handles an error when
+  { -- | The settings that determine how Amazon AppFlow handles an error when
     -- placing data in the Amazon Redshift destination. For example, this
     -- setting would determine if the flow should fail after one insertion
     -- error, or continue and attempt to insert every record regardless of the
     -- initial failure. @ErrorHandlingConfig@ is a part of the destination
     -- connector details.
     errorHandlingConfig :: Prelude.Maybe ErrorHandlingConfig,
+    -- | The object key for the bucket in which Amazon AppFlow places the
+    -- destination files.
+    bucketPrefix :: Prelude.Maybe Prelude.Text,
     -- | The object specified in the Amazon Redshift flow destination.
     object' :: Prelude.Text,
     -- | The intermediate bucket that Amazon AppFlow uses when moving data into
@@ -55,15 +55,15 @@ data RedshiftDestinationProperties = RedshiftDestinationProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucketPrefix', 'redshiftDestinationProperties_bucketPrefix' - The object key for the bucket in which Amazon AppFlow places the
--- destination files.
---
 -- 'errorHandlingConfig', 'redshiftDestinationProperties_errorHandlingConfig' - The settings that determine how Amazon AppFlow handles an error when
 -- placing data in the Amazon Redshift destination. For example, this
 -- setting would determine if the flow should fail after one insertion
 -- error, or continue and attempt to insert every record regardless of the
 -- initial failure. @ErrorHandlingConfig@ is a part of the destination
 -- connector details.
+--
+-- 'bucketPrefix', 'redshiftDestinationProperties_bucketPrefix' - The object key for the bucket in which Amazon AppFlow places the
+-- destination files.
 --
 -- 'object'', 'redshiftDestinationProperties_object' - The object specified in the Amazon Redshift flow destination.
 --
@@ -79,18 +79,13 @@ newRedshiftDestinationProperties
   pObject_
   pIntermediateBucketName_ =
     RedshiftDestinationProperties'
-      { bucketPrefix =
+      { errorHandlingConfig =
           Prelude.Nothing,
-        errorHandlingConfig = Prelude.Nothing,
+        bucketPrefix = Prelude.Nothing,
         object' = pObject_,
         intermediateBucketName =
           pIntermediateBucketName_
       }
-
--- | The object key for the bucket in which Amazon AppFlow places the
--- destination files.
-redshiftDestinationProperties_bucketPrefix :: Lens.Lens' RedshiftDestinationProperties (Prelude.Maybe Prelude.Text)
-redshiftDestinationProperties_bucketPrefix = Lens.lens (\RedshiftDestinationProperties' {bucketPrefix} -> bucketPrefix) (\s@RedshiftDestinationProperties' {} a -> s {bucketPrefix = a} :: RedshiftDestinationProperties)
 
 -- | The settings that determine how Amazon AppFlow handles an error when
 -- placing data in the Amazon Redshift destination. For example, this
@@ -100,6 +95,11 @@ redshiftDestinationProperties_bucketPrefix = Lens.lens (\RedshiftDestinationProp
 -- connector details.
 redshiftDestinationProperties_errorHandlingConfig :: Lens.Lens' RedshiftDestinationProperties (Prelude.Maybe ErrorHandlingConfig)
 redshiftDestinationProperties_errorHandlingConfig = Lens.lens (\RedshiftDestinationProperties' {errorHandlingConfig} -> errorHandlingConfig) (\s@RedshiftDestinationProperties' {} a -> s {errorHandlingConfig = a} :: RedshiftDestinationProperties)
+
+-- | The object key for the bucket in which Amazon AppFlow places the
+-- destination files.
+redshiftDestinationProperties_bucketPrefix :: Lens.Lens' RedshiftDestinationProperties (Prelude.Maybe Prelude.Text)
+redshiftDestinationProperties_bucketPrefix = Lens.lens (\RedshiftDestinationProperties' {bucketPrefix} -> bucketPrefix) (\s@RedshiftDestinationProperties' {} a -> s {bucketPrefix = a} :: RedshiftDestinationProperties)
 
 -- | The object specified in the Amazon Redshift flow destination.
 redshiftDestinationProperties_object :: Lens.Lens' RedshiftDestinationProperties Prelude.Text
@@ -116,8 +116,8 @@ instance Core.FromJSON RedshiftDestinationProperties where
       "RedshiftDestinationProperties"
       ( \x ->
           RedshiftDestinationProperties'
-            Prelude.<$> (x Core..:? "bucketPrefix")
-            Prelude.<*> (x Core..:? "errorHandlingConfig")
+            Prelude.<$> (x Core..:? "errorHandlingConfig")
+            Prelude.<*> (x Core..:? "bucketPrefix")
             Prelude.<*> (x Core..: "object")
             Prelude.<*> (x Core..: "intermediateBucketName")
       )
@@ -127,15 +127,15 @@ instance
     RedshiftDestinationProperties
   where
   hashWithSalt _salt RedshiftDestinationProperties' {..} =
-    _salt `Prelude.hashWithSalt` bucketPrefix
-      `Prelude.hashWithSalt` errorHandlingConfig
+    _salt `Prelude.hashWithSalt` errorHandlingConfig
+      `Prelude.hashWithSalt` bucketPrefix
       `Prelude.hashWithSalt` object'
       `Prelude.hashWithSalt` intermediateBucketName
 
 instance Prelude.NFData RedshiftDestinationProperties where
   rnf RedshiftDestinationProperties' {..} =
-    Prelude.rnf bucketPrefix
-      `Prelude.seq` Prelude.rnf errorHandlingConfig
+    Prelude.rnf errorHandlingConfig
+      `Prelude.seq` Prelude.rnf bucketPrefix
       `Prelude.seq` Prelude.rnf object'
       `Prelude.seq` Prelude.rnf intermediateBucketName
 
@@ -143,9 +143,9 @@ instance Core.ToJSON RedshiftDestinationProperties where
   toJSON RedshiftDestinationProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("bucketPrefix" Core..=) Prelude.<$> bucketPrefix,
-            ("errorHandlingConfig" Core..=)
+          [ ("errorHandlingConfig" Core..=)
               Prelude.<$> errorHandlingConfig,
+            ("bucketPrefix" Core..=) Prelude.<$> bucketPrefix,
             Prelude.Just ("object" Core..= object'),
             Prelude.Just
               ( "intermediateBucketName"

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSAPODataConnectorProfileCredentials' smart constructor.
 data SAPODataConnectorProfileCredentials = SAPODataConnectorProfileCredentials'
-  { -- | The SAPOData OAuth type authentication credentials.
-    oAuthCredentials :: Prelude.Maybe OAuthCredentials,
-    -- | The SAPOData basic authentication credentials.
-    basicAuthCredentials :: Prelude.Maybe BasicAuthCredentials
+  { -- | The SAPOData basic authentication credentials.
+    basicAuthCredentials :: Prelude.Maybe BasicAuthCredentials,
+    -- | The SAPOData OAuth type authentication credentials.
+    oAuthCredentials :: Prelude.Maybe OAuthCredentials
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data SAPODataConnectorProfileCredentials = SAPODataConnectorProfileCredentials'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'oAuthCredentials', 'sAPODataConnectorProfileCredentials_oAuthCredentials' - The SAPOData OAuth type authentication credentials.
---
 -- 'basicAuthCredentials', 'sAPODataConnectorProfileCredentials_basicAuthCredentials' - The SAPOData basic authentication credentials.
+--
+-- 'oAuthCredentials', 'sAPODataConnectorProfileCredentials_oAuthCredentials' - The SAPOData OAuth type authentication credentials.
 newSAPODataConnectorProfileCredentials ::
   SAPODataConnectorProfileCredentials
 newSAPODataConnectorProfileCredentials =
   SAPODataConnectorProfileCredentials'
-    { oAuthCredentials =
+    { basicAuthCredentials =
         Prelude.Nothing,
-      basicAuthCredentials = Prelude.Nothing
+      oAuthCredentials = Prelude.Nothing
     }
-
--- | The SAPOData OAuth type authentication credentials.
-sAPODataConnectorProfileCredentials_oAuthCredentials :: Lens.Lens' SAPODataConnectorProfileCredentials (Prelude.Maybe OAuthCredentials)
-sAPODataConnectorProfileCredentials_oAuthCredentials = Lens.lens (\SAPODataConnectorProfileCredentials' {oAuthCredentials} -> oAuthCredentials) (\s@SAPODataConnectorProfileCredentials' {} a -> s {oAuthCredentials = a} :: SAPODataConnectorProfileCredentials)
 
 -- | The SAPOData basic authentication credentials.
 sAPODataConnectorProfileCredentials_basicAuthCredentials :: Lens.Lens' SAPODataConnectorProfileCredentials (Prelude.Maybe BasicAuthCredentials)
 sAPODataConnectorProfileCredentials_basicAuthCredentials = Lens.lens (\SAPODataConnectorProfileCredentials' {basicAuthCredentials} -> basicAuthCredentials) (\s@SAPODataConnectorProfileCredentials' {} a -> s {basicAuthCredentials = a} :: SAPODataConnectorProfileCredentials)
+
+-- | The SAPOData OAuth type authentication credentials.
+sAPODataConnectorProfileCredentials_oAuthCredentials :: Lens.Lens' SAPODataConnectorProfileCredentials (Prelude.Maybe OAuthCredentials)
+sAPODataConnectorProfileCredentials_oAuthCredentials = Lens.lens (\SAPODataConnectorProfileCredentials' {oAuthCredentials} -> oAuthCredentials) (\s@SAPODataConnectorProfileCredentials' {} a -> s {oAuthCredentials = a} :: SAPODataConnectorProfileCredentials)
 
 instance
   Prelude.Hashable
@@ -71,16 +71,16 @@ instance
   hashWithSalt
     _salt
     SAPODataConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` oAuthCredentials
-        `Prelude.hashWithSalt` basicAuthCredentials
+      _salt `Prelude.hashWithSalt` basicAuthCredentials
+        `Prelude.hashWithSalt` oAuthCredentials
 
 instance
   Prelude.NFData
     SAPODataConnectorProfileCredentials
   where
   rnf SAPODataConnectorProfileCredentials' {..} =
-    Prelude.rnf oAuthCredentials
-      `Prelude.seq` Prelude.rnf basicAuthCredentials
+    Prelude.rnf basicAuthCredentials
+      `Prelude.seq` Prelude.rnf oAuthCredentials
 
 instance
   Core.ToJSON
@@ -89,9 +89,9 @@ instance
   toJSON SAPODataConnectorProfileCredentials' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("oAuthCredentials" Core..=)
-              Prelude.<$> oAuthCredentials,
-            ("basicAuthCredentials" Core..=)
-              Prelude.<$> basicAuthCredentials
+          [ ("basicAuthCredentials" Core..=)
+              Prelude.<$> basicAuthCredentials,
+            ("oAuthCredentials" Core..=)
+              Prelude.<$> oAuthCredentials
           ]
       )

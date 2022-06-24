@@ -33,9 +33,6 @@ data ExecuteCommandConfiguration = ExecuteCommandConfiguration'
     -- The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When
     -- @logging=OVERRIDE@ is specified, a @logConfiguration@ must be provided.
     logConfiguration :: Prelude.Maybe ExecuteCommandLogConfiguration,
-    -- | Specify an Key Management Service key ID to encrypt the data between the
-    -- local client and the container.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The log setting to use for redirecting logs for your execute command
     -- results. The following log settings are available.
     --
@@ -49,7 +46,10 @@ data ExecuteCommandConfiguration = ExecuteCommandConfiguration'
     -- -   @OVERRIDE@: Specify the logging details as a part of
     --     @logConfiguration@. If the @OVERRIDE@ logging option is specified,
     --     the @logConfiguration@ is required.
-    logging :: Prelude.Maybe ExecuteCommandLogging
+    logging :: Prelude.Maybe ExecuteCommandLogging,
+    -- | Specify an Key Management Service key ID to encrypt the data between the
+    -- local client and the container.
+    kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,9 +65,6 @@ data ExecuteCommandConfiguration = ExecuteCommandConfiguration'
 -- The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When
 -- @logging=OVERRIDE@ is specified, a @logConfiguration@ must be provided.
 --
--- 'kmsKeyId', 'executeCommandConfiguration_kmsKeyId' - Specify an Key Management Service key ID to encrypt the data between the
--- local client and the container.
---
 -- 'logging', 'executeCommandConfiguration_logging' - The log setting to use for redirecting logs for your execute command
 -- results. The following log settings are available.
 --
@@ -81,14 +78,17 @@ data ExecuteCommandConfiguration = ExecuteCommandConfiguration'
 -- -   @OVERRIDE@: Specify the logging details as a part of
 --     @logConfiguration@. If the @OVERRIDE@ logging option is specified,
 --     the @logConfiguration@ is required.
+--
+-- 'kmsKeyId', 'executeCommandConfiguration_kmsKeyId' - Specify an Key Management Service key ID to encrypt the data between the
+-- local client and the container.
 newExecuteCommandConfiguration ::
   ExecuteCommandConfiguration
 newExecuteCommandConfiguration =
   ExecuteCommandConfiguration'
     { logConfiguration =
         Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      logging = Prelude.Nothing
+      logging = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing
     }
 
 -- | The log configuration for the results of the execute command actions.
@@ -96,11 +96,6 @@ newExecuteCommandConfiguration =
 -- @logging=OVERRIDE@ is specified, a @logConfiguration@ must be provided.
 executeCommandConfiguration_logConfiguration :: Lens.Lens' ExecuteCommandConfiguration (Prelude.Maybe ExecuteCommandLogConfiguration)
 executeCommandConfiguration_logConfiguration = Lens.lens (\ExecuteCommandConfiguration' {logConfiguration} -> logConfiguration) (\s@ExecuteCommandConfiguration' {} a -> s {logConfiguration = a} :: ExecuteCommandConfiguration)
-
--- | Specify an Key Management Service key ID to encrypt the data between the
--- local client and the container.
-executeCommandConfiguration_kmsKeyId :: Lens.Lens' ExecuteCommandConfiguration (Prelude.Maybe Prelude.Text)
-executeCommandConfiguration_kmsKeyId = Lens.lens (\ExecuteCommandConfiguration' {kmsKeyId} -> kmsKeyId) (\s@ExecuteCommandConfiguration' {} a -> s {kmsKeyId = a} :: ExecuteCommandConfiguration)
 
 -- | The log setting to use for redirecting logs for your execute command
 -- results. The following log settings are available.
@@ -118,6 +113,11 @@ executeCommandConfiguration_kmsKeyId = Lens.lens (\ExecuteCommandConfiguration' 
 executeCommandConfiguration_logging :: Lens.Lens' ExecuteCommandConfiguration (Prelude.Maybe ExecuteCommandLogging)
 executeCommandConfiguration_logging = Lens.lens (\ExecuteCommandConfiguration' {logging} -> logging) (\s@ExecuteCommandConfiguration' {} a -> s {logging = a} :: ExecuteCommandConfiguration)
 
+-- | Specify an Key Management Service key ID to encrypt the data between the
+-- local client and the container.
+executeCommandConfiguration_kmsKeyId :: Lens.Lens' ExecuteCommandConfiguration (Prelude.Maybe Prelude.Text)
+executeCommandConfiguration_kmsKeyId = Lens.lens (\ExecuteCommandConfiguration' {kmsKeyId} -> kmsKeyId) (\s@ExecuteCommandConfiguration' {} a -> s {kmsKeyId = a} :: ExecuteCommandConfiguration)
+
 instance Core.FromJSON ExecuteCommandConfiguration where
   parseJSON =
     Core.withObject
@@ -125,21 +125,21 @@ instance Core.FromJSON ExecuteCommandConfiguration where
       ( \x ->
           ExecuteCommandConfiguration'
             Prelude.<$> (x Core..:? "logConfiguration")
-            Prelude.<*> (x Core..:? "kmsKeyId")
             Prelude.<*> (x Core..:? "logging")
+            Prelude.<*> (x Core..:? "kmsKeyId")
       )
 
 instance Prelude.Hashable ExecuteCommandConfiguration where
   hashWithSalt _salt ExecuteCommandConfiguration' {..} =
     _salt `Prelude.hashWithSalt` logConfiguration
-      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` kmsKeyId
 
 instance Prelude.NFData ExecuteCommandConfiguration where
   rnf ExecuteCommandConfiguration' {..} =
     Prelude.rnf logConfiguration
-      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToJSON ExecuteCommandConfiguration where
   toJSON ExecuteCommandConfiguration' {..} =
@@ -147,7 +147,7 @@ instance Core.ToJSON ExecuteCommandConfiguration where
       ( Prelude.catMaybes
           [ ("logConfiguration" Core..=)
               Prelude.<$> logConfiguration,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("logging" Core..=) Prelude.<$> logging
+            ("logging" Core..=) Prelude.<$> logging,
+            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId
           ]
       )

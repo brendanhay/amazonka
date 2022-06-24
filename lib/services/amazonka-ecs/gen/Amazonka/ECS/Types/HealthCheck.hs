@@ -76,7 +76,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHealthCheck' smart constructor.
 data HealthCheck = HealthCheck'
-  { -- | The optional grace period within which to provide containers time to
+  { -- | The time period in seconds to wait for a health check to succeed before
+    -- it is considered a failure. You may specify between 2 and 60 seconds.
+    -- The default value is 5.
+    timeout :: Prelude.Maybe Prelude.Int,
+    -- | The optional grace period within which to provide containers time to
     -- bootstrap before failed health checks count towards the maximum number
     -- of retries. You may specify between 0 and 300 seconds. The @startPeriod@
     -- is disabled by default.
@@ -85,17 +89,13 @@ data HealthCheck = HealthCheck'
     -- is considered healthy and any subsequent failures count toward the
     -- maximum number of retries.
     startPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The time period in seconds between each health check execution. You may
+    -- specify between 5 and 300 seconds. The default value is 30 seconds.
+    interval :: Prelude.Maybe Prelude.Int,
     -- | The number of times to retry a failed health check before the container
     -- is considered unhealthy. You may specify between 1 and 10 retries. The
     -- default value is 3.
     retries :: Prelude.Maybe Prelude.Int,
-    -- | The time period in seconds between each health check execution. You may
-    -- specify between 5 and 300 seconds. The default value is 30 seconds.
-    interval :: Prelude.Maybe Prelude.Int,
-    -- | The time period in seconds to wait for a health check to succeed before
-    -- it is considered a failure. You may specify between 2 and 60 seconds.
-    -- The default value is 5.
-    timeout :: Prelude.Maybe Prelude.Int,
     -- | A string array representing the command that the container runs to
     -- determine if it is healthy. The string array must start with @CMD@ to
     -- execute the command arguments directly, or @CMD-SHELL@ to run the
@@ -129,6 +129,10 @@ data HealthCheck = HealthCheck'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'timeout', 'healthCheck_timeout' - The time period in seconds to wait for a health check to succeed before
+-- it is considered a failure. You may specify between 2 and 60 seconds.
+-- The default value is 5.
+--
 -- 'startPeriod', 'healthCheck_startPeriod' - The optional grace period within which to provide containers time to
 -- bootstrap before failed health checks count towards the maximum number
 -- of retries. You may specify between 0 and 300 seconds. The @startPeriod@
@@ -138,16 +142,12 @@ data HealthCheck = HealthCheck'
 -- is considered healthy and any subsequent failures count toward the
 -- maximum number of retries.
 --
--- 'retries', 'healthCheck_retries' - The number of times to retry a failed health check before the container
--- is considered unhealthy. You may specify between 1 and 10 retries. The
--- default value is 3.
---
 -- 'interval', 'healthCheck_interval' - The time period in seconds between each health check execution. You may
 -- specify between 5 and 300 seconds. The default value is 30 seconds.
 --
--- 'timeout', 'healthCheck_timeout' - The time period in seconds to wait for a health check to succeed before
--- it is considered a failure. You may specify between 2 and 60 seconds.
--- The default value is 5.
+-- 'retries', 'healthCheck_retries' - The number of times to retry a failed health check before the container
+-- is considered unhealthy. You may specify between 1 and 10 retries. The
+-- default value is 3.
 --
 -- 'command', 'healthCheck_command' - A string array representing the command that the container runs to
 -- determine if it is healthy. The string array must start with @CMD@ to
@@ -174,12 +174,18 @@ newHealthCheck ::
   HealthCheck
 newHealthCheck =
   HealthCheck'
-    { startPeriod = Prelude.Nothing,
-      retries = Prelude.Nothing,
+    { timeout = Prelude.Nothing,
+      startPeriod = Prelude.Nothing,
       interval = Prelude.Nothing,
-      timeout = Prelude.Nothing,
+      retries = Prelude.Nothing,
       command = Prelude.mempty
     }
+
+-- | The time period in seconds to wait for a health check to succeed before
+-- it is considered a failure. You may specify between 2 and 60 seconds.
+-- The default value is 5.
+healthCheck_timeout :: Lens.Lens' HealthCheck (Prelude.Maybe Prelude.Int)
+healthCheck_timeout = Lens.lens (\HealthCheck' {timeout} -> timeout) (\s@HealthCheck' {} a -> s {timeout = a} :: HealthCheck)
 
 -- | The optional grace period within which to provide containers time to
 -- bootstrap before failed health checks count towards the maximum number
@@ -192,22 +198,16 @@ newHealthCheck =
 healthCheck_startPeriod :: Lens.Lens' HealthCheck (Prelude.Maybe Prelude.Int)
 healthCheck_startPeriod = Lens.lens (\HealthCheck' {startPeriod} -> startPeriod) (\s@HealthCheck' {} a -> s {startPeriod = a} :: HealthCheck)
 
--- | The number of times to retry a failed health check before the container
--- is considered unhealthy. You may specify between 1 and 10 retries. The
--- default value is 3.
-healthCheck_retries :: Lens.Lens' HealthCheck (Prelude.Maybe Prelude.Int)
-healthCheck_retries = Lens.lens (\HealthCheck' {retries} -> retries) (\s@HealthCheck' {} a -> s {retries = a} :: HealthCheck)
-
 -- | The time period in seconds between each health check execution. You may
 -- specify between 5 and 300 seconds. The default value is 30 seconds.
 healthCheck_interval :: Lens.Lens' HealthCheck (Prelude.Maybe Prelude.Int)
 healthCheck_interval = Lens.lens (\HealthCheck' {interval} -> interval) (\s@HealthCheck' {} a -> s {interval = a} :: HealthCheck)
 
--- | The time period in seconds to wait for a health check to succeed before
--- it is considered a failure. You may specify between 2 and 60 seconds.
--- The default value is 5.
-healthCheck_timeout :: Lens.Lens' HealthCheck (Prelude.Maybe Prelude.Int)
-healthCheck_timeout = Lens.lens (\HealthCheck' {timeout} -> timeout) (\s@HealthCheck' {} a -> s {timeout = a} :: HealthCheck)
+-- | The number of times to retry a failed health check before the container
+-- is considered unhealthy. You may specify between 1 and 10 retries. The
+-- default value is 3.
+healthCheck_retries :: Lens.Lens' HealthCheck (Prelude.Maybe Prelude.Int)
+healthCheck_retries = Lens.lens (\HealthCheck' {retries} -> retries) (\s@HealthCheck' {} a -> s {retries = a} :: HealthCheck)
 
 -- | A string array representing the command that the container runs to
 -- determine if it is healthy. The string array must start with @CMD@ to
@@ -239,37 +239,37 @@ instance Core.FromJSON HealthCheck where
       "HealthCheck"
       ( \x ->
           HealthCheck'
-            Prelude.<$> (x Core..:? "startPeriod")
-            Prelude.<*> (x Core..:? "retries")
+            Prelude.<$> (x Core..:? "timeout")
+            Prelude.<*> (x Core..:? "startPeriod")
             Prelude.<*> (x Core..:? "interval")
-            Prelude.<*> (x Core..:? "timeout")
+            Prelude.<*> (x Core..:? "retries")
             Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable HealthCheck where
   hashWithSalt _salt HealthCheck' {..} =
-    _salt `Prelude.hashWithSalt` startPeriod
-      `Prelude.hashWithSalt` retries
+    _salt `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` startPeriod
       `Prelude.hashWithSalt` interval
-      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` retries
       `Prelude.hashWithSalt` command
 
 instance Prelude.NFData HealthCheck where
   rnf HealthCheck' {..} =
-    Prelude.rnf startPeriod
-      `Prelude.seq` Prelude.rnf retries
+    Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf startPeriod
       `Prelude.seq` Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf retries
       `Prelude.seq` Prelude.rnf command
 
 instance Core.ToJSON HealthCheck where
   toJSON HealthCheck' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("startPeriod" Core..=) Prelude.<$> startPeriod,
-            ("retries" Core..=) Prelude.<$> retries,
+          [ ("timeout" Core..=) Prelude.<$> timeout,
+            ("startPeriod" Core..=) Prelude.<$> startPeriod,
             ("interval" Core..=) Prelude.<$> interval,
-            ("timeout" Core..=) Prelude.<$> timeout,
+            ("retries" Core..=) Prelude.<$> retries,
             Prelude.Just ("command" Core..= command)
           ]
       )

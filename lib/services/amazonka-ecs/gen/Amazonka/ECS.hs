@@ -38,77 +38,77 @@ module Amazonka.ECS
     -- * Errors
     -- $errors
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** ServerException
-    _ServerException,
-
-    -- ** ClusterContainsTasksException
-    _ClusterContainsTasksException,
-
-    -- ** PlatformUnknownException
-    _PlatformUnknownException,
-
-    -- ** ClusterContainsServicesException
-    _ClusterContainsServicesException,
-
-    -- ** TaskSetNotFoundException
-    _TaskSetNotFoundException,
-
-    -- ** ClusterContainsContainerInstancesException
-    _ClusterContainsContainerInstancesException,
-
-    -- ** ServiceNotActiveException
-    _ServiceNotActiveException,
-
-    -- ** ClusterNotFoundException
-    _ClusterNotFoundException,
-
-    -- ** NoUpdateAvailableException
-    _NoUpdateAvailableException,
-
-    -- ** UnsupportedFeatureException
-    _UnsupportedFeatureException,
-
-    -- ** ServiceNotFoundException
-    _ServiceNotFoundException,
-
-    -- ** PlatformTaskDefinitionIncompatibilityException
-    _PlatformTaskDefinitionIncompatibilityException,
-
-    -- ** MissingVersionException
-    _MissingVersionException,
+    -- ** ClientException
+    _ClientException,
 
     -- ** UpdateInProgressException
     _UpdateInProgressException,
 
-    -- ** TargetNotConnectedException
-    _TargetNotConnectedException,
+    -- ** ServiceNotFoundException
+    _ServiceNotFoundException,
 
-    -- ** BlockedException
-    _BlockedException,
+    -- ** ClusterContainsContainerInstancesException
+    _ClusterContainsContainerInstancesException,
 
-    -- ** TargetNotFoundException
-    _TargetNotFoundException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
-    -- ** AttributeLimitExceededException
-    _AttributeLimitExceededException,
+    -- ** ClusterNotFoundException
+    _ClusterNotFoundException,
 
-    -- ** ClientException
-    _ClientException,
+    -- ** MissingVersionException
+    _MissingVersionException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** TaskSetNotFoundException
+    _TaskSetNotFoundException,
+
+    -- ** ClusterContainsTasksException
+    _ClusterContainsTasksException,
+
+    -- ** UnsupportedFeatureException
+    _UnsupportedFeatureException,
+
+    -- ** TargetNotFoundException
+    _TargetNotFoundException,
+
+    -- ** PlatformUnknownException
+    _PlatformUnknownException,
+
+    -- ** TargetNotConnectedException
+    _TargetNotConnectedException,
+
+    -- ** ServiceNotActiveException
+    _ServiceNotActiveException,
+
+    -- ** NoUpdateAvailableException
+    _NoUpdateAvailableException,
+
+    -- ** BlockedException
+    _BlockedException,
+
+    -- ** ServerException
+    _ServerException,
+
+    -- ** PlatformTaskDefinitionIncompatibilityException
+    _PlatformTaskDefinitionIncompatibilityException,
+
+    -- ** AttributeLimitExceededException
+    _AttributeLimitExceededException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** ClusterContainsServicesException
+    _ClusterContainsServicesException,
 
     -- * Waiters
     -- $waiters
@@ -125,17 +125,53 @@ module Amazonka.ECS
     -- * Operations
     -- $operations
 
-    -- ** ListServices (Paginated)
-    ListServices (ListServices'),
-    newListServices,
-    ListServicesResponse (ListServicesResponse'),
-    newListServicesResponse,
+    -- ** CreateCapacityProvider
+    CreateCapacityProvider (CreateCapacityProvider'),
+    newCreateCapacityProvider,
+    CreateCapacityProviderResponse (CreateCapacityProviderResponse'),
+    newCreateCapacityProviderResponse,
 
-    -- ** DescribeClusters
-    DescribeClusters (DescribeClusters'),
-    newDescribeClusters,
-    DescribeClustersResponse (DescribeClustersResponse'),
-    newDescribeClustersResponse,
+    -- ** CreateCluster
+    CreateCluster (CreateCluster'),
+    newCreateCluster,
+    CreateClusterResponse (CreateClusterResponse'),
+    newCreateClusterResponse,
+
+    -- ** CreateService
+    CreateService (CreateService'),
+    newCreateService,
+    CreateServiceResponse (CreateServiceResponse'),
+    newCreateServiceResponse,
+
+    -- ** CreateTaskSet
+    CreateTaskSet (CreateTaskSet'),
+    newCreateTaskSet,
+    CreateTaskSetResponse (CreateTaskSetResponse'),
+    newCreateTaskSetResponse,
+
+    -- ** DeleteAccountSetting
+    DeleteAccountSetting (DeleteAccountSetting'),
+    newDeleteAccountSetting,
+    DeleteAccountSettingResponse (DeleteAccountSettingResponse'),
+    newDeleteAccountSettingResponse,
+
+    -- ** DeleteAttributes
+    DeleteAttributes (DeleteAttributes'),
+    newDeleteAttributes,
+    DeleteAttributesResponse (DeleteAttributesResponse'),
+    newDeleteAttributesResponse,
+
+    -- ** DeleteCapacityProvider
+    DeleteCapacityProvider (DeleteCapacityProvider'),
+    newDeleteCapacityProvider,
+    DeleteCapacityProviderResponse (DeleteCapacityProviderResponse'),
+    newDeleteCapacityProviderResponse,
+
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
 
     -- ** DeleteService
     DeleteService (DeleteService'),
@@ -143,17 +179,185 @@ module Amazonka.ECS
     DeleteServiceResponse (DeleteServiceResponse'),
     newDeleteServiceResponse,
 
-    -- ** UpdateService
-    UpdateService (UpdateService'),
-    newUpdateService,
-    UpdateServiceResponse (UpdateServiceResponse'),
-    newUpdateServiceResponse,
+    -- ** DeleteTaskSet
+    DeleteTaskSet (DeleteTaskSet'),
+    newDeleteTaskSet,
+    DeleteTaskSetResponse (DeleteTaskSetResponse'),
+    newDeleteTaskSetResponse,
+
+    -- ** DeregisterContainerInstance
+    DeregisterContainerInstance (DeregisterContainerInstance'),
+    newDeregisterContainerInstance,
+    DeregisterContainerInstanceResponse (DeregisterContainerInstanceResponse'),
+    newDeregisterContainerInstanceResponse,
+
+    -- ** DeregisterTaskDefinition
+    DeregisterTaskDefinition (DeregisterTaskDefinition'),
+    newDeregisterTaskDefinition,
+    DeregisterTaskDefinitionResponse (DeregisterTaskDefinitionResponse'),
+    newDeregisterTaskDefinitionResponse,
+
+    -- ** DescribeCapacityProviders
+    DescribeCapacityProviders (DescribeCapacityProviders'),
+    newDescribeCapacityProviders,
+    DescribeCapacityProvidersResponse (DescribeCapacityProvidersResponse'),
+    newDescribeCapacityProvidersResponse,
+
+    -- ** DescribeClusters
+    DescribeClusters (DescribeClusters'),
+    newDescribeClusters,
+    DescribeClustersResponse (DescribeClustersResponse'),
+    newDescribeClustersResponse,
+
+    -- ** DescribeContainerInstances
+    DescribeContainerInstances (DescribeContainerInstances'),
+    newDescribeContainerInstances,
+    DescribeContainerInstancesResponse (DescribeContainerInstancesResponse'),
+    newDescribeContainerInstancesResponse,
+
+    -- ** DescribeServices
+    DescribeServices (DescribeServices'),
+    newDescribeServices,
+    DescribeServicesResponse (DescribeServicesResponse'),
+    newDescribeServicesResponse,
+
+    -- ** DescribeTaskDefinition
+    DescribeTaskDefinition (DescribeTaskDefinition'),
+    newDescribeTaskDefinition,
+    DescribeTaskDefinitionResponse (DescribeTaskDefinitionResponse'),
+    newDescribeTaskDefinitionResponse,
+
+    -- ** DescribeTaskSets
+    DescribeTaskSets (DescribeTaskSets'),
+    newDescribeTaskSets,
+    DescribeTaskSetsResponse (DescribeTaskSetsResponse'),
+    newDescribeTaskSetsResponse,
+
+    -- ** DescribeTasks
+    DescribeTasks (DescribeTasks'),
+    newDescribeTasks,
+    DescribeTasksResponse (DescribeTasksResponse'),
+    newDescribeTasksResponse,
 
     -- ** DiscoverPollEndpoint
     DiscoverPollEndpoint (DiscoverPollEndpoint'),
     newDiscoverPollEndpoint,
     DiscoverPollEndpointResponse (DiscoverPollEndpointResponse'),
     newDiscoverPollEndpointResponse,
+
+    -- ** ExecuteCommand
+    ExecuteCommand (ExecuteCommand'),
+    newExecuteCommand,
+    ExecuteCommandResponse (ExecuteCommandResponse'),
+    newExecuteCommandResponse,
+
+    -- ** ListAccountSettings (Paginated)
+    ListAccountSettings (ListAccountSettings'),
+    newListAccountSettings,
+    ListAccountSettingsResponse (ListAccountSettingsResponse'),
+    newListAccountSettingsResponse,
+
+    -- ** ListAttributes (Paginated)
+    ListAttributes (ListAttributes'),
+    newListAttributes,
+    ListAttributesResponse (ListAttributesResponse'),
+    newListAttributesResponse,
+
+    -- ** ListClusters (Paginated)
+    ListClusters (ListClusters'),
+    newListClusters,
+    ListClustersResponse (ListClustersResponse'),
+    newListClustersResponse,
+
+    -- ** ListContainerInstances (Paginated)
+    ListContainerInstances (ListContainerInstances'),
+    newListContainerInstances,
+    ListContainerInstancesResponse (ListContainerInstancesResponse'),
+    newListContainerInstancesResponse,
+
+    -- ** ListServices (Paginated)
+    ListServices (ListServices'),
+    newListServices,
+    ListServicesResponse (ListServicesResponse'),
+    newListServicesResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListTaskDefinitionFamilies (Paginated)
+    ListTaskDefinitionFamilies (ListTaskDefinitionFamilies'),
+    newListTaskDefinitionFamilies,
+    ListTaskDefinitionFamiliesResponse (ListTaskDefinitionFamiliesResponse'),
+    newListTaskDefinitionFamiliesResponse,
+
+    -- ** ListTaskDefinitions (Paginated)
+    ListTaskDefinitions (ListTaskDefinitions'),
+    newListTaskDefinitions,
+    ListTaskDefinitionsResponse (ListTaskDefinitionsResponse'),
+    newListTaskDefinitionsResponse,
+
+    -- ** ListTasks (Paginated)
+    ListTasks (ListTasks'),
+    newListTasks,
+    ListTasksResponse (ListTasksResponse'),
+    newListTasksResponse,
+
+    -- ** PutAccountSetting
+    PutAccountSetting (PutAccountSetting'),
+    newPutAccountSetting,
+    PutAccountSettingResponse (PutAccountSettingResponse'),
+    newPutAccountSettingResponse,
+
+    -- ** PutAccountSettingDefault
+    PutAccountSettingDefault (PutAccountSettingDefault'),
+    newPutAccountSettingDefault,
+    PutAccountSettingDefaultResponse (PutAccountSettingDefaultResponse'),
+    newPutAccountSettingDefaultResponse,
+
+    -- ** PutAttributes
+    PutAttributes (PutAttributes'),
+    newPutAttributes,
+    PutAttributesResponse (PutAttributesResponse'),
+    newPutAttributesResponse,
+
+    -- ** PutClusterCapacityProviders
+    PutClusterCapacityProviders (PutClusterCapacityProviders'),
+    newPutClusterCapacityProviders,
+    PutClusterCapacityProvidersResponse (PutClusterCapacityProvidersResponse'),
+    newPutClusterCapacityProvidersResponse,
+
+    -- ** RegisterContainerInstance
+    RegisterContainerInstance (RegisterContainerInstance'),
+    newRegisterContainerInstance,
+    RegisterContainerInstanceResponse (RegisterContainerInstanceResponse'),
+    newRegisterContainerInstanceResponse,
+
+    -- ** RegisterTaskDefinition
+    RegisterTaskDefinition (RegisterTaskDefinition'),
+    newRegisterTaskDefinition,
+    RegisterTaskDefinitionResponse (RegisterTaskDefinitionResponse'),
+    newRegisterTaskDefinitionResponse,
+
+    -- ** RunTask
+    RunTask (RunTask'),
+    newRunTask,
+    RunTaskResponse (RunTaskResponse'),
+    newRunTaskResponse,
+
+    -- ** StartTask
+    StartTask (StartTask'),
+    newStartTask,
+    StartTaskResponse (StartTaskResponse'),
+    newStartTaskResponse,
+
+    -- ** StopTask
+    StopTask (StopTask'),
+    newStopTask,
+    StopTaskResponse (StopTaskResponse'),
+    newStopTaskResponse,
 
     -- ** SubmitAttachmentStateChanges
     SubmitAttachmentStateChanges (SubmitAttachmentStateChanges'),
@@ -167,173 +371,11 @@ module Amazonka.ECS
     SubmitContainerStateChangeResponse (SubmitContainerStateChangeResponse'),
     newSubmitContainerStateChangeResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** StopTask
-    StopTask (StopTask'),
-    newStopTask,
-    StopTaskResponse (StopTaskResponse'),
-    newStopTaskResponse,
-
-    -- ** DescribeTaskDefinition
-    DescribeTaskDefinition (DescribeTaskDefinition'),
-    newDescribeTaskDefinition,
-    DescribeTaskDefinitionResponse (DescribeTaskDefinitionResponse'),
-    newDescribeTaskDefinitionResponse,
-
     -- ** SubmitTaskStateChange
     SubmitTaskStateChange (SubmitTaskStateChange'),
     newSubmitTaskStateChange,
     SubmitTaskStateChangeResponse (SubmitTaskStateChangeResponse'),
     newSubmitTaskStateChangeResponse,
-
-    -- ** DescribeContainerInstances
-    DescribeContainerInstances (DescribeContainerInstances'),
-    newDescribeContainerInstances,
-    DescribeContainerInstancesResponse (DescribeContainerInstancesResponse'),
-    newDescribeContainerInstancesResponse,
-
-    -- ** DescribeCapacityProviders
-    DescribeCapacityProviders (DescribeCapacityProviders'),
-    newDescribeCapacityProviders,
-    DescribeCapacityProvidersResponse (DescribeCapacityProvidersResponse'),
-    newDescribeCapacityProvidersResponse,
-
-    -- ** UpdateContainerInstancesState
-    UpdateContainerInstancesState (UpdateContainerInstancesState'),
-    newUpdateContainerInstancesState,
-    UpdateContainerInstancesStateResponse (UpdateContainerInstancesStateResponse'),
-    newUpdateContainerInstancesStateResponse,
-
-    -- ** DeleteCluster
-    DeleteCluster (DeleteCluster'),
-    newDeleteCluster,
-    DeleteClusterResponse (DeleteClusterResponse'),
-    newDeleteClusterResponse,
-
-    -- ** UpdateCluster
-    UpdateCluster (UpdateCluster'),
-    newUpdateCluster,
-    UpdateClusterResponse (UpdateClusterResponse'),
-    newUpdateClusterResponse,
-
-    -- ** CreateCluster
-    CreateCluster (CreateCluster'),
-    newCreateCluster,
-    CreateClusterResponse (CreateClusterResponse'),
-    newCreateClusterResponse,
-
-    -- ** PutAccountSetting
-    PutAccountSetting (PutAccountSetting'),
-    newPutAccountSetting,
-    PutAccountSettingResponse (PutAccountSettingResponse'),
-    newPutAccountSettingResponse,
-
-    -- ** DeleteAccountSetting
-    DeleteAccountSetting (DeleteAccountSetting'),
-    newDeleteAccountSetting,
-    DeleteAccountSettingResponse (DeleteAccountSettingResponse'),
-    newDeleteAccountSettingResponse,
-
-    -- ** ListTaskDefinitions (Paginated)
-    ListTaskDefinitions (ListTaskDefinitions'),
-    newListTaskDefinitions,
-    ListTaskDefinitionsResponse (ListTaskDefinitionsResponse'),
-    newListTaskDefinitionsResponse,
-
-    -- ** RunTask
-    RunTask (RunTask'),
-    newRunTask,
-    RunTaskResponse (RunTaskResponse'),
-    newRunTaskResponse,
-
-    -- ** DeleteCapacityProvider
-    DeleteCapacityProvider (DeleteCapacityProvider'),
-    newDeleteCapacityProvider,
-    DeleteCapacityProviderResponse (DeleteCapacityProviderResponse'),
-    newDeleteCapacityProviderResponse,
-
-    -- ** ListTasks (Paginated)
-    ListTasks (ListTasks'),
-    newListTasks,
-    ListTasksResponse (ListTasksResponse'),
-    newListTasksResponse,
-
-    -- ** UpdateCapacityProvider
-    UpdateCapacityProvider (UpdateCapacityProvider'),
-    newUpdateCapacityProvider,
-    UpdateCapacityProviderResponse (UpdateCapacityProviderResponse'),
-    newUpdateCapacityProviderResponse,
-
-    -- ** RegisterContainerInstance
-    RegisterContainerInstance (RegisterContainerInstance'),
-    newRegisterContainerInstance,
-    RegisterContainerInstanceResponse (RegisterContainerInstanceResponse'),
-    newRegisterContainerInstanceResponse,
-
-    -- ** UpdateContainerAgent
-    UpdateContainerAgent (UpdateContainerAgent'),
-    newUpdateContainerAgent,
-    UpdateContainerAgentResponse (UpdateContainerAgentResponse'),
-    newUpdateContainerAgentResponse,
-
-    -- ** ListContainerInstances (Paginated)
-    ListContainerInstances (ListContainerInstances'),
-    newListContainerInstances,
-    ListContainerInstancesResponse (ListContainerInstancesResponse'),
-    newListContainerInstancesResponse,
-
-    -- ** UpdateServicePrimaryTaskSet
-    UpdateServicePrimaryTaskSet (UpdateServicePrimaryTaskSet'),
-    newUpdateServicePrimaryTaskSet,
-    UpdateServicePrimaryTaskSetResponse (UpdateServicePrimaryTaskSetResponse'),
-    newUpdateServicePrimaryTaskSetResponse,
-
-    -- ** ListTaskDefinitionFamilies (Paginated)
-    ListTaskDefinitionFamilies (ListTaskDefinitionFamilies'),
-    newListTaskDefinitionFamilies,
-    ListTaskDefinitionFamiliesResponse (ListTaskDefinitionFamiliesResponse'),
-    newListTaskDefinitionFamiliesResponse,
-
-    -- ** StartTask
-    StartTask (StartTask'),
-    newStartTask,
-    StartTaskResponse (StartTaskResponse'),
-    newStartTaskResponse,
-
-    -- ** PutClusterCapacityProviders
-    PutClusterCapacityProviders (PutClusterCapacityProviders'),
-    newPutClusterCapacityProviders,
-    PutClusterCapacityProvidersResponse (PutClusterCapacityProvidersResponse'),
-    newPutClusterCapacityProvidersResponse,
-
-    -- ** PutAccountSettingDefault
-    PutAccountSettingDefault (PutAccountSettingDefault'),
-    newPutAccountSettingDefault,
-    PutAccountSettingDefaultResponse (PutAccountSettingDefaultResponse'),
-    newPutAccountSettingDefaultResponse,
-
-    -- ** ListAttributes (Paginated)
-    ListAttributes (ListAttributes'),
-    newListAttributes,
-    ListAttributesResponse (ListAttributesResponse'),
-    newListAttributesResponse,
-
-    -- ** ExecuteCommand
-    ExecuteCommand (ExecuteCommand'),
-    newExecuteCommand,
-    ExecuteCommandResponse (ExecuteCommandResponse'),
-    newExecuteCommandResponse,
-
-    -- ** DeregisterTaskDefinition
-    DeregisterTaskDefinition (DeregisterTaskDefinition'),
-    newDeregisterTaskDefinition,
-    DeregisterTaskDefinitionResponse (DeregisterTaskDefinitionResponse'),
-    newDeregisterTaskDefinitionResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -341,41 +383,23 @@ module Amazonka.ECS
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** CreateTaskSet
-    CreateTaskSet (CreateTaskSet'),
-    newCreateTaskSet,
-    CreateTaskSetResponse (CreateTaskSetResponse'),
-    newCreateTaskSetResponse,
-
-    -- ** DescribeTasks
-    DescribeTasks (DescribeTasks'),
-    newDescribeTasks,
-    DescribeTasksResponse (DescribeTasksResponse'),
-    newDescribeTasksResponse,
-
-    -- ** ListClusters (Paginated)
-    ListClusters (ListClusters'),
-    newListClusters,
-    ListClustersResponse (ListClustersResponse'),
-    newListClustersResponse,
-
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** DescribeServices
-    DescribeServices (DescribeServices'),
-    newDescribeServices,
-    DescribeServicesResponse (DescribeServicesResponse'),
-    newDescribeServicesResponse,
+    -- ** UpdateCapacityProvider
+    UpdateCapacityProvider (UpdateCapacityProvider'),
+    newUpdateCapacityProvider,
+    UpdateCapacityProviderResponse (UpdateCapacityProviderResponse'),
+    newUpdateCapacityProviderResponse,
 
-    -- ** DeregisterContainerInstance
-    DeregisterContainerInstance (DeregisterContainerInstance'),
-    newDeregisterContainerInstance,
-    DeregisterContainerInstanceResponse (DeregisterContainerInstanceResponse'),
-    newDeregisterContainerInstanceResponse,
+    -- ** UpdateCluster
+    UpdateCluster (UpdateCluster'),
+    newUpdateCluster,
+    UpdateClusterResponse (UpdateClusterResponse'),
+    newUpdateClusterResponse,
 
     -- ** UpdateClusterSettings
     UpdateClusterSettings (UpdateClusterSettings'),
@@ -383,59 +407,35 @@ module Amazonka.ECS
     UpdateClusterSettingsResponse (UpdateClusterSettingsResponse'),
     newUpdateClusterSettingsResponse,
 
-    -- ** DeleteAttributes
-    DeleteAttributes (DeleteAttributes'),
-    newDeleteAttributes,
-    DeleteAttributesResponse (DeleteAttributesResponse'),
-    newDeleteAttributesResponse,
+    -- ** UpdateContainerAgent
+    UpdateContainerAgent (UpdateContainerAgent'),
+    newUpdateContainerAgent,
+    UpdateContainerAgentResponse (UpdateContainerAgentResponse'),
+    newUpdateContainerAgentResponse,
 
-    -- ** PutAttributes
-    PutAttributes (PutAttributes'),
-    newPutAttributes,
-    PutAttributesResponse (PutAttributesResponse'),
-    newPutAttributesResponse,
+    -- ** UpdateContainerInstancesState
+    UpdateContainerInstancesState (UpdateContainerInstancesState'),
+    newUpdateContainerInstancesState,
+    UpdateContainerInstancesStateResponse (UpdateContainerInstancesStateResponse'),
+    newUpdateContainerInstancesStateResponse,
 
-    -- ** ListAccountSettings (Paginated)
-    ListAccountSettings (ListAccountSettings'),
-    newListAccountSettings,
-    ListAccountSettingsResponse (ListAccountSettingsResponse'),
-    newListAccountSettingsResponse,
+    -- ** UpdateService
+    UpdateService (UpdateService'),
+    newUpdateService,
+    UpdateServiceResponse (UpdateServiceResponse'),
+    newUpdateServiceResponse,
 
-    -- ** DeleteTaskSet
-    DeleteTaskSet (DeleteTaskSet'),
-    newDeleteTaskSet,
-    DeleteTaskSetResponse (DeleteTaskSetResponse'),
-    newDeleteTaskSetResponse,
+    -- ** UpdateServicePrimaryTaskSet
+    UpdateServicePrimaryTaskSet (UpdateServicePrimaryTaskSet'),
+    newUpdateServicePrimaryTaskSet,
+    UpdateServicePrimaryTaskSetResponse (UpdateServicePrimaryTaskSetResponse'),
+    newUpdateServicePrimaryTaskSetResponse,
 
     -- ** UpdateTaskSet
     UpdateTaskSet (UpdateTaskSet'),
     newUpdateTaskSet,
     UpdateTaskSetResponse (UpdateTaskSetResponse'),
     newUpdateTaskSetResponse,
-
-    -- ** CreateCapacityProvider
-    CreateCapacityProvider (CreateCapacityProvider'),
-    newCreateCapacityProvider,
-    CreateCapacityProviderResponse (CreateCapacityProviderResponse'),
-    newCreateCapacityProviderResponse,
-
-    -- ** DescribeTaskSets
-    DescribeTaskSets (DescribeTaskSets'),
-    newDescribeTaskSets,
-    DescribeTaskSetsResponse (DescribeTaskSetsResponse'),
-    newDescribeTaskSetsResponse,
-
-    -- ** RegisterTaskDefinition
-    RegisterTaskDefinition (RegisterTaskDefinition'),
-    newRegisterTaskDefinition,
-    RegisterTaskDefinitionResponse (RegisterTaskDefinitionResponse'),
-    newRegisterTaskDefinitionResponse,
-
-    -- ** CreateService
-    CreateService (CreateService'),
-    newCreateService,
-    CreateServiceResponse (CreateServiceResponse'),
-    newCreateServiceResponse,
 
     -- * Types
 

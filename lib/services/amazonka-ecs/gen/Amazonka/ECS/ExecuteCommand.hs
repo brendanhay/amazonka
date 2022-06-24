@@ -39,11 +39,11 @@ module Amazonka.ECS.ExecuteCommand
 
     -- * Response Lenses
     executeCommandResponse_clusterArn,
-    executeCommandResponse_containerArn,
-    executeCommandResponse_taskArn,
     executeCommandResponse_containerName,
-    executeCommandResponse_interactive,
+    executeCommandResponse_taskArn,
     executeCommandResponse_session,
+    executeCommandResponse_containerArn,
+    executeCommandResponse_interactive,
     executeCommandResponse_httpStatus,
   )
 where
@@ -146,11 +146,11 @@ instance Core.AWSRequest ExecuteCommand where
       ( \s h x ->
           ExecuteCommandResponse'
             Prelude.<$> (x Core..?> "clusterArn")
-            Prelude.<*> (x Core..?> "containerArn")
-            Prelude.<*> (x Core..?> "taskArn")
             Prelude.<*> (x Core..?> "containerName")
-            Prelude.<*> (x Core..?> "interactive")
+            Prelude.<*> (x Core..?> "taskArn")
             Prelude.<*> (x Core..?> "session")
+            Prelude.<*> (x Core..?> "containerArn")
+            Prelude.<*> (x Core..?> "interactive")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,19 +207,19 @@ instance Core.ToQuery ExecuteCommand where
 data ExecuteCommandResponse = ExecuteCommandResponse'
   { -- | The Amazon Resource Name (ARN) of the cluster.
     clusterArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the container.
-    containerArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the task.
-    taskArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the container.
     containerName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the task.
+    taskArn :: Prelude.Maybe Prelude.Text,
+    -- | The details of the SSM session that was created for this instance of
+    -- execute-command.
+    session :: Prelude.Maybe Session,
+    -- | The Amazon Resource Name (ARN) of the container.
+    containerArn :: Prelude.Maybe Prelude.Text,
     -- | Whether or not the execute command session is running in interactive
     -- mode. Amazon ECS only supports initiating interactive sessions, so you
     -- must specify @true@ for this value.
     interactive :: Prelude.Maybe Prelude.Bool,
-    -- | The details of the SSM session that was created for this instance of
-    -- execute-command.
-    session :: Prelude.Maybe Session,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -235,18 +235,18 @@ data ExecuteCommandResponse = ExecuteCommandResponse'
 --
 -- 'clusterArn', 'executeCommandResponse_clusterArn' - The Amazon Resource Name (ARN) of the cluster.
 --
--- 'containerArn', 'executeCommandResponse_containerArn' - The Amazon Resource Name (ARN) of the container.
+-- 'containerName', 'executeCommandResponse_containerName' - The name of the container.
 --
 -- 'taskArn', 'executeCommandResponse_taskArn' - The Amazon Resource Name (ARN) of the task.
 --
--- 'containerName', 'executeCommandResponse_containerName' - The name of the container.
+-- 'session', 'executeCommandResponse_session' - The details of the SSM session that was created for this instance of
+-- execute-command.
+--
+-- 'containerArn', 'executeCommandResponse_containerArn' - The Amazon Resource Name (ARN) of the container.
 --
 -- 'interactive', 'executeCommandResponse_interactive' - Whether or not the execute command session is running in interactive
 -- mode. Amazon ECS only supports initiating interactive sessions, so you
 -- must specify @true@ for this value.
---
--- 'session', 'executeCommandResponse_session' - The details of the SSM session that was created for this instance of
--- execute-command.
 --
 -- 'httpStatus', 'executeCommandResponse_httpStatus' - The response's http status code.
 newExecuteCommandResponse ::
@@ -257,11 +257,11 @@ newExecuteCommandResponse pHttpStatus_ =
   ExecuteCommandResponse'
     { clusterArn =
         Prelude.Nothing,
-      containerArn = Prelude.Nothing,
-      taskArn = Prelude.Nothing,
       containerName = Prelude.Nothing,
-      interactive = Prelude.Nothing,
+      taskArn = Prelude.Nothing,
       session = Prelude.Nothing,
+      containerArn = Prelude.Nothing,
+      interactive = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -269,28 +269,28 @@ newExecuteCommandResponse pHttpStatus_ =
 executeCommandResponse_clusterArn :: Lens.Lens' ExecuteCommandResponse (Prelude.Maybe Prelude.Text)
 executeCommandResponse_clusterArn = Lens.lens (\ExecuteCommandResponse' {clusterArn} -> clusterArn) (\s@ExecuteCommandResponse' {} a -> s {clusterArn = a} :: ExecuteCommandResponse)
 
--- | The Amazon Resource Name (ARN) of the container.
-executeCommandResponse_containerArn :: Lens.Lens' ExecuteCommandResponse (Prelude.Maybe Prelude.Text)
-executeCommandResponse_containerArn = Lens.lens (\ExecuteCommandResponse' {containerArn} -> containerArn) (\s@ExecuteCommandResponse' {} a -> s {containerArn = a} :: ExecuteCommandResponse)
+-- | The name of the container.
+executeCommandResponse_containerName :: Lens.Lens' ExecuteCommandResponse (Prelude.Maybe Prelude.Text)
+executeCommandResponse_containerName = Lens.lens (\ExecuteCommandResponse' {containerName} -> containerName) (\s@ExecuteCommandResponse' {} a -> s {containerName = a} :: ExecuteCommandResponse)
 
 -- | The Amazon Resource Name (ARN) of the task.
 executeCommandResponse_taskArn :: Lens.Lens' ExecuteCommandResponse (Prelude.Maybe Prelude.Text)
 executeCommandResponse_taskArn = Lens.lens (\ExecuteCommandResponse' {taskArn} -> taskArn) (\s@ExecuteCommandResponse' {} a -> s {taskArn = a} :: ExecuteCommandResponse)
 
--- | The name of the container.
-executeCommandResponse_containerName :: Lens.Lens' ExecuteCommandResponse (Prelude.Maybe Prelude.Text)
-executeCommandResponse_containerName = Lens.lens (\ExecuteCommandResponse' {containerName} -> containerName) (\s@ExecuteCommandResponse' {} a -> s {containerName = a} :: ExecuteCommandResponse)
+-- | The details of the SSM session that was created for this instance of
+-- execute-command.
+executeCommandResponse_session :: Lens.Lens' ExecuteCommandResponse (Prelude.Maybe Session)
+executeCommandResponse_session = Lens.lens (\ExecuteCommandResponse' {session} -> session) (\s@ExecuteCommandResponse' {} a -> s {session = a} :: ExecuteCommandResponse)
+
+-- | The Amazon Resource Name (ARN) of the container.
+executeCommandResponse_containerArn :: Lens.Lens' ExecuteCommandResponse (Prelude.Maybe Prelude.Text)
+executeCommandResponse_containerArn = Lens.lens (\ExecuteCommandResponse' {containerArn} -> containerArn) (\s@ExecuteCommandResponse' {} a -> s {containerArn = a} :: ExecuteCommandResponse)
 
 -- | Whether or not the execute command session is running in interactive
 -- mode. Amazon ECS only supports initiating interactive sessions, so you
 -- must specify @true@ for this value.
 executeCommandResponse_interactive :: Lens.Lens' ExecuteCommandResponse (Prelude.Maybe Prelude.Bool)
 executeCommandResponse_interactive = Lens.lens (\ExecuteCommandResponse' {interactive} -> interactive) (\s@ExecuteCommandResponse' {} a -> s {interactive = a} :: ExecuteCommandResponse)
-
--- | The details of the SSM session that was created for this instance of
--- execute-command.
-executeCommandResponse_session :: Lens.Lens' ExecuteCommandResponse (Prelude.Maybe Session)
-executeCommandResponse_session = Lens.lens (\ExecuteCommandResponse' {session} -> session) (\s@ExecuteCommandResponse' {} a -> s {session = a} :: ExecuteCommandResponse)
 
 -- | The response's http status code.
 executeCommandResponse_httpStatus :: Lens.Lens' ExecuteCommandResponse Prelude.Int
@@ -299,9 +299,9 @@ executeCommandResponse_httpStatus = Lens.lens (\ExecuteCommandResponse' {httpSta
 instance Prelude.NFData ExecuteCommandResponse where
   rnf ExecuteCommandResponse' {..} =
     Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf containerArn
-      `Prelude.seq` Prelude.rnf taskArn
       `Prelude.seq` Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf interactive
+      `Prelude.seq` Prelude.rnf taskArn
       `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf containerArn
+      `Prelude.seq` Prelude.rnf interactive
       `Prelude.seq` Prelude.rnf httpStatus

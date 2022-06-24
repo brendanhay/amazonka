@@ -33,14 +33,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTaskDefinitionPlacementConstraint' smart constructor.
 data TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint'
-  { -- | A cluster query language expression to apply to the constraint. For more
+  { -- | The type of constraint. The @MemberOf@ constraint restricts selection to
+    -- be from a group of valid candidates.
+    type' :: Prelude.Maybe TaskDefinitionPlacementConstraintType,
+    -- | A cluster query language expression to apply to the constraint. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    expression :: Prelude.Maybe Prelude.Text,
-    -- | The type of constraint. The @MemberOf@ constraint restricts selection to
-    -- be from a group of valid candidates.
-    type' :: Prelude.Maybe TaskDefinitionPlacementConstraintType
+    expression :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,21 +52,26 @@ data TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'type'', 'taskDefinitionPlacementConstraint_type' - The type of constraint. The @MemberOf@ constraint restricts selection to
+-- be from a group of valid candidates.
+--
 -- 'expression', 'taskDefinitionPlacementConstraint_expression' - A cluster query language expression to apply to the constraint. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language>
 -- in the /Amazon Elastic Container Service Developer Guide/.
---
--- 'type'', 'taskDefinitionPlacementConstraint_type' - The type of constraint. The @MemberOf@ constraint restricts selection to
--- be from a group of valid candidates.
 newTaskDefinitionPlacementConstraint ::
   TaskDefinitionPlacementConstraint
 newTaskDefinitionPlacementConstraint =
   TaskDefinitionPlacementConstraint'
-    { expression =
+    { type' =
         Prelude.Nothing,
-      type' = Prelude.Nothing
+      expression = Prelude.Nothing
     }
+
+-- | The type of constraint. The @MemberOf@ constraint restricts selection to
+-- be from a group of valid candidates.
+taskDefinitionPlacementConstraint_type :: Lens.Lens' TaskDefinitionPlacementConstraint (Prelude.Maybe TaskDefinitionPlacementConstraintType)
+taskDefinitionPlacementConstraint_type = Lens.lens (\TaskDefinitionPlacementConstraint' {type'} -> type') (\s@TaskDefinitionPlacementConstraint' {} a -> s {type' = a} :: TaskDefinitionPlacementConstraint)
 
 -- | A cluster query language expression to apply to the constraint. For more
 -- information, see
@@ -74,11 +79,6 @@ newTaskDefinitionPlacementConstraint =
 -- in the /Amazon Elastic Container Service Developer Guide/.
 taskDefinitionPlacementConstraint_expression :: Lens.Lens' TaskDefinitionPlacementConstraint (Prelude.Maybe Prelude.Text)
 taskDefinitionPlacementConstraint_expression = Lens.lens (\TaskDefinitionPlacementConstraint' {expression} -> expression) (\s@TaskDefinitionPlacementConstraint' {} a -> s {expression = a} :: TaskDefinitionPlacementConstraint)
-
--- | The type of constraint. The @MemberOf@ constraint restricts selection to
--- be from a group of valid candidates.
-taskDefinitionPlacementConstraint_type :: Lens.Lens' TaskDefinitionPlacementConstraint (Prelude.Maybe TaskDefinitionPlacementConstraintType)
-taskDefinitionPlacementConstraint_type = Lens.lens (\TaskDefinitionPlacementConstraint' {type'} -> type') (\s@TaskDefinitionPlacementConstraint' {} a -> s {type' = a} :: TaskDefinitionPlacementConstraint)
 
 instance
   Core.FromJSON
@@ -89,8 +89,8 @@ instance
       "TaskDefinitionPlacementConstraint"
       ( \x ->
           TaskDefinitionPlacementConstraint'
-            Prelude.<$> (x Core..:? "expression")
-            Prelude.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "expression")
       )
 
 instance
@@ -100,16 +100,16 @@ instance
   hashWithSalt
     _salt
     TaskDefinitionPlacementConstraint' {..} =
-      _salt `Prelude.hashWithSalt` expression
-        `Prelude.hashWithSalt` type'
+      _salt `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` expression
 
 instance
   Prelude.NFData
     TaskDefinitionPlacementConstraint
   where
   rnf TaskDefinitionPlacementConstraint' {..} =
-    Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf expression
 
 instance
   Core.ToJSON
@@ -118,7 +118,7 @@ instance
   toJSON TaskDefinitionPlacementConstraint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("expression" Core..=) Prelude.<$> expression,
-            ("type" Core..=) Prelude.<$> type'
+          [ ("type" Core..=) Prelude.<$> type',
+            ("expression" Core..=) Prelude.<$> expression
           ]
       )

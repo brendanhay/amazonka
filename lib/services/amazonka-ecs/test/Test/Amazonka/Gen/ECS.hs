@@ -27,20 +27,122 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListServices $
---             newListServices
+--         [ requestCreateCapacityProvider $
+--             newCreateCapacityProvider
 --
---         , requestDescribeClusters $
---             newDescribeClusters
+--         , requestCreateCluster $
+--             newCreateCluster
+--
+--         , requestCreateService $
+--             newCreateService
+--
+--         , requestCreateTaskSet $
+--             newCreateTaskSet
+--
+--         , requestDeleteAccountSetting $
+--             newDeleteAccountSetting
+--
+--         , requestDeleteAttributes $
+--             newDeleteAttributes
+--
+--         , requestDeleteCapacityProvider $
+--             newDeleteCapacityProvider
+--
+--         , requestDeleteCluster $
+--             newDeleteCluster
 --
 --         , requestDeleteService $
 --             newDeleteService
 --
---         , requestUpdateService $
---             newUpdateService
+--         , requestDeleteTaskSet $
+--             newDeleteTaskSet
+--
+--         , requestDeregisterContainerInstance $
+--             newDeregisterContainerInstance
+--
+--         , requestDeregisterTaskDefinition $
+--             newDeregisterTaskDefinition
+--
+--         , requestDescribeCapacityProviders $
+--             newDescribeCapacityProviders
+--
+--         , requestDescribeClusters $
+--             newDescribeClusters
+--
+--         , requestDescribeContainerInstances $
+--             newDescribeContainerInstances
+--
+--         , requestDescribeServices $
+--             newDescribeServices
+--
+--         , requestDescribeTaskDefinition $
+--             newDescribeTaskDefinition
+--
+--         , requestDescribeTaskSets $
+--             newDescribeTaskSets
+--
+--         , requestDescribeTasks $
+--             newDescribeTasks
 --
 --         , requestDiscoverPollEndpoint $
 --             newDiscoverPollEndpoint
+--
+--         , requestExecuteCommand $
+--             newExecuteCommand
+--
+--         , requestListAccountSettings $
+--             newListAccountSettings
+--
+--         , requestListAttributes $
+--             newListAttributes
+--
+--         , requestListClusters $
+--             newListClusters
+--
+--         , requestListContainerInstances $
+--             newListContainerInstances
+--
+--         , requestListServices $
+--             newListServices
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListTaskDefinitionFamilies $
+--             newListTaskDefinitionFamilies
+--
+--         , requestListTaskDefinitions $
+--             newListTaskDefinitions
+--
+--         , requestListTasks $
+--             newListTasks
+--
+--         , requestPutAccountSetting $
+--             newPutAccountSetting
+--
+--         , requestPutAccountSettingDefault $
+--             newPutAccountSettingDefault
+--
+--         , requestPutAttributes $
+--             newPutAttributes
+--
+--         , requestPutClusterCapacityProviders $
+--             newPutClusterCapacityProviders
+--
+--         , requestRegisterContainerInstance $
+--             newRegisterContainerInstance
+--
+--         , requestRegisterTaskDefinition $
+--             newRegisterTaskDefinition
+--
+--         , requestRunTask $
+--             newRunTask
+--
+--         , requestStartTask $
+--             newStartTask
+--
+--         , requestStopTask $
+--             newStopTask
 --
 --         , requestSubmitAttachmentStateChanges $
 --             newSubmitAttachmentStateChanges
@@ -48,158 +150,158 @@ import Test.Tasty
 --         , requestSubmitContainerStateChange $
 --             newSubmitContainerStateChange
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestStopTask $
---             newStopTask
---
---         , requestDescribeTaskDefinition $
---             newDescribeTaskDefinition
---
 --         , requestSubmitTaskStateChange $
 --             newSubmitTaskStateChange
---
---         , requestDescribeContainerInstances $
---             newDescribeContainerInstances
---
---         , requestDescribeCapacityProviders $
---             newDescribeCapacityProviders
---
---         , requestUpdateContainerInstancesState $
---             newUpdateContainerInstancesState
---
---         , requestDeleteCluster $
---             newDeleteCluster
---
---         , requestUpdateCluster $
---             newUpdateCluster
---
---         , requestCreateCluster $
---             newCreateCluster
---
---         , requestPutAccountSetting $
---             newPutAccountSetting
---
---         , requestDeleteAccountSetting $
---             newDeleteAccountSetting
---
---         , requestListTaskDefinitions $
---             newListTaskDefinitions
---
---         , requestRunTask $
---             newRunTask
---
---         , requestDeleteCapacityProvider $
---             newDeleteCapacityProvider
---
---         , requestListTasks $
---             newListTasks
---
---         , requestUpdateCapacityProvider $
---             newUpdateCapacityProvider
---
---         , requestRegisterContainerInstance $
---             newRegisterContainerInstance
---
---         , requestUpdateContainerAgent $
---             newUpdateContainerAgent
---
---         , requestListContainerInstances $
---             newListContainerInstances
---
---         , requestUpdateServicePrimaryTaskSet $
---             newUpdateServicePrimaryTaskSet
---
---         , requestListTaskDefinitionFamilies $
---             newListTaskDefinitionFamilies
---
---         , requestStartTask $
---             newStartTask
---
---         , requestPutClusterCapacityProviders $
---             newPutClusterCapacityProviders
---
---         , requestPutAccountSettingDefault $
---             newPutAccountSettingDefault
---
---         , requestListAttributes $
---             newListAttributes
---
---         , requestExecuteCommand $
---             newExecuteCommand
---
---         , requestDeregisterTaskDefinition $
---             newDeregisterTaskDefinition
 --
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestCreateTaskSet $
---             newCreateTaskSet
---
---         , requestDescribeTasks $
---             newDescribeTasks
---
---         , requestListClusters $
---             newListClusters
---
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestDescribeServices $
---             newDescribeServices
+--         , requestUpdateCapacityProvider $
+--             newUpdateCapacityProvider
 --
---         , requestDeregisterContainerInstance $
---             newDeregisterContainerInstance
+--         , requestUpdateCluster $
+--             newUpdateCluster
 --
 --         , requestUpdateClusterSettings $
 --             newUpdateClusterSettings
 --
---         , requestDeleteAttributes $
---             newDeleteAttributes
+--         , requestUpdateContainerAgent $
+--             newUpdateContainerAgent
 --
---         , requestPutAttributes $
---             newPutAttributes
+--         , requestUpdateContainerInstancesState $
+--             newUpdateContainerInstancesState
 --
---         , requestListAccountSettings $
---             newListAccountSettings
+--         , requestUpdateService $
+--             newUpdateService
 --
---         , requestDeleteTaskSet $
---             newDeleteTaskSet
+--         , requestUpdateServicePrimaryTaskSet $
+--             newUpdateServicePrimaryTaskSet
 --
 --         , requestUpdateTaskSet $
 --             newUpdateTaskSet
 --
---         , requestCreateCapacityProvider $
---             newCreateCapacityProvider
---
---         , requestDescribeTaskSets $
---             newDescribeTaskSets
---
---         , requestRegisterTaskDefinition $
---             newRegisterTaskDefinition
---
---         , requestCreateService $
---             newCreateService
---
 --           ]
 
 --     , testGroup "response"
---         [ responseListServices $
---             newListServicesResponse
+--         [ responseCreateCapacityProvider $
+--             newCreateCapacityProviderResponse
 --
---         , responseDescribeClusters $
---             newDescribeClustersResponse
+--         , responseCreateCluster $
+--             newCreateClusterResponse
+--
+--         , responseCreateService $
+--             newCreateServiceResponse
+--
+--         , responseCreateTaskSet $
+--             newCreateTaskSetResponse
+--
+--         , responseDeleteAccountSetting $
+--             newDeleteAccountSettingResponse
+--
+--         , responseDeleteAttributes $
+--             newDeleteAttributesResponse
+--
+--         , responseDeleteCapacityProvider $
+--             newDeleteCapacityProviderResponse
+--
+--         , responseDeleteCluster $
+--             newDeleteClusterResponse
 --
 --         , responseDeleteService $
 --             newDeleteServiceResponse
 --
---         , responseUpdateService $
---             newUpdateServiceResponse
+--         , responseDeleteTaskSet $
+--             newDeleteTaskSetResponse
+--
+--         , responseDeregisterContainerInstance $
+--             newDeregisterContainerInstanceResponse
+--
+--         , responseDeregisterTaskDefinition $
+--             newDeregisterTaskDefinitionResponse
+--
+--         , responseDescribeCapacityProviders $
+--             newDescribeCapacityProvidersResponse
+--
+--         , responseDescribeClusters $
+--             newDescribeClustersResponse
+--
+--         , responseDescribeContainerInstances $
+--             newDescribeContainerInstancesResponse
+--
+--         , responseDescribeServices $
+--             newDescribeServicesResponse
+--
+--         , responseDescribeTaskDefinition $
+--             newDescribeTaskDefinitionResponse
+--
+--         , responseDescribeTaskSets $
+--             newDescribeTaskSetsResponse
+--
+--         , responseDescribeTasks $
+--             newDescribeTasksResponse
 --
 --         , responseDiscoverPollEndpoint $
 --             newDiscoverPollEndpointResponse
+--
+--         , responseExecuteCommand $
+--             newExecuteCommandResponse
+--
+--         , responseListAccountSettings $
+--             newListAccountSettingsResponse
+--
+--         , responseListAttributes $
+--             newListAttributesResponse
+--
+--         , responseListClusters $
+--             newListClustersResponse
+--
+--         , responseListContainerInstances $
+--             newListContainerInstancesResponse
+--
+--         , responseListServices $
+--             newListServicesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListTaskDefinitionFamilies $
+--             newListTaskDefinitionFamiliesResponse
+--
+--         , responseListTaskDefinitions $
+--             newListTaskDefinitionsResponse
+--
+--         , responseListTasks $
+--             newListTasksResponse
+--
+--         , responsePutAccountSetting $
+--             newPutAccountSettingResponse
+--
+--         , responsePutAccountSettingDefault $
+--             newPutAccountSettingDefaultResponse
+--
+--         , responsePutAttributes $
+--             newPutAttributesResponse
+--
+--         , responsePutClusterCapacityProviders $
+--             newPutClusterCapacityProvidersResponse
+--
+--         , responseRegisterContainerInstance $
+--             newRegisterContainerInstanceResponse
+--
+--         , responseRegisterTaskDefinition $
+--             newRegisterTaskDefinitionResponse
+--
+--         , responseRunTask $
+--             newRunTaskResponse
+--
+--         , responseStartTask $
+--             newStartTaskResponse
+--
+--         , responseStopTask $
+--             newStopTaskResponse
 --
 --         , responseSubmitAttachmentStateChanges $
 --             newSubmitAttachmentStateChangesResponse
@@ -207,157 +309,91 @@ import Test.Tasty
 --         , responseSubmitContainerStateChange $
 --             newSubmitContainerStateChangeResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseStopTask $
---             newStopTaskResponse
---
---         , responseDescribeTaskDefinition $
---             newDescribeTaskDefinitionResponse
---
 --         , responseSubmitTaskStateChange $
 --             newSubmitTaskStateChangeResponse
---
---         , responseDescribeContainerInstances $
---             newDescribeContainerInstancesResponse
---
---         , responseDescribeCapacityProviders $
---             newDescribeCapacityProvidersResponse
---
---         , responseUpdateContainerInstancesState $
---             newUpdateContainerInstancesStateResponse
---
---         , responseDeleteCluster $
---             newDeleteClusterResponse
---
---         , responseUpdateCluster $
---             newUpdateClusterResponse
---
---         , responseCreateCluster $
---             newCreateClusterResponse
---
---         , responsePutAccountSetting $
---             newPutAccountSettingResponse
---
---         , responseDeleteAccountSetting $
---             newDeleteAccountSettingResponse
---
---         , responseListTaskDefinitions $
---             newListTaskDefinitionsResponse
---
---         , responseRunTask $
---             newRunTaskResponse
---
---         , responseDeleteCapacityProvider $
---             newDeleteCapacityProviderResponse
---
---         , responseListTasks $
---             newListTasksResponse
---
---         , responseUpdateCapacityProvider $
---             newUpdateCapacityProviderResponse
---
---         , responseRegisterContainerInstance $
---             newRegisterContainerInstanceResponse
---
---         , responseUpdateContainerAgent $
---             newUpdateContainerAgentResponse
---
---         , responseListContainerInstances $
---             newListContainerInstancesResponse
---
---         , responseUpdateServicePrimaryTaskSet $
---             newUpdateServicePrimaryTaskSetResponse
---
---         , responseListTaskDefinitionFamilies $
---             newListTaskDefinitionFamiliesResponse
---
---         , responseStartTask $
---             newStartTaskResponse
---
---         , responsePutClusterCapacityProviders $
---             newPutClusterCapacityProvidersResponse
---
---         , responsePutAccountSettingDefault $
---             newPutAccountSettingDefaultResponse
---
---         , responseListAttributes $
---             newListAttributesResponse
---
---         , responseExecuteCommand $
---             newExecuteCommandResponse
---
---         , responseDeregisterTaskDefinition $
---             newDeregisterTaskDefinitionResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseCreateTaskSet $
---             newCreateTaskSetResponse
---
---         , responseDescribeTasks $
---             newDescribeTasksResponse
---
---         , responseListClusters $
---             newListClustersResponse
---
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDescribeServices $
---             newDescribeServicesResponse
+--         , responseUpdateCapacityProvider $
+--             newUpdateCapacityProviderResponse
 --
---         , responseDeregisterContainerInstance $
---             newDeregisterContainerInstanceResponse
+--         , responseUpdateCluster $
+--             newUpdateClusterResponse
 --
 --         , responseUpdateClusterSettings $
 --             newUpdateClusterSettingsResponse
 --
---         , responseDeleteAttributes $
---             newDeleteAttributesResponse
+--         , responseUpdateContainerAgent $
+--             newUpdateContainerAgentResponse
 --
---         , responsePutAttributes $
---             newPutAttributesResponse
+--         , responseUpdateContainerInstancesState $
+--             newUpdateContainerInstancesStateResponse
 --
---         , responseListAccountSettings $
---             newListAccountSettingsResponse
+--         , responseUpdateService $
+--             newUpdateServiceResponse
 --
---         , responseDeleteTaskSet $
---             newDeleteTaskSetResponse
+--         , responseUpdateServicePrimaryTaskSet $
+--             newUpdateServicePrimaryTaskSetResponse
 --
 --         , responseUpdateTaskSet $
 --             newUpdateTaskSetResponse
---
---         , responseCreateCapacityProvider $
---             newCreateCapacityProviderResponse
---
---         , responseDescribeTaskSets $
---             newDescribeTaskSetsResponse
---
---         , responseRegisterTaskDefinition $
---             newRegisterTaskDefinitionResponse
---
---         , responseCreateService $
---             newCreateServiceResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestListServices :: ListServices -> TestTree
-requestListServices =
+requestCreateCapacityProvider :: CreateCapacityProvider -> TestTree
+requestCreateCapacityProvider =
   req
-    "ListServices"
-    "fixture/ListServices.yaml"
+    "CreateCapacityProvider"
+    "fixture/CreateCapacityProvider.yaml"
 
-requestDescribeClusters :: DescribeClusters -> TestTree
-requestDescribeClusters =
+requestCreateCluster :: CreateCluster -> TestTree
+requestCreateCluster =
   req
-    "DescribeClusters"
-    "fixture/DescribeClusters.yaml"
+    "CreateCluster"
+    "fixture/CreateCluster.yaml"
+
+requestCreateService :: CreateService -> TestTree
+requestCreateService =
+  req
+    "CreateService"
+    "fixture/CreateService.yaml"
+
+requestCreateTaskSet :: CreateTaskSet -> TestTree
+requestCreateTaskSet =
+  req
+    "CreateTaskSet"
+    "fixture/CreateTaskSet.yaml"
+
+requestDeleteAccountSetting :: DeleteAccountSetting -> TestTree
+requestDeleteAccountSetting =
+  req
+    "DeleteAccountSetting"
+    "fixture/DeleteAccountSetting.yaml"
+
+requestDeleteAttributes :: DeleteAttributes -> TestTree
+requestDeleteAttributes =
+  req
+    "DeleteAttributes"
+    "fixture/DeleteAttributes.yaml"
+
+requestDeleteCapacityProvider :: DeleteCapacityProvider -> TestTree
+requestDeleteCapacityProvider =
+  req
+    "DeleteCapacityProvider"
+    "fixture/DeleteCapacityProvider.yaml"
+
+requestDeleteCluster :: DeleteCluster -> TestTree
+requestDeleteCluster =
+  req
+    "DeleteCluster"
+    "fixture/DeleteCluster.yaml"
 
 requestDeleteService :: DeleteService -> TestTree
 requestDeleteService =
@@ -365,17 +401,185 @@ requestDeleteService =
     "DeleteService"
     "fixture/DeleteService.yaml"
 
-requestUpdateService :: UpdateService -> TestTree
-requestUpdateService =
+requestDeleteTaskSet :: DeleteTaskSet -> TestTree
+requestDeleteTaskSet =
   req
-    "UpdateService"
-    "fixture/UpdateService.yaml"
+    "DeleteTaskSet"
+    "fixture/DeleteTaskSet.yaml"
+
+requestDeregisterContainerInstance :: DeregisterContainerInstance -> TestTree
+requestDeregisterContainerInstance =
+  req
+    "DeregisterContainerInstance"
+    "fixture/DeregisterContainerInstance.yaml"
+
+requestDeregisterTaskDefinition :: DeregisterTaskDefinition -> TestTree
+requestDeregisterTaskDefinition =
+  req
+    "DeregisterTaskDefinition"
+    "fixture/DeregisterTaskDefinition.yaml"
+
+requestDescribeCapacityProviders :: DescribeCapacityProviders -> TestTree
+requestDescribeCapacityProviders =
+  req
+    "DescribeCapacityProviders"
+    "fixture/DescribeCapacityProviders.yaml"
+
+requestDescribeClusters :: DescribeClusters -> TestTree
+requestDescribeClusters =
+  req
+    "DescribeClusters"
+    "fixture/DescribeClusters.yaml"
+
+requestDescribeContainerInstances :: DescribeContainerInstances -> TestTree
+requestDescribeContainerInstances =
+  req
+    "DescribeContainerInstances"
+    "fixture/DescribeContainerInstances.yaml"
+
+requestDescribeServices :: DescribeServices -> TestTree
+requestDescribeServices =
+  req
+    "DescribeServices"
+    "fixture/DescribeServices.yaml"
+
+requestDescribeTaskDefinition :: DescribeTaskDefinition -> TestTree
+requestDescribeTaskDefinition =
+  req
+    "DescribeTaskDefinition"
+    "fixture/DescribeTaskDefinition.yaml"
+
+requestDescribeTaskSets :: DescribeTaskSets -> TestTree
+requestDescribeTaskSets =
+  req
+    "DescribeTaskSets"
+    "fixture/DescribeTaskSets.yaml"
+
+requestDescribeTasks :: DescribeTasks -> TestTree
+requestDescribeTasks =
+  req
+    "DescribeTasks"
+    "fixture/DescribeTasks.yaml"
 
 requestDiscoverPollEndpoint :: DiscoverPollEndpoint -> TestTree
 requestDiscoverPollEndpoint =
   req
     "DiscoverPollEndpoint"
     "fixture/DiscoverPollEndpoint.yaml"
+
+requestExecuteCommand :: ExecuteCommand -> TestTree
+requestExecuteCommand =
+  req
+    "ExecuteCommand"
+    "fixture/ExecuteCommand.yaml"
+
+requestListAccountSettings :: ListAccountSettings -> TestTree
+requestListAccountSettings =
+  req
+    "ListAccountSettings"
+    "fixture/ListAccountSettings.yaml"
+
+requestListAttributes :: ListAttributes -> TestTree
+requestListAttributes =
+  req
+    "ListAttributes"
+    "fixture/ListAttributes.yaml"
+
+requestListClusters :: ListClusters -> TestTree
+requestListClusters =
+  req
+    "ListClusters"
+    "fixture/ListClusters.yaml"
+
+requestListContainerInstances :: ListContainerInstances -> TestTree
+requestListContainerInstances =
+  req
+    "ListContainerInstances"
+    "fixture/ListContainerInstances.yaml"
+
+requestListServices :: ListServices -> TestTree
+requestListServices =
+  req
+    "ListServices"
+    "fixture/ListServices.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListTaskDefinitionFamilies :: ListTaskDefinitionFamilies -> TestTree
+requestListTaskDefinitionFamilies =
+  req
+    "ListTaskDefinitionFamilies"
+    "fixture/ListTaskDefinitionFamilies.yaml"
+
+requestListTaskDefinitions :: ListTaskDefinitions -> TestTree
+requestListTaskDefinitions =
+  req
+    "ListTaskDefinitions"
+    "fixture/ListTaskDefinitions.yaml"
+
+requestListTasks :: ListTasks -> TestTree
+requestListTasks =
+  req
+    "ListTasks"
+    "fixture/ListTasks.yaml"
+
+requestPutAccountSetting :: PutAccountSetting -> TestTree
+requestPutAccountSetting =
+  req
+    "PutAccountSetting"
+    "fixture/PutAccountSetting.yaml"
+
+requestPutAccountSettingDefault :: PutAccountSettingDefault -> TestTree
+requestPutAccountSettingDefault =
+  req
+    "PutAccountSettingDefault"
+    "fixture/PutAccountSettingDefault.yaml"
+
+requestPutAttributes :: PutAttributes -> TestTree
+requestPutAttributes =
+  req
+    "PutAttributes"
+    "fixture/PutAttributes.yaml"
+
+requestPutClusterCapacityProviders :: PutClusterCapacityProviders -> TestTree
+requestPutClusterCapacityProviders =
+  req
+    "PutClusterCapacityProviders"
+    "fixture/PutClusterCapacityProviders.yaml"
+
+requestRegisterContainerInstance :: RegisterContainerInstance -> TestTree
+requestRegisterContainerInstance =
+  req
+    "RegisterContainerInstance"
+    "fixture/RegisterContainerInstance.yaml"
+
+requestRegisterTaskDefinition :: RegisterTaskDefinition -> TestTree
+requestRegisterTaskDefinition =
+  req
+    "RegisterTaskDefinition"
+    "fixture/RegisterTaskDefinition.yaml"
+
+requestRunTask :: RunTask -> TestTree
+requestRunTask =
+  req
+    "RunTask"
+    "fixture/RunTask.yaml"
+
+requestStartTask :: StartTask -> TestTree
+requestStartTask =
+  req
+    "StartTask"
+    "fixture/StartTask.yaml"
+
+requestStopTask :: StopTask -> TestTree
+requestStopTask =
+  req
+    "StopTask"
+    "fixture/StopTask.yaml"
 
 requestSubmitAttachmentStateChanges :: SubmitAttachmentStateChanges -> TestTree
 requestSubmitAttachmentStateChanges =
@@ -389,173 +593,11 @@ requestSubmitContainerStateChange =
     "SubmitContainerStateChange"
     "fixture/SubmitContainerStateChange.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestStopTask :: StopTask -> TestTree
-requestStopTask =
-  req
-    "StopTask"
-    "fixture/StopTask.yaml"
-
-requestDescribeTaskDefinition :: DescribeTaskDefinition -> TestTree
-requestDescribeTaskDefinition =
-  req
-    "DescribeTaskDefinition"
-    "fixture/DescribeTaskDefinition.yaml"
-
 requestSubmitTaskStateChange :: SubmitTaskStateChange -> TestTree
 requestSubmitTaskStateChange =
   req
     "SubmitTaskStateChange"
     "fixture/SubmitTaskStateChange.yaml"
-
-requestDescribeContainerInstances :: DescribeContainerInstances -> TestTree
-requestDescribeContainerInstances =
-  req
-    "DescribeContainerInstances"
-    "fixture/DescribeContainerInstances.yaml"
-
-requestDescribeCapacityProviders :: DescribeCapacityProviders -> TestTree
-requestDescribeCapacityProviders =
-  req
-    "DescribeCapacityProviders"
-    "fixture/DescribeCapacityProviders.yaml"
-
-requestUpdateContainerInstancesState :: UpdateContainerInstancesState -> TestTree
-requestUpdateContainerInstancesState =
-  req
-    "UpdateContainerInstancesState"
-    "fixture/UpdateContainerInstancesState.yaml"
-
-requestDeleteCluster :: DeleteCluster -> TestTree
-requestDeleteCluster =
-  req
-    "DeleteCluster"
-    "fixture/DeleteCluster.yaml"
-
-requestUpdateCluster :: UpdateCluster -> TestTree
-requestUpdateCluster =
-  req
-    "UpdateCluster"
-    "fixture/UpdateCluster.yaml"
-
-requestCreateCluster :: CreateCluster -> TestTree
-requestCreateCluster =
-  req
-    "CreateCluster"
-    "fixture/CreateCluster.yaml"
-
-requestPutAccountSetting :: PutAccountSetting -> TestTree
-requestPutAccountSetting =
-  req
-    "PutAccountSetting"
-    "fixture/PutAccountSetting.yaml"
-
-requestDeleteAccountSetting :: DeleteAccountSetting -> TestTree
-requestDeleteAccountSetting =
-  req
-    "DeleteAccountSetting"
-    "fixture/DeleteAccountSetting.yaml"
-
-requestListTaskDefinitions :: ListTaskDefinitions -> TestTree
-requestListTaskDefinitions =
-  req
-    "ListTaskDefinitions"
-    "fixture/ListTaskDefinitions.yaml"
-
-requestRunTask :: RunTask -> TestTree
-requestRunTask =
-  req
-    "RunTask"
-    "fixture/RunTask.yaml"
-
-requestDeleteCapacityProvider :: DeleteCapacityProvider -> TestTree
-requestDeleteCapacityProvider =
-  req
-    "DeleteCapacityProvider"
-    "fixture/DeleteCapacityProvider.yaml"
-
-requestListTasks :: ListTasks -> TestTree
-requestListTasks =
-  req
-    "ListTasks"
-    "fixture/ListTasks.yaml"
-
-requestUpdateCapacityProvider :: UpdateCapacityProvider -> TestTree
-requestUpdateCapacityProvider =
-  req
-    "UpdateCapacityProvider"
-    "fixture/UpdateCapacityProvider.yaml"
-
-requestRegisterContainerInstance :: RegisterContainerInstance -> TestTree
-requestRegisterContainerInstance =
-  req
-    "RegisterContainerInstance"
-    "fixture/RegisterContainerInstance.yaml"
-
-requestUpdateContainerAgent :: UpdateContainerAgent -> TestTree
-requestUpdateContainerAgent =
-  req
-    "UpdateContainerAgent"
-    "fixture/UpdateContainerAgent.yaml"
-
-requestListContainerInstances :: ListContainerInstances -> TestTree
-requestListContainerInstances =
-  req
-    "ListContainerInstances"
-    "fixture/ListContainerInstances.yaml"
-
-requestUpdateServicePrimaryTaskSet :: UpdateServicePrimaryTaskSet -> TestTree
-requestUpdateServicePrimaryTaskSet =
-  req
-    "UpdateServicePrimaryTaskSet"
-    "fixture/UpdateServicePrimaryTaskSet.yaml"
-
-requestListTaskDefinitionFamilies :: ListTaskDefinitionFamilies -> TestTree
-requestListTaskDefinitionFamilies =
-  req
-    "ListTaskDefinitionFamilies"
-    "fixture/ListTaskDefinitionFamilies.yaml"
-
-requestStartTask :: StartTask -> TestTree
-requestStartTask =
-  req
-    "StartTask"
-    "fixture/StartTask.yaml"
-
-requestPutClusterCapacityProviders :: PutClusterCapacityProviders -> TestTree
-requestPutClusterCapacityProviders =
-  req
-    "PutClusterCapacityProviders"
-    "fixture/PutClusterCapacityProviders.yaml"
-
-requestPutAccountSettingDefault :: PutAccountSettingDefault -> TestTree
-requestPutAccountSettingDefault =
-  req
-    "PutAccountSettingDefault"
-    "fixture/PutAccountSettingDefault.yaml"
-
-requestListAttributes :: ListAttributes -> TestTree
-requestListAttributes =
-  req
-    "ListAttributes"
-    "fixture/ListAttributes.yaml"
-
-requestExecuteCommand :: ExecuteCommand -> TestTree
-requestExecuteCommand =
-  req
-    "ExecuteCommand"
-    "fixture/ExecuteCommand.yaml"
-
-requestDeregisterTaskDefinition :: DeregisterTaskDefinition -> TestTree
-requestDeregisterTaskDefinition =
-  req
-    "DeregisterTaskDefinition"
-    "fixture/DeregisterTaskDefinition.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -563,41 +605,23 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestCreateTaskSet :: CreateTaskSet -> TestTree
-requestCreateTaskSet =
-  req
-    "CreateTaskSet"
-    "fixture/CreateTaskSet.yaml"
-
-requestDescribeTasks :: DescribeTasks -> TestTree
-requestDescribeTasks =
-  req
-    "DescribeTasks"
-    "fixture/DescribeTasks.yaml"
-
-requestListClusters :: ListClusters -> TestTree
-requestListClusters =
-  req
-    "ListClusters"
-    "fixture/ListClusters.yaml"
-
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestDescribeServices :: DescribeServices -> TestTree
-requestDescribeServices =
+requestUpdateCapacityProvider :: UpdateCapacityProvider -> TestTree
+requestUpdateCapacityProvider =
   req
-    "DescribeServices"
-    "fixture/DescribeServices.yaml"
+    "UpdateCapacityProvider"
+    "fixture/UpdateCapacityProvider.yaml"
 
-requestDeregisterContainerInstance :: DeregisterContainerInstance -> TestTree
-requestDeregisterContainerInstance =
+requestUpdateCluster :: UpdateCluster -> TestTree
+requestUpdateCluster =
   req
-    "DeregisterContainerInstance"
-    "fixture/DeregisterContainerInstance.yaml"
+    "UpdateCluster"
+    "fixture/UpdateCluster.yaml"
 
 requestUpdateClusterSettings :: UpdateClusterSettings -> TestTree
 requestUpdateClusterSettings =
@@ -605,29 +629,29 @@ requestUpdateClusterSettings =
     "UpdateClusterSettings"
     "fixture/UpdateClusterSettings.yaml"
 
-requestDeleteAttributes :: DeleteAttributes -> TestTree
-requestDeleteAttributes =
+requestUpdateContainerAgent :: UpdateContainerAgent -> TestTree
+requestUpdateContainerAgent =
   req
-    "DeleteAttributes"
-    "fixture/DeleteAttributes.yaml"
+    "UpdateContainerAgent"
+    "fixture/UpdateContainerAgent.yaml"
 
-requestPutAttributes :: PutAttributes -> TestTree
-requestPutAttributes =
+requestUpdateContainerInstancesState :: UpdateContainerInstancesState -> TestTree
+requestUpdateContainerInstancesState =
   req
-    "PutAttributes"
-    "fixture/PutAttributes.yaml"
+    "UpdateContainerInstancesState"
+    "fixture/UpdateContainerInstancesState.yaml"
 
-requestListAccountSettings :: ListAccountSettings -> TestTree
-requestListAccountSettings =
+requestUpdateService :: UpdateService -> TestTree
+requestUpdateService =
   req
-    "ListAccountSettings"
-    "fixture/ListAccountSettings.yaml"
+    "UpdateService"
+    "fixture/UpdateService.yaml"
 
-requestDeleteTaskSet :: DeleteTaskSet -> TestTree
-requestDeleteTaskSet =
+requestUpdateServicePrimaryTaskSet :: UpdateServicePrimaryTaskSet -> TestTree
+requestUpdateServicePrimaryTaskSet =
   req
-    "DeleteTaskSet"
-    "fixture/DeleteTaskSet.yaml"
+    "UpdateServicePrimaryTaskSet"
+    "fixture/UpdateServicePrimaryTaskSet.yaml"
 
 requestUpdateTaskSet :: UpdateTaskSet -> TestTree
 requestUpdateTaskSet =
@@ -635,47 +659,71 @@ requestUpdateTaskSet =
     "UpdateTaskSet"
     "fixture/UpdateTaskSet.yaml"
 
-requestCreateCapacityProvider :: CreateCapacityProvider -> TestTree
-requestCreateCapacityProvider =
-  req
-    "CreateCapacityProvider"
-    "fixture/CreateCapacityProvider.yaml"
-
-requestDescribeTaskSets :: DescribeTaskSets -> TestTree
-requestDescribeTaskSets =
-  req
-    "DescribeTaskSets"
-    "fixture/DescribeTaskSets.yaml"
-
-requestRegisterTaskDefinition :: RegisterTaskDefinition -> TestTree
-requestRegisterTaskDefinition =
-  req
-    "RegisterTaskDefinition"
-    "fixture/RegisterTaskDefinition.yaml"
-
-requestCreateService :: CreateService -> TestTree
-requestCreateService =
-  req
-    "CreateService"
-    "fixture/CreateService.yaml"
-
 -- Responses
 
-responseListServices :: ListServicesResponse -> TestTree
-responseListServices =
+responseCreateCapacityProvider :: CreateCapacityProviderResponse -> TestTree
+responseCreateCapacityProvider =
   res
-    "ListServicesResponse"
-    "fixture/ListServicesResponse.proto"
+    "CreateCapacityProviderResponse"
+    "fixture/CreateCapacityProviderResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListServices)
+    (Proxy.Proxy :: Proxy.Proxy CreateCapacityProvider)
 
-responseDescribeClusters :: DescribeClustersResponse -> TestTree
-responseDescribeClusters =
+responseCreateCluster :: CreateClusterResponse -> TestTree
+responseCreateCluster =
   res
-    "DescribeClustersResponse"
-    "fixture/DescribeClustersResponse.proto"
+    "CreateClusterResponse"
+    "fixture/CreateClusterResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeClusters)
+    (Proxy.Proxy :: Proxy.Proxy CreateCluster)
+
+responseCreateService :: CreateServiceResponse -> TestTree
+responseCreateService =
+  res
+    "CreateServiceResponse"
+    "fixture/CreateServiceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateService)
+
+responseCreateTaskSet :: CreateTaskSetResponse -> TestTree
+responseCreateTaskSet =
+  res
+    "CreateTaskSetResponse"
+    "fixture/CreateTaskSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTaskSet)
+
+responseDeleteAccountSetting :: DeleteAccountSettingResponse -> TestTree
+responseDeleteAccountSetting =
+  res
+    "DeleteAccountSettingResponse"
+    "fixture/DeleteAccountSettingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccountSetting)
+
+responseDeleteAttributes :: DeleteAttributesResponse -> TestTree
+responseDeleteAttributes =
+  res
+    "DeleteAttributesResponse"
+    "fixture/DeleteAttributesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAttributes)
+
+responseDeleteCapacityProvider :: DeleteCapacityProviderResponse -> TestTree
+responseDeleteCapacityProvider =
+  res
+    "DeleteCapacityProviderResponse"
+    "fixture/DeleteCapacityProviderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCapacityProvider)
+
+responseDeleteCluster :: DeleteClusterResponse -> TestTree
+responseDeleteCluster =
+  res
+    "DeleteClusterResponse"
+    "fixture/DeleteClusterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
 
 responseDeleteService :: DeleteServiceResponse -> TestTree
 responseDeleteService =
@@ -685,13 +733,85 @@ responseDeleteService =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteService)
 
-responseUpdateService :: UpdateServiceResponse -> TestTree
-responseUpdateService =
+responseDeleteTaskSet :: DeleteTaskSetResponse -> TestTree
+responseDeleteTaskSet =
   res
-    "UpdateServiceResponse"
-    "fixture/UpdateServiceResponse.proto"
+    "DeleteTaskSetResponse"
+    "fixture/DeleteTaskSetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateService)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTaskSet)
+
+responseDeregisterContainerInstance :: DeregisterContainerInstanceResponse -> TestTree
+responseDeregisterContainerInstance =
+  res
+    "DeregisterContainerInstanceResponse"
+    "fixture/DeregisterContainerInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeregisterContainerInstance)
+
+responseDeregisterTaskDefinition :: DeregisterTaskDefinitionResponse -> TestTree
+responseDeregisterTaskDefinition =
+  res
+    "DeregisterTaskDefinitionResponse"
+    "fixture/DeregisterTaskDefinitionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeregisterTaskDefinition)
+
+responseDescribeCapacityProviders :: DescribeCapacityProvidersResponse -> TestTree
+responseDescribeCapacityProviders =
+  res
+    "DescribeCapacityProvidersResponse"
+    "fixture/DescribeCapacityProvidersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeCapacityProviders)
+
+responseDescribeClusters :: DescribeClustersResponse -> TestTree
+responseDescribeClusters =
+  res
+    "DescribeClustersResponse"
+    "fixture/DescribeClustersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusters)
+
+responseDescribeContainerInstances :: DescribeContainerInstancesResponse -> TestTree
+responseDescribeContainerInstances =
+  res
+    "DescribeContainerInstancesResponse"
+    "fixture/DescribeContainerInstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeContainerInstances)
+
+responseDescribeServices :: DescribeServicesResponse -> TestTree
+responseDescribeServices =
+  res
+    "DescribeServicesResponse"
+    "fixture/DescribeServicesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeServices)
+
+responseDescribeTaskDefinition :: DescribeTaskDefinitionResponse -> TestTree
+responseDescribeTaskDefinition =
+  res
+    "DescribeTaskDefinitionResponse"
+    "fixture/DescribeTaskDefinitionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTaskDefinition)
+
+responseDescribeTaskSets :: DescribeTaskSetsResponse -> TestTree
+responseDescribeTaskSets =
+  res
+    "DescribeTaskSetsResponse"
+    "fixture/DescribeTaskSetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTaskSets)
+
+responseDescribeTasks :: DescribeTasksResponse -> TestTree
+responseDescribeTasks =
+  res
+    "DescribeTasksResponse"
+    "fixture/DescribeTasksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTasks)
 
 responseDiscoverPollEndpoint :: DiscoverPollEndpointResponse -> TestTree
 responseDiscoverPollEndpoint =
@@ -700,6 +820,158 @@ responseDiscoverPollEndpoint =
     "fixture/DiscoverPollEndpointResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DiscoverPollEndpoint)
+
+responseExecuteCommand :: ExecuteCommandResponse -> TestTree
+responseExecuteCommand =
+  res
+    "ExecuteCommandResponse"
+    "fixture/ExecuteCommandResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExecuteCommand)
+
+responseListAccountSettings :: ListAccountSettingsResponse -> TestTree
+responseListAccountSettings =
+  res
+    "ListAccountSettingsResponse"
+    "fixture/ListAccountSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAccountSettings)
+
+responseListAttributes :: ListAttributesResponse -> TestTree
+responseListAttributes =
+  res
+    "ListAttributesResponse"
+    "fixture/ListAttributesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAttributes)
+
+responseListClusters :: ListClustersResponse -> TestTree
+responseListClusters =
+  res
+    "ListClustersResponse"
+    "fixture/ListClustersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListClusters)
+
+responseListContainerInstances :: ListContainerInstancesResponse -> TestTree
+responseListContainerInstances =
+  res
+    "ListContainerInstancesResponse"
+    "fixture/ListContainerInstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListContainerInstances)
+
+responseListServices :: ListServicesResponse -> TestTree
+responseListServices =
+  res
+    "ListServicesResponse"
+    "fixture/ListServicesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListServices)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListTaskDefinitionFamilies :: ListTaskDefinitionFamiliesResponse -> TestTree
+responseListTaskDefinitionFamilies =
+  res
+    "ListTaskDefinitionFamiliesResponse"
+    "fixture/ListTaskDefinitionFamiliesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTaskDefinitionFamilies)
+
+responseListTaskDefinitions :: ListTaskDefinitionsResponse -> TestTree
+responseListTaskDefinitions =
+  res
+    "ListTaskDefinitionsResponse"
+    "fixture/ListTaskDefinitionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTaskDefinitions)
+
+responseListTasks :: ListTasksResponse -> TestTree
+responseListTasks =
+  res
+    "ListTasksResponse"
+    "fixture/ListTasksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTasks)
+
+responsePutAccountSetting :: PutAccountSettingResponse -> TestTree
+responsePutAccountSetting =
+  res
+    "PutAccountSettingResponse"
+    "fixture/PutAccountSettingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAccountSetting)
+
+responsePutAccountSettingDefault :: PutAccountSettingDefaultResponse -> TestTree
+responsePutAccountSettingDefault =
+  res
+    "PutAccountSettingDefaultResponse"
+    "fixture/PutAccountSettingDefaultResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAccountSettingDefault)
+
+responsePutAttributes :: PutAttributesResponse -> TestTree
+responsePutAttributes =
+  res
+    "PutAttributesResponse"
+    "fixture/PutAttributesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAttributes)
+
+responsePutClusterCapacityProviders :: PutClusterCapacityProvidersResponse -> TestTree
+responsePutClusterCapacityProviders =
+  res
+    "PutClusterCapacityProvidersResponse"
+    "fixture/PutClusterCapacityProvidersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutClusterCapacityProviders)
+
+responseRegisterContainerInstance :: RegisterContainerInstanceResponse -> TestTree
+responseRegisterContainerInstance =
+  res
+    "RegisterContainerInstanceResponse"
+    "fixture/RegisterContainerInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterContainerInstance)
+
+responseRegisterTaskDefinition :: RegisterTaskDefinitionResponse -> TestTree
+responseRegisterTaskDefinition =
+  res
+    "RegisterTaskDefinitionResponse"
+    "fixture/RegisterTaskDefinitionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterTaskDefinition)
+
+responseRunTask :: RunTaskResponse -> TestTree
+responseRunTask =
+  res
+    "RunTaskResponse"
+    "fixture/RunTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RunTask)
+
+responseStartTask :: StartTaskResponse -> TestTree
+responseStartTask =
+  res
+    "StartTaskResponse"
+    "fixture/StartTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartTask)
+
+responseStopTask :: StopTaskResponse -> TestTree
+responseStopTask =
+  res
+    "StopTaskResponse"
+    "fixture/StopTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopTask)
 
 responseSubmitAttachmentStateChanges :: SubmitAttachmentStateChangesResponse -> TestTree
 responseSubmitAttachmentStateChanges =
@@ -717,30 +989,6 @@ responseSubmitContainerStateChange =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SubmitContainerStateChange)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseStopTask :: StopTaskResponse -> TestTree
-responseStopTask =
-  res
-    "StopTaskResponse"
-    "fixture/StopTaskResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopTask)
-
-responseDescribeTaskDefinition :: DescribeTaskDefinitionResponse -> TestTree
-responseDescribeTaskDefinition =
-  res
-    "DescribeTaskDefinitionResponse"
-    "fixture/DescribeTaskDefinitionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTaskDefinition)
-
 responseSubmitTaskStateChange :: SubmitTaskStateChangeResponse -> TestTree
 responseSubmitTaskStateChange =
   res
@@ -748,198 +996,6 @@ responseSubmitTaskStateChange =
     "fixture/SubmitTaskStateChangeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SubmitTaskStateChange)
-
-responseDescribeContainerInstances :: DescribeContainerInstancesResponse -> TestTree
-responseDescribeContainerInstances =
-  res
-    "DescribeContainerInstancesResponse"
-    "fixture/DescribeContainerInstancesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeContainerInstances)
-
-responseDescribeCapacityProviders :: DescribeCapacityProvidersResponse -> TestTree
-responseDescribeCapacityProviders =
-  res
-    "DescribeCapacityProvidersResponse"
-    "fixture/DescribeCapacityProvidersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeCapacityProviders)
-
-responseUpdateContainerInstancesState :: UpdateContainerInstancesStateResponse -> TestTree
-responseUpdateContainerInstancesState =
-  res
-    "UpdateContainerInstancesStateResponse"
-    "fixture/UpdateContainerInstancesStateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateContainerInstancesState)
-
-responseDeleteCluster :: DeleteClusterResponse -> TestTree
-responseDeleteCluster =
-  res
-    "DeleteClusterResponse"
-    "fixture/DeleteClusterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
-
-responseUpdateCluster :: UpdateClusterResponse -> TestTree
-responseUpdateCluster =
-  res
-    "UpdateClusterResponse"
-    "fixture/UpdateClusterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateCluster)
-
-responseCreateCluster :: CreateClusterResponse -> TestTree
-responseCreateCluster =
-  res
-    "CreateClusterResponse"
-    "fixture/CreateClusterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateCluster)
-
-responsePutAccountSetting :: PutAccountSettingResponse -> TestTree
-responsePutAccountSetting =
-  res
-    "PutAccountSettingResponse"
-    "fixture/PutAccountSettingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutAccountSetting)
-
-responseDeleteAccountSetting :: DeleteAccountSettingResponse -> TestTree
-responseDeleteAccountSetting =
-  res
-    "DeleteAccountSettingResponse"
-    "fixture/DeleteAccountSettingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAccountSetting)
-
-responseListTaskDefinitions :: ListTaskDefinitionsResponse -> TestTree
-responseListTaskDefinitions =
-  res
-    "ListTaskDefinitionsResponse"
-    "fixture/ListTaskDefinitionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTaskDefinitions)
-
-responseRunTask :: RunTaskResponse -> TestTree
-responseRunTask =
-  res
-    "RunTaskResponse"
-    "fixture/RunTaskResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RunTask)
-
-responseDeleteCapacityProvider :: DeleteCapacityProviderResponse -> TestTree
-responseDeleteCapacityProvider =
-  res
-    "DeleteCapacityProviderResponse"
-    "fixture/DeleteCapacityProviderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteCapacityProvider)
-
-responseListTasks :: ListTasksResponse -> TestTree
-responseListTasks =
-  res
-    "ListTasksResponse"
-    "fixture/ListTasksResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTasks)
-
-responseUpdateCapacityProvider :: UpdateCapacityProviderResponse -> TestTree
-responseUpdateCapacityProvider =
-  res
-    "UpdateCapacityProviderResponse"
-    "fixture/UpdateCapacityProviderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateCapacityProvider)
-
-responseRegisterContainerInstance :: RegisterContainerInstanceResponse -> TestTree
-responseRegisterContainerInstance =
-  res
-    "RegisterContainerInstanceResponse"
-    "fixture/RegisterContainerInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RegisterContainerInstance)
-
-responseUpdateContainerAgent :: UpdateContainerAgentResponse -> TestTree
-responseUpdateContainerAgent =
-  res
-    "UpdateContainerAgentResponse"
-    "fixture/UpdateContainerAgentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateContainerAgent)
-
-responseListContainerInstances :: ListContainerInstancesResponse -> TestTree
-responseListContainerInstances =
-  res
-    "ListContainerInstancesResponse"
-    "fixture/ListContainerInstancesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListContainerInstances)
-
-responseUpdateServicePrimaryTaskSet :: UpdateServicePrimaryTaskSetResponse -> TestTree
-responseUpdateServicePrimaryTaskSet =
-  res
-    "UpdateServicePrimaryTaskSetResponse"
-    "fixture/UpdateServicePrimaryTaskSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateServicePrimaryTaskSet)
-
-responseListTaskDefinitionFamilies :: ListTaskDefinitionFamiliesResponse -> TestTree
-responseListTaskDefinitionFamilies =
-  res
-    "ListTaskDefinitionFamiliesResponse"
-    "fixture/ListTaskDefinitionFamiliesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTaskDefinitionFamilies)
-
-responseStartTask :: StartTaskResponse -> TestTree
-responseStartTask =
-  res
-    "StartTaskResponse"
-    "fixture/StartTaskResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartTask)
-
-responsePutClusterCapacityProviders :: PutClusterCapacityProvidersResponse -> TestTree
-responsePutClusterCapacityProviders =
-  res
-    "PutClusterCapacityProvidersResponse"
-    "fixture/PutClusterCapacityProvidersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutClusterCapacityProviders)
-
-responsePutAccountSettingDefault :: PutAccountSettingDefaultResponse -> TestTree
-responsePutAccountSettingDefault =
-  res
-    "PutAccountSettingDefaultResponse"
-    "fixture/PutAccountSettingDefaultResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutAccountSettingDefault)
-
-responseListAttributes :: ListAttributesResponse -> TestTree
-responseListAttributes =
-  res
-    "ListAttributesResponse"
-    "fixture/ListAttributesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAttributes)
-
-responseExecuteCommand :: ExecuteCommandResponse -> TestTree
-responseExecuteCommand =
-  res
-    "ExecuteCommandResponse"
-    "fixture/ExecuteCommandResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExecuteCommand)
-
-responseDeregisterTaskDefinition :: DeregisterTaskDefinitionResponse -> TestTree
-responseDeregisterTaskDefinition =
-  res
-    "DeregisterTaskDefinitionResponse"
-    "fixture/DeregisterTaskDefinitionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeregisterTaskDefinition)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -949,30 +1005,6 @@ responseTagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
 
-responseCreateTaskSet :: CreateTaskSetResponse -> TestTree
-responseCreateTaskSet =
-  res
-    "CreateTaskSetResponse"
-    "fixture/CreateTaskSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateTaskSet)
-
-responseDescribeTasks :: DescribeTasksResponse -> TestTree
-responseDescribeTasks =
-  res
-    "DescribeTasksResponse"
-    "fixture/DescribeTasksResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTasks)
-
-responseListClusters :: ListClustersResponse -> TestTree
-responseListClusters =
-  res
-    "ListClustersResponse"
-    "fixture/ListClustersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListClusters)
-
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -981,21 +1013,21 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseDescribeServices :: DescribeServicesResponse -> TestTree
-responseDescribeServices =
+responseUpdateCapacityProvider :: UpdateCapacityProviderResponse -> TestTree
+responseUpdateCapacityProvider =
   res
-    "DescribeServicesResponse"
-    "fixture/DescribeServicesResponse.proto"
+    "UpdateCapacityProviderResponse"
+    "fixture/UpdateCapacityProviderResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeServices)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCapacityProvider)
 
-responseDeregisterContainerInstance :: DeregisterContainerInstanceResponse -> TestTree
-responseDeregisterContainerInstance =
+responseUpdateCluster :: UpdateClusterResponse -> TestTree
+responseUpdateCluster =
   res
-    "DeregisterContainerInstanceResponse"
-    "fixture/DeregisterContainerInstanceResponse.proto"
+    "UpdateClusterResponse"
+    "fixture/UpdateClusterResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeregisterContainerInstance)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCluster)
 
 responseUpdateClusterSettings :: UpdateClusterSettingsResponse -> TestTree
 responseUpdateClusterSettings =
@@ -1005,37 +1037,37 @@ responseUpdateClusterSettings =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateClusterSettings)
 
-responseDeleteAttributes :: DeleteAttributesResponse -> TestTree
-responseDeleteAttributes =
+responseUpdateContainerAgent :: UpdateContainerAgentResponse -> TestTree
+responseUpdateContainerAgent =
   res
-    "DeleteAttributesResponse"
-    "fixture/DeleteAttributesResponse.proto"
+    "UpdateContainerAgentResponse"
+    "fixture/UpdateContainerAgentResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAttributes)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContainerAgent)
 
-responsePutAttributes :: PutAttributesResponse -> TestTree
-responsePutAttributes =
+responseUpdateContainerInstancesState :: UpdateContainerInstancesStateResponse -> TestTree
+responseUpdateContainerInstancesState =
   res
-    "PutAttributesResponse"
-    "fixture/PutAttributesResponse.proto"
+    "UpdateContainerInstancesStateResponse"
+    "fixture/UpdateContainerInstancesStateResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutAttributes)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContainerInstancesState)
 
-responseListAccountSettings :: ListAccountSettingsResponse -> TestTree
-responseListAccountSettings =
+responseUpdateService :: UpdateServiceResponse -> TestTree
+responseUpdateService =
   res
-    "ListAccountSettingsResponse"
-    "fixture/ListAccountSettingsResponse.proto"
+    "UpdateServiceResponse"
+    "fixture/UpdateServiceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAccountSettings)
+    (Proxy.Proxy :: Proxy.Proxy UpdateService)
 
-responseDeleteTaskSet :: DeleteTaskSetResponse -> TestTree
-responseDeleteTaskSet =
+responseUpdateServicePrimaryTaskSet :: UpdateServicePrimaryTaskSetResponse -> TestTree
+responseUpdateServicePrimaryTaskSet =
   res
-    "DeleteTaskSetResponse"
-    "fixture/DeleteTaskSetResponse.proto"
+    "UpdateServicePrimaryTaskSetResponse"
+    "fixture/UpdateServicePrimaryTaskSetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteTaskSet)
+    (Proxy.Proxy :: Proxy.Proxy UpdateServicePrimaryTaskSet)
 
 responseUpdateTaskSet :: UpdateTaskSetResponse -> TestTree
 responseUpdateTaskSet =
@@ -1044,35 +1076,3 @@ responseUpdateTaskSet =
     "fixture/UpdateTaskSetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateTaskSet)
-
-responseCreateCapacityProvider :: CreateCapacityProviderResponse -> TestTree
-responseCreateCapacityProvider =
-  res
-    "CreateCapacityProviderResponse"
-    "fixture/CreateCapacityProviderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateCapacityProvider)
-
-responseDescribeTaskSets :: DescribeTaskSetsResponse -> TestTree
-responseDescribeTaskSets =
-  res
-    "DescribeTaskSetsResponse"
-    "fixture/DescribeTaskSetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTaskSets)
-
-responseRegisterTaskDefinition :: RegisterTaskDefinitionResponse -> TestTree
-responseRegisterTaskDefinition =
-  res
-    "RegisterTaskDefinitionResponse"
-    "fixture/RegisterTaskDefinitionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RegisterTaskDefinition)
-
-responseCreateService :: CreateServiceResponse -> TestTree
-responseCreateService =
-  res
-    "CreateServiceResponse"
-    "fixture/CreateServiceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateService)

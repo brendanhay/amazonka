@@ -86,8 +86,8 @@ module Amazonka.STS.GetSessionToken
     newGetSessionToken,
 
     -- * Request Lenses
-    getSessionToken_tokenCode,
     getSessionToken_durationSeconds,
+    getSessionToken_tokenCode,
     getSessionToken_serialNumber,
 
     -- * Destructuring the Response
@@ -109,7 +109,15 @@ import Amazonka.STS.Types
 
 -- | /See:/ 'newGetSessionToken' smart constructor.
 data GetSessionToken = GetSessionToken'
-  { -- | The value provided by the MFA device, if MFA is required. If any policy
+  { -- | The duration, in seconds, that the credentials should remain valid.
+    -- Acceptable durations for IAM user sessions range from 900 seconds (15
+    -- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)
+    -- as the default. Sessions for Amazon Web Services account owners are
+    -- restricted to a maximum of 3,600 seconds (one hour). If the duration is
+    -- longer than one hour, the session for Amazon Web Services account owners
+    -- defaults to one hour.
+    durationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The value provided by the MFA device, if MFA is required. If any policy
     -- requires the IAM user to submit an MFA code, specify this value. If MFA
     -- authentication is required, the user must provide a code when requesting
     -- a set of temporary security credentials. A user who fails to provide the
@@ -119,14 +127,6 @@ data GetSessionToken = GetSessionToken'
     -- The format for this parameter, as described by its regex pattern, is a
     -- sequence of six numeric digits.
     tokenCode :: Prelude.Maybe Prelude.Text,
-    -- | The duration, in seconds, that the credentials should remain valid.
-    -- Acceptable durations for IAM user sessions range from 900 seconds (15
-    -- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)
-    -- as the default. Sessions for Amazon Web Services account owners are
-    -- restricted to a maximum of 3,600 seconds (one hour). If the duration is
-    -- longer than one hour, the session for Amazon Web Services account owners
-    -- defaults to one hour.
-    durationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The identification number of the MFA device that is associated with the
     -- IAM user who is making the @GetSessionToken@ call. Specify this value if
     -- the IAM user has a policy that requires MFA authentication. The value is
@@ -152,6 +152,14 @@ data GetSessionToken = GetSessionToken'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'durationSeconds', 'getSessionToken_durationSeconds' - The duration, in seconds, that the credentials should remain valid.
+-- Acceptable durations for IAM user sessions range from 900 seconds (15
+-- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)
+-- as the default. Sessions for Amazon Web Services account owners are
+-- restricted to a maximum of 3,600 seconds (one hour). If the duration is
+-- longer than one hour, the session for Amazon Web Services account owners
+-- defaults to one hour.
+--
 -- 'tokenCode', 'getSessionToken_tokenCode' - The value provided by the MFA device, if MFA is required. If any policy
 -- requires the IAM user to submit an MFA code, specify this value. If MFA
 -- authentication is required, the user must provide a code when requesting
@@ -161,14 +169,6 @@ data GetSessionToken = GetSessionToken'
 --
 -- The format for this parameter, as described by its regex pattern, is a
 -- sequence of six numeric digits.
---
--- 'durationSeconds', 'getSessionToken_durationSeconds' - The duration, in seconds, that the credentials should remain valid.
--- Acceptable durations for IAM user sessions range from 900 seconds (15
--- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)
--- as the default. Sessions for Amazon Web Services account owners are
--- restricted to a maximum of 3,600 seconds (one hour). If the duration is
--- longer than one hour, the session for Amazon Web Services account owners
--- defaults to one hour.
 --
 -- 'serialNumber', 'getSessionToken_serialNumber' - The identification number of the MFA device that is associated with the
 -- IAM user who is making the @GetSessionToken@ call. Specify this value if
@@ -187,10 +187,20 @@ newGetSessionToken ::
   GetSessionToken
 newGetSessionToken =
   GetSessionToken'
-    { tokenCode = Prelude.Nothing,
-      durationSeconds = Prelude.Nothing,
+    { durationSeconds = Prelude.Nothing,
+      tokenCode = Prelude.Nothing,
       serialNumber = Prelude.Nothing
     }
+
+-- | The duration, in seconds, that the credentials should remain valid.
+-- Acceptable durations for IAM user sessions range from 900 seconds (15
+-- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)
+-- as the default. Sessions for Amazon Web Services account owners are
+-- restricted to a maximum of 3,600 seconds (one hour). If the duration is
+-- longer than one hour, the session for Amazon Web Services account owners
+-- defaults to one hour.
+getSessionToken_durationSeconds :: Lens.Lens' GetSessionToken (Prelude.Maybe Prelude.Natural)
+getSessionToken_durationSeconds = Lens.lens (\GetSessionToken' {durationSeconds} -> durationSeconds) (\s@GetSessionToken' {} a -> s {durationSeconds = a} :: GetSessionToken)
 
 -- | The value provided by the MFA device, if MFA is required. If any policy
 -- requires the IAM user to submit an MFA code, specify this value. If MFA
@@ -203,16 +213,6 @@ newGetSessionToken =
 -- sequence of six numeric digits.
 getSessionToken_tokenCode :: Lens.Lens' GetSessionToken (Prelude.Maybe Prelude.Text)
 getSessionToken_tokenCode = Lens.lens (\GetSessionToken' {tokenCode} -> tokenCode) (\s@GetSessionToken' {} a -> s {tokenCode = a} :: GetSessionToken)
-
--- | The duration, in seconds, that the credentials should remain valid.
--- Acceptable durations for IAM user sessions range from 900 seconds (15
--- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)
--- as the default. Sessions for Amazon Web Services account owners are
--- restricted to a maximum of 3,600 seconds (one hour). If the duration is
--- longer than one hour, the session for Amazon Web Services account owners
--- defaults to one hour.
-getSessionToken_durationSeconds :: Lens.Lens' GetSessionToken (Prelude.Maybe Prelude.Natural)
-getSessionToken_durationSeconds = Lens.lens (\GetSessionToken' {durationSeconds} -> durationSeconds) (\s@GetSessionToken' {} a -> s {durationSeconds = a} :: GetSessionToken)
 
 -- | The identification number of the MFA device that is associated with the
 -- IAM user who is making the @GetSessionToken@ call. Specify this value if
@@ -246,14 +246,14 @@ instance Core.AWSRequest GetSessionToken where
 
 instance Prelude.Hashable GetSessionToken where
   hashWithSalt _salt GetSessionToken' {..} =
-    _salt `Prelude.hashWithSalt` tokenCode
-      `Prelude.hashWithSalt` durationSeconds
+    _salt `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` tokenCode
       `Prelude.hashWithSalt` serialNumber
 
 instance Prelude.NFData GetSessionToken where
   rnf GetSessionToken' {..} =
-    Prelude.rnf tokenCode
-      `Prelude.seq` Prelude.rnf durationSeconds
+    Prelude.rnf durationSeconds
+      `Prelude.seq` Prelude.rnf tokenCode
       `Prelude.seq` Prelude.rnf serialNumber
 
 instance Core.ToHeaders GetSessionToken where
@@ -269,8 +269,8 @@ instance Core.ToQuery GetSessionToken where
           Core.=: ("GetSessionToken" :: Prelude.ByteString),
         "Version"
           Core.=: ("2011-06-15" :: Prelude.ByteString),
-        "TokenCode" Core.=: tokenCode,
         "DurationSeconds" Core.=: durationSeconds,
+        "TokenCode" Core.=: tokenCode,
         "SerialNumber" Core.=: serialNumber
       ]
 

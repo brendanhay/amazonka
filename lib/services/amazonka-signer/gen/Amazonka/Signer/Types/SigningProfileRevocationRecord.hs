@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSigningProfileRevocationRecord' smart constructor.
 data SigningProfileRevocationRecord = SigningProfileRevocationRecord'
-  { -- | The identity of the revoker.
-    revokedBy :: Prelude.Maybe Prelude.Text,
-    -- | The time when revocation becomes effective.
+  { -- | The time when revocation becomes effective.
     revocationEffectiveFrom :: Prelude.Maybe Core.POSIX,
     -- | The time when the signing profile was revoked.
-    revokedAt :: Prelude.Maybe Core.POSIX
+    revokedAt :: Prelude.Maybe Core.POSIX,
+    -- | The identity of the revoker.
+    revokedBy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,20 @@ data SigningProfileRevocationRecord = SigningProfileRevocationRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revokedBy', 'signingProfileRevocationRecord_revokedBy' - The identity of the revoker.
---
 -- 'revocationEffectiveFrom', 'signingProfileRevocationRecord_revocationEffectiveFrom' - The time when revocation becomes effective.
 --
 -- 'revokedAt', 'signingProfileRevocationRecord_revokedAt' - The time when the signing profile was revoked.
+--
+-- 'revokedBy', 'signingProfileRevocationRecord_revokedBy' - The identity of the revoker.
 newSigningProfileRevocationRecord ::
   SigningProfileRevocationRecord
 newSigningProfileRevocationRecord =
   SigningProfileRevocationRecord'
-    { revokedBy =
+    { revocationEffectiveFrom =
         Prelude.Nothing,
-      revocationEffectiveFrom = Prelude.Nothing,
-      revokedAt = Prelude.Nothing
+      revokedAt = Prelude.Nothing,
+      revokedBy = Prelude.Nothing
     }
-
--- | The identity of the revoker.
-signingProfileRevocationRecord_revokedBy :: Lens.Lens' SigningProfileRevocationRecord (Prelude.Maybe Prelude.Text)
-signingProfileRevocationRecord_revokedBy = Lens.lens (\SigningProfileRevocationRecord' {revokedBy} -> revokedBy) (\s@SigningProfileRevocationRecord' {} a -> s {revokedBy = a} :: SigningProfileRevocationRecord)
 
 -- | The time when revocation becomes effective.
 signingProfileRevocationRecord_revocationEffectiveFrom :: Lens.Lens' SigningProfileRevocationRecord (Prelude.Maybe Prelude.UTCTime)
@@ -71,15 +67,19 @@ signingProfileRevocationRecord_revocationEffectiveFrom = Lens.lens (\SigningProf
 signingProfileRevocationRecord_revokedAt :: Lens.Lens' SigningProfileRevocationRecord (Prelude.Maybe Prelude.UTCTime)
 signingProfileRevocationRecord_revokedAt = Lens.lens (\SigningProfileRevocationRecord' {revokedAt} -> revokedAt) (\s@SigningProfileRevocationRecord' {} a -> s {revokedAt = a} :: SigningProfileRevocationRecord) Prelude.. Lens.mapping Core._Time
 
+-- | The identity of the revoker.
+signingProfileRevocationRecord_revokedBy :: Lens.Lens' SigningProfileRevocationRecord (Prelude.Maybe Prelude.Text)
+signingProfileRevocationRecord_revokedBy = Lens.lens (\SigningProfileRevocationRecord' {revokedBy} -> revokedBy) (\s@SigningProfileRevocationRecord' {} a -> s {revokedBy = a} :: SigningProfileRevocationRecord)
+
 instance Core.FromJSON SigningProfileRevocationRecord where
   parseJSON =
     Core.withObject
       "SigningProfileRevocationRecord"
       ( \x ->
           SigningProfileRevocationRecord'
-            Prelude.<$> (x Core..:? "revokedBy")
-            Prelude.<*> (x Core..:? "revocationEffectiveFrom")
+            Prelude.<$> (x Core..:? "revocationEffectiveFrom")
             Prelude.<*> (x Core..:? "revokedAt")
+            Prelude.<*> (x Core..:? "revokedBy")
       )
 
 instance
@@ -89,15 +89,16 @@ instance
   hashWithSalt
     _salt
     SigningProfileRevocationRecord' {..} =
-      _salt `Prelude.hashWithSalt` revokedBy
+      _salt
         `Prelude.hashWithSalt` revocationEffectiveFrom
         `Prelude.hashWithSalt` revokedAt
+        `Prelude.hashWithSalt` revokedBy
 
 instance
   Prelude.NFData
     SigningProfileRevocationRecord
   where
   rnf SigningProfileRevocationRecord' {..} =
-    Prelude.rnf revokedBy
-      `Prelude.seq` Prelude.rnf revocationEffectiveFrom
+    Prelude.rnf revocationEffectiveFrom
       `Prelude.seq` Prelude.rnf revokedAt
+      `Prelude.seq` Prelude.rnf revokedBy

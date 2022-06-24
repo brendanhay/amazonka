@@ -19,23 +19,23 @@ module Amazonka.SnowDeviceManagement
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -43,11 +43,35 @@ module Amazonka.SnowDeviceManagement
     -- * Operations
     -- $operations
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** CancelTask
+    CancelTask (CancelTask'),
+    newCancelTask,
+    CancelTaskResponse (CancelTaskResponse'),
+    newCancelTaskResponse,
+
+    -- ** CreateTask
+    CreateTask (CreateTask'),
+    newCreateTask,
+    CreateTaskResponse (CreateTaskResponse'),
+    newCreateTaskResponse,
+
+    -- ** DescribeDevice
+    DescribeDevice (DescribeDevice'),
+    newDescribeDevice,
+    DescribeDeviceResponse (DescribeDeviceResponse'),
+    newDescribeDeviceResponse,
+
+    -- ** DescribeDeviceEc2Instances
+    DescribeDeviceEc2Instances (DescribeDeviceEc2Instances'),
+    newDescribeDeviceEc2Instances,
+    DescribeDeviceEc2InstancesResponse (DescribeDeviceEc2InstancesResponse'),
+    newDescribeDeviceEc2InstancesResponse,
+
+    -- ** DescribeExecution
+    DescribeExecution (DescribeExecution'),
+    newDescribeExecution,
+    DescribeExecutionResponse (DescribeExecutionResponse'),
+    newDescribeExecutionResponse,
 
     -- ** DescribeTask
     DescribeTask (DescribeTask'),
@@ -61,23 +85,23 @@ module Amazonka.SnowDeviceManagement
     ListDeviceResourcesResponse (ListDeviceResourcesResponse'),
     newListDeviceResourcesResponse,
 
+    -- ** ListDevices (Paginated)
+    ListDevices (ListDevices'),
+    newListDevices,
+    ListDevicesResponse (ListDevicesResponse'),
+    newListDevicesResponse,
+
     -- ** ListExecutions (Paginated)
     ListExecutions (ListExecutions'),
     newListExecutions,
     ListExecutionsResponse (ListExecutionsResponse'),
     newListExecutionsResponse,
 
-    -- ** DescribeDeviceEc2Instances
-    DescribeDeviceEc2Instances (DescribeDeviceEc2Instances'),
-    newDescribeDeviceEc2Instances,
-    DescribeDeviceEc2InstancesResponse (DescribeDeviceEc2InstancesResponse'),
-    newDescribeDeviceEc2InstancesResponse,
-
-    -- ** CreateTask
-    CreateTask (CreateTask'),
-    newCreateTask,
-    CreateTaskResponse (CreateTaskResponse'),
-    newCreateTaskResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** ListTasks (Paginated)
     ListTasks (ListTasks'),
@@ -85,41 +109,17 @@ module Amazonka.SnowDeviceManagement
     ListTasksResponse (ListTasksResponse'),
     newListTasksResponse,
 
-    -- ** DescribeExecution
-    DescribeExecution (DescribeExecution'),
-    newDescribeExecution,
-    DescribeExecutionResponse (DescribeExecutionResponse'),
-    newDescribeExecutionResponse,
-
-    -- ** DescribeDevice
-    DescribeDevice (DescribeDevice'),
-    newDescribeDevice,
-    DescribeDeviceResponse (DescribeDeviceResponse'),
-    newDescribeDeviceResponse,
-
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** CancelTask
-    CancelTask (CancelTask'),
-    newCancelTask,
-    CancelTaskResponse (CancelTaskResponse'),
-    newCancelTaskResponse,
-
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** ListDevices (Paginated)
-    ListDevices (ListDevices'),
-    newListDevices,
-    ListDevicesResponse (ListDevicesResponse'),
-    newListDevicesResponse,
 
     -- * Types
 

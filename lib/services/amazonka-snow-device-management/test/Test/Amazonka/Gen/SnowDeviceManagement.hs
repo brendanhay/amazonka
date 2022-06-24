@@ -27,8 +27,20 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListTagsForResource $
---             newListTagsForResource
+--         [ requestCancelTask $
+--             newCancelTask
+--
+--         , requestCreateTask $
+--             newCreateTask
+--
+--         , requestDescribeDevice $
+--             newDescribeDevice
+--
+--         , requestDescribeDeviceEc2Instances $
+--             newDescribeDeviceEc2Instances
+--
+--         , requestDescribeExecution $
+--             newDescribeExecution
 --
 --         , requestDescribeTask $
 --             newDescribeTask
@@ -36,41 +48,41 @@ import Test.Tasty
 --         , requestListDeviceResources $
 --             newListDeviceResources
 --
+--         , requestListDevices $
+--             newListDevices
+--
 --         , requestListExecutions $
 --             newListExecutions
 --
---         , requestDescribeDeviceEc2Instances $
---             newDescribeDeviceEc2Instances
---
---         , requestCreateTask $
---             newCreateTask
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestListTasks $
 --             newListTasks
 --
---         , requestDescribeExecution $
---             newDescribeExecution
---
---         , requestDescribeDevice $
---             newDescribeDevice
---
 --         , requestTagResource $
 --             newTagResource
---
---         , requestCancelTask $
---             newCancelTask
 --
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestListDevices $
---             newListDevices
---
 --           ]
 
 --     , testGroup "response"
---         [ responseListTagsForResource $
---             newListTagsForResourceResponse
+--         [ responseCancelTask $
+--             newCancelTaskResponse
+--
+--         , responseCreateTask $
+--             newCreateTaskResponse
+--
+--         , responseDescribeDevice $
+--             newDescribeDeviceResponse
+--
+--         , responseDescribeDeviceEc2Instances $
+--             newDescribeDeviceEc2InstancesResponse
+--
+--         , responseDescribeExecution $
+--             newDescribeExecutionResponse
 --
 --         , responseDescribeTask $
 --             newDescribeTaskResponse
@@ -78,46 +90,58 @@ import Test.Tasty
 --         , responseListDeviceResources $
 --             newListDeviceResourcesResponse
 --
+--         , responseListDevices $
+--             newListDevicesResponse
+--
 --         , responseListExecutions $
 --             newListExecutionsResponse
 --
---         , responseDescribeDeviceEc2Instances $
---             newDescribeDeviceEc2InstancesResponse
---
---         , responseCreateTask $
---             newCreateTaskResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseListTasks $
 --             newListTasksResponse
 --
---         , responseDescribeExecution $
---             newDescribeExecutionResponse
---
---         , responseDescribeDevice $
---             newDescribeDeviceResponse
---
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseCancelTask $
---             newCancelTaskResponse
---
 --         , responseUntagResource $
 --             newUntagResourceResponse
---
---         , responseListDevices $
---             newListDevicesResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestCancelTask :: CancelTask -> TestTree
+requestCancelTask =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "CancelTask"
+    "fixture/CancelTask.yaml"
+
+requestCreateTask :: CreateTask -> TestTree
+requestCreateTask =
+  req
+    "CreateTask"
+    "fixture/CreateTask.yaml"
+
+requestDescribeDevice :: DescribeDevice -> TestTree
+requestDescribeDevice =
+  req
+    "DescribeDevice"
+    "fixture/DescribeDevice.yaml"
+
+requestDescribeDeviceEc2Instances :: DescribeDeviceEc2Instances -> TestTree
+requestDescribeDeviceEc2Instances =
+  req
+    "DescribeDeviceEc2Instances"
+    "fixture/DescribeDeviceEc2Instances.yaml"
+
+requestDescribeExecution :: DescribeExecution -> TestTree
+requestDescribeExecution =
+  req
+    "DescribeExecution"
+    "fixture/DescribeExecution.yaml"
 
 requestDescribeTask :: DescribeTask -> TestTree
 requestDescribeTask =
@@ -131,23 +155,23 @@ requestListDeviceResources =
     "ListDeviceResources"
     "fixture/ListDeviceResources.yaml"
 
+requestListDevices :: ListDevices -> TestTree
+requestListDevices =
+  req
+    "ListDevices"
+    "fixture/ListDevices.yaml"
+
 requestListExecutions :: ListExecutions -> TestTree
 requestListExecutions =
   req
     "ListExecutions"
     "fixture/ListExecutions.yaml"
 
-requestDescribeDeviceEc2Instances :: DescribeDeviceEc2Instances -> TestTree
-requestDescribeDeviceEc2Instances =
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
   req
-    "DescribeDeviceEc2Instances"
-    "fixture/DescribeDeviceEc2Instances.yaml"
-
-requestCreateTask :: CreateTask -> TestTree
-requestCreateTask =
-  req
-    "CreateTask"
-    "fixture/CreateTask.yaml"
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestListTasks :: ListTasks -> TestTree
 requestListTasks =
@@ -155,29 +179,11 @@ requestListTasks =
     "ListTasks"
     "fixture/ListTasks.yaml"
 
-requestDescribeExecution :: DescribeExecution -> TestTree
-requestDescribeExecution =
-  req
-    "DescribeExecution"
-    "fixture/DescribeExecution.yaml"
-
-requestDescribeDevice :: DescribeDevice -> TestTree
-requestDescribeDevice =
-  req
-    "DescribeDevice"
-    "fixture/DescribeDevice.yaml"
-
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
-
-requestCancelTask :: CancelTask -> TestTree
-requestCancelTask =
-  req
-    "CancelTask"
-    "fixture/CancelTask.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -185,21 +191,47 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestListDevices :: ListDevices -> TestTree
-requestListDevices =
-  req
-    "ListDevices"
-    "fixture/ListDevices.yaml"
-
 -- Responses
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseCancelTask :: CancelTaskResponse -> TestTree
+responseCancelTask =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "CancelTaskResponse"
+    "fixture/CancelTaskResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy CancelTask)
+
+responseCreateTask :: CreateTaskResponse -> TestTree
+responseCreateTask =
+  res
+    "CreateTaskResponse"
+    "fixture/CreateTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTask)
+
+responseDescribeDevice :: DescribeDeviceResponse -> TestTree
+responseDescribeDevice =
+  res
+    "DescribeDeviceResponse"
+    "fixture/DescribeDeviceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDevice)
+
+responseDescribeDeviceEc2Instances :: DescribeDeviceEc2InstancesResponse -> TestTree
+responseDescribeDeviceEc2Instances =
+  res
+    "DescribeDeviceEc2InstancesResponse"
+    "fixture/DescribeDeviceEc2InstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDeviceEc2Instances)
+
+responseDescribeExecution :: DescribeExecutionResponse -> TestTree
+responseDescribeExecution =
+  res
+    "DescribeExecutionResponse"
+    "fixture/DescribeExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeExecution)
 
 responseDescribeTask :: DescribeTaskResponse -> TestTree
 responseDescribeTask =
@@ -217,6 +249,14 @@ responseListDeviceResources =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDeviceResources)
 
+responseListDevices :: ListDevicesResponse -> TestTree
+responseListDevices =
+  res
+    "ListDevicesResponse"
+    "fixture/ListDevicesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDevices)
+
 responseListExecutions :: ListExecutionsResponse -> TestTree
 responseListExecutions =
   res
@@ -225,21 +265,13 @@ responseListExecutions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListExecutions)
 
-responseDescribeDeviceEc2Instances :: DescribeDeviceEc2InstancesResponse -> TestTree
-responseDescribeDeviceEc2Instances =
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
   res
-    "DescribeDeviceEc2InstancesResponse"
-    "fixture/DescribeDeviceEc2InstancesResponse.proto"
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDeviceEc2Instances)
-
-responseCreateTask :: CreateTaskResponse -> TestTree
-responseCreateTask =
-  res
-    "CreateTaskResponse"
-    "fixture/CreateTaskResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateTask)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListTasks :: ListTasksResponse -> TestTree
 responseListTasks =
@@ -249,22 +281,6 @@ responseListTasks =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTasks)
 
-responseDescribeExecution :: DescribeExecutionResponse -> TestTree
-responseDescribeExecution =
-  res
-    "DescribeExecutionResponse"
-    "fixture/DescribeExecutionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeExecution)
-
-responseDescribeDevice :: DescribeDeviceResponse -> TestTree
-responseDescribeDevice =
-  res
-    "DescribeDeviceResponse"
-    "fixture/DescribeDeviceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDevice)
-
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -273,14 +289,6 @@ responseTagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
 
-responseCancelTask :: CancelTaskResponse -> TestTree
-responseCancelTask =
-  res
-    "CancelTaskResponse"
-    "fixture/CancelTaskResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelTask)
-
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -288,11 +296,3 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseListDevices :: ListDevicesResponse -> TestTree
-responseListDevices =
-  res
-    "ListDevicesResponse"
-    "fixture/ListDevicesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDevices)

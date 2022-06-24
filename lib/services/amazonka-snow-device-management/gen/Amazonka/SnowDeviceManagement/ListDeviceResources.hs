@@ -41,8 +41,8 @@ module Amazonka.SnowDeviceManagement.ListDeviceResources
     newListDeviceResourcesResponse,
 
     -- * Response Lenses
-    listDeviceResourcesResponse_resources,
     listDeviceResourcesResponse_nextToken,
+    listDeviceResourcesResponse_resources,
     listDeviceResourcesResponse_httpStatus,
   )
 where
@@ -141,8 +141,8 @@ instance Core.AWSRequest ListDeviceResources where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceResourcesResponse'
-            Prelude.<$> (x Core..?> "resources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,11 +189,11 @@ instance Core.ToQuery ListDeviceResources where
 
 -- | /See:/ 'newListDeviceResourcesResponse' smart constructor.
 data ListDeviceResourcesResponse = ListDeviceResourcesResponse'
-  { -- | A structure defining the resource\'s type, Amazon Resource Name (ARN),
+  { -- | A pagination token to continue to the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A structure defining the resource\'s type, Amazon Resource Name (ARN),
     -- and ID.
     resources :: Prelude.Maybe [ResourceSummary],
-    -- | A pagination token to continue to the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,10 +207,10 @@ data ListDeviceResourcesResponse = ListDeviceResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listDeviceResourcesResponse_nextToken' - A pagination token to continue to the next page of results.
+--
 -- 'resources', 'listDeviceResourcesResponse_resources' - A structure defining the resource\'s type, Amazon Resource Name (ARN),
 -- and ID.
---
--- 'nextToken', 'listDeviceResourcesResponse_nextToken' - A pagination token to continue to the next page of results.
 --
 -- 'httpStatus', 'listDeviceResourcesResponse_httpStatus' - The response's http status code.
 newListDeviceResourcesResponse ::
@@ -219,20 +219,20 @@ newListDeviceResourcesResponse ::
   ListDeviceResourcesResponse
 newListDeviceResourcesResponse pHttpStatus_ =
   ListDeviceResourcesResponse'
-    { resources =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      resources = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A pagination token to continue to the next page of results.
+listDeviceResourcesResponse_nextToken :: Lens.Lens' ListDeviceResourcesResponse (Prelude.Maybe Prelude.Text)
+listDeviceResourcesResponse_nextToken = Lens.lens (\ListDeviceResourcesResponse' {nextToken} -> nextToken) (\s@ListDeviceResourcesResponse' {} a -> s {nextToken = a} :: ListDeviceResourcesResponse)
 
 -- | A structure defining the resource\'s type, Amazon Resource Name (ARN),
 -- and ID.
 listDeviceResourcesResponse_resources :: Lens.Lens' ListDeviceResourcesResponse (Prelude.Maybe [ResourceSummary])
 listDeviceResourcesResponse_resources = Lens.lens (\ListDeviceResourcesResponse' {resources} -> resources) (\s@ListDeviceResourcesResponse' {} a -> s {resources = a} :: ListDeviceResourcesResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A pagination token to continue to the next page of results.
-listDeviceResourcesResponse_nextToken :: Lens.Lens' ListDeviceResourcesResponse (Prelude.Maybe Prelude.Text)
-listDeviceResourcesResponse_nextToken = Lens.lens (\ListDeviceResourcesResponse' {nextToken} -> nextToken) (\s@ListDeviceResourcesResponse' {} a -> s {nextToken = a} :: ListDeviceResourcesResponse)
 
 -- | The response's http status code.
 listDeviceResourcesResponse_httpStatus :: Lens.Lens' ListDeviceResourcesResponse Prelude.Int
@@ -240,6 +240,6 @@ listDeviceResourcesResponse_httpStatus = Lens.lens (\ListDeviceResourcesResponse
 
 instance Prelude.NFData ListDeviceResourcesResponse where
   rnf ListDeviceResourcesResponse' {..} =
-    Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resources
       `Prelude.seq` Prelude.rnf httpStatus

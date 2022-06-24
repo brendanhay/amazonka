@@ -34,10 +34,10 @@ data EbsInstanceBlockDevice = EbsInstanceBlockDevice'
     deleteOnTermination :: Prelude.Maybe Prelude.Bool,
     -- | The attachment state.
     status :: Prelude.Maybe AttachmentStatus,
-    -- | The ID of the Amazon EBS volume.
-    volumeId :: Prelude.Maybe Prelude.Text,
     -- | When the attachment was initiated.
-    attachTime :: Prelude.Maybe Core.POSIX
+    attachTime :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the Amazon EBS volume.
+    volumeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,9 +54,9 @@ data EbsInstanceBlockDevice = EbsInstanceBlockDevice'
 --
 -- 'status', 'ebsInstanceBlockDevice_status' - The attachment state.
 --
--- 'volumeId', 'ebsInstanceBlockDevice_volumeId' - The ID of the Amazon EBS volume.
---
 -- 'attachTime', 'ebsInstanceBlockDevice_attachTime' - When the attachment was initiated.
+--
+-- 'volumeId', 'ebsInstanceBlockDevice_volumeId' - The ID of the Amazon EBS volume.
 newEbsInstanceBlockDevice ::
   EbsInstanceBlockDevice
 newEbsInstanceBlockDevice =
@@ -64,8 +64,8 @@ newEbsInstanceBlockDevice =
     { deleteOnTermination =
         Prelude.Nothing,
       status = Prelude.Nothing,
-      volumeId = Prelude.Nothing,
-      attachTime = Prelude.Nothing
+      attachTime = Prelude.Nothing,
+      volumeId = Prelude.Nothing
     }
 
 -- | A value that indicates whether the volume is deleted on instance
@@ -77,13 +77,13 @@ ebsInstanceBlockDevice_deleteOnTermination = Lens.lens (\EbsInstanceBlockDevice'
 ebsInstanceBlockDevice_status :: Lens.Lens' EbsInstanceBlockDevice (Prelude.Maybe AttachmentStatus)
 ebsInstanceBlockDevice_status = Lens.lens (\EbsInstanceBlockDevice' {status} -> status) (\s@EbsInstanceBlockDevice' {} a -> s {status = a} :: EbsInstanceBlockDevice)
 
--- | The ID of the Amazon EBS volume.
-ebsInstanceBlockDevice_volumeId :: Lens.Lens' EbsInstanceBlockDevice (Prelude.Maybe Prelude.Text)
-ebsInstanceBlockDevice_volumeId = Lens.lens (\EbsInstanceBlockDevice' {volumeId} -> volumeId) (\s@EbsInstanceBlockDevice' {} a -> s {volumeId = a} :: EbsInstanceBlockDevice)
-
 -- | When the attachment was initiated.
 ebsInstanceBlockDevice_attachTime :: Lens.Lens' EbsInstanceBlockDevice (Prelude.Maybe Prelude.UTCTime)
 ebsInstanceBlockDevice_attachTime = Lens.lens (\EbsInstanceBlockDevice' {attachTime} -> attachTime) (\s@EbsInstanceBlockDevice' {} a -> s {attachTime = a} :: EbsInstanceBlockDevice) Prelude.. Lens.mapping Core._Time
+
+-- | The ID of the Amazon EBS volume.
+ebsInstanceBlockDevice_volumeId :: Lens.Lens' EbsInstanceBlockDevice (Prelude.Maybe Prelude.Text)
+ebsInstanceBlockDevice_volumeId = Lens.lens (\EbsInstanceBlockDevice' {volumeId} -> volumeId) (\s@EbsInstanceBlockDevice' {} a -> s {volumeId = a} :: EbsInstanceBlockDevice)
 
 instance Core.FromJSON EbsInstanceBlockDevice where
   parseJSON =
@@ -93,20 +93,20 @@ instance Core.FromJSON EbsInstanceBlockDevice where
           EbsInstanceBlockDevice'
             Prelude.<$> (x Core..:? "deleteOnTermination")
             Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "volumeId")
             Prelude.<*> (x Core..:? "attachTime")
+            Prelude.<*> (x Core..:? "volumeId")
       )
 
 instance Prelude.Hashable EbsInstanceBlockDevice where
   hashWithSalt _salt EbsInstanceBlockDevice' {..} =
     _salt `Prelude.hashWithSalt` deleteOnTermination
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` volumeId
       `Prelude.hashWithSalt` attachTime
+      `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData EbsInstanceBlockDevice where
   rnf EbsInstanceBlockDevice' {..} =
     Prelude.rnf deleteOnTermination
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf volumeId
       `Prelude.seq` Prelude.rnf attachTime
+      `Prelude.seq` Prelude.rnf volumeId

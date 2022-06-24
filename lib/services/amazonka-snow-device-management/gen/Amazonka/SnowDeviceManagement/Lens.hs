@@ -14,41 +14,35 @@
 module Amazonka.SnowDeviceManagement.Lens
   ( -- * Operations
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** CancelTask
+    cancelTask_taskId,
+    cancelTaskResponse_taskId,
+    cancelTaskResponse_httpStatus,
 
-    -- ** DescribeTask
-    describeTask_taskId,
-    describeTaskResponse_state,
-    describeTaskResponse_lastUpdatedAt,
-    describeTaskResponse_createdAt,
-    describeTaskResponse_taskId,
-    describeTaskResponse_taskArn,
-    describeTaskResponse_targets,
-    describeTaskResponse_completedAt,
-    describeTaskResponse_description,
-    describeTaskResponse_tags,
-    describeTaskResponse_httpStatus,
+    -- ** CreateTask
+    createTask_tags,
+    createTask_clientToken,
+    createTask_description,
+    createTask_command,
+    createTask_targets,
+    createTaskResponse_taskArn,
+    createTaskResponse_taskId,
+    createTaskResponse_httpStatus,
 
-    -- ** ListDeviceResources
-    listDeviceResources_nextToken,
-    listDeviceResources_type,
-    listDeviceResources_maxResults,
-    listDeviceResources_managedDeviceId,
-    listDeviceResourcesResponse_resources,
-    listDeviceResourcesResponse_nextToken,
-    listDeviceResourcesResponse_httpStatus,
-
-    -- ** ListExecutions
-    listExecutions_state,
-    listExecutions_nextToken,
-    listExecutions_maxResults,
-    listExecutions_taskId,
-    listExecutionsResponse_executions,
-    listExecutionsResponse_nextToken,
-    listExecutionsResponse_httpStatus,
+    -- ** DescribeDevice
+    describeDevice_managedDeviceId,
+    describeDeviceResponse_tags,
+    describeDeviceResponse_deviceState,
+    describeDeviceResponse_lastUpdatedAt,
+    describeDeviceResponse_software,
+    describeDeviceResponse_lastReachedOutAt,
+    describeDeviceResponse_deviceCapacities,
+    describeDeviceResponse_physicalNetworkInterfaces,
+    describeDeviceResponse_associatedWithJob,
+    describeDeviceResponse_managedDeviceArn,
+    describeDeviceResponse_managedDeviceId,
+    describeDeviceResponse_deviceType,
+    describeDeviceResponse_httpStatus,
 
     -- ** DescribeDeviceEc2Instances
     describeDeviceEc2Instances_instanceIds,
@@ -56,120 +50,126 @@ module Amazonka.SnowDeviceManagement.Lens
     describeDeviceEc2InstancesResponse_instances,
     describeDeviceEc2InstancesResponse_httpStatus,
 
-    -- ** CreateTask
-    createTask_clientToken,
-    createTask_description,
-    createTask_tags,
-    createTask_command,
-    createTask_targets,
-    createTaskResponse_taskId,
-    createTaskResponse_taskArn,
-    createTaskResponse_httpStatus,
+    -- ** DescribeExecution
+    describeExecution_managedDeviceId,
+    describeExecution_taskId,
+    describeExecutionResponse_lastUpdatedAt,
+    describeExecutionResponse_taskId,
+    describeExecutionResponse_state,
+    describeExecutionResponse_executionId,
+    describeExecutionResponse_startedAt,
+    describeExecutionResponse_managedDeviceId,
+    describeExecutionResponse_httpStatus,
+
+    -- ** DescribeTask
+    describeTask_taskId,
+    describeTaskResponse_tags,
+    describeTaskResponse_lastUpdatedAt,
+    describeTaskResponse_taskArn,
+    describeTaskResponse_taskId,
+    describeTaskResponse_state,
+    describeTaskResponse_targets,
+    describeTaskResponse_description,
+    describeTaskResponse_completedAt,
+    describeTaskResponse_createdAt,
+    describeTaskResponse_httpStatus,
+
+    -- ** ListDeviceResources
+    listDeviceResources_nextToken,
+    listDeviceResources_type,
+    listDeviceResources_maxResults,
+    listDeviceResources_managedDeviceId,
+    listDeviceResourcesResponse_nextToken,
+    listDeviceResourcesResponse_resources,
+    listDeviceResourcesResponse_httpStatus,
+
+    -- ** ListDevices
+    listDevices_nextToken,
+    listDevices_jobId,
+    listDevices_maxResults,
+    listDevicesResponse_devices,
+    listDevicesResponse_nextToken,
+    listDevicesResponse_httpStatus,
+
+    -- ** ListExecutions
+    listExecutions_nextToken,
+    listExecutions_state,
+    listExecutions_maxResults,
+    listExecutions_taskId,
+    listExecutionsResponse_executions,
+    listExecutionsResponse_nextToken,
+    listExecutionsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** ListTasks
-    listTasks_state,
     listTasks_nextToken,
+    listTasks_state,
     listTasks_maxResults,
     listTasksResponse_tasks,
     listTasksResponse_nextToken,
     listTasksResponse_httpStatus,
 
-    -- ** DescribeExecution
-    describeExecution_managedDeviceId,
-    describeExecution_taskId,
-    describeExecutionResponse_executionId,
-    describeExecutionResponse_state,
-    describeExecutionResponse_lastUpdatedAt,
-    describeExecutionResponse_taskId,
-    describeExecutionResponse_startedAt,
-    describeExecutionResponse_managedDeviceId,
-    describeExecutionResponse_httpStatus,
-
-    -- ** DescribeDevice
-    describeDevice_managedDeviceId,
-    describeDeviceResponse_deviceState,
-    describeDeviceResponse_deviceCapacities,
-    describeDeviceResponse_lastUpdatedAt,
-    describeDeviceResponse_associatedWithJob,
-    describeDeviceResponse_lastReachedOutAt,
-    describeDeviceResponse_software,
-    describeDeviceResponse_physicalNetworkInterfaces,
-    describeDeviceResponse_managedDeviceId,
-    describeDeviceResponse_managedDeviceArn,
-    describeDeviceResponse_deviceType,
-    describeDeviceResponse_tags,
-    describeDeviceResponse_httpStatus,
-
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
-
-    -- ** CancelTask
-    cancelTask_taskId,
-    cancelTaskResponse_taskId,
-    cancelTaskResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
 
-    -- ** ListDevices
-    listDevices_jobId,
-    listDevices_nextToken,
-    listDevices_maxResults,
-    listDevicesResponse_nextToken,
-    listDevicesResponse_devices,
-    listDevicesResponse_httpStatus,
-
     -- * Types
 
     -- ** Capacity
-    capacity_used,
+    capacity_available,
     capacity_name,
     capacity_total,
+    capacity_used,
     capacity_unit,
-    capacity_available,
 
     -- ** Command
-    command_unlock,
     command_reboot,
+    command_unlock,
 
     -- ** CpuOptions
     cpuOptions_coreCount,
     cpuOptions_threadsPerCore,
 
     -- ** DeviceSummary
-    deviceSummary_associatedWithJob,
-    deviceSummary_managedDeviceId,
-    deviceSummary_managedDeviceArn,
     deviceSummary_tags,
+    deviceSummary_associatedWithJob,
+    deviceSummary_managedDeviceArn,
+    deviceSummary_managedDeviceId,
 
     -- ** EbsInstanceBlockDevice
     ebsInstanceBlockDevice_deleteOnTermination,
     ebsInstanceBlockDevice_status,
-    ebsInstanceBlockDevice_volumeId,
     ebsInstanceBlockDevice_attachTime,
+    ebsInstanceBlockDevice_volumeId,
 
     -- ** ExecutionSummary
-    executionSummary_executionId,
-    executionSummary_state,
     executionSummary_taskId,
+    executionSummary_state,
+    executionSummary_executionId,
     executionSummary_managedDeviceId,
 
     -- ** Instance
-    instance_instanceId,
-    instance_state,
-    instance_securityGroups,
-    instance_createdAt,
-    instance_cpuOptions,
-    instance_rootDeviceName,
-    instance_instanceType,
-    instance_imageId,
-    instance_privateIpAddress,
-    instance_updatedAt,
     instance_blockDeviceMappings,
-    instance_publicIpAddress,
     instance_amiLaunchIndex,
+    instance_state,
+    instance_instanceType,
+    instance_instanceId,
+    instance_publicIpAddress,
+    instance_securityGroups,
+    instance_privateIpAddress,
+    instance_cpuOptions,
+    instance_createdAt,
+    instance_imageId,
+    instance_updatedAt,
+    instance_rootDeviceName,
 
     -- ** InstanceBlockDeviceMapping
     instanceBlockDeviceMapping_ebs,
@@ -184,13 +184,13 @@ module Amazonka.SnowDeviceManagement.Lens
     instanceSummary_instance,
 
     -- ** PhysicalNetworkInterface
-    physicalNetworkInterface_ipAddress,
-    physicalNetworkInterface_macAddress,
     physicalNetworkInterface_ipAddressAssignment,
-    physicalNetworkInterface_defaultGateway,
-    physicalNetworkInterface_physicalNetworkInterfaceId,
     physicalNetworkInterface_netmask,
     physicalNetworkInterface_physicalConnectorType,
+    physicalNetworkInterface_macAddress,
+    physicalNetworkInterface_defaultGateway,
+    physicalNetworkInterface_physicalNetworkInterfaceId,
+    physicalNetworkInterface_ipAddress,
 
     -- ** Reboot
 
@@ -200,18 +200,18 @@ module Amazonka.SnowDeviceManagement.Lens
     resourceSummary_resourceType,
 
     -- ** SecurityGroupIdentifier
-    securityGroupIdentifier_groupId,
     securityGroupIdentifier_groupName,
+    securityGroupIdentifier_groupId,
 
     -- ** SoftwareInformation
+    softwareInformation_installingVersion,
     softwareInformation_installedVersion,
     softwareInformation_installState,
-    softwareInformation_installingVersion,
 
     -- ** TaskSummary
-    taskSummary_state,
-    taskSummary_taskArn,
     taskSummary_tags,
+    taskSummary_taskArn,
+    taskSummary_state,
     taskSummary_taskId,
 
     -- ** Unlock

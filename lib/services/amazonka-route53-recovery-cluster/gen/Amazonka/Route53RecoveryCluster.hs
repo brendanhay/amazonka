@@ -51,11 +51,17 @@ module Amazonka.Route53RecoveryCluster
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
+
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** EndpointTemporarilyUnavailableException
+    _EndpointTemporarilyUnavailableException,
 
     -- ** ConflictException
     _ConflictException,
@@ -63,14 +69,8 @@ module Amazonka.Route53RecoveryCluster
     -- ** ThrottlingException
     _ThrottlingException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** EndpointTemporarilyUnavailableException
-    _EndpointTemporarilyUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -78,17 +78,17 @@ module Amazonka.Route53RecoveryCluster
     -- * Operations
     -- $operations
 
-    -- ** UpdateRoutingControlState
-    UpdateRoutingControlState (UpdateRoutingControlState'),
-    newUpdateRoutingControlState,
-    UpdateRoutingControlStateResponse (UpdateRoutingControlStateResponse'),
-    newUpdateRoutingControlStateResponse,
-
     -- ** GetRoutingControlState
     GetRoutingControlState (GetRoutingControlState'),
     newGetRoutingControlState,
     GetRoutingControlStateResponse (GetRoutingControlStateResponse'),
     newGetRoutingControlStateResponse,
+
+    -- ** UpdateRoutingControlState
+    UpdateRoutingControlState (UpdateRoutingControlState'),
+    newUpdateRoutingControlState,
+    UpdateRoutingControlStateResponse (UpdateRoutingControlStateResponse'),
+    newUpdateRoutingControlStateResponse,
 
     -- ** UpdateRoutingControlStates
     UpdateRoutingControlStates (UpdateRoutingControlStates'),

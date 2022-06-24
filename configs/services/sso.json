@@ -26,6 +26,15 @@
                     "show"
                 ]
             }
+        },
+        "SessionTokenType": {
+            "replacedBy": {
+                "name": "Core.SessionToken",
+                "underive": [
+                    "read",
+                    "show"
+                ]
+            }
         }
     }
 }

@@ -27,23 +27,26 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetQuantumTask $
---             newGetQuantumTask
+--         [ requestCancelQuantumTask $
+--             newCancelQuantumTask
 --
---         , requestSearchQuantumTasks $
---             newSearchQuantumTasks
---
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestCreateQuantumTask $
+--             newCreateQuantumTask
 --
 --         , requestGetDevice $
 --             newGetDevice
 --
---         , requestCancelQuantumTask $
---             newCancelQuantumTask
+--         , requestGetQuantumTask $
+--             newGetQuantumTask
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestSearchDevices $
 --             newSearchDevices
+--
+--         , requestSearchQuantumTasks $
+--             newSearchQuantumTasks
 --
 --         , requestTagResource $
 --             newTagResource
@@ -51,29 +54,29 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestCreateQuantumTask $
---             newCreateQuantumTask
---
 --           ]
 
 --     , testGroup "response"
---         [ responseGetQuantumTask $
---             newGetQuantumTaskResponse
+--         [ responseCancelQuantumTask $
+--             newCancelQuantumTaskResponse
 --
---         , responseSearchQuantumTasks $
---             newSearchQuantumTasksResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseCreateQuantumTask $
+--             newCreateQuantumTaskResponse
 --
 --         , responseGetDevice $
 --             newGetDeviceResponse
 --
---         , responseCancelQuantumTask $
---             newCancelQuantumTaskResponse
+--         , responseGetQuantumTask $
+--             newGetQuantumTaskResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseSearchDevices $
 --             newSearchDevicesResponse
+--
+--         , responseSearchQuantumTasks $
+--             newSearchQuantumTasksResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -81,37 +84,10 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseCreateQuantumTask $
---             newCreateQuantumTaskResponse
---
 --           ]
 --     ]
 
 -- Requests
-
-requestGetQuantumTask :: GetQuantumTask -> TestTree
-requestGetQuantumTask =
-  req
-    "GetQuantumTask"
-    "fixture/GetQuantumTask.yaml"
-
-requestSearchQuantumTasks :: SearchQuantumTasks -> TestTree
-requestSearchQuantumTasks =
-  req
-    "SearchQuantumTasks"
-    "fixture/SearchQuantumTasks.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestGetDevice :: GetDevice -> TestTree
-requestGetDevice =
-  req
-    "GetDevice"
-    "fixture/GetDevice.yaml"
 
 requestCancelQuantumTask :: CancelQuantumTask -> TestTree
 requestCancelQuantumTask =
@@ -119,11 +95,41 @@ requestCancelQuantumTask =
     "CancelQuantumTask"
     "fixture/CancelQuantumTask.yaml"
 
+requestCreateQuantumTask :: CreateQuantumTask -> TestTree
+requestCreateQuantumTask =
+  req
+    "CreateQuantumTask"
+    "fixture/CreateQuantumTask.yaml"
+
+requestGetDevice :: GetDevice -> TestTree
+requestGetDevice =
+  req
+    "GetDevice"
+    "fixture/GetDevice.yaml"
+
+requestGetQuantumTask :: GetQuantumTask -> TestTree
+requestGetQuantumTask =
+  req
+    "GetQuantumTask"
+    "fixture/GetQuantumTask.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestSearchDevices :: SearchDevices -> TestTree
 requestSearchDevices =
   req
     "SearchDevices"
     "fixture/SearchDevices.yaml"
+
+requestSearchQuantumTasks :: SearchQuantumTasks -> TestTree
+requestSearchQuantumTasks =
+  req
+    "SearchQuantumTasks"
+    "fixture/SearchQuantumTasks.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -137,45 +143,7 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestCreateQuantumTask :: CreateQuantumTask -> TestTree
-requestCreateQuantumTask =
-  req
-    "CreateQuantumTask"
-    "fixture/CreateQuantumTask.yaml"
-
 -- Responses
-
-responseGetQuantumTask :: GetQuantumTaskResponse -> TestTree
-responseGetQuantumTask =
-  res
-    "GetQuantumTaskResponse"
-    "fixture/GetQuantumTaskResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetQuantumTask)
-
-responseSearchQuantumTasks :: SearchQuantumTasksResponse -> TestTree
-responseSearchQuantumTasks =
-  res
-    "SearchQuantumTasksResponse"
-    "fixture/SearchQuantumTasksResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchQuantumTasks)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseGetDevice :: GetDeviceResponse -> TestTree
-responseGetDevice =
-  res
-    "GetDeviceResponse"
-    "fixture/GetDeviceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDevice)
 
 responseCancelQuantumTask :: CancelQuantumTaskResponse -> TestTree
 responseCancelQuantumTask =
@@ -185,6 +153,38 @@ responseCancelQuantumTask =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelQuantumTask)
 
+responseCreateQuantumTask :: CreateQuantumTaskResponse -> TestTree
+responseCreateQuantumTask =
+  res
+    "CreateQuantumTaskResponse"
+    "fixture/CreateQuantumTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateQuantumTask)
+
+responseGetDevice :: GetDeviceResponse -> TestTree
+responseGetDevice =
+  res
+    "GetDeviceResponse"
+    "fixture/GetDeviceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDevice)
+
+responseGetQuantumTask :: GetQuantumTaskResponse -> TestTree
+responseGetQuantumTask =
+  res
+    "GetQuantumTaskResponse"
+    "fixture/GetQuantumTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetQuantumTask)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
 responseSearchDevices :: SearchDevicesResponse -> TestTree
 responseSearchDevices =
   res
@@ -192,6 +192,14 @@ responseSearchDevices =
     "fixture/SearchDevicesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchDevices)
+
+responseSearchQuantumTasks :: SearchQuantumTasksResponse -> TestTree
+responseSearchQuantumTasks =
+  res
+    "SearchQuantumTasksResponse"
+    "fixture/SearchQuantumTasksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchQuantumTasks)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -208,11 +216,3 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseCreateQuantumTask :: CreateQuantumTaskResponse -> TestTree
-responseCreateQuantumTask =
-  res
-    "CreateQuantumTaskResponse"
-    "fixture/CreateQuantumTaskResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateQuantumTask)

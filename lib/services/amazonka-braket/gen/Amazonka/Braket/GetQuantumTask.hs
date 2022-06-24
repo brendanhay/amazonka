@@ -34,9 +34,9 @@ module Amazonka.Braket.GetQuantumTask
     newGetQuantumTaskResponse,
 
     -- * Response Lenses
-    getQuantumTaskResponse_failureReason,
-    getQuantumTaskResponse_endedAt,
     getQuantumTaskResponse_tags,
+    getQuantumTaskResponse_endedAt,
+    getQuantumTaskResponse_failureReason,
     getQuantumTaskResponse_httpStatus,
     getQuantumTaskResponse_createdAt,
     getQuantumTaskResponse_deviceArn,
@@ -92,9 +92,9 @@ instance Core.AWSRequest GetQuantumTask where
     Response.receiveJSON
       ( \s h x ->
           GetQuantumTaskResponse'
-            Prelude.<$> (x Core..?> "failureReason")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "endedAt")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "failureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "createdAt")
             Prelude.<*> (x Core..:> "deviceArn")
@@ -134,12 +134,12 @@ instance Core.ToQuery GetQuantumTask where
 
 -- | /See:/ 'newGetQuantumTaskResponse' smart constructor.
 data GetQuantumTaskResponse = GetQuantumTaskResponse'
-  { -- | The reason that a task failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
+  { -- | The tags that belong to this task.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time at which the task ended.
     endedAt :: Prelude.Maybe Core.POSIX,
-    -- | The tags that belong to this task.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The reason that a task failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The time at which the task was created.
@@ -169,11 +169,11 @@ data GetQuantumTaskResponse = GetQuantumTaskResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureReason', 'getQuantumTaskResponse_failureReason' - The reason that a task failed.
+-- 'tags', 'getQuantumTaskResponse_tags' - The tags that belong to this task.
 --
 -- 'endedAt', 'getQuantumTaskResponse_endedAt' - The time at which the task ended.
 --
--- 'tags', 'getQuantumTaskResponse_tags' - The tags that belong to this task.
+-- 'failureReason', 'getQuantumTaskResponse_failureReason' - The reason that a task failed.
 --
 -- 'httpStatus', 'getQuantumTaskResponse_httpStatus' - The response's http status code.
 --
@@ -223,10 +223,9 @@ newGetQuantumTaskResponse
   pShots_
   pStatus_ =
     GetQuantumTaskResponse'
-      { failureReason =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
         endedAt = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         createdAt = Core._Time Lens.# pCreatedAt_,
         deviceArn = pDeviceArn_,
@@ -238,17 +237,17 @@ newGetQuantumTaskResponse
         status = pStatus_
       }
 
--- | The reason that a task failed.
-getQuantumTaskResponse_failureReason :: Lens.Lens' GetQuantumTaskResponse (Prelude.Maybe Prelude.Text)
-getQuantumTaskResponse_failureReason = Lens.lens (\GetQuantumTaskResponse' {failureReason} -> failureReason) (\s@GetQuantumTaskResponse' {} a -> s {failureReason = a} :: GetQuantumTaskResponse)
+-- | The tags that belong to this task.
+getQuantumTaskResponse_tags :: Lens.Lens' GetQuantumTaskResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getQuantumTaskResponse_tags = Lens.lens (\GetQuantumTaskResponse' {tags} -> tags) (\s@GetQuantumTaskResponse' {} a -> s {tags = a} :: GetQuantumTaskResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time at which the task ended.
 getQuantumTaskResponse_endedAt :: Lens.Lens' GetQuantumTaskResponse (Prelude.Maybe Prelude.UTCTime)
 getQuantumTaskResponse_endedAt = Lens.lens (\GetQuantumTaskResponse' {endedAt} -> endedAt) (\s@GetQuantumTaskResponse' {} a -> s {endedAt = a} :: GetQuantumTaskResponse) Prelude.. Lens.mapping Core._Time
 
--- | The tags that belong to this task.
-getQuantumTaskResponse_tags :: Lens.Lens' GetQuantumTaskResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getQuantumTaskResponse_tags = Lens.lens (\GetQuantumTaskResponse' {tags} -> tags) (\s@GetQuantumTaskResponse' {} a -> s {tags = a} :: GetQuantumTaskResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The reason that a task failed.
+getQuantumTaskResponse_failureReason :: Lens.Lens' GetQuantumTaskResponse (Prelude.Maybe Prelude.Text)
+getQuantumTaskResponse_failureReason = Lens.lens (\GetQuantumTaskResponse' {failureReason} -> failureReason) (\s@GetQuantumTaskResponse' {} a -> s {failureReason = a} :: GetQuantumTaskResponse)
 
 -- | The response's http status code.
 getQuantumTaskResponse_httpStatus :: Lens.Lens' GetQuantumTaskResponse Prelude.Int
@@ -288,9 +287,9 @@ getQuantumTaskResponse_status = Lens.lens (\GetQuantumTaskResponse' {status} -> 
 
 instance Prelude.NFData GetQuantumTaskResponse where
   rnf GetQuantumTaskResponse' {..} =
-    Prelude.rnf failureReason
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf endedAt
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf deviceArn

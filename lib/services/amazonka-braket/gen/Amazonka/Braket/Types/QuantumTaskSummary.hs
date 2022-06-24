@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQuantumTaskSummary' smart constructor.
 data QuantumTaskSummary = QuantumTaskSummary'
-  { -- | The time at which the task finished.
-    endedAt :: Prelude.Maybe Core.POSIX,
-    -- | Displays the key, value pairs of tags associated with this quantum task.
+  { -- | Displays the key, value pairs of tags associated with this quantum task.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The time at which the task finished.
+    endedAt :: Prelude.Maybe Core.POSIX,
     -- | The time at which the task was created.
     createdAt :: Core.POSIX,
     -- | The ARN of the device the task ran on.
@@ -57,9 +57,9 @@ data QuantumTaskSummary = QuantumTaskSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endedAt', 'quantumTaskSummary_endedAt' - The time at which the task finished.
---
 -- 'tags', 'quantumTaskSummary_tags' - Displays the key, value pairs of tags associated with this quantum task.
+--
+-- 'endedAt', 'quantumTaskSummary_endedAt' - The time at which the task finished.
 --
 -- 'createdAt', 'quantumTaskSummary_createdAt' - The time at which the task was created.
 --
@@ -99,8 +99,8 @@ newQuantumTaskSummary
   pShots_
   pStatus_ =
     QuantumTaskSummary'
-      { endedAt = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        endedAt = Prelude.Nothing,
         createdAt = Core._Time Lens.# pCreatedAt_,
         deviceArn = pDeviceArn_,
         outputS3Bucket = pOutputS3Bucket_,
@@ -110,13 +110,13 @@ newQuantumTaskSummary
         status = pStatus_
       }
 
--- | The time at which the task finished.
-quantumTaskSummary_endedAt :: Lens.Lens' QuantumTaskSummary (Prelude.Maybe Prelude.UTCTime)
-quantumTaskSummary_endedAt = Lens.lens (\QuantumTaskSummary' {endedAt} -> endedAt) (\s@QuantumTaskSummary' {} a -> s {endedAt = a} :: QuantumTaskSummary) Prelude.. Lens.mapping Core._Time
-
 -- | Displays the key, value pairs of tags associated with this quantum task.
 quantumTaskSummary_tags :: Lens.Lens' QuantumTaskSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 quantumTaskSummary_tags = Lens.lens (\QuantumTaskSummary' {tags} -> tags) (\s@QuantumTaskSummary' {} a -> s {tags = a} :: QuantumTaskSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time at which the task finished.
+quantumTaskSummary_endedAt :: Lens.Lens' QuantumTaskSummary (Prelude.Maybe Prelude.UTCTime)
+quantumTaskSummary_endedAt = Lens.lens (\QuantumTaskSummary' {endedAt} -> endedAt) (\s@QuantumTaskSummary' {} a -> s {endedAt = a} :: QuantumTaskSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The time at which the task was created.
 quantumTaskSummary_createdAt :: Lens.Lens' QuantumTaskSummary Prelude.UTCTime
@@ -152,8 +152,8 @@ instance Core.FromJSON QuantumTaskSummary where
       "QuantumTaskSummary"
       ( \x ->
           QuantumTaskSummary'
-            Prelude.<$> (x Core..:? "endedAt")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "endedAt")
             Prelude.<*> (x Core..: "createdAt")
             Prelude.<*> (x Core..: "deviceArn")
             Prelude.<*> (x Core..: "outputS3Bucket")
@@ -165,8 +165,8 @@ instance Core.FromJSON QuantumTaskSummary where
 
 instance Prelude.Hashable QuantumTaskSummary where
   hashWithSalt _salt QuantumTaskSummary' {..} =
-    _salt `Prelude.hashWithSalt` endedAt
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` endedAt
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` deviceArn
       `Prelude.hashWithSalt` outputS3Bucket
@@ -177,8 +177,8 @@ instance Prelude.Hashable QuantumTaskSummary where
 
 instance Prelude.NFData QuantumTaskSummary where
   rnf QuantumTaskSummary' {..} =
-    Prelude.rnf endedAt
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf endedAt
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf deviceArn
       `Prelude.seq` Prelude.rnf outputS3Bucket

@@ -14,33 +14,24 @@
 module Amazonka.Braket.Lens
   ( -- * Operations
 
-    -- ** GetQuantumTask
-    getQuantumTask_quantumTaskArn,
-    getQuantumTaskResponse_failureReason,
-    getQuantumTaskResponse_endedAt,
-    getQuantumTaskResponse_tags,
-    getQuantumTaskResponse_httpStatus,
-    getQuantumTaskResponse_createdAt,
-    getQuantumTaskResponse_deviceArn,
-    getQuantumTaskResponse_deviceParameters,
-    getQuantumTaskResponse_outputS3Bucket,
-    getQuantumTaskResponse_outputS3Directory,
-    getQuantumTaskResponse_quantumTaskArn,
-    getQuantumTaskResponse_shots,
-    getQuantumTaskResponse_status,
+    -- ** CancelQuantumTask
+    cancelQuantumTask_clientToken,
+    cancelQuantumTask_quantumTaskArn,
+    cancelQuantumTaskResponse_httpStatus,
+    cancelQuantumTaskResponse_cancellationStatus,
+    cancelQuantumTaskResponse_quantumTaskArn,
 
-    -- ** SearchQuantumTasks
-    searchQuantumTasks_nextToken,
-    searchQuantumTasks_maxResults,
-    searchQuantumTasks_filters,
-    searchQuantumTasksResponse_nextToken,
-    searchQuantumTasksResponse_httpStatus,
-    searchQuantumTasksResponse_quantumTasks,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** CreateQuantumTask
+    createQuantumTask_tags,
+    createQuantumTask_deviceParameters,
+    createQuantumTask_action,
+    createQuantumTask_clientToken,
+    createQuantumTask_deviceArn,
+    createQuantumTask_outputS3Bucket,
+    createQuantumTask_outputS3KeyPrefix,
+    createQuantumTask_shots,
+    createQuantumTaskResponse_httpStatus,
+    createQuantumTaskResponse_quantumTaskArn,
 
     -- ** GetDevice
     getDevice_deviceArn,
@@ -52,12 +43,25 @@ module Amazonka.Braket.Lens
     getDeviceResponse_deviceType,
     getDeviceResponse_providerName,
 
-    -- ** CancelQuantumTask
-    cancelQuantumTask_clientToken,
-    cancelQuantumTask_quantumTaskArn,
-    cancelQuantumTaskResponse_httpStatus,
-    cancelQuantumTaskResponse_cancellationStatus,
-    cancelQuantumTaskResponse_quantumTaskArn,
+    -- ** GetQuantumTask
+    getQuantumTask_quantumTaskArn,
+    getQuantumTaskResponse_tags,
+    getQuantumTaskResponse_endedAt,
+    getQuantumTaskResponse_failureReason,
+    getQuantumTaskResponse_httpStatus,
+    getQuantumTaskResponse_createdAt,
+    getQuantumTaskResponse_deviceArn,
+    getQuantumTaskResponse_deviceParameters,
+    getQuantumTaskResponse_outputS3Bucket,
+    getQuantumTaskResponse_outputS3Directory,
+    getQuantumTaskResponse_quantumTaskArn,
+    getQuantumTaskResponse_shots,
+    getQuantumTaskResponse_status,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** SearchDevices
     searchDevices_nextToken,
@@ -66,6 +70,14 @@ module Amazonka.Braket.Lens
     searchDevicesResponse_nextToken,
     searchDevicesResponse_httpStatus,
     searchDevicesResponse_devices,
+
+    -- ** SearchQuantumTasks
+    searchQuantumTasks_nextToken,
+    searchQuantumTasks_maxResults,
+    searchQuantumTasks_filters,
+    searchQuantumTasksResponse_nextToken,
+    searchQuantumTasksResponse_httpStatus,
+    searchQuantumTasksResponse_quantumTasks,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -77,18 +89,6 @@ module Amazonka.Braket.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** CreateQuantumTask
-    createQuantumTask_deviceParameters,
-    createQuantumTask_tags,
-    createQuantumTask_action,
-    createQuantumTask_clientToken,
-    createQuantumTask_deviceArn,
-    createQuantumTask_outputS3Bucket,
-    createQuantumTask_outputS3KeyPrefix,
-    createQuantumTask_shots,
-    createQuantumTaskResponse_httpStatus,
-    createQuantumTaskResponse_quantumTaskArn,
-
     -- * Types
 
     -- ** DeviceSummary
@@ -99,8 +99,8 @@ module Amazonka.Braket.Lens
     deviceSummary_providerName,
 
     -- ** QuantumTaskSummary
-    quantumTaskSummary_endedAt,
     quantumTaskSummary_tags,
+    quantumTaskSummary_endedAt,
     quantumTaskSummary_createdAt,
     quantumTaskSummary_deviceArn,
     quantumTaskSummary_outputS3Bucket,

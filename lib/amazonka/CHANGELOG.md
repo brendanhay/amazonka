@@ -34,12 +34,23 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+
+- sso: replace `SessionTokenType` with `Core.SessionToken`
+[\#792](https://github.com/brendanhay/amazonka/pull/791)
+- `amazonka-sso`: Use `amazonka-core` types in `GetRoleCredentials` response
+[\#791](https://github.com/brendanhay/amazonka/pull/791)
+- `amazonka-sts`: Mark `Credentials` as required in `AssumeRole*` responses
+[\#791](https://github.com/brendanhay/amazonka/pull/791)
+- `amazonka-sso`: Mark `RoleCredentials_{accessKeyId,secretAccessKey}` as required
+[\#789](https://github.com/brendanhay/amazonka/pull/789)
 - `amazonka-core`: urldecode query string parts when parsing to `QueryString`
 [\#780](https://github.com/brendanhay/amazonka/pull/769)
 - `amazonka-dynamodb`, `amazonka-dynamodb-streams`: Fix deserialisation of booleans
 [\#775](https://github.com/brendanhay/amazonka/pull/775)
 - `amazonka`: Add a public interface to send unsigned requests. Sending functions are now defined in `Amazonka.Send`, but are re-exported from `Amazonka`.
 [\#769](https://github.com/brendanhay/amazonka/pull/769)
+- `amazonka-sso`: Mark `GetRoleCredentialsResponse_roleCredentials` as required
+[\#759](https://github.com/brendanhay/amazonka/pull/759)
 - `amazonka-dynamodb`: Mark various fields as required
 [\#724](https://github.com/brendanhay/amazonka/pull/724)
 - `amazonka-dynamodb`: Provide a sum type for `AttributeValue`
@@ -51,8 +62,10 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Fixed
 
-- Background credential refreshing now uses half the token's lifespan
-as a thread delay to avoid potential concurrency issues.
+- Generator: Correctly generate `ToJSON` instances for requests which set a `"payload":` field in `"type": "structure"` definitions.
+[\#790](https://github.com/brendanhay/amazonka/pull/790)
+  - Fixes some API calls in `amazonka-glacier` and `amazonka-pinpoint`
+- Background credential refresh now waits until five minutes before expiry (or halfway to expiry if it expires sooner than that) half the token's lifespan to avoid the risk of expired credentials.
 [\#747](https://github.com/brendanhay/amazonka/pull/783)
 - Presigning URLs that are not for S3
 [\#767](https://github.com/brendanhay/amazonka/pull/767)

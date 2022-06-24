@@ -25,6 +25,21 @@
                 ]
             }
         },
+        "AssumeRoleResponse": {
+            "requiredFields": [
+                "Credentials"
+            ]
+        },
+        "AssumeRoleWithWebIdentityResponse": {
+            "requiredFields": [
+                "Credentials"
+            ]
+        },
+        "AssumeRoleWithWebSAMLResponse": {
+            "requiredFields": [
+                "Credentials"
+            ]
+        },
         "Credentials": {
             "replacedBy": {
                 "name": "Core.AuthEnv",

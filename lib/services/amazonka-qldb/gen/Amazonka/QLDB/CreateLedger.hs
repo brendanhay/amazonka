@@ -27,9 +27,9 @@ module Amazonka.QLDB.CreateLedger
     newCreateLedger,
 
     -- * Request Lenses
-    createLedger_deletionProtection,
-    createLedger_kmsKey,
     createLedger_tags,
+    createLedger_kmsKey,
+    createLedger_deletionProtection,
     createLedger_name,
     createLedger_permissionsMode,
 
@@ -38,12 +38,12 @@ module Amazonka.QLDB.CreateLedger
     newCreateLedgerResponse,
 
     -- * Response Lenses
-    createLedgerResponse_state,
-    createLedgerResponse_deletionProtection,
-    createLedgerResponse_kmsKeyArn,
-    createLedgerResponse_arn,
     createLedgerResponse_name,
     createLedgerResponse_creationDateTime,
+    createLedgerResponse_arn,
+    createLedgerResponse_state,
+    createLedgerResponse_kmsKeyArn,
+    createLedgerResponse_deletionProtection,
     createLedgerResponse_permissionsMode,
     createLedgerResponse_httpStatus,
   )
@@ -58,14 +58,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLedger' smart constructor.
 data CreateLedger = CreateLedger'
-  { -- | The flag that prevents a ledger from being deleted by any user. If not
-    -- provided on ledger creation, this feature is enabled (@true@) by
-    -- default.
-    --
-    -- If deletion protection is enabled, you must first disable it before you
-    -- can delete the ledger. You can disable it by calling the @UpdateLedger@
-    -- operation to set the flag to @false@.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
+  { -- | The key-value pairs to add as tags to the ledger that you want to
+    -- create. Tag keys are case sensitive. Tag values are case sensitive and
+    -- can be null.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The key in Key Management Service (KMS) to use for encryption of data at
     -- rest in the ledger. For more information, see
     -- <https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html Encryption at rest>
@@ -106,10 +102,14 @@ data CreateLedger = CreateLedger'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id Key identifiers (KeyId)>
     -- in the /Key Management Service Developer Guide/.
     kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | The key-value pairs to add as tags to the ledger that you want to
-    -- create. Tag keys are case sensitive. Tag values are case sensitive and
-    -- can be null.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The flag that prevents a ledger from being deleted by any user. If not
+    -- provided on ledger creation, this feature is enabled (@true@) by
+    -- default.
+    --
+    -- If deletion protection is enabled, you must first disable it before you
+    -- can delete the ledger. You can disable it by calling the @UpdateLedger@
+    -- operation to set the flag to @false@.
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The name of the ledger that you want to create. The name must be unique
     -- among all of the ledgers in your account in the current Region.
     --
@@ -155,13 +155,9 @@ data CreateLedger = CreateLedger'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deletionProtection', 'createLedger_deletionProtection' - The flag that prevents a ledger from being deleted by any user. If not
--- provided on ledger creation, this feature is enabled (@true@) by
--- default.
---
--- If deletion protection is enabled, you must first disable it before you
--- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
+-- 'tags', 'createLedger_tags' - The key-value pairs to add as tags to the ledger that you want to
+-- create. Tag keys are case sensitive. Tag values are case sensitive and
+-- can be null.
 --
 -- 'kmsKey', 'createLedger_kmsKey' - The key in Key Management Service (KMS) to use for encryption of data at
 -- rest in the ledger. For more information, see
@@ -203,9 +199,13 @@ data CreateLedger = CreateLedger'
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id Key identifiers (KeyId)>
 -- in the /Key Management Service Developer Guide/.
 --
--- 'tags', 'createLedger_tags' - The key-value pairs to add as tags to the ledger that you want to
--- create. Tag keys are case sensitive. Tag values are case sensitive and
--- can be null.
+-- 'deletionProtection', 'createLedger_deletionProtection' - The flag that prevents a ledger from being deleted by any user. If not
+-- provided on ledger creation, this feature is enabled (@true@) by
+-- default.
+--
+-- If deletion protection is enabled, you must first disable it before you
+-- can delete the ledger. You can disable it by calling the @UpdateLedger@
+-- operation to set the flag to @false@.
 --
 -- 'name', 'createLedger_name' - The name of the ledger that you want to create. The name must be unique
 -- among all of the ledgers in your account in the current Region.
@@ -248,22 +248,18 @@ newCreateLedger ::
   CreateLedger
 newCreateLedger pName_ pPermissionsMode_ =
   CreateLedger'
-    { deletionProtection = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       kmsKey = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      deletionProtection = Prelude.Nothing,
       name = pName_,
       permissionsMode = pPermissionsMode_
     }
 
--- | The flag that prevents a ledger from being deleted by any user. If not
--- provided on ledger creation, this feature is enabled (@true@) by
--- default.
---
--- If deletion protection is enabled, you must first disable it before you
--- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
-createLedger_deletionProtection :: Lens.Lens' CreateLedger (Prelude.Maybe Prelude.Bool)
-createLedger_deletionProtection = Lens.lens (\CreateLedger' {deletionProtection} -> deletionProtection) (\s@CreateLedger' {} a -> s {deletionProtection = a} :: CreateLedger)
+-- | The key-value pairs to add as tags to the ledger that you want to
+-- create. Tag keys are case sensitive. Tag values are case sensitive and
+-- can be null.
+createLedger_tags :: Lens.Lens' CreateLedger (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createLedger_tags = Lens.lens (\CreateLedger' {tags} -> tags) (\s@CreateLedger' {} a -> s {tags = a} :: CreateLedger) Prelude.. Lens.mapping Lens.coerced
 
 -- | The key in Key Management Service (KMS) to use for encryption of data at
 -- rest in the ledger. For more information, see
@@ -307,11 +303,15 @@ createLedger_deletionProtection = Lens.lens (\CreateLedger' {deletionProtection}
 createLedger_kmsKey :: Lens.Lens' CreateLedger (Prelude.Maybe Prelude.Text)
 createLedger_kmsKey = Lens.lens (\CreateLedger' {kmsKey} -> kmsKey) (\s@CreateLedger' {} a -> s {kmsKey = a} :: CreateLedger)
 
--- | The key-value pairs to add as tags to the ledger that you want to
--- create. Tag keys are case sensitive. Tag values are case sensitive and
--- can be null.
-createLedger_tags :: Lens.Lens' CreateLedger (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createLedger_tags = Lens.lens (\CreateLedger' {tags} -> tags) (\s@CreateLedger' {} a -> s {tags = a} :: CreateLedger) Prelude.. Lens.mapping Lens.coerced
+-- | The flag that prevents a ledger from being deleted by any user. If not
+-- provided on ledger creation, this feature is enabled (@true@) by
+-- default.
+--
+-- If deletion protection is enabled, you must first disable it before you
+-- can delete the ledger. You can disable it by calling the @UpdateLedger@
+-- operation to set the flag to @false@.
+createLedger_deletionProtection :: Lens.Lens' CreateLedger (Prelude.Maybe Prelude.Bool)
+createLedger_deletionProtection = Lens.lens (\CreateLedger' {deletionProtection} -> deletionProtection) (\s@CreateLedger' {} a -> s {deletionProtection = a} :: CreateLedger)
 
 -- | The name of the ledger that you want to create. The name must be unique
 -- among all of the ledgers in your account in the current Region.
@@ -358,29 +358,29 @@ instance Core.AWSRequest CreateLedger where
     Response.receiveJSON
       ( \s h x ->
           CreateLedgerResponse'
-            Prelude.<$> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "DeletionProtection")
-            Prelude.<*> (x Core..?> "KmsKeyArn")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "CreationDateTime")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "State")
+            Prelude.<*> (x Core..?> "KmsKeyArn")
+            Prelude.<*> (x Core..?> "DeletionProtection")
             Prelude.<*> (x Core..?> "PermissionsMode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateLedger where
   hashWithSalt _salt CreateLedger' {..} =
-    _salt `Prelude.hashWithSalt` deletionProtection
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` kmsKey
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` permissionsMode
 
 instance Prelude.NFData CreateLedger where
   rnf CreateLedger' {..} =
-    Prelude.rnf deletionProtection
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf deletionProtection
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf permissionsMode
 
@@ -399,10 +399,10 @@ instance Core.ToJSON CreateLedger where
   toJSON CreateLedger' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DeletionProtection" Core..=)
-              Prelude.<$> deletionProtection,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("KmsKey" Core..=) Prelude.<$> kmsKey,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("DeletionProtection" Core..=)
+              Prelude.<$> deletionProtection,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ("PermissionsMode" Core..= permissionsMode)
@@ -417,8 +417,20 @@ instance Core.ToQuery CreateLedger where
 
 -- | /See:/ 'newCreateLedgerResponse' smart constructor.
 data CreateLedgerResponse = CreateLedgerResponse'
-  { -- | The current status of the ledger.
+  { -- | The name of the ledger.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in epoch time format, when the ledger was created.
+    -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
+    -- January 1, 1970 UTC.)
+    creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) for the ledger.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the ledger.
     state :: Prelude.Maybe LedgerState,
+    -- | The ARN of the customer managed KMS key that the ledger uses for
+    -- encryption at rest. If this parameter is undefined, the ledger uses an
+    -- Amazon Web Services owned KMS key for encryption.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The flag that prevents a ledger from being deleted by any user. If not
     -- provided on ledger creation, this feature is enabled (@true@) by
     -- default.
@@ -427,18 +439,6 @@ data CreateLedgerResponse = CreateLedgerResponse'
     -- can delete the ledger. You can disable it by calling the @UpdateLedger@
     -- operation to set the flag to @false@.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of the customer managed KMS key that the ledger uses for
-    -- encryption at rest. If this parameter is undefined, the ledger uses an
-    -- Amazon Web Services owned KMS key for encryption.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the ledger.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the ledger.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in epoch time format, when the ledger was created.
-    -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
-    -- January 1, 1970 UTC.)
-    creationDateTime :: Prelude.Maybe Core.POSIX,
     -- | The permissions mode of the ledger that you created.
     permissionsMode :: Prelude.Maybe PermissionsMode,
     -- | The response's http status code.
@@ -454,7 +454,19 @@ data CreateLedgerResponse = CreateLedgerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'createLedgerResponse_name' - The name of the ledger.
+--
+-- 'creationDateTime', 'createLedgerResponse_creationDateTime' - The date and time, in epoch time format, when the ledger was created.
+-- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
+-- January 1, 1970 UTC.)
+--
+-- 'arn', 'createLedgerResponse_arn' - The Amazon Resource Name (ARN) for the ledger.
+--
 -- 'state', 'createLedgerResponse_state' - The current status of the ledger.
+--
+-- 'kmsKeyArn', 'createLedgerResponse_kmsKeyArn' - The ARN of the customer managed KMS key that the ledger uses for
+-- encryption at rest. If this parameter is undefined, the ledger uses an
+-- Amazon Web Services owned KMS key for encryption.
 --
 -- 'deletionProtection', 'createLedgerResponse_deletionProtection' - The flag that prevents a ledger from being deleted by any user. If not
 -- provided on ledger creation, this feature is enabled (@true@) by
@@ -463,18 +475,6 @@ data CreateLedgerResponse = CreateLedgerResponse'
 -- If deletion protection is enabled, you must first disable it before you
 -- can delete the ledger. You can disable it by calling the @UpdateLedger@
 -- operation to set the flag to @false@.
---
--- 'kmsKeyArn', 'createLedgerResponse_kmsKeyArn' - The ARN of the customer managed KMS key that the ledger uses for
--- encryption at rest. If this parameter is undefined, the ledger uses an
--- Amazon Web Services owned KMS key for encryption.
---
--- 'arn', 'createLedgerResponse_arn' - The Amazon Resource Name (ARN) for the ledger.
---
--- 'name', 'createLedgerResponse_name' - The name of the ledger.
---
--- 'creationDateTime', 'createLedgerResponse_creationDateTime' - The date and time, in epoch time format, when the ledger was created.
--- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
--- January 1, 1970 UTC.)
 --
 -- 'permissionsMode', 'createLedgerResponse_permissionsMode' - The permissions mode of the ledger that you created.
 --
@@ -485,39 +485,15 @@ newCreateLedgerResponse ::
   CreateLedgerResponse
 newCreateLedgerResponse pHttpStatus_ =
   CreateLedgerResponse'
-    { state = Prelude.Nothing,
-      deletionProtection = Prelude.Nothing,
-      kmsKeyArn = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      state = Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing,
+      deletionProtection = Prelude.Nothing,
       permissionsMode = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current status of the ledger.
-createLedgerResponse_state :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe LedgerState)
-createLedgerResponse_state = Lens.lens (\CreateLedgerResponse' {state} -> state) (\s@CreateLedgerResponse' {} a -> s {state = a} :: CreateLedgerResponse)
-
--- | The flag that prevents a ledger from being deleted by any user. If not
--- provided on ledger creation, this feature is enabled (@true@) by
--- default.
---
--- If deletion protection is enabled, you must first disable it before you
--- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
-createLedgerResponse_deletionProtection :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Bool)
-createLedgerResponse_deletionProtection = Lens.lens (\CreateLedgerResponse' {deletionProtection} -> deletionProtection) (\s@CreateLedgerResponse' {} a -> s {deletionProtection = a} :: CreateLedgerResponse)
-
--- | The ARN of the customer managed KMS key that the ledger uses for
--- encryption at rest. If this parameter is undefined, the ledger uses an
--- Amazon Web Services owned KMS key for encryption.
-createLedgerResponse_kmsKeyArn :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Text)
-createLedgerResponse_kmsKeyArn = Lens.lens (\CreateLedgerResponse' {kmsKeyArn} -> kmsKeyArn) (\s@CreateLedgerResponse' {} a -> s {kmsKeyArn = a} :: CreateLedgerResponse)
-
--- | The Amazon Resource Name (ARN) for the ledger.
-createLedgerResponse_arn :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Text)
-createLedgerResponse_arn = Lens.lens (\CreateLedgerResponse' {arn} -> arn) (\s@CreateLedgerResponse' {} a -> s {arn = a} :: CreateLedgerResponse)
 
 -- | The name of the ledger.
 createLedgerResponse_name :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Text)
@@ -529,6 +505,30 @@ createLedgerResponse_name = Lens.lens (\CreateLedgerResponse' {name} -> name) (\
 createLedgerResponse_creationDateTime :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.UTCTime)
 createLedgerResponse_creationDateTime = Lens.lens (\CreateLedgerResponse' {creationDateTime} -> creationDateTime) (\s@CreateLedgerResponse' {} a -> s {creationDateTime = a} :: CreateLedgerResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The Amazon Resource Name (ARN) for the ledger.
+createLedgerResponse_arn :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Text)
+createLedgerResponse_arn = Lens.lens (\CreateLedgerResponse' {arn} -> arn) (\s@CreateLedgerResponse' {} a -> s {arn = a} :: CreateLedgerResponse)
+
+-- | The current status of the ledger.
+createLedgerResponse_state :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe LedgerState)
+createLedgerResponse_state = Lens.lens (\CreateLedgerResponse' {state} -> state) (\s@CreateLedgerResponse' {} a -> s {state = a} :: CreateLedgerResponse)
+
+-- | The ARN of the customer managed KMS key that the ledger uses for
+-- encryption at rest. If this parameter is undefined, the ledger uses an
+-- Amazon Web Services owned KMS key for encryption.
+createLedgerResponse_kmsKeyArn :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Text)
+createLedgerResponse_kmsKeyArn = Lens.lens (\CreateLedgerResponse' {kmsKeyArn} -> kmsKeyArn) (\s@CreateLedgerResponse' {} a -> s {kmsKeyArn = a} :: CreateLedgerResponse)
+
+-- | The flag that prevents a ledger from being deleted by any user. If not
+-- provided on ledger creation, this feature is enabled (@true@) by
+-- default.
+--
+-- If deletion protection is enabled, you must first disable it before you
+-- can delete the ledger. You can disable it by calling the @UpdateLedger@
+-- operation to set the flag to @false@.
+createLedgerResponse_deletionProtection :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Bool)
+createLedgerResponse_deletionProtection = Lens.lens (\CreateLedgerResponse' {deletionProtection} -> deletionProtection) (\s@CreateLedgerResponse' {} a -> s {deletionProtection = a} :: CreateLedgerResponse)
+
 -- | The permissions mode of the ledger that you created.
 createLedgerResponse_permissionsMode :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe PermissionsMode)
 createLedgerResponse_permissionsMode = Lens.lens (\CreateLedgerResponse' {permissionsMode} -> permissionsMode) (\s@CreateLedgerResponse' {} a -> s {permissionsMode = a} :: CreateLedgerResponse)
@@ -539,11 +539,11 @@ createLedgerResponse_httpStatus = Lens.lens (\CreateLedgerResponse' {httpStatus}
 
 instance Prelude.NFData CreateLedgerResponse where
   rnf CreateLedgerResponse' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf deletionProtection
       `Prelude.seq` Prelude.rnf permissionsMode
       `Prelude.seq` Prelude.rnf httpStatus

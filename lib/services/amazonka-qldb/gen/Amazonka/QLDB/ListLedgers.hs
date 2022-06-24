@@ -39,8 +39,8 @@ module Amazonka.QLDB.ListLedgers
     newListLedgersResponse,
 
     -- * Response Lenses
-    listLedgersResponse_ledgers,
     listLedgersResponse_nextToken,
+    listLedgersResponse_ledgers,
     listLedgersResponse_httpStatus,
   )
 where
@@ -107,8 +107,8 @@ instance Core.AWSRequest ListLedgers where
     Response.receiveJSON
       ( \s h x ->
           ListLedgersResponse'
-            Prelude.<$> (x Core..?> "Ledgers" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Ledgers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,10 +145,7 @@ instance Core.ToQuery ListLedgers where
 
 -- | /See:/ 'newListLedgersResponse' smart constructor.
 data ListLedgersResponse = ListLedgersResponse'
-  { -- | The array of ledger summaries that are associated with the current
-    -- account and Region.
-    ledgers :: Prelude.Maybe [LedgerSummary],
-    -- | A pagination token, indicating whether there are more results available:
+  { -- | A pagination token, indicating whether there are more results available:
     --
     -- -   If @NextToken@ is empty, then the last page of results has been
     --     processed and there are no more results to be retrieved.
@@ -157,6 +154,9 @@ data ListLedgersResponse = ListLedgersResponse'
     --     available. To retrieve the next page of results, use the value of
     --     @NextToken@ in a subsequent @ListLedgers@ call.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The array of ledger summaries that are associated with the current
+    -- account and Region.
+    ledgers :: Prelude.Maybe [LedgerSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,9 +170,6 @@ data ListLedgersResponse = ListLedgersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ledgers', 'listLedgersResponse_ledgers' - The array of ledger summaries that are associated with the current
--- account and Region.
---
 -- 'nextToken', 'listLedgersResponse_nextToken' - A pagination token, indicating whether there are more results available:
 --
 -- -   If @NextToken@ is empty, then the last page of results has been
@@ -182,6 +179,9 @@ data ListLedgersResponse = ListLedgersResponse'
 --     available. To retrieve the next page of results, use the value of
 --     @NextToken@ in a subsequent @ListLedgers@ call.
 --
+-- 'ledgers', 'listLedgersResponse_ledgers' - The array of ledger summaries that are associated with the current
+-- account and Region.
+--
 -- 'httpStatus', 'listLedgersResponse_httpStatus' - The response's http status code.
 newListLedgersResponse ::
   -- | 'httpStatus'
@@ -189,15 +189,10 @@ newListLedgersResponse ::
   ListLedgersResponse
 newListLedgersResponse pHttpStatus_ =
   ListLedgersResponse'
-    { ledgers = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      ledgers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The array of ledger summaries that are associated with the current
--- account and Region.
-listLedgersResponse_ledgers :: Lens.Lens' ListLedgersResponse (Prelude.Maybe [LedgerSummary])
-listLedgersResponse_ledgers = Lens.lens (\ListLedgersResponse' {ledgers} -> ledgers) (\s@ListLedgersResponse' {} a -> s {ledgers = a} :: ListLedgersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token, indicating whether there are more results available:
 --
@@ -210,12 +205,17 @@ listLedgersResponse_ledgers = Lens.lens (\ListLedgersResponse' {ledgers} -> ledg
 listLedgersResponse_nextToken :: Lens.Lens' ListLedgersResponse (Prelude.Maybe Prelude.Text)
 listLedgersResponse_nextToken = Lens.lens (\ListLedgersResponse' {nextToken} -> nextToken) (\s@ListLedgersResponse' {} a -> s {nextToken = a} :: ListLedgersResponse)
 
+-- | The array of ledger summaries that are associated with the current
+-- account and Region.
+listLedgersResponse_ledgers :: Lens.Lens' ListLedgersResponse (Prelude.Maybe [LedgerSummary])
+listLedgersResponse_ledgers = Lens.lens (\ListLedgersResponse' {ledgers} -> ledgers) (\s@ListLedgersResponse' {} a -> s {ledgers = a} :: ListLedgersResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listLedgersResponse_httpStatus :: Lens.Lens' ListLedgersResponse Prelude.Int
 listLedgersResponse_httpStatus = Lens.lens (\ListLedgersResponse' {httpStatus} -> httpStatus) (\s@ListLedgersResponse' {} a -> s {httpStatus = a} :: ListLedgersResponse)
 
 instance Prelude.NFData ListLedgersResponse where
   rnf ListLedgersResponse' {..} =
-    Prelude.rnf ledgers
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ledgers
       `Prelude.seq` Prelude.rnf httpStatus

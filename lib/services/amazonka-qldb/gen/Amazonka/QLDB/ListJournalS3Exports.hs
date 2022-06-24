@@ -45,8 +45,8 @@ module Amazonka.QLDB.ListJournalS3Exports
     newListJournalS3ExportsResponse,
 
     -- * Response Lenses
-    listJournalS3ExportsResponse_journalS3Exports,
     listJournalS3ExportsResponse_nextToken,
+    listJournalS3ExportsResponse_journalS3Exports,
     listJournalS3ExportsResponse_httpStatus,
   )
 where
@@ -118,10 +118,10 @@ instance Core.AWSRequest ListJournalS3Exports where
     Response.receiveJSON
       ( \s h x ->
           ListJournalS3ExportsResponse'
-            Prelude.<$> ( x Core..?> "JournalS3Exports"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "JournalS3Exports"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,16 +158,16 @@ instance Core.ToQuery ListJournalS3Exports where
 
 -- | /See:/ 'newListJournalS3ExportsResponse' smart constructor.
 data ListJournalS3ExportsResponse = ListJournalS3ExportsResponse'
-  { -- | The array of journal export job descriptions for all ledgers that are
-    -- associated with the current account and Region.
-    journalS3Exports :: Prelude.Maybe [JournalS3ExportDescription],
-    -- | -   If @NextToken@ is empty, then the last page of results has been
+  { -- | -   If @NextToken@ is empty, then the last page of results has been
     --     processed and there are no more results to be retrieved.
     --
     -- -   If @NextToken@ is /not/ empty, then there are more results
     --     available. To retrieve the next page of results, use the value of
     --     @NextToken@ in a subsequent @ListJournalS3Exports@ call.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The array of journal export job descriptions for all ledgers that are
+    -- associated with the current account and Region.
+    journalS3Exports :: Prelude.Maybe [JournalS3ExportDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,15 +181,15 @@ data ListJournalS3ExportsResponse = ListJournalS3ExportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'journalS3Exports', 'listJournalS3ExportsResponse_journalS3Exports' - The array of journal export job descriptions for all ledgers that are
--- associated with the current account and Region.
---
 -- 'nextToken', 'listJournalS3ExportsResponse_nextToken' - -   If @NextToken@ is empty, then the last page of results has been
 --     processed and there are no more results to be retrieved.
 --
 -- -   If @NextToken@ is /not/ empty, then there are more results
 --     available. To retrieve the next page of results, use the value of
 --     @NextToken@ in a subsequent @ListJournalS3Exports@ call.
+--
+-- 'journalS3Exports', 'listJournalS3ExportsResponse_journalS3Exports' - The array of journal export job descriptions for all ledgers that are
+-- associated with the current account and Region.
 --
 -- 'httpStatus', 'listJournalS3ExportsResponse_httpStatus' - The response's http status code.
 newListJournalS3ExportsResponse ::
@@ -198,16 +198,11 @@ newListJournalS3ExportsResponse ::
   ListJournalS3ExportsResponse
 newListJournalS3ExportsResponse pHttpStatus_ =
   ListJournalS3ExportsResponse'
-    { journalS3Exports =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      journalS3Exports = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The array of journal export job descriptions for all ledgers that are
--- associated with the current account and Region.
-listJournalS3ExportsResponse_journalS3Exports :: Lens.Lens' ListJournalS3ExportsResponse (Prelude.Maybe [JournalS3ExportDescription])
-listJournalS3ExportsResponse_journalS3Exports = Lens.lens (\ListJournalS3ExportsResponse' {journalS3Exports} -> journalS3Exports) (\s@ListJournalS3ExportsResponse' {} a -> s {journalS3Exports = a} :: ListJournalS3ExportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | -   If @NextToken@ is empty, then the last page of results has been
 --     processed and there are no more results to be retrieved.
@@ -218,12 +213,17 @@ listJournalS3ExportsResponse_journalS3Exports = Lens.lens (\ListJournalS3Exports
 listJournalS3ExportsResponse_nextToken :: Lens.Lens' ListJournalS3ExportsResponse (Prelude.Maybe Prelude.Text)
 listJournalS3ExportsResponse_nextToken = Lens.lens (\ListJournalS3ExportsResponse' {nextToken} -> nextToken) (\s@ListJournalS3ExportsResponse' {} a -> s {nextToken = a} :: ListJournalS3ExportsResponse)
 
+-- | The array of journal export job descriptions for all ledgers that are
+-- associated with the current account and Region.
+listJournalS3ExportsResponse_journalS3Exports :: Lens.Lens' ListJournalS3ExportsResponse (Prelude.Maybe [JournalS3ExportDescription])
+listJournalS3ExportsResponse_journalS3Exports = Lens.lens (\ListJournalS3ExportsResponse' {journalS3Exports} -> journalS3Exports) (\s@ListJournalS3ExportsResponse' {} a -> s {journalS3Exports = a} :: ListJournalS3ExportsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listJournalS3ExportsResponse_httpStatus :: Lens.Lens' ListJournalS3ExportsResponse Prelude.Int
 listJournalS3ExportsResponse_httpStatus = Lens.lens (\ListJournalS3ExportsResponse' {httpStatus} -> httpStatus) (\s@ListJournalS3ExportsResponse' {} a -> s {httpStatus = a} :: ListJournalS3ExportsResponse)
 
 instance Prelude.NFData ListJournalS3ExportsResponse where
   rnf ListJournalS3ExportsResponse' {..} =
-    Prelude.rnf journalS3Exports
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf journalS3Exports
       `Prelude.seq` Prelude.rnf httpStatus

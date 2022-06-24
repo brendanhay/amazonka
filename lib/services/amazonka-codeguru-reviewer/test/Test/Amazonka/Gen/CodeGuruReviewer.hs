@@ -27,169 +27,97 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListRecommendationFeedback $
---             newListRecommendationFeedback
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestDisassociateRepository $
---             newDisassociateRepository
---
---         , requestDescribeRepositoryAssociation $
---             newDescribeRepositoryAssociation
---
---         , requestDescribeCodeReview $
---             newDescribeCodeReview
---
---         , requestListRepositoryAssociations $
---             newListRepositoryAssociations
---
---         , requestDescribeRecommendationFeedback $
---             newDescribeRecommendationFeedback
---
---         , requestListRecommendations $
---             newListRecommendations
---
---         , requestTagResource $
---             newTagResource
+--         [ requestAssociateRepository $
+--             newAssociateRepository
 --
 --         , requestCreateCodeReview $
 --             newCreateCodeReview
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestDescribeCodeReview $
+--             newDescribeCodeReview
+--
+--         , requestDescribeRecommendationFeedback $
+--             newDescribeRecommendationFeedback
+--
+--         , requestDescribeRepositoryAssociation $
+--             newDescribeRepositoryAssociation
+--
+--         , requestDisassociateRepository $
+--             newDisassociateRepository
 --
 --         , requestListCodeReviews $
 --             newListCodeReviews
 --
---         , requestAssociateRepository $
---             newAssociateRepository
+--         , requestListRecommendationFeedback $
+--             newListRecommendationFeedback
+--
+--         , requestListRecommendations $
+--             newListRecommendations
+--
+--         , requestListRepositoryAssociations $
+--             newListRepositoryAssociations
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestPutRecommendationFeedback $
 --             newPutRecommendationFeedback
 --
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseListRecommendationFeedback $
---             newListRecommendationFeedbackResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseDisassociateRepository $
---             newDisassociateRepositoryResponse
---
---         , responseDescribeRepositoryAssociation $
---             newDescribeRepositoryAssociationResponse
---
---         , responseDescribeCodeReview $
---             newDescribeCodeReviewResponse
---
---         , responseListRepositoryAssociations $
---             newListRepositoryAssociationsResponse
---
---         , responseDescribeRecommendationFeedback $
---             newDescribeRecommendationFeedbackResponse
---
---         , responseListRecommendations $
---             newListRecommendationsResponse
---
---         , responseTagResource $
---             newTagResourceResponse
+--         [ responseAssociateRepository $
+--             newAssociateRepositoryResponse
 --
 --         , responseCreateCodeReview $
 --             newCreateCodeReviewResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseDescribeCodeReview $
+--             newDescribeCodeReviewResponse
+--
+--         , responseDescribeRecommendationFeedback $
+--             newDescribeRecommendationFeedbackResponse
+--
+--         , responseDescribeRepositoryAssociation $
+--             newDescribeRepositoryAssociationResponse
+--
+--         , responseDisassociateRepository $
+--             newDisassociateRepositoryResponse
 --
 --         , responseListCodeReviews $
 --             newListCodeReviewsResponse
 --
---         , responseAssociateRepository $
---             newAssociateRepositoryResponse
+--         , responseListRecommendationFeedback $
+--             newListRecommendationFeedbackResponse
+--
+--         , responseListRecommendations $
+--             newListRecommendationsResponse
+--
+--         , responseListRepositoryAssociations $
+--             newListRepositoryAssociationsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responsePutRecommendationFeedback $
 --             newPutRecommendationFeedbackResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListRecommendationFeedback :: ListRecommendationFeedback -> TestTree
-requestListRecommendationFeedback =
-  req
-    "ListRecommendationFeedback"
-    "fixture/ListRecommendationFeedback.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDisassociateRepository :: DisassociateRepository -> TestTree
-requestDisassociateRepository =
-  req
-    "DisassociateRepository"
-    "fixture/DisassociateRepository.yaml"
-
-requestDescribeRepositoryAssociation :: DescribeRepositoryAssociation -> TestTree
-requestDescribeRepositoryAssociation =
-  req
-    "DescribeRepositoryAssociation"
-    "fixture/DescribeRepositoryAssociation.yaml"
-
-requestDescribeCodeReview :: DescribeCodeReview -> TestTree
-requestDescribeCodeReview =
-  req
-    "DescribeCodeReview"
-    "fixture/DescribeCodeReview.yaml"
-
-requestListRepositoryAssociations :: ListRepositoryAssociations -> TestTree
-requestListRepositoryAssociations =
-  req
-    "ListRepositoryAssociations"
-    "fixture/ListRepositoryAssociations.yaml"
-
-requestDescribeRecommendationFeedback :: DescribeRecommendationFeedback -> TestTree
-requestDescribeRecommendationFeedback =
-  req
-    "DescribeRecommendationFeedback"
-    "fixture/DescribeRecommendationFeedback.yaml"
-
-requestListRecommendations :: ListRecommendations -> TestTree
-requestListRecommendations =
-  req
-    "ListRecommendations"
-    "fixture/ListRecommendations.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestCreateCodeReview :: CreateCodeReview -> TestTree
-requestCreateCodeReview =
-  req
-    "CreateCodeReview"
-    "fixture/CreateCodeReview.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestListCodeReviews :: ListCodeReviews -> TestTree
-requestListCodeReviews =
-  req
-    "ListCodeReviews"
-    "fixture/ListCodeReviews.yaml"
 
 requestAssociateRepository :: AssociateRepository -> TestTree
 requestAssociateRepository =
@@ -197,109 +125,85 @@ requestAssociateRepository =
     "AssociateRepository"
     "fixture/AssociateRepository.yaml"
 
+requestCreateCodeReview :: CreateCodeReview -> TestTree
+requestCreateCodeReview =
+  req
+    "CreateCodeReview"
+    "fixture/CreateCodeReview.yaml"
+
+requestDescribeCodeReview :: DescribeCodeReview -> TestTree
+requestDescribeCodeReview =
+  req
+    "DescribeCodeReview"
+    "fixture/DescribeCodeReview.yaml"
+
+requestDescribeRecommendationFeedback :: DescribeRecommendationFeedback -> TestTree
+requestDescribeRecommendationFeedback =
+  req
+    "DescribeRecommendationFeedback"
+    "fixture/DescribeRecommendationFeedback.yaml"
+
+requestDescribeRepositoryAssociation :: DescribeRepositoryAssociation -> TestTree
+requestDescribeRepositoryAssociation =
+  req
+    "DescribeRepositoryAssociation"
+    "fixture/DescribeRepositoryAssociation.yaml"
+
+requestDisassociateRepository :: DisassociateRepository -> TestTree
+requestDisassociateRepository =
+  req
+    "DisassociateRepository"
+    "fixture/DisassociateRepository.yaml"
+
+requestListCodeReviews :: ListCodeReviews -> TestTree
+requestListCodeReviews =
+  req
+    "ListCodeReviews"
+    "fixture/ListCodeReviews.yaml"
+
+requestListRecommendationFeedback :: ListRecommendationFeedback -> TestTree
+requestListRecommendationFeedback =
+  req
+    "ListRecommendationFeedback"
+    "fixture/ListRecommendationFeedback.yaml"
+
+requestListRecommendations :: ListRecommendations -> TestTree
+requestListRecommendations =
+  req
+    "ListRecommendations"
+    "fixture/ListRecommendations.yaml"
+
+requestListRepositoryAssociations :: ListRepositoryAssociations -> TestTree
+requestListRepositoryAssociations =
+  req
+    "ListRepositoryAssociations"
+    "fixture/ListRepositoryAssociations.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestPutRecommendationFeedback :: PutRecommendationFeedback -> TestTree
 requestPutRecommendationFeedback =
   req
     "PutRecommendationFeedback"
     "fixture/PutRecommendationFeedback.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
 -- Responses
-
-responseListRecommendationFeedback :: ListRecommendationFeedbackResponse -> TestTree
-responseListRecommendationFeedback =
-  res
-    "ListRecommendationFeedbackResponse"
-    "fixture/ListRecommendationFeedbackResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRecommendationFeedback)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDisassociateRepository :: DisassociateRepositoryResponse -> TestTree
-responseDisassociateRepository =
-  res
-    "DisassociateRepositoryResponse"
-    "fixture/DisassociateRepositoryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateRepository)
-
-responseDescribeRepositoryAssociation :: DescribeRepositoryAssociationResponse -> TestTree
-responseDescribeRepositoryAssociation =
-  res
-    "DescribeRepositoryAssociationResponse"
-    "fixture/DescribeRepositoryAssociationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeRepositoryAssociation)
-
-responseDescribeCodeReview :: DescribeCodeReviewResponse -> TestTree
-responseDescribeCodeReview =
-  res
-    "DescribeCodeReviewResponse"
-    "fixture/DescribeCodeReviewResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeCodeReview)
-
-responseListRepositoryAssociations :: ListRepositoryAssociationsResponse -> TestTree
-responseListRepositoryAssociations =
-  res
-    "ListRepositoryAssociationsResponse"
-    "fixture/ListRepositoryAssociationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRepositoryAssociations)
-
-responseDescribeRecommendationFeedback :: DescribeRecommendationFeedbackResponse -> TestTree
-responseDescribeRecommendationFeedback =
-  res
-    "DescribeRecommendationFeedbackResponse"
-    "fixture/DescribeRecommendationFeedbackResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeRecommendationFeedback)
-
-responseListRecommendations :: ListRecommendationsResponse -> TestTree
-responseListRecommendations =
-  res
-    "ListRecommendationsResponse"
-    "fixture/ListRecommendationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRecommendations)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseCreateCodeReview :: CreateCodeReviewResponse -> TestTree
-responseCreateCodeReview =
-  res
-    "CreateCodeReviewResponse"
-    "fixture/CreateCodeReviewResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateCodeReview)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseListCodeReviews :: ListCodeReviewsResponse -> TestTree
-responseListCodeReviews =
-  res
-    "ListCodeReviewsResponse"
-    "fixture/ListCodeReviewsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListCodeReviews)
 
 responseAssociateRepository :: AssociateRepositoryResponse -> TestTree
 responseAssociateRepository =
@@ -309,6 +213,86 @@ responseAssociateRepository =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateRepository)
 
+responseCreateCodeReview :: CreateCodeReviewResponse -> TestTree
+responseCreateCodeReview =
+  res
+    "CreateCodeReviewResponse"
+    "fixture/CreateCodeReviewResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateCodeReview)
+
+responseDescribeCodeReview :: DescribeCodeReviewResponse -> TestTree
+responseDescribeCodeReview =
+  res
+    "DescribeCodeReviewResponse"
+    "fixture/DescribeCodeReviewResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeCodeReview)
+
+responseDescribeRecommendationFeedback :: DescribeRecommendationFeedbackResponse -> TestTree
+responseDescribeRecommendationFeedback =
+  res
+    "DescribeRecommendationFeedbackResponse"
+    "fixture/DescribeRecommendationFeedbackResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRecommendationFeedback)
+
+responseDescribeRepositoryAssociation :: DescribeRepositoryAssociationResponse -> TestTree
+responseDescribeRepositoryAssociation =
+  res
+    "DescribeRepositoryAssociationResponse"
+    "fixture/DescribeRepositoryAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRepositoryAssociation)
+
+responseDisassociateRepository :: DisassociateRepositoryResponse -> TestTree
+responseDisassociateRepository =
+  res
+    "DisassociateRepositoryResponse"
+    "fixture/DisassociateRepositoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateRepository)
+
+responseListCodeReviews :: ListCodeReviewsResponse -> TestTree
+responseListCodeReviews =
+  res
+    "ListCodeReviewsResponse"
+    "fixture/ListCodeReviewsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCodeReviews)
+
+responseListRecommendationFeedback :: ListRecommendationFeedbackResponse -> TestTree
+responseListRecommendationFeedback =
+  res
+    "ListRecommendationFeedbackResponse"
+    "fixture/ListRecommendationFeedbackResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRecommendationFeedback)
+
+responseListRecommendations :: ListRecommendationsResponse -> TestTree
+responseListRecommendations =
+  res
+    "ListRecommendationsResponse"
+    "fixture/ListRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRecommendations)
+
+responseListRepositoryAssociations :: ListRepositoryAssociationsResponse -> TestTree
+responseListRepositoryAssociations =
+  res
+    "ListRepositoryAssociationsResponse"
+    "fixture/ListRepositoryAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRepositoryAssociations)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
 responsePutRecommendationFeedback :: PutRecommendationFeedbackResponse -> TestTree
 responsePutRecommendationFeedback =
   res
@@ -316,3 +300,19 @@ responsePutRecommendationFeedback =
     "fixture/PutRecommendationFeedbackResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutRecommendationFeedback)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)

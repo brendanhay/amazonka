@@ -33,8 +33,8 @@ module Amazonka.SNS.CreateTopic
     newCreateTopic,
 
     -- * Request Lenses
-    createTopic_attributes,
     createTopic_tags,
+    createTopic_attributes,
     createTopic_name,
 
     -- * Destructuring the Response
@@ -58,7 +58,12 @@ import Amazonka.SNS.Types
 --
 -- /See:/ 'newCreateTopic' smart constructor.
 data CreateTopic = CreateTopic'
-  { -- | A map of attributes with their corresponding values.
+  { -- | The list of tags to add to a new topic.
+    --
+    -- To be able to tag a topic on creation, you must have the
+    -- @sns:CreateTopic@ and @sns:TagResource@ permissions.
+    tags :: Prelude.Maybe [Tag],
+    -- | A map of attributes with their corresponding values.
     --
     -- The following lists the names, descriptions, and values of the special
     -- request parameters that the @CreateTopic@ action uses:
@@ -109,11 +114,6 @@ data CreateTopic = CreateTopic'
     --         value for the @MessageDeduplicationId@ parameter for the
     --         @Publish@ action.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The list of tags to add to a new topic.
-    --
-    -- To be able to tag a topic on creation, you must have the
-    -- @sns:CreateTopic@ and @sns:TagResource@ permissions.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the topic you want to create.
     --
     -- Constraints: Topic names must be made up of only uppercase and lowercase
@@ -133,6 +133,11 @@ data CreateTopic = CreateTopic'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'createTopic_tags' - The list of tags to add to a new topic.
+--
+-- To be able to tag a topic on creation, you must have the
+-- @sns:CreateTopic@ and @sns:TagResource@ permissions.
 --
 -- 'attributes', 'createTopic_attributes' - A map of attributes with their corresponding values.
 --
@@ -185,11 +190,6 @@ data CreateTopic = CreateTopic'
 --         value for the @MessageDeduplicationId@ parameter for the
 --         @Publish@ action.
 --
--- 'tags', 'createTopic_tags' - The list of tags to add to a new topic.
---
--- To be able to tag a topic on creation, you must have the
--- @sns:CreateTopic@ and @sns:TagResource@ permissions.
---
 -- 'name', 'createTopic_name' - The name of the topic you want to create.
 --
 -- Constraints: Topic names must be made up of only uppercase and lowercase
@@ -204,10 +204,17 @@ newCreateTopic ::
   CreateTopic
 newCreateTopic pName_ =
   CreateTopic'
-    { attributes = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      attributes = Prelude.Nothing,
       name = pName_
     }
+
+-- | The list of tags to add to a new topic.
+--
+-- To be able to tag a topic on creation, you must have the
+-- @sns:CreateTopic@ and @sns:TagResource@ permissions.
+createTopic_tags :: Lens.Lens' CreateTopic (Prelude.Maybe [Tag])
+createTopic_tags = Lens.lens (\CreateTopic' {tags} -> tags) (\s@CreateTopic' {} a -> s {tags = a} :: CreateTopic) Prelude.. Lens.mapping Lens.coerced
 
 -- | A map of attributes with their corresponding values.
 --
@@ -262,13 +269,6 @@ newCreateTopic pName_ =
 createTopic_attributes :: Lens.Lens' CreateTopic (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createTopic_attributes = Lens.lens (\CreateTopic' {attributes} -> attributes) (\s@CreateTopic' {} a -> s {attributes = a} :: CreateTopic) Prelude.. Lens.mapping Lens.coerced
 
--- | The list of tags to add to a new topic.
---
--- To be able to tag a topic on creation, you must have the
--- @sns:CreateTopic@ and @sns:TagResource@ permissions.
-createTopic_tags :: Lens.Lens' CreateTopic (Prelude.Maybe [Tag])
-createTopic_tags = Lens.lens (\CreateTopic' {tags} -> tags) (\s@CreateTopic' {} a -> s {tags = a} :: CreateTopic) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the topic you want to create.
 --
 -- Constraints: Topic names must be made up of only uppercase and lowercase
@@ -294,14 +294,14 @@ instance Core.AWSRequest CreateTopic where
 
 instance Prelude.Hashable CreateTopic where
   hashWithSalt _salt CreateTopic' {..} =
-    _salt `Prelude.hashWithSalt` attributes
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateTopic where
   rnf CreateTopic' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateTopic where
@@ -317,14 +317,14 @@ instance Core.ToQuery CreateTopic where
           Core.=: ("CreateTopic" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-03-31" :: Prelude.ByteString),
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> tags),
         "Attributes"
           Core.=: Core.toQuery
             ( Core.toQueryMap "entry" "key" "value"
                 Prelude.<$> attributes
             ),
-        "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
         "Name" Core.=: name
       ]
 

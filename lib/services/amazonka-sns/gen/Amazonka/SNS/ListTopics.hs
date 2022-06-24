@@ -41,8 +41,8 @@ module Amazonka.SNS.ListTopics
     newListTopicsResponse,
 
     -- * Response Lenses
-    listTopicsResponse_topics,
     listTopicsResponse_nextToken,
+    listTopicsResponse_topics,
     listTopicsResponse_httpStatus,
   )
 where
@@ -106,10 +106,10 @@ instance Core.AWSRequest ListTopics where
       "ListTopicsResult"
       ( \s h x ->
           ListTopicsResponse'
-            Prelude.<$> ( x Core..@? "Topics" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "Topics" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,11 +140,11 @@ instance Core.ToQuery ListTopics where
 --
 -- /See:/ 'newListTopicsResponse' smart constructor.
 data ListTopicsResponse = ListTopicsResponse'
-  { -- | A list of topic ARNs.
-    topics :: Prelude.Maybe [Topic],
-    -- | Token to pass along to the next @ListTopics@ request. This element is
+  { -- | Token to pass along to the next @ListTopics@ request. This element is
     -- returned if there are additional topics to retrieve.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of topic ARNs.
+    topics :: Prelude.Maybe [Topic],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,10 +158,10 @@ data ListTopicsResponse = ListTopicsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'topics', 'listTopicsResponse_topics' - A list of topic ARNs.
---
 -- 'nextToken', 'listTopicsResponse_nextToken' - Token to pass along to the next @ListTopics@ request. This element is
 -- returned if there are additional topics to retrieve.
+--
+-- 'topics', 'listTopicsResponse_topics' - A list of topic ARNs.
 --
 -- 'httpStatus', 'listTopicsResponse_httpStatus' - The response's http status code.
 newListTopicsResponse ::
@@ -170,19 +170,19 @@ newListTopicsResponse ::
   ListTopicsResponse
 newListTopicsResponse pHttpStatus_ =
   ListTopicsResponse'
-    { topics = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      topics = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of topic ARNs.
-listTopicsResponse_topics :: Lens.Lens' ListTopicsResponse (Prelude.Maybe [Topic])
-listTopicsResponse_topics = Lens.lens (\ListTopicsResponse' {topics} -> topics) (\s@ListTopicsResponse' {} a -> s {topics = a} :: ListTopicsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Token to pass along to the next @ListTopics@ request. This element is
 -- returned if there are additional topics to retrieve.
 listTopicsResponse_nextToken :: Lens.Lens' ListTopicsResponse (Prelude.Maybe Prelude.Text)
 listTopicsResponse_nextToken = Lens.lens (\ListTopicsResponse' {nextToken} -> nextToken) (\s@ListTopicsResponse' {} a -> s {nextToken = a} :: ListTopicsResponse)
+
+-- | A list of topic ARNs.
+listTopicsResponse_topics :: Lens.Lens' ListTopicsResponse (Prelude.Maybe [Topic])
+listTopicsResponse_topics = Lens.lens (\ListTopicsResponse' {topics} -> topics) (\s@ListTopicsResponse' {} a -> s {topics = a} :: ListTopicsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTopicsResponse_httpStatus :: Lens.Lens' ListTopicsResponse Prelude.Int
@@ -190,6 +190,6 @@ listTopicsResponse_httpStatus = Lens.lens (\ListTopicsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListTopicsResponse where
   rnf ListTopicsResponse' {..} =
-    Prelude.rnf topics
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf topics
       `Prelude.seq` Prelude.rnf httpStatus

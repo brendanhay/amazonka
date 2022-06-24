@@ -47,14 +47,14 @@ module Amazonka.SNS.Publish
     newPublish,
 
     -- * Request Lenses
-    publish_subject,
-    publish_targetArn,
-    publish_messageAttributes,
-    publish_topicArn,
-    publish_phoneNumber,
     publish_messageDeduplicationId,
-    publish_messageStructure,
     publish_messageGroupId,
+    publish_targetArn,
+    publish_topicArn,
+    publish_messageAttributes,
+    publish_messageStructure,
+    publish_phoneNumber,
+    publish_subject,
     publish_message,
 
     -- * Destructuring the Response
@@ -62,8 +62,8 @@ module Amazonka.SNS.Publish
     newPublishResponse,
 
     -- * Response Lenses
-    publishResponse_sequenceNumber,
     publishResponse_messageId,
+    publishResponse_sequenceNumber,
     publishResponse_httpStatus,
   )
 where
@@ -79,31 +79,7 @@ import Amazonka.SNS.Types
 --
 -- /See:/ 'newPublish' smart constructor.
 data Publish = Publish'
-  { -- | Optional parameter to be used as the \"Subject\" line when the message
-    -- is delivered to email endpoints. This field will also be included, if
-    -- present, in the standard JSON messages delivered to other endpoints.
-    --
-    -- Constraints: Subjects must be ASCII text that begins with a letter,
-    -- number, or punctuation mark; must not include line breaks or control
-    -- characters; and must be less than 100 characters long.
-    subject :: Prelude.Maybe Prelude.Text,
-    -- | If you don\'t specify a value for the @TargetArn@ parameter, you must
-    -- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
-    targetArn :: Prelude.Maybe Prelude.Text,
-    -- | Message attributes for Publish action.
-    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
-    -- | The topic you want to publish to.
-    --
-    -- If you don\'t specify a value for the @TopicArn@ parameter, you must
-    -- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
-    topicArn :: Prelude.Maybe Prelude.Text,
-    -- | The phone number to which you want to deliver an SMS message. Use E.164
-    -- format.
-    --
-    -- If you don\'t specify a value for the @PhoneNumber@ parameter, you must
-    -- specify a value for the @TargetArn@ or @TopicArn@ parameters.
-    phoneNumber :: Prelude.Maybe Prelude.Text,
-    -- | This parameter applies only to FIFO (first-in-first-out) topics. The
+  { -- | This parameter applies only to FIFO (first-in-first-out) topics. The
     -- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters
     -- (a-z, A-Z, 0-9) and punctuation
     -- @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
@@ -118,6 +94,26 @@ data Publish = Publish'
     -- @MessageDeduplicationId@ based on the contents of the message. Your
     -- @MessageDeduplicationId@ overrides the generated one.
     messageDeduplicationId :: Prelude.Maybe Prelude.Text,
+    -- | This parameter applies only to FIFO (first-in-first-out) topics. The
+    -- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,
+    -- A-Z, 0-9) and punctuation @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
+    --
+    -- The @MessageGroupId@ is a tag that specifies that a message belongs to a
+    -- specific message group. Messages that belong to the same message group
+    -- are processed in a FIFO manner (however, messages in different message
+    -- groups might be processed out of order). Every message must include a
+    -- @MessageGroupId@.
+    messageGroupId :: Prelude.Maybe Prelude.Text,
+    -- | If you don\'t specify a value for the @TargetArn@ parameter, you must
+    -- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
+    targetArn :: Prelude.Maybe Prelude.Text,
+    -- | The topic you want to publish to.
+    --
+    -- If you don\'t specify a value for the @TopicArn@ parameter, you must
+    -- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
+    topicArn :: Prelude.Maybe Prelude.Text,
+    -- | Message attributes for Publish action.
+    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | Set @MessageStructure@ to @json@ if you want to send a different message
     -- for each protocol. For example, using one publish action, you can send a
     -- short message to your SMS subscribers and a longer message to your email
@@ -134,16 +130,20 @@ data Publish = Publish'
     --
     -- Valid value: @json@
     messageStructure :: Prelude.Maybe Prelude.Text,
-    -- | This parameter applies only to FIFO (first-in-first-out) topics. The
-    -- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,
-    -- A-Z, 0-9) and punctuation @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
+    -- | The phone number to which you want to deliver an SMS message. Use E.164
+    -- format.
     --
-    -- The @MessageGroupId@ is a tag that specifies that a message belongs to a
-    -- specific message group. Messages that belong to the same message group
-    -- are processed in a FIFO manner (however, messages in different message
-    -- groups might be processed out of order). Every message must include a
-    -- @MessageGroupId@.
-    messageGroupId :: Prelude.Maybe Prelude.Text,
+    -- If you don\'t specify a value for the @PhoneNumber@ parameter, you must
+    -- specify a value for the @TargetArn@ or @TopicArn@ parameters.
+    phoneNumber :: Prelude.Maybe Prelude.Text,
+    -- | Optional parameter to be used as the \"Subject\" line when the message
+    -- is delivered to email endpoints. This field will also be included, if
+    -- present, in the standard JSON messages delivered to other endpoints.
+    --
+    -- Constraints: Subjects must be ASCII text that begins with a letter,
+    -- number, or punctuation mark; must not include line breaks or control
+    -- characters; and must be less than 100 characters long.
+    subject :: Prelude.Maybe Prelude.Text,
     -- | The message you want to send.
     --
     -- If you are publishing to a topic and you want to send the same message
@@ -208,30 +208,6 @@ data Publish = Publish'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subject', 'publish_subject' - Optional parameter to be used as the \"Subject\" line when the message
--- is delivered to email endpoints. This field will also be included, if
--- present, in the standard JSON messages delivered to other endpoints.
---
--- Constraints: Subjects must be ASCII text that begins with a letter,
--- number, or punctuation mark; must not include line breaks or control
--- characters; and must be less than 100 characters long.
---
--- 'targetArn', 'publish_targetArn' - If you don\'t specify a value for the @TargetArn@ parameter, you must
--- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
---
--- 'messageAttributes', 'publish_messageAttributes' - Message attributes for Publish action.
---
--- 'topicArn', 'publish_topicArn' - The topic you want to publish to.
---
--- If you don\'t specify a value for the @TopicArn@ parameter, you must
--- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
---
--- 'phoneNumber', 'publish_phoneNumber' - The phone number to which you want to deliver an SMS message. Use E.164
--- format.
---
--- If you don\'t specify a value for the @PhoneNumber@ parameter, you must
--- specify a value for the @TargetArn@ or @TopicArn@ parameters.
---
 -- 'messageDeduplicationId', 'publish_messageDeduplicationId' - This parameter applies only to FIFO (first-in-first-out) topics. The
 -- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters
 -- (a-z, A-Z, 0-9) and punctuation
@@ -246,6 +222,26 @@ data Publish = Publish'
 -- If the topic has @ContentBasedDeduplication@ set, the system generates a
 -- @MessageDeduplicationId@ based on the contents of the message. Your
 -- @MessageDeduplicationId@ overrides the generated one.
+--
+-- 'messageGroupId', 'publish_messageGroupId' - This parameter applies only to FIFO (first-in-first-out) topics. The
+-- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,
+-- A-Z, 0-9) and punctuation @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
+--
+-- The @MessageGroupId@ is a tag that specifies that a message belongs to a
+-- specific message group. Messages that belong to the same message group
+-- are processed in a FIFO manner (however, messages in different message
+-- groups might be processed out of order). Every message must include a
+-- @MessageGroupId@.
+--
+-- 'targetArn', 'publish_targetArn' - If you don\'t specify a value for the @TargetArn@ parameter, you must
+-- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
+--
+-- 'topicArn', 'publish_topicArn' - The topic you want to publish to.
+--
+-- If you don\'t specify a value for the @TopicArn@ parameter, you must
+-- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
+--
+-- 'messageAttributes', 'publish_messageAttributes' - Message attributes for Publish action.
 --
 -- 'messageStructure', 'publish_messageStructure' - Set @MessageStructure@ to @json@ if you want to send a different message
 -- for each protocol. For example, using one publish action, you can send a
@@ -263,15 +259,19 @@ data Publish = Publish'
 --
 -- Valid value: @json@
 --
--- 'messageGroupId', 'publish_messageGroupId' - This parameter applies only to FIFO (first-in-first-out) topics. The
--- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,
--- A-Z, 0-9) and punctuation @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
+-- 'phoneNumber', 'publish_phoneNumber' - The phone number to which you want to deliver an SMS message. Use E.164
+-- format.
 --
--- The @MessageGroupId@ is a tag that specifies that a message belongs to a
--- specific message group. Messages that belong to the same message group
--- are processed in a FIFO manner (however, messages in different message
--- groups might be processed out of order). Every message must include a
--- @MessageGroupId@.
+-- If you don\'t specify a value for the @PhoneNumber@ parameter, you must
+-- specify a value for the @TargetArn@ or @TopicArn@ parameters.
+--
+-- 'subject', 'publish_subject' - Optional parameter to be used as the \"Subject\" line when the message
+-- is delivered to email endpoints. This field will also be included, if
+-- present, in the standard JSON messages delivered to other endpoints.
+--
+-- Constraints: Subjects must be ASCII text that begins with a letter,
+-- number, or punctuation mark; must not include line breaks or control
+-- characters; and must be less than 100 characters long.
 --
 -- 'message', 'publish_message' - The message you want to send.
 --
@@ -331,50 +331,16 @@ newPublish ::
   Publish
 newPublish pMessage_ =
   Publish'
-    { subject = Prelude.Nothing,
-      targetArn = Prelude.Nothing,
-      messageAttributes = Prelude.Nothing,
-      topicArn = Prelude.Nothing,
-      phoneNumber = Prelude.Nothing,
-      messageDeduplicationId = Prelude.Nothing,
-      messageStructure = Prelude.Nothing,
+    { messageDeduplicationId = Prelude.Nothing,
       messageGroupId = Prelude.Nothing,
+      targetArn = Prelude.Nothing,
+      topicArn = Prelude.Nothing,
+      messageAttributes = Prelude.Nothing,
+      messageStructure = Prelude.Nothing,
+      phoneNumber = Prelude.Nothing,
+      subject = Prelude.Nothing,
       message = pMessage_
     }
-
--- | Optional parameter to be used as the \"Subject\" line when the message
--- is delivered to email endpoints. This field will also be included, if
--- present, in the standard JSON messages delivered to other endpoints.
---
--- Constraints: Subjects must be ASCII text that begins with a letter,
--- number, or punctuation mark; must not include line breaks or control
--- characters; and must be less than 100 characters long.
-publish_subject :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
-publish_subject = Lens.lens (\Publish' {subject} -> subject) (\s@Publish' {} a -> s {subject = a} :: Publish)
-
--- | If you don\'t specify a value for the @TargetArn@ parameter, you must
--- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
-publish_targetArn :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
-publish_targetArn = Lens.lens (\Publish' {targetArn} -> targetArn) (\s@Publish' {} a -> s {targetArn = a} :: Publish)
-
--- | Message attributes for Publish action.
-publish_messageAttributes :: Lens.Lens' Publish (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
-publish_messageAttributes = Lens.lens (\Publish' {messageAttributes} -> messageAttributes) (\s@Publish' {} a -> s {messageAttributes = a} :: Publish) Prelude.. Lens.mapping Lens.coerced
-
--- | The topic you want to publish to.
---
--- If you don\'t specify a value for the @TopicArn@ parameter, you must
--- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
-publish_topicArn :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
-publish_topicArn = Lens.lens (\Publish' {topicArn} -> topicArn) (\s@Publish' {} a -> s {topicArn = a} :: Publish)
-
--- | The phone number to which you want to deliver an SMS message. Use E.164
--- format.
---
--- If you don\'t specify a value for the @PhoneNumber@ parameter, you must
--- specify a value for the @TargetArn@ or @TopicArn@ parameters.
-publish_phoneNumber :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
-publish_phoneNumber = Lens.lens (\Publish' {phoneNumber} -> phoneNumber) (\s@Publish' {} a -> s {phoneNumber = a} :: Publish)
 
 -- | This parameter applies only to FIFO (first-in-first-out) topics. The
 -- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters
@@ -392,6 +358,34 @@ publish_phoneNumber = Lens.lens (\Publish' {phoneNumber} -> phoneNumber) (\s@Pub
 -- @MessageDeduplicationId@ overrides the generated one.
 publish_messageDeduplicationId :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
 publish_messageDeduplicationId = Lens.lens (\Publish' {messageDeduplicationId} -> messageDeduplicationId) (\s@Publish' {} a -> s {messageDeduplicationId = a} :: Publish)
+
+-- | This parameter applies only to FIFO (first-in-first-out) topics. The
+-- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,
+-- A-Z, 0-9) and punctuation @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
+--
+-- The @MessageGroupId@ is a tag that specifies that a message belongs to a
+-- specific message group. Messages that belong to the same message group
+-- are processed in a FIFO manner (however, messages in different message
+-- groups might be processed out of order). Every message must include a
+-- @MessageGroupId@.
+publish_messageGroupId :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
+publish_messageGroupId = Lens.lens (\Publish' {messageGroupId} -> messageGroupId) (\s@Publish' {} a -> s {messageGroupId = a} :: Publish)
+
+-- | If you don\'t specify a value for the @TargetArn@ parameter, you must
+-- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
+publish_targetArn :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
+publish_targetArn = Lens.lens (\Publish' {targetArn} -> targetArn) (\s@Publish' {} a -> s {targetArn = a} :: Publish)
+
+-- | The topic you want to publish to.
+--
+-- If you don\'t specify a value for the @TopicArn@ parameter, you must
+-- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
+publish_topicArn :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
+publish_topicArn = Lens.lens (\Publish' {topicArn} -> topicArn) (\s@Publish' {} a -> s {topicArn = a} :: Publish)
+
+-- | Message attributes for Publish action.
+publish_messageAttributes :: Lens.Lens' Publish (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
+publish_messageAttributes = Lens.lens (\Publish' {messageAttributes} -> messageAttributes) (\s@Publish' {} a -> s {messageAttributes = a} :: Publish) Prelude.. Lens.mapping Lens.coerced
 
 -- | Set @MessageStructure@ to @json@ if you want to send a different message
 -- for each protocol. For example, using one publish action, you can send a
@@ -411,17 +405,23 @@ publish_messageDeduplicationId = Lens.lens (\Publish' {messageDeduplicationId} -
 publish_messageStructure :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
 publish_messageStructure = Lens.lens (\Publish' {messageStructure} -> messageStructure) (\s@Publish' {} a -> s {messageStructure = a} :: Publish)
 
--- | This parameter applies only to FIFO (first-in-first-out) topics. The
--- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,
--- A-Z, 0-9) and punctuation @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
+-- | The phone number to which you want to deliver an SMS message. Use E.164
+-- format.
 --
--- The @MessageGroupId@ is a tag that specifies that a message belongs to a
--- specific message group. Messages that belong to the same message group
--- are processed in a FIFO manner (however, messages in different message
--- groups might be processed out of order). Every message must include a
--- @MessageGroupId@.
-publish_messageGroupId :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
-publish_messageGroupId = Lens.lens (\Publish' {messageGroupId} -> messageGroupId) (\s@Publish' {} a -> s {messageGroupId = a} :: Publish)
+-- If you don\'t specify a value for the @PhoneNumber@ parameter, you must
+-- specify a value for the @TargetArn@ or @TopicArn@ parameters.
+publish_phoneNumber :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
+publish_phoneNumber = Lens.lens (\Publish' {phoneNumber} -> phoneNumber) (\s@Publish' {} a -> s {phoneNumber = a} :: Publish)
+
+-- | Optional parameter to be used as the \"Subject\" line when the message
+-- is delivered to email endpoints. This field will also be included, if
+-- present, in the standard JSON messages delivered to other endpoints.
+--
+-- Constraints: Subjects must be ASCII text that begins with a letter,
+-- number, or punctuation mark; must not include line breaks or control
+-- characters; and must be less than 100 characters long.
+publish_subject :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
+publish_subject = Lens.lens (\Publish' {subject} -> subject) (\s@Publish' {} a -> s {subject = a} :: Publish)
 
 -- | The message you want to send.
 --
@@ -486,33 +486,33 @@ instance Core.AWSRequest Publish where
       "PublishResult"
       ( \s h x ->
           PublishResponse'
-            Prelude.<$> (x Core..@? "SequenceNumber")
-            Prelude.<*> (x Core..@? "MessageId")
+            Prelude.<$> (x Core..@? "MessageId")
+            Prelude.<*> (x Core..@? "SequenceNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable Publish where
   hashWithSalt _salt Publish' {..} =
-    _salt `Prelude.hashWithSalt` subject
-      `Prelude.hashWithSalt` targetArn
-      `Prelude.hashWithSalt` messageAttributes
-      `Prelude.hashWithSalt` topicArn
-      `Prelude.hashWithSalt` phoneNumber
-      `Prelude.hashWithSalt` messageDeduplicationId
-      `Prelude.hashWithSalt` messageStructure
+    _salt `Prelude.hashWithSalt` messageDeduplicationId
       `Prelude.hashWithSalt` messageGroupId
+      `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` messageAttributes
+      `Prelude.hashWithSalt` messageStructure
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` subject
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData Publish where
   rnf Publish' {..} =
-    Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf messageAttributes
-      `Prelude.seq` Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf messageDeduplicationId
-      `Prelude.seq` Prelude.rnf messageStructure
+    Prelude.rnf messageDeduplicationId
       `Prelude.seq` Prelude.rnf messageGroupId
+      `Prelude.seq` Prelude.rnf targetArn
+      `Prelude.seq` Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf messageAttributes
+      `Prelude.seq` Prelude.rnf messageStructure
+      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf subject
       `Prelude.seq` Prelude.rnf message
 
 instance Core.ToHeaders Publish where
@@ -527,19 +527,19 @@ instance Core.ToQuery Publish where
       [ "Action" Core.=: ("Publish" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-03-31" :: Prelude.ByteString),
-        "Subject" Core.=: subject,
+        "MessageDeduplicationId"
+          Core.=: messageDeduplicationId,
+        "MessageGroupId" Core.=: messageGroupId,
         "TargetArn" Core.=: targetArn,
+        "TopicArn" Core.=: topicArn,
         "MessageAttributes"
           Core.=: Core.toQuery
             ( Core.toQueryMap "entry" "Name" "Value"
                 Prelude.<$> messageAttributes
             ),
-        "TopicArn" Core.=: topicArn,
-        "PhoneNumber" Core.=: phoneNumber,
-        "MessageDeduplicationId"
-          Core.=: messageDeduplicationId,
         "MessageStructure" Core.=: messageStructure,
-        "MessageGroupId" Core.=: messageGroupId,
+        "PhoneNumber" Core.=: phoneNumber,
+        "Subject" Core.=: subject,
         "Message" Core.=: message
       ]
 
@@ -547,16 +547,16 @@ instance Core.ToQuery Publish where
 --
 -- /See:/ 'newPublishResponse' smart constructor.
 data PublishResponse = PublishResponse'
-  { -- | This response element applies only to FIFO (first-in-first-out) topics.
+  { -- | Unique identifier assigned to the published message.
+    --
+    -- Length Constraint: Maximum 100 characters
+    messageId :: Prelude.Maybe Prelude.Text,
+    -- | This response element applies only to FIFO (first-in-first-out) topics.
     --
     -- The sequence number is a large, non-consecutive number that Amazon SNS
     -- assigns to each message. The length of @SequenceNumber@ is 128 bits.
     -- @SequenceNumber@ continues to increase for each @MessageGroupId@.
     sequenceNumber :: Prelude.Maybe Prelude.Text,
-    -- | Unique identifier assigned to the published message.
-    --
-    -- Length Constraint: Maximum 100 characters
-    messageId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -570,15 +570,15 @@ data PublishResponse = PublishResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'messageId', 'publishResponse_messageId' - Unique identifier assigned to the published message.
+--
+-- Length Constraint: Maximum 100 characters
+--
 -- 'sequenceNumber', 'publishResponse_sequenceNumber' - This response element applies only to FIFO (first-in-first-out) topics.
 --
 -- The sequence number is a large, non-consecutive number that Amazon SNS
 -- assigns to each message. The length of @SequenceNumber@ is 128 bits.
 -- @SequenceNumber@ continues to increase for each @MessageGroupId@.
---
--- 'messageId', 'publishResponse_messageId' - Unique identifier assigned to the published message.
---
--- Length Constraint: Maximum 100 characters
 --
 -- 'httpStatus', 'publishResponse_httpStatus' - The response's http status code.
 newPublishResponse ::
@@ -587,10 +587,16 @@ newPublishResponse ::
   PublishResponse
 newPublishResponse pHttpStatus_ =
   PublishResponse'
-    { sequenceNumber = Prelude.Nothing,
-      messageId = Prelude.Nothing,
+    { messageId = Prelude.Nothing,
+      sequenceNumber = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Unique identifier assigned to the published message.
+--
+-- Length Constraint: Maximum 100 characters
+publishResponse_messageId :: Lens.Lens' PublishResponse (Prelude.Maybe Prelude.Text)
+publishResponse_messageId = Lens.lens (\PublishResponse' {messageId} -> messageId) (\s@PublishResponse' {} a -> s {messageId = a} :: PublishResponse)
 
 -- | This response element applies only to FIFO (first-in-first-out) topics.
 --
@@ -600,18 +606,12 @@ newPublishResponse pHttpStatus_ =
 publishResponse_sequenceNumber :: Lens.Lens' PublishResponse (Prelude.Maybe Prelude.Text)
 publishResponse_sequenceNumber = Lens.lens (\PublishResponse' {sequenceNumber} -> sequenceNumber) (\s@PublishResponse' {} a -> s {sequenceNumber = a} :: PublishResponse)
 
--- | Unique identifier assigned to the published message.
---
--- Length Constraint: Maximum 100 characters
-publishResponse_messageId :: Lens.Lens' PublishResponse (Prelude.Maybe Prelude.Text)
-publishResponse_messageId = Lens.lens (\PublishResponse' {messageId} -> messageId) (\s@PublishResponse' {} a -> s {messageId = a} :: PublishResponse)
-
 -- | The response's http status code.
 publishResponse_httpStatus :: Lens.Lens' PublishResponse Prelude.Int
 publishResponse_httpStatus = Lens.lens (\PublishResponse' {httpStatus} -> httpStatus) (\s@PublishResponse' {} a -> s {httpStatus = a} :: PublishResponse)
 
 instance Prelude.NFData PublishResponse where
   rnf PublishResponse' {..} =
-    Prelude.rnf sequenceNumber
-      `Prelude.seq` Prelude.rnf messageId
+    Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf sequenceNumber
       `Prelude.seq` Prelude.rnf httpStatus

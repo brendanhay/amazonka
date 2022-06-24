@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParameterStringFilter' smart constructor.
 data ParameterStringFilter = ParameterStringFilter'
-  { -- | The value you want to search for.
-    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | For all filters used with DescribeParameters, valid options include
+  { -- | For all filters used with DescribeParameters, valid options include
     -- @Equals@ and @BeginsWith@. The @Name@ filter additionally supports the
     -- @Contains@ option. (Exception: For filters using the key @Path@, valid
     -- options include @Recursive@ and @OneLevel@.)
@@ -39,6 +37,8 @@ data ParameterStringFilter = ParameterStringFilter'
     -- @Equals@ and @BeginsWith@. (Exception: For filters using @Label@ as the
     -- Key name, the only valid option is @Equals@.)
     option :: Prelude.Maybe Prelude.Text,
+    -- | The value you want to search for.
+    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the filter.
     --
     -- The @ParameterStringFilter@ object is used by the DescribeParameters and
@@ -67,8 +67,6 @@ data ParameterStringFilter = ParameterStringFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'parameterStringFilter_values' - The value you want to search for.
---
 -- 'option', 'parameterStringFilter_option' - For all filters used with DescribeParameters, valid options include
 -- @Equals@ and @BeginsWith@. The @Name@ filter additionally supports the
 -- @Contains@ option. (Exception: For filters using the key @Path@, valid
@@ -77,6 +75,8 @@ data ParameterStringFilter = ParameterStringFilter'
 -- For filters used with GetParametersByPath, valid options include
 -- @Equals@ and @BeginsWith@. (Exception: For filters using @Label@ as the
 -- Key name, the only valid option is @Equals@.)
+--
+-- 'values', 'parameterStringFilter_values' - The value you want to search for.
 --
 -- 'key', 'parameterStringFilter_key' - The name of the filter.
 --
@@ -100,14 +100,10 @@ newParameterStringFilter ::
   ParameterStringFilter
 newParameterStringFilter pKey_ =
   ParameterStringFilter'
-    { values = Prelude.Nothing,
-      option = Prelude.Nothing,
+    { option = Prelude.Nothing,
+      values = Prelude.Nothing,
       key = pKey_
     }
-
--- | The value you want to search for.
-parameterStringFilter_values :: Lens.Lens' ParameterStringFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-parameterStringFilter_values = Lens.lens (\ParameterStringFilter' {values} -> values) (\s@ParameterStringFilter' {} a -> s {values = a} :: ParameterStringFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | For all filters used with DescribeParameters, valid options include
 -- @Equals@ and @BeginsWith@. The @Name@ filter additionally supports the
@@ -119,6 +115,10 @@ parameterStringFilter_values = Lens.lens (\ParameterStringFilter' {values} -> va
 -- Key name, the only valid option is @Equals@.)
 parameterStringFilter_option :: Lens.Lens' ParameterStringFilter (Prelude.Maybe Prelude.Text)
 parameterStringFilter_option = Lens.lens (\ParameterStringFilter' {option} -> option) (\s@ParameterStringFilter' {} a -> s {option = a} :: ParameterStringFilter)
+
+-- | The value you want to search for.
+parameterStringFilter_values :: Lens.Lens' ParameterStringFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+parameterStringFilter_values = Lens.lens (\ParameterStringFilter' {values} -> values) (\s@ParameterStringFilter' {} a -> s {values = a} :: ParameterStringFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the filter.
 --
@@ -141,22 +141,22 @@ parameterStringFilter_key = Lens.lens (\ParameterStringFilter' {key} -> key) (\s
 
 instance Prelude.Hashable ParameterStringFilter where
   hashWithSalt _salt ParameterStringFilter' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` option
+    _salt `Prelude.hashWithSalt` option
+      `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData ParameterStringFilter where
   rnf ParameterStringFilter' {..} =
-    Prelude.rnf values
-      `Prelude.seq` Prelude.rnf option
+    Prelude.rnf option
+      `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf key
 
 instance Core.ToJSON ParameterStringFilter where
   toJSON ParameterStringFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Values" Core..=) Prelude.<$> values,
-            ("Option" Core..=) Prelude.<$> option,
+          [ ("Option" Core..=) Prelude.<$> option,
+            ("Values" Core..=) Prelude.<$> values,
             Prelude.Just ("Key" Core..= key)
           ]
       )

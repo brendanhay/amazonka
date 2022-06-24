@@ -34,11 +34,11 @@ module Amazonka.SSM.ListCommandInvocations
     newListCommandInvocations,
 
     -- * Request Lenses
-    listCommandInvocations_instanceId,
-    listCommandInvocations_filters,
     listCommandInvocations_nextToken,
-    listCommandInvocations_commandId,
+    listCommandInvocations_filters,
     listCommandInvocations_details,
+    listCommandInvocations_commandId,
+    listCommandInvocations_instanceId,
     listCommandInvocations_maxResults,
 
     -- * Destructuring the Response
@@ -61,19 +61,19 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newListCommandInvocations' smart constructor.
 data ListCommandInvocations = ListCommandInvocations'
-  { -- | (Optional) The command execution details for a specific instance ID.
-    instanceId :: Prelude.Maybe Prelude.Text,
+  { -- | (Optional) The token for the next set of items to return. (You received
+    -- this token from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | (Optional) One or more filters. Use a filter to return a more specific
     -- list of results.
     filters :: Prelude.Maybe (Prelude.NonEmpty CommandFilter),
-    -- | (Optional) The token for the next set of items to return. (You received
-    -- this token from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) The invocations for a specific command ID.
-    commandId :: Prelude.Maybe Prelude.Text,
     -- | (Optional) If set this returns the response of the command executions
     -- and any command output. The default value is @false@.
     details :: Prelude.Maybe Prelude.Bool,
+    -- | (Optional) The invocations for a specific command ID.
+    commandId :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) The command execution details for a specific instance ID.
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | (Optional) The maximum number of items to return for this call. The call
     -- also returns a token that you can specify in a subsequent call to get
     -- the next set of results.
@@ -89,18 +89,18 @@ data ListCommandInvocations = ListCommandInvocations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'listCommandInvocations_instanceId' - (Optional) The command execution details for a specific instance ID.
+-- 'nextToken', 'listCommandInvocations_nextToken' - (Optional) The token for the next set of items to return. (You received
+-- this token from a previous call.)
 --
 -- 'filters', 'listCommandInvocations_filters' - (Optional) One or more filters. Use a filter to return a more specific
 -- list of results.
 --
--- 'nextToken', 'listCommandInvocations_nextToken' - (Optional) The token for the next set of items to return. (You received
--- this token from a previous call.)
+-- 'details', 'listCommandInvocations_details' - (Optional) If set this returns the response of the command executions
+-- and any command output. The default value is @false@.
 --
 -- 'commandId', 'listCommandInvocations_commandId' - (Optional) The invocations for a specific command ID.
 --
--- 'details', 'listCommandInvocations_details' - (Optional) If set this returns the response of the command executions
--- and any command output. The default value is @false@.
+-- 'instanceId', 'listCommandInvocations_instanceId' - (Optional) The command execution details for a specific instance ID.
 --
 -- 'maxResults', 'listCommandInvocations_maxResults' - (Optional) The maximum number of items to return for this call. The call
 -- also returns a token that you can specify in a subsequent call to get
@@ -109,37 +109,37 @@ newListCommandInvocations ::
   ListCommandInvocations
 newListCommandInvocations =
   ListCommandInvocations'
-    { instanceId =
+    { nextToken =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      commandId = Prelude.Nothing,
       details = Prelude.Nothing,
+      commandId = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | (Optional) The command execution details for a specific instance ID.
-listCommandInvocations_instanceId :: Lens.Lens' ListCommandInvocations (Prelude.Maybe Prelude.Text)
-listCommandInvocations_instanceId = Lens.lens (\ListCommandInvocations' {instanceId} -> instanceId) (\s@ListCommandInvocations' {} a -> s {instanceId = a} :: ListCommandInvocations)
-
--- | (Optional) One or more filters. Use a filter to return a more specific
--- list of results.
-listCommandInvocations_filters :: Lens.Lens' ListCommandInvocations (Prelude.Maybe (Prelude.NonEmpty CommandFilter))
-listCommandInvocations_filters = Lens.lens (\ListCommandInvocations' {filters} -> filters) (\s@ListCommandInvocations' {} a -> s {filters = a} :: ListCommandInvocations) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional) The token for the next set of items to return. (You received
 -- this token from a previous call.)
 listCommandInvocations_nextToken :: Lens.Lens' ListCommandInvocations (Prelude.Maybe Prelude.Text)
 listCommandInvocations_nextToken = Lens.lens (\ListCommandInvocations' {nextToken} -> nextToken) (\s@ListCommandInvocations' {} a -> s {nextToken = a} :: ListCommandInvocations)
 
--- | (Optional) The invocations for a specific command ID.
-listCommandInvocations_commandId :: Lens.Lens' ListCommandInvocations (Prelude.Maybe Prelude.Text)
-listCommandInvocations_commandId = Lens.lens (\ListCommandInvocations' {commandId} -> commandId) (\s@ListCommandInvocations' {} a -> s {commandId = a} :: ListCommandInvocations)
+-- | (Optional) One or more filters. Use a filter to return a more specific
+-- list of results.
+listCommandInvocations_filters :: Lens.Lens' ListCommandInvocations (Prelude.Maybe (Prelude.NonEmpty CommandFilter))
+listCommandInvocations_filters = Lens.lens (\ListCommandInvocations' {filters} -> filters) (\s@ListCommandInvocations' {} a -> s {filters = a} :: ListCommandInvocations) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional) If set this returns the response of the command executions
 -- and any command output. The default value is @false@.
 listCommandInvocations_details :: Lens.Lens' ListCommandInvocations (Prelude.Maybe Prelude.Bool)
 listCommandInvocations_details = Lens.lens (\ListCommandInvocations' {details} -> details) (\s@ListCommandInvocations' {} a -> s {details = a} :: ListCommandInvocations)
+
+-- | (Optional) The invocations for a specific command ID.
+listCommandInvocations_commandId :: Lens.Lens' ListCommandInvocations (Prelude.Maybe Prelude.Text)
+listCommandInvocations_commandId = Lens.lens (\ListCommandInvocations' {commandId} -> commandId) (\s@ListCommandInvocations' {} a -> s {commandId = a} :: ListCommandInvocations)
+
+-- | (Optional) The command execution details for a specific instance ID.
+listCommandInvocations_instanceId :: Lens.Lens' ListCommandInvocations (Prelude.Maybe Prelude.Text)
+listCommandInvocations_instanceId = Lens.lens (\ListCommandInvocations' {instanceId} -> instanceId) (\s@ListCommandInvocations' {} a -> s {instanceId = a} :: ListCommandInvocations)
 
 -- | (Optional) The maximum number of items to return for this call. The call
 -- also returns a token that you can specify in a subsequent call to get
@@ -187,20 +187,20 @@ instance Core.AWSRequest ListCommandInvocations where
 
 instance Prelude.Hashable ListCommandInvocations where
   hashWithSalt _salt ListCommandInvocations' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` commandId
       `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` commandId
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListCommandInvocations where
   rnf ListCommandInvocations' {..} =
-    Prelude.rnf instanceId
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf commandId
       `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf commandId
+      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCommandInvocations where
@@ -222,11 +222,11 @@ instance Core.ToJSON ListCommandInvocations where
   toJSON ListCommandInvocations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("CommandId" Core..=) Prelude.<$> commandId,
             ("Details" Core..=) Prelude.<$> details,
+            ("CommandId" Core..=) Prelude.<$> commandId,
+            ("InstanceId" Core..=) Prelude.<$> instanceId,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

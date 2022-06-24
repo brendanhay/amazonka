@@ -31,9 +31,9 @@ module Amazonka.SSM.ListOpsItemRelatedItems
     newListOpsItemRelatedItems,
 
     -- * Request Lenses
-    listOpsItemRelatedItems_opsItemId,
-    listOpsItemRelatedItems_filters,
     listOpsItemRelatedItems_nextToken,
+    listOpsItemRelatedItems_filters,
+    listOpsItemRelatedItems_opsItemId,
     listOpsItemRelatedItems_maxResults,
 
     -- * Destructuring the Response
@@ -56,15 +56,15 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newListOpsItemRelatedItems' smart constructor.
 data ListOpsItemRelatedItems = ListOpsItemRelatedItems'
-  { -- | The ID of the OpsItem for which you want to list all related-item
-    -- resources.
-    opsItemId :: Prelude.Maybe Prelude.Text,
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more OpsItem filters. Use a filter to return a more specific list
     -- of results.
     filters :: Prelude.Maybe [OpsItemRelatedItemsFilter],
-    -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the OpsItem for which you want to list all related-item
+    -- resources.
+    opsItemId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
@@ -80,14 +80,14 @@ data ListOpsItemRelatedItems = ListOpsItemRelatedItems'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'opsItemId', 'listOpsItemRelatedItems_opsItemId' - The ID of the OpsItem for which you want to list all related-item
--- resources.
+-- 'nextToken', 'listOpsItemRelatedItems_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'filters', 'listOpsItemRelatedItems_filters' - One or more OpsItem filters. Use a filter to return a more specific list
 -- of results.
 --
--- 'nextToken', 'listOpsItemRelatedItems_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- 'opsItemId', 'listOpsItemRelatedItems_opsItemId' - The ID of the OpsItem for which you want to list all related-item
+-- resources.
 --
 -- 'maxResults', 'listOpsItemRelatedItems_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -96,27 +96,27 @@ newListOpsItemRelatedItems ::
   ListOpsItemRelatedItems
 newListOpsItemRelatedItems =
   ListOpsItemRelatedItems'
-    { opsItemId =
+    { nextToken =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      opsItemId = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
--- | The ID of the OpsItem for which you want to list all related-item
--- resources.
-listOpsItemRelatedItems_opsItemId :: Lens.Lens' ListOpsItemRelatedItems (Prelude.Maybe Prelude.Text)
-listOpsItemRelatedItems_opsItemId = Lens.lens (\ListOpsItemRelatedItems' {opsItemId} -> opsItemId) (\s@ListOpsItemRelatedItems' {} a -> s {opsItemId = a} :: ListOpsItemRelatedItems)
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+listOpsItemRelatedItems_nextToken :: Lens.Lens' ListOpsItemRelatedItems (Prelude.Maybe Prelude.Text)
+listOpsItemRelatedItems_nextToken = Lens.lens (\ListOpsItemRelatedItems' {nextToken} -> nextToken) (\s@ListOpsItemRelatedItems' {} a -> s {nextToken = a} :: ListOpsItemRelatedItems)
 
 -- | One or more OpsItem filters. Use a filter to return a more specific list
 -- of results.
 listOpsItemRelatedItems_filters :: Lens.Lens' ListOpsItemRelatedItems (Prelude.Maybe [OpsItemRelatedItemsFilter])
 listOpsItemRelatedItems_filters = Lens.lens (\ListOpsItemRelatedItems' {filters} -> filters) (\s@ListOpsItemRelatedItems' {} a -> s {filters = a} :: ListOpsItemRelatedItems) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-listOpsItemRelatedItems_nextToken :: Lens.Lens' ListOpsItemRelatedItems (Prelude.Maybe Prelude.Text)
-listOpsItemRelatedItems_nextToken = Lens.lens (\ListOpsItemRelatedItems' {nextToken} -> nextToken) (\s@ListOpsItemRelatedItems' {} a -> s {nextToken = a} :: ListOpsItemRelatedItems)
+-- | The ID of the OpsItem for which you want to list all related-item
+-- resources.
+listOpsItemRelatedItems_opsItemId :: Lens.Lens' ListOpsItemRelatedItems (Prelude.Maybe Prelude.Text)
+listOpsItemRelatedItems_opsItemId = Lens.lens (\ListOpsItemRelatedItems' {opsItemId} -> opsItemId) (\s@ListOpsItemRelatedItems' {} a -> s {opsItemId = a} :: ListOpsItemRelatedItems)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -162,16 +162,16 @@ instance Core.AWSRequest ListOpsItemRelatedItems where
 
 instance Prelude.Hashable ListOpsItemRelatedItems where
   hashWithSalt _salt ListOpsItemRelatedItems' {..} =
-    _salt `Prelude.hashWithSalt` opsItemId
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` opsItemId
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListOpsItemRelatedItems where
   rnf ListOpsItemRelatedItems' {..} =
-    Prelude.rnf opsItemId
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf opsItemId
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListOpsItemRelatedItems where
@@ -193,9 +193,9 @@ instance Core.ToJSON ListOpsItemRelatedItems where
   toJSON ListOpsItemRelatedItems' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OpsItemId" Core..=) Prelude.<$> opsItemId,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("OpsItemId" Core..=) Prelude.<$> opsItemId,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

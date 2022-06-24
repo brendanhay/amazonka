@@ -28,10 +28,10 @@ import Amazonka.SSM.Types.DescribeActivationsFilterKeys
 --
 -- /See:/ 'newDescribeActivationsFilter' smart constructor.
 data DescribeActivationsFilter = DescribeActivationsFilter'
-  { -- | The name of the filter.
-    filterKey :: Prelude.Maybe DescribeActivationsFilterKeys,
-    -- | The filter values.
-    filterValues :: Prelude.Maybe [Prelude.Text]
+  { -- | The filter values.
+    filterValues :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the filter.
+    filterKey :: Prelude.Maybe DescribeActivationsFilterKeys
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,41 +43,41 @@ data DescribeActivationsFilter = DescribeActivationsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filterKey', 'describeActivationsFilter_filterKey' - The name of the filter.
---
 -- 'filterValues', 'describeActivationsFilter_filterValues' - The filter values.
+--
+-- 'filterKey', 'describeActivationsFilter_filterKey' - The name of the filter.
 newDescribeActivationsFilter ::
   DescribeActivationsFilter
 newDescribeActivationsFilter =
   DescribeActivationsFilter'
-    { filterKey =
+    { filterValues =
         Prelude.Nothing,
-      filterValues = Prelude.Nothing
+      filterKey = Prelude.Nothing
     }
-
--- | The name of the filter.
-describeActivationsFilter_filterKey :: Lens.Lens' DescribeActivationsFilter (Prelude.Maybe DescribeActivationsFilterKeys)
-describeActivationsFilter_filterKey = Lens.lens (\DescribeActivationsFilter' {filterKey} -> filterKey) (\s@DescribeActivationsFilter' {} a -> s {filterKey = a} :: DescribeActivationsFilter)
 
 -- | The filter values.
 describeActivationsFilter_filterValues :: Lens.Lens' DescribeActivationsFilter (Prelude.Maybe [Prelude.Text])
 describeActivationsFilter_filterValues = Lens.lens (\DescribeActivationsFilter' {filterValues} -> filterValues) (\s@DescribeActivationsFilter' {} a -> s {filterValues = a} :: DescribeActivationsFilter) Prelude.. Lens.mapping Lens.coerced
 
+-- | The name of the filter.
+describeActivationsFilter_filterKey :: Lens.Lens' DescribeActivationsFilter (Prelude.Maybe DescribeActivationsFilterKeys)
+describeActivationsFilter_filterKey = Lens.lens (\DescribeActivationsFilter' {filterKey} -> filterKey) (\s@DescribeActivationsFilter' {} a -> s {filterKey = a} :: DescribeActivationsFilter)
+
 instance Prelude.Hashable DescribeActivationsFilter where
   hashWithSalt _salt DescribeActivationsFilter' {..} =
-    _salt `Prelude.hashWithSalt` filterKey
-      `Prelude.hashWithSalt` filterValues
+    _salt `Prelude.hashWithSalt` filterValues
+      `Prelude.hashWithSalt` filterKey
 
 instance Prelude.NFData DescribeActivationsFilter where
   rnf DescribeActivationsFilter' {..} =
-    Prelude.rnf filterKey
-      `Prelude.seq` Prelude.rnf filterValues
+    Prelude.rnf filterValues
+      `Prelude.seq` Prelude.rnf filterKey
 
 instance Core.ToJSON DescribeActivationsFilter where
   toJSON DescribeActivationsFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FilterKey" Core..=) Prelude.<$> filterKey,
-            ("FilterValues" Core..=) Prelude.<$> filterValues
+          [ ("FilterValues" Core..=) Prelude.<$> filterValues,
+            ("FilterKey" Core..=) Prelude.<$> filterKey
           ]
       )

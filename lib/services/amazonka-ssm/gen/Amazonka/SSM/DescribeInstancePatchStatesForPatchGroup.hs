@@ -30,8 +30,8 @@ module Amazonka.SSM.DescribeInstancePatchStatesForPatchGroup
     newDescribeInstancePatchStatesForPatchGroup,
 
     -- * Request Lenses
-    describeInstancePatchStatesForPatchGroup_filters,
     describeInstancePatchStatesForPatchGroup_nextToken,
+    describeInstancePatchStatesForPatchGroup_filters,
     describeInstancePatchStatesForPatchGroup_maxResults,
     describeInstancePatchStatesForPatchGroup_patchGroup,
 
@@ -55,7 +55,10 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeInstancePatchStatesForPatchGroup' smart constructor.
 data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPatchGroup'
-  { -- | Each entry in the array is a structure containing:
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Each entry in the array is a structure containing:
     --
     -- -   Key (string between 1 and 200 characters)
     --
@@ -63,9 +66,6 @@ data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPa
     --
     -- -   Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")
     filters :: Prelude.Maybe [InstancePatchStateFilter],
-    -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of patches to return (per page).
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the patch group for which the patch state information should
@@ -82,6 +82,9 @@ data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPa
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeInstancePatchStatesForPatchGroup_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
 -- 'filters', 'describeInstancePatchStatesForPatchGroup_filters' - Each entry in the array is a structure containing:
 --
 -- -   Key (string between 1 and 200 characters)
@@ -89,9 +92,6 @@ data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPa
 -- -   Values (array containing a single string)
 --
 -- -   Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")
---
--- 'nextToken', 'describeInstancePatchStatesForPatchGroup_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
 --
 -- 'maxResults', 'describeInstancePatchStatesForPatchGroup_maxResults' - The maximum number of patches to return (per page).
 --
@@ -104,12 +104,17 @@ newDescribeInstancePatchStatesForPatchGroup ::
 newDescribeInstancePatchStatesForPatchGroup
   pPatchGroup_ =
     DescribeInstancePatchStatesForPatchGroup'
-      { filters =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        filters = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         patchGroup = pPatchGroup_
       }
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeInstancePatchStatesForPatchGroup_nextToken :: Lens.Lens' DescribeInstancePatchStatesForPatchGroup (Prelude.Maybe Prelude.Text)
+describeInstancePatchStatesForPatchGroup_nextToken = Lens.lens (\DescribeInstancePatchStatesForPatchGroup' {nextToken} -> nextToken) (\s@DescribeInstancePatchStatesForPatchGroup' {} a -> s {nextToken = a} :: DescribeInstancePatchStatesForPatchGroup)
 
 -- | Each entry in the array is a structure containing:
 --
@@ -120,11 +125,6 @@ newDescribeInstancePatchStatesForPatchGroup
 -- -   Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")
 describeInstancePatchStatesForPatchGroup_filters :: Lens.Lens' DescribeInstancePatchStatesForPatchGroup (Prelude.Maybe [InstancePatchStateFilter])
 describeInstancePatchStatesForPatchGroup_filters = Lens.lens (\DescribeInstancePatchStatesForPatchGroup' {filters} -> filters) (\s@DescribeInstancePatchStatesForPatchGroup' {} a -> s {filters = a} :: DescribeInstancePatchStatesForPatchGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeInstancePatchStatesForPatchGroup_nextToken :: Lens.Lens' DescribeInstancePatchStatesForPatchGroup (Prelude.Maybe Prelude.Text)
-describeInstancePatchStatesForPatchGroup_nextToken = Lens.lens (\DescribeInstancePatchStatesForPatchGroup' {nextToken} -> nextToken) (\s@DescribeInstancePatchStatesForPatchGroup' {} a -> s {nextToken = a} :: DescribeInstancePatchStatesForPatchGroup)
 
 -- | The maximum number of patches to return (per page).
 describeInstancePatchStatesForPatchGroup_maxResults :: Lens.Lens' DescribeInstancePatchStatesForPatchGroup (Prelude.Maybe Prelude.Natural)
@@ -186,8 +186,8 @@ instance
   hashWithSalt
     _salt
     DescribeInstancePatchStatesForPatchGroup' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` patchGroup
 
@@ -196,8 +196,8 @@ instance
     DescribeInstancePatchStatesForPatchGroup
   where
   rnf DescribeInstancePatchStatesForPatchGroup' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf patchGroup
 
@@ -226,8 +226,8 @@ instance
   toJSON DescribeInstancePatchStatesForPatchGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("PatchGroup" Core..= patchGroup)
           ]

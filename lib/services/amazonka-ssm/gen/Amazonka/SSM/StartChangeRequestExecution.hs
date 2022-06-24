@@ -29,15 +29,15 @@ module Amazonka.SSM.StartChangeRequestExecution
     newStartChangeRequestExecution,
 
     -- * Request Lenses
-    startChangeRequestExecution_scheduledTime,
-    startChangeRequestExecution_changeDetails,
-    startChangeRequestExecution_clientToken,
-    startChangeRequestExecution_autoApprove,
-    startChangeRequestExecution_scheduledEndTime,
-    startChangeRequestExecution_parameters,
-    startChangeRequestExecution_documentVersion,
-    startChangeRequestExecution_changeRequestName,
     startChangeRequestExecution_tags,
+    startChangeRequestExecution_clientToken,
+    startChangeRequestExecution_changeDetails,
+    startChangeRequestExecution_autoApprove,
+    startChangeRequestExecution_changeRequestName,
+    startChangeRequestExecution_scheduledEndTime,
+    startChangeRequestExecution_scheduledTime,
+    startChangeRequestExecution_documentVersion,
+    startChangeRequestExecution_parameters,
     startChangeRequestExecution_documentName,
     startChangeRequestExecution_runbooks,
 
@@ -60,19 +60,24 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newStartChangeRequestExecution' smart constructor.
 data StartChangeRequestExecution = StartChangeRequestExecution'
-  { -- | The date and time specified in the change request to run the Automation
-    -- runbooks.
+  { -- | Optional metadata that you assign to a resource. You can specify a
+    -- maximum of five tags for a change request. Tags enable you to categorize
+    -- a resource in different ways, such as by purpose, owner, or environment.
+    -- For example, you might want to tag a change request to identify an
+    -- environment or target Amazon Web Services Region. In this case, you
+    -- could specify the following key-value pairs:
     --
-    -- The Automation runbooks specified for the runbook workflow can\'t run
-    -- until all required approvals for the change request have been received.
-    scheduledTime :: Prelude.Maybe Core.POSIX,
+    -- -   @Key=Environment,Value=Production@
+    --
+    -- -   @Key=Region,Value=us-east-2@
+    tags :: Prelude.Maybe [Tag],
+    -- | The user-provided idempotency token. The token must be unique, is case
+    -- insensitive, enforces the UUID format, and can\'t be reused.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | User-provided details about the change. If no details are provided,
     -- content specified in the __Template information__ section of the
     -- associated change template is added.
     changeDetails :: Prelude.Maybe Prelude.Text,
-    -- | The user-provided idempotency token. The token must be unique, is case
-    -- insensitive, enforces the UUID format, and can\'t be reused.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the change request can be approved automatically
     -- without the need for manual approvals.
     --
@@ -86,30 +91,25 @@ data StartChangeRequestExecution = StartChangeRequestExecution'
     -- don\'t, the change won\'t be processed until the calendar state is again
     -- @OPEN@.
     autoApprove :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the change request associated with the runbook workflow to
+    -- be run.
+    changeRequestName :: Prelude.Maybe Prelude.Text,
     -- | The time that the requester expects the runbook workflow related to the
     -- change request to complete. The time is an estimate only that the
     -- requester provides for reviewers.
     scheduledEndTime :: Prelude.Maybe Core.POSIX,
-    -- | A key-value map of parameters that match the declared parameters in the
-    -- change template document.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The date and time specified in the change request to run the Automation
+    -- runbooks.
+    --
+    -- The Automation runbooks specified for the runbook workflow can\'t run
+    -- until all required approvals for the change request have been received.
+    scheduledTime :: Prelude.Maybe Core.POSIX,
     -- | The version of the change template document to run during the runbook
     -- workflow.
     documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the change request associated with the runbook workflow to
-    -- be run.
-    changeRequestName :: Prelude.Maybe Prelude.Text,
-    -- | Optional metadata that you assign to a resource. You can specify a
-    -- maximum of five tags for a change request. Tags enable you to categorize
-    -- a resource in different ways, such as by purpose, owner, or environment.
-    -- For example, you might want to tag a change request to identify an
-    -- environment or target Amazon Web Services Region. In this case, you
-    -- could specify the following key-value pairs:
-    --
-    -- -   @Key=Environment,Value=Production@
-    --
-    -- -   @Key=Region,Value=us-east-2@
-    tags :: Prelude.Maybe [Tag],
+    -- | A key-value map of parameters that match the declared parameters in the
+    -- change template document.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The name of the change template document to run during the runbook
     -- workflow.
     documentName :: Prelude.Text,
@@ -130,18 +130,23 @@ data StartChangeRequestExecution = StartChangeRequestExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scheduledTime', 'startChangeRequestExecution_scheduledTime' - The date and time specified in the change request to run the Automation
--- runbooks.
+-- 'tags', 'startChangeRequestExecution_tags' - Optional metadata that you assign to a resource. You can specify a
+-- maximum of five tags for a change request. Tags enable you to categorize
+-- a resource in different ways, such as by purpose, owner, or environment.
+-- For example, you might want to tag a change request to identify an
+-- environment or target Amazon Web Services Region. In this case, you
+-- could specify the following key-value pairs:
 --
--- The Automation runbooks specified for the runbook workflow can\'t run
--- until all required approvals for the change request have been received.
+-- -   @Key=Environment,Value=Production@
+--
+-- -   @Key=Region,Value=us-east-2@
+--
+-- 'clientToken', 'startChangeRequestExecution_clientToken' - The user-provided idempotency token. The token must be unique, is case
+-- insensitive, enforces the UUID format, and can\'t be reused.
 --
 -- 'changeDetails', 'startChangeRequestExecution_changeDetails' - User-provided details about the change. If no details are provided,
 -- content specified in the __Template information__ section of the
 -- associated change template is added.
---
--- 'clientToken', 'startChangeRequestExecution_clientToken' - The user-provided idempotency token. The token must be unique, is case
--- insensitive, enforces the UUID format, and can\'t be reused.
 --
 -- 'autoApprove', 'startChangeRequestExecution_autoApprove' - Indicates whether the change request can be approved automatically
 -- without the need for manual approvals.
@@ -156,29 +161,24 @@ data StartChangeRequestExecution = StartChangeRequestExecution'
 -- don\'t, the change won\'t be processed until the calendar state is again
 -- @OPEN@.
 --
+-- 'changeRequestName', 'startChangeRequestExecution_changeRequestName' - The name of the change request associated with the runbook workflow to
+-- be run.
+--
 -- 'scheduledEndTime', 'startChangeRequestExecution_scheduledEndTime' - The time that the requester expects the runbook workflow related to the
 -- change request to complete. The time is an estimate only that the
 -- requester provides for reviewers.
 --
--- 'parameters', 'startChangeRequestExecution_parameters' - A key-value map of parameters that match the declared parameters in the
--- change template document.
+-- 'scheduledTime', 'startChangeRequestExecution_scheduledTime' - The date and time specified in the change request to run the Automation
+-- runbooks.
+--
+-- The Automation runbooks specified for the runbook workflow can\'t run
+-- until all required approvals for the change request have been received.
 --
 -- 'documentVersion', 'startChangeRequestExecution_documentVersion' - The version of the change template document to run during the runbook
 -- workflow.
 --
--- 'changeRequestName', 'startChangeRequestExecution_changeRequestName' - The name of the change request associated with the runbook workflow to
--- be run.
---
--- 'tags', 'startChangeRequestExecution_tags' - Optional metadata that you assign to a resource. You can specify a
--- maximum of five tags for a change request. Tags enable you to categorize
--- a resource in different ways, such as by purpose, owner, or environment.
--- For example, you might want to tag a change request to identify an
--- environment or target Amazon Web Services Region. In this case, you
--- could specify the following key-value pairs:
---
--- -   @Key=Environment,Value=Production@
---
--- -   @Key=Region,Value=us-east-2@
+-- 'parameters', 'startChangeRequestExecution_parameters' - A key-value map of parameters that match the declared parameters in the
+-- change template document.
 --
 -- 'documentName', 'startChangeRequestExecution_documentName' - The name of the change template document to run during the runbook
 -- workflow.
@@ -198,38 +198,43 @@ newStartChangeRequestExecution
   pDocumentName_
   pRunbooks_ =
     StartChangeRequestExecution'
-      { scheduledTime =
+      { tags =
           Prelude.Nothing,
-        changeDetails = Prelude.Nothing,
         clientToken = Prelude.Nothing,
+        changeDetails = Prelude.Nothing,
         autoApprove = Prelude.Nothing,
-        scheduledEndTime = Prelude.Nothing,
-        parameters = Prelude.Nothing,
-        documentVersion = Prelude.Nothing,
         changeRequestName = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        scheduledEndTime = Prelude.Nothing,
+        scheduledTime = Prelude.Nothing,
+        documentVersion = Prelude.Nothing,
+        parameters = Prelude.Nothing,
         documentName = pDocumentName_,
         runbooks = Lens.coerced Lens.# pRunbooks_
       }
 
--- | The date and time specified in the change request to run the Automation
--- runbooks.
+-- | Optional metadata that you assign to a resource. You can specify a
+-- maximum of five tags for a change request. Tags enable you to categorize
+-- a resource in different ways, such as by purpose, owner, or environment.
+-- For example, you might want to tag a change request to identify an
+-- environment or target Amazon Web Services Region. In this case, you
+-- could specify the following key-value pairs:
 --
--- The Automation runbooks specified for the runbook workflow can\'t run
--- until all required approvals for the change request have been received.
-startChangeRequestExecution_scheduledTime :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe Prelude.UTCTime)
-startChangeRequestExecution_scheduledTime = Lens.lens (\StartChangeRequestExecution' {scheduledTime} -> scheduledTime) (\s@StartChangeRequestExecution' {} a -> s {scheduledTime = a} :: StartChangeRequestExecution) Prelude.. Lens.mapping Core._Time
+-- -   @Key=Environment,Value=Production@
+--
+-- -   @Key=Region,Value=us-east-2@
+startChangeRequestExecution_tags :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe [Tag])
+startChangeRequestExecution_tags = Lens.lens (\StartChangeRequestExecution' {tags} -> tags) (\s@StartChangeRequestExecution' {} a -> s {tags = a} :: StartChangeRequestExecution) Prelude.. Lens.mapping Lens.coerced
+
+-- | The user-provided idempotency token. The token must be unique, is case
+-- insensitive, enforces the UUID format, and can\'t be reused.
+startChangeRequestExecution_clientToken :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe Prelude.Text)
+startChangeRequestExecution_clientToken = Lens.lens (\StartChangeRequestExecution' {clientToken} -> clientToken) (\s@StartChangeRequestExecution' {} a -> s {clientToken = a} :: StartChangeRequestExecution)
 
 -- | User-provided details about the change. If no details are provided,
 -- content specified in the __Template information__ section of the
 -- associated change template is added.
 startChangeRequestExecution_changeDetails :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe Prelude.Text)
 startChangeRequestExecution_changeDetails = Lens.lens (\StartChangeRequestExecution' {changeDetails} -> changeDetails) (\s@StartChangeRequestExecution' {} a -> s {changeDetails = a} :: StartChangeRequestExecution)
-
--- | The user-provided idempotency token. The token must be unique, is case
--- insensitive, enforces the UUID format, and can\'t be reused.
-startChangeRequestExecution_clientToken :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe Prelude.Text)
-startChangeRequestExecution_clientToken = Lens.lens (\StartChangeRequestExecution' {clientToken} -> clientToken) (\s@StartChangeRequestExecution' {} a -> s {clientToken = a} :: StartChangeRequestExecution)
 
 -- | Indicates whether the change request can be approved automatically
 -- without the need for manual approvals.
@@ -246,39 +251,34 @@ startChangeRequestExecution_clientToken = Lens.lens (\StartChangeRequestExecutio
 startChangeRequestExecution_autoApprove :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe Prelude.Bool)
 startChangeRequestExecution_autoApprove = Lens.lens (\StartChangeRequestExecution' {autoApprove} -> autoApprove) (\s@StartChangeRequestExecution' {} a -> s {autoApprove = a} :: StartChangeRequestExecution)
 
+-- | The name of the change request associated with the runbook workflow to
+-- be run.
+startChangeRequestExecution_changeRequestName :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe Prelude.Text)
+startChangeRequestExecution_changeRequestName = Lens.lens (\StartChangeRequestExecution' {changeRequestName} -> changeRequestName) (\s@StartChangeRequestExecution' {} a -> s {changeRequestName = a} :: StartChangeRequestExecution)
+
 -- | The time that the requester expects the runbook workflow related to the
 -- change request to complete. The time is an estimate only that the
 -- requester provides for reviewers.
 startChangeRequestExecution_scheduledEndTime :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe Prelude.UTCTime)
 startChangeRequestExecution_scheduledEndTime = Lens.lens (\StartChangeRequestExecution' {scheduledEndTime} -> scheduledEndTime) (\s@StartChangeRequestExecution' {} a -> s {scheduledEndTime = a} :: StartChangeRequestExecution) Prelude.. Lens.mapping Core._Time
 
--- | A key-value map of parameters that match the declared parameters in the
--- change template document.
-startChangeRequestExecution_parameters :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-startChangeRequestExecution_parameters = Lens.lens (\StartChangeRequestExecution' {parameters} -> parameters) (\s@StartChangeRequestExecution' {} a -> s {parameters = a} :: StartChangeRequestExecution) Prelude.. Lens.mapping Lens.coerced
+-- | The date and time specified in the change request to run the Automation
+-- runbooks.
+--
+-- The Automation runbooks specified for the runbook workflow can\'t run
+-- until all required approvals for the change request have been received.
+startChangeRequestExecution_scheduledTime :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe Prelude.UTCTime)
+startChangeRequestExecution_scheduledTime = Lens.lens (\StartChangeRequestExecution' {scheduledTime} -> scheduledTime) (\s@StartChangeRequestExecution' {} a -> s {scheduledTime = a} :: StartChangeRequestExecution) Prelude.. Lens.mapping Core._Time
 
 -- | The version of the change template document to run during the runbook
 -- workflow.
 startChangeRequestExecution_documentVersion :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe Prelude.Text)
 startChangeRequestExecution_documentVersion = Lens.lens (\StartChangeRequestExecution' {documentVersion} -> documentVersion) (\s@StartChangeRequestExecution' {} a -> s {documentVersion = a} :: StartChangeRequestExecution)
 
--- | The name of the change request associated with the runbook workflow to
--- be run.
-startChangeRequestExecution_changeRequestName :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe Prelude.Text)
-startChangeRequestExecution_changeRequestName = Lens.lens (\StartChangeRequestExecution' {changeRequestName} -> changeRequestName) (\s@StartChangeRequestExecution' {} a -> s {changeRequestName = a} :: StartChangeRequestExecution)
-
--- | Optional metadata that you assign to a resource. You can specify a
--- maximum of five tags for a change request. Tags enable you to categorize
--- a resource in different ways, such as by purpose, owner, or environment.
--- For example, you might want to tag a change request to identify an
--- environment or target Amazon Web Services Region. In this case, you
--- could specify the following key-value pairs:
---
--- -   @Key=Environment,Value=Production@
---
--- -   @Key=Region,Value=us-east-2@
-startChangeRequestExecution_tags :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe [Tag])
-startChangeRequestExecution_tags = Lens.lens (\StartChangeRequestExecution' {tags} -> tags) (\s@StartChangeRequestExecution' {} a -> s {tags = a} :: StartChangeRequestExecution) Prelude.. Lens.mapping Lens.coerced
+-- | A key-value map of parameters that match the declared parameters in the
+-- change template document.
+startChangeRequestExecution_parameters :: Lens.Lens' StartChangeRequestExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+startChangeRequestExecution_parameters = Lens.lens (\StartChangeRequestExecution' {parameters} -> parameters) (\s@StartChangeRequestExecution' {} a -> s {parameters = a} :: StartChangeRequestExecution) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the change template document to run during the runbook
 -- workflow.
@@ -308,29 +308,29 @@ instance Core.AWSRequest StartChangeRequestExecution where
 
 instance Prelude.Hashable StartChangeRequestExecution where
   hashWithSalt _salt StartChangeRequestExecution' {..} =
-    _salt `Prelude.hashWithSalt` scheduledTime
-      `Prelude.hashWithSalt` changeDetails
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` changeDetails
       `Prelude.hashWithSalt` autoApprove
-      `Prelude.hashWithSalt` scheduledEndTime
-      `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` changeRequestName
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` scheduledEndTime
+      `Prelude.hashWithSalt` scheduledTime
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` documentName
       `Prelude.hashWithSalt` runbooks
 
 instance Prelude.NFData StartChangeRequestExecution where
   rnf StartChangeRequestExecution' {..} =
-    Prelude.rnf scheduledTime
-      `Prelude.seq` Prelude.rnf changeDetails
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf changeDetails
       `Prelude.seq` Prelude.rnf autoApprove
-      `Prelude.seq` Prelude.rnf scheduledEndTime
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf documentVersion
       `Prelude.seq` Prelude.rnf changeRequestName
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf scheduledEndTime
+      `Prelude.seq` Prelude.rnf scheduledTime
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf documentName
       `Prelude.seq` Prelude.rnf runbooks
 
@@ -353,18 +353,18 @@ instance Core.ToJSON StartChangeRequestExecution where
   toJSON StartChangeRequestExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ScheduledTime" Core..=) Prelude.<$> scheduledTime,
-            ("ChangeDetails" Core..=) Prelude.<$> changeDetails,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("ChangeDetails" Core..=) Prelude.<$> changeDetails,
             ("AutoApprove" Core..=) Prelude.<$> autoApprove,
-            ("ScheduledEndTime" Core..=)
-              Prelude.<$> scheduledEndTime,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            ("DocumentVersion" Core..=)
-              Prelude.<$> documentVersion,
             ("ChangeRequestName" Core..=)
               Prelude.<$> changeRequestName,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("ScheduledEndTime" Core..=)
+              Prelude.<$> scheduledEndTime,
+            ("ScheduledTime" Core..=) Prelude.<$> scheduledTime,
+            ("DocumentVersion" Core..=)
+              Prelude.<$> documentVersion,
+            ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just ("DocumentName" Core..= documentName),
             Prelude.Just ("Runbooks" Core..= runbooks)
           ]

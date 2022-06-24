@@ -88,16 +88,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTarget' smart constructor.
 data Target = Target'
-  { -- | User-defined criteria that maps to @Key@. For example, if you specified
+  { -- | User-defined criteria for sending commands that target instances that
+    -- meet the criteria.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | User-defined criteria that maps to @Key@. For example, if you specified
     -- @tag:ServerRole@, you could specify @value:WebServer@ to run a command
     -- on instances that include EC2 tags of @ServerRole,WebServer@.
     --
     -- Depending on the type of target, the maximum number of values for a key
     -- might be lower than the global maximum of 50.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | User-defined criteria for sending commands that target instances that
-    -- meet the criteria.
-    key :: Prelude.Maybe Prelude.Text
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,22 +109,27 @@ data Target = Target'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'key', 'target_key' - User-defined criteria for sending commands that target instances that
+-- meet the criteria.
+--
 -- 'values', 'target_values' - User-defined criteria that maps to @Key@. For example, if you specified
 -- @tag:ServerRole@, you could specify @value:WebServer@ to run a command
 -- on instances that include EC2 tags of @ServerRole,WebServer@.
 --
 -- Depending on the type of target, the maximum number of values for a key
 -- might be lower than the global maximum of 50.
---
--- 'key', 'target_key' - User-defined criteria for sending commands that target instances that
--- meet the criteria.
 newTarget ::
   Target
 newTarget =
   Target'
-    { values = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing
     }
+
+-- | User-defined criteria for sending commands that target instances that
+-- meet the criteria.
+target_key :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
+target_key = Lens.lens (\Target' {key} -> key) (\s@Target' {} a -> s {key = a} :: Target)
 
 -- | User-defined criteria that maps to @Key@. For example, if you specified
 -- @tag:ServerRole@, you could specify @value:WebServer@ to run a command
@@ -135,35 +140,30 @@ newTarget =
 target_values :: Lens.Lens' Target (Prelude.Maybe [Prelude.Text])
 target_values = Lens.lens (\Target' {values} -> values) (\s@Target' {} a -> s {values = a} :: Target) Prelude.. Lens.mapping Lens.coerced
 
--- | User-defined criteria for sending commands that target instances that
--- meet the criteria.
-target_key :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
-target_key = Lens.lens (\Target' {key} -> key) (\s@Target' {} a -> s {key = a} :: Target)
-
 instance Core.FromJSON Target where
   parseJSON =
     Core.withObject
       "Target"
       ( \x ->
           Target'
-            Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Key")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Target where
   hashWithSalt _salt Target' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData Target where
   rnf Target' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON Target where
   toJSON Target' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Values" Core..=) Prelude.<$> values,
-            ("Key" Core..=) Prelude.<$> key
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

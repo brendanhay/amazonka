@@ -40,8 +40,8 @@ module Amazonka.SSM.DescribeEffectivePatchesForPatchBaseline
     newDescribeEffectivePatchesForPatchBaselineResponse,
 
     -- * Response Lenses
-    describeEffectivePatchesForPatchBaselineResponse_effectivePatches,
     describeEffectivePatchesForPatchBaselineResponse_nextToken,
+    describeEffectivePatchesForPatchBaselineResponse_effectivePatches,
     describeEffectivePatchesForPatchBaselineResponse_httpStatus,
   )
 where
@@ -143,10 +143,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEffectivePatchesForPatchBaselineResponse'
-            Prelude.<$> ( x Core..?> "EffectivePatches"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "EffectivePatches"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,11 +215,11 @@ instance
 
 -- | /See:/ 'newDescribeEffectivePatchesForPatchBaselineResponse' smart constructor.
 data DescribeEffectivePatchesForPatchBaselineResponse = DescribeEffectivePatchesForPatchBaselineResponse'
-  { -- | An array of patches and patch status.
-    effectivePatches :: Prelude.Maybe [EffectivePatch],
-    -- | The token to use when requesting the next set of items. If there are no
+  { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of patches and patch status.
+    effectivePatches :: Prelude.Maybe [EffectivePatch],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -233,10 +233,10 @@ data DescribeEffectivePatchesForPatchBaselineResponse = DescribeEffectivePatches
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'effectivePatches', 'describeEffectivePatchesForPatchBaselineResponse_effectivePatches' - An array of patches and patch status.
---
 -- 'nextToken', 'describeEffectivePatchesForPatchBaselineResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
+--
+-- 'effectivePatches', 'describeEffectivePatchesForPatchBaselineResponse_effectivePatches' - An array of patches and patch status.
 --
 -- 'httpStatus', 'describeEffectivePatchesForPatchBaselineResponse_httpStatus' - The response's http status code.
 newDescribeEffectivePatchesForPatchBaselineResponse ::
@@ -246,21 +246,21 @@ newDescribeEffectivePatchesForPatchBaselineResponse ::
 newDescribeEffectivePatchesForPatchBaselineResponse
   pHttpStatus_ =
     DescribeEffectivePatchesForPatchBaselineResponse'
-      { effectivePatches =
+      { nextToken =
           Prelude.Nothing,
-        nextToken =
+        effectivePatches =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | An array of patches and patch status.
-describeEffectivePatchesForPatchBaselineResponse_effectivePatches :: Lens.Lens' DescribeEffectivePatchesForPatchBaselineResponse (Prelude.Maybe [EffectivePatch])
-describeEffectivePatchesForPatchBaselineResponse_effectivePatches = Lens.lens (\DescribeEffectivePatchesForPatchBaselineResponse' {effectivePatches} -> effectivePatches) (\s@DescribeEffectivePatchesForPatchBaselineResponse' {} a -> s {effectivePatches = a} :: DescribeEffectivePatchesForPatchBaselineResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 describeEffectivePatchesForPatchBaselineResponse_nextToken :: Lens.Lens' DescribeEffectivePatchesForPatchBaselineResponse (Prelude.Maybe Prelude.Text)
 describeEffectivePatchesForPatchBaselineResponse_nextToken = Lens.lens (\DescribeEffectivePatchesForPatchBaselineResponse' {nextToken} -> nextToken) (\s@DescribeEffectivePatchesForPatchBaselineResponse' {} a -> s {nextToken = a} :: DescribeEffectivePatchesForPatchBaselineResponse)
+
+-- | An array of patches and patch status.
+describeEffectivePatchesForPatchBaselineResponse_effectivePatches :: Lens.Lens' DescribeEffectivePatchesForPatchBaselineResponse (Prelude.Maybe [EffectivePatch])
+describeEffectivePatchesForPatchBaselineResponse_effectivePatches = Lens.lens (\DescribeEffectivePatchesForPatchBaselineResponse' {effectivePatches} -> effectivePatches) (\s@DescribeEffectivePatchesForPatchBaselineResponse' {} a -> s {effectivePatches = a} :: DescribeEffectivePatchesForPatchBaselineResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEffectivePatchesForPatchBaselineResponse_httpStatus :: Lens.Lens' DescribeEffectivePatchesForPatchBaselineResponse Prelude.Int
@@ -272,6 +272,6 @@ instance
   where
   rnf
     DescribeEffectivePatchesForPatchBaselineResponse' {..} =
-      Prelude.rnf effectivePatches
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf effectivePatches
         `Prelude.seq` Prelude.rnf httpStatus

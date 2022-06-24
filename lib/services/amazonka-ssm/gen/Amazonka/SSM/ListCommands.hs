@@ -30,10 +30,10 @@ module Amazonka.SSM.ListCommands
     newListCommands,
 
     -- * Request Lenses
-    listCommands_instanceId,
-    listCommands_filters,
     listCommands_nextToken,
+    listCommands_filters,
     listCommands_commandId,
+    listCommands_instanceId,
     listCommands_maxResults,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.SSM.ListCommands
     newListCommandsResponse,
 
     -- * Response Lenses
-    listCommandsResponse_commands,
     listCommandsResponse_nextToken,
+    listCommandsResponse_commands,
     listCommandsResponse_httpStatus,
   )
 where
@@ -56,20 +56,20 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newListCommands' smart constructor.
 data ListCommands = ListCommands'
-  { -- | (Optional) Lists commands issued against this instance ID.
+  { -- | (Optional) The token for the next set of items to return. (You received
+    -- this token from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) One or more filters. Use a filter to return a more specific
+    -- list of results.
+    filters :: Prelude.Maybe (Prelude.NonEmpty CommandFilter),
+    -- | (Optional) If provided, lists only the specified command.
+    commandId :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) Lists commands issued against this instance ID.
     --
     -- You can\'t specify an instance ID in the same command that you specify
     -- @Status@ = @Pending@. This is because the command hasn\'t reached the
     -- instance yet.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) One or more filters. Use a filter to return a more specific
-    -- list of results.
-    filters :: Prelude.Maybe (Prelude.NonEmpty CommandFilter),
-    -- | (Optional) The token for the next set of items to return. (You received
-    -- this token from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) If provided, lists only the specified command.
-    commandId :: Prelude.Maybe Prelude.Text,
     -- | (Optional) The maximum number of items to return for this call. The call
     -- also returns a token that you can specify in a subsequent call to get
     -- the next set of results.
@@ -85,19 +85,19 @@ data ListCommands = ListCommands'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listCommands_nextToken' - (Optional) The token for the next set of items to return. (You received
+-- this token from a previous call.)
+--
+-- 'filters', 'listCommands_filters' - (Optional) One or more filters. Use a filter to return a more specific
+-- list of results.
+--
+-- 'commandId', 'listCommands_commandId' - (Optional) If provided, lists only the specified command.
+--
 -- 'instanceId', 'listCommands_instanceId' - (Optional) Lists commands issued against this instance ID.
 --
 -- You can\'t specify an instance ID in the same command that you specify
 -- @Status@ = @Pending@. This is because the command hasn\'t reached the
 -- instance yet.
---
--- 'filters', 'listCommands_filters' - (Optional) One or more filters. Use a filter to return a more specific
--- list of results.
---
--- 'nextToken', 'listCommands_nextToken' - (Optional) The token for the next set of items to return. (You received
--- this token from a previous call.)
---
--- 'commandId', 'listCommands_commandId' - (Optional) If provided, lists only the specified command.
 --
 -- 'maxResults', 'listCommands_maxResults' - (Optional) The maximum number of items to return for this call. The call
 -- also returns a token that you can specify in a subsequent call to get
@@ -106,12 +106,26 @@ newListCommands ::
   ListCommands
 newListCommands =
   ListCommands'
-    { instanceId = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       commandId = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | (Optional) The token for the next set of items to return. (You received
+-- this token from a previous call.)
+listCommands_nextToken :: Lens.Lens' ListCommands (Prelude.Maybe Prelude.Text)
+listCommands_nextToken = Lens.lens (\ListCommands' {nextToken} -> nextToken) (\s@ListCommands' {} a -> s {nextToken = a} :: ListCommands)
+
+-- | (Optional) One or more filters. Use a filter to return a more specific
+-- list of results.
+listCommands_filters :: Lens.Lens' ListCommands (Prelude.Maybe (Prelude.NonEmpty CommandFilter))
+listCommands_filters = Lens.lens (\ListCommands' {filters} -> filters) (\s@ListCommands' {} a -> s {filters = a} :: ListCommands) Prelude.. Lens.mapping Lens.coerced
+
+-- | (Optional) If provided, lists only the specified command.
+listCommands_commandId :: Lens.Lens' ListCommands (Prelude.Maybe Prelude.Text)
+listCommands_commandId = Lens.lens (\ListCommands' {commandId} -> commandId) (\s@ListCommands' {} a -> s {commandId = a} :: ListCommands)
 
 -- | (Optional) Lists commands issued against this instance ID.
 --
@@ -120,20 +134,6 @@ newListCommands =
 -- instance yet.
 listCommands_instanceId :: Lens.Lens' ListCommands (Prelude.Maybe Prelude.Text)
 listCommands_instanceId = Lens.lens (\ListCommands' {instanceId} -> instanceId) (\s@ListCommands' {} a -> s {instanceId = a} :: ListCommands)
-
--- | (Optional) One or more filters. Use a filter to return a more specific
--- list of results.
-listCommands_filters :: Lens.Lens' ListCommands (Prelude.Maybe (Prelude.NonEmpty CommandFilter))
-listCommands_filters = Lens.lens (\ListCommands' {filters} -> filters) (\s@ListCommands' {} a -> s {filters = a} :: ListCommands) Prelude.. Lens.mapping Lens.coerced
-
--- | (Optional) The token for the next set of items to return. (You received
--- this token from a previous call.)
-listCommands_nextToken :: Lens.Lens' ListCommands (Prelude.Maybe Prelude.Text)
-listCommands_nextToken = Lens.lens (\ListCommands' {nextToken} -> nextToken) (\s@ListCommands' {} a -> s {nextToken = a} :: ListCommands)
-
--- | (Optional) If provided, lists only the specified command.
-listCommands_commandId :: Lens.Lens' ListCommands (Prelude.Maybe Prelude.Text)
-listCommands_commandId = Lens.lens (\ListCommands' {commandId} -> commandId) (\s@ListCommands' {} a -> s {commandId = a} :: ListCommands)
 
 -- | (Optional) The maximum number of items to return for this call. The call
 -- also returns a token that you can specify in a subsequent call to get
@@ -167,25 +167,25 @@ instance Core.AWSRequest ListCommands where
     Response.receiveJSON
       ( \s h x ->
           ListCommandsResponse'
-            Prelude.<$> (x Core..?> "Commands" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Commands" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCommands where
   hashWithSalt _salt ListCommands' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` commandId
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListCommands where
   rnf ListCommands' {..} =
-    Prelude.rnf instanceId
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf commandId
+      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListCommands where
@@ -205,10 +205,10 @@ instance Core.ToJSON ListCommands where
   toJSON ListCommands' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("CommandId" Core..=) Prelude.<$> commandId,
+            ("InstanceId" Core..=) Prelude.<$> instanceId,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -221,11 +221,11 @@ instance Core.ToQuery ListCommands where
 
 -- | /See:/ 'newListCommandsResponse' smart constructor.
 data ListCommandsResponse = ListCommandsResponse'
-  { -- | (Optional) The list of commands requested by the user.
-    commands :: Prelude.Maybe [Command],
-    -- | (Optional) The token for the next set of items to return. (You received
+  { -- | (Optional) The token for the next set of items to return. (You received
     -- this token from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) The list of commands requested by the user.
+    commands :: Prelude.Maybe [Command],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -239,10 +239,10 @@ data ListCommandsResponse = ListCommandsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'commands', 'listCommandsResponse_commands' - (Optional) The list of commands requested by the user.
---
 -- 'nextToken', 'listCommandsResponse_nextToken' - (Optional) The token for the next set of items to return. (You received
 -- this token from a previous call.)
+--
+-- 'commands', 'listCommandsResponse_commands' - (Optional) The list of commands requested by the user.
 --
 -- 'httpStatus', 'listCommandsResponse_httpStatus' - The response's http status code.
 newListCommandsResponse ::
@@ -251,19 +251,19 @@ newListCommandsResponse ::
   ListCommandsResponse
 newListCommandsResponse pHttpStatus_ =
   ListCommandsResponse'
-    { commands = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      commands = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | (Optional) The list of commands requested by the user.
-listCommandsResponse_commands :: Lens.Lens' ListCommandsResponse (Prelude.Maybe [Command])
-listCommandsResponse_commands = Lens.lens (\ListCommandsResponse' {commands} -> commands) (\s@ListCommandsResponse' {} a -> s {commands = a} :: ListCommandsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional) The token for the next set of items to return. (You received
 -- this token from a previous call.)
 listCommandsResponse_nextToken :: Lens.Lens' ListCommandsResponse (Prelude.Maybe Prelude.Text)
 listCommandsResponse_nextToken = Lens.lens (\ListCommandsResponse' {nextToken} -> nextToken) (\s@ListCommandsResponse' {} a -> s {nextToken = a} :: ListCommandsResponse)
+
+-- | (Optional) The list of commands requested by the user.
+listCommandsResponse_commands :: Lens.Lens' ListCommandsResponse (Prelude.Maybe [Command])
+listCommandsResponse_commands = Lens.lens (\ListCommandsResponse' {commands} -> commands) (\s@ListCommandsResponse' {} a -> s {commands = a} :: ListCommandsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCommandsResponse_httpStatus :: Lens.Lens' ListCommandsResponse Prelude.Int
@@ -271,6 +271,6 @@ listCommandsResponse_httpStatus = Lens.lens (\ListCommandsResponse' {httpStatus}
 
 instance Prelude.NFData ListCommandsResponse where
   rnf ListCommandsResponse' {..} =
-    Prelude.rnf commands
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf commands
       `Prelude.seq` Prelude.rnf httpStatus

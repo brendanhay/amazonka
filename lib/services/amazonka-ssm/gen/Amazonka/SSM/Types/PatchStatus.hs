@@ -29,13 +29,13 @@ import Amazonka.SSM.Types.PatchDeploymentStatus
 --
 -- /See:/ 'newPatchStatus' smart constructor.
 data PatchStatus = PatchStatus'
-  { -- | The date the patch was approved (or will be approved if the status is
-    -- @PENDING_APPROVAL@).
-    approvalDate :: Prelude.Maybe Core.POSIX,
-    -- | The approval status of a patch.
+  { -- | The approval status of a patch.
     deploymentStatus :: Prelude.Maybe PatchDeploymentStatus,
     -- | The compliance severity level for a patch.
-    complianceLevel :: Prelude.Maybe PatchComplianceLevel
+    complianceLevel :: Prelude.Maybe PatchComplianceLevel,
+    -- | The date the patch was approved (or will be approved if the status is
+    -- @PENDING_APPROVAL@).
+    approvalDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,25 +47,20 @@ data PatchStatus = PatchStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'approvalDate', 'patchStatus_approvalDate' - The date the patch was approved (or will be approved if the status is
--- @PENDING_APPROVAL@).
---
 -- 'deploymentStatus', 'patchStatus_deploymentStatus' - The approval status of a patch.
 --
 -- 'complianceLevel', 'patchStatus_complianceLevel' - The compliance severity level for a patch.
+--
+-- 'approvalDate', 'patchStatus_approvalDate' - The date the patch was approved (or will be approved if the status is
+-- @PENDING_APPROVAL@).
 newPatchStatus ::
   PatchStatus
 newPatchStatus =
   PatchStatus'
-    { approvalDate = Prelude.Nothing,
-      deploymentStatus = Prelude.Nothing,
-      complianceLevel = Prelude.Nothing
+    { deploymentStatus = Prelude.Nothing,
+      complianceLevel = Prelude.Nothing,
+      approvalDate = Prelude.Nothing
     }
-
--- | The date the patch was approved (or will be approved if the status is
--- @PENDING_APPROVAL@).
-patchStatus_approvalDate :: Lens.Lens' PatchStatus (Prelude.Maybe Prelude.UTCTime)
-patchStatus_approvalDate = Lens.lens (\PatchStatus' {approvalDate} -> approvalDate) (\s@PatchStatus' {} a -> s {approvalDate = a} :: PatchStatus) Prelude.. Lens.mapping Core._Time
 
 -- | The approval status of a patch.
 patchStatus_deploymentStatus :: Lens.Lens' PatchStatus (Prelude.Maybe PatchDeploymentStatus)
@@ -75,25 +70,30 @@ patchStatus_deploymentStatus = Lens.lens (\PatchStatus' {deploymentStatus} -> de
 patchStatus_complianceLevel :: Lens.Lens' PatchStatus (Prelude.Maybe PatchComplianceLevel)
 patchStatus_complianceLevel = Lens.lens (\PatchStatus' {complianceLevel} -> complianceLevel) (\s@PatchStatus' {} a -> s {complianceLevel = a} :: PatchStatus)
 
+-- | The date the patch was approved (or will be approved if the status is
+-- @PENDING_APPROVAL@).
+patchStatus_approvalDate :: Lens.Lens' PatchStatus (Prelude.Maybe Prelude.UTCTime)
+patchStatus_approvalDate = Lens.lens (\PatchStatus' {approvalDate} -> approvalDate) (\s@PatchStatus' {} a -> s {approvalDate = a} :: PatchStatus) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON PatchStatus where
   parseJSON =
     Core.withObject
       "PatchStatus"
       ( \x ->
           PatchStatus'
-            Prelude.<$> (x Core..:? "ApprovalDate")
-            Prelude.<*> (x Core..:? "DeploymentStatus")
+            Prelude.<$> (x Core..:? "DeploymentStatus")
             Prelude.<*> (x Core..:? "ComplianceLevel")
+            Prelude.<*> (x Core..:? "ApprovalDate")
       )
 
 instance Prelude.Hashable PatchStatus where
   hashWithSalt _salt PatchStatus' {..} =
-    _salt `Prelude.hashWithSalt` approvalDate
-      `Prelude.hashWithSalt` deploymentStatus
+    _salt `Prelude.hashWithSalt` deploymentStatus
       `Prelude.hashWithSalt` complianceLevel
+      `Prelude.hashWithSalt` approvalDate
 
 instance Prelude.NFData PatchStatus where
   rnf PatchStatus' {..} =
-    Prelude.rnf approvalDate
-      `Prelude.seq` Prelude.rnf deploymentStatus
+    Prelude.rnf deploymentStatus
       `Prelude.seq` Prelude.rnf complianceLevel
+      `Prelude.seq` Prelude.rnf approvalDate

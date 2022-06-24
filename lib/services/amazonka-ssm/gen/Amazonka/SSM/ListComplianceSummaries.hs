@@ -32,8 +32,8 @@ module Amazonka.SSM.ListComplianceSummaries
     newListComplianceSummaries,
 
     -- * Request Lenses
-    listComplianceSummaries_filters,
     listComplianceSummaries_nextToken,
+    listComplianceSummaries_filters,
     listComplianceSummaries_maxResults,
 
     -- * Destructuring the Response
@@ -56,12 +56,12 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newListComplianceSummaries' smart constructor.
 data ListComplianceSummaries = ListComplianceSummaries'
-  { -- | One or more compliance or inventory filters. Use a filter to return a
-    -- more specific list of results.
-    filters :: Prelude.Maybe [ComplianceStringFilter],
-    -- | A token to start the list. Use this token to get the next set of
+  { -- | A token to start the list. Use this token to get the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more compliance or inventory filters. Use a filter to return a
+    -- more specific list of results.
+    filters :: Prelude.Maybe [ComplianceStringFilter],
     -- | The maximum number of items to return for this call. Currently, you can
     -- specify null or 50. The call also returns a token that you can specify
     -- in a subsequent call to get the next set of results.
@@ -77,11 +77,11 @@ data ListComplianceSummaries = ListComplianceSummaries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'listComplianceSummaries_filters' - One or more compliance or inventory filters. Use a filter to return a
--- more specific list of results.
---
 -- 'nextToken', 'listComplianceSummaries_nextToken' - A token to start the list. Use this token to get the next set of
 -- results.
+--
+-- 'filters', 'listComplianceSummaries_filters' - One or more compliance or inventory filters. Use a filter to return a
+-- more specific list of results.
 --
 -- 'maxResults', 'listComplianceSummaries_maxResults' - The maximum number of items to return for this call. Currently, you can
 -- specify null or 50. The call also returns a token that you can specify
@@ -90,20 +90,21 @@ newListComplianceSummaries ::
   ListComplianceSummaries
 newListComplianceSummaries =
   ListComplianceSummaries'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | One or more compliance or inventory filters. Use a filter to return a
--- more specific list of results.
-listComplianceSummaries_filters :: Lens.Lens' ListComplianceSummaries (Prelude.Maybe [ComplianceStringFilter])
-listComplianceSummaries_filters = Lens.lens (\ListComplianceSummaries' {filters} -> filters) (\s@ListComplianceSummaries' {} a -> s {filters = a} :: ListComplianceSummaries) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
 listComplianceSummaries_nextToken :: Lens.Lens' ListComplianceSummaries (Prelude.Maybe Prelude.Text)
 listComplianceSummaries_nextToken = Lens.lens (\ListComplianceSummaries' {nextToken} -> nextToken) (\s@ListComplianceSummaries' {} a -> s {nextToken = a} :: ListComplianceSummaries)
+
+-- | One or more compliance or inventory filters. Use a filter to return a
+-- more specific list of results.
+listComplianceSummaries_filters :: Lens.Lens' ListComplianceSummaries (Prelude.Maybe [ComplianceStringFilter])
+listComplianceSummaries_filters = Lens.lens (\ListComplianceSummaries' {filters} -> filters) (\s@ListComplianceSummaries' {} a -> s {filters = a} :: ListComplianceSummaries) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of items to return for this call. Currently, you can
 -- specify null or 50. The call also returns a token that you can specify
@@ -151,14 +152,14 @@ instance Core.AWSRequest ListComplianceSummaries where
 
 instance Prelude.Hashable ListComplianceSummaries where
   hashWithSalt _salt ListComplianceSummaries' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListComplianceSummaries where
   rnf ListComplianceSummaries' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListComplianceSummaries where
@@ -180,8 +181,8 @@ instance Core.ToJSON ListComplianceSummaries where
   toJSON ListComplianceSummaries' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

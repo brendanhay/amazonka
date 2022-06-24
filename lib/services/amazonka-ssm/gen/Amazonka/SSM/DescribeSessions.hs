@@ -30,8 +30,8 @@ module Amazonka.SSM.DescribeSessions
     newDescribeSessions,
 
     -- * Request Lenses
-    describeSessions_filters,
     describeSessions_nextToken,
+    describeSessions_filters,
     describeSessions_maxResults,
     describeSessions_state,
 
@@ -55,12 +55,12 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeSessions' smart constructor.
 data DescribeSessions = DescribeSessions'
-  { -- | One or more filters to limit the type of sessions returned by the
-    -- request.
-    filters :: Prelude.Maybe (Prelude.NonEmpty SessionFilter),
-    -- | The token for the next set of items to return. (You received this token
+  { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters to limit the type of sessions returned by the
+    -- request.
+    filters :: Prelude.Maybe (Prelude.NonEmpty SessionFilter),
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
@@ -79,11 +79,11 @@ data DescribeSessions = DescribeSessions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'describeSessions_filters' - One or more filters to limit the type of sessions returned by the
--- request.
---
 -- 'nextToken', 'describeSessions_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
+--
+-- 'filters', 'describeSessions_filters' - One or more filters to limit the type of sessions returned by the
+-- request.
 --
 -- 'maxResults', 'describeSessions_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -97,21 +97,21 @@ newDescribeSessions ::
   DescribeSessions
 newDescribeSessions pState_ =
   DescribeSessions'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       state = pState_
     }
-
--- | One or more filters to limit the type of sessions returned by the
--- request.
-describeSessions_filters :: Lens.Lens' DescribeSessions (Prelude.Maybe (Prelude.NonEmpty SessionFilter))
-describeSessions_filters = Lens.lens (\DescribeSessions' {filters} -> filters) (\s@DescribeSessions' {} a -> s {filters = a} :: DescribeSessions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
 describeSessions_nextToken :: Lens.Lens' DescribeSessions (Prelude.Maybe Prelude.Text)
 describeSessions_nextToken = Lens.lens (\DescribeSessions' {nextToken} -> nextToken) (\s@DescribeSessions' {} a -> s {nextToken = a} :: DescribeSessions)
+
+-- | One or more filters to limit the type of sessions returned by the
+-- request.
+describeSessions_filters :: Lens.Lens' DescribeSessions (Prelude.Maybe (Prelude.NonEmpty SessionFilter))
+describeSessions_filters = Lens.lens (\DescribeSessions' {filters} -> filters) (\s@DescribeSessions' {} a -> s {filters = a} :: DescribeSessions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -162,15 +162,15 @@ instance Core.AWSRequest DescribeSessions where
 
 instance Prelude.Hashable DescribeSessions where
   hashWithSalt _salt DescribeSessions' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData DescribeSessions where
   rnf DescribeSessions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf state
 
@@ -191,8 +191,8 @@ instance Core.ToJSON DescribeSessions where
   toJSON DescribeSessions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("State" Core..= state)
           ]

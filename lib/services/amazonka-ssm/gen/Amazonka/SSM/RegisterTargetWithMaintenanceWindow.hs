@@ -28,9 +28,9 @@ module Amazonka.SSM.RegisterTargetWithMaintenanceWindow
 
     -- * Request Lenses
     registerTargetWithMaintenanceWindow_clientToken,
-    registerTargetWithMaintenanceWindow_ownerInformation,
     registerTargetWithMaintenanceWindow_name,
     registerTargetWithMaintenanceWindow_description,
+    registerTargetWithMaintenanceWindow_ownerInformation,
     registerTargetWithMaintenanceWindow_windowId,
     registerTargetWithMaintenanceWindow_resourceType,
     registerTargetWithMaintenanceWindow_targets,
@@ -56,14 +56,14 @@ import Amazonka.SSM.Types
 data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
   { -- | User-provided idempotency token.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | User-provided value that will be included in any Amazon CloudWatch
-    -- Events events raised while running tasks for these targets in this
-    -- maintenance window.
-    ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | An optional name for the target.
     name :: Prelude.Maybe Prelude.Text,
     -- | An optional description for the target.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | User-provided value that will be included in any Amazon CloudWatch
+    -- Events events raised while running tasks for these targets in this
+    -- maintenance window.
+    ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the maintenance window the target should be registered with.
     windowId :: Prelude.Text,
     -- | The type of target being registered with the maintenance window.
@@ -122,13 +122,13 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
 --
 -- 'clientToken', 'registerTargetWithMaintenanceWindow_clientToken' - User-provided idempotency token.
 --
--- 'ownerInformation', 'registerTargetWithMaintenanceWindow_ownerInformation' - User-provided value that will be included in any Amazon CloudWatch
--- Events events raised while running tasks for these targets in this
--- maintenance window.
---
 -- 'name', 'registerTargetWithMaintenanceWindow_name' - An optional name for the target.
 --
 -- 'description', 'registerTargetWithMaintenanceWindow_description' - An optional description for the target.
+--
+-- 'ownerInformation', 'registerTargetWithMaintenanceWindow_ownerInformation' - User-provided value that will be included in any Amazon CloudWatch
+-- Events events raised while running tasks for these targets in this
+-- maintenance window.
 --
 -- 'windowId', 'registerTargetWithMaintenanceWindow_windowId' - The ID of the maintenance window the target should be registered with.
 --
@@ -186,9 +186,9 @@ newRegisterTargetWithMaintenanceWindow
     RegisterTargetWithMaintenanceWindow'
       { clientToken =
           Prelude.Nothing,
-        ownerInformation = Prelude.Nothing,
         name = Prelude.Nothing,
         description = Prelude.Nothing,
+        ownerInformation = Prelude.Nothing,
         windowId = pWindowId_,
         resourceType = pResourceType_,
         targets = Prelude.mempty
@@ -198,12 +198,6 @@ newRegisterTargetWithMaintenanceWindow
 registerTargetWithMaintenanceWindow_clientToken :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTargetWithMaintenanceWindow_clientToken = Lens.lens (\RegisterTargetWithMaintenanceWindow' {clientToken} -> clientToken) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {clientToken = a} :: RegisterTargetWithMaintenanceWindow)
 
--- | User-provided value that will be included in any Amazon CloudWatch
--- Events events raised while running tasks for these targets in this
--- maintenance window.
-registerTargetWithMaintenanceWindow_ownerInformation :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
-registerTargetWithMaintenanceWindow_ownerInformation = Lens.lens (\RegisterTargetWithMaintenanceWindow' {ownerInformation} -> ownerInformation) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {ownerInformation = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
-
 -- | An optional name for the target.
 registerTargetWithMaintenanceWindow_name :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTargetWithMaintenanceWindow_name = Lens.lens (\RegisterTargetWithMaintenanceWindow' {name} -> name) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {name = a} :: RegisterTargetWithMaintenanceWindow)
@@ -211,6 +205,12 @@ registerTargetWithMaintenanceWindow_name = Lens.lens (\RegisterTargetWithMainten
 -- | An optional description for the target.
 registerTargetWithMaintenanceWindow_description :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTargetWithMaintenanceWindow_description = Lens.lens (\RegisterTargetWithMaintenanceWindow' {description} -> description) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {description = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
+
+-- | User-provided value that will be included in any Amazon CloudWatch
+-- Events events raised while running tasks for these targets in this
+-- maintenance window.
+registerTargetWithMaintenanceWindow_ownerInformation :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTargetWithMaintenanceWindow_ownerInformation = Lens.lens (\RegisterTargetWithMaintenanceWindow' {ownerInformation} -> ownerInformation) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {ownerInformation = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the maintenance window the target should be registered with.
 registerTargetWithMaintenanceWindow_windowId :: Lens.Lens' RegisterTargetWithMaintenanceWindow Prelude.Text
@@ -287,9 +287,9 @@ instance
     _salt
     RegisterTargetWithMaintenanceWindow' {..} =
       _salt `Prelude.hashWithSalt` clientToken
-        `Prelude.hashWithSalt` ownerInformation
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` ownerInformation
         `Prelude.hashWithSalt` windowId
         `Prelude.hashWithSalt` resourceType
         `Prelude.hashWithSalt` targets
@@ -300,9 +300,9 @@ instance
   where
   rnf RegisterTargetWithMaintenanceWindow' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf ownerInformation
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf ownerInformation
       `Prelude.seq` Prelude.rnf windowId
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf targets
@@ -333,10 +333,10 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("OwnerInformation" Core..=)
-              Prelude.<$> ownerInformation,
             ("Name" Core..=) Prelude.<$> name,
             ("Description" Core..=) Prelude.<$> description,
+            ("OwnerInformation" Core..=)
+              Prelude.<$> ownerInformation,
             Prelude.Just ("WindowId" Core..= windowId),
             Prelude.Just ("ResourceType" Core..= resourceType),
             Prelude.Just ("Targets" Core..= targets)

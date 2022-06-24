@@ -29,8 +29,8 @@ module Amazonka.SSM.DescribeAssociationExecutionTargets
     newDescribeAssociationExecutionTargets,
 
     -- * Request Lenses
-    describeAssociationExecutionTargets_filters,
     describeAssociationExecutionTargets_nextToken,
+    describeAssociationExecutionTargets_filters,
     describeAssociationExecutionTargets_maxResults,
     describeAssociationExecutionTargets_associationId,
     describeAssociationExecutionTargets_executionId,
@@ -55,7 +55,10 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeAssociationExecutionTargets' smart constructor.
 data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
-  { -- | Filters for the request. You can specify the following filters and
+  { -- | A token to start the list. Use this token to get the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filters for the request. You can specify the following filters and
     -- values.
     --
     -- Status (EQUAL)
@@ -64,9 +67,6 @@ data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
     --
     -- ResourceType (EQUAL)
     filters :: Prelude.Maybe (Prelude.NonEmpty AssociationExecutionTargetsFilter),
-    -- | A token to start the list. Use this token to get the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
@@ -87,6 +87,9 @@ data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeAssociationExecutionTargets_nextToken' - A token to start the list. Use this token to get the next set of
+-- results.
+--
 -- 'filters', 'describeAssociationExecutionTargets_filters' - Filters for the request. You can specify the following filters and
 -- values.
 --
@@ -95,9 +98,6 @@ data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
 -- ResourceId (EQUAL)
 --
 -- ResourceType (EQUAL)
---
--- 'nextToken', 'describeAssociationExecutionTargets_nextToken' - A token to start the list. Use this token to get the next set of
--- results.
 --
 -- 'maxResults', 'describeAssociationExecutionTargets_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -117,13 +117,18 @@ newDescribeAssociationExecutionTargets
   pAssociationId_
   pExecutionId_ =
     DescribeAssociationExecutionTargets'
-      { filters =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        filters = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         associationId = pAssociationId_,
         executionId = pExecutionId_
       }
+
+-- | A token to start the list. Use this token to get the next set of
+-- results.
+describeAssociationExecutionTargets_nextToken :: Lens.Lens' DescribeAssociationExecutionTargets (Prelude.Maybe Prelude.Text)
+describeAssociationExecutionTargets_nextToken = Lens.lens (\DescribeAssociationExecutionTargets' {nextToken} -> nextToken) (\s@DescribeAssociationExecutionTargets' {} a -> s {nextToken = a} :: DescribeAssociationExecutionTargets)
 
 -- | Filters for the request. You can specify the following filters and
 -- values.
@@ -135,11 +140,6 @@ newDescribeAssociationExecutionTargets
 -- ResourceType (EQUAL)
 describeAssociationExecutionTargets_filters :: Lens.Lens' DescribeAssociationExecutionTargets (Prelude.Maybe (Prelude.NonEmpty AssociationExecutionTargetsFilter))
 describeAssociationExecutionTargets_filters = Lens.lens (\DescribeAssociationExecutionTargets' {filters} -> filters) (\s@DescribeAssociationExecutionTargets' {} a -> s {filters = a} :: DescribeAssociationExecutionTargets) Prelude.. Lens.mapping Lens.coerced
-
--- | A token to start the list. Use this token to get the next set of
--- results.
-describeAssociationExecutionTargets_nextToken :: Lens.Lens' DescribeAssociationExecutionTargets (Prelude.Maybe Prelude.Text)
-describeAssociationExecutionTargets_nextToken = Lens.lens (\DescribeAssociationExecutionTargets' {nextToken} -> nextToken) (\s@DescribeAssociationExecutionTargets' {} a -> s {nextToken = a} :: DescribeAssociationExecutionTargets)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -207,8 +207,8 @@ instance
   hashWithSalt
     _salt
     DescribeAssociationExecutionTargets' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` associationId
         `Prelude.hashWithSalt` executionId
@@ -218,8 +218,8 @@ instance
     DescribeAssociationExecutionTargets
   where
   rnf DescribeAssociationExecutionTargets' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf associationId
       `Prelude.seq` Prelude.rnf executionId
@@ -249,8 +249,8 @@ instance
   toJSON DescribeAssociationExecutionTargets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("AssociationId" Core..= associationId),
             Prelude.Just ("ExecutionId" Core..= executionId)

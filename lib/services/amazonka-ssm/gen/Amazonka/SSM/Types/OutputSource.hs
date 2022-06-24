@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutputSource' smart constructor.
 data OutputSource = OutputSource'
-  { -- | The ID of the output source, for example the URL of an S3 bucket.
-    outputSourceId :: Prelude.Maybe Prelude.Text,
-    -- | The type of source where the association execution details are stored,
+  { -- | The type of source where the association execution details are stored,
     -- for example, Amazon S3.
-    outputSourceType :: Prelude.Maybe Prelude.Text
+    outputSourceType :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the output source, for example the URL of an S3 bucket.
+    outputSourceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data OutputSource = OutputSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputSourceId', 'outputSource_outputSourceId' - The ID of the output source, for example the URL of an S3 bucket.
---
 -- 'outputSourceType', 'outputSource_outputSourceType' - The type of source where the association execution details are stored,
 -- for example, Amazon S3.
+--
+-- 'outputSourceId', 'outputSource_outputSourceId' - The ID of the output source, for example the URL of an S3 bucket.
 newOutputSource ::
   OutputSource
 newOutputSource =
   OutputSource'
-    { outputSourceId = Prelude.Nothing,
-      outputSourceType = Prelude.Nothing
+    { outputSourceType = Prelude.Nothing,
+      outputSourceId = Prelude.Nothing
     }
-
--- | The ID of the output source, for example the URL of an S3 bucket.
-outputSource_outputSourceId :: Lens.Lens' OutputSource (Prelude.Maybe Prelude.Text)
-outputSource_outputSourceId = Lens.lens (\OutputSource' {outputSourceId} -> outputSourceId) (\s@OutputSource' {} a -> s {outputSourceId = a} :: OutputSource)
 
 -- | The type of source where the association execution details are stored,
 -- for example, Amazon S3.
 outputSource_outputSourceType :: Lens.Lens' OutputSource (Prelude.Maybe Prelude.Text)
 outputSource_outputSourceType = Lens.lens (\OutputSource' {outputSourceType} -> outputSourceType) (\s@OutputSource' {} a -> s {outputSourceType = a} :: OutputSource)
+
+-- | The ID of the output source, for example the URL of an S3 bucket.
+outputSource_outputSourceId :: Lens.Lens' OutputSource (Prelude.Maybe Prelude.Text)
+outputSource_outputSourceId = Lens.lens (\OutputSource' {outputSourceId} -> outputSourceId) (\s@OutputSource' {} a -> s {outputSourceId = a} :: OutputSource)
 
 instance Core.FromJSON OutputSource where
   parseJSON =
@@ -71,16 +71,16 @@ instance Core.FromJSON OutputSource where
       "OutputSource"
       ( \x ->
           OutputSource'
-            Prelude.<$> (x Core..:? "OutputSourceId")
-            Prelude.<*> (x Core..:? "OutputSourceType")
+            Prelude.<$> (x Core..:? "OutputSourceType")
+            Prelude.<*> (x Core..:? "OutputSourceId")
       )
 
 instance Prelude.Hashable OutputSource where
   hashWithSalt _salt OutputSource' {..} =
-    _salt `Prelude.hashWithSalt` outputSourceId
-      `Prelude.hashWithSalt` outputSourceType
+    _salt `Prelude.hashWithSalt` outputSourceType
+      `Prelude.hashWithSalt` outputSourceId
 
 instance Prelude.NFData OutputSource where
   rnf OutputSource' {..} =
-    Prelude.rnf outputSourceId
-      `Prelude.seq` Prelude.rnf outputSourceType
+    Prelude.rnf outputSourceType
+      `Prelude.seq` Prelude.rnf outputSourceId

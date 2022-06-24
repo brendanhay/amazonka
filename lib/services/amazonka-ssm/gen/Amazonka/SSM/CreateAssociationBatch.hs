@@ -44,8 +44,8 @@ module Amazonka.SSM.CreateAssociationBatch
     newCreateAssociationBatchResponse,
 
     -- * Response Lenses
-    createAssociationBatchResponse_successful,
     createAssociationBatchResponse_failed,
+    createAssociationBatchResponse_successful,
     createAssociationBatchResponse_httpStatus,
   )
 where
@@ -96,8 +96,8 @@ instance Core.AWSRequest CreateAssociationBatch where
     Response.receiveJSON
       ( \s h x ->
           CreateAssociationBatchResponse'
-            Prelude.<$> (x Core..?> "Successful" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Failed" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Failed" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Successful" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,10 +138,10 @@ instance Core.ToQuery CreateAssociationBatch where
 
 -- | /See:/ 'newCreateAssociationBatchResponse' smart constructor.
 data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
-  { -- | Information about the associations that succeeded.
-    successful :: Prelude.Maybe [AssociationDescription],
-    -- | Information about the associations that failed.
+  { -- | Information about the associations that failed.
     failed :: Prelude.Maybe [FailedCreateAssociation],
+    -- | Information about the associations that succeeded.
+    successful :: Prelude.Maybe [AssociationDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -155,9 +155,9 @@ data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'successful', 'createAssociationBatchResponse_successful' - Information about the associations that succeeded.
---
 -- 'failed', 'createAssociationBatchResponse_failed' - Information about the associations that failed.
+--
+-- 'successful', 'createAssociationBatchResponse_successful' - Information about the associations that succeeded.
 --
 -- 'httpStatus', 'createAssociationBatchResponse_httpStatus' - The response's http status code.
 newCreateAssociationBatchResponse ::
@@ -166,19 +166,19 @@ newCreateAssociationBatchResponse ::
   CreateAssociationBatchResponse
 newCreateAssociationBatchResponse pHttpStatus_ =
   CreateAssociationBatchResponse'
-    { successful =
+    { failed =
         Prelude.Nothing,
-      failed = Prelude.Nothing,
+      successful = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the associations that succeeded.
-createAssociationBatchResponse_successful :: Lens.Lens' CreateAssociationBatchResponse (Prelude.Maybe [AssociationDescription])
-createAssociationBatchResponse_successful = Lens.lens (\CreateAssociationBatchResponse' {successful} -> successful) (\s@CreateAssociationBatchResponse' {} a -> s {successful = a} :: CreateAssociationBatchResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the associations that failed.
 createAssociationBatchResponse_failed :: Lens.Lens' CreateAssociationBatchResponse (Prelude.Maybe [FailedCreateAssociation])
 createAssociationBatchResponse_failed = Lens.lens (\CreateAssociationBatchResponse' {failed} -> failed) (\s@CreateAssociationBatchResponse' {} a -> s {failed = a} :: CreateAssociationBatchResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the associations that succeeded.
+createAssociationBatchResponse_successful :: Lens.Lens' CreateAssociationBatchResponse (Prelude.Maybe [AssociationDescription])
+createAssociationBatchResponse_successful = Lens.lens (\CreateAssociationBatchResponse' {successful} -> successful) (\s@CreateAssociationBatchResponse' {} a -> s {successful = a} :: CreateAssociationBatchResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createAssociationBatchResponse_httpStatus :: Lens.Lens' CreateAssociationBatchResponse Prelude.Int
@@ -189,6 +189,6 @@ instance
     CreateAssociationBatchResponse
   where
   rnf CreateAssociationBatchResponse' {..} =
-    Prelude.rnf successful
-      `Prelude.seq` Prelude.rnf failed
+    Prelude.rnf failed
+      `Prelude.seq` Prelude.rnf successful
       `Prelude.seq` Prelude.rnf httpStatus

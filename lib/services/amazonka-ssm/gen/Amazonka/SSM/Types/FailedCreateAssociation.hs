@@ -29,12 +29,12 @@ import Amazonka.SSM.Types.Fault
 --
 -- /See:/ 'newFailedCreateAssociation' smart constructor.
 data FailedCreateAssociation = FailedCreateAssociation'
-  { -- | The association.
-    entry :: Prelude.Maybe CreateAssociationBatchRequestEntry,
+  { -- | A description of the failure.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The source of the failure.
     fault :: Prelude.Maybe Fault,
-    -- | A description of the failure.
-    message :: Prelude.Maybe Prelude.Text
+    -- | The association.
+    entry :: Prelude.Maybe CreateAssociationBatchRequestEntry
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,31 +46,31 @@ data FailedCreateAssociation = FailedCreateAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entry', 'failedCreateAssociation_entry' - The association.
+-- 'message', 'failedCreateAssociation_message' - A description of the failure.
 --
 -- 'fault', 'failedCreateAssociation_fault' - The source of the failure.
 --
--- 'message', 'failedCreateAssociation_message' - A description of the failure.
+-- 'entry', 'failedCreateAssociation_entry' - The association.
 newFailedCreateAssociation ::
   FailedCreateAssociation
 newFailedCreateAssociation =
   FailedCreateAssociation'
-    { entry = Prelude.Nothing,
+    { message = Prelude.Nothing,
       fault = Prelude.Nothing,
-      message = Prelude.Nothing
+      entry = Prelude.Nothing
     }
 
--- | The association.
-failedCreateAssociation_entry :: Lens.Lens' FailedCreateAssociation (Prelude.Maybe CreateAssociationBatchRequestEntry)
-failedCreateAssociation_entry = Lens.lens (\FailedCreateAssociation' {entry} -> entry) (\s@FailedCreateAssociation' {} a -> s {entry = a} :: FailedCreateAssociation)
+-- | A description of the failure.
+failedCreateAssociation_message :: Lens.Lens' FailedCreateAssociation (Prelude.Maybe Prelude.Text)
+failedCreateAssociation_message = Lens.lens (\FailedCreateAssociation' {message} -> message) (\s@FailedCreateAssociation' {} a -> s {message = a} :: FailedCreateAssociation)
 
 -- | The source of the failure.
 failedCreateAssociation_fault :: Lens.Lens' FailedCreateAssociation (Prelude.Maybe Fault)
 failedCreateAssociation_fault = Lens.lens (\FailedCreateAssociation' {fault} -> fault) (\s@FailedCreateAssociation' {} a -> s {fault = a} :: FailedCreateAssociation)
 
--- | A description of the failure.
-failedCreateAssociation_message :: Lens.Lens' FailedCreateAssociation (Prelude.Maybe Prelude.Text)
-failedCreateAssociation_message = Lens.lens (\FailedCreateAssociation' {message} -> message) (\s@FailedCreateAssociation' {} a -> s {message = a} :: FailedCreateAssociation)
+-- | The association.
+failedCreateAssociation_entry :: Lens.Lens' FailedCreateAssociation (Prelude.Maybe CreateAssociationBatchRequestEntry)
+failedCreateAssociation_entry = Lens.lens (\FailedCreateAssociation' {entry} -> entry) (\s@FailedCreateAssociation' {} a -> s {entry = a} :: FailedCreateAssociation)
 
 instance Core.FromJSON FailedCreateAssociation where
   parseJSON =
@@ -78,19 +78,19 @@ instance Core.FromJSON FailedCreateAssociation where
       "FailedCreateAssociation"
       ( \x ->
           FailedCreateAssociation'
-            Prelude.<$> (x Core..:? "Entry")
+            Prelude.<$> (x Core..:? "Message")
             Prelude.<*> (x Core..:? "Fault")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Entry")
       )
 
 instance Prelude.Hashable FailedCreateAssociation where
   hashWithSalt _salt FailedCreateAssociation' {..} =
-    _salt `Prelude.hashWithSalt` entry
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` fault
-      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` entry
 
 instance Prelude.NFData FailedCreateAssociation where
   rnf FailedCreateAssociation' {..} =
-    Prelude.rnf entry
+    Prelude.rnf message
       `Prelude.seq` Prelude.rnf fault
-      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf entry

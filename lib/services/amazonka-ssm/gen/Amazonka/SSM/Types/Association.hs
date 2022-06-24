@@ -30,31 +30,31 @@ import Amazonka.SSM.Types.Target
 --
 -- /See:/ 'newAssociation' smart constructor.
 data Association = Association'
-  { -- | The ID created by the system when you create an association. An
-    -- association is a binding between a document and a set of targets with a
-    -- schedule.
-    associationId :: Prelude.Maybe Prelude.Text,
+  { -- | The association name.
+    associationName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the SSM document.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The association version.
+    associationVersion :: Prelude.Maybe Prelude.Text,
+    -- | The instances targeted by the request to create an association. You can
+    -- target all instances in an Amazon Web Services account by specifying the
+    -- @InstanceIds@ key with a value of @*@.
+    targets :: Prelude.Maybe [Target],
+    -- | A cron expression that specifies a schedule when the association runs.
+    -- The schedule runs in Coordinated Universal Time (UTC).
+    scheduleExpression :: Prelude.Maybe Prelude.Text,
     -- | The instance ID.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | Information about the association.
     overview :: Prelude.Maybe AssociationOverview,
     -- | The date on which the association was last run.
     lastExecutionDate :: Prelude.Maybe Core.POSIX,
-    -- | A cron expression that specifies a schedule when the association runs.
-    -- The schedule runs in Coordinated Universal Time (UTC).
-    scheduleExpression :: Prelude.Maybe Prelude.Text,
-    -- | The name of the SSM document.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The instances targeted by the request to create an association. You can
-    -- target all instances in an Amazon Web Services account by specifying the
-    -- @InstanceIds@ key with a value of @*@.
-    targets :: Prelude.Maybe [Target],
+    -- | The ID created by the system when you create an association. An
+    -- association is a binding between a document and a set of targets with a
+    -- schedule.
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | The version of the document used in the association.
-    documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The association version.
-    associationVersion :: Prelude.Maybe Prelude.Text,
-    -- | The association name.
-    associationName :: Prelude.Maybe Prelude.Text
+    documentVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,9 +66,18 @@ data Association = Association'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'associationId', 'association_associationId' - The ID created by the system when you create an association. An
--- association is a binding between a document and a set of targets with a
--- schedule.
+-- 'associationName', 'association_associationName' - The association name.
+--
+-- 'name', 'association_name' - The name of the SSM document.
+--
+-- 'associationVersion', 'association_associationVersion' - The association version.
+--
+-- 'targets', 'association_targets' - The instances targeted by the request to create an association. You can
+-- target all instances in an Amazon Web Services account by specifying the
+-- @InstanceIds@ key with a value of @*@.
+--
+-- 'scheduleExpression', 'association_scheduleExpression' - A cron expression that specifies a schedule when the association runs.
+-- The schedule runs in Coordinated Universal Time (UTC).
 --
 -- 'instanceId', 'association_instanceId' - The instance ID.
 --
@@ -76,41 +85,49 @@ data Association = Association'
 --
 -- 'lastExecutionDate', 'association_lastExecutionDate' - The date on which the association was last run.
 --
--- 'scheduleExpression', 'association_scheduleExpression' - A cron expression that specifies a schedule when the association runs.
--- The schedule runs in Coordinated Universal Time (UTC).
---
--- 'name', 'association_name' - The name of the SSM document.
---
--- 'targets', 'association_targets' - The instances targeted by the request to create an association. You can
--- target all instances in an Amazon Web Services account by specifying the
--- @InstanceIds@ key with a value of @*@.
+-- 'associationId', 'association_associationId' - The ID created by the system when you create an association. An
+-- association is a binding between a document and a set of targets with a
+-- schedule.
 --
 -- 'documentVersion', 'association_documentVersion' - The version of the document used in the association.
---
--- 'associationVersion', 'association_associationVersion' - The association version.
---
--- 'associationName', 'association_associationName' - The association name.
 newAssociation ::
   Association
 newAssociation =
   Association'
-    { associationId = Prelude.Nothing,
+    { associationName = Prelude.Nothing,
+      name = Prelude.Nothing,
+      associationVersion = Prelude.Nothing,
+      targets = Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
       instanceId = Prelude.Nothing,
       overview = Prelude.Nothing,
       lastExecutionDate = Prelude.Nothing,
-      scheduleExpression = Prelude.Nothing,
-      name = Prelude.Nothing,
-      targets = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
-      associationVersion = Prelude.Nothing,
-      associationName = Prelude.Nothing
+      associationId = Prelude.Nothing,
+      documentVersion = Prelude.Nothing
     }
 
--- | The ID created by the system when you create an association. An
--- association is a binding between a document and a set of targets with a
--- schedule.
-association_associationId :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
-association_associationId = Lens.lens (\Association' {associationId} -> associationId) (\s@Association' {} a -> s {associationId = a} :: Association)
+-- | The association name.
+association_associationName :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
+association_associationName = Lens.lens (\Association' {associationName} -> associationName) (\s@Association' {} a -> s {associationName = a} :: Association)
+
+-- | The name of the SSM document.
+association_name :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
+association_name = Lens.lens (\Association' {name} -> name) (\s@Association' {} a -> s {name = a} :: Association)
+
+-- | The association version.
+association_associationVersion :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
+association_associationVersion = Lens.lens (\Association' {associationVersion} -> associationVersion) (\s@Association' {} a -> s {associationVersion = a} :: Association)
+
+-- | The instances targeted by the request to create an association. You can
+-- target all instances in an Amazon Web Services account by specifying the
+-- @InstanceIds@ key with a value of @*@.
+association_targets :: Lens.Lens' Association (Prelude.Maybe [Target])
+association_targets = Lens.lens (\Association' {targets} -> targets) (\s@Association' {} a -> s {targets = a} :: Association) Prelude.. Lens.mapping Lens.coerced
+
+-- | A cron expression that specifies a schedule when the association runs.
+-- The schedule runs in Coordinated Universal Time (UTC).
+association_scheduleExpression :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
+association_scheduleExpression = Lens.lens (\Association' {scheduleExpression} -> scheduleExpression) (\s@Association' {} a -> s {scheduleExpression = a} :: Association)
 
 -- | The instance ID.
 association_instanceId :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
@@ -124,32 +141,15 @@ association_overview = Lens.lens (\Association' {overview} -> overview) (\s@Asso
 association_lastExecutionDate :: Lens.Lens' Association (Prelude.Maybe Prelude.UTCTime)
 association_lastExecutionDate = Lens.lens (\Association' {lastExecutionDate} -> lastExecutionDate) (\s@Association' {} a -> s {lastExecutionDate = a} :: Association) Prelude.. Lens.mapping Core._Time
 
--- | A cron expression that specifies a schedule when the association runs.
--- The schedule runs in Coordinated Universal Time (UTC).
-association_scheduleExpression :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
-association_scheduleExpression = Lens.lens (\Association' {scheduleExpression} -> scheduleExpression) (\s@Association' {} a -> s {scheduleExpression = a} :: Association)
-
--- | The name of the SSM document.
-association_name :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
-association_name = Lens.lens (\Association' {name} -> name) (\s@Association' {} a -> s {name = a} :: Association)
-
--- | The instances targeted by the request to create an association. You can
--- target all instances in an Amazon Web Services account by specifying the
--- @InstanceIds@ key with a value of @*@.
-association_targets :: Lens.Lens' Association (Prelude.Maybe [Target])
-association_targets = Lens.lens (\Association' {targets} -> targets) (\s@Association' {} a -> s {targets = a} :: Association) Prelude.. Lens.mapping Lens.coerced
+-- | The ID created by the system when you create an association. An
+-- association is a binding between a document and a set of targets with a
+-- schedule.
+association_associationId :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
+association_associationId = Lens.lens (\Association' {associationId} -> associationId) (\s@Association' {} a -> s {associationId = a} :: Association)
 
 -- | The version of the document used in the association.
 association_documentVersion :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
 association_documentVersion = Lens.lens (\Association' {documentVersion} -> documentVersion) (\s@Association' {} a -> s {documentVersion = a} :: Association)
-
--- | The association version.
-association_associationVersion :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
-association_associationVersion = Lens.lens (\Association' {associationVersion} -> associationVersion) (\s@Association' {} a -> s {associationVersion = a} :: Association)
-
--- | The association name.
-association_associationName :: Lens.Lens' Association (Prelude.Maybe Prelude.Text)
-association_associationName = Lens.lens (\Association' {associationName} -> associationName) (\s@Association' {} a -> s {associationName = a} :: Association)
 
 instance Core.FromJSON Association where
   parseJSON =
@@ -157,40 +157,40 @@ instance Core.FromJSON Association where
       "Association"
       ( \x ->
           Association'
-            Prelude.<$> (x Core..:? "AssociationId")
+            Prelude.<$> (x Core..:? "AssociationName")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "AssociationVersion")
+            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ScheduleExpression")
             Prelude.<*> (x Core..:? "InstanceId")
             Prelude.<*> (x Core..:? "Overview")
             Prelude.<*> (x Core..:? "LastExecutionDate")
-            Prelude.<*> (x Core..:? "ScheduleExpression")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AssociationId")
             Prelude.<*> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "AssociationVersion")
-            Prelude.<*> (x Core..:? "AssociationName")
       )
 
 instance Prelude.Hashable Association where
   hashWithSalt _salt Association' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt `Prelude.hashWithSalt` associationName
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` associationVersion
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` scheduleExpression
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` overview
       `Prelude.hashWithSalt` lastExecutionDate
-      `Prelude.hashWithSalt` scheduleExpression
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` documentVersion
-      `Prelude.hashWithSalt` associationVersion
-      `Prelude.hashWithSalt` associationName
 
 instance Prelude.NFData Association where
   rnf Association' {..} =
-    Prelude.rnf associationId
+    Prelude.rnf associationName
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf associationVersion
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf scheduleExpression
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf overview
       `Prelude.seq` Prelude.rnf lastExecutionDate
-      `Prelude.seq` Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf associationId
       `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf associationVersion
-      `Prelude.seq` Prelude.rnf associationName

@@ -47,10 +47,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMaintenanceWindowStepFunctionsParameters' smart constructor.
 data MaintenanceWindowStepFunctionsParameters = MaintenanceWindowStepFunctionsParameters'
-  { -- | The inputs for the @STEP_FUNCTIONS@ task.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name of the @STEP_FUNCTIONS@ task.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the @STEP_FUNCTIONS@ task.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The inputs for the @STEP_FUNCTIONS@ task.
+    input :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -62,25 +62,25 @@ data MaintenanceWindowStepFunctionsParameters = MaintenanceWindowStepFunctionsPa
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'input', 'maintenanceWindowStepFunctionsParameters_input' - The inputs for the @STEP_FUNCTIONS@ task.
---
 -- 'name', 'maintenanceWindowStepFunctionsParameters_name' - The name of the @STEP_FUNCTIONS@ task.
+--
+-- 'input', 'maintenanceWindowStepFunctionsParameters_input' - The inputs for the @STEP_FUNCTIONS@ task.
 newMaintenanceWindowStepFunctionsParameters ::
   MaintenanceWindowStepFunctionsParameters
 newMaintenanceWindowStepFunctionsParameters =
   MaintenanceWindowStepFunctionsParameters'
-    { input =
+    { name =
         Prelude.Nothing,
-      name = Prelude.Nothing
+      input = Prelude.Nothing
     }
-
--- | The inputs for the @STEP_FUNCTIONS@ task.
-maintenanceWindowStepFunctionsParameters_input :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Prelude.Maybe Prelude.Text)
-maintenanceWindowStepFunctionsParameters_input = Lens.lens (\MaintenanceWindowStepFunctionsParameters' {input} -> input) (\s@MaintenanceWindowStepFunctionsParameters' {} a -> s {input = a} :: MaintenanceWindowStepFunctionsParameters) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the @STEP_FUNCTIONS@ task.
 maintenanceWindowStepFunctionsParameters_name :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Prelude.Maybe Prelude.Text)
 maintenanceWindowStepFunctionsParameters_name = Lens.lens (\MaintenanceWindowStepFunctionsParameters' {name} -> name) (\s@MaintenanceWindowStepFunctionsParameters' {} a -> s {name = a} :: MaintenanceWindowStepFunctionsParameters)
+
+-- | The inputs for the @STEP_FUNCTIONS@ task.
+maintenanceWindowStepFunctionsParameters_input :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Prelude.Maybe Prelude.Text)
+maintenanceWindowStepFunctionsParameters_input = Lens.lens (\MaintenanceWindowStepFunctionsParameters' {input} -> input) (\s@MaintenanceWindowStepFunctionsParameters' {} a -> s {input = a} :: MaintenanceWindowStepFunctionsParameters) Prelude.. Lens.mapping Core._Sensitive
 
 instance
   Core.FromJSON
@@ -91,7 +91,7 @@ instance
       "MaintenanceWindowStepFunctionsParameters"
       ( \x ->
           MaintenanceWindowStepFunctionsParameters'
-            Prelude.<$> (x Core..:? "Input") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Input")
       )
 
 instance
@@ -101,15 +101,15 @@ instance
   hashWithSalt
     _salt
     MaintenanceWindowStepFunctionsParameters' {..} =
-      _salt `Prelude.hashWithSalt` input
-        `Prelude.hashWithSalt` name
+      _salt `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` input
 
 instance
   Prelude.NFData
     MaintenanceWindowStepFunctionsParameters
   where
   rnf MaintenanceWindowStepFunctionsParameters' {..} =
-    Prelude.rnf input `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf input
 
 instance
   Core.ToJSON
@@ -118,7 +118,7 @@ instance
   toJSON MaintenanceWindowStepFunctionsParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Input" Core..=) Prelude.<$> input,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Input" Core..=) Prelude.<$> input
           ]
       )

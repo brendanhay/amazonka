@@ -34,11 +34,11 @@ module Amazonka.SSM.GetOpsSummary
     newGetOpsSummary,
 
     -- * Request Lenses
-    getOpsSummary_aggregators,
-    getOpsSummary_syncName,
-    getOpsSummary_filters,
     getOpsSummary_resultAttributes,
     getOpsSummary_nextToken,
+    getOpsSummary_syncName,
+    getOpsSummary_filters,
+    getOpsSummary_aggregators,
     getOpsSummary_maxResults,
 
     -- * Destructuring the Response
@@ -61,18 +61,18 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newGetOpsSummary' smart constructor.
 data GetOpsSummary = GetOpsSummary'
-  { -- | Optional aggregators that return counts of OpsData based on one or more
-    -- expressions.
-    aggregators :: Prelude.Maybe (Prelude.NonEmpty OpsAggregator),
-    -- | Specify the name of a resource data sync to get.
-    syncName :: Prelude.Maybe Prelude.Text,
-    -- | Optional filters used to scope down the returned OpsData.
-    filters :: Prelude.Maybe (Prelude.NonEmpty OpsFilter),
-    -- | The OpsData data type to return.
+  { -- | The OpsData data type to return.
     resultAttributes :: Prelude.Maybe (Prelude.NonEmpty OpsResultAttribute),
     -- | A token to start the list. Use this token to get the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specify the name of a resource data sync to get.
+    syncName :: Prelude.Maybe Prelude.Text,
+    -- | Optional filters used to scope down the returned OpsData.
+    filters :: Prelude.Maybe (Prelude.NonEmpty OpsFilter),
+    -- | Optional aggregators that return counts of OpsData based on one or more
+    -- expressions.
+    aggregators :: Prelude.Maybe (Prelude.NonEmpty OpsAggregator),
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
@@ -88,17 +88,17 @@ data GetOpsSummary = GetOpsSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aggregators', 'getOpsSummary_aggregators' - Optional aggregators that return counts of OpsData based on one or more
--- expressions.
+-- 'resultAttributes', 'getOpsSummary_resultAttributes' - The OpsData data type to return.
+--
+-- 'nextToken', 'getOpsSummary_nextToken' - A token to start the list. Use this token to get the next set of
+-- results.
 --
 -- 'syncName', 'getOpsSummary_syncName' - Specify the name of a resource data sync to get.
 --
 -- 'filters', 'getOpsSummary_filters' - Optional filters used to scope down the returned OpsData.
 --
--- 'resultAttributes', 'getOpsSummary_resultAttributes' - The OpsData data type to return.
---
--- 'nextToken', 'getOpsSummary_nextToken' - A token to start the list. Use this token to get the next set of
--- results.
+-- 'aggregators', 'getOpsSummary_aggregators' - Optional aggregators that return counts of OpsData based on one or more
+-- expressions.
 --
 -- 'maxResults', 'getOpsSummary_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -107,26 +107,13 @@ newGetOpsSummary ::
   GetOpsSummary
 newGetOpsSummary =
   GetOpsSummary'
-    { aggregators = Prelude.Nothing,
+    { resultAttributes = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       syncName = Prelude.Nothing,
       filters = Prelude.Nothing,
-      resultAttributes = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      aggregators = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | Optional aggregators that return counts of OpsData based on one or more
--- expressions.
-getOpsSummary_aggregators :: Lens.Lens' GetOpsSummary (Prelude.Maybe (Prelude.NonEmpty OpsAggregator))
-getOpsSummary_aggregators = Lens.lens (\GetOpsSummary' {aggregators} -> aggregators) (\s@GetOpsSummary' {} a -> s {aggregators = a} :: GetOpsSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | Specify the name of a resource data sync to get.
-getOpsSummary_syncName :: Lens.Lens' GetOpsSummary (Prelude.Maybe Prelude.Text)
-getOpsSummary_syncName = Lens.lens (\GetOpsSummary' {syncName} -> syncName) (\s@GetOpsSummary' {} a -> s {syncName = a} :: GetOpsSummary)
-
--- | Optional filters used to scope down the returned OpsData.
-getOpsSummary_filters :: Lens.Lens' GetOpsSummary (Prelude.Maybe (Prelude.NonEmpty OpsFilter))
-getOpsSummary_filters = Lens.lens (\GetOpsSummary' {filters} -> filters) (\s@GetOpsSummary' {} a -> s {filters = a} :: GetOpsSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The OpsData data type to return.
 getOpsSummary_resultAttributes :: Lens.Lens' GetOpsSummary (Prelude.Maybe (Prelude.NonEmpty OpsResultAttribute))
@@ -136,6 +123,19 @@ getOpsSummary_resultAttributes = Lens.lens (\GetOpsSummary' {resultAttributes} -
 -- results.
 getOpsSummary_nextToken :: Lens.Lens' GetOpsSummary (Prelude.Maybe Prelude.Text)
 getOpsSummary_nextToken = Lens.lens (\GetOpsSummary' {nextToken} -> nextToken) (\s@GetOpsSummary' {} a -> s {nextToken = a} :: GetOpsSummary)
+
+-- | Specify the name of a resource data sync to get.
+getOpsSummary_syncName :: Lens.Lens' GetOpsSummary (Prelude.Maybe Prelude.Text)
+getOpsSummary_syncName = Lens.lens (\GetOpsSummary' {syncName} -> syncName) (\s@GetOpsSummary' {} a -> s {syncName = a} :: GetOpsSummary)
+
+-- | Optional filters used to scope down the returned OpsData.
+getOpsSummary_filters :: Lens.Lens' GetOpsSummary (Prelude.Maybe (Prelude.NonEmpty OpsFilter))
+getOpsSummary_filters = Lens.lens (\GetOpsSummary' {filters} -> filters) (\s@GetOpsSummary' {} a -> s {filters = a} :: GetOpsSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | Optional aggregators that return counts of OpsData based on one or more
+-- expressions.
+getOpsSummary_aggregators :: Lens.Lens' GetOpsSummary (Prelude.Maybe (Prelude.NonEmpty OpsAggregator))
+getOpsSummary_aggregators = Lens.lens (\GetOpsSummary' {aggregators} -> aggregators) (\s@GetOpsSummary' {} a -> s {aggregators = a} :: GetOpsSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -178,20 +178,20 @@ instance Core.AWSRequest GetOpsSummary where
 
 instance Prelude.Hashable GetOpsSummary where
   hashWithSalt _salt GetOpsSummary' {..} =
-    _salt `Prelude.hashWithSalt` aggregators
+    _salt `Prelude.hashWithSalt` resultAttributes
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` syncName
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` resultAttributes
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` aggregators
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData GetOpsSummary where
   rnf GetOpsSummary' {..} =
-    Prelude.rnf aggregators
+    Prelude.rnf resultAttributes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf syncName
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf resultAttributes
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf aggregators
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetOpsSummary where
@@ -211,12 +211,12 @@ instance Core.ToJSON GetOpsSummary where
   toJSON GetOpsSummary' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Aggregators" Core..=) Prelude.<$> aggregators,
-            ("SyncName" Core..=) Prelude.<$> syncName,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("ResultAttributes" Core..=)
+          [ ("ResultAttributes" Core..=)
               Prelude.<$> resultAttributes,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SyncName" Core..=) Prelude.<$> syncName,
+            ("Filters" Core..=) Prelude.<$> filters,
+            ("Aggregators" Core..=) Prelude.<$> aggregators,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

@@ -29,8 +29,8 @@ module Amazonka.SSM.DescribeAutomationExecutions
     newDescribeAutomationExecutions,
 
     -- * Request Lenses
-    describeAutomationExecutions_filters,
     describeAutomationExecutions_nextToken,
+    describeAutomationExecutions_filters,
     describeAutomationExecutions_maxResults,
 
     -- * Destructuring the Response
@@ -53,11 +53,11 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeAutomationExecutions' smart constructor.
 data DescribeAutomationExecutions = DescribeAutomationExecutions'
-  { -- | Filters used to limit the scope of executions that are requested.
-    filters :: Prelude.Maybe (Prelude.NonEmpty AutomationExecutionFilter),
-    -- | The token for the next set of items to return. (You received this token
+  { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filters used to limit the scope of executions that are requested.
+    filters :: Prelude.Maybe (Prelude.NonEmpty AutomationExecutionFilter),
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
@@ -73,10 +73,10 @@ data DescribeAutomationExecutions = DescribeAutomationExecutions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'describeAutomationExecutions_filters' - Filters used to limit the scope of executions that are requested.
---
 -- 'nextToken', 'describeAutomationExecutions_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
+--
+-- 'filters', 'describeAutomationExecutions_filters' - Filters used to limit the scope of executions that are requested.
 --
 -- 'maxResults', 'describeAutomationExecutions_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -85,20 +85,20 @@ newDescribeAutomationExecutions ::
   DescribeAutomationExecutions
 newDescribeAutomationExecutions =
   DescribeAutomationExecutions'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | Filters used to limit the scope of executions that are requested.
-describeAutomationExecutions_filters :: Lens.Lens' DescribeAutomationExecutions (Prelude.Maybe (Prelude.NonEmpty AutomationExecutionFilter))
-describeAutomationExecutions_filters = Lens.lens (\DescribeAutomationExecutions' {filters} -> filters) (\s@DescribeAutomationExecutions' {} a -> s {filters = a} :: DescribeAutomationExecutions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
 describeAutomationExecutions_nextToken :: Lens.Lens' DescribeAutomationExecutions (Prelude.Maybe Prelude.Text)
 describeAutomationExecutions_nextToken = Lens.lens (\DescribeAutomationExecutions' {nextToken} -> nextToken) (\s@DescribeAutomationExecutions' {} a -> s {nextToken = a} :: DescribeAutomationExecutions)
+
+-- | Filters used to limit the scope of executions that are requested.
+describeAutomationExecutions_filters :: Lens.Lens' DescribeAutomationExecutions (Prelude.Maybe (Prelude.NonEmpty AutomationExecutionFilter))
+describeAutomationExecutions_filters = Lens.lens (\DescribeAutomationExecutions' {filters} -> filters) (\s@DescribeAutomationExecutions' {} a -> s {filters = a} :: DescribeAutomationExecutions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -149,14 +149,14 @@ instance
     DescribeAutomationExecutions
   where
   hashWithSalt _salt DescribeAutomationExecutions' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeAutomationExecutions where
   rnf DescribeAutomationExecutions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeAutomationExecutions where
@@ -178,8 +178,8 @@ instance Core.ToJSON DescribeAutomationExecutions where
   toJSON DescribeAutomationExecutions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

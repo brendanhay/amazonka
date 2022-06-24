@@ -29,10 +29,10 @@ module Amazonka.SSM.DescribeAssociation
     newDescribeAssociation,
 
     -- * Request Lenses
-    describeAssociation_associationId,
-    describeAssociation_instanceId,
     describeAssociation_name,
     describeAssociation_associationVersion,
+    describeAssociation_instanceId,
+    describeAssociation_associationId,
 
     -- * Destructuring the Response
     DescribeAssociationResponse (..),
@@ -53,18 +53,18 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeAssociation' smart constructor.
 data DescribeAssociation = DescribeAssociation'
-  { -- | The association ID for which you want information.
-    associationId :: Prelude.Maybe Prelude.Text,
-    -- | The instance ID.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the SSM document.
+  { -- | The name of the SSM document.
     name :: Prelude.Maybe Prelude.Text,
     -- | Specify the association version to retrieve. To view the latest version,
     -- either specify @$LATEST@ for this parameter, or omit this parameter. To
     -- view a list of all associations for an instance, use ListAssociations.
     -- To get a list of versions for a specific association, use
     -- ListAssociationVersions.
-    associationVersion :: Prelude.Maybe Prelude.Text
+    associationVersion :: Prelude.Maybe Prelude.Text,
+    -- | The instance ID.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The association ID for which you want information.
+    associationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,10 +76,6 @@ data DescribeAssociation = DescribeAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'associationId', 'describeAssociation_associationId' - The association ID for which you want information.
---
--- 'instanceId', 'describeAssociation_instanceId' - The instance ID.
---
 -- 'name', 'describeAssociation_name' - The name of the SSM document.
 --
 -- 'associationVersion', 'describeAssociation_associationVersion' - Specify the association version to retrieve. To view the latest version,
@@ -87,24 +83,19 @@ data DescribeAssociation = DescribeAssociation'
 -- view a list of all associations for an instance, use ListAssociations.
 -- To get a list of versions for a specific association, use
 -- ListAssociationVersions.
+--
+-- 'instanceId', 'describeAssociation_instanceId' - The instance ID.
+--
+-- 'associationId', 'describeAssociation_associationId' - The association ID for which you want information.
 newDescribeAssociation ::
   DescribeAssociation
 newDescribeAssociation =
   DescribeAssociation'
-    { associationId =
-        Prelude.Nothing,
+    { name = Prelude.Nothing,
+      associationVersion = Prelude.Nothing,
       instanceId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      associationVersion = Prelude.Nothing
+      associationId = Prelude.Nothing
     }
-
--- | The association ID for which you want information.
-describeAssociation_associationId :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
-describeAssociation_associationId = Lens.lens (\DescribeAssociation' {associationId} -> associationId) (\s@DescribeAssociation' {} a -> s {associationId = a} :: DescribeAssociation)
-
--- | The instance ID.
-describeAssociation_instanceId :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
-describeAssociation_instanceId = Lens.lens (\DescribeAssociation' {instanceId} -> instanceId) (\s@DescribeAssociation' {} a -> s {instanceId = a} :: DescribeAssociation)
 
 -- | The name of the SSM document.
 describeAssociation_name :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
@@ -117,6 +108,14 @@ describeAssociation_name = Lens.lens (\DescribeAssociation' {name} -> name) (\s@
 -- ListAssociationVersions.
 describeAssociation_associationVersion :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
 describeAssociation_associationVersion = Lens.lens (\DescribeAssociation' {associationVersion} -> associationVersion) (\s@DescribeAssociation' {} a -> s {associationVersion = a} :: DescribeAssociation)
+
+-- | The instance ID.
+describeAssociation_instanceId :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
+describeAssociation_instanceId = Lens.lens (\DescribeAssociation' {instanceId} -> instanceId) (\s@DescribeAssociation' {} a -> s {instanceId = a} :: DescribeAssociation)
+
+-- | The association ID for which you want information.
+describeAssociation_associationId :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
+describeAssociation_associationId = Lens.lens (\DescribeAssociation' {associationId} -> associationId) (\s@DescribeAssociation' {} a -> s {associationId = a} :: DescribeAssociation)
 
 instance Core.AWSRequest DescribeAssociation where
   type
@@ -133,17 +132,17 @@ instance Core.AWSRequest DescribeAssociation where
 
 instance Prelude.Hashable DescribeAssociation where
   hashWithSalt _salt DescribeAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
-      `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` associationVersion
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` associationId
 
 instance Prelude.NFData DescribeAssociation where
   rnf DescribeAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf associationVersion
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf associationId
 
 instance Core.ToHeaders DescribeAssociation where
   toHeaders =
@@ -164,11 +163,11 @@ instance Core.ToJSON DescribeAssociation where
   toJSON DescribeAssociation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AssociationId" Core..=) Prelude.<$> associationId,
-            ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
             ("AssociationVersion" Core..=)
-              Prelude.<$> associationVersion
+              Prelude.<$> associationVersion,
+            ("InstanceId" Core..=) Prelude.<$> instanceId,
+            ("AssociationId" Core..=) Prelude.<$> associationId
           ]
       )
 

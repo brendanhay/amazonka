@@ -37,13 +37,13 @@ data ResourceDataSyncSource = ResourceDataSyncSource'
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html About multiple account and Region resource data syncs>
     -- in the /Amazon Web Services Systems Manager User Guide/.
     enableAllOpsDataSources :: Prelude.Maybe Prelude.Bool,
-    -- | Whether to automatically synchronize and aggregate data from new Amazon
-    -- Web Services Regions when those Regions come online.
-    includeFutureRegions :: Prelude.Maybe Prelude.Bool,
     -- | Information about the @AwsOrganizationsSource@ resource data sync
     -- source. A sync source of this type can synchronize data from
     -- Organizations.
     awsOrganizationsSource :: Prelude.Maybe ResourceDataSyncAwsOrganizationsSource,
+    -- | Whether to automatically synchronize and aggregate data from new Amazon
+    -- Web Services Regions when those Regions come online.
+    includeFutureRegions :: Prelude.Maybe Prelude.Bool,
     -- | The type of data source for the resource data sync. @SourceType@ is
     -- either @AwsOrganizations@ (if an organization is present in
     -- Organizations) or @SingleAccountMultiRegions@.
@@ -70,12 +70,12 @@ data ResourceDataSyncSource = ResourceDataSyncSource'
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html About multiple account and Region resource data syncs>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- 'includeFutureRegions', 'resourceDataSyncSource_includeFutureRegions' - Whether to automatically synchronize and aggregate data from new Amazon
--- Web Services Regions when those Regions come online.
---
 -- 'awsOrganizationsSource', 'resourceDataSyncSource_awsOrganizationsSource' - Information about the @AwsOrganizationsSource@ resource data sync
 -- source. A sync source of this type can synchronize data from
 -- Organizations.
+--
+-- 'includeFutureRegions', 'resourceDataSyncSource_includeFutureRegions' - Whether to automatically synchronize and aggregate data from new Amazon
+-- Web Services Regions when those Regions come online.
 --
 -- 'sourceType', 'resourceDataSyncSource_sourceType' - The type of data source for the resource data sync. @SourceType@ is
 -- either @AwsOrganizations@ (if an organization is present in
@@ -91,8 +91,8 @@ newResourceDataSyncSource pSourceType_ =
   ResourceDataSyncSource'
     { enableAllOpsDataSources =
         Prelude.Nothing,
-      includeFutureRegions = Prelude.Nothing,
       awsOrganizationsSource = Prelude.Nothing,
+      includeFutureRegions = Prelude.Nothing,
       sourceType = pSourceType_,
       sourceRegions = Prelude.mempty
     }
@@ -107,16 +107,16 @@ newResourceDataSyncSource pSourceType_ =
 resourceDataSyncSource_enableAllOpsDataSources :: Lens.Lens' ResourceDataSyncSource (Prelude.Maybe Prelude.Bool)
 resourceDataSyncSource_enableAllOpsDataSources = Lens.lens (\ResourceDataSyncSource' {enableAllOpsDataSources} -> enableAllOpsDataSources) (\s@ResourceDataSyncSource' {} a -> s {enableAllOpsDataSources = a} :: ResourceDataSyncSource)
 
--- | Whether to automatically synchronize and aggregate data from new Amazon
--- Web Services Regions when those Regions come online.
-resourceDataSyncSource_includeFutureRegions :: Lens.Lens' ResourceDataSyncSource (Prelude.Maybe Prelude.Bool)
-resourceDataSyncSource_includeFutureRegions = Lens.lens (\ResourceDataSyncSource' {includeFutureRegions} -> includeFutureRegions) (\s@ResourceDataSyncSource' {} a -> s {includeFutureRegions = a} :: ResourceDataSyncSource)
-
 -- | Information about the @AwsOrganizationsSource@ resource data sync
 -- source. A sync source of this type can synchronize data from
 -- Organizations.
 resourceDataSyncSource_awsOrganizationsSource :: Lens.Lens' ResourceDataSyncSource (Prelude.Maybe ResourceDataSyncAwsOrganizationsSource)
 resourceDataSyncSource_awsOrganizationsSource = Lens.lens (\ResourceDataSyncSource' {awsOrganizationsSource} -> awsOrganizationsSource) (\s@ResourceDataSyncSource' {} a -> s {awsOrganizationsSource = a} :: ResourceDataSyncSource)
+
+-- | Whether to automatically synchronize and aggregate data from new Amazon
+-- Web Services Regions when those Regions come online.
+resourceDataSyncSource_includeFutureRegions :: Lens.Lens' ResourceDataSyncSource (Prelude.Maybe Prelude.Bool)
+resourceDataSyncSource_includeFutureRegions = Lens.lens (\ResourceDataSyncSource' {includeFutureRegions} -> includeFutureRegions) (\s@ResourceDataSyncSource' {} a -> s {includeFutureRegions = a} :: ResourceDataSyncSource)
 
 -- | The type of data source for the resource data sync. @SourceType@ is
 -- either @AwsOrganizations@ (if an organization is present in
@@ -133,16 +133,16 @@ instance Prelude.Hashable ResourceDataSyncSource where
   hashWithSalt _salt ResourceDataSyncSource' {..} =
     _salt
       `Prelude.hashWithSalt` enableAllOpsDataSources
-      `Prelude.hashWithSalt` includeFutureRegions
       `Prelude.hashWithSalt` awsOrganizationsSource
+      `Prelude.hashWithSalt` includeFutureRegions
       `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` sourceRegions
 
 instance Prelude.NFData ResourceDataSyncSource where
   rnf ResourceDataSyncSource' {..} =
     Prelude.rnf enableAllOpsDataSources
-      `Prelude.seq` Prelude.rnf includeFutureRegions
       `Prelude.seq` Prelude.rnf awsOrganizationsSource
+      `Prelude.seq` Prelude.rnf includeFutureRegions
       `Prelude.seq` Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf sourceRegions
 
@@ -152,10 +152,10 @@ instance Core.ToJSON ResourceDataSyncSource where
       ( Prelude.catMaybes
           [ ("EnableAllOpsDataSources" Core..=)
               Prelude.<$> enableAllOpsDataSources,
-            ("IncludeFutureRegions" Core..=)
-              Prelude.<$> includeFutureRegions,
             ("AwsOrganizationsSource" Core..=)
               Prelude.<$> awsOrganizationsSource,
+            ("IncludeFutureRegions" Core..=)
+              Prelude.<$> includeFutureRegions,
             Prelude.Just ("SourceType" Core..= sourceType),
             Prelude.Just
               ("SourceRegions" Core..= sourceRegions)

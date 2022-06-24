@@ -29,50 +29,50 @@ import Amazonka.SSM.Types.OpsItemStatus
 --
 -- /See:/ 'newOpsItemSummary' smart constructor.
 data OpsItemSummary = OpsItemSummary'
-  { -- | The time a runbook workflow ended. Currently reported only for the
-    -- OpsItem type @\/aws\/changerequest@.
-    actualEndTime :: Prelude.Maybe Core.POSIX,
+  { -- | A list of OpsItems by severity.
+    severity :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the OpsItem was created.
+    createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The time specified in a change request for a runbook workflow to start.
+    -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+    plannedStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The time specified in a change request for a runbook workflow to end.
+    -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+    plannedEndTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the OpsItem.
     opsItemId :: Prelude.Maybe Prelude.Text,
     -- | The OpsItem status. Status can be @Open@, @In Progress@, or @Resolved@.
     status :: Prelude.Maybe OpsItemStatus,
-    -- | The importance of this OpsItem in relation to other OpsItems in the
-    -- system.
-    priority :: Prelude.Maybe Prelude.Natural,
-    -- | The date and time the OpsItem was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
-    -- | A list of OpsItems by category.
-    category :: Prelude.Maybe Prelude.Text,
-    -- | A list of OpsItems by severity.
-    severity :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM entity that created the
-    -- OpsItem.
-    createdBy :: Prelude.Maybe Prelude.Text,
     -- | The date and time the OpsItem was last updated.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The type of OpsItem. Currently, the only valid values are
-    -- @\/aws\/changerequest@ and @\/aws\/issue@.
-    opsItemType :: Prelude.Maybe Prelude.Text,
-    -- | The impacted Amazon Web Services resource.
-    source :: Prelude.Maybe Prelude.Text,
     -- | A short heading that describes the nature of the OpsItem and the
     -- impacted resource.
     title :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM entity that created the
-    -- OpsItem.
-    lastModifiedBy :: Prelude.Maybe Prelude.Text,
+    -- | The impacted Amazon Web Services resource.
+    source :: Prelude.Maybe Prelude.Text,
+    -- | The importance of this OpsItem in relation to other OpsItems in the
+    -- system.
+    priority :: Prelude.Maybe Prelude.Natural,
+    -- | The type of OpsItem. Currently, the only valid values are
+    -- @\/aws\/changerequest@ and @\/aws\/issue@.
+    opsItemType :: Prelude.Maybe Prelude.Text,
+    -- | A list of OpsItems by category.
+    category :: Prelude.Maybe Prelude.Text,
     -- | Operational data is custom data that provides useful reference details
     -- about the OpsItem.
     operationalData :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue),
     -- | The time a runbook workflow started. Currently reported only for the
     -- OpsItem type @\/aws\/changerequest@.
     actualStartTime :: Prelude.Maybe Core.POSIX,
-    -- | The time specified in a change request for a runbook workflow to end.
-    -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedEndTime :: Prelude.Maybe Core.POSIX,
-    -- | The time specified in a change request for a runbook workflow to start.
-    -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedStartTime :: Prelude.Maybe Core.POSIX
+    -- | The Amazon Resource Name (ARN) of the IAM entity that created the
+    -- OpsItem.
+    lastModifiedBy :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM entity that created the
+    -- OpsItem.
+    createdBy :: Prelude.Maybe Prelude.Text,
+    -- | The time a runbook workflow ended. Currently reported only for the
+    -- OpsItem type @\/aws\/changerequest@.
+    actualEndTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,37 +84,34 @@ data OpsItemSummary = OpsItemSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actualEndTime', 'opsItemSummary_actualEndTime' - The time a runbook workflow ended. Currently reported only for the
--- OpsItem type @\/aws\/changerequest@.
+-- 'severity', 'opsItemSummary_severity' - A list of OpsItems by severity.
+--
+-- 'createdTime', 'opsItemSummary_createdTime' - The date and time the OpsItem was created.
+--
+-- 'plannedStartTime', 'opsItemSummary_plannedStartTime' - The time specified in a change request for a runbook workflow to start.
+-- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+--
+-- 'plannedEndTime', 'opsItemSummary_plannedEndTime' - The time specified in a change request for a runbook workflow to end.
+-- Currently supported only for the OpsItem type @\/aws\/changerequest@.
 --
 -- 'opsItemId', 'opsItemSummary_opsItemId' - The ID of the OpsItem.
 --
 -- 'status', 'opsItemSummary_status' - The OpsItem status. Status can be @Open@, @In Progress@, or @Resolved@.
 --
--- 'priority', 'opsItemSummary_priority' - The importance of this OpsItem in relation to other OpsItems in the
--- system.
---
--- 'createdTime', 'opsItemSummary_createdTime' - The date and time the OpsItem was created.
---
--- 'category', 'opsItemSummary_category' - A list of OpsItems by category.
---
--- 'severity', 'opsItemSummary_severity' - A list of OpsItems by severity.
---
--- 'createdBy', 'opsItemSummary_createdBy' - The Amazon Resource Name (ARN) of the IAM entity that created the
--- OpsItem.
---
 -- 'lastModifiedTime', 'opsItemSummary_lastModifiedTime' - The date and time the OpsItem was last updated.
---
--- 'opsItemType', 'opsItemSummary_opsItemType' - The type of OpsItem. Currently, the only valid values are
--- @\/aws\/changerequest@ and @\/aws\/issue@.
---
--- 'source', 'opsItemSummary_source' - The impacted Amazon Web Services resource.
 --
 -- 'title', 'opsItemSummary_title' - A short heading that describes the nature of the OpsItem and the
 -- impacted resource.
 --
--- 'lastModifiedBy', 'opsItemSummary_lastModifiedBy' - The Amazon Resource Name (ARN) of the IAM entity that created the
--- OpsItem.
+-- 'source', 'opsItemSummary_source' - The impacted Amazon Web Services resource.
+--
+-- 'priority', 'opsItemSummary_priority' - The importance of this OpsItem in relation to other OpsItems in the
+-- system.
+--
+-- 'opsItemType', 'opsItemSummary_opsItemType' - The type of OpsItem. Currently, the only valid values are
+-- @\/aws\/changerequest@ and @\/aws\/issue@.
+--
+-- 'category', 'opsItemSummary_category' - A list of OpsItems by category.
 --
 -- 'operationalData', 'opsItemSummary_operationalData' - Operational data is custom data that provides useful reference details
 -- about the OpsItem.
@@ -122,38 +119,54 @@ data OpsItemSummary = OpsItemSummary'
 -- 'actualStartTime', 'opsItemSummary_actualStartTime' - The time a runbook workflow started. Currently reported only for the
 -- OpsItem type @\/aws\/changerequest@.
 --
--- 'plannedEndTime', 'opsItemSummary_plannedEndTime' - The time specified in a change request for a runbook workflow to end.
--- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+-- 'lastModifiedBy', 'opsItemSummary_lastModifiedBy' - The Amazon Resource Name (ARN) of the IAM entity that created the
+-- OpsItem.
 --
--- 'plannedStartTime', 'opsItemSummary_plannedStartTime' - The time specified in a change request for a runbook workflow to start.
--- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+-- 'createdBy', 'opsItemSummary_createdBy' - The Amazon Resource Name (ARN) of the IAM entity that created the
+-- OpsItem.
+--
+-- 'actualEndTime', 'opsItemSummary_actualEndTime' - The time a runbook workflow ended. Currently reported only for the
+-- OpsItem type @\/aws\/changerequest@.
 newOpsItemSummary ::
   OpsItemSummary
 newOpsItemSummary =
   OpsItemSummary'
-    { actualEndTime = Prelude.Nothing,
+    { severity = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
+      plannedStartTime = Prelude.Nothing,
+      plannedEndTime = Prelude.Nothing,
       opsItemId = Prelude.Nothing,
       status = Prelude.Nothing,
-      priority = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      category = Prelude.Nothing,
-      severity = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      opsItemType = Prelude.Nothing,
-      source = Prelude.Nothing,
       title = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
+      source = Prelude.Nothing,
+      priority = Prelude.Nothing,
+      opsItemType = Prelude.Nothing,
+      category = Prelude.Nothing,
       operationalData = Prelude.Nothing,
       actualStartTime = Prelude.Nothing,
-      plannedEndTime = Prelude.Nothing,
-      plannedStartTime = Prelude.Nothing
+      lastModifiedBy = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
+      actualEndTime = Prelude.Nothing
     }
 
--- | The time a runbook workflow ended. Currently reported only for the
--- OpsItem type @\/aws\/changerequest@.
-opsItemSummary_actualEndTime :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.UTCTime)
-opsItemSummary_actualEndTime = Lens.lens (\OpsItemSummary' {actualEndTime} -> actualEndTime) (\s@OpsItemSummary' {} a -> s {actualEndTime = a} :: OpsItemSummary) Prelude.. Lens.mapping Core._Time
+-- | A list of OpsItems by severity.
+opsItemSummary_severity :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
+opsItemSummary_severity = Lens.lens (\OpsItemSummary' {severity} -> severity) (\s@OpsItemSummary' {} a -> s {severity = a} :: OpsItemSummary)
+
+-- | The date and time the OpsItem was created.
+opsItemSummary_createdTime :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.UTCTime)
+opsItemSummary_createdTime = Lens.lens (\OpsItemSummary' {createdTime} -> createdTime) (\s@OpsItemSummary' {} a -> s {createdTime = a} :: OpsItemSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The time specified in a change request for a runbook workflow to start.
+-- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+opsItemSummary_plannedStartTime :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.UTCTime)
+opsItemSummary_plannedStartTime = Lens.lens (\OpsItemSummary' {plannedStartTime} -> plannedStartTime) (\s@OpsItemSummary' {} a -> s {plannedStartTime = a} :: OpsItemSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The time specified in a change request for a runbook workflow to end.
+-- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+opsItemSummary_plannedEndTime :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.UTCTime)
+opsItemSummary_plannedEndTime = Lens.lens (\OpsItemSummary' {plannedEndTime} -> plannedEndTime) (\s@OpsItemSummary' {} a -> s {plannedEndTime = a} :: OpsItemSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the OpsItem.
 opsItemSummary_opsItemId :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
@@ -163,50 +176,32 @@ opsItemSummary_opsItemId = Lens.lens (\OpsItemSummary' {opsItemId} -> opsItemId)
 opsItemSummary_status :: Lens.Lens' OpsItemSummary (Prelude.Maybe OpsItemStatus)
 opsItemSummary_status = Lens.lens (\OpsItemSummary' {status} -> status) (\s@OpsItemSummary' {} a -> s {status = a} :: OpsItemSummary)
 
--- | The importance of this OpsItem in relation to other OpsItems in the
--- system.
-opsItemSummary_priority :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Natural)
-opsItemSummary_priority = Lens.lens (\OpsItemSummary' {priority} -> priority) (\s@OpsItemSummary' {} a -> s {priority = a} :: OpsItemSummary)
-
--- | The date and time the OpsItem was created.
-opsItemSummary_createdTime :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.UTCTime)
-opsItemSummary_createdTime = Lens.lens (\OpsItemSummary' {createdTime} -> createdTime) (\s@OpsItemSummary' {} a -> s {createdTime = a} :: OpsItemSummary) Prelude.. Lens.mapping Core._Time
-
--- | A list of OpsItems by category.
-opsItemSummary_category :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
-opsItemSummary_category = Lens.lens (\OpsItemSummary' {category} -> category) (\s@OpsItemSummary' {} a -> s {category = a} :: OpsItemSummary)
-
--- | A list of OpsItems by severity.
-opsItemSummary_severity :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
-opsItemSummary_severity = Lens.lens (\OpsItemSummary' {severity} -> severity) (\s@OpsItemSummary' {} a -> s {severity = a} :: OpsItemSummary)
-
--- | The Amazon Resource Name (ARN) of the IAM entity that created the
--- OpsItem.
-opsItemSummary_createdBy :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
-opsItemSummary_createdBy = Lens.lens (\OpsItemSummary' {createdBy} -> createdBy) (\s@OpsItemSummary' {} a -> s {createdBy = a} :: OpsItemSummary)
-
 -- | The date and time the OpsItem was last updated.
 opsItemSummary_lastModifiedTime :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.UTCTime)
 opsItemSummary_lastModifiedTime = Lens.lens (\OpsItemSummary' {lastModifiedTime} -> lastModifiedTime) (\s@OpsItemSummary' {} a -> s {lastModifiedTime = a} :: OpsItemSummary) Prelude.. Lens.mapping Core._Time
-
--- | The type of OpsItem. Currently, the only valid values are
--- @\/aws\/changerequest@ and @\/aws\/issue@.
-opsItemSummary_opsItemType :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
-opsItemSummary_opsItemType = Lens.lens (\OpsItemSummary' {opsItemType} -> opsItemType) (\s@OpsItemSummary' {} a -> s {opsItemType = a} :: OpsItemSummary)
-
--- | The impacted Amazon Web Services resource.
-opsItemSummary_source :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
-opsItemSummary_source = Lens.lens (\OpsItemSummary' {source} -> source) (\s@OpsItemSummary' {} a -> s {source = a} :: OpsItemSummary)
 
 -- | A short heading that describes the nature of the OpsItem and the
 -- impacted resource.
 opsItemSummary_title :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
 opsItemSummary_title = Lens.lens (\OpsItemSummary' {title} -> title) (\s@OpsItemSummary' {} a -> s {title = a} :: OpsItemSummary)
 
--- | The Amazon Resource Name (ARN) of the IAM entity that created the
--- OpsItem.
-opsItemSummary_lastModifiedBy :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
-opsItemSummary_lastModifiedBy = Lens.lens (\OpsItemSummary' {lastModifiedBy} -> lastModifiedBy) (\s@OpsItemSummary' {} a -> s {lastModifiedBy = a} :: OpsItemSummary)
+-- | The impacted Amazon Web Services resource.
+opsItemSummary_source :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
+opsItemSummary_source = Lens.lens (\OpsItemSummary' {source} -> source) (\s@OpsItemSummary' {} a -> s {source = a} :: OpsItemSummary)
+
+-- | The importance of this OpsItem in relation to other OpsItems in the
+-- system.
+opsItemSummary_priority :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Natural)
+opsItemSummary_priority = Lens.lens (\OpsItemSummary' {priority} -> priority) (\s@OpsItemSummary' {} a -> s {priority = a} :: OpsItemSummary)
+
+-- | The type of OpsItem. Currently, the only valid values are
+-- @\/aws\/changerequest@ and @\/aws\/issue@.
+opsItemSummary_opsItemType :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
+opsItemSummary_opsItemType = Lens.lens (\OpsItemSummary' {opsItemType} -> opsItemType) (\s@OpsItemSummary' {} a -> s {opsItemType = a} :: OpsItemSummary)
+
+-- | A list of OpsItems by category.
+opsItemSummary_category :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
+opsItemSummary_category = Lens.lens (\OpsItemSummary' {category} -> category) (\s@OpsItemSummary' {} a -> s {category = a} :: OpsItemSummary)
 
 -- | Operational data is custom data that provides useful reference details
 -- about the OpsItem.
@@ -218,15 +213,20 @@ opsItemSummary_operationalData = Lens.lens (\OpsItemSummary' {operationalData} -
 opsItemSummary_actualStartTime :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.UTCTime)
 opsItemSummary_actualStartTime = Lens.lens (\OpsItemSummary' {actualStartTime} -> actualStartTime) (\s@OpsItemSummary' {} a -> s {actualStartTime = a} :: OpsItemSummary) Prelude.. Lens.mapping Core._Time
 
--- | The time specified in a change request for a runbook workflow to end.
--- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-opsItemSummary_plannedEndTime :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.UTCTime)
-opsItemSummary_plannedEndTime = Lens.lens (\OpsItemSummary' {plannedEndTime} -> plannedEndTime) (\s@OpsItemSummary' {} a -> s {plannedEndTime = a} :: OpsItemSummary) Prelude.. Lens.mapping Core._Time
+-- | The Amazon Resource Name (ARN) of the IAM entity that created the
+-- OpsItem.
+opsItemSummary_lastModifiedBy :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
+opsItemSummary_lastModifiedBy = Lens.lens (\OpsItemSummary' {lastModifiedBy} -> lastModifiedBy) (\s@OpsItemSummary' {} a -> s {lastModifiedBy = a} :: OpsItemSummary)
 
--- | The time specified in a change request for a runbook workflow to start.
--- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-opsItemSummary_plannedStartTime :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.UTCTime)
-opsItemSummary_plannedStartTime = Lens.lens (\OpsItemSummary' {plannedStartTime} -> plannedStartTime) (\s@OpsItemSummary' {} a -> s {plannedStartTime = a} :: OpsItemSummary) Prelude.. Lens.mapping Core._Time
+-- | The Amazon Resource Name (ARN) of the IAM entity that created the
+-- OpsItem.
+opsItemSummary_createdBy :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.Text)
+opsItemSummary_createdBy = Lens.lens (\OpsItemSummary' {createdBy} -> createdBy) (\s@OpsItemSummary' {} a -> s {createdBy = a} :: OpsItemSummary)
+
+-- | The time a runbook workflow ended. Currently reported only for the
+-- OpsItem type @\/aws\/changerequest@.
+opsItemSummary_actualEndTime :: Lens.Lens' OpsItemSummary (Prelude.Maybe Prelude.UTCTime)
+opsItemSummary_actualEndTime = Lens.lens (\OpsItemSummary' {actualEndTime} -> actualEndTime) (\s@OpsItemSummary' {} a -> s {actualEndTime = a} :: OpsItemSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON OpsItemSummary where
   parseJSON =
@@ -234,63 +234,63 @@ instance Core.FromJSON OpsItemSummary where
       "OpsItemSummary"
       ( \x ->
           OpsItemSummary'
-            Prelude.<$> (x Core..:? "ActualEndTime")
+            Prelude.<$> (x Core..:? "Severity")
+            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "PlannedStartTime")
+            Prelude.<*> (x Core..:? "PlannedEndTime")
             Prelude.<*> (x Core..:? "OpsItemId")
             Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Priority")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Category")
-            Prelude.<*> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "CreatedBy")
             Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "OpsItemType")
-            Prelude.<*> (x Core..:? "Source")
             Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
+            Prelude.<*> (x Core..:? "Source")
+            Prelude.<*> (x Core..:? "Priority")
+            Prelude.<*> (x Core..:? "OpsItemType")
+            Prelude.<*> (x Core..:? "Category")
             Prelude.<*> ( x Core..:? "OperationalData"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "ActualStartTime")
-            Prelude.<*> (x Core..:? "PlannedEndTime")
-            Prelude.<*> (x Core..:? "PlannedStartTime")
+            Prelude.<*> (x Core..:? "LastModifiedBy")
+            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<*> (x Core..:? "ActualEndTime")
       )
 
 instance Prelude.Hashable OpsItemSummary where
   hashWithSalt _salt OpsItemSummary' {..} =
-    _salt `Prelude.hashWithSalt` actualEndTime
+    _salt `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` plannedStartTime
+      `Prelude.hashWithSalt` plannedEndTime
       `Prelude.hashWithSalt` opsItemId
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` priority
-      `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` category
-      `Prelude.hashWithSalt` severity
-      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` opsItemType
-      `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` title
-      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` opsItemType
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` operationalData
       `Prelude.hashWithSalt` actualStartTime
-      `Prelude.hashWithSalt` plannedEndTime
-      `Prelude.hashWithSalt` plannedStartTime
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` actualEndTime
 
 instance Prelude.NFData OpsItemSummary where
   rnf OpsItemSummary' {..} =
-    Prelude.rnf actualEndTime
+    Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf plannedStartTime
+      `Prelude.seq` Prelude.rnf plannedEndTime
       `Prelude.seq` Prelude.rnf opsItemId
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf opsItemType
-      `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf opsItemType
+      `Prelude.seq` Prelude.rnf category
       `Prelude.seq` Prelude.rnf operationalData
       `Prelude.seq` Prelude.rnf actualStartTime
-      `Prelude.seq` Prelude.rnf plannedEndTime
-      `Prelude.seq` Prelude.rnf plannedStartTime
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf actualEndTime

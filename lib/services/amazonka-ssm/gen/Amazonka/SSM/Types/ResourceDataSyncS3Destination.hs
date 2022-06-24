@@ -29,13 +29,13 @@ import Amazonka.SSM.Types.ResourceDataSyncS3Format
 --
 -- /See:/ 'newResourceDataSyncS3Destination' smart constructor.
 data ResourceDataSyncS3Destination = ResourceDataSyncS3Destination'
-  { -- | An Amazon S3 prefix for the bucket.
-    prefix :: Prelude.Maybe Prelude.Text,
-    -- | Enables destination data sharing. By default, this field is @null@.
+  { -- | Enables destination data sharing. By default, this field is @null@.
     destinationDataSharing :: Prelude.Maybe ResourceDataSyncDestinationDataSharing,
     -- | The ARN of an encryption key for a destination in Amazon S3. Must belong
     -- to the same Region as the destination S3 bucket.
     aWSKMSKeyARN :: Prelude.Maybe Prelude.Text,
+    -- | An Amazon S3 prefix for the bucket.
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the S3 bucket where the aggregated data is stored.
     bucketName :: Prelude.Text,
     -- | A supported sync format. The following format is currently supported:
@@ -55,12 +55,12 @@ data ResourceDataSyncS3Destination = ResourceDataSyncS3Destination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'prefix', 'resourceDataSyncS3Destination_prefix' - An Amazon S3 prefix for the bucket.
---
 -- 'destinationDataSharing', 'resourceDataSyncS3Destination_destinationDataSharing' - Enables destination data sharing. By default, this field is @null@.
 --
 -- 'aWSKMSKeyARN', 'resourceDataSyncS3Destination_aWSKMSKeyARN' - The ARN of an encryption key for a destination in Amazon S3. Must belong
 -- to the same Region as the destination S3 bucket.
+--
+-- 'prefix', 'resourceDataSyncS3Destination_prefix' - An Amazon S3 prefix for the bucket.
 --
 -- 'bucketName', 'resourceDataSyncS3Destination_bucketName' - The name of the S3 bucket where the aggregated data is stored.
 --
@@ -82,18 +82,14 @@ newResourceDataSyncS3Destination
   pSyncFormat_
   pRegion_ =
     ResourceDataSyncS3Destination'
-      { prefix =
+      { destinationDataSharing =
           Prelude.Nothing,
-        destinationDataSharing = Prelude.Nothing,
         aWSKMSKeyARN = Prelude.Nothing,
+        prefix = Prelude.Nothing,
         bucketName = pBucketName_,
         syncFormat = pSyncFormat_,
         region = pRegion_
       }
-
--- | An Amazon S3 prefix for the bucket.
-resourceDataSyncS3Destination_prefix :: Lens.Lens' ResourceDataSyncS3Destination (Prelude.Maybe Prelude.Text)
-resourceDataSyncS3Destination_prefix = Lens.lens (\ResourceDataSyncS3Destination' {prefix} -> prefix) (\s@ResourceDataSyncS3Destination' {} a -> s {prefix = a} :: ResourceDataSyncS3Destination)
 
 -- | Enables destination data sharing. By default, this field is @null@.
 resourceDataSyncS3Destination_destinationDataSharing :: Lens.Lens' ResourceDataSyncS3Destination (Prelude.Maybe ResourceDataSyncDestinationDataSharing)
@@ -103,6 +99,10 @@ resourceDataSyncS3Destination_destinationDataSharing = Lens.lens (\ResourceDataS
 -- to the same Region as the destination S3 bucket.
 resourceDataSyncS3Destination_aWSKMSKeyARN :: Lens.Lens' ResourceDataSyncS3Destination (Prelude.Maybe Prelude.Text)
 resourceDataSyncS3Destination_aWSKMSKeyARN = Lens.lens (\ResourceDataSyncS3Destination' {aWSKMSKeyARN} -> aWSKMSKeyARN) (\s@ResourceDataSyncS3Destination' {} a -> s {aWSKMSKeyARN = a} :: ResourceDataSyncS3Destination)
+
+-- | An Amazon S3 prefix for the bucket.
+resourceDataSyncS3Destination_prefix :: Lens.Lens' ResourceDataSyncS3Destination (Prelude.Maybe Prelude.Text)
+resourceDataSyncS3Destination_prefix = Lens.lens (\ResourceDataSyncS3Destination' {prefix} -> prefix) (\s@ResourceDataSyncS3Destination' {} a -> s {prefix = a} :: ResourceDataSyncS3Destination)
 
 -- | The name of the S3 bucket where the aggregated data is stored.
 resourceDataSyncS3Destination_bucketName :: Lens.Lens' ResourceDataSyncS3Destination Prelude.Text
@@ -124,9 +124,9 @@ instance Core.FromJSON ResourceDataSyncS3Destination where
       "ResourceDataSyncS3Destination"
       ( \x ->
           ResourceDataSyncS3Destination'
-            Prelude.<$> (x Core..:? "Prefix")
-            Prelude.<*> (x Core..:? "DestinationDataSharing")
+            Prelude.<$> (x Core..:? "DestinationDataSharing")
             Prelude.<*> (x Core..:? "AWSKMSKeyARN")
+            Prelude.<*> (x Core..:? "Prefix")
             Prelude.<*> (x Core..: "BucketName")
             Prelude.<*> (x Core..: "SyncFormat")
             Prelude.<*> (x Core..: "Region")
@@ -137,18 +137,18 @@ instance
     ResourceDataSyncS3Destination
   where
   hashWithSalt _salt ResourceDataSyncS3Destination' {..} =
-    _salt `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` destinationDataSharing
+    _salt `Prelude.hashWithSalt` destinationDataSharing
       `Prelude.hashWithSalt` aWSKMSKeyARN
+      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` syncFormat
       `Prelude.hashWithSalt` region
 
 instance Prelude.NFData ResourceDataSyncS3Destination where
   rnf ResourceDataSyncS3Destination' {..} =
-    Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf destinationDataSharing
+    Prelude.rnf destinationDataSharing
       `Prelude.seq` Prelude.rnf aWSKMSKeyARN
+      `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf syncFormat
       `Prelude.seq` Prelude.rnf region
@@ -157,10 +157,10 @@ instance Core.ToJSON ResourceDataSyncS3Destination where
   toJSON ResourceDataSyncS3Destination' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Prefix" Core..=) Prelude.<$> prefix,
-            ("DestinationDataSharing" Core..=)
+          [ ("DestinationDataSharing" Core..=)
               Prelude.<$> destinationDataSharing,
             ("AWSKMSKeyARN" Core..=) Prelude.<$> aWSKMSKeyARN,
+            ("Prefix" Core..=) Prelude.<$> prefix,
             Prelude.Just ("BucketName" Core..= bucketName),
             Prelude.Just ("SyncFormat" Core..= syncFormat),
             Prelude.Just ("Region" Core..= region)

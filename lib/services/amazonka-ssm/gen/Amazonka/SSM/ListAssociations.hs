@@ -33,8 +33,8 @@ module Amazonka.SSM.ListAssociations
     newListAssociations,
 
     -- * Request Lenses
-    listAssociations_associationFilterList,
     listAssociations_nextToken,
+    listAssociations_associationFilterList,
     listAssociations_maxResults,
 
     -- * Destructuring the Response
@@ -57,7 +57,10 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newListAssociations' smart constructor.
 data ListAssociations = ListAssociations'
-  { -- | One or more filters. Use a filter to return a more specific list of
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. Use a filter to return a more specific list of
     -- results.
     --
     -- Filtering associations using the @InstanceID@ attribute only returns
@@ -65,9 +68,6 @@ data ListAssociations = ListAssociations'
     -- Associations targeting the instance that are part of the Target
     -- Attributes @ResourceGroup@ or @Tags@ aren\'t returned.
     associationFilterList :: Prelude.Maybe (Prelude.NonEmpty AssociationFilter),
-    -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
@@ -83,6 +83,9 @@ data ListAssociations = ListAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listAssociations_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
 -- 'associationFilterList', 'listAssociations_associationFilterList' - One or more filters. Use a filter to return a more specific list of
 -- results.
 --
@@ -91,9 +94,6 @@ data ListAssociations = ListAssociations'
 -- Associations targeting the instance that are part of the Target
 -- Attributes @ResourceGroup@ or @Tags@ aren\'t returned.
 --
--- 'nextToken', 'listAssociations_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'maxResults', 'listAssociations_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
@@ -101,11 +101,15 @@ newListAssociations ::
   ListAssociations
 newListAssociations =
   ListAssociations'
-    { associationFilterList =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      associationFilterList = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+listAssociations_nextToken :: Lens.Lens' ListAssociations (Prelude.Maybe Prelude.Text)
+listAssociations_nextToken = Lens.lens (\ListAssociations' {nextToken} -> nextToken) (\s@ListAssociations' {} a -> s {nextToken = a} :: ListAssociations)
 
 -- | One or more filters. Use a filter to return a more specific list of
 -- results.
@@ -116,11 +120,6 @@ newListAssociations =
 -- Attributes @ResourceGroup@ or @Tags@ aren\'t returned.
 listAssociations_associationFilterList :: Lens.Lens' ListAssociations (Prelude.Maybe (Prelude.NonEmpty AssociationFilter))
 listAssociations_associationFilterList = Lens.lens (\ListAssociations' {associationFilterList} -> associationFilterList) (\s@ListAssociations' {} a -> s {associationFilterList = a} :: ListAssociations) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-listAssociations_nextToken :: Lens.Lens' ListAssociations (Prelude.Maybe Prelude.Text)
-listAssociations_nextToken = Lens.lens (\ListAssociations' {nextToken} -> nextToken) (\s@ListAssociations' {} a -> s {nextToken = a} :: ListAssociations)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -166,14 +165,14 @@ instance Core.AWSRequest ListAssociations where
 
 instance Prelude.Hashable ListAssociations where
   hashWithSalt _salt ListAssociations' {..} =
-    _salt `Prelude.hashWithSalt` associationFilterList
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` associationFilterList
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListAssociations where
   rnf ListAssociations' {..} =
-    Prelude.rnf associationFilterList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf associationFilterList
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAssociations where
@@ -193,9 +192,9 @@ instance Core.ToJSON ListAssociations where
   toJSON ListAssociations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AssociationFilterList" Core..=)
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("AssociationFilterList" Core..=)
               Prelude.<$> associationFilterList,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

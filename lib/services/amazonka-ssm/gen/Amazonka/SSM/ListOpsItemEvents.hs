@@ -31,8 +31,8 @@ module Amazonka.SSM.ListOpsItemEvents
     newListOpsItemEvents,
 
     -- * Request Lenses
-    listOpsItemEvents_filters,
     listOpsItemEvents_nextToken,
+    listOpsItemEvents_filters,
     listOpsItemEvents_maxResults,
 
     -- * Destructuring the Response
@@ -55,12 +55,12 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newListOpsItemEvents' smart constructor.
 data ListOpsItemEvents = ListOpsItemEvents'
-  { -- | One or more OpsItem filters. Use a filter to return a more specific list
-    -- of results.
-    filters :: Prelude.Maybe [OpsItemEventFilter],
-    -- | A token to start the list. Use this token to get the next set of
+  { -- | A token to start the list. Use this token to get the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more OpsItem filters. Use a filter to return a more specific list
+    -- of results.
+    filters :: Prelude.Maybe [OpsItemEventFilter],
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
@@ -76,11 +76,11 @@ data ListOpsItemEvents = ListOpsItemEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'listOpsItemEvents_filters' - One or more OpsItem filters. Use a filter to return a more specific list
--- of results.
---
 -- 'nextToken', 'listOpsItemEvents_nextToken' - A token to start the list. Use this token to get the next set of
 -- results.
+--
+-- 'filters', 'listOpsItemEvents_filters' - One or more OpsItem filters. Use a filter to return a more specific list
+-- of results.
 --
 -- 'maxResults', 'listOpsItemEvents_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -89,20 +89,20 @@ newListOpsItemEvents ::
   ListOpsItemEvents
 newListOpsItemEvents =
   ListOpsItemEvents'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | One or more OpsItem filters. Use a filter to return a more specific list
--- of results.
-listOpsItemEvents_filters :: Lens.Lens' ListOpsItemEvents (Prelude.Maybe [OpsItemEventFilter])
-listOpsItemEvents_filters = Lens.lens (\ListOpsItemEvents' {filters} -> filters) (\s@ListOpsItemEvents' {} a -> s {filters = a} :: ListOpsItemEvents) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
 listOpsItemEvents_nextToken :: Lens.Lens' ListOpsItemEvents (Prelude.Maybe Prelude.Text)
 listOpsItemEvents_nextToken = Lens.lens (\ListOpsItemEvents' {nextToken} -> nextToken) (\s@ListOpsItemEvents' {} a -> s {nextToken = a} :: ListOpsItemEvents)
+
+-- | One or more OpsItem filters. Use a filter to return a more specific list
+-- of results.
+listOpsItemEvents_filters :: Lens.Lens' ListOpsItemEvents (Prelude.Maybe [OpsItemEventFilter])
+listOpsItemEvents_filters = Lens.lens (\ListOpsItemEvents' {filters} -> filters) (\s@ListOpsItemEvents' {} a -> s {filters = a} :: ListOpsItemEvents) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -148,14 +148,14 @@ instance Core.AWSRequest ListOpsItemEvents where
 
 instance Prelude.Hashable ListOpsItemEvents where
   hashWithSalt _salt ListOpsItemEvents' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListOpsItemEvents where
   rnf ListOpsItemEvents' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListOpsItemEvents where
@@ -177,8 +177,8 @@ instance Core.ToJSON ListOpsItemEvents where
   toJSON ListOpsItemEvents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

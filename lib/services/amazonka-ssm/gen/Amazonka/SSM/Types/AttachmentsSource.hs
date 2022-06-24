@@ -30,7 +30,12 @@ import Amazonka.SSM.Types.AttachmentsSourceKey
 --
 -- /See:/ 'newAttachmentsSource' smart constructor.
 data AttachmentsSource = AttachmentsSource'
-  { -- | The value of a key-value pair that identifies the location of an
+  { -- | The key of a key-value pair that identifies the location of an
+    -- attachment to a document.
+    key :: Prelude.Maybe AttachmentsSourceKey,
+    -- | The name of the document attachment file.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The value of a key-value pair that identifies the location of an
     -- attachment to a document. The format for __Value__ depends on the type
     -- of key you specify.
     --
@@ -56,12 +61,7 @@ data AttachmentsSource = AttachmentsSource'
     --     document name only. For example:
     --
     --     @\"Values\": [ \"arn:aws:ssm:us-east-2:111122223333:document\/OtherAccountDocument\/3\/their-file.py\" ]@
-    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The key of a key-value pair that identifies the location of an
-    -- attachment to a document.
-    key :: Prelude.Maybe AttachmentsSourceKey,
-    -- | The name of the document attachment file.
-    name :: Prelude.Maybe Prelude.Text
+    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,6 +72,11 @@ data AttachmentsSource = AttachmentsSource'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'key', 'attachmentsSource_key' - The key of a key-value pair that identifies the location of an
+-- attachment to a document.
+--
+-- 'name', 'attachmentsSource_name' - The name of the document attachment file.
 --
 -- 'values', 'attachmentsSource_values' - The value of a key-value pair that identifies the location of an
 -- attachment to a document. The format for __Value__ depends on the type
@@ -99,19 +104,23 @@ data AttachmentsSource = AttachmentsSource'
 --     document name only. For example:
 --
 --     @\"Values\": [ \"arn:aws:ssm:us-east-2:111122223333:document\/OtherAccountDocument\/3\/their-file.py\" ]@
---
--- 'key', 'attachmentsSource_key' - The key of a key-value pair that identifies the location of an
--- attachment to a document.
---
--- 'name', 'attachmentsSource_name' - The name of the document attachment file.
 newAttachmentsSource ::
   AttachmentsSource
 newAttachmentsSource =
   AttachmentsSource'
-    { values = Prelude.Nothing,
-      key = Prelude.Nothing,
-      name = Prelude.Nothing
+    { key = Prelude.Nothing,
+      name = Prelude.Nothing,
+      values = Prelude.Nothing
     }
+
+-- | The key of a key-value pair that identifies the location of an
+-- attachment to a document.
+attachmentsSource_key :: Lens.Lens' AttachmentsSource (Prelude.Maybe AttachmentsSourceKey)
+attachmentsSource_key = Lens.lens (\AttachmentsSource' {key} -> key) (\s@AttachmentsSource' {} a -> s {key = a} :: AttachmentsSource)
+
+-- | The name of the document attachment file.
+attachmentsSource_name :: Lens.Lens' AttachmentsSource (Prelude.Maybe Prelude.Text)
+attachmentsSource_name = Lens.lens (\AttachmentsSource' {name} -> name) (\s@AttachmentsSource' {} a -> s {name = a} :: AttachmentsSource)
 
 -- | The value of a key-value pair that identifies the location of an
 -- attachment to a document. The format for __Value__ depends on the type
@@ -142,33 +151,24 @@ newAttachmentsSource =
 attachmentsSource_values :: Lens.Lens' AttachmentsSource (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 attachmentsSource_values = Lens.lens (\AttachmentsSource' {values} -> values) (\s@AttachmentsSource' {} a -> s {values = a} :: AttachmentsSource) Prelude.. Lens.mapping Lens.coerced
 
--- | The key of a key-value pair that identifies the location of an
--- attachment to a document.
-attachmentsSource_key :: Lens.Lens' AttachmentsSource (Prelude.Maybe AttachmentsSourceKey)
-attachmentsSource_key = Lens.lens (\AttachmentsSource' {key} -> key) (\s@AttachmentsSource' {} a -> s {key = a} :: AttachmentsSource)
-
--- | The name of the document attachment file.
-attachmentsSource_name :: Lens.Lens' AttachmentsSource (Prelude.Maybe Prelude.Text)
-attachmentsSource_name = Lens.lens (\AttachmentsSource' {name} -> name) (\s@AttachmentsSource' {} a -> s {name = a} :: AttachmentsSource)
-
 instance Prelude.Hashable AttachmentsSource where
   hashWithSalt _salt AttachmentsSource' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData AttachmentsSource where
   rnf AttachmentsSource' {..} =
-    Prelude.rnf values
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON AttachmentsSource where
   toJSON AttachmentsSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Values" Core..=) Prelude.<$> values,
-            ("Key" Core..=) Prelude.<$> key,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Name" Core..=) Prelude.<$> name,
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

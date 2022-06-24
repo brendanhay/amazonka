@@ -107,7 +107,8 @@ done
 parallel --halt-on-error 2 format_and_replace ::: "$tmp"/amazonka-*
 
 # Generate BUILD files for every package.
-./scripts/update-gazelle
+# Exit code 3 = Build OK, some tests failed/timed out
+./scripts/update-gazelle || [ $? == 3 ]
 
 set +e
 

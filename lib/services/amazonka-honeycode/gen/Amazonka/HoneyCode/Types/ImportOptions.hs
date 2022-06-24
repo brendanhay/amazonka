@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportOptions' smart constructor.
 data ImportOptions = ImportOptions'
-  { -- | Options relating to parsing delimited text. Required if dataFormat is
+  { -- | Options relating to the destination of the import request.
+    destinationOptions :: Prelude.Maybe DestinationOptions,
+    -- | Options relating to parsing delimited text. Required if dataFormat is
     -- DELIMITED_TEXT.
-    delimitedTextOptions :: Prelude.Maybe DelimitedTextImportOptions,
-    -- | Options relating to the destination of the import request.
-    destinationOptions :: Prelude.Maybe DestinationOptions
+    delimitedTextOptions :: Prelude.Maybe DelimitedTextImportOptions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data ImportOptions = ImportOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destinationOptions', 'importOptions_destinationOptions' - Options relating to the destination of the import request.
+--
 -- 'delimitedTextOptions', 'importOptions_delimitedTextOptions' - Options relating to parsing delimited text. Required if dataFormat is
 -- DELIMITED_TEXT.
---
--- 'destinationOptions', 'importOptions_destinationOptions' - Options relating to the destination of the import request.
 newImportOptions ::
   ImportOptions
 newImportOptions =
   ImportOptions'
-    { delimitedTextOptions =
+    { destinationOptions =
         Prelude.Nothing,
-      destinationOptions = Prelude.Nothing
+      delimitedTextOptions = Prelude.Nothing
     }
+
+-- | Options relating to the destination of the import request.
+importOptions_destinationOptions :: Lens.Lens' ImportOptions (Prelude.Maybe DestinationOptions)
+importOptions_destinationOptions = Lens.lens (\ImportOptions' {destinationOptions} -> destinationOptions) (\s@ImportOptions' {} a -> s {destinationOptions = a} :: ImportOptions)
 
 -- | Options relating to parsing delimited text. Required if dataFormat is
 -- DELIMITED_TEXT.
 importOptions_delimitedTextOptions :: Lens.Lens' ImportOptions (Prelude.Maybe DelimitedTextImportOptions)
 importOptions_delimitedTextOptions = Lens.lens (\ImportOptions' {delimitedTextOptions} -> delimitedTextOptions) (\s@ImportOptions' {} a -> s {delimitedTextOptions = a} :: ImportOptions)
-
--- | Options relating to the destination of the import request.
-importOptions_destinationOptions :: Lens.Lens' ImportOptions (Prelude.Maybe DestinationOptions)
-importOptions_destinationOptions = Lens.lens (\ImportOptions' {destinationOptions} -> destinationOptions) (\s@ImportOptions' {} a -> s {destinationOptions = a} :: ImportOptions)
 
 instance Core.FromJSON ImportOptions where
   parseJSON =
@@ -74,27 +74,27 @@ instance Core.FromJSON ImportOptions where
       "ImportOptions"
       ( \x ->
           ImportOptions'
-            Prelude.<$> (x Core..:? "delimitedTextOptions")
-            Prelude.<*> (x Core..:? "destinationOptions")
+            Prelude.<$> (x Core..:? "destinationOptions")
+            Prelude.<*> (x Core..:? "delimitedTextOptions")
       )
 
 instance Prelude.Hashable ImportOptions where
   hashWithSalt _salt ImportOptions' {..} =
-    _salt `Prelude.hashWithSalt` delimitedTextOptions
-      `Prelude.hashWithSalt` destinationOptions
+    _salt `Prelude.hashWithSalt` destinationOptions
+      `Prelude.hashWithSalt` delimitedTextOptions
 
 instance Prelude.NFData ImportOptions where
   rnf ImportOptions' {..} =
-    Prelude.rnf delimitedTextOptions
-      `Prelude.seq` Prelude.rnf destinationOptions
+    Prelude.rnf destinationOptions
+      `Prelude.seq` Prelude.rnf delimitedTextOptions
 
 instance Core.ToJSON ImportOptions where
   toJSON ImportOptions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("delimitedTextOptions" Core..=)
-              Prelude.<$> delimitedTextOptions,
-            ("destinationOptions" Core..=)
-              Prelude.<$> destinationOptions
+          [ ("destinationOptions" Core..=)
+              Prelude.<$> destinationOptions,
+            ("delimitedTextOptions" Core..=)
+              Prelude.<$> delimitedTextOptions
           ]
       )

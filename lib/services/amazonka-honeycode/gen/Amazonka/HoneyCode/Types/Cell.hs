@@ -28,7 +28,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCell' smart constructor.
 data Cell = Cell'
-  { -- | The raw value of the data contained in the cell. The raw value depends
+  { -- | The format of the cell. If this field is empty, then the format is
+    -- either not specified in the workbook or the format is set to AUTO.
+    format :: Prelude.Maybe Format,
+    -- | The formatted value of the cell. This is the value that you see
+    -- displayed in the cell in the UI.
+    --
+    -- Note that the formatted value of a cell is always represented as a
+    -- string irrespective of the data that is stored in the cell. For example,
+    -- if a cell contains a date, the formatted value of the cell is the string
+    -- representation of the formatted date being shown in the cell in the UI.
+    -- See details in the rawValue field below for how cells of different
+    -- formats will have different raw and formatted values.
+    formattedValue :: Prelude.Maybe Prelude.Text,
+    -- | The formula contained in the cell. This field is empty if a cell does
+    -- not have a formula.
+    formula :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The raw value of the data contained in the cell. The raw value depends
     -- on the format of the data in the cell. However the attribute in the API
     -- return value is always a string containing the raw value.
     --
@@ -73,23 +89,7 @@ data Cell = Cell'
     -- formatted values as mentioned above, based on the auto-detected formats.
     -- If there is no auto-detected format, the raw and formatted values will
     -- be the same as the data in the cell.
-    rawValue :: Prelude.Maybe Prelude.Text,
-    -- | The format of the cell. If this field is empty, then the format is
-    -- either not specified in the workbook or the format is set to AUTO.
-    format :: Prelude.Maybe Format,
-    -- | The formula contained in the cell. This field is empty if a cell does
-    -- not have a formula.
-    formula :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The formatted value of the cell. This is the value that you see
-    -- displayed in the cell in the UI.
-    --
-    -- Note that the formatted value of a cell is always represented as a
-    -- string irrespective of the data that is stored in the cell. For example,
-    -- if a cell contains a date, the formatted value of the cell is the string
-    -- representation of the formatted date being shown in the cell in the UI.
-    -- See details in the rawValue field below for how cells of different
-    -- formats will have different raw and formatted values.
-    formattedValue :: Prelude.Maybe Prelude.Text
+    rawValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -100,6 +100,22 @@ data Cell = Cell'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'format', 'cell_format' - The format of the cell. If this field is empty, then the format is
+-- either not specified in the workbook or the format is set to AUTO.
+--
+-- 'formattedValue', 'cell_formattedValue' - The formatted value of the cell. This is the value that you see
+-- displayed in the cell in the UI.
+--
+-- Note that the formatted value of a cell is always represented as a
+-- string irrespective of the data that is stored in the cell. For example,
+-- if a cell contains a date, the formatted value of the cell is the string
+-- representation of the formatted date being shown in the cell in the UI.
+-- See details in the rawValue field below for how cells of different
+-- formats will have different raw and formatted values.
+--
+-- 'formula', 'cell_formula' - The formula contained in the cell. This field is empty if a cell does
+-- not have a formula.
 --
 -- 'rawValue', 'cell_rawValue' - The raw value of the data contained in the cell. The raw value depends
 -- on the format of the data in the cell. However the attribute in the API
@@ -146,14 +162,22 @@ data Cell = Cell'
 -- formatted values as mentioned above, based on the auto-detected formats.
 -- If there is no auto-detected format, the raw and formatted values will
 -- be the same as the data in the cell.
---
--- 'format', 'cell_format' - The format of the cell. If this field is empty, then the format is
+newCell ::
+  Cell
+newCell =
+  Cell'
+    { format = Prelude.Nothing,
+      formattedValue = Prelude.Nothing,
+      formula = Prelude.Nothing,
+      rawValue = Prelude.Nothing
+    }
+
+-- | The format of the cell. If this field is empty, then the format is
 -- either not specified in the workbook or the format is set to AUTO.
---
--- 'formula', 'cell_formula' - The formula contained in the cell. This field is empty if a cell does
--- not have a formula.
---
--- 'formattedValue', 'cell_formattedValue' - The formatted value of the cell. This is the value that you see
+cell_format :: Lens.Lens' Cell (Prelude.Maybe Format)
+cell_format = Lens.lens (\Cell' {format} -> format) (\s@Cell' {} a -> s {format = a} :: Cell)
+
+-- | The formatted value of the cell. This is the value that you see
 -- displayed in the cell in the UI.
 --
 -- Note that the formatted value of a cell is always represented as a
@@ -162,15 +186,13 @@ data Cell = Cell'
 -- representation of the formatted date being shown in the cell in the UI.
 -- See details in the rawValue field below for how cells of different
 -- formats will have different raw and formatted values.
-newCell ::
-  Cell
-newCell =
-  Cell'
-    { rawValue = Prelude.Nothing,
-      format = Prelude.Nothing,
-      formula = Prelude.Nothing,
-      formattedValue = Prelude.Nothing
-    }
+cell_formattedValue :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
+cell_formattedValue = Lens.lens (\Cell' {formattedValue} -> formattedValue) (\s@Cell' {} a -> s {formattedValue = a} :: Cell)
+
+-- | The formula contained in the cell. This field is empty if a cell does
+-- not have a formula.
+cell_formula :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
+cell_formula = Lens.lens (\Cell' {formula} -> formula) (\s@Cell' {} a -> s {formula = a} :: Cell) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The raw value of the data contained in the cell. The raw value depends
 -- on the format of the data in the cell. However the attribute in the API
@@ -220,50 +242,28 @@ newCell =
 cell_rawValue :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
 cell_rawValue = Lens.lens (\Cell' {rawValue} -> rawValue) (\s@Cell' {} a -> s {rawValue = a} :: Cell)
 
--- | The format of the cell. If this field is empty, then the format is
--- either not specified in the workbook or the format is set to AUTO.
-cell_format :: Lens.Lens' Cell (Prelude.Maybe Format)
-cell_format = Lens.lens (\Cell' {format} -> format) (\s@Cell' {} a -> s {format = a} :: Cell)
-
--- | The formula contained in the cell. This field is empty if a cell does
--- not have a formula.
-cell_formula :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
-cell_formula = Lens.lens (\Cell' {formula} -> formula) (\s@Cell' {} a -> s {formula = a} :: Cell) Prelude.. Lens.mapping Core._Sensitive
-
--- | The formatted value of the cell. This is the value that you see
--- displayed in the cell in the UI.
---
--- Note that the formatted value of a cell is always represented as a
--- string irrespective of the data that is stored in the cell. For example,
--- if a cell contains a date, the formatted value of the cell is the string
--- representation of the formatted date being shown in the cell in the UI.
--- See details in the rawValue field below for how cells of different
--- formats will have different raw and formatted values.
-cell_formattedValue :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
-cell_formattedValue = Lens.lens (\Cell' {formattedValue} -> formattedValue) (\s@Cell' {} a -> s {formattedValue = a} :: Cell)
-
 instance Core.FromJSON Cell where
   parseJSON =
     Core.withObject
       "Cell"
       ( \x ->
           Cell'
-            Prelude.<$> (x Core..:? "rawValue")
-            Prelude.<*> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "formula")
+            Prelude.<$> (x Core..:? "format")
             Prelude.<*> (x Core..:? "formattedValue")
+            Prelude.<*> (x Core..:? "formula")
+            Prelude.<*> (x Core..:? "rawValue")
       )
 
 instance Prelude.Hashable Cell where
   hashWithSalt _salt Cell' {..} =
-    _salt `Prelude.hashWithSalt` rawValue
-      `Prelude.hashWithSalt` format
-      `Prelude.hashWithSalt` formula
+    _salt `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` formattedValue
+      `Prelude.hashWithSalt` formula
+      `Prelude.hashWithSalt` rawValue
 
 instance Prelude.NFData Cell where
   rnf Cell' {..} =
-    Prelude.rnf rawValue
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf formula
+    Prelude.rnf format
       `Prelude.seq` Prelude.rnf formattedValue
+      `Prelude.seq` Prelude.rnf formula
+      `Prelude.seq` Prelude.rnf rawValue

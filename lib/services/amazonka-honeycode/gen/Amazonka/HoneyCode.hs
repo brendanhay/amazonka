@@ -22,29 +22,14 @@ module Amazonka.HoneyCode
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** AutomationExecutionTimeoutException
-    _AutomationExecutionTimeoutException,
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** AutomationExecutionException
-    _AutomationExecutionException,
-
-    -- ** RequestTimeoutException
-    _RequestTimeoutException,
-
-    -- ** InternalServerException
-    _InternalServerException,
 
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
@@ -52,11 +37,32 @@ module Amazonka.HoneyCode
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** AutomationExecutionTimeoutException
+    _AutomationExecutionTimeoutException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** RequestTimeoutException
+    _RequestTimeoutException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** AutomationExecutionException
+    _AutomationExecutionException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** BatchCreateTableRows
+    BatchCreateTableRows (BatchCreateTableRows'),
+    newBatchCreateTableRows,
+    BatchCreateTableRowsResponse (BatchCreateTableRowsResponse'),
+    newBatchCreateTableRowsResponse,
 
     -- ** BatchDeleteTableRows
     BatchDeleteTableRows (BatchDeleteTableRows'),
@@ -70,17 +76,11 @@ module Amazonka.HoneyCode
     BatchUpdateTableRowsResponse (BatchUpdateTableRowsResponse'),
     newBatchUpdateTableRowsResponse,
 
-    -- ** ListTableRows (Paginated)
-    ListTableRows (ListTableRows'),
-    newListTableRows,
-    ListTableRowsResponse (ListTableRowsResponse'),
-    newListTableRowsResponse,
-
-    -- ** InvokeScreenAutomation
-    InvokeScreenAutomation (InvokeScreenAutomation'),
-    newInvokeScreenAutomation,
-    InvokeScreenAutomationResponse (InvokeScreenAutomationResponse'),
-    newInvokeScreenAutomationResponse,
+    -- ** BatchUpsertTableRows
+    BatchUpsertTableRows (BatchUpsertTableRows'),
+    newBatchUpsertTableRows,
+    BatchUpsertTableRowsResponse (BatchUpsertTableRowsResponse'),
+    newBatchUpsertTableRowsResponse,
 
     -- ** DescribeTableDataImportJob
     DescribeTableDataImportJob (DescribeTableDataImportJob'),
@@ -88,17 +88,29 @@ module Amazonka.HoneyCode
     DescribeTableDataImportJobResponse (DescribeTableDataImportJobResponse'),
     newDescribeTableDataImportJobResponse,
 
-    -- ** StartTableDataImportJob
-    StartTableDataImportJob (StartTableDataImportJob'),
-    newStartTableDataImportJob,
-    StartTableDataImportJobResponse (StartTableDataImportJobResponse'),
-    newStartTableDataImportJobResponse,
+    -- ** GetScreenData
+    GetScreenData (GetScreenData'),
+    newGetScreenData,
+    GetScreenDataResponse (GetScreenDataResponse'),
+    newGetScreenDataResponse,
 
-    -- ** BatchCreateTableRows
-    BatchCreateTableRows (BatchCreateTableRows'),
-    newBatchCreateTableRows,
-    BatchCreateTableRowsResponse (BatchCreateTableRowsResponse'),
-    newBatchCreateTableRowsResponse,
+    -- ** InvokeScreenAutomation
+    InvokeScreenAutomation (InvokeScreenAutomation'),
+    newInvokeScreenAutomation,
+    InvokeScreenAutomationResponse (InvokeScreenAutomationResponse'),
+    newInvokeScreenAutomationResponse,
+
+    -- ** ListTableColumns (Paginated)
+    ListTableColumns (ListTableColumns'),
+    newListTableColumns,
+    ListTableColumnsResponse (ListTableColumnsResponse'),
+    newListTableColumnsResponse,
+
+    -- ** ListTableRows (Paginated)
+    ListTableRows (ListTableRows'),
+    newListTableRows,
+    ListTableRowsResponse (ListTableRowsResponse'),
+    newListTableRowsResponse,
 
     -- ** ListTables (Paginated)
     ListTables (ListTables'),
@@ -106,29 +118,17 @@ module Amazonka.HoneyCode
     ListTablesResponse (ListTablesResponse'),
     newListTablesResponse,
 
-    -- ** GetScreenData
-    GetScreenData (GetScreenData'),
-    newGetScreenData,
-    GetScreenDataResponse (GetScreenDataResponse'),
-    newGetScreenDataResponse,
-
     -- ** QueryTableRows (Paginated)
     QueryTableRows (QueryTableRows'),
     newQueryTableRows,
     QueryTableRowsResponse (QueryTableRowsResponse'),
     newQueryTableRowsResponse,
 
-    -- ** BatchUpsertTableRows
-    BatchUpsertTableRows (BatchUpsertTableRows'),
-    newBatchUpsertTableRows,
-    BatchUpsertTableRowsResponse (BatchUpsertTableRowsResponse'),
-    newBatchUpsertTableRowsResponse,
-
-    -- ** ListTableColumns (Paginated)
-    ListTableColumns (ListTableColumns'),
-    newListTableColumns,
-    ListTableColumnsResponse (ListTableColumnsResponse'),
-    newListTableColumnsResponse,
+    -- ** StartTableDataImportJob
+    StartTableDataImportJob (StartTableDataImportJob'),
+    newStartTableDataImportJob,
+    StartTableDataImportJobResponse (StartTableDataImportJobResponse'),
+    newStartTableDataImportJobResponse,
 
     -- * Types
 

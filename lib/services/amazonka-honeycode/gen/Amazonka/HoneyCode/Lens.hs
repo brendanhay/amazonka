@@ -14,6 +14,16 @@
 module Amazonka.HoneyCode.Lens
   ( -- * Operations
 
+    -- ** BatchCreateTableRows
+    batchCreateTableRows_clientRequestToken,
+    batchCreateTableRows_workbookId,
+    batchCreateTableRows_tableId,
+    batchCreateTableRows_rowsToCreate,
+    batchCreateTableRowsResponse_failedBatchItems,
+    batchCreateTableRowsResponse_httpStatus,
+    batchCreateTableRowsResponse_workbookCursor,
+    batchCreateTableRowsResponse_createdRows,
+
     -- ** BatchDeleteTableRows
     batchDeleteTableRows_clientRequestToken,
     batchDeleteTableRows_workbookId,
@@ -32,29 +42,15 @@ module Amazonka.HoneyCode.Lens
     batchUpdateTableRowsResponse_httpStatus,
     batchUpdateTableRowsResponse_workbookCursor,
 
-    -- ** ListTableRows
-    listTableRows_rowIds,
-    listTableRows_nextToken,
-    listTableRows_maxResults,
-    listTableRows_workbookId,
-    listTableRows_tableId,
-    listTableRowsResponse_rowIdsNotFound,
-    listTableRowsResponse_nextToken,
-    listTableRowsResponse_httpStatus,
-    listTableRowsResponse_columnIds,
-    listTableRowsResponse_rows,
-    listTableRowsResponse_workbookCursor,
-
-    -- ** InvokeScreenAutomation
-    invokeScreenAutomation_rowId,
-    invokeScreenAutomation_variables,
-    invokeScreenAutomation_clientRequestToken,
-    invokeScreenAutomation_workbookId,
-    invokeScreenAutomation_appId,
-    invokeScreenAutomation_screenId,
-    invokeScreenAutomation_screenAutomationId,
-    invokeScreenAutomationResponse_httpStatus,
-    invokeScreenAutomationResponse_workbookCursor,
+    -- ** BatchUpsertTableRows
+    batchUpsertTableRows_clientRequestToken,
+    batchUpsertTableRows_workbookId,
+    batchUpsertTableRows_tableId,
+    batchUpsertTableRows_rowsToUpsert,
+    batchUpsertTableRowsResponse_failedBatchItems,
+    batchUpsertTableRowsResponse_httpStatus,
+    batchUpsertTableRowsResponse_rows,
+    batchUpsertTableRowsResponse_workbookCursor,
 
     -- ** DescribeTableDataImportJob
     describeTableDataImportJob_workbookId,
@@ -65,26 +61,50 @@ module Amazonka.HoneyCode.Lens
     describeTableDataImportJobResponse_message,
     describeTableDataImportJobResponse_jobMetadata,
 
-    -- ** StartTableDataImportJob
-    startTableDataImportJob_workbookId,
-    startTableDataImportJob_dataSource,
-    startTableDataImportJob_dataFormat,
-    startTableDataImportJob_destinationTableId,
-    startTableDataImportJob_importOptions,
-    startTableDataImportJob_clientRequestToken,
-    startTableDataImportJobResponse_httpStatus,
-    startTableDataImportJobResponse_jobId,
-    startTableDataImportJobResponse_jobStatus,
+    -- ** GetScreenData
+    getScreenData_nextToken,
+    getScreenData_maxResults,
+    getScreenData_variables,
+    getScreenData_workbookId,
+    getScreenData_appId,
+    getScreenData_screenId,
+    getScreenDataResponse_nextToken,
+    getScreenDataResponse_httpStatus,
+    getScreenDataResponse_results,
+    getScreenDataResponse_workbookCursor,
 
-    -- ** BatchCreateTableRows
-    batchCreateTableRows_clientRequestToken,
-    batchCreateTableRows_workbookId,
-    batchCreateTableRows_tableId,
-    batchCreateTableRows_rowsToCreate,
-    batchCreateTableRowsResponse_failedBatchItems,
-    batchCreateTableRowsResponse_httpStatus,
-    batchCreateTableRowsResponse_workbookCursor,
-    batchCreateTableRowsResponse_createdRows,
+    -- ** InvokeScreenAutomation
+    invokeScreenAutomation_clientRequestToken,
+    invokeScreenAutomation_rowId,
+    invokeScreenAutomation_variables,
+    invokeScreenAutomation_workbookId,
+    invokeScreenAutomation_appId,
+    invokeScreenAutomation_screenId,
+    invokeScreenAutomation_screenAutomationId,
+    invokeScreenAutomationResponse_httpStatus,
+    invokeScreenAutomationResponse_workbookCursor,
+
+    -- ** ListTableColumns
+    listTableColumns_nextToken,
+    listTableColumns_workbookId,
+    listTableColumns_tableId,
+    listTableColumnsResponse_nextToken,
+    listTableColumnsResponse_workbookCursor,
+    listTableColumnsResponse_httpStatus,
+    listTableColumnsResponse_tableColumns,
+
+    -- ** ListTableRows
+    listTableRows_nextToken,
+    listTableRows_rowIds,
+    listTableRows_maxResults,
+    listTableRows_workbookId,
+    listTableRows_tableId,
+    listTableRowsResponse_nextToken,
+    listTableRowsResponse_rowIdsNotFound,
+    listTableRowsResponse_httpStatus,
+    listTableRowsResponse_columnIds,
+    listTableRowsResponse_rows,
+    listTableRowsResponse_workbookCursor,
 
     -- ** ListTables
     listTables_nextToken,
@@ -94,18 +114,6 @@ module Amazonka.HoneyCode.Lens
     listTablesResponse_workbookCursor,
     listTablesResponse_httpStatus,
     listTablesResponse_tables,
-
-    -- ** GetScreenData
-    getScreenData_variables,
-    getScreenData_nextToken,
-    getScreenData_maxResults,
-    getScreenData_workbookId,
-    getScreenData_appId,
-    getScreenData_screenId,
-    getScreenDataResponse_nextToken,
-    getScreenDataResponse_httpStatus,
-    getScreenDataResponse_results,
-    getScreenDataResponse_workbookCursor,
 
     -- ** QueryTableRows
     queryTableRows_nextToken,
@@ -119,32 +127,24 @@ module Amazonka.HoneyCode.Lens
     queryTableRowsResponse_rows,
     queryTableRowsResponse_workbookCursor,
 
-    -- ** BatchUpsertTableRows
-    batchUpsertTableRows_clientRequestToken,
-    batchUpsertTableRows_workbookId,
-    batchUpsertTableRows_tableId,
-    batchUpsertTableRows_rowsToUpsert,
-    batchUpsertTableRowsResponse_failedBatchItems,
-    batchUpsertTableRowsResponse_httpStatus,
-    batchUpsertTableRowsResponse_rows,
-    batchUpsertTableRowsResponse_workbookCursor,
-
-    -- ** ListTableColumns
-    listTableColumns_nextToken,
-    listTableColumns_workbookId,
-    listTableColumns_tableId,
-    listTableColumnsResponse_nextToken,
-    listTableColumnsResponse_workbookCursor,
-    listTableColumnsResponse_httpStatus,
-    listTableColumnsResponse_tableColumns,
+    -- ** StartTableDataImportJob
+    startTableDataImportJob_workbookId,
+    startTableDataImportJob_dataSource,
+    startTableDataImportJob_dataFormat,
+    startTableDataImportJob_destinationTableId,
+    startTableDataImportJob_importOptions,
+    startTableDataImportJob_clientRequestToken,
+    startTableDataImportJobResponse_httpStatus,
+    startTableDataImportJobResponse_jobId,
+    startTableDataImportJobResponse_jobStatus,
 
     -- * Types
 
     -- ** Cell
-    cell_rawValue,
     cell_format,
-    cell_formula,
     cell_formattedValue,
+    cell_formula,
+    cell_rawValue,
 
     -- ** CellInput
     cellInput_fact,
@@ -158,13 +158,13 @@ module Amazonka.HoneyCode.Lens
     createRowData_cellsToCreate,
 
     -- ** DataItem
-    dataItem_rawValue,
-    dataItem_overrideFormat,
     dataItem_formattedValue,
+    dataItem_overrideFormat,
+    dataItem_rawValue,
 
     -- ** DelimitedTextImportOptions
-    delimitedTextImportOptions_ignoreEmptyRows,
     delimitedTextImportOptions_hasHeaderRow,
+    delimitedTextImportOptions_ignoreEmptyRows,
     delimitedTextImportOptions_dataCharacterEncoding,
     delimitedTextImportOptions_delimiter,
 
@@ -190,8 +190,8 @@ module Amazonka.HoneyCode.Lens
     importJobSubmitter_userArn,
 
     -- ** ImportOptions
-    importOptions_delimitedTextOptions,
     importOptions_destinationOptions,
+    importOptions_delimitedTextOptions,
 
     -- ** ResultRow
     resultRow_rowId,
@@ -205,8 +205,8 @@ module Amazonka.HoneyCode.Lens
     sourceDataColumnProperties_columnIndex,
 
     -- ** Table
-    table_tableId,
     table_tableName,
+    table_tableId,
 
     -- ** TableColumn
     tableColumn_format,

@@ -32,18 +32,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricSource' smart constructor.
 data MetricSource = MetricSource'
-  { -- | An object containing information about the Amazon Redshift database
+  { s3SourceConfig :: Prelude.Maybe S3SourceConfig,
+    -- | An object containing information about the Amazon CloudWatch monitoring
     -- configuration.
-    redshiftSourceConfig :: Prelude.Maybe RedshiftSourceConfig,
-    s3SourceConfig :: Prelude.Maybe S3SourceConfig,
+    cloudWatchConfig :: Prelude.Maybe CloudWatchConfig,
+    -- | An object containing information about the AppFlow configuration.
+    appFlowConfig :: Prelude.Maybe AppFlowConfig,
     -- | An object containing information about the Amazon Relational Database
     -- Service (RDS) configuration.
     rDSSourceConfig :: Prelude.Maybe RDSSourceConfig,
-    -- | An object containing information about the AppFlow configuration.
-    appFlowConfig :: Prelude.Maybe AppFlowConfig,
-    -- | An object containing information about the Amazon CloudWatch monitoring
+    -- | An object containing information about the Amazon Redshift database
     -- configuration.
-    cloudWatchConfig :: Prelude.Maybe CloudWatchConfig
+    redshiftSourceConfig :: Prelude.Maybe RedshiftSourceConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,52 +55,51 @@ data MetricSource = MetricSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'redshiftSourceConfig', 'metricSource_redshiftSourceConfig' - An object containing information about the Amazon Redshift database
+-- 's3SourceConfig', 'metricSource_s3SourceConfig' - Undocumented member.
+--
+-- 'cloudWatchConfig', 'metricSource_cloudWatchConfig' - An object containing information about the Amazon CloudWatch monitoring
 -- configuration.
 --
--- 's3SourceConfig', 'metricSource_s3SourceConfig' - Undocumented member.
+-- 'appFlowConfig', 'metricSource_appFlowConfig' - An object containing information about the AppFlow configuration.
 --
 -- 'rDSSourceConfig', 'metricSource_rDSSourceConfig' - An object containing information about the Amazon Relational Database
 -- Service (RDS) configuration.
 --
--- 'appFlowConfig', 'metricSource_appFlowConfig' - An object containing information about the AppFlow configuration.
---
--- 'cloudWatchConfig', 'metricSource_cloudWatchConfig' - An object containing information about the Amazon CloudWatch monitoring
+-- 'redshiftSourceConfig', 'metricSource_redshiftSourceConfig' - An object containing information about the Amazon Redshift database
 -- configuration.
 newMetricSource ::
   MetricSource
 newMetricSource =
   MetricSource'
-    { redshiftSourceConfig =
-        Prelude.Nothing,
-      s3SourceConfig = Prelude.Nothing,
-      rDSSourceConfig = Prelude.Nothing,
+    { s3SourceConfig = Prelude.Nothing,
+      cloudWatchConfig = Prelude.Nothing,
       appFlowConfig = Prelude.Nothing,
-      cloudWatchConfig = Prelude.Nothing
+      rDSSourceConfig = Prelude.Nothing,
+      redshiftSourceConfig = Prelude.Nothing
     }
-
--- | An object containing information about the Amazon Redshift database
--- configuration.
-metricSource_redshiftSourceConfig :: Lens.Lens' MetricSource (Prelude.Maybe RedshiftSourceConfig)
-metricSource_redshiftSourceConfig = Lens.lens (\MetricSource' {redshiftSourceConfig} -> redshiftSourceConfig) (\s@MetricSource' {} a -> s {redshiftSourceConfig = a} :: MetricSource)
 
 -- | Undocumented member.
 metricSource_s3SourceConfig :: Lens.Lens' MetricSource (Prelude.Maybe S3SourceConfig)
 metricSource_s3SourceConfig = Lens.lens (\MetricSource' {s3SourceConfig} -> s3SourceConfig) (\s@MetricSource' {} a -> s {s3SourceConfig = a} :: MetricSource)
+
+-- | An object containing information about the Amazon CloudWatch monitoring
+-- configuration.
+metricSource_cloudWatchConfig :: Lens.Lens' MetricSource (Prelude.Maybe CloudWatchConfig)
+metricSource_cloudWatchConfig = Lens.lens (\MetricSource' {cloudWatchConfig} -> cloudWatchConfig) (\s@MetricSource' {} a -> s {cloudWatchConfig = a} :: MetricSource)
+
+-- | An object containing information about the AppFlow configuration.
+metricSource_appFlowConfig :: Lens.Lens' MetricSource (Prelude.Maybe AppFlowConfig)
+metricSource_appFlowConfig = Lens.lens (\MetricSource' {appFlowConfig} -> appFlowConfig) (\s@MetricSource' {} a -> s {appFlowConfig = a} :: MetricSource)
 
 -- | An object containing information about the Amazon Relational Database
 -- Service (RDS) configuration.
 metricSource_rDSSourceConfig :: Lens.Lens' MetricSource (Prelude.Maybe RDSSourceConfig)
 metricSource_rDSSourceConfig = Lens.lens (\MetricSource' {rDSSourceConfig} -> rDSSourceConfig) (\s@MetricSource' {} a -> s {rDSSourceConfig = a} :: MetricSource)
 
--- | An object containing information about the AppFlow configuration.
-metricSource_appFlowConfig :: Lens.Lens' MetricSource (Prelude.Maybe AppFlowConfig)
-metricSource_appFlowConfig = Lens.lens (\MetricSource' {appFlowConfig} -> appFlowConfig) (\s@MetricSource' {} a -> s {appFlowConfig = a} :: MetricSource)
-
--- | An object containing information about the Amazon CloudWatch monitoring
+-- | An object containing information about the Amazon Redshift database
 -- configuration.
-metricSource_cloudWatchConfig :: Lens.Lens' MetricSource (Prelude.Maybe CloudWatchConfig)
-metricSource_cloudWatchConfig = Lens.lens (\MetricSource' {cloudWatchConfig} -> cloudWatchConfig) (\s@MetricSource' {} a -> s {cloudWatchConfig = a} :: MetricSource)
+metricSource_redshiftSourceConfig :: Lens.Lens' MetricSource (Prelude.Maybe RedshiftSourceConfig)
+metricSource_redshiftSourceConfig = Lens.lens (\MetricSource' {redshiftSourceConfig} -> redshiftSourceConfig) (\s@MetricSource' {} a -> s {redshiftSourceConfig = a} :: MetricSource)
 
 instance Core.FromJSON MetricSource where
   parseJSON =
@@ -108,41 +107,41 @@ instance Core.FromJSON MetricSource where
       "MetricSource"
       ( \x ->
           MetricSource'
-            Prelude.<$> (x Core..:? "RedshiftSourceConfig")
-            Prelude.<*> (x Core..:? "S3SourceConfig")
-            Prelude.<*> (x Core..:? "RDSSourceConfig")
-            Prelude.<*> (x Core..:? "AppFlowConfig")
+            Prelude.<$> (x Core..:? "S3SourceConfig")
             Prelude.<*> (x Core..:? "CloudWatchConfig")
+            Prelude.<*> (x Core..:? "AppFlowConfig")
+            Prelude.<*> (x Core..:? "RDSSourceConfig")
+            Prelude.<*> (x Core..:? "RedshiftSourceConfig")
       )
 
 instance Prelude.Hashable MetricSource where
   hashWithSalt _salt MetricSource' {..} =
-    _salt `Prelude.hashWithSalt` redshiftSourceConfig
-      `Prelude.hashWithSalt` s3SourceConfig
-      `Prelude.hashWithSalt` rDSSourceConfig
-      `Prelude.hashWithSalt` appFlowConfig
+    _salt `Prelude.hashWithSalt` s3SourceConfig
       `Prelude.hashWithSalt` cloudWatchConfig
+      `Prelude.hashWithSalt` appFlowConfig
+      `Prelude.hashWithSalt` rDSSourceConfig
+      `Prelude.hashWithSalt` redshiftSourceConfig
 
 instance Prelude.NFData MetricSource where
   rnf MetricSource' {..} =
-    Prelude.rnf redshiftSourceConfig
-      `Prelude.seq` Prelude.rnf s3SourceConfig
-      `Prelude.seq` Prelude.rnf rDSSourceConfig
-      `Prelude.seq` Prelude.rnf appFlowConfig
+    Prelude.rnf s3SourceConfig
       `Prelude.seq` Prelude.rnf cloudWatchConfig
+      `Prelude.seq` Prelude.rnf appFlowConfig
+      `Prelude.seq` Prelude.rnf rDSSourceConfig
+      `Prelude.seq` Prelude.rnf redshiftSourceConfig
 
 instance Core.ToJSON MetricSource where
   toJSON MetricSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RedshiftSourceConfig" Core..=)
-              Prelude.<$> redshiftSourceConfig,
-            ("S3SourceConfig" Core..=)
+          [ ("S3SourceConfig" Core..=)
               Prelude.<$> s3SourceConfig,
+            ("CloudWatchConfig" Core..=)
+              Prelude.<$> cloudWatchConfig,
+            ("AppFlowConfig" Core..=) Prelude.<$> appFlowConfig,
             ("RDSSourceConfig" Core..=)
               Prelude.<$> rDSSourceConfig,
-            ("AppFlowConfig" Core..=) Prelude.<$> appFlowConfig,
-            ("CloudWatchConfig" Core..=)
-              Prelude.<$> cloudWatchConfig
+            ("RedshiftSourceConfig" Core..=)
+              Prelude.<$> redshiftSourceConfig
           ]
       )

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnomalyGroupStatistics' smart constructor.
 data AnomalyGroupStatistics = AnomalyGroupStatistics'
-  { -- | Statistics for individual metrics within the group.
-    itemizedMetricStatsList :: Prelude.Maybe [ItemizedMetricStats],
-    -- | The start of the time range that was searched.
+  { -- | The start of the time range that was searched.
     evaluationStartDate :: Prelude.Maybe Prelude.Text,
+    -- | Statistics for individual metrics within the group.
+    itemizedMetricStatsList :: Prelude.Maybe [ItemizedMetricStats],
     -- | The number of groups found.
     totalCount :: Prelude.Maybe Prelude.Int
   }
@@ -45,28 +45,28 @@ data AnomalyGroupStatistics = AnomalyGroupStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'itemizedMetricStatsList', 'anomalyGroupStatistics_itemizedMetricStatsList' - Statistics for individual metrics within the group.
---
 -- 'evaluationStartDate', 'anomalyGroupStatistics_evaluationStartDate' - The start of the time range that was searched.
+--
+-- 'itemizedMetricStatsList', 'anomalyGroupStatistics_itemizedMetricStatsList' - Statistics for individual metrics within the group.
 --
 -- 'totalCount', 'anomalyGroupStatistics_totalCount' - The number of groups found.
 newAnomalyGroupStatistics ::
   AnomalyGroupStatistics
 newAnomalyGroupStatistics =
   AnomalyGroupStatistics'
-    { itemizedMetricStatsList =
+    { evaluationStartDate =
         Prelude.Nothing,
-      evaluationStartDate = Prelude.Nothing,
+      itemizedMetricStatsList = Prelude.Nothing,
       totalCount = Prelude.Nothing
     }
-
--- | Statistics for individual metrics within the group.
-anomalyGroupStatistics_itemizedMetricStatsList :: Lens.Lens' AnomalyGroupStatistics (Prelude.Maybe [ItemizedMetricStats])
-anomalyGroupStatistics_itemizedMetricStatsList = Lens.lens (\AnomalyGroupStatistics' {itemizedMetricStatsList} -> itemizedMetricStatsList) (\s@AnomalyGroupStatistics' {} a -> s {itemizedMetricStatsList = a} :: AnomalyGroupStatistics) Prelude.. Lens.mapping Lens.coerced
 
 -- | The start of the time range that was searched.
 anomalyGroupStatistics_evaluationStartDate :: Lens.Lens' AnomalyGroupStatistics (Prelude.Maybe Prelude.Text)
 anomalyGroupStatistics_evaluationStartDate = Lens.lens (\AnomalyGroupStatistics' {evaluationStartDate} -> evaluationStartDate) (\s@AnomalyGroupStatistics' {} a -> s {evaluationStartDate = a} :: AnomalyGroupStatistics)
+
+-- | Statistics for individual metrics within the group.
+anomalyGroupStatistics_itemizedMetricStatsList :: Lens.Lens' AnomalyGroupStatistics (Prelude.Maybe [ItemizedMetricStats])
+anomalyGroupStatistics_itemizedMetricStatsList = Lens.lens (\AnomalyGroupStatistics' {itemizedMetricStatsList} -> itemizedMetricStatsList) (\s@AnomalyGroupStatistics' {} a -> s {itemizedMetricStatsList = a} :: AnomalyGroupStatistics) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of groups found.
 anomalyGroupStatistics_totalCount :: Lens.Lens' AnomalyGroupStatistics (Prelude.Maybe Prelude.Int)
@@ -78,22 +78,21 @@ instance Core.FromJSON AnomalyGroupStatistics where
       "AnomalyGroupStatistics"
       ( \x ->
           AnomalyGroupStatistics'
-            Prelude.<$> ( x Core..:? "ItemizedMetricStatsList"
+            Prelude.<$> (x Core..:? "EvaluationStartDate")
+            Prelude.<*> ( x Core..:? "ItemizedMetricStatsList"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EvaluationStartDate")
             Prelude.<*> (x Core..:? "TotalCount")
       )
 
 instance Prelude.Hashable AnomalyGroupStatistics where
   hashWithSalt _salt AnomalyGroupStatistics' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` evaluationStartDate
       `Prelude.hashWithSalt` itemizedMetricStatsList
-      `Prelude.hashWithSalt` evaluationStartDate
       `Prelude.hashWithSalt` totalCount
 
 instance Prelude.NFData AnomalyGroupStatistics where
   rnf AnomalyGroupStatistics' {..} =
-    Prelude.rnf itemizedMetricStatsList
-      `Prelude.seq` Prelude.rnf evaluationStartDate
+    Prelude.rnf evaluationStartDate
+      `Prelude.seq` Prelude.rnf itemizedMetricStatsList
       `Prelude.seq` Prelude.rnf totalCount

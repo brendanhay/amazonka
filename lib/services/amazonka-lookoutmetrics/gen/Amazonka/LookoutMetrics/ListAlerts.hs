@@ -32,8 +32,8 @@ module Amazonka.LookoutMetrics.ListAlerts
     newListAlerts,
 
     -- * Request Lenses
-    listAlerts_anomalyDetectorArn,
     listAlerts_nextToken,
+    listAlerts_anomalyDetectorArn,
     listAlerts_maxResults,
 
     -- * Destructuring the Response
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAlerts' smart constructor.
 data ListAlerts = ListAlerts'
-  { -- | The ARN of the alert\'s detector.
-    anomalyDetectorArn :: Prelude.Maybe Prelude.Text,
-    -- | If the result of the previous request is truncated, the response
+  { -- | If the result of the previous request is truncated, the response
     -- includes a @NextToken@. To retrieve the next set of results, use the
     -- token in the next request. Tokens expire after 24 hours.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the alert\'s detector.
+    anomalyDetectorArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results that will be displayed by the request.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -75,31 +75,31 @@ data ListAlerts = ListAlerts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'anomalyDetectorArn', 'listAlerts_anomalyDetectorArn' - The ARN of the alert\'s detector.
---
 -- 'nextToken', 'listAlerts_nextToken' - If the result of the previous request is truncated, the response
 -- includes a @NextToken@. To retrieve the next set of results, use the
 -- token in the next request. Tokens expire after 24 hours.
+--
+-- 'anomalyDetectorArn', 'listAlerts_anomalyDetectorArn' - The ARN of the alert\'s detector.
 --
 -- 'maxResults', 'listAlerts_maxResults' - The maximum number of results that will be displayed by the request.
 newListAlerts ::
   ListAlerts
 newListAlerts =
   ListAlerts'
-    { anomalyDetectorArn = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      anomalyDetectorArn = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The ARN of the alert\'s detector.
-listAlerts_anomalyDetectorArn :: Lens.Lens' ListAlerts (Prelude.Maybe Prelude.Text)
-listAlerts_anomalyDetectorArn = Lens.lens (\ListAlerts' {anomalyDetectorArn} -> anomalyDetectorArn) (\s@ListAlerts' {} a -> s {anomalyDetectorArn = a} :: ListAlerts)
 
 -- | If the result of the previous request is truncated, the response
 -- includes a @NextToken@. To retrieve the next set of results, use the
 -- token in the next request. Tokens expire after 24 hours.
 listAlerts_nextToken :: Lens.Lens' ListAlerts (Prelude.Maybe Prelude.Text)
 listAlerts_nextToken = Lens.lens (\ListAlerts' {nextToken} -> nextToken) (\s@ListAlerts' {} a -> s {nextToken = a} :: ListAlerts)
+
+-- | The ARN of the alert\'s detector.
+listAlerts_anomalyDetectorArn :: Lens.Lens' ListAlerts (Prelude.Maybe Prelude.Text)
+listAlerts_anomalyDetectorArn = Lens.lens (\ListAlerts' {anomalyDetectorArn} -> anomalyDetectorArn) (\s@ListAlerts' {} a -> s {anomalyDetectorArn = a} :: ListAlerts)
 
 -- | The maximum number of results that will be displayed by the request.
 listAlerts_maxResults :: Lens.Lens' ListAlerts (Prelude.Maybe Prelude.Natural)
@@ -121,14 +121,14 @@ instance Core.AWSRequest ListAlerts where
 
 instance Prelude.Hashable ListAlerts where
   hashWithSalt _salt ListAlerts' {..} =
-    _salt `Prelude.hashWithSalt` anomalyDetectorArn
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListAlerts where
   rnf ListAlerts' {..} =
-    Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAlerts where
@@ -146,9 +146,9 @@ instance Core.ToJSON ListAlerts where
   toJSON ListAlerts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AnomalyDetectorArn" Core..=)
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("AnomalyDetectorArn" Core..=)
               Prelude.<$> anomalyDetectorArn,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

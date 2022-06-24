@@ -27,259 +27,163 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetFeedback $
---             newGetFeedback
---
---         , requestListAlerts $
---             newListAlerts
---
---         , requestListMetricSets $
---             newListMetricSets
---
---         , requestDeleteAnomalyDetector $
---             newDeleteAnomalyDetector
---
---         , requestUpdateAnomalyDetector $
---             newUpdateAnomalyDetector
---
---         , requestListAnomalyDetectors $
---             newListAnomalyDetectors
---
---         , requestDescribeAnomalyDetectionExecutions $
---             newDescribeAnomalyDetectionExecutions
---
---         , requestCreateMetricSet $
---             newCreateMetricSet
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestCreateAlert $
---             newCreateAlert
---
---         , requestGetAnomalyGroup $
---             newGetAnomalyGroup
---
---         , requestPutFeedback $
---             newPutFeedback
+--         [ requestActivateAnomalyDetector $
+--             newActivateAnomalyDetector
 --
 --         , requestBackTestAnomalyDetector $
 --             newBackTestAnomalyDetector
 --
---         , requestDeleteAlert $
---             newDeleteAlert
+--         , requestCreateAlert $
+--             newCreateAlert
 --
 --         , requestCreateAnomalyDetector $
 --             newCreateAnomalyDetector
 --
---         , requestUpdateMetricSet $
---             newUpdateMetricSet
+--         , requestCreateMetricSet $
+--             newCreateMetricSet
 --
---         , requestActivateAnomalyDetector $
---             newActivateAnomalyDetector
+--         , requestDeleteAlert $
+--             newDeleteAlert
 --
---         , requestListAnomalyGroupTimeSeries $
---             newListAnomalyGroupTimeSeries
---
---         , requestGetSampleData $
---             newGetSampleData
---
---         , requestTagResource $
---             newTagResource
---
---         , requestDescribeMetricSet $
---             newDescribeMetricSet
---
---         , requestUntagResource $
---             newUntagResource
+--         , requestDeleteAnomalyDetector $
+--             newDeleteAnomalyDetector
 --
 --         , requestDescribeAlert $
 --             newDescribeAlert
 --
---         , requestListAnomalyGroupSummaries $
---             newListAnomalyGroupSummaries
+--         , requestDescribeAnomalyDetectionExecutions $
+--             newDescribeAnomalyDetectionExecutions
 --
 --         , requestDescribeAnomalyDetector $
 --             newDescribeAnomalyDetector
 --
+--         , requestDescribeMetricSet $
+--             newDescribeMetricSet
+--
+--         , requestGetAnomalyGroup $
+--             newGetAnomalyGroup
+--
+--         , requestGetFeedback $
+--             newGetFeedback
+--
+--         , requestGetSampleData $
+--             newGetSampleData
+--
+--         , requestListAlerts $
+--             newListAlerts
+--
+--         , requestListAnomalyDetectors $
+--             newListAnomalyDetectors
+--
+--         , requestListAnomalyGroupSummaries $
+--             newListAnomalyGroupSummaries
+--
+--         , requestListAnomalyGroupTimeSeries $
+--             newListAnomalyGroupTimeSeries
+--
+--         , requestListMetricSets $
+--             newListMetricSets
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutFeedback $
+--             newPutFeedback
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateAnomalyDetector $
+--             newUpdateAnomalyDetector
+--
+--         , requestUpdateMetricSet $
+--             newUpdateMetricSet
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseGetFeedback $
---             newGetFeedbackResponse
---
---         , responseListAlerts $
---             newListAlertsResponse
---
---         , responseListMetricSets $
---             newListMetricSetsResponse
---
---         , responseDeleteAnomalyDetector $
---             newDeleteAnomalyDetectorResponse
---
---         , responseUpdateAnomalyDetector $
---             newUpdateAnomalyDetectorResponse
---
---         , responseListAnomalyDetectors $
---             newListAnomalyDetectorsResponse
---
---         , responseDescribeAnomalyDetectionExecutions $
---             newDescribeAnomalyDetectionExecutionsResponse
---
---         , responseCreateMetricSet $
---             newCreateMetricSetResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseCreateAlert $
---             newCreateAlertResponse
---
---         , responseGetAnomalyGroup $
---             newGetAnomalyGroupResponse
---
---         , responsePutFeedback $
---             newPutFeedbackResponse
+--         [ responseActivateAnomalyDetector $
+--             newActivateAnomalyDetectorResponse
 --
 --         , responseBackTestAnomalyDetector $
 --             newBackTestAnomalyDetectorResponse
 --
---         , responseDeleteAlert $
---             newDeleteAlertResponse
+--         , responseCreateAlert $
+--             newCreateAlertResponse
 --
 --         , responseCreateAnomalyDetector $
 --             newCreateAnomalyDetectorResponse
 --
---         , responseUpdateMetricSet $
---             newUpdateMetricSetResponse
+--         , responseCreateMetricSet $
+--             newCreateMetricSetResponse
 --
---         , responseActivateAnomalyDetector $
---             newActivateAnomalyDetectorResponse
+--         , responseDeleteAlert $
+--             newDeleteAlertResponse
 --
---         , responseListAnomalyGroupTimeSeries $
---             newListAnomalyGroupTimeSeriesResponse
---
---         , responseGetSampleData $
---             newGetSampleDataResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseDescribeMetricSet $
---             newDescribeMetricSetResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseDeleteAnomalyDetector $
+--             newDeleteAnomalyDetectorResponse
 --
 --         , responseDescribeAlert $
 --             newDescribeAlertResponse
 --
---         , responseListAnomalyGroupSummaries $
---             newListAnomalyGroupSummariesResponse
+--         , responseDescribeAnomalyDetectionExecutions $
+--             newDescribeAnomalyDetectionExecutionsResponse
 --
 --         , responseDescribeAnomalyDetector $
 --             newDescribeAnomalyDetectorResponse
+--
+--         , responseDescribeMetricSet $
+--             newDescribeMetricSetResponse
+--
+--         , responseGetAnomalyGroup $
+--             newGetAnomalyGroupResponse
+--
+--         , responseGetFeedback $
+--             newGetFeedbackResponse
+--
+--         , responseGetSampleData $
+--             newGetSampleDataResponse
+--
+--         , responseListAlerts $
+--             newListAlertsResponse
+--
+--         , responseListAnomalyDetectors $
+--             newListAnomalyDetectorsResponse
+--
+--         , responseListAnomalyGroupSummaries $
+--             newListAnomalyGroupSummariesResponse
+--
+--         , responseListAnomalyGroupTimeSeries $
+--             newListAnomalyGroupTimeSeriesResponse
+--
+--         , responseListMetricSets $
+--             newListMetricSetsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutFeedback $
+--             newPutFeedbackResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateAnomalyDetector $
+--             newUpdateAnomalyDetectorResponse
+--
+--         , responseUpdateMetricSet $
+--             newUpdateMetricSetResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestGetFeedback :: GetFeedback -> TestTree
-requestGetFeedback =
-  req
-    "GetFeedback"
-    "fixture/GetFeedback.yaml"
-
-requestListAlerts :: ListAlerts -> TestTree
-requestListAlerts =
-  req
-    "ListAlerts"
-    "fixture/ListAlerts.yaml"
-
-requestListMetricSets :: ListMetricSets -> TestTree
-requestListMetricSets =
-  req
-    "ListMetricSets"
-    "fixture/ListMetricSets.yaml"
-
-requestDeleteAnomalyDetector :: DeleteAnomalyDetector -> TestTree
-requestDeleteAnomalyDetector =
-  req
-    "DeleteAnomalyDetector"
-    "fixture/DeleteAnomalyDetector.yaml"
-
-requestUpdateAnomalyDetector :: UpdateAnomalyDetector -> TestTree
-requestUpdateAnomalyDetector =
-  req
-    "UpdateAnomalyDetector"
-    "fixture/UpdateAnomalyDetector.yaml"
-
-requestListAnomalyDetectors :: ListAnomalyDetectors -> TestTree
-requestListAnomalyDetectors =
-  req
-    "ListAnomalyDetectors"
-    "fixture/ListAnomalyDetectors.yaml"
-
-requestDescribeAnomalyDetectionExecutions :: DescribeAnomalyDetectionExecutions -> TestTree
-requestDescribeAnomalyDetectionExecutions =
-  req
-    "DescribeAnomalyDetectionExecutions"
-    "fixture/DescribeAnomalyDetectionExecutions.yaml"
-
-requestCreateMetricSet :: CreateMetricSet -> TestTree
-requestCreateMetricSet =
-  req
-    "CreateMetricSet"
-    "fixture/CreateMetricSet.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestCreateAlert :: CreateAlert -> TestTree
-requestCreateAlert =
-  req
-    "CreateAlert"
-    "fixture/CreateAlert.yaml"
-
-requestGetAnomalyGroup :: GetAnomalyGroup -> TestTree
-requestGetAnomalyGroup =
-  req
-    "GetAnomalyGroup"
-    "fixture/GetAnomalyGroup.yaml"
-
-requestPutFeedback :: PutFeedback -> TestTree
-requestPutFeedback =
-  req
-    "PutFeedback"
-    "fixture/PutFeedback.yaml"
-
-requestBackTestAnomalyDetector :: BackTestAnomalyDetector -> TestTree
-requestBackTestAnomalyDetector =
-  req
-    "BackTestAnomalyDetector"
-    "fixture/BackTestAnomalyDetector.yaml"
-
-requestDeleteAlert :: DeleteAlert -> TestTree
-requestDeleteAlert =
-  req
-    "DeleteAlert"
-    "fixture/DeleteAlert.yaml"
-
-requestCreateAnomalyDetector :: CreateAnomalyDetector -> TestTree
-requestCreateAnomalyDetector =
-  req
-    "CreateAnomalyDetector"
-    "fixture/CreateAnomalyDetector.yaml"
-
-requestUpdateMetricSet :: UpdateMetricSet -> TestTree
-requestUpdateMetricSet =
-  req
-    "UpdateMetricSet"
-    "fixture/UpdateMetricSet.yaml"
 
 requestActivateAnomalyDetector :: ActivateAnomalyDetector -> TestTree
 requestActivateAnomalyDetector =
@@ -287,35 +191,41 @@ requestActivateAnomalyDetector =
     "ActivateAnomalyDetector"
     "fixture/ActivateAnomalyDetector.yaml"
 
-requestListAnomalyGroupTimeSeries :: ListAnomalyGroupTimeSeries -> TestTree
-requestListAnomalyGroupTimeSeries =
+requestBackTestAnomalyDetector :: BackTestAnomalyDetector -> TestTree
+requestBackTestAnomalyDetector =
   req
-    "ListAnomalyGroupTimeSeries"
-    "fixture/ListAnomalyGroupTimeSeries.yaml"
+    "BackTestAnomalyDetector"
+    "fixture/BackTestAnomalyDetector.yaml"
 
-requestGetSampleData :: GetSampleData -> TestTree
-requestGetSampleData =
+requestCreateAlert :: CreateAlert -> TestTree
+requestCreateAlert =
   req
-    "GetSampleData"
-    "fixture/GetSampleData.yaml"
+    "CreateAlert"
+    "fixture/CreateAlert.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestCreateAnomalyDetector :: CreateAnomalyDetector -> TestTree
+requestCreateAnomalyDetector =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "CreateAnomalyDetector"
+    "fixture/CreateAnomalyDetector.yaml"
 
-requestDescribeMetricSet :: DescribeMetricSet -> TestTree
-requestDescribeMetricSet =
+requestCreateMetricSet :: CreateMetricSet -> TestTree
+requestCreateMetricSet =
   req
-    "DescribeMetricSet"
-    "fixture/DescribeMetricSet.yaml"
+    "CreateMetricSet"
+    "fixture/CreateMetricSet.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestDeleteAlert :: DeleteAlert -> TestTree
+requestDeleteAlert =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "DeleteAlert"
+    "fixture/DeleteAlert.yaml"
+
+requestDeleteAnomalyDetector :: DeleteAnomalyDetector -> TestTree
+requestDeleteAnomalyDetector =
+  req
+    "DeleteAnomalyDetector"
+    "fixture/DeleteAnomalyDetector.yaml"
 
 requestDescribeAlert :: DescribeAlert -> TestTree
 requestDescribeAlert =
@@ -323,11 +233,11 @@ requestDescribeAlert =
     "DescribeAlert"
     "fixture/DescribeAlert.yaml"
 
-requestListAnomalyGroupSummaries :: ListAnomalyGroupSummaries -> TestTree
-requestListAnomalyGroupSummaries =
+requestDescribeAnomalyDetectionExecutions :: DescribeAnomalyDetectionExecutions -> TestTree
+requestDescribeAnomalyDetectionExecutions =
   req
-    "ListAnomalyGroupSummaries"
-    "fixture/ListAnomalyGroupSummaries.yaml"
+    "DescribeAnomalyDetectionExecutions"
+    "fixture/DescribeAnomalyDetectionExecutions.yaml"
 
 requestDescribeAnomalyDetector :: DescribeAnomalyDetector -> TestTree
 requestDescribeAnomalyDetector =
@@ -335,135 +245,97 @@ requestDescribeAnomalyDetector =
     "DescribeAnomalyDetector"
     "fixture/DescribeAnomalyDetector.yaml"
 
+requestDescribeMetricSet :: DescribeMetricSet -> TestTree
+requestDescribeMetricSet =
+  req
+    "DescribeMetricSet"
+    "fixture/DescribeMetricSet.yaml"
+
+requestGetAnomalyGroup :: GetAnomalyGroup -> TestTree
+requestGetAnomalyGroup =
+  req
+    "GetAnomalyGroup"
+    "fixture/GetAnomalyGroup.yaml"
+
+requestGetFeedback :: GetFeedback -> TestTree
+requestGetFeedback =
+  req
+    "GetFeedback"
+    "fixture/GetFeedback.yaml"
+
+requestGetSampleData :: GetSampleData -> TestTree
+requestGetSampleData =
+  req
+    "GetSampleData"
+    "fixture/GetSampleData.yaml"
+
+requestListAlerts :: ListAlerts -> TestTree
+requestListAlerts =
+  req
+    "ListAlerts"
+    "fixture/ListAlerts.yaml"
+
+requestListAnomalyDetectors :: ListAnomalyDetectors -> TestTree
+requestListAnomalyDetectors =
+  req
+    "ListAnomalyDetectors"
+    "fixture/ListAnomalyDetectors.yaml"
+
+requestListAnomalyGroupSummaries :: ListAnomalyGroupSummaries -> TestTree
+requestListAnomalyGroupSummaries =
+  req
+    "ListAnomalyGroupSummaries"
+    "fixture/ListAnomalyGroupSummaries.yaml"
+
+requestListAnomalyGroupTimeSeries :: ListAnomalyGroupTimeSeries -> TestTree
+requestListAnomalyGroupTimeSeries =
+  req
+    "ListAnomalyGroupTimeSeries"
+    "fixture/ListAnomalyGroupTimeSeries.yaml"
+
+requestListMetricSets :: ListMetricSets -> TestTree
+requestListMetricSets =
+  req
+    "ListMetricSets"
+    "fixture/ListMetricSets.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutFeedback :: PutFeedback -> TestTree
+requestPutFeedback =
+  req
+    "PutFeedback"
+    "fixture/PutFeedback.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateAnomalyDetector :: UpdateAnomalyDetector -> TestTree
+requestUpdateAnomalyDetector =
+  req
+    "UpdateAnomalyDetector"
+    "fixture/UpdateAnomalyDetector.yaml"
+
+requestUpdateMetricSet :: UpdateMetricSet -> TestTree
+requestUpdateMetricSet =
+  req
+    "UpdateMetricSet"
+    "fixture/UpdateMetricSet.yaml"
+
 -- Responses
-
-responseGetFeedback :: GetFeedbackResponse -> TestTree
-responseGetFeedback =
-  res
-    "GetFeedbackResponse"
-    "fixture/GetFeedbackResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetFeedback)
-
-responseListAlerts :: ListAlertsResponse -> TestTree
-responseListAlerts =
-  res
-    "ListAlertsResponse"
-    "fixture/ListAlertsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAlerts)
-
-responseListMetricSets :: ListMetricSetsResponse -> TestTree
-responseListMetricSets =
-  res
-    "ListMetricSetsResponse"
-    "fixture/ListMetricSetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListMetricSets)
-
-responseDeleteAnomalyDetector :: DeleteAnomalyDetectorResponse -> TestTree
-responseDeleteAnomalyDetector =
-  res
-    "DeleteAnomalyDetectorResponse"
-    "fixture/DeleteAnomalyDetectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAnomalyDetector)
-
-responseUpdateAnomalyDetector :: UpdateAnomalyDetectorResponse -> TestTree
-responseUpdateAnomalyDetector =
-  res
-    "UpdateAnomalyDetectorResponse"
-    "fixture/UpdateAnomalyDetectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAnomalyDetector)
-
-responseListAnomalyDetectors :: ListAnomalyDetectorsResponse -> TestTree
-responseListAnomalyDetectors =
-  res
-    "ListAnomalyDetectorsResponse"
-    "fixture/ListAnomalyDetectorsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAnomalyDetectors)
-
-responseDescribeAnomalyDetectionExecutions :: DescribeAnomalyDetectionExecutionsResponse -> TestTree
-responseDescribeAnomalyDetectionExecutions =
-  res
-    "DescribeAnomalyDetectionExecutionsResponse"
-    "fixture/DescribeAnomalyDetectionExecutionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAnomalyDetectionExecutions)
-
-responseCreateMetricSet :: CreateMetricSetResponse -> TestTree
-responseCreateMetricSet =
-  res
-    "CreateMetricSetResponse"
-    "fixture/CreateMetricSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateMetricSet)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseCreateAlert :: CreateAlertResponse -> TestTree
-responseCreateAlert =
-  res
-    "CreateAlertResponse"
-    "fixture/CreateAlertResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAlert)
-
-responseGetAnomalyGroup :: GetAnomalyGroupResponse -> TestTree
-responseGetAnomalyGroup =
-  res
-    "GetAnomalyGroupResponse"
-    "fixture/GetAnomalyGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAnomalyGroup)
-
-responsePutFeedback :: PutFeedbackResponse -> TestTree
-responsePutFeedback =
-  res
-    "PutFeedbackResponse"
-    "fixture/PutFeedbackResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutFeedback)
-
-responseBackTestAnomalyDetector :: BackTestAnomalyDetectorResponse -> TestTree
-responseBackTestAnomalyDetector =
-  res
-    "BackTestAnomalyDetectorResponse"
-    "fixture/BackTestAnomalyDetectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BackTestAnomalyDetector)
-
-responseDeleteAlert :: DeleteAlertResponse -> TestTree
-responseDeleteAlert =
-  res
-    "DeleteAlertResponse"
-    "fixture/DeleteAlertResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAlert)
-
-responseCreateAnomalyDetector :: CreateAnomalyDetectorResponse -> TestTree
-responseCreateAnomalyDetector =
-  res
-    "CreateAnomalyDetectorResponse"
-    "fixture/CreateAnomalyDetectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAnomalyDetector)
-
-responseUpdateMetricSet :: UpdateMetricSetResponse -> TestTree
-responseUpdateMetricSet =
-  res
-    "UpdateMetricSetResponse"
-    "fixture/UpdateMetricSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateMetricSet)
 
 responseActivateAnomalyDetector :: ActivateAnomalyDetectorResponse -> TestTree
 responseActivateAnomalyDetector =
@@ -473,45 +345,53 @@ responseActivateAnomalyDetector =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ActivateAnomalyDetector)
 
-responseListAnomalyGroupTimeSeries :: ListAnomalyGroupTimeSeriesResponse -> TestTree
-responseListAnomalyGroupTimeSeries =
+responseBackTestAnomalyDetector :: BackTestAnomalyDetectorResponse -> TestTree
+responseBackTestAnomalyDetector =
   res
-    "ListAnomalyGroupTimeSeriesResponse"
-    "fixture/ListAnomalyGroupTimeSeriesResponse.proto"
+    "BackTestAnomalyDetectorResponse"
+    "fixture/BackTestAnomalyDetectorResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAnomalyGroupTimeSeries)
+    (Proxy.Proxy :: Proxy.Proxy BackTestAnomalyDetector)
 
-responseGetSampleData :: GetSampleDataResponse -> TestTree
-responseGetSampleData =
+responseCreateAlert :: CreateAlertResponse -> TestTree
+responseCreateAlert =
   res
-    "GetSampleDataResponse"
-    "fixture/GetSampleDataResponse.proto"
+    "CreateAlertResponse"
+    "fixture/CreateAlertResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSampleData)
+    (Proxy.Proxy :: Proxy.Proxy CreateAlert)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseCreateAnomalyDetector :: CreateAnomalyDetectorResponse -> TestTree
+responseCreateAnomalyDetector =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "CreateAnomalyDetectorResponse"
+    "fixture/CreateAnomalyDetectorResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy CreateAnomalyDetector)
 
-responseDescribeMetricSet :: DescribeMetricSetResponse -> TestTree
-responseDescribeMetricSet =
+responseCreateMetricSet :: CreateMetricSetResponse -> TestTree
+responseCreateMetricSet =
   res
-    "DescribeMetricSetResponse"
-    "fixture/DescribeMetricSetResponse.proto"
+    "CreateMetricSetResponse"
+    "fixture/CreateMetricSetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeMetricSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateMetricSet)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseDeleteAlert :: DeleteAlertResponse -> TestTree
+responseDeleteAlert =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "DeleteAlertResponse"
+    "fixture/DeleteAlertResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAlert)
+
+responseDeleteAnomalyDetector :: DeleteAnomalyDetectorResponse -> TestTree
+responseDeleteAnomalyDetector =
+  res
+    "DeleteAnomalyDetectorResponse"
+    "fixture/DeleteAnomalyDetectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAnomalyDetector)
 
 responseDescribeAlert :: DescribeAlertResponse -> TestTree
 responseDescribeAlert =
@@ -521,13 +401,13 @@ responseDescribeAlert =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAlert)
 
-responseListAnomalyGroupSummaries :: ListAnomalyGroupSummariesResponse -> TestTree
-responseListAnomalyGroupSummaries =
+responseDescribeAnomalyDetectionExecutions :: DescribeAnomalyDetectionExecutionsResponse -> TestTree
+responseDescribeAnomalyDetectionExecutions =
   res
-    "ListAnomalyGroupSummariesResponse"
-    "fixture/ListAnomalyGroupSummariesResponse.proto"
+    "DescribeAnomalyDetectionExecutionsResponse"
+    "fixture/DescribeAnomalyDetectionExecutionsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAnomalyGroupSummaries)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAnomalyDetectionExecutions)
 
 responseDescribeAnomalyDetector :: DescribeAnomalyDetectorResponse -> TestTree
 responseDescribeAnomalyDetector =
@@ -536,3 +416,123 @@ responseDescribeAnomalyDetector =
     "fixture/DescribeAnomalyDetectorResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAnomalyDetector)
+
+responseDescribeMetricSet :: DescribeMetricSetResponse -> TestTree
+responseDescribeMetricSet =
+  res
+    "DescribeMetricSetResponse"
+    "fixture/DescribeMetricSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeMetricSet)
+
+responseGetAnomalyGroup :: GetAnomalyGroupResponse -> TestTree
+responseGetAnomalyGroup =
+  res
+    "GetAnomalyGroupResponse"
+    "fixture/GetAnomalyGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAnomalyGroup)
+
+responseGetFeedback :: GetFeedbackResponse -> TestTree
+responseGetFeedback =
+  res
+    "GetFeedbackResponse"
+    "fixture/GetFeedbackResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetFeedback)
+
+responseGetSampleData :: GetSampleDataResponse -> TestTree
+responseGetSampleData =
+  res
+    "GetSampleDataResponse"
+    "fixture/GetSampleDataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSampleData)
+
+responseListAlerts :: ListAlertsResponse -> TestTree
+responseListAlerts =
+  res
+    "ListAlertsResponse"
+    "fixture/ListAlertsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAlerts)
+
+responseListAnomalyDetectors :: ListAnomalyDetectorsResponse -> TestTree
+responseListAnomalyDetectors =
+  res
+    "ListAnomalyDetectorsResponse"
+    "fixture/ListAnomalyDetectorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAnomalyDetectors)
+
+responseListAnomalyGroupSummaries :: ListAnomalyGroupSummariesResponse -> TestTree
+responseListAnomalyGroupSummaries =
+  res
+    "ListAnomalyGroupSummariesResponse"
+    "fixture/ListAnomalyGroupSummariesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAnomalyGroupSummaries)
+
+responseListAnomalyGroupTimeSeries :: ListAnomalyGroupTimeSeriesResponse -> TestTree
+responseListAnomalyGroupTimeSeries =
+  res
+    "ListAnomalyGroupTimeSeriesResponse"
+    "fixture/ListAnomalyGroupTimeSeriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAnomalyGroupTimeSeries)
+
+responseListMetricSets :: ListMetricSetsResponse -> TestTree
+responseListMetricSets =
+  res
+    "ListMetricSetsResponse"
+    "fixture/ListMetricSetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMetricSets)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutFeedback :: PutFeedbackResponse -> TestTree
+responsePutFeedback =
+  res
+    "PutFeedbackResponse"
+    "fixture/PutFeedbackResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutFeedback)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateAnomalyDetector :: UpdateAnomalyDetectorResponse -> TestTree
+responseUpdateAnomalyDetector =
+  res
+    "UpdateAnomalyDetectorResponse"
+    "fixture/UpdateAnomalyDetectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAnomalyDetector)
+
+responseUpdateMetricSet :: UpdateMetricSetResponse -> TestTree
+responseUpdateMetricSet =
+  res
+    "UpdateMetricSetResponse"
+    "fixture/UpdateMetricSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateMetricSet)

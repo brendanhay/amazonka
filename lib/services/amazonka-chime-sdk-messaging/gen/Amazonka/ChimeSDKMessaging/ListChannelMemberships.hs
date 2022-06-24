@@ -42,9 +42,9 @@ module Amazonka.ChimeSDKMessaging.ListChannelMemberships
     newListChannelMembershipsResponse,
 
     -- * Response Lenses
-    listChannelMembershipsResponse_channelMemberships,
-    listChannelMembershipsResponse_channelArn,
     listChannelMembershipsResponse_nextToken,
+    listChannelMembershipsResponse_channelArn,
+    listChannelMembershipsResponse_channelMemberships,
     listChannelMembershipsResponse_httpStatus,
   )
 where
@@ -145,11 +145,11 @@ instance Core.AWSRequest ListChannelMemberships where
     Response.receiveJSON
       ( \s h x ->
           ListChannelMembershipsResponse'
-            Prelude.<$> ( x Core..?> "ChannelMemberships"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ChannelArn")
+            Prelude.<*> ( x Core..?> "ChannelMemberships"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ChannelArn")
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,13 +189,13 @@ instance Core.ToQuery ListChannelMemberships where
 
 -- | /See:/ 'newListChannelMembershipsResponse' smart constructor.
 data ListChannelMembershipsResponse = ListChannelMembershipsResponse'
-  { -- | The information for the requested channel memberships.
-    channelMemberships :: Prelude.Maybe [ChannelMembershipSummary],
-    -- | The ARN of the channel.
-    channelArn :: Prelude.Maybe Prelude.Text,
-    -- | The token passed by previous API calls until all requested channel
+  { -- | The token passed by previous API calls until all requested channel
     -- memberships are returned.
     nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ARN of the channel.
+    channelArn :: Prelude.Maybe Prelude.Text,
+    -- | The information for the requested channel memberships.
+    channelMemberships :: Prelude.Maybe [ChannelMembershipSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,12 +209,12 @@ data ListChannelMembershipsResponse = ListChannelMembershipsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelMemberships', 'listChannelMembershipsResponse_channelMemberships' - The information for the requested channel memberships.
+-- 'nextToken', 'listChannelMembershipsResponse_nextToken' - The token passed by previous API calls until all requested channel
+-- memberships are returned.
 --
 -- 'channelArn', 'listChannelMembershipsResponse_channelArn' - The ARN of the channel.
 --
--- 'nextToken', 'listChannelMembershipsResponse_nextToken' - The token passed by previous API calls until all requested channel
--- memberships are returned.
+-- 'channelMemberships', 'listChannelMembershipsResponse_channelMemberships' - The information for the requested channel memberships.
 --
 -- 'httpStatus', 'listChannelMembershipsResponse_httpStatus' - The response's http status code.
 newListChannelMembershipsResponse ::
@@ -223,25 +223,25 @@ newListChannelMembershipsResponse ::
   ListChannelMembershipsResponse
 newListChannelMembershipsResponse pHttpStatus_ =
   ListChannelMembershipsResponse'
-    { channelMemberships =
+    { nextToken =
         Prelude.Nothing,
       channelArn = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      channelMemberships = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The information for the requested channel memberships.
-listChannelMembershipsResponse_channelMemberships :: Lens.Lens' ListChannelMembershipsResponse (Prelude.Maybe [ChannelMembershipSummary])
-listChannelMembershipsResponse_channelMemberships = Lens.lens (\ListChannelMembershipsResponse' {channelMemberships} -> channelMemberships) (\s@ListChannelMembershipsResponse' {} a -> s {channelMemberships = a} :: ListChannelMembershipsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The ARN of the channel.
-listChannelMembershipsResponse_channelArn :: Lens.Lens' ListChannelMembershipsResponse (Prelude.Maybe Prelude.Text)
-listChannelMembershipsResponse_channelArn = Lens.lens (\ListChannelMembershipsResponse' {channelArn} -> channelArn) (\s@ListChannelMembershipsResponse' {} a -> s {channelArn = a} :: ListChannelMembershipsResponse)
 
 -- | The token passed by previous API calls until all requested channel
 -- memberships are returned.
 listChannelMembershipsResponse_nextToken :: Lens.Lens' ListChannelMembershipsResponse (Prelude.Maybe Prelude.Text)
 listChannelMembershipsResponse_nextToken = Lens.lens (\ListChannelMembershipsResponse' {nextToken} -> nextToken) (\s@ListChannelMembershipsResponse' {} a -> s {nextToken = a} :: ListChannelMembershipsResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The ARN of the channel.
+listChannelMembershipsResponse_channelArn :: Lens.Lens' ListChannelMembershipsResponse (Prelude.Maybe Prelude.Text)
+listChannelMembershipsResponse_channelArn = Lens.lens (\ListChannelMembershipsResponse' {channelArn} -> channelArn) (\s@ListChannelMembershipsResponse' {} a -> s {channelArn = a} :: ListChannelMembershipsResponse)
+
+-- | The information for the requested channel memberships.
+listChannelMembershipsResponse_channelMemberships :: Lens.Lens' ListChannelMembershipsResponse (Prelude.Maybe [ChannelMembershipSummary])
+listChannelMembershipsResponse_channelMemberships = Lens.lens (\ListChannelMembershipsResponse' {channelMemberships} -> channelMemberships) (\s@ListChannelMembershipsResponse' {} a -> s {channelMemberships = a} :: ListChannelMembershipsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listChannelMembershipsResponse_httpStatus :: Lens.Lens' ListChannelMembershipsResponse Prelude.Int
@@ -252,7 +252,7 @@ instance
     ListChannelMembershipsResponse
   where
   rnf ListChannelMembershipsResponse' {..} =
-    Prelude.rnf channelMemberships
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf channelMemberships
       `Prelude.seq` Prelude.rnf httpStatus

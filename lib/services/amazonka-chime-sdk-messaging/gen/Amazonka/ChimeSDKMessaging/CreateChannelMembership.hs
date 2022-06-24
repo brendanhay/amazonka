@@ -59,8 +59,8 @@ module Amazonka.ChimeSDKMessaging.CreateChannelMembership
     newCreateChannelMembershipResponse,
 
     -- * Response Lenses
-    createChannelMembershipResponse_channelArn,
     createChannelMembershipResponse_member,
+    createChannelMembershipResponse_channelArn,
     createChannelMembershipResponse_httpStatus,
   )
 where
@@ -159,8 +159,8 @@ instance Core.AWSRequest CreateChannelMembership where
     Response.receiveJSON
       ( \s h x ->
           CreateChannelMembershipResponse'
-            Prelude.<$> (x Core..?> "ChannelArn")
-            Prelude.<*> (x Core..?> "Member")
+            Prelude.<$> (x Core..?> "Member")
+            Prelude.<*> (x Core..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,10 +202,10 @@ instance Core.ToQuery CreateChannelMembership where
 
 -- | /See:/ 'newCreateChannelMembershipResponse' smart constructor.
 data CreateChannelMembershipResponse = CreateChannelMembershipResponse'
-  { -- | The ARN of the channel.
-    channelArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN and metadata of the member being added.
+  { -- | The ARN and metadata of the member being added.
     member :: Prelude.Maybe Identity,
+    -- | The ARN of the channel.
+    channelArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,9 +219,9 @@ data CreateChannelMembershipResponse = CreateChannelMembershipResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelArn', 'createChannelMembershipResponse_channelArn' - The ARN of the channel.
---
 -- 'member', 'createChannelMembershipResponse_member' - The ARN and metadata of the member being added.
+--
+-- 'channelArn', 'createChannelMembershipResponse_channelArn' - The ARN of the channel.
 --
 -- 'httpStatus', 'createChannelMembershipResponse_httpStatus' - The response's http status code.
 newCreateChannelMembershipResponse ::
@@ -230,19 +230,19 @@ newCreateChannelMembershipResponse ::
   CreateChannelMembershipResponse
 newCreateChannelMembershipResponse pHttpStatus_ =
   CreateChannelMembershipResponse'
-    { channelArn =
+    { member =
         Prelude.Nothing,
-      member = Prelude.Nothing,
+      channelArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the channel.
-createChannelMembershipResponse_channelArn :: Lens.Lens' CreateChannelMembershipResponse (Prelude.Maybe Prelude.Text)
-createChannelMembershipResponse_channelArn = Lens.lens (\CreateChannelMembershipResponse' {channelArn} -> channelArn) (\s@CreateChannelMembershipResponse' {} a -> s {channelArn = a} :: CreateChannelMembershipResponse)
 
 -- | The ARN and metadata of the member being added.
 createChannelMembershipResponse_member :: Lens.Lens' CreateChannelMembershipResponse (Prelude.Maybe Identity)
 createChannelMembershipResponse_member = Lens.lens (\CreateChannelMembershipResponse' {member} -> member) (\s@CreateChannelMembershipResponse' {} a -> s {member = a} :: CreateChannelMembershipResponse)
+
+-- | The ARN of the channel.
+createChannelMembershipResponse_channelArn :: Lens.Lens' CreateChannelMembershipResponse (Prelude.Maybe Prelude.Text)
+createChannelMembershipResponse_channelArn = Lens.lens (\CreateChannelMembershipResponse' {channelArn} -> channelArn) (\s@CreateChannelMembershipResponse' {} a -> s {channelArn = a} :: CreateChannelMembershipResponse)
 
 -- | The response's http status code.
 createChannelMembershipResponse_httpStatus :: Lens.Lens' CreateChannelMembershipResponse Prelude.Int
@@ -253,6 +253,6 @@ instance
     CreateChannelMembershipResponse
   where
   rnf CreateChannelMembershipResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf member
+    Prelude.rnf member
+      `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf httpStatus

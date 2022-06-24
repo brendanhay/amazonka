@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchCreateChannelMembershipError' smart constructor.
 data BatchCreateChannelMembershipError = BatchCreateChannelMembershipError'
-  { -- | The error code.
-    errorCode :: Prelude.Maybe ErrorCode,
-    -- | The ARN of the member that the service couldn\'t add.
+  { -- | The ARN of the member that the service couldn\'t add.
     memberArn :: Prelude.Maybe Prelude.Text,
     -- | The error message.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The error code.
+    errorCode :: Prelude.Maybe ErrorCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,20 @@ data BatchCreateChannelMembershipError = BatchCreateChannelMembershipError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorCode', 'batchCreateChannelMembershipError_errorCode' - The error code.
---
 -- 'memberArn', 'batchCreateChannelMembershipError_memberArn' - The ARN of the member that the service couldn\'t add.
 --
 -- 'errorMessage', 'batchCreateChannelMembershipError_errorMessage' - The error message.
+--
+-- 'errorCode', 'batchCreateChannelMembershipError_errorCode' - The error code.
 newBatchCreateChannelMembershipError ::
   BatchCreateChannelMembershipError
 newBatchCreateChannelMembershipError =
   BatchCreateChannelMembershipError'
-    { errorCode =
+    { memberArn =
         Prelude.Nothing,
-      memberArn = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
-
--- | The error code.
-batchCreateChannelMembershipError_errorCode :: Lens.Lens' BatchCreateChannelMembershipError (Prelude.Maybe ErrorCode)
-batchCreateChannelMembershipError_errorCode = Lens.lens (\BatchCreateChannelMembershipError' {errorCode} -> errorCode) (\s@BatchCreateChannelMembershipError' {} a -> s {errorCode = a} :: BatchCreateChannelMembershipError)
 
 -- | The ARN of the member that the service couldn\'t add.
 batchCreateChannelMembershipError_memberArn :: Lens.Lens' BatchCreateChannelMembershipError (Prelude.Maybe Prelude.Text)
@@ -71,6 +67,10 @@ batchCreateChannelMembershipError_memberArn = Lens.lens (\BatchCreateChannelMemb
 -- | The error message.
 batchCreateChannelMembershipError_errorMessage :: Lens.Lens' BatchCreateChannelMembershipError (Prelude.Maybe Prelude.Text)
 batchCreateChannelMembershipError_errorMessage = Lens.lens (\BatchCreateChannelMembershipError' {errorMessage} -> errorMessage) (\s@BatchCreateChannelMembershipError' {} a -> s {errorMessage = a} :: BatchCreateChannelMembershipError)
+
+-- | The error code.
+batchCreateChannelMembershipError_errorCode :: Lens.Lens' BatchCreateChannelMembershipError (Prelude.Maybe ErrorCode)
+batchCreateChannelMembershipError_errorCode = Lens.lens (\BatchCreateChannelMembershipError' {errorCode} -> errorCode) (\s@BatchCreateChannelMembershipError' {} a -> s {errorCode = a} :: BatchCreateChannelMembershipError)
 
 instance
   Core.FromJSON
@@ -81,9 +81,9 @@ instance
       "BatchCreateChannelMembershipError"
       ( \x ->
           BatchCreateChannelMembershipError'
-            Prelude.<$> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "MemberArn")
+            Prelude.<$> (x Core..:? "MemberArn")
             Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
 instance
@@ -93,15 +93,15 @@ instance
   hashWithSalt
     _salt
     BatchCreateChannelMembershipError' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
-        `Prelude.hashWithSalt` memberArn
+      _salt `Prelude.hashWithSalt` memberArn
         `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` errorCode
 
 instance
   Prelude.NFData
     BatchCreateChannelMembershipError
   where
   rnf BatchCreateChannelMembershipError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf memberArn
+    Prelude.rnf memberArn
       `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

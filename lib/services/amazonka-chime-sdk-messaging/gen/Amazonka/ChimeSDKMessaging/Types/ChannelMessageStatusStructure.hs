@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelMessageStatusStructure' smart constructor.
 data ChannelMessageStatusStructure = ChannelMessageStatusStructure'
-  { -- | The message status value.
-    value :: Prelude.Maybe ChannelMessageStatus,
-    -- | Contains more details about the messasge status.
-    detail :: Prelude.Maybe Prelude.Text
+  { -- | Contains more details about the messasge status.
+    detail :: Prelude.Maybe Prelude.Text,
+    -- | The message status value.
+    value :: Prelude.Maybe ChannelMessageStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data ChannelMessageStatusStructure = ChannelMessageStatusStructure'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'channelMessageStatusStructure_value' - The message status value.
---
 -- 'detail', 'channelMessageStatusStructure_detail' - Contains more details about the messasge status.
+--
+-- 'value', 'channelMessageStatusStructure_value' - The message status value.
 newChannelMessageStatusStructure ::
   ChannelMessageStatusStructure
 newChannelMessageStatusStructure =
   ChannelMessageStatusStructure'
-    { value =
+    { detail =
         Prelude.Nothing,
-      detail = Prelude.Nothing
+      value = Prelude.Nothing
     }
-
--- | The message status value.
-channelMessageStatusStructure_value :: Lens.Lens' ChannelMessageStatusStructure (Prelude.Maybe ChannelMessageStatus)
-channelMessageStatusStructure_value = Lens.lens (\ChannelMessageStatusStructure' {value} -> value) (\s@ChannelMessageStatusStructure' {} a -> s {value = a} :: ChannelMessageStatusStructure)
 
 -- | Contains more details about the messasge status.
 channelMessageStatusStructure_detail :: Lens.Lens' ChannelMessageStatusStructure (Prelude.Maybe Prelude.Text)
 channelMessageStatusStructure_detail = Lens.lens (\ChannelMessageStatusStructure' {detail} -> detail) (\s@ChannelMessageStatusStructure' {} a -> s {detail = a} :: ChannelMessageStatusStructure)
+
+-- | The message status value.
+channelMessageStatusStructure_value :: Lens.Lens' ChannelMessageStatusStructure (Prelude.Maybe ChannelMessageStatus)
+channelMessageStatusStructure_value = Lens.lens (\ChannelMessageStatusStructure' {value} -> value) (\s@ChannelMessageStatusStructure' {} a -> s {value = a} :: ChannelMessageStatusStructure)
 
 instance Core.FromJSON ChannelMessageStatusStructure where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON ChannelMessageStatusStructure where
       "ChannelMessageStatusStructure"
       ( \x ->
           ChannelMessageStatusStructure'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Detail")
+            Prelude.<$> (x Core..:? "Detail")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance
@@ -78,9 +78,9 @@ instance
     ChannelMessageStatusStructure
   where
   hashWithSalt _salt ChannelMessageStatusStructure' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` detail
+    _salt `Prelude.hashWithSalt` detail
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ChannelMessageStatusStructure where
   rnf ChannelMessageStatusStructure' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf detail
+    Prelude.rnf detail `Prelude.seq` Prelude.rnf value

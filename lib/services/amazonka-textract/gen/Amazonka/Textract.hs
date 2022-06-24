@@ -21,47 +21,47 @@ module Amazonka.Textract
     -- * Errors
     -- $errors
 
-    -- ** InvalidJobIdException
-    _InvalidJobIdException,
+    -- ** InvalidKMSKeyException
+    _InvalidKMSKeyException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** BadDocumentException
-    _BadDocumentException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** UnsupportedDocumentException
-    _UnsupportedDocumentException,
-
-    -- ** InvalidS3ObjectException
-    _InvalidS3ObjectException,
-
     -- ** ProvisionedThroughputExceededException
     _ProvisionedThroughputExceededException,
 
-    -- ** InvalidKMSKeyException
-    _InvalidKMSKeyException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
-    -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
+    -- ** BadDocumentException
+    _BadDocumentException,
 
     -- ** HumanLoopQuotaExceededException
     _HumanLoopQuotaExceededException,
 
+    -- ** LimitExceededException
+    _LimitExceededException,
+
     -- ** DocumentTooLargeException
     _DocumentTooLargeException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidS3ObjectException
+    _InvalidS3ObjectException,
+
+    -- ** UnsupportedDocumentException
+    _UnsupportedDocumentException,
+
+    -- ** InvalidJobIdException
+    _InvalidJobIdException,
+
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters
@@ -69,29 +69,11 @@ module Amazonka.Textract
     -- * Operations
     -- $operations
 
-    -- ** DetectDocumentText
-    DetectDocumentText (DetectDocumentText'),
-    newDetectDocumentText,
-    DetectDocumentTextResponse (DetectDocumentTextResponse'),
-    newDetectDocumentTextResponse,
-
-    -- ** StartDocumentAnalysis
-    StartDocumentAnalysis (StartDocumentAnalysis'),
-    newStartDocumentAnalysis,
-    StartDocumentAnalysisResponse (StartDocumentAnalysisResponse'),
-    newStartDocumentAnalysisResponse,
-
     -- ** AnalyzeDocument
     AnalyzeDocument (AnalyzeDocument'),
     newAnalyzeDocument,
     AnalyzeDocumentResponse (AnalyzeDocumentResponse'),
     newAnalyzeDocumentResponse,
-
-    -- ** GetDocumentTextDetection
-    GetDocumentTextDetection (GetDocumentTextDetection'),
-    newGetDocumentTextDetection,
-    GetDocumentTextDetectionResponse (GetDocumentTextDetectionResponse'),
-    newGetDocumentTextDetectionResponse,
 
     -- ** AnalyzeExpense
     AnalyzeExpense (AnalyzeExpense'),
@@ -99,17 +81,35 @@ module Amazonka.Textract
     AnalyzeExpenseResponse (AnalyzeExpenseResponse'),
     newAnalyzeExpenseResponse,
 
-    -- ** StartDocumentTextDetection
-    StartDocumentTextDetection (StartDocumentTextDetection'),
-    newStartDocumentTextDetection,
-    StartDocumentTextDetectionResponse (StartDocumentTextDetectionResponse'),
-    newStartDocumentTextDetectionResponse,
+    -- ** DetectDocumentText
+    DetectDocumentText (DetectDocumentText'),
+    newDetectDocumentText,
+    DetectDocumentTextResponse (DetectDocumentTextResponse'),
+    newDetectDocumentTextResponse,
 
     -- ** GetDocumentAnalysis
     GetDocumentAnalysis (GetDocumentAnalysis'),
     newGetDocumentAnalysis,
     GetDocumentAnalysisResponse (GetDocumentAnalysisResponse'),
     newGetDocumentAnalysisResponse,
+
+    -- ** GetDocumentTextDetection
+    GetDocumentTextDetection (GetDocumentTextDetection'),
+    newGetDocumentTextDetection,
+    GetDocumentTextDetectionResponse (GetDocumentTextDetectionResponse'),
+    newGetDocumentTextDetectionResponse,
+
+    -- ** StartDocumentAnalysis
+    StartDocumentAnalysis (StartDocumentAnalysis'),
+    newStartDocumentAnalysis,
+    StartDocumentAnalysisResponse (StartDocumentAnalysisResponse'),
+    newStartDocumentAnalysisResponse,
+
+    -- ** StartDocumentTextDetection
+    StartDocumentTextDetection (StartDocumentTextDetection'),
+    newStartDocumentTextDetection,
+    StartDocumentTextDetectionResponse (StartDocumentTextDetectionResponse'),
+    newStartDocumentTextDetectionResponse,
 
     -- * Types
 

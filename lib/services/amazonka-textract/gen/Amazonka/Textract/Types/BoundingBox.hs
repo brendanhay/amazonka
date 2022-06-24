@@ -42,18 +42,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBoundingBox' smart constructor.
 data BoundingBox = BoundingBox'
-  { -- | The height of the bounding box as a ratio of the overall document page
-    -- height.
-    height :: Prelude.Maybe Prelude.Double,
-    -- | The left coordinate of the bounding box as a ratio of overall document
-    -- page width.
-    left :: Prelude.Maybe Prelude.Double,
-    -- | The width of the bounding box as a ratio of the overall document page
+  { -- | The width of the bounding box as a ratio of the overall document page
     -- width.
     width :: Prelude.Maybe Prelude.Double,
     -- | The top coordinate of the bounding box as a ratio of overall document
     -- page height.
-    top :: Prelude.Maybe Prelude.Double
+    top :: Prelude.Maybe Prelude.Double,
+    -- | The left coordinate of the bounding box as a ratio of overall document
+    -- page width.
+    left :: Prelude.Maybe Prelude.Double,
+    -- | The height of the bounding box as a ratio of the overall document page
+    -- height.
+    height :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,36 +65,26 @@ data BoundingBox = BoundingBox'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'height', 'boundingBox_height' - The height of the bounding box as a ratio of the overall document page
--- height.
---
--- 'left', 'boundingBox_left' - The left coordinate of the bounding box as a ratio of overall document
--- page width.
---
 -- 'width', 'boundingBox_width' - The width of the bounding box as a ratio of the overall document page
 -- width.
 --
 -- 'top', 'boundingBox_top' - The top coordinate of the bounding box as a ratio of overall document
 -- page height.
+--
+-- 'left', 'boundingBox_left' - The left coordinate of the bounding box as a ratio of overall document
+-- page width.
+--
+-- 'height', 'boundingBox_height' - The height of the bounding box as a ratio of the overall document page
+-- height.
 newBoundingBox ::
   BoundingBox
 newBoundingBox =
   BoundingBox'
-    { height = Prelude.Nothing,
+    { width = Prelude.Nothing,
+      top = Prelude.Nothing,
       left = Prelude.Nothing,
-      width = Prelude.Nothing,
-      top = Prelude.Nothing
+      height = Prelude.Nothing
     }
-
--- | The height of the bounding box as a ratio of the overall document page
--- height.
-boundingBox_height :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
-boundingBox_height = Lens.lens (\BoundingBox' {height} -> height) (\s@BoundingBox' {} a -> s {height = a} :: BoundingBox)
-
--- | The left coordinate of the bounding box as a ratio of overall document
--- page width.
-boundingBox_left :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
-boundingBox_left = Lens.lens (\BoundingBox' {left} -> left) (\s@BoundingBox' {} a -> s {left = a} :: BoundingBox)
 
 -- | The width of the bounding box as a ratio of the overall document page
 -- width.
@@ -106,28 +96,38 @@ boundingBox_width = Lens.lens (\BoundingBox' {width} -> width) (\s@BoundingBox' 
 boundingBox_top :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
 boundingBox_top = Lens.lens (\BoundingBox' {top} -> top) (\s@BoundingBox' {} a -> s {top = a} :: BoundingBox)
 
+-- | The left coordinate of the bounding box as a ratio of overall document
+-- page width.
+boundingBox_left :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
+boundingBox_left = Lens.lens (\BoundingBox' {left} -> left) (\s@BoundingBox' {} a -> s {left = a} :: BoundingBox)
+
+-- | The height of the bounding box as a ratio of the overall document page
+-- height.
+boundingBox_height :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
+boundingBox_height = Lens.lens (\BoundingBox' {height} -> height) (\s@BoundingBox' {} a -> s {height = a} :: BoundingBox)
+
 instance Core.FromJSON BoundingBox where
   parseJSON =
     Core.withObject
       "BoundingBox"
       ( \x ->
           BoundingBox'
-            Prelude.<$> (x Core..:? "Height")
-            Prelude.<*> (x Core..:? "Left")
-            Prelude.<*> (x Core..:? "Width")
+            Prelude.<$> (x Core..:? "Width")
             Prelude.<*> (x Core..:? "Top")
+            Prelude.<*> (x Core..:? "Left")
+            Prelude.<*> (x Core..:? "Height")
       )
 
 instance Prelude.Hashable BoundingBox where
   hashWithSalt _salt BoundingBox' {..} =
-    _salt `Prelude.hashWithSalt` height
-      `Prelude.hashWithSalt` left
-      `Prelude.hashWithSalt` width
+    _salt `Prelude.hashWithSalt` width
       `Prelude.hashWithSalt` top
+      `Prelude.hashWithSalt` left
+      `Prelude.hashWithSalt` height
 
 instance Prelude.NFData BoundingBox where
   rnf BoundingBox' {..} =
-    Prelude.rnf height
-      `Prelude.seq` Prelude.rnf left
-      `Prelude.seq` Prelude.rnf width
+    Prelude.rnf width
       `Prelude.seq` Prelude.rnf top
+      `Prelude.seq` Prelude.rnf left
+      `Prelude.seq` Prelude.rnf height

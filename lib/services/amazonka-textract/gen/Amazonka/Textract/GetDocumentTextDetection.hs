@@ -68,13 +68,13 @@ module Amazonka.Textract.GetDocumentTextDetection
     newGetDocumentTextDetectionResponse,
 
     -- * Response Lenses
-    getDocumentTextDetectionResponse_documentMetadata,
-    getDocumentTextDetectionResponse_blocks,
-    getDocumentTextDetectionResponse_warnings,
     getDocumentTextDetectionResponse_nextToken,
-    getDocumentTextDetectionResponse_statusMessage,
-    getDocumentTextDetectionResponse_detectDocumentTextModelVersion,
     getDocumentTextDetectionResponse_jobStatus,
+    getDocumentTextDetectionResponse_documentMetadata,
+    getDocumentTextDetectionResponse_warnings,
+    getDocumentTextDetectionResponse_detectDocumentTextModelVersion,
+    getDocumentTextDetectionResponse_statusMessage,
+    getDocumentTextDetectionResponse_blocks,
     getDocumentTextDetectionResponse_httpStatus,
   )
 where
@@ -167,13 +167,13 @@ instance Core.AWSRequest GetDocumentTextDetection where
     Response.receiveJSON
       ( \s h x ->
           GetDocumentTextDetectionResponse'
-            Prelude.<$> (x Core..?> "DocumentMetadata")
-            Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "StatusMessage")
-            Prelude.<*> (x Core..?> "DetectDocumentTextModelVersion")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "DocumentMetadata")
+            Prelude.<*> (x Core..?> "Warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "DetectDocumentTextModelVersion")
+            Prelude.<*> (x Core..?> "StatusMessage")
+            Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -222,25 +222,25 @@ instance Core.ToQuery GetDocumentTextDetection where
 
 -- | /See:/ 'newGetDocumentTextDetectionResponse' smart constructor.
 data GetDocumentTextDetectionResponse = GetDocumentTextDetectionResponse'
-  { -- | Information about a document that Amazon Textract processed.
-    -- @DocumentMetadata@ is returned in every page of paginated responses from
-    -- an Amazon Textract video operation.
-    documentMetadata :: Prelude.Maybe DocumentMetadata,
-    -- | The results of the text-detection operation.
-    blocks :: Prelude.Maybe [Block],
-    -- | A list of warnings that occurred during the text-detection operation for
-    -- the document.
-    warnings :: Prelude.Maybe [Warning],
-    -- | If the response is truncated, Amazon Textract returns this token. You
+  { -- | If the response is truncated, Amazon Textract returns this token. You
     -- can use this token in the subsequent request to retrieve the next set of
     -- text-detection results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the text detection job.
+    jobStatus :: Prelude.Maybe JobStatus,
+    -- | Information about a document that Amazon Textract processed.
+    -- @DocumentMetadata@ is returned in every page of paginated responses from
+    -- an Amazon Textract video operation.
+    documentMetadata :: Prelude.Maybe DocumentMetadata,
+    -- | A list of warnings that occurred during the text-detection operation for
+    -- the document.
+    warnings :: Prelude.Maybe [Warning],
+    detectDocumentTextModelVersion :: Prelude.Maybe Prelude.Text,
     -- | Returns if the detection job could not be completed. Contains
     -- explanation for what error occured.
     statusMessage :: Prelude.Maybe Prelude.Text,
-    detectDocumentTextModelVersion :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the text detection job.
-    jobStatus :: Prelude.Maybe JobStatus,
+    -- | The results of the text-detection operation.
+    blocks :: Prelude.Maybe [Block],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -254,25 +254,25 @@ data GetDocumentTextDetectionResponse = GetDocumentTextDetectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'documentMetadata', 'getDocumentTextDetectionResponse_documentMetadata' - Information about a document that Amazon Textract processed.
--- @DocumentMetadata@ is returned in every page of paginated responses from
--- an Amazon Textract video operation.
---
--- 'blocks', 'getDocumentTextDetectionResponse_blocks' - The results of the text-detection operation.
---
--- 'warnings', 'getDocumentTextDetectionResponse_warnings' - A list of warnings that occurred during the text-detection operation for
--- the document.
---
 -- 'nextToken', 'getDocumentTextDetectionResponse_nextToken' - If the response is truncated, Amazon Textract returns this token. You
 -- can use this token in the subsequent request to retrieve the next set of
 -- text-detection results.
 --
--- 'statusMessage', 'getDocumentTextDetectionResponse_statusMessage' - Returns if the detection job could not be completed. Contains
--- explanation for what error occured.
+-- 'jobStatus', 'getDocumentTextDetectionResponse_jobStatus' - The current status of the text detection job.
+--
+-- 'documentMetadata', 'getDocumentTextDetectionResponse_documentMetadata' - Information about a document that Amazon Textract processed.
+-- @DocumentMetadata@ is returned in every page of paginated responses from
+-- an Amazon Textract video operation.
+--
+-- 'warnings', 'getDocumentTextDetectionResponse_warnings' - A list of warnings that occurred during the text-detection operation for
+-- the document.
 --
 -- 'detectDocumentTextModelVersion', 'getDocumentTextDetectionResponse_detectDocumentTextModelVersion' -
 --
--- 'jobStatus', 'getDocumentTextDetectionResponse_jobStatus' - The current status of the text detection job.
+-- 'statusMessage', 'getDocumentTextDetectionResponse_statusMessage' - Returns if the detection job could not be completed. Contains
+-- explanation for what error occured.
+--
+-- 'blocks', 'getDocumentTextDetectionResponse_blocks' - The results of the text-detection operation.
 --
 -- 'httpStatus', 'getDocumentTextDetectionResponse_httpStatus' - The response's http status code.
 newGetDocumentTextDetectionResponse ::
@@ -281,32 +281,17 @@ newGetDocumentTextDetectionResponse ::
   GetDocumentTextDetectionResponse
 newGetDocumentTextDetectionResponse pHttpStatus_ =
   GetDocumentTextDetectionResponse'
-    { documentMetadata =
-        Prelude.Nothing,
-      blocks = Prelude.Nothing,
-      warnings = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
-      detectDocumentTextModelVersion =
+    { nextToken =
         Prelude.Nothing,
       jobStatus = Prelude.Nothing,
+      documentMetadata = Prelude.Nothing,
+      warnings = Prelude.Nothing,
+      detectDocumentTextModelVersion =
+        Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      blocks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about a document that Amazon Textract processed.
--- @DocumentMetadata@ is returned in every page of paginated responses from
--- an Amazon Textract video operation.
-getDocumentTextDetectionResponse_documentMetadata :: Lens.Lens' GetDocumentTextDetectionResponse (Prelude.Maybe DocumentMetadata)
-getDocumentTextDetectionResponse_documentMetadata = Lens.lens (\GetDocumentTextDetectionResponse' {documentMetadata} -> documentMetadata) (\s@GetDocumentTextDetectionResponse' {} a -> s {documentMetadata = a} :: GetDocumentTextDetectionResponse)
-
--- | The results of the text-detection operation.
-getDocumentTextDetectionResponse_blocks :: Lens.Lens' GetDocumentTextDetectionResponse (Prelude.Maybe [Block])
-getDocumentTextDetectionResponse_blocks = Lens.lens (\GetDocumentTextDetectionResponse' {blocks} -> blocks) (\s@GetDocumentTextDetectionResponse' {} a -> s {blocks = a} :: GetDocumentTextDetectionResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of warnings that occurred during the text-detection operation for
--- the document.
-getDocumentTextDetectionResponse_warnings :: Lens.Lens' GetDocumentTextDetectionResponse (Prelude.Maybe [Warning])
-getDocumentTextDetectionResponse_warnings = Lens.lens (\GetDocumentTextDetectionResponse' {warnings} -> warnings) (\s@GetDocumentTextDetectionResponse' {} a -> s {warnings = a} :: GetDocumentTextDetectionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Textract returns this token. You
 -- can use this token in the subsequent request to retrieve the next set of
@@ -314,18 +299,33 @@ getDocumentTextDetectionResponse_warnings = Lens.lens (\GetDocumentTextDetection
 getDocumentTextDetectionResponse_nextToken :: Lens.Lens' GetDocumentTextDetectionResponse (Prelude.Maybe Prelude.Text)
 getDocumentTextDetectionResponse_nextToken = Lens.lens (\GetDocumentTextDetectionResponse' {nextToken} -> nextToken) (\s@GetDocumentTextDetectionResponse' {} a -> s {nextToken = a} :: GetDocumentTextDetectionResponse)
 
--- | Returns if the detection job could not be completed. Contains
--- explanation for what error occured.
-getDocumentTextDetectionResponse_statusMessage :: Lens.Lens' GetDocumentTextDetectionResponse (Prelude.Maybe Prelude.Text)
-getDocumentTextDetectionResponse_statusMessage = Lens.lens (\GetDocumentTextDetectionResponse' {statusMessage} -> statusMessage) (\s@GetDocumentTextDetectionResponse' {} a -> s {statusMessage = a} :: GetDocumentTextDetectionResponse)
+-- | The current status of the text detection job.
+getDocumentTextDetectionResponse_jobStatus :: Lens.Lens' GetDocumentTextDetectionResponse (Prelude.Maybe JobStatus)
+getDocumentTextDetectionResponse_jobStatus = Lens.lens (\GetDocumentTextDetectionResponse' {jobStatus} -> jobStatus) (\s@GetDocumentTextDetectionResponse' {} a -> s {jobStatus = a} :: GetDocumentTextDetectionResponse)
+
+-- | Information about a document that Amazon Textract processed.
+-- @DocumentMetadata@ is returned in every page of paginated responses from
+-- an Amazon Textract video operation.
+getDocumentTextDetectionResponse_documentMetadata :: Lens.Lens' GetDocumentTextDetectionResponse (Prelude.Maybe DocumentMetadata)
+getDocumentTextDetectionResponse_documentMetadata = Lens.lens (\GetDocumentTextDetectionResponse' {documentMetadata} -> documentMetadata) (\s@GetDocumentTextDetectionResponse' {} a -> s {documentMetadata = a} :: GetDocumentTextDetectionResponse)
+
+-- | A list of warnings that occurred during the text-detection operation for
+-- the document.
+getDocumentTextDetectionResponse_warnings :: Lens.Lens' GetDocumentTextDetectionResponse (Prelude.Maybe [Warning])
+getDocumentTextDetectionResponse_warnings = Lens.lens (\GetDocumentTextDetectionResponse' {warnings} -> warnings) (\s@GetDocumentTextDetectionResponse' {} a -> s {warnings = a} :: GetDocumentTextDetectionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- |
 getDocumentTextDetectionResponse_detectDocumentTextModelVersion :: Lens.Lens' GetDocumentTextDetectionResponse (Prelude.Maybe Prelude.Text)
 getDocumentTextDetectionResponse_detectDocumentTextModelVersion = Lens.lens (\GetDocumentTextDetectionResponse' {detectDocumentTextModelVersion} -> detectDocumentTextModelVersion) (\s@GetDocumentTextDetectionResponse' {} a -> s {detectDocumentTextModelVersion = a} :: GetDocumentTextDetectionResponse)
 
--- | The current status of the text detection job.
-getDocumentTextDetectionResponse_jobStatus :: Lens.Lens' GetDocumentTextDetectionResponse (Prelude.Maybe JobStatus)
-getDocumentTextDetectionResponse_jobStatus = Lens.lens (\GetDocumentTextDetectionResponse' {jobStatus} -> jobStatus) (\s@GetDocumentTextDetectionResponse' {} a -> s {jobStatus = a} :: GetDocumentTextDetectionResponse)
+-- | Returns if the detection job could not be completed. Contains
+-- explanation for what error occured.
+getDocumentTextDetectionResponse_statusMessage :: Lens.Lens' GetDocumentTextDetectionResponse (Prelude.Maybe Prelude.Text)
+getDocumentTextDetectionResponse_statusMessage = Lens.lens (\GetDocumentTextDetectionResponse' {statusMessage} -> statusMessage) (\s@GetDocumentTextDetectionResponse' {} a -> s {statusMessage = a} :: GetDocumentTextDetectionResponse)
+
+-- | The results of the text-detection operation.
+getDocumentTextDetectionResponse_blocks :: Lens.Lens' GetDocumentTextDetectionResponse (Prelude.Maybe [Block])
+getDocumentTextDetectionResponse_blocks = Lens.lens (\GetDocumentTextDetectionResponse' {blocks} -> blocks) (\s@GetDocumentTextDetectionResponse' {} a -> s {blocks = a} :: GetDocumentTextDetectionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDocumentTextDetectionResponse_httpStatus :: Lens.Lens' GetDocumentTextDetectionResponse Prelude.Int
@@ -336,11 +336,11 @@ instance
     GetDocumentTextDetectionResponse
   where
   rnf GetDocumentTextDetectionResponse' {..} =
-    Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf blocks
-      `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf detectDocumentTextModelVersion
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf documentMetadata
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf detectDocumentTextModelVersion
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf blocks
       `Prelude.seq` Prelude.rnf httpStatus

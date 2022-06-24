@@ -14,46 +14,15 @@
 module Amazonka.Textract.Lens
   ( -- * Operations
 
-    -- ** DetectDocumentText
-    detectDocumentText_document,
-    detectDocumentTextResponse_documentMetadata,
-    detectDocumentTextResponse_blocks,
-    detectDocumentTextResponse_detectDocumentTextModelVersion,
-    detectDocumentTextResponse_httpStatus,
-
-    -- ** StartDocumentAnalysis
-    startDocumentAnalysis_jobTag,
-    startDocumentAnalysis_notificationChannel,
-    startDocumentAnalysis_kmsKeyId,
-    startDocumentAnalysis_outputConfig,
-    startDocumentAnalysis_clientRequestToken,
-    startDocumentAnalysis_documentLocation,
-    startDocumentAnalysis_featureTypes,
-    startDocumentAnalysisResponse_jobId,
-    startDocumentAnalysisResponse_httpStatus,
-
     -- ** AnalyzeDocument
     analyzeDocument_humanLoopConfig,
     analyzeDocument_document,
     analyzeDocument_featureTypes,
-    analyzeDocumentResponse_documentMetadata,
-    analyzeDocumentResponse_blocks,
     analyzeDocumentResponse_humanLoopActivationOutput,
+    analyzeDocumentResponse_documentMetadata,
     analyzeDocumentResponse_analyzeDocumentModelVersion,
+    analyzeDocumentResponse_blocks,
     analyzeDocumentResponse_httpStatus,
-
-    -- ** GetDocumentTextDetection
-    getDocumentTextDetection_nextToken,
-    getDocumentTextDetection_maxResults,
-    getDocumentTextDetection_jobId,
-    getDocumentTextDetectionResponse_documentMetadata,
-    getDocumentTextDetectionResponse_blocks,
-    getDocumentTextDetectionResponse_warnings,
-    getDocumentTextDetectionResponse_nextToken,
-    getDocumentTextDetectionResponse_statusMessage,
-    getDocumentTextDetectionResponse_detectDocumentTextModelVersion,
-    getDocumentTextDetectionResponse_jobStatus,
-    getDocumentTextDetectionResponse_httpStatus,
 
     -- ** AnalyzeExpense
     analyzeExpense_document,
@@ -61,56 +30,87 @@ module Amazonka.Textract.Lens
     analyzeExpenseResponse_expenseDocuments,
     analyzeExpenseResponse_httpStatus,
 
-    -- ** StartDocumentTextDetection
-    startDocumentTextDetection_jobTag,
-    startDocumentTextDetection_notificationChannel,
-    startDocumentTextDetection_kmsKeyId,
-    startDocumentTextDetection_outputConfig,
-    startDocumentTextDetection_clientRequestToken,
-    startDocumentTextDetection_documentLocation,
-    startDocumentTextDetectionResponse_jobId,
-    startDocumentTextDetectionResponse_httpStatus,
+    -- ** DetectDocumentText
+    detectDocumentText_document,
+    detectDocumentTextResponse_documentMetadata,
+    detectDocumentTextResponse_detectDocumentTextModelVersion,
+    detectDocumentTextResponse_blocks,
+    detectDocumentTextResponse_httpStatus,
 
     -- ** GetDocumentAnalysis
     getDocumentAnalysis_nextToken,
     getDocumentAnalysis_maxResults,
     getDocumentAnalysis_jobId,
-    getDocumentAnalysisResponse_documentMetadata,
-    getDocumentAnalysisResponse_blocks,
-    getDocumentAnalysisResponse_analyzeDocumentModelVersion,
-    getDocumentAnalysisResponse_warnings,
     getDocumentAnalysisResponse_nextToken,
-    getDocumentAnalysisResponse_statusMessage,
     getDocumentAnalysisResponse_jobStatus,
+    getDocumentAnalysisResponse_documentMetadata,
+    getDocumentAnalysisResponse_warnings,
+    getDocumentAnalysisResponse_analyzeDocumentModelVersion,
+    getDocumentAnalysisResponse_statusMessage,
+    getDocumentAnalysisResponse_blocks,
     getDocumentAnalysisResponse_httpStatus,
+
+    -- ** GetDocumentTextDetection
+    getDocumentTextDetection_nextToken,
+    getDocumentTextDetection_maxResults,
+    getDocumentTextDetection_jobId,
+    getDocumentTextDetectionResponse_nextToken,
+    getDocumentTextDetectionResponse_jobStatus,
+    getDocumentTextDetectionResponse_documentMetadata,
+    getDocumentTextDetectionResponse_warnings,
+    getDocumentTextDetectionResponse_detectDocumentTextModelVersion,
+    getDocumentTextDetectionResponse_statusMessage,
+    getDocumentTextDetectionResponse_blocks,
+    getDocumentTextDetectionResponse_httpStatus,
+
+    -- ** StartDocumentAnalysis
+    startDocumentAnalysis_clientRequestToken,
+    startDocumentAnalysis_kmsKeyId,
+    startDocumentAnalysis_jobTag,
+    startDocumentAnalysis_outputConfig,
+    startDocumentAnalysis_notificationChannel,
+    startDocumentAnalysis_documentLocation,
+    startDocumentAnalysis_featureTypes,
+    startDocumentAnalysisResponse_jobId,
+    startDocumentAnalysisResponse_httpStatus,
+
+    -- ** StartDocumentTextDetection
+    startDocumentTextDetection_clientRequestToken,
+    startDocumentTextDetection_kmsKeyId,
+    startDocumentTextDetection_jobTag,
+    startDocumentTextDetection_outputConfig,
+    startDocumentTextDetection_notificationChannel,
+    startDocumentTextDetection_documentLocation,
+    startDocumentTextDetectionResponse_jobId,
+    startDocumentTextDetectionResponse_httpStatus,
 
     -- * Types
 
     -- ** Block
-    block_columnSpan,
-    block_text,
-    block_entityTypes,
-    block_columnIndex,
-    block_page,
-    block_rowSpan,
-    block_selectionStatus,
-    block_rowIndex,
-    block_confidence,
-    block_relationships,
-    block_geometry,
-    block_textType,
-    block_id,
     block_blockType,
+    block_rowSpan,
+    block_columnIndex,
+    block_entityTypes,
+    block_columnSpan,
+    block_confidence,
+    block_rowIndex,
+    block_selectionStatus,
+    block_id,
+    block_page,
+    block_textType,
+    block_relationships,
+    block_text,
+    block_geometry,
 
     -- ** BoundingBox
-    boundingBox_height,
-    boundingBox_left,
     boundingBox_width,
     boundingBox_top,
+    boundingBox_left,
+    boundingBox_height,
 
     -- ** Document
-    document_s3Object,
     document_bytes,
+    document_s3Object,
 
     -- ** DocumentLocation
     documentLocation_s3Object,
@@ -119,8 +119,8 @@ module Amazonka.Textract.Lens
     documentMetadata_pages,
 
     -- ** ExpenseDetection
-    expenseDetection_text,
     expenseDetection_confidence,
+    expenseDetection_text,
     expenseDetection_geometry,
 
     -- ** ExpenseDocument
@@ -129,23 +129,23 @@ module Amazonka.Textract.Lens
     expenseDocument_expenseIndex,
 
     -- ** ExpenseField
-    expenseField_labelDetection,
-    expenseField_valueDetection,
     expenseField_type,
     expenseField_pageNumber,
+    expenseField_labelDetection,
+    expenseField_valueDetection,
 
     -- ** ExpenseType
-    expenseType_text,
     expenseType_confidence,
+    expenseType_text,
 
     -- ** Geometry
-    geometry_boundingBox,
     geometry_polygon,
+    geometry_boundingBox,
 
     -- ** HumanLoopActivationOutput
-    humanLoopActivationOutput_humanLoopActivationReasons,
-    humanLoopActivationOutput_humanLoopArn,
     humanLoopActivationOutput_humanLoopActivationConditionsEvaluationResults,
+    humanLoopActivationOutput_humanLoopArn,
+    humanLoopActivationOutput_humanLoopActivationReasons,
 
     -- ** HumanLoopConfig
     humanLoopConfig_dataAttributes,
@@ -175,17 +175,17 @@ module Amazonka.Textract.Lens
     point_y,
 
     -- ** Relationship
-    relationship_ids,
     relationship_type,
+    relationship_ids,
 
     -- ** S3Object
-    s3Object_bucket,
     s3Object_name,
+    s3Object_bucket,
     s3Object_version,
 
     -- ** Warning
-    warning_pages,
     warning_errorCode,
+    warning_pages,
   )
 where
 

@@ -69,10 +69,10 @@ module Amazonka.Textract.AnalyzeDocument
     newAnalyzeDocumentResponse,
 
     -- * Response Lenses
-    analyzeDocumentResponse_documentMetadata,
-    analyzeDocumentResponse_blocks,
     analyzeDocumentResponse_humanLoopActivationOutput,
+    analyzeDocumentResponse_documentMetadata,
     analyzeDocumentResponse_analyzeDocumentModelVersion,
+    analyzeDocumentResponse_blocks,
     analyzeDocumentResponse_httpStatus,
   )
 where
@@ -173,10 +173,10 @@ instance Core.AWSRequest AnalyzeDocument where
     Response.receiveJSON
       ( \s h x ->
           AnalyzeDocumentResponse'
-            Prelude.<$> (x Core..?> "DocumentMetadata")
-            Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "HumanLoopActivationOutput")
+            Prelude.<$> (x Core..?> "HumanLoopActivationOutput")
+            Prelude.<*> (x Core..?> "DocumentMetadata")
             Prelude.<*> (x Core..?> "AnalyzeDocumentModelVersion")
+            Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -224,14 +224,14 @@ instance Core.ToQuery AnalyzeDocument where
 
 -- | /See:/ 'newAnalyzeDocumentResponse' smart constructor.
 data AnalyzeDocumentResponse = AnalyzeDocumentResponse'
-  { -- | Metadata about the analyzed document. An example is the number of pages.
-    documentMetadata :: Prelude.Maybe DocumentMetadata,
-    -- | The items that are detected and analyzed by @AnalyzeDocument@.
-    blocks :: Prelude.Maybe [Block],
-    -- | Shows the results of the human in the loop evaluation.
+  { -- | Shows the results of the human in the loop evaluation.
     humanLoopActivationOutput :: Prelude.Maybe HumanLoopActivationOutput,
+    -- | Metadata about the analyzed document. An example is the number of pages.
+    documentMetadata :: Prelude.Maybe DocumentMetadata,
     -- | The version of the model used to analyze the document.
     analyzeDocumentModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | The items that are detected and analyzed by @AnalyzeDocument@.
+    blocks :: Prelude.Maybe [Block],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -245,13 +245,13 @@ data AnalyzeDocumentResponse = AnalyzeDocumentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'documentMetadata', 'analyzeDocumentResponse_documentMetadata' - Metadata about the analyzed document. An example is the number of pages.
---
--- 'blocks', 'analyzeDocumentResponse_blocks' - The items that are detected and analyzed by @AnalyzeDocument@.
---
 -- 'humanLoopActivationOutput', 'analyzeDocumentResponse_humanLoopActivationOutput' - Shows the results of the human in the loop evaluation.
 --
+-- 'documentMetadata', 'analyzeDocumentResponse_documentMetadata' - Metadata about the analyzed document. An example is the number of pages.
+--
 -- 'analyzeDocumentModelVersion', 'analyzeDocumentResponse_analyzeDocumentModelVersion' - The version of the model used to analyze the document.
+--
+-- 'blocks', 'analyzeDocumentResponse_blocks' - The items that are detected and analyzed by @AnalyzeDocument@.
 --
 -- 'httpStatus', 'analyzeDocumentResponse_httpStatus' - The response's http status code.
 newAnalyzeDocumentResponse ::
@@ -260,29 +260,29 @@ newAnalyzeDocumentResponse ::
   AnalyzeDocumentResponse
 newAnalyzeDocumentResponse pHttpStatus_ =
   AnalyzeDocumentResponse'
-    { documentMetadata =
+    { humanLoopActivationOutput =
         Prelude.Nothing,
-      blocks = Prelude.Nothing,
-      humanLoopActivationOutput = Prelude.Nothing,
+      documentMetadata = Prelude.Nothing,
       analyzeDocumentModelVersion = Prelude.Nothing,
+      blocks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Metadata about the analyzed document. An example is the number of pages.
-analyzeDocumentResponse_documentMetadata :: Lens.Lens' AnalyzeDocumentResponse (Prelude.Maybe DocumentMetadata)
-analyzeDocumentResponse_documentMetadata = Lens.lens (\AnalyzeDocumentResponse' {documentMetadata} -> documentMetadata) (\s@AnalyzeDocumentResponse' {} a -> s {documentMetadata = a} :: AnalyzeDocumentResponse)
-
--- | The items that are detected and analyzed by @AnalyzeDocument@.
-analyzeDocumentResponse_blocks :: Lens.Lens' AnalyzeDocumentResponse (Prelude.Maybe [Block])
-analyzeDocumentResponse_blocks = Lens.lens (\AnalyzeDocumentResponse' {blocks} -> blocks) (\s@AnalyzeDocumentResponse' {} a -> s {blocks = a} :: AnalyzeDocumentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Shows the results of the human in the loop evaluation.
 analyzeDocumentResponse_humanLoopActivationOutput :: Lens.Lens' AnalyzeDocumentResponse (Prelude.Maybe HumanLoopActivationOutput)
 analyzeDocumentResponse_humanLoopActivationOutput = Lens.lens (\AnalyzeDocumentResponse' {humanLoopActivationOutput} -> humanLoopActivationOutput) (\s@AnalyzeDocumentResponse' {} a -> s {humanLoopActivationOutput = a} :: AnalyzeDocumentResponse)
 
+-- | Metadata about the analyzed document. An example is the number of pages.
+analyzeDocumentResponse_documentMetadata :: Lens.Lens' AnalyzeDocumentResponse (Prelude.Maybe DocumentMetadata)
+analyzeDocumentResponse_documentMetadata = Lens.lens (\AnalyzeDocumentResponse' {documentMetadata} -> documentMetadata) (\s@AnalyzeDocumentResponse' {} a -> s {documentMetadata = a} :: AnalyzeDocumentResponse)
+
 -- | The version of the model used to analyze the document.
 analyzeDocumentResponse_analyzeDocumentModelVersion :: Lens.Lens' AnalyzeDocumentResponse (Prelude.Maybe Prelude.Text)
 analyzeDocumentResponse_analyzeDocumentModelVersion = Lens.lens (\AnalyzeDocumentResponse' {analyzeDocumentModelVersion} -> analyzeDocumentModelVersion) (\s@AnalyzeDocumentResponse' {} a -> s {analyzeDocumentModelVersion = a} :: AnalyzeDocumentResponse)
+
+-- | The items that are detected and analyzed by @AnalyzeDocument@.
+analyzeDocumentResponse_blocks :: Lens.Lens' AnalyzeDocumentResponse (Prelude.Maybe [Block])
+analyzeDocumentResponse_blocks = Lens.lens (\AnalyzeDocumentResponse' {blocks} -> blocks) (\s@AnalyzeDocumentResponse' {} a -> s {blocks = a} :: AnalyzeDocumentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 analyzeDocumentResponse_httpStatus :: Lens.Lens' AnalyzeDocumentResponse Prelude.Int
@@ -290,8 +290,8 @@ analyzeDocumentResponse_httpStatus = Lens.lens (\AnalyzeDocumentResponse' {httpS
 
 instance Prelude.NFData AnalyzeDocumentResponse where
   rnf AnalyzeDocumentResponse' {..} =
-    Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf blocks
-      `Prelude.seq` Prelude.rnf humanLoopActivationOutput
+    Prelude.rnf humanLoopActivationOutput
+      `Prelude.seq` Prelude.rnf documentMetadata
       `Prelude.seq` Prelude.rnf analyzeDocumentModelVersion
+      `Prelude.seq` Prelude.rnf blocks
       `Prelude.seq` Prelude.rnf httpStatus

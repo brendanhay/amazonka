@@ -33,17 +33,17 @@ import Amazonka.Textract.Types.RelationshipType
 --
 -- /See:/ 'newRelationship' smart constructor.
 data Relationship = Relationship'
-  { -- | An array of IDs for related blocks. You can get the type of the
-    -- relationship from the @Type@ element.
-    ids :: Prelude.Maybe [Prelude.Text],
-    -- | The type of relationship that the blocks in the IDs array have with the
+  { -- | The type of relationship that the blocks in the IDs array have with the
     -- current block. The relationship can be @VALUE@ or @CHILD@. A
     -- relationship of type VALUE is a list that contains the ID of the VALUE
     -- block that\'s associated with the KEY of a key-value pair. A
     -- relationship of type CHILD is a list of IDs that identify WORD blocks in
     -- the case of lines Cell blocks in the case of Tables, and WORD blocks in
     -- the case of Selection Elements.
-    type' :: Prelude.Maybe RelationshipType
+    type' :: Prelude.Maybe RelationshipType,
+    -- | An array of IDs for related blocks. You can get the type of the
+    -- relationship from the @Type@ element.
+    ids :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,9 +55,6 @@ data Relationship = Relationship'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ids', 'relationship_ids' - An array of IDs for related blocks. You can get the type of the
--- relationship from the @Type@ element.
---
 -- 'type'', 'relationship_type' - The type of relationship that the blocks in the IDs array have with the
 -- current block. The relationship can be @VALUE@ or @CHILD@. A
 -- relationship of type VALUE is a list that contains the ID of the VALUE
@@ -65,18 +62,16 @@ data Relationship = Relationship'
 -- relationship of type CHILD is a list of IDs that identify WORD blocks in
 -- the case of lines Cell blocks in the case of Tables, and WORD blocks in
 -- the case of Selection Elements.
+--
+-- 'ids', 'relationship_ids' - An array of IDs for related blocks. You can get the type of the
+-- relationship from the @Type@ element.
 newRelationship ::
   Relationship
 newRelationship =
   Relationship'
-    { ids = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      ids = Prelude.Nothing
     }
-
--- | An array of IDs for related blocks. You can get the type of the
--- relationship from the @Type@ element.
-relationship_ids :: Lens.Lens' Relationship (Prelude.Maybe [Prelude.Text])
-relationship_ids = Lens.lens (\Relationship' {ids} -> ids) (\s@Relationship' {} a -> s {ids = a} :: Relationship) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of relationship that the blocks in the IDs array have with the
 -- current block. The relationship can be @VALUE@ or @CHILD@. A
@@ -88,21 +83,26 @@ relationship_ids = Lens.lens (\Relationship' {ids} -> ids) (\s@Relationship' {} 
 relationship_type :: Lens.Lens' Relationship (Prelude.Maybe RelationshipType)
 relationship_type = Lens.lens (\Relationship' {type'} -> type') (\s@Relationship' {} a -> s {type' = a} :: Relationship)
 
+-- | An array of IDs for related blocks. You can get the type of the
+-- relationship from the @Type@ element.
+relationship_ids :: Lens.Lens' Relationship (Prelude.Maybe [Prelude.Text])
+relationship_ids = Lens.lens (\Relationship' {ids} -> ids) (\s@Relationship' {} a -> s {ids = a} :: Relationship) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON Relationship where
   parseJSON =
     Core.withObject
       "Relationship"
       ( \x ->
           Relationship'
-            Prelude.<$> (x Core..:? "Ids" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Ids" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Relationship where
   hashWithSalt _salt Relationship' {..} =
-    _salt `Prelude.hashWithSalt` ids
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` ids
 
 instance Prelude.NFData Relationship where
   rnf Relationship' {..} =
-    Prelude.rnf ids `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf ids

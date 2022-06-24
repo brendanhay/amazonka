@@ -29,10 +29,10 @@ import Amazonka.Textract.Types.Geometry
 --
 -- /See:/ 'newExpenseDetection' smart constructor.
 data ExpenseDetection = ExpenseDetection'
-  { -- | The word or line of text recognized by Amazon Textract
-    text :: Prelude.Maybe Prelude.Text,
-    -- | The confidence in detection, as a percentage
+  { -- | The confidence in detection, as a percentage
     confidence :: Prelude.Maybe Prelude.Double,
+    -- | The word or line of text recognized by Amazon Textract
+    text :: Prelude.Maybe Prelude.Text,
     geometry :: Prelude.Maybe Geometry
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,27 +45,27 @@ data ExpenseDetection = ExpenseDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'text', 'expenseDetection_text' - The word or line of text recognized by Amazon Textract
---
 -- 'confidence', 'expenseDetection_confidence' - The confidence in detection, as a percentage
+--
+-- 'text', 'expenseDetection_text' - The word or line of text recognized by Amazon Textract
 --
 -- 'geometry', 'expenseDetection_geometry' - Undocumented member.
 newExpenseDetection ::
   ExpenseDetection
 newExpenseDetection =
   ExpenseDetection'
-    { text = Prelude.Nothing,
-      confidence = Prelude.Nothing,
+    { confidence = Prelude.Nothing,
+      text = Prelude.Nothing,
       geometry = Prelude.Nothing
     }
-
--- | The word or line of text recognized by Amazon Textract
-expenseDetection_text :: Lens.Lens' ExpenseDetection (Prelude.Maybe Prelude.Text)
-expenseDetection_text = Lens.lens (\ExpenseDetection' {text} -> text) (\s@ExpenseDetection' {} a -> s {text = a} :: ExpenseDetection)
 
 -- | The confidence in detection, as a percentage
 expenseDetection_confidence :: Lens.Lens' ExpenseDetection (Prelude.Maybe Prelude.Double)
 expenseDetection_confidence = Lens.lens (\ExpenseDetection' {confidence} -> confidence) (\s@ExpenseDetection' {} a -> s {confidence = a} :: ExpenseDetection)
+
+-- | The word or line of text recognized by Amazon Textract
+expenseDetection_text :: Lens.Lens' ExpenseDetection (Prelude.Maybe Prelude.Text)
+expenseDetection_text = Lens.lens (\ExpenseDetection' {text} -> text) (\s@ExpenseDetection' {} a -> s {text = a} :: ExpenseDetection)
 
 -- | Undocumented member.
 expenseDetection_geometry :: Lens.Lens' ExpenseDetection (Prelude.Maybe Geometry)
@@ -77,19 +77,19 @@ instance Core.FromJSON ExpenseDetection where
       "ExpenseDetection"
       ( \x ->
           ExpenseDetection'
-            Prelude.<$> (x Core..:? "Text")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Text")
             Prelude.<*> (x Core..:? "Geometry")
       )
 
 instance Prelude.Hashable ExpenseDetection where
   hashWithSalt _salt ExpenseDetection' {..} =
-    _salt `Prelude.hashWithSalt` text
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` geometry
 
 instance Prelude.NFData ExpenseDetection where
   rnf ExpenseDetection' {..} =
-    Prelude.rnf text
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf text
       `Prelude.seq` Prelude.rnf geometry

@@ -17,8 +17,8 @@ module Amazonka.Batch.Types
     defaultService,
 
     -- * Errors
-    _ServerException,
     _ClientException,
+    _ServerException,
 
     -- * ArrayJobDependency
     ArrayJobDependency (..),
@@ -82,44 +82,44 @@ module Amazonka.Batch.Types
     -- * ArrayPropertiesDetail
     ArrayPropertiesDetail (..),
     newArrayPropertiesDetail,
+    arrayPropertiesDetail_index,
     arrayPropertiesDetail_size,
     arrayPropertiesDetail_statusSummary,
-    arrayPropertiesDetail_index,
 
     -- * ArrayPropertiesSummary
     ArrayPropertiesSummary (..),
     newArrayPropertiesSummary,
-    arrayPropertiesSummary_size,
     arrayPropertiesSummary_index,
+    arrayPropertiesSummary_size,
 
     -- * AttemptContainerDetail
     AttemptContainerDetail (..),
     newAttemptContainerDetail,
-    attemptContainerDetail_networkInterfaces,
     attemptContainerDetail_taskArn,
-    attemptContainerDetail_containerInstanceArn,
     attemptContainerDetail_reason,
-    attemptContainerDetail_logStreamName,
+    attemptContainerDetail_containerInstanceArn,
     attemptContainerDetail_exitCode,
+    attemptContainerDetail_logStreamName,
+    attemptContainerDetail_networkInterfaces,
 
     -- * AttemptDetail
     AttemptDetail (..),
     newAttemptDetail,
-    attemptDetail_stoppedAt,
+    attemptDetail_statusReason,
     attemptDetail_startedAt,
     attemptDetail_container,
-    attemptDetail_statusReason,
+    attemptDetail_stoppedAt,
 
     -- * ComputeEnvironmentDetail
     ComputeEnvironmentDetail (..),
     newComputeEnvironmentDetail,
-    computeEnvironmentDetail_status,
-    computeEnvironmentDetail_state,
-    computeEnvironmentDetail_computeResources,
-    computeEnvironmentDetail_statusReason,
-    computeEnvironmentDetail_type,
-    computeEnvironmentDetail_serviceRole,
     computeEnvironmentDetail_tags,
+    computeEnvironmentDetail_type,
+    computeEnvironmentDetail_statusReason,
+    computeEnvironmentDetail_state,
+    computeEnvironmentDetail_status,
+    computeEnvironmentDetail_serviceRole,
+    computeEnvironmentDetail_computeResources,
     computeEnvironmentDetail_computeEnvironmentName,
     computeEnvironmentDetail_computeEnvironmentArn,
     computeEnvironmentDetail_ecsClusterArn,
@@ -133,20 +133,20 @@ module Amazonka.Batch.Types
     -- * ComputeResource
     ComputeResource (..),
     newComputeResource,
-    computeResource_securityGroupIds,
-    computeResource_instanceTypes,
-    computeResource_instanceRole,
+    computeResource_tags,
     computeResource_ec2KeyPair,
-    computeResource_minvCpus,
     computeResource_ec2Configuration,
+    computeResource_minvCpus,
+    computeResource_instanceTypes,
+    computeResource_securityGroupIds,
+    computeResource_desiredvCpus,
+    computeResource_launchTemplate,
     computeResource_bidPercentage,
     computeResource_spotIamFleetRole,
-    computeResource_imageId,
-    computeResource_launchTemplate,
-    computeResource_desiredvCpus,
+    computeResource_instanceRole,
     computeResource_allocationStrategy,
     computeResource_placementGroup,
-    computeResource_tags,
+    computeResource_imageId,
     computeResource_type,
     computeResource_maxvCpus,
     computeResource_subnets,
@@ -154,75 +154,75 @@ module Amazonka.Batch.Types
     -- * ComputeResourceUpdate
     ComputeResourceUpdate (..),
     newComputeResourceUpdate,
-    computeResourceUpdate_securityGroupIds,
-    computeResourceUpdate_subnets,
     computeResourceUpdate_minvCpus,
-    computeResourceUpdate_maxvCpus,
+    computeResourceUpdate_securityGroupIds,
     computeResourceUpdate_desiredvCpus,
+    computeResourceUpdate_maxvCpus,
+    computeResourceUpdate_subnets,
 
     -- * ContainerDetail
     ContainerDetail (..),
     newContainerDetail,
-    containerDetail_image,
-    containerDetail_command,
-    containerDetail_secrets,
+    containerDetail_readonlyRootFilesystem,
     containerDetail_environment,
-    containerDetail_networkInterfaces,
-    containerDetail_taskArn,
-    containerDetail_ulimits,
-    containerDetail_containerInstanceArn,
-    containerDetail_executionRoleArn,
-    containerDetail_privileged,
-    containerDetail_jobRoleArn,
+    containerDetail_logConfiguration,
     containerDetail_resourceRequirements,
-    containerDetail_instanceType,
     containerDetail_memory,
     containerDetail_user,
-    containerDetail_logConfiguration,
-    containerDetail_linuxParameters,
-    containerDetail_reason,
-    containerDetail_logStreamName,
-    containerDetail_mountPoints,
-    containerDetail_exitCode,
+    containerDetail_taskArn,
+    containerDetail_ulimits,
+    containerDetail_jobRoleArn,
     containerDetail_fargatePlatformConfiguration,
-    containerDetail_vcpus,
-    containerDetail_readonlyRootFilesystem,
-    containerDetail_volumes,
+    containerDetail_command,
     containerDetail_networkConfiguration,
+    containerDetail_secrets,
+    containerDetail_instanceType,
+    containerDetail_volumes,
+    containerDetail_privileged,
+    containerDetail_reason,
+    containerDetail_containerInstanceArn,
+    containerDetail_vcpus,
+    containerDetail_exitCode,
+    containerDetail_executionRoleArn,
+    containerDetail_mountPoints,
+    containerDetail_logStreamName,
+    containerDetail_image,
+    containerDetail_linuxParameters,
+    containerDetail_networkInterfaces,
 
     -- * ContainerOverrides
     ContainerOverrides (..),
     newContainerOverrides,
-    containerOverrides_command,
     containerOverrides_environment,
     containerOverrides_resourceRequirements,
-    containerOverrides_instanceType,
     containerOverrides_memory,
+    containerOverrides_command,
+    containerOverrides_instanceType,
     containerOverrides_vcpus,
 
     -- * ContainerProperties
     ContainerProperties (..),
     newContainerProperties,
-    containerProperties_image,
-    containerProperties_command,
-    containerProperties_secrets,
+    containerProperties_readonlyRootFilesystem,
     containerProperties_environment,
-    containerProperties_ulimits,
-    containerProperties_executionRoleArn,
-    containerProperties_privileged,
-    containerProperties_jobRoleArn,
+    containerProperties_logConfiguration,
     containerProperties_resourceRequirements,
-    containerProperties_instanceType,
     containerProperties_memory,
     containerProperties_user,
-    containerProperties_logConfiguration,
-    containerProperties_linuxParameters,
-    containerProperties_mountPoints,
+    containerProperties_ulimits,
+    containerProperties_jobRoleArn,
     containerProperties_fargatePlatformConfiguration,
-    containerProperties_vcpus,
-    containerProperties_readonlyRootFilesystem,
-    containerProperties_volumes,
+    containerProperties_command,
     containerProperties_networkConfiguration,
+    containerProperties_secrets,
+    containerProperties_instanceType,
+    containerProperties_volumes,
+    containerProperties_privileged,
+    containerProperties_vcpus,
+    containerProperties_executionRoleArn,
+    containerProperties_mountPoints,
+    containerProperties_image,
+    containerProperties_linuxParameters,
 
     -- * ContainerSummary
     ContainerSummary (..),
@@ -233,23 +233,23 @@ module Amazonka.Batch.Types
     -- * Device
     Device (..),
     newDevice,
-    device_containerPath,
     device_permissions,
+    device_containerPath,
     device_hostPath,
 
     -- * EFSAuthorizationConfig
     EFSAuthorizationConfig (..),
     newEFSAuthorizationConfig,
-    eFSAuthorizationConfig_accessPointId,
     eFSAuthorizationConfig_iam,
+    eFSAuthorizationConfig_accessPointId,
 
     -- * EFSVolumeConfiguration
     EFSVolumeConfiguration (..),
     newEFSVolumeConfiguration,
+    eFSVolumeConfiguration_transitEncryptionPort,
     eFSVolumeConfiguration_rootDirectory,
     eFSVolumeConfiguration_transitEncryption,
     eFSVolumeConfiguration_authorizationConfig,
-    eFSVolumeConfiguration_transitEncryptionPort,
     eFSVolumeConfiguration_fileSystemId,
 
     -- * Ec2Configuration
@@ -261,8 +261,8 @@ module Amazonka.Batch.Types
     -- * EvaluateOnExit
     EvaluateOnExit (..),
     newEvaluateOnExit,
-    evaluateOnExit_onExitCode,
     evaluateOnExit_onReason,
+    evaluateOnExit_onExitCode,
     evaluateOnExit_onStatusReason,
     evaluateOnExit_action,
 
@@ -279,15 +279,15 @@ module Amazonka.Batch.Types
     -- * JobDefinition
     JobDefinition (..),
     newJobDefinition,
-    jobDefinition_status,
-    jobDefinition_propagateTags,
-    jobDefinition_retryStrategy,
-    jobDefinition_platformCapabilities,
-    jobDefinition_parameters,
+    jobDefinition_tags,
     jobDefinition_timeout,
     jobDefinition_containerProperties,
+    jobDefinition_retryStrategy,
+    jobDefinition_platformCapabilities,
+    jobDefinition_status,
+    jobDefinition_propagateTags,
     jobDefinition_nodeProperties,
-    jobDefinition_tags,
+    jobDefinition_parameters,
     jobDefinition_jobDefinitionName,
     jobDefinition_jobDefinitionArn,
     jobDefinition_revision,
@@ -296,29 +296,29 @@ module Amazonka.Batch.Types
     -- * JobDependency
     JobDependency (..),
     newJobDependency,
-    jobDependency_jobId,
     jobDependency_type,
+    jobDependency_jobId,
 
     -- * JobDetail
     JobDetail (..),
     newJobDetail,
+    jobDetail_tags,
+    jobDetail_timeout,
+    jobDetail_dependsOn,
+    jobDetail_retryStrategy,
+    jobDetail_platformCapabilities,
+    jobDetail_arrayProperties,
+    jobDetail_nodeDetails,
+    jobDetail_statusReason,
+    jobDetail_startedAt,
+    jobDetail_propagateTags,
+    jobDetail_nodeProperties,
+    jobDetail_container,
+    jobDetail_attempts,
     jobDetail_stoppedAt,
     jobDetail_jobArn,
-    jobDetail_propagateTags,
     jobDetail_createdAt,
-    jobDetail_retryStrategy,
-    jobDetail_attempts,
-    jobDetail_platformCapabilities,
-    jobDetail_startedAt,
-    jobDetail_dependsOn,
-    jobDetail_container,
-    jobDetail_nodeDetails,
     jobDetail_parameters,
-    jobDetail_statusReason,
-    jobDetail_arrayProperties,
-    jobDetail_timeout,
-    jobDetail_nodeProperties,
-    jobDetail_tags,
     jobDetail_jobName,
     jobDetail_jobId,
     jobDetail_jobQueue,
@@ -328,9 +328,9 @@ module Amazonka.Batch.Types
     -- * JobQueueDetail
     JobQueueDetail (..),
     newJobQueueDetail,
-    jobQueueDetail_status,
-    jobQueueDetail_statusReason,
     jobQueueDetail_tags,
+    jobQueueDetail_statusReason,
+    jobQueueDetail_status,
     jobQueueDetail_jobQueueName,
     jobQueueDetail_jobQueueArn,
     jobQueueDetail_state,
@@ -340,16 +340,16 @@ module Amazonka.Batch.Types
     -- * JobSummary
     JobSummary (..),
     newJobSummary,
-    jobSummary_stoppedAt,
+    jobSummary_arrayProperties,
+    jobSummary_statusReason,
+    jobSummary_jobDefinition,
     jobSummary_status,
+    jobSummary_startedAt,
+    jobSummary_nodeProperties,
+    jobSummary_container,
+    jobSummary_stoppedAt,
     jobSummary_jobArn,
     jobSummary_createdAt,
-    jobSummary_startedAt,
-    jobSummary_container,
-    jobSummary_jobDefinition,
-    jobSummary_statusReason,
-    jobSummary_arrayProperties,
-    jobSummary_nodeProperties,
     jobSummary_jobId,
     jobSummary_jobName,
 
@@ -361,44 +361,44 @@ module Amazonka.Batch.Types
     -- * KeyValuePair
     KeyValuePair (..),
     newKeyValuePair,
-    keyValuePair_value,
     keyValuePair_name,
+    keyValuePair_value,
 
     -- * KeyValuesPair
     KeyValuesPair (..),
     newKeyValuesPair,
-    keyValuesPair_values,
     keyValuesPair_name,
+    keyValuesPair_values,
 
     -- * LaunchTemplateSpecification
     LaunchTemplateSpecification (..),
     newLaunchTemplateSpecification,
-    launchTemplateSpecification_launchTemplateName,
     launchTemplateSpecification_launchTemplateId,
     launchTemplateSpecification_version,
+    launchTemplateSpecification_launchTemplateName,
 
     -- * LinuxParameters
     LinuxParameters (..),
     newLinuxParameters,
-    linuxParameters_sharedMemorySize,
-    linuxParameters_initProcessEnabled,
-    linuxParameters_tmpfs,
-    linuxParameters_swappiness,
     linuxParameters_devices,
+    linuxParameters_swappiness,
+    linuxParameters_tmpfs,
+    linuxParameters_initProcessEnabled,
     linuxParameters_maxSwap,
+    linuxParameters_sharedMemorySize,
 
     -- * LogConfiguration
     LogConfiguration (..),
     newLogConfiguration,
-    logConfiguration_options,
     logConfiguration_secretOptions,
+    logConfiguration_options,
     logConfiguration_logDriver,
 
     -- * MountPoint
     MountPoint (..),
     newMountPoint,
-    mountPoint_containerPath,
     mountPoint_sourceVolume,
+    mountPoint_containerPath,
     mountPoint_readOnly,
 
     -- * NetworkConfiguration
@@ -409,15 +409,15 @@ module Amazonka.Batch.Types
     -- * NetworkInterface
     NetworkInterface (..),
     newNetworkInterface,
+    networkInterface_attachmentId,
     networkInterface_ipv6Address,
     networkInterface_privateIpv4Address,
-    networkInterface_attachmentId,
 
     -- * NodeDetails
     NodeDetails (..),
     newNodeDetails,
-    nodeDetails_nodeIndex,
     nodeDetails_isMainNode,
+    nodeDetails_nodeIndex,
 
     -- * NodeOverrides
     NodeOverrides (..),
@@ -435,9 +435,9 @@ module Amazonka.Batch.Types
     -- * NodePropertiesSummary
     NodePropertiesSummary (..),
     newNodePropertiesSummary,
-    nodePropertiesSummary_numNodes,
-    nodePropertiesSummary_nodeIndex,
     nodePropertiesSummary_isMainNode,
+    nodePropertiesSummary_nodeIndex,
+    nodePropertiesSummary_numNodes,
 
     -- * NodePropertyOverride
     NodePropertyOverride (..),
@@ -486,8 +486,8 @@ module Amazonka.Batch.Types
     -- * Volume
     Volume (..),
     newVolume,
-    volume_name,
     volume_efsVolumeConfiguration,
+    volume_name,
     volume_host,
   )
 where
@@ -586,35 +586,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -623,21 +596,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | These errors are usually caused by a server issue.
-_ServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServerException =
-  Core._MatchServiceError
-    defaultService
-    "ServerException"
-    Prelude.. Core.hasStatus 500
 
 -- | These errors are usually caused by a client action, such as using an
 -- action or resource on behalf of a user that doesn\'t have permissions to
@@ -649,3 +641,11 @@ _ClientException =
     defaultService
     "ClientException"
     Prelude.. Core.hasStatus 400
+
+-- | These errors are usually caused by a server issue.
+_ServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServerException =
+  Core._MatchServiceError
+    defaultService
+    "ServerException"
+    Prelude.. Core.hasStatus 500

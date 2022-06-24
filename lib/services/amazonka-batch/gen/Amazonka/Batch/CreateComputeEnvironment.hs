@@ -73,10 +73,10 @@ module Amazonka.Batch.CreateComputeEnvironment
     newCreateComputeEnvironment,
 
     -- * Request Lenses
-    createComputeEnvironment_state,
-    createComputeEnvironment_computeResources,
-    createComputeEnvironment_serviceRole,
     createComputeEnvironment_tags,
+    createComputeEnvironment_state,
+    createComputeEnvironment_serviceRole,
+    createComputeEnvironment_computeResources,
     createComputeEnvironment_computeEnvironmentName,
     createComputeEnvironment_type,
 
@@ -85,8 +85,8 @@ module Amazonka.Batch.CreateComputeEnvironment
     newCreateComputeEnvironmentResponse,
 
     -- * Response Lenses
-    createComputeEnvironmentResponse_computeEnvironmentName,
     createComputeEnvironmentResponse_computeEnvironmentArn,
+    createComputeEnvironmentResponse_computeEnvironmentName,
     createComputeEnvironmentResponse_httpStatus,
   )
 where
@@ -102,7 +102,20 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateComputeEnvironment' smart constructor.
 data CreateComputeEnvironment = CreateComputeEnvironment'
-  { -- | The state of the compute environment. If the state is @ENABLED@, then
+  { -- | The tags that you apply to the compute environment to help you
+    -- categorize and organize your resources. Each tag consists of a key and
+    -- an optional value. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in /Amazon Web Services General Reference/.
+    --
+    -- These tags can be updated or removed using the
+    -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
+    -- and
+    -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
+    -- API operations. These tags don\'t propagate to the underlying compute
+    -- resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The state of the compute environment. If the state is @ENABLED@, then
     -- the compute environment accepts jobs from a queue and can scale out
     -- automatically based on queues.
     --
@@ -117,12 +130,6 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
     -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
     -- value after instances become idle.
     state :: Prelude.Maybe CEState,
-    -- | Details about the compute resources managed by the compute environment.
-    -- This parameter is required for managed compute environments. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
-    -- in the /Batch User Guide/.
-    computeResources :: Prelude.Maybe ComputeResource,
     -- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
     -- make calls to other Amazon Web Services services on your behalf. For
     -- more information, see
@@ -150,19 +157,12 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
     -- specify the full ARN of your service role when you create compute
     -- environments.
     serviceRole :: Prelude.Maybe Prelude.Text,
-    -- | The tags that you apply to the compute environment to help you
-    -- categorize and organize your resources. Each tag consists of a key and
-    -- an optional value. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
-    -- in /Amazon Web Services General Reference/.
-    --
-    -- These tags can be updated or removed using the
-    -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
-    -- and
-    -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
-    -- API operations. These tags don\'t propagate to the underlying compute
-    -- resources.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Details about the compute resources managed by the compute environment.
+    -- This parameter is required for managed compute environments. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+    -- in the /Batch User Guide/.
+    computeResources :: Prelude.Maybe ComputeResource,
     -- | The name for your compute environment. Up to 128 letters (uppercase and
     -- lowercase), numbers, hyphens, and underscores are allowed.
     computeEnvironmentName :: Prelude.Text,
@@ -182,6 +182,19 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createComputeEnvironment_tags' - The tags that you apply to the compute environment to help you
+-- categorize and organize your resources. Each tag consists of a key and
+-- an optional value. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in /Amazon Web Services General Reference/.
+--
+-- These tags can be updated or removed using the
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
+-- and
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
+-- API operations. These tags don\'t propagate to the underlying compute
+-- resources.
+--
 -- 'state', 'createComputeEnvironment_state' - The state of the compute environment. If the state is @ENABLED@, then
 -- the compute environment accepts jobs from a queue and can scale out
 -- automatically based on queues.
@@ -196,12 +209,6 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
 -- state continue to progress normally. Managed compute environments in the
 -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
 -- value after instances become idle.
---
--- 'computeResources', 'createComputeEnvironment_computeResources' - Details about the compute resources managed by the compute environment.
--- This parameter is required for managed compute environments. For more
--- information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /Batch User Guide/.
 --
 -- 'serviceRole', 'createComputeEnvironment_serviceRole' - The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
 -- make calls to other Amazon Web Services services on your behalf. For
@@ -230,18 +237,11 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
 -- specify the full ARN of your service role when you create compute
 -- environments.
 --
--- 'tags', 'createComputeEnvironment_tags' - The tags that you apply to the compute environment to help you
--- categorize and organize your resources. Each tag consists of a key and
--- an optional value. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
--- in /Amazon Web Services General Reference/.
---
--- These tags can be updated or removed using the
--- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
--- and
--- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
--- API operations. These tags don\'t propagate to the underlying compute
--- resources.
+-- 'computeResources', 'createComputeEnvironment_computeResources' - Details about the compute resources managed by the compute environment.
+-- This parameter is required for managed compute environments. For more
+-- information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+-- in the /Batch User Guide/.
 --
 -- 'computeEnvironmentName', 'createComputeEnvironment_computeEnvironmentName' - The name for your compute environment. Up to 128 letters (uppercase and
 -- lowercase), numbers, hyphens, and underscores are allowed.
@@ -260,13 +260,28 @@ newCreateComputeEnvironment
   pComputeEnvironmentName_
   pType_ =
     CreateComputeEnvironment'
-      { state = Prelude.Nothing,
-        computeResources = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        state = Prelude.Nothing,
         serviceRole = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        computeResources = Prelude.Nothing,
         computeEnvironmentName = pComputeEnvironmentName_,
         type' = pType_
       }
+
+-- | The tags that you apply to the compute environment to help you
+-- categorize and organize your resources. Each tag consists of a key and
+-- an optional value. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in /Amazon Web Services General Reference/.
+--
+-- These tags can be updated or removed using the
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
+-- and
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
+-- API operations. These tags don\'t propagate to the underlying compute
+-- resources.
+createComputeEnvironment_tags :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createComputeEnvironment_tags = Lens.lens (\CreateComputeEnvironment' {tags} -> tags) (\s@CreateComputeEnvironment' {} a -> s {tags = a} :: CreateComputeEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The state of the compute environment. If the state is @ENABLED@, then
 -- the compute environment accepts jobs from a queue and can scale out
@@ -284,14 +299,6 @@ newCreateComputeEnvironment
 -- value after instances become idle.
 createComputeEnvironment_state :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe CEState)
 createComputeEnvironment_state = Lens.lens (\CreateComputeEnvironment' {state} -> state) (\s@CreateComputeEnvironment' {} a -> s {state = a} :: CreateComputeEnvironment)
-
--- | Details about the compute resources managed by the compute environment.
--- This parameter is required for managed compute environments. For more
--- information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /Batch User Guide/.
-createComputeEnvironment_computeResources :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe ComputeResource)
-createComputeEnvironment_computeResources = Lens.lens (\CreateComputeEnvironment' {computeResources} -> computeResources) (\s@CreateComputeEnvironment' {} a -> s {computeResources = a} :: CreateComputeEnvironment)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
 -- make calls to other Amazon Web Services services on your behalf. For
@@ -322,20 +329,13 @@ createComputeEnvironment_computeResources = Lens.lens (\CreateComputeEnvironment
 createComputeEnvironment_serviceRole :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe Prelude.Text)
 createComputeEnvironment_serviceRole = Lens.lens (\CreateComputeEnvironment' {serviceRole} -> serviceRole) (\s@CreateComputeEnvironment' {} a -> s {serviceRole = a} :: CreateComputeEnvironment)
 
--- | The tags that you apply to the compute environment to help you
--- categorize and organize your resources. Each tag consists of a key and
--- an optional value. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
--- in /Amazon Web Services General Reference/.
---
--- These tags can be updated or removed using the
--- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
--- and
--- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
--- API operations. These tags don\'t propagate to the underlying compute
--- resources.
-createComputeEnvironment_tags :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createComputeEnvironment_tags = Lens.lens (\CreateComputeEnvironment' {tags} -> tags) (\s@CreateComputeEnvironment' {} a -> s {tags = a} :: CreateComputeEnvironment) Prelude.. Lens.mapping Lens.coerced
+-- | Details about the compute resources managed by the compute environment.
+-- This parameter is required for managed compute environments. For more
+-- information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+-- in the /Batch User Guide/.
+createComputeEnvironment_computeResources :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe ComputeResource)
+createComputeEnvironment_computeResources = Lens.lens (\CreateComputeEnvironment' {computeResources} -> computeResources) (\s@CreateComputeEnvironment' {} a -> s {computeResources = a} :: CreateComputeEnvironment)
 
 -- | The name for your compute environment. Up to 128 letters (uppercase and
 -- lowercase), numbers, hyphens, and underscores are allowed.
@@ -358,26 +358,26 @@ instance Core.AWSRequest CreateComputeEnvironment where
     Response.receiveJSON
       ( \s h x ->
           CreateComputeEnvironmentResponse'
-            Prelude.<$> (x Core..?> "computeEnvironmentName")
-            Prelude.<*> (x Core..?> "computeEnvironmentArn")
+            Prelude.<$> (x Core..?> "computeEnvironmentArn")
+            Prelude.<*> (x Core..?> "computeEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateComputeEnvironment where
   hashWithSalt _salt CreateComputeEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` computeResources
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` serviceRole
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` computeResources
       `Prelude.hashWithSalt` computeEnvironmentName
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CreateComputeEnvironment where
   rnf CreateComputeEnvironment' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf computeResources
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf computeResources
       `Prelude.seq` Prelude.rnf computeEnvironmentName
       `Prelude.seq` Prelude.rnf type'
 
@@ -396,11 +396,11 @@ instance Core.ToJSON CreateComputeEnvironment where
   toJSON CreateComputeEnvironment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("state" Core..=) Prelude.<$> state,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("state" Core..=) Prelude.<$> state,
+            ("serviceRole" Core..=) Prelude.<$> serviceRole,
             ("computeResources" Core..=)
               Prelude.<$> computeResources,
-            ("serviceRole" Core..=) Prelude.<$> serviceRole,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ( "computeEnvironmentName"
                   Core..= computeEnvironmentName
@@ -417,11 +417,11 @@ instance Core.ToQuery CreateComputeEnvironment where
 
 -- | /See:/ 'newCreateComputeEnvironmentResponse' smart constructor.
 data CreateComputeEnvironmentResponse = CreateComputeEnvironmentResponse'
-  { -- | The name of the compute environment. Up to 128 letters (uppercase and
+  { -- | The Amazon Resource Name (ARN) of the compute environment.
+    computeEnvironmentArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the compute environment. Up to 128 letters (uppercase and
     -- lowercase), numbers, hyphens, and underscores are allowed.
     computeEnvironmentName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the compute environment.
-    computeEnvironmentArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -435,10 +435,10 @@ data CreateComputeEnvironmentResponse = CreateComputeEnvironmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'computeEnvironmentArn', 'createComputeEnvironmentResponse_computeEnvironmentArn' - The Amazon Resource Name (ARN) of the compute environment.
+--
 -- 'computeEnvironmentName', 'createComputeEnvironmentResponse_computeEnvironmentName' - The name of the compute environment. Up to 128 letters (uppercase and
 -- lowercase), numbers, hyphens, and underscores are allowed.
---
--- 'computeEnvironmentArn', 'createComputeEnvironmentResponse_computeEnvironmentArn' - The Amazon Resource Name (ARN) of the compute environment.
 --
 -- 'httpStatus', 'createComputeEnvironmentResponse_httpStatus' - The response's http status code.
 newCreateComputeEnvironmentResponse ::
@@ -447,20 +447,20 @@ newCreateComputeEnvironmentResponse ::
   CreateComputeEnvironmentResponse
 newCreateComputeEnvironmentResponse pHttpStatus_ =
   CreateComputeEnvironmentResponse'
-    { computeEnvironmentName =
+    { computeEnvironmentArn =
         Prelude.Nothing,
-      computeEnvironmentArn = Prelude.Nothing,
+      computeEnvironmentName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the compute environment.
+createComputeEnvironmentResponse_computeEnvironmentArn :: Lens.Lens' CreateComputeEnvironmentResponse (Prelude.Maybe Prelude.Text)
+createComputeEnvironmentResponse_computeEnvironmentArn = Lens.lens (\CreateComputeEnvironmentResponse' {computeEnvironmentArn} -> computeEnvironmentArn) (\s@CreateComputeEnvironmentResponse' {} a -> s {computeEnvironmentArn = a} :: CreateComputeEnvironmentResponse)
 
 -- | The name of the compute environment. Up to 128 letters (uppercase and
 -- lowercase), numbers, hyphens, and underscores are allowed.
 createComputeEnvironmentResponse_computeEnvironmentName :: Lens.Lens' CreateComputeEnvironmentResponse (Prelude.Maybe Prelude.Text)
 createComputeEnvironmentResponse_computeEnvironmentName = Lens.lens (\CreateComputeEnvironmentResponse' {computeEnvironmentName} -> computeEnvironmentName) (\s@CreateComputeEnvironmentResponse' {} a -> s {computeEnvironmentName = a} :: CreateComputeEnvironmentResponse)
-
--- | The Amazon Resource Name (ARN) of the compute environment.
-createComputeEnvironmentResponse_computeEnvironmentArn :: Lens.Lens' CreateComputeEnvironmentResponse (Prelude.Maybe Prelude.Text)
-createComputeEnvironmentResponse_computeEnvironmentArn = Lens.lens (\CreateComputeEnvironmentResponse' {computeEnvironmentArn} -> computeEnvironmentArn) (\s@CreateComputeEnvironmentResponse' {} a -> s {computeEnvironmentArn = a} :: CreateComputeEnvironmentResponse)
 
 -- | The response's http status code.
 createComputeEnvironmentResponse_httpStatus :: Lens.Lens' CreateComputeEnvironmentResponse Prelude.Int
@@ -471,6 +471,6 @@ instance
     CreateComputeEnvironmentResponse
   where
   rnf CreateComputeEnvironmentResponse' {..} =
-    Prelude.rnf computeEnvironmentName
-      `Prelude.seq` Prelude.rnf computeEnvironmentArn
+    Prelude.rnf computeEnvironmentArn
+      `Prelude.seq` Prelude.rnf computeEnvironmentName
       `Prelude.seq` Prelude.rnf httpStatus

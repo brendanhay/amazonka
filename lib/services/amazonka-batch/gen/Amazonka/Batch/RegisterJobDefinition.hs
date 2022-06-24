@@ -27,14 +27,14 @@ module Amazonka.Batch.RegisterJobDefinition
     newRegisterJobDefinition,
 
     -- * Request Lenses
-    registerJobDefinition_propagateTags,
-    registerJobDefinition_retryStrategy,
-    registerJobDefinition_platformCapabilities,
-    registerJobDefinition_parameters,
+    registerJobDefinition_tags,
     registerJobDefinition_timeout,
     registerJobDefinition_containerProperties,
+    registerJobDefinition_retryStrategy,
+    registerJobDefinition_platformCapabilities,
+    registerJobDefinition_propagateTags,
     registerJobDefinition_nodeProperties,
-    registerJobDefinition_tags,
+    registerJobDefinition_parameters,
     registerJobDefinition_jobDefinitionName,
     registerJobDefinition_type,
 
@@ -61,27 +61,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newRegisterJobDefinition' smart constructor.
 data RegisterJobDefinition = RegisterJobDefinition'
-  { -- | Specifies whether to propagate the tags from the job or job definition
-    -- to the corresponding Amazon ECS task. If no value is specified, the tags
-    -- are not propagated. Tags can only be propagated to the tasks during task
-    -- creation. For tags with the same name, job tags are given priority over
-    -- job definitions tags. If the total number of combined tags from the job
-    -- and job definition is over 50, the job is moved to the @FAILED@ state.
-    propagateTags :: Prelude.Maybe Prelude.Bool,
-    -- | The retry strategy to use for failed jobs that are submitted with this
-    -- job definition. Any retry strategy that\'s specified during a SubmitJob
-    -- operation overrides the retry strategy defined here. If a job is
-    -- terminated due to a timeout, it isn\'t retried.
-    retryStrategy :: Prelude.Maybe RetryStrategy,
-    -- | The platform capabilities required by the job definition. If no value is
-    -- specified, it defaults to @EC2@. To run the job on Fargate resources,
-    -- specify @FARGATE@.
-    platformCapabilities :: Prelude.Maybe [PlatformCapability],
-    -- | Default parameter substitution placeholders to set in the job
-    -- definition. Parameters are specified as a key-value pair mapping.
-    -- Parameters in a @SubmitJob@ request override any corresponding parameter
-    -- defaults from the job definition.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The tags that you apply to the job definition to help you categorize and
+    -- organize your resources. Each tag consists of a key and an optional
+    -- value. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
+    -- in /Batch User Guide/.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The timeout configuration for jobs that are submitted with this job
     -- definition, after which Batch terminates your jobs if they have not
     -- finished. If a job is terminated due to a timeout, it isn\'t retried.
@@ -99,6 +84,22 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- If the job runs on Fargate resources, then you must not specify
     -- @nodeProperties@; use only @containerProperties@.
     containerProperties :: Prelude.Maybe ContainerProperties,
+    -- | The retry strategy to use for failed jobs that are submitted with this
+    -- job definition. Any retry strategy that\'s specified during a SubmitJob
+    -- operation overrides the retry strategy defined here. If a job is
+    -- terminated due to a timeout, it isn\'t retried.
+    retryStrategy :: Prelude.Maybe RetryStrategy,
+    -- | The platform capabilities required by the job definition. If no value is
+    -- specified, it defaults to @EC2@. To run the job on Fargate resources,
+    -- specify @FARGATE@.
+    platformCapabilities :: Prelude.Maybe [PlatformCapability],
+    -- | Specifies whether to propagate the tags from the job or job definition
+    -- to the corresponding Amazon ECS task. If no value is specified, the tags
+    -- are not propagated. Tags can only be propagated to the tasks during task
+    -- creation. For tags with the same name, job tags are given priority over
+    -- job definitions tags. If the total number of combined tags from the job
+    -- and job definition is over 50, the job is moved to the @FAILED@ state.
+    propagateTags :: Prelude.Maybe Prelude.Bool,
     -- | An object with various properties specific to multi-node parallel jobs.
     -- If you specify node properties for a job, it becomes a multi-node
     -- parallel job. For more information, see
@@ -110,12 +111,11 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- If the job runs on Fargate resources, then you must not specify
     -- @nodeProperties@; use @containerProperties@ instead.
     nodeProperties :: Prelude.Maybe NodeProperties,
-    -- | The tags that you apply to the job definition to help you categorize and
-    -- organize your resources. Each tag consists of a key and an optional
-    -- value. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
-    -- in /Batch User Guide/.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Default parameter substitution placeholders to set in the job
+    -- definition. Parameters are specified as a key-value pair mapping.
+    -- Parameters in a @SubmitJob@ request override any corresponding parameter
+    -- defaults from the job definition.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the job definition to register. Up to 128 letters (uppercase
     -- and lowercase), numbers, hyphens, and underscores are allowed.
     jobDefinitionName :: Prelude.Text,
@@ -138,26 +138,11 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'propagateTags', 'registerJobDefinition_propagateTags' - Specifies whether to propagate the tags from the job or job definition
--- to the corresponding Amazon ECS task. If no value is specified, the tags
--- are not propagated. Tags can only be propagated to the tasks during task
--- creation. For tags with the same name, job tags are given priority over
--- job definitions tags. If the total number of combined tags from the job
--- and job definition is over 50, the job is moved to the @FAILED@ state.
---
--- 'retryStrategy', 'registerJobDefinition_retryStrategy' - The retry strategy to use for failed jobs that are submitted with this
--- job definition. Any retry strategy that\'s specified during a SubmitJob
--- operation overrides the retry strategy defined here. If a job is
--- terminated due to a timeout, it isn\'t retried.
---
--- 'platformCapabilities', 'registerJobDefinition_platformCapabilities' - The platform capabilities required by the job definition. If no value is
--- specified, it defaults to @EC2@. To run the job on Fargate resources,
--- specify @FARGATE@.
---
--- 'parameters', 'registerJobDefinition_parameters' - Default parameter substitution placeholders to set in the job
--- definition. Parameters are specified as a key-value pair mapping.
--- Parameters in a @SubmitJob@ request override any corresponding parameter
--- defaults from the job definition.
+-- 'tags', 'registerJobDefinition_tags' - The tags that you apply to the job definition to help you categorize and
+-- organize your resources. Each tag consists of a key and an optional
+-- value. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
+-- in /Batch User Guide/.
 --
 -- 'timeout', 'registerJobDefinition_timeout' - The timeout configuration for jobs that are submitted with this job
 -- definition, after which Batch terminates your jobs if they have not
@@ -176,6 +161,22 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- If the job runs on Fargate resources, then you must not specify
 -- @nodeProperties@; use only @containerProperties@.
 --
+-- 'retryStrategy', 'registerJobDefinition_retryStrategy' - The retry strategy to use for failed jobs that are submitted with this
+-- job definition. Any retry strategy that\'s specified during a SubmitJob
+-- operation overrides the retry strategy defined here. If a job is
+-- terminated due to a timeout, it isn\'t retried.
+--
+-- 'platformCapabilities', 'registerJobDefinition_platformCapabilities' - The platform capabilities required by the job definition. If no value is
+-- specified, it defaults to @EC2@. To run the job on Fargate resources,
+-- specify @FARGATE@.
+--
+-- 'propagateTags', 'registerJobDefinition_propagateTags' - Specifies whether to propagate the tags from the job or job definition
+-- to the corresponding Amazon ECS task. If no value is specified, the tags
+-- are not propagated. Tags can only be propagated to the tasks during task
+-- creation. For tags with the same name, job tags are given priority over
+-- job definitions tags. If the total number of combined tags from the job
+-- and job definition is over 50, the job is moved to the @FAILED@ state.
+--
 -- 'nodeProperties', 'registerJobDefinition_nodeProperties' - An object with various properties specific to multi-node parallel jobs.
 -- If you specify node properties for a job, it becomes a multi-node
 -- parallel job. For more information, see
@@ -187,11 +188,10 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- If the job runs on Fargate resources, then you must not specify
 -- @nodeProperties@; use @containerProperties@ instead.
 --
--- 'tags', 'registerJobDefinition_tags' - The tags that you apply to the job definition to help you categorize and
--- organize your resources. Each tag consists of a key and an optional
--- value. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
--- in /Batch User Guide/.
+-- 'parameters', 'registerJobDefinition_parameters' - Default parameter substitution placeholders to set in the job
+-- definition. Parameters are specified as a key-value pair mapping.
+-- Parameters in a @SubmitJob@ request override any corresponding parameter
+-- defaults from the job definition.
 --
 -- 'jobDefinitionName', 'registerJobDefinition_jobDefinitionName' - The name of the job definition to register. Up to 128 letters (uppercase
 -- and lowercase), numbers, hyphens, and underscores are allowed.
@@ -211,47 +211,25 @@ newRegisterJobDefinition ::
   RegisterJobDefinition
 newRegisterJobDefinition pJobDefinitionName_ pType_ =
   RegisterJobDefinition'
-    { propagateTags =
-        Prelude.Nothing,
-      retryStrategy = Prelude.Nothing,
-      platformCapabilities = Prelude.Nothing,
-      parameters = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       timeout = Prelude.Nothing,
       containerProperties = Prelude.Nothing,
+      retryStrategy = Prelude.Nothing,
+      platformCapabilities = Prelude.Nothing,
+      propagateTags = Prelude.Nothing,
       nodeProperties = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       jobDefinitionName = pJobDefinitionName_,
       type' = pType_
     }
 
--- | Specifies whether to propagate the tags from the job or job definition
--- to the corresponding Amazon ECS task. If no value is specified, the tags
--- are not propagated. Tags can only be propagated to the tasks during task
--- creation. For tags with the same name, job tags are given priority over
--- job definitions tags. If the total number of combined tags from the job
--- and job definition is over 50, the job is moved to the @FAILED@ state.
-registerJobDefinition_propagateTags :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe Prelude.Bool)
-registerJobDefinition_propagateTags = Lens.lens (\RegisterJobDefinition' {propagateTags} -> propagateTags) (\s@RegisterJobDefinition' {} a -> s {propagateTags = a} :: RegisterJobDefinition)
-
--- | The retry strategy to use for failed jobs that are submitted with this
--- job definition. Any retry strategy that\'s specified during a SubmitJob
--- operation overrides the retry strategy defined here. If a job is
--- terminated due to a timeout, it isn\'t retried.
-registerJobDefinition_retryStrategy :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe RetryStrategy)
-registerJobDefinition_retryStrategy = Lens.lens (\RegisterJobDefinition' {retryStrategy} -> retryStrategy) (\s@RegisterJobDefinition' {} a -> s {retryStrategy = a} :: RegisterJobDefinition)
-
--- | The platform capabilities required by the job definition. If no value is
--- specified, it defaults to @EC2@. To run the job on Fargate resources,
--- specify @FARGATE@.
-registerJobDefinition_platformCapabilities :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe [PlatformCapability])
-registerJobDefinition_platformCapabilities = Lens.lens (\RegisterJobDefinition' {platformCapabilities} -> platformCapabilities) (\s@RegisterJobDefinition' {} a -> s {platformCapabilities = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens.coerced
-
--- | Default parameter substitution placeholders to set in the job
--- definition. Parameters are specified as a key-value pair mapping.
--- Parameters in a @SubmitJob@ request override any corresponding parameter
--- defaults from the job definition.
-registerJobDefinition_parameters :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-registerJobDefinition_parameters = Lens.lens (\RegisterJobDefinition' {parameters} -> parameters) (\s@RegisterJobDefinition' {} a -> s {parameters = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens.coerced
+-- | The tags that you apply to the job definition to help you categorize and
+-- organize your resources. Each tag consists of a key and an optional
+-- value. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
+-- in /Batch User Guide/.
+registerJobDefinition_tags :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+registerJobDefinition_tags = Lens.lens (\RegisterJobDefinition' {tags} -> tags) (\s@RegisterJobDefinition' {} a -> s {tags = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The timeout configuration for jobs that are submitted with this job
 -- definition, after which Batch terminates your jobs if they have not
@@ -274,6 +252,28 @@ registerJobDefinition_timeout = Lens.lens (\RegisterJobDefinition' {timeout} -> 
 registerJobDefinition_containerProperties :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe ContainerProperties)
 registerJobDefinition_containerProperties = Lens.lens (\RegisterJobDefinition' {containerProperties} -> containerProperties) (\s@RegisterJobDefinition' {} a -> s {containerProperties = a} :: RegisterJobDefinition)
 
+-- | The retry strategy to use for failed jobs that are submitted with this
+-- job definition. Any retry strategy that\'s specified during a SubmitJob
+-- operation overrides the retry strategy defined here. If a job is
+-- terminated due to a timeout, it isn\'t retried.
+registerJobDefinition_retryStrategy :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe RetryStrategy)
+registerJobDefinition_retryStrategy = Lens.lens (\RegisterJobDefinition' {retryStrategy} -> retryStrategy) (\s@RegisterJobDefinition' {} a -> s {retryStrategy = a} :: RegisterJobDefinition)
+
+-- | The platform capabilities required by the job definition. If no value is
+-- specified, it defaults to @EC2@. To run the job on Fargate resources,
+-- specify @FARGATE@.
+registerJobDefinition_platformCapabilities :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe [PlatformCapability])
+registerJobDefinition_platformCapabilities = Lens.lens (\RegisterJobDefinition' {platformCapabilities} -> platformCapabilities) (\s@RegisterJobDefinition' {} a -> s {platformCapabilities = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies whether to propagate the tags from the job or job definition
+-- to the corresponding Amazon ECS task. If no value is specified, the tags
+-- are not propagated. Tags can only be propagated to the tasks during task
+-- creation. For tags with the same name, job tags are given priority over
+-- job definitions tags. If the total number of combined tags from the job
+-- and job definition is over 50, the job is moved to the @FAILED@ state.
+registerJobDefinition_propagateTags :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe Prelude.Bool)
+registerJobDefinition_propagateTags = Lens.lens (\RegisterJobDefinition' {propagateTags} -> propagateTags) (\s@RegisterJobDefinition' {} a -> s {propagateTags = a} :: RegisterJobDefinition)
+
 -- | An object with various properties specific to multi-node parallel jobs.
 -- If you specify node properties for a job, it becomes a multi-node
 -- parallel job. For more information, see
@@ -287,13 +287,12 @@ registerJobDefinition_containerProperties = Lens.lens (\RegisterJobDefinition' {
 registerJobDefinition_nodeProperties :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe NodeProperties)
 registerJobDefinition_nodeProperties = Lens.lens (\RegisterJobDefinition' {nodeProperties} -> nodeProperties) (\s@RegisterJobDefinition' {} a -> s {nodeProperties = a} :: RegisterJobDefinition)
 
--- | The tags that you apply to the job definition to help you categorize and
--- organize your resources. Each tag consists of a key and an optional
--- value. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
--- in /Batch User Guide/.
-registerJobDefinition_tags :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-registerJobDefinition_tags = Lens.lens (\RegisterJobDefinition' {tags} -> tags) (\s@RegisterJobDefinition' {} a -> s {tags = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens.coerced
+-- | Default parameter substitution placeholders to set in the job
+-- definition. Parameters are specified as a key-value pair mapping.
+-- Parameters in a @SubmitJob@ request override any corresponding parameter
+-- defaults from the job definition.
+registerJobDefinition_parameters :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+registerJobDefinition_parameters = Lens.lens (\RegisterJobDefinition' {parameters} -> parameters) (\s@RegisterJobDefinition' {} a -> s {parameters = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the job definition to register. Up to 128 letters (uppercase
 -- and lowercase), numbers, hyphens, and underscores are allowed.
@@ -327,27 +326,27 @@ instance Core.AWSRequest RegisterJobDefinition where
 
 instance Prelude.Hashable RegisterJobDefinition where
   hashWithSalt _salt RegisterJobDefinition' {..} =
-    _salt `Prelude.hashWithSalt` propagateTags
-      `Prelude.hashWithSalt` retryStrategy
-      `Prelude.hashWithSalt` platformCapabilities
-      `Prelude.hashWithSalt` parameters
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` containerProperties
+      `Prelude.hashWithSalt` retryStrategy
+      `Prelude.hashWithSalt` platformCapabilities
+      `Prelude.hashWithSalt` propagateTags
       `Prelude.hashWithSalt` nodeProperties
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` jobDefinitionName
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData RegisterJobDefinition where
   rnf RegisterJobDefinition' {..} =
-    Prelude.rnf propagateTags
-      `Prelude.seq` Prelude.rnf retryStrategy
-      `Prelude.seq` Prelude.rnf platformCapabilities
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf timeout
       `Prelude.seq` Prelude.rnf containerProperties
+      `Prelude.seq` Prelude.rnf retryStrategy
+      `Prelude.seq` Prelude.rnf platformCapabilities
+      `Prelude.seq` Prelude.rnf propagateTags
       `Prelude.seq` Prelude.rnf nodeProperties
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf jobDefinitionName
       `Prelude.seq` Prelude.rnf type'
 
@@ -366,17 +365,17 @@ instance Core.ToJSON RegisterJobDefinition where
   toJSON RegisterJobDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("propagateTags" Core..=) Prelude.<$> propagateTags,
-            ("retryStrategy" Core..=) Prelude.<$> retryStrategy,
-            ("platformCapabilities" Core..=)
-              Prelude.<$> platformCapabilities,
-            ("parameters" Core..=) Prelude.<$> parameters,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("timeout" Core..=) Prelude.<$> timeout,
             ("containerProperties" Core..=)
               Prelude.<$> containerProperties,
+            ("retryStrategy" Core..=) Prelude.<$> retryStrategy,
+            ("platformCapabilities" Core..=)
+              Prelude.<$> platformCapabilities,
+            ("propagateTags" Core..=) Prelude.<$> propagateTags,
             ("nodeProperties" Core..=)
               Prelude.<$> nodeProperties,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just
               ("jobDefinitionName" Core..= jobDefinitionName),
             Prelude.Just ("type" Core..= type')

@@ -37,11 +37,11 @@ module Amazonka.Batch
     -- * Errors
     -- $errors
 
-    -- ** ServerException
-    _ServerException,
-
     -- ** ClientException
     _ClientException,
+
+    -- ** ServerException
+    _ServerException,
 
     -- * Waiters
     -- $waiters
@@ -49,11 +49,71 @@ module Amazonka.Batch
     -- * Operations
     -- $operations
 
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
+
     -- ** CreateComputeEnvironment
     CreateComputeEnvironment (CreateComputeEnvironment'),
     newCreateComputeEnvironment,
     CreateComputeEnvironmentResponse (CreateComputeEnvironmentResponse'),
     newCreateComputeEnvironmentResponse,
+
+    -- ** CreateJobQueue
+    CreateJobQueue (CreateJobQueue'),
+    newCreateJobQueue,
+    CreateJobQueueResponse (CreateJobQueueResponse'),
+    newCreateJobQueueResponse,
+
+    -- ** DeleteComputeEnvironment
+    DeleteComputeEnvironment (DeleteComputeEnvironment'),
+    newDeleteComputeEnvironment,
+    DeleteComputeEnvironmentResponse (DeleteComputeEnvironmentResponse'),
+    newDeleteComputeEnvironmentResponse,
+
+    -- ** DeleteJobQueue
+    DeleteJobQueue (DeleteJobQueue'),
+    newDeleteJobQueue,
+    DeleteJobQueueResponse (DeleteJobQueueResponse'),
+    newDeleteJobQueueResponse,
+
+    -- ** DeregisterJobDefinition
+    DeregisterJobDefinition (DeregisterJobDefinition'),
+    newDeregisterJobDefinition,
+    DeregisterJobDefinitionResponse (DeregisterJobDefinitionResponse'),
+    newDeregisterJobDefinitionResponse,
+
+    -- ** DescribeComputeEnvironments (Paginated)
+    DescribeComputeEnvironments (DescribeComputeEnvironments'),
+    newDescribeComputeEnvironments,
+    DescribeComputeEnvironmentsResponse (DescribeComputeEnvironmentsResponse'),
+    newDescribeComputeEnvironmentsResponse,
+
+    -- ** DescribeJobDefinitions (Paginated)
+    DescribeJobDefinitions (DescribeJobDefinitions'),
+    newDescribeJobDefinitions,
+    DescribeJobDefinitionsResponse (DescribeJobDefinitionsResponse'),
+    newDescribeJobDefinitionsResponse,
+
+    -- ** DescribeJobQueues (Paginated)
+    DescribeJobQueues (DescribeJobQueues'),
+    newDescribeJobQueues,
+    DescribeJobQueuesResponse (DescribeJobQueuesResponse'),
+    newDescribeJobQueuesResponse,
+
+    -- ** DescribeJobs
+    DescribeJobs (DescribeJobs'),
+    newDescribeJobs,
+    DescribeJobsResponse (DescribeJobsResponse'),
+    newDescribeJobsResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -73,11 +133,11 @@ module Amazonka.Batch
     SubmitJobResponse (SubmitJobResponse'),
     newSubmitJobResponse,
 
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** TerminateJob
     TerminateJob (TerminateJob'),
@@ -85,17 +145,11 @@ module Amazonka.Batch
     TerminateJobResponse (TerminateJobResponse'),
     newTerminateJobResponse,
 
-    -- ** DescribeJobs
-    DescribeJobs (DescribeJobs'),
-    newDescribeJobs,
-    DescribeJobsResponse (DescribeJobsResponse'),
-    newDescribeJobsResponse,
-
-    -- ** DeleteComputeEnvironment
-    DeleteComputeEnvironment (DeleteComputeEnvironment'),
-    newDeleteComputeEnvironment,
-    DeleteComputeEnvironmentResponse (DeleteComputeEnvironmentResponse'),
-    newDeleteComputeEnvironmentResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** UpdateComputeEnvironment
     UpdateComputeEnvironment (UpdateComputeEnvironment'),
@@ -103,65 +157,11 @@ module Amazonka.Batch
     UpdateComputeEnvironmentResponse (UpdateComputeEnvironmentResponse'),
     newUpdateComputeEnvironmentResponse,
 
-    -- ** DescribeJobDefinitions (Paginated)
-    DescribeJobDefinitions (DescribeJobDefinitions'),
-    newDescribeJobDefinitions,
-    DescribeJobDefinitionsResponse (DescribeJobDefinitionsResponse'),
-    newDescribeJobDefinitionsResponse,
-
     -- ** UpdateJobQueue
     UpdateJobQueue (UpdateJobQueue'),
     newUpdateJobQueue,
     UpdateJobQueueResponse (UpdateJobQueueResponse'),
     newUpdateJobQueueResponse,
-
-    -- ** DeleteJobQueue
-    DeleteJobQueue (DeleteJobQueue'),
-    newDeleteJobQueue,
-    DeleteJobQueueResponse (DeleteJobQueueResponse'),
-    newDeleteJobQueueResponse,
-
-    -- ** CreateJobQueue
-    CreateJobQueue (CreateJobQueue'),
-    newCreateJobQueue,
-    CreateJobQueueResponse (CreateJobQueueResponse'),
-    newCreateJobQueueResponse,
-
-    -- ** DeregisterJobDefinition
-    DeregisterJobDefinition (DeregisterJobDefinition'),
-    newDeregisterJobDefinition,
-    DeregisterJobDefinitionResponse (DeregisterJobDefinitionResponse'),
-    newDeregisterJobDefinitionResponse,
-
-    -- ** DescribeJobQueues (Paginated)
-    DescribeJobQueues (DescribeJobQueues'),
-    newDescribeJobQueues,
-    DescribeJobQueuesResponse (DescribeJobQueuesResponse'),
-    newDescribeJobQueuesResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** DescribeComputeEnvironments (Paginated)
-    DescribeComputeEnvironments (DescribeComputeEnvironments'),
-    newDescribeComputeEnvironments,
-    DescribeComputeEnvironmentsResponse (DescribeComputeEnvironmentsResponse'),
-    newDescribeComputeEnvironmentsResponse,
-
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
 
     -- * Types
 

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKeyValuesPair' smart constructor.
 data KeyValuesPair = KeyValuesPair'
-  { -- | The filter values.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the filter. Filter names are case sensitive.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the filter. Filter names are case sensitive.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The filter values.
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,39 +43,39 @@ data KeyValuesPair = KeyValuesPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'keyValuesPair_values' - The filter values.
---
 -- 'name', 'keyValuesPair_name' - The name of the filter. Filter names are case sensitive.
+--
+-- 'values', 'keyValuesPair_values' - The filter values.
 newKeyValuesPair ::
   KeyValuesPair
 newKeyValuesPair =
   KeyValuesPair'
-    { values = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      values = Prelude.Nothing
     }
-
--- | The filter values.
-keyValuesPair_values :: Lens.Lens' KeyValuesPair (Prelude.Maybe [Prelude.Text])
-keyValuesPair_values = Lens.lens (\KeyValuesPair' {values} -> values) (\s@KeyValuesPair' {} a -> s {values = a} :: KeyValuesPair) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the filter. Filter names are case sensitive.
 keyValuesPair_name :: Lens.Lens' KeyValuesPair (Prelude.Maybe Prelude.Text)
 keyValuesPair_name = Lens.lens (\KeyValuesPair' {name} -> name) (\s@KeyValuesPair' {} a -> s {name = a} :: KeyValuesPair)
 
+-- | The filter values.
+keyValuesPair_values :: Lens.Lens' KeyValuesPair (Prelude.Maybe [Prelude.Text])
+keyValuesPair_values = Lens.lens (\KeyValuesPair' {values} -> values) (\s@KeyValuesPair' {} a -> s {values = a} :: KeyValuesPair) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable KeyValuesPair where
   hashWithSalt _salt KeyValuesPair' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData KeyValuesPair where
   rnf KeyValuesPair' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON KeyValuesPair where
   toJSON KeyValuesPair' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("values" Core..=) Prelude.<$> values,
-            ("name" Core..=) Prelude.<$> name
+          [ ("name" Core..=) Prelude.<$> name,
+            ("values" Core..=) Prelude.<$> values
           ]
       )

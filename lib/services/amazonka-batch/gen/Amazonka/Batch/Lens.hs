@@ -14,16 +14,86 @@
 module Amazonka.Batch.Lens
   ( -- * Operations
 
+    -- ** CancelJob
+    cancelJob_jobId,
+    cancelJob_reason,
+    cancelJobResponse_httpStatus,
+
     -- ** CreateComputeEnvironment
-    createComputeEnvironment_state,
-    createComputeEnvironment_computeResources,
-    createComputeEnvironment_serviceRole,
     createComputeEnvironment_tags,
+    createComputeEnvironment_state,
+    createComputeEnvironment_serviceRole,
+    createComputeEnvironment_computeResources,
     createComputeEnvironment_computeEnvironmentName,
     createComputeEnvironment_type,
-    createComputeEnvironmentResponse_computeEnvironmentName,
     createComputeEnvironmentResponse_computeEnvironmentArn,
+    createComputeEnvironmentResponse_computeEnvironmentName,
     createComputeEnvironmentResponse_httpStatus,
+
+    -- ** CreateJobQueue
+    createJobQueue_tags,
+    createJobQueue_state,
+    createJobQueue_jobQueueName,
+    createJobQueue_priority,
+    createJobQueue_computeEnvironmentOrder,
+    createJobQueueResponse_httpStatus,
+    createJobQueueResponse_jobQueueName,
+    createJobQueueResponse_jobQueueArn,
+
+    -- ** DeleteComputeEnvironment
+    deleteComputeEnvironment_computeEnvironment,
+    deleteComputeEnvironmentResponse_httpStatus,
+
+    -- ** DeleteJobQueue
+    deleteJobQueue_jobQueue,
+    deleteJobQueueResponse_httpStatus,
+
+    -- ** DeregisterJobDefinition
+    deregisterJobDefinition_jobDefinition,
+    deregisterJobDefinitionResponse_httpStatus,
+
+    -- ** DescribeComputeEnvironments
+    describeComputeEnvironments_nextToken,
+    describeComputeEnvironments_computeEnvironments,
+    describeComputeEnvironments_maxResults,
+    describeComputeEnvironmentsResponse_nextToken,
+    describeComputeEnvironmentsResponse_computeEnvironments,
+    describeComputeEnvironmentsResponse_httpStatus,
+
+    -- ** DescribeJobDefinitions
+    describeJobDefinitions_nextToken,
+    describeJobDefinitions_jobDefinitionName,
+    describeJobDefinitions_status,
+    describeJobDefinitions_jobDefinitions,
+    describeJobDefinitions_maxResults,
+    describeJobDefinitionsResponse_nextToken,
+    describeJobDefinitionsResponse_jobDefinitions,
+    describeJobDefinitionsResponse_httpStatus,
+
+    -- ** DescribeJobQueues
+    describeJobQueues_nextToken,
+    describeJobQueues_maxResults,
+    describeJobQueues_jobQueues,
+    describeJobQueuesResponse_nextToken,
+    describeJobQueuesResponse_jobQueues,
+    describeJobQueuesResponse_httpStatus,
+
+    -- ** DescribeJobs
+    describeJobs_jobs,
+    describeJobsResponse_jobs,
+    describeJobsResponse_httpStatus,
+
+    -- ** ListJobs
+    listJobs_nextToken,
+    listJobs_jobStatus,
+    listJobs_multiNodeJobId,
+    listJobs_filters,
+    listJobs_arrayJobId,
+    listJobs_jobQueue,
+    listJobs_maxResults,
+    listJobsResponse_nextToken,
+    listJobsResponse_httpStatus,
+    listJobsResponse_jobSummaryList,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
@@ -31,14 +101,14 @@ module Amazonka.Batch.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** RegisterJobDefinition
-    registerJobDefinition_propagateTags,
-    registerJobDefinition_retryStrategy,
-    registerJobDefinition_platformCapabilities,
-    registerJobDefinition_parameters,
+    registerJobDefinition_tags,
     registerJobDefinition_timeout,
     registerJobDefinition_containerProperties,
+    registerJobDefinition_retryStrategy,
+    registerJobDefinition_platformCapabilities,
+    registerJobDefinition_propagateTags,
     registerJobDefinition_nodeProperties,
-    registerJobDefinition_tags,
+    registerJobDefinition_parameters,
     registerJobDefinition_jobDefinitionName,
     registerJobDefinition_type,
     registerJobDefinitionResponse_httpStatus,
@@ -47,15 +117,15 @@ module Amazonka.Batch.Lens
     registerJobDefinitionResponse_revision,
 
     -- ** SubmitJob
+    submitJob_tags,
+    submitJob_timeout,
+    submitJob_dependsOn,
     submitJob_nodeOverrides,
+    submitJob_retryStrategy,
+    submitJob_arrayProperties,
     submitJob_propagateTags,
     submitJob_containerOverrides,
-    submitJob_retryStrategy,
-    submitJob_dependsOn,
     submitJob_parameters,
-    submitJob_arrayProperties,
-    submitJob_timeout,
-    submitJob_tags,
     submitJob_jobName,
     submitJob_jobQueue,
     submitJob_jobDefinition,
@@ -64,108 +134,38 @@ module Amazonka.Batch.Lens
     submitJobResponse_jobName,
     submitJobResponse_jobId,
 
-    -- ** ListJobs
-    listJobs_filters,
-    listJobs_nextToken,
-    listJobs_multiNodeJobId,
-    listJobs_jobStatus,
-    listJobs_arrayJobId,
-    listJobs_jobQueue,
-    listJobs_maxResults,
-    listJobsResponse_nextToken,
-    listJobsResponse_httpStatus,
-    listJobsResponse_jobSummaryList,
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** TerminateJob
     terminateJob_jobId,
     terminateJob_reason,
     terminateJobResponse_httpStatus,
 
-    -- ** DescribeJobs
-    describeJobs_jobs,
-    describeJobsResponse_jobs,
-    describeJobsResponse_httpStatus,
-
-    -- ** DeleteComputeEnvironment
-    deleteComputeEnvironment_computeEnvironment,
-    deleteComputeEnvironmentResponse_httpStatus,
-
-    -- ** UpdateComputeEnvironment
-    updateComputeEnvironment_state,
-    updateComputeEnvironment_computeResources,
-    updateComputeEnvironment_serviceRole,
-    updateComputeEnvironment_computeEnvironment,
-    updateComputeEnvironmentResponse_computeEnvironmentName,
-    updateComputeEnvironmentResponse_computeEnvironmentArn,
-    updateComputeEnvironmentResponse_httpStatus,
-
-    -- ** DescribeJobDefinitions
-    describeJobDefinitions_status,
-    describeJobDefinitions_jobDefinitionName,
-    describeJobDefinitions_jobDefinitions,
-    describeJobDefinitions_nextToken,
-    describeJobDefinitions_maxResults,
-    describeJobDefinitionsResponse_jobDefinitions,
-    describeJobDefinitionsResponse_nextToken,
-    describeJobDefinitionsResponse_httpStatus,
-
-    -- ** UpdateJobQueue
-    updateJobQueue_state,
-    updateJobQueue_priority,
-    updateJobQueue_computeEnvironmentOrder,
-    updateJobQueue_jobQueue,
-    updateJobQueueResponse_jobQueueArn,
-    updateJobQueueResponse_jobQueueName,
-    updateJobQueueResponse_httpStatus,
-
-    -- ** DeleteJobQueue
-    deleteJobQueue_jobQueue,
-    deleteJobQueueResponse_httpStatus,
-
-    -- ** CreateJobQueue
-    createJobQueue_state,
-    createJobQueue_tags,
-    createJobQueue_jobQueueName,
-    createJobQueue_priority,
-    createJobQueue_computeEnvironmentOrder,
-    createJobQueueResponse_httpStatus,
-    createJobQueueResponse_jobQueueName,
-    createJobQueueResponse_jobQueueArn,
-
-    -- ** DeregisterJobDefinition
-    deregisterJobDefinition_jobDefinition,
-    deregisterJobDefinitionResponse_httpStatus,
-
-    -- ** DescribeJobQueues
-    describeJobQueues_nextToken,
-    describeJobQueues_jobQueues,
-    describeJobQueues_maxResults,
-    describeJobQueuesResponse_nextToken,
-    describeJobQueuesResponse_jobQueues,
-    describeJobQueuesResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** DescribeComputeEnvironments
-    describeComputeEnvironments_computeEnvironments,
-    describeComputeEnvironments_nextToken,
-    describeComputeEnvironments_maxResults,
-    describeComputeEnvironmentsResponse_computeEnvironments,
-    describeComputeEnvironmentsResponse_nextToken,
-    describeComputeEnvironmentsResponse_httpStatus,
+    -- ** UpdateComputeEnvironment
+    updateComputeEnvironment_state,
+    updateComputeEnvironment_serviceRole,
+    updateComputeEnvironment_computeResources,
+    updateComputeEnvironment_computeEnvironment,
+    updateComputeEnvironmentResponse_computeEnvironmentArn,
+    updateComputeEnvironmentResponse_computeEnvironmentName,
+    updateComputeEnvironmentResponse_httpStatus,
 
-    -- ** CancelJob
-    cancelJob_jobId,
-    cancelJob_reason,
-    cancelJobResponse_httpStatus,
+    -- ** UpdateJobQueue
+    updateJobQueue_computeEnvironmentOrder,
+    updateJobQueue_state,
+    updateJobQueue_priority,
+    updateJobQueue_jobQueue,
+    updateJobQueueResponse_jobQueueArn,
+    updateJobQueueResponse_jobQueueName,
+    updateJobQueueResponse_httpStatus,
 
     -- * Types
 
@@ -173,36 +173,36 @@ module Amazonka.Batch.Lens
     arrayProperties_size,
 
     -- ** ArrayPropertiesDetail
+    arrayPropertiesDetail_index,
     arrayPropertiesDetail_size,
     arrayPropertiesDetail_statusSummary,
-    arrayPropertiesDetail_index,
 
     -- ** ArrayPropertiesSummary
-    arrayPropertiesSummary_size,
     arrayPropertiesSummary_index,
+    arrayPropertiesSummary_size,
 
     -- ** AttemptContainerDetail
-    attemptContainerDetail_networkInterfaces,
     attemptContainerDetail_taskArn,
-    attemptContainerDetail_containerInstanceArn,
     attemptContainerDetail_reason,
-    attemptContainerDetail_logStreamName,
+    attemptContainerDetail_containerInstanceArn,
     attemptContainerDetail_exitCode,
+    attemptContainerDetail_logStreamName,
+    attemptContainerDetail_networkInterfaces,
 
     -- ** AttemptDetail
-    attemptDetail_stoppedAt,
+    attemptDetail_statusReason,
     attemptDetail_startedAt,
     attemptDetail_container,
-    attemptDetail_statusReason,
+    attemptDetail_stoppedAt,
 
     -- ** ComputeEnvironmentDetail
-    computeEnvironmentDetail_status,
-    computeEnvironmentDetail_state,
-    computeEnvironmentDetail_computeResources,
-    computeEnvironmentDetail_statusReason,
-    computeEnvironmentDetail_type,
-    computeEnvironmentDetail_serviceRole,
     computeEnvironmentDetail_tags,
+    computeEnvironmentDetail_type,
+    computeEnvironmentDetail_statusReason,
+    computeEnvironmentDetail_state,
+    computeEnvironmentDetail_status,
+    computeEnvironmentDetail_serviceRole,
+    computeEnvironmentDetail_computeResources,
     computeEnvironmentDetail_computeEnvironmentName,
     computeEnvironmentDetail_computeEnvironmentArn,
     computeEnvironmentDetail_ecsClusterArn,
@@ -212,107 +212,107 @@ module Amazonka.Batch.Lens
     computeEnvironmentOrder_computeEnvironment,
 
     -- ** ComputeResource
-    computeResource_securityGroupIds,
-    computeResource_instanceTypes,
-    computeResource_instanceRole,
+    computeResource_tags,
     computeResource_ec2KeyPair,
-    computeResource_minvCpus,
     computeResource_ec2Configuration,
+    computeResource_minvCpus,
+    computeResource_instanceTypes,
+    computeResource_securityGroupIds,
+    computeResource_desiredvCpus,
+    computeResource_launchTemplate,
     computeResource_bidPercentage,
     computeResource_spotIamFleetRole,
-    computeResource_imageId,
-    computeResource_launchTemplate,
-    computeResource_desiredvCpus,
+    computeResource_instanceRole,
     computeResource_allocationStrategy,
     computeResource_placementGroup,
-    computeResource_tags,
+    computeResource_imageId,
     computeResource_type,
     computeResource_maxvCpus,
     computeResource_subnets,
 
     -- ** ComputeResourceUpdate
-    computeResourceUpdate_securityGroupIds,
-    computeResourceUpdate_subnets,
     computeResourceUpdate_minvCpus,
-    computeResourceUpdate_maxvCpus,
+    computeResourceUpdate_securityGroupIds,
     computeResourceUpdate_desiredvCpus,
+    computeResourceUpdate_maxvCpus,
+    computeResourceUpdate_subnets,
 
     -- ** ContainerDetail
-    containerDetail_image,
-    containerDetail_command,
-    containerDetail_secrets,
+    containerDetail_readonlyRootFilesystem,
     containerDetail_environment,
-    containerDetail_networkInterfaces,
-    containerDetail_taskArn,
-    containerDetail_ulimits,
-    containerDetail_containerInstanceArn,
-    containerDetail_executionRoleArn,
-    containerDetail_privileged,
-    containerDetail_jobRoleArn,
+    containerDetail_logConfiguration,
     containerDetail_resourceRequirements,
-    containerDetail_instanceType,
     containerDetail_memory,
     containerDetail_user,
-    containerDetail_logConfiguration,
-    containerDetail_linuxParameters,
-    containerDetail_reason,
-    containerDetail_logStreamName,
-    containerDetail_mountPoints,
-    containerDetail_exitCode,
+    containerDetail_taskArn,
+    containerDetail_ulimits,
+    containerDetail_jobRoleArn,
     containerDetail_fargatePlatformConfiguration,
-    containerDetail_vcpus,
-    containerDetail_readonlyRootFilesystem,
-    containerDetail_volumes,
+    containerDetail_command,
     containerDetail_networkConfiguration,
+    containerDetail_secrets,
+    containerDetail_instanceType,
+    containerDetail_volumes,
+    containerDetail_privileged,
+    containerDetail_reason,
+    containerDetail_containerInstanceArn,
+    containerDetail_vcpus,
+    containerDetail_exitCode,
+    containerDetail_executionRoleArn,
+    containerDetail_mountPoints,
+    containerDetail_logStreamName,
+    containerDetail_image,
+    containerDetail_linuxParameters,
+    containerDetail_networkInterfaces,
 
     -- ** ContainerOverrides
-    containerOverrides_command,
     containerOverrides_environment,
     containerOverrides_resourceRequirements,
-    containerOverrides_instanceType,
     containerOverrides_memory,
+    containerOverrides_command,
+    containerOverrides_instanceType,
     containerOverrides_vcpus,
 
     -- ** ContainerProperties
-    containerProperties_image,
-    containerProperties_command,
-    containerProperties_secrets,
+    containerProperties_readonlyRootFilesystem,
     containerProperties_environment,
-    containerProperties_ulimits,
-    containerProperties_executionRoleArn,
-    containerProperties_privileged,
-    containerProperties_jobRoleArn,
+    containerProperties_logConfiguration,
     containerProperties_resourceRequirements,
-    containerProperties_instanceType,
     containerProperties_memory,
     containerProperties_user,
-    containerProperties_logConfiguration,
-    containerProperties_linuxParameters,
-    containerProperties_mountPoints,
+    containerProperties_ulimits,
+    containerProperties_jobRoleArn,
     containerProperties_fargatePlatformConfiguration,
-    containerProperties_vcpus,
-    containerProperties_readonlyRootFilesystem,
-    containerProperties_volumes,
+    containerProperties_command,
     containerProperties_networkConfiguration,
+    containerProperties_secrets,
+    containerProperties_instanceType,
+    containerProperties_volumes,
+    containerProperties_privileged,
+    containerProperties_vcpus,
+    containerProperties_executionRoleArn,
+    containerProperties_mountPoints,
+    containerProperties_image,
+    containerProperties_linuxParameters,
 
     -- ** ContainerSummary
     containerSummary_reason,
     containerSummary_exitCode,
 
     -- ** Device
-    device_containerPath,
     device_permissions,
+    device_containerPath,
     device_hostPath,
 
     -- ** EFSAuthorizationConfig
-    eFSAuthorizationConfig_accessPointId,
     eFSAuthorizationConfig_iam,
+    eFSAuthorizationConfig_accessPointId,
 
     -- ** EFSVolumeConfiguration
+    eFSVolumeConfiguration_transitEncryptionPort,
     eFSVolumeConfiguration_rootDirectory,
     eFSVolumeConfiguration_transitEncryption,
     eFSVolumeConfiguration_authorizationConfig,
-    eFSVolumeConfiguration_transitEncryptionPort,
     eFSVolumeConfiguration_fileSystemId,
 
     -- ** Ec2Configuration
@@ -320,8 +320,8 @@ module Amazonka.Batch.Lens
     ec2Configuration_imageType,
 
     -- ** EvaluateOnExit
-    evaluateOnExit_onExitCode,
     evaluateOnExit_onReason,
+    evaluateOnExit_onExitCode,
     evaluateOnExit_onStatusReason,
     evaluateOnExit_action,
 
@@ -332,42 +332,42 @@ module Amazonka.Batch.Lens
     host_sourcePath,
 
     -- ** JobDefinition
-    jobDefinition_status,
-    jobDefinition_propagateTags,
-    jobDefinition_retryStrategy,
-    jobDefinition_platformCapabilities,
-    jobDefinition_parameters,
+    jobDefinition_tags,
     jobDefinition_timeout,
     jobDefinition_containerProperties,
+    jobDefinition_retryStrategy,
+    jobDefinition_platformCapabilities,
+    jobDefinition_status,
+    jobDefinition_propagateTags,
     jobDefinition_nodeProperties,
-    jobDefinition_tags,
+    jobDefinition_parameters,
     jobDefinition_jobDefinitionName,
     jobDefinition_jobDefinitionArn,
     jobDefinition_revision,
     jobDefinition_type,
 
     -- ** JobDependency
-    jobDependency_jobId,
     jobDependency_type,
+    jobDependency_jobId,
 
     -- ** JobDetail
+    jobDetail_tags,
+    jobDetail_timeout,
+    jobDetail_dependsOn,
+    jobDetail_retryStrategy,
+    jobDetail_platformCapabilities,
+    jobDetail_arrayProperties,
+    jobDetail_nodeDetails,
+    jobDetail_statusReason,
+    jobDetail_startedAt,
+    jobDetail_propagateTags,
+    jobDetail_nodeProperties,
+    jobDetail_container,
+    jobDetail_attempts,
     jobDetail_stoppedAt,
     jobDetail_jobArn,
-    jobDetail_propagateTags,
     jobDetail_createdAt,
-    jobDetail_retryStrategy,
-    jobDetail_attempts,
-    jobDetail_platformCapabilities,
-    jobDetail_startedAt,
-    jobDetail_dependsOn,
-    jobDetail_container,
-    jobDetail_nodeDetails,
     jobDetail_parameters,
-    jobDetail_statusReason,
-    jobDetail_arrayProperties,
-    jobDetail_timeout,
-    jobDetail_nodeProperties,
-    jobDetail_tags,
     jobDetail_jobName,
     jobDetail_jobId,
     jobDetail_jobQueue,
@@ -375,9 +375,9 @@ module Amazonka.Batch.Lens
     jobDetail_jobDefinition,
 
     -- ** JobQueueDetail
-    jobQueueDetail_status,
-    jobQueueDetail_statusReason,
     jobQueueDetail_tags,
+    jobQueueDetail_statusReason,
+    jobQueueDetail_status,
     jobQueueDetail_jobQueueName,
     jobQueueDetail_jobQueueArn,
     jobQueueDetail_state,
@@ -385,16 +385,16 @@ module Amazonka.Batch.Lens
     jobQueueDetail_computeEnvironmentOrder,
 
     -- ** JobSummary
-    jobSummary_stoppedAt,
+    jobSummary_arrayProperties,
+    jobSummary_statusReason,
+    jobSummary_jobDefinition,
     jobSummary_status,
+    jobSummary_startedAt,
+    jobSummary_nodeProperties,
+    jobSummary_container,
+    jobSummary_stoppedAt,
     jobSummary_jobArn,
     jobSummary_createdAt,
-    jobSummary_startedAt,
-    jobSummary_container,
-    jobSummary_jobDefinition,
-    jobSummary_statusReason,
-    jobSummary_arrayProperties,
-    jobSummary_nodeProperties,
     jobSummary_jobId,
     jobSummary_jobName,
 
@@ -402,47 +402,47 @@ module Amazonka.Batch.Lens
     jobTimeout_attemptDurationSeconds,
 
     -- ** KeyValuePair
-    keyValuePair_value,
     keyValuePair_name,
+    keyValuePair_value,
 
     -- ** KeyValuesPair
-    keyValuesPair_values,
     keyValuesPair_name,
+    keyValuesPair_values,
 
     -- ** LaunchTemplateSpecification
-    launchTemplateSpecification_launchTemplateName,
     launchTemplateSpecification_launchTemplateId,
     launchTemplateSpecification_version,
+    launchTemplateSpecification_launchTemplateName,
 
     -- ** LinuxParameters
-    linuxParameters_sharedMemorySize,
-    linuxParameters_initProcessEnabled,
-    linuxParameters_tmpfs,
-    linuxParameters_swappiness,
     linuxParameters_devices,
+    linuxParameters_swappiness,
+    linuxParameters_tmpfs,
+    linuxParameters_initProcessEnabled,
     linuxParameters_maxSwap,
+    linuxParameters_sharedMemorySize,
 
     -- ** LogConfiguration
-    logConfiguration_options,
     logConfiguration_secretOptions,
+    logConfiguration_options,
     logConfiguration_logDriver,
 
     -- ** MountPoint
-    mountPoint_containerPath,
     mountPoint_sourceVolume,
+    mountPoint_containerPath,
     mountPoint_readOnly,
 
     -- ** NetworkConfiguration
     networkConfiguration_assignPublicIp,
 
     -- ** NetworkInterface
+    networkInterface_attachmentId,
     networkInterface_ipv6Address,
     networkInterface_privateIpv4Address,
-    networkInterface_attachmentId,
 
     -- ** NodeDetails
-    nodeDetails_nodeIndex,
     nodeDetails_isMainNode,
+    nodeDetails_nodeIndex,
 
     -- ** NodeOverrides
     nodeOverrides_numNodes,
@@ -454,9 +454,9 @@ module Amazonka.Batch.Lens
     nodeProperties_nodeRangeProperties,
 
     -- ** NodePropertiesSummary
-    nodePropertiesSummary_numNodes,
-    nodePropertiesSummary_nodeIndex,
     nodePropertiesSummary_isMainNode,
+    nodePropertiesSummary_nodeIndex,
+    nodePropertiesSummary_numNodes,
 
     -- ** NodePropertyOverride
     nodePropertyOverride_containerOverrides,
@@ -489,8 +489,8 @@ module Amazonka.Batch.Lens
     ulimit_softLimit,
 
     -- ** Volume
-    volume_name,
     volume_efsVolumeConfiguration,
+    volume_name,
     volume_host,
   )
 where

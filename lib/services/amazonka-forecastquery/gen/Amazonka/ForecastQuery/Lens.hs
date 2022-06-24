@@ -15,9 +15,9 @@ module Amazonka.ForecastQuery.Lens
   ( -- * Operations
 
     -- ** QueryForecast
+    queryForecast_nextToken,
     queryForecast_endDate,
     queryForecast_startDate,
-    queryForecast_nextToken,
     queryForecast_forecastArn,
     queryForecast_filters,
     queryForecastResponse_forecast,
@@ -26,8 +26,8 @@ module Amazonka.ForecastQuery.Lens
     -- * Types
 
     -- ** DataPoint
-    dataPoint_value,
     dataPoint_timestamp,
+    dataPoint_value,
 
     -- ** Forecast
     forecast_predictions,

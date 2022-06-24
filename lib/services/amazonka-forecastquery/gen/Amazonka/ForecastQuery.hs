@@ -19,20 +19,20 @@ module Amazonka.ForecastQuery
     -- * Errors
     -- $errors
 
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
     -- ** InvalidInputException
     _InvalidInputException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
 
     -- * Waiters
     -- $waiters

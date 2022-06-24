@@ -34,26 +34,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnection' smart constructor.
 data Connection = Connection'
-  { -- | The identifier of the external provider where your third-party code
-    -- repository is configured. For Bitbucket, this is the account ID of the
-    -- owner of the Bitbucket repository.
-    ownerAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the external provider where your third-party code repository
-    -- is configured.
-    providerType :: Prelude.Maybe ProviderType,
-    -- | The name of the connection. Connection names must be unique in an AWS
-    -- user account.
-    connectionName :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the connection.
-    connectionStatus :: Prelude.Maybe ConnectionStatus,
-    -- | The Amazon Resource Name (ARN) of the host associated with the
+  { -- | The Amazon Resource Name (ARN) of the host associated with the
     -- connection.
     hostArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the connection. The ARN is used as the
     -- connection reference when the connection is shared between AWS services.
     --
     -- The ARN is never reused if the connection is deleted.
-    connectionArn :: Prelude.Maybe Prelude.Text
+    connectionArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the external provider where your third-party code repository
+    -- is configured.
+    providerType :: Prelude.Maybe ProviderType,
+    -- | The identifier of the external provider where your third-party code
+    -- repository is configured. For Bitbucket, this is the account ID of the
+    -- owner of the Bitbucket repository.
+    ownerAccountId :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the connection.
+    connectionStatus :: Prelude.Maybe ConnectionStatus,
+    -- | The name of the connection. Connection names must be unique in an AWS
+    -- user account.
+    connectionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,18 +65,6 @@ data Connection = Connection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerAccountId', 'connection_ownerAccountId' - The identifier of the external provider where your third-party code
--- repository is configured. For Bitbucket, this is the account ID of the
--- owner of the Bitbucket repository.
---
--- 'providerType', 'connection_providerType' - The name of the external provider where your third-party code repository
--- is configured.
---
--- 'connectionName', 'connection_connectionName' - The name of the connection. Connection names must be unique in an AWS
--- user account.
---
--- 'connectionStatus', 'connection_connectionStatus' - The current status of the connection.
---
 -- 'hostArn', 'connection_hostArn' - The Amazon Resource Name (ARN) of the host associated with the
 -- connection.
 --
@@ -84,37 +72,29 @@ data Connection = Connection'
 -- connection reference when the connection is shared between AWS services.
 --
 -- The ARN is never reused if the connection is deleted.
+--
+-- 'providerType', 'connection_providerType' - The name of the external provider where your third-party code repository
+-- is configured.
+--
+-- 'ownerAccountId', 'connection_ownerAccountId' - The identifier of the external provider where your third-party code
+-- repository is configured. For Bitbucket, this is the account ID of the
+-- owner of the Bitbucket repository.
+--
+-- 'connectionStatus', 'connection_connectionStatus' - The current status of the connection.
+--
+-- 'connectionName', 'connection_connectionName' - The name of the connection. Connection names must be unique in an AWS
+-- user account.
 newConnection ::
   Connection
 newConnection =
   Connection'
-    { ownerAccountId = Prelude.Nothing,
+    { hostArn = Prelude.Nothing,
+      connectionArn = Prelude.Nothing,
       providerType = Prelude.Nothing,
-      connectionName = Prelude.Nothing,
+      ownerAccountId = Prelude.Nothing,
       connectionStatus = Prelude.Nothing,
-      hostArn = Prelude.Nothing,
-      connectionArn = Prelude.Nothing
+      connectionName = Prelude.Nothing
     }
-
--- | The identifier of the external provider where your third-party code
--- repository is configured. For Bitbucket, this is the account ID of the
--- owner of the Bitbucket repository.
-connection_ownerAccountId :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
-connection_ownerAccountId = Lens.lens (\Connection' {ownerAccountId} -> ownerAccountId) (\s@Connection' {} a -> s {ownerAccountId = a} :: Connection)
-
--- | The name of the external provider where your third-party code repository
--- is configured.
-connection_providerType :: Lens.Lens' Connection (Prelude.Maybe ProviderType)
-connection_providerType = Lens.lens (\Connection' {providerType} -> providerType) (\s@Connection' {} a -> s {providerType = a} :: Connection)
-
--- | The name of the connection. Connection names must be unique in an AWS
--- user account.
-connection_connectionName :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
-connection_connectionName = Lens.lens (\Connection' {connectionName} -> connectionName) (\s@Connection' {} a -> s {connectionName = a} :: Connection)
-
--- | The current status of the connection.
-connection_connectionStatus :: Lens.Lens' Connection (Prelude.Maybe ConnectionStatus)
-connection_connectionStatus = Lens.lens (\Connection' {connectionStatus} -> connectionStatus) (\s@Connection' {} a -> s {connectionStatus = a} :: Connection)
 
 -- | The Amazon Resource Name (ARN) of the host associated with the
 -- connection.
@@ -128,34 +108,54 @@ connection_hostArn = Lens.lens (\Connection' {hostArn} -> hostArn) (\s@Connectio
 connection_connectionArn :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_connectionArn = Lens.lens (\Connection' {connectionArn} -> connectionArn) (\s@Connection' {} a -> s {connectionArn = a} :: Connection)
 
+-- | The name of the external provider where your third-party code repository
+-- is configured.
+connection_providerType :: Lens.Lens' Connection (Prelude.Maybe ProviderType)
+connection_providerType = Lens.lens (\Connection' {providerType} -> providerType) (\s@Connection' {} a -> s {providerType = a} :: Connection)
+
+-- | The identifier of the external provider where your third-party code
+-- repository is configured. For Bitbucket, this is the account ID of the
+-- owner of the Bitbucket repository.
+connection_ownerAccountId :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_ownerAccountId = Lens.lens (\Connection' {ownerAccountId} -> ownerAccountId) (\s@Connection' {} a -> s {ownerAccountId = a} :: Connection)
+
+-- | The current status of the connection.
+connection_connectionStatus :: Lens.Lens' Connection (Prelude.Maybe ConnectionStatus)
+connection_connectionStatus = Lens.lens (\Connection' {connectionStatus} -> connectionStatus) (\s@Connection' {} a -> s {connectionStatus = a} :: Connection)
+
+-- | The name of the connection. Connection names must be unique in an AWS
+-- user account.
+connection_connectionName :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_connectionName = Lens.lens (\Connection' {connectionName} -> connectionName) (\s@Connection' {} a -> s {connectionName = a} :: Connection)
+
 instance Core.FromJSON Connection where
   parseJSON =
     Core.withObject
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> (x Core..:? "OwnerAccountId")
-            Prelude.<*> (x Core..:? "ProviderType")
-            Prelude.<*> (x Core..:? "ConnectionName")
-            Prelude.<*> (x Core..:? "ConnectionStatus")
-            Prelude.<*> (x Core..:? "HostArn")
+            Prelude.<$> (x Core..:? "HostArn")
             Prelude.<*> (x Core..:? "ConnectionArn")
+            Prelude.<*> (x Core..:? "ProviderType")
+            Prelude.<*> (x Core..:? "OwnerAccountId")
+            Prelude.<*> (x Core..:? "ConnectionStatus")
+            Prelude.<*> (x Core..:? "ConnectionName")
       )
 
 instance Prelude.Hashable Connection where
   hashWithSalt _salt Connection' {..} =
-    _salt `Prelude.hashWithSalt` ownerAccountId
-      `Prelude.hashWithSalt` providerType
-      `Prelude.hashWithSalt` connectionName
-      `Prelude.hashWithSalt` connectionStatus
-      `Prelude.hashWithSalt` hostArn
+    _salt `Prelude.hashWithSalt` hostArn
       `Prelude.hashWithSalt` connectionArn
+      `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` ownerAccountId
+      `Prelude.hashWithSalt` connectionStatus
+      `Prelude.hashWithSalt` connectionName
 
 instance Prelude.NFData Connection where
   rnf Connection' {..} =
-    Prelude.rnf ownerAccountId
-      `Prelude.seq` Prelude.rnf providerType
-      `Prelude.seq` Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf hostArn
+    Prelude.rnf hostArn
       `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf ownerAccountId
+      `Prelude.seq` Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf connectionName

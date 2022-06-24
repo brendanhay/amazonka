@@ -35,8 +35,8 @@ module Amazonka.CodeStarConnections.CreateHost
     newCreateHost,
 
     -- * Request Lenses
-    createHost_vpcConfiguration,
     createHost_tags,
+    createHost_vpcConfiguration,
     createHost_name,
     createHost_providerType,
     createHost_providerEndpoint,
@@ -46,8 +46,8 @@ module Amazonka.CodeStarConnections.CreateHost
     newCreateHostResponse,
 
     -- * Response Lenses
-    createHostResponse_hostArn,
     createHostResponse_tags,
+    createHostResponse_hostArn,
     createHostResponse_httpStatus,
   )
 where
@@ -61,11 +61,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateHost' smart constructor.
 data CreateHost = CreateHost'
-  { -- | The VPC configuration to be provisioned for the host. A VPC must be
+  { tags :: Prelude.Maybe [Tag],
+    -- | The VPC configuration to be provisioned for the host. A VPC must be
     -- configured and the infrastructure to be represented by the host must
     -- already be connected to the VPC.
     vpcConfiguration :: Prelude.Maybe VpcConfiguration,
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the host to be created. The name must be unique in the
     -- calling AWS account.
     name :: Prelude.Text,
@@ -88,11 +88,11 @@ data CreateHost = CreateHost'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createHost_tags' - Undocumented member.
+--
 -- 'vpcConfiguration', 'createHost_vpcConfiguration' - The VPC configuration to be provisioned for the host. A VPC must be
 -- configured and the infrastructure to be represented by the host must
 -- already be connected to the VPC.
---
--- 'tags', 'createHost_tags' - Undocumented member.
 --
 -- 'name', 'createHost_name' - The name of the host to be created. The name must be unique in the
 -- calling AWS account.
@@ -117,22 +117,22 @@ newCreateHost
   pProviderType_
   pProviderEndpoint_ =
     CreateHost'
-      { vpcConfiguration = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        vpcConfiguration = Prelude.Nothing,
         name = pName_,
         providerType = pProviderType_,
         providerEndpoint = pProviderEndpoint_
       }
+
+-- | Undocumented member.
+createHost_tags :: Lens.Lens' CreateHost (Prelude.Maybe [Tag])
+createHost_tags = Lens.lens (\CreateHost' {tags} -> tags) (\s@CreateHost' {} a -> s {tags = a} :: CreateHost) Prelude.. Lens.mapping Lens.coerced
 
 -- | The VPC configuration to be provisioned for the host. A VPC must be
 -- configured and the infrastructure to be represented by the host must
 -- already be connected to the VPC.
 createHost_vpcConfiguration :: Lens.Lens' CreateHost (Prelude.Maybe VpcConfiguration)
 createHost_vpcConfiguration = Lens.lens (\CreateHost' {vpcConfiguration} -> vpcConfiguration) (\s@CreateHost' {} a -> s {vpcConfiguration = a} :: CreateHost)
-
--- | Undocumented member.
-createHost_tags :: Lens.Lens' CreateHost (Prelude.Maybe [Tag])
-createHost_tags = Lens.lens (\CreateHost' {tags} -> tags) (\s@CreateHost' {} a -> s {tags = a} :: CreateHost) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the host to be created. The name must be unique in the
 -- calling AWS account.
@@ -158,23 +158,23 @@ instance Core.AWSRequest CreateHost where
     Response.receiveJSON
       ( \s h x ->
           CreateHostResponse'
-            Prelude.<$> (x Core..?> "HostArn")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "HostArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateHost where
   hashWithSalt _salt CreateHost' {..} =
-    _salt `Prelude.hashWithSalt` vpcConfiguration
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcConfiguration
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` providerType
       `Prelude.hashWithSalt` providerEndpoint
 
 instance Prelude.NFData CreateHost where
   rnf CreateHost' {..} =
-    Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcConfiguration
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf providerType
       `Prelude.seq` Prelude.rnf providerEndpoint
@@ -198,9 +198,9 @@ instance Core.ToJSON CreateHost where
   toJSON CreateHost' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VpcConfiguration" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("VpcConfiguration" Core..=)
               Prelude.<$> vpcConfiguration,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("ProviderType" Core..= providerType),
             Prelude.Just
@@ -216,9 +216,9 @@ instance Core.ToQuery CreateHost where
 
 -- | /See:/ 'newCreateHostResponse' smart constructor.
 data CreateHostResponse = CreateHostResponse'
-  { -- | The Amazon Resource Name (ARN) of the host to be created.
+  { tags :: Prelude.Maybe [Tag],
+    -- | The Amazon Resource Name (ARN) of the host to be created.
     hostArn :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -232,9 +232,9 @@ data CreateHostResponse = CreateHostResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostArn', 'createHostResponse_hostArn' - The Amazon Resource Name (ARN) of the host to be created.
---
 -- 'tags', 'createHostResponse_tags' - Undocumented member.
+--
+-- 'hostArn', 'createHostResponse_hostArn' - The Amazon Resource Name (ARN) of the host to be created.
 --
 -- 'httpStatus', 'createHostResponse_httpStatus' - The response's http status code.
 newCreateHostResponse ::
@@ -243,18 +243,18 @@ newCreateHostResponse ::
   CreateHostResponse
 newCreateHostResponse pHttpStatus_ =
   CreateHostResponse'
-    { hostArn = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      hostArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the host to be created.
-createHostResponse_hostArn :: Lens.Lens' CreateHostResponse (Prelude.Maybe Prelude.Text)
-createHostResponse_hostArn = Lens.lens (\CreateHostResponse' {hostArn} -> hostArn) (\s@CreateHostResponse' {} a -> s {hostArn = a} :: CreateHostResponse)
 
 -- | Undocumented member.
 createHostResponse_tags :: Lens.Lens' CreateHostResponse (Prelude.Maybe [Tag])
 createHostResponse_tags = Lens.lens (\CreateHostResponse' {tags} -> tags) (\s@CreateHostResponse' {} a -> s {tags = a} :: CreateHostResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the host to be created.
+createHostResponse_hostArn :: Lens.Lens' CreateHostResponse (Prelude.Maybe Prelude.Text)
+createHostResponse_hostArn = Lens.lens (\CreateHostResponse' {hostArn} -> hostArn) (\s@CreateHostResponse' {} a -> s {hostArn = a} :: CreateHostResponse)
 
 -- | The response's http status code.
 createHostResponse_httpStatus :: Lens.Lens' CreateHostResponse Prelude.Int
@@ -262,6 +262,6 @@ createHostResponse_httpStatus = Lens.lens (\CreateHostResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreateHostResponse where
   rnf CreateHostResponse' {..} =
-    Prelude.rnf hostArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf hostArn
       `Prelude.seq` Prelude.rnf httpStatus

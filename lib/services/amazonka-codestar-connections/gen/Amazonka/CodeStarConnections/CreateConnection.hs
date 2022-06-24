@@ -30,9 +30,9 @@ module Amazonka.CodeStarConnections.CreateConnection
     newCreateConnection,
 
     -- * Request Lenses
-    createConnection_providerType,
-    createConnection_hostArn,
     createConnection_tags,
+    createConnection_hostArn,
+    createConnection_providerType,
     createConnection_connectionName,
 
     -- * Destructuring the Response
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'
-  { -- | The name of the external provider where your third-party code repository
-    -- is configured.
-    providerType :: Prelude.Maybe ProviderType,
+  { -- | The key-value pair to use when tagging the resource.
+    tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the host associated with the
     -- connection to be created.
     hostArn :: Prelude.Maybe Prelude.Text,
-    -- | The key-value pair to use when tagging the resource.
-    tags :: Prelude.Maybe [Tag],
+    -- | The name of the external provider where your third-party code repository
+    -- is configured.
+    providerType :: Prelude.Maybe ProviderType,
     -- | The name of the connection to be created. The name must be unique in the
     -- calling AWS account.
     connectionName :: Prelude.Text
@@ -77,13 +77,13 @@ data CreateConnection = CreateConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'providerType', 'createConnection_providerType' - The name of the external provider where your third-party code repository
--- is configured.
+-- 'tags', 'createConnection_tags' - The key-value pair to use when tagging the resource.
 --
 -- 'hostArn', 'createConnection_hostArn' - The Amazon Resource Name (ARN) of the host associated with the
 -- connection to be created.
 --
--- 'tags', 'createConnection_tags' - The key-value pair to use when tagging the resource.
+-- 'providerType', 'createConnection_providerType' - The name of the external provider where your third-party code repository
+-- is configured.
 --
 -- 'connectionName', 'createConnection_connectionName' - The name of the connection to be created. The name must be unique in the
 -- calling AWS account.
@@ -93,25 +93,25 @@ newCreateConnection ::
   CreateConnection
 newCreateConnection pConnectionName_ =
   CreateConnection'
-    { providerType = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       hostArn = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      providerType = Prelude.Nothing,
       connectionName = pConnectionName_
     }
 
--- | The name of the external provider where your third-party code repository
--- is configured.
-createConnection_providerType :: Lens.Lens' CreateConnection (Prelude.Maybe ProviderType)
-createConnection_providerType = Lens.lens (\CreateConnection' {providerType} -> providerType) (\s@CreateConnection' {} a -> s {providerType = a} :: CreateConnection)
+-- | The key-value pair to use when tagging the resource.
+createConnection_tags :: Lens.Lens' CreateConnection (Prelude.Maybe [Tag])
+createConnection_tags = Lens.lens (\CreateConnection' {tags} -> tags) (\s@CreateConnection' {} a -> s {tags = a} :: CreateConnection) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the host associated with the
 -- connection to be created.
 createConnection_hostArn :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
 createConnection_hostArn = Lens.lens (\CreateConnection' {hostArn} -> hostArn) (\s@CreateConnection' {} a -> s {hostArn = a} :: CreateConnection)
 
--- | The key-value pair to use when tagging the resource.
-createConnection_tags :: Lens.Lens' CreateConnection (Prelude.Maybe [Tag])
-createConnection_tags = Lens.lens (\CreateConnection' {tags} -> tags) (\s@CreateConnection' {} a -> s {tags = a} :: CreateConnection) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the external provider where your third-party code repository
+-- is configured.
+createConnection_providerType :: Lens.Lens' CreateConnection (Prelude.Maybe ProviderType)
+createConnection_providerType = Lens.lens (\CreateConnection' {providerType} -> providerType) (\s@CreateConnection' {} a -> s {providerType = a} :: CreateConnection)
 
 -- | The name of the connection to be created. The name must be unique in the
 -- calling AWS account.
@@ -134,16 +134,16 @@ instance Core.AWSRequest CreateConnection where
 
 instance Prelude.Hashable CreateConnection where
   hashWithSalt _salt CreateConnection' {..} =
-    _salt `Prelude.hashWithSalt` providerType
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` hostArn
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` providerType
       `Prelude.hashWithSalt` connectionName
 
 instance Prelude.NFData CreateConnection where
   rnf CreateConnection' {..} =
-    Prelude.rnf providerType
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf hostArn
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf providerType
       `Prelude.seq` Prelude.rnf connectionName
 
 instance Core.ToHeaders CreateConnection where
@@ -165,9 +165,9 @@ instance Core.ToJSON CreateConnection where
   toJSON CreateConnection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ProviderType" Core..=) Prelude.<$> providerType,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("HostArn" Core..=) Prelude.<$> hostArn,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("ProviderType" Core..=) Prelude.<$> providerType,
             Prelude.Just
               ("ConnectionName" Core..= connectionName)
           ]

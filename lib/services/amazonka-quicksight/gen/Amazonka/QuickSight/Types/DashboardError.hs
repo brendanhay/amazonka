@@ -28,10 +28,10 @@ import Amazonka.QuickSight.Types.DashboardErrorType
 --
 -- /See:/ 'newDashboardError' smart constructor.
 data DashboardError = DashboardError'
-  { -- | Type.
-    type' :: Prelude.Maybe DashboardErrorType,
-    -- | Message.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | Message.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | Type.
+    type' :: Prelude.Maybe DashboardErrorType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data DashboardError = DashboardError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'dashboardError_type' - Type.
---
 -- 'message', 'dashboardError_message' - Message.
+--
+-- 'type'', 'dashboardError_type' - Type.
 newDashboardError ::
   DashboardError
 newDashboardError =
   DashboardError'
-    { type' = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | Type.
-dashboardError_type :: Lens.Lens' DashboardError (Prelude.Maybe DashboardErrorType)
-dashboardError_type = Lens.lens (\DashboardError' {type'} -> type') (\s@DashboardError' {} a -> s {type' = a} :: DashboardError)
 
 -- | Message.
 dashboardError_message :: Lens.Lens' DashboardError (Prelude.Maybe Prelude.Text)
 dashboardError_message = Lens.lens (\DashboardError' {message} -> message) (\s@DashboardError' {} a -> s {message = a} :: DashboardError)
+
+-- | Type.
+dashboardError_type :: Lens.Lens' DashboardError (Prelude.Maybe DashboardErrorType)
+dashboardError_type = Lens.lens (\DashboardError' {type'} -> type') (\s@DashboardError' {} a -> s {type' = a} :: DashboardError)
 
 instance Core.FromJSON DashboardError where
   parseJSON =
@@ -68,15 +68,15 @@ instance Core.FromJSON DashboardError where
       "DashboardError"
       ( \x ->
           DashboardError'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable DashboardError where
   hashWithSalt _salt DashboardError' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DashboardError where
   rnf DashboardError' {..} =
-    Prelude.rnf type' `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf type'

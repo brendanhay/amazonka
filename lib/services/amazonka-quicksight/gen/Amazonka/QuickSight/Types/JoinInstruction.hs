@@ -29,10 +29,10 @@ import Amazonka.QuickSight.Types.JoinType
 --
 -- /See:/ 'newJoinInstruction' smart constructor.
 data JoinInstruction = JoinInstruction'
-  { -- | Join key properties of the right operand.
-    rightJoinKeyProperties :: Prelude.Maybe JoinKeyProperties,
-    -- | Join key properties of the left operand.
+  { -- | Join key properties of the left operand.
     leftJoinKeyProperties :: Prelude.Maybe JoinKeyProperties,
+    -- | Join key properties of the right operand.
+    rightJoinKeyProperties :: Prelude.Maybe JoinKeyProperties,
     -- | The operand on the left side of a join.
     leftOperand :: Prelude.Text,
     -- | The operand on the right side of a join.
@@ -52,9 +52,9 @@ data JoinInstruction = JoinInstruction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rightJoinKeyProperties', 'joinInstruction_rightJoinKeyProperties' - Join key properties of the right operand.
---
 -- 'leftJoinKeyProperties', 'joinInstruction_leftJoinKeyProperties' - Join key properties of the left operand.
+--
+-- 'rightJoinKeyProperties', 'joinInstruction_rightJoinKeyProperties' - Join key properties of the right operand.
 --
 -- 'leftOperand', 'joinInstruction_leftOperand' - The operand on the left side of a join.
 --
@@ -79,22 +79,22 @@ newJoinInstruction
   pType_
   pOnClause_ =
     JoinInstruction'
-      { rightJoinKeyProperties =
+      { leftJoinKeyProperties =
           Prelude.Nothing,
-        leftJoinKeyProperties = Prelude.Nothing,
+        rightJoinKeyProperties = Prelude.Nothing,
         leftOperand = pLeftOperand_,
         rightOperand = pRightOperand_,
         type' = pType_,
         onClause = pOnClause_
       }
 
--- | Join key properties of the right operand.
-joinInstruction_rightJoinKeyProperties :: Lens.Lens' JoinInstruction (Prelude.Maybe JoinKeyProperties)
-joinInstruction_rightJoinKeyProperties = Lens.lens (\JoinInstruction' {rightJoinKeyProperties} -> rightJoinKeyProperties) (\s@JoinInstruction' {} a -> s {rightJoinKeyProperties = a} :: JoinInstruction)
-
 -- | Join key properties of the left operand.
 joinInstruction_leftJoinKeyProperties :: Lens.Lens' JoinInstruction (Prelude.Maybe JoinKeyProperties)
 joinInstruction_leftJoinKeyProperties = Lens.lens (\JoinInstruction' {leftJoinKeyProperties} -> leftJoinKeyProperties) (\s@JoinInstruction' {} a -> s {leftJoinKeyProperties = a} :: JoinInstruction)
+
+-- | Join key properties of the right operand.
+joinInstruction_rightJoinKeyProperties :: Lens.Lens' JoinInstruction (Prelude.Maybe JoinKeyProperties)
+joinInstruction_rightJoinKeyProperties = Lens.lens (\JoinInstruction' {rightJoinKeyProperties} -> rightJoinKeyProperties) (\s@JoinInstruction' {} a -> s {rightJoinKeyProperties = a} :: JoinInstruction)
 
 -- | The operand on the left side of a join.
 joinInstruction_leftOperand :: Lens.Lens' JoinInstruction Prelude.Text
@@ -118,8 +118,8 @@ instance Core.FromJSON JoinInstruction where
       "JoinInstruction"
       ( \x ->
           JoinInstruction'
-            Prelude.<$> (x Core..:? "RightJoinKeyProperties")
-            Prelude.<*> (x Core..:? "LeftJoinKeyProperties")
+            Prelude.<$> (x Core..:? "LeftJoinKeyProperties")
+            Prelude.<*> (x Core..:? "RightJoinKeyProperties")
             Prelude.<*> (x Core..: "LeftOperand")
             Prelude.<*> (x Core..: "RightOperand")
             Prelude.<*> (x Core..: "Type")
@@ -128,8 +128,8 @@ instance Core.FromJSON JoinInstruction where
 
 instance Prelude.Hashable JoinInstruction where
   hashWithSalt _salt JoinInstruction' {..} =
-    _salt `Prelude.hashWithSalt` rightJoinKeyProperties
-      `Prelude.hashWithSalt` leftJoinKeyProperties
+    _salt `Prelude.hashWithSalt` leftJoinKeyProperties
+      `Prelude.hashWithSalt` rightJoinKeyProperties
       `Prelude.hashWithSalt` leftOperand
       `Prelude.hashWithSalt` rightOperand
       `Prelude.hashWithSalt` type'
@@ -137,8 +137,8 @@ instance Prelude.Hashable JoinInstruction where
 
 instance Prelude.NFData JoinInstruction where
   rnf JoinInstruction' {..} =
-    Prelude.rnf rightJoinKeyProperties
-      `Prelude.seq` Prelude.rnf leftJoinKeyProperties
+    Prelude.rnf leftJoinKeyProperties
+      `Prelude.seq` Prelude.rnf rightJoinKeyProperties
       `Prelude.seq` Prelude.rnf leftOperand
       `Prelude.seq` Prelude.rnf rightOperand
       `Prelude.seq` Prelude.rnf type'
@@ -148,10 +148,10 @@ instance Core.ToJSON JoinInstruction where
   toJSON JoinInstruction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RightJoinKeyProperties" Core..=)
-              Prelude.<$> rightJoinKeyProperties,
-            ("LeftJoinKeyProperties" Core..=)
+          [ ("LeftJoinKeyProperties" Core..=)
               Prelude.<$> leftJoinKeyProperties,
+            ("RightJoinKeyProperties" Core..=)
+              Prelude.<$> rightJoinKeyProperties,
             Prelude.Just ("LeftOperand" Core..= leftOperand),
             Prelude.Just ("RightOperand" Core..= rightOperand),
             Prelude.Just ("Type" Core..= type'),

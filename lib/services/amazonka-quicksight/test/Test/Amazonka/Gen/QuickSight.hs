@@ -30,173 +30,14 @@ import Test.Tasty
 --         [ requestCancelIngestion $
 --             newCancelIngestion
 --
---         , requestUpdateDataSource $
---             newUpdateDataSource
+--         , requestCreateAccountCustomization $
+--             newCreateAccountCustomization
 --
---         , requestDeleteUserByPrincipalId $
---             newDeleteUserByPrincipalId
---
---         , requestDeleteDataSource $
---             newDeleteDataSource
---
---         , requestCreateTemplate $
---             newCreateTemplate
---
---         , requestDeleteGroupMembership $
---             newDeleteGroupMembership
---
---         , requestDescribeThemePermissions $
---             newDescribeThemePermissions
---
---         , requestListGroupMemberships $
---             newListGroupMemberships
---
---         , requestListFolders $
---             newListFolders
---
---         , requestDescribeDataSetPermissions $
---             newDescribeDataSetPermissions
---
---         , requestDeleteIAMPolicyAssignment $
---             newDeleteIAMPolicyAssignment
---
---         , requestUpdateIAMPolicyAssignment $
---             newUpdateIAMPolicyAssignment
---
---         , requestDescribeIngestion $
---             newDescribeIngestion
---
---         , requestDeleteFolder $
---             newDeleteFolder
---
---         , requestUpdateFolder $
---             newUpdateFolder
---
---         , requestListUserGroups $
---             newListUserGroups
---
---         , requestUpdateDashboardPublishedVersion $
---             newUpdateDashboardPublishedVersion
---
---         , requestDescribeAnalysisPermissions $
---             newDescribeAnalysisPermissions
---
---         , requestDeleteTemplateAlias $
---             newDeleteTemplateAlias
---
---         , requestUpdateTemplateAlias $
---             newUpdateTemplateAlias
---
---         , requestDescribeAnalysis $
---             newDescribeAnalysis
---
---         , requestUpdateFolderPermissions $
---             newUpdateFolderPermissions
---
---         , requestDescribeDataSet $
---             newDescribeDataSet
---
---         , requestListNamespaces $
---             newListNamespaces
---
---         , requestDeleteNamespace $
---             newDeleteNamespace
---
---         , requestCreateFolder $
---             newCreateFolder
---
---         , requestDescribeGroup $
---             newDescribeGroup
---
---         , requestDescribeThemeAlias $
---             newDescribeThemeAlias
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestUpdateAccountSettings $
---             newUpdateAccountSettings
---
---         , requestDescribeTemplatePermissions $
---             newDescribeTemplatePermissions
---
---         , requestListDashboards $
---             newListDashboards
---
---         , requestDescribeTemplate $
---             newDescribeTemplate
---
---         , requestDeleteFolderMembership $
---             newDeleteFolderMembership
---
---         , requestCreateTheme $
---             newCreateTheme
---
---         , requestListUsers $
---             newListUsers
---
---         , requestCreateFolderMembership $
---             newCreateFolderMembership
---
---         , requestUpdateThemePermissions $
---             newUpdateThemePermissions
---
---         , requestGetSessionEmbedUrl $
---             newGetSessionEmbedUrl
+--         , requestCreateAnalysis $
+--             newCreateAnalysis
 --
 --         , requestCreateDashboard $
 --             newCreateDashboard
---
---         , requestRegisterUser $
---             newRegisterUser
---
---         , requestDescribeDataSource $
---             newDescribeDataSource
---
---         , requestDescribeFolderResolvedPermissions $
---             newDescribeFolderResolvedPermissions
---
---         , requestUpdateAnalysisPermissions $
---             newUpdateAnalysisPermissions
---
---         , requestDeleteDataSet $
---             newDeleteDataSet
---
---         , requestUpdateDataSet $
---             newUpdateDataSet
---
---         , requestListThemeAliases $
---             newListThemeAliases
---
---         , requestUpdateAnalysis $
---             newUpdateAnalysis
---
---         , requestDeleteAnalysis $
---             newDeleteAnalysis
---
---         , requestSearchFolders $
---             newSearchFolders
---
---         , requestDescribeFolderPermissions $
---             newDescribeFolderPermissions
---
---         , requestUpdateDataSetPermissions $
---             newUpdateDataSetPermissions
---
---         , requestCreateThemeAlias $
---             newCreateThemeAlias
---
---         , requestDescribeFolder $
---             newDescribeFolder
---
---         , requestDescribeTemplateAlias $
---             newDescribeTemplateAlias
---
---         , requestDescribeIAMPolicyAssignment $
---             newDescribeIAMPolicyAssignment
---
---         , requestCreateIngestion $
---             newCreateIngestion
 --
 --         , requestCreateDataSet $
 --             newCreateDataSet
@@ -204,38 +45,188 @@ import Test.Tasty
 --         , requestCreateDataSource $
 --             newCreateDataSource
 --
---         , requestListTemplates $
---             newListTemplates
+--         , requestCreateFolder $
+--             newCreateFolder
 --
---         , requestDescribeAccountSettings $
---             newDescribeAccountSettings
+--         , requestCreateFolderMembership $
+--             newCreateFolderMembership
 --
---         , requestUpdateTemplate $
---             newUpdateTemplate
+--         , requestCreateGroup $
+--             newCreateGroup
+--
+--         , requestCreateGroupMembership $
+--             newCreateGroupMembership
+--
+--         , requestCreateIAMPolicyAssignment $
+--             newCreateIAMPolicyAssignment
+--
+--         , requestCreateIngestion $
+--             newCreateIngestion
+--
+--         , requestCreateNamespace $
+--             newCreateNamespace
+--
+--         , requestCreateTemplate $
+--             newCreateTemplate
+--
+--         , requestCreateTemplateAlias $
+--             newCreateTemplateAlias
+--
+--         , requestCreateTheme $
+--             newCreateTheme
+--
+--         , requestCreateThemeAlias $
+--             newCreateThemeAlias
+--
+--         , requestDeleteAccountCustomization $
+--             newDeleteAccountCustomization
+--
+--         , requestDeleteAnalysis $
+--             newDeleteAnalysis
+--
+--         , requestDeleteDashboard $
+--             newDeleteDashboard
+--
+--         , requestDeleteDataSet $
+--             newDeleteDataSet
+--
+--         , requestDeleteDataSource $
+--             newDeleteDataSource
+--
+--         , requestDeleteFolder $
+--             newDeleteFolder
+--
+--         , requestDeleteFolderMembership $
+--             newDeleteFolderMembership
+--
+--         , requestDeleteGroup $
+--             newDeleteGroup
+--
+--         , requestDeleteGroupMembership $
+--             newDeleteGroupMembership
+--
+--         , requestDeleteIAMPolicyAssignment $
+--             newDeleteIAMPolicyAssignment
+--
+--         , requestDeleteNamespace $
+--             newDeleteNamespace
 --
 --         , requestDeleteTemplate $
 --             newDeleteTemplate
 --
---         , requestUpdateTemplatePermissions $
---             newUpdateTemplatePermissions
+--         , requestDeleteTemplateAlias $
+--             newDeleteTemplateAlias
 --
---         , requestSearchDashboards $
---             newSearchDashboards
+--         , requestDeleteTheme $
+--             newDeleteTheme
 --
---         , requestUpdateDataSourcePermissions $
---             newUpdateDataSourcePermissions
+--         , requestDeleteThemeAlias $
+--             newDeleteThemeAlias
 --
---         , requestUpdateIpRestriction $
---             newUpdateIpRestriction
+--         , requestDeleteUser $
+--             newDeleteUser
 --
---         , requestDescribeUser $
---             newDescribeUser
+--         , requestDeleteUserByPrincipalId $
+--             newDeleteUserByPrincipalId
+--
+--         , requestDescribeAccountCustomization $
+--             newDescribeAccountCustomization
+--
+--         , requestDescribeAccountSettings $
+--             newDescribeAccountSettings
+--
+--         , requestDescribeAnalysis $
+--             newDescribeAnalysis
+--
+--         , requestDescribeAnalysisPermissions $
+--             newDescribeAnalysisPermissions
+--
+--         , requestDescribeDashboard $
+--             newDescribeDashboard
+--
+--         , requestDescribeDashboardPermissions $
+--             newDescribeDashboardPermissions
+--
+--         , requestDescribeDataSet $
+--             newDescribeDataSet
+--
+--         , requestDescribeDataSetPermissions $
+--             newDescribeDataSetPermissions
+--
+--         , requestDescribeDataSource $
+--             newDescribeDataSource
+--
+--         , requestDescribeDataSourcePermissions $
+--             newDescribeDataSourcePermissions
+--
+--         , requestDescribeFolder $
+--             newDescribeFolder
+--
+--         , requestDescribeFolderPermissions $
+--             newDescribeFolderPermissions
+--
+--         , requestDescribeFolderResolvedPermissions $
+--             newDescribeFolderResolvedPermissions
+--
+--         , requestDescribeGroup $
+--             newDescribeGroup
+--
+--         , requestDescribeIAMPolicyAssignment $
+--             newDescribeIAMPolicyAssignment
+--
+--         , requestDescribeIngestion $
+--             newDescribeIngestion
+--
+--         , requestDescribeIpRestriction $
+--             newDescribeIpRestriction
+--
+--         , requestDescribeNamespace $
+--             newDescribeNamespace
+--
+--         , requestDescribeTemplate $
+--             newDescribeTemplate
+--
+--         , requestDescribeTemplateAlias $
+--             newDescribeTemplateAlias
+--
+--         , requestDescribeTemplatePermissions $
+--             newDescribeTemplatePermissions
 --
 --         , requestDescribeTheme $
 --             newDescribeTheme
 --
+--         , requestDescribeThemeAlias $
+--             newDescribeThemeAlias
+--
+--         , requestDescribeThemePermissions $
+--             newDescribeThemePermissions
+--
+--         , requestDescribeUser $
+--             newDescribeUser
+--
+--         , requestGenerateEmbedUrlForAnonymousUser $
+--             newGenerateEmbedUrlForAnonymousUser
+--
+--         , requestGenerateEmbedUrlForRegisteredUser $
+--             newGenerateEmbedUrlForRegisteredUser
+--
+--         , requestGetDashboardEmbedUrl $
+--             newGetDashboardEmbedUrl
+--
+--         , requestGetSessionEmbedUrl $
+--             newGetSessionEmbedUrl
+--
 --         , requestListAnalyses $
 --             newListAnalyses
+--
+--         , requestListDashboardVersions $
+--             newListDashboardVersions
+--
+--         , requestListDashboards $
+--             newListDashboards
+--
+--         , requestListDataSets $
+--             newListDataSets
 --
 --         , requestListDataSources $
 --             newListDataSources
@@ -243,134 +234,143 @@ import Test.Tasty
 --         , requestListFolderMembers $
 --             newListFolderMembers
 --
---         , requestListIAMPolicyAssignments $
---             newListIAMPolicyAssignments
+--         , requestListFolders $
+--             newListFolders
 --
---         , requestListDashboardVersions $
---             newListDashboardVersions
---
---         , requestCreateNamespace $
---             newCreateNamespace
---
---         , requestCreateIAMPolicyAssignment $
---             newCreateIAMPolicyAssignment
---
---         , requestRestoreAnalysis $
---             newRestoreAnalysis
---
---         , requestCreateTemplateAlias $
---             newCreateTemplateAlias
---
---         , requestListTemplateAliases $
---             newListTemplateAliases
---
---         , requestGetDashboardEmbedUrl $
---             newGetDashboardEmbedUrl
---
---         , requestGenerateEmbedUrlForAnonymousUser $
---             newGenerateEmbedUrlForAnonymousUser
---
---         , requestListThemeVersions $
---             newListThemeVersions
---
---         , requestUpdateDashboardPermissions $
---             newUpdateDashboardPermissions
---
---         , requestListIAMPolicyAssignmentsForUser $
---             newListIAMPolicyAssignmentsForUser
---
---         , requestDeleteAccountCustomization $
---             newDeleteAccountCustomization
---
---         , requestUpdateAccountCustomization $
---             newUpdateAccountCustomization
---
---         , requestDeleteDashboard $
---             newDeleteDashboard
---
---         , requestUpdateDashboard $
---             newUpdateDashboard
---
---         , requestDescribeDataSourcePermissions $
---             newDescribeDataSourcePermissions
---
---         , requestUpdateUser $
---             newUpdateUser
---
---         , requestDeleteUser $
---             newDeleteUser
---
---         , requestSearchAnalyses $
---             newSearchAnalyses
---
---         , requestCreateAccountCustomization $
---             newCreateAccountCustomization
---
---         , requestDescribeIpRestriction $
---             newDescribeIpRestriction
---
---         , requestListThemes $
---             newListThemes
---
---         , requestTagResource $
---             newTagResource
---
---         , requestUpdateTheme $
---             newUpdateTheme
---
---         , requestDeleteTheme $
---             newDeleteTheme
---
---         , requestListIngestions $
---             newListIngestions
---
---         , requestCreateGroup $
---             newCreateGroup
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestListTemplateVersions $
---             newListTemplateVersions
---
---         , requestListDataSets $
---             newListDataSets
---
---         , requestDeleteThemeAlias $
---             newDeleteThemeAlias
---
---         , requestUpdateThemeAlias $
---             newUpdateThemeAlias
---
---         , requestDeleteGroup $
---             newDeleteGroup
---
---         , requestUpdateGroup $
---             newUpdateGroup
---
---         , requestDescribeNamespace $
---             newDescribeNamespace
+--         , requestListGroupMemberships $
+--             newListGroupMemberships
 --
 --         , requestListGroups $
 --             newListGroups
 --
---         , requestCreateAnalysis $
---             newCreateAnalysis
+--         , requestListIAMPolicyAssignments $
+--             newListIAMPolicyAssignments
 --
---         , requestDescribeAccountCustomization $
---             newDescribeAccountCustomization
+--         , requestListIAMPolicyAssignmentsForUser $
+--             newListIAMPolicyAssignmentsForUser
 --
---         , requestGenerateEmbedUrlForRegisteredUser $
---             newGenerateEmbedUrlForRegisteredUser
+--         , requestListIngestions $
+--             newListIngestions
 --
---         , requestDescribeDashboard $
---             newDescribeDashboard
+--         , requestListNamespaces $
+--             newListNamespaces
 --
---         , requestCreateGroupMembership $
---             newCreateGroupMembership
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
---         , requestDescribeDashboardPermissions $
---             newDescribeDashboardPermissions
+--         , requestListTemplateAliases $
+--             newListTemplateAliases
+--
+--         , requestListTemplateVersions $
+--             newListTemplateVersions
+--
+--         , requestListTemplates $
+--             newListTemplates
+--
+--         , requestListThemeAliases $
+--             newListThemeAliases
+--
+--         , requestListThemeVersions $
+--             newListThemeVersions
+--
+--         , requestListThemes $
+--             newListThemes
+--
+--         , requestListUserGroups $
+--             newListUserGroups
+--
+--         , requestListUsers $
+--             newListUsers
+--
+--         , requestRegisterUser $
+--             newRegisterUser
+--
+--         , requestRestoreAnalysis $
+--             newRestoreAnalysis
+--
+--         , requestSearchAnalyses $
+--             newSearchAnalyses
+--
+--         , requestSearchDashboards $
+--             newSearchDashboards
+--
+--         , requestSearchFolders $
+--             newSearchFolders
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateAccountCustomization $
+--             newUpdateAccountCustomization
+--
+--         , requestUpdateAccountSettings $
+--             newUpdateAccountSettings
+--
+--         , requestUpdateAnalysis $
+--             newUpdateAnalysis
+--
+--         , requestUpdateAnalysisPermissions $
+--             newUpdateAnalysisPermissions
+--
+--         , requestUpdateDashboard $
+--             newUpdateDashboard
+--
+--         , requestUpdateDashboardPermissions $
+--             newUpdateDashboardPermissions
+--
+--         , requestUpdateDashboardPublishedVersion $
+--             newUpdateDashboardPublishedVersion
+--
+--         , requestUpdateDataSet $
+--             newUpdateDataSet
+--
+--         , requestUpdateDataSetPermissions $
+--             newUpdateDataSetPermissions
+--
+--         , requestUpdateDataSource $
+--             newUpdateDataSource
+--
+--         , requestUpdateDataSourcePermissions $
+--             newUpdateDataSourcePermissions
+--
+--         , requestUpdateFolder $
+--             newUpdateFolder
+--
+--         , requestUpdateFolderPermissions $
+--             newUpdateFolderPermissions
+--
+--         , requestUpdateGroup $
+--             newUpdateGroup
+--
+--         , requestUpdateIAMPolicyAssignment $
+--             newUpdateIAMPolicyAssignment
+--
+--         , requestUpdateIpRestriction $
+--             newUpdateIpRestriction
+--
+--         , requestUpdateTemplate $
+--             newUpdateTemplate
+--
+--         , requestUpdateTemplateAlias $
+--             newUpdateTemplateAlias
+--
+--         , requestUpdateTemplatePermissions $
+--             newUpdateTemplatePermissions
+--
+--         , requestUpdateTheme $
+--             newUpdateTheme
+--
+--         , requestUpdateThemeAlias $
+--             newUpdateThemeAlias
+--
+--         , requestUpdateThemePermissions $
+--             newUpdateThemePermissions
+--
+--         , requestUpdateUser $
+--             newUpdateUser
 --
 --           ]
 
@@ -378,173 +378,14 @@ import Test.Tasty
 --         [ responseCancelIngestion $
 --             newCancelIngestionResponse
 --
---         , responseUpdateDataSource $
---             newUpdateDataSourceResponse
+--         , responseCreateAccountCustomization $
+--             newCreateAccountCustomizationResponse
 --
---         , responseDeleteUserByPrincipalId $
---             newDeleteUserByPrincipalIdResponse
---
---         , responseDeleteDataSource $
---             newDeleteDataSourceResponse
---
---         , responseCreateTemplate $
---             newCreateTemplateResponse
---
---         , responseDeleteGroupMembership $
---             newDeleteGroupMembershipResponse
---
---         , responseDescribeThemePermissions $
---             newDescribeThemePermissionsResponse
---
---         , responseListGroupMemberships $
---             newListGroupMembershipsResponse
---
---         , responseListFolders $
---             newListFoldersResponse
---
---         , responseDescribeDataSetPermissions $
---             newDescribeDataSetPermissionsResponse
---
---         , responseDeleteIAMPolicyAssignment $
---             newDeleteIAMPolicyAssignmentResponse
---
---         , responseUpdateIAMPolicyAssignment $
---             newUpdateIAMPolicyAssignmentResponse
---
---         , responseDescribeIngestion $
---             newDescribeIngestionResponse
---
---         , responseDeleteFolder $
---             newDeleteFolderResponse
---
---         , responseUpdateFolder $
---             newUpdateFolderResponse
---
---         , responseListUserGroups $
---             newListUserGroupsResponse
---
---         , responseUpdateDashboardPublishedVersion $
---             newUpdateDashboardPublishedVersionResponse
---
---         , responseDescribeAnalysisPermissions $
---             newDescribeAnalysisPermissionsResponse
---
---         , responseDeleteTemplateAlias $
---             newDeleteTemplateAliasResponse
---
---         , responseUpdateTemplateAlias $
---             newUpdateTemplateAliasResponse
---
---         , responseDescribeAnalysis $
---             newDescribeAnalysisResponse
---
---         , responseUpdateFolderPermissions $
---             newUpdateFolderPermissionsResponse
---
---         , responseDescribeDataSet $
---             newDescribeDataSetResponse
---
---         , responseListNamespaces $
---             newListNamespacesResponse
---
---         , responseDeleteNamespace $
---             newDeleteNamespaceResponse
---
---         , responseCreateFolder $
---             newCreateFolderResponse
---
---         , responseDescribeGroup $
---             newDescribeGroupResponse
---
---         , responseDescribeThemeAlias $
---             newDescribeThemeAliasResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseUpdateAccountSettings $
---             newUpdateAccountSettingsResponse
---
---         , responseDescribeTemplatePermissions $
---             newDescribeTemplatePermissionsResponse
---
---         , responseListDashboards $
---             newListDashboardsResponse
---
---         , responseDescribeTemplate $
---             newDescribeTemplateResponse
---
---         , responseDeleteFolderMembership $
---             newDeleteFolderMembershipResponse
---
---         , responseCreateTheme $
---             newCreateThemeResponse
---
---         , responseListUsers $
---             newListUsersResponse
---
---         , responseCreateFolderMembership $
---             newCreateFolderMembershipResponse
---
---         , responseUpdateThemePermissions $
---             newUpdateThemePermissionsResponse
---
---         , responseGetSessionEmbedUrl $
---             newGetSessionEmbedUrlResponse
+--         , responseCreateAnalysis $
+--             newCreateAnalysisResponse
 --
 --         , responseCreateDashboard $
 --             newCreateDashboardResponse
---
---         , responseRegisterUser $
---             newRegisterUserResponse
---
---         , responseDescribeDataSource $
---             newDescribeDataSourceResponse
---
---         , responseDescribeFolderResolvedPermissions $
---             newDescribeFolderResolvedPermissionsResponse
---
---         , responseUpdateAnalysisPermissions $
---             newUpdateAnalysisPermissionsResponse
---
---         , responseDeleteDataSet $
---             newDeleteDataSetResponse
---
---         , responseUpdateDataSet $
---             newUpdateDataSetResponse
---
---         , responseListThemeAliases $
---             newListThemeAliasesResponse
---
---         , responseUpdateAnalysis $
---             newUpdateAnalysisResponse
---
---         , responseDeleteAnalysis $
---             newDeleteAnalysisResponse
---
---         , responseSearchFolders $
---             newSearchFoldersResponse
---
---         , responseDescribeFolderPermissions $
---             newDescribeFolderPermissionsResponse
---
---         , responseUpdateDataSetPermissions $
---             newUpdateDataSetPermissionsResponse
---
---         , responseCreateThemeAlias $
---             newCreateThemeAliasResponse
---
---         , responseDescribeFolder $
---             newDescribeFolderResponse
---
---         , responseDescribeTemplateAlias $
---             newDescribeTemplateAliasResponse
---
---         , responseDescribeIAMPolicyAssignment $
---             newDescribeIAMPolicyAssignmentResponse
---
---         , responseCreateIngestion $
---             newCreateIngestionResponse
 --
 --         , responseCreateDataSet $
 --             newCreateDataSetResponse
@@ -552,38 +393,188 @@ import Test.Tasty
 --         , responseCreateDataSource $
 --             newCreateDataSourceResponse
 --
---         , responseListTemplates $
---             newListTemplatesResponse
+--         , responseCreateFolder $
+--             newCreateFolderResponse
 --
---         , responseDescribeAccountSettings $
---             newDescribeAccountSettingsResponse
+--         , responseCreateFolderMembership $
+--             newCreateFolderMembershipResponse
 --
---         , responseUpdateTemplate $
---             newUpdateTemplateResponse
+--         , responseCreateGroup $
+--             newCreateGroupResponse
+--
+--         , responseCreateGroupMembership $
+--             newCreateGroupMembershipResponse
+--
+--         , responseCreateIAMPolicyAssignment $
+--             newCreateIAMPolicyAssignmentResponse
+--
+--         , responseCreateIngestion $
+--             newCreateIngestionResponse
+--
+--         , responseCreateNamespace $
+--             newCreateNamespaceResponse
+--
+--         , responseCreateTemplate $
+--             newCreateTemplateResponse
+--
+--         , responseCreateTemplateAlias $
+--             newCreateTemplateAliasResponse
+--
+--         , responseCreateTheme $
+--             newCreateThemeResponse
+--
+--         , responseCreateThemeAlias $
+--             newCreateThemeAliasResponse
+--
+--         , responseDeleteAccountCustomization $
+--             newDeleteAccountCustomizationResponse
+--
+--         , responseDeleteAnalysis $
+--             newDeleteAnalysisResponse
+--
+--         , responseDeleteDashboard $
+--             newDeleteDashboardResponse
+--
+--         , responseDeleteDataSet $
+--             newDeleteDataSetResponse
+--
+--         , responseDeleteDataSource $
+--             newDeleteDataSourceResponse
+--
+--         , responseDeleteFolder $
+--             newDeleteFolderResponse
+--
+--         , responseDeleteFolderMembership $
+--             newDeleteFolderMembershipResponse
+--
+--         , responseDeleteGroup $
+--             newDeleteGroupResponse
+--
+--         , responseDeleteGroupMembership $
+--             newDeleteGroupMembershipResponse
+--
+--         , responseDeleteIAMPolicyAssignment $
+--             newDeleteIAMPolicyAssignmentResponse
+--
+--         , responseDeleteNamespace $
+--             newDeleteNamespaceResponse
 --
 --         , responseDeleteTemplate $
 --             newDeleteTemplateResponse
 --
---         , responseUpdateTemplatePermissions $
---             newUpdateTemplatePermissionsResponse
+--         , responseDeleteTemplateAlias $
+--             newDeleteTemplateAliasResponse
 --
---         , responseSearchDashboards $
---             newSearchDashboardsResponse
+--         , responseDeleteTheme $
+--             newDeleteThemeResponse
 --
---         , responseUpdateDataSourcePermissions $
---             newUpdateDataSourcePermissionsResponse
+--         , responseDeleteThemeAlias $
+--             newDeleteThemeAliasResponse
 --
---         , responseUpdateIpRestriction $
---             newUpdateIpRestrictionResponse
+--         , responseDeleteUser $
+--             newDeleteUserResponse
 --
---         , responseDescribeUser $
---             newDescribeUserResponse
+--         , responseDeleteUserByPrincipalId $
+--             newDeleteUserByPrincipalIdResponse
+--
+--         , responseDescribeAccountCustomization $
+--             newDescribeAccountCustomizationResponse
+--
+--         , responseDescribeAccountSettings $
+--             newDescribeAccountSettingsResponse
+--
+--         , responseDescribeAnalysis $
+--             newDescribeAnalysisResponse
+--
+--         , responseDescribeAnalysisPermissions $
+--             newDescribeAnalysisPermissionsResponse
+--
+--         , responseDescribeDashboard $
+--             newDescribeDashboardResponse
+--
+--         , responseDescribeDashboardPermissions $
+--             newDescribeDashboardPermissionsResponse
+--
+--         , responseDescribeDataSet $
+--             newDescribeDataSetResponse
+--
+--         , responseDescribeDataSetPermissions $
+--             newDescribeDataSetPermissionsResponse
+--
+--         , responseDescribeDataSource $
+--             newDescribeDataSourceResponse
+--
+--         , responseDescribeDataSourcePermissions $
+--             newDescribeDataSourcePermissionsResponse
+--
+--         , responseDescribeFolder $
+--             newDescribeFolderResponse
+--
+--         , responseDescribeFolderPermissions $
+--             newDescribeFolderPermissionsResponse
+--
+--         , responseDescribeFolderResolvedPermissions $
+--             newDescribeFolderResolvedPermissionsResponse
+--
+--         , responseDescribeGroup $
+--             newDescribeGroupResponse
+--
+--         , responseDescribeIAMPolicyAssignment $
+--             newDescribeIAMPolicyAssignmentResponse
+--
+--         , responseDescribeIngestion $
+--             newDescribeIngestionResponse
+--
+--         , responseDescribeIpRestriction $
+--             newDescribeIpRestrictionResponse
+--
+--         , responseDescribeNamespace $
+--             newDescribeNamespaceResponse
+--
+--         , responseDescribeTemplate $
+--             newDescribeTemplateResponse
+--
+--         , responseDescribeTemplateAlias $
+--             newDescribeTemplateAliasResponse
+--
+--         , responseDescribeTemplatePermissions $
+--             newDescribeTemplatePermissionsResponse
 --
 --         , responseDescribeTheme $
 --             newDescribeThemeResponse
 --
+--         , responseDescribeThemeAlias $
+--             newDescribeThemeAliasResponse
+--
+--         , responseDescribeThemePermissions $
+--             newDescribeThemePermissionsResponse
+--
+--         , responseDescribeUser $
+--             newDescribeUserResponse
+--
+--         , responseGenerateEmbedUrlForAnonymousUser $
+--             newGenerateEmbedUrlForAnonymousUserResponse
+--
+--         , responseGenerateEmbedUrlForRegisteredUser $
+--             newGenerateEmbedUrlForRegisteredUserResponse
+--
+--         , responseGetDashboardEmbedUrl $
+--             newGetDashboardEmbedUrlResponse
+--
+--         , responseGetSessionEmbedUrl $
+--             newGetSessionEmbedUrlResponse
+--
 --         , responseListAnalyses $
 --             newListAnalysesResponse
+--
+--         , responseListDashboardVersions $
+--             newListDashboardVersionsResponse
+--
+--         , responseListDashboards $
+--             newListDashboardsResponse
+--
+--         , responseListDataSets $
+--             newListDataSetsResponse
 --
 --         , responseListDataSources $
 --             newListDataSourcesResponse
@@ -591,134 +582,143 @@ import Test.Tasty
 --         , responseListFolderMembers $
 --             newListFolderMembersResponse
 --
---         , responseListIAMPolicyAssignments $
---             newListIAMPolicyAssignmentsResponse
+--         , responseListFolders $
+--             newListFoldersResponse
 --
---         , responseListDashboardVersions $
---             newListDashboardVersionsResponse
---
---         , responseCreateNamespace $
---             newCreateNamespaceResponse
---
---         , responseCreateIAMPolicyAssignment $
---             newCreateIAMPolicyAssignmentResponse
---
---         , responseRestoreAnalysis $
---             newRestoreAnalysisResponse
---
---         , responseCreateTemplateAlias $
---             newCreateTemplateAliasResponse
---
---         , responseListTemplateAliases $
---             newListTemplateAliasesResponse
---
---         , responseGetDashboardEmbedUrl $
---             newGetDashboardEmbedUrlResponse
---
---         , responseGenerateEmbedUrlForAnonymousUser $
---             newGenerateEmbedUrlForAnonymousUserResponse
---
---         , responseListThemeVersions $
---             newListThemeVersionsResponse
---
---         , responseUpdateDashboardPermissions $
---             newUpdateDashboardPermissionsResponse
---
---         , responseListIAMPolicyAssignmentsForUser $
---             newListIAMPolicyAssignmentsForUserResponse
---
---         , responseDeleteAccountCustomization $
---             newDeleteAccountCustomizationResponse
---
---         , responseUpdateAccountCustomization $
---             newUpdateAccountCustomizationResponse
---
---         , responseDeleteDashboard $
---             newDeleteDashboardResponse
---
---         , responseUpdateDashboard $
---             newUpdateDashboardResponse
---
---         , responseDescribeDataSourcePermissions $
---             newDescribeDataSourcePermissionsResponse
---
---         , responseUpdateUser $
---             newUpdateUserResponse
---
---         , responseDeleteUser $
---             newDeleteUserResponse
---
---         , responseSearchAnalyses $
---             newSearchAnalysesResponse
---
---         , responseCreateAccountCustomization $
---             newCreateAccountCustomizationResponse
---
---         , responseDescribeIpRestriction $
---             newDescribeIpRestrictionResponse
---
---         , responseListThemes $
---             newListThemesResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseUpdateTheme $
---             newUpdateThemeResponse
---
---         , responseDeleteTheme $
---             newDeleteThemeResponse
---
---         , responseListIngestions $
---             newListIngestionsResponse
---
---         , responseCreateGroup $
---             newCreateGroupResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseListTemplateVersions $
---             newListTemplateVersionsResponse
---
---         , responseListDataSets $
---             newListDataSetsResponse
---
---         , responseDeleteThemeAlias $
---             newDeleteThemeAliasResponse
---
---         , responseUpdateThemeAlias $
---             newUpdateThemeAliasResponse
---
---         , responseDeleteGroup $
---             newDeleteGroupResponse
---
---         , responseUpdateGroup $
---             newUpdateGroupResponse
---
---         , responseDescribeNamespace $
---             newDescribeNamespaceResponse
+--         , responseListGroupMemberships $
+--             newListGroupMembershipsResponse
 --
 --         , responseListGroups $
 --             newListGroupsResponse
 --
---         , responseCreateAnalysis $
---             newCreateAnalysisResponse
+--         , responseListIAMPolicyAssignments $
+--             newListIAMPolicyAssignmentsResponse
 --
---         , responseDescribeAccountCustomization $
---             newDescribeAccountCustomizationResponse
+--         , responseListIAMPolicyAssignmentsForUser $
+--             newListIAMPolicyAssignmentsForUserResponse
 --
---         , responseGenerateEmbedUrlForRegisteredUser $
---             newGenerateEmbedUrlForRegisteredUserResponse
+--         , responseListIngestions $
+--             newListIngestionsResponse
 --
---         , responseDescribeDashboard $
---             newDescribeDashboardResponse
+--         , responseListNamespaces $
+--             newListNamespacesResponse
 --
---         , responseCreateGroupMembership $
---             newCreateGroupMembershipResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
---         , responseDescribeDashboardPermissions $
---             newDescribeDashboardPermissionsResponse
+--         , responseListTemplateAliases $
+--             newListTemplateAliasesResponse
+--
+--         , responseListTemplateVersions $
+--             newListTemplateVersionsResponse
+--
+--         , responseListTemplates $
+--             newListTemplatesResponse
+--
+--         , responseListThemeAliases $
+--             newListThemeAliasesResponse
+--
+--         , responseListThemeVersions $
+--             newListThemeVersionsResponse
+--
+--         , responseListThemes $
+--             newListThemesResponse
+--
+--         , responseListUserGroups $
+--             newListUserGroupsResponse
+--
+--         , responseListUsers $
+--             newListUsersResponse
+--
+--         , responseRegisterUser $
+--             newRegisterUserResponse
+--
+--         , responseRestoreAnalysis $
+--             newRestoreAnalysisResponse
+--
+--         , responseSearchAnalyses $
+--             newSearchAnalysesResponse
+--
+--         , responseSearchDashboards $
+--             newSearchDashboardsResponse
+--
+--         , responseSearchFolders $
+--             newSearchFoldersResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateAccountCustomization $
+--             newUpdateAccountCustomizationResponse
+--
+--         , responseUpdateAccountSettings $
+--             newUpdateAccountSettingsResponse
+--
+--         , responseUpdateAnalysis $
+--             newUpdateAnalysisResponse
+--
+--         , responseUpdateAnalysisPermissions $
+--             newUpdateAnalysisPermissionsResponse
+--
+--         , responseUpdateDashboard $
+--             newUpdateDashboardResponse
+--
+--         , responseUpdateDashboardPermissions $
+--             newUpdateDashboardPermissionsResponse
+--
+--         , responseUpdateDashboardPublishedVersion $
+--             newUpdateDashboardPublishedVersionResponse
+--
+--         , responseUpdateDataSet $
+--             newUpdateDataSetResponse
+--
+--         , responseUpdateDataSetPermissions $
+--             newUpdateDataSetPermissionsResponse
+--
+--         , responseUpdateDataSource $
+--             newUpdateDataSourceResponse
+--
+--         , responseUpdateDataSourcePermissions $
+--             newUpdateDataSourcePermissionsResponse
+--
+--         , responseUpdateFolder $
+--             newUpdateFolderResponse
+--
+--         , responseUpdateFolderPermissions $
+--             newUpdateFolderPermissionsResponse
+--
+--         , responseUpdateGroup $
+--             newUpdateGroupResponse
+--
+--         , responseUpdateIAMPolicyAssignment $
+--             newUpdateIAMPolicyAssignmentResponse
+--
+--         , responseUpdateIpRestriction $
+--             newUpdateIpRestrictionResponse
+--
+--         , responseUpdateTemplate $
+--             newUpdateTemplateResponse
+--
+--         , responseUpdateTemplateAlias $
+--             newUpdateTemplateAliasResponse
+--
+--         , responseUpdateTemplatePermissions $
+--             newUpdateTemplatePermissionsResponse
+--
+--         , responseUpdateTheme $
+--             newUpdateThemeResponse
+--
+--         , responseUpdateThemeAlias $
+--             newUpdateThemeAliasResponse
+--
+--         , responseUpdateThemePermissions $
+--             newUpdateThemePermissionsResponse
+--
+--         , responseUpdateUser $
+--             newUpdateUserResponse
 --
 --           ]
 --     ]
@@ -731,341 +731,23 @@ requestCancelIngestion =
     "CancelIngestion"
     "fixture/CancelIngestion.yaml"
 
-requestUpdateDataSource :: UpdateDataSource -> TestTree
-requestUpdateDataSource =
+requestCreateAccountCustomization :: CreateAccountCustomization -> TestTree
+requestCreateAccountCustomization =
   req
-    "UpdateDataSource"
-    "fixture/UpdateDataSource.yaml"
+    "CreateAccountCustomization"
+    "fixture/CreateAccountCustomization.yaml"
 
-requestDeleteUserByPrincipalId :: DeleteUserByPrincipalId -> TestTree
-requestDeleteUserByPrincipalId =
+requestCreateAnalysis :: CreateAnalysis -> TestTree
+requestCreateAnalysis =
   req
-    "DeleteUserByPrincipalId"
-    "fixture/DeleteUserByPrincipalId.yaml"
-
-requestDeleteDataSource :: DeleteDataSource -> TestTree
-requestDeleteDataSource =
-  req
-    "DeleteDataSource"
-    "fixture/DeleteDataSource.yaml"
-
-requestCreateTemplate :: CreateTemplate -> TestTree
-requestCreateTemplate =
-  req
-    "CreateTemplate"
-    "fixture/CreateTemplate.yaml"
-
-requestDeleteGroupMembership :: DeleteGroupMembership -> TestTree
-requestDeleteGroupMembership =
-  req
-    "DeleteGroupMembership"
-    "fixture/DeleteGroupMembership.yaml"
-
-requestDescribeThemePermissions :: DescribeThemePermissions -> TestTree
-requestDescribeThemePermissions =
-  req
-    "DescribeThemePermissions"
-    "fixture/DescribeThemePermissions.yaml"
-
-requestListGroupMemberships :: ListGroupMemberships -> TestTree
-requestListGroupMemberships =
-  req
-    "ListGroupMemberships"
-    "fixture/ListGroupMemberships.yaml"
-
-requestListFolders :: ListFolders -> TestTree
-requestListFolders =
-  req
-    "ListFolders"
-    "fixture/ListFolders.yaml"
-
-requestDescribeDataSetPermissions :: DescribeDataSetPermissions -> TestTree
-requestDescribeDataSetPermissions =
-  req
-    "DescribeDataSetPermissions"
-    "fixture/DescribeDataSetPermissions.yaml"
-
-requestDeleteIAMPolicyAssignment :: DeleteIAMPolicyAssignment -> TestTree
-requestDeleteIAMPolicyAssignment =
-  req
-    "DeleteIAMPolicyAssignment"
-    "fixture/DeleteIAMPolicyAssignment.yaml"
-
-requestUpdateIAMPolicyAssignment :: UpdateIAMPolicyAssignment -> TestTree
-requestUpdateIAMPolicyAssignment =
-  req
-    "UpdateIAMPolicyAssignment"
-    "fixture/UpdateIAMPolicyAssignment.yaml"
-
-requestDescribeIngestion :: DescribeIngestion -> TestTree
-requestDescribeIngestion =
-  req
-    "DescribeIngestion"
-    "fixture/DescribeIngestion.yaml"
-
-requestDeleteFolder :: DeleteFolder -> TestTree
-requestDeleteFolder =
-  req
-    "DeleteFolder"
-    "fixture/DeleteFolder.yaml"
-
-requestUpdateFolder :: UpdateFolder -> TestTree
-requestUpdateFolder =
-  req
-    "UpdateFolder"
-    "fixture/UpdateFolder.yaml"
-
-requestListUserGroups :: ListUserGroups -> TestTree
-requestListUserGroups =
-  req
-    "ListUserGroups"
-    "fixture/ListUserGroups.yaml"
-
-requestUpdateDashboardPublishedVersion :: UpdateDashboardPublishedVersion -> TestTree
-requestUpdateDashboardPublishedVersion =
-  req
-    "UpdateDashboardPublishedVersion"
-    "fixture/UpdateDashboardPublishedVersion.yaml"
-
-requestDescribeAnalysisPermissions :: DescribeAnalysisPermissions -> TestTree
-requestDescribeAnalysisPermissions =
-  req
-    "DescribeAnalysisPermissions"
-    "fixture/DescribeAnalysisPermissions.yaml"
-
-requestDeleteTemplateAlias :: DeleteTemplateAlias -> TestTree
-requestDeleteTemplateAlias =
-  req
-    "DeleteTemplateAlias"
-    "fixture/DeleteTemplateAlias.yaml"
-
-requestUpdateTemplateAlias :: UpdateTemplateAlias -> TestTree
-requestUpdateTemplateAlias =
-  req
-    "UpdateTemplateAlias"
-    "fixture/UpdateTemplateAlias.yaml"
-
-requestDescribeAnalysis :: DescribeAnalysis -> TestTree
-requestDescribeAnalysis =
-  req
-    "DescribeAnalysis"
-    "fixture/DescribeAnalysis.yaml"
-
-requestUpdateFolderPermissions :: UpdateFolderPermissions -> TestTree
-requestUpdateFolderPermissions =
-  req
-    "UpdateFolderPermissions"
-    "fixture/UpdateFolderPermissions.yaml"
-
-requestDescribeDataSet :: DescribeDataSet -> TestTree
-requestDescribeDataSet =
-  req
-    "DescribeDataSet"
-    "fixture/DescribeDataSet.yaml"
-
-requestListNamespaces :: ListNamespaces -> TestTree
-requestListNamespaces =
-  req
-    "ListNamespaces"
-    "fixture/ListNamespaces.yaml"
-
-requestDeleteNamespace :: DeleteNamespace -> TestTree
-requestDeleteNamespace =
-  req
-    "DeleteNamespace"
-    "fixture/DeleteNamespace.yaml"
-
-requestCreateFolder :: CreateFolder -> TestTree
-requestCreateFolder =
-  req
-    "CreateFolder"
-    "fixture/CreateFolder.yaml"
-
-requestDescribeGroup :: DescribeGroup -> TestTree
-requestDescribeGroup =
-  req
-    "DescribeGroup"
-    "fixture/DescribeGroup.yaml"
-
-requestDescribeThemeAlias :: DescribeThemeAlias -> TestTree
-requestDescribeThemeAlias =
-  req
-    "DescribeThemeAlias"
-    "fixture/DescribeThemeAlias.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestUpdateAccountSettings :: UpdateAccountSettings -> TestTree
-requestUpdateAccountSettings =
-  req
-    "UpdateAccountSettings"
-    "fixture/UpdateAccountSettings.yaml"
-
-requestDescribeTemplatePermissions :: DescribeTemplatePermissions -> TestTree
-requestDescribeTemplatePermissions =
-  req
-    "DescribeTemplatePermissions"
-    "fixture/DescribeTemplatePermissions.yaml"
-
-requestListDashboards :: ListDashboards -> TestTree
-requestListDashboards =
-  req
-    "ListDashboards"
-    "fixture/ListDashboards.yaml"
-
-requestDescribeTemplate :: DescribeTemplate -> TestTree
-requestDescribeTemplate =
-  req
-    "DescribeTemplate"
-    "fixture/DescribeTemplate.yaml"
-
-requestDeleteFolderMembership :: DeleteFolderMembership -> TestTree
-requestDeleteFolderMembership =
-  req
-    "DeleteFolderMembership"
-    "fixture/DeleteFolderMembership.yaml"
-
-requestCreateTheme :: CreateTheme -> TestTree
-requestCreateTheme =
-  req
-    "CreateTheme"
-    "fixture/CreateTheme.yaml"
-
-requestListUsers :: ListUsers -> TestTree
-requestListUsers =
-  req
-    "ListUsers"
-    "fixture/ListUsers.yaml"
-
-requestCreateFolderMembership :: CreateFolderMembership -> TestTree
-requestCreateFolderMembership =
-  req
-    "CreateFolderMembership"
-    "fixture/CreateFolderMembership.yaml"
-
-requestUpdateThemePermissions :: UpdateThemePermissions -> TestTree
-requestUpdateThemePermissions =
-  req
-    "UpdateThemePermissions"
-    "fixture/UpdateThemePermissions.yaml"
-
-requestGetSessionEmbedUrl :: GetSessionEmbedUrl -> TestTree
-requestGetSessionEmbedUrl =
-  req
-    "GetSessionEmbedUrl"
-    "fixture/GetSessionEmbedUrl.yaml"
+    "CreateAnalysis"
+    "fixture/CreateAnalysis.yaml"
 
 requestCreateDashboard :: CreateDashboard -> TestTree
 requestCreateDashboard =
   req
     "CreateDashboard"
     "fixture/CreateDashboard.yaml"
-
-requestRegisterUser :: RegisterUser -> TestTree
-requestRegisterUser =
-  req
-    "RegisterUser"
-    "fixture/RegisterUser.yaml"
-
-requestDescribeDataSource :: DescribeDataSource -> TestTree
-requestDescribeDataSource =
-  req
-    "DescribeDataSource"
-    "fixture/DescribeDataSource.yaml"
-
-requestDescribeFolderResolvedPermissions :: DescribeFolderResolvedPermissions -> TestTree
-requestDescribeFolderResolvedPermissions =
-  req
-    "DescribeFolderResolvedPermissions"
-    "fixture/DescribeFolderResolvedPermissions.yaml"
-
-requestUpdateAnalysisPermissions :: UpdateAnalysisPermissions -> TestTree
-requestUpdateAnalysisPermissions =
-  req
-    "UpdateAnalysisPermissions"
-    "fixture/UpdateAnalysisPermissions.yaml"
-
-requestDeleteDataSet :: DeleteDataSet -> TestTree
-requestDeleteDataSet =
-  req
-    "DeleteDataSet"
-    "fixture/DeleteDataSet.yaml"
-
-requestUpdateDataSet :: UpdateDataSet -> TestTree
-requestUpdateDataSet =
-  req
-    "UpdateDataSet"
-    "fixture/UpdateDataSet.yaml"
-
-requestListThemeAliases :: ListThemeAliases -> TestTree
-requestListThemeAliases =
-  req
-    "ListThemeAliases"
-    "fixture/ListThemeAliases.yaml"
-
-requestUpdateAnalysis :: UpdateAnalysis -> TestTree
-requestUpdateAnalysis =
-  req
-    "UpdateAnalysis"
-    "fixture/UpdateAnalysis.yaml"
-
-requestDeleteAnalysis :: DeleteAnalysis -> TestTree
-requestDeleteAnalysis =
-  req
-    "DeleteAnalysis"
-    "fixture/DeleteAnalysis.yaml"
-
-requestSearchFolders :: SearchFolders -> TestTree
-requestSearchFolders =
-  req
-    "SearchFolders"
-    "fixture/SearchFolders.yaml"
-
-requestDescribeFolderPermissions :: DescribeFolderPermissions -> TestTree
-requestDescribeFolderPermissions =
-  req
-    "DescribeFolderPermissions"
-    "fixture/DescribeFolderPermissions.yaml"
-
-requestUpdateDataSetPermissions :: UpdateDataSetPermissions -> TestTree
-requestUpdateDataSetPermissions =
-  req
-    "UpdateDataSetPermissions"
-    "fixture/UpdateDataSetPermissions.yaml"
-
-requestCreateThemeAlias :: CreateThemeAlias -> TestTree
-requestCreateThemeAlias =
-  req
-    "CreateThemeAlias"
-    "fixture/CreateThemeAlias.yaml"
-
-requestDescribeFolder :: DescribeFolder -> TestTree
-requestDescribeFolder =
-  req
-    "DescribeFolder"
-    "fixture/DescribeFolder.yaml"
-
-requestDescribeTemplateAlias :: DescribeTemplateAlias -> TestTree
-requestDescribeTemplateAlias =
-  req
-    "DescribeTemplateAlias"
-    "fixture/DescribeTemplateAlias.yaml"
-
-requestDescribeIAMPolicyAssignment :: DescribeIAMPolicyAssignment -> TestTree
-requestDescribeIAMPolicyAssignment =
-  req
-    "DescribeIAMPolicyAssignment"
-    "fixture/DescribeIAMPolicyAssignment.yaml"
-
-requestCreateIngestion :: CreateIngestion -> TestTree
-requestCreateIngestion =
-  req
-    "CreateIngestion"
-    "fixture/CreateIngestion.yaml"
 
 requestCreateDataSet :: CreateDataSet -> TestTree
 requestCreateDataSet =
@@ -1079,23 +761,137 @@ requestCreateDataSource =
     "CreateDataSource"
     "fixture/CreateDataSource.yaml"
 
-requestListTemplates :: ListTemplates -> TestTree
-requestListTemplates =
+requestCreateFolder :: CreateFolder -> TestTree
+requestCreateFolder =
   req
-    "ListTemplates"
-    "fixture/ListTemplates.yaml"
+    "CreateFolder"
+    "fixture/CreateFolder.yaml"
 
-requestDescribeAccountSettings :: DescribeAccountSettings -> TestTree
-requestDescribeAccountSettings =
+requestCreateFolderMembership :: CreateFolderMembership -> TestTree
+requestCreateFolderMembership =
   req
-    "DescribeAccountSettings"
-    "fixture/DescribeAccountSettings.yaml"
+    "CreateFolderMembership"
+    "fixture/CreateFolderMembership.yaml"
 
-requestUpdateTemplate :: UpdateTemplate -> TestTree
-requestUpdateTemplate =
+requestCreateGroup :: CreateGroup -> TestTree
+requestCreateGroup =
   req
-    "UpdateTemplate"
-    "fixture/UpdateTemplate.yaml"
+    "CreateGroup"
+    "fixture/CreateGroup.yaml"
+
+requestCreateGroupMembership :: CreateGroupMembership -> TestTree
+requestCreateGroupMembership =
+  req
+    "CreateGroupMembership"
+    "fixture/CreateGroupMembership.yaml"
+
+requestCreateIAMPolicyAssignment :: CreateIAMPolicyAssignment -> TestTree
+requestCreateIAMPolicyAssignment =
+  req
+    "CreateIAMPolicyAssignment"
+    "fixture/CreateIAMPolicyAssignment.yaml"
+
+requestCreateIngestion :: CreateIngestion -> TestTree
+requestCreateIngestion =
+  req
+    "CreateIngestion"
+    "fixture/CreateIngestion.yaml"
+
+requestCreateNamespace :: CreateNamespace -> TestTree
+requestCreateNamespace =
+  req
+    "CreateNamespace"
+    "fixture/CreateNamespace.yaml"
+
+requestCreateTemplate :: CreateTemplate -> TestTree
+requestCreateTemplate =
+  req
+    "CreateTemplate"
+    "fixture/CreateTemplate.yaml"
+
+requestCreateTemplateAlias :: CreateTemplateAlias -> TestTree
+requestCreateTemplateAlias =
+  req
+    "CreateTemplateAlias"
+    "fixture/CreateTemplateAlias.yaml"
+
+requestCreateTheme :: CreateTheme -> TestTree
+requestCreateTheme =
+  req
+    "CreateTheme"
+    "fixture/CreateTheme.yaml"
+
+requestCreateThemeAlias :: CreateThemeAlias -> TestTree
+requestCreateThemeAlias =
+  req
+    "CreateThemeAlias"
+    "fixture/CreateThemeAlias.yaml"
+
+requestDeleteAccountCustomization :: DeleteAccountCustomization -> TestTree
+requestDeleteAccountCustomization =
+  req
+    "DeleteAccountCustomization"
+    "fixture/DeleteAccountCustomization.yaml"
+
+requestDeleteAnalysis :: DeleteAnalysis -> TestTree
+requestDeleteAnalysis =
+  req
+    "DeleteAnalysis"
+    "fixture/DeleteAnalysis.yaml"
+
+requestDeleteDashboard :: DeleteDashboard -> TestTree
+requestDeleteDashboard =
+  req
+    "DeleteDashboard"
+    "fixture/DeleteDashboard.yaml"
+
+requestDeleteDataSet :: DeleteDataSet -> TestTree
+requestDeleteDataSet =
+  req
+    "DeleteDataSet"
+    "fixture/DeleteDataSet.yaml"
+
+requestDeleteDataSource :: DeleteDataSource -> TestTree
+requestDeleteDataSource =
+  req
+    "DeleteDataSource"
+    "fixture/DeleteDataSource.yaml"
+
+requestDeleteFolder :: DeleteFolder -> TestTree
+requestDeleteFolder =
+  req
+    "DeleteFolder"
+    "fixture/DeleteFolder.yaml"
+
+requestDeleteFolderMembership :: DeleteFolderMembership -> TestTree
+requestDeleteFolderMembership =
+  req
+    "DeleteFolderMembership"
+    "fixture/DeleteFolderMembership.yaml"
+
+requestDeleteGroup :: DeleteGroup -> TestTree
+requestDeleteGroup =
+  req
+    "DeleteGroup"
+    "fixture/DeleteGroup.yaml"
+
+requestDeleteGroupMembership :: DeleteGroupMembership -> TestTree
+requestDeleteGroupMembership =
+  req
+    "DeleteGroupMembership"
+    "fixture/DeleteGroupMembership.yaml"
+
+requestDeleteIAMPolicyAssignment :: DeleteIAMPolicyAssignment -> TestTree
+requestDeleteIAMPolicyAssignment =
+  req
+    "DeleteIAMPolicyAssignment"
+    "fixture/DeleteIAMPolicyAssignment.yaml"
+
+requestDeleteNamespace :: DeleteNamespace -> TestTree
+requestDeleteNamespace =
+  req
+    "DeleteNamespace"
+    "fixture/DeleteNamespace.yaml"
 
 requestDeleteTemplate :: DeleteTemplate -> TestTree
 requestDeleteTemplate =
@@ -1103,35 +899,161 @@ requestDeleteTemplate =
     "DeleteTemplate"
     "fixture/DeleteTemplate.yaml"
 
-requestUpdateTemplatePermissions :: UpdateTemplatePermissions -> TestTree
-requestUpdateTemplatePermissions =
+requestDeleteTemplateAlias :: DeleteTemplateAlias -> TestTree
+requestDeleteTemplateAlias =
   req
-    "UpdateTemplatePermissions"
-    "fixture/UpdateTemplatePermissions.yaml"
+    "DeleteTemplateAlias"
+    "fixture/DeleteTemplateAlias.yaml"
 
-requestSearchDashboards :: SearchDashboards -> TestTree
-requestSearchDashboards =
+requestDeleteTheme :: DeleteTheme -> TestTree
+requestDeleteTheme =
   req
-    "SearchDashboards"
-    "fixture/SearchDashboards.yaml"
+    "DeleteTheme"
+    "fixture/DeleteTheme.yaml"
 
-requestUpdateDataSourcePermissions :: UpdateDataSourcePermissions -> TestTree
-requestUpdateDataSourcePermissions =
+requestDeleteThemeAlias :: DeleteThemeAlias -> TestTree
+requestDeleteThemeAlias =
   req
-    "UpdateDataSourcePermissions"
-    "fixture/UpdateDataSourcePermissions.yaml"
+    "DeleteThemeAlias"
+    "fixture/DeleteThemeAlias.yaml"
 
-requestUpdateIpRestriction :: UpdateIpRestriction -> TestTree
-requestUpdateIpRestriction =
+requestDeleteUser :: DeleteUser -> TestTree
+requestDeleteUser =
   req
-    "UpdateIpRestriction"
-    "fixture/UpdateIpRestriction.yaml"
+    "DeleteUser"
+    "fixture/DeleteUser.yaml"
 
-requestDescribeUser :: DescribeUser -> TestTree
-requestDescribeUser =
+requestDeleteUserByPrincipalId :: DeleteUserByPrincipalId -> TestTree
+requestDeleteUserByPrincipalId =
   req
-    "DescribeUser"
-    "fixture/DescribeUser.yaml"
+    "DeleteUserByPrincipalId"
+    "fixture/DeleteUserByPrincipalId.yaml"
+
+requestDescribeAccountCustomization :: DescribeAccountCustomization -> TestTree
+requestDescribeAccountCustomization =
+  req
+    "DescribeAccountCustomization"
+    "fixture/DescribeAccountCustomization.yaml"
+
+requestDescribeAccountSettings :: DescribeAccountSettings -> TestTree
+requestDescribeAccountSettings =
+  req
+    "DescribeAccountSettings"
+    "fixture/DescribeAccountSettings.yaml"
+
+requestDescribeAnalysis :: DescribeAnalysis -> TestTree
+requestDescribeAnalysis =
+  req
+    "DescribeAnalysis"
+    "fixture/DescribeAnalysis.yaml"
+
+requestDescribeAnalysisPermissions :: DescribeAnalysisPermissions -> TestTree
+requestDescribeAnalysisPermissions =
+  req
+    "DescribeAnalysisPermissions"
+    "fixture/DescribeAnalysisPermissions.yaml"
+
+requestDescribeDashboard :: DescribeDashboard -> TestTree
+requestDescribeDashboard =
+  req
+    "DescribeDashboard"
+    "fixture/DescribeDashboard.yaml"
+
+requestDescribeDashboardPermissions :: DescribeDashboardPermissions -> TestTree
+requestDescribeDashboardPermissions =
+  req
+    "DescribeDashboardPermissions"
+    "fixture/DescribeDashboardPermissions.yaml"
+
+requestDescribeDataSet :: DescribeDataSet -> TestTree
+requestDescribeDataSet =
+  req
+    "DescribeDataSet"
+    "fixture/DescribeDataSet.yaml"
+
+requestDescribeDataSetPermissions :: DescribeDataSetPermissions -> TestTree
+requestDescribeDataSetPermissions =
+  req
+    "DescribeDataSetPermissions"
+    "fixture/DescribeDataSetPermissions.yaml"
+
+requestDescribeDataSource :: DescribeDataSource -> TestTree
+requestDescribeDataSource =
+  req
+    "DescribeDataSource"
+    "fixture/DescribeDataSource.yaml"
+
+requestDescribeDataSourcePermissions :: DescribeDataSourcePermissions -> TestTree
+requestDescribeDataSourcePermissions =
+  req
+    "DescribeDataSourcePermissions"
+    "fixture/DescribeDataSourcePermissions.yaml"
+
+requestDescribeFolder :: DescribeFolder -> TestTree
+requestDescribeFolder =
+  req
+    "DescribeFolder"
+    "fixture/DescribeFolder.yaml"
+
+requestDescribeFolderPermissions :: DescribeFolderPermissions -> TestTree
+requestDescribeFolderPermissions =
+  req
+    "DescribeFolderPermissions"
+    "fixture/DescribeFolderPermissions.yaml"
+
+requestDescribeFolderResolvedPermissions :: DescribeFolderResolvedPermissions -> TestTree
+requestDescribeFolderResolvedPermissions =
+  req
+    "DescribeFolderResolvedPermissions"
+    "fixture/DescribeFolderResolvedPermissions.yaml"
+
+requestDescribeGroup :: DescribeGroup -> TestTree
+requestDescribeGroup =
+  req
+    "DescribeGroup"
+    "fixture/DescribeGroup.yaml"
+
+requestDescribeIAMPolicyAssignment :: DescribeIAMPolicyAssignment -> TestTree
+requestDescribeIAMPolicyAssignment =
+  req
+    "DescribeIAMPolicyAssignment"
+    "fixture/DescribeIAMPolicyAssignment.yaml"
+
+requestDescribeIngestion :: DescribeIngestion -> TestTree
+requestDescribeIngestion =
+  req
+    "DescribeIngestion"
+    "fixture/DescribeIngestion.yaml"
+
+requestDescribeIpRestriction :: DescribeIpRestriction -> TestTree
+requestDescribeIpRestriction =
+  req
+    "DescribeIpRestriction"
+    "fixture/DescribeIpRestriction.yaml"
+
+requestDescribeNamespace :: DescribeNamespace -> TestTree
+requestDescribeNamespace =
+  req
+    "DescribeNamespace"
+    "fixture/DescribeNamespace.yaml"
+
+requestDescribeTemplate :: DescribeTemplate -> TestTree
+requestDescribeTemplate =
+  req
+    "DescribeTemplate"
+    "fixture/DescribeTemplate.yaml"
+
+requestDescribeTemplateAlias :: DescribeTemplateAlias -> TestTree
+requestDescribeTemplateAlias =
+  req
+    "DescribeTemplateAlias"
+    "fixture/DescribeTemplateAlias.yaml"
+
+requestDescribeTemplatePermissions :: DescribeTemplatePermissions -> TestTree
+requestDescribeTemplatePermissions =
+  req
+    "DescribeTemplatePermissions"
+    "fixture/DescribeTemplatePermissions.yaml"
 
 requestDescribeTheme :: DescribeTheme -> TestTree
 requestDescribeTheme =
@@ -1139,11 +1061,71 @@ requestDescribeTheme =
     "DescribeTheme"
     "fixture/DescribeTheme.yaml"
 
+requestDescribeThemeAlias :: DescribeThemeAlias -> TestTree
+requestDescribeThemeAlias =
+  req
+    "DescribeThemeAlias"
+    "fixture/DescribeThemeAlias.yaml"
+
+requestDescribeThemePermissions :: DescribeThemePermissions -> TestTree
+requestDescribeThemePermissions =
+  req
+    "DescribeThemePermissions"
+    "fixture/DescribeThemePermissions.yaml"
+
+requestDescribeUser :: DescribeUser -> TestTree
+requestDescribeUser =
+  req
+    "DescribeUser"
+    "fixture/DescribeUser.yaml"
+
+requestGenerateEmbedUrlForAnonymousUser :: GenerateEmbedUrlForAnonymousUser -> TestTree
+requestGenerateEmbedUrlForAnonymousUser =
+  req
+    "GenerateEmbedUrlForAnonymousUser"
+    "fixture/GenerateEmbedUrlForAnonymousUser.yaml"
+
+requestGenerateEmbedUrlForRegisteredUser :: GenerateEmbedUrlForRegisteredUser -> TestTree
+requestGenerateEmbedUrlForRegisteredUser =
+  req
+    "GenerateEmbedUrlForRegisteredUser"
+    "fixture/GenerateEmbedUrlForRegisteredUser.yaml"
+
+requestGetDashboardEmbedUrl :: GetDashboardEmbedUrl -> TestTree
+requestGetDashboardEmbedUrl =
+  req
+    "GetDashboardEmbedUrl"
+    "fixture/GetDashboardEmbedUrl.yaml"
+
+requestGetSessionEmbedUrl :: GetSessionEmbedUrl -> TestTree
+requestGetSessionEmbedUrl =
+  req
+    "GetSessionEmbedUrl"
+    "fixture/GetSessionEmbedUrl.yaml"
+
 requestListAnalyses :: ListAnalyses -> TestTree
 requestListAnalyses =
   req
     "ListAnalyses"
     "fixture/ListAnalyses.yaml"
+
+requestListDashboardVersions :: ListDashboardVersions -> TestTree
+requestListDashboardVersions =
+  req
+    "ListDashboardVersions"
+    "fixture/ListDashboardVersions.yaml"
+
+requestListDashboards :: ListDashboards -> TestTree
+requestListDashboards =
+  req
+    "ListDashboards"
+    "fixture/ListDashboards.yaml"
+
+requestListDataSets :: ListDataSets -> TestTree
+requestListDataSets =
+  req
+    "ListDataSets"
+    "fixture/ListDataSets.yaml"
 
 requestListDataSources :: ListDataSources -> TestTree
 requestListDataSources =
@@ -1157,221 +1139,17 @@ requestListFolderMembers =
     "ListFolderMembers"
     "fixture/ListFolderMembers.yaml"
 
-requestListIAMPolicyAssignments :: ListIAMPolicyAssignments -> TestTree
-requestListIAMPolicyAssignments =
+requestListFolders :: ListFolders -> TestTree
+requestListFolders =
   req
-    "ListIAMPolicyAssignments"
-    "fixture/ListIAMPolicyAssignments.yaml"
+    "ListFolders"
+    "fixture/ListFolders.yaml"
 
-requestListDashboardVersions :: ListDashboardVersions -> TestTree
-requestListDashboardVersions =
+requestListGroupMemberships :: ListGroupMemberships -> TestTree
+requestListGroupMemberships =
   req
-    "ListDashboardVersions"
-    "fixture/ListDashboardVersions.yaml"
-
-requestCreateNamespace :: CreateNamespace -> TestTree
-requestCreateNamespace =
-  req
-    "CreateNamespace"
-    "fixture/CreateNamespace.yaml"
-
-requestCreateIAMPolicyAssignment :: CreateIAMPolicyAssignment -> TestTree
-requestCreateIAMPolicyAssignment =
-  req
-    "CreateIAMPolicyAssignment"
-    "fixture/CreateIAMPolicyAssignment.yaml"
-
-requestRestoreAnalysis :: RestoreAnalysis -> TestTree
-requestRestoreAnalysis =
-  req
-    "RestoreAnalysis"
-    "fixture/RestoreAnalysis.yaml"
-
-requestCreateTemplateAlias :: CreateTemplateAlias -> TestTree
-requestCreateTemplateAlias =
-  req
-    "CreateTemplateAlias"
-    "fixture/CreateTemplateAlias.yaml"
-
-requestListTemplateAliases :: ListTemplateAliases -> TestTree
-requestListTemplateAliases =
-  req
-    "ListTemplateAliases"
-    "fixture/ListTemplateAliases.yaml"
-
-requestGetDashboardEmbedUrl :: GetDashboardEmbedUrl -> TestTree
-requestGetDashboardEmbedUrl =
-  req
-    "GetDashboardEmbedUrl"
-    "fixture/GetDashboardEmbedUrl.yaml"
-
-requestGenerateEmbedUrlForAnonymousUser :: GenerateEmbedUrlForAnonymousUser -> TestTree
-requestGenerateEmbedUrlForAnonymousUser =
-  req
-    "GenerateEmbedUrlForAnonymousUser"
-    "fixture/GenerateEmbedUrlForAnonymousUser.yaml"
-
-requestListThemeVersions :: ListThemeVersions -> TestTree
-requestListThemeVersions =
-  req
-    "ListThemeVersions"
-    "fixture/ListThemeVersions.yaml"
-
-requestUpdateDashboardPermissions :: UpdateDashboardPermissions -> TestTree
-requestUpdateDashboardPermissions =
-  req
-    "UpdateDashboardPermissions"
-    "fixture/UpdateDashboardPermissions.yaml"
-
-requestListIAMPolicyAssignmentsForUser :: ListIAMPolicyAssignmentsForUser -> TestTree
-requestListIAMPolicyAssignmentsForUser =
-  req
-    "ListIAMPolicyAssignmentsForUser"
-    "fixture/ListIAMPolicyAssignmentsForUser.yaml"
-
-requestDeleteAccountCustomization :: DeleteAccountCustomization -> TestTree
-requestDeleteAccountCustomization =
-  req
-    "DeleteAccountCustomization"
-    "fixture/DeleteAccountCustomization.yaml"
-
-requestUpdateAccountCustomization :: UpdateAccountCustomization -> TestTree
-requestUpdateAccountCustomization =
-  req
-    "UpdateAccountCustomization"
-    "fixture/UpdateAccountCustomization.yaml"
-
-requestDeleteDashboard :: DeleteDashboard -> TestTree
-requestDeleteDashboard =
-  req
-    "DeleteDashboard"
-    "fixture/DeleteDashboard.yaml"
-
-requestUpdateDashboard :: UpdateDashboard -> TestTree
-requestUpdateDashboard =
-  req
-    "UpdateDashboard"
-    "fixture/UpdateDashboard.yaml"
-
-requestDescribeDataSourcePermissions :: DescribeDataSourcePermissions -> TestTree
-requestDescribeDataSourcePermissions =
-  req
-    "DescribeDataSourcePermissions"
-    "fixture/DescribeDataSourcePermissions.yaml"
-
-requestUpdateUser :: UpdateUser -> TestTree
-requestUpdateUser =
-  req
-    "UpdateUser"
-    "fixture/UpdateUser.yaml"
-
-requestDeleteUser :: DeleteUser -> TestTree
-requestDeleteUser =
-  req
-    "DeleteUser"
-    "fixture/DeleteUser.yaml"
-
-requestSearchAnalyses :: SearchAnalyses -> TestTree
-requestSearchAnalyses =
-  req
-    "SearchAnalyses"
-    "fixture/SearchAnalyses.yaml"
-
-requestCreateAccountCustomization :: CreateAccountCustomization -> TestTree
-requestCreateAccountCustomization =
-  req
-    "CreateAccountCustomization"
-    "fixture/CreateAccountCustomization.yaml"
-
-requestDescribeIpRestriction :: DescribeIpRestriction -> TestTree
-requestDescribeIpRestriction =
-  req
-    "DescribeIpRestriction"
-    "fixture/DescribeIpRestriction.yaml"
-
-requestListThemes :: ListThemes -> TestTree
-requestListThemes =
-  req
-    "ListThemes"
-    "fixture/ListThemes.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestUpdateTheme :: UpdateTheme -> TestTree
-requestUpdateTheme =
-  req
-    "UpdateTheme"
-    "fixture/UpdateTheme.yaml"
-
-requestDeleteTheme :: DeleteTheme -> TestTree
-requestDeleteTheme =
-  req
-    "DeleteTheme"
-    "fixture/DeleteTheme.yaml"
-
-requestListIngestions :: ListIngestions -> TestTree
-requestListIngestions =
-  req
-    "ListIngestions"
-    "fixture/ListIngestions.yaml"
-
-requestCreateGroup :: CreateGroup -> TestTree
-requestCreateGroup =
-  req
-    "CreateGroup"
-    "fixture/CreateGroup.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestListTemplateVersions :: ListTemplateVersions -> TestTree
-requestListTemplateVersions =
-  req
-    "ListTemplateVersions"
-    "fixture/ListTemplateVersions.yaml"
-
-requestListDataSets :: ListDataSets -> TestTree
-requestListDataSets =
-  req
-    "ListDataSets"
-    "fixture/ListDataSets.yaml"
-
-requestDeleteThemeAlias :: DeleteThemeAlias -> TestTree
-requestDeleteThemeAlias =
-  req
-    "DeleteThemeAlias"
-    "fixture/DeleteThemeAlias.yaml"
-
-requestUpdateThemeAlias :: UpdateThemeAlias -> TestTree
-requestUpdateThemeAlias =
-  req
-    "UpdateThemeAlias"
-    "fixture/UpdateThemeAlias.yaml"
-
-requestDeleteGroup :: DeleteGroup -> TestTree
-requestDeleteGroup =
-  req
-    "DeleteGroup"
-    "fixture/DeleteGroup.yaml"
-
-requestUpdateGroup :: UpdateGroup -> TestTree
-requestUpdateGroup =
-  req
-    "UpdateGroup"
-    "fixture/UpdateGroup.yaml"
-
-requestDescribeNamespace :: DescribeNamespace -> TestTree
-requestDescribeNamespace =
-  req
-    "DescribeNamespace"
-    "fixture/DescribeNamespace.yaml"
+    "ListGroupMemberships"
+    "fixture/ListGroupMemberships.yaml"
 
 requestListGroups :: ListGroups -> TestTree
 requestListGroups =
@@ -1379,41 +1157,263 @@ requestListGroups =
     "ListGroups"
     "fixture/ListGroups.yaml"
 
-requestCreateAnalysis :: CreateAnalysis -> TestTree
-requestCreateAnalysis =
+requestListIAMPolicyAssignments :: ListIAMPolicyAssignments -> TestTree
+requestListIAMPolicyAssignments =
   req
-    "CreateAnalysis"
-    "fixture/CreateAnalysis.yaml"
+    "ListIAMPolicyAssignments"
+    "fixture/ListIAMPolicyAssignments.yaml"
 
-requestDescribeAccountCustomization :: DescribeAccountCustomization -> TestTree
-requestDescribeAccountCustomization =
+requestListIAMPolicyAssignmentsForUser :: ListIAMPolicyAssignmentsForUser -> TestTree
+requestListIAMPolicyAssignmentsForUser =
   req
-    "DescribeAccountCustomization"
-    "fixture/DescribeAccountCustomization.yaml"
+    "ListIAMPolicyAssignmentsForUser"
+    "fixture/ListIAMPolicyAssignmentsForUser.yaml"
 
-requestGenerateEmbedUrlForRegisteredUser :: GenerateEmbedUrlForRegisteredUser -> TestTree
-requestGenerateEmbedUrlForRegisteredUser =
+requestListIngestions :: ListIngestions -> TestTree
+requestListIngestions =
   req
-    "GenerateEmbedUrlForRegisteredUser"
-    "fixture/GenerateEmbedUrlForRegisteredUser.yaml"
+    "ListIngestions"
+    "fixture/ListIngestions.yaml"
 
-requestDescribeDashboard :: DescribeDashboard -> TestTree
-requestDescribeDashboard =
+requestListNamespaces :: ListNamespaces -> TestTree
+requestListNamespaces =
   req
-    "DescribeDashboard"
-    "fixture/DescribeDashboard.yaml"
+    "ListNamespaces"
+    "fixture/ListNamespaces.yaml"
 
-requestCreateGroupMembership :: CreateGroupMembership -> TestTree
-requestCreateGroupMembership =
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
   req
-    "CreateGroupMembership"
-    "fixture/CreateGroupMembership.yaml"
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
-requestDescribeDashboardPermissions :: DescribeDashboardPermissions -> TestTree
-requestDescribeDashboardPermissions =
+requestListTemplateAliases :: ListTemplateAliases -> TestTree
+requestListTemplateAliases =
   req
-    "DescribeDashboardPermissions"
-    "fixture/DescribeDashboardPermissions.yaml"
+    "ListTemplateAliases"
+    "fixture/ListTemplateAliases.yaml"
+
+requestListTemplateVersions :: ListTemplateVersions -> TestTree
+requestListTemplateVersions =
+  req
+    "ListTemplateVersions"
+    "fixture/ListTemplateVersions.yaml"
+
+requestListTemplates :: ListTemplates -> TestTree
+requestListTemplates =
+  req
+    "ListTemplates"
+    "fixture/ListTemplates.yaml"
+
+requestListThemeAliases :: ListThemeAliases -> TestTree
+requestListThemeAliases =
+  req
+    "ListThemeAliases"
+    "fixture/ListThemeAliases.yaml"
+
+requestListThemeVersions :: ListThemeVersions -> TestTree
+requestListThemeVersions =
+  req
+    "ListThemeVersions"
+    "fixture/ListThemeVersions.yaml"
+
+requestListThemes :: ListThemes -> TestTree
+requestListThemes =
+  req
+    "ListThemes"
+    "fixture/ListThemes.yaml"
+
+requestListUserGroups :: ListUserGroups -> TestTree
+requestListUserGroups =
+  req
+    "ListUserGroups"
+    "fixture/ListUserGroups.yaml"
+
+requestListUsers :: ListUsers -> TestTree
+requestListUsers =
+  req
+    "ListUsers"
+    "fixture/ListUsers.yaml"
+
+requestRegisterUser :: RegisterUser -> TestTree
+requestRegisterUser =
+  req
+    "RegisterUser"
+    "fixture/RegisterUser.yaml"
+
+requestRestoreAnalysis :: RestoreAnalysis -> TestTree
+requestRestoreAnalysis =
+  req
+    "RestoreAnalysis"
+    "fixture/RestoreAnalysis.yaml"
+
+requestSearchAnalyses :: SearchAnalyses -> TestTree
+requestSearchAnalyses =
+  req
+    "SearchAnalyses"
+    "fixture/SearchAnalyses.yaml"
+
+requestSearchDashboards :: SearchDashboards -> TestTree
+requestSearchDashboards =
+  req
+    "SearchDashboards"
+    "fixture/SearchDashboards.yaml"
+
+requestSearchFolders :: SearchFolders -> TestTree
+requestSearchFolders =
+  req
+    "SearchFolders"
+    "fixture/SearchFolders.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateAccountCustomization :: UpdateAccountCustomization -> TestTree
+requestUpdateAccountCustomization =
+  req
+    "UpdateAccountCustomization"
+    "fixture/UpdateAccountCustomization.yaml"
+
+requestUpdateAccountSettings :: UpdateAccountSettings -> TestTree
+requestUpdateAccountSettings =
+  req
+    "UpdateAccountSettings"
+    "fixture/UpdateAccountSettings.yaml"
+
+requestUpdateAnalysis :: UpdateAnalysis -> TestTree
+requestUpdateAnalysis =
+  req
+    "UpdateAnalysis"
+    "fixture/UpdateAnalysis.yaml"
+
+requestUpdateAnalysisPermissions :: UpdateAnalysisPermissions -> TestTree
+requestUpdateAnalysisPermissions =
+  req
+    "UpdateAnalysisPermissions"
+    "fixture/UpdateAnalysisPermissions.yaml"
+
+requestUpdateDashboard :: UpdateDashboard -> TestTree
+requestUpdateDashboard =
+  req
+    "UpdateDashboard"
+    "fixture/UpdateDashboard.yaml"
+
+requestUpdateDashboardPermissions :: UpdateDashboardPermissions -> TestTree
+requestUpdateDashboardPermissions =
+  req
+    "UpdateDashboardPermissions"
+    "fixture/UpdateDashboardPermissions.yaml"
+
+requestUpdateDashboardPublishedVersion :: UpdateDashboardPublishedVersion -> TestTree
+requestUpdateDashboardPublishedVersion =
+  req
+    "UpdateDashboardPublishedVersion"
+    "fixture/UpdateDashboardPublishedVersion.yaml"
+
+requestUpdateDataSet :: UpdateDataSet -> TestTree
+requestUpdateDataSet =
+  req
+    "UpdateDataSet"
+    "fixture/UpdateDataSet.yaml"
+
+requestUpdateDataSetPermissions :: UpdateDataSetPermissions -> TestTree
+requestUpdateDataSetPermissions =
+  req
+    "UpdateDataSetPermissions"
+    "fixture/UpdateDataSetPermissions.yaml"
+
+requestUpdateDataSource :: UpdateDataSource -> TestTree
+requestUpdateDataSource =
+  req
+    "UpdateDataSource"
+    "fixture/UpdateDataSource.yaml"
+
+requestUpdateDataSourcePermissions :: UpdateDataSourcePermissions -> TestTree
+requestUpdateDataSourcePermissions =
+  req
+    "UpdateDataSourcePermissions"
+    "fixture/UpdateDataSourcePermissions.yaml"
+
+requestUpdateFolder :: UpdateFolder -> TestTree
+requestUpdateFolder =
+  req
+    "UpdateFolder"
+    "fixture/UpdateFolder.yaml"
+
+requestUpdateFolderPermissions :: UpdateFolderPermissions -> TestTree
+requestUpdateFolderPermissions =
+  req
+    "UpdateFolderPermissions"
+    "fixture/UpdateFolderPermissions.yaml"
+
+requestUpdateGroup :: UpdateGroup -> TestTree
+requestUpdateGroup =
+  req
+    "UpdateGroup"
+    "fixture/UpdateGroup.yaml"
+
+requestUpdateIAMPolicyAssignment :: UpdateIAMPolicyAssignment -> TestTree
+requestUpdateIAMPolicyAssignment =
+  req
+    "UpdateIAMPolicyAssignment"
+    "fixture/UpdateIAMPolicyAssignment.yaml"
+
+requestUpdateIpRestriction :: UpdateIpRestriction -> TestTree
+requestUpdateIpRestriction =
+  req
+    "UpdateIpRestriction"
+    "fixture/UpdateIpRestriction.yaml"
+
+requestUpdateTemplate :: UpdateTemplate -> TestTree
+requestUpdateTemplate =
+  req
+    "UpdateTemplate"
+    "fixture/UpdateTemplate.yaml"
+
+requestUpdateTemplateAlias :: UpdateTemplateAlias -> TestTree
+requestUpdateTemplateAlias =
+  req
+    "UpdateTemplateAlias"
+    "fixture/UpdateTemplateAlias.yaml"
+
+requestUpdateTemplatePermissions :: UpdateTemplatePermissions -> TestTree
+requestUpdateTemplatePermissions =
+  req
+    "UpdateTemplatePermissions"
+    "fixture/UpdateTemplatePermissions.yaml"
+
+requestUpdateTheme :: UpdateTheme -> TestTree
+requestUpdateTheme =
+  req
+    "UpdateTheme"
+    "fixture/UpdateTheme.yaml"
+
+requestUpdateThemeAlias :: UpdateThemeAlias -> TestTree
+requestUpdateThemeAlias =
+  req
+    "UpdateThemeAlias"
+    "fixture/UpdateThemeAlias.yaml"
+
+requestUpdateThemePermissions :: UpdateThemePermissions -> TestTree
+requestUpdateThemePermissions =
+  req
+    "UpdateThemePermissions"
+    "fixture/UpdateThemePermissions.yaml"
+
+requestUpdateUser :: UpdateUser -> TestTree
+requestUpdateUser =
+  req
+    "UpdateUser"
+    "fixture/UpdateUser.yaml"
 
 -- Responses
 
@@ -1425,309 +1425,21 @@ responseCancelIngestion =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelIngestion)
 
-responseUpdateDataSource :: UpdateDataSourceResponse -> TestTree
-responseUpdateDataSource =
+responseCreateAccountCustomization :: CreateAccountCustomizationResponse -> TestTree
+responseCreateAccountCustomization =
   res
-    "UpdateDataSourceResponse"
-    "fixture/UpdateDataSourceResponse.proto"
+    "CreateAccountCustomizationResponse"
+    "fixture/CreateAccountCustomizationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDataSource)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccountCustomization)
 
-responseDeleteUserByPrincipalId :: DeleteUserByPrincipalIdResponse -> TestTree
-responseDeleteUserByPrincipalId =
+responseCreateAnalysis :: CreateAnalysisResponse -> TestTree
+responseCreateAnalysis =
   res
-    "DeleteUserByPrincipalIdResponse"
-    "fixture/DeleteUserByPrincipalIdResponse.proto"
+    "CreateAnalysisResponse"
+    "fixture/CreateAnalysisResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteUserByPrincipalId)
-
-responseDeleteDataSource :: DeleteDataSourceResponse -> TestTree
-responseDeleteDataSource =
-  res
-    "DeleteDataSourceResponse"
-    "fixture/DeleteDataSourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDataSource)
-
-responseCreateTemplate :: CreateTemplateResponse -> TestTree
-responseCreateTemplate =
-  res
-    "CreateTemplateResponse"
-    "fixture/CreateTemplateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateTemplate)
-
-responseDeleteGroupMembership :: DeleteGroupMembershipResponse -> TestTree
-responseDeleteGroupMembership =
-  res
-    "DeleteGroupMembershipResponse"
-    "fixture/DeleteGroupMembershipResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteGroupMembership)
-
-responseDescribeThemePermissions :: DescribeThemePermissionsResponse -> TestTree
-responseDescribeThemePermissions =
-  res
-    "DescribeThemePermissionsResponse"
-    "fixture/DescribeThemePermissionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeThemePermissions)
-
-responseListGroupMemberships :: ListGroupMembershipsResponse -> TestTree
-responseListGroupMemberships =
-  res
-    "ListGroupMembershipsResponse"
-    "fixture/ListGroupMembershipsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListGroupMemberships)
-
-responseListFolders :: ListFoldersResponse -> TestTree
-responseListFolders =
-  res
-    "ListFoldersResponse"
-    "fixture/ListFoldersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFolders)
-
-responseDescribeDataSetPermissions :: DescribeDataSetPermissionsResponse -> TestTree
-responseDescribeDataSetPermissions =
-  res
-    "DescribeDataSetPermissionsResponse"
-    "fixture/DescribeDataSetPermissionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDataSetPermissions)
-
-responseDeleteIAMPolicyAssignment :: DeleteIAMPolicyAssignmentResponse -> TestTree
-responseDeleteIAMPolicyAssignment =
-  res
-    "DeleteIAMPolicyAssignmentResponse"
-    "fixture/DeleteIAMPolicyAssignmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteIAMPolicyAssignment)
-
-responseUpdateIAMPolicyAssignment :: UpdateIAMPolicyAssignmentResponse -> TestTree
-responseUpdateIAMPolicyAssignment =
-  res
-    "UpdateIAMPolicyAssignmentResponse"
-    "fixture/UpdateIAMPolicyAssignmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateIAMPolicyAssignment)
-
-responseDescribeIngestion :: DescribeIngestionResponse -> TestTree
-responseDescribeIngestion =
-  res
-    "DescribeIngestionResponse"
-    "fixture/DescribeIngestionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeIngestion)
-
-responseDeleteFolder :: DeleteFolderResponse -> TestTree
-responseDeleteFolder =
-  res
-    "DeleteFolderResponse"
-    "fixture/DeleteFolderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFolder)
-
-responseUpdateFolder :: UpdateFolderResponse -> TestTree
-responseUpdateFolder =
-  res
-    "UpdateFolderResponse"
-    "fixture/UpdateFolderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFolder)
-
-responseListUserGroups :: ListUserGroupsResponse -> TestTree
-responseListUserGroups =
-  res
-    "ListUserGroupsResponse"
-    "fixture/ListUserGroupsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListUserGroups)
-
-responseUpdateDashboardPublishedVersion :: UpdateDashboardPublishedVersionResponse -> TestTree
-responseUpdateDashboardPublishedVersion =
-  res
-    "UpdateDashboardPublishedVersionResponse"
-    "fixture/UpdateDashboardPublishedVersionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDashboardPublishedVersion)
-
-responseDescribeAnalysisPermissions :: DescribeAnalysisPermissionsResponse -> TestTree
-responseDescribeAnalysisPermissions =
-  res
-    "DescribeAnalysisPermissionsResponse"
-    "fixture/DescribeAnalysisPermissionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAnalysisPermissions)
-
-responseDeleteTemplateAlias :: DeleteTemplateAliasResponse -> TestTree
-responseDeleteTemplateAlias =
-  res
-    "DeleteTemplateAliasResponse"
-    "fixture/DeleteTemplateAliasResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteTemplateAlias)
-
-responseUpdateTemplateAlias :: UpdateTemplateAliasResponse -> TestTree
-responseUpdateTemplateAlias =
-  res
-    "UpdateTemplateAliasResponse"
-    "fixture/UpdateTemplateAliasResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateTemplateAlias)
-
-responseDescribeAnalysis :: DescribeAnalysisResponse -> TestTree
-responseDescribeAnalysis =
-  res
-    "DescribeAnalysisResponse"
-    "fixture/DescribeAnalysisResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAnalysis)
-
-responseUpdateFolderPermissions :: UpdateFolderPermissionsResponse -> TestTree
-responseUpdateFolderPermissions =
-  res
-    "UpdateFolderPermissionsResponse"
-    "fixture/UpdateFolderPermissionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFolderPermissions)
-
-responseDescribeDataSet :: DescribeDataSetResponse -> TestTree
-responseDescribeDataSet =
-  res
-    "DescribeDataSetResponse"
-    "fixture/DescribeDataSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDataSet)
-
-responseListNamespaces :: ListNamespacesResponse -> TestTree
-responseListNamespaces =
-  res
-    "ListNamespacesResponse"
-    "fixture/ListNamespacesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListNamespaces)
-
-responseDeleteNamespace :: DeleteNamespaceResponse -> TestTree
-responseDeleteNamespace =
-  res
-    "DeleteNamespaceResponse"
-    "fixture/DeleteNamespaceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteNamespace)
-
-responseCreateFolder :: CreateFolderResponse -> TestTree
-responseCreateFolder =
-  res
-    "CreateFolderResponse"
-    "fixture/CreateFolderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateFolder)
-
-responseDescribeGroup :: DescribeGroupResponse -> TestTree
-responseDescribeGroup =
-  res
-    "DescribeGroupResponse"
-    "fixture/DescribeGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeGroup)
-
-responseDescribeThemeAlias :: DescribeThemeAliasResponse -> TestTree
-responseDescribeThemeAlias =
-  res
-    "DescribeThemeAliasResponse"
-    "fixture/DescribeThemeAliasResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeThemeAlias)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseUpdateAccountSettings :: UpdateAccountSettingsResponse -> TestTree
-responseUpdateAccountSettings =
-  res
-    "UpdateAccountSettingsResponse"
-    "fixture/UpdateAccountSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAccountSettings)
-
-responseDescribeTemplatePermissions :: DescribeTemplatePermissionsResponse -> TestTree
-responseDescribeTemplatePermissions =
-  res
-    "DescribeTemplatePermissionsResponse"
-    "fixture/DescribeTemplatePermissionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTemplatePermissions)
-
-responseListDashboards :: ListDashboardsResponse -> TestTree
-responseListDashboards =
-  res
-    "ListDashboardsResponse"
-    "fixture/ListDashboardsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDashboards)
-
-responseDescribeTemplate :: DescribeTemplateResponse -> TestTree
-responseDescribeTemplate =
-  res
-    "DescribeTemplateResponse"
-    "fixture/DescribeTemplateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTemplate)
-
-responseDeleteFolderMembership :: DeleteFolderMembershipResponse -> TestTree
-responseDeleteFolderMembership =
-  res
-    "DeleteFolderMembershipResponse"
-    "fixture/DeleteFolderMembershipResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFolderMembership)
-
-responseCreateTheme :: CreateThemeResponse -> TestTree
-responseCreateTheme =
-  res
-    "CreateThemeResponse"
-    "fixture/CreateThemeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateTheme)
-
-responseListUsers :: ListUsersResponse -> TestTree
-responseListUsers =
-  res
-    "ListUsersResponse"
-    "fixture/ListUsersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListUsers)
-
-responseCreateFolderMembership :: CreateFolderMembershipResponse -> TestTree
-responseCreateFolderMembership =
-  res
-    "CreateFolderMembershipResponse"
-    "fixture/CreateFolderMembershipResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateFolderMembership)
-
-responseUpdateThemePermissions :: UpdateThemePermissionsResponse -> TestTree
-responseUpdateThemePermissions =
-  res
-    "UpdateThemePermissionsResponse"
-    "fixture/UpdateThemePermissionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateThemePermissions)
-
-responseGetSessionEmbedUrl :: GetSessionEmbedUrlResponse -> TestTree
-responseGetSessionEmbedUrl =
-  res
-    "GetSessionEmbedUrlResponse"
-    "fixture/GetSessionEmbedUrlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSessionEmbedUrl)
+    (Proxy.Proxy :: Proxy.Proxy CreateAnalysis)
 
 responseCreateDashboard :: CreateDashboardResponse -> TestTree
 responseCreateDashboard =
@@ -1736,142 +1448,6 @@ responseCreateDashboard =
     "fixture/CreateDashboardResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDashboard)
-
-responseRegisterUser :: RegisterUserResponse -> TestTree
-responseRegisterUser =
-  res
-    "RegisterUserResponse"
-    "fixture/RegisterUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RegisterUser)
-
-responseDescribeDataSource :: DescribeDataSourceResponse -> TestTree
-responseDescribeDataSource =
-  res
-    "DescribeDataSourceResponse"
-    "fixture/DescribeDataSourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDataSource)
-
-responseDescribeFolderResolvedPermissions :: DescribeFolderResolvedPermissionsResponse -> TestTree
-responseDescribeFolderResolvedPermissions =
-  res
-    "DescribeFolderResolvedPermissionsResponse"
-    "fixture/DescribeFolderResolvedPermissionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFolderResolvedPermissions)
-
-responseUpdateAnalysisPermissions :: UpdateAnalysisPermissionsResponse -> TestTree
-responseUpdateAnalysisPermissions =
-  res
-    "UpdateAnalysisPermissionsResponse"
-    "fixture/UpdateAnalysisPermissionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAnalysisPermissions)
-
-responseDeleteDataSet :: DeleteDataSetResponse -> TestTree
-responseDeleteDataSet =
-  res
-    "DeleteDataSetResponse"
-    "fixture/DeleteDataSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDataSet)
-
-responseUpdateDataSet :: UpdateDataSetResponse -> TestTree
-responseUpdateDataSet =
-  res
-    "UpdateDataSetResponse"
-    "fixture/UpdateDataSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDataSet)
-
-responseListThemeAliases :: ListThemeAliasesResponse -> TestTree
-responseListThemeAliases =
-  res
-    "ListThemeAliasesResponse"
-    "fixture/ListThemeAliasesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListThemeAliases)
-
-responseUpdateAnalysis :: UpdateAnalysisResponse -> TestTree
-responseUpdateAnalysis =
-  res
-    "UpdateAnalysisResponse"
-    "fixture/UpdateAnalysisResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAnalysis)
-
-responseDeleteAnalysis :: DeleteAnalysisResponse -> TestTree
-responseDeleteAnalysis =
-  res
-    "DeleteAnalysisResponse"
-    "fixture/DeleteAnalysisResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAnalysis)
-
-responseSearchFolders :: SearchFoldersResponse -> TestTree
-responseSearchFolders =
-  res
-    "SearchFoldersResponse"
-    "fixture/SearchFoldersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchFolders)
-
-responseDescribeFolderPermissions :: DescribeFolderPermissionsResponse -> TestTree
-responseDescribeFolderPermissions =
-  res
-    "DescribeFolderPermissionsResponse"
-    "fixture/DescribeFolderPermissionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFolderPermissions)
-
-responseUpdateDataSetPermissions :: UpdateDataSetPermissionsResponse -> TestTree
-responseUpdateDataSetPermissions =
-  res
-    "UpdateDataSetPermissionsResponse"
-    "fixture/UpdateDataSetPermissionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDataSetPermissions)
-
-responseCreateThemeAlias :: CreateThemeAliasResponse -> TestTree
-responseCreateThemeAlias =
-  res
-    "CreateThemeAliasResponse"
-    "fixture/CreateThemeAliasResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateThemeAlias)
-
-responseDescribeFolder :: DescribeFolderResponse -> TestTree
-responseDescribeFolder =
-  res
-    "DescribeFolderResponse"
-    "fixture/DescribeFolderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFolder)
-
-responseDescribeTemplateAlias :: DescribeTemplateAliasResponse -> TestTree
-responseDescribeTemplateAlias =
-  res
-    "DescribeTemplateAliasResponse"
-    "fixture/DescribeTemplateAliasResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTemplateAlias)
-
-responseDescribeIAMPolicyAssignment :: DescribeIAMPolicyAssignmentResponse -> TestTree
-responseDescribeIAMPolicyAssignment =
-  res
-    "DescribeIAMPolicyAssignmentResponse"
-    "fixture/DescribeIAMPolicyAssignmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeIAMPolicyAssignment)
-
-responseCreateIngestion :: CreateIngestionResponse -> TestTree
-responseCreateIngestion =
-  res
-    "CreateIngestionResponse"
-    "fixture/CreateIngestionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateIngestion)
 
 responseCreateDataSet :: CreateDataSetResponse -> TestTree
 responseCreateDataSet =
@@ -1889,29 +1465,181 @@ responseCreateDataSource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDataSource)
 
-responseListTemplates :: ListTemplatesResponse -> TestTree
-responseListTemplates =
+responseCreateFolder :: CreateFolderResponse -> TestTree
+responseCreateFolder =
   res
-    "ListTemplatesResponse"
-    "fixture/ListTemplatesResponse.proto"
+    "CreateFolderResponse"
+    "fixture/CreateFolderResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTemplates)
+    (Proxy.Proxy :: Proxy.Proxy CreateFolder)
 
-responseDescribeAccountSettings :: DescribeAccountSettingsResponse -> TestTree
-responseDescribeAccountSettings =
+responseCreateFolderMembership :: CreateFolderMembershipResponse -> TestTree
+responseCreateFolderMembership =
   res
-    "DescribeAccountSettingsResponse"
-    "fixture/DescribeAccountSettingsResponse.proto"
+    "CreateFolderMembershipResponse"
+    "fixture/CreateFolderMembershipResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAccountSettings)
+    (Proxy.Proxy :: Proxy.Proxy CreateFolderMembership)
 
-responseUpdateTemplate :: UpdateTemplateResponse -> TestTree
-responseUpdateTemplate =
+responseCreateGroup :: CreateGroupResponse -> TestTree
+responseCreateGroup =
   res
-    "UpdateTemplateResponse"
-    "fixture/UpdateTemplateResponse.proto"
+    "CreateGroupResponse"
+    "fixture/CreateGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateTemplate)
+    (Proxy.Proxy :: Proxy.Proxy CreateGroup)
+
+responseCreateGroupMembership :: CreateGroupMembershipResponse -> TestTree
+responseCreateGroupMembership =
+  res
+    "CreateGroupMembershipResponse"
+    "fixture/CreateGroupMembershipResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateGroupMembership)
+
+responseCreateIAMPolicyAssignment :: CreateIAMPolicyAssignmentResponse -> TestTree
+responseCreateIAMPolicyAssignment =
+  res
+    "CreateIAMPolicyAssignmentResponse"
+    "fixture/CreateIAMPolicyAssignmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateIAMPolicyAssignment)
+
+responseCreateIngestion :: CreateIngestionResponse -> TestTree
+responseCreateIngestion =
+  res
+    "CreateIngestionResponse"
+    "fixture/CreateIngestionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateIngestion)
+
+responseCreateNamespace :: CreateNamespaceResponse -> TestTree
+responseCreateNamespace =
+  res
+    "CreateNamespaceResponse"
+    "fixture/CreateNamespaceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateNamespace)
+
+responseCreateTemplate :: CreateTemplateResponse -> TestTree
+responseCreateTemplate =
+  res
+    "CreateTemplateResponse"
+    "fixture/CreateTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTemplate)
+
+responseCreateTemplateAlias :: CreateTemplateAliasResponse -> TestTree
+responseCreateTemplateAlias =
+  res
+    "CreateTemplateAliasResponse"
+    "fixture/CreateTemplateAliasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTemplateAlias)
+
+responseCreateTheme :: CreateThemeResponse -> TestTree
+responseCreateTheme =
+  res
+    "CreateThemeResponse"
+    "fixture/CreateThemeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTheme)
+
+responseCreateThemeAlias :: CreateThemeAliasResponse -> TestTree
+responseCreateThemeAlias =
+  res
+    "CreateThemeAliasResponse"
+    "fixture/CreateThemeAliasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateThemeAlias)
+
+responseDeleteAccountCustomization :: DeleteAccountCustomizationResponse -> TestTree
+responseDeleteAccountCustomization =
+  res
+    "DeleteAccountCustomizationResponse"
+    "fixture/DeleteAccountCustomizationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccountCustomization)
+
+responseDeleteAnalysis :: DeleteAnalysisResponse -> TestTree
+responseDeleteAnalysis =
+  res
+    "DeleteAnalysisResponse"
+    "fixture/DeleteAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAnalysis)
+
+responseDeleteDashboard :: DeleteDashboardResponse -> TestTree
+responseDeleteDashboard =
+  res
+    "DeleteDashboardResponse"
+    "fixture/DeleteDashboardResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDashboard)
+
+responseDeleteDataSet :: DeleteDataSetResponse -> TestTree
+responseDeleteDataSet =
+  res
+    "DeleteDataSetResponse"
+    "fixture/DeleteDataSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataSet)
+
+responseDeleteDataSource :: DeleteDataSourceResponse -> TestTree
+responseDeleteDataSource =
+  res
+    "DeleteDataSourceResponse"
+    "fixture/DeleteDataSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataSource)
+
+responseDeleteFolder :: DeleteFolderResponse -> TestTree
+responseDeleteFolder =
+  res
+    "DeleteFolderResponse"
+    "fixture/DeleteFolderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFolder)
+
+responseDeleteFolderMembership :: DeleteFolderMembershipResponse -> TestTree
+responseDeleteFolderMembership =
+  res
+    "DeleteFolderMembershipResponse"
+    "fixture/DeleteFolderMembershipResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFolderMembership)
+
+responseDeleteGroup :: DeleteGroupResponse -> TestTree
+responseDeleteGroup =
+  res
+    "DeleteGroupResponse"
+    "fixture/DeleteGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteGroup)
+
+responseDeleteGroupMembership :: DeleteGroupMembershipResponse -> TestTree
+responseDeleteGroupMembership =
+  res
+    "DeleteGroupMembershipResponse"
+    "fixture/DeleteGroupMembershipResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteGroupMembership)
+
+responseDeleteIAMPolicyAssignment :: DeleteIAMPolicyAssignmentResponse -> TestTree
+responseDeleteIAMPolicyAssignment =
+  res
+    "DeleteIAMPolicyAssignmentResponse"
+    "fixture/DeleteIAMPolicyAssignmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteIAMPolicyAssignment)
+
+responseDeleteNamespace :: DeleteNamespaceResponse -> TestTree
+responseDeleteNamespace =
+  res
+    "DeleteNamespaceResponse"
+    "fixture/DeleteNamespaceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteNamespace)
 
 responseDeleteTemplate :: DeleteTemplateResponse -> TestTree
 responseDeleteTemplate =
@@ -1921,45 +1649,213 @@ responseDeleteTemplate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteTemplate)
 
-responseUpdateTemplatePermissions :: UpdateTemplatePermissionsResponse -> TestTree
-responseUpdateTemplatePermissions =
+responseDeleteTemplateAlias :: DeleteTemplateAliasResponse -> TestTree
+responseDeleteTemplateAlias =
   res
-    "UpdateTemplatePermissionsResponse"
-    "fixture/UpdateTemplatePermissionsResponse.proto"
+    "DeleteTemplateAliasResponse"
+    "fixture/DeleteTemplateAliasResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateTemplatePermissions)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTemplateAlias)
 
-responseSearchDashboards :: SearchDashboardsResponse -> TestTree
-responseSearchDashboards =
+responseDeleteTheme :: DeleteThemeResponse -> TestTree
+responseDeleteTheme =
   res
-    "SearchDashboardsResponse"
-    "fixture/SearchDashboardsResponse.proto"
+    "DeleteThemeResponse"
+    "fixture/DeleteThemeResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchDashboards)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTheme)
 
-responseUpdateDataSourcePermissions :: UpdateDataSourcePermissionsResponse -> TestTree
-responseUpdateDataSourcePermissions =
+responseDeleteThemeAlias :: DeleteThemeAliasResponse -> TestTree
+responseDeleteThemeAlias =
   res
-    "UpdateDataSourcePermissionsResponse"
-    "fixture/UpdateDataSourcePermissionsResponse.proto"
+    "DeleteThemeAliasResponse"
+    "fixture/DeleteThemeAliasResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDataSourcePermissions)
+    (Proxy.Proxy :: Proxy.Proxy DeleteThemeAlias)
 
-responseUpdateIpRestriction :: UpdateIpRestrictionResponse -> TestTree
-responseUpdateIpRestriction =
+responseDeleteUser :: DeleteUserResponse -> TestTree
+responseDeleteUser =
   res
-    "UpdateIpRestrictionResponse"
-    "fixture/UpdateIpRestrictionResponse.proto"
+    "DeleteUserResponse"
+    "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateIpRestriction)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
-responseDescribeUser :: DescribeUserResponse -> TestTree
-responseDescribeUser =
+responseDeleteUserByPrincipalId :: DeleteUserByPrincipalIdResponse -> TestTree
+responseDeleteUserByPrincipalId =
   res
-    "DescribeUserResponse"
-    "fixture/DescribeUserResponse.proto"
+    "DeleteUserByPrincipalIdResponse"
+    "fixture/DeleteUserByPrincipalIdResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteUserByPrincipalId)
+
+responseDescribeAccountCustomization :: DescribeAccountCustomizationResponse -> TestTree
+responseDescribeAccountCustomization =
+  res
+    "DescribeAccountCustomizationResponse"
+    "fixture/DescribeAccountCustomizationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountCustomization)
+
+responseDescribeAccountSettings :: DescribeAccountSettingsResponse -> TestTree
+responseDescribeAccountSettings =
+  res
+    "DescribeAccountSettingsResponse"
+    "fixture/DescribeAccountSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountSettings)
+
+responseDescribeAnalysis :: DescribeAnalysisResponse -> TestTree
+responseDescribeAnalysis =
+  res
+    "DescribeAnalysisResponse"
+    "fixture/DescribeAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAnalysis)
+
+responseDescribeAnalysisPermissions :: DescribeAnalysisPermissionsResponse -> TestTree
+responseDescribeAnalysisPermissions =
+  res
+    "DescribeAnalysisPermissionsResponse"
+    "fixture/DescribeAnalysisPermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAnalysisPermissions)
+
+responseDescribeDashboard :: DescribeDashboardResponse -> TestTree
+responseDescribeDashboard =
+  res
+    "DescribeDashboardResponse"
+    "fixture/DescribeDashboardResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDashboard)
+
+responseDescribeDashboardPermissions :: DescribeDashboardPermissionsResponse -> TestTree
+responseDescribeDashboardPermissions =
+  res
+    "DescribeDashboardPermissionsResponse"
+    "fixture/DescribeDashboardPermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDashboardPermissions)
+
+responseDescribeDataSet :: DescribeDataSetResponse -> TestTree
+responseDescribeDataSet =
+  res
+    "DescribeDataSetResponse"
+    "fixture/DescribeDataSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataSet)
+
+responseDescribeDataSetPermissions :: DescribeDataSetPermissionsResponse -> TestTree
+responseDescribeDataSetPermissions =
+  res
+    "DescribeDataSetPermissionsResponse"
+    "fixture/DescribeDataSetPermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataSetPermissions)
+
+responseDescribeDataSource :: DescribeDataSourceResponse -> TestTree
+responseDescribeDataSource =
+  res
+    "DescribeDataSourceResponse"
+    "fixture/DescribeDataSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataSource)
+
+responseDescribeDataSourcePermissions :: DescribeDataSourcePermissionsResponse -> TestTree
+responseDescribeDataSourcePermissions =
+  res
+    "DescribeDataSourcePermissionsResponse"
+    "fixture/DescribeDataSourcePermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataSourcePermissions)
+
+responseDescribeFolder :: DescribeFolderResponse -> TestTree
+responseDescribeFolder =
+  res
+    "DescribeFolderResponse"
+    "fixture/DescribeFolderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFolder)
+
+responseDescribeFolderPermissions :: DescribeFolderPermissionsResponse -> TestTree
+responseDescribeFolderPermissions =
+  res
+    "DescribeFolderPermissionsResponse"
+    "fixture/DescribeFolderPermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFolderPermissions)
+
+responseDescribeFolderResolvedPermissions :: DescribeFolderResolvedPermissionsResponse -> TestTree
+responseDescribeFolderResolvedPermissions =
+  res
+    "DescribeFolderResolvedPermissionsResponse"
+    "fixture/DescribeFolderResolvedPermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFolderResolvedPermissions)
+
+responseDescribeGroup :: DescribeGroupResponse -> TestTree
+responseDescribeGroup =
+  res
+    "DescribeGroupResponse"
+    "fixture/DescribeGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeGroup)
+
+responseDescribeIAMPolicyAssignment :: DescribeIAMPolicyAssignmentResponse -> TestTree
+responseDescribeIAMPolicyAssignment =
+  res
+    "DescribeIAMPolicyAssignmentResponse"
+    "fixture/DescribeIAMPolicyAssignmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeIAMPolicyAssignment)
+
+responseDescribeIngestion :: DescribeIngestionResponse -> TestTree
+responseDescribeIngestion =
+  res
+    "DescribeIngestionResponse"
+    "fixture/DescribeIngestionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeIngestion)
+
+responseDescribeIpRestriction :: DescribeIpRestrictionResponse -> TestTree
+responseDescribeIpRestriction =
+  res
+    "DescribeIpRestrictionResponse"
+    "fixture/DescribeIpRestrictionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeIpRestriction)
+
+responseDescribeNamespace :: DescribeNamespaceResponse -> TestTree
+responseDescribeNamespace =
+  res
+    "DescribeNamespaceResponse"
+    "fixture/DescribeNamespaceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeNamespace)
+
+responseDescribeTemplate :: DescribeTemplateResponse -> TestTree
+responseDescribeTemplate =
+  res
+    "DescribeTemplateResponse"
+    "fixture/DescribeTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTemplate)
+
+responseDescribeTemplateAlias :: DescribeTemplateAliasResponse -> TestTree
+responseDescribeTemplateAlias =
+  res
+    "DescribeTemplateAliasResponse"
+    "fixture/DescribeTemplateAliasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTemplateAlias)
+
+responseDescribeTemplatePermissions :: DescribeTemplatePermissionsResponse -> TestTree
+responseDescribeTemplatePermissions =
+  res
+    "DescribeTemplatePermissionsResponse"
+    "fixture/DescribeTemplatePermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTemplatePermissions)
 
 responseDescribeTheme :: DescribeThemeResponse -> TestTree
 responseDescribeTheme =
@@ -1969,6 +1865,62 @@ responseDescribeTheme =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeTheme)
 
+responseDescribeThemeAlias :: DescribeThemeAliasResponse -> TestTree
+responseDescribeThemeAlias =
+  res
+    "DescribeThemeAliasResponse"
+    "fixture/DescribeThemeAliasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeThemeAlias)
+
+responseDescribeThemePermissions :: DescribeThemePermissionsResponse -> TestTree
+responseDescribeThemePermissions =
+  res
+    "DescribeThemePermissionsResponse"
+    "fixture/DescribeThemePermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeThemePermissions)
+
+responseDescribeUser :: DescribeUserResponse -> TestTree
+responseDescribeUser =
+  res
+    "DescribeUserResponse"
+    "fixture/DescribeUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeUser)
+
+responseGenerateEmbedUrlForAnonymousUser :: GenerateEmbedUrlForAnonymousUserResponse -> TestTree
+responseGenerateEmbedUrlForAnonymousUser =
+  res
+    "GenerateEmbedUrlForAnonymousUserResponse"
+    "fixture/GenerateEmbedUrlForAnonymousUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GenerateEmbedUrlForAnonymousUser)
+
+responseGenerateEmbedUrlForRegisteredUser :: GenerateEmbedUrlForRegisteredUserResponse -> TestTree
+responseGenerateEmbedUrlForRegisteredUser =
+  res
+    "GenerateEmbedUrlForRegisteredUserResponse"
+    "fixture/GenerateEmbedUrlForRegisteredUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GenerateEmbedUrlForRegisteredUser)
+
+responseGetDashboardEmbedUrl :: GetDashboardEmbedUrlResponse -> TestTree
+responseGetDashboardEmbedUrl =
+  res
+    "GetDashboardEmbedUrlResponse"
+    "fixture/GetDashboardEmbedUrlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDashboardEmbedUrl)
+
+responseGetSessionEmbedUrl :: GetSessionEmbedUrlResponse -> TestTree
+responseGetSessionEmbedUrl =
+  res
+    "GetSessionEmbedUrlResponse"
+    "fixture/GetSessionEmbedUrlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSessionEmbedUrl)
+
 responseListAnalyses :: ListAnalysesResponse -> TestTree
 responseListAnalyses =
   res
@@ -1976,6 +1928,30 @@ responseListAnalyses =
     "fixture/ListAnalysesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAnalyses)
+
+responseListDashboardVersions :: ListDashboardVersionsResponse -> TestTree
+responseListDashboardVersions =
+  res
+    "ListDashboardVersionsResponse"
+    "fixture/ListDashboardVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDashboardVersions)
+
+responseListDashboards :: ListDashboardsResponse -> TestTree
+responseListDashboards =
+  res
+    "ListDashboardsResponse"
+    "fixture/ListDashboardsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDashboards)
+
+responseListDataSets :: ListDataSetsResponse -> TestTree
+responseListDataSets =
+  res
+    "ListDataSetsResponse"
+    "fixture/ListDataSetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDataSets)
 
 responseListDataSources :: ListDataSourcesResponse -> TestTree
 responseListDataSources =
@@ -1993,293 +1969,21 @@ responseListFolderMembers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListFolderMembers)
 
-responseListIAMPolicyAssignments :: ListIAMPolicyAssignmentsResponse -> TestTree
-responseListIAMPolicyAssignments =
+responseListFolders :: ListFoldersResponse -> TestTree
+responseListFolders =
   res
-    "ListIAMPolicyAssignmentsResponse"
-    "fixture/ListIAMPolicyAssignmentsResponse.proto"
+    "ListFoldersResponse"
+    "fixture/ListFoldersResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListIAMPolicyAssignments)
+    (Proxy.Proxy :: Proxy.Proxy ListFolders)
 
-responseListDashboardVersions :: ListDashboardVersionsResponse -> TestTree
-responseListDashboardVersions =
+responseListGroupMemberships :: ListGroupMembershipsResponse -> TestTree
+responseListGroupMemberships =
   res
-    "ListDashboardVersionsResponse"
-    "fixture/ListDashboardVersionsResponse.proto"
+    "ListGroupMembershipsResponse"
+    "fixture/ListGroupMembershipsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDashboardVersions)
-
-responseCreateNamespace :: CreateNamespaceResponse -> TestTree
-responseCreateNamespace =
-  res
-    "CreateNamespaceResponse"
-    "fixture/CreateNamespaceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateNamespace)
-
-responseCreateIAMPolicyAssignment :: CreateIAMPolicyAssignmentResponse -> TestTree
-responseCreateIAMPolicyAssignment =
-  res
-    "CreateIAMPolicyAssignmentResponse"
-    "fixture/CreateIAMPolicyAssignmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateIAMPolicyAssignment)
-
-responseRestoreAnalysis :: RestoreAnalysisResponse -> TestTree
-responseRestoreAnalysis =
-  res
-    "RestoreAnalysisResponse"
-    "fixture/RestoreAnalysisResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RestoreAnalysis)
-
-responseCreateTemplateAlias :: CreateTemplateAliasResponse -> TestTree
-responseCreateTemplateAlias =
-  res
-    "CreateTemplateAliasResponse"
-    "fixture/CreateTemplateAliasResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateTemplateAlias)
-
-responseListTemplateAliases :: ListTemplateAliasesResponse -> TestTree
-responseListTemplateAliases =
-  res
-    "ListTemplateAliasesResponse"
-    "fixture/ListTemplateAliasesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTemplateAliases)
-
-responseGetDashboardEmbedUrl :: GetDashboardEmbedUrlResponse -> TestTree
-responseGetDashboardEmbedUrl =
-  res
-    "GetDashboardEmbedUrlResponse"
-    "fixture/GetDashboardEmbedUrlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDashboardEmbedUrl)
-
-responseGenerateEmbedUrlForAnonymousUser :: GenerateEmbedUrlForAnonymousUserResponse -> TestTree
-responseGenerateEmbedUrlForAnonymousUser =
-  res
-    "GenerateEmbedUrlForAnonymousUserResponse"
-    "fixture/GenerateEmbedUrlForAnonymousUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GenerateEmbedUrlForAnonymousUser)
-
-responseListThemeVersions :: ListThemeVersionsResponse -> TestTree
-responseListThemeVersions =
-  res
-    "ListThemeVersionsResponse"
-    "fixture/ListThemeVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListThemeVersions)
-
-responseUpdateDashboardPermissions :: UpdateDashboardPermissionsResponse -> TestTree
-responseUpdateDashboardPermissions =
-  res
-    "UpdateDashboardPermissionsResponse"
-    "fixture/UpdateDashboardPermissionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDashboardPermissions)
-
-responseListIAMPolicyAssignmentsForUser :: ListIAMPolicyAssignmentsForUserResponse -> TestTree
-responseListIAMPolicyAssignmentsForUser =
-  res
-    "ListIAMPolicyAssignmentsForUserResponse"
-    "fixture/ListIAMPolicyAssignmentsForUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListIAMPolicyAssignmentsForUser)
-
-responseDeleteAccountCustomization :: DeleteAccountCustomizationResponse -> TestTree
-responseDeleteAccountCustomization =
-  res
-    "DeleteAccountCustomizationResponse"
-    "fixture/DeleteAccountCustomizationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAccountCustomization)
-
-responseUpdateAccountCustomization :: UpdateAccountCustomizationResponse -> TestTree
-responseUpdateAccountCustomization =
-  res
-    "UpdateAccountCustomizationResponse"
-    "fixture/UpdateAccountCustomizationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAccountCustomization)
-
-responseDeleteDashboard :: DeleteDashboardResponse -> TestTree
-responseDeleteDashboard =
-  res
-    "DeleteDashboardResponse"
-    "fixture/DeleteDashboardResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDashboard)
-
-responseUpdateDashboard :: UpdateDashboardResponse -> TestTree
-responseUpdateDashboard =
-  res
-    "UpdateDashboardResponse"
-    "fixture/UpdateDashboardResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDashboard)
-
-responseDescribeDataSourcePermissions :: DescribeDataSourcePermissionsResponse -> TestTree
-responseDescribeDataSourcePermissions =
-  res
-    "DescribeDataSourcePermissionsResponse"
-    "fixture/DescribeDataSourcePermissionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDataSourcePermissions)
-
-responseUpdateUser :: UpdateUserResponse -> TestTree
-responseUpdateUser =
-  res
-    "UpdateUserResponse"
-    "fixture/UpdateUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateUser)
-
-responseDeleteUser :: DeleteUserResponse -> TestTree
-responseDeleteUser =
-  res
-    "DeleteUserResponse"
-    "fixture/DeleteUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
-
-responseSearchAnalyses :: SearchAnalysesResponse -> TestTree
-responseSearchAnalyses =
-  res
-    "SearchAnalysesResponse"
-    "fixture/SearchAnalysesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchAnalyses)
-
-responseCreateAccountCustomization :: CreateAccountCustomizationResponse -> TestTree
-responseCreateAccountCustomization =
-  res
-    "CreateAccountCustomizationResponse"
-    "fixture/CreateAccountCustomizationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAccountCustomization)
-
-responseDescribeIpRestriction :: DescribeIpRestrictionResponse -> TestTree
-responseDescribeIpRestriction =
-  res
-    "DescribeIpRestrictionResponse"
-    "fixture/DescribeIpRestrictionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeIpRestriction)
-
-responseListThemes :: ListThemesResponse -> TestTree
-responseListThemes =
-  res
-    "ListThemesResponse"
-    "fixture/ListThemesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListThemes)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseUpdateTheme :: UpdateThemeResponse -> TestTree
-responseUpdateTheme =
-  res
-    "UpdateThemeResponse"
-    "fixture/UpdateThemeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateTheme)
-
-responseDeleteTheme :: DeleteThemeResponse -> TestTree
-responseDeleteTheme =
-  res
-    "DeleteThemeResponse"
-    "fixture/DeleteThemeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteTheme)
-
-responseListIngestions :: ListIngestionsResponse -> TestTree
-responseListIngestions =
-  res
-    "ListIngestionsResponse"
-    "fixture/ListIngestionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListIngestions)
-
-responseCreateGroup :: CreateGroupResponse -> TestTree
-responseCreateGroup =
-  res
-    "CreateGroupResponse"
-    "fixture/CreateGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateGroup)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseListTemplateVersions :: ListTemplateVersionsResponse -> TestTree
-responseListTemplateVersions =
-  res
-    "ListTemplateVersionsResponse"
-    "fixture/ListTemplateVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTemplateVersions)
-
-responseListDataSets :: ListDataSetsResponse -> TestTree
-responseListDataSets =
-  res
-    "ListDataSetsResponse"
-    "fixture/ListDataSetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDataSets)
-
-responseDeleteThemeAlias :: DeleteThemeAliasResponse -> TestTree
-responseDeleteThemeAlias =
-  res
-    "DeleteThemeAliasResponse"
-    "fixture/DeleteThemeAliasResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteThemeAlias)
-
-responseUpdateThemeAlias :: UpdateThemeAliasResponse -> TestTree
-responseUpdateThemeAlias =
-  res
-    "UpdateThemeAliasResponse"
-    "fixture/UpdateThemeAliasResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateThemeAlias)
-
-responseDeleteGroup :: DeleteGroupResponse -> TestTree
-responseDeleteGroup =
-  res
-    "DeleteGroupResponse"
-    "fixture/DeleteGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteGroup)
-
-responseUpdateGroup :: UpdateGroupResponse -> TestTree
-responseUpdateGroup =
-  res
-    "UpdateGroupResponse"
-    "fixture/UpdateGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateGroup)
-
-responseDescribeNamespace :: DescribeNamespaceResponse -> TestTree
-responseDescribeNamespace =
-  res
-    "DescribeNamespaceResponse"
-    "fixture/DescribeNamespaceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeNamespace)
+    (Proxy.Proxy :: Proxy.Proxy ListGroupMemberships)
 
 responseListGroups :: ListGroupsResponse -> TestTree
 responseListGroups =
@@ -2289,50 +1993,346 @@ responseListGroups =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListGroups)
 
-responseCreateAnalysis :: CreateAnalysisResponse -> TestTree
-responseCreateAnalysis =
+responseListIAMPolicyAssignments :: ListIAMPolicyAssignmentsResponse -> TestTree
+responseListIAMPolicyAssignments =
   res
-    "CreateAnalysisResponse"
-    "fixture/CreateAnalysisResponse.proto"
+    "ListIAMPolicyAssignmentsResponse"
+    "fixture/ListIAMPolicyAssignmentsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAnalysis)
+    (Proxy.Proxy :: Proxy.Proxy ListIAMPolicyAssignments)
 
-responseDescribeAccountCustomization :: DescribeAccountCustomizationResponse -> TestTree
-responseDescribeAccountCustomization =
+responseListIAMPolicyAssignmentsForUser :: ListIAMPolicyAssignmentsForUserResponse -> TestTree
+responseListIAMPolicyAssignmentsForUser =
   res
-    "DescribeAccountCustomizationResponse"
-    "fixture/DescribeAccountCustomizationResponse.proto"
+    "ListIAMPolicyAssignmentsForUserResponse"
+    "fixture/ListIAMPolicyAssignmentsForUserResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAccountCustomization)
+    (Proxy.Proxy :: Proxy.Proxy ListIAMPolicyAssignmentsForUser)
 
-responseGenerateEmbedUrlForRegisteredUser :: GenerateEmbedUrlForRegisteredUserResponse -> TestTree
-responseGenerateEmbedUrlForRegisteredUser =
+responseListIngestions :: ListIngestionsResponse -> TestTree
+responseListIngestions =
   res
-    "GenerateEmbedUrlForRegisteredUserResponse"
-    "fixture/GenerateEmbedUrlForRegisteredUserResponse.proto"
+    "ListIngestionsResponse"
+    "fixture/ListIngestionsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GenerateEmbedUrlForRegisteredUser)
+    (Proxy.Proxy :: Proxy.Proxy ListIngestions)
 
-responseDescribeDashboard :: DescribeDashboardResponse -> TestTree
-responseDescribeDashboard =
+responseListNamespaces :: ListNamespacesResponse -> TestTree
+responseListNamespaces =
   res
-    "DescribeDashboardResponse"
-    "fixture/DescribeDashboardResponse.proto"
+    "ListNamespacesResponse"
+    "fixture/ListNamespacesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDashboard)
+    (Proxy.Proxy :: Proxy.Proxy ListNamespaces)
 
-responseCreateGroupMembership :: CreateGroupMembershipResponse -> TestTree
-responseCreateGroupMembership =
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
   res
-    "CreateGroupMembershipResponse"
-    "fixture/CreateGroupMembershipResponse.proto"
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateGroupMembership)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
-responseDescribeDashboardPermissions :: DescribeDashboardPermissionsResponse -> TestTree
-responseDescribeDashboardPermissions =
+responseListTemplateAliases :: ListTemplateAliasesResponse -> TestTree
+responseListTemplateAliases =
   res
-    "DescribeDashboardPermissionsResponse"
-    "fixture/DescribeDashboardPermissionsResponse.proto"
+    "ListTemplateAliasesResponse"
+    "fixture/ListTemplateAliasesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDashboardPermissions)
+    (Proxy.Proxy :: Proxy.Proxy ListTemplateAliases)
+
+responseListTemplateVersions :: ListTemplateVersionsResponse -> TestTree
+responseListTemplateVersions =
+  res
+    "ListTemplateVersionsResponse"
+    "fixture/ListTemplateVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTemplateVersions)
+
+responseListTemplates :: ListTemplatesResponse -> TestTree
+responseListTemplates =
+  res
+    "ListTemplatesResponse"
+    "fixture/ListTemplatesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTemplates)
+
+responseListThemeAliases :: ListThemeAliasesResponse -> TestTree
+responseListThemeAliases =
+  res
+    "ListThemeAliasesResponse"
+    "fixture/ListThemeAliasesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListThemeAliases)
+
+responseListThemeVersions :: ListThemeVersionsResponse -> TestTree
+responseListThemeVersions =
+  res
+    "ListThemeVersionsResponse"
+    "fixture/ListThemeVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListThemeVersions)
+
+responseListThemes :: ListThemesResponse -> TestTree
+responseListThemes =
+  res
+    "ListThemesResponse"
+    "fixture/ListThemesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListThemes)
+
+responseListUserGroups :: ListUserGroupsResponse -> TestTree
+responseListUserGroups =
+  res
+    "ListUserGroupsResponse"
+    "fixture/ListUserGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListUserGroups)
+
+responseListUsers :: ListUsersResponse -> TestTree
+responseListUsers =
+  res
+    "ListUsersResponse"
+    "fixture/ListUsersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)
+
+responseRegisterUser :: RegisterUserResponse -> TestTree
+responseRegisterUser =
+  res
+    "RegisterUserResponse"
+    "fixture/RegisterUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterUser)
+
+responseRestoreAnalysis :: RestoreAnalysisResponse -> TestTree
+responseRestoreAnalysis =
+  res
+    "RestoreAnalysisResponse"
+    "fixture/RestoreAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RestoreAnalysis)
+
+responseSearchAnalyses :: SearchAnalysesResponse -> TestTree
+responseSearchAnalyses =
+  res
+    "SearchAnalysesResponse"
+    "fixture/SearchAnalysesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchAnalyses)
+
+responseSearchDashboards :: SearchDashboardsResponse -> TestTree
+responseSearchDashboards =
+  res
+    "SearchDashboardsResponse"
+    "fixture/SearchDashboardsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchDashboards)
+
+responseSearchFolders :: SearchFoldersResponse -> TestTree
+responseSearchFolders =
+  res
+    "SearchFoldersResponse"
+    "fixture/SearchFoldersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchFolders)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateAccountCustomization :: UpdateAccountCustomizationResponse -> TestTree
+responseUpdateAccountCustomization =
+  res
+    "UpdateAccountCustomizationResponse"
+    "fixture/UpdateAccountCustomizationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccountCustomization)
+
+responseUpdateAccountSettings :: UpdateAccountSettingsResponse -> TestTree
+responseUpdateAccountSettings =
+  res
+    "UpdateAccountSettingsResponse"
+    "fixture/UpdateAccountSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccountSettings)
+
+responseUpdateAnalysis :: UpdateAnalysisResponse -> TestTree
+responseUpdateAnalysis =
+  res
+    "UpdateAnalysisResponse"
+    "fixture/UpdateAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAnalysis)
+
+responseUpdateAnalysisPermissions :: UpdateAnalysisPermissionsResponse -> TestTree
+responseUpdateAnalysisPermissions =
+  res
+    "UpdateAnalysisPermissionsResponse"
+    "fixture/UpdateAnalysisPermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAnalysisPermissions)
+
+responseUpdateDashboard :: UpdateDashboardResponse -> TestTree
+responseUpdateDashboard =
+  res
+    "UpdateDashboardResponse"
+    "fixture/UpdateDashboardResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDashboard)
+
+responseUpdateDashboardPermissions :: UpdateDashboardPermissionsResponse -> TestTree
+responseUpdateDashboardPermissions =
+  res
+    "UpdateDashboardPermissionsResponse"
+    "fixture/UpdateDashboardPermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDashboardPermissions)
+
+responseUpdateDashboardPublishedVersion :: UpdateDashboardPublishedVersionResponse -> TestTree
+responseUpdateDashboardPublishedVersion =
+  res
+    "UpdateDashboardPublishedVersionResponse"
+    "fixture/UpdateDashboardPublishedVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDashboardPublishedVersion)
+
+responseUpdateDataSet :: UpdateDataSetResponse -> TestTree
+responseUpdateDataSet =
+  res
+    "UpdateDataSetResponse"
+    "fixture/UpdateDataSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataSet)
+
+responseUpdateDataSetPermissions :: UpdateDataSetPermissionsResponse -> TestTree
+responseUpdateDataSetPermissions =
+  res
+    "UpdateDataSetPermissionsResponse"
+    "fixture/UpdateDataSetPermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataSetPermissions)
+
+responseUpdateDataSource :: UpdateDataSourceResponse -> TestTree
+responseUpdateDataSource =
+  res
+    "UpdateDataSourceResponse"
+    "fixture/UpdateDataSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataSource)
+
+responseUpdateDataSourcePermissions :: UpdateDataSourcePermissionsResponse -> TestTree
+responseUpdateDataSourcePermissions =
+  res
+    "UpdateDataSourcePermissionsResponse"
+    "fixture/UpdateDataSourcePermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataSourcePermissions)
+
+responseUpdateFolder :: UpdateFolderResponse -> TestTree
+responseUpdateFolder =
+  res
+    "UpdateFolderResponse"
+    "fixture/UpdateFolderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFolder)
+
+responseUpdateFolderPermissions :: UpdateFolderPermissionsResponse -> TestTree
+responseUpdateFolderPermissions =
+  res
+    "UpdateFolderPermissionsResponse"
+    "fixture/UpdateFolderPermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFolderPermissions)
+
+responseUpdateGroup :: UpdateGroupResponse -> TestTree
+responseUpdateGroup =
+  res
+    "UpdateGroupResponse"
+    "fixture/UpdateGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateGroup)
+
+responseUpdateIAMPolicyAssignment :: UpdateIAMPolicyAssignmentResponse -> TestTree
+responseUpdateIAMPolicyAssignment =
+  res
+    "UpdateIAMPolicyAssignmentResponse"
+    "fixture/UpdateIAMPolicyAssignmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateIAMPolicyAssignment)
+
+responseUpdateIpRestriction :: UpdateIpRestrictionResponse -> TestTree
+responseUpdateIpRestriction =
+  res
+    "UpdateIpRestrictionResponse"
+    "fixture/UpdateIpRestrictionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateIpRestriction)
+
+responseUpdateTemplate :: UpdateTemplateResponse -> TestTree
+responseUpdateTemplate =
+  res
+    "UpdateTemplateResponse"
+    "fixture/UpdateTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTemplate)
+
+responseUpdateTemplateAlias :: UpdateTemplateAliasResponse -> TestTree
+responseUpdateTemplateAlias =
+  res
+    "UpdateTemplateAliasResponse"
+    "fixture/UpdateTemplateAliasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTemplateAlias)
+
+responseUpdateTemplatePermissions :: UpdateTemplatePermissionsResponse -> TestTree
+responseUpdateTemplatePermissions =
+  res
+    "UpdateTemplatePermissionsResponse"
+    "fixture/UpdateTemplatePermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTemplatePermissions)
+
+responseUpdateTheme :: UpdateThemeResponse -> TestTree
+responseUpdateTheme =
+  res
+    "UpdateThemeResponse"
+    "fixture/UpdateThemeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTheme)
+
+responseUpdateThemeAlias :: UpdateThemeAliasResponse -> TestTree
+responseUpdateThemeAlias =
+  res
+    "UpdateThemeAliasResponse"
+    "fixture/UpdateThemeAliasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateThemeAlias)
+
+responseUpdateThemePermissions :: UpdateThemePermissionsResponse -> TestTree
+responseUpdateThemePermissions =
+  res
+    "UpdateThemePermissionsResponse"
+    "fixture/UpdateThemePermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateThemePermissions)
+
+responseUpdateUser :: UpdateUserResponse -> TestTree
+responseUpdateUser =
+  res
+    "UpdateUserResponse"
+    "fixture/UpdateUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateUser)

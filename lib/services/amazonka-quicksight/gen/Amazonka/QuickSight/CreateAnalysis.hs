@@ -27,10 +27,10 @@ module Amazonka.QuickSight.CreateAnalysis
     newCreateAnalysis,
 
     -- * Request Lenses
-    createAnalysis_themeArn,
-    createAnalysis_parameters,
-    createAnalysis_permissions,
     createAnalysis_tags,
+    createAnalysis_themeArn,
+    createAnalysis_permissions,
+    createAnalysis_parameters,
     createAnalysis_awsAccountId,
     createAnalysis_analysisId,
     createAnalysis_name,
@@ -41,10 +41,10 @@ module Amazonka.QuickSight.CreateAnalysis
     newCreateAnalysisResponse,
 
     -- * Response Lenses
-    createAnalysisResponse_requestId,
     createAnalysisResponse_analysisId,
-    createAnalysisResponse_arn,
     createAnalysisResponse_creationStatus,
+    createAnalysisResponse_requestId,
+    createAnalysisResponse_arn,
     createAnalysisResponse_status,
   )
 where
@@ -58,14 +58,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAnalysis' smart constructor.
 data CreateAnalysis = CreateAnalysis'
-  { -- | The ARN for the theme to apply to the analysis that you\'re creating. To
+  { -- | Contains a map of the key-value pairs for the resource tag or tags
+    -- assigned to the analysis.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The ARN for the theme to apply to the analysis that you\'re creating. To
     -- see the theme in the Amazon QuickSight console, make sure that you have
     -- access to it.
     themeArn :: Prelude.Maybe Prelude.Text,
-    -- | The parameter names and override values that you want to use. An
-    -- analysis can have any parameter type, and some parameters might accept
-    -- multiple values.
-    parameters :: Prelude.Maybe Parameters,
     -- | A structure that describes the principals and the resource-level
     -- permissions on an analysis. You can use the @Permissions@ structure to
     -- grant permissions by providing a list of Identity and Access Management
@@ -74,9 +73,10 @@ data CreateAnalysis = CreateAnalysis'
     --
     -- To specify no permissions, omit @Permissions@.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
-    -- | Contains a map of the key-value pairs for the resource tag or tags
-    -- assigned to the analysis.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The parameter names and override values that you want to use. An
+    -- analysis can have any parameter type, and some parameters might accept
+    -- multiple values.
+    parameters :: Prelude.Maybe Parameters,
     -- | The ID of the Amazon Web Services account where you are creating an
     -- analysis.
     awsAccountId :: Prelude.Text,
@@ -101,13 +101,12 @@ data CreateAnalysis = CreateAnalysis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createAnalysis_tags' - Contains a map of the key-value pairs for the resource tag or tags
+-- assigned to the analysis.
+--
 -- 'themeArn', 'createAnalysis_themeArn' - The ARN for the theme to apply to the analysis that you\'re creating. To
 -- see the theme in the Amazon QuickSight console, make sure that you have
 -- access to it.
---
--- 'parameters', 'createAnalysis_parameters' - The parameter names and override values that you want to use. An
--- analysis can have any parameter type, and some parameters might accept
--- multiple values.
 --
 -- 'permissions', 'createAnalysis_permissions' - A structure that describes the principals and the resource-level
 -- permissions on an analysis. You can use the @Permissions@ structure to
@@ -117,8 +116,9 @@ data CreateAnalysis = CreateAnalysis'
 --
 -- To specify no permissions, omit @Permissions@.
 --
--- 'tags', 'createAnalysis_tags' - Contains a map of the key-value pairs for the resource tag or tags
--- assigned to the analysis.
+-- 'parameters', 'createAnalysis_parameters' - The parameter names and override values that you want to use. An
+-- analysis can have any parameter type, and some parameters might accept
+-- multiple values.
 --
 -- 'awsAccountId', 'createAnalysis_awsAccountId' - The ID of the Amazon Web Services account where you are creating an
 -- analysis.
@@ -148,27 +148,26 @@ newCreateAnalysis
   pName_
   pSourceEntity_ =
     CreateAnalysis'
-      { themeArn = Prelude.Nothing,
-        parameters = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        themeArn = Prelude.Nothing,
         permissions = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        parameters = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         analysisId = pAnalysisId_,
         name = pName_,
         sourceEntity = pSourceEntity_
       }
 
+-- | Contains a map of the key-value pairs for the resource tag or tags
+-- assigned to the analysis.
+createAnalysis_tags :: Lens.Lens' CreateAnalysis (Prelude.Maybe (Prelude.NonEmpty Tag))
+createAnalysis_tags = Lens.lens (\CreateAnalysis' {tags} -> tags) (\s@CreateAnalysis' {} a -> s {tags = a} :: CreateAnalysis) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ARN for the theme to apply to the analysis that you\'re creating. To
 -- see the theme in the Amazon QuickSight console, make sure that you have
 -- access to it.
 createAnalysis_themeArn :: Lens.Lens' CreateAnalysis (Prelude.Maybe Prelude.Text)
 createAnalysis_themeArn = Lens.lens (\CreateAnalysis' {themeArn} -> themeArn) (\s@CreateAnalysis' {} a -> s {themeArn = a} :: CreateAnalysis)
-
--- | The parameter names and override values that you want to use. An
--- analysis can have any parameter type, and some parameters might accept
--- multiple values.
-createAnalysis_parameters :: Lens.Lens' CreateAnalysis (Prelude.Maybe Parameters)
-createAnalysis_parameters = Lens.lens (\CreateAnalysis' {parameters} -> parameters) (\s@CreateAnalysis' {} a -> s {parameters = a} :: CreateAnalysis)
 
 -- | A structure that describes the principals and the resource-level
 -- permissions on an analysis. You can use the @Permissions@ structure to
@@ -180,10 +179,11 @@ createAnalysis_parameters = Lens.lens (\CreateAnalysis' {parameters} -> paramete
 createAnalysis_permissions :: Lens.Lens' CreateAnalysis (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 createAnalysis_permissions = Lens.lens (\CreateAnalysis' {permissions} -> permissions) (\s@CreateAnalysis' {} a -> s {permissions = a} :: CreateAnalysis) Prelude.. Lens.mapping Lens.coerced
 
--- | Contains a map of the key-value pairs for the resource tag or tags
--- assigned to the analysis.
-createAnalysis_tags :: Lens.Lens' CreateAnalysis (Prelude.Maybe (Prelude.NonEmpty Tag))
-createAnalysis_tags = Lens.lens (\CreateAnalysis' {tags} -> tags) (\s@CreateAnalysis' {} a -> s {tags = a} :: CreateAnalysis) Prelude.. Lens.mapping Lens.coerced
+-- | The parameter names and override values that you want to use. An
+-- analysis can have any parameter type, and some parameters might accept
+-- multiple values.
+createAnalysis_parameters :: Lens.Lens' CreateAnalysis (Prelude.Maybe Parameters)
+createAnalysis_parameters = Lens.lens (\CreateAnalysis' {parameters} -> parameters) (\s@CreateAnalysis' {} a -> s {parameters = a} :: CreateAnalysis)
 
 -- | The ID of the Amazon Web Services account where you are creating an
 -- analysis.
@@ -215,19 +215,19 @@ instance Core.AWSRequest CreateAnalysis where
     Response.receiveJSON
       ( \s h x ->
           CreateAnalysisResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "AnalysisId")
-            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<$> (x Core..?> "AnalysisId")
             Prelude.<*> (x Core..?> "CreationStatus")
+            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateAnalysis where
   hashWithSalt _salt CreateAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` themeArn
-      `Prelude.hashWithSalt` parameters
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` themeArn
       `Prelude.hashWithSalt` permissions
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` analysisId
       `Prelude.hashWithSalt` name
@@ -235,10 +235,10 @@ instance Prelude.Hashable CreateAnalysis where
 
 instance Prelude.NFData CreateAnalysis where
   rnf CreateAnalysis' {..} =
-    Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf themeArn
       `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf analysisId
       `Prelude.seq` Prelude.rnf name
@@ -259,10 +259,10 @@ instance Core.ToJSON CreateAnalysis where
   toJSON CreateAnalysis' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ThemeArn" Core..=) Prelude.<$> themeArn,
-            ("Parameters" Core..=) Prelude.<$> parameters,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ThemeArn" Core..=) Prelude.<$> themeArn,
             ("Permissions" Core..=) Prelude.<$> permissions,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("SourceEntity" Core..= sourceEntity)
           ]
@@ -282,14 +282,14 @@ instance Core.ToQuery CreateAnalysis where
 
 -- | /See:/ 'newCreateAnalysisResponse' smart constructor.
 data CreateAnalysisResponse = CreateAnalysisResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the analysis.
+  { -- | The ID of the analysis.
     analysisId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN for the analysis.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The status of the creation of the analysis.
     creationStatus :: Prelude.Maybe ResourceStatus,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the analysis.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -303,13 +303,13 @@ data CreateAnalysisResponse = CreateAnalysisResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'createAnalysisResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'analysisId', 'createAnalysisResponse_analysisId' - The ID of the analysis.
 --
--- 'arn', 'createAnalysisResponse_arn' - The ARN for the analysis.
---
 -- 'creationStatus', 'createAnalysisResponse_creationStatus' - The status of the creation of the analysis.
+--
+-- 'requestId', 'createAnalysisResponse_requestId' - The Amazon Web Services request ID for this operation.
+--
+-- 'arn', 'createAnalysisResponse_arn' - The ARN for the analysis.
 --
 -- 'status', 'createAnalysisResponse_status' - The HTTP status of the request.
 newCreateAnalysisResponse ::
@@ -318,29 +318,29 @@ newCreateAnalysisResponse ::
   CreateAnalysisResponse
 newCreateAnalysisResponse pStatus_ =
   CreateAnalysisResponse'
-    { requestId =
+    { analysisId =
         Prelude.Nothing,
-      analysisId = Prelude.Nothing,
-      arn = Prelude.Nothing,
       creationStatus = Prelude.Nothing,
+      requestId = Prelude.Nothing,
+      arn = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-createAnalysisResponse_requestId :: Lens.Lens' CreateAnalysisResponse (Prelude.Maybe Prelude.Text)
-createAnalysisResponse_requestId = Lens.lens (\CreateAnalysisResponse' {requestId} -> requestId) (\s@CreateAnalysisResponse' {} a -> s {requestId = a} :: CreateAnalysisResponse)
 
 -- | The ID of the analysis.
 createAnalysisResponse_analysisId :: Lens.Lens' CreateAnalysisResponse (Prelude.Maybe Prelude.Text)
 createAnalysisResponse_analysisId = Lens.lens (\CreateAnalysisResponse' {analysisId} -> analysisId) (\s@CreateAnalysisResponse' {} a -> s {analysisId = a} :: CreateAnalysisResponse)
 
--- | The ARN for the analysis.
-createAnalysisResponse_arn :: Lens.Lens' CreateAnalysisResponse (Prelude.Maybe Prelude.Text)
-createAnalysisResponse_arn = Lens.lens (\CreateAnalysisResponse' {arn} -> arn) (\s@CreateAnalysisResponse' {} a -> s {arn = a} :: CreateAnalysisResponse)
-
 -- | The status of the creation of the analysis.
 createAnalysisResponse_creationStatus :: Lens.Lens' CreateAnalysisResponse (Prelude.Maybe ResourceStatus)
 createAnalysisResponse_creationStatus = Lens.lens (\CreateAnalysisResponse' {creationStatus} -> creationStatus) (\s@CreateAnalysisResponse' {} a -> s {creationStatus = a} :: CreateAnalysisResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+createAnalysisResponse_requestId :: Lens.Lens' CreateAnalysisResponse (Prelude.Maybe Prelude.Text)
+createAnalysisResponse_requestId = Lens.lens (\CreateAnalysisResponse' {requestId} -> requestId) (\s@CreateAnalysisResponse' {} a -> s {requestId = a} :: CreateAnalysisResponse)
+
+-- | The ARN for the analysis.
+createAnalysisResponse_arn :: Lens.Lens' CreateAnalysisResponse (Prelude.Maybe Prelude.Text)
+createAnalysisResponse_arn = Lens.lens (\CreateAnalysisResponse' {arn} -> arn) (\s@CreateAnalysisResponse' {} a -> s {arn = a} :: CreateAnalysisResponse)
 
 -- | The HTTP status of the request.
 createAnalysisResponse_status :: Lens.Lens' CreateAnalysisResponse Prelude.Int
@@ -348,8 +348,8 @@ createAnalysisResponse_status = Lens.lens (\CreateAnalysisResponse' {status} -> 
 
 instance Prelude.NFData CreateAnalysisResponse where
   rnf CreateAnalysisResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf analysisId
       `Prelude.seq` Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf status

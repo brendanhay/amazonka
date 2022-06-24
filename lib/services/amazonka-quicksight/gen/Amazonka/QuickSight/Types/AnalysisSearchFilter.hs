@@ -29,16 +29,16 @@ import Amazonka.QuickSight.Types.FilterOperator
 --
 -- /See:/ 'newAnalysisSearchFilter' smart constructor.
 data AnalysisSearchFilter = AnalysisSearchFilter'
-  { -- | The comparison operator that you want to use as a filter, for example
+  { -- | The name of the value that you want to use as a filter, for example
+    -- @\"Name\": \"QUICKSIGHT_USER\"@.
+    name :: Prelude.Maybe AnalysisFilterAttribute,
+    -- | The comparison operator that you want to use as a filter, for example
     -- @\"Operator\": \"StringEquals\"@.
     operator :: Prelude.Maybe FilterOperator,
     -- | The value of the named item, in this case @QUICKSIGHT_USER@, that you
     -- want to use as a filter, for example @\"Value\"@. An example is
     -- @\"arn:aws:quicksight:us-east-1:1:user\/default\/UserName1\"@.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The name of the value that you want to use as a filter, for example
-    -- @\"Name\": \"QUICKSIGHT_USER\"@.
-    name :: Prelude.Maybe AnalysisFilterAttribute
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,23 +50,28 @@ data AnalysisSearchFilter = AnalysisSearchFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'analysisSearchFilter_name' - The name of the value that you want to use as a filter, for example
+-- @\"Name\": \"QUICKSIGHT_USER\"@.
+--
 -- 'operator', 'analysisSearchFilter_operator' - The comparison operator that you want to use as a filter, for example
 -- @\"Operator\": \"StringEquals\"@.
 --
 -- 'value', 'analysisSearchFilter_value' - The value of the named item, in this case @QUICKSIGHT_USER@, that you
 -- want to use as a filter, for example @\"Value\"@. An example is
 -- @\"arn:aws:quicksight:us-east-1:1:user\/default\/UserName1\"@.
---
--- 'name', 'analysisSearchFilter_name' - The name of the value that you want to use as a filter, for example
--- @\"Name\": \"QUICKSIGHT_USER\"@.
 newAnalysisSearchFilter ::
   AnalysisSearchFilter
 newAnalysisSearchFilter =
   AnalysisSearchFilter'
-    { operator = Prelude.Nothing,
-      value = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      operator = Prelude.Nothing,
+      value = Prelude.Nothing
     }
+
+-- | The name of the value that you want to use as a filter, for example
+-- @\"Name\": \"QUICKSIGHT_USER\"@.
+analysisSearchFilter_name :: Lens.Lens' AnalysisSearchFilter (Prelude.Maybe AnalysisFilterAttribute)
+analysisSearchFilter_name = Lens.lens (\AnalysisSearchFilter' {name} -> name) (\s@AnalysisSearchFilter' {} a -> s {name = a} :: AnalysisSearchFilter)
 
 -- | The comparison operator that you want to use as a filter, for example
 -- @\"Operator\": \"StringEquals\"@.
@@ -79,29 +84,24 @@ analysisSearchFilter_operator = Lens.lens (\AnalysisSearchFilter' {operator} -> 
 analysisSearchFilter_value :: Lens.Lens' AnalysisSearchFilter (Prelude.Maybe Prelude.Text)
 analysisSearchFilter_value = Lens.lens (\AnalysisSearchFilter' {value} -> value) (\s@AnalysisSearchFilter' {} a -> s {value = a} :: AnalysisSearchFilter)
 
--- | The name of the value that you want to use as a filter, for example
--- @\"Name\": \"QUICKSIGHT_USER\"@.
-analysisSearchFilter_name :: Lens.Lens' AnalysisSearchFilter (Prelude.Maybe AnalysisFilterAttribute)
-analysisSearchFilter_name = Lens.lens (\AnalysisSearchFilter' {name} -> name) (\s@AnalysisSearchFilter' {} a -> s {name = a} :: AnalysisSearchFilter)
-
 instance Prelude.Hashable AnalysisSearchFilter where
   hashWithSalt _salt AnalysisSearchFilter' {..} =
-    _salt `Prelude.hashWithSalt` operator
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AnalysisSearchFilter where
   rnf AnalysisSearchFilter' {..} =
-    Prelude.rnf operator
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf operator
       `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON AnalysisSearchFilter where
   toJSON AnalysisSearchFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Operator" Core..=) Prelude.<$> operator,
-            ("Value" Core..=) Prelude.<$> value,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Operator" Core..=) Prelude.<$> operator,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

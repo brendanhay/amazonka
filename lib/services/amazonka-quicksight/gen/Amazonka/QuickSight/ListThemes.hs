@@ -39,9 +39,9 @@ module Amazonka.QuickSight.ListThemes
     newListThemesResponse,
 
     -- * Response Lenses
+    listThemesResponse_nextToken,
     listThemesResponse_requestId,
     listThemesResponse_themeSummaryList,
-    listThemesResponse_nextToken,
     listThemesResponse_status,
   )
 where
@@ -169,11 +169,11 @@ instance Core.AWSRequest ListThemes where
     Response.receiveJSON
       ( \s h x ->
           ListThemesResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> ( x Core..?> "ThemeSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -217,13 +217,13 @@ instance Core.ToQuery ListThemes where
 
 -- | /See:/ 'newListThemesResponse' smart constructor.
 data ListThemesResponse = ListThemesResponse'
-  { -- | The Amazon Web Services request ID for this operation.
+  { -- | The token for the next set of results, or null if there are no more
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | Information about the themes in the list.
     themeSummaryList :: Prelude.Maybe [ThemeSummary],
-    -- | The token for the next set of results, or null if there are no more
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -237,12 +237,12 @@ data ListThemesResponse = ListThemesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listThemesResponse_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
+--
 -- 'requestId', 'listThemesResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'themeSummaryList', 'listThemesResponse_themeSummaryList' - Information about the themes in the list.
---
--- 'nextToken', 'listThemesResponse_nextToken' - The token for the next set of results, or null if there are no more
--- results.
 --
 -- 'status', 'listThemesResponse_status' - The HTTP status of the request.
 newListThemesResponse ::
@@ -251,11 +251,16 @@ newListThemesResponse ::
   ListThemesResponse
 newListThemesResponse pStatus_ =
   ListThemesResponse'
-    { requestId = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       themeSummaryList = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | The token for the next set of results, or null if there are no more
+-- results.
+listThemesResponse_nextToken :: Lens.Lens' ListThemesResponse (Prelude.Maybe Prelude.Text)
+listThemesResponse_nextToken = Lens.lens (\ListThemesResponse' {nextToken} -> nextToken) (\s@ListThemesResponse' {} a -> s {nextToken = a} :: ListThemesResponse)
 
 -- | The Amazon Web Services request ID for this operation.
 listThemesResponse_requestId :: Lens.Lens' ListThemesResponse (Prelude.Maybe Prelude.Text)
@@ -265,18 +270,13 @@ listThemesResponse_requestId = Lens.lens (\ListThemesResponse' {requestId} -> re
 listThemesResponse_themeSummaryList :: Lens.Lens' ListThemesResponse (Prelude.Maybe [ThemeSummary])
 listThemesResponse_themeSummaryList = Lens.lens (\ListThemesResponse' {themeSummaryList} -> themeSummaryList) (\s@ListThemesResponse' {} a -> s {themeSummaryList = a} :: ListThemesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next set of results, or null if there are no more
--- results.
-listThemesResponse_nextToken :: Lens.Lens' ListThemesResponse (Prelude.Maybe Prelude.Text)
-listThemesResponse_nextToken = Lens.lens (\ListThemesResponse' {nextToken} -> nextToken) (\s@ListThemesResponse' {} a -> s {nextToken = a} :: ListThemesResponse)
-
 -- | The HTTP status of the request.
 listThemesResponse_status :: Lens.Lens' ListThemesResponse Prelude.Int
 listThemesResponse_status = Lens.lens (\ListThemesResponse' {status} -> status) (\s@ListThemesResponse' {} a -> s {status = a} :: ListThemesResponse)
 
 instance Prelude.NFData ListThemesResponse where
   rnf ListThemesResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf themeSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status

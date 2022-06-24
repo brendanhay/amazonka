@@ -35,12 +35,12 @@ module Amazonka.QuickSight.CreateDashboard
     newCreateDashboard,
 
     -- * Request Lenses
-    createDashboard_themeArn,
-    createDashboard_dashboardPublishOptions,
-    createDashboard_versionDescription,
-    createDashboard_parameters,
-    createDashboard_permissions,
     createDashboard_tags,
+    createDashboard_themeArn,
+    createDashboard_permissions,
+    createDashboard_versionDescription,
+    createDashboard_dashboardPublishOptions,
+    createDashboard_parameters,
     createDashboard_awsAccountId,
     createDashboard_dashboardId,
     createDashboard_name,
@@ -51,9 +51,9 @@ module Amazonka.QuickSight.CreateDashboard
     newCreateDashboardResponse,
 
     -- * Response Lenses
+    createDashboardResponse_creationStatus,
     createDashboardResponse_requestId,
     createDashboardResponse_arn,
-    createDashboardResponse_creationStatus,
     createDashboardResponse_dashboardId,
     createDashboardResponse_versionArn,
     createDashboardResponse_status,
@@ -69,11 +69,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDashboard' smart constructor.
 data CreateDashboard = CreateDashboard'
-  { -- | The Amazon Resource Name (ARN) of the theme that is being used for this
+  { -- | Contains a map of the key-value pairs for the resource tag or tags
+    -- assigned to the dashboard.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The Amazon Resource Name (ARN) of the theme that is being used for this
     -- dashboard. If you add a value for this field, it overrides the value
     -- that is used in the source entity. The theme ARN must exist in the same
     -- Amazon Web Services account where you create the dashboard.
     themeArn :: Prelude.Maybe Prelude.Text,
+    -- | A structure that contains the permissions of the dashboard. You can use
+    -- this structure for granting permissions by providing a list of IAMaction
+    -- information for each principal ARN.
+    --
+    -- To specify no permissions, omit the permissions list.
+    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
+    -- | A description for the first version of the dashboard being created.
+    versionDescription :: Prelude.Maybe Prelude.Text,
     -- | Options for publishing the dashboard when you create it:
     --
     -- -   @AvailabilityStatus@ for @AdHocFilteringOption@ - This status can be
@@ -91,21 +102,10 @@ data CreateDashboard = CreateDashboard'
     --     can be either @COLLAPSED@ or @EXPANDED@. This option is @COLLAPSED@
     --     by default.
     dashboardPublishOptions :: Prelude.Maybe DashboardPublishOptions,
-    -- | A description for the first version of the dashboard being created.
-    versionDescription :: Prelude.Maybe Prelude.Text,
     -- | The parameters for the creation of the dashboard, which you want to use
     -- to override the default settings. A dashboard can have any type of
     -- parameters, and some parameters might accept multiple values.
     parameters :: Prelude.Maybe Parameters,
-    -- | A structure that contains the permissions of the dashboard. You can use
-    -- this structure for granting permissions by providing a list of IAMaction
-    -- information for each principal ARN.
-    --
-    -- To specify no permissions, omit the permissions list.
-    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
-    -- | Contains a map of the key-value pairs for the resource tag or tags
-    -- assigned to the dashboard.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The ID of the Amazon Web Services account where you want to create the
     -- dashboard.
     awsAccountId :: Prelude.Text,
@@ -138,10 +138,21 @@ data CreateDashboard = CreateDashboard'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createDashboard_tags' - Contains a map of the key-value pairs for the resource tag or tags
+-- assigned to the dashboard.
+--
 -- 'themeArn', 'createDashboard_themeArn' - The Amazon Resource Name (ARN) of the theme that is being used for this
 -- dashboard. If you add a value for this field, it overrides the value
 -- that is used in the source entity. The theme ARN must exist in the same
 -- Amazon Web Services account where you create the dashboard.
+--
+-- 'permissions', 'createDashboard_permissions' - A structure that contains the permissions of the dashboard. You can use
+-- this structure for granting permissions by providing a list of IAMaction
+-- information for each principal ARN.
+--
+-- To specify no permissions, omit the permissions list.
+--
+-- 'versionDescription', 'createDashboard_versionDescription' - A description for the first version of the dashboard being created.
 --
 -- 'dashboardPublishOptions', 'createDashboard_dashboardPublishOptions' - Options for publishing the dashboard when you create it:
 --
@@ -160,20 +171,9 @@ data CreateDashboard = CreateDashboard'
 --     can be either @COLLAPSED@ or @EXPANDED@. This option is @COLLAPSED@
 --     by default.
 --
--- 'versionDescription', 'createDashboard_versionDescription' - A description for the first version of the dashboard being created.
---
 -- 'parameters', 'createDashboard_parameters' - The parameters for the creation of the dashboard, which you want to use
 -- to override the default settings. A dashboard can have any type of
 -- parameters, and some parameters might accept multiple values.
---
--- 'permissions', 'createDashboard_permissions' - A structure that contains the permissions of the dashboard. You can use
--- this structure for granting permissions by providing a list of IAMaction
--- information for each principal ARN.
---
--- To specify no permissions, omit the permissions list.
---
--- 'tags', 'createDashboard_tags' - Contains a map of the key-value pairs for the resource tag or tags
--- assigned to the dashboard.
 --
 -- 'awsAccountId', 'createDashboard_awsAccountId' - The ID of the Amazon Web Services account where you want to create the
 -- dashboard.
@@ -211,17 +211,22 @@ newCreateDashboard
   pName_
   pSourceEntity_ =
     CreateDashboard'
-      { themeArn = Prelude.Nothing,
-        dashboardPublishOptions = Prelude.Nothing,
-        versionDescription = Prelude.Nothing,
-        parameters = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        themeArn = Prelude.Nothing,
         permissions = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        versionDescription = Prelude.Nothing,
+        dashboardPublishOptions = Prelude.Nothing,
+        parameters = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         dashboardId = pDashboardId_,
         name = pName_,
         sourceEntity = pSourceEntity_
       }
+
+-- | Contains a map of the key-value pairs for the resource tag or tags
+-- assigned to the dashboard.
+createDashboard_tags :: Lens.Lens' CreateDashboard (Prelude.Maybe (Prelude.NonEmpty Tag))
+createDashboard_tags = Lens.lens (\CreateDashboard' {tags} -> tags) (\s@CreateDashboard' {} a -> s {tags = a} :: CreateDashboard) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the theme that is being used for this
 -- dashboard. If you add a value for this field, it overrides the value
@@ -229,6 +234,18 @@ newCreateDashboard
 -- Amazon Web Services account where you create the dashboard.
 createDashboard_themeArn :: Lens.Lens' CreateDashboard (Prelude.Maybe Prelude.Text)
 createDashboard_themeArn = Lens.lens (\CreateDashboard' {themeArn} -> themeArn) (\s@CreateDashboard' {} a -> s {themeArn = a} :: CreateDashboard)
+
+-- | A structure that contains the permissions of the dashboard. You can use
+-- this structure for granting permissions by providing a list of IAMaction
+-- information for each principal ARN.
+--
+-- To specify no permissions, omit the permissions list.
+createDashboard_permissions :: Lens.Lens' CreateDashboard (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
+createDashboard_permissions = Lens.lens (\CreateDashboard' {permissions} -> permissions) (\s@CreateDashboard' {} a -> s {permissions = a} :: CreateDashboard) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description for the first version of the dashboard being created.
+createDashboard_versionDescription :: Lens.Lens' CreateDashboard (Prelude.Maybe Prelude.Text)
+createDashboard_versionDescription = Lens.lens (\CreateDashboard' {versionDescription} -> versionDescription) (\s@CreateDashboard' {} a -> s {versionDescription = a} :: CreateDashboard)
 
 -- | Options for publishing the dashboard when you create it:
 --
@@ -249,28 +266,11 @@ createDashboard_themeArn = Lens.lens (\CreateDashboard' {themeArn} -> themeArn) 
 createDashboard_dashboardPublishOptions :: Lens.Lens' CreateDashboard (Prelude.Maybe DashboardPublishOptions)
 createDashboard_dashboardPublishOptions = Lens.lens (\CreateDashboard' {dashboardPublishOptions} -> dashboardPublishOptions) (\s@CreateDashboard' {} a -> s {dashboardPublishOptions = a} :: CreateDashboard)
 
--- | A description for the first version of the dashboard being created.
-createDashboard_versionDescription :: Lens.Lens' CreateDashboard (Prelude.Maybe Prelude.Text)
-createDashboard_versionDescription = Lens.lens (\CreateDashboard' {versionDescription} -> versionDescription) (\s@CreateDashboard' {} a -> s {versionDescription = a} :: CreateDashboard)
-
 -- | The parameters for the creation of the dashboard, which you want to use
 -- to override the default settings. A dashboard can have any type of
 -- parameters, and some parameters might accept multiple values.
 createDashboard_parameters :: Lens.Lens' CreateDashboard (Prelude.Maybe Parameters)
 createDashboard_parameters = Lens.lens (\CreateDashboard' {parameters} -> parameters) (\s@CreateDashboard' {} a -> s {parameters = a} :: CreateDashboard)
-
--- | A structure that contains the permissions of the dashboard. You can use
--- this structure for granting permissions by providing a list of IAMaction
--- information for each principal ARN.
---
--- To specify no permissions, omit the permissions list.
-createDashboard_permissions :: Lens.Lens' CreateDashboard (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
-createDashboard_permissions = Lens.lens (\CreateDashboard' {permissions} -> permissions) (\s@CreateDashboard' {} a -> s {permissions = a} :: CreateDashboard) Prelude.. Lens.mapping Lens.coerced
-
--- | Contains a map of the key-value pairs for the resource tag or tags
--- assigned to the dashboard.
-createDashboard_tags :: Lens.Lens' CreateDashboard (Prelude.Maybe (Prelude.NonEmpty Tag))
-createDashboard_tags = Lens.lens (\CreateDashboard' {tags} -> tags) (\s@CreateDashboard' {} a -> s {tags = a} :: CreateDashboard) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Amazon Web Services account where you want to create the
 -- dashboard.
@@ -310,9 +310,9 @@ instance Core.AWSRequest CreateDashboard where
     Response.receiveJSON
       ( \s h x ->
           CreateDashboardResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Core..?> "CreationStatus")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "CreationStatus")
             Prelude.<*> (x Core..?> "DashboardId")
             Prelude.<*> (x Core..?> "VersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -320,12 +320,12 @@ instance Core.AWSRequest CreateDashboard where
 
 instance Prelude.Hashable CreateDashboard where
   hashWithSalt _salt CreateDashboard' {..} =
-    _salt `Prelude.hashWithSalt` themeArn
-      `Prelude.hashWithSalt` dashboardPublishOptions
-      `Prelude.hashWithSalt` versionDescription
-      `Prelude.hashWithSalt` parameters
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` themeArn
       `Prelude.hashWithSalt` permissions
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` versionDescription
+      `Prelude.hashWithSalt` dashboardPublishOptions
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dashboardId
       `Prelude.hashWithSalt` name
@@ -333,12 +333,12 @@ instance Prelude.Hashable CreateDashboard where
 
 instance Prelude.NFData CreateDashboard where
   rnf CreateDashboard' {..} =
-    Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf dashboardPublishOptions
-      `Prelude.seq` Prelude.rnf versionDescription
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf themeArn
       `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf versionDescription
+      `Prelude.seq` Prelude.rnf dashboardPublishOptions
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dashboardId
       `Prelude.seq` Prelude.rnf name
@@ -359,14 +359,14 @@ instance Core.ToJSON CreateDashboard where
   toJSON CreateDashboard' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ThemeArn" Core..=) Prelude.<$> themeArn,
-            ("DashboardPublishOptions" Core..=)
-              Prelude.<$> dashboardPublishOptions,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ThemeArn" Core..=) Prelude.<$> themeArn,
+            ("Permissions" Core..=) Prelude.<$> permissions,
             ("VersionDescription" Core..=)
               Prelude.<$> versionDescription,
+            ("DashboardPublishOptions" Core..=)
+              Prelude.<$> dashboardPublishOptions,
             ("Parameters" Core..=) Prelude.<$> parameters,
-            ("Permissions" Core..=) Prelude.<$> permissions,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("SourceEntity" Core..= sourceEntity)
           ]
@@ -386,12 +386,12 @@ instance Core.ToQuery CreateDashboard where
 
 -- | /See:/ 'newCreateDashboardResponse' smart constructor.
 data CreateDashboardResponse = CreateDashboardResponse'
-  { -- | The Amazon Web Services request ID for this operation.
+  { -- | The status of the dashboard creation request.
+    creationStatus :: Prelude.Maybe ResourceStatus,
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the dashboard.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the dashboard creation request.
-    creationStatus :: Prelude.Maybe ResourceStatus,
     -- | The ID for the dashboard.
     dashboardId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the dashboard, including the version number of the first
@@ -410,11 +410,11 @@ data CreateDashboardResponse = CreateDashboardResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationStatus', 'createDashboardResponse_creationStatus' - The status of the dashboard creation request.
+--
 -- 'requestId', 'createDashboardResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'arn', 'createDashboardResponse_arn' - The ARN of the dashboard.
---
--- 'creationStatus', 'createDashboardResponse_creationStatus' - The status of the dashboard creation request.
 --
 -- 'dashboardId', 'createDashboardResponse_dashboardId' - The ID for the dashboard.
 --
@@ -428,14 +428,18 @@ newCreateDashboardResponse ::
   CreateDashboardResponse
 newCreateDashboardResponse pStatus_ =
   CreateDashboardResponse'
-    { requestId =
+    { creationStatus =
         Prelude.Nothing,
+      requestId = Prelude.Nothing,
       arn = Prelude.Nothing,
-      creationStatus = Prelude.Nothing,
       dashboardId = Prelude.Nothing,
       versionArn = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | The status of the dashboard creation request.
+createDashboardResponse_creationStatus :: Lens.Lens' CreateDashboardResponse (Prelude.Maybe ResourceStatus)
+createDashboardResponse_creationStatus = Lens.lens (\CreateDashboardResponse' {creationStatus} -> creationStatus) (\s@CreateDashboardResponse' {} a -> s {creationStatus = a} :: CreateDashboardResponse)
 
 -- | The Amazon Web Services request ID for this operation.
 createDashboardResponse_requestId :: Lens.Lens' CreateDashboardResponse (Prelude.Maybe Prelude.Text)
@@ -444,10 +448,6 @@ createDashboardResponse_requestId = Lens.lens (\CreateDashboardResponse' {reques
 -- | The ARN of the dashboard.
 createDashboardResponse_arn :: Lens.Lens' CreateDashboardResponse (Prelude.Maybe Prelude.Text)
 createDashboardResponse_arn = Lens.lens (\CreateDashboardResponse' {arn} -> arn) (\s@CreateDashboardResponse' {} a -> s {arn = a} :: CreateDashboardResponse)
-
--- | The status of the dashboard creation request.
-createDashboardResponse_creationStatus :: Lens.Lens' CreateDashboardResponse (Prelude.Maybe ResourceStatus)
-createDashboardResponse_creationStatus = Lens.lens (\CreateDashboardResponse' {creationStatus} -> creationStatus) (\s@CreateDashboardResponse' {} a -> s {creationStatus = a} :: CreateDashboardResponse)
 
 -- | The ID for the dashboard.
 createDashboardResponse_dashboardId :: Lens.Lens' CreateDashboardResponse (Prelude.Maybe Prelude.Text)
@@ -464,9 +464,9 @@ createDashboardResponse_status = Lens.lens (\CreateDashboardResponse' {status} -
 
 instance Prelude.NFData CreateDashboardResponse where
   rnf CreateDashboardResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationStatus
       `Prelude.seq` Prelude.rnf dashboardId
       `Prelude.seq` Prelude.rnf versionArn
       `Prelude.seq` Prelude.rnf status

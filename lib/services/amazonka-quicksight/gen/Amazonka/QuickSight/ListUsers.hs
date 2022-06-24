@@ -38,9 +38,9 @@ module Amazonka.QuickSight.ListUsers
     newListUsersResponse,
 
     -- * Response Lenses
+    listUsersResponse_nextToken,
     listUsersResponse_requestId,
     listUsersResponse_userList,
-    listUsersResponse_nextToken,
     listUsersResponse_status,
   )
 where
@@ -123,9 +123,9 @@ instance Core.AWSRequest ListUsers where
     Response.receiveJSON
       ( \s h x ->
           ListUsersResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (x Core..?> "UserList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,12 +173,12 @@ instance Core.ToQuery ListUsers where
 
 -- | /See:/ 'newListUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-  { -- | The Amazon Web Services request ID for this operation.
+  { -- | A pagination token that can be used in a subsequent request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The list of users.
     userList :: Prelude.Maybe [User],
-    -- | A pagination token that can be used in a subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -192,11 +192,11 @@ data ListUsersResponse = ListUsersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listUsersResponse_nextToken' - A pagination token that can be used in a subsequent request.
+--
 -- 'requestId', 'listUsersResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'userList', 'listUsersResponse_userList' - The list of users.
---
--- 'nextToken', 'listUsersResponse_nextToken' - A pagination token that can be used in a subsequent request.
 --
 -- 'status', 'listUsersResponse_status' - The HTTP status of the request.
 newListUsersResponse ::
@@ -205,11 +205,15 @@ newListUsersResponse ::
   ListUsersResponse
 newListUsersResponse pStatus_ =
   ListUsersResponse'
-    { requestId = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       userList = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | A pagination token that can be used in a subsequent request.
+listUsersResponse_nextToken :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Text)
+listUsersResponse_nextToken = Lens.lens (\ListUsersResponse' {nextToken} -> nextToken) (\s@ListUsersResponse' {} a -> s {nextToken = a} :: ListUsersResponse)
 
 -- | The Amazon Web Services request ID for this operation.
 listUsersResponse_requestId :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Text)
@@ -219,17 +223,13 @@ listUsersResponse_requestId = Lens.lens (\ListUsersResponse' {requestId} -> requ
 listUsersResponse_userList :: Lens.Lens' ListUsersResponse (Prelude.Maybe [User])
 listUsersResponse_userList = Lens.lens (\ListUsersResponse' {userList} -> userList) (\s@ListUsersResponse' {} a -> s {userList = a} :: ListUsersResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A pagination token that can be used in a subsequent request.
-listUsersResponse_nextToken :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Text)
-listUsersResponse_nextToken = Lens.lens (\ListUsersResponse' {nextToken} -> nextToken) (\s@ListUsersResponse' {} a -> s {nextToken = a} :: ListUsersResponse)
-
 -- | The HTTP status of the request.
 listUsersResponse_status :: Lens.Lens' ListUsersResponse Prelude.Int
 listUsersResponse_status = Lens.lens (\ListUsersResponse' {status} -> status) (\s@ListUsersResponse' {} a -> s {status = a} :: ListUsersResponse)
 
 instance Prelude.NFData ListUsersResponse where
   rnf ListUsersResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf userList
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status

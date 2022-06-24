@@ -39,8 +39,8 @@ module Amazonka.QuickSight.ListIngestions
     newListIngestionsResponse,
 
     -- * Response Lenses
-    listIngestionsResponse_requestId,
     listIngestionsResponse_nextToken,
+    listIngestionsResponse_requestId,
     listIngestionsResponse_ingestions,
     listIngestionsResponse_status,
   )
@@ -144,8 +144,8 @@ instance Core.AWSRequest ListIngestions where
     Response.receiveJSON
       ( \s h x ->
           ListIngestionsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (x Core..?> "Ingestions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -194,11 +194,11 @@ instance Core.ToQuery ListIngestions where
 
 -- | /See:/ 'newListIngestionsResponse' smart constructor.
 data ListIngestionsResponse = ListIngestionsResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of results, or null if there are no more
+  { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | A list of the ingestions.
     ingestions :: Prelude.Maybe [Ingestion],
     -- | The HTTP status of the request.
@@ -214,10 +214,10 @@ data ListIngestionsResponse = ListIngestionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'listIngestionsResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'nextToken', 'listIngestionsResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
+--
+-- 'requestId', 'listIngestionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'ingestions', 'listIngestionsResponse_ingestions' - A list of the ingestions.
 --
@@ -228,21 +228,21 @@ newListIngestionsResponse ::
   ListIngestionsResponse
 newListIngestionsResponse pStatus_ =
   ListIngestionsResponse'
-    { requestId =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       ingestions = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-listIngestionsResponse_requestId :: Lens.Lens' ListIngestionsResponse (Prelude.Maybe Prelude.Text)
-listIngestionsResponse_requestId = Lens.lens (\ListIngestionsResponse' {requestId} -> requestId) (\s@ListIngestionsResponse' {} a -> s {requestId = a} :: ListIngestionsResponse)
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listIngestionsResponse_nextToken :: Lens.Lens' ListIngestionsResponse (Prelude.Maybe Prelude.Text)
 listIngestionsResponse_nextToken = Lens.lens (\ListIngestionsResponse' {nextToken} -> nextToken) (\s@ListIngestionsResponse' {} a -> s {nextToken = a} :: ListIngestionsResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+listIngestionsResponse_requestId :: Lens.Lens' ListIngestionsResponse (Prelude.Maybe Prelude.Text)
+listIngestionsResponse_requestId = Lens.lens (\ListIngestionsResponse' {requestId} -> requestId) (\s@ListIngestionsResponse' {} a -> s {requestId = a} :: ListIngestionsResponse)
 
 -- | A list of the ingestions.
 listIngestionsResponse_ingestions :: Lens.Lens' ListIngestionsResponse (Prelude.Maybe [Ingestion])
@@ -254,7 +254,7 @@ listIngestionsResponse_status = Lens.lens (\ListIngestionsResponse' {status} -> 
 
 instance Prelude.NFData ListIngestionsResponse where
   rnf ListIngestionsResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf ingestions
       `Prelude.seq` Prelude.rnf status

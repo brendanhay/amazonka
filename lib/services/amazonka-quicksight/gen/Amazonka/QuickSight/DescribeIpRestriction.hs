@@ -34,10 +34,10 @@ module Amazonka.QuickSight.DescribeIpRestriction
     newDescribeIpRestrictionResponse,
 
     -- * Response Lenses
-    describeIpRestrictionResponse_requestId,
-    describeIpRestrictionResponse_ipRestrictionRuleMap,
-    describeIpRestrictionResponse_enabled,
     describeIpRestrictionResponse_awsAccountId,
+    describeIpRestrictionResponse_ipRestrictionRuleMap,
+    describeIpRestrictionResponse_requestId,
+    describeIpRestrictionResponse_enabled,
     describeIpRestrictionResponse_status,
   )
 where
@@ -88,12 +88,12 @@ instance Core.AWSRequest DescribeIpRestriction where
     Response.receiveJSON
       ( \s h x ->
           DescribeIpRestrictionResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Core..?> "AwsAccountId")
             Prelude.<*> ( x Core..?> "IpRestrictionRuleMap"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (x Core..?> "Enabled")
-            Prelude.<*> (x Core..?> "AwsAccountId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,14 +129,14 @@ instance Core.ToQuery DescribeIpRestriction where
 
 -- | /See:/ 'newDescribeIpRestrictionResponse' smart constructor.
 data DescribeIpRestrictionResponse = DescribeIpRestrictionResponse'
-  { -- | The ID of the describe request.
-    requestId :: Prelude.Maybe Prelude.Text,
+  { -- | Your AWS account ID.
+    awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | Describes the IP rules with CIDR range and description.
     ipRestrictionRuleMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The ID of the describe request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | Whether or not IP rules are enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | Your AWS account ID.
-    awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | The status of a set of IP restrictions. A successful request returns a
     -- 200 status code.
     status :: Prelude.Int
@@ -151,13 +151,13 @@ data DescribeIpRestrictionResponse = DescribeIpRestrictionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeIpRestrictionResponse_requestId' - The ID of the describe request.
+-- 'awsAccountId', 'describeIpRestrictionResponse_awsAccountId' - Your AWS account ID.
 --
 -- 'ipRestrictionRuleMap', 'describeIpRestrictionResponse_ipRestrictionRuleMap' - Describes the IP rules with CIDR range and description.
 --
--- 'enabled', 'describeIpRestrictionResponse_enabled' - Whether or not IP rules are enabled.
+-- 'requestId', 'describeIpRestrictionResponse_requestId' - The ID of the describe request.
 --
--- 'awsAccountId', 'describeIpRestrictionResponse_awsAccountId' - Your AWS account ID.
+-- 'enabled', 'describeIpRestrictionResponse_enabled' - Whether or not IP rules are enabled.
 --
 -- 'status', 'describeIpRestrictionResponse_status' - The status of a set of IP restrictions. A successful request returns a
 -- 200 status code.
@@ -167,29 +167,29 @@ newDescribeIpRestrictionResponse ::
   DescribeIpRestrictionResponse
 newDescribeIpRestrictionResponse pStatus_ =
   DescribeIpRestrictionResponse'
-    { requestId =
+    { awsAccountId =
         Prelude.Nothing,
       ipRestrictionRuleMap = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       enabled = Prelude.Nothing,
-      awsAccountId = Prelude.Nothing,
       status = pStatus_
     }
 
--- | The ID of the describe request.
-describeIpRestrictionResponse_requestId :: Lens.Lens' DescribeIpRestrictionResponse (Prelude.Maybe Prelude.Text)
-describeIpRestrictionResponse_requestId = Lens.lens (\DescribeIpRestrictionResponse' {requestId} -> requestId) (\s@DescribeIpRestrictionResponse' {} a -> s {requestId = a} :: DescribeIpRestrictionResponse)
+-- | Your AWS account ID.
+describeIpRestrictionResponse_awsAccountId :: Lens.Lens' DescribeIpRestrictionResponse (Prelude.Maybe Prelude.Text)
+describeIpRestrictionResponse_awsAccountId = Lens.lens (\DescribeIpRestrictionResponse' {awsAccountId} -> awsAccountId) (\s@DescribeIpRestrictionResponse' {} a -> s {awsAccountId = a} :: DescribeIpRestrictionResponse)
 
 -- | Describes the IP rules with CIDR range and description.
 describeIpRestrictionResponse_ipRestrictionRuleMap :: Lens.Lens' DescribeIpRestrictionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeIpRestrictionResponse_ipRestrictionRuleMap = Lens.lens (\DescribeIpRestrictionResponse' {ipRestrictionRuleMap} -> ipRestrictionRuleMap) (\s@DescribeIpRestrictionResponse' {} a -> s {ipRestrictionRuleMap = a} :: DescribeIpRestrictionResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The ID of the describe request.
+describeIpRestrictionResponse_requestId :: Lens.Lens' DescribeIpRestrictionResponse (Prelude.Maybe Prelude.Text)
+describeIpRestrictionResponse_requestId = Lens.lens (\DescribeIpRestrictionResponse' {requestId} -> requestId) (\s@DescribeIpRestrictionResponse' {} a -> s {requestId = a} :: DescribeIpRestrictionResponse)
+
 -- | Whether or not IP rules are enabled.
 describeIpRestrictionResponse_enabled :: Lens.Lens' DescribeIpRestrictionResponse (Prelude.Maybe Prelude.Bool)
 describeIpRestrictionResponse_enabled = Lens.lens (\DescribeIpRestrictionResponse' {enabled} -> enabled) (\s@DescribeIpRestrictionResponse' {} a -> s {enabled = a} :: DescribeIpRestrictionResponse)
-
--- | Your AWS account ID.
-describeIpRestrictionResponse_awsAccountId :: Lens.Lens' DescribeIpRestrictionResponse (Prelude.Maybe Prelude.Text)
-describeIpRestrictionResponse_awsAccountId = Lens.lens (\DescribeIpRestrictionResponse' {awsAccountId} -> awsAccountId) (\s@DescribeIpRestrictionResponse' {} a -> s {awsAccountId = a} :: DescribeIpRestrictionResponse)
 
 -- | The status of a set of IP restrictions. A successful request returns a
 -- 200 status code.
@@ -198,8 +198,8 @@ describeIpRestrictionResponse_status = Lens.lens (\DescribeIpRestrictionResponse
 
 instance Prelude.NFData DescribeIpRestrictionResponse where
   rnf DescribeIpRestrictionResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf ipRestrictionRuleMap
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf status

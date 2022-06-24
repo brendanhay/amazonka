@@ -29,24 +29,29 @@ import Amazonka.QuickSight.Types.UserRole
 --
 -- /See:/ 'newUser' smart constructor.
 data User = User'
-  { -- | The user\'s email address.
-    email :: Prelude.Maybe Prelude.Text,
-    -- | The principal ID of the user.
+  { -- | The principal ID of the user.
     principalId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the user.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The user\'s user name.
-    userName :: Prelude.Maybe Prelude.Text,
-    -- | The type of identity authentication used by the user.
-    identityType :: Prelude.Maybe IdentityType,
-    -- | The URL of the external login provider.
-    externalLoginFederationProviderUrl :: Prelude.Maybe Prelude.Text,
-    -- | The custom permissions profile associated with this user.
-    customPermissionsName :: Prelude.Maybe Prelude.Text,
+    -- | The type of supported external login provider that provides identity to
+    -- let the user federate into Amazon QuickSight with an associated IAMrole.
+    -- The type can be one of the following.
+    --
+    -- -   @COGNITO@: Amazon Cognito. The provider URL is
+    --     cognito-identity.amazonaws.com.
+    --
+    -- -   @CUSTOM_OIDC@: Custom OpenID Connect (OIDC) provider.
+    externalLoginFederationProviderType :: Prelude.Maybe Prelude.Text,
     -- | The active status of user. When you create an Amazon QuickSight user
     -- that’s not an IAM user or an Active Directory user, that user is
     -- inactive until they sign in and provide a password.
     active :: Prelude.Maybe Prelude.Bool,
+    -- | The user\'s email address.
+    email :: Prelude.Maybe Prelude.Text,
+    -- | The user\'s user name.
+    userName :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the external login provider.
+    externalLoginFederationProviderUrl :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the user.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon QuickSight role for the user. The user role can be one of the
     -- following:.
     --
@@ -62,17 +67,12 @@ data User = User'
     --
     -- -   @RESTRICTED_AUTHOR@: This role isn\'t currently available for use.
     role' :: Prelude.Maybe UserRole,
-    -- | The type of supported external login provider that provides identity to
-    -- let the user federate into Amazon QuickSight with an associated IAMrole.
-    -- The type can be one of the following.
-    --
-    -- -   @COGNITO@: Amazon Cognito. The provider URL is
-    --     cognito-identity.amazonaws.com.
-    --
-    -- -   @CUSTOM_OIDC@: Custom OpenID Connect (OIDC) provider.
-    externalLoginFederationProviderType :: Prelude.Maybe Prelude.Text,
     -- | The identity ID for the user in the external login provider.
-    externalLoginId :: Prelude.Maybe Prelude.Text
+    externalLoginId :: Prelude.Maybe Prelude.Text,
+    -- | The type of identity authentication used by the user.
+    identityType :: Prelude.Maybe IdentityType,
+    -- | The custom permissions profile associated with this user.
+    customPermissionsName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,23 +84,28 @@ data User = User'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'email', 'user_email' - The user\'s email address.
---
 -- 'principalId', 'user_principalId' - The principal ID of the user.
 --
--- 'arn', 'user_arn' - The Amazon Resource Name (ARN) for the user.
+-- 'externalLoginFederationProviderType', 'user_externalLoginFederationProviderType' - The type of supported external login provider that provides identity to
+-- let the user federate into Amazon QuickSight with an associated IAMrole.
+-- The type can be one of the following.
 --
--- 'userName', 'user_userName' - The user\'s user name.
+-- -   @COGNITO@: Amazon Cognito. The provider URL is
+--     cognito-identity.amazonaws.com.
 --
--- 'identityType', 'user_identityType' - The type of identity authentication used by the user.
---
--- 'externalLoginFederationProviderUrl', 'user_externalLoginFederationProviderUrl' - The URL of the external login provider.
---
--- 'customPermissionsName', 'user_customPermissionsName' - The custom permissions profile associated with this user.
+-- -   @CUSTOM_OIDC@: Custom OpenID Connect (OIDC) provider.
 --
 -- 'active', 'user_active' - The active status of user. When you create an Amazon QuickSight user
 -- that’s not an IAM user or an Active Directory user, that user is
 -- inactive until they sign in and provide a password.
+--
+-- 'email', 'user_email' - The user\'s email address.
+--
+-- 'userName', 'user_userName' - The user\'s user name.
+--
+-- 'externalLoginFederationProviderUrl', 'user_externalLoginFederationProviderUrl' - The URL of the external login provider.
+--
+-- 'arn', 'user_arn' - The Amazon Resource Name (ARN) for the user.
 --
 -- 'role'', 'user_role' - The Amazon QuickSight role for the user. The user role can be one of the
 -- following:.
@@ -117,7 +122,34 @@ data User = User'
 --
 -- -   @RESTRICTED_AUTHOR@: This role isn\'t currently available for use.
 --
--- 'externalLoginFederationProviderType', 'user_externalLoginFederationProviderType' - The type of supported external login provider that provides identity to
+-- 'externalLoginId', 'user_externalLoginId' - The identity ID for the user in the external login provider.
+--
+-- 'identityType', 'user_identityType' - The type of identity authentication used by the user.
+--
+-- 'customPermissionsName', 'user_customPermissionsName' - The custom permissions profile associated with this user.
+newUser ::
+  User
+newUser =
+  User'
+    { principalId = Prelude.Nothing,
+      externalLoginFederationProviderType =
+        Prelude.Nothing,
+      active = Prelude.Nothing,
+      email = Prelude.Nothing,
+      userName = Prelude.Nothing,
+      externalLoginFederationProviderUrl = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      role' = Prelude.Nothing,
+      externalLoginId = Prelude.Nothing,
+      identityType = Prelude.Nothing,
+      customPermissionsName = Prelude.Nothing
+    }
+
+-- | The principal ID of the user.
+user_principalId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_principalId = Lens.lens (\User' {principalId} -> principalId) (\s@User' {} a -> s {principalId = a} :: User)
+
+-- | The type of supported external login provider that provides identity to
 -- let the user federate into Amazon QuickSight with an associated IAMrole.
 -- The type can be one of the following.
 --
@@ -125,59 +157,30 @@ data User = User'
 --     cognito-identity.amazonaws.com.
 --
 -- -   @CUSTOM_OIDC@: Custom OpenID Connect (OIDC) provider.
---
--- 'externalLoginId', 'user_externalLoginId' - The identity ID for the user in the external login provider.
-newUser ::
-  User
-newUser =
-  User'
-    { email = Prelude.Nothing,
-      principalId = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      userName = Prelude.Nothing,
-      identityType = Prelude.Nothing,
-      externalLoginFederationProviderUrl = Prelude.Nothing,
-      customPermissionsName = Prelude.Nothing,
-      active = Prelude.Nothing,
-      role' = Prelude.Nothing,
-      externalLoginFederationProviderType =
-        Prelude.Nothing,
-      externalLoginId = Prelude.Nothing
-    }
-
--- | The user\'s email address.
-user_email :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_email = Lens.lens (\User' {email} -> email) (\s@User' {} a -> s {email = a} :: User)
-
--- | The principal ID of the user.
-user_principalId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_principalId = Lens.lens (\User' {principalId} -> principalId) (\s@User' {} a -> s {principalId = a} :: User)
-
--- | The Amazon Resource Name (ARN) for the user.
-user_arn :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_arn = Lens.lens (\User' {arn} -> arn) (\s@User' {} a -> s {arn = a} :: User)
-
--- | The user\'s user name.
-user_userName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User)
-
--- | The type of identity authentication used by the user.
-user_identityType :: Lens.Lens' User (Prelude.Maybe IdentityType)
-user_identityType = Lens.lens (\User' {identityType} -> identityType) (\s@User' {} a -> s {identityType = a} :: User)
-
--- | The URL of the external login provider.
-user_externalLoginFederationProviderUrl :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_externalLoginFederationProviderUrl = Lens.lens (\User' {externalLoginFederationProviderUrl} -> externalLoginFederationProviderUrl) (\s@User' {} a -> s {externalLoginFederationProviderUrl = a} :: User)
-
--- | The custom permissions profile associated with this user.
-user_customPermissionsName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_customPermissionsName = Lens.lens (\User' {customPermissionsName} -> customPermissionsName) (\s@User' {} a -> s {customPermissionsName = a} :: User)
+user_externalLoginFederationProviderType :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_externalLoginFederationProviderType = Lens.lens (\User' {externalLoginFederationProviderType} -> externalLoginFederationProviderType) (\s@User' {} a -> s {externalLoginFederationProviderType = a} :: User)
 
 -- | The active status of user. When you create an Amazon QuickSight user
 -- that’s not an IAM user or an Active Directory user, that user is
 -- inactive until they sign in and provide a password.
 user_active :: Lens.Lens' User (Prelude.Maybe Prelude.Bool)
 user_active = Lens.lens (\User' {active} -> active) (\s@User' {} a -> s {active = a} :: User)
+
+-- | The user\'s email address.
+user_email :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_email = Lens.lens (\User' {email} -> email) (\s@User' {} a -> s {email = a} :: User)
+
+-- | The user\'s user name.
+user_userName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User)
+
+-- | The URL of the external login provider.
+user_externalLoginFederationProviderUrl :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_externalLoginFederationProviderUrl = Lens.lens (\User' {externalLoginFederationProviderUrl} -> externalLoginFederationProviderUrl) (\s@User' {} a -> s {externalLoginFederationProviderUrl = a} :: User)
+
+-- | The Amazon Resource Name (ARN) for the user.
+user_arn :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_arn = Lens.lens (\User' {arn} -> arn) (\s@User' {} a -> s {arn = a} :: User)
 
 -- | The Amazon QuickSight role for the user. The user role can be one of the
 -- following:.
@@ -196,20 +199,17 @@ user_active = Lens.lens (\User' {active} -> active) (\s@User' {} a -> s {active 
 user_role :: Lens.Lens' User (Prelude.Maybe UserRole)
 user_role = Lens.lens (\User' {role'} -> role') (\s@User' {} a -> s {role' = a} :: User)
 
--- | The type of supported external login provider that provides identity to
--- let the user federate into Amazon QuickSight with an associated IAMrole.
--- The type can be one of the following.
---
--- -   @COGNITO@: Amazon Cognito. The provider URL is
---     cognito-identity.amazonaws.com.
---
--- -   @CUSTOM_OIDC@: Custom OpenID Connect (OIDC) provider.
-user_externalLoginFederationProviderType :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_externalLoginFederationProviderType = Lens.lens (\User' {externalLoginFederationProviderType} -> externalLoginFederationProviderType) (\s@User' {} a -> s {externalLoginFederationProviderType = a} :: User)
-
 -- | The identity ID for the user in the external login provider.
 user_externalLoginId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_externalLoginId = Lens.lens (\User' {externalLoginId} -> externalLoginId) (\s@User' {} a -> s {externalLoginId = a} :: User)
+
+-- | The type of identity authentication used by the user.
+user_identityType :: Lens.Lens' User (Prelude.Maybe IdentityType)
+user_identityType = Lens.lens (\User' {identityType} -> identityType) (\s@User' {} a -> s {identityType = a} :: User)
+
+-- | The custom permissions profile associated with this user.
+user_customPermissionsName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_customPermissionsName = Lens.lens (\User' {customPermissionsName} -> customPermissionsName) (\s@User' {} a -> s {customPermissionsName = a} :: User)
 
 instance Core.FromJSON User where
   parseJSON =
@@ -217,43 +217,43 @@ instance Core.FromJSON User where
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "PrincipalId")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "UserName")
-            Prelude.<*> (x Core..:? "IdentityType")
-            Prelude.<*> (x Core..:? "ExternalLoginFederationProviderUrl")
-            Prelude.<*> (x Core..:? "CustomPermissionsName")
-            Prelude.<*> (x Core..:? "Active")
-            Prelude.<*> (x Core..:? "Role")
+            Prelude.<$> (x Core..:? "PrincipalId")
             Prelude.<*> (x Core..:? "ExternalLoginFederationProviderType")
+            Prelude.<*> (x Core..:? "Active")
+            Prelude.<*> (x Core..:? "Email")
+            Prelude.<*> (x Core..:? "UserName")
+            Prelude.<*> (x Core..:? "ExternalLoginFederationProviderUrl")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Role")
             Prelude.<*> (x Core..:? "ExternalLoginId")
+            Prelude.<*> (x Core..:? "IdentityType")
+            Prelude.<*> (x Core..:? "CustomPermissionsName")
       )
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` email
-      `Prelude.hashWithSalt` principalId
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` userName
-      `Prelude.hashWithSalt` identityType
-      `Prelude.hashWithSalt` externalLoginFederationProviderUrl
-      `Prelude.hashWithSalt` customPermissionsName
-      `Prelude.hashWithSalt` active
-      `Prelude.hashWithSalt` role'
+    _salt `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` externalLoginFederationProviderType
+      `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` userName
+      `Prelude.hashWithSalt` externalLoginFederationProviderUrl
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` externalLoginId
+      `Prelude.hashWithSalt` identityType
+      `Prelude.hashWithSalt` customPermissionsName
 
 instance Prelude.NFData User where
   rnf User' {..} =
-    Prelude.rnf email
-      `Prelude.seq` Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf externalLoginFederationProviderUrl
-      `Prelude.seq` Prelude.rnf customPermissionsName
-      `Prelude.seq` Prelude.rnf active
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf externalLoginFederationProviderType
+      `Prelude.seq` Prelude.rnf active
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf externalLoginFederationProviderUrl
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf externalLoginId
+      `Prelude.seq` Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf customPermissionsName

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newColumnSchema' smart constructor.
 data ColumnSchema = ColumnSchema'
-  { -- | The geographic role of the column schema.
-    geographicRole :: Prelude.Maybe Prelude.Text,
-    -- | The name of the column schema.
+  { -- | The name of the column schema.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The geographic role of the column schema.
+    geographicRole :: Prelude.Maybe Prelude.Text,
     -- | The data type of the column schema.
     dataType :: Prelude.Maybe Prelude.Text
   }
@@ -44,27 +44,27 @@ data ColumnSchema = ColumnSchema'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'geographicRole', 'columnSchema_geographicRole' - The geographic role of the column schema.
---
 -- 'name', 'columnSchema_name' - The name of the column schema.
+--
+-- 'geographicRole', 'columnSchema_geographicRole' - The geographic role of the column schema.
 --
 -- 'dataType', 'columnSchema_dataType' - The data type of the column schema.
 newColumnSchema ::
   ColumnSchema
 newColumnSchema =
   ColumnSchema'
-    { geographicRole = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      geographicRole = Prelude.Nothing,
       dataType = Prelude.Nothing
     }
-
--- | The geographic role of the column schema.
-columnSchema_geographicRole :: Lens.Lens' ColumnSchema (Prelude.Maybe Prelude.Text)
-columnSchema_geographicRole = Lens.lens (\ColumnSchema' {geographicRole} -> geographicRole) (\s@ColumnSchema' {} a -> s {geographicRole = a} :: ColumnSchema)
 
 -- | The name of the column schema.
 columnSchema_name :: Lens.Lens' ColumnSchema (Prelude.Maybe Prelude.Text)
 columnSchema_name = Lens.lens (\ColumnSchema' {name} -> name) (\s@ColumnSchema' {} a -> s {name = a} :: ColumnSchema)
+
+-- | The geographic role of the column schema.
+columnSchema_geographicRole :: Lens.Lens' ColumnSchema (Prelude.Maybe Prelude.Text)
+columnSchema_geographicRole = Lens.lens (\ColumnSchema' {geographicRole} -> geographicRole) (\s@ColumnSchema' {} a -> s {geographicRole = a} :: ColumnSchema)
 
 -- | The data type of the column schema.
 columnSchema_dataType :: Lens.Lens' ColumnSchema (Prelude.Maybe Prelude.Text)
@@ -76,19 +76,19 @@ instance Core.FromJSON ColumnSchema where
       "ColumnSchema"
       ( \x ->
           ColumnSchema'
-            Prelude.<$> (x Core..:? "GeographicRole")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "GeographicRole")
             Prelude.<*> (x Core..:? "DataType")
       )
 
 instance Prelude.Hashable ColumnSchema where
   hashWithSalt _salt ColumnSchema' {..} =
-    _salt `Prelude.hashWithSalt` geographicRole
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` geographicRole
       `Prelude.hashWithSalt` dataType
 
 instance Prelude.NFData ColumnSchema where
   rnf ColumnSchema' {..} =
-    Prelude.rnf geographicRole
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf geographicRole
       `Prelude.seq` Prelude.rnf dataType

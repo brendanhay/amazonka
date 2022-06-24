@@ -36,10 +36,10 @@ module Amazonka.QuickSight.CreateTemplate
     newCreateTemplate,
 
     -- * Request Lenses
-    createTemplate_versionDescription,
+    createTemplate_tags,
     createTemplate_name,
     createTemplate_permissions,
-    createTemplate_tags,
+    createTemplate_versionDescription,
     createTemplate_awsAccountId,
     createTemplate_templateId,
     createTemplate_sourceEntity,
@@ -49,9 +49,9 @@ module Amazonka.QuickSight.CreateTemplate
     newCreateTemplateResponse,
 
     -- * Response Lenses
+    createTemplateResponse_creationStatus,
     createTemplateResponse_requestId,
     createTemplateResponse_arn,
-    createTemplateResponse_creationStatus,
     createTemplateResponse_templateId,
     createTemplateResponse_versionArn,
     createTemplateResponse_status,
@@ -67,19 +67,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTemplate' smart constructor.
 data CreateTemplate = CreateTemplate'
-  { -- | A description of the current template version being created. This API
+  { -- | Contains a map of the key-value pairs for the resource tag or tags
+    -- assigned to the resource.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | A display name for the template.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A list of resource permissions to be set on the template.
+    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
+    -- | A description of the current template version being created. This API
     -- operation creates the first version of the template. Every time
     -- @UpdateTemplate@ is called, a new version is created. Each version of
     -- the template maintains a description of the version in the
     -- @VersionDescription@ field.
     versionDescription :: Prelude.Maybe Prelude.Text,
-    -- | A display name for the template.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A list of resource permissions to be set on the template.
-    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
-    -- | Contains a map of the key-value pairs for the resource tag or tags
-    -- assigned to the resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The ID for the Amazon Web Services account that the group is in. You use
     -- the ID for the Amazon Web Services account that contains your Amazon
     -- QuickSight account.
@@ -112,18 +112,18 @@ data CreateTemplate = CreateTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionDescription', 'createTemplate_versionDescription' - A description of the current template version being created. This API
--- operation creates the first version of the template. Every time
--- @UpdateTemplate@ is called, a new version is created. Each version of
--- the template maintains a description of the version in the
--- @VersionDescription@ field.
+-- 'tags', 'createTemplate_tags' - Contains a map of the key-value pairs for the resource tag or tags
+-- assigned to the resource.
 --
 -- 'name', 'createTemplate_name' - A display name for the template.
 --
 -- 'permissions', 'createTemplate_permissions' - A list of resource permissions to be set on the template.
 --
--- 'tags', 'createTemplate_tags' - Contains a map of the key-value pairs for the resource tag or tags
--- assigned to the resource.
+-- 'versionDescription', 'createTemplate_versionDescription' - A description of the current template version being created. This API
+-- operation creates the first version of the template. Every time
+-- @UpdateTemplate@ is called, a new version is created. Each version of
+-- the template maintains a description of the version in the
+-- @VersionDescription@ field.
 --
 -- 'awsAccountId', 'createTemplate_awsAccountId' - The ID for the Amazon Web Services account that the group is in. You use
 -- the ID for the Amazon Web Services account that contains your Amazon
@@ -158,23 +158,19 @@ newCreateTemplate
   pTemplateId_
   pSourceEntity_ =
     CreateTemplate'
-      { versionDescription =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
         name = Prelude.Nothing,
         permissions = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        versionDescription = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         templateId = pTemplateId_,
         sourceEntity = pSourceEntity_
       }
 
--- | A description of the current template version being created. This API
--- operation creates the first version of the template. Every time
--- @UpdateTemplate@ is called, a new version is created. Each version of
--- the template maintains a description of the version in the
--- @VersionDescription@ field.
-createTemplate_versionDescription :: Lens.Lens' CreateTemplate (Prelude.Maybe Prelude.Text)
-createTemplate_versionDescription = Lens.lens (\CreateTemplate' {versionDescription} -> versionDescription) (\s@CreateTemplate' {} a -> s {versionDescription = a} :: CreateTemplate)
+-- | Contains a map of the key-value pairs for the resource tag or tags
+-- assigned to the resource.
+createTemplate_tags :: Lens.Lens' CreateTemplate (Prelude.Maybe (Prelude.NonEmpty Tag))
+createTemplate_tags = Lens.lens (\CreateTemplate' {tags} -> tags) (\s@CreateTemplate' {} a -> s {tags = a} :: CreateTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | A display name for the template.
 createTemplate_name :: Lens.Lens' CreateTemplate (Prelude.Maybe Prelude.Text)
@@ -184,10 +180,13 @@ createTemplate_name = Lens.lens (\CreateTemplate' {name} -> name) (\s@CreateTemp
 createTemplate_permissions :: Lens.Lens' CreateTemplate (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 createTemplate_permissions = Lens.lens (\CreateTemplate' {permissions} -> permissions) (\s@CreateTemplate' {} a -> s {permissions = a} :: CreateTemplate) Prelude.. Lens.mapping Lens.coerced
 
--- | Contains a map of the key-value pairs for the resource tag or tags
--- assigned to the resource.
-createTemplate_tags :: Lens.Lens' CreateTemplate (Prelude.Maybe (Prelude.NonEmpty Tag))
-createTemplate_tags = Lens.lens (\CreateTemplate' {tags} -> tags) (\s@CreateTemplate' {} a -> s {tags = a} :: CreateTemplate) Prelude.. Lens.mapping Lens.coerced
+-- | A description of the current template version being created. This API
+-- operation creates the first version of the template. Every time
+-- @UpdateTemplate@ is called, a new version is created. Each version of
+-- the template maintains a description of the version in the
+-- @VersionDescription@ field.
+createTemplate_versionDescription :: Lens.Lens' CreateTemplate (Prelude.Maybe Prelude.Text)
+createTemplate_versionDescription = Lens.lens (\CreateTemplate' {versionDescription} -> versionDescription) (\s@CreateTemplate' {} a -> s {versionDescription = a} :: CreateTemplate)
 
 -- | The ID for the Amazon Web Services account that the group is in. You use
 -- the ID for the Amazon Web Services account that contains your Amazon
@@ -225,9 +224,9 @@ instance Core.AWSRequest CreateTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateTemplateResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Core..?> "CreationStatus")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "CreationStatus")
             Prelude.<*> (x Core..?> "TemplateId")
             Prelude.<*> (x Core..?> "VersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -235,20 +234,20 @@ instance Core.AWSRequest CreateTemplate where
 
 instance Prelude.Hashable CreateTemplate where
   hashWithSalt _salt CreateTemplate' {..} =
-    _salt `Prelude.hashWithSalt` versionDescription
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` permissions
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` versionDescription
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` templateId
       `Prelude.hashWithSalt` sourceEntity
 
 instance Prelude.NFData CreateTemplate where
   rnf CreateTemplate' {..} =
-    Prelude.rnf versionDescription
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf versionDescription
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf sourceEntity
@@ -268,11 +267,11 @@ instance Core.ToJSON CreateTemplate where
   toJSON CreateTemplate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VersionDescription" Core..=)
-              Prelude.<$> versionDescription,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Name" Core..=) Prelude.<$> name,
             ("Permissions" Core..=) Prelude.<$> permissions,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("VersionDescription" Core..=)
+              Prelude.<$> versionDescription,
             Prelude.Just ("SourceEntity" Core..= sourceEntity)
           ]
       )
@@ -291,12 +290,12 @@ instance Core.ToQuery CreateTemplate where
 
 -- | /See:/ 'newCreateTemplateResponse' smart constructor.
 data CreateTemplateResponse = CreateTemplateResponse'
-  { -- | The Amazon Web Services request ID for this operation.
+  { -- | The template creation status.
+    creationStatus :: Prelude.Maybe ResourceStatus,
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the template.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The template creation status.
-    creationStatus :: Prelude.Maybe ResourceStatus,
     -- | The ID of the template.
     templateId :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the template, including the version information of the first
@@ -315,11 +314,11 @@ data CreateTemplateResponse = CreateTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationStatus', 'createTemplateResponse_creationStatus' - The template creation status.
+--
 -- 'requestId', 'createTemplateResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'arn', 'createTemplateResponse_arn' - The ARN for the template.
---
--- 'creationStatus', 'createTemplateResponse_creationStatus' - The template creation status.
 --
 -- 'templateId', 'createTemplateResponse_templateId' - The ID of the template.
 --
@@ -333,14 +332,18 @@ newCreateTemplateResponse ::
   CreateTemplateResponse
 newCreateTemplateResponse pStatus_ =
   CreateTemplateResponse'
-    { requestId =
+    { creationStatus =
         Prelude.Nothing,
+      requestId = Prelude.Nothing,
       arn = Prelude.Nothing,
-      creationStatus = Prelude.Nothing,
       templateId = Prelude.Nothing,
       versionArn = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | The template creation status.
+createTemplateResponse_creationStatus :: Lens.Lens' CreateTemplateResponse (Prelude.Maybe ResourceStatus)
+createTemplateResponse_creationStatus = Lens.lens (\CreateTemplateResponse' {creationStatus} -> creationStatus) (\s@CreateTemplateResponse' {} a -> s {creationStatus = a} :: CreateTemplateResponse)
 
 -- | The Amazon Web Services request ID for this operation.
 createTemplateResponse_requestId :: Lens.Lens' CreateTemplateResponse (Prelude.Maybe Prelude.Text)
@@ -349,10 +352,6 @@ createTemplateResponse_requestId = Lens.lens (\CreateTemplateResponse' {requestI
 -- | The ARN for the template.
 createTemplateResponse_arn :: Lens.Lens' CreateTemplateResponse (Prelude.Maybe Prelude.Text)
 createTemplateResponse_arn = Lens.lens (\CreateTemplateResponse' {arn} -> arn) (\s@CreateTemplateResponse' {} a -> s {arn = a} :: CreateTemplateResponse)
-
--- | The template creation status.
-createTemplateResponse_creationStatus :: Lens.Lens' CreateTemplateResponse (Prelude.Maybe ResourceStatus)
-createTemplateResponse_creationStatus = Lens.lens (\CreateTemplateResponse' {creationStatus} -> creationStatus) (\s@CreateTemplateResponse' {} a -> s {creationStatus = a} :: CreateTemplateResponse)
 
 -- | The ID of the template.
 createTemplateResponse_templateId :: Lens.Lens' CreateTemplateResponse (Prelude.Maybe Prelude.Text)
@@ -369,9 +368,9 @@ createTemplateResponse_status = Lens.lens (\CreateTemplateResponse' {status} -> 
 
 instance Prelude.NFData CreateTemplateResponse where
   rnf CreateTemplateResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationStatus
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf versionArn
       `Prelude.seq` Prelude.rnf status

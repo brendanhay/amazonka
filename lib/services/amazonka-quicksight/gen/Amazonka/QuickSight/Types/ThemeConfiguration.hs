@@ -31,13 +31,13 @@ import Amazonka.QuickSight.Types.UIColorPalette
 --
 -- /See:/ 'newThemeConfiguration' smart constructor.
 data ThemeConfiguration = ThemeConfiguration'
-  { -- | Color properties that apply to the UI and to charts, excluding the
-    -- colors that apply to data.
-    uIColorPalette :: Prelude.Maybe UIColorPalette,
+  { -- | Color properties that apply to chart data colors.
+    dataColorPalette :: Prelude.Maybe DataColorPalette,
     -- | Display options related to sheets.
     sheet :: Prelude.Maybe SheetStyle,
-    -- | Color properties that apply to chart data colors.
-    dataColorPalette :: Prelude.Maybe DataColorPalette
+    -- | Color properties that apply to the UI and to charts, excluding the
+    -- colors that apply to data.
+    uIColorPalette :: Prelude.Maybe UIColorPalette
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,34 +49,34 @@ data ThemeConfiguration = ThemeConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uIColorPalette', 'themeConfiguration_uIColorPalette' - Color properties that apply to the UI and to charts, excluding the
--- colors that apply to data.
+-- 'dataColorPalette', 'themeConfiguration_dataColorPalette' - Color properties that apply to chart data colors.
 --
 -- 'sheet', 'themeConfiguration_sheet' - Display options related to sheets.
 --
--- 'dataColorPalette', 'themeConfiguration_dataColorPalette' - Color properties that apply to chart data colors.
+-- 'uIColorPalette', 'themeConfiguration_uIColorPalette' - Color properties that apply to the UI and to charts, excluding the
+-- colors that apply to data.
 newThemeConfiguration ::
   ThemeConfiguration
 newThemeConfiguration =
   ThemeConfiguration'
-    { uIColorPalette =
+    { dataColorPalette =
         Prelude.Nothing,
       sheet = Prelude.Nothing,
-      dataColorPalette = Prelude.Nothing
+      uIColorPalette = Prelude.Nothing
     }
 
--- | Color properties that apply to the UI and to charts, excluding the
--- colors that apply to data.
-themeConfiguration_uIColorPalette :: Lens.Lens' ThemeConfiguration (Prelude.Maybe UIColorPalette)
-themeConfiguration_uIColorPalette = Lens.lens (\ThemeConfiguration' {uIColorPalette} -> uIColorPalette) (\s@ThemeConfiguration' {} a -> s {uIColorPalette = a} :: ThemeConfiguration)
+-- | Color properties that apply to chart data colors.
+themeConfiguration_dataColorPalette :: Lens.Lens' ThemeConfiguration (Prelude.Maybe DataColorPalette)
+themeConfiguration_dataColorPalette = Lens.lens (\ThemeConfiguration' {dataColorPalette} -> dataColorPalette) (\s@ThemeConfiguration' {} a -> s {dataColorPalette = a} :: ThemeConfiguration)
 
 -- | Display options related to sheets.
 themeConfiguration_sheet :: Lens.Lens' ThemeConfiguration (Prelude.Maybe SheetStyle)
 themeConfiguration_sheet = Lens.lens (\ThemeConfiguration' {sheet} -> sheet) (\s@ThemeConfiguration' {} a -> s {sheet = a} :: ThemeConfiguration)
 
--- | Color properties that apply to chart data colors.
-themeConfiguration_dataColorPalette :: Lens.Lens' ThemeConfiguration (Prelude.Maybe DataColorPalette)
-themeConfiguration_dataColorPalette = Lens.lens (\ThemeConfiguration' {dataColorPalette} -> dataColorPalette) (\s@ThemeConfiguration' {} a -> s {dataColorPalette = a} :: ThemeConfiguration)
+-- | Color properties that apply to the UI and to charts, excluding the
+-- colors that apply to data.
+themeConfiguration_uIColorPalette :: Lens.Lens' ThemeConfiguration (Prelude.Maybe UIColorPalette)
+themeConfiguration_uIColorPalette = Lens.lens (\ThemeConfiguration' {uIColorPalette} -> uIColorPalette) (\s@ThemeConfiguration' {} a -> s {uIColorPalette = a} :: ThemeConfiguration)
 
 instance Core.FromJSON ThemeConfiguration where
   parseJSON =
@@ -84,31 +84,31 @@ instance Core.FromJSON ThemeConfiguration where
       "ThemeConfiguration"
       ( \x ->
           ThemeConfiguration'
-            Prelude.<$> (x Core..:? "UIColorPalette")
+            Prelude.<$> (x Core..:? "DataColorPalette")
             Prelude.<*> (x Core..:? "Sheet")
-            Prelude.<*> (x Core..:? "DataColorPalette")
+            Prelude.<*> (x Core..:? "UIColorPalette")
       )
 
 instance Prelude.Hashable ThemeConfiguration where
   hashWithSalt _salt ThemeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` uIColorPalette
+    _salt `Prelude.hashWithSalt` dataColorPalette
       `Prelude.hashWithSalt` sheet
-      `Prelude.hashWithSalt` dataColorPalette
+      `Prelude.hashWithSalt` uIColorPalette
 
 instance Prelude.NFData ThemeConfiguration where
   rnf ThemeConfiguration' {..} =
-    Prelude.rnf uIColorPalette
+    Prelude.rnf dataColorPalette
       `Prelude.seq` Prelude.rnf sheet
-      `Prelude.seq` Prelude.rnf dataColorPalette
+      `Prelude.seq` Prelude.rnf uIColorPalette
 
 instance Core.ToJSON ThemeConfiguration where
   toJSON ThemeConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UIColorPalette" Core..=)
-              Prelude.<$> uIColorPalette,
+          [ ("DataColorPalette" Core..=)
+              Prelude.<$> dataColorPalette,
             ("Sheet" Core..=) Prelude.<$> sheet,
-            ("DataColorPalette" Core..=)
-              Prelude.<$> dataColorPalette
+            ("UIColorPalette" Core..=)
+              Prelude.<$> uIColorPalette
           ]
       )

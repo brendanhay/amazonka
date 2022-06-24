@@ -29,9 +29,9 @@ module Amazonka.QuickSight.UpdateIAMPolicyAssignment
     newUpdateIAMPolicyAssignment,
 
     -- * Request Lenses
-    updateIAMPolicyAssignment_assignmentStatus,
-    updateIAMPolicyAssignment_policyArn,
     updateIAMPolicyAssignment_identities,
+    updateIAMPolicyAssignment_policyArn,
+    updateIAMPolicyAssignment_assignmentStatus,
     updateIAMPolicyAssignment_awsAccountId,
     updateIAMPolicyAssignment_assignmentName,
     updateIAMPolicyAssignment_namespace,
@@ -42,11 +42,11 @@ module Amazonka.QuickSight.UpdateIAMPolicyAssignment
 
     -- * Response Lenses
     updateIAMPolicyAssignmentResponse_requestId,
-    updateIAMPolicyAssignmentResponse_assignmentName,
-    updateIAMPolicyAssignmentResponse_assignmentStatus,
-    updateIAMPolicyAssignmentResponse_policyArn,
     updateIAMPolicyAssignmentResponse_identities,
+    updateIAMPolicyAssignmentResponse_policyArn,
+    updateIAMPolicyAssignmentResponse_assignmentName,
     updateIAMPolicyAssignmentResponse_assignmentId,
+    updateIAMPolicyAssignmentResponse_assignmentStatus,
     updateIAMPolicyAssignmentResponse_status,
   )
 where
@@ -60,7 +60,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateIAMPolicyAssignment' smart constructor.
 data UpdateIAMPolicyAssignment = UpdateIAMPolicyAssignment'
-  { -- | The status of the assignment. Possible values are as follows:
+  { -- | The Amazon QuickSight users, groups, or both that you want to assign the
+    -- policy to.
+    identities :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The ARN for the IAMpolicy to apply to the Amazon QuickSight users and
+    -- groups specified in this assignment.
+    policyArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the assignment. Possible values are as follows:
     --
     -- -   @ENABLED@ - Anything specified in this assignment is used when
     --     creating the data source.
@@ -71,12 +77,6 @@ data UpdateIAMPolicyAssignment = UpdateIAMPolicyAssignment'
     -- -   @DRAFT@ - This assignment is an unfinished draft and isn\'t used
     --     when creating the data source.
     assignmentStatus :: Prelude.Maybe AssignmentStatus,
-    -- | The ARN for the IAMpolicy to apply to the Amazon QuickSight users and
-    -- groups specified in this assignment.
-    policyArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon QuickSight users, groups, or both that you want to assign the
-    -- policy to.
-    identities :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The ID of the Amazon Web Services account that contains the IAMpolicy
     -- assignment.
     awsAccountId :: Prelude.Text,
@@ -96,6 +96,12 @@ data UpdateIAMPolicyAssignment = UpdateIAMPolicyAssignment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'identities', 'updateIAMPolicyAssignment_identities' - The Amazon QuickSight users, groups, or both that you want to assign the
+-- policy to.
+--
+-- 'policyArn', 'updateIAMPolicyAssignment_policyArn' - The ARN for the IAMpolicy to apply to the Amazon QuickSight users and
+-- groups specified in this assignment.
+--
 -- 'assignmentStatus', 'updateIAMPolicyAssignment_assignmentStatus' - The status of the assignment. Possible values are as follows:
 --
 -- -   @ENABLED@ - Anything specified in this assignment is used when
@@ -106,12 +112,6 @@ data UpdateIAMPolicyAssignment = UpdateIAMPolicyAssignment'
 --
 -- -   @DRAFT@ - This assignment is an unfinished draft and isn\'t used
 --     when creating the data source.
---
--- 'policyArn', 'updateIAMPolicyAssignment_policyArn' - The ARN for the IAMpolicy to apply to the Amazon QuickSight users and
--- groups specified in this assignment.
---
--- 'identities', 'updateIAMPolicyAssignment_identities' - The Amazon QuickSight users, groups, or both that you want to assign the
--- policy to.
 --
 -- 'awsAccountId', 'updateIAMPolicyAssignment_awsAccountId' - The ID of the Amazon Web Services account that contains the IAMpolicy
 -- assignment.
@@ -133,14 +133,24 @@ newUpdateIAMPolicyAssignment
   pAssignmentName_
   pNamespace_ =
     UpdateIAMPolicyAssignment'
-      { assignmentStatus =
+      { identities =
           Prelude.Nothing,
         policyArn = Prelude.Nothing,
-        identities = Prelude.Nothing,
+        assignmentStatus = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         assignmentName = pAssignmentName_,
         namespace = pNamespace_
       }
+
+-- | The Amazon QuickSight users, groups, or both that you want to assign the
+-- policy to.
+updateIAMPolicyAssignment_identities :: Lens.Lens' UpdateIAMPolicyAssignment (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+updateIAMPolicyAssignment_identities = Lens.lens (\UpdateIAMPolicyAssignment' {identities} -> identities) (\s@UpdateIAMPolicyAssignment' {} a -> s {identities = a} :: UpdateIAMPolicyAssignment) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARN for the IAMpolicy to apply to the Amazon QuickSight users and
+-- groups specified in this assignment.
+updateIAMPolicyAssignment_policyArn :: Lens.Lens' UpdateIAMPolicyAssignment (Prelude.Maybe Prelude.Text)
+updateIAMPolicyAssignment_policyArn = Lens.lens (\UpdateIAMPolicyAssignment' {policyArn} -> policyArn) (\s@UpdateIAMPolicyAssignment' {} a -> s {policyArn = a} :: UpdateIAMPolicyAssignment)
 
 -- | The status of the assignment. Possible values are as follows:
 --
@@ -154,16 +164,6 @@ newUpdateIAMPolicyAssignment
 --     when creating the data source.
 updateIAMPolicyAssignment_assignmentStatus :: Lens.Lens' UpdateIAMPolicyAssignment (Prelude.Maybe AssignmentStatus)
 updateIAMPolicyAssignment_assignmentStatus = Lens.lens (\UpdateIAMPolicyAssignment' {assignmentStatus} -> assignmentStatus) (\s@UpdateIAMPolicyAssignment' {} a -> s {assignmentStatus = a} :: UpdateIAMPolicyAssignment)
-
--- | The ARN for the IAMpolicy to apply to the Amazon QuickSight users and
--- groups specified in this assignment.
-updateIAMPolicyAssignment_policyArn :: Lens.Lens' UpdateIAMPolicyAssignment (Prelude.Maybe Prelude.Text)
-updateIAMPolicyAssignment_policyArn = Lens.lens (\UpdateIAMPolicyAssignment' {policyArn} -> policyArn) (\s@UpdateIAMPolicyAssignment' {} a -> s {policyArn = a} :: UpdateIAMPolicyAssignment)
-
--- | The Amazon QuickSight users, groups, or both that you want to assign the
--- policy to.
-updateIAMPolicyAssignment_identities :: Lens.Lens' UpdateIAMPolicyAssignment (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-updateIAMPolicyAssignment_identities = Lens.lens (\UpdateIAMPolicyAssignment' {identities} -> identities) (\s@UpdateIAMPolicyAssignment' {} a -> s {identities = a} :: UpdateIAMPolicyAssignment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Amazon Web Services account that contains the IAMpolicy
 -- assignment.
@@ -189,28 +189,28 @@ instance Core.AWSRequest UpdateIAMPolicyAssignment where
       ( \s h x ->
           UpdateIAMPolicyAssignmentResponse'
             Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "AssignmentName")
-            Prelude.<*> (x Core..?> "AssignmentStatus")
-            Prelude.<*> (x Core..?> "PolicyArn")
             Prelude.<*> (x Core..?> "Identities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "PolicyArn")
+            Prelude.<*> (x Core..?> "AssignmentName")
             Prelude.<*> (x Core..?> "AssignmentId")
+            Prelude.<*> (x Core..?> "AssignmentStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateIAMPolicyAssignment where
   hashWithSalt _salt UpdateIAMPolicyAssignment' {..} =
-    _salt `Prelude.hashWithSalt` assignmentStatus
+    _salt `Prelude.hashWithSalt` identities
       `Prelude.hashWithSalt` policyArn
-      `Prelude.hashWithSalt` identities
+      `Prelude.hashWithSalt` assignmentStatus
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` assignmentName
       `Prelude.hashWithSalt` namespace
 
 instance Prelude.NFData UpdateIAMPolicyAssignment where
   rnf UpdateIAMPolicyAssignment' {..} =
-    Prelude.rnf assignmentStatus
+    Prelude.rnf identities
       `Prelude.seq` Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf identities
+      `Prelude.seq` Prelude.rnf assignmentStatus
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf assignmentName
       `Prelude.seq` Prelude.rnf namespace
@@ -230,10 +230,10 @@ instance Core.ToJSON UpdateIAMPolicyAssignment where
   toJSON UpdateIAMPolicyAssignment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AssignmentStatus" Core..=)
-              Prelude.<$> assignmentStatus,
+          [ ("Identities" Core..=) Prelude.<$> identities,
             ("PolicyArn" Core..=) Prelude.<$> policyArn,
-            ("Identities" Core..=) Prelude.<$> identities
+            ("AssignmentStatus" Core..=)
+              Prelude.<$> assignmentStatus
           ]
       )
 
@@ -255,8 +255,16 @@ instance Core.ToQuery UpdateIAMPolicyAssignment where
 data UpdateIAMPolicyAssignmentResponse = UpdateIAMPolicyAssignmentResponse'
   { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon QuickSight users, groups, or both that the IAMpolicy is
+    -- assigned to.
+    identities :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The ARN for the IAMpolicy applied to the Amazon QuickSight users and
+    -- groups specified in this assignment.
+    policyArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the assignment or rule.
     assignmentName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the assignment.
+    assignmentId :: Prelude.Maybe Prelude.Text,
     -- | The status of the assignment. Possible values are as follows:
     --
     -- -   @ENABLED@ - Anything specified in this assignment is used when
@@ -268,14 +276,6 @@ data UpdateIAMPolicyAssignmentResponse = UpdateIAMPolicyAssignmentResponse'
     -- -   @DRAFT@ - This assignment is an unfinished draft and isn\'t used
     --     when creating the data source.
     assignmentStatus :: Prelude.Maybe AssignmentStatus,
-    -- | The ARN for the IAMpolicy applied to the Amazon QuickSight users and
-    -- groups specified in this assignment.
-    policyArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon QuickSight users, groups, or both that the IAMpolicy is
-    -- assigned to.
-    identities :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The ID of the assignment.
-    assignmentId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -291,7 +291,15 @@ data UpdateIAMPolicyAssignmentResponse = UpdateIAMPolicyAssignmentResponse'
 --
 -- 'requestId', 'updateIAMPolicyAssignmentResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
+-- 'identities', 'updateIAMPolicyAssignmentResponse_identities' - The Amazon QuickSight users, groups, or both that the IAMpolicy is
+-- assigned to.
+--
+-- 'policyArn', 'updateIAMPolicyAssignmentResponse_policyArn' - The ARN for the IAMpolicy applied to the Amazon QuickSight users and
+-- groups specified in this assignment.
+--
 -- 'assignmentName', 'updateIAMPolicyAssignmentResponse_assignmentName' - The name of the assignment or rule.
+--
+-- 'assignmentId', 'updateIAMPolicyAssignmentResponse_assignmentId' - The ID of the assignment.
 --
 -- 'assignmentStatus', 'updateIAMPolicyAssignmentResponse_assignmentStatus' - The status of the assignment. Possible values are as follows:
 --
@@ -304,14 +312,6 @@ data UpdateIAMPolicyAssignmentResponse = UpdateIAMPolicyAssignmentResponse'
 -- -   @DRAFT@ - This assignment is an unfinished draft and isn\'t used
 --     when creating the data source.
 --
--- 'policyArn', 'updateIAMPolicyAssignmentResponse_policyArn' - The ARN for the IAMpolicy applied to the Amazon QuickSight users and
--- groups specified in this assignment.
---
--- 'identities', 'updateIAMPolicyAssignmentResponse_identities' - The Amazon QuickSight users, groups, or both that the IAMpolicy is
--- assigned to.
---
--- 'assignmentId', 'updateIAMPolicyAssignmentResponse_assignmentId' - The ID of the assignment.
---
 -- 'status', 'updateIAMPolicyAssignmentResponse_status' - The HTTP status of the request.
 newUpdateIAMPolicyAssignmentResponse ::
   -- | 'status'
@@ -321,11 +321,11 @@ newUpdateIAMPolicyAssignmentResponse pStatus_ =
   UpdateIAMPolicyAssignmentResponse'
     { requestId =
         Prelude.Nothing,
-      assignmentName = Prelude.Nothing,
-      assignmentStatus = Prelude.Nothing,
-      policyArn = Prelude.Nothing,
       identities = Prelude.Nothing,
+      policyArn = Prelude.Nothing,
+      assignmentName = Prelude.Nothing,
       assignmentId = Prelude.Nothing,
+      assignmentStatus = Prelude.Nothing,
       status = pStatus_
     }
 
@@ -333,9 +333,23 @@ newUpdateIAMPolicyAssignmentResponse pStatus_ =
 updateIAMPolicyAssignmentResponse_requestId :: Lens.Lens' UpdateIAMPolicyAssignmentResponse (Prelude.Maybe Prelude.Text)
 updateIAMPolicyAssignmentResponse_requestId = Lens.lens (\UpdateIAMPolicyAssignmentResponse' {requestId} -> requestId) (\s@UpdateIAMPolicyAssignmentResponse' {} a -> s {requestId = a} :: UpdateIAMPolicyAssignmentResponse)
 
+-- | The Amazon QuickSight users, groups, or both that the IAMpolicy is
+-- assigned to.
+updateIAMPolicyAssignmentResponse_identities :: Lens.Lens' UpdateIAMPolicyAssignmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+updateIAMPolicyAssignmentResponse_identities = Lens.lens (\UpdateIAMPolicyAssignmentResponse' {identities} -> identities) (\s@UpdateIAMPolicyAssignmentResponse' {} a -> s {identities = a} :: UpdateIAMPolicyAssignmentResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARN for the IAMpolicy applied to the Amazon QuickSight users and
+-- groups specified in this assignment.
+updateIAMPolicyAssignmentResponse_policyArn :: Lens.Lens' UpdateIAMPolicyAssignmentResponse (Prelude.Maybe Prelude.Text)
+updateIAMPolicyAssignmentResponse_policyArn = Lens.lens (\UpdateIAMPolicyAssignmentResponse' {policyArn} -> policyArn) (\s@UpdateIAMPolicyAssignmentResponse' {} a -> s {policyArn = a} :: UpdateIAMPolicyAssignmentResponse)
+
 -- | The name of the assignment or rule.
 updateIAMPolicyAssignmentResponse_assignmentName :: Lens.Lens' UpdateIAMPolicyAssignmentResponse (Prelude.Maybe Prelude.Text)
 updateIAMPolicyAssignmentResponse_assignmentName = Lens.lens (\UpdateIAMPolicyAssignmentResponse' {assignmentName} -> assignmentName) (\s@UpdateIAMPolicyAssignmentResponse' {} a -> s {assignmentName = a} :: UpdateIAMPolicyAssignmentResponse)
+
+-- | The ID of the assignment.
+updateIAMPolicyAssignmentResponse_assignmentId :: Lens.Lens' UpdateIAMPolicyAssignmentResponse (Prelude.Maybe Prelude.Text)
+updateIAMPolicyAssignmentResponse_assignmentId = Lens.lens (\UpdateIAMPolicyAssignmentResponse' {assignmentId} -> assignmentId) (\s@UpdateIAMPolicyAssignmentResponse' {} a -> s {assignmentId = a} :: UpdateIAMPolicyAssignmentResponse)
 
 -- | The status of the assignment. Possible values are as follows:
 --
@@ -350,20 +364,6 @@ updateIAMPolicyAssignmentResponse_assignmentName = Lens.lens (\UpdateIAMPolicyAs
 updateIAMPolicyAssignmentResponse_assignmentStatus :: Lens.Lens' UpdateIAMPolicyAssignmentResponse (Prelude.Maybe AssignmentStatus)
 updateIAMPolicyAssignmentResponse_assignmentStatus = Lens.lens (\UpdateIAMPolicyAssignmentResponse' {assignmentStatus} -> assignmentStatus) (\s@UpdateIAMPolicyAssignmentResponse' {} a -> s {assignmentStatus = a} :: UpdateIAMPolicyAssignmentResponse)
 
--- | The ARN for the IAMpolicy applied to the Amazon QuickSight users and
--- groups specified in this assignment.
-updateIAMPolicyAssignmentResponse_policyArn :: Lens.Lens' UpdateIAMPolicyAssignmentResponse (Prelude.Maybe Prelude.Text)
-updateIAMPolicyAssignmentResponse_policyArn = Lens.lens (\UpdateIAMPolicyAssignmentResponse' {policyArn} -> policyArn) (\s@UpdateIAMPolicyAssignmentResponse' {} a -> s {policyArn = a} :: UpdateIAMPolicyAssignmentResponse)
-
--- | The Amazon QuickSight users, groups, or both that the IAMpolicy is
--- assigned to.
-updateIAMPolicyAssignmentResponse_identities :: Lens.Lens' UpdateIAMPolicyAssignmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-updateIAMPolicyAssignmentResponse_identities = Lens.lens (\UpdateIAMPolicyAssignmentResponse' {identities} -> identities) (\s@UpdateIAMPolicyAssignmentResponse' {} a -> s {identities = a} :: UpdateIAMPolicyAssignmentResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the assignment.
-updateIAMPolicyAssignmentResponse_assignmentId :: Lens.Lens' UpdateIAMPolicyAssignmentResponse (Prelude.Maybe Prelude.Text)
-updateIAMPolicyAssignmentResponse_assignmentId = Lens.lens (\UpdateIAMPolicyAssignmentResponse' {assignmentId} -> assignmentId) (\s@UpdateIAMPolicyAssignmentResponse' {} a -> s {assignmentId = a} :: UpdateIAMPolicyAssignmentResponse)
-
 -- | The HTTP status of the request.
 updateIAMPolicyAssignmentResponse_status :: Lens.Lens' UpdateIAMPolicyAssignmentResponse Prelude.Int
 updateIAMPolicyAssignmentResponse_status = Lens.lens (\UpdateIAMPolicyAssignmentResponse' {status} -> status) (\s@UpdateIAMPolicyAssignmentResponse' {} a -> s {status = a} :: UpdateIAMPolicyAssignmentResponse)
@@ -374,9 +374,9 @@ instance
   where
   rnf UpdateIAMPolicyAssignmentResponse' {..} =
     Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf assignmentName
-      `Prelude.seq` Prelude.rnf assignmentStatus
-      `Prelude.seq` Prelude.rnf policyArn
       `Prelude.seq` Prelude.rnf identities
+      `Prelude.seq` Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf assignmentName
       `Prelude.seq` Prelude.rnf assignmentId
+      `Prelude.seq` Prelude.rnf assignmentStatus
       `Prelude.seq` Prelude.rnf status

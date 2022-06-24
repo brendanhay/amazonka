@@ -40,9 +40,9 @@ module Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser
     newListIAMPolicyAssignmentsForUserResponse,
 
     -- * Response Lenses
-    listIAMPolicyAssignmentsForUserResponse_requestId,
     listIAMPolicyAssignmentsForUserResponse_activeAssignments,
     listIAMPolicyAssignmentsForUserResponse_nextToken,
+    listIAMPolicyAssignmentsForUserResponse_requestId,
     listIAMPolicyAssignmentsForUserResponse_status,
   )
 where
@@ -142,11 +142,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListIAMPolicyAssignmentsForUserResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> ( x Core..?> "ActiveAssignments"
+            Prelude.<$> ( x Core..?> "ActiveAssignments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -209,13 +209,13 @@ instance Core.ToQuery ListIAMPolicyAssignmentsForUser where
 
 -- | /See:/ 'newListIAMPolicyAssignmentsForUserResponse' smart constructor.
 data ListIAMPolicyAssignmentsForUserResponse = ListIAMPolicyAssignmentsForUserResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The active assignments for this user.
+  { -- | The active assignments for this user.
     activeAssignments :: Prelude.Maybe [ActiveIAMPolicyAssignment],
     -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -229,12 +229,12 @@ data ListIAMPolicyAssignmentsForUserResponse = ListIAMPolicyAssignmentsForUserRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'listIAMPolicyAssignmentsForUserResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'activeAssignments', 'listIAMPolicyAssignmentsForUserResponse_activeAssignments' - The active assignments for this user.
 --
 -- 'nextToken', 'listIAMPolicyAssignmentsForUserResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
+--
+-- 'requestId', 'listIAMPolicyAssignmentsForUserResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'listIAMPolicyAssignmentsForUserResponse_status' - The HTTP status of the request.
 newListIAMPolicyAssignmentsForUserResponse ::
@@ -243,17 +243,12 @@ newListIAMPolicyAssignmentsForUserResponse ::
   ListIAMPolicyAssignmentsForUserResponse
 newListIAMPolicyAssignmentsForUserResponse pStatus_ =
   ListIAMPolicyAssignmentsForUserResponse'
-    { requestId =
-        Prelude.Nothing,
-      activeAssignments =
+    { activeAssignments =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-listIAMPolicyAssignmentsForUserResponse_requestId :: Lens.Lens' ListIAMPolicyAssignmentsForUserResponse (Prelude.Maybe Prelude.Text)
-listIAMPolicyAssignmentsForUserResponse_requestId = Lens.lens (\ListIAMPolicyAssignmentsForUserResponse' {requestId} -> requestId) (\s@ListIAMPolicyAssignmentsForUserResponse' {} a -> s {requestId = a} :: ListIAMPolicyAssignmentsForUserResponse)
 
 -- | The active assignments for this user.
 listIAMPolicyAssignmentsForUserResponse_activeAssignments :: Lens.Lens' ListIAMPolicyAssignmentsForUserResponse (Prelude.Maybe [ActiveIAMPolicyAssignment])
@@ -264,6 +259,10 @@ listIAMPolicyAssignmentsForUserResponse_activeAssignments = Lens.lens (\ListIAMP
 listIAMPolicyAssignmentsForUserResponse_nextToken :: Lens.Lens' ListIAMPolicyAssignmentsForUserResponse (Prelude.Maybe Prelude.Text)
 listIAMPolicyAssignmentsForUserResponse_nextToken = Lens.lens (\ListIAMPolicyAssignmentsForUserResponse' {nextToken} -> nextToken) (\s@ListIAMPolicyAssignmentsForUserResponse' {} a -> s {nextToken = a} :: ListIAMPolicyAssignmentsForUserResponse)
 
+-- | The Amazon Web Services request ID for this operation.
+listIAMPolicyAssignmentsForUserResponse_requestId :: Lens.Lens' ListIAMPolicyAssignmentsForUserResponse (Prelude.Maybe Prelude.Text)
+listIAMPolicyAssignmentsForUserResponse_requestId = Lens.lens (\ListIAMPolicyAssignmentsForUserResponse' {requestId} -> requestId) (\s@ListIAMPolicyAssignmentsForUserResponse' {} a -> s {requestId = a} :: ListIAMPolicyAssignmentsForUserResponse)
+
 -- | The HTTP status of the request.
 listIAMPolicyAssignmentsForUserResponse_status :: Lens.Lens' ListIAMPolicyAssignmentsForUserResponse Prelude.Int
 listIAMPolicyAssignmentsForUserResponse_status = Lens.lens (\ListIAMPolicyAssignmentsForUserResponse' {status} -> status) (\s@ListIAMPolicyAssignmentsForUserResponse' {} a -> s {status = a} :: ListIAMPolicyAssignmentsForUserResponse)
@@ -273,7 +272,7 @@ instance
     ListIAMPolicyAssignmentsForUserResponse
   where
   rnf ListIAMPolicyAssignmentsForUserResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf activeAssignments
+    Prelude.rnf activeAssignments
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

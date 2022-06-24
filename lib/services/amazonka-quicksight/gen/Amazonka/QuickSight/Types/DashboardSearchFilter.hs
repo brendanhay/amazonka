@@ -29,13 +29,13 @@ import Amazonka.QuickSight.Types.FilterOperator
 --
 -- /See:/ 'newDashboardSearchFilter' smart constructor.
 data DashboardSearchFilter = DashboardSearchFilter'
-  { -- | The value of the named item, in this case @QUICKSIGHT_USER@, that you
+  { -- | The name of the value that you want to use as a filter, for example,
+    -- @\"Name\": \"QUICKSIGHT_USER\"@.
+    name :: Prelude.Maybe DashboardFilterAttribute,
+    -- | The value of the named item, in this case @QUICKSIGHT_USER@, that you
     -- want to use as a filter, for example,
     -- @\"Value\": \"arn:aws:quicksight:us-east-1:1:user\/default\/UserName1\"@.
     value :: Prelude.Maybe Prelude.Text,
-    -- | The name of the value that you want to use as a filter, for example,
-    -- @\"Name\": \"QUICKSIGHT_USER\"@.
-    name :: Prelude.Maybe DashboardFilterAttribute,
     -- | The comparison operator that you want to use as a filter, for example,
     -- @\"Operator\": \"StringEquals\"@.
     operator :: FilterOperator
@@ -50,12 +50,12 @@ data DashboardSearchFilter = DashboardSearchFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'dashboardSearchFilter_name' - The name of the value that you want to use as a filter, for example,
+-- @\"Name\": \"QUICKSIGHT_USER\"@.
+--
 -- 'value', 'dashboardSearchFilter_value' - The value of the named item, in this case @QUICKSIGHT_USER@, that you
 -- want to use as a filter, for example,
 -- @\"Value\": \"arn:aws:quicksight:us-east-1:1:user\/default\/UserName1\"@.
---
--- 'name', 'dashboardSearchFilter_name' - The name of the value that you want to use as a filter, for example,
--- @\"Name\": \"QUICKSIGHT_USER\"@.
 --
 -- 'operator', 'dashboardSearchFilter_operator' - The comparison operator that you want to use as a filter, for example,
 -- @\"Operator\": \"StringEquals\"@.
@@ -65,21 +65,21 @@ newDashboardSearchFilter ::
   DashboardSearchFilter
 newDashboardSearchFilter pOperator_ =
   DashboardSearchFilter'
-    { value = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing,
       operator = pOperator_
     }
+
+-- | The name of the value that you want to use as a filter, for example,
+-- @\"Name\": \"QUICKSIGHT_USER\"@.
+dashboardSearchFilter_name :: Lens.Lens' DashboardSearchFilter (Prelude.Maybe DashboardFilterAttribute)
+dashboardSearchFilter_name = Lens.lens (\DashboardSearchFilter' {name} -> name) (\s@DashboardSearchFilter' {} a -> s {name = a} :: DashboardSearchFilter)
 
 -- | The value of the named item, in this case @QUICKSIGHT_USER@, that you
 -- want to use as a filter, for example,
 -- @\"Value\": \"arn:aws:quicksight:us-east-1:1:user\/default\/UserName1\"@.
 dashboardSearchFilter_value :: Lens.Lens' DashboardSearchFilter (Prelude.Maybe Prelude.Text)
 dashboardSearchFilter_value = Lens.lens (\DashboardSearchFilter' {value} -> value) (\s@DashboardSearchFilter' {} a -> s {value = a} :: DashboardSearchFilter)
-
--- | The name of the value that you want to use as a filter, for example,
--- @\"Name\": \"QUICKSIGHT_USER\"@.
-dashboardSearchFilter_name :: Lens.Lens' DashboardSearchFilter (Prelude.Maybe DashboardFilterAttribute)
-dashboardSearchFilter_name = Lens.lens (\DashboardSearchFilter' {name} -> name) (\s@DashboardSearchFilter' {} a -> s {name = a} :: DashboardSearchFilter)
 
 -- | The comparison operator that you want to use as a filter, for example,
 -- @\"Operator\": \"StringEquals\"@.
@@ -88,22 +88,22 @@ dashboardSearchFilter_operator = Lens.lens (\DashboardSearchFilter' {operator} -
 
 instance Prelude.Hashable DashboardSearchFilter where
   hashWithSalt _salt DashboardSearchFilter' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` operator
 
 instance Prelude.NFData DashboardSearchFilter where
   rnf DashboardSearchFilter' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf operator
 
 instance Core.ToJSON DashboardSearchFilter where
   toJSON DashboardSearchFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Value" Core..=) Prelude.<$> value,
             Prelude.Just ("Operator" Core..= operator)
           ]
       )

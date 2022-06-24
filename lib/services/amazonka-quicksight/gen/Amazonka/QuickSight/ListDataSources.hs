@@ -39,9 +39,9 @@ module Amazonka.QuickSight.ListDataSources
     newListDataSourcesResponse,
 
     -- * Response Lenses
-    listDataSourcesResponse_requestId,
-    listDataSourcesResponse_dataSources,
     listDataSourcesResponse_nextToken,
+    listDataSourcesResponse_dataSources,
+    listDataSourcesResponse_requestId,
     listDataSourcesResponse_status,
   )
 where
@@ -134,9 +134,9 @@ instance Core.AWSRequest ListDataSources where
     Response.receiveJSON
       ( \s h x ->
           ListDataSourcesResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "DataSources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,13 +180,13 @@ instance Core.ToQuery ListDataSources where
 
 -- | /See:/ 'newListDataSourcesResponse' smart constructor.
 data ListDataSourcesResponse = ListDataSourcesResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | A list of data sources.
-    dataSources :: Prelude.Maybe [DataSource],
-    -- | The token for the next set of results, or null if there are no more
+  { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of data sources.
+    dataSources :: Prelude.Maybe [DataSource],
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -200,12 +200,12 @@ data ListDataSourcesResponse = ListDataSourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'listDataSourcesResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'nextToken', 'listDataSourcesResponse_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
 --
 -- 'dataSources', 'listDataSourcesResponse_dataSources' - A list of data sources.
 --
--- 'nextToken', 'listDataSourcesResponse_nextToken' - The token for the next set of results, or null if there are no more
--- results.
+-- 'requestId', 'listDataSourcesResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'listDataSourcesResponse_status' - The HTTP status of the request.
 newListDataSourcesResponse ::
@@ -214,25 +214,25 @@ newListDataSourcesResponse ::
   ListDataSourcesResponse
 newListDataSourcesResponse pStatus_ =
   ListDataSourcesResponse'
-    { requestId =
+    { nextToken =
         Prelude.Nothing,
       dataSources = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-listDataSourcesResponse_requestId :: Lens.Lens' ListDataSourcesResponse (Prelude.Maybe Prelude.Text)
-listDataSourcesResponse_requestId = Lens.lens (\ListDataSourcesResponse' {requestId} -> requestId) (\s@ListDataSourcesResponse' {} a -> s {requestId = a} :: ListDataSourcesResponse)
-
--- | A list of data sources.
-listDataSourcesResponse_dataSources :: Lens.Lens' ListDataSourcesResponse (Prelude.Maybe [DataSource])
-listDataSourcesResponse_dataSources = Lens.lens (\ListDataSourcesResponse' {dataSources} -> dataSources) (\s@ListDataSourcesResponse' {} a -> s {dataSources = a} :: ListDataSourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listDataSourcesResponse_nextToken :: Lens.Lens' ListDataSourcesResponse (Prelude.Maybe Prelude.Text)
 listDataSourcesResponse_nextToken = Lens.lens (\ListDataSourcesResponse' {nextToken} -> nextToken) (\s@ListDataSourcesResponse' {} a -> s {nextToken = a} :: ListDataSourcesResponse)
+
+-- | A list of data sources.
+listDataSourcesResponse_dataSources :: Lens.Lens' ListDataSourcesResponse (Prelude.Maybe [DataSource])
+listDataSourcesResponse_dataSources = Lens.lens (\ListDataSourcesResponse' {dataSources} -> dataSources) (\s@ListDataSourcesResponse' {} a -> s {dataSources = a} :: ListDataSourcesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Web Services request ID for this operation.
+listDataSourcesResponse_requestId :: Lens.Lens' ListDataSourcesResponse (Prelude.Maybe Prelude.Text)
+listDataSourcesResponse_requestId = Lens.lens (\ListDataSourcesResponse' {requestId} -> requestId) (\s@ListDataSourcesResponse' {} a -> s {requestId = a} :: ListDataSourcesResponse)
 
 -- | The HTTP status of the request.
 listDataSourcesResponse_status :: Lens.Lens' ListDataSourcesResponse Prelude.Int
@@ -240,7 +240,7 @@ listDataSourcesResponse_status = Lens.lens (\ListDataSourcesResponse' {status} -
 
 instance Prelude.NFData ListDataSourcesResponse where
   rnf ListDataSourcesResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

@@ -36,9 +36,9 @@ module Amazonka.QuickSight.DescribeTemplatePermissions
 
     -- * Response Lenses
     describeTemplatePermissionsResponse_requestId,
+    describeTemplatePermissionsResponse_permissions,
     describeTemplatePermissionsResponse_templateId,
     describeTemplatePermissionsResponse_templateArn,
-    describeTemplatePermissionsResponse_permissions,
     describeTemplatePermissionsResponse_status,
   )
 where
@@ -106,9 +106,9 @@ instance Core.AWSRequest DescribeTemplatePermissions where
       ( \s h x ->
           DescribeTemplatePermissionsResponse'
             Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<*> (x Core..?> "Permissions")
             Prelude.<*> (x Core..?> "TemplateId")
             Prelude.<*> (x Core..?> "TemplateArn")
-            Prelude.<*> (x Core..?> "Permissions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,12 +150,12 @@ instance Core.ToQuery DescribeTemplatePermissions where
 data DescribeTemplatePermissionsResponse = DescribeTemplatePermissionsResponse'
   { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
+    -- | A list of resource permissions to be set on the template.
+    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
     -- | The ID for the template.
     templateId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the template.
     templateArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of resource permissions to be set on the template.
-    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -171,11 +171,11 @@ data DescribeTemplatePermissionsResponse = DescribeTemplatePermissionsResponse'
 --
 -- 'requestId', 'describeTemplatePermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
+-- 'permissions', 'describeTemplatePermissionsResponse_permissions' - A list of resource permissions to be set on the template.
+--
 -- 'templateId', 'describeTemplatePermissionsResponse_templateId' - The ID for the template.
 --
 -- 'templateArn', 'describeTemplatePermissionsResponse_templateArn' - The Amazon Resource Name (ARN) of the template.
---
--- 'permissions', 'describeTemplatePermissionsResponse_permissions' - A list of resource permissions to be set on the template.
 --
 -- 'status', 'describeTemplatePermissionsResponse_status' - The HTTP status of the request.
 newDescribeTemplatePermissionsResponse ::
@@ -186,15 +186,19 @@ newDescribeTemplatePermissionsResponse pStatus_ =
   DescribeTemplatePermissionsResponse'
     { requestId =
         Prelude.Nothing,
+      permissions = Prelude.Nothing,
       templateId = Prelude.Nothing,
       templateArn = Prelude.Nothing,
-      permissions = Prelude.Nothing,
       status = pStatus_
     }
 
 -- | The Amazon Web Services request ID for this operation.
 describeTemplatePermissionsResponse_requestId :: Lens.Lens' DescribeTemplatePermissionsResponse (Prelude.Maybe Prelude.Text)
 describeTemplatePermissionsResponse_requestId = Lens.lens (\DescribeTemplatePermissionsResponse' {requestId} -> requestId) (\s@DescribeTemplatePermissionsResponse' {} a -> s {requestId = a} :: DescribeTemplatePermissionsResponse)
+
+-- | A list of resource permissions to be set on the template.
+describeTemplatePermissionsResponse_permissions :: Lens.Lens' DescribeTemplatePermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
+describeTemplatePermissionsResponse_permissions = Lens.lens (\DescribeTemplatePermissionsResponse' {permissions} -> permissions) (\s@DescribeTemplatePermissionsResponse' {} a -> s {permissions = a} :: DescribeTemplatePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID for the template.
 describeTemplatePermissionsResponse_templateId :: Lens.Lens' DescribeTemplatePermissionsResponse (Prelude.Maybe Prelude.Text)
@@ -203,10 +207,6 @@ describeTemplatePermissionsResponse_templateId = Lens.lens (\DescribeTemplatePer
 -- | The Amazon Resource Name (ARN) of the template.
 describeTemplatePermissionsResponse_templateArn :: Lens.Lens' DescribeTemplatePermissionsResponse (Prelude.Maybe Prelude.Text)
 describeTemplatePermissionsResponse_templateArn = Lens.lens (\DescribeTemplatePermissionsResponse' {templateArn} -> templateArn) (\s@DescribeTemplatePermissionsResponse' {} a -> s {templateArn = a} :: DescribeTemplatePermissionsResponse)
-
--- | A list of resource permissions to be set on the template.
-describeTemplatePermissionsResponse_permissions :: Lens.Lens' DescribeTemplatePermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
-describeTemplatePermissionsResponse_permissions = Lens.lens (\DescribeTemplatePermissionsResponse' {permissions} -> permissions) (\s@DescribeTemplatePermissionsResponse' {} a -> s {permissions = a} :: DescribeTemplatePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The HTTP status of the request.
 describeTemplatePermissionsResponse_status :: Lens.Lens' DescribeTemplatePermissionsResponse Prelude.Int
@@ -218,7 +218,7 @@ instance
   where
   rnf DescribeTemplatePermissionsResponse' {..} =
     Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf templateArn
-      `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf status

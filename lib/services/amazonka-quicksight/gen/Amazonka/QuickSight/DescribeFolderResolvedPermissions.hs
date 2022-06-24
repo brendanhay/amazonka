@@ -39,8 +39,8 @@ module Amazonka.QuickSight.DescribeFolderResolvedPermissions
     -- * Response Lenses
     describeFolderResolvedPermissionsResponse_requestId,
     describeFolderResolvedPermissionsResponse_arn,
-    describeFolderResolvedPermissionsResponse_folderId,
     describeFolderResolvedPermissionsResponse_permissions,
+    describeFolderResolvedPermissionsResponse_folderId,
     describeFolderResolvedPermissionsResponse_status,
   )
 where
@@ -109,8 +109,8 @@ instance
           DescribeFolderResolvedPermissionsResponse'
             Prelude.<$> (x Core..?> "RequestId")
               Prelude.<*> (x Core..?> "Arn")
-              Prelude.<*> (x Core..?> "FolderId")
               Prelude.<*> (x Core..?> "Permissions")
+              Prelude.<*> (x Core..?> "FolderId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,10 +171,10 @@ data DescribeFolderResolvedPermissionsResponse = DescribeFolderResolvedPermissio
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN).
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The folder ID.
-    folderId :: Prelude.Maybe Prelude.Text,
     -- | Information about the permissions on the dashboard.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
+    -- | The folder ID.
+    folderId :: Prelude.Maybe Prelude.Text,
     -- | The status. If succeeded, the status is @SC_OK@
     status :: Prelude.Int
   }
@@ -192,9 +192,9 @@ data DescribeFolderResolvedPermissionsResponse = DescribeFolderResolvedPermissio
 --
 -- 'arn', 'describeFolderResolvedPermissionsResponse_arn' - The Amazon Resource Name (ARN).
 --
--- 'folderId', 'describeFolderResolvedPermissionsResponse_folderId' - The folder ID.
---
 -- 'permissions', 'describeFolderResolvedPermissionsResponse_permissions' - Information about the permissions on the dashboard.
+--
+-- 'folderId', 'describeFolderResolvedPermissionsResponse_folderId' - The folder ID.
 --
 -- 'status', 'describeFolderResolvedPermissionsResponse_status' - The status. If succeeded, the status is @SC_OK@
 newDescribeFolderResolvedPermissionsResponse ::
@@ -206,8 +206,8 @@ newDescribeFolderResolvedPermissionsResponse pStatus_ =
     { requestId =
         Prelude.Nothing,
       arn = Prelude.Nothing,
-      folderId = Prelude.Nothing,
       permissions = Prelude.Nothing,
+      folderId = Prelude.Nothing,
       status = pStatus_
     }
 
@@ -219,13 +219,13 @@ describeFolderResolvedPermissionsResponse_requestId = Lens.lens (\DescribeFolder
 describeFolderResolvedPermissionsResponse_arn :: Lens.Lens' DescribeFolderResolvedPermissionsResponse (Prelude.Maybe Prelude.Text)
 describeFolderResolvedPermissionsResponse_arn = Lens.lens (\DescribeFolderResolvedPermissionsResponse' {arn} -> arn) (\s@DescribeFolderResolvedPermissionsResponse' {} a -> s {arn = a} :: DescribeFolderResolvedPermissionsResponse)
 
--- | The folder ID.
-describeFolderResolvedPermissionsResponse_folderId :: Lens.Lens' DescribeFolderResolvedPermissionsResponse (Prelude.Maybe Prelude.Text)
-describeFolderResolvedPermissionsResponse_folderId = Lens.lens (\DescribeFolderResolvedPermissionsResponse' {folderId} -> folderId) (\s@DescribeFolderResolvedPermissionsResponse' {} a -> s {folderId = a} :: DescribeFolderResolvedPermissionsResponse)
-
 -- | Information about the permissions on the dashboard.
 describeFolderResolvedPermissionsResponse_permissions :: Lens.Lens' DescribeFolderResolvedPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 describeFolderResolvedPermissionsResponse_permissions = Lens.lens (\DescribeFolderResolvedPermissionsResponse' {permissions} -> permissions) (\s@DescribeFolderResolvedPermissionsResponse' {} a -> s {permissions = a} :: DescribeFolderResolvedPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The folder ID.
+describeFolderResolvedPermissionsResponse_folderId :: Lens.Lens' DescribeFolderResolvedPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeFolderResolvedPermissionsResponse_folderId = Lens.lens (\DescribeFolderResolvedPermissionsResponse' {folderId} -> folderId) (\s@DescribeFolderResolvedPermissionsResponse' {} a -> s {folderId = a} :: DescribeFolderResolvedPermissionsResponse)
 
 -- | The status. If succeeded, the status is @SC_OK@
 describeFolderResolvedPermissionsResponse_status :: Lens.Lens' DescribeFolderResolvedPermissionsResponse Prelude.Int
@@ -238,6 +238,6 @@ instance
   rnf DescribeFolderResolvedPermissionsResponse' {..} =
     Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf folderId
       `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf folderId
       `Prelude.seq` Prelude.rnf status

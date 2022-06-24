@@ -37,9 +37,9 @@ module Amazonka.QuickSight.ListFolderMembers
     newListFolderMembersResponse,
 
     -- * Response Lenses
+    listFolderMembersResponse_nextToken,
     listFolderMembersResponse_requestId,
     listFolderMembersResponse_folderMemberList,
-    listFolderMembersResponse_nextToken,
     listFolderMembersResponse_status,
   )
 where
@@ -121,11 +121,11 @@ instance Core.AWSRequest ListFolderMembers where
     Response.receiveJSON
       ( \s h x ->
           ListFolderMembersResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> ( x Core..?> "FolderMemberList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,14 +173,14 @@ instance Core.ToQuery ListFolderMembers where
 
 -- | /See:/ 'newListFolderMembersResponse' smart constructor.
 data ListFolderMembersResponse = ListFolderMembersResponse'
-  { -- | The request ID.
+  { -- | The token for the next set of results, or null if there are no more
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The request ID.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | A structure that contains all of the folder members (dashboards,
     -- analyses, and datasets) in the folder.
     folderMemberList :: Prelude.Maybe [MemberIdArnPair],
-    -- | The token for the next set of results, or null if there are no more
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The status. If succeeded, the status is @SC_OK@
     status :: Prelude.Int
   }
@@ -194,13 +194,13 @@ data ListFolderMembersResponse = ListFolderMembersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listFolderMembersResponse_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
+--
 -- 'requestId', 'listFolderMembersResponse_requestId' - The request ID.
 --
 -- 'folderMemberList', 'listFolderMembersResponse_folderMemberList' - A structure that contains all of the folder members (dashboards,
 -- analyses, and datasets) in the folder.
---
--- 'nextToken', 'listFolderMembersResponse_nextToken' - The token for the next set of results, or null if there are no more
--- results.
 --
 -- 'status', 'listFolderMembersResponse_status' - The status. If succeeded, the status is @SC_OK@
 newListFolderMembersResponse ::
@@ -209,12 +209,17 @@ newListFolderMembersResponse ::
   ListFolderMembersResponse
 newListFolderMembersResponse pStatus_ =
   ListFolderMembersResponse'
-    { requestId =
+    { nextToken =
         Prelude.Nothing,
+      requestId = Prelude.Nothing,
       folderMemberList = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | The token for the next set of results, or null if there are no more
+-- results.
+listFolderMembersResponse_nextToken :: Lens.Lens' ListFolderMembersResponse (Prelude.Maybe Prelude.Text)
+listFolderMembersResponse_nextToken = Lens.lens (\ListFolderMembersResponse' {nextToken} -> nextToken) (\s@ListFolderMembersResponse' {} a -> s {nextToken = a} :: ListFolderMembersResponse)
 
 -- | The request ID.
 listFolderMembersResponse_requestId :: Lens.Lens' ListFolderMembersResponse (Prelude.Maybe Prelude.Text)
@@ -225,18 +230,13 @@ listFolderMembersResponse_requestId = Lens.lens (\ListFolderMembersResponse' {re
 listFolderMembersResponse_folderMemberList :: Lens.Lens' ListFolderMembersResponse (Prelude.Maybe [MemberIdArnPair])
 listFolderMembersResponse_folderMemberList = Lens.lens (\ListFolderMembersResponse' {folderMemberList} -> folderMemberList) (\s@ListFolderMembersResponse' {} a -> s {folderMemberList = a} :: ListFolderMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next set of results, or null if there are no more
--- results.
-listFolderMembersResponse_nextToken :: Lens.Lens' ListFolderMembersResponse (Prelude.Maybe Prelude.Text)
-listFolderMembersResponse_nextToken = Lens.lens (\ListFolderMembersResponse' {nextToken} -> nextToken) (\s@ListFolderMembersResponse' {} a -> s {nextToken = a} :: ListFolderMembersResponse)
-
 -- | The status. If succeeded, the status is @SC_OK@
 listFolderMembersResponse_status :: Lens.Lens' ListFolderMembersResponse Prelude.Int
 listFolderMembersResponse_status = Lens.lens (\ListFolderMembersResponse' {status} -> status) (\s@ListFolderMembersResponse' {} a -> s {status = a} :: ListFolderMembersResponse)
 
 instance Prelude.NFData ListFolderMembersResponse where
   rnf ListFolderMembersResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf folderMemberList
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status

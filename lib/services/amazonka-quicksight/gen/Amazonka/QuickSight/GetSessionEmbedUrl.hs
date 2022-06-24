@@ -42,8 +42,8 @@ module Amazonka.QuickSight.GetSessionEmbedUrl
 
     -- * Request Lenses
     getSessionEmbedUrl_sessionLifetimeInMinutes,
-    getSessionEmbedUrl_entryPoint,
     getSessionEmbedUrl_userArn,
+    getSessionEmbedUrl_entryPoint,
     getSessionEmbedUrl_awsAccountId,
 
     -- * Destructuring the Response
@@ -69,6 +69,22 @@ data GetSessionEmbedUrl = GetSessionEmbedUrl'
   { -- | How many minutes the session is valid. The session lifetime must be
     -- 15-600 minutes.
     sessionLifetimeInMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with
+    -- @QUICKSIGHT@ identity type. You can use this for any type of Amazon
+    -- QuickSight users in your account (readers, authors, or admins). They
+    -- need to be authenticated as one of the following:
+    --
+    -- 1.  Active Directory (AD) users or group members
+    --
+    -- 2.  Invited nonfederated users
+    --
+    -- 3.  Identity and Access Management (IAM) users and IAM role-based
+    --     sessions authenticated through Federated Single Sign-On using SAML,
+    --     OpenID Connect, or IAM federation
+    --
+    -- Omit this parameter for users in the third group, IAM users and IAM
+    -- role-based sessions.
+    userArn :: Prelude.Maybe Prelude.Text,
     -- | The URL you use to access the embedded session. The entry point URL is
     -- constrained to the following paths:
     --
@@ -86,22 +102,6 @@ data GetSessionEmbedUrl = GetSessionEmbedUrl'
     -- -   @\/analyses\/AnalysisId @ - where @AnalysisId@ is the actual ID key
     --     from the Amazon QuickSight console URL of the analysis
     entryPoint :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with
-    -- @QUICKSIGHT@ identity type. You can use this for any type of Amazon
-    -- QuickSight users in your account (readers, authors, or admins). They
-    -- need to be authenticated as one of the following:
-    --
-    -- 1.  Active Directory (AD) users or group members
-    --
-    -- 2.  Invited nonfederated users
-    --
-    -- 3.  Identity and Access Management (IAM) users and IAM role-based
-    --     sessions authenticated through Federated Single Sign-On using SAML,
-    --     OpenID Connect, or IAM federation
-    --
-    -- Omit this parameter for users in the third group, IAM users and IAM
-    -- role-based sessions.
-    userArn :: Prelude.Maybe Prelude.Text,
     -- | The ID for the Amazon Web Services account associated with your Amazon
     -- QuickSight subscription.
     awsAccountId :: Prelude.Text
@@ -118,6 +118,22 @@ data GetSessionEmbedUrl = GetSessionEmbedUrl'
 --
 -- 'sessionLifetimeInMinutes', 'getSessionEmbedUrl_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be
 -- 15-600 minutes.
+--
+-- 'userArn', 'getSessionEmbedUrl_userArn' - The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with
+-- @QUICKSIGHT@ identity type. You can use this for any type of Amazon
+-- QuickSight users in your account (readers, authors, or admins). They
+-- need to be authenticated as one of the following:
+--
+-- 1.  Active Directory (AD) users or group members
+--
+-- 2.  Invited nonfederated users
+--
+-- 3.  Identity and Access Management (IAM) users and IAM role-based
+--     sessions authenticated through Federated Single Sign-On using SAML,
+--     OpenID Connect, or IAM federation
+--
+-- Omit this parameter for users in the third group, IAM users and IAM
+-- role-based sessions.
 --
 -- 'entryPoint', 'getSessionEmbedUrl_entryPoint' - The URL you use to access the embedded session. The entry point URL is
 -- constrained to the following paths:
@@ -136,7 +152,27 @@ data GetSessionEmbedUrl = GetSessionEmbedUrl'
 -- -   @\/analyses\/AnalysisId @ - where @AnalysisId@ is the actual ID key
 --     from the Amazon QuickSight console URL of the analysis
 --
--- 'userArn', 'getSessionEmbedUrl_userArn' - The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with
+-- 'awsAccountId', 'getSessionEmbedUrl_awsAccountId' - The ID for the Amazon Web Services account associated with your Amazon
+-- QuickSight subscription.
+newGetSessionEmbedUrl ::
+  -- | 'awsAccountId'
+  Prelude.Text ->
+  GetSessionEmbedUrl
+newGetSessionEmbedUrl pAwsAccountId_ =
+  GetSessionEmbedUrl'
+    { sessionLifetimeInMinutes =
+        Prelude.Nothing,
+      userArn = Prelude.Nothing,
+      entryPoint = Prelude.Nothing,
+      awsAccountId = pAwsAccountId_
+    }
+
+-- | How many minutes the session is valid. The session lifetime must be
+-- 15-600 minutes.
+getSessionEmbedUrl_sessionLifetimeInMinutes :: Lens.Lens' GetSessionEmbedUrl (Prelude.Maybe Prelude.Natural)
+getSessionEmbedUrl_sessionLifetimeInMinutes = Lens.lens (\GetSessionEmbedUrl' {sessionLifetimeInMinutes} -> sessionLifetimeInMinutes) (\s@GetSessionEmbedUrl' {} a -> s {sessionLifetimeInMinutes = a} :: GetSessionEmbedUrl)
+
+-- | The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with
 -- @QUICKSIGHT@ identity type. You can use this for any type of Amazon
 -- QuickSight users in your account (readers, authors, or admins). They
 -- need to be authenticated as one of the following:
@@ -151,26 +187,8 @@ data GetSessionEmbedUrl = GetSessionEmbedUrl'
 --
 -- Omit this parameter for users in the third group, IAM users and IAM
 -- role-based sessions.
---
--- 'awsAccountId', 'getSessionEmbedUrl_awsAccountId' - The ID for the Amazon Web Services account associated with your Amazon
--- QuickSight subscription.
-newGetSessionEmbedUrl ::
-  -- | 'awsAccountId'
-  Prelude.Text ->
-  GetSessionEmbedUrl
-newGetSessionEmbedUrl pAwsAccountId_ =
-  GetSessionEmbedUrl'
-    { sessionLifetimeInMinutes =
-        Prelude.Nothing,
-      entryPoint = Prelude.Nothing,
-      userArn = Prelude.Nothing,
-      awsAccountId = pAwsAccountId_
-    }
-
--- | How many minutes the session is valid. The session lifetime must be
--- 15-600 minutes.
-getSessionEmbedUrl_sessionLifetimeInMinutes :: Lens.Lens' GetSessionEmbedUrl (Prelude.Maybe Prelude.Natural)
-getSessionEmbedUrl_sessionLifetimeInMinutes = Lens.lens (\GetSessionEmbedUrl' {sessionLifetimeInMinutes} -> sessionLifetimeInMinutes) (\s@GetSessionEmbedUrl' {} a -> s {sessionLifetimeInMinutes = a} :: GetSessionEmbedUrl)
+getSessionEmbedUrl_userArn :: Lens.Lens' GetSessionEmbedUrl (Prelude.Maybe Prelude.Text)
+getSessionEmbedUrl_userArn = Lens.lens (\GetSessionEmbedUrl' {userArn} -> userArn) (\s@GetSessionEmbedUrl' {} a -> s {userArn = a} :: GetSessionEmbedUrl)
 
 -- | The URL you use to access the embedded session. The entry point URL is
 -- constrained to the following paths:
@@ -190,24 +208,6 @@ getSessionEmbedUrl_sessionLifetimeInMinutes = Lens.lens (\GetSessionEmbedUrl' {s
 --     from the Amazon QuickSight console URL of the analysis
 getSessionEmbedUrl_entryPoint :: Lens.Lens' GetSessionEmbedUrl (Prelude.Maybe Prelude.Text)
 getSessionEmbedUrl_entryPoint = Lens.lens (\GetSessionEmbedUrl' {entryPoint} -> entryPoint) (\s@GetSessionEmbedUrl' {} a -> s {entryPoint = a} :: GetSessionEmbedUrl)
-
--- | The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with
--- @QUICKSIGHT@ identity type. You can use this for any type of Amazon
--- QuickSight users in your account (readers, authors, or admins). They
--- need to be authenticated as one of the following:
---
--- 1.  Active Directory (AD) users or group members
---
--- 2.  Invited nonfederated users
---
--- 3.  Identity and Access Management (IAM) users and IAM role-based
---     sessions authenticated through Federated Single Sign-On using SAML,
---     OpenID Connect, or IAM federation
---
--- Omit this parameter for users in the third group, IAM users and IAM
--- role-based sessions.
-getSessionEmbedUrl_userArn :: Lens.Lens' GetSessionEmbedUrl (Prelude.Maybe Prelude.Text)
-getSessionEmbedUrl_userArn = Lens.lens (\GetSessionEmbedUrl' {userArn} -> userArn) (\s@GetSessionEmbedUrl' {} a -> s {userArn = a} :: GetSessionEmbedUrl)
 
 -- | The ID for the Amazon Web Services account associated with your Amazon
 -- QuickSight subscription.
@@ -232,15 +232,15 @@ instance Prelude.Hashable GetSessionEmbedUrl where
   hashWithSalt _salt GetSessionEmbedUrl' {..} =
     _salt
       `Prelude.hashWithSalt` sessionLifetimeInMinutes
-      `Prelude.hashWithSalt` entryPoint
       `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` entryPoint
       `Prelude.hashWithSalt` awsAccountId
 
 instance Prelude.NFData GetSessionEmbedUrl where
   rnf GetSessionEmbedUrl' {..} =
     Prelude.rnf sessionLifetimeInMinutes
-      `Prelude.seq` Prelude.rnf entryPoint
       `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf entryPoint
       `Prelude.seq` Prelude.rnf awsAccountId
 
 instance Core.ToHeaders GetSessionEmbedUrl where
@@ -266,8 +266,8 @@ instance Core.ToQuery GetSessionEmbedUrl where
   toQuery GetSessionEmbedUrl' {..} =
     Prelude.mconcat
       [ "session-lifetime" Core.=: sessionLifetimeInMinutes,
-        "entry-point" Core.=: entryPoint,
-        "user-arn" Core.=: userArn
+        "user-arn" Core.=: userArn,
+        "entry-point" Core.=: entryPoint
       ]
 
 -- | /See:/ 'newGetSessionEmbedUrlResponse' smart constructor.

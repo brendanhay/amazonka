@@ -36,9 +36,9 @@ module Amazonka.QuickSight.ListFolders
     newListFoldersResponse,
 
     -- * Response Lenses
-    listFoldersResponse_requestId,
     listFoldersResponse_nextToken,
     listFoldersResponse_folderSummaryList,
+    listFoldersResponse_requestId,
     listFoldersResponse_status,
   )
 where
@@ -107,11 +107,11 @@ instance Core.AWSRequest ListFolders where
     Response.receiveJSON
       ( \s h x ->
           ListFoldersResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> ( x Core..?> "FolderSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,14 +152,14 @@ instance Core.ToQuery ListFolders where
 
 -- | /See:/ 'newListFoldersResponse' smart constructor.
 data ListFoldersResponse = ListFoldersResponse'
-  { -- | The request ID.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of results, or null if there are no more
+  { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A structure that contains all of the folders in your AWS account. This
     -- structure provides basic information about the folders.
     folderSummaryList :: Prelude.Maybe [FolderSummary],
+    -- | The request ID.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The status. If succeeded, the status is @SC_OK@
     status :: Prelude.Int
   }
@@ -173,13 +173,13 @@ data ListFoldersResponse = ListFoldersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'listFoldersResponse_requestId' - The request ID.
---
 -- 'nextToken', 'listFoldersResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
 --
 -- 'folderSummaryList', 'listFoldersResponse_folderSummaryList' - A structure that contains all of the folders in your AWS account. This
 -- structure provides basic information about the folders.
+--
+-- 'requestId', 'listFoldersResponse_requestId' - The request ID.
 --
 -- 'status', 'listFoldersResponse_status' - The status. If succeeded, the status is @SC_OK@
 newListFoldersResponse ::
@@ -188,15 +188,11 @@ newListFoldersResponse ::
   ListFoldersResponse
 newListFoldersResponse pStatus_ =
   ListFoldersResponse'
-    { requestId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       folderSummaryList = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The request ID.
-listFoldersResponse_requestId :: Lens.Lens' ListFoldersResponse (Prelude.Maybe Prelude.Text)
-listFoldersResponse_requestId = Lens.lens (\ListFoldersResponse' {requestId} -> requestId) (\s@ListFoldersResponse' {} a -> s {requestId = a} :: ListFoldersResponse)
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
@@ -208,13 +204,17 @@ listFoldersResponse_nextToken = Lens.lens (\ListFoldersResponse' {nextToken} -> 
 listFoldersResponse_folderSummaryList :: Lens.Lens' ListFoldersResponse (Prelude.Maybe [FolderSummary])
 listFoldersResponse_folderSummaryList = Lens.lens (\ListFoldersResponse' {folderSummaryList} -> folderSummaryList) (\s@ListFoldersResponse' {} a -> s {folderSummaryList = a} :: ListFoldersResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The request ID.
+listFoldersResponse_requestId :: Lens.Lens' ListFoldersResponse (Prelude.Maybe Prelude.Text)
+listFoldersResponse_requestId = Lens.lens (\ListFoldersResponse' {requestId} -> requestId) (\s@ListFoldersResponse' {} a -> s {requestId = a} :: ListFoldersResponse)
+
 -- | The status. If succeeded, the status is @SC_OK@
 listFoldersResponse_status :: Lens.Lens' ListFoldersResponse Prelude.Int
 listFoldersResponse_status = Lens.lens (\ListFoldersResponse' {status} -> status) (\s@ListFoldersResponse' {} a -> s {status = a} :: ListFoldersResponse)
 
 instance Prelude.NFData ListFoldersResponse where
   rnf ListFoldersResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf folderSummaryList
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

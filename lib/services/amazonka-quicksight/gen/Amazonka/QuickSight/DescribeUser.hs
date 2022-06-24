@@ -36,8 +36,8 @@ module Amazonka.QuickSight.DescribeUser
     newDescribeUserResponse,
 
     -- * Response Lenses
-    describeUserResponse_requestId,
     describeUserResponse_user,
+    describeUserResponse_requestId,
     describeUserResponse_status,
   )
 where
@@ -113,8 +113,8 @@ instance Core.AWSRequest DescribeUser where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "User")
+            Prelude.<$> (x Core..?> "User")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,10 +157,10 @@ instance Core.ToQuery DescribeUser where
 
 -- | /See:/ 'newDescribeUserResponse' smart constructor.
 data DescribeUserResponse = DescribeUserResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The user name.
+  { -- | The user name.
     user :: Prelude.Maybe User,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -174,9 +174,9 @@ data DescribeUserResponse = DescribeUserResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeUserResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'user', 'describeUserResponse_user' - The user name.
+--
+-- 'requestId', 'describeUserResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'describeUserResponse_status' - The HTTP status of the request.
 newDescribeUserResponse ::
@@ -185,18 +185,18 @@ newDescribeUserResponse ::
   DescribeUserResponse
 newDescribeUserResponse pStatus_ =
   DescribeUserResponse'
-    { requestId = Prelude.Nothing,
-      user = Prelude.Nothing,
+    { user = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-describeUserResponse_requestId :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_requestId = Lens.lens (\DescribeUserResponse' {requestId} -> requestId) (\s@DescribeUserResponse' {} a -> s {requestId = a} :: DescribeUserResponse)
 
 -- | The user name.
 describeUserResponse_user :: Lens.Lens' DescribeUserResponse (Prelude.Maybe User)
 describeUserResponse_user = Lens.lens (\DescribeUserResponse' {user} -> user) (\s@DescribeUserResponse' {} a -> s {user = a} :: DescribeUserResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+describeUserResponse_requestId :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
+describeUserResponse_requestId = Lens.lens (\DescribeUserResponse' {requestId} -> requestId) (\s@DescribeUserResponse' {} a -> s {requestId = a} :: DescribeUserResponse)
 
 -- | The HTTP status of the request.
 describeUserResponse_status :: Lens.Lens' DescribeUserResponse Prelude.Int
@@ -204,6 +204,6 @@ describeUserResponse_status = Lens.lens (\DescribeUserResponse' {status} -> stat
 
 instance Prelude.NFData DescribeUserResponse where
   rnf DescribeUserResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf user
+    Prelude.rnf user
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

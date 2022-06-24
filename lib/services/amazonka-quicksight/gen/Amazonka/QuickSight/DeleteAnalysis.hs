@@ -53,10 +53,10 @@ module Amazonka.QuickSight.DeleteAnalysis
     newDeleteAnalysisResponse,
 
     -- * Response Lenses
-    deleteAnalysisResponse_requestId,
-    deleteAnalysisResponse_analysisId,
-    deleteAnalysisResponse_arn,
     deleteAnalysisResponse_deletionTime,
+    deleteAnalysisResponse_analysisId,
+    deleteAnalysisResponse_requestId,
+    deleteAnalysisResponse_arn,
     deleteAnalysisResponse_status,
   )
 where
@@ -154,10 +154,10 @@ instance Core.AWSRequest DeleteAnalysis where
     Response.receiveJSON
       ( \s h x ->
           DeleteAnalysisResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Core..?> "DeletionTime")
             Prelude.<*> (x Core..?> "AnalysisId")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "DeletionTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,14 +206,14 @@ instance Core.ToQuery DeleteAnalysis where
 
 -- | /See:/ 'newDeleteAnalysisResponse' smart constructor.
 data DeleteAnalysisResponse = DeleteAnalysisResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time that the analysis is scheduled to be deleted.
+    deletionTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the deleted analysis.
     analysisId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the deleted analysis.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the analysis is scheduled to be deleted.
-    deletionTime :: Prelude.Maybe Core.POSIX,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -227,13 +227,13 @@ data DeleteAnalysisResponse = DeleteAnalysisResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'deleteAnalysisResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'deletionTime', 'deleteAnalysisResponse_deletionTime' - The date and time that the analysis is scheduled to be deleted.
 --
 -- 'analysisId', 'deleteAnalysisResponse_analysisId' - The ID of the deleted analysis.
 --
--- 'arn', 'deleteAnalysisResponse_arn' - The Amazon Resource Name (ARN) of the deleted analysis.
+-- 'requestId', 'deleteAnalysisResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'deletionTime', 'deleteAnalysisResponse_deletionTime' - The date and time that the analysis is scheduled to be deleted.
+-- 'arn', 'deleteAnalysisResponse_arn' - The Amazon Resource Name (ARN) of the deleted analysis.
 --
 -- 'status', 'deleteAnalysisResponse_status' - The HTTP status of the request.
 newDeleteAnalysisResponse ::
@@ -242,29 +242,29 @@ newDeleteAnalysisResponse ::
   DeleteAnalysisResponse
 newDeleteAnalysisResponse pStatus_ =
   DeleteAnalysisResponse'
-    { requestId =
+    { deletionTime =
         Prelude.Nothing,
       analysisId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       arn = Prelude.Nothing,
-      deletionTime = Prelude.Nothing,
       status = pStatus_
     }
 
--- | The Amazon Web Services request ID for this operation.
-deleteAnalysisResponse_requestId :: Lens.Lens' DeleteAnalysisResponse (Prelude.Maybe Prelude.Text)
-deleteAnalysisResponse_requestId = Lens.lens (\DeleteAnalysisResponse' {requestId} -> requestId) (\s@DeleteAnalysisResponse' {} a -> s {requestId = a} :: DeleteAnalysisResponse)
+-- | The date and time that the analysis is scheduled to be deleted.
+deleteAnalysisResponse_deletionTime :: Lens.Lens' DeleteAnalysisResponse (Prelude.Maybe Prelude.UTCTime)
+deleteAnalysisResponse_deletionTime = Lens.lens (\DeleteAnalysisResponse' {deletionTime} -> deletionTime) (\s@DeleteAnalysisResponse' {} a -> s {deletionTime = a} :: DeleteAnalysisResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the deleted analysis.
 deleteAnalysisResponse_analysisId :: Lens.Lens' DeleteAnalysisResponse (Prelude.Maybe Prelude.Text)
 deleteAnalysisResponse_analysisId = Lens.lens (\DeleteAnalysisResponse' {analysisId} -> analysisId) (\s@DeleteAnalysisResponse' {} a -> s {analysisId = a} :: DeleteAnalysisResponse)
 
+-- | The Amazon Web Services request ID for this operation.
+deleteAnalysisResponse_requestId :: Lens.Lens' DeleteAnalysisResponse (Prelude.Maybe Prelude.Text)
+deleteAnalysisResponse_requestId = Lens.lens (\DeleteAnalysisResponse' {requestId} -> requestId) (\s@DeleteAnalysisResponse' {} a -> s {requestId = a} :: DeleteAnalysisResponse)
+
 -- | The Amazon Resource Name (ARN) of the deleted analysis.
 deleteAnalysisResponse_arn :: Lens.Lens' DeleteAnalysisResponse (Prelude.Maybe Prelude.Text)
 deleteAnalysisResponse_arn = Lens.lens (\DeleteAnalysisResponse' {arn} -> arn) (\s@DeleteAnalysisResponse' {} a -> s {arn = a} :: DeleteAnalysisResponse)
-
--- | The date and time that the analysis is scheduled to be deleted.
-deleteAnalysisResponse_deletionTime :: Lens.Lens' DeleteAnalysisResponse (Prelude.Maybe Prelude.UTCTime)
-deleteAnalysisResponse_deletionTime = Lens.lens (\DeleteAnalysisResponse' {deletionTime} -> deletionTime) (\s@DeleteAnalysisResponse' {} a -> s {deletionTime = a} :: DeleteAnalysisResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The HTTP status of the request.
 deleteAnalysisResponse_status :: Lens.Lens' DeleteAnalysisResponse Prelude.Int
@@ -272,8 +272,8 @@ deleteAnalysisResponse_status = Lens.lens (\DeleteAnalysisResponse' {status} -> 
 
 instance Prelude.NFData DeleteAnalysisResponse where
   rnf DeleteAnalysisResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf deletionTime
       `Prelude.seq` Prelude.rnf analysisId
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf deletionTime
       `Prelude.seq` Prelude.rnf status

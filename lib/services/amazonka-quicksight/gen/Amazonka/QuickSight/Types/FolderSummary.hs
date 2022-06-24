@@ -28,16 +28,16 @@ import Amazonka.QuickSight.Types.FolderType
 --
 -- /See:/ 'newFolderSummary' smart constructor.
 data FolderSummary = FolderSummary'
-  { -- | The time that the folder was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN).
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | The display name of the folder.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The time that the folder was created.
     createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN).
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The time that the folder was last updated.
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
     -- | The folder ID.
     folderId :: Prelude.Maybe Prelude.Text,
-    -- | The display name of the folder.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The type of folder.
     folderType :: Prelude.Maybe FolderType
   }
@@ -51,48 +51,48 @@ data FolderSummary = FolderSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedTime', 'folderSummary_lastUpdatedTime' - The time that the folder was last updated.
---
--- 'arn', 'folderSummary_arn' - The Amazon Resource Name (ARN).
+-- 'name', 'folderSummary_name' - The display name of the folder.
 --
 -- 'createdTime', 'folderSummary_createdTime' - The time that the folder was created.
 --
--- 'folderId', 'folderSummary_folderId' - The folder ID.
+-- 'arn', 'folderSummary_arn' - The Amazon Resource Name (ARN).
 --
--- 'name', 'folderSummary_name' - The display name of the folder.
+-- 'lastUpdatedTime', 'folderSummary_lastUpdatedTime' - The time that the folder was last updated.
+--
+-- 'folderId', 'folderSummary_folderId' - The folder ID.
 --
 -- 'folderType', 'folderSummary_folderType' - The type of folder.
 newFolderSummary ::
   FolderSummary
 newFolderSummary =
   FolderSummary'
-    { lastUpdatedTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { name = Prelude.Nothing,
       createdTime = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
       folderId = Prelude.Nothing,
-      name = Prelude.Nothing,
       folderType = Prelude.Nothing
     }
 
--- | The time that the folder was last updated.
-folderSummary_lastUpdatedTime :: Lens.Lens' FolderSummary (Prelude.Maybe Prelude.UTCTime)
-folderSummary_lastUpdatedTime = Lens.lens (\FolderSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@FolderSummary' {} a -> s {lastUpdatedTime = a} :: FolderSummary) Prelude.. Lens.mapping Core._Time
-
--- | The Amazon Resource Name (ARN).
-folderSummary_arn :: Lens.Lens' FolderSummary (Prelude.Maybe Prelude.Text)
-folderSummary_arn = Lens.lens (\FolderSummary' {arn} -> arn) (\s@FolderSummary' {} a -> s {arn = a} :: FolderSummary)
+-- | The display name of the folder.
+folderSummary_name :: Lens.Lens' FolderSummary (Prelude.Maybe Prelude.Text)
+folderSummary_name = Lens.lens (\FolderSummary' {name} -> name) (\s@FolderSummary' {} a -> s {name = a} :: FolderSummary)
 
 -- | The time that the folder was created.
 folderSummary_createdTime :: Lens.Lens' FolderSummary (Prelude.Maybe Prelude.UTCTime)
 folderSummary_createdTime = Lens.lens (\FolderSummary' {createdTime} -> createdTime) (\s@FolderSummary' {} a -> s {createdTime = a} :: FolderSummary) Prelude.. Lens.mapping Core._Time
 
+-- | The Amazon Resource Name (ARN).
+folderSummary_arn :: Lens.Lens' FolderSummary (Prelude.Maybe Prelude.Text)
+folderSummary_arn = Lens.lens (\FolderSummary' {arn} -> arn) (\s@FolderSummary' {} a -> s {arn = a} :: FolderSummary)
+
+-- | The time that the folder was last updated.
+folderSummary_lastUpdatedTime :: Lens.Lens' FolderSummary (Prelude.Maybe Prelude.UTCTime)
+folderSummary_lastUpdatedTime = Lens.lens (\FolderSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@FolderSummary' {} a -> s {lastUpdatedTime = a} :: FolderSummary) Prelude.. Lens.mapping Core._Time
+
 -- | The folder ID.
 folderSummary_folderId :: Lens.Lens' FolderSummary (Prelude.Maybe Prelude.Text)
 folderSummary_folderId = Lens.lens (\FolderSummary' {folderId} -> folderId) (\s@FolderSummary' {} a -> s {folderId = a} :: FolderSummary)
-
--- | The display name of the folder.
-folderSummary_name :: Lens.Lens' FolderSummary (Prelude.Maybe Prelude.Text)
-folderSummary_name = Lens.lens (\FolderSummary' {name} -> name) (\s@FolderSummary' {} a -> s {name = a} :: FolderSummary)
 
 -- | The type of folder.
 folderSummary_folderType :: Lens.Lens' FolderSummary (Prelude.Maybe FolderType)
@@ -104,28 +104,28 @@ instance Core.FromJSON FolderSummary where
       "FolderSummary"
       ( \x ->
           FolderSummary'
-            Prelude.<$> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "LastUpdatedTime")
             Prelude.<*> (x Core..:? "FolderId")
-            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "FolderType")
       )
 
 instance Prelude.Hashable FolderSummary where
   hashWithSalt _salt FolderSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` folderId
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` folderType
 
 instance Prelude.NFData FolderSummary where
   rnf FolderSummary' {..} =
-    Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf folderId
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf folderType

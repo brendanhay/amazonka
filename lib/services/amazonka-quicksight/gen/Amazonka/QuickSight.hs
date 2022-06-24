@@ -25,44 +25,23 @@ module Amazonka.QuickSight
     -- * Errors
     -- $errors
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
+    -- ** IdentityTypeNotSupportedException
+    _IdentityTypeNotSupportedException,
 
     -- ** ResourceUnavailableException
     _ResourceUnavailableException,
 
-    -- ** IdentityTypeNotSupportedException
-    _IdentityTypeNotSupportedException,
-
-    -- ** DomainNotWhitelistedException
-    _DomainNotWhitelistedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** UnsupportedPricingPlanException
     _UnsupportedPricingPlanException,
 
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
-
-    -- ** UnsupportedUserEditionException
-    _UnsupportedUserEditionException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** PreconditionNotMetException
     _PreconditionNotMetException,
 
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** ResourceExistsException
-    _ResourceExistsException,
-
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** QuickSightUserNotFoundException
+    _QuickSightUserNotFoundException,
 
     -- ** ConcurrentUpdatingException
     _ConcurrentUpdatingException,
@@ -70,14 +49,35 @@ module Amazonka.QuickSight
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** QuickSightUserNotFoundException
-    _QuickSightUserNotFoundException,
+    -- ** SessionLifetimeInMinutesInvalidException
+    _SessionLifetimeInMinutesInvalidException,
+
+    -- ** UnsupportedUserEditionException
+    _UnsupportedUserEditionException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** SessionLifetimeInMinutesInvalidException
-    _SessionLifetimeInMinutesInvalidException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ResourceExistsException
+    _ResourceExistsException,
+
+    -- ** DomainNotWhitelistedException
+    _DomainNotWhitelistedException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- * Waiters
     -- $waiters
@@ -91,341 +91,23 @@ module Amazonka.QuickSight
     CancelIngestionResponse (CancelIngestionResponse'),
     newCancelIngestionResponse,
 
-    -- ** UpdateDataSource
-    UpdateDataSource (UpdateDataSource'),
-    newUpdateDataSource,
-    UpdateDataSourceResponse (UpdateDataSourceResponse'),
-    newUpdateDataSourceResponse,
+    -- ** CreateAccountCustomization
+    CreateAccountCustomization (CreateAccountCustomization'),
+    newCreateAccountCustomization,
+    CreateAccountCustomizationResponse (CreateAccountCustomizationResponse'),
+    newCreateAccountCustomizationResponse,
 
-    -- ** DeleteUserByPrincipalId
-    DeleteUserByPrincipalId (DeleteUserByPrincipalId'),
-    newDeleteUserByPrincipalId,
-    DeleteUserByPrincipalIdResponse (DeleteUserByPrincipalIdResponse'),
-    newDeleteUserByPrincipalIdResponse,
-
-    -- ** DeleteDataSource
-    DeleteDataSource (DeleteDataSource'),
-    newDeleteDataSource,
-    DeleteDataSourceResponse (DeleteDataSourceResponse'),
-    newDeleteDataSourceResponse,
-
-    -- ** CreateTemplate
-    CreateTemplate (CreateTemplate'),
-    newCreateTemplate,
-    CreateTemplateResponse (CreateTemplateResponse'),
-    newCreateTemplateResponse,
-
-    -- ** DeleteGroupMembership
-    DeleteGroupMembership (DeleteGroupMembership'),
-    newDeleteGroupMembership,
-    DeleteGroupMembershipResponse (DeleteGroupMembershipResponse'),
-    newDeleteGroupMembershipResponse,
-
-    -- ** DescribeThemePermissions
-    DescribeThemePermissions (DescribeThemePermissions'),
-    newDescribeThemePermissions,
-    DescribeThemePermissionsResponse (DescribeThemePermissionsResponse'),
-    newDescribeThemePermissionsResponse,
-
-    -- ** ListGroupMemberships
-    ListGroupMemberships (ListGroupMemberships'),
-    newListGroupMemberships,
-    ListGroupMembershipsResponse (ListGroupMembershipsResponse'),
-    newListGroupMembershipsResponse,
-
-    -- ** ListFolders
-    ListFolders (ListFolders'),
-    newListFolders,
-    ListFoldersResponse (ListFoldersResponse'),
-    newListFoldersResponse,
-
-    -- ** DescribeDataSetPermissions
-    DescribeDataSetPermissions (DescribeDataSetPermissions'),
-    newDescribeDataSetPermissions,
-    DescribeDataSetPermissionsResponse (DescribeDataSetPermissionsResponse'),
-    newDescribeDataSetPermissionsResponse,
-
-    -- ** DeleteIAMPolicyAssignment
-    DeleteIAMPolicyAssignment (DeleteIAMPolicyAssignment'),
-    newDeleteIAMPolicyAssignment,
-    DeleteIAMPolicyAssignmentResponse (DeleteIAMPolicyAssignmentResponse'),
-    newDeleteIAMPolicyAssignmentResponse,
-
-    -- ** UpdateIAMPolicyAssignment
-    UpdateIAMPolicyAssignment (UpdateIAMPolicyAssignment'),
-    newUpdateIAMPolicyAssignment,
-    UpdateIAMPolicyAssignmentResponse (UpdateIAMPolicyAssignmentResponse'),
-    newUpdateIAMPolicyAssignmentResponse,
-
-    -- ** DescribeIngestion
-    DescribeIngestion (DescribeIngestion'),
-    newDescribeIngestion,
-    DescribeIngestionResponse (DescribeIngestionResponse'),
-    newDescribeIngestionResponse,
-
-    -- ** DeleteFolder
-    DeleteFolder (DeleteFolder'),
-    newDeleteFolder,
-    DeleteFolderResponse (DeleteFolderResponse'),
-    newDeleteFolderResponse,
-
-    -- ** UpdateFolder
-    UpdateFolder (UpdateFolder'),
-    newUpdateFolder,
-    UpdateFolderResponse (UpdateFolderResponse'),
-    newUpdateFolderResponse,
-
-    -- ** ListUserGroups
-    ListUserGroups (ListUserGroups'),
-    newListUserGroups,
-    ListUserGroupsResponse (ListUserGroupsResponse'),
-    newListUserGroupsResponse,
-
-    -- ** UpdateDashboardPublishedVersion
-    UpdateDashboardPublishedVersion (UpdateDashboardPublishedVersion'),
-    newUpdateDashboardPublishedVersion,
-    UpdateDashboardPublishedVersionResponse (UpdateDashboardPublishedVersionResponse'),
-    newUpdateDashboardPublishedVersionResponse,
-
-    -- ** DescribeAnalysisPermissions
-    DescribeAnalysisPermissions (DescribeAnalysisPermissions'),
-    newDescribeAnalysisPermissions,
-    DescribeAnalysisPermissionsResponse (DescribeAnalysisPermissionsResponse'),
-    newDescribeAnalysisPermissionsResponse,
-
-    -- ** DeleteTemplateAlias
-    DeleteTemplateAlias (DeleteTemplateAlias'),
-    newDeleteTemplateAlias,
-    DeleteTemplateAliasResponse (DeleteTemplateAliasResponse'),
-    newDeleteTemplateAliasResponse,
-
-    -- ** UpdateTemplateAlias
-    UpdateTemplateAlias (UpdateTemplateAlias'),
-    newUpdateTemplateAlias,
-    UpdateTemplateAliasResponse (UpdateTemplateAliasResponse'),
-    newUpdateTemplateAliasResponse,
-
-    -- ** DescribeAnalysis
-    DescribeAnalysis (DescribeAnalysis'),
-    newDescribeAnalysis,
-    DescribeAnalysisResponse (DescribeAnalysisResponse'),
-    newDescribeAnalysisResponse,
-
-    -- ** UpdateFolderPermissions
-    UpdateFolderPermissions (UpdateFolderPermissions'),
-    newUpdateFolderPermissions,
-    UpdateFolderPermissionsResponse (UpdateFolderPermissionsResponse'),
-    newUpdateFolderPermissionsResponse,
-
-    -- ** DescribeDataSet
-    DescribeDataSet (DescribeDataSet'),
-    newDescribeDataSet,
-    DescribeDataSetResponse (DescribeDataSetResponse'),
-    newDescribeDataSetResponse,
-
-    -- ** ListNamespaces (Paginated)
-    ListNamespaces (ListNamespaces'),
-    newListNamespaces,
-    ListNamespacesResponse (ListNamespacesResponse'),
-    newListNamespacesResponse,
-
-    -- ** DeleteNamespace
-    DeleteNamespace (DeleteNamespace'),
-    newDeleteNamespace,
-    DeleteNamespaceResponse (DeleteNamespaceResponse'),
-    newDeleteNamespaceResponse,
-
-    -- ** CreateFolder
-    CreateFolder (CreateFolder'),
-    newCreateFolder,
-    CreateFolderResponse (CreateFolderResponse'),
-    newCreateFolderResponse,
-
-    -- ** DescribeGroup
-    DescribeGroup (DescribeGroup'),
-    newDescribeGroup,
-    DescribeGroupResponse (DescribeGroupResponse'),
-    newDescribeGroupResponse,
-
-    -- ** DescribeThemeAlias
-    DescribeThemeAlias (DescribeThemeAlias'),
-    newDescribeThemeAlias,
-    DescribeThemeAliasResponse (DescribeThemeAliasResponse'),
-    newDescribeThemeAliasResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** UpdateAccountSettings
-    UpdateAccountSettings (UpdateAccountSettings'),
-    newUpdateAccountSettings,
-    UpdateAccountSettingsResponse (UpdateAccountSettingsResponse'),
-    newUpdateAccountSettingsResponse,
-
-    -- ** DescribeTemplatePermissions
-    DescribeTemplatePermissions (DescribeTemplatePermissions'),
-    newDescribeTemplatePermissions,
-    DescribeTemplatePermissionsResponse (DescribeTemplatePermissionsResponse'),
-    newDescribeTemplatePermissionsResponse,
-
-    -- ** ListDashboards (Paginated)
-    ListDashboards (ListDashboards'),
-    newListDashboards,
-    ListDashboardsResponse (ListDashboardsResponse'),
-    newListDashboardsResponse,
-
-    -- ** DescribeTemplate
-    DescribeTemplate (DescribeTemplate'),
-    newDescribeTemplate,
-    DescribeTemplateResponse (DescribeTemplateResponse'),
-    newDescribeTemplateResponse,
-
-    -- ** DeleteFolderMembership
-    DeleteFolderMembership (DeleteFolderMembership'),
-    newDeleteFolderMembership,
-    DeleteFolderMembershipResponse (DeleteFolderMembershipResponse'),
-    newDeleteFolderMembershipResponse,
-
-    -- ** CreateTheme
-    CreateTheme (CreateTheme'),
-    newCreateTheme,
-    CreateThemeResponse (CreateThemeResponse'),
-    newCreateThemeResponse,
-
-    -- ** ListUsers
-    ListUsers (ListUsers'),
-    newListUsers,
-    ListUsersResponse (ListUsersResponse'),
-    newListUsersResponse,
-
-    -- ** CreateFolderMembership
-    CreateFolderMembership (CreateFolderMembership'),
-    newCreateFolderMembership,
-    CreateFolderMembershipResponse (CreateFolderMembershipResponse'),
-    newCreateFolderMembershipResponse,
-
-    -- ** UpdateThemePermissions
-    UpdateThemePermissions (UpdateThemePermissions'),
-    newUpdateThemePermissions,
-    UpdateThemePermissionsResponse (UpdateThemePermissionsResponse'),
-    newUpdateThemePermissionsResponse,
-
-    -- ** GetSessionEmbedUrl
-    GetSessionEmbedUrl (GetSessionEmbedUrl'),
-    newGetSessionEmbedUrl,
-    GetSessionEmbedUrlResponse (GetSessionEmbedUrlResponse'),
-    newGetSessionEmbedUrlResponse,
+    -- ** CreateAnalysis
+    CreateAnalysis (CreateAnalysis'),
+    newCreateAnalysis,
+    CreateAnalysisResponse (CreateAnalysisResponse'),
+    newCreateAnalysisResponse,
 
     -- ** CreateDashboard
     CreateDashboard (CreateDashboard'),
     newCreateDashboard,
     CreateDashboardResponse (CreateDashboardResponse'),
     newCreateDashboardResponse,
-
-    -- ** RegisterUser
-    RegisterUser (RegisterUser'),
-    newRegisterUser,
-    RegisterUserResponse (RegisterUserResponse'),
-    newRegisterUserResponse,
-
-    -- ** DescribeDataSource
-    DescribeDataSource (DescribeDataSource'),
-    newDescribeDataSource,
-    DescribeDataSourceResponse (DescribeDataSourceResponse'),
-    newDescribeDataSourceResponse,
-
-    -- ** DescribeFolderResolvedPermissions
-    DescribeFolderResolvedPermissions (DescribeFolderResolvedPermissions'),
-    newDescribeFolderResolvedPermissions,
-    DescribeFolderResolvedPermissionsResponse (DescribeFolderResolvedPermissionsResponse'),
-    newDescribeFolderResolvedPermissionsResponse,
-
-    -- ** UpdateAnalysisPermissions
-    UpdateAnalysisPermissions (UpdateAnalysisPermissions'),
-    newUpdateAnalysisPermissions,
-    UpdateAnalysisPermissionsResponse (UpdateAnalysisPermissionsResponse'),
-    newUpdateAnalysisPermissionsResponse,
-
-    -- ** DeleteDataSet
-    DeleteDataSet (DeleteDataSet'),
-    newDeleteDataSet,
-    DeleteDataSetResponse (DeleteDataSetResponse'),
-    newDeleteDataSetResponse,
-
-    -- ** UpdateDataSet
-    UpdateDataSet (UpdateDataSet'),
-    newUpdateDataSet,
-    UpdateDataSetResponse (UpdateDataSetResponse'),
-    newUpdateDataSetResponse,
-
-    -- ** ListThemeAliases
-    ListThemeAliases (ListThemeAliases'),
-    newListThemeAliases,
-    ListThemeAliasesResponse (ListThemeAliasesResponse'),
-    newListThemeAliasesResponse,
-
-    -- ** UpdateAnalysis
-    UpdateAnalysis (UpdateAnalysis'),
-    newUpdateAnalysis,
-    UpdateAnalysisResponse (UpdateAnalysisResponse'),
-    newUpdateAnalysisResponse,
-
-    -- ** DeleteAnalysis
-    DeleteAnalysis (DeleteAnalysis'),
-    newDeleteAnalysis,
-    DeleteAnalysisResponse (DeleteAnalysisResponse'),
-    newDeleteAnalysisResponse,
-
-    -- ** SearchFolders
-    SearchFolders (SearchFolders'),
-    newSearchFolders,
-    SearchFoldersResponse (SearchFoldersResponse'),
-    newSearchFoldersResponse,
-
-    -- ** DescribeFolderPermissions
-    DescribeFolderPermissions (DescribeFolderPermissions'),
-    newDescribeFolderPermissions,
-    DescribeFolderPermissionsResponse (DescribeFolderPermissionsResponse'),
-    newDescribeFolderPermissionsResponse,
-
-    -- ** UpdateDataSetPermissions
-    UpdateDataSetPermissions (UpdateDataSetPermissions'),
-    newUpdateDataSetPermissions,
-    UpdateDataSetPermissionsResponse (UpdateDataSetPermissionsResponse'),
-    newUpdateDataSetPermissionsResponse,
-
-    -- ** CreateThemeAlias
-    CreateThemeAlias (CreateThemeAlias'),
-    newCreateThemeAlias,
-    CreateThemeAliasResponse (CreateThemeAliasResponse'),
-    newCreateThemeAliasResponse,
-
-    -- ** DescribeFolder
-    DescribeFolder (DescribeFolder'),
-    newDescribeFolder,
-    DescribeFolderResponse (DescribeFolderResponse'),
-    newDescribeFolderResponse,
-
-    -- ** DescribeTemplateAlias
-    DescribeTemplateAlias (DescribeTemplateAlias'),
-    newDescribeTemplateAlias,
-    DescribeTemplateAliasResponse (DescribeTemplateAliasResponse'),
-    newDescribeTemplateAliasResponse,
-
-    -- ** DescribeIAMPolicyAssignment
-    DescribeIAMPolicyAssignment (DescribeIAMPolicyAssignment'),
-    newDescribeIAMPolicyAssignment,
-    DescribeIAMPolicyAssignmentResponse (DescribeIAMPolicyAssignmentResponse'),
-    newDescribeIAMPolicyAssignmentResponse,
-
-    -- ** CreateIngestion
-    CreateIngestion (CreateIngestion'),
-    newCreateIngestion,
-    CreateIngestionResponse (CreateIngestionResponse'),
-    newCreateIngestionResponse,
 
     -- ** CreateDataSet
     CreateDataSet (CreateDataSet'),
@@ -439,23 +121,137 @@ module Amazonka.QuickSight
     CreateDataSourceResponse (CreateDataSourceResponse'),
     newCreateDataSourceResponse,
 
-    -- ** ListTemplates (Paginated)
-    ListTemplates (ListTemplates'),
-    newListTemplates,
-    ListTemplatesResponse (ListTemplatesResponse'),
-    newListTemplatesResponse,
+    -- ** CreateFolder
+    CreateFolder (CreateFolder'),
+    newCreateFolder,
+    CreateFolderResponse (CreateFolderResponse'),
+    newCreateFolderResponse,
 
-    -- ** DescribeAccountSettings
-    DescribeAccountSettings (DescribeAccountSettings'),
-    newDescribeAccountSettings,
-    DescribeAccountSettingsResponse (DescribeAccountSettingsResponse'),
-    newDescribeAccountSettingsResponse,
+    -- ** CreateFolderMembership
+    CreateFolderMembership (CreateFolderMembership'),
+    newCreateFolderMembership,
+    CreateFolderMembershipResponse (CreateFolderMembershipResponse'),
+    newCreateFolderMembershipResponse,
 
-    -- ** UpdateTemplate
-    UpdateTemplate (UpdateTemplate'),
-    newUpdateTemplate,
-    UpdateTemplateResponse (UpdateTemplateResponse'),
-    newUpdateTemplateResponse,
+    -- ** CreateGroup
+    CreateGroup (CreateGroup'),
+    newCreateGroup,
+    CreateGroupResponse (CreateGroupResponse'),
+    newCreateGroupResponse,
+
+    -- ** CreateGroupMembership
+    CreateGroupMembership (CreateGroupMembership'),
+    newCreateGroupMembership,
+    CreateGroupMembershipResponse (CreateGroupMembershipResponse'),
+    newCreateGroupMembershipResponse,
+
+    -- ** CreateIAMPolicyAssignment
+    CreateIAMPolicyAssignment (CreateIAMPolicyAssignment'),
+    newCreateIAMPolicyAssignment,
+    CreateIAMPolicyAssignmentResponse (CreateIAMPolicyAssignmentResponse'),
+    newCreateIAMPolicyAssignmentResponse,
+
+    -- ** CreateIngestion
+    CreateIngestion (CreateIngestion'),
+    newCreateIngestion,
+    CreateIngestionResponse (CreateIngestionResponse'),
+    newCreateIngestionResponse,
+
+    -- ** CreateNamespace
+    CreateNamespace (CreateNamespace'),
+    newCreateNamespace,
+    CreateNamespaceResponse (CreateNamespaceResponse'),
+    newCreateNamespaceResponse,
+
+    -- ** CreateTemplate
+    CreateTemplate (CreateTemplate'),
+    newCreateTemplate,
+    CreateTemplateResponse (CreateTemplateResponse'),
+    newCreateTemplateResponse,
+
+    -- ** CreateTemplateAlias
+    CreateTemplateAlias (CreateTemplateAlias'),
+    newCreateTemplateAlias,
+    CreateTemplateAliasResponse (CreateTemplateAliasResponse'),
+    newCreateTemplateAliasResponse,
+
+    -- ** CreateTheme
+    CreateTheme (CreateTheme'),
+    newCreateTheme,
+    CreateThemeResponse (CreateThemeResponse'),
+    newCreateThemeResponse,
+
+    -- ** CreateThemeAlias
+    CreateThemeAlias (CreateThemeAlias'),
+    newCreateThemeAlias,
+    CreateThemeAliasResponse (CreateThemeAliasResponse'),
+    newCreateThemeAliasResponse,
+
+    -- ** DeleteAccountCustomization
+    DeleteAccountCustomization (DeleteAccountCustomization'),
+    newDeleteAccountCustomization,
+    DeleteAccountCustomizationResponse (DeleteAccountCustomizationResponse'),
+    newDeleteAccountCustomizationResponse,
+
+    -- ** DeleteAnalysis
+    DeleteAnalysis (DeleteAnalysis'),
+    newDeleteAnalysis,
+    DeleteAnalysisResponse (DeleteAnalysisResponse'),
+    newDeleteAnalysisResponse,
+
+    -- ** DeleteDashboard
+    DeleteDashboard (DeleteDashboard'),
+    newDeleteDashboard,
+    DeleteDashboardResponse (DeleteDashboardResponse'),
+    newDeleteDashboardResponse,
+
+    -- ** DeleteDataSet
+    DeleteDataSet (DeleteDataSet'),
+    newDeleteDataSet,
+    DeleteDataSetResponse (DeleteDataSetResponse'),
+    newDeleteDataSetResponse,
+
+    -- ** DeleteDataSource
+    DeleteDataSource (DeleteDataSource'),
+    newDeleteDataSource,
+    DeleteDataSourceResponse (DeleteDataSourceResponse'),
+    newDeleteDataSourceResponse,
+
+    -- ** DeleteFolder
+    DeleteFolder (DeleteFolder'),
+    newDeleteFolder,
+    DeleteFolderResponse (DeleteFolderResponse'),
+    newDeleteFolderResponse,
+
+    -- ** DeleteFolderMembership
+    DeleteFolderMembership (DeleteFolderMembership'),
+    newDeleteFolderMembership,
+    DeleteFolderMembershipResponse (DeleteFolderMembershipResponse'),
+    newDeleteFolderMembershipResponse,
+
+    -- ** DeleteGroup
+    DeleteGroup (DeleteGroup'),
+    newDeleteGroup,
+    DeleteGroupResponse (DeleteGroupResponse'),
+    newDeleteGroupResponse,
+
+    -- ** DeleteGroupMembership
+    DeleteGroupMembership (DeleteGroupMembership'),
+    newDeleteGroupMembership,
+    DeleteGroupMembershipResponse (DeleteGroupMembershipResponse'),
+    newDeleteGroupMembershipResponse,
+
+    -- ** DeleteIAMPolicyAssignment
+    DeleteIAMPolicyAssignment (DeleteIAMPolicyAssignment'),
+    newDeleteIAMPolicyAssignment,
+    DeleteIAMPolicyAssignmentResponse (DeleteIAMPolicyAssignmentResponse'),
+    newDeleteIAMPolicyAssignmentResponse,
+
+    -- ** DeleteNamespace
+    DeleteNamespace (DeleteNamespace'),
+    newDeleteNamespace,
+    DeleteNamespaceResponse (DeleteNamespaceResponse'),
+    newDeleteNamespaceResponse,
 
     -- ** DeleteTemplate
     DeleteTemplate (DeleteTemplate'),
@@ -463,35 +259,161 @@ module Amazonka.QuickSight
     DeleteTemplateResponse (DeleteTemplateResponse'),
     newDeleteTemplateResponse,
 
-    -- ** UpdateTemplatePermissions
-    UpdateTemplatePermissions (UpdateTemplatePermissions'),
-    newUpdateTemplatePermissions,
-    UpdateTemplatePermissionsResponse (UpdateTemplatePermissionsResponse'),
-    newUpdateTemplatePermissionsResponse,
+    -- ** DeleteTemplateAlias
+    DeleteTemplateAlias (DeleteTemplateAlias'),
+    newDeleteTemplateAlias,
+    DeleteTemplateAliasResponse (DeleteTemplateAliasResponse'),
+    newDeleteTemplateAliasResponse,
 
-    -- ** SearchDashboards (Paginated)
-    SearchDashboards (SearchDashboards'),
-    newSearchDashboards,
-    SearchDashboardsResponse (SearchDashboardsResponse'),
-    newSearchDashboardsResponse,
+    -- ** DeleteTheme
+    DeleteTheme (DeleteTheme'),
+    newDeleteTheme,
+    DeleteThemeResponse (DeleteThemeResponse'),
+    newDeleteThemeResponse,
 
-    -- ** UpdateDataSourcePermissions
-    UpdateDataSourcePermissions (UpdateDataSourcePermissions'),
-    newUpdateDataSourcePermissions,
-    UpdateDataSourcePermissionsResponse (UpdateDataSourcePermissionsResponse'),
-    newUpdateDataSourcePermissionsResponse,
+    -- ** DeleteThemeAlias
+    DeleteThemeAlias (DeleteThemeAlias'),
+    newDeleteThemeAlias,
+    DeleteThemeAliasResponse (DeleteThemeAliasResponse'),
+    newDeleteThemeAliasResponse,
 
-    -- ** UpdateIpRestriction
-    UpdateIpRestriction (UpdateIpRestriction'),
-    newUpdateIpRestriction,
-    UpdateIpRestrictionResponse (UpdateIpRestrictionResponse'),
-    newUpdateIpRestrictionResponse,
+    -- ** DeleteUser
+    DeleteUser (DeleteUser'),
+    newDeleteUser,
+    DeleteUserResponse (DeleteUserResponse'),
+    newDeleteUserResponse,
 
-    -- ** DescribeUser
-    DescribeUser (DescribeUser'),
-    newDescribeUser,
-    DescribeUserResponse (DescribeUserResponse'),
-    newDescribeUserResponse,
+    -- ** DeleteUserByPrincipalId
+    DeleteUserByPrincipalId (DeleteUserByPrincipalId'),
+    newDeleteUserByPrincipalId,
+    DeleteUserByPrincipalIdResponse (DeleteUserByPrincipalIdResponse'),
+    newDeleteUserByPrincipalIdResponse,
+
+    -- ** DescribeAccountCustomization
+    DescribeAccountCustomization (DescribeAccountCustomization'),
+    newDescribeAccountCustomization,
+    DescribeAccountCustomizationResponse (DescribeAccountCustomizationResponse'),
+    newDescribeAccountCustomizationResponse,
+
+    -- ** DescribeAccountSettings
+    DescribeAccountSettings (DescribeAccountSettings'),
+    newDescribeAccountSettings,
+    DescribeAccountSettingsResponse (DescribeAccountSettingsResponse'),
+    newDescribeAccountSettingsResponse,
+
+    -- ** DescribeAnalysis
+    DescribeAnalysis (DescribeAnalysis'),
+    newDescribeAnalysis,
+    DescribeAnalysisResponse (DescribeAnalysisResponse'),
+    newDescribeAnalysisResponse,
+
+    -- ** DescribeAnalysisPermissions
+    DescribeAnalysisPermissions (DescribeAnalysisPermissions'),
+    newDescribeAnalysisPermissions,
+    DescribeAnalysisPermissionsResponse (DescribeAnalysisPermissionsResponse'),
+    newDescribeAnalysisPermissionsResponse,
+
+    -- ** DescribeDashboard
+    DescribeDashboard (DescribeDashboard'),
+    newDescribeDashboard,
+    DescribeDashboardResponse (DescribeDashboardResponse'),
+    newDescribeDashboardResponse,
+
+    -- ** DescribeDashboardPermissions
+    DescribeDashboardPermissions (DescribeDashboardPermissions'),
+    newDescribeDashboardPermissions,
+    DescribeDashboardPermissionsResponse (DescribeDashboardPermissionsResponse'),
+    newDescribeDashboardPermissionsResponse,
+
+    -- ** DescribeDataSet
+    DescribeDataSet (DescribeDataSet'),
+    newDescribeDataSet,
+    DescribeDataSetResponse (DescribeDataSetResponse'),
+    newDescribeDataSetResponse,
+
+    -- ** DescribeDataSetPermissions
+    DescribeDataSetPermissions (DescribeDataSetPermissions'),
+    newDescribeDataSetPermissions,
+    DescribeDataSetPermissionsResponse (DescribeDataSetPermissionsResponse'),
+    newDescribeDataSetPermissionsResponse,
+
+    -- ** DescribeDataSource
+    DescribeDataSource (DescribeDataSource'),
+    newDescribeDataSource,
+    DescribeDataSourceResponse (DescribeDataSourceResponse'),
+    newDescribeDataSourceResponse,
+
+    -- ** DescribeDataSourcePermissions
+    DescribeDataSourcePermissions (DescribeDataSourcePermissions'),
+    newDescribeDataSourcePermissions,
+    DescribeDataSourcePermissionsResponse (DescribeDataSourcePermissionsResponse'),
+    newDescribeDataSourcePermissionsResponse,
+
+    -- ** DescribeFolder
+    DescribeFolder (DescribeFolder'),
+    newDescribeFolder,
+    DescribeFolderResponse (DescribeFolderResponse'),
+    newDescribeFolderResponse,
+
+    -- ** DescribeFolderPermissions
+    DescribeFolderPermissions (DescribeFolderPermissions'),
+    newDescribeFolderPermissions,
+    DescribeFolderPermissionsResponse (DescribeFolderPermissionsResponse'),
+    newDescribeFolderPermissionsResponse,
+
+    -- ** DescribeFolderResolvedPermissions
+    DescribeFolderResolvedPermissions (DescribeFolderResolvedPermissions'),
+    newDescribeFolderResolvedPermissions,
+    DescribeFolderResolvedPermissionsResponse (DescribeFolderResolvedPermissionsResponse'),
+    newDescribeFolderResolvedPermissionsResponse,
+
+    -- ** DescribeGroup
+    DescribeGroup (DescribeGroup'),
+    newDescribeGroup,
+    DescribeGroupResponse (DescribeGroupResponse'),
+    newDescribeGroupResponse,
+
+    -- ** DescribeIAMPolicyAssignment
+    DescribeIAMPolicyAssignment (DescribeIAMPolicyAssignment'),
+    newDescribeIAMPolicyAssignment,
+    DescribeIAMPolicyAssignmentResponse (DescribeIAMPolicyAssignmentResponse'),
+    newDescribeIAMPolicyAssignmentResponse,
+
+    -- ** DescribeIngestion
+    DescribeIngestion (DescribeIngestion'),
+    newDescribeIngestion,
+    DescribeIngestionResponse (DescribeIngestionResponse'),
+    newDescribeIngestionResponse,
+
+    -- ** DescribeIpRestriction
+    DescribeIpRestriction (DescribeIpRestriction'),
+    newDescribeIpRestriction,
+    DescribeIpRestrictionResponse (DescribeIpRestrictionResponse'),
+    newDescribeIpRestrictionResponse,
+
+    -- ** DescribeNamespace
+    DescribeNamespace (DescribeNamespace'),
+    newDescribeNamespace,
+    DescribeNamespaceResponse (DescribeNamespaceResponse'),
+    newDescribeNamespaceResponse,
+
+    -- ** DescribeTemplate
+    DescribeTemplate (DescribeTemplate'),
+    newDescribeTemplate,
+    DescribeTemplateResponse (DescribeTemplateResponse'),
+    newDescribeTemplateResponse,
+
+    -- ** DescribeTemplateAlias
+    DescribeTemplateAlias (DescribeTemplateAlias'),
+    newDescribeTemplateAlias,
+    DescribeTemplateAliasResponse (DescribeTemplateAliasResponse'),
+    newDescribeTemplateAliasResponse,
+
+    -- ** DescribeTemplatePermissions
+    DescribeTemplatePermissions (DescribeTemplatePermissions'),
+    newDescribeTemplatePermissions,
+    DescribeTemplatePermissionsResponse (DescribeTemplatePermissionsResponse'),
+    newDescribeTemplatePermissionsResponse,
 
     -- ** DescribeTheme
     DescribeTheme (DescribeTheme'),
@@ -499,11 +421,71 @@ module Amazonka.QuickSight
     DescribeThemeResponse (DescribeThemeResponse'),
     newDescribeThemeResponse,
 
+    -- ** DescribeThemeAlias
+    DescribeThemeAlias (DescribeThemeAlias'),
+    newDescribeThemeAlias,
+    DescribeThemeAliasResponse (DescribeThemeAliasResponse'),
+    newDescribeThemeAliasResponse,
+
+    -- ** DescribeThemePermissions
+    DescribeThemePermissions (DescribeThemePermissions'),
+    newDescribeThemePermissions,
+    DescribeThemePermissionsResponse (DescribeThemePermissionsResponse'),
+    newDescribeThemePermissionsResponse,
+
+    -- ** DescribeUser
+    DescribeUser (DescribeUser'),
+    newDescribeUser,
+    DescribeUserResponse (DescribeUserResponse'),
+    newDescribeUserResponse,
+
+    -- ** GenerateEmbedUrlForAnonymousUser
+    GenerateEmbedUrlForAnonymousUser (GenerateEmbedUrlForAnonymousUser'),
+    newGenerateEmbedUrlForAnonymousUser,
+    GenerateEmbedUrlForAnonymousUserResponse (GenerateEmbedUrlForAnonymousUserResponse'),
+    newGenerateEmbedUrlForAnonymousUserResponse,
+
+    -- ** GenerateEmbedUrlForRegisteredUser
+    GenerateEmbedUrlForRegisteredUser (GenerateEmbedUrlForRegisteredUser'),
+    newGenerateEmbedUrlForRegisteredUser,
+    GenerateEmbedUrlForRegisteredUserResponse (GenerateEmbedUrlForRegisteredUserResponse'),
+    newGenerateEmbedUrlForRegisteredUserResponse,
+
+    -- ** GetDashboardEmbedUrl
+    GetDashboardEmbedUrl (GetDashboardEmbedUrl'),
+    newGetDashboardEmbedUrl,
+    GetDashboardEmbedUrlResponse (GetDashboardEmbedUrlResponse'),
+    newGetDashboardEmbedUrlResponse,
+
+    -- ** GetSessionEmbedUrl
+    GetSessionEmbedUrl (GetSessionEmbedUrl'),
+    newGetSessionEmbedUrl,
+    GetSessionEmbedUrlResponse (GetSessionEmbedUrlResponse'),
+    newGetSessionEmbedUrlResponse,
+
     -- ** ListAnalyses (Paginated)
     ListAnalyses (ListAnalyses'),
     newListAnalyses,
     ListAnalysesResponse (ListAnalysesResponse'),
     newListAnalysesResponse,
+
+    -- ** ListDashboardVersions (Paginated)
+    ListDashboardVersions (ListDashboardVersions'),
+    newListDashboardVersions,
+    ListDashboardVersionsResponse (ListDashboardVersionsResponse'),
+    newListDashboardVersionsResponse,
+
+    -- ** ListDashboards (Paginated)
+    ListDashboards (ListDashboards'),
+    newListDashboards,
+    ListDashboardsResponse (ListDashboardsResponse'),
+    newListDashboardsResponse,
+
+    -- ** ListDataSets (Paginated)
+    ListDataSets (ListDataSets'),
+    newListDataSets,
+    ListDataSetsResponse (ListDataSetsResponse'),
+    newListDataSetsResponse,
 
     -- ** ListDataSources (Paginated)
     ListDataSources (ListDataSources'),
@@ -517,221 +499,17 @@ module Amazonka.QuickSight
     ListFolderMembersResponse (ListFolderMembersResponse'),
     newListFolderMembersResponse,
 
-    -- ** ListIAMPolicyAssignments
-    ListIAMPolicyAssignments (ListIAMPolicyAssignments'),
-    newListIAMPolicyAssignments,
-    ListIAMPolicyAssignmentsResponse (ListIAMPolicyAssignmentsResponse'),
-    newListIAMPolicyAssignmentsResponse,
+    -- ** ListFolders
+    ListFolders (ListFolders'),
+    newListFolders,
+    ListFoldersResponse (ListFoldersResponse'),
+    newListFoldersResponse,
 
-    -- ** ListDashboardVersions (Paginated)
-    ListDashboardVersions (ListDashboardVersions'),
-    newListDashboardVersions,
-    ListDashboardVersionsResponse (ListDashboardVersionsResponse'),
-    newListDashboardVersionsResponse,
-
-    -- ** CreateNamespace
-    CreateNamespace (CreateNamespace'),
-    newCreateNamespace,
-    CreateNamespaceResponse (CreateNamespaceResponse'),
-    newCreateNamespaceResponse,
-
-    -- ** CreateIAMPolicyAssignment
-    CreateIAMPolicyAssignment (CreateIAMPolicyAssignment'),
-    newCreateIAMPolicyAssignment,
-    CreateIAMPolicyAssignmentResponse (CreateIAMPolicyAssignmentResponse'),
-    newCreateIAMPolicyAssignmentResponse,
-
-    -- ** RestoreAnalysis
-    RestoreAnalysis (RestoreAnalysis'),
-    newRestoreAnalysis,
-    RestoreAnalysisResponse (RestoreAnalysisResponse'),
-    newRestoreAnalysisResponse,
-
-    -- ** CreateTemplateAlias
-    CreateTemplateAlias (CreateTemplateAlias'),
-    newCreateTemplateAlias,
-    CreateTemplateAliasResponse (CreateTemplateAliasResponse'),
-    newCreateTemplateAliasResponse,
-
-    -- ** ListTemplateAliases (Paginated)
-    ListTemplateAliases (ListTemplateAliases'),
-    newListTemplateAliases,
-    ListTemplateAliasesResponse (ListTemplateAliasesResponse'),
-    newListTemplateAliasesResponse,
-
-    -- ** GetDashboardEmbedUrl
-    GetDashboardEmbedUrl (GetDashboardEmbedUrl'),
-    newGetDashboardEmbedUrl,
-    GetDashboardEmbedUrlResponse (GetDashboardEmbedUrlResponse'),
-    newGetDashboardEmbedUrlResponse,
-
-    -- ** GenerateEmbedUrlForAnonymousUser
-    GenerateEmbedUrlForAnonymousUser (GenerateEmbedUrlForAnonymousUser'),
-    newGenerateEmbedUrlForAnonymousUser,
-    GenerateEmbedUrlForAnonymousUserResponse (GenerateEmbedUrlForAnonymousUserResponse'),
-    newGenerateEmbedUrlForAnonymousUserResponse,
-
-    -- ** ListThemeVersions (Paginated)
-    ListThemeVersions (ListThemeVersions'),
-    newListThemeVersions,
-    ListThemeVersionsResponse (ListThemeVersionsResponse'),
-    newListThemeVersionsResponse,
-
-    -- ** UpdateDashboardPermissions
-    UpdateDashboardPermissions (UpdateDashboardPermissions'),
-    newUpdateDashboardPermissions,
-    UpdateDashboardPermissionsResponse (UpdateDashboardPermissionsResponse'),
-    newUpdateDashboardPermissionsResponse,
-
-    -- ** ListIAMPolicyAssignmentsForUser
-    ListIAMPolicyAssignmentsForUser (ListIAMPolicyAssignmentsForUser'),
-    newListIAMPolicyAssignmentsForUser,
-    ListIAMPolicyAssignmentsForUserResponse (ListIAMPolicyAssignmentsForUserResponse'),
-    newListIAMPolicyAssignmentsForUserResponse,
-
-    -- ** DeleteAccountCustomization
-    DeleteAccountCustomization (DeleteAccountCustomization'),
-    newDeleteAccountCustomization,
-    DeleteAccountCustomizationResponse (DeleteAccountCustomizationResponse'),
-    newDeleteAccountCustomizationResponse,
-
-    -- ** UpdateAccountCustomization
-    UpdateAccountCustomization (UpdateAccountCustomization'),
-    newUpdateAccountCustomization,
-    UpdateAccountCustomizationResponse (UpdateAccountCustomizationResponse'),
-    newUpdateAccountCustomizationResponse,
-
-    -- ** DeleteDashboard
-    DeleteDashboard (DeleteDashboard'),
-    newDeleteDashboard,
-    DeleteDashboardResponse (DeleteDashboardResponse'),
-    newDeleteDashboardResponse,
-
-    -- ** UpdateDashboard
-    UpdateDashboard (UpdateDashboard'),
-    newUpdateDashboard,
-    UpdateDashboardResponse (UpdateDashboardResponse'),
-    newUpdateDashboardResponse,
-
-    -- ** DescribeDataSourcePermissions
-    DescribeDataSourcePermissions (DescribeDataSourcePermissions'),
-    newDescribeDataSourcePermissions,
-    DescribeDataSourcePermissionsResponse (DescribeDataSourcePermissionsResponse'),
-    newDescribeDataSourcePermissionsResponse,
-
-    -- ** UpdateUser
-    UpdateUser (UpdateUser'),
-    newUpdateUser,
-    UpdateUserResponse (UpdateUserResponse'),
-    newUpdateUserResponse,
-
-    -- ** DeleteUser
-    DeleteUser (DeleteUser'),
-    newDeleteUser,
-    DeleteUserResponse (DeleteUserResponse'),
-    newDeleteUserResponse,
-
-    -- ** SearchAnalyses (Paginated)
-    SearchAnalyses (SearchAnalyses'),
-    newSearchAnalyses,
-    SearchAnalysesResponse (SearchAnalysesResponse'),
-    newSearchAnalysesResponse,
-
-    -- ** CreateAccountCustomization
-    CreateAccountCustomization (CreateAccountCustomization'),
-    newCreateAccountCustomization,
-    CreateAccountCustomizationResponse (CreateAccountCustomizationResponse'),
-    newCreateAccountCustomizationResponse,
-
-    -- ** DescribeIpRestriction
-    DescribeIpRestriction (DescribeIpRestriction'),
-    newDescribeIpRestriction,
-    DescribeIpRestrictionResponse (DescribeIpRestrictionResponse'),
-    newDescribeIpRestrictionResponse,
-
-    -- ** ListThemes (Paginated)
-    ListThemes (ListThemes'),
-    newListThemes,
-    ListThemesResponse (ListThemesResponse'),
-    newListThemesResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** UpdateTheme
-    UpdateTheme (UpdateTheme'),
-    newUpdateTheme,
-    UpdateThemeResponse (UpdateThemeResponse'),
-    newUpdateThemeResponse,
-
-    -- ** DeleteTheme
-    DeleteTheme (DeleteTheme'),
-    newDeleteTheme,
-    DeleteThemeResponse (DeleteThemeResponse'),
-    newDeleteThemeResponse,
-
-    -- ** ListIngestions (Paginated)
-    ListIngestions (ListIngestions'),
-    newListIngestions,
-    ListIngestionsResponse (ListIngestionsResponse'),
-    newListIngestionsResponse,
-
-    -- ** CreateGroup
-    CreateGroup (CreateGroup'),
-    newCreateGroup,
-    CreateGroupResponse (CreateGroupResponse'),
-    newCreateGroupResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** ListTemplateVersions (Paginated)
-    ListTemplateVersions (ListTemplateVersions'),
-    newListTemplateVersions,
-    ListTemplateVersionsResponse (ListTemplateVersionsResponse'),
-    newListTemplateVersionsResponse,
-
-    -- ** ListDataSets (Paginated)
-    ListDataSets (ListDataSets'),
-    newListDataSets,
-    ListDataSetsResponse (ListDataSetsResponse'),
-    newListDataSetsResponse,
-
-    -- ** DeleteThemeAlias
-    DeleteThemeAlias (DeleteThemeAlias'),
-    newDeleteThemeAlias,
-    DeleteThemeAliasResponse (DeleteThemeAliasResponse'),
-    newDeleteThemeAliasResponse,
-
-    -- ** UpdateThemeAlias
-    UpdateThemeAlias (UpdateThemeAlias'),
-    newUpdateThemeAlias,
-    UpdateThemeAliasResponse (UpdateThemeAliasResponse'),
-    newUpdateThemeAliasResponse,
-
-    -- ** DeleteGroup
-    DeleteGroup (DeleteGroup'),
-    newDeleteGroup,
-    DeleteGroupResponse (DeleteGroupResponse'),
-    newDeleteGroupResponse,
-
-    -- ** UpdateGroup
-    UpdateGroup (UpdateGroup'),
-    newUpdateGroup,
-    UpdateGroupResponse (UpdateGroupResponse'),
-    newUpdateGroupResponse,
-
-    -- ** DescribeNamespace
-    DescribeNamespace (DescribeNamespace'),
-    newDescribeNamespace,
-    DescribeNamespaceResponse (DescribeNamespaceResponse'),
-    newDescribeNamespaceResponse,
+    -- ** ListGroupMemberships
+    ListGroupMemberships (ListGroupMemberships'),
+    newListGroupMemberships,
+    ListGroupMembershipsResponse (ListGroupMembershipsResponse'),
+    newListGroupMembershipsResponse,
 
     -- ** ListGroups
     ListGroups (ListGroups'),
@@ -739,41 +517,263 @@ module Amazonka.QuickSight
     ListGroupsResponse (ListGroupsResponse'),
     newListGroupsResponse,
 
-    -- ** CreateAnalysis
-    CreateAnalysis (CreateAnalysis'),
-    newCreateAnalysis,
-    CreateAnalysisResponse (CreateAnalysisResponse'),
-    newCreateAnalysisResponse,
+    -- ** ListIAMPolicyAssignments
+    ListIAMPolicyAssignments (ListIAMPolicyAssignments'),
+    newListIAMPolicyAssignments,
+    ListIAMPolicyAssignmentsResponse (ListIAMPolicyAssignmentsResponse'),
+    newListIAMPolicyAssignmentsResponse,
 
-    -- ** DescribeAccountCustomization
-    DescribeAccountCustomization (DescribeAccountCustomization'),
-    newDescribeAccountCustomization,
-    DescribeAccountCustomizationResponse (DescribeAccountCustomizationResponse'),
-    newDescribeAccountCustomizationResponse,
+    -- ** ListIAMPolicyAssignmentsForUser
+    ListIAMPolicyAssignmentsForUser (ListIAMPolicyAssignmentsForUser'),
+    newListIAMPolicyAssignmentsForUser,
+    ListIAMPolicyAssignmentsForUserResponse (ListIAMPolicyAssignmentsForUserResponse'),
+    newListIAMPolicyAssignmentsForUserResponse,
 
-    -- ** GenerateEmbedUrlForRegisteredUser
-    GenerateEmbedUrlForRegisteredUser (GenerateEmbedUrlForRegisteredUser'),
-    newGenerateEmbedUrlForRegisteredUser,
-    GenerateEmbedUrlForRegisteredUserResponse (GenerateEmbedUrlForRegisteredUserResponse'),
-    newGenerateEmbedUrlForRegisteredUserResponse,
+    -- ** ListIngestions (Paginated)
+    ListIngestions (ListIngestions'),
+    newListIngestions,
+    ListIngestionsResponse (ListIngestionsResponse'),
+    newListIngestionsResponse,
 
-    -- ** DescribeDashboard
-    DescribeDashboard (DescribeDashboard'),
-    newDescribeDashboard,
-    DescribeDashboardResponse (DescribeDashboardResponse'),
-    newDescribeDashboardResponse,
+    -- ** ListNamespaces (Paginated)
+    ListNamespaces (ListNamespaces'),
+    newListNamespaces,
+    ListNamespacesResponse (ListNamespacesResponse'),
+    newListNamespacesResponse,
 
-    -- ** CreateGroupMembership
-    CreateGroupMembership (CreateGroupMembership'),
-    newCreateGroupMembership,
-    CreateGroupMembershipResponse (CreateGroupMembershipResponse'),
-    newCreateGroupMembershipResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** DescribeDashboardPermissions
-    DescribeDashboardPermissions (DescribeDashboardPermissions'),
-    newDescribeDashboardPermissions,
-    DescribeDashboardPermissionsResponse (DescribeDashboardPermissionsResponse'),
-    newDescribeDashboardPermissionsResponse,
+    -- ** ListTemplateAliases (Paginated)
+    ListTemplateAliases (ListTemplateAliases'),
+    newListTemplateAliases,
+    ListTemplateAliasesResponse (ListTemplateAliasesResponse'),
+    newListTemplateAliasesResponse,
+
+    -- ** ListTemplateVersions (Paginated)
+    ListTemplateVersions (ListTemplateVersions'),
+    newListTemplateVersions,
+    ListTemplateVersionsResponse (ListTemplateVersionsResponse'),
+    newListTemplateVersionsResponse,
+
+    -- ** ListTemplates (Paginated)
+    ListTemplates (ListTemplates'),
+    newListTemplates,
+    ListTemplatesResponse (ListTemplatesResponse'),
+    newListTemplatesResponse,
+
+    -- ** ListThemeAliases
+    ListThemeAliases (ListThemeAliases'),
+    newListThemeAliases,
+    ListThemeAliasesResponse (ListThemeAliasesResponse'),
+    newListThemeAliasesResponse,
+
+    -- ** ListThemeVersions (Paginated)
+    ListThemeVersions (ListThemeVersions'),
+    newListThemeVersions,
+    ListThemeVersionsResponse (ListThemeVersionsResponse'),
+    newListThemeVersionsResponse,
+
+    -- ** ListThemes (Paginated)
+    ListThemes (ListThemes'),
+    newListThemes,
+    ListThemesResponse (ListThemesResponse'),
+    newListThemesResponse,
+
+    -- ** ListUserGroups
+    ListUserGroups (ListUserGroups'),
+    newListUserGroups,
+    ListUserGroupsResponse (ListUserGroupsResponse'),
+    newListUserGroupsResponse,
+
+    -- ** ListUsers
+    ListUsers (ListUsers'),
+    newListUsers,
+    ListUsersResponse (ListUsersResponse'),
+    newListUsersResponse,
+
+    -- ** RegisterUser
+    RegisterUser (RegisterUser'),
+    newRegisterUser,
+    RegisterUserResponse (RegisterUserResponse'),
+    newRegisterUserResponse,
+
+    -- ** RestoreAnalysis
+    RestoreAnalysis (RestoreAnalysis'),
+    newRestoreAnalysis,
+    RestoreAnalysisResponse (RestoreAnalysisResponse'),
+    newRestoreAnalysisResponse,
+
+    -- ** SearchAnalyses (Paginated)
+    SearchAnalyses (SearchAnalyses'),
+    newSearchAnalyses,
+    SearchAnalysesResponse (SearchAnalysesResponse'),
+    newSearchAnalysesResponse,
+
+    -- ** SearchDashboards (Paginated)
+    SearchDashboards (SearchDashboards'),
+    newSearchDashboards,
+    SearchDashboardsResponse (SearchDashboardsResponse'),
+    newSearchDashboardsResponse,
+
+    -- ** SearchFolders
+    SearchFolders (SearchFolders'),
+    newSearchFolders,
+    SearchFoldersResponse (SearchFoldersResponse'),
+    newSearchFoldersResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateAccountCustomization
+    UpdateAccountCustomization (UpdateAccountCustomization'),
+    newUpdateAccountCustomization,
+    UpdateAccountCustomizationResponse (UpdateAccountCustomizationResponse'),
+    newUpdateAccountCustomizationResponse,
+
+    -- ** UpdateAccountSettings
+    UpdateAccountSettings (UpdateAccountSettings'),
+    newUpdateAccountSettings,
+    UpdateAccountSettingsResponse (UpdateAccountSettingsResponse'),
+    newUpdateAccountSettingsResponse,
+
+    -- ** UpdateAnalysis
+    UpdateAnalysis (UpdateAnalysis'),
+    newUpdateAnalysis,
+    UpdateAnalysisResponse (UpdateAnalysisResponse'),
+    newUpdateAnalysisResponse,
+
+    -- ** UpdateAnalysisPermissions
+    UpdateAnalysisPermissions (UpdateAnalysisPermissions'),
+    newUpdateAnalysisPermissions,
+    UpdateAnalysisPermissionsResponse (UpdateAnalysisPermissionsResponse'),
+    newUpdateAnalysisPermissionsResponse,
+
+    -- ** UpdateDashboard
+    UpdateDashboard (UpdateDashboard'),
+    newUpdateDashboard,
+    UpdateDashboardResponse (UpdateDashboardResponse'),
+    newUpdateDashboardResponse,
+
+    -- ** UpdateDashboardPermissions
+    UpdateDashboardPermissions (UpdateDashboardPermissions'),
+    newUpdateDashboardPermissions,
+    UpdateDashboardPermissionsResponse (UpdateDashboardPermissionsResponse'),
+    newUpdateDashboardPermissionsResponse,
+
+    -- ** UpdateDashboardPublishedVersion
+    UpdateDashboardPublishedVersion (UpdateDashboardPublishedVersion'),
+    newUpdateDashboardPublishedVersion,
+    UpdateDashboardPublishedVersionResponse (UpdateDashboardPublishedVersionResponse'),
+    newUpdateDashboardPublishedVersionResponse,
+
+    -- ** UpdateDataSet
+    UpdateDataSet (UpdateDataSet'),
+    newUpdateDataSet,
+    UpdateDataSetResponse (UpdateDataSetResponse'),
+    newUpdateDataSetResponse,
+
+    -- ** UpdateDataSetPermissions
+    UpdateDataSetPermissions (UpdateDataSetPermissions'),
+    newUpdateDataSetPermissions,
+    UpdateDataSetPermissionsResponse (UpdateDataSetPermissionsResponse'),
+    newUpdateDataSetPermissionsResponse,
+
+    -- ** UpdateDataSource
+    UpdateDataSource (UpdateDataSource'),
+    newUpdateDataSource,
+    UpdateDataSourceResponse (UpdateDataSourceResponse'),
+    newUpdateDataSourceResponse,
+
+    -- ** UpdateDataSourcePermissions
+    UpdateDataSourcePermissions (UpdateDataSourcePermissions'),
+    newUpdateDataSourcePermissions,
+    UpdateDataSourcePermissionsResponse (UpdateDataSourcePermissionsResponse'),
+    newUpdateDataSourcePermissionsResponse,
+
+    -- ** UpdateFolder
+    UpdateFolder (UpdateFolder'),
+    newUpdateFolder,
+    UpdateFolderResponse (UpdateFolderResponse'),
+    newUpdateFolderResponse,
+
+    -- ** UpdateFolderPermissions
+    UpdateFolderPermissions (UpdateFolderPermissions'),
+    newUpdateFolderPermissions,
+    UpdateFolderPermissionsResponse (UpdateFolderPermissionsResponse'),
+    newUpdateFolderPermissionsResponse,
+
+    -- ** UpdateGroup
+    UpdateGroup (UpdateGroup'),
+    newUpdateGroup,
+    UpdateGroupResponse (UpdateGroupResponse'),
+    newUpdateGroupResponse,
+
+    -- ** UpdateIAMPolicyAssignment
+    UpdateIAMPolicyAssignment (UpdateIAMPolicyAssignment'),
+    newUpdateIAMPolicyAssignment,
+    UpdateIAMPolicyAssignmentResponse (UpdateIAMPolicyAssignmentResponse'),
+    newUpdateIAMPolicyAssignmentResponse,
+
+    -- ** UpdateIpRestriction
+    UpdateIpRestriction (UpdateIpRestriction'),
+    newUpdateIpRestriction,
+    UpdateIpRestrictionResponse (UpdateIpRestrictionResponse'),
+    newUpdateIpRestrictionResponse,
+
+    -- ** UpdateTemplate
+    UpdateTemplate (UpdateTemplate'),
+    newUpdateTemplate,
+    UpdateTemplateResponse (UpdateTemplateResponse'),
+    newUpdateTemplateResponse,
+
+    -- ** UpdateTemplateAlias
+    UpdateTemplateAlias (UpdateTemplateAlias'),
+    newUpdateTemplateAlias,
+    UpdateTemplateAliasResponse (UpdateTemplateAliasResponse'),
+    newUpdateTemplateAliasResponse,
+
+    -- ** UpdateTemplatePermissions
+    UpdateTemplatePermissions (UpdateTemplatePermissions'),
+    newUpdateTemplatePermissions,
+    UpdateTemplatePermissionsResponse (UpdateTemplatePermissionsResponse'),
+    newUpdateTemplatePermissionsResponse,
+
+    -- ** UpdateTheme
+    UpdateTheme (UpdateTheme'),
+    newUpdateTheme,
+    UpdateThemeResponse (UpdateThemeResponse'),
+    newUpdateThemeResponse,
+
+    -- ** UpdateThemeAlias
+    UpdateThemeAlias (UpdateThemeAlias'),
+    newUpdateThemeAlias,
+    UpdateThemeAliasResponse (UpdateThemeAliasResponse'),
+    newUpdateThemeAliasResponse,
+
+    -- ** UpdateThemePermissions
+    UpdateThemePermissions (UpdateThemePermissions'),
+    newUpdateThemePermissions,
+    UpdateThemePermissionsResponse (UpdateThemePermissionsResponse'),
+    newUpdateThemePermissionsResponse,
+
+    -- ** UpdateUser
+    UpdateUser (UpdateUser'),
+    newUpdateUser,
+    UpdateUserResponse (UpdateUserResponse'),
+    newUpdateUserResponse,
 
     -- * Types
 

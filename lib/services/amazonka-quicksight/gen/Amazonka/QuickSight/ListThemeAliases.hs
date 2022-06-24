@@ -37,8 +37,8 @@ module Amazonka.QuickSight.ListThemeAliases
     newListThemeAliasesResponse,
 
     -- * Response Lenses
-    listThemeAliasesResponse_requestId,
     listThemeAliasesResponse_nextToken,
+    listThemeAliasesResponse_requestId,
     listThemeAliasesResponse_themeAliasList,
     listThemeAliasesResponse_status,
   )
@@ -124,8 +124,8 @@ instance Core.AWSRequest ListThemeAliases where
     Response.receiveJSON
       ( \s h x ->
           ListThemeAliasesResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (x Core..?> "ThemeAliasList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -174,11 +174,11 @@ instance Core.ToQuery ListThemeAliases where
 
 -- | /See:/ 'newListThemeAliasesResponse' smart constructor.
 data ListThemeAliasesResponse = ListThemeAliasesResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of results, or null if there are no more
+  { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | A structure containing the list of the theme\'s aliases.
     themeAliasList :: Prelude.Maybe [ThemeAlias],
     -- | The HTTP status of the request.
@@ -194,10 +194,10 @@ data ListThemeAliasesResponse = ListThemeAliasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'listThemeAliasesResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'nextToken', 'listThemeAliasesResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
+--
+-- 'requestId', 'listThemeAliasesResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'themeAliasList', 'listThemeAliasesResponse_themeAliasList' - A structure containing the list of the theme\'s aliases.
 --
@@ -208,21 +208,21 @@ newListThemeAliasesResponse ::
   ListThemeAliasesResponse
 newListThemeAliasesResponse pStatus_ =
   ListThemeAliasesResponse'
-    { requestId =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       themeAliasList = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-listThemeAliasesResponse_requestId :: Lens.Lens' ListThemeAliasesResponse (Prelude.Maybe Prelude.Text)
-listThemeAliasesResponse_requestId = Lens.lens (\ListThemeAliasesResponse' {requestId} -> requestId) (\s@ListThemeAliasesResponse' {} a -> s {requestId = a} :: ListThemeAliasesResponse)
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listThemeAliasesResponse_nextToken :: Lens.Lens' ListThemeAliasesResponse (Prelude.Maybe Prelude.Text)
 listThemeAliasesResponse_nextToken = Lens.lens (\ListThemeAliasesResponse' {nextToken} -> nextToken) (\s@ListThemeAliasesResponse' {} a -> s {nextToken = a} :: ListThemeAliasesResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+listThemeAliasesResponse_requestId :: Lens.Lens' ListThemeAliasesResponse (Prelude.Maybe Prelude.Text)
+listThemeAliasesResponse_requestId = Lens.lens (\ListThemeAliasesResponse' {requestId} -> requestId) (\s@ListThemeAliasesResponse' {} a -> s {requestId = a} :: ListThemeAliasesResponse)
 
 -- | A structure containing the list of the theme\'s aliases.
 listThemeAliasesResponse_themeAliasList :: Lens.Lens' ListThemeAliasesResponse (Prelude.Maybe [ThemeAlias])
@@ -234,7 +234,7 @@ listThemeAliasesResponse_status = Lens.lens (\ListThemeAliasesResponse' {status}
 
 instance Prelude.NFData ListThemeAliasesResponse where
   rnf ListThemeAliasesResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf themeAliasList
       `Prelude.seq` Prelude.rnf status

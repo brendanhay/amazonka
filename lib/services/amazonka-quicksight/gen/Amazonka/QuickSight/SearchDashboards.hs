@@ -42,9 +42,9 @@ module Amazonka.QuickSight.SearchDashboards
     newSearchDashboardsResponse,
 
     -- * Response Lenses
-    searchDashboardsResponse_requestId,
-    searchDashboardsResponse_nextToken,
     searchDashboardsResponse_dashboardSummaryList,
+    searchDashboardsResponse_nextToken,
+    searchDashboardsResponse_requestId,
     searchDashboardsResponse_status,
   )
 where
@@ -157,11 +157,11 @@ instance Core.AWSRequest SearchDashboards where
     Response.receiveJSON
       ( \s h x ->
           SearchDashboardsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DashboardSummaryList"
+            Prelude.<$> ( x Core..?> "DashboardSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,14 +213,14 @@ instance Core.ToQuery SearchDashboards where
 
 -- | /See:/ 'newSearchDashboardsResponse' smart constructor.
 data SearchDashboardsResponse = SearchDashboardsResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
+  { -- | The list of dashboards owned by the user specified in @Filters@ in your
+    -- request.
+    dashboardSummaryList :: Prelude.Maybe [DashboardSummary],
     -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of dashboards owned by the user specified in @Filters@ in your
-    -- request.
-    dashboardSummaryList :: Prelude.Maybe [DashboardSummary],
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -234,13 +234,13 @@ data SearchDashboardsResponse = SearchDashboardsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'searchDashboardsResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'dashboardSummaryList', 'searchDashboardsResponse_dashboardSummaryList' - The list of dashboards owned by the user specified in @Filters@ in your
+-- request.
 --
 -- 'nextToken', 'searchDashboardsResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
 --
--- 'dashboardSummaryList', 'searchDashboardsResponse_dashboardSummaryList' - The list of dashboards owned by the user specified in @Filters@ in your
--- request.
+-- 'requestId', 'searchDashboardsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'searchDashboardsResponse_status' - The HTTP status of the request.
 newSearchDashboardsResponse ::
@@ -249,26 +249,26 @@ newSearchDashboardsResponse ::
   SearchDashboardsResponse
 newSearchDashboardsResponse pStatus_ =
   SearchDashboardsResponse'
-    { requestId =
+    { dashboardSummaryList =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      dashboardSummaryList = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
 
--- | The Amazon Web Services request ID for this operation.
-searchDashboardsResponse_requestId :: Lens.Lens' SearchDashboardsResponse (Prelude.Maybe Prelude.Text)
-searchDashboardsResponse_requestId = Lens.lens (\SearchDashboardsResponse' {requestId} -> requestId) (\s@SearchDashboardsResponse' {} a -> s {requestId = a} :: SearchDashboardsResponse)
+-- | The list of dashboards owned by the user specified in @Filters@ in your
+-- request.
+searchDashboardsResponse_dashboardSummaryList :: Lens.Lens' SearchDashboardsResponse (Prelude.Maybe [DashboardSummary])
+searchDashboardsResponse_dashboardSummaryList = Lens.lens (\SearchDashboardsResponse' {dashboardSummaryList} -> dashboardSummaryList) (\s@SearchDashboardsResponse' {} a -> s {dashboardSummaryList = a} :: SearchDashboardsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 searchDashboardsResponse_nextToken :: Lens.Lens' SearchDashboardsResponse (Prelude.Maybe Prelude.Text)
 searchDashboardsResponse_nextToken = Lens.lens (\SearchDashboardsResponse' {nextToken} -> nextToken) (\s@SearchDashboardsResponse' {} a -> s {nextToken = a} :: SearchDashboardsResponse)
 
--- | The list of dashboards owned by the user specified in @Filters@ in your
--- request.
-searchDashboardsResponse_dashboardSummaryList :: Lens.Lens' SearchDashboardsResponse (Prelude.Maybe [DashboardSummary])
-searchDashboardsResponse_dashboardSummaryList = Lens.lens (\SearchDashboardsResponse' {dashboardSummaryList} -> dashboardSummaryList) (\s@SearchDashboardsResponse' {} a -> s {dashboardSummaryList = a} :: SearchDashboardsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Web Services request ID for this operation.
+searchDashboardsResponse_requestId :: Lens.Lens' SearchDashboardsResponse (Prelude.Maybe Prelude.Text)
+searchDashboardsResponse_requestId = Lens.lens (\SearchDashboardsResponse' {requestId} -> requestId) (\s@SearchDashboardsResponse' {} a -> s {requestId = a} :: SearchDashboardsResponse)
 
 -- | The HTTP status of the request.
 searchDashboardsResponse_status :: Lens.Lens' SearchDashboardsResponse Prelude.Int
@@ -276,7 +276,7 @@ searchDashboardsResponse_status = Lens.lens (\SearchDashboardsResponse' {status}
 
 instance Prelude.NFData SearchDashboardsResponse where
   rnf SearchDashboardsResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf dashboardSummaryList
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dashboardSummaryList
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTemplateAlias' smart constructor.
 data TemplateAlias = TemplateAlias'
-  { -- | The Amazon Resource Name (ARN) of the template alias.
+  { -- | The version number of the template alias.
+    templateVersionNumber :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of the template alias.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The display name of the template alias.
-    aliasName :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the template alias.
-    templateVersionNumber :: Prelude.Maybe Prelude.Natural
+    aliasName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,19 +44,24 @@ data TemplateAlias = TemplateAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'templateVersionNumber', 'templateAlias_templateVersionNumber' - The version number of the template alias.
+--
 -- 'arn', 'templateAlias_arn' - The Amazon Resource Name (ARN) of the template alias.
 --
 -- 'aliasName', 'templateAlias_aliasName' - The display name of the template alias.
---
--- 'templateVersionNumber', 'templateAlias_templateVersionNumber' - The version number of the template alias.
 newTemplateAlias ::
   TemplateAlias
 newTemplateAlias =
   TemplateAlias'
-    { arn = Prelude.Nothing,
-      aliasName = Prelude.Nothing,
-      templateVersionNumber = Prelude.Nothing
+    { templateVersionNumber =
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      aliasName = Prelude.Nothing
     }
+
+-- | The version number of the template alias.
+templateAlias_templateVersionNumber :: Lens.Lens' TemplateAlias (Prelude.Maybe Prelude.Natural)
+templateAlias_templateVersionNumber = Lens.lens (\TemplateAlias' {templateVersionNumber} -> templateVersionNumber) (\s@TemplateAlias' {} a -> s {templateVersionNumber = a} :: TemplateAlias)
 
 -- | The Amazon Resource Name (ARN) of the template alias.
 templateAlias_arn :: Lens.Lens' TemplateAlias (Prelude.Maybe Prelude.Text)
@@ -66,29 +71,25 @@ templateAlias_arn = Lens.lens (\TemplateAlias' {arn} -> arn) (\s@TemplateAlias' 
 templateAlias_aliasName :: Lens.Lens' TemplateAlias (Prelude.Maybe Prelude.Text)
 templateAlias_aliasName = Lens.lens (\TemplateAlias' {aliasName} -> aliasName) (\s@TemplateAlias' {} a -> s {aliasName = a} :: TemplateAlias)
 
--- | The version number of the template alias.
-templateAlias_templateVersionNumber :: Lens.Lens' TemplateAlias (Prelude.Maybe Prelude.Natural)
-templateAlias_templateVersionNumber = Lens.lens (\TemplateAlias' {templateVersionNumber} -> templateVersionNumber) (\s@TemplateAlias' {} a -> s {templateVersionNumber = a} :: TemplateAlias)
-
 instance Core.FromJSON TemplateAlias where
   parseJSON =
     Core.withObject
       "TemplateAlias"
       ( \x ->
           TemplateAlias'
-            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<$> (x Core..:? "TemplateVersionNumber")
+            Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "AliasName")
-            Prelude.<*> (x Core..:? "TemplateVersionNumber")
       )
 
 instance Prelude.Hashable TemplateAlias where
   hashWithSalt _salt TemplateAlias' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` templateVersionNumber
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` aliasName
-      `Prelude.hashWithSalt` templateVersionNumber
 
 instance Prelude.NFData TemplateAlias where
   rnf TemplateAlias' {..} =
-    Prelude.rnf arn
+    Prelude.rnf templateVersionNumber
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf templateVersionNumber

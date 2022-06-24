@@ -27,8 +27,8 @@ module Amazonka.QuickSight.DescribeDashboard
     newDescribeDashboard,
 
     -- * Request Lenses
-    describeDashboard_aliasName,
     describeDashboard_versionNumber,
+    describeDashboard_aliasName,
     describeDashboard_awsAccountId,
     describeDashboard_dashboardId,
 
@@ -37,8 +37,8 @@ module Amazonka.QuickSight.DescribeDashboard
     newDescribeDashboardResponse,
 
     -- * Response Lenses
-    describeDashboardResponse_requestId,
     describeDashboardResponse_dashboard,
+    describeDashboardResponse_requestId,
     describeDashboardResponse_status,
   )
 where
@@ -52,11 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDashboard' smart constructor.
 data DescribeDashboard = DescribeDashboard'
-  { -- | The alias name.
-    aliasName :: Prelude.Maybe Prelude.Text,
-    -- | The version number for the dashboard. If a version number isn\'t passed,
+  { -- | The version number for the dashboard. If a version number isn\'t passed,
     -- the latest published dashboard version is described.
     versionNumber :: Prelude.Maybe Prelude.Natural,
+    -- | The alias name.
+    aliasName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that contains the dashboard
     -- that you\'re describing.
     awsAccountId :: Prelude.Text,
@@ -73,10 +73,10 @@ data DescribeDashboard = DescribeDashboard'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aliasName', 'describeDashboard_aliasName' - The alias name.
---
 -- 'versionNumber', 'describeDashboard_versionNumber' - The version number for the dashboard. If a version number isn\'t passed,
 -- the latest published dashboard version is described.
+--
+-- 'aliasName', 'describeDashboard_aliasName' - The alias name.
 --
 -- 'awsAccountId', 'describeDashboard_awsAccountId' - The ID of the Amazon Web Services account that contains the dashboard
 -- that you\'re describing.
@@ -90,20 +90,20 @@ newDescribeDashboard ::
   DescribeDashboard
 newDescribeDashboard pAwsAccountId_ pDashboardId_ =
   DescribeDashboard'
-    { aliasName = Prelude.Nothing,
-      versionNumber = Prelude.Nothing,
+    { versionNumber = Prelude.Nothing,
+      aliasName = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       dashboardId = pDashboardId_
     }
-
--- | The alias name.
-describeDashboard_aliasName :: Lens.Lens' DescribeDashboard (Prelude.Maybe Prelude.Text)
-describeDashboard_aliasName = Lens.lens (\DescribeDashboard' {aliasName} -> aliasName) (\s@DescribeDashboard' {} a -> s {aliasName = a} :: DescribeDashboard)
 
 -- | The version number for the dashboard. If a version number isn\'t passed,
 -- the latest published dashboard version is described.
 describeDashboard_versionNumber :: Lens.Lens' DescribeDashboard (Prelude.Maybe Prelude.Natural)
 describeDashboard_versionNumber = Lens.lens (\DescribeDashboard' {versionNumber} -> versionNumber) (\s@DescribeDashboard' {} a -> s {versionNumber = a} :: DescribeDashboard)
+
+-- | The alias name.
+describeDashboard_aliasName :: Lens.Lens' DescribeDashboard (Prelude.Maybe Prelude.Text)
+describeDashboard_aliasName = Lens.lens (\DescribeDashboard' {aliasName} -> aliasName) (\s@DescribeDashboard' {} a -> s {aliasName = a} :: DescribeDashboard)
 
 -- | The ID of the Amazon Web Services account that contains the dashboard
 -- that you\'re describing.
@@ -123,22 +123,22 @@ instance Core.AWSRequest DescribeDashboard where
     Response.receiveJSON
       ( \s h x ->
           DescribeDashboardResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Dashboard")
+            Prelude.<$> (x Core..?> "Dashboard")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeDashboard where
   hashWithSalt _salt DescribeDashboard' {..} =
-    _salt `Prelude.hashWithSalt` aliasName
-      `Prelude.hashWithSalt` versionNumber
+    _salt `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dashboardId
 
 instance Prelude.NFData DescribeDashboard where
   rnf DescribeDashboard' {..} =
-    Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf aliasName
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dashboardId
 
@@ -165,16 +165,16 @@ instance Core.ToPath DescribeDashboard where
 instance Core.ToQuery DescribeDashboard where
   toQuery DescribeDashboard' {..} =
     Prelude.mconcat
-      [ "alias-name" Core.=: aliasName,
-        "version-number" Core.=: versionNumber
+      [ "version-number" Core.=: versionNumber,
+        "alias-name" Core.=: aliasName
       ]
 
 -- | /See:/ 'newDescribeDashboardResponse' smart constructor.
 data DescribeDashboardResponse = DescribeDashboardResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the dashboard.
+  { -- | Information about the dashboard.
     dashboard :: Prelude.Maybe Dashboard,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of this request.
     status :: Prelude.Int
   }
@@ -188,9 +188,9 @@ data DescribeDashboardResponse = DescribeDashboardResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeDashboardResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'dashboard', 'describeDashboardResponse_dashboard' - Information about the dashboard.
+--
+-- 'requestId', 'describeDashboardResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'describeDashboardResponse_status' - The HTTP status of this request.
 newDescribeDashboardResponse ::
@@ -199,19 +199,19 @@ newDescribeDashboardResponse ::
   DescribeDashboardResponse
 newDescribeDashboardResponse pStatus_ =
   DescribeDashboardResponse'
-    { requestId =
+    { dashboard =
         Prelude.Nothing,
-      dashboard = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-describeDashboardResponse_requestId :: Lens.Lens' DescribeDashboardResponse (Prelude.Maybe Prelude.Text)
-describeDashboardResponse_requestId = Lens.lens (\DescribeDashboardResponse' {requestId} -> requestId) (\s@DescribeDashboardResponse' {} a -> s {requestId = a} :: DescribeDashboardResponse)
 
 -- | Information about the dashboard.
 describeDashboardResponse_dashboard :: Lens.Lens' DescribeDashboardResponse (Prelude.Maybe Dashboard)
 describeDashboardResponse_dashboard = Lens.lens (\DescribeDashboardResponse' {dashboard} -> dashboard) (\s@DescribeDashboardResponse' {} a -> s {dashboard = a} :: DescribeDashboardResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+describeDashboardResponse_requestId :: Lens.Lens' DescribeDashboardResponse (Prelude.Maybe Prelude.Text)
+describeDashboardResponse_requestId = Lens.lens (\DescribeDashboardResponse' {requestId} -> requestId) (\s@DescribeDashboardResponse' {} a -> s {requestId = a} :: DescribeDashboardResponse)
 
 -- | The HTTP status of this request.
 describeDashboardResponse_status :: Lens.Lens' DescribeDashboardResponse Prelude.Int
@@ -219,6 +219,6 @@ describeDashboardResponse_status = Lens.lens (\DescribeDashboardResponse' {statu
 
 instance Prelude.NFData DescribeDashboardResponse where
   rnf DescribeDashboardResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf dashboard
+    Prelude.rnf dashboard
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

@@ -37,13 +37,7 @@ import Amazonka.QuickSight.Types.Status
 --
 -- /See:/ 'newRowLevelPermissionDataSet' smart constructor.
 data RowLevelPermissionDataSet = RowLevelPermissionDataSet'
-  { -- | The status of the row-level security permission dataset. If enabled, the
-    -- status is @ENABLED@. If disabled, the status is @DISABLED@.
-    status :: Prelude.Maybe Status,
-    -- | The namespace associated with the dataset that contains permissions for
-    -- RLS.
-    namespace :: Prelude.Maybe Prelude.Text,
-    -- | The user or group rules associated with the dataset that contains
+  { -- | The user or group rules associated with the dataset that contains
     -- permissions for RLS.
     --
     -- By default, @FormatVersion@ is @VERSION_1@. When @FormatVersion@ is
@@ -51,6 +45,12 @@ data RowLevelPermissionDataSet = RowLevelPermissionDataSet'
     -- @FormatVersion@ is @VERSION_2@, @UserARN@ and @GroupARN@ are required,
     -- and @Namespace@ must not exist.
     formatVersion :: Prelude.Maybe RowLevelPermissionFormatVersion,
+    -- | The status of the row-level security permission dataset. If enabled, the
+    -- status is @ENABLED@. If disabled, the status is @DISABLED@.
+    status :: Prelude.Maybe Status,
+    -- | The namespace associated with the dataset that contains permissions for
+    -- RLS.
+    namespace :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the dataset that contains permissions
     -- for RLS.
     arn :: Prelude.Text,
@@ -68,12 +68,6 @@ data RowLevelPermissionDataSet = RowLevelPermissionDataSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'rowLevelPermissionDataSet_status' - The status of the row-level security permission dataset. If enabled, the
--- status is @ENABLED@. If disabled, the status is @DISABLED@.
---
--- 'namespace', 'rowLevelPermissionDataSet_namespace' - The namespace associated with the dataset that contains permissions for
--- RLS.
---
 -- 'formatVersion', 'rowLevelPermissionDataSet_formatVersion' - The user or group rules associated with the dataset that contains
 -- permissions for RLS.
 --
@@ -81,6 +75,12 @@ data RowLevelPermissionDataSet = RowLevelPermissionDataSet'
 -- @VERSION_1@, @UserName@ and @GroupName@ are required. When
 -- @FormatVersion@ is @VERSION_2@, @UserARN@ and @GroupARN@ are required,
 -- and @Namespace@ must not exist.
+--
+-- 'status', 'rowLevelPermissionDataSet_status' - The status of the row-level security permission dataset. If enabled, the
+-- status is @ENABLED@. If disabled, the status is @DISABLED@.
+--
+-- 'namespace', 'rowLevelPermissionDataSet_namespace' - The namespace associated with the dataset that contains permissions for
+-- RLS.
 --
 -- 'arn', 'rowLevelPermissionDataSet_arn' - The Amazon Resource Name (ARN) of the dataset that contains permissions
 -- for RLS.
@@ -95,23 +95,13 @@ newRowLevelPermissionDataSet ::
   RowLevelPermissionDataSet
 newRowLevelPermissionDataSet pArn_ pPermissionPolicy_ =
   RowLevelPermissionDataSet'
-    { status =
+    { formatVersion =
         Prelude.Nothing,
+      status = Prelude.Nothing,
       namespace = Prelude.Nothing,
-      formatVersion = Prelude.Nothing,
       arn = pArn_,
       permissionPolicy = pPermissionPolicy_
     }
-
--- | The status of the row-level security permission dataset. If enabled, the
--- status is @ENABLED@. If disabled, the status is @DISABLED@.
-rowLevelPermissionDataSet_status :: Lens.Lens' RowLevelPermissionDataSet (Prelude.Maybe Status)
-rowLevelPermissionDataSet_status = Lens.lens (\RowLevelPermissionDataSet' {status} -> status) (\s@RowLevelPermissionDataSet' {} a -> s {status = a} :: RowLevelPermissionDataSet)
-
--- | The namespace associated with the dataset that contains permissions for
--- RLS.
-rowLevelPermissionDataSet_namespace :: Lens.Lens' RowLevelPermissionDataSet (Prelude.Maybe Prelude.Text)
-rowLevelPermissionDataSet_namespace = Lens.lens (\RowLevelPermissionDataSet' {namespace} -> namespace) (\s@RowLevelPermissionDataSet' {} a -> s {namespace = a} :: RowLevelPermissionDataSet)
 
 -- | The user or group rules associated with the dataset that contains
 -- permissions for RLS.
@@ -122,6 +112,16 @@ rowLevelPermissionDataSet_namespace = Lens.lens (\RowLevelPermissionDataSet' {na
 -- and @Namespace@ must not exist.
 rowLevelPermissionDataSet_formatVersion :: Lens.Lens' RowLevelPermissionDataSet (Prelude.Maybe RowLevelPermissionFormatVersion)
 rowLevelPermissionDataSet_formatVersion = Lens.lens (\RowLevelPermissionDataSet' {formatVersion} -> formatVersion) (\s@RowLevelPermissionDataSet' {} a -> s {formatVersion = a} :: RowLevelPermissionDataSet)
+
+-- | The status of the row-level security permission dataset. If enabled, the
+-- status is @ENABLED@. If disabled, the status is @DISABLED@.
+rowLevelPermissionDataSet_status :: Lens.Lens' RowLevelPermissionDataSet (Prelude.Maybe Status)
+rowLevelPermissionDataSet_status = Lens.lens (\RowLevelPermissionDataSet' {status} -> status) (\s@RowLevelPermissionDataSet' {} a -> s {status = a} :: RowLevelPermissionDataSet)
+
+-- | The namespace associated with the dataset that contains permissions for
+-- RLS.
+rowLevelPermissionDataSet_namespace :: Lens.Lens' RowLevelPermissionDataSet (Prelude.Maybe Prelude.Text)
+rowLevelPermissionDataSet_namespace = Lens.lens (\RowLevelPermissionDataSet' {namespace} -> namespace) (\s@RowLevelPermissionDataSet' {} a -> s {namespace = a} :: RowLevelPermissionDataSet)
 
 -- | The Amazon Resource Name (ARN) of the dataset that contains permissions
 -- for RLS.
@@ -139,26 +139,26 @@ instance Core.FromJSON RowLevelPermissionDataSet where
       "RowLevelPermissionDataSet"
       ( \x ->
           RowLevelPermissionDataSet'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "FormatVersion")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Namespace")
-            Prelude.<*> (x Core..:? "FormatVersion")
             Prelude.<*> (x Core..: "Arn")
             Prelude.<*> (x Core..: "PermissionPolicy")
       )
 
 instance Prelude.Hashable RowLevelPermissionDataSet where
   hashWithSalt _salt RowLevelPermissionDataSet' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` formatVersion
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` namespace
-      `Prelude.hashWithSalt` formatVersion
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` permissionPolicy
 
 instance Prelude.NFData RowLevelPermissionDataSet where
   rnf RowLevelPermissionDataSet' {..} =
-    Prelude.rnf status
+    Prelude.rnf formatVersion
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf formatVersion
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf permissionPolicy
 
@@ -166,9 +166,9 @@ instance Core.ToJSON RowLevelPermissionDataSet where
   toJSON RowLevelPermissionDataSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
+          [ ("FormatVersion" Core..=) Prelude.<$> formatVersion,
+            ("Status" Core..=) Prelude.<$> status,
             ("Namespace" Core..=) Prelude.<$> namespace,
-            ("FormatVersion" Core..=) Prelude.<$> formatVersion,
             Prelude.Just ("Arn" Core..= arn),
             Prelude.Just
               ("PermissionPolicy" Core..= permissionPolicy)

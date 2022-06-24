@@ -54,8 +54,8 @@ module Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser
     newGenerateEmbedUrlForAnonymousUser,
 
     -- * Request Lenses
-    generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes,
     generateEmbedUrlForAnonymousUser_sessionTags,
+    generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes,
     generateEmbedUrlForAnonymousUser_awsAccountId,
     generateEmbedUrlForAnonymousUser_namespace,
     generateEmbedUrlForAnonymousUser_authorizedResourceArns,
@@ -81,10 +81,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGenerateEmbedUrlForAnonymousUser' smart constructor.
 data GenerateEmbedUrlForAnonymousUser = GenerateEmbedUrlForAnonymousUser'
-  { -- | How many minutes the session is valid. The session lifetime must be in
-    -- [15-600] minutes range.
-    sessionLifetimeInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The session tags used for row-level security. Before you use this
+  { -- | The session tags used for row-level security. Before you use this
     -- parameter, make sure that you have configured the relevant datasets
     -- using the @DataSet$RowLevelPermissionTagConfiguration@ parameter so that
     -- session tags can be used to provide row-level security.
@@ -93,6 +90,9 @@ data GenerateEmbedUrlForAnonymousUser = GenerateEmbedUrlForAnonymousUser'
     -- feature. For more information, see
     -- <https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html Using Row-Level Security (RLS) with Tags>.
     sessionTags :: Prelude.Maybe (Prelude.NonEmpty SessionTag),
+    -- | How many minutes the session is valid. The session lifetime must be in
+    -- [15-600] minutes range.
+    sessionLifetimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The ID for the Amazon Web Services account that contains the dashboard
     -- that you\'re embedding.
     awsAccountId :: Prelude.Text,
@@ -118,9 +118,6 @@ data GenerateEmbedUrlForAnonymousUser = GenerateEmbedUrlForAnonymousUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sessionLifetimeInMinutes', 'generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be in
--- [15-600] minutes range.
---
 -- 'sessionTags', 'generateEmbedUrlForAnonymousUser_sessionTags' - The session tags used for row-level security. Before you use this
 -- parameter, make sure that you have configured the relevant datasets
 -- using the @DataSet$RowLevelPermissionTagConfiguration@ parameter so that
@@ -129,6 +126,9 @@ data GenerateEmbedUrlForAnonymousUser = GenerateEmbedUrlForAnonymousUser'
 -- These are not the tags used for the Amazon Web Services resource tagging
 -- feature. For more information, see
 -- <https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html Using Row-Level Security (RLS) with Tags>.
+--
+-- 'sessionLifetimeInMinutes', 'generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be in
+-- [15-600] minutes range.
 --
 -- 'awsAccountId', 'generateEmbedUrlForAnonymousUser_awsAccountId' - The ID for the Amazon Web Services account that contains the dashboard
 -- that you\'re embedding.
@@ -156,20 +156,16 @@ newGenerateEmbedUrlForAnonymousUser
   pNamespace_
   pExperienceConfiguration_ =
     GenerateEmbedUrlForAnonymousUser'
-      { sessionLifetimeInMinutes =
+      { sessionTags =
           Prelude.Nothing,
-        sessionTags = Prelude.Nothing,
+        sessionLifetimeInMinutes =
+          Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         namespace = pNamespace_,
         authorizedResourceArns = Prelude.mempty,
         experienceConfiguration =
           pExperienceConfiguration_
       }
-
--- | How many minutes the session is valid. The session lifetime must be in
--- [15-600] minutes range.
-generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes :: Lens.Lens' GenerateEmbedUrlForAnonymousUser (Prelude.Maybe Prelude.Natural)
-generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes = Lens.lens (\GenerateEmbedUrlForAnonymousUser' {sessionLifetimeInMinutes} -> sessionLifetimeInMinutes) (\s@GenerateEmbedUrlForAnonymousUser' {} a -> s {sessionLifetimeInMinutes = a} :: GenerateEmbedUrlForAnonymousUser)
 
 -- | The session tags used for row-level security. Before you use this
 -- parameter, make sure that you have configured the relevant datasets
@@ -181,6 +177,11 @@ generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes = Lens.lens (\Generate
 -- <https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html Using Row-Level Security (RLS) with Tags>.
 generateEmbedUrlForAnonymousUser_sessionTags :: Lens.Lens' GenerateEmbedUrlForAnonymousUser (Prelude.Maybe (Prelude.NonEmpty SessionTag))
 generateEmbedUrlForAnonymousUser_sessionTags = Lens.lens (\GenerateEmbedUrlForAnonymousUser' {sessionTags} -> sessionTags) (\s@GenerateEmbedUrlForAnonymousUser' {} a -> s {sessionTags = a} :: GenerateEmbedUrlForAnonymousUser) Prelude.. Lens.mapping Lens.coerced
+
+-- | How many minutes the session is valid. The session lifetime must be in
+-- [15-600] minutes range.
+generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes :: Lens.Lens' GenerateEmbedUrlForAnonymousUser (Prelude.Maybe Prelude.Natural)
+generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes = Lens.lens (\GenerateEmbedUrlForAnonymousUser' {sessionLifetimeInMinutes} -> sessionLifetimeInMinutes) (\s@GenerateEmbedUrlForAnonymousUser' {} a -> s {sessionLifetimeInMinutes = a} :: GenerateEmbedUrlForAnonymousUser)
 
 -- | The ID for the Amazon Web Services account that contains the dashboard
 -- that you\'re embedding.
@@ -228,9 +229,8 @@ instance
   hashWithSalt
     _salt
     GenerateEmbedUrlForAnonymousUser' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` sessionTags
         `Prelude.hashWithSalt` sessionLifetimeInMinutes
-        `Prelude.hashWithSalt` sessionTags
         `Prelude.hashWithSalt` awsAccountId
         `Prelude.hashWithSalt` namespace
         `Prelude.hashWithSalt` authorizedResourceArns
@@ -241,8 +241,8 @@ instance
     GenerateEmbedUrlForAnonymousUser
   where
   rnf GenerateEmbedUrlForAnonymousUser' {..} =
-    Prelude.rnf sessionLifetimeInMinutes
-      `Prelude.seq` Prelude.rnf sessionTags
+    Prelude.rnf sessionTags
+      `Prelude.seq` Prelude.rnf sessionLifetimeInMinutes
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf authorizedResourceArns
@@ -266,9 +266,9 @@ instance Core.ToJSON GenerateEmbedUrlForAnonymousUser where
   toJSON GenerateEmbedUrlForAnonymousUser' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SessionLifetimeInMinutes" Core..=)
+          [ ("SessionTags" Core..=) Prelude.<$> sessionTags,
+            ("SessionLifetimeInMinutes" Core..=)
               Prelude.<$> sessionLifetimeInMinutes,
-            ("SessionTags" Core..=) Prelude.<$> sessionTags,
             Prelude.Just ("Namespace" Core..= namespace),
             Prelude.Just
               ( "AuthorizedResourceArns"

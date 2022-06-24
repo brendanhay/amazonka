@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActiveIAMPolicyAssignment' smart constructor.
 data ActiveIAMPolicyAssignment = ActiveIAMPolicyAssignment'
-  { -- | A name for the IAMpolicy assignment.
-    assignmentName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the resource.
-    policyArn :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name (ARN) of the resource.
+    policyArn :: Prelude.Maybe Prelude.Text,
+    -- | A name for the IAMpolicy assignment.
+    assignmentName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data ActiveIAMPolicyAssignment = ActiveIAMPolicyAssignment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assignmentName', 'activeIAMPolicyAssignment_assignmentName' - A name for the IAMpolicy assignment.
---
 -- 'policyArn', 'activeIAMPolicyAssignment_policyArn' - The Amazon Resource Name (ARN) of the resource.
+--
+-- 'assignmentName', 'activeIAMPolicyAssignment_assignmentName' - A name for the IAMpolicy assignment.
 newActiveIAMPolicyAssignment ::
   ActiveIAMPolicyAssignment
 newActiveIAMPolicyAssignment =
   ActiveIAMPolicyAssignment'
-    { assignmentName =
+    { policyArn =
         Prelude.Nothing,
-      policyArn = Prelude.Nothing
+      assignmentName = Prelude.Nothing
     }
-
--- | A name for the IAMpolicy assignment.
-activeIAMPolicyAssignment_assignmentName :: Lens.Lens' ActiveIAMPolicyAssignment (Prelude.Maybe Prelude.Text)
-activeIAMPolicyAssignment_assignmentName = Lens.lens (\ActiveIAMPolicyAssignment' {assignmentName} -> assignmentName) (\s@ActiveIAMPolicyAssignment' {} a -> s {assignmentName = a} :: ActiveIAMPolicyAssignment)
 
 -- | The Amazon Resource Name (ARN) of the resource.
 activeIAMPolicyAssignment_policyArn :: Lens.Lens' ActiveIAMPolicyAssignment (Prelude.Maybe Prelude.Text)
 activeIAMPolicyAssignment_policyArn = Lens.lens (\ActiveIAMPolicyAssignment' {policyArn} -> policyArn) (\s@ActiveIAMPolicyAssignment' {} a -> s {policyArn = a} :: ActiveIAMPolicyAssignment)
+
+-- | A name for the IAMpolicy assignment.
+activeIAMPolicyAssignment_assignmentName :: Lens.Lens' ActiveIAMPolicyAssignment (Prelude.Maybe Prelude.Text)
+activeIAMPolicyAssignment_assignmentName = Lens.lens (\ActiveIAMPolicyAssignment' {assignmentName} -> assignmentName) (\s@ActiveIAMPolicyAssignment' {} a -> s {assignmentName = a} :: ActiveIAMPolicyAssignment)
 
 instance Core.FromJSON ActiveIAMPolicyAssignment where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON ActiveIAMPolicyAssignment where
       "ActiveIAMPolicyAssignment"
       ( \x ->
           ActiveIAMPolicyAssignment'
-            Prelude.<$> (x Core..:? "AssignmentName")
-            Prelude.<*> (x Core..:? "PolicyArn")
+            Prelude.<$> (x Core..:? "PolicyArn")
+            Prelude.<*> (x Core..:? "AssignmentName")
       )
 
 instance Prelude.Hashable ActiveIAMPolicyAssignment where
   hashWithSalt _salt ActiveIAMPolicyAssignment' {..} =
-    _salt `Prelude.hashWithSalt` assignmentName
-      `Prelude.hashWithSalt` policyArn
+    _salt `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` assignmentName
 
 instance Prelude.NFData ActiveIAMPolicyAssignment where
   rnf ActiveIAMPolicyAssignment' {..} =
-    Prelude.rnf assignmentName
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf assignmentName

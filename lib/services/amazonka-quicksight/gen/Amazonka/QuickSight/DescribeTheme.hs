@@ -27,8 +27,8 @@ module Amazonka.QuickSight.DescribeTheme
     newDescribeTheme,
 
     -- * Request Lenses
-    describeTheme_aliasName,
     describeTheme_versionNumber,
+    describeTheme_aliasName,
     describeTheme_awsAccountId,
     describeTheme_themeId,
 
@@ -52,16 +52,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeTheme' smart constructor.
 data DescribeTheme = DescribeTheme'
-  { -- | The alias of the theme that you want to describe. If you name a specific
+  { -- | The version number for the version to describe. If a @VersionNumber@
+    -- parameter value isn\'t provided, the latest version of the theme is
+    -- described.
+    versionNumber :: Prelude.Maybe Prelude.Natural,
+    -- | The alias of the theme that you want to describe. If you name a specific
     -- alias, you describe the version that the alias points to. You can
     -- specify the latest version of the theme by providing the keyword
     -- @$LATEST@ in the @AliasName@ parameter. The keyword @$PUBLISHED@
     -- doesn\'t apply to themes.
     aliasName :: Prelude.Maybe Prelude.Text,
-    -- | The version number for the version to describe. If a @VersionNumber@
-    -- parameter value isn\'t provided, the latest version of the theme is
-    -- described.
-    versionNumber :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Amazon Web Services account that contains the theme that
     -- you\'re describing.
     awsAccountId :: Prelude.Text,
@@ -78,15 +78,15 @@ data DescribeTheme = DescribeTheme'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'versionNumber', 'describeTheme_versionNumber' - The version number for the version to describe. If a @VersionNumber@
+-- parameter value isn\'t provided, the latest version of the theme is
+-- described.
+--
 -- 'aliasName', 'describeTheme_aliasName' - The alias of the theme that you want to describe. If you name a specific
 -- alias, you describe the version that the alias points to. You can
 -- specify the latest version of the theme by providing the keyword
 -- @$LATEST@ in the @AliasName@ parameter. The keyword @$PUBLISHED@
 -- doesn\'t apply to themes.
---
--- 'versionNumber', 'describeTheme_versionNumber' - The version number for the version to describe. If a @VersionNumber@
--- parameter value isn\'t provided, the latest version of the theme is
--- described.
 --
 -- 'awsAccountId', 'describeTheme_awsAccountId' - The ID of the Amazon Web Services account that contains the theme that
 -- you\'re describing.
@@ -100,11 +100,17 @@ newDescribeTheme ::
   DescribeTheme
 newDescribeTheme pAwsAccountId_ pThemeId_ =
   DescribeTheme'
-    { aliasName = Prelude.Nothing,
-      versionNumber = Prelude.Nothing,
+    { versionNumber = Prelude.Nothing,
+      aliasName = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       themeId = pThemeId_
     }
+
+-- | The version number for the version to describe. If a @VersionNumber@
+-- parameter value isn\'t provided, the latest version of the theme is
+-- described.
+describeTheme_versionNumber :: Lens.Lens' DescribeTheme (Prelude.Maybe Prelude.Natural)
+describeTheme_versionNumber = Lens.lens (\DescribeTheme' {versionNumber} -> versionNumber) (\s@DescribeTheme' {} a -> s {versionNumber = a} :: DescribeTheme)
 
 -- | The alias of the theme that you want to describe. If you name a specific
 -- alias, you describe the version that the alias points to. You can
@@ -113,12 +119,6 @@ newDescribeTheme pAwsAccountId_ pThemeId_ =
 -- doesn\'t apply to themes.
 describeTheme_aliasName :: Lens.Lens' DescribeTheme (Prelude.Maybe Prelude.Text)
 describeTheme_aliasName = Lens.lens (\DescribeTheme' {aliasName} -> aliasName) (\s@DescribeTheme' {} a -> s {aliasName = a} :: DescribeTheme)
-
--- | The version number for the version to describe. If a @VersionNumber@
--- parameter value isn\'t provided, the latest version of the theme is
--- described.
-describeTheme_versionNumber :: Lens.Lens' DescribeTheme (Prelude.Maybe Prelude.Natural)
-describeTheme_versionNumber = Lens.lens (\DescribeTheme' {versionNumber} -> versionNumber) (\s@DescribeTheme' {} a -> s {versionNumber = a} :: DescribeTheme)
 
 -- | The ID of the Amazon Web Services account that contains the theme that
 -- you\'re describing.
@@ -145,15 +145,15 @@ instance Core.AWSRequest DescribeTheme where
 
 instance Prelude.Hashable DescribeTheme where
   hashWithSalt _salt DescribeTheme' {..} =
-    _salt `Prelude.hashWithSalt` aliasName
-      `Prelude.hashWithSalt` versionNumber
+    _salt `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` themeId
 
 instance Prelude.NFData DescribeTheme where
   rnf DescribeTheme' {..} =
-    Prelude.rnf aliasName
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf aliasName
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf themeId
 
@@ -180,8 +180,8 @@ instance Core.ToPath DescribeTheme where
 instance Core.ToQuery DescribeTheme where
   toQuery DescribeTheme' {..} =
     Prelude.mconcat
-      [ "alias-name" Core.=: aliasName,
-        "version-number" Core.=: versionNumber
+      [ "version-number" Core.=: versionNumber,
+        "alias-name" Core.=: aliasName
       ]
 
 -- | /See:/ 'newDescribeThemeResponse' smart constructor.

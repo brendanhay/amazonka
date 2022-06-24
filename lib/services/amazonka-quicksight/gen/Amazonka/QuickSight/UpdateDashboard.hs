@@ -33,8 +33,8 @@ module Amazonka.QuickSight.UpdateDashboard
 
     -- * Request Lenses
     updateDashboard_themeArn,
-    updateDashboard_dashboardPublishOptions,
     updateDashboard_versionDescription,
+    updateDashboard_dashboardPublishOptions,
     updateDashboard_parameters,
     updateDashboard_awsAccountId,
     updateDashboard_dashboardId,
@@ -46,10 +46,10 @@ module Amazonka.QuickSight.UpdateDashboard
     newUpdateDashboardResponse,
 
     -- * Response Lenses
-    updateDashboardResponse_requestId,
-    updateDashboardResponse_status,
-    updateDashboardResponse_arn,
     updateDashboardResponse_creationStatus,
+    updateDashboardResponse_requestId,
+    updateDashboardResponse_arn,
+    updateDashboardResponse_status,
     updateDashboardResponse_dashboardId,
     updateDashboardResponse_versionArn,
     updateDashboardResponse_httpStatus,
@@ -70,6 +70,8 @@ data UpdateDashboard = UpdateDashboard'
     -- that was originally associated with the entity. The theme ARN must exist
     -- in the same Amazon Web Services account where you create the dashboard.
     themeArn :: Prelude.Maybe Prelude.Text,
+    -- | A description for the first version of the dashboard being created.
+    versionDescription :: Prelude.Maybe Prelude.Text,
     -- | Options for publishing the dashboard when you create it:
     --
     -- -   @AvailabilityStatus@ for @AdHocFilteringOption@ - This status can be
@@ -87,8 +89,6 @@ data UpdateDashboard = UpdateDashboard'
     --     can be either @COLLAPSED@ or @EXPANDED@. This option is @COLLAPSED@
     --     by default.
     dashboardPublishOptions :: Prelude.Maybe DashboardPublishOptions,
-    -- | A description for the first version of the dashboard being created.
-    versionDescription :: Prelude.Maybe Prelude.Text,
     -- | A structure that contains the parameters of the dashboard. These are
     -- parameter overrides for a dashboard. A dashboard can have any type of
     -- parameters, and some parameters might accept multiple values.
@@ -130,6 +130,8 @@ data UpdateDashboard = UpdateDashboard'
 -- that was originally associated with the entity. The theme ARN must exist
 -- in the same Amazon Web Services account where you create the dashboard.
 --
+-- 'versionDescription', 'updateDashboard_versionDescription' - A description for the first version of the dashboard being created.
+--
 -- 'dashboardPublishOptions', 'updateDashboard_dashboardPublishOptions' - Options for publishing the dashboard when you create it:
 --
 -- -   @AvailabilityStatus@ for @AdHocFilteringOption@ - This status can be
@@ -146,8 +148,6 @@ data UpdateDashboard = UpdateDashboard'
 -- -   @VisibilityState@ for @SheetControlsOption@ - This visibility state
 --     can be either @COLLAPSED@ or @EXPANDED@. This option is @COLLAPSED@
 --     by default.
---
--- 'versionDescription', 'updateDashboard_versionDescription' - A description for the first version of the dashboard being created.
 --
 -- 'parameters', 'updateDashboard_parameters' - A structure that contains the parameters of the dashboard. These are
 -- parameter overrides for a dashboard. A dashboard can have any type of
@@ -190,8 +190,8 @@ newUpdateDashboard
   pSourceEntity_ =
     UpdateDashboard'
       { themeArn = Prelude.Nothing,
-        dashboardPublishOptions = Prelude.Nothing,
         versionDescription = Prelude.Nothing,
+        dashboardPublishOptions = Prelude.Nothing,
         parameters = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         dashboardId = pDashboardId_,
@@ -205,6 +205,10 @@ newUpdateDashboard
 -- in the same Amazon Web Services account where you create the dashboard.
 updateDashboard_themeArn :: Lens.Lens' UpdateDashboard (Prelude.Maybe Prelude.Text)
 updateDashboard_themeArn = Lens.lens (\UpdateDashboard' {themeArn} -> themeArn) (\s@UpdateDashboard' {} a -> s {themeArn = a} :: UpdateDashboard)
+
+-- | A description for the first version of the dashboard being created.
+updateDashboard_versionDescription :: Lens.Lens' UpdateDashboard (Prelude.Maybe Prelude.Text)
+updateDashboard_versionDescription = Lens.lens (\UpdateDashboard' {versionDescription} -> versionDescription) (\s@UpdateDashboard' {} a -> s {versionDescription = a} :: UpdateDashboard)
 
 -- | Options for publishing the dashboard when you create it:
 --
@@ -224,10 +228,6 @@ updateDashboard_themeArn = Lens.lens (\UpdateDashboard' {themeArn} -> themeArn) 
 --     by default.
 updateDashboard_dashboardPublishOptions :: Lens.Lens' UpdateDashboard (Prelude.Maybe DashboardPublishOptions)
 updateDashboard_dashboardPublishOptions = Lens.lens (\UpdateDashboard' {dashboardPublishOptions} -> dashboardPublishOptions) (\s@UpdateDashboard' {} a -> s {dashboardPublishOptions = a} :: UpdateDashboard)
-
--- | A description for the first version of the dashboard being created.
-updateDashboard_versionDescription :: Lens.Lens' UpdateDashboard (Prelude.Maybe Prelude.Text)
-updateDashboard_versionDescription = Lens.lens (\UpdateDashboard' {versionDescription} -> versionDescription) (\s@UpdateDashboard' {} a -> s {versionDescription = a} :: UpdateDashboard)
 
 -- | A structure that contains the parameters of the dashboard. These are
 -- parameter overrides for a dashboard. A dashboard can have any type of
@@ -273,10 +273,10 @@ instance Core.AWSRequest UpdateDashboard where
     Response.receiveJSON
       ( \s h x ->
           UpdateDashboardResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Core..?> "CreationStatus")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "CreationStatus")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "DashboardId")
             Prelude.<*> (x Core..?> "VersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -285,8 +285,8 @@ instance Core.AWSRequest UpdateDashboard where
 instance Prelude.Hashable UpdateDashboard where
   hashWithSalt _salt UpdateDashboard' {..} =
     _salt `Prelude.hashWithSalt` themeArn
-      `Prelude.hashWithSalt` dashboardPublishOptions
       `Prelude.hashWithSalt` versionDescription
+      `Prelude.hashWithSalt` dashboardPublishOptions
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dashboardId
@@ -296,8 +296,8 @@ instance Prelude.Hashable UpdateDashboard where
 instance Prelude.NFData UpdateDashboard where
   rnf UpdateDashboard' {..} =
     Prelude.rnf themeArn
-      `Prelude.seq` Prelude.rnf dashboardPublishOptions
       `Prelude.seq` Prelude.rnf versionDescription
+      `Prelude.seq` Prelude.rnf dashboardPublishOptions
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dashboardId
@@ -320,10 +320,10 @@ instance Core.ToJSON UpdateDashboard where
     Core.object
       ( Prelude.catMaybes
           [ ("ThemeArn" Core..=) Prelude.<$> themeArn,
-            ("DashboardPublishOptions" Core..=)
-              Prelude.<$> dashboardPublishOptions,
             ("VersionDescription" Core..=)
               Prelude.<$> versionDescription,
+            ("DashboardPublishOptions" Core..=)
+              Prelude.<$> dashboardPublishOptions,
             ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("SourceEntity" Core..= sourceEntity)
@@ -344,14 +344,14 @@ instance Core.ToQuery UpdateDashboard where
 
 -- | /See:/ 'newUpdateDashboardResponse' smart constructor.
 data UpdateDashboardResponse = UpdateDashboardResponse'
-  { -- | The Amazon Web Services request ID for this operation.
+  { -- | The creation status of the request.
+    creationStatus :: Prelude.Maybe ResourceStatus,
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The HTTP status of the request.
-    status :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the resource.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The creation status of the request.
-    creationStatus :: Prelude.Maybe ResourceStatus,
+    -- | The HTTP status of the request.
+    status :: Prelude.Maybe Prelude.Int,
     -- | The ID for the dashboard.
     dashboardId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the dashboard, including the version number.
@@ -369,13 +369,13 @@ data UpdateDashboardResponse = UpdateDashboardResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateDashboardResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'creationStatus', 'updateDashboardResponse_creationStatus' - The creation status of the request.
 --
--- 'status', 'updateDashboardResponse_status' - The HTTP status of the request.
+-- 'requestId', 'updateDashboardResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'arn', 'updateDashboardResponse_arn' - The Amazon Resource Name (ARN) of the resource.
 --
--- 'creationStatus', 'updateDashboardResponse_creationStatus' - The creation status of the request.
+-- 'status', 'updateDashboardResponse_status' - The HTTP status of the request.
 --
 -- 'dashboardId', 'updateDashboardResponse_dashboardId' - The ID for the dashboard.
 --
@@ -388,31 +388,31 @@ newUpdateDashboardResponse ::
   UpdateDashboardResponse
 newUpdateDashboardResponse pHttpStatus_ =
   UpdateDashboardResponse'
-    { requestId =
+    { creationStatus =
         Prelude.Nothing,
-      status = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       arn = Prelude.Nothing,
-      creationStatus = Prelude.Nothing,
+      status = Prelude.Nothing,
       dashboardId = Prelude.Nothing,
       versionArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
+-- | The creation status of the request.
+updateDashboardResponse_creationStatus :: Lens.Lens' UpdateDashboardResponse (Prelude.Maybe ResourceStatus)
+updateDashboardResponse_creationStatus = Lens.lens (\UpdateDashboardResponse' {creationStatus} -> creationStatus) (\s@UpdateDashboardResponse' {} a -> s {creationStatus = a} :: UpdateDashboardResponse)
+
 -- | The Amazon Web Services request ID for this operation.
 updateDashboardResponse_requestId :: Lens.Lens' UpdateDashboardResponse (Prelude.Maybe Prelude.Text)
 updateDashboardResponse_requestId = Lens.lens (\UpdateDashboardResponse' {requestId} -> requestId) (\s@UpdateDashboardResponse' {} a -> s {requestId = a} :: UpdateDashboardResponse)
-
--- | The HTTP status of the request.
-updateDashboardResponse_status :: Lens.Lens' UpdateDashboardResponse (Prelude.Maybe Prelude.Int)
-updateDashboardResponse_status = Lens.lens (\UpdateDashboardResponse' {status} -> status) (\s@UpdateDashboardResponse' {} a -> s {status = a} :: UpdateDashboardResponse)
 
 -- | The Amazon Resource Name (ARN) of the resource.
 updateDashboardResponse_arn :: Lens.Lens' UpdateDashboardResponse (Prelude.Maybe Prelude.Text)
 updateDashboardResponse_arn = Lens.lens (\UpdateDashboardResponse' {arn} -> arn) (\s@UpdateDashboardResponse' {} a -> s {arn = a} :: UpdateDashboardResponse)
 
--- | The creation status of the request.
-updateDashboardResponse_creationStatus :: Lens.Lens' UpdateDashboardResponse (Prelude.Maybe ResourceStatus)
-updateDashboardResponse_creationStatus = Lens.lens (\UpdateDashboardResponse' {creationStatus} -> creationStatus) (\s@UpdateDashboardResponse' {} a -> s {creationStatus = a} :: UpdateDashboardResponse)
+-- | The HTTP status of the request.
+updateDashboardResponse_status :: Lens.Lens' UpdateDashboardResponse (Prelude.Maybe Prelude.Int)
+updateDashboardResponse_status = Lens.lens (\UpdateDashboardResponse' {status} -> status) (\s@UpdateDashboardResponse' {} a -> s {status = a} :: UpdateDashboardResponse)
 
 -- | The ID for the dashboard.
 updateDashboardResponse_dashboardId :: Lens.Lens' UpdateDashboardResponse (Prelude.Maybe Prelude.Text)
@@ -428,10 +428,10 @@ updateDashboardResponse_httpStatus = Lens.lens (\UpdateDashboardResponse' {httpS
 
 instance Prelude.NFData UpdateDashboardResponse where
   rnf UpdateDashboardResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf dashboardId
       `Prelude.seq` Prelude.rnf versionArn
       `Prelude.seq` Prelude.rnf httpStatus

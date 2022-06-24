@@ -38,9 +38,9 @@ module Amazonka.QuickSight.ListNamespaces
     newListNamespacesResponse,
 
     -- * Response Lenses
-    listNamespacesResponse_requestId,
-    listNamespacesResponse_namespaces,
     listNamespacesResponse_nextToken,
+    listNamespacesResponse_namespaces,
+    listNamespacesResponse_requestId,
     listNamespacesResponse_status,
   )
 where
@@ -132,9 +132,9 @@ instance Core.AWSRequest ListNamespaces where
     Response.receiveJSON
       ( \s h x ->
           ListNamespacesResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "Namespaces" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,15 +175,15 @@ instance Core.ToQuery ListNamespaces where
 
 -- | /See:/ 'newListNamespacesResponse' smart constructor.
 data ListNamespacesResponse = ListNamespacesResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
+  { -- | A pagination token that can be used in a subsequent request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The information about the namespaces in this Amazon Web Services
     -- account. The response includes the namespace ARN, name, Amazon Web
     -- Services Region, notification email address, creation status, and
     -- identity store.
     namespaces :: Prelude.Maybe [NamespaceInfoV2],
-    -- | A pagination token that can be used in a subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -197,14 +197,14 @@ data ListNamespacesResponse = ListNamespacesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'listNamespacesResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'nextToken', 'listNamespacesResponse_nextToken' - A pagination token that can be used in a subsequent request.
 --
 -- 'namespaces', 'listNamespacesResponse_namespaces' - The information about the namespaces in this Amazon Web Services
 -- account. The response includes the namespace ARN, name, Amazon Web
 -- Services Region, notification email address, creation status, and
 -- identity store.
 --
--- 'nextToken', 'listNamespacesResponse_nextToken' - A pagination token that can be used in a subsequent request.
+-- 'requestId', 'listNamespacesResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'listNamespacesResponse_status' - The HTTP status of the request.
 newListNamespacesResponse ::
@@ -213,16 +213,16 @@ newListNamespacesResponse ::
   ListNamespacesResponse
 newListNamespacesResponse pStatus_ =
   ListNamespacesResponse'
-    { requestId =
+    { nextToken =
         Prelude.Nothing,
       namespaces = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
 
--- | The Amazon Web Services request ID for this operation.
-listNamespacesResponse_requestId :: Lens.Lens' ListNamespacesResponse (Prelude.Maybe Prelude.Text)
-listNamespacesResponse_requestId = Lens.lens (\ListNamespacesResponse' {requestId} -> requestId) (\s@ListNamespacesResponse' {} a -> s {requestId = a} :: ListNamespacesResponse)
+-- | A pagination token that can be used in a subsequent request.
+listNamespacesResponse_nextToken :: Lens.Lens' ListNamespacesResponse (Prelude.Maybe Prelude.Text)
+listNamespacesResponse_nextToken = Lens.lens (\ListNamespacesResponse' {nextToken} -> nextToken) (\s@ListNamespacesResponse' {} a -> s {nextToken = a} :: ListNamespacesResponse)
 
 -- | The information about the namespaces in this Amazon Web Services
 -- account. The response includes the namespace ARN, name, Amazon Web
@@ -231,9 +231,9 @@ listNamespacesResponse_requestId = Lens.lens (\ListNamespacesResponse' {requestI
 listNamespacesResponse_namespaces :: Lens.Lens' ListNamespacesResponse (Prelude.Maybe [NamespaceInfoV2])
 listNamespacesResponse_namespaces = Lens.lens (\ListNamespacesResponse' {namespaces} -> namespaces) (\s@ListNamespacesResponse' {} a -> s {namespaces = a} :: ListNamespacesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A pagination token that can be used in a subsequent request.
-listNamespacesResponse_nextToken :: Lens.Lens' ListNamespacesResponse (Prelude.Maybe Prelude.Text)
-listNamespacesResponse_nextToken = Lens.lens (\ListNamespacesResponse' {nextToken} -> nextToken) (\s@ListNamespacesResponse' {} a -> s {nextToken = a} :: ListNamespacesResponse)
+-- | The Amazon Web Services request ID for this operation.
+listNamespacesResponse_requestId :: Lens.Lens' ListNamespacesResponse (Prelude.Maybe Prelude.Text)
+listNamespacesResponse_requestId = Lens.lens (\ListNamespacesResponse' {requestId} -> requestId) (\s@ListNamespacesResponse' {} a -> s {requestId = a} :: ListNamespacesResponse)
 
 -- | The HTTP status of the request.
 listNamespacesResponse_status :: Lens.Lens' ListNamespacesResponse Prelude.Int
@@ -241,7 +241,7 @@ listNamespacesResponse_status = Lens.lens (\ListNamespacesResponse' {status} -> 
 
 instance Prelude.NFData ListNamespacesResponse where
   rnf ListNamespacesResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf namespaces
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

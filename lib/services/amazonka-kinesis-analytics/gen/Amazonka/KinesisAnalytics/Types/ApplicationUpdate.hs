@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationUpdate' smart constructor.
 data ApplicationUpdate = ApplicationUpdate'
-  { -- | Describes application reference data source updates.
-    referenceDataSourceUpdates :: Prelude.Maybe [ReferenceDataSourceUpdate],
-    -- | Describes application input configuration updates.
+  { -- | Describes application input configuration updates.
     inputUpdates :: Prelude.Maybe [InputUpdate],
-    -- | Describes application CloudWatch logging option updates.
-    cloudWatchLoggingOptionUpdates :: Prelude.Maybe [CloudWatchLoggingOptionUpdate],
     -- | Describes application output configuration updates.
     outputUpdates :: Prelude.Maybe [OutputUpdate],
+    -- | Describes application reference data source updates.
+    referenceDataSourceUpdates :: Prelude.Maybe [ReferenceDataSourceUpdate],
+    -- | Describes application CloudWatch logging option updates.
+    cloudWatchLoggingOptionUpdates :: Prelude.Maybe [CloudWatchLoggingOptionUpdate],
     -- | Describes application code updates.
     applicationCodeUpdate :: Prelude.Maybe Prelude.Text
   }
@@ -53,42 +53,41 @@ data ApplicationUpdate = ApplicationUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'referenceDataSourceUpdates', 'applicationUpdate_referenceDataSourceUpdates' - Describes application reference data source updates.
---
 -- 'inputUpdates', 'applicationUpdate_inputUpdates' - Describes application input configuration updates.
 --
--- 'cloudWatchLoggingOptionUpdates', 'applicationUpdate_cloudWatchLoggingOptionUpdates' - Describes application CloudWatch logging option updates.
---
 -- 'outputUpdates', 'applicationUpdate_outputUpdates' - Describes application output configuration updates.
+--
+-- 'referenceDataSourceUpdates', 'applicationUpdate_referenceDataSourceUpdates' - Describes application reference data source updates.
+--
+-- 'cloudWatchLoggingOptionUpdates', 'applicationUpdate_cloudWatchLoggingOptionUpdates' - Describes application CloudWatch logging option updates.
 --
 -- 'applicationCodeUpdate', 'applicationUpdate_applicationCodeUpdate' - Describes application code updates.
 newApplicationUpdate ::
   ApplicationUpdate
 newApplicationUpdate =
   ApplicationUpdate'
-    { referenceDataSourceUpdates =
-        Prelude.Nothing,
-      inputUpdates = Prelude.Nothing,
-      cloudWatchLoggingOptionUpdates = Prelude.Nothing,
+    { inputUpdates = Prelude.Nothing,
       outputUpdates = Prelude.Nothing,
+      referenceDataSourceUpdates = Prelude.Nothing,
+      cloudWatchLoggingOptionUpdates = Prelude.Nothing,
       applicationCodeUpdate = Prelude.Nothing
     }
-
--- | Describes application reference data source updates.
-applicationUpdate_referenceDataSourceUpdates :: Lens.Lens' ApplicationUpdate (Prelude.Maybe [ReferenceDataSourceUpdate])
-applicationUpdate_referenceDataSourceUpdates = Lens.lens (\ApplicationUpdate' {referenceDataSourceUpdates} -> referenceDataSourceUpdates) (\s@ApplicationUpdate' {} a -> s {referenceDataSourceUpdates = a} :: ApplicationUpdate) Prelude.. Lens.mapping Lens.coerced
 
 -- | Describes application input configuration updates.
 applicationUpdate_inputUpdates :: Lens.Lens' ApplicationUpdate (Prelude.Maybe [InputUpdate])
 applicationUpdate_inputUpdates = Lens.lens (\ApplicationUpdate' {inputUpdates} -> inputUpdates) (\s@ApplicationUpdate' {} a -> s {inputUpdates = a} :: ApplicationUpdate) Prelude.. Lens.mapping Lens.coerced
 
--- | Describes application CloudWatch logging option updates.
-applicationUpdate_cloudWatchLoggingOptionUpdates :: Lens.Lens' ApplicationUpdate (Prelude.Maybe [CloudWatchLoggingOptionUpdate])
-applicationUpdate_cloudWatchLoggingOptionUpdates = Lens.lens (\ApplicationUpdate' {cloudWatchLoggingOptionUpdates} -> cloudWatchLoggingOptionUpdates) (\s@ApplicationUpdate' {} a -> s {cloudWatchLoggingOptionUpdates = a} :: ApplicationUpdate) Prelude.. Lens.mapping Lens.coerced
-
 -- | Describes application output configuration updates.
 applicationUpdate_outputUpdates :: Lens.Lens' ApplicationUpdate (Prelude.Maybe [OutputUpdate])
 applicationUpdate_outputUpdates = Lens.lens (\ApplicationUpdate' {outputUpdates} -> outputUpdates) (\s@ApplicationUpdate' {} a -> s {outputUpdates = a} :: ApplicationUpdate) Prelude.. Lens.mapping Lens.coerced
+
+-- | Describes application reference data source updates.
+applicationUpdate_referenceDataSourceUpdates :: Lens.Lens' ApplicationUpdate (Prelude.Maybe [ReferenceDataSourceUpdate])
+applicationUpdate_referenceDataSourceUpdates = Lens.lens (\ApplicationUpdate' {referenceDataSourceUpdates} -> referenceDataSourceUpdates) (\s@ApplicationUpdate' {} a -> s {referenceDataSourceUpdates = a} :: ApplicationUpdate) Prelude.. Lens.mapping Lens.coerced
+
+-- | Describes application CloudWatch logging option updates.
+applicationUpdate_cloudWatchLoggingOptionUpdates :: Lens.Lens' ApplicationUpdate (Prelude.Maybe [CloudWatchLoggingOptionUpdate])
+applicationUpdate_cloudWatchLoggingOptionUpdates = Lens.lens (\ApplicationUpdate' {cloudWatchLoggingOptionUpdates} -> cloudWatchLoggingOptionUpdates) (\s@ApplicationUpdate' {} a -> s {cloudWatchLoggingOptionUpdates = a} :: ApplicationUpdate) Prelude.. Lens.mapping Lens.coerced
 
 -- | Describes application code updates.
 applicationUpdate_applicationCodeUpdate :: Lens.Lens' ApplicationUpdate (Prelude.Maybe Prelude.Text)
@@ -96,31 +95,30 @@ applicationUpdate_applicationCodeUpdate = Lens.lens (\ApplicationUpdate' {applic
 
 instance Prelude.Hashable ApplicationUpdate where
   hashWithSalt _salt ApplicationUpdate' {..} =
-    _salt
-      `Prelude.hashWithSalt` referenceDataSourceUpdates
-      `Prelude.hashWithSalt` inputUpdates
-      `Prelude.hashWithSalt` cloudWatchLoggingOptionUpdates
+    _salt `Prelude.hashWithSalt` inputUpdates
       `Prelude.hashWithSalt` outputUpdates
+      `Prelude.hashWithSalt` referenceDataSourceUpdates
+      `Prelude.hashWithSalt` cloudWatchLoggingOptionUpdates
       `Prelude.hashWithSalt` applicationCodeUpdate
 
 instance Prelude.NFData ApplicationUpdate where
   rnf ApplicationUpdate' {..} =
-    Prelude.rnf referenceDataSourceUpdates
-      `Prelude.seq` Prelude.rnf inputUpdates
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionUpdates
+    Prelude.rnf inputUpdates
       `Prelude.seq` Prelude.rnf outputUpdates
+      `Prelude.seq` Prelude.rnf referenceDataSourceUpdates
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionUpdates
       `Prelude.seq` Prelude.rnf applicationCodeUpdate
 
 instance Core.ToJSON ApplicationUpdate where
   toJSON ApplicationUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ReferenceDataSourceUpdates" Core..=)
+          [ ("InputUpdates" Core..=) Prelude.<$> inputUpdates,
+            ("OutputUpdates" Core..=) Prelude.<$> outputUpdates,
+            ("ReferenceDataSourceUpdates" Core..=)
               Prelude.<$> referenceDataSourceUpdates,
-            ("InputUpdates" Core..=) Prelude.<$> inputUpdates,
             ("CloudWatchLoggingOptionUpdates" Core..=)
               Prelude.<$> cloudWatchLoggingOptionUpdates,
-            ("OutputUpdates" Core..=) Prelude.<$> outputUpdates,
             ("ApplicationCodeUpdate" Core..=)
               Prelude.<$> applicationCodeUpdate
           ]

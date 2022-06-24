@@ -14,61 +14,17 @@
 module Amazonka.KinesisAnalytics.Lens
   ( -- * Operations
 
-    -- ** AddApplicationOutput
-    addApplicationOutput_applicationName,
-    addApplicationOutput_currentApplicationVersionId,
-    addApplicationOutput_output,
-    addApplicationOutputResponse_httpStatus,
+    -- ** AddApplicationCloudWatchLoggingOption
+    addApplicationCloudWatchLoggingOption_applicationName,
+    addApplicationCloudWatchLoggingOption_currentApplicationVersionId,
+    addApplicationCloudWatchLoggingOption_cloudWatchLoggingOption,
+    addApplicationCloudWatchLoggingOptionResponse_httpStatus,
 
-    -- ** DiscoverInputSchema
-    discoverInputSchema_inputStartingPositionConfiguration,
-    discoverInputSchema_inputProcessingConfiguration,
-    discoverInputSchema_s3Configuration,
-    discoverInputSchema_resourceARN,
-    discoverInputSchema_roleARN,
-    discoverInputSchemaResponse_rawInputRecords,
-    discoverInputSchemaResponse_inputSchema,
-    discoverInputSchemaResponse_processedInputRecords,
-    discoverInputSchemaResponse_parsedInputRecords,
-    discoverInputSchemaResponse_httpStatus,
-
-    -- ** DescribeApplication
-    describeApplication_applicationName,
-    describeApplicationResponse_httpStatus,
-    describeApplicationResponse_applicationDetail,
-
-    -- ** StartApplication
-    startApplication_applicationName,
-    startApplication_inputConfigurations,
-    startApplicationResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DeleteApplicationReferenceDataSource
-    deleteApplicationReferenceDataSource_applicationName,
-    deleteApplicationReferenceDataSource_currentApplicationVersionId,
-    deleteApplicationReferenceDataSource_referenceId,
-    deleteApplicationReferenceDataSourceResponse_httpStatus,
-
-    -- ** DeleteApplication
-    deleteApplication_applicationName,
-    deleteApplication_createTimestamp,
-    deleteApplicationResponse_httpStatus,
-
-    -- ** UpdateApplication
-    updateApplication_applicationName,
-    updateApplication_currentApplicationVersionId,
-    updateApplication_applicationUpdate,
-    updateApplicationResponse_httpStatus,
-
-    -- ** DeleteApplicationCloudWatchLoggingOption
-    deleteApplicationCloudWatchLoggingOption_applicationName,
-    deleteApplicationCloudWatchLoggingOption_currentApplicationVersionId,
-    deleteApplicationCloudWatchLoggingOption_cloudWatchLoggingOptionId,
-    deleteApplicationCloudWatchLoggingOptionResponse_httpStatus,
+    -- ** AddApplicationInput
+    addApplicationInput_applicationName,
+    addApplicationInput_currentApplicationVersionId,
+    addApplicationInput_input,
+    addApplicationInputResponse_httpStatus,
 
     -- ** AddApplicationInputProcessingConfiguration
     addApplicationInputProcessingConfiguration_applicationName,
@@ -77,26 +33,11 @@ module Amazonka.KinesisAnalytics.Lens
     addApplicationInputProcessingConfiguration_inputProcessingConfiguration,
     addApplicationInputProcessingConfigurationResponse_httpStatus,
 
-    -- ** CreateApplication
-    createApplication_applicationDescription,
-    createApplication_inputs,
-    createApplication_cloudWatchLoggingOptions,
-    createApplication_outputs,
-    createApplication_applicationCode,
-    createApplication_tags,
-    createApplication_applicationName,
-    createApplicationResponse_httpStatus,
-    createApplicationResponse_applicationSummary,
-
-    -- ** DeleteApplicationOutput
-    deleteApplicationOutput_applicationName,
-    deleteApplicationOutput_currentApplicationVersionId,
-    deleteApplicationOutput_outputId,
-    deleteApplicationOutputResponse_httpStatus,
-
-    -- ** StopApplication
-    stopApplication_applicationName,
-    stopApplicationResponse_httpStatus,
+    -- ** AddApplicationOutput
+    addApplicationOutput_applicationName,
+    addApplicationOutput_currentApplicationVersionId,
+    addApplicationOutput_output,
+    addApplicationOutputResponse_httpStatus,
 
     -- ** AddApplicationReferenceDataSource
     addApplicationReferenceDataSource_applicationName,
@@ -104,22 +45,62 @@ module Amazonka.KinesisAnalytics.Lens
     addApplicationReferenceDataSource_referenceDataSource,
     addApplicationReferenceDataSourceResponse_httpStatus,
 
-    -- ** AddApplicationInput
-    addApplicationInput_applicationName,
-    addApplicationInput_currentApplicationVersionId,
-    addApplicationInput_input,
-    addApplicationInputResponse_httpStatus,
+    -- ** CreateApplication
+    createApplication_tags,
+    createApplication_applicationCode,
+    createApplication_cloudWatchLoggingOptions,
+    createApplication_outputs,
+    createApplication_inputs,
+    createApplication_applicationDescription,
+    createApplication_applicationName,
+    createApplicationResponse_httpStatus,
+    createApplicationResponse_applicationSummary,
 
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
+    -- ** DeleteApplication
+    deleteApplication_applicationName,
+    deleteApplication_createTimestamp,
+    deleteApplicationResponse_httpStatus,
 
-    -- ** AddApplicationCloudWatchLoggingOption
-    addApplicationCloudWatchLoggingOption_applicationName,
-    addApplicationCloudWatchLoggingOption_currentApplicationVersionId,
-    addApplicationCloudWatchLoggingOption_cloudWatchLoggingOption,
-    addApplicationCloudWatchLoggingOptionResponse_httpStatus,
+    -- ** DeleteApplicationCloudWatchLoggingOption
+    deleteApplicationCloudWatchLoggingOption_applicationName,
+    deleteApplicationCloudWatchLoggingOption_currentApplicationVersionId,
+    deleteApplicationCloudWatchLoggingOption_cloudWatchLoggingOptionId,
+    deleteApplicationCloudWatchLoggingOptionResponse_httpStatus,
+
+    -- ** DeleteApplicationInputProcessingConfiguration
+    deleteApplicationInputProcessingConfiguration_applicationName,
+    deleteApplicationInputProcessingConfiguration_currentApplicationVersionId,
+    deleteApplicationInputProcessingConfiguration_inputId,
+    deleteApplicationInputProcessingConfigurationResponse_httpStatus,
+
+    -- ** DeleteApplicationOutput
+    deleteApplicationOutput_applicationName,
+    deleteApplicationOutput_currentApplicationVersionId,
+    deleteApplicationOutput_outputId,
+    deleteApplicationOutputResponse_httpStatus,
+
+    -- ** DeleteApplicationReferenceDataSource
+    deleteApplicationReferenceDataSource_applicationName,
+    deleteApplicationReferenceDataSource_currentApplicationVersionId,
+    deleteApplicationReferenceDataSource_referenceId,
+    deleteApplicationReferenceDataSourceResponse_httpStatus,
+
+    -- ** DescribeApplication
+    describeApplication_applicationName,
+    describeApplicationResponse_httpStatus,
+    describeApplicationResponse_applicationDetail,
+
+    -- ** DiscoverInputSchema
+    discoverInputSchema_s3Configuration,
+    discoverInputSchema_roleARN,
+    discoverInputSchema_inputProcessingConfiguration,
+    discoverInputSchema_inputStartingPositionConfiguration,
+    discoverInputSchema_resourceARN,
+    discoverInputSchemaResponse_parsedInputRecords,
+    discoverInputSchemaResponse_processedInputRecords,
+    discoverInputSchemaResponse_rawInputRecords,
+    discoverInputSchemaResponse_inputSchema,
+    discoverInputSchemaResponse_httpStatus,
 
     -- ** ListApplications
     listApplications_limit,
@@ -128,28 +109,47 @@ module Amazonka.KinesisAnalytics.Lens
     listApplicationsResponse_applicationSummaries,
     listApplicationsResponse_hasMoreApplications,
 
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** StartApplication
+    startApplication_applicationName,
+    startApplication_inputConfigurations,
+    startApplicationResponse_httpStatus,
+
+    -- ** StopApplication
+    stopApplication_applicationName,
+    stopApplicationResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
     -- ** UntagResource
     untagResource_resourceARN,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** DeleteApplicationInputProcessingConfiguration
-    deleteApplicationInputProcessingConfiguration_applicationName,
-    deleteApplicationInputProcessingConfiguration_currentApplicationVersionId,
-    deleteApplicationInputProcessingConfiguration_inputId,
-    deleteApplicationInputProcessingConfigurationResponse_httpStatus,
+    -- ** UpdateApplication
+    updateApplication_applicationName,
+    updateApplication_currentApplicationVersionId,
+    updateApplication_applicationUpdate,
+    updateApplicationResponse_httpStatus,
 
     -- * Types
 
     -- ** ApplicationDetail
-    applicationDetail_applicationDescription,
-    applicationDetail_outputDescriptions,
-    applicationDetail_cloudWatchLoggingOptionDescriptions,
     applicationDetail_referenceDataSourceDescriptions,
     applicationDetail_inputDescriptions,
-    applicationDetail_applicationCode,
-    applicationDetail_createTimestamp,
     applicationDetail_lastUpdateTimestamp,
+    applicationDetail_createTimestamp,
+    applicationDetail_cloudWatchLoggingOptionDescriptions,
+    applicationDetail_applicationCode,
+    applicationDetail_applicationDescription,
+    applicationDetail_outputDescriptions,
     applicationDetail_applicationName,
     applicationDetail_applicationARN,
     applicationDetail_applicationStatus,
@@ -161,10 +161,10 @@ module Amazonka.KinesisAnalytics.Lens
     applicationSummary_applicationStatus,
 
     -- ** ApplicationUpdate
-    applicationUpdate_referenceDataSourceUpdates,
     applicationUpdate_inputUpdates,
-    applicationUpdate_cloudWatchLoggingOptionUpdates,
     applicationUpdate_outputUpdates,
+    applicationUpdate_referenceDataSourceUpdates,
+    applicationUpdate_cloudWatchLoggingOptionUpdates,
     applicationUpdate_applicationCodeUpdate,
 
     -- ** CSVMappingParameters
@@ -189,10 +189,10 @@ module Amazonka.KinesisAnalytics.Lens
     destinationSchema_recordFormatType,
 
     -- ** Input
-    input_inputParallelism,
-    input_inputProcessingConfiguration,
-    input_kinesisStreamsInput,
     input_kinesisFirehoseInput,
+    input_inputProcessingConfiguration,
+    input_inputParallelism,
+    input_kinesisStreamsInput,
     input_namePrefix,
     input_inputSchema,
 
@@ -201,23 +201,23 @@ module Amazonka.KinesisAnalytics.Lens
     inputConfiguration_inputStartingPositionConfiguration,
 
     -- ** InputDescription
-    inputDescription_inputStartingPositionConfiguration,
-    inputDescription_inputParallelism,
-    inputDescription_inputId,
     inputDescription_inAppStreamNames,
     inputDescription_kinesisFirehoseInputDescription,
-    inputDescription_inputSchema,
     inputDescription_kinesisStreamsInputDescription,
-    inputDescription_namePrefix,
+    inputDescription_inputParallelism,
     inputDescription_inputProcessingConfigurationDescription,
+    inputDescription_namePrefix,
+    inputDescription_inputStartingPositionConfiguration,
+    inputDescription_inputId,
+    inputDescription_inputSchema,
 
     -- ** InputLambdaProcessor
     inputLambdaProcessor_resourceARN,
     inputLambdaProcessor_roleARN,
 
     -- ** InputLambdaProcessorDescription
-    inputLambdaProcessorDescription_resourceARN,
     inputLambdaProcessorDescription_roleARN,
+    inputLambdaProcessorDescription_resourceARN,
 
     -- ** InputLambdaProcessorUpdate
     inputLambdaProcessorUpdate_roleARNUpdate,
@@ -239,20 +239,20 @@ module Amazonka.KinesisAnalytics.Lens
     inputProcessingConfigurationUpdate_inputLambdaProcessorUpdate,
 
     -- ** InputSchemaUpdate
-    inputSchemaUpdate_recordFormatUpdate,
     inputSchemaUpdate_recordEncodingUpdate,
     inputSchemaUpdate_recordColumnUpdates,
+    inputSchemaUpdate_recordFormatUpdate,
 
     -- ** InputStartingPositionConfiguration
     inputStartingPositionConfiguration_inputStartingPosition,
 
     -- ** InputUpdate
-    inputUpdate_inputProcessingConfigurationUpdate,
-    inputUpdate_kinesisStreamsInputUpdate,
     inputUpdate_inputParallelismUpdate,
+    inputUpdate_inputProcessingConfigurationUpdate,
     inputUpdate_namePrefixUpdate,
-    inputUpdate_inputSchemaUpdate,
     inputUpdate_kinesisFirehoseInputUpdate,
+    inputUpdate_inputSchemaUpdate,
+    inputUpdate_kinesisStreamsInputUpdate,
     inputUpdate_inputId,
 
     -- ** JSONMappingParameters
@@ -263,8 +263,8 @@ module Amazonka.KinesisAnalytics.Lens
     kinesisFirehoseInput_roleARN,
 
     -- ** KinesisFirehoseInputDescription
-    kinesisFirehoseInputDescription_resourceARN,
     kinesisFirehoseInputDescription_roleARN,
+    kinesisFirehoseInputDescription_resourceARN,
 
     -- ** KinesisFirehoseInputUpdate
     kinesisFirehoseInputUpdate_roleARNUpdate,
@@ -275,8 +275,8 @@ module Amazonka.KinesisAnalytics.Lens
     kinesisFirehoseOutput_roleARN,
 
     -- ** KinesisFirehoseOutputDescription
-    kinesisFirehoseOutputDescription_resourceARN,
     kinesisFirehoseOutputDescription_roleARN,
+    kinesisFirehoseOutputDescription_resourceARN,
 
     -- ** KinesisFirehoseOutputUpdate
     kinesisFirehoseOutputUpdate_roleARNUpdate,
@@ -287,8 +287,8 @@ module Amazonka.KinesisAnalytics.Lens
     kinesisStreamsInput_roleARN,
 
     -- ** KinesisStreamsInputDescription
-    kinesisStreamsInputDescription_resourceARN,
     kinesisStreamsInputDescription_roleARN,
+    kinesisStreamsInputDescription_resourceARN,
 
     -- ** KinesisStreamsInputUpdate
     kinesisStreamsInputUpdate_roleARNUpdate,
@@ -299,8 +299,8 @@ module Amazonka.KinesisAnalytics.Lens
     kinesisStreamsOutput_roleARN,
 
     -- ** KinesisStreamsOutputDescription
-    kinesisStreamsOutputDescription_resourceARN,
     kinesisStreamsOutputDescription_roleARN,
+    kinesisStreamsOutputDescription_resourceARN,
 
     -- ** KinesisStreamsOutputUpdate
     kinesisStreamsOutputUpdate_roleARNUpdate,
@@ -311,8 +311,8 @@ module Amazonka.KinesisAnalytics.Lens
     lambdaOutput_roleARN,
 
     -- ** LambdaOutputDescription
-    lambdaOutputDescription_resourceARN,
     lambdaOutputDescription_roleARN,
+    lambdaOutputDescription_resourceARN,
 
     -- ** LambdaOutputUpdate
     lambdaOutputUpdate_roleARNUpdate,
@@ -323,26 +323,26 @@ module Amazonka.KinesisAnalytics.Lens
     mappingParameters_jSONMappingParameters,
 
     -- ** Output
+    output_kinesisFirehoseOutput,
     output_lambdaOutput,
     output_kinesisStreamsOutput,
-    output_kinesisFirehoseOutput,
     output_name,
     output_destinationSchema,
 
     -- ** OutputDescription
-    outputDescription_outputId,
-    outputDescription_destinationSchema,
-    outputDescription_kinesisFirehoseOutputDescription,
-    outputDescription_kinesisStreamsOutputDescription,
     outputDescription_name,
+    outputDescription_outputId,
+    outputDescription_kinesisStreamsOutputDescription,
     outputDescription_lambdaOutputDescription,
+    outputDescription_kinesisFirehoseOutputDescription,
+    outputDescription_destinationSchema,
 
     -- ** OutputUpdate
-    outputUpdate_kinesisStreamsOutputUpdate,
+    outputUpdate_lambdaOutputUpdate,
+    outputUpdate_nameUpdate,
     outputUpdate_destinationSchemaUpdate,
     outputUpdate_kinesisFirehoseOutputUpdate,
-    outputUpdate_nameUpdate,
-    outputUpdate_lambdaOutputUpdate,
+    outputUpdate_kinesisStreamsOutputUpdate,
     outputUpdate_outputId,
 
     -- ** RecordColumn
@@ -367,8 +367,8 @@ module Amazonka.KinesisAnalytics.Lens
 
     -- ** ReferenceDataSourceUpdate
     referenceDataSourceUpdate_tableNameUpdate,
-    referenceDataSourceUpdate_s3ReferenceDataSourceUpdate,
     referenceDataSourceUpdate_referenceSchemaUpdate,
+    referenceDataSourceUpdate_s3ReferenceDataSourceUpdate,
     referenceDataSourceUpdate_referenceId,
 
     -- ** S3Configuration
@@ -387,9 +387,9 @@ module Amazonka.KinesisAnalytics.Lens
     s3ReferenceDataSourceDescription_referenceRoleARN,
 
     -- ** S3ReferenceDataSourceUpdate
+    s3ReferenceDataSourceUpdate_referenceRoleARNUpdate,
     s3ReferenceDataSourceUpdate_bucketARNUpdate,
     s3ReferenceDataSourceUpdate_fileKeyUpdate,
-    s3ReferenceDataSourceUpdate_referenceRoleARNUpdate,
 
     -- ** SourceSchema
     sourceSchema_recordEncoding,

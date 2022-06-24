@@ -19,20 +19,20 @@ module Amazonka.Account
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
 
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters
@@ -46,17 +46,17 @@ module Amazonka.Account
     DeleteAlternateContactResponse (DeleteAlternateContactResponse'),
     newDeleteAlternateContactResponse,
 
-    -- ** PutAlternateContact
-    PutAlternateContact (PutAlternateContact'),
-    newPutAlternateContact,
-    PutAlternateContactResponse (PutAlternateContactResponse'),
-    newPutAlternateContactResponse,
-
     -- ** GetAlternateContact
     GetAlternateContact (GetAlternateContact'),
     newGetAlternateContact,
     GetAlternateContactResponse (GetAlternateContactResponse'),
     newGetAlternateContactResponse,
+
+    -- ** PutAlternateContact
+    PutAlternateContact (PutAlternateContact'),
+    newPutAlternateContact,
+    PutAlternateContactResponse (PutAlternateContactResponse'),
+    newPutAlternateContactResponse,
 
     -- * Types
 

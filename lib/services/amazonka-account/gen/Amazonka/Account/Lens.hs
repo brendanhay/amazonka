@@ -18,6 +18,12 @@ module Amazonka.Account.Lens
     deleteAlternateContact_accountId,
     deleteAlternateContact_alternateContactType,
 
+    -- ** GetAlternateContact
+    getAlternateContact_accountId,
+    getAlternateContact_alternateContactType,
+    getAlternateContactResponse_alternateContact,
+    getAlternateContactResponse_httpStatus,
+
     -- ** PutAlternateContact
     putAlternateContact_accountId,
     putAlternateContact_alternateContactType,
@@ -26,20 +32,14 @@ module Amazonka.Account.Lens
     putAlternateContact_phoneNumber,
     putAlternateContact_title,
 
-    -- ** GetAlternateContact
-    getAlternateContact_accountId,
-    getAlternateContact_alternateContactType,
-    getAlternateContactResponse_alternateContact,
-    getAlternateContactResponse_httpStatus,
-
     -- * Types
 
     -- ** AlternateContact
-    alternateContact_alternateContactType,
-    alternateContact_phoneNumber,
     alternateContact_name,
-    alternateContact_emailAddress,
+    alternateContact_alternateContactType,
     alternateContact_title,
+    alternateContact_phoneNumber,
+    alternateContact_emailAddress,
   )
 where
 

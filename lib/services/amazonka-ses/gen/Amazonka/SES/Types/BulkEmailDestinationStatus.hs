@@ -29,7 +29,10 @@ import Amazonka.SES.Types.BulkEmailStatus
 --
 -- /See:/ 'newBulkEmailDestinationStatus' smart constructor.
 data BulkEmailDestinationStatus = BulkEmailDestinationStatus'
-  { -- | The status of a message sent using the @SendBulkTemplatedEmail@
+  { -- | The unique message identifier returned from the @SendBulkTemplatedEmail@
+    -- operation.
+    messageId :: Prelude.Maybe Prelude.Text,
+    -- | The status of a message sent using the @SendBulkTemplatedEmail@
     -- operation.
     --
     -- Possible values for this parameter include:
@@ -81,10 +84,7 @@ data BulkEmailDestinationStatus = BulkEmailDestinationStatus'
     status :: Prelude.Maybe BulkEmailStatus,
     -- | A description of an error that prevented a message being sent using the
     -- @SendBulkTemplatedEmail@ operation.
-    error :: Prelude.Maybe Prelude.Text,
-    -- | The unique message identifier returned from the @SendBulkTemplatedEmail@
-    -- operation.
-    messageId :: Prelude.Maybe Prelude.Text
+    error :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,6 +95,9 @@ data BulkEmailDestinationStatus = BulkEmailDestinationStatus'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'messageId', 'bulkEmailDestinationStatus_messageId' - The unique message identifier returned from the @SendBulkTemplatedEmail@
+-- operation.
 --
 -- 'status', 'bulkEmailDestinationStatus_status' - The status of a message sent using the @SendBulkTemplatedEmail@
 -- operation.
@@ -148,18 +151,20 @@ data BulkEmailDestinationStatus = BulkEmailDestinationStatus'
 --
 -- 'error', 'bulkEmailDestinationStatus_error' - A description of an error that prevented a message being sent using the
 -- @SendBulkTemplatedEmail@ operation.
---
--- 'messageId', 'bulkEmailDestinationStatus_messageId' - The unique message identifier returned from the @SendBulkTemplatedEmail@
--- operation.
 newBulkEmailDestinationStatus ::
   BulkEmailDestinationStatus
 newBulkEmailDestinationStatus =
   BulkEmailDestinationStatus'
-    { status =
+    { messageId =
         Prelude.Nothing,
-      error = Prelude.Nothing,
-      messageId = Prelude.Nothing
+      status = Prelude.Nothing,
+      error = Prelude.Nothing
     }
+
+-- | The unique message identifier returned from the @SendBulkTemplatedEmail@
+-- operation.
+bulkEmailDestinationStatus_messageId :: Lens.Lens' BulkEmailDestinationStatus (Prelude.Maybe Prelude.Text)
+bulkEmailDestinationStatus_messageId = Lens.lens (\BulkEmailDestinationStatus' {messageId} -> messageId) (\s@BulkEmailDestinationStatus' {} a -> s {messageId = a} :: BulkEmailDestinationStatus)
 
 -- | The status of a message sent using the @SendBulkTemplatedEmail@
 -- operation.
@@ -218,26 +223,21 @@ bulkEmailDestinationStatus_status = Lens.lens (\BulkEmailDestinationStatus' {sta
 bulkEmailDestinationStatus_error :: Lens.Lens' BulkEmailDestinationStatus (Prelude.Maybe Prelude.Text)
 bulkEmailDestinationStatus_error = Lens.lens (\BulkEmailDestinationStatus' {error} -> error) (\s@BulkEmailDestinationStatus' {} a -> s {error = a} :: BulkEmailDestinationStatus)
 
--- | The unique message identifier returned from the @SendBulkTemplatedEmail@
--- operation.
-bulkEmailDestinationStatus_messageId :: Lens.Lens' BulkEmailDestinationStatus (Prelude.Maybe Prelude.Text)
-bulkEmailDestinationStatus_messageId = Lens.lens (\BulkEmailDestinationStatus' {messageId} -> messageId) (\s@BulkEmailDestinationStatus' {} a -> s {messageId = a} :: BulkEmailDestinationStatus)
-
 instance Core.FromXML BulkEmailDestinationStatus where
   parseXML x =
     BulkEmailDestinationStatus'
-      Prelude.<$> (x Core..@? "Status")
+      Prelude.<$> (x Core..@? "MessageId")
+      Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "Error")
-      Prelude.<*> (x Core..@? "MessageId")
 
 instance Prelude.Hashable BulkEmailDestinationStatus where
   hashWithSalt _salt BulkEmailDestinationStatus' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` error
-      `Prelude.hashWithSalt` messageId
 
 instance Prelude.NFData BulkEmailDestinationStatus where
   rnf BulkEmailDestinationStatus' {..} =
-    Prelude.rnf status
+    Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf messageId

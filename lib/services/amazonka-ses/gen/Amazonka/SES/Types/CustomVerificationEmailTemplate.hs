@@ -27,18 +27,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomVerificationEmailTemplate' smart constructor.
 data CustomVerificationEmailTemplate = CustomVerificationEmailTemplate'
-  { -- | The email address that the custom verification email is sent from.
-    fromEmailAddress :: Prelude.Maybe Prelude.Text,
-    -- | The name of the custom verification email template.
+  { -- | The name of the custom verification email template.
     templateName :: Prelude.Maybe Prelude.Text,
     -- | The URL that the recipient of the verification email is sent to if his
-    -- or her address is not successfully verified.
-    failureRedirectionURL :: Prelude.Maybe Prelude.Text,
+    -- or her address is successfully verified.
+    successRedirectionURL :: Prelude.Maybe Prelude.Text,
+    -- | The email address that the custom verification email is sent from.
+    fromEmailAddress :: Prelude.Maybe Prelude.Text,
     -- | The subject line of the custom verification email.
     templateSubject :: Prelude.Maybe Prelude.Text,
     -- | The URL that the recipient of the verification email is sent to if his
-    -- or her address is successfully verified.
-    successRedirectionURL :: Prelude.Maybe Prelude.Text
+    -- or her address is not successfully verified.
+    failureRedirectionURL :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,59 +50,59 @@ data CustomVerificationEmailTemplate = CustomVerificationEmailTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fromEmailAddress', 'customVerificationEmailTemplate_fromEmailAddress' - The email address that the custom verification email is sent from.
---
 -- 'templateName', 'customVerificationEmailTemplate_templateName' - The name of the custom verification email template.
---
--- 'failureRedirectionURL', 'customVerificationEmailTemplate_failureRedirectionURL' - The URL that the recipient of the verification email is sent to if his
--- or her address is not successfully verified.
---
--- 'templateSubject', 'customVerificationEmailTemplate_templateSubject' - The subject line of the custom verification email.
 --
 -- 'successRedirectionURL', 'customVerificationEmailTemplate_successRedirectionURL' - The URL that the recipient of the verification email is sent to if his
 -- or her address is successfully verified.
+--
+-- 'fromEmailAddress', 'customVerificationEmailTemplate_fromEmailAddress' - The email address that the custom verification email is sent from.
+--
+-- 'templateSubject', 'customVerificationEmailTemplate_templateSubject' - The subject line of the custom verification email.
+--
+-- 'failureRedirectionURL', 'customVerificationEmailTemplate_failureRedirectionURL' - The URL that the recipient of the verification email is sent to if his
+-- or her address is not successfully verified.
 newCustomVerificationEmailTemplate ::
   CustomVerificationEmailTemplate
 newCustomVerificationEmailTemplate =
   CustomVerificationEmailTemplate'
-    { fromEmailAddress =
+    { templateName =
         Prelude.Nothing,
-      templateName = Prelude.Nothing,
-      failureRedirectionURL = Prelude.Nothing,
+      successRedirectionURL = Prelude.Nothing,
+      fromEmailAddress = Prelude.Nothing,
       templateSubject = Prelude.Nothing,
-      successRedirectionURL = Prelude.Nothing
+      failureRedirectionURL = Prelude.Nothing
     }
-
--- | The email address that the custom verification email is sent from.
-customVerificationEmailTemplate_fromEmailAddress :: Lens.Lens' CustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
-customVerificationEmailTemplate_fromEmailAddress = Lens.lens (\CustomVerificationEmailTemplate' {fromEmailAddress} -> fromEmailAddress) (\s@CustomVerificationEmailTemplate' {} a -> s {fromEmailAddress = a} :: CustomVerificationEmailTemplate)
 
 -- | The name of the custom verification email template.
 customVerificationEmailTemplate_templateName :: Lens.Lens' CustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
 customVerificationEmailTemplate_templateName = Lens.lens (\CustomVerificationEmailTemplate' {templateName} -> templateName) (\s@CustomVerificationEmailTemplate' {} a -> s {templateName = a} :: CustomVerificationEmailTemplate)
 
 -- | The URL that the recipient of the verification email is sent to if his
--- or her address is not successfully verified.
-customVerificationEmailTemplate_failureRedirectionURL :: Lens.Lens' CustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
-customVerificationEmailTemplate_failureRedirectionURL = Lens.lens (\CustomVerificationEmailTemplate' {failureRedirectionURL} -> failureRedirectionURL) (\s@CustomVerificationEmailTemplate' {} a -> s {failureRedirectionURL = a} :: CustomVerificationEmailTemplate)
+-- or her address is successfully verified.
+customVerificationEmailTemplate_successRedirectionURL :: Lens.Lens' CustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
+customVerificationEmailTemplate_successRedirectionURL = Lens.lens (\CustomVerificationEmailTemplate' {successRedirectionURL} -> successRedirectionURL) (\s@CustomVerificationEmailTemplate' {} a -> s {successRedirectionURL = a} :: CustomVerificationEmailTemplate)
+
+-- | The email address that the custom verification email is sent from.
+customVerificationEmailTemplate_fromEmailAddress :: Lens.Lens' CustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
+customVerificationEmailTemplate_fromEmailAddress = Lens.lens (\CustomVerificationEmailTemplate' {fromEmailAddress} -> fromEmailAddress) (\s@CustomVerificationEmailTemplate' {} a -> s {fromEmailAddress = a} :: CustomVerificationEmailTemplate)
 
 -- | The subject line of the custom verification email.
 customVerificationEmailTemplate_templateSubject :: Lens.Lens' CustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
 customVerificationEmailTemplate_templateSubject = Lens.lens (\CustomVerificationEmailTemplate' {templateSubject} -> templateSubject) (\s@CustomVerificationEmailTemplate' {} a -> s {templateSubject = a} :: CustomVerificationEmailTemplate)
 
 -- | The URL that the recipient of the verification email is sent to if his
--- or her address is successfully verified.
-customVerificationEmailTemplate_successRedirectionURL :: Lens.Lens' CustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
-customVerificationEmailTemplate_successRedirectionURL = Lens.lens (\CustomVerificationEmailTemplate' {successRedirectionURL} -> successRedirectionURL) (\s@CustomVerificationEmailTemplate' {} a -> s {successRedirectionURL = a} :: CustomVerificationEmailTemplate)
+-- or her address is not successfully verified.
+customVerificationEmailTemplate_failureRedirectionURL :: Lens.Lens' CustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
+customVerificationEmailTemplate_failureRedirectionURL = Lens.lens (\CustomVerificationEmailTemplate' {failureRedirectionURL} -> failureRedirectionURL) (\s@CustomVerificationEmailTemplate' {} a -> s {failureRedirectionURL = a} :: CustomVerificationEmailTemplate)
 
 instance Core.FromXML CustomVerificationEmailTemplate where
   parseXML x =
     CustomVerificationEmailTemplate'
-      Prelude.<$> (x Core..@? "FromEmailAddress")
-      Prelude.<*> (x Core..@? "TemplateName")
-      Prelude.<*> (x Core..@? "FailureRedirectionURL")
-      Prelude.<*> (x Core..@? "TemplateSubject")
+      Prelude.<$> (x Core..@? "TemplateName")
       Prelude.<*> (x Core..@? "SuccessRedirectionURL")
+      Prelude.<*> (x Core..@? "FromEmailAddress")
+      Prelude.<*> (x Core..@? "TemplateSubject")
+      Prelude.<*> (x Core..@? "FailureRedirectionURL")
 
 instance
   Prelude.Hashable
@@ -111,19 +111,19 @@ instance
   hashWithSalt
     _salt
     CustomVerificationEmailTemplate' {..} =
-      _salt `Prelude.hashWithSalt` fromEmailAddress
-        `Prelude.hashWithSalt` templateName
-        `Prelude.hashWithSalt` failureRedirectionURL
-        `Prelude.hashWithSalt` templateSubject
+      _salt `Prelude.hashWithSalt` templateName
         `Prelude.hashWithSalt` successRedirectionURL
+        `Prelude.hashWithSalt` fromEmailAddress
+        `Prelude.hashWithSalt` templateSubject
+        `Prelude.hashWithSalt` failureRedirectionURL
 
 instance
   Prelude.NFData
     CustomVerificationEmailTemplate
   where
   rnf CustomVerificationEmailTemplate' {..} =
-    Prelude.rnf fromEmailAddress
-      `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf failureRedirectionURL
-      `Prelude.seq` Prelude.rnf templateSubject
+    Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf successRedirectionURL
+      `Prelude.seq` Prelude.rnf fromEmailAddress
+      `Prelude.seq` Prelude.rnf templateSubject
+      `Prelude.seq` Prelude.rnf failureRedirectionURL

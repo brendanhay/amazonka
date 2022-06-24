@@ -14,301 +14,24 @@
 module Amazonka.SES.Lens
   ( -- * Operations
 
-    -- ** CreateTemplate
-    createTemplate_template,
-    createTemplateResponse_httpStatus,
+    -- ** CloneReceiptRuleSet
+    cloneReceiptRuleSet_ruleSetName,
+    cloneReceiptRuleSet_originalRuleSetName,
+    cloneReceiptRuleSetResponse_httpStatus,
 
-    -- ** DeleteConfigurationSetTrackingOptions
-    deleteConfigurationSetTrackingOptions_configurationSetName,
-    deleteConfigurationSetTrackingOptionsResponse_httpStatus,
+    -- ** CreateConfigurationSet
+    createConfigurationSet_configurationSet,
+    createConfigurationSetResponse_httpStatus,
 
-    -- ** UpdateConfigurationSetTrackingOptions
-    updateConfigurationSetTrackingOptions_configurationSetName,
-    updateConfigurationSetTrackingOptions_trackingOptions,
-    updateConfigurationSetTrackingOptionsResponse_httpStatus,
+    -- ** CreateConfigurationSetEventDestination
+    createConfigurationSetEventDestination_configurationSetName,
+    createConfigurationSetEventDestination_eventDestination,
+    createConfigurationSetEventDestinationResponse_httpStatus,
 
-    -- ** CreateReceiptRuleSet
-    createReceiptRuleSet_ruleSetName,
-    createReceiptRuleSetResponse_httpStatus,
-
-    -- ** SetIdentityHeadersInNotificationsEnabled
-    setIdentityHeadersInNotificationsEnabled_identity,
-    setIdentityHeadersInNotificationsEnabled_notificationType,
-    setIdentityHeadersInNotificationsEnabled_enabled,
-    setIdentityHeadersInNotificationsEnabledResponse_httpStatus,
-
-    -- ** GetSendQuota
-    getSendQuotaResponse_maxSendRate,
-    getSendQuotaResponse_sentLast24Hours,
-    getSendQuotaResponse_max24HourSend,
-    getSendQuotaResponse_httpStatus,
-
-    -- ** PutConfigurationSetDeliveryOptions
-    putConfigurationSetDeliveryOptions_deliveryOptions,
-    putConfigurationSetDeliveryOptions_configurationSetName,
-    putConfigurationSetDeliveryOptionsResponse_httpStatus,
-
-    -- ** DescribeConfigurationSet
-    describeConfigurationSet_configurationSetAttributeNames,
-    describeConfigurationSet_configurationSetName,
-    describeConfigurationSetResponse_deliveryOptions,
-    describeConfigurationSetResponse_trackingOptions,
-    describeConfigurationSetResponse_configurationSet,
-    describeConfigurationSetResponse_reputationOptions,
-    describeConfigurationSetResponse_eventDestinations,
-    describeConfigurationSetResponse_httpStatus,
-
-    -- ** PutIdentityPolicy
-    putIdentityPolicy_identity,
-    putIdentityPolicy_policyName,
-    putIdentityPolicy_policy,
-    putIdentityPolicyResponse_httpStatus,
-
-    -- ** DeleteCustomVerificationEmailTemplate
-    deleteCustomVerificationEmailTemplate_templateName,
-
-    -- ** DeleteIdentityPolicy
-    deleteIdentityPolicy_identity,
-    deleteIdentityPolicy_policyName,
-    deleteIdentityPolicyResponse_httpStatus,
-
-    -- ** UpdateCustomVerificationEmailTemplate
-    updateCustomVerificationEmailTemplate_fromEmailAddress,
-    updateCustomVerificationEmailTemplate_failureRedirectionURL,
-    updateCustomVerificationEmailTemplate_templateSubject,
-    updateCustomVerificationEmailTemplate_successRedirectionURL,
-    updateCustomVerificationEmailTemplate_templateContent,
-    updateCustomVerificationEmailTemplate_templateName,
-
-    -- ** SendCustomVerificationEmail
-    sendCustomVerificationEmail_configurationSetName,
-    sendCustomVerificationEmail_emailAddress,
-    sendCustomVerificationEmail_templateName,
-    sendCustomVerificationEmailResponse_messageId,
-    sendCustomVerificationEmailResponse_httpStatus,
-
-    -- ** GetIdentityNotificationAttributes
-    getIdentityNotificationAttributes_identities,
-    getIdentityNotificationAttributesResponse_httpStatus,
-    getIdentityNotificationAttributesResponse_notificationAttributes,
-
-    -- ** UpdateConfigurationSetReputationMetricsEnabled
-    updateConfigurationSetReputationMetricsEnabled_configurationSetName,
-    updateConfigurationSetReputationMetricsEnabled_enabled,
-
-    -- ** ListIdentityPolicies
-    listIdentityPolicies_identity,
-    listIdentityPoliciesResponse_httpStatus,
-    listIdentityPoliciesResponse_policyNames,
-
-    -- ** SetIdentityDkimEnabled
-    setIdentityDkimEnabled_identity,
-    setIdentityDkimEnabled_dkimEnabled,
-    setIdentityDkimEnabledResponse_httpStatus,
-
-    -- ** ListReceiptFilters
-    listReceiptFiltersResponse_filters,
-    listReceiptFiltersResponse_httpStatus,
-
-    -- ** DescribeReceiptRuleSet
-    describeReceiptRuleSet_ruleSetName,
-    describeReceiptRuleSetResponse_rules,
-    describeReceiptRuleSetResponse_metadata,
-    describeReceiptRuleSetResponse_httpStatus,
-
-    -- ** GetIdentityMailFromDomainAttributes
-    getIdentityMailFromDomainAttributes_identities,
-    getIdentityMailFromDomainAttributesResponse_httpStatus,
-    getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes,
-
-    -- ** CreateReceiptFilter
-    createReceiptFilter_filter,
-    createReceiptFilterResponse_httpStatus,
-
-    -- ** UpdateConfigurationSetEventDestination
-    updateConfigurationSetEventDestination_configurationSetName,
-    updateConfigurationSetEventDestination_eventDestination,
-    updateConfigurationSetEventDestinationResponse_httpStatus,
-
-    -- ** DeleteConfigurationSetEventDestination
-    deleteConfigurationSetEventDestination_configurationSetName,
-    deleteConfigurationSetEventDestination_eventDestinationName,
-    deleteConfigurationSetEventDestinationResponse_httpStatus,
-
-    -- ** SetIdentityMailFromDomain
-    setIdentityMailFromDomain_mailFromDomain,
-    setIdentityMailFromDomain_behaviorOnMXFailure,
-    setIdentityMailFromDomain_identity,
-    setIdentityMailFromDomainResponse_httpStatus,
-
-    -- ** SetIdentityFeedbackForwardingEnabled
-    setIdentityFeedbackForwardingEnabled_identity,
-    setIdentityFeedbackForwardingEnabled_forwardingEnabled,
-    setIdentityFeedbackForwardingEnabledResponse_httpStatus,
-
-    -- ** ListConfigurationSets
-    listConfigurationSets_nextToken,
-    listConfigurationSets_maxItems,
-    listConfigurationSetsResponse_configurationSets,
-    listConfigurationSetsResponse_nextToken,
-    listConfigurationSetsResponse_httpStatus,
-
-    -- ** DeleteConfigurationSet
-    deleteConfigurationSet_configurationSetName,
-    deleteConfigurationSetResponse_httpStatus,
-
-    -- ** GetIdentityVerificationAttributes
-    getIdentityVerificationAttributes_identities,
-    getIdentityVerificationAttributesResponse_httpStatus,
-    getIdentityVerificationAttributesResponse_verificationAttributes,
-
-    -- ** GetIdentityPolicies
-    getIdentityPolicies_identity,
-    getIdentityPolicies_policyNames,
-    getIdentityPoliciesResponse_httpStatus,
-    getIdentityPoliciesResponse_policies,
-
-    -- ** ListTemplates
-    listTemplates_nextToken,
-    listTemplates_maxItems,
-    listTemplatesResponse_templatesMetadata,
-    listTemplatesResponse_nextToken,
-    listTemplatesResponse_httpStatus,
-
-    -- ** VerifyDomainIdentity
-    verifyDomainIdentity_domain,
-    verifyDomainIdentityResponse_httpStatus,
-    verifyDomainIdentityResponse_verificationToken,
-
-    -- ** UpdateTemplate
-    updateTemplate_template,
-    updateTemplateResponse_httpStatus,
-
-    -- ** DeleteTemplate
-    deleteTemplate_templateName,
-    deleteTemplateResponse_httpStatus,
-
-    -- ** ReorderReceiptRuleSet
-    reorderReceiptRuleSet_ruleSetName,
-    reorderReceiptRuleSet_ruleNames,
-    reorderReceiptRuleSetResponse_httpStatus,
-
-    -- ** ListReceiptRuleSets
-    listReceiptRuleSets_nextToken,
-    listReceiptRuleSetsResponse_ruleSets,
-    listReceiptRuleSetsResponse_nextToken,
-    listReceiptRuleSetsResponse_httpStatus,
-
-    -- ** DeleteReceiptRuleSet
-    deleteReceiptRuleSet_ruleSetName,
-    deleteReceiptRuleSetResponse_httpStatus,
-
-    -- ** SetReceiptRulePosition
-    setReceiptRulePosition_after,
-    setReceiptRulePosition_ruleSetName,
-    setReceiptRulePosition_ruleName,
-    setReceiptRulePositionResponse_httpStatus,
-
-    -- ** SendBounce
-    sendBounce_messageDsn,
-    sendBounce_explanation,
-    sendBounce_bounceSenderArn,
-    sendBounce_originalMessageId,
-    sendBounce_bounceSender,
-    sendBounce_bouncedRecipientInfoList,
-    sendBounceResponse_messageId,
-    sendBounceResponse_httpStatus,
-
-    -- ** GetIdentityDkimAttributes
-    getIdentityDkimAttributes_identities,
-    getIdentityDkimAttributesResponse_httpStatus,
-    getIdentityDkimAttributesResponse_dkimAttributes,
-
-    -- ** SendTemplatedEmail
-    sendTemplatedEmail_returnPath,
-    sendTemplatedEmail_configurationSetName,
-    sendTemplatedEmail_sourceArn,
-    sendTemplatedEmail_returnPathArn,
-    sendTemplatedEmail_templateArn,
-    sendTemplatedEmail_tags,
-    sendTemplatedEmail_replyToAddresses,
-    sendTemplatedEmail_source,
-    sendTemplatedEmail_destination,
-    sendTemplatedEmail_template,
-    sendTemplatedEmail_templateData,
-    sendTemplatedEmailResponse_httpStatus,
-    sendTemplatedEmailResponse_messageId,
-
-    -- ** VerifyDomainDkim
-    verifyDomainDkim_domain,
-    verifyDomainDkimResponse_httpStatus,
-    verifyDomainDkimResponse_dkimTokens,
-
-    -- ** TestRenderTemplate
-    testRenderTemplate_templateName,
-    testRenderTemplate_templateData,
-    testRenderTemplateResponse_renderedTemplate,
-    testRenderTemplateResponse_httpStatus,
-
-    -- ** SendBulkTemplatedEmail
-    sendBulkTemplatedEmail_returnPath,
-    sendBulkTemplatedEmail_configurationSetName,
-    sendBulkTemplatedEmail_sourceArn,
-    sendBulkTemplatedEmail_defaultTags,
-    sendBulkTemplatedEmail_returnPathArn,
-    sendBulkTemplatedEmail_templateArn,
-    sendBulkTemplatedEmail_defaultTemplateData,
-    sendBulkTemplatedEmail_replyToAddresses,
-    sendBulkTemplatedEmail_source,
-    sendBulkTemplatedEmail_template,
-    sendBulkTemplatedEmail_destinations,
-    sendBulkTemplatedEmailResponse_httpStatus,
-    sendBulkTemplatedEmailResponse_status,
-
-    -- ** SendRawEmail
-    sendRawEmail_configurationSetName,
-    sendRawEmail_sourceArn,
-    sendRawEmail_destinations,
-    sendRawEmail_returnPathArn,
-    sendRawEmail_source,
-    sendRawEmail_fromArn,
-    sendRawEmail_tags,
-    sendRawEmail_rawMessage,
-    sendRawEmailResponse_httpStatus,
-    sendRawEmailResponse_messageId,
-
-    -- ** GetSendStatistics
-    getSendStatisticsResponse_sendDataPoints,
-    getSendStatisticsResponse_httpStatus,
-
-    -- ** ListCustomVerificationEmailTemplates
-    listCustomVerificationEmailTemplates_nextToken,
-    listCustomVerificationEmailTemplates_maxResults,
-    listCustomVerificationEmailTemplatesResponse_nextToken,
-    listCustomVerificationEmailTemplatesResponse_customVerificationEmailTemplates,
-    listCustomVerificationEmailTemplatesResponse_httpStatus,
-
-    -- ** DeleteIdentity
-    deleteIdentity_identity,
-    deleteIdentityResponse_httpStatus,
-
-    -- ** DescribeReceiptRule
-    describeReceiptRule_ruleSetName,
-    describeReceiptRule_ruleName,
-    describeReceiptRuleResponse_rule,
-    describeReceiptRuleResponse_httpStatus,
-
-    -- ** ListIdentities
-    listIdentities_identityType,
-    listIdentities_nextToken,
-    listIdentities_maxItems,
-    listIdentitiesResponse_nextToken,
-    listIdentitiesResponse_httpStatus,
-    listIdentitiesResponse_identities,
-
-    -- ** UpdateConfigurationSetSendingEnabled
-    updateConfigurationSetSendingEnabled_configurationSetName,
-    updateConfigurationSetSendingEnabled_enabled,
+    -- ** CreateConfigurationSetTrackingOptions
+    createConfigurationSetTrackingOptions_configurationSetName,
+    createConfigurationSetTrackingOptions_trackingOptions,
+    createConfigurationSetTrackingOptionsResponse_httpStatus,
 
     -- ** CreateCustomVerificationEmailTemplate
     createCustomVerificationEmailTemplate_templateName,
@@ -318,76 +41,9 @@ module Amazonka.SES.Lens
     createCustomVerificationEmailTemplate_successRedirectionURL,
     createCustomVerificationEmailTemplate_failureRedirectionURL,
 
-    -- ** VerifyEmailIdentity
-    verifyEmailIdentity_emailAddress,
-    verifyEmailIdentityResponse_httpStatus,
-
-    -- ** VerifyEmailAddress
-    verifyEmailAddress_emailAddress,
-
-    -- ** DeleteVerifiedEmailAddress
-    deleteVerifiedEmailAddress_emailAddress,
-
-    -- ** DeleteReceiptFilter
-    deleteReceiptFilter_filterName,
-    deleteReceiptFilterResponse_httpStatus,
-
-    -- ** ListVerifiedEmailAddresses
-    listVerifiedEmailAddressesResponse_verifiedEmailAddresses,
-    listVerifiedEmailAddressesResponse_httpStatus,
-
-    -- ** GetCustomVerificationEmailTemplate
-    getCustomVerificationEmailTemplate_templateName,
-    getCustomVerificationEmailTemplateResponse_fromEmailAddress,
-    getCustomVerificationEmailTemplateResponse_templateName,
-    getCustomVerificationEmailTemplateResponse_failureRedirectionURL,
-    getCustomVerificationEmailTemplateResponse_templateSubject,
-    getCustomVerificationEmailTemplateResponse_successRedirectionURL,
-    getCustomVerificationEmailTemplateResponse_templateContent,
-    getCustomVerificationEmailTemplateResponse_httpStatus,
-
-    -- ** SetIdentityNotificationTopic
-    setIdentityNotificationTopic_snsTopic,
-    setIdentityNotificationTopic_identity,
-    setIdentityNotificationTopic_notificationType,
-    setIdentityNotificationTopicResponse_httpStatus,
-
-    -- ** SendEmail
-    sendEmail_returnPath,
-    sendEmail_configurationSetName,
-    sendEmail_sourceArn,
-    sendEmail_returnPathArn,
-    sendEmail_tags,
-    sendEmail_replyToAddresses,
-    sendEmail_source,
-    sendEmail_destination,
-    sendEmail_message,
-    sendEmailResponse_httpStatus,
-    sendEmailResponse_messageId,
-
-    -- ** DeleteReceiptRule
-    deleteReceiptRule_ruleSetName,
-    deleteReceiptRule_ruleName,
-    deleteReceiptRuleResponse_httpStatus,
-
-    -- ** UpdateReceiptRule
-    updateReceiptRule_ruleSetName,
-    updateReceiptRule_rule,
-    updateReceiptRuleResponse_httpStatus,
-
-    -- ** CloneReceiptRuleSet
-    cloneReceiptRuleSet_ruleSetName,
-    cloneReceiptRuleSet_originalRuleSetName,
-    cloneReceiptRuleSetResponse_httpStatus,
-
-    -- ** CreateConfigurationSetEventDestination
-    createConfigurationSetEventDestination_configurationSetName,
-    createConfigurationSetEventDestination_eventDestination,
-    createConfigurationSetEventDestinationResponse_httpStatus,
-
-    -- ** GetAccountSendingEnabled
-    getAccountSendingEnabledResponse_enabled,
-    getAccountSendingEnabledResponse_httpStatus,
+    -- ** CreateReceiptFilter
+    createReceiptFilter_filter,
+    createReceiptFilterResponse_httpStatus,
 
     -- ** CreateReceiptRule
     createReceiptRule_after,
@@ -395,31 +51,375 @@ module Amazonka.SES.Lens
     createReceiptRule_rule,
     createReceiptRuleResponse_httpStatus,
 
+    -- ** CreateReceiptRuleSet
+    createReceiptRuleSet_ruleSetName,
+    createReceiptRuleSetResponse_httpStatus,
+
+    -- ** CreateTemplate
+    createTemplate_template,
+    createTemplateResponse_httpStatus,
+
+    -- ** DeleteConfigurationSet
+    deleteConfigurationSet_configurationSetName,
+    deleteConfigurationSetResponse_httpStatus,
+
+    -- ** DeleteConfigurationSetEventDestination
+    deleteConfigurationSetEventDestination_configurationSetName,
+    deleteConfigurationSetEventDestination_eventDestinationName,
+    deleteConfigurationSetEventDestinationResponse_httpStatus,
+
+    -- ** DeleteConfigurationSetTrackingOptions
+    deleteConfigurationSetTrackingOptions_configurationSetName,
+    deleteConfigurationSetTrackingOptionsResponse_httpStatus,
+
+    -- ** DeleteCustomVerificationEmailTemplate
+    deleteCustomVerificationEmailTemplate_templateName,
+
+    -- ** DeleteIdentity
+    deleteIdentity_identity,
+    deleteIdentityResponse_httpStatus,
+
+    -- ** DeleteIdentityPolicy
+    deleteIdentityPolicy_identity,
+    deleteIdentityPolicy_policyName,
+    deleteIdentityPolicyResponse_httpStatus,
+
+    -- ** DeleteReceiptFilter
+    deleteReceiptFilter_filterName,
+    deleteReceiptFilterResponse_httpStatus,
+
+    -- ** DeleteReceiptRule
+    deleteReceiptRule_ruleSetName,
+    deleteReceiptRule_ruleName,
+    deleteReceiptRuleResponse_httpStatus,
+
+    -- ** DeleteReceiptRuleSet
+    deleteReceiptRuleSet_ruleSetName,
+    deleteReceiptRuleSetResponse_httpStatus,
+
+    -- ** DeleteTemplate
+    deleteTemplate_templateName,
+    deleteTemplateResponse_httpStatus,
+
+    -- ** DeleteVerifiedEmailAddress
+    deleteVerifiedEmailAddress_emailAddress,
+
+    -- ** DescribeActiveReceiptRuleSet
+    describeActiveReceiptRuleSetResponse_metadata,
+    describeActiveReceiptRuleSetResponse_rules,
+    describeActiveReceiptRuleSetResponse_httpStatus,
+
+    -- ** DescribeConfigurationSet
+    describeConfigurationSet_configurationSetAttributeNames,
+    describeConfigurationSet_configurationSetName,
+    describeConfigurationSetResponse_reputationOptions,
+    describeConfigurationSetResponse_deliveryOptions,
+    describeConfigurationSetResponse_trackingOptions,
+    describeConfigurationSetResponse_configurationSet,
+    describeConfigurationSetResponse_eventDestinations,
+    describeConfigurationSetResponse_httpStatus,
+
+    -- ** DescribeReceiptRule
+    describeReceiptRule_ruleSetName,
+    describeReceiptRule_ruleName,
+    describeReceiptRuleResponse_rule,
+    describeReceiptRuleResponse_httpStatus,
+
+    -- ** DescribeReceiptRuleSet
+    describeReceiptRuleSet_ruleSetName,
+    describeReceiptRuleSetResponse_metadata,
+    describeReceiptRuleSetResponse_rules,
+    describeReceiptRuleSetResponse_httpStatus,
+
+    -- ** GetAccountSendingEnabled
+    getAccountSendingEnabledResponse_enabled,
+    getAccountSendingEnabledResponse_httpStatus,
+
+    -- ** GetCustomVerificationEmailTemplate
+    getCustomVerificationEmailTemplate_templateName,
+    getCustomVerificationEmailTemplateResponse_templateName,
+    getCustomVerificationEmailTemplateResponse_successRedirectionURL,
+    getCustomVerificationEmailTemplateResponse_fromEmailAddress,
+    getCustomVerificationEmailTemplateResponse_templateContent,
+    getCustomVerificationEmailTemplateResponse_templateSubject,
+    getCustomVerificationEmailTemplateResponse_failureRedirectionURL,
+    getCustomVerificationEmailTemplateResponse_httpStatus,
+
+    -- ** GetIdentityDkimAttributes
+    getIdentityDkimAttributes_identities,
+    getIdentityDkimAttributesResponse_httpStatus,
+    getIdentityDkimAttributesResponse_dkimAttributes,
+
+    -- ** GetIdentityMailFromDomainAttributes
+    getIdentityMailFromDomainAttributes_identities,
+    getIdentityMailFromDomainAttributesResponse_httpStatus,
+    getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes,
+
+    -- ** GetIdentityNotificationAttributes
+    getIdentityNotificationAttributes_identities,
+    getIdentityNotificationAttributesResponse_httpStatus,
+    getIdentityNotificationAttributesResponse_notificationAttributes,
+
+    -- ** GetIdentityPolicies
+    getIdentityPolicies_identity,
+    getIdentityPolicies_policyNames,
+    getIdentityPoliciesResponse_httpStatus,
+    getIdentityPoliciesResponse_policies,
+
+    -- ** GetIdentityVerificationAttributes
+    getIdentityVerificationAttributes_identities,
+    getIdentityVerificationAttributesResponse_httpStatus,
+    getIdentityVerificationAttributesResponse_verificationAttributes,
+
+    -- ** GetSendQuota
+    getSendQuotaResponse_max24HourSend,
+    getSendQuotaResponse_sentLast24Hours,
+    getSendQuotaResponse_maxSendRate,
+    getSendQuotaResponse_httpStatus,
+
+    -- ** GetSendStatistics
+    getSendStatisticsResponse_sendDataPoints,
+    getSendStatisticsResponse_httpStatus,
+
     -- ** GetTemplate
     getTemplate_templateName,
     getTemplateResponse_template,
     getTemplateResponse_httpStatus,
 
+    -- ** ListConfigurationSets
+    listConfigurationSets_nextToken,
+    listConfigurationSets_maxItems,
+    listConfigurationSetsResponse_nextToken,
+    listConfigurationSetsResponse_configurationSets,
+    listConfigurationSetsResponse_httpStatus,
+
+    -- ** ListCustomVerificationEmailTemplates
+    listCustomVerificationEmailTemplates_nextToken,
+    listCustomVerificationEmailTemplates_maxResults,
+    listCustomVerificationEmailTemplatesResponse_customVerificationEmailTemplates,
+    listCustomVerificationEmailTemplatesResponse_nextToken,
+    listCustomVerificationEmailTemplatesResponse_httpStatus,
+
+    -- ** ListIdentities
+    listIdentities_nextToken,
+    listIdentities_maxItems,
+    listIdentities_identityType,
+    listIdentitiesResponse_nextToken,
+    listIdentitiesResponse_httpStatus,
+    listIdentitiesResponse_identities,
+
+    -- ** ListIdentityPolicies
+    listIdentityPolicies_identity,
+    listIdentityPoliciesResponse_httpStatus,
+    listIdentityPoliciesResponse_policyNames,
+
+    -- ** ListReceiptFilters
+    listReceiptFiltersResponse_filters,
+    listReceiptFiltersResponse_httpStatus,
+
+    -- ** ListReceiptRuleSets
+    listReceiptRuleSets_nextToken,
+    listReceiptRuleSetsResponse_nextToken,
+    listReceiptRuleSetsResponse_ruleSets,
+    listReceiptRuleSetsResponse_httpStatus,
+
+    -- ** ListTemplates
+    listTemplates_nextToken,
+    listTemplates_maxItems,
+    listTemplatesResponse_nextToken,
+    listTemplatesResponse_templatesMetadata,
+    listTemplatesResponse_httpStatus,
+
+    -- ** ListVerifiedEmailAddresses
+    listVerifiedEmailAddressesResponse_verifiedEmailAddresses,
+    listVerifiedEmailAddressesResponse_httpStatus,
+
+    -- ** PutConfigurationSetDeliveryOptions
+    putConfigurationSetDeliveryOptions_deliveryOptions,
+    putConfigurationSetDeliveryOptions_configurationSetName,
+    putConfigurationSetDeliveryOptionsResponse_httpStatus,
+
+    -- ** PutIdentityPolicy
+    putIdentityPolicy_identity,
+    putIdentityPolicy_policyName,
+    putIdentityPolicy_policy,
+    putIdentityPolicyResponse_httpStatus,
+
+    -- ** ReorderReceiptRuleSet
+    reorderReceiptRuleSet_ruleSetName,
+    reorderReceiptRuleSet_ruleNames,
+    reorderReceiptRuleSetResponse_httpStatus,
+
+    -- ** SendBounce
+    sendBounce_bounceSenderArn,
+    sendBounce_explanation,
+    sendBounce_messageDsn,
+    sendBounce_originalMessageId,
+    sendBounce_bounceSender,
+    sendBounce_bouncedRecipientInfoList,
+    sendBounceResponse_messageId,
+    sendBounceResponse_httpStatus,
+
+    -- ** SendBulkTemplatedEmail
+    sendBulkTemplatedEmail_returnPath,
+    sendBulkTemplatedEmail_replyToAddresses,
+    sendBulkTemplatedEmail_sourceArn,
+    sendBulkTemplatedEmail_defaultTags,
+    sendBulkTemplatedEmail_configurationSetName,
+    sendBulkTemplatedEmail_returnPathArn,
+    sendBulkTemplatedEmail_defaultTemplateData,
+    sendBulkTemplatedEmail_templateArn,
+    sendBulkTemplatedEmail_source,
+    sendBulkTemplatedEmail_template,
+    sendBulkTemplatedEmail_destinations,
+    sendBulkTemplatedEmailResponse_httpStatus,
+    sendBulkTemplatedEmailResponse_status,
+
+    -- ** SendCustomVerificationEmail
+    sendCustomVerificationEmail_configurationSetName,
+    sendCustomVerificationEmail_emailAddress,
+    sendCustomVerificationEmail_templateName,
+    sendCustomVerificationEmailResponse_messageId,
+    sendCustomVerificationEmailResponse_httpStatus,
+
+    -- ** SendEmail
+    sendEmail_tags,
+    sendEmail_returnPath,
+    sendEmail_replyToAddresses,
+    sendEmail_sourceArn,
+    sendEmail_configurationSetName,
+    sendEmail_returnPathArn,
+    sendEmail_source,
+    sendEmail_destination,
+    sendEmail_message,
+    sendEmailResponse_httpStatus,
+    sendEmailResponse_messageId,
+
+    -- ** SendRawEmail
+    sendRawEmail_tags,
+    sendRawEmail_fromArn,
+    sendRawEmail_sourceArn,
+    sendRawEmail_configurationSetName,
+    sendRawEmail_returnPathArn,
+    sendRawEmail_source,
+    sendRawEmail_destinations,
+    sendRawEmail_rawMessage,
+    sendRawEmailResponse_httpStatus,
+    sendRawEmailResponse_messageId,
+
+    -- ** SendTemplatedEmail
+    sendTemplatedEmail_tags,
+    sendTemplatedEmail_returnPath,
+    sendTemplatedEmail_replyToAddresses,
+    sendTemplatedEmail_sourceArn,
+    sendTemplatedEmail_configurationSetName,
+    sendTemplatedEmail_returnPathArn,
+    sendTemplatedEmail_templateArn,
+    sendTemplatedEmail_source,
+    sendTemplatedEmail_destination,
+    sendTemplatedEmail_template,
+    sendTemplatedEmail_templateData,
+    sendTemplatedEmailResponse_httpStatus,
+    sendTemplatedEmailResponse_messageId,
+
     -- ** SetActiveReceiptRuleSet
     setActiveReceiptRuleSet_ruleSetName,
     setActiveReceiptRuleSetResponse_httpStatus,
 
-    -- ** CreateConfigurationSet
-    createConfigurationSet_configurationSet,
-    createConfigurationSetResponse_httpStatus,
+    -- ** SetIdentityDkimEnabled
+    setIdentityDkimEnabled_identity,
+    setIdentityDkimEnabled_dkimEnabled,
+    setIdentityDkimEnabledResponse_httpStatus,
+
+    -- ** SetIdentityFeedbackForwardingEnabled
+    setIdentityFeedbackForwardingEnabled_identity,
+    setIdentityFeedbackForwardingEnabled_forwardingEnabled,
+    setIdentityFeedbackForwardingEnabledResponse_httpStatus,
+
+    -- ** SetIdentityHeadersInNotificationsEnabled
+    setIdentityHeadersInNotificationsEnabled_identity,
+    setIdentityHeadersInNotificationsEnabled_notificationType,
+    setIdentityHeadersInNotificationsEnabled_enabled,
+    setIdentityHeadersInNotificationsEnabledResponse_httpStatus,
+
+    -- ** SetIdentityMailFromDomain
+    setIdentityMailFromDomain_mailFromDomain,
+    setIdentityMailFromDomain_behaviorOnMXFailure,
+    setIdentityMailFromDomain_identity,
+    setIdentityMailFromDomainResponse_httpStatus,
+
+    -- ** SetIdentityNotificationTopic
+    setIdentityNotificationTopic_snsTopic,
+    setIdentityNotificationTopic_identity,
+    setIdentityNotificationTopic_notificationType,
+    setIdentityNotificationTopicResponse_httpStatus,
+
+    -- ** SetReceiptRulePosition
+    setReceiptRulePosition_after,
+    setReceiptRulePosition_ruleSetName,
+    setReceiptRulePosition_ruleName,
+    setReceiptRulePositionResponse_httpStatus,
+
+    -- ** TestRenderTemplate
+    testRenderTemplate_templateName,
+    testRenderTemplate_templateData,
+    testRenderTemplateResponse_renderedTemplate,
+    testRenderTemplateResponse_httpStatus,
 
     -- ** UpdateAccountSendingEnabled
     updateAccountSendingEnabled_enabled,
 
-    -- ** CreateConfigurationSetTrackingOptions
-    createConfigurationSetTrackingOptions_configurationSetName,
-    createConfigurationSetTrackingOptions_trackingOptions,
-    createConfigurationSetTrackingOptionsResponse_httpStatus,
+    -- ** UpdateConfigurationSetEventDestination
+    updateConfigurationSetEventDestination_configurationSetName,
+    updateConfigurationSetEventDestination_eventDestination,
+    updateConfigurationSetEventDestinationResponse_httpStatus,
 
-    -- ** DescribeActiveReceiptRuleSet
-    describeActiveReceiptRuleSetResponse_rules,
-    describeActiveReceiptRuleSetResponse_metadata,
-    describeActiveReceiptRuleSetResponse_httpStatus,
+    -- ** UpdateConfigurationSetReputationMetricsEnabled
+    updateConfigurationSetReputationMetricsEnabled_configurationSetName,
+    updateConfigurationSetReputationMetricsEnabled_enabled,
+
+    -- ** UpdateConfigurationSetSendingEnabled
+    updateConfigurationSetSendingEnabled_configurationSetName,
+    updateConfigurationSetSendingEnabled_enabled,
+
+    -- ** UpdateConfigurationSetTrackingOptions
+    updateConfigurationSetTrackingOptions_configurationSetName,
+    updateConfigurationSetTrackingOptions_trackingOptions,
+    updateConfigurationSetTrackingOptionsResponse_httpStatus,
+
+    -- ** UpdateCustomVerificationEmailTemplate
+    updateCustomVerificationEmailTemplate_successRedirectionURL,
+    updateCustomVerificationEmailTemplate_fromEmailAddress,
+    updateCustomVerificationEmailTemplate_templateContent,
+    updateCustomVerificationEmailTemplate_templateSubject,
+    updateCustomVerificationEmailTemplate_failureRedirectionURL,
+    updateCustomVerificationEmailTemplate_templateName,
+
+    -- ** UpdateReceiptRule
+    updateReceiptRule_ruleSetName,
+    updateReceiptRule_rule,
+    updateReceiptRuleResponse_httpStatus,
+
+    -- ** UpdateTemplate
+    updateTemplate_template,
+    updateTemplateResponse_httpStatus,
+
+    -- ** VerifyDomainDkim
+    verifyDomainDkim_domain,
+    verifyDomainDkimResponse_httpStatus,
+    verifyDomainDkimResponse_dkimTokens,
+
+    -- ** VerifyDomainIdentity
+    verifyDomainIdentity_domain,
+    verifyDomainIdentityResponse_httpStatus,
+    verifyDomainIdentityResponse_verificationToken,
+
+    -- ** VerifyEmailAddress
+    verifyEmailAddress_emailAddress,
+
+    -- ** VerifyEmailIdentity
+    verifyEmailIdentity_emailAddress,
+    verifyEmailIdentityResponse_httpStatus,
 
     -- * Types
 
@@ -428,8 +428,8 @@ module Amazonka.SES.Lens
     addHeaderAction_headerValue,
 
     -- ** Body
-    body_text,
     body_html,
+    body_text,
 
     -- ** BounceAction
     bounceAction_topicArn,
@@ -439,20 +439,20 @@ module Amazonka.SES.Lens
     bounceAction_sender,
 
     -- ** BouncedRecipientInfo
+    bouncedRecipientInfo_recipientArn,
     bouncedRecipientInfo_bounceType,
     bouncedRecipientInfo_recipientDsnFields,
-    bouncedRecipientInfo_recipientArn,
     bouncedRecipientInfo_recipient,
 
     -- ** BulkEmailDestination
-    bulkEmailDestination_replacementTemplateData,
     bulkEmailDestination_replacementTags,
+    bulkEmailDestination_replacementTemplateData,
     bulkEmailDestination_destination,
 
     -- ** BulkEmailDestinationStatus
+    bulkEmailDestinationStatus_messageId,
     bulkEmailDestinationStatus_status,
     bulkEmailDestinationStatus_error,
-    bulkEmailDestinationStatus_messageId,
 
     -- ** CloudWatchDestination
     cloudWatchDestination_dimensionConfigurations,
@@ -470,25 +470,25 @@ module Amazonka.SES.Lens
     content_data,
 
     -- ** CustomVerificationEmailTemplate
-    customVerificationEmailTemplate_fromEmailAddress,
     customVerificationEmailTemplate_templateName,
-    customVerificationEmailTemplate_failureRedirectionURL,
-    customVerificationEmailTemplate_templateSubject,
     customVerificationEmailTemplate_successRedirectionURL,
+    customVerificationEmailTemplate_fromEmailAddress,
+    customVerificationEmailTemplate_templateSubject,
+    customVerificationEmailTemplate_failureRedirectionURL,
 
     -- ** DeliveryOptions
     deliveryOptions_tlsPolicy,
 
     -- ** Destination
-    destination_bccAddresses,
     destination_ccAddresses,
+    destination_bccAddresses,
     destination_toAddresses,
 
     -- ** EventDestination
-    eventDestination_enabled,
-    eventDestination_kinesisFirehoseDestination,
-    eventDestination_cloudWatchDestination,
     eventDestination_sNSDestination,
+    eventDestination_enabled,
+    eventDestination_cloudWatchDestination,
+    eventDestination_kinesisFirehoseDestination,
     eventDestination_name,
     eventDestination_matchingEventTypes,
 
@@ -524,8 +524,8 @@ module Amazonka.SES.Lens
     kinesisFirehoseDestination_deliveryStreamARN,
 
     -- ** LambdaAction
-    lambdaAction_invocationType,
     lambdaAction_topicArn,
+    lambdaAction_invocationType,
     lambdaAction_functionArn,
 
     -- ** Message
@@ -533,8 +533,8 @@ module Amazonka.SES.Lens
     message_body,
 
     -- ** MessageDsn
-    messageDsn_arrivalDate,
     messageDsn_extensionFields,
+    messageDsn_arrivalDate,
     messageDsn_reportingMta,
 
     -- ** MessageTag
@@ -546,12 +546,12 @@ module Amazonka.SES.Lens
 
     -- ** ReceiptAction
     receiptAction_addHeaderAction,
-    receiptAction_sNSAction,
-    receiptAction_workmailAction,
-    receiptAction_bounceAction,
     receiptAction_lambdaAction,
-    receiptAction_stopAction,
     receiptAction_s3Action,
+    receiptAction_stopAction,
+    receiptAction_sNSAction,
+    receiptAction_bounceAction,
+    receiptAction_workmailAction,
 
     -- ** ReceiptFilter
     receiptFilter_name,
@@ -563,10 +563,10 @@ module Amazonka.SES.Lens
 
     -- ** ReceiptRule
     receiptRule_scanEnabled,
-    receiptRule_enabled,
-    receiptRule_actions,
     receiptRule_recipients,
+    receiptRule_enabled,
     receiptRule_tlsPolicy,
+    receiptRule_actions,
     receiptRule_name,
 
     -- ** ReceiptRuleSetMetadata
@@ -574,23 +574,23 @@ module Amazonka.SES.Lens
     receiptRuleSetMetadata_createdTimestamp,
 
     -- ** RecipientDsnFields
-    recipientDsnFields_diagnosticCode,
-    recipientDsnFields_remoteMta,
-    recipientDsnFields_finalRecipient,
     recipientDsnFields_extensionFields,
+    recipientDsnFields_finalRecipient,
+    recipientDsnFields_remoteMta,
+    recipientDsnFields_diagnosticCode,
     recipientDsnFields_lastAttemptDate,
     recipientDsnFields_action,
     recipientDsnFields_status,
 
     -- ** ReputationOptions
-    reputationOptions_lastFreshStart,
     reputationOptions_reputationMetricsEnabled,
     reputationOptions_sendingEnabled,
+    reputationOptions_lastFreshStart,
 
     -- ** S3Action
-    s3Action_kmsKeyArn,
-    s3Action_topicArn,
     s3Action_objectKeyPrefix,
+    s3Action_topicArn,
+    s3Action_kmsKeyArn,
     s3Action_bucketName,
 
     -- ** SNSAction
@@ -601,19 +601,19 @@ module Amazonka.SES.Lens
     sNSDestination_topicARN,
 
     -- ** SendDataPoint
-    sendDataPoint_rejects,
-    sendDataPoint_complaints,
     sendDataPoint_deliveryAttempts,
-    sendDataPoint_bounces,
+    sendDataPoint_rejects,
     sendDataPoint_timestamp,
+    sendDataPoint_bounces,
+    sendDataPoint_complaints,
 
     -- ** StopAction
     stopAction_topicArn,
     stopAction_scope,
 
     -- ** Template
-    template_textPart,
     template_subjectPart,
+    template_textPart,
     template_htmlPart,
     template_templateName,
 

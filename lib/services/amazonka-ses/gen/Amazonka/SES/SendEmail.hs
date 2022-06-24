@@ -64,12 +64,12 @@ module Amazonka.SES.SendEmail
     newSendEmail,
 
     -- * Request Lenses
-    sendEmail_returnPath,
-    sendEmail_configurationSetName,
-    sendEmail_sourceArn,
-    sendEmail_returnPathArn,
     sendEmail_tags,
+    sendEmail_returnPath,
     sendEmail_replyToAddresses,
+    sendEmail_sourceArn,
+    sendEmail_configurationSetName,
+    sendEmail_returnPathArn,
     sendEmail_source,
     sendEmail_destination,
     sendEmail_message,
@@ -97,7 +97,11 @@ import Amazonka.SES.Types
 --
 -- /See:/ 'newSendEmail' smart constructor.
 data SendEmail = SendEmail'
-  { -- | The email address that bounces and complaints will be forwarded to when
+  { -- | A list of tags, in the form of name\/value pairs, to apply to an email
+    -- that you send using @SendEmail@. Tags correspond to characteristics of
+    -- the email that you define, so that you can publish email sending events.
+    tags :: Prelude.Maybe [MessageTag],
+    -- | The email address that bounces and complaints will be forwarded to when
     -- feedback forwarding is enabled. If the message cannot be delivered to
     -- the recipient, then an error message will be returned from the
     -- recipient\'s ISP; this message will then be forwarded to the email
@@ -106,9 +110,9 @@ data SendEmail = SendEmail'
     -- individually verified with Amazon SES, or from a domain that has been
     -- verified with Amazon SES.
     returnPath :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration set to use when you send an email using
-    -- @SendEmail@.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
+    -- | The reply-to email address(es) for the message. If the recipient replies
+    -- to the message, each reply-to address will receive the reply.
+    replyToAddresses :: Prelude.Maybe [Prelude.Text],
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to send for the email address specified in the @Source@
@@ -124,6 +128,9 @@ data SendEmail = SendEmail'
     -- For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
     sourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the configuration set to use when you send an email using
+    -- @SendEmail@.
+    configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to use the email address specified in the @ReturnPath@
@@ -139,13 +146,6 @@ data SendEmail = SendEmail'
     -- For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
     returnPathArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags, in the form of name\/value pairs, to apply to an email
-    -- that you send using @SendEmail@. Tags correspond to characteristics of
-    -- the email that you define, so that you can publish email sending events.
-    tags :: Prelude.Maybe [MessageTag],
-    -- | The reply-to email address(es) for the message. If the recipient replies
-    -- to the message, each reply-to address will receive the reply.
-    replyToAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The email address that is sending the email. This email address must be
     -- either individually verified with Amazon SES, or from a domain that has
     -- been verified with Amazon SES. For information about verifying
@@ -187,6 +187,10 @@ data SendEmail = SendEmail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'sendEmail_tags' - A list of tags, in the form of name\/value pairs, to apply to an email
+-- that you send using @SendEmail@. Tags correspond to characteristics of
+-- the email that you define, so that you can publish email sending events.
+--
 -- 'returnPath', 'sendEmail_returnPath' - The email address that bounces and complaints will be forwarded to when
 -- feedback forwarding is enabled. If the message cannot be delivered to
 -- the recipient, then an error message will be returned from the
@@ -196,8 +200,8 @@ data SendEmail = SendEmail'
 -- individually verified with Amazon SES, or from a domain that has been
 -- verified with Amazon SES.
 --
--- 'configurationSetName', 'sendEmail_configurationSetName' - The name of the configuration set to use when you send an email using
--- @SendEmail@.
+-- 'replyToAddresses', 'sendEmail_replyToAddresses' - The reply-to email address(es) for the message. If the recipient replies
+-- to the message, each reply-to address will receive the reply.
 --
 -- 'sourceArn', 'sendEmail_sourceArn' - This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -214,6 +218,9 @@ data SendEmail = SendEmail'
 -- For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
+-- 'configurationSetName', 'sendEmail_configurationSetName' - The name of the configuration set to use when you send an email using
+-- @SendEmail@.
+--
 -- 'returnPathArn', 'sendEmail_returnPathArn' - This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
 -- that permits you to use the email address specified in the @ReturnPath@
@@ -228,13 +235,6 @@ data SendEmail = SendEmail'
 --
 -- For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
---
--- 'tags', 'sendEmail_tags' - A list of tags, in the form of name\/value pairs, to apply to an email
--- that you send using @SendEmail@. Tags correspond to characteristics of
--- the email that you define, so that you can publish email sending events.
---
--- 'replyToAddresses', 'sendEmail_replyToAddresses' - The reply-to email address(es) for the message. If the recipient replies
--- to the message, each reply-to address will receive the reply.
 --
 -- 'source', 'sendEmail_source' - The email address that is sending the email. This email address must be
 -- either individually verified with Amazon SES, or from a domain that has
@@ -275,16 +275,22 @@ newSendEmail ::
   SendEmail
 newSendEmail pSource_ pDestination_ pMessage_ =
   SendEmail'
-    { returnPath = Prelude.Nothing,
-      configurationSetName = Prelude.Nothing,
-      sourceArn = Prelude.Nothing,
-      returnPathArn = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      returnPath = Prelude.Nothing,
       replyToAddresses = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
+      configurationSetName = Prelude.Nothing,
+      returnPathArn = Prelude.Nothing,
       source = pSource_,
       destination = pDestination_,
       message = pMessage_
     }
+
+-- | A list of tags, in the form of name\/value pairs, to apply to an email
+-- that you send using @SendEmail@. Tags correspond to characteristics of
+-- the email that you define, so that you can publish email sending events.
+sendEmail_tags :: Lens.Lens' SendEmail (Prelude.Maybe [MessageTag])
+sendEmail_tags = Lens.lens (\SendEmail' {tags} -> tags) (\s@SendEmail' {} a -> s {tags = a} :: SendEmail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The email address that bounces and complaints will be forwarded to when
 -- feedback forwarding is enabled. If the message cannot be delivered to
@@ -297,10 +303,10 @@ newSendEmail pSource_ pDestination_ pMessage_ =
 sendEmail_returnPath :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
 sendEmail_returnPath = Lens.lens (\SendEmail' {returnPath} -> returnPath) (\s@SendEmail' {} a -> s {returnPath = a} :: SendEmail)
 
--- | The name of the configuration set to use when you send an email using
--- @SendEmail@.
-sendEmail_configurationSetName :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
-sendEmail_configurationSetName = Lens.lens (\SendEmail' {configurationSetName} -> configurationSetName) (\s@SendEmail' {} a -> s {configurationSetName = a} :: SendEmail)
+-- | The reply-to email address(es) for the message. If the recipient replies
+-- to the message, each reply-to address will receive the reply.
+sendEmail_replyToAddresses :: Lens.Lens' SendEmail (Prelude.Maybe [Prelude.Text])
+sendEmail_replyToAddresses = Lens.lens (\SendEmail' {replyToAddresses} -> replyToAddresses) (\s@SendEmail' {} a -> s {replyToAddresses = a} :: SendEmail) Prelude.. Lens.mapping Lens.coerced
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -319,6 +325,11 @@ sendEmail_configurationSetName = Lens.lens (\SendEmail' {configurationSetName} -
 sendEmail_sourceArn :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
 sendEmail_sourceArn = Lens.lens (\SendEmail' {sourceArn} -> sourceArn) (\s@SendEmail' {} a -> s {sourceArn = a} :: SendEmail)
 
+-- | The name of the configuration set to use when you send an email using
+-- @SendEmail@.
+sendEmail_configurationSetName :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
+sendEmail_configurationSetName = Lens.lens (\SendEmail' {configurationSetName} -> configurationSetName) (\s@SendEmail' {} a -> s {configurationSetName = a} :: SendEmail)
+
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
 -- that permits you to use the email address specified in the @ReturnPath@
@@ -335,17 +346,6 @@ sendEmail_sourceArn = Lens.lens (\SendEmail' {sourceArn} -> sourceArn) (\s@SendE
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 sendEmail_returnPathArn :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
 sendEmail_returnPathArn = Lens.lens (\SendEmail' {returnPathArn} -> returnPathArn) (\s@SendEmail' {} a -> s {returnPathArn = a} :: SendEmail)
-
--- | A list of tags, in the form of name\/value pairs, to apply to an email
--- that you send using @SendEmail@. Tags correspond to characteristics of
--- the email that you define, so that you can publish email sending events.
-sendEmail_tags :: Lens.Lens' SendEmail (Prelude.Maybe [MessageTag])
-sendEmail_tags = Lens.lens (\SendEmail' {tags} -> tags) (\s@SendEmail' {} a -> s {tags = a} :: SendEmail) Prelude.. Lens.mapping Lens.coerced
-
--- | The reply-to email address(es) for the message. If the recipient replies
--- to the message, each reply-to address will receive the reply.
-sendEmail_replyToAddresses :: Lens.Lens' SendEmail (Prelude.Maybe [Prelude.Text])
-sendEmail_replyToAddresses = Lens.lens (\SendEmail' {replyToAddresses} -> replyToAddresses) (\s@SendEmail' {} a -> s {replyToAddresses = a} :: SendEmail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The email address that is sending the email. This email address must be
 -- either individually verified with Amazon SES, or from a domain that has
@@ -397,24 +397,24 @@ instance Core.AWSRequest SendEmail where
 
 instance Prelude.Hashable SendEmail where
   hashWithSalt _salt SendEmail' {..} =
-    _salt `Prelude.hashWithSalt` returnPath
-      `Prelude.hashWithSalt` configurationSetName
-      `Prelude.hashWithSalt` sourceArn
-      `Prelude.hashWithSalt` returnPathArn
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` returnPath
       `Prelude.hashWithSalt` replyToAddresses
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` configurationSetName
+      `Prelude.hashWithSalt` returnPathArn
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData SendEmail where
   rnf SendEmail' {..} =
-    Prelude.rnf returnPath
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf returnPathArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf returnPath
       `Prelude.seq` Prelude.rnf replyToAddresses
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf returnPathArn
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf message
@@ -432,18 +432,18 @@ instance Core.ToQuery SendEmail where
           Core.=: ("SendEmail" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "ReturnPath" Core.=: returnPath,
-        "ConfigurationSetName" Core.=: configurationSetName,
-        "SourceArn" Core.=: sourceArn,
-        "ReturnPathArn" Core.=: returnPathArn,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> tags),
+        "ReturnPath" Core.=: returnPath,
         "ReplyToAddresses"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> replyToAddresses
             ),
+        "SourceArn" Core.=: sourceArn,
+        "ConfigurationSetName" Core.=: configurationSetName,
+        "ReturnPathArn" Core.=: returnPathArn,
         "Source" Core.=: source,
         "Destination" Core.=: destination,
         "Message" Core.=: message

@@ -115,13 +115,13 @@ module Amazonka.SES.SendRawEmail
     newSendRawEmail,
 
     -- * Request Lenses
-    sendRawEmail_configurationSetName,
+    sendRawEmail_tags,
+    sendRawEmail_fromArn,
     sendRawEmail_sourceArn,
-    sendRawEmail_destinations,
+    sendRawEmail_configurationSetName,
     sendRawEmail_returnPathArn,
     sendRawEmail_source,
-    sendRawEmail_fromArn,
-    sendRawEmail_tags,
+    sendRawEmail_destinations,
     sendRawEmail_rawMessage,
 
     -- * Destructuring the Response
@@ -147,9 +147,25 @@ import Amazonka.SES.Types
 --
 -- /See:/ 'newSendRawEmail' smart constructor.
 data SendRawEmail = SendRawEmail'
-  { -- | The name of the configuration set to use when you send an email using
-    -- @SendRawEmail@.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
+  { -- | A list of tags, in the form of name\/value pairs, to apply to an email
+    -- that you send using @SendRawEmail@. Tags correspond to characteristics
+    -- of the email that you define, so that you can publish email sending
+    -- events.
+    tags :: Prelude.Maybe [MessageTag],
+    -- | This parameter is used only for sending authorization. It is the ARN of
+    -- the identity that is associated with the sending authorization policy
+    -- that permits you to specify a particular \"From\" address in the header
+    -- of the raw email.
+    --
+    -- Instead of using this parameter, you can use the X-header
+    -- @X-SES-FROM-ARN@ in the raw message of the email. If you use both the
+    -- @FromArn@ parameter and the corresponding X-header, Amazon SES uses the
+    -- value of the @FromArn@ parameter.
+    --
+    -- For information about when to use this parameter, see the description of
+    -- @SendRawEmail@ in this guide, or see the
+    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
+    fromArn :: Prelude.Maybe Prelude.Text,
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to send for the email address specified in the @Source@
@@ -171,9 +187,9 @@ data SendRawEmail = SendRawEmail'
     -- @SendRawEmail@ in this guide, or see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
     sourceArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
-    -- addresses.
-    destinations :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the configuration set to use when you send an email using
+    -- @SendRawEmail@.
+    configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to use the email address specified in the @ReturnPath@
@@ -218,25 +234,9 @@ data SendRawEmail = SendRawEmail'
     -- This takes precedence over any Return-Path header that you might include
     -- in the raw text of the message.
     source :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is used only for sending authorization. It is the ARN of
-    -- the identity that is associated with the sending authorization policy
-    -- that permits you to specify a particular \"From\" address in the header
-    -- of the raw email.
-    --
-    -- Instead of using this parameter, you can use the X-header
-    -- @X-SES-FROM-ARN@ in the raw message of the email. If you use both the
-    -- @FromArn@ parameter and the corresponding X-header, Amazon SES uses the
-    -- value of the @FromArn@ parameter.
-    --
-    -- For information about when to use this parameter, see the description of
-    -- @SendRawEmail@ in this guide, or see the
-    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
-    fromArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags, in the form of name\/value pairs, to apply to an email
-    -- that you send using @SendRawEmail@. Tags correspond to characteristics
-    -- of the email that you define, so that you can publish email sending
-    -- events.
-    tags :: Prelude.Maybe [MessageTag],
+    -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
+    -- addresses.
+    destinations :: Prelude.Maybe [Prelude.Text],
     -- | The raw email message itself. The message has to meet the following
     -- criteria:
     --
@@ -276,8 +276,24 @@ data SendRawEmail = SendRawEmail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configurationSetName', 'sendRawEmail_configurationSetName' - The name of the configuration set to use when you send an email using
--- @SendRawEmail@.
+-- 'tags', 'sendRawEmail_tags' - A list of tags, in the form of name\/value pairs, to apply to an email
+-- that you send using @SendRawEmail@. Tags correspond to characteristics
+-- of the email that you define, so that you can publish email sending
+-- events.
+--
+-- 'fromArn', 'sendRawEmail_fromArn' - This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to specify a particular \"From\" address in the header
+-- of the raw email.
+--
+-- Instead of using this parameter, you can use the X-header
+-- @X-SES-FROM-ARN@ in the raw message of the email. If you use both the
+-- @FromArn@ parameter and the corresponding X-header, Amazon SES uses the
+-- value of the @FromArn@ parameter.
+--
+-- For information about when to use this parameter, see the description of
+-- @SendRawEmail@ in this guide, or see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
 --
 -- 'sourceArn', 'sendRawEmail_sourceArn' - This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -300,8 +316,8 @@ data SendRawEmail = SendRawEmail'
 -- @SendRawEmail@ in this guide, or see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
 --
--- 'destinations', 'sendRawEmail_destinations' - A list of destinations for the message, consisting of To:, CC:, and BCC:
--- addresses.
+-- 'configurationSetName', 'sendRawEmail_configurationSetName' - The name of the configuration set to use when you send an email using
+-- @SendRawEmail@.
 --
 -- 'returnPathArn', 'sendRawEmail_returnPathArn' - This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -347,24 +363,8 @@ data SendRawEmail = SendRawEmail'
 -- This takes precedence over any Return-Path header that you might include
 -- in the raw text of the message.
 --
--- 'fromArn', 'sendRawEmail_fromArn' - This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to specify a particular \"From\" address in the header
--- of the raw email.
---
--- Instead of using this parameter, you can use the X-header
--- @X-SES-FROM-ARN@ in the raw message of the email. If you use both the
--- @FromArn@ parameter and the corresponding X-header, Amazon SES uses the
--- value of the @FromArn@ parameter.
---
--- For information about when to use this parameter, see the description of
--- @SendRawEmail@ in this guide, or see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
---
--- 'tags', 'sendRawEmail_tags' - A list of tags, in the form of name\/value pairs, to apply to an email
--- that you send using @SendRawEmail@. Tags correspond to characteristics
--- of the email that you define, so that you can publish email sending
--- events.
+-- 'destinations', 'sendRawEmail_destinations' - A list of destinations for the message, consisting of To:, CC:, and BCC:
+-- addresses.
 --
 -- 'rawMessage', 'sendRawEmail_rawMessage' - The raw email message itself. The message has to meet the following
 -- criteria:
@@ -399,21 +399,38 @@ newSendRawEmail ::
   SendRawEmail
 newSendRawEmail pRawMessage_ =
   SendRawEmail'
-    { configurationSetName =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      fromArn = Prelude.Nothing,
       sourceArn = Prelude.Nothing,
-      destinations = Prelude.Nothing,
+      configurationSetName = Prelude.Nothing,
       returnPathArn = Prelude.Nothing,
       source = Prelude.Nothing,
-      fromArn = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      destinations = Prelude.Nothing,
       rawMessage = pRawMessage_
     }
 
--- | The name of the configuration set to use when you send an email using
--- @SendRawEmail@.
-sendRawEmail_configurationSetName :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
-sendRawEmail_configurationSetName = Lens.lens (\SendRawEmail' {configurationSetName} -> configurationSetName) (\s@SendRawEmail' {} a -> s {configurationSetName = a} :: SendRawEmail)
+-- | A list of tags, in the form of name\/value pairs, to apply to an email
+-- that you send using @SendRawEmail@. Tags correspond to characteristics
+-- of the email that you define, so that you can publish email sending
+-- events.
+sendRawEmail_tags :: Lens.Lens' SendRawEmail (Prelude.Maybe [MessageTag])
+sendRawEmail_tags = Lens.lens (\SendRawEmail' {tags} -> tags) (\s@SendRawEmail' {} a -> s {tags = a} :: SendRawEmail) Prelude.. Lens.mapping Lens.coerced
+
+-- | This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to specify a particular \"From\" address in the header
+-- of the raw email.
+--
+-- Instead of using this parameter, you can use the X-header
+-- @X-SES-FROM-ARN@ in the raw message of the email. If you use both the
+-- @FromArn@ parameter and the corresponding X-header, Amazon SES uses the
+-- value of the @FromArn@ parameter.
+--
+-- For information about when to use this parameter, see the description of
+-- @SendRawEmail@ in this guide, or see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
+sendRawEmail_fromArn :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
+sendRawEmail_fromArn = Lens.lens (\SendRawEmail' {fromArn} -> fromArn) (\s@SendRawEmail' {} a -> s {fromArn = a} :: SendRawEmail)
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -438,10 +455,10 @@ sendRawEmail_configurationSetName = Lens.lens (\SendRawEmail' {configurationSetN
 sendRawEmail_sourceArn :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
 sendRawEmail_sourceArn = Lens.lens (\SendRawEmail' {sourceArn} -> sourceArn) (\s@SendRawEmail' {} a -> s {sourceArn = a} :: SendRawEmail)
 
--- | A list of destinations for the message, consisting of To:, CC:, and BCC:
--- addresses.
-sendRawEmail_destinations :: Lens.Lens' SendRawEmail (Prelude.Maybe [Prelude.Text])
-sendRawEmail_destinations = Lens.lens (\SendRawEmail' {destinations} -> destinations) (\s@SendRawEmail' {} a -> s {destinations = a} :: SendRawEmail) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the configuration set to use when you send an email using
+-- @SendRawEmail@.
+sendRawEmail_configurationSetName :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
+sendRawEmail_configurationSetName = Lens.lens (\SendRawEmail' {configurationSetName} -> configurationSetName) (\s@SendRawEmail' {} a -> s {configurationSetName = a} :: SendRawEmail)
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -491,28 +508,10 @@ sendRawEmail_returnPathArn = Lens.lens (\SendRawEmail' {returnPathArn} -> return
 sendRawEmail_source :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
 sendRawEmail_source = Lens.lens (\SendRawEmail' {source} -> source) (\s@SendRawEmail' {} a -> s {source = a} :: SendRawEmail)
 
--- | This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to specify a particular \"From\" address in the header
--- of the raw email.
---
--- Instead of using this parameter, you can use the X-header
--- @X-SES-FROM-ARN@ in the raw message of the email. If you use both the
--- @FromArn@ parameter and the corresponding X-header, Amazon SES uses the
--- value of the @FromArn@ parameter.
---
--- For information about when to use this parameter, see the description of
--- @SendRawEmail@ in this guide, or see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
-sendRawEmail_fromArn :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
-sendRawEmail_fromArn = Lens.lens (\SendRawEmail' {fromArn} -> fromArn) (\s@SendRawEmail' {} a -> s {fromArn = a} :: SendRawEmail)
-
--- | A list of tags, in the form of name\/value pairs, to apply to an email
--- that you send using @SendRawEmail@. Tags correspond to characteristics
--- of the email that you define, so that you can publish email sending
--- events.
-sendRawEmail_tags :: Lens.Lens' SendRawEmail (Prelude.Maybe [MessageTag])
-sendRawEmail_tags = Lens.lens (\SendRawEmail' {tags} -> tags) (\s@SendRawEmail' {} a -> s {tags = a} :: SendRawEmail) Prelude.. Lens.mapping Lens.coerced
+-- | A list of destinations for the message, consisting of To:, CC:, and BCC:
+-- addresses.
+sendRawEmail_destinations :: Lens.Lens' SendRawEmail (Prelude.Maybe [Prelude.Text])
+sendRawEmail_destinations = Lens.lens (\SendRawEmail' {destinations} -> destinations) (\s@SendRawEmail' {} a -> s {destinations = a} :: SendRawEmail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The raw email message itself. The message has to meet the following
 -- criteria:
@@ -558,24 +557,24 @@ instance Core.AWSRequest SendRawEmail where
 
 instance Prelude.Hashable SendRawEmail where
   hashWithSalt _salt SendRawEmail' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` fromArn
       `Prelude.hashWithSalt` sourceArn
-      `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` returnPathArn
       `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` fromArn
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` rawMessage
 
 instance Prelude.NFData SendRawEmail where
   rnf SendRawEmail' {..} =
-    Prelude.rnf configurationSetName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fromArn
       `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf returnPathArn
       `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf fromArn
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf destinations
       `Prelude.seq` Prelude.rnf rawMessage
 
 instance Core.ToHeaders SendRawEmail where
@@ -591,17 +590,17 @@ instance Core.ToQuery SendRawEmail where
           Core.=: ("SendRawEmail" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "ConfigurationSetName" Core.=: configurationSetName,
-        "SourceArn" Core.=: sourceArn,
-        "Destinations"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> destinations),
-        "ReturnPathArn" Core.=: returnPathArn,
-        "Source" Core.=: source,
-        "FromArn" Core.=: fromArn,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> tags),
+        "FromArn" Core.=: fromArn,
+        "SourceArn" Core.=: sourceArn,
+        "ConfigurationSetName" Core.=: configurationSetName,
+        "ReturnPathArn" Core.=: returnPathArn,
+        "Source" Core.=: source,
+        "Destinations"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> destinations),
         "RawMessage" Core.=: rawMessage
       ]
 

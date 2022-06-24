@@ -30,14 +30,14 @@ import Amazonka.SES.Types.Content
 --
 -- /See:/ 'newBody' smart constructor.
 data Body = Body'
-  { -- | The content of the message, in text format. Use this for text-based
-    -- email clients, or clients on high-latency networks (such as mobile
-    -- devices).
-    text :: Prelude.Maybe Content,
-    -- | The content of the message, in HTML format. Use this for email clients
+  { -- | The content of the message, in HTML format. Use this for email clients
     -- that can process HTML. You can include clickable links, formatted text,
     -- and much more in an HTML message.
-    html :: Prelude.Maybe Content
+    html :: Prelude.Maybe Content,
+    -- | The content of the message, in text format. Use this for text-based
+    -- email clients, or clients on high-latency networks (such as mobile
+    -- devices).
+    text :: Prelude.Maybe Content
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,26 +49,20 @@ data Body = Body'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'text', 'body_text' - The content of the message, in text format. Use this for text-based
--- email clients, or clients on high-latency networks (such as mobile
--- devices).
---
 -- 'html', 'body_html' - The content of the message, in HTML format. Use this for email clients
 -- that can process HTML. You can include clickable links, formatted text,
 -- and much more in an HTML message.
+--
+-- 'text', 'body_text' - The content of the message, in text format. Use this for text-based
+-- email clients, or clients on high-latency networks (such as mobile
+-- devices).
 newBody ::
   Body
 newBody =
   Body'
-    { text = Prelude.Nothing,
-      html = Prelude.Nothing
+    { html = Prelude.Nothing,
+      text = Prelude.Nothing
     }
-
--- | The content of the message, in text format. Use this for text-based
--- email clients, or clients on high-latency networks (such as mobile
--- devices).
-body_text :: Lens.Lens' Body (Prelude.Maybe Content)
-body_text = Lens.lens (\Body' {text} -> text) (\s@Body' {} a -> s {text = a} :: Body)
 
 -- | The content of the message, in HTML format. Use this for email clients
 -- that can process HTML. You can include clickable links, formatted text,
@@ -76,16 +70,22 @@ body_text = Lens.lens (\Body' {text} -> text) (\s@Body' {} a -> s {text = a} :: 
 body_html :: Lens.Lens' Body (Prelude.Maybe Content)
 body_html = Lens.lens (\Body' {html} -> html) (\s@Body' {} a -> s {html = a} :: Body)
 
+-- | The content of the message, in text format. Use this for text-based
+-- email clients, or clients on high-latency networks (such as mobile
+-- devices).
+body_text :: Lens.Lens' Body (Prelude.Maybe Content)
+body_text = Lens.lens (\Body' {text} -> text) (\s@Body' {} a -> s {text = a} :: Body)
+
 instance Prelude.Hashable Body where
   hashWithSalt _salt Body' {..} =
-    _salt `Prelude.hashWithSalt` text
-      `Prelude.hashWithSalt` html
+    _salt `Prelude.hashWithSalt` html
+      `Prelude.hashWithSalt` text
 
 instance Prelude.NFData Body where
   rnf Body' {..} =
-    Prelude.rnf text `Prelude.seq` Prelude.rnf html
+    Prelude.rnf html `Prelude.seq` Prelude.rnf text
 
 instance Core.ToQuery Body where
   toQuery Body' {..} =
     Prelude.mconcat
-      ["Text" Core.=: text, "Html" Core.=: html]
+      ["Html" Core.=: html, "Text" Core.=: text]

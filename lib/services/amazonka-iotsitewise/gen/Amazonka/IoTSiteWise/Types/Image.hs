@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImage' smart constructor.
 data Image = Image'
-  { -- | The ID of an existing image. Specify this parameter to keep an existing
+  { file :: Prelude.Maybe ImageFile,
+    -- | The ID of an existing image. Specify this parameter to keep an existing
     -- image.
-    id :: Prelude.Maybe Prelude.Text,
-    file :: Prelude.Maybe ImageFile
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,41 +48,41 @@ data Image = Image'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'file', 'image_file' - Undocumented member.
+--
 -- 'id', 'image_id' - The ID of an existing image. Specify this parameter to keep an existing
 -- image.
---
--- 'file', 'image_file' - Undocumented member.
 newImage ::
   Image
 newImage =
   Image'
-    { id = Prelude.Nothing,
-      file = Prelude.Nothing
+    { file = Prelude.Nothing,
+      id = Prelude.Nothing
     }
+
+-- | Undocumented member.
+image_file :: Lens.Lens' Image (Prelude.Maybe ImageFile)
+image_file = Lens.lens (\Image' {file} -> file) (\s@Image' {} a -> s {file = a} :: Image)
 
 -- | The ID of an existing image. Specify this parameter to keep an existing
 -- image.
 image_id :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_id = Lens.lens (\Image' {id} -> id) (\s@Image' {} a -> s {id = a} :: Image)
 
--- | Undocumented member.
-image_file :: Lens.Lens' Image (Prelude.Maybe ImageFile)
-image_file = Lens.lens (\Image' {file} -> file) (\s@Image' {} a -> s {file = a} :: Image)
-
 instance Prelude.Hashable Image where
   hashWithSalt _salt Image' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` file
+    _salt `Prelude.hashWithSalt` file
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData Image where
   rnf Image' {..} =
-    Prelude.rnf id `Prelude.seq` Prelude.rnf file
+    Prelude.rnf file `Prelude.seq` Prelude.rnf id
 
 instance Core.ToJSON Image where
   toJSON Image' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("id" Core..=) Prelude.<$> id,
-            ("file" Core..=) Prelude.<$> file
+          [ ("file" Core..=) Prelude.<$> file,
+            ("id" Core..=) Prelude.<$> id
           ]
       )

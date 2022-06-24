@@ -34,13 +34,13 @@ module Amazonka.IoTSiteWise.CreatePortal
     newCreatePortal,
 
     -- * Request Lenses
-    createPortal_portalAuthMode,
+    createPortal_tags,
+    createPortal_alarms,
     createPortal_clientToken,
     createPortal_portalDescription,
-    createPortal_notificationSenderEmail,
-    createPortal_alarms,
+    createPortal_portalAuthMode,
     createPortal_portalLogoImageFile,
-    createPortal_tags,
+    createPortal_notificationSenderEmail,
     createPortal_portalName,
     createPortal_portalContactEmail,
     createPortal_roleArn,
@@ -68,7 +68,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePortal' smart constructor.
 data CreatePortal = CreatePortal'
-  { -- | The service to use to authenticate users to the portal. Choose from the
+  { -- | A list of key-value pairs that contain metadata for the portal. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
+    -- in the /IoT SiteWise User Guide/.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Contains the configuration information of an alarm created in an IoT
+    -- SiteWise Monitor portal. You can use the alarm to monitor an asset
+    -- property and get notified when the asset property value is outside a
+    -- specified range. For more information, see
+    -- <https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html Monitoring with alarms>
+    -- in the /IoT SiteWise Application Guide/.
+    alarms :: Prelude.Maybe Alarms,
+    -- | A unique case-sensitive identifier that you can provide to ensure the
+    -- idempotency of the request. Don\'t reuse this client token if a new
+    -- idempotent request is required.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A description for the portal.
+    portalDescription :: Prelude.Maybe Prelude.Text,
+    -- | The service to use to authenticate users to the portal. Choose from the
     -- following options:
     --
     -- -   @SSO@ – The portal uses Amazon Web Services Single Sign On to
@@ -87,12 +105,9 @@ data CreatePortal = CreatePortal'
     --
     -- Default: @SSO@
     portalAuthMode :: Prelude.Maybe AuthMode,
-    -- | A unique case-sensitive identifier that you can provide to ensure the
-    -- idempotency of the request. Don\'t reuse this client token if a new
-    -- idempotent request is required.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A description for the portal.
-    portalDescription :: Prelude.Maybe Prelude.Text,
+    -- | A logo image to display in the portal. Upload a square, high-resolution
+    -- image. The image is displayed on a dark background.
+    portalLogoImageFile :: Prelude.Maybe ImageFile,
     -- | The email address that sends alarm notifications.
     --
     -- If you use the
@@ -100,21 +115,6 @@ data CreatePortal = CreatePortal'
     -- to manage your emails, you must
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html verify the sender email address in Amazon SES>.
     notificationSenderEmail :: Prelude.Maybe Prelude.Text,
-    -- | Contains the configuration information of an alarm created in an IoT
-    -- SiteWise Monitor portal. You can use the alarm to monitor an asset
-    -- property and get notified when the asset property value is outside a
-    -- specified range. For more information, see
-    -- <https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html Monitoring with alarms>
-    -- in the /IoT SiteWise Application Guide/.
-    alarms :: Prelude.Maybe Alarms,
-    -- | A logo image to display in the portal. Upload a square, high-resolution
-    -- image. The image is displayed on a dark background.
-    portalLogoImageFile :: Prelude.Maybe ImageFile,
-    -- | A list of key-value pairs that contain metadata for the portal. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
-    -- in the /IoT SiteWise User Guide/.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A friendly name for the portal.
     portalName :: Prelude.Text,
     -- | The Amazon Web Services administrator\'s contact email address.
@@ -137,6 +137,24 @@ data CreatePortal = CreatePortal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createPortal_tags' - A list of key-value pairs that contain metadata for the portal. For more
+-- information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
+-- in the /IoT SiteWise User Guide/.
+--
+-- 'alarms', 'createPortal_alarms' - Contains the configuration information of an alarm created in an IoT
+-- SiteWise Monitor portal. You can use the alarm to monitor an asset
+-- property and get notified when the asset property value is outside a
+-- specified range. For more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html Monitoring with alarms>
+-- in the /IoT SiteWise Application Guide/.
+--
+-- 'clientToken', 'createPortal_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
+--
+-- 'portalDescription', 'createPortal_portalDescription' - A description for the portal.
+--
 -- 'portalAuthMode', 'createPortal_portalAuthMode' - The service to use to authenticate users to the portal. Choose from the
 -- following options:
 --
@@ -156,11 +174,8 @@ data CreatePortal = CreatePortal'
 --
 -- Default: @SSO@
 --
--- 'clientToken', 'createPortal_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
--- idempotency of the request. Don\'t reuse this client token if a new
--- idempotent request is required.
---
--- 'portalDescription', 'createPortal_portalDescription' - A description for the portal.
+-- 'portalLogoImageFile', 'createPortal_portalLogoImageFile' - A logo image to display in the portal. Upload a square, high-resolution
+-- image. The image is displayed on a dark background.
 --
 -- 'notificationSenderEmail', 'createPortal_notificationSenderEmail' - The email address that sends alarm notifications.
 --
@@ -168,21 +183,6 @@ data CreatePortal = CreatePortal'
 -- <https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html IoT Events managed Lambda function>
 -- to manage your emails, you must
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html verify the sender email address in Amazon SES>.
---
--- 'alarms', 'createPortal_alarms' - Contains the configuration information of an alarm created in an IoT
--- SiteWise Monitor portal. You can use the alarm to monitor an asset
--- property and get notified when the asset property value is outside a
--- specified range. For more information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html Monitoring with alarms>
--- in the /IoT SiteWise Application Guide/.
---
--- 'portalLogoImageFile', 'createPortal_portalLogoImageFile' - A logo image to display in the portal. Upload a square, high-resolution
--- image. The image is displayed on a dark background.
---
--- 'tags', 'createPortal_tags' - A list of key-value pairs that contain metadata for the portal. For more
--- information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
--- in the /IoT SiteWise User Guide/.
 --
 -- 'portalName', 'createPortal_portalName' - A friendly name for the portal.
 --
@@ -207,17 +207,43 @@ newCreatePortal
   pPortalContactEmail_
   pRoleArn_ =
     CreatePortal'
-      { portalAuthMode = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        alarms = Prelude.Nothing,
         clientToken = Prelude.Nothing,
         portalDescription = Prelude.Nothing,
-        notificationSenderEmail = Prelude.Nothing,
-        alarms = Prelude.Nothing,
+        portalAuthMode = Prelude.Nothing,
         portalLogoImageFile = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        notificationSenderEmail = Prelude.Nothing,
         portalName = pPortalName_,
         portalContactEmail = pPortalContactEmail_,
         roleArn = pRoleArn_
       }
+
+-- | A list of key-value pairs that contain metadata for the portal. For more
+-- information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
+-- in the /IoT SiteWise User Guide/.
+createPortal_tags :: Lens.Lens' CreatePortal (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createPortal_tags = Lens.lens (\CreatePortal' {tags} -> tags) (\s@CreatePortal' {} a -> s {tags = a} :: CreatePortal) Prelude.. Lens.mapping Lens.coerced
+
+-- | Contains the configuration information of an alarm created in an IoT
+-- SiteWise Monitor portal. You can use the alarm to monitor an asset
+-- property and get notified when the asset property value is outside a
+-- specified range. For more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html Monitoring with alarms>
+-- in the /IoT SiteWise Application Guide/.
+createPortal_alarms :: Lens.Lens' CreatePortal (Prelude.Maybe Alarms)
+createPortal_alarms = Lens.lens (\CreatePortal' {alarms} -> alarms) (\s@CreatePortal' {} a -> s {alarms = a} :: CreatePortal)
+
+-- | A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
+createPortal_clientToken :: Lens.Lens' CreatePortal (Prelude.Maybe Prelude.Text)
+createPortal_clientToken = Lens.lens (\CreatePortal' {clientToken} -> clientToken) (\s@CreatePortal' {} a -> s {clientToken = a} :: CreatePortal)
+
+-- | A description for the portal.
+createPortal_portalDescription :: Lens.Lens' CreatePortal (Prelude.Maybe Prelude.Text)
+createPortal_portalDescription = Lens.lens (\CreatePortal' {portalDescription} -> portalDescription) (\s@CreatePortal' {} a -> s {portalDescription = a} :: CreatePortal)
 
 -- | The service to use to authenticate users to the portal. Choose from the
 -- following options:
@@ -240,15 +266,10 @@ newCreatePortal
 createPortal_portalAuthMode :: Lens.Lens' CreatePortal (Prelude.Maybe AuthMode)
 createPortal_portalAuthMode = Lens.lens (\CreatePortal' {portalAuthMode} -> portalAuthMode) (\s@CreatePortal' {} a -> s {portalAuthMode = a} :: CreatePortal)
 
--- | A unique case-sensitive identifier that you can provide to ensure the
--- idempotency of the request. Don\'t reuse this client token if a new
--- idempotent request is required.
-createPortal_clientToken :: Lens.Lens' CreatePortal (Prelude.Maybe Prelude.Text)
-createPortal_clientToken = Lens.lens (\CreatePortal' {clientToken} -> clientToken) (\s@CreatePortal' {} a -> s {clientToken = a} :: CreatePortal)
-
--- | A description for the portal.
-createPortal_portalDescription :: Lens.Lens' CreatePortal (Prelude.Maybe Prelude.Text)
-createPortal_portalDescription = Lens.lens (\CreatePortal' {portalDescription} -> portalDescription) (\s@CreatePortal' {} a -> s {portalDescription = a} :: CreatePortal)
+-- | A logo image to display in the portal. Upload a square, high-resolution
+-- image. The image is displayed on a dark background.
+createPortal_portalLogoImageFile :: Lens.Lens' CreatePortal (Prelude.Maybe ImageFile)
+createPortal_portalLogoImageFile = Lens.lens (\CreatePortal' {portalLogoImageFile} -> portalLogoImageFile) (\s@CreatePortal' {} a -> s {portalLogoImageFile = a} :: CreatePortal)
 
 -- | The email address that sends alarm notifications.
 --
@@ -258,27 +279,6 @@ createPortal_portalDescription = Lens.lens (\CreatePortal' {portalDescription} -
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html verify the sender email address in Amazon SES>.
 createPortal_notificationSenderEmail :: Lens.Lens' CreatePortal (Prelude.Maybe Prelude.Text)
 createPortal_notificationSenderEmail = Lens.lens (\CreatePortal' {notificationSenderEmail} -> notificationSenderEmail) (\s@CreatePortal' {} a -> s {notificationSenderEmail = a} :: CreatePortal)
-
--- | Contains the configuration information of an alarm created in an IoT
--- SiteWise Monitor portal. You can use the alarm to monitor an asset
--- property and get notified when the asset property value is outside a
--- specified range. For more information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html Monitoring with alarms>
--- in the /IoT SiteWise Application Guide/.
-createPortal_alarms :: Lens.Lens' CreatePortal (Prelude.Maybe Alarms)
-createPortal_alarms = Lens.lens (\CreatePortal' {alarms} -> alarms) (\s@CreatePortal' {} a -> s {alarms = a} :: CreatePortal)
-
--- | A logo image to display in the portal. Upload a square, high-resolution
--- image. The image is displayed on a dark background.
-createPortal_portalLogoImageFile :: Lens.Lens' CreatePortal (Prelude.Maybe ImageFile)
-createPortal_portalLogoImageFile = Lens.lens (\CreatePortal' {portalLogoImageFile} -> portalLogoImageFile) (\s@CreatePortal' {} a -> s {portalLogoImageFile = a} :: CreatePortal)
-
--- | A list of key-value pairs that contain metadata for the portal. For more
--- information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
--- in the /IoT SiteWise User Guide/.
-createPortal_tags :: Lens.Lens' CreatePortal (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createPortal_tags = Lens.lens (\CreatePortal' {tags} -> tags) (\s@CreatePortal' {} a -> s {tags = a} :: CreatePortal) Prelude.. Lens.mapping Lens.coerced
 
 -- | A friendly name for the portal.
 createPortal_portalName :: Lens.Lens' CreatePortal Prelude.Text
@@ -314,26 +314,26 @@ instance Core.AWSRequest CreatePortal where
 
 instance Prelude.Hashable CreatePortal where
   hashWithSalt _salt CreatePortal' {..} =
-    _salt `Prelude.hashWithSalt` portalAuthMode
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` portalDescription
-      `Prelude.hashWithSalt` notificationSenderEmail
-      `Prelude.hashWithSalt` alarms
+      `Prelude.hashWithSalt` portalAuthMode
       `Prelude.hashWithSalt` portalLogoImageFile
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` notificationSenderEmail
       `Prelude.hashWithSalt` portalName
       `Prelude.hashWithSalt` portalContactEmail
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData CreatePortal where
   rnf CreatePortal' {..} =
-    Prelude.rnf portalAuthMode
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf alarms
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf portalDescription
-      `Prelude.seq` Prelude.rnf notificationSenderEmail
-      `Prelude.seq` Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf portalAuthMode
       `Prelude.seq` Prelude.rnf portalLogoImageFile
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf notificationSenderEmail
       `Prelude.seq` Prelude.rnf portalName
       `Prelude.seq` Prelude.rnf portalContactEmail
       `Prelude.seq` Prelude.rnf roleArn
@@ -353,17 +353,17 @@ instance Core.ToJSON CreatePortal where
   toJSON CreatePortal' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("portalAuthMode" Core..=)
-              Prelude.<$> portalAuthMode,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("alarms" Core..=) Prelude.<$> alarms,
             ("clientToken" Core..=) Prelude.<$> clientToken,
             ("portalDescription" Core..=)
               Prelude.<$> portalDescription,
-            ("notificationSenderEmail" Core..=)
-              Prelude.<$> notificationSenderEmail,
-            ("alarms" Core..=) Prelude.<$> alarms,
+            ("portalAuthMode" Core..=)
+              Prelude.<$> portalAuthMode,
             ("portalLogoImageFile" Core..=)
               Prelude.<$> portalLogoImageFile,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("notificationSenderEmail" Core..=)
+              Prelude.<$> notificationSenderEmail,
             Prelude.Just ("portalName" Core..= portalName),
             Prelude.Just
               ("portalContactEmail" Core..= portalContactEmail),

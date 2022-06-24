@@ -41,15 +41,15 @@ module Amazonka.IoTSiteWise.GetAssetPropertyValueHistory
     newGetAssetPropertyValueHistory,
 
     -- * Request Lenses
+    getAssetPropertyValueHistory_nextToken,
+    getAssetPropertyValueHistory_propertyAlias,
+    getAssetPropertyValueHistory_assetId,
     getAssetPropertyValueHistory_endDate,
     getAssetPropertyValueHistory_qualities,
-    getAssetPropertyValueHistory_timeOrdering,
-    getAssetPropertyValueHistory_propertyAlias,
-    getAssetPropertyValueHistory_startDate,
-    getAssetPropertyValueHistory_nextToken,
     getAssetPropertyValueHistory_propertyId,
-    getAssetPropertyValueHistory_assetId,
+    getAssetPropertyValueHistory_startDate,
     getAssetPropertyValueHistory_maxResults,
+    getAssetPropertyValueHistory_timeOrdering,
 
     -- * Destructuring the Response
     GetAssetPropertyValueHistoryResponse (..),
@@ -71,15 +71,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAssetPropertyValueHistory' smart constructor.
 data GetAssetPropertyValueHistory = GetAssetPropertyValueHistory'
-  { -- | The inclusive end of the range from which to query historical data,
-    -- expressed in seconds in Unix epoch time.
-    endDate :: Prelude.Maybe Core.POSIX,
-    -- | The quality by which to filter asset data.
-    qualities :: Prelude.Maybe (Prelude.NonEmpty Quality),
-    -- | The chronological sorting order of the requested information.
-    --
-    -- Default: @ASCENDING@
-    timeOrdering :: Prelude.Maybe TimeOrdering,
+  { -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The alias that identifies the property, such as an OPC-UA server data
     -- stream path (for example,
     -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
@@ -87,19 +80,26 @@ data GetAssetPropertyValueHistory = GetAssetPropertyValueHistory'
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
     -- in the /IoT SiteWise User Guide/.
     propertyAlias :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the asset.
+    assetId :: Prelude.Maybe Prelude.Text,
+    -- | The inclusive end of the range from which to query historical data,
+    -- expressed in seconds in Unix epoch time.
+    endDate :: Prelude.Maybe Core.POSIX,
+    -- | The quality by which to filter asset data.
+    qualities :: Prelude.Maybe (Prelude.NonEmpty Quality),
+    -- | The ID of the asset property.
+    propertyId :: Prelude.Maybe Prelude.Text,
     -- | The exclusive start of the range from which to query historical data,
     -- expressed in seconds in Unix epoch time.
     startDate :: Prelude.Maybe Core.POSIX,
-    -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the asset property.
-    propertyId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the asset.
-    assetId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return for each paginated request.
     --
     -- Default: 100
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The chronological sorting order of the requested information.
+    --
+    -- Default: @ASCENDING@
+    timeOrdering :: Prelude.Maybe TimeOrdering
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -111,14 +111,7 @@ data GetAssetPropertyValueHistory = GetAssetPropertyValueHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endDate', 'getAssetPropertyValueHistory_endDate' - The inclusive end of the range from which to query historical data,
--- expressed in seconds in Unix epoch time.
---
--- 'qualities', 'getAssetPropertyValueHistory_qualities' - The quality by which to filter asset data.
---
--- 'timeOrdering', 'getAssetPropertyValueHistory_timeOrdering' - The chronological sorting order of the requested information.
---
--- Default: @ASCENDING@
+-- 'nextToken', 'getAssetPropertyValueHistory_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'propertyAlias', 'getAssetPropertyValueHistory_propertyAlias' - The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
@@ -127,48 +120,44 @@ data GetAssetPropertyValueHistory = GetAssetPropertyValueHistory'
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
 -- in the /IoT SiteWise User Guide/.
 --
--- 'startDate', 'getAssetPropertyValueHistory_startDate' - The exclusive start of the range from which to query historical data,
+-- 'assetId', 'getAssetPropertyValueHistory_assetId' - The ID of the asset.
+--
+-- 'endDate', 'getAssetPropertyValueHistory_endDate' - The inclusive end of the range from which to query historical data,
 -- expressed in seconds in Unix epoch time.
 --
--- 'nextToken', 'getAssetPropertyValueHistory_nextToken' - The token to be used for the next set of paginated results.
+-- 'qualities', 'getAssetPropertyValueHistory_qualities' - The quality by which to filter asset data.
 --
 -- 'propertyId', 'getAssetPropertyValueHistory_propertyId' - The ID of the asset property.
 --
--- 'assetId', 'getAssetPropertyValueHistory_assetId' - The ID of the asset.
+-- 'startDate', 'getAssetPropertyValueHistory_startDate' - The exclusive start of the range from which to query historical data,
+-- expressed in seconds in Unix epoch time.
 --
 -- 'maxResults', 'getAssetPropertyValueHistory_maxResults' - The maximum number of results to return for each paginated request.
 --
 -- Default: 100
+--
+-- 'timeOrdering', 'getAssetPropertyValueHistory_timeOrdering' - The chronological sorting order of the requested information.
+--
+-- Default: @ASCENDING@
 newGetAssetPropertyValueHistory ::
   GetAssetPropertyValueHistory
 newGetAssetPropertyValueHistory =
   GetAssetPropertyValueHistory'
-    { endDate =
+    { nextToken =
         Prelude.Nothing,
-      qualities = Prelude.Nothing,
-      timeOrdering = Prelude.Nothing,
       propertyAlias = Prelude.Nothing,
-      startDate = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      propertyId = Prelude.Nothing,
       assetId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      endDate = Prelude.Nothing,
+      qualities = Prelude.Nothing,
+      propertyId = Prelude.Nothing,
+      startDate = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      timeOrdering = Prelude.Nothing
     }
 
--- | The inclusive end of the range from which to query historical data,
--- expressed in seconds in Unix epoch time.
-getAssetPropertyValueHistory_endDate :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.UTCTime)
-getAssetPropertyValueHistory_endDate = Lens.lens (\GetAssetPropertyValueHistory' {endDate} -> endDate) (\s@GetAssetPropertyValueHistory' {} a -> s {endDate = a} :: GetAssetPropertyValueHistory) Prelude.. Lens.mapping Core._Time
-
--- | The quality by which to filter asset data.
-getAssetPropertyValueHistory_qualities :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe (Prelude.NonEmpty Quality))
-getAssetPropertyValueHistory_qualities = Lens.lens (\GetAssetPropertyValueHistory' {qualities} -> qualities) (\s@GetAssetPropertyValueHistory' {} a -> s {qualities = a} :: GetAssetPropertyValueHistory) Prelude.. Lens.mapping Lens.coerced
-
--- | The chronological sorting order of the requested information.
---
--- Default: @ASCENDING@
-getAssetPropertyValueHistory_timeOrdering :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe TimeOrdering)
-getAssetPropertyValueHistory_timeOrdering = Lens.lens (\GetAssetPropertyValueHistory' {timeOrdering} -> timeOrdering) (\s@GetAssetPropertyValueHistory' {} a -> s {timeOrdering = a} :: GetAssetPropertyValueHistory)
+-- | The token to be used for the next set of paginated results.
+getAssetPropertyValueHistory_nextToken :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.Text)
+getAssetPropertyValueHistory_nextToken = Lens.lens (\GetAssetPropertyValueHistory' {nextToken} -> nextToken) (\s@GetAssetPropertyValueHistory' {} a -> s {nextToken = a} :: GetAssetPropertyValueHistory)
 
 -- | The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
@@ -179,28 +168,39 @@ getAssetPropertyValueHistory_timeOrdering = Lens.lens (\GetAssetPropertyValueHis
 getAssetPropertyValueHistory_propertyAlias :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.Text)
 getAssetPropertyValueHistory_propertyAlias = Lens.lens (\GetAssetPropertyValueHistory' {propertyAlias} -> propertyAlias) (\s@GetAssetPropertyValueHistory' {} a -> s {propertyAlias = a} :: GetAssetPropertyValueHistory)
 
--- | The exclusive start of the range from which to query historical data,
--- expressed in seconds in Unix epoch time.
-getAssetPropertyValueHistory_startDate :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.UTCTime)
-getAssetPropertyValueHistory_startDate = Lens.lens (\GetAssetPropertyValueHistory' {startDate} -> startDate) (\s@GetAssetPropertyValueHistory' {} a -> s {startDate = a} :: GetAssetPropertyValueHistory) Prelude.. Lens.mapping Core._Time
+-- | The ID of the asset.
+getAssetPropertyValueHistory_assetId :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.Text)
+getAssetPropertyValueHistory_assetId = Lens.lens (\GetAssetPropertyValueHistory' {assetId} -> assetId) (\s@GetAssetPropertyValueHistory' {} a -> s {assetId = a} :: GetAssetPropertyValueHistory)
 
--- | The token to be used for the next set of paginated results.
-getAssetPropertyValueHistory_nextToken :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.Text)
-getAssetPropertyValueHistory_nextToken = Lens.lens (\GetAssetPropertyValueHistory' {nextToken} -> nextToken) (\s@GetAssetPropertyValueHistory' {} a -> s {nextToken = a} :: GetAssetPropertyValueHistory)
+-- | The inclusive end of the range from which to query historical data,
+-- expressed in seconds in Unix epoch time.
+getAssetPropertyValueHistory_endDate :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.UTCTime)
+getAssetPropertyValueHistory_endDate = Lens.lens (\GetAssetPropertyValueHistory' {endDate} -> endDate) (\s@GetAssetPropertyValueHistory' {} a -> s {endDate = a} :: GetAssetPropertyValueHistory) Prelude.. Lens.mapping Core._Time
+
+-- | The quality by which to filter asset data.
+getAssetPropertyValueHistory_qualities :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe (Prelude.NonEmpty Quality))
+getAssetPropertyValueHistory_qualities = Lens.lens (\GetAssetPropertyValueHistory' {qualities} -> qualities) (\s@GetAssetPropertyValueHistory' {} a -> s {qualities = a} :: GetAssetPropertyValueHistory) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the asset property.
 getAssetPropertyValueHistory_propertyId :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.Text)
 getAssetPropertyValueHistory_propertyId = Lens.lens (\GetAssetPropertyValueHistory' {propertyId} -> propertyId) (\s@GetAssetPropertyValueHistory' {} a -> s {propertyId = a} :: GetAssetPropertyValueHistory)
 
--- | The ID of the asset.
-getAssetPropertyValueHistory_assetId :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.Text)
-getAssetPropertyValueHistory_assetId = Lens.lens (\GetAssetPropertyValueHistory' {assetId} -> assetId) (\s@GetAssetPropertyValueHistory' {} a -> s {assetId = a} :: GetAssetPropertyValueHistory)
+-- | The exclusive start of the range from which to query historical data,
+-- expressed in seconds in Unix epoch time.
+getAssetPropertyValueHistory_startDate :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.UTCTime)
+getAssetPropertyValueHistory_startDate = Lens.lens (\GetAssetPropertyValueHistory' {startDate} -> startDate) (\s@GetAssetPropertyValueHistory' {} a -> s {startDate = a} :: GetAssetPropertyValueHistory) Prelude.. Lens.mapping Core._Time
 
 -- | The maximum number of results to return for each paginated request.
 --
 -- Default: 100
 getAssetPropertyValueHistory_maxResults :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.Natural)
 getAssetPropertyValueHistory_maxResults = Lens.lens (\GetAssetPropertyValueHistory' {maxResults} -> maxResults) (\s@GetAssetPropertyValueHistory' {} a -> s {maxResults = a} :: GetAssetPropertyValueHistory)
+
+-- | The chronological sorting order of the requested information.
+--
+-- Default: @ASCENDING@
+getAssetPropertyValueHistory_timeOrdering :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe TimeOrdering)
+getAssetPropertyValueHistory_timeOrdering = Lens.lens (\GetAssetPropertyValueHistory' {timeOrdering} -> timeOrdering) (\s@GetAssetPropertyValueHistory' {} a -> s {timeOrdering = a} :: GetAssetPropertyValueHistory)
 
 instance Core.AWSPager GetAssetPropertyValueHistory where
   page rq rs
@@ -244,27 +244,27 @@ instance
     GetAssetPropertyValueHistory
   where
   hashWithSalt _salt GetAssetPropertyValueHistory' {..} =
-    _salt `Prelude.hashWithSalt` endDate
-      `Prelude.hashWithSalt` qualities
-      `Prelude.hashWithSalt` timeOrdering
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` propertyAlias
-      `Prelude.hashWithSalt` startDate
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` propertyId
       `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` qualities
+      `Prelude.hashWithSalt` propertyId
+      `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` timeOrdering
 
 instance Prelude.NFData GetAssetPropertyValueHistory where
   rnf GetAssetPropertyValueHistory' {..} =
-    Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf qualities
-      `Prelude.seq` Prelude.rnf timeOrdering
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf propertyId
       `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf qualities
+      `Prelude.seq` Prelude.rnf propertyId
+      `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf timeOrdering
 
 instance Core.ToHeaders GetAssetPropertyValueHistory where
   toHeaders =
@@ -283,17 +283,17 @@ instance Core.ToPath GetAssetPropertyValueHistory where
 instance Core.ToQuery GetAssetPropertyValueHistory where
   toQuery GetAssetPropertyValueHistory' {..} =
     Prelude.mconcat
-      [ "endDate" Core.=: endDate,
+      [ "nextToken" Core.=: nextToken,
+        "propertyAlias" Core.=: propertyAlias,
+        "assetId" Core.=: assetId,
+        "endDate" Core.=: endDate,
         "qualities"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> qualities),
-        "timeOrdering" Core.=: timeOrdering,
-        "propertyAlias" Core.=: propertyAlias,
-        "startDate" Core.=: startDate,
-        "nextToken" Core.=: nextToken,
         "propertyId" Core.=: propertyId,
-        "assetId" Core.=: assetId,
-        "maxResults" Core.=: maxResults
+        "startDate" Core.=: startDate,
+        "maxResults" Core.=: maxResults,
+        "timeOrdering" Core.=: timeOrdering
       ]
 
 -- | /See:/ 'newGetAssetPropertyValueHistoryResponse' smart constructor.

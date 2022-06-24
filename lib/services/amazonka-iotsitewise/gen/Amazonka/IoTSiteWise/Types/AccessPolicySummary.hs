@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccessPolicySummary' smart constructor.
 data AccessPolicySummary = AccessPolicySummary'
-  { -- | The date the access policy was last updated, in Unix epoch time.
-    lastUpdateDate :: Prelude.Maybe Core.POSIX,
-    -- | The date the access policy was created, in Unix epoch time.
+  { -- | The date the access policy was created, in Unix epoch time.
     creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The date the access policy was last updated, in Unix epoch time.
+    lastUpdateDate :: Prelude.Maybe Core.POSIX,
     -- | The ID of the access policy.
     id :: Prelude.Text,
     -- | The identity (an Amazon Web Services SSO user, an Amazon Web Services
@@ -56,9 +56,9 @@ data AccessPolicySummary = AccessPolicySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdateDate', 'accessPolicySummary_lastUpdateDate' - The date the access policy was last updated, in Unix epoch time.
---
 -- 'creationDate', 'accessPolicySummary_creationDate' - The date the access policy was created, in Unix epoch time.
+--
+-- 'lastUpdateDate', 'accessPolicySummary_lastUpdateDate' - The date the access policy was last updated, in Unix epoch time.
 --
 -- 'id', 'accessPolicySummary_id' - The ID of the access policy.
 --
@@ -85,22 +85,22 @@ newAccessPolicySummary
   pResource_
   pPermission_ =
     AccessPolicySummary'
-      { lastUpdateDate =
+      { creationDate =
           Prelude.Nothing,
-        creationDate = Prelude.Nothing,
+        lastUpdateDate = Prelude.Nothing,
         id = pId_,
         identity = pIdentity_,
         resource = pResource_,
         permission = pPermission_
       }
 
--- | The date the access policy was last updated, in Unix epoch time.
-accessPolicySummary_lastUpdateDate :: Lens.Lens' AccessPolicySummary (Prelude.Maybe Prelude.UTCTime)
-accessPolicySummary_lastUpdateDate = Lens.lens (\AccessPolicySummary' {lastUpdateDate} -> lastUpdateDate) (\s@AccessPolicySummary' {} a -> s {lastUpdateDate = a} :: AccessPolicySummary) Prelude.. Lens.mapping Core._Time
-
 -- | The date the access policy was created, in Unix epoch time.
 accessPolicySummary_creationDate :: Lens.Lens' AccessPolicySummary (Prelude.Maybe Prelude.UTCTime)
 accessPolicySummary_creationDate = Lens.lens (\AccessPolicySummary' {creationDate} -> creationDate) (\s@AccessPolicySummary' {} a -> s {creationDate = a} :: AccessPolicySummary) Prelude.. Lens.mapping Core._Time
+
+-- | The date the access policy was last updated, in Unix epoch time.
+accessPolicySummary_lastUpdateDate :: Lens.Lens' AccessPolicySummary (Prelude.Maybe Prelude.UTCTime)
+accessPolicySummary_lastUpdateDate = Lens.lens (\AccessPolicySummary' {lastUpdateDate} -> lastUpdateDate) (\s@AccessPolicySummary' {} a -> s {lastUpdateDate = a} :: AccessPolicySummary) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the access policy.
 accessPolicySummary_id :: Lens.Lens' AccessPolicySummary Prelude.Text
@@ -126,8 +126,8 @@ instance Core.FromJSON AccessPolicySummary where
       "AccessPolicySummary"
       ( \x ->
           AccessPolicySummary'
-            Prelude.<$> (x Core..:? "lastUpdateDate")
-            Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<$> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..:? "lastUpdateDate")
             Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "identity")
             Prelude.<*> (x Core..: "resource")
@@ -136,8 +136,8 @@ instance Core.FromJSON AccessPolicySummary where
 
 instance Prelude.Hashable AccessPolicySummary where
   hashWithSalt _salt AccessPolicySummary' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdateDate
-      `Prelude.hashWithSalt` creationDate
+    _salt `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastUpdateDate
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` identity
       `Prelude.hashWithSalt` resource
@@ -145,8 +145,8 @@ instance Prelude.Hashable AccessPolicySummary where
 
 instance Prelude.NFData AccessPolicySummary where
   rnf AccessPolicySummary' {..} =
-    Prelude.rnf lastUpdateDate
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastUpdateDate
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf identity
       `Prelude.seq` Prelude.rnf resource

@@ -45,14 +45,14 @@ module Amazonka.IoTSiteWise.GetInterpolatedAssetPropertyValues
     newGetInterpolatedAssetPropertyValues,
 
     -- * Request Lenses
+    getInterpolatedAssetPropertyValues_nextToken,
+    getInterpolatedAssetPropertyValues_propertyAlias,
+    getInterpolatedAssetPropertyValues_assetId,
     getInterpolatedAssetPropertyValues_startTimeOffsetInNanos,
     getInterpolatedAssetPropertyValues_endTimeOffsetInNanos,
-    getInterpolatedAssetPropertyValues_propertyAlias,
-    getInterpolatedAssetPropertyValues_nextToken,
-    getInterpolatedAssetPropertyValues_intervalWindowInSeconds,
     getInterpolatedAssetPropertyValues_propertyId,
-    getInterpolatedAssetPropertyValues_assetId,
     getInterpolatedAssetPropertyValues_maxResults,
+    getInterpolatedAssetPropertyValues_intervalWindowInSeconds,
     getInterpolatedAssetPropertyValues_startTimeInSeconds,
     getInterpolatedAssetPropertyValues_endTimeInSeconds,
     getInterpolatedAssetPropertyValues_quality,
@@ -79,10 +79,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetInterpolatedAssetPropertyValues' smart constructor.
 data GetInterpolatedAssetPropertyValues = GetInterpolatedAssetPropertyValues'
-  { -- | The nanosecond offset converted from @startTimeInSeconds@.
-    startTimeOffsetInNanos :: Prelude.Maybe Prelude.Natural,
-    -- | The nanosecond offset converted from @endTimeInSeconds@.
-    endTimeOffsetInNanos :: Prelude.Maybe Prelude.Natural,
+  { -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The alias that identifies the property, such as an OPC-UA server data
     -- stream path (for example,
     -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
@@ -90,8 +88,17 @@ data GetInterpolatedAssetPropertyValues = GetInterpolatedAssetPropertyValues'
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
     -- in the /IoT SiteWise User Guide/.
     propertyAlias :: Prelude.Maybe Prelude.Text,
-    -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the asset.
+    assetId :: Prelude.Maybe Prelude.Text,
+    -- | The nanosecond offset converted from @startTimeInSeconds@.
+    startTimeOffsetInNanos :: Prelude.Maybe Prelude.Natural,
+    -- | The nanosecond offset converted from @endTimeInSeconds@.
+    endTimeOffsetInNanos :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the asset property.
+    propertyId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return for each paginated request. If
+    -- not specified, the default value is 10.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The query interval for the window in seconds. IoT SiteWise computes each
     -- interpolated value by using data points from the timestamp of each
     -- interval minus the window to the timestamp of each interval plus the
@@ -113,13 +120,6 @@ data GetInterpolatedAssetPropertyValues = GetInterpolatedAssetPropertyValues'
     -- data points from 7 AM (9 AM - 2 hours) to 11 AM (9 AM + 2 hours) on July
     -- 3, 2021 to compute the second interpolated value, and so on.
     intervalWindowInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the asset property.
-    propertyId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the asset.
-    assetId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for each paginated request. If
-    -- not specified, the default value is 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The exclusive start of the range from which to interpolate data,
     -- expressed in seconds in Unix epoch time.
     startTimeInSeconds :: Prelude.Natural,
@@ -173,9 +173,7 @@ data GetInterpolatedAssetPropertyValues = GetInterpolatedAssetPropertyValues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTimeOffsetInNanos', 'getInterpolatedAssetPropertyValues_startTimeOffsetInNanos' - The nanosecond offset converted from @startTimeInSeconds@.
---
--- 'endTimeOffsetInNanos', 'getInterpolatedAssetPropertyValues_endTimeOffsetInNanos' - The nanosecond offset converted from @endTimeInSeconds@.
+-- 'nextToken', 'getInterpolatedAssetPropertyValues_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'propertyAlias', 'getInterpolatedAssetPropertyValues_propertyAlias' - The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
@@ -184,7 +182,16 @@ data GetInterpolatedAssetPropertyValues = GetInterpolatedAssetPropertyValues'
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
 -- in the /IoT SiteWise User Guide/.
 --
--- 'nextToken', 'getInterpolatedAssetPropertyValues_nextToken' - The token to be used for the next set of paginated results.
+-- 'assetId', 'getInterpolatedAssetPropertyValues_assetId' - The ID of the asset.
+--
+-- 'startTimeOffsetInNanos', 'getInterpolatedAssetPropertyValues_startTimeOffsetInNanos' - The nanosecond offset converted from @startTimeInSeconds@.
+--
+-- 'endTimeOffsetInNanos', 'getInterpolatedAssetPropertyValues_endTimeOffsetInNanos' - The nanosecond offset converted from @endTimeInSeconds@.
+--
+-- 'propertyId', 'getInterpolatedAssetPropertyValues_propertyId' - The ID of the asset property.
+--
+-- 'maxResults', 'getInterpolatedAssetPropertyValues_maxResults' - The maximum number of results to return for each paginated request. If
+-- not specified, the default value is 10.
 --
 -- 'intervalWindowInSeconds', 'getInterpolatedAssetPropertyValues_intervalWindowInSeconds' - The query interval for the window in seconds. IoT SiteWise computes each
 -- interpolated value by using data points from the timestamp of each
@@ -206,13 +213,6 @@ data GetInterpolatedAssetPropertyValues = GetInterpolatedAssetPropertyValues'
 -- hours) on July 2, 2021 to compute the first interpolated value, uses the
 -- data points from 7 AM (9 AM - 2 hours) to 11 AM (9 AM + 2 hours) on July
 -- 3, 2021 to compute the second interpolated value, and so on.
---
--- 'propertyId', 'getInterpolatedAssetPropertyValues_propertyId' - The ID of the asset property.
---
--- 'assetId', 'getInterpolatedAssetPropertyValues_assetId' - The ID of the asset.
---
--- 'maxResults', 'getInterpolatedAssetPropertyValues_maxResults' - The maximum number of results to return for each paginated request. If
--- not specified, the default value is 10.
 --
 -- 'startTimeInSeconds', 'getInterpolatedAssetPropertyValues_startTimeInSeconds' - The exclusive start of the range from which to interpolate data,
 -- expressed in seconds in Unix epoch time.
@@ -274,16 +274,17 @@ newGetInterpolatedAssetPropertyValues
   pIntervalInSeconds_
   pType_ =
     GetInterpolatedAssetPropertyValues'
-      { startTimeOffsetInNanos =
+      { nextToken =
+          Prelude.Nothing,
+        propertyAlias = Prelude.Nothing,
+        assetId = Prelude.Nothing,
+        startTimeOffsetInNanos =
           Prelude.Nothing,
         endTimeOffsetInNanos = Prelude.Nothing,
-        propertyAlias = Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        propertyId = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         intervalWindowInSeconds =
           Prelude.Nothing,
-        propertyId = Prelude.Nothing,
-        assetId = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
         startTimeInSeconds =
           pStartTimeInSeconds_,
         endTimeInSeconds = pEndTimeInSeconds_,
@@ -292,13 +293,9 @@ newGetInterpolatedAssetPropertyValues
         type' = pType_
       }
 
--- | The nanosecond offset converted from @startTimeInSeconds@.
-getInterpolatedAssetPropertyValues_startTimeOffsetInNanos :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Natural)
-getInterpolatedAssetPropertyValues_startTimeOffsetInNanos = Lens.lens (\GetInterpolatedAssetPropertyValues' {startTimeOffsetInNanos} -> startTimeOffsetInNanos) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {startTimeOffsetInNanos = a} :: GetInterpolatedAssetPropertyValues)
-
--- | The nanosecond offset converted from @endTimeInSeconds@.
-getInterpolatedAssetPropertyValues_endTimeOffsetInNanos :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Natural)
-getInterpolatedAssetPropertyValues_endTimeOffsetInNanos = Lens.lens (\GetInterpolatedAssetPropertyValues' {endTimeOffsetInNanos} -> endTimeOffsetInNanos) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {endTimeOffsetInNanos = a} :: GetInterpolatedAssetPropertyValues)
+-- | The token to be used for the next set of paginated results.
+getInterpolatedAssetPropertyValues_nextToken :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Text)
+getInterpolatedAssetPropertyValues_nextToken = Lens.lens (\GetInterpolatedAssetPropertyValues' {nextToken} -> nextToken) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {nextToken = a} :: GetInterpolatedAssetPropertyValues)
 
 -- | The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
@@ -309,9 +306,26 @@ getInterpolatedAssetPropertyValues_endTimeOffsetInNanos = Lens.lens (\GetInterpo
 getInterpolatedAssetPropertyValues_propertyAlias :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Text)
 getInterpolatedAssetPropertyValues_propertyAlias = Lens.lens (\GetInterpolatedAssetPropertyValues' {propertyAlias} -> propertyAlias) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {propertyAlias = a} :: GetInterpolatedAssetPropertyValues)
 
--- | The token to be used for the next set of paginated results.
-getInterpolatedAssetPropertyValues_nextToken :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Text)
-getInterpolatedAssetPropertyValues_nextToken = Lens.lens (\GetInterpolatedAssetPropertyValues' {nextToken} -> nextToken) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {nextToken = a} :: GetInterpolatedAssetPropertyValues)
+-- | The ID of the asset.
+getInterpolatedAssetPropertyValues_assetId :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Text)
+getInterpolatedAssetPropertyValues_assetId = Lens.lens (\GetInterpolatedAssetPropertyValues' {assetId} -> assetId) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {assetId = a} :: GetInterpolatedAssetPropertyValues)
+
+-- | The nanosecond offset converted from @startTimeInSeconds@.
+getInterpolatedAssetPropertyValues_startTimeOffsetInNanos :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Natural)
+getInterpolatedAssetPropertyValues_startTimeOffsetInNanos = Lens.lens (\GetInterpolatedAssetPropertyValues' {startTimeOffsetInNanos} -> startTimeOffsetInNanos) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {startTimeOffsetInNanos = a} :: GetInterpolatedAssetPropertyValues)
+
+-- | The nanosecond offset converted from @endTimeInSeconds@.
+getInterpolatedAssetPropertyValues_endTimeOffsetInNanos :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Natural)
+getInterpolatedAssetPropertyValues_endTimeOffsetInNanos = Lens.lens (\GetInterpolatedAssetPropertyValues' {endTimeOffsetInNanos} -> endTimeOffsetInNanos) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {endTimeOffsetInNanos = a} :: GetInterpolatedAssetPropertyValues)
+
+-- | The ID of the asset property.
+getInterpolatedAssetPropertyValues_propertyId :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Text)
+getInterpolatedAssetPropertyValues_propertyId = Lens.lens (\GetInterpolatedAssetPropertyValues' {propertyId} -> propertyId) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {propertyId = a} :: GetInterpolatedAssetPropertyValues)
+
+-- | The maximum number of results to return for each paginated request. If
+-- not specified, the default value is 10.
+getInterpolatedAssetPropertyValues_maxResults :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Natural)
+getInterpolatedAssetPropertyValues_maxResults = Lens.lens (\GetInterpolatedAssetPropertyValues' {maxResults} -> maxResults) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {maxResults = a} :: GetInterpolatedAssetPropertyValues)
 
 -- | The query interval for the window in seconds. IoT SiteWise computes each
 -- interpolated value by using data points from the timestamp of each
@@ -335,19 +349,6 @@ getInterpolatedAssetPropertyValues_nextToken = Lens.lens (\GetInterpolatedAssetP
 -- 3, 2021 to compute the second interpolated value, and so on.
 getInterpolatedAssetPropertyValues_intervalWindowInSeconds :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Natural)
 getInterpolatedAssetPropertyValues_intervalWindowInSeconds = Lens.lens (\GetInterpolatedAssetPropertyValues' {intervalWindowInSeconds} -> intervalWindowInSeconds) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {intervalWindowInSeconds = a} :: GetInterpolatedAssetPropertyValues)
-
--- | The ID of the asset property.
-getInterpolatedAssetPropertyValues_propertyId :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Text)
-getInterpolatedAssetPropertyValues_propertyId = Lens.lens (\GetInterpolatedAssetPropertyValues' {propertyId} -> propertyId) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {propertyId = a} :: GetInterpolatedAssetPropertyValues)
-
--- | The ID of the asset.
-getInterpolatedAssetPropertyValues_assetId :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Text)
-getInterpolatedAssetPropertyValues_assetId = Lens.lens (\GetInterpolatedAssetPropertyValues' {assetId} -> assetId) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {assetId = a} :: GetInterpolatedAssetPropertyValues)
-
--- | The maximum number of results to return for each paginated request. If
--- not specified, the default value is 10.
-getInterpolatedAssetPropertyValues_maxResults :: Lens.Lens' GetInterpolatedAssetPropertyValues (Prelude.Maybe Prelude.Natural)
-getInterpolatedAssetPropertyValues_maxResults = Lens.lens (\GetInterpolatedAssetPropertyValues' {maxResults} -> maxResults) (\s@GetInterpolatedAssetPropertyValues' {} a -> s {maxResults = a} :: GetInterpolatedAssetPropertyValues)
 
 -- | The exclusive start of the range from which to interpolate data,
 -- expressed in seconds in Unix epoch time.
@@ -451,14 +452,14 @@ instance
   hashWithSalt
     _salt
     GetInterpolatedAssetPropertyValues' {..} =
-      _salt `Prelude.hashWithSalt` startTimeOffsetInNanos
-        `Prelude.hashWithSalt` endTimeOffsetInNanos
+      _salt `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` propertyAlias
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` intervalWindowInSeconds
-        `Prelude.hashWithSalt` propertyId
         `Prelude.hashWithSalt` assetId
+        `Prelude.hashWithSalt` startTimeOffsetInNanos
+        `Prelude.hashWithSalt` endTimeOffsetInNanos
+        `Prelude.hashWithSalt` propertyId
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` intervalWindowInSeconds
         `Prelude.hashWithSalt` startTimeInSeconds
         `Prelude.hashWithSalt` endTimeInSeconds
         `Prelude.hashWithSalt` quality
@@ -470,14 +471,14 @@ instance
     GetInterpolatedAssetPropertyValues
   where
   rnf GetInterpolatedAssetPropertyValues' {..} =
-    Prelude.rnf startTimeOffsetInNanos
-      `Prelude.seq` Prelude.rnf endTimeOffsetInNanos
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf intervalWindowInSeconds
-      `Prelude.seq` Prelude.rnf propertyId
       `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf startTimeOffsetInNanos
+      `Prelude.seq` Prelude.rnf endTimeOffsetInNanos
+      `Prelude.seq` Prelude.rnf propertyId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf intervalWindowInSeconds
       `Prelude.seq` Prelude.rnf startTimeInSeconds
       `Prelude.seq` Prelude.rnf endTimeInSeconds
       `Prelude.seq` Prelude.rnf quality
@@ -510,16 +511,16 @@ instance
   where
   toQuery GetInterpolatedAssetPropertyValues' {..} =
     Prelude.mconcat
-      [ "startTimeOffsetInNanos"
+      [ "nextToken" Core.=: nextToken,
+        "propertyAlias" Core.=: propertyAlias,
+        "assetId" Core.=: assetId,
+        "startTimeOffsetInNanos"
           Core.=: startTimeOffsetInNanos,
         "endTimeOffsetInNanos" Core.=: endTimeOffsetInNanos,
-        "propertyAlias" Core.=: propertyAlias,
-        "nextToken" Core.=: nextToken,
+        "propertyId" Core.=: propertyId,
+        "maxResults" Core.=: maxResults,
         "intervalWindowInSeconds"
           Core.=: intervalWindowInSeconds,
-        "propertyId" Core.=: propertyId,
-        "assetId" Core.=: assetId,
-        "maxResults" Core.=: maxResults,
         "startTimeInSeconds" Core.=: startTimeInSeconds,
         "endTimeInSeconds" Core.=: endTimeInSeconds,
         "quality" Core.=: quality,

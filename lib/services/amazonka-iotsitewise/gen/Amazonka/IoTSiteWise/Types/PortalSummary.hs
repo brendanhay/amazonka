@@ -28,19 +28,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPortalSummary' smart constructor.
 data PortalSummary = PortalSummary'
-  { -- | The date the portal was last updated, in Unix epoch time.
-    lastUpdateDate :: Prelude.Maybe Core.POSIX,
-    -- | The date the portal was created, in Unix epoch time.
-    creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The portal\'s description.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The
+  { -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
     -- of the service role that allows the portal\'s users to access your IoT
     -- SiteWise resources on your behalf. For more information, see
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html Using service roles for IoT SiteWise Monitor>
     -- in the /IoT SiteWise User Guide/.
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The date the portal was created, in Unix epoch time.
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The date the portal was last updated, in Unix epoch time.
+    lastUpdateDate :: Prelude.Maybe Core.POSIX,
+    -- | The portal\'s description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the portal.
     id :: Prelude.Text,
     -- | The name of the portal.
@@ -62,18 +62,18 @@ data PortalSummary = PortalSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdateDate', 'portalSummary_lastUpdateDate' - The date the portal was last updated, in Unix epoch time.
---
--- 'creationDate', 'portalSummary_creationDate' - The date the portal was created, in Unix epoch time.
---
--- 'description', 'portalSummary_description' - The portal\'s description.
---
 -- 'roleArn', 'portalSummary_roleArn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
 -- of the service role that allows the portal\'s users to access your IoT
 -- SiteWise resources on your behalf. For more information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html Using service roles for IoT SiteWise Monitor>
 -- in the /IoT SiteWise User Guide/.
+--
+-- 'creationDate', 'portalSummary_creationDate' - The date the portal was created, in Unix epoch time.
+--
+-- 'lastUpdateDate', 'portalSummary_lastUpdateDate' - The date the portal was last updated, in Unix epoch time.
+--
+-- 'description', 'portalSummary_description' - The portal\'s description.
 --
 -- 'id', 'portalSummary_id' - The ID of the portal.
 --
@@ -97,27 +97,15 @@ newPortalSummary ::
   PortalSummary
 newPortalSummary pId_ pName_ pStartUrl_ pStatus_ =
   PortalSummary'
-    { lastUpdateDate = Prelude.Nothing,
+    { roleArn = Prelude.Nothing,
       creationDate = Prelude.Nothing,
+      lastUpdateDate = Prelude.Nothing,
       description = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
       id = pId_,
       name = pName_,
       startUrl = pStartUrl_,
       status = pStatus_
     }
-
--- | The date the portal was last updated, in Unix epoch time.
-portalSummary_lastUpdateDate :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.UTCTime)
-portalSummary_lastUpdateDate = Lens.lens (\PortalSummary' {lastUpdateDate} -> lastUpdateDate) (\s@PortalSummary' {} a -> s {lastUpdateDate = a} :: PortalSummary) Prelude.. Lens.mapping Core._Time
-
--- | The date the portal was created, in Unix epoch time.
-portalSummary_creationDate :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.UTCTime)
-portalSummary_creationDate = Lens.lens (\PortalSummary' {creationDate} -> creationDate) (\s@PortalSummary' {} a -> s {creationDate = a} :: PortalSummary) Prelude.. Lens.mapping Core._Time
-
--- | The portal\'s description.
-portalSummary_description :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.Text)
-portalSummary_description = Lens.lens (\PortalSummary' {description} -> description) (\s@PortalSummary' {} a -> s {description = a} :: PortalSummary)
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
@@ -127,6 +115,18 @@ portalSummary_description = Lens.lens (\PortalSummary' {description} -> descript
 -- in the /IoT SiteWise User Guide/.
 portalSummary_roleArn :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.Text)
 portalSummary_roleArn = Lens.lens (\PortalSummary' {roleArn} -> roleArn) (\s@PortalSummary' {} a -> s {roleArn = a} :: PortalSummary)
+
+-- | The date the portal was created, in Unix epoch time.
+portalSummary_creationDate :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.UTCTime)
+portalSummary_creationDate = Lens.lens (\PortalSummary' {creationDate} -> creationDate) (\s@PortalSummary' {} a -> s {creationDate = a} :: PortalSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The date the portal was last updated, in Unix epoch time.
+portalSummary_lastUpdateDate :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.UTCTime)
+portalSummary_lastUpdateDate = Lens.lens (\PortalSummary' {lastUpdateDate} -> lastUpdateDate) (\s@PortalSummary' {} a -> s {lastUpdateDate = a} :: PortalSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The portal\'s description.
+portalSummary_description :: Lens.Lens' PortalSummary (Prelude.Maybe Prelude.Text)
+portalSummary_description = Lens.lens (\PortalSummary' {description} -> description) (\s@PortalSummary' {} a -> s {description = a} :: PortalSummary)
 
 -- | The ID of the portal.
 portalSummary_id :: Lens.Lens' PortalSummary Prelude.Text
@@ -153,10 +153,10 @@ instance Core.FromJSON PortalSummary where
       "PortalSummary"
       ( \x ->
           PortalSummary'
-            Prelude.<$> (x Core..:? "lastUpdateDate")
+            Prelude.<$> (x Core..:? "roleArn")
             Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..:? "lastUpdateDate")
             Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "roleArn")
             Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "name")
             Prelude.<*> (x Core..: "startUrl")
@@ -165,10 +165,10 @@ instance Core.FromJSON PortalSummary where
 
 instance Prelude.Hashable PortalSummary where
   hashWithSalt _salt PortalSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdateDate
+    _salt `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastUpdateDate
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` startUrl
@@ -176,10 +176,10 @@ instance Prelude.Hashable PortalSummary where
 
 instance Prelude.NFData PortalSummary where
   rnf PortalSummary' {..} =
-    Prelude.rnf lastUpdateDate
+    Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastUpdateDate
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf startUrl

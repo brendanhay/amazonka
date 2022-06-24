@@ -27,17 +27,65 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListProjects $
---             newListProjects
+--         [ requestAssociateAssets $
+--             newAssociateAssets
+--
+--         , requestBatchAssociateProjectAssets $
+--             newBatchAssociateProjectAssets
+--
+--         , requestBatchDisassociateProjectAssets $
+--             newBatchDisassociateProjectAssets
+--
+--         , requestBatchPutAssetPropertyValue $
+--             newBatchPutAssetPropertyValue
+--
+--         , requestCreateAccessPolicy $
+--             newCreateAccessPolicy
+--
+--         , requestCreateAsset $
+--             newCreateAsset
+--
+--         , requestCreateAssetModel $
+--             newCreateAssetModel
+--
+--         , requestCreateDashboard $
+--             newCreateDashboard
+--
+--         , requestCreateGateway $
+--             newCreateGateway
+--
+--         , requestCreatePortal $
+--             newCreatePortal
+--
+--         , requestCreateProject $
+--             newCreateProject
+--
+--         , requestDeleteAccessPolicy $
+--             newDeleteAccessPolicy
+--
+--         , requestDeleteAsset $
+--             newDeleteAsset
+--
+--         , requestDeleteAssetModel $
+--             newDeleteAssetModel
+--
+--         , requestDeleteDashboard $
+--             newDeleteDashboard
+--
+--         , requestDeleteGateway $
+--             newDeleteGateway
+--
+--         , requestDeletePortal $
+--             newDeletePortal
 --
 --         , requestDeleteProject $
 --             newDeleteProject
 --
---         , requestUpdateProject $
---             newUpdateProject
+--         , requestDescribeAccessPolicy $
+--             newDescribeAccessPolicy
 --
---         , requestPutLoggingOptions $
---             newPutLoggingOptions
+--         , requestDescribeAsset $
+--             newDescribeAsset
 --
 --         , requestDescribeAssetModel $
 --             newDescribeAssetModel
@@ -45,134 +93,98 @@ import Test.Tasty
 --         , requestDescribeAssetProperty $
 --             newDescribeAssetProperty
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestDescribeDashboard $
+--             newDescribeDashboard
 --
---         , requestGetAssetPropertyValue $
---             newGetAssetPropertyValue
---
---         , requestDeleteAccessPolicy $
---             newDeleteAccessPolicy
---
---         , requestUpdateAccessPolicy $
---             newUpdateAccessPolicy
+--         , requestDescribeDefaultEncryptionConfiguration $
+--             newDescribeDefaultEncryptionConfiguration
 --
 --         , requestDescribeGateway $
 --             newDescribeGateway
 --
---         , requestDescribeAsset $
---             newDescribeAsset
+--         , requestDescribeGatewayCapabilityConfiguration $
+--             newDescribeGatewayCapabilityConfiguration
 --
---         , requestListDashboards $
---             newListDashboards
+--         , requestDescribeLoggingOptions $
+--             newDescribeLoggingOptions
 --
---         , requestListAccessPolicies $
---             newListAccessPolicies
+--         , requestDescribePortal $
+--             newDescribePortal
 --
 --         , requestDescribeProject $
 --             newDescribeProject
 --
---         , requestGetAssetPropertyValueHistory $
---             newGetAssetPropertyValueHistory
---
---         , requestCreateDashboard $
---             newCreateDashboard
---
---         , requestCreateAccessPolicy $
---             newCreateAccessPolicy
---
---         , requestCreateAssetModel $
---             newCreateAssetModel
---
---         , requestBatchAssociateProjectAssets $
---             newBatchAssociateProjectAssets
---
---         , requestListAssetModels $
---             newListAssetModels
---
---         , requestListAssociatedAssets $
---             newListAssociatedAssets
---
---         , requestBatchPutAssetPropertyValue $
---             newBatchPutAssetPropertyValue
---
---         , requestDeleteAsset $
---             newDeleteAsset
---
---         , requestUpdateAsset $
---             newUpdateAsset
---
---         , requestDeleteGateway $
---             newDeleteGateway
---
---         , requestDescribeAccessPolicy $
---             newDescribeAccessPolicy
---
---         , requestUpdateGateway $
---             newUpdateGateway
---
---         , requestListProjectAssets $
---             newListProjectAssets
---
---         , requestCreateGateway $
---             newCreateGateway
---
 --         , requestDescribeStorageConfiguration $
 --             newDescribeStorageConfiguration
 --
---         , requestCreateAsset $
---             newCreateAsset
---
---         , requestAssociateAssets $
---             newAssociateAssets
---
---         , requestGetInterpolatedAssetPropertyValues $
---             newGetInterpolatedAssetPropertyValues
---
---         , requestDescribeGatewayCapabilityConfiguration $
---             newDescribeGatewayCapabilityConfiguration
---
---         , requestPutDefaultEncryptionConfiguration $
---             newPutDefaultEncryptionConfiguration
---
---         , requestDeletePortal $
---             newDeletePortal
---
---         , requestListAssetRelationships $
---             newListAssetRelationships
---
---         , requestUpdatePortal $
---             newUpdatePortal
---
---         , requestListPortals $
---             newListPortals
---
---         , requestDeleteDashboard $
---             newDeleteDashboard
---
---         , requestUpdateDashboard $
---             newUpdateDashboard
---
---         , requestPutStorageConfiguration $
---             newPutStorageConfiguration
---
---         , requestCreatePortal $
---             newCreatePortal
---
---         , requestTagResource $
---             newTagResource
---
---         , requestBatchDisassociateProjectAssets $
---             newBatchDisassociateProjectAssets
+--         , requestDisassociateAssets $
+--             newDisassociateAssets
 --
 --         , requestGetAssetPropertyAggregates $
 --             newGetAssetPropertyAggregates
 --
+--         , requestGetAssetPropertyValue $
+--             newGetAssetPropertyValue
+--
+--         , requestGetAssetPropertyValueHistory $
+--             newGetAssetPropertyValueHistory
+--
+--         , requestGetInterpolatedAssetPropertyValues $
+--             newGetInterpolatedAssetPropertyValues
+--
+--         , requestListAccessPolicies $
+--             newListAccessPolicies
+--
+--         , requestListAssetModels $
+--             newListAssetModels
+--
+--         , requestListAssetRelationships $
+--             newListAssetRelationships
+--
+--         , requestListAssets $
+--             newListAssets
+--
+--         , requestListAssociatedAssets $
+--             newListAssociatedAssets
+--
+--         , requestListDashboards $
+--             newListDashboards
+--
+--         , requestListGateways $
+--             newListGateways
+--
+--         , requestListPortals $
+--             newListPortals
+--
+--         , requestListProjectAssets $
+--             newListProjectAssets
+--
+--         , requestListProjects $
+--             newListProjects
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutDefaultEncryptionConfiguration $
+--             newPutDefaultEncryptionConfiguration
+--
+--         , requestPutLoggingOptions $
+--             newPutLoggingOptions
+--
+--         , requestPutStorageConfiguration $
+--             newPutStorageConfiguration
+--
+--         , requestTagResource $
+--             newTagResource
+--
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestDeleteAssetModel $
---             newDeleteAssetModel
+--         , requestUpdateAccessPolicy $
+--             newUpdateAccessPolicy
+--
+--         , requestUpdateAsset $
+--             newUpdateAsset
 --
 --         , requestUpdateAssetModel $
 --             newUpdateAssetModel
@@ -180,47 +192,83 @@ import Test.Tasty
 --         , requestUpdateAssetProperty $
 --             newUpdateAssetProperty
 --
---         , requestDescribeLoggingOptions $
---             newDescribeLoggingOptions
+--         , requestUpdateDashboard $
+--             newUpdateDashboard
 --
---         , requestListGateways $
---             newListGateways
+--         , requestUpdateGateway $
+--             newUpdateGateway
 --
 --         , requestUpdateGatewayCapabilityConfiguration $
 --             newUpdateGatewayCapabilityConfiguration
 --
---         , requestDescribeDashboard $
---             newDescribeDashboard
+--         , requestUpdatePortal $
+--             newUpdatePortal
 --
---         , requestDescribePortal $
---             newDescribePortal
---
---         , requestCreateProject $
---             newCreateProject
---
---         , requestDescribeDefaultEncryptionConfiguration $
---             newDescribeDefaultEncryptionConfiguration
---
---         , requestListAssets $
---             newListAssets
---
---         , requestDisassociateAssets $
---             newDisassociateAssets
+--         , requestUpdateProject $
+--             newUpdateProject
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListProjects $
---             newListProjectsResponse
+--         [ responseAssociateAssets $
+--             newAssociateAssetsResponse
+--
+--         , responseBatchAssociateProjectAssets $
+--             newBatchAssociateProjectAssetsResponse
+--
+--         , responseBatchDisassociateProjectAssets $
+--             newBatchDisassociateProjectAssetsResponse
+--
+--         , responseBatchPutAssetPropertyValue $
+--             newBatchPutAssetPropertyValueResponse
+--
+--         , responseCreateAccessPolicy $
+--             newCreateAccessPolicyResponse
+--
+--         , responseCreateAsset $
+--             newCreateAssetResponse
+--
+--         , responseCreateAssetModel $
+--             newCreateAssetModelResponse
+--
+--         , responseCreateDashboard $
+--             newCreateDashboardResponse
+--
+--         , responseCreateGateway $
+--             newCreateGatewayResponse
+--
+--         , responseCreatePortal $
+--             newCreatePortalResponse
+--
+--         , responseCreateProject $
+--             newCreateProjectResponse
+--
+--         , responseDeleteAccessPolicy $
+--             newDeleteAccessPolicyResponse
+--
+--         , responseDeleteAsset $
+--             newDeleteAssetResponse
+--
+--         , responseDeleteAssetModel $
+--             newDeleteAssetModelResponse
+--
+--         , responseDeleteDashboard $
+--             newDeleteDashboardResponse
+--
+--         , responseDeleteGateway $
+--             newDeleteGatewayResponse
+--
+--         , responseDeletePortal $
+--             newDeletePortalResponse
 --
 --         , responseDeleteProject $
 --             newDeleteProjectResponse
 --
---         , responseUpdateProject $
---             newUpdateProjectResponse
+--         , responseDescribeAccessPolicy $
+--             newDescribeAccessPolicyResponse
 --
---         , responsePutLoggingOptions $
---             newPutLoggingOptionsResponse
+--         , responseDescribeAsset $
+--             newDescribeAssetResponse
 --
 --         , responseDescribeAssetModel $
 --             newDescribeAssetModelResponse
@@ -228,134 +276,98 @@ import Test.Tasty
 --         , responseDescribeAssetProperty $
 --             newDescribeAssetPropertyResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseDescribeDashboard $
+--             newDescribeDashboardResponse
 --
---         , responseGetAssetPropertyValue $
---             newGetAssetPropertyValueResponse
---
---         , responseDeleteAccessPolicy $
---             newDeleteAccessPolicyResponse
---
---         , responseUpdateAccessPolicy $
---             newUpdateAccessPolicyResponse
+--         , responseDescribeDefaultEncryptionConfiguration $
+--             newDescribeDefaultEncryptionConfigurationResponse
 --
 --         , responseDescribeGateway $
 --             newDescribeGatewayResponse
 --
---         , responseDescribeAsset $
---             newDescribeAssetResponse
+--         , responseDescribeGatewayCapabilityConfiguration $
+--             newDescribeGatewayCapabilityConfigurationResponse
 --
---         , responseListDashboards $
---             newListDashboardsResponse
+--         , responseDescribeLoggingOptions $
+--             newDescribeLoggingOptionsResponse
 --
---         , responseListAccessPolicies $
---             newListAccessPoliciesResponse
+--         , responseDescribePortal $
+--             newDescribePortalResponse
 --
 --         , responseDescribeProject $
 --             newDescribeProjectResponse
 --
---         , responseGetAssetPropertyValueHistory $
---             newGetAssetPropertyValueHistoryResponse
---
---         , responseCreateDashboard $
---             newCreateDashboardResponse
---
---         , responseCreateAccessPolicy $
---             newCreateAccessPolicyResponse
---
---         , responseCreateAssetModel $
---             newCreateAssetModelResponse
---
---         , responseBatchAssociateProjectAssets $
---             newBatchAssociateProjectAssetsResponse
---
---         , responseListAssetModels $
---             newListAssetModelsResponse
---
---         , responseListAssociatedAssets $
---             newListAssociatedAssetsResponse
---
---         , responseBatchPutAssetPropertyValue $
---             newBatchPutAssetPropertyValueResponse
---
---         , responseDeleteAsset $
---             newDeleteAssetResponse
---
---         , responseUpdateAsset $
---             newUpdateAssetResponse
---
---         , responseDeleteGateway $
---             newDeleteGatewayResponse
---
---         , responseDescribeAccessPolicy $
---             newDescribeAccessPolicyResponse
---
---         , responseUpdateGateway $
---             newUpdateGatewayResponse
---
---         , responseListProjectAssets $
---             newListProjectAssetsResponse
---
---         , responseCreateGateway $
---             newCreateGatewayResponse
---
 --         , responseDescribeStorageConfiguration $
 --             newDescribeStorageConfigurationResponse
 --
---         , responseCreateAsset $
---             newCreateAssetResponse
---
---         , responseAssociateAssets $
---             newAssociateAssetsResponse
---
---         , responseGetInterpolatedAssetPropertyValues $
---             newGetInterpolatedAssetPropertyValuesResponse
---
---         , responseDescribeGatewayCapabilityConfiguration $
---             newDescribeGatewayCapabilityConfigurationResponse
---
---         , responsePutDefaultEncryptionConfiguration $
---             newPutDefaultEncryptionConfigurationResponse
---
---         , responseDeletePortal $
---             newDeletePortalResponse
---
---         , responseListAssetRelationships $
---             newListAssetRelationshipsResponse
---
---         , responseUpdatePortal $
---             newUpdatePortalResponse
---
---         , responseListPortals $
---             newListPortalsResponse
---
---         , responseDeleteDashboard $
---             newDeleteDashboardResponse
---
---         , responseUpdateDashboard $
---             newUpdateDashboardResponse
---
---         , responsePutStorageConfiguration $
---             newPutStorageConfigurationResponse
---
---         , responseCreatePortal $
---             newCreatePortalResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseBatchDisassociateProjectAssets $
---             newBatchDisassociateProjectAssetsResponse
+--         , responseDisassociateAssets $
+--             newDisassociateAssetsResponse
 --
 --         , responseGetAssetPropertyAggregates $
 --             newGetAssetPropertyAggregatesResponse
 --
+--         , responseGetAssetPropertyValue $
+--             newGetAssetPropertyValueResponse
+--
+--         , responseGetAssetPropertyValueHistory $
+--             newGetAssetPropertyValueHistoryResponse
+--
+--         , responseGetInterpolatedAssetPropertyValues $
+--             newGetInterpolatedAssetPropertyValuesResponse
+--
+--         , responseListAccessPolicies $
+--             newListAccessPoliciesResponse
+--
+--         , responseListAssetModels $
+--             newListAssetModelsResponse
+--
+--         , responseListAssetRelationships $
+--             newListAssetRelationshipsResponse
+--
+--         , responseListAssets $
+--             newListAssetsResponse
+--
+--         , responseListAssociatedAssets $
+--             newListAssociatedAssetsResponse
+--
+--         , responseListDashboards $
+--             newListDashboardsResponse
+--
+--         , responseListGateways $
+--             newListGatewaysResponse
+--
+--         , responseListPortals $
+--             newListPortalsResponse
+--
+--         , responseListProjectAssets $
+--             newListProjectAssetsResponse
+--
+--         , responseListProjects $
+--             newListProjectsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutDefaultEncryptionConfiguration $
+--             newPutDefaultEncryptionConfigurationResponse
+--
+--         , responsePutLoggingOptions $
+--             newPutLoggingOptionsResponse
+--
+--         , responsePutStorageConfiguration $
+--             newPutStorageConfigurationResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDeleteAssetModel $
---             newDeleteAssetModelResponse
+--         , responseUpdateAccessPolicy $
+--             newUpdateAccessPolicyResponse
+--
+--         , responseUpdateAsset $
+--             newUpdateAssetResponse
 --
 --         , responseUpdateAssetModel $
 --             newUpdateAssetModelResponse
@@ -363,43 +375,127 @@ import Test.Tasty
 --         , responseUpdateAssetProperty $
 --             newUpdateAssetPropertyResponse
 --
---         , responseDescribeLoggingOptions $
---             newDescribeLoggingOptionsResponse
+--         , responseUpdateDashboard $
+--             newUpdateDashboardResponse
 --
---         , responseListGateways $
---             newListGatewaysResponse
+--         , responseUpdateGateway $
+--             newUpdateGatewayResponse
 --
 --         , responseUpdateGatewayCapabilityConfiguration $
 --             newUpdateGatewayCapabilityConfigurationResponse
 --
---         , responseDescribeDashboard $
---             newDescribeDashboardResponse
+--         , responseUpdatePortal $
+--             newUpdatePortalResponse
 --
---         , responseDescribePortal $
---             newDescribePortalResponse
---
---         , responseCreateProject $
---             newCreateProjectResponse
---
---         , responseDescribeDefaultEncryptionConfiguration $
---             newDescribeDefaultEncryptionConfigurationResponse
---
---         , responseListAssets $
---             newListAssetsResponse
---
---         , responseDisassociateAssets $
---             newDisassociateAssetsResponse
+--         , responseUpdateProject $
+--             newUpdateProjectResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestListProjects :: ListProjects -> TestTree
-requestListProjects =
+requestAssociateAssets :: AssociateAssets -> TestTree
+requestAssociateAssets =
   req
-    "ListProjects"
-    "fixture/ListProjects.yaml"
+    "AssociateAssets"
+    "fixture/AssociateAssets.yaml"
+
+requestBatchAssociateProjectAssets :: BatchAssociateProjectAssets -> TestTree
+requestBatchAssociateProjectAssets =
+  req
+    "BatchAssociateProjectAssets"
+    "fixture/BatchAssociateProjectAssets.yaml"
+
+requestBatchDisassociateProjectAssets :: BatchDisassociateProjectAssets -> TestTree
+requestBatchDisassociateProjectAssets =
+  req
+    "BatchDisassociateProjectAssets"
+    "fixture/BatchDisassociateProjectAssets.yaml"
+
+requestBatchPutAssetPropertyValue :: BatchPutAssetPropertyValue -> TestTree
+requestBatchPutAssetPropertyValue =
+  req
+    "BatchPutAssetPropertyValue"
+    "fixture/BatchPutAssetPropertyValue.yaml"
+
+requestCreateAccessPolicy :: CreateAccessPolicy -> TestTree
+requestCreateAccessPolicy =
+  req
+    "CreateAccessPolicy"
+    "fixture/CreateAccessPolicy.yaml"
+
+requestCreateAsset :: CreateAsset -> TestTree
+requestCreateAsset =
+  req
+    "CreateAsset"
+    "fixture/CreateAsset.yaml"
+
+requestCreateAssetModel :: CreateAssetModel -> TestTree
+requestCreateAssetModel =
+  req
+    "CreateAssetModel"
+    "fixture/CreateAssetModel.yaml"
+
+requestCreateDashboard :: CreateDashboard -> TestTree
+requestCreateDashboard =
+  req
+    "CreateDashboard"
+    "fixture/CreateDashboard.yaml"
+
+requestCreateGateway :: CreateGateway -> TestTree
+requestCreateGateway =
+  req
+    "CreateGateway"
+    "fixture/CreateGateway.yaml"
+
+requestCreatePortal :: CreatePortal -> TestTree
+requestCreatePortal =
+  req
+    "CreatePortal"
+    "fixture/CreatePortal.yaml"
+
+requestCreateProject :: CreateProject -> TestTree
+requestCreateProject =
+  req
+    "CreateProject"
+    "fixture/CreateProject.yaml"
+
+requestDeleteAccessPolicy :: DeleteAccessPolicy -> TestTree
+requestDeleteAccessPolicy =
+  req
+    "DeleteAccessPolicy"
+    "fixture/DeleteAccessPolicy.yaml"
+
+requestDeleteAsset :: DeleteAsset -> TestTree
+requestDeleteAsset =
+  req
+    "DeleteAsset"
+    "fixture/DeleteAsset.yaml"
+
+requestDeleteAssetModel :: DeleteAssetModel -> TestTree
+requestDeleteAssetModel =
+  req
+    "DeleteAssetModel"
+    "fixture/DeleteAssetModel.yaml"
+
+requestDeleteDashboard :: DeleteDashboard -> TestTree
+requestDeleteDashboard =
+  req
+    "DeleteDashboard"
+    "fixture/DeleteDashboard.yaml"
+
+requestDeleteGateway :: DeleteGateway -> TestTree
+requestDeleteGateway =
+  req
+    "DeleteGateway"
+    "fixture/DeleteGateway.yaml"
+
+requestDeletePortal :: DeletePortal -> TestTree
+requestDeletePortal =
+  req
+    "DeletePortal"
+    "fixture/DeletePortal.yaml"
 
 requestDeleteProject :: DeleteProject -> TestTree
 requestDeleteProject =
@@ -407,17 +503,17 @@ requestDeleteProject =
     "DeleteProject"
     "fixture/DeleteProject.yaml"
 
-requestUpdateProject :: UpdateProject -> TestTree
-requestUpdateProject =
+requestDescribeAccessPolicy :: DescribeAccessPolicy -> TestTree
+requestDescribeAccessPolicy =
   req
-    "UpdateProject"
-    "fixture/UpdateProject.yaml"
+    "DescribeAccessPolicy"
+    "fixture/DescribeAccessPolicy.yaml"
 
-requestPutLoggingOptions :: PutLoggingOptions -> TestTree
-requestPutLoggingOptions =
+requestDescribeAsset :: DescribeAsset -> TestTree
+requestDescribeAsset =
   req
-    "PutLoggingOptions"
-    "fixture/PutLoggingOptions.yaml"
+    "DescribeAsset"
+    "fixture/DescribeAsset.yaml"
 
 requestDescribeAssetModel :: DescribeAssetModel -> TestTree
 requestDescribeAssetModel =
@@ -431,29 +527,17 @@ requestDescribeAssetProperty =
     "DescribeAssetProperty"
     "fixture/DescribeAssetProperty.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestDescribeDashboard :: DescribeDashboard -> TestTree
+requestDescribeDashboard =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "DescribeDashboard"
+    "fixture/DescribeDashboard.yaml"
 
-requestGetAssetPropertyValue :: GetAssetPropertyValue -> TestTree
-requestGetAssetPropertyValue =
+requestDescribeDefaultEncryptionConfiguration :: DescribeDefaultEncryptionConfiguration -> TestTree
+requestDescribeDefaultEncryptionConfiguration =
   req
-    "GetAssetPropertyValue"
-    "fixture/GetAssetPropertyValue.yaml"
-
-requestDeleteAccessPolicy :: DeleteAccessPolicy -> TestTree
-requestDeleteAccessPolicy =
-  req
-    "DeleteAccessPolicy"
-    "fixture/DeleteAccessPolicy.yaml"
-
-requestUpdateAccessPolicy :: UpdateAccessPolicy -> TestTree
-requestUpdateAccessPolicy =
-  req
-    "UpdateAccessPolicy"
-    "fixture/UpdateAccessPolicy.yaml"
+    "DescribeDefaultEncryptionConfiguration"
+    "fixture/DescribeDefaultEncryptionConfiguration.yaml"
 
 requestDescribeGateway :: DescribeGateway -> TestTree
 requestDescribeGateway =
@@ -461,23 +545,23 @@ requestDescribeGateway =
     "DescribeGateway"
     "fixture/DescribeGateway.yaml"
 
-requestDescribeAsset :: DescribeAsset -> TestTree
-requestDescribeAsset =
+requestDescribeGatewayCapabilityConfiguration :: DescribeGatewayCapabilityConfiguration -> TestTree
+requestDescribeGatewayCapabilityConfiguration =
   req
-    "DescribeAsset"
-    "fixture/DescribeAsset.yaml"
+    "DescribeGatewayCapabilityConfiguration"
+    "fixture/DescribeGatewayCapabilityConfiguration.yaml"
 
-requestListDashboards :: ListDashboards -> TestTree
-requestListDashboards =
+requestDescribeLoggingOptions :: DescribeLoggingOptions -> TestTree
+requestDescribeLoggingOptions =
   req
-    "ListDashboards"
-    "fixture/ListDashboards.yaml"
+    "DescribeLoggingOptions"
+    "fixture/DescribeLoggingOptions.yaml"
 
-requestListAccessPolicies :: ListAccessPolicies -> TestTree
-requestListAccessPolicies =
+requestDescribePortal :: DescribePortal -> TestTree
+requestDescribePortal =
   req
-    "ListAccessPolicies"
-    "fixture/ListAccessPolicies.yaml"
+    "DescribePortal"
+    "fixture/DescribePortal.yaml"
 
 requestDescribeProject :: DescribeProject -> TestTree
 requestDescribeProject =
@@ -485,191 +569,17 @@ requestDescribeProject =
     "DescribeProject"
     "fixture/DescribeProject.yaml"
 
-requestGetAssetPropertyValueHistory :: GetAssetPropertyValueHistory -> TestTree
-requestGetAssetPropertyValueHistory =
-  req
-    "GetAssetPropertyValueHistory"
-    "fixture/GetAssetPropertyValueHistory.yaml"
-
-requestCreateDashboard :: CreateDashboard -> TestTree
-requestCreateDashboard =
-  req
-    "CreateDashboard"
-    "fixture/CreateDashboard.yaml"
-
-requestCreateAccessPolicy :: CreateAccessPolicy -> TestTree
-requestCreateAccessPolicy =
-  req
-    "CreateAccessPolicy"
-    "fixture/CreateAccessPolicy.yaml"
-
-requestCreateAssetModel :: CreateAssetModel -> TestTree
-requestCreateAssetModel =
-  req
-    "CreateAssetModel"
-    "fixture/CreateAssetModel.yaml"
-
-requestBatchAssociateProjectAssets :: BatchAssociateProjectAssets -> TestTree
-requestBatchAssociateProjectAssets =
-  req
-    "BatchAssociateProjectAssets"
-    "fixture/BatchAssociateProjectAssets.yaml"
-
-requestListAssetModels :: ListAssetModels -> TestTree
-requestListAssetModels =
-  req
-    "ListAssetModels"
-    "fixture/ListAssetModels.yaml"
-
-requestListAssociatedAssets :: ListAssociatedAssets -> TestTree
-requestListAssociatedAssets =
-  req
-    "ListAssociatedAssets"
-    "fixture/ListAssociatedAssets.yaml"
-
-requestBatchPutAssetPropertyValue :: BatchPutAssetPropertyValue -> TestTree
-requestBatchPutAssetPropertyValue =
-  req
-    "BatchPutAssetPropertyValue"
-    "fixture/BatchPutAssetPropertyValue.yaml"
-
-requestDeleteAsset :: DeleteAsset -> TestTree
-requestDeleteAsset =
-  req
-    "DeleteAsset"
-    "fixture/DeleteAsset.yaml"
-
-requestUpdateAsset :: UpdateAsset -> TestTree
-requestUpdateAsset =
-  req
-    "UpdateAsset"
-    "fixture/UpdateAsset.yaml"
-
-requestDeleteGateway :: DeleteGateway -> TestTree
-requestDeleteGateway =
-  req
-    "DeleteGateway"
-    "fixture/DeleteGateway.yaml"
-
-requestDescribeAccessPolicy :: DescribeAccessPolicy -> TestTree
-requestDescribeAccessPolicy =
-  req
-    "DescribeAccessPolicy"
-    "fixture/DescribeAccessPolicy.yaml"
-
-requestUpdateGateway :: UpdateGateway -> TestTree
-requestUpdateGateway =
-  req
-    "UpdateGateway"
-    "fixture/UpdateGateway.yaml"
-
-requestListProjectAssets :: ListProjectAssets -> TestTree
-requestListProjectAssets =
-  req
-    "ListProjectAssets"
-    "fixture/ListProjectAssets.yaml"
-
-requestCreateGateway :: CreateGateway -> TestTree
-requestCreateGateway =
-  req
-    "CreateGateway"
-    "fixture/CreateGateway.yaml"
-
 requestDescribeStorageConfiguration :: DescribeStorageConfiguration -> TestTree
 requestDescribeStorageConfiguration =
   req
     "DescribeStorageConfiguration"
     "fixture/DescribeStorageConfiguration.yaml"
 
-requestCreateAsset :: CreateAsset -> TestTree
-requestCreateAsset =
+requestDisassociateAssets :: DisassociateAssets -> TestTree
+requestDisassociateAssets =
   req
-    "CreateAsset"
-    "fixture/CreateAsset.yaml"
-
-requestAssociateAssets :: AssociateAssets -> TestTree
-requestAssociateAssets =
-  req
-    "AssociateAssets"
-    "fixture/AssociateAssets.yaml"
-
-requestGetInterpolatedAssetPropertyValues :: GetInterpolatedAssetPropertyValues -> TestTree
-requestGetInterpolatedAssetPropertyValues =
-  req
-    "GetInterpolatedAssetPropertyValues"
-    "fixture/GetInterpolatedAssetPropertyValues.yaml"
-
-requestDescribeGatewayCapabilityConfiguration :: DescribeGatewayCapabilityConfiguration -> TestTree
-requestDescribeGatewayCapabilityConfiguration =
-  req
-    "DescribeGatewayCapabilityConfiguration"
-    "fixture/DescribeGatewayCapabilityConfiguration.yaml"
-
-requestPutDefaultEncryptionConfiguration :: PutDefaultEncryptionConfiguration -> TestTree
-requestPutDefaultEncryptionConfiguration =
-  req
-    "PutDefaultEncryptionConfiguration"
-    "fixture/PutDefaultEncryptionConfiguration.yaml"
-
-requestDeletePortal :: DeletePortal -> TestTree
-requestDeletePortal =
-  req
-    "DeletePortal"
-    "fixture/DeletePortal.yaml"
-
-requestListAssetRelationships :: ListAssetRelationships -> TestTree
-requestListAssetRelationships =
-  req
-    "ListAssetRelationships"
-    "fixture/ListAssetRelationships.yaml"
-
-requestUpdatePortal :: UpdatePortal -> TestTree
-requestUpdatePortal =
-  req
-    "UpdatePortal"
-    "fixture/UpdatePortal.yaml"
-
-requestListPortals :: ListPortals -> TestTree
-requestListPortals =
-  req
-    "ListPortals"
-    "fixture/ListPortals.yaml"
-
-requestDeleteDashboard :: DeleteDashboard -> TestTree
-requestDeleteDashboard =
-  req
-    "DeleteDashboard"
-    "fixture/DeleteDashboard.yaml"
-
-requestUpdateDashboard :: UpdateDashboard -> TestTree
-requestUpdateDashboard =
-  req
-    "UpdateDashboard"
-    "fixture/UpdateDashboard.yaml"
-
-requestPutStorageConfiguration :: PutStorageConfiguration -> TestTree
-requestPutStorageConfiguration =
-  req
-    "PutStorageConfiguration"
-    "fixture/PutStorageConfiguration.yaml"
-
-requestCreatePortal :: CreatePortal -> TestTree
-requestCreatePortal =
-  req
-    "CreatePortal"
-    "fixture/CreatePortal.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestBatchDisassociateProjectAssets :: BatchDisassociateProjectAssets -> TestTree
-requestBatchDisassociateProjectAssets =
-  req
-    "BatchDisassociateProjectAssets"
-    "fixture/BatchDisassociateProjectAssets.yaml"
+    "DisassociateAssets"
+    "fixture/DisassociateAssets.yaml"
 
 requestGetAssetPropertyAggregates :: GetAssetPropertyAggregates -> TestTree
 requestGetAssetPropertyAggregates =
@@ -677,17 +587,131 @@ requestGetAssetPropertyAggregates =
     "GetAssetPropertyAggregates"
     "fixture/GetAssetPropertyAggregates.yaml"
 
+requestGetAssetPropertyValue :: GetAssetPropertyValue -> TestTree
+requestGetAssetPropertyValue =
+  req
+    "GetAssetPropertyValue"
+    "fixture/GetAssetPropertyValue.yaml"
+
+requestGetAssetPropertyValueHistory :: GetAssetPropertyValueHistory -> TestTree
+requestGetAssetPropertyValueHistory =
+  req
+    "GetAssetPropertyValueHistory"
+    "fixture/GetAssetPropertyValueHistory.yaml"
+
+requestGetInterpolatedAssetPropertyValues :: GetInterpolatedAssetPropertyValues -> TestTree
+requestGetInterpolatedAssetPropertyValues =
+  req
+    "GetInterpolatedAssetPropertyValues"
+    "fixture/GetInterpolatedAssetPropertyValues.yaml"
+
+requestListAccessPolicies :: ListAccessPolicies -> TestTree
+requestListAccessPolicies =
+  req
+    "ListAccessPolicies"
+    "fixture/ListAccessPolicies.yaml"
+
+requestListAssetModels :: ListAssetModels -> TestTree
+requestListAssetModels =
+  req
+    "ListAssetModels"
+    "fixture/ListAssetModels.yaml"
+
+requestListAssetRelationships :: ListAssetRelationships -> TestTree
+requestListAssetRelationships =
+  req
+    "ListAssetRelationships"
+    "fixture/ListAssetRelationships.yaml"
+
+requestListAssets :: ListAssets -> TestTree
+requestListAssets =
+  req
+    "ListAssets"
+    "fixture/ListAssets.yaml"
+
+requestListAssociatedAssets :: ListAssociatedAssets -> TestTree
+requestListAssociatedAssets =
+  req
+    "ListAssociatedAssets"
+    "fixture/ListAssociatedAssets.yaml"
+
+requestListDashboards :: ListDashboards -> TestTree
+requestListDashboards =
+  req
+    "ListDashboards"
+    "fixture/ListDashboards.yaml"
+
+requestListGateways :: ListGateways -> TestTree
+requestListGateways =
+  req
+    "ListGateways"
+    "fixture/ListGateways.yaml"
+
+requestListPortals :: ListPortals -> TestTree
+requestListPortals =
+  req
+    "ListPortals"
+    "fixture/ListPortals.yaml"
+
+requestListProjectAssets :: ListProjectAssets -> TestTree
+requestListProjectAssets =
+  req
+    "ListProjectAssets"
+    "fixture/ListProjectAssets.yaml"
+
+requestListProjects :: ListProjects -> TestTree
+requestListProjects =
+  req
+    "ListProjects"
+    "fixture/ListProjects.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutDefaultEncryptionConfiguration :: PutDefaultEncryptionConfiguration -> TestTree
+requestPutDefaultEncryptionConfiguration =
+  req
+    "PutDefaultEncryptionConfiguration"
+    "fixture/PutDefaultEncryptionConfiguration.yaml"
+
+requestPutLoggingOptions :: PutLoggingOptions -> TestTree
+requestPutLoggingOptions =
+  req
+    "PutLoggingOptions"
+    "fixture/PutLoggingOptions.yaml"
+
+requestPutStorageConfiguration :: PutStorageConfiguration -> TestTree
+requestPutStorageConfiguration =
+  req
+    "PutStorageConfiguration"
+    "fixture/PutStorageConfiguration.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestDeleteAssetModel :: DeleteAssetModel -> TestTree
-requestDeleteAssetModel =
+requestUpdateAccessPolicy :: UpdateAccessPolicy -> TestTree
+requestUpdateAccessPolicy =
   req
-    "DeleteAssetModel"
-    "fixture/DeleteAssetModel.yaml"
+    "UpdateAccessPolicy"
+    "fixture/UpdateAccessPolicy.yaml"
+
+requestUpdateAsset :: UpdateAsset -> TestTree
+requestUpdateAsset =
+  req
+    "UpdateAsset"
+    "fixture/UpdateAsset.yaml"
 
 requestUpdateAssetModel :: UpdateAssetModel -> TestTree
 requestUpdateAssetModel =
@@ -701,17 +725,17 @@ requestUpdateAssetProperty =
     "UpdateAssetProperty"
     "fixture/UpdateAssetProperty.yaml"
 
-requestDescribeLoggingOptions :: DescribeLoggingOptions -> TestTree
-requestDescribeLoggingOptions =
+requestUpdateDashboard :: UpdateDashboard -> TestTree
+requestUpdateDashboard =
   req
-    "DescribeLoggingOptions"
-    "fixture/DescribeLoggingOptions.yaml"
+    "UpdateDashboard"
+    "fixture/UpdateDashboard.yaml"
 
-requestListGateways :: ListGateways -> TestTree
-requestListGateways =
+requestUpdateGateway :: UpdateGateway -> TestTree
+requestUpdateGateway =
   req
-    "ListGateways"
-    "fixture/ListGateways.yaml"
+    "UpdateGateway"
+    "fixture/UpdateGateway.yaml"
 
 requestUpdateGatewayCapabilityConfiguration :: UpdateGatewayCapabilityConfiguration -> TestTree
 requestUpdateGatewayCapabilityConfiguration =
@@ -719,51 +743,155 @@ requestUpdateGatewayCapabilityConfiguration =
     "UpdateGatewayCapabilityConfiguration"
     "fixture/UpdateGatewayCapabilityConfiguration.yaml"
 
-requestDescribeDashboard :: DescribeDashboard -> TestTree
-requestDescribeDashboard =
+requestUpdatePortal :: UpdatePortal -> TestTree
+requestUpdatePortal =
   req
-    "DescribeDashboard"
-    "fixture/DescribeDashboard.yaml"
+    "UpdatePortal"
+    "fixture/UpdatePortal.yaml"
 
-requestDescribePortal :: DescribePortal -> TestTree
-requestDescribePortal =
+requestUpdateProject :: UpdateProject -> TestTree
+requestUpdateProject =
   req
-    "DescribePortal"
-    "fixture/DescribePortal.yaml"
-
-requestCreateProject :: CreateProject -> TestTree
-requestCreateProject =
-  req
-    "CreateProject"
-    "fixture/CreateProject.yaml"
-
-requestDescribeDefaultEncryptionConfiguration :: DescribeDefaultEncryptionConfiguration -> TestTree
-requestDescribeDefaultEncryptionConfiguration =
-  req
-    "DescribeDefaultEncryptionConfiguration"
-    "fixture/DescribeDefaultEncryptionConfiguration.yaml"
-
-requestListAssets :: ListAssets -> TestTree
-requestListAssets =
-  req
-    "ListAssets"
-    "fixture/ListAssets.yaml"
-
-requestDisassociateAssets :: DisassociateAssets -> TestTree
-requestDisassociateAssets =
-  req
-    "DisassociateAssets"
-    "fixture/DisassociateAssets.yaml"
+    "UpdateProject"
+    "fixture/UpdateProject.yaml"
 
 -- Responses
 
-responseListProjects :: ListProjectsResponse -> TestTree
-responseListProjects =
+responseAssociateAssets :: AssociateAssetsResponse -> TestTree
+responseAssociateAssets =
   res
-    "ListProjectsResponse"
-    "fixture/ListProjectsResponse.proto"
+    "AssociateAssetsResponse"
+    "fixture/AssociateAssetsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListProjects)
+    (Proxy.Proxy :: Proxy.Proxy AssociateAssets)
+
+responseBatchAssociateProjectAssets :: BatchAssociateProjectAssetsResponse -> TestTree
+responseBatchAssociateProjectAssets =
+  res
+    "BatchAssociateProjectAssetsResponse"
+    "fixture/BatchAssociateProjectAssetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchAssociateProjectAssets)
+
+responseBatchDisassociateProjectAssets :: BatchDisassociateProjectAssetsResponse -> TestTree
+responseBatchDisassociateProjectAssets =
+  res
+    "BatchDisassociateProjectAssetsResponse"
+    "fixture/BatchDisassociateProjectAssetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateProjectAssets)
+
+responseBatchPutAssetPropertyValue :: BatchPutAssetPropertyValueResponse -> TestTree
+responseBatchPutAssetPropertyValue =
+  res
+    "BatchPutAssetPropertyValueResponse"
+    "fixture/BatchPutAssetPropertyValueResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchPutAssetPropertyValue)
+
+responseCreateAccessPolicy :: CreateAccessPolicyResponse -> TestTree
+responseCreateAccessPolicy =
+  res
+    "CreateAccessPolicyResponse"
+    "fixture/CreateAccessPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAccessPolicy)
+
+responseCreateAsset :: CreateAssetResponse -> TestTree
+responseCreateAsset =
+  res
+    "CreateAssetResponse"
+    "fixture/CreateAssetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAsset)
+
+responseCreateAssetModel :: CreateAssetModelResponse -> TestTree
+responseCreateAssetModel =
+  res
+    "CreateAssetModelResponse"
+    "fixture/CreateAssetModelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAssetModel)
+
+responseCreateDashboard :: CreateDashboardResponse -> TestTree
+responseCreateDashboard =
+  res
+    "CreateDashboardResponse"
+    "fixture/CreateDashboardResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDashboard)
+
+responseCreateGateway :: CreateGatewayResponse -> TestTree
+responseCreateGateway =
+  res
+    "CreateGatewayResponse"
+    "fixture/CreateGatewayResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateGateway)
+
+responseCreatePortal :: CreatePortalResponse -> TestTree
+responseCreatePortal =
+  res
+    "CreatePortalResponse"
+    "fixture/CreatePortalResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreatePortal)
+
+responseCreateProject :: CreateProjectResponse -> TestTree
+responseCreateProject =
+  res
+    "CreateProjectResponse"
+    "fixture/CreateProjectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateProject)
+
+responseDeleteAccessPolicy :: DeleteAccessPolicyResponse -> TestTree
+responseDeleteAccessPolicy =
+  res
+    "DeleteAccessPolicyResponse"
+    "fixture/DeleteAccessPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccessPolicy)
+
+responseDeleteAsset :: DeleteAssetResponse -> TestTree
+responseDeleteAsset =
+  res
+    "DeleteAssetResponse"
+    "fixture/DeleteAssetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAsset)
+
+responseDeleteAssetModel :: DeleteAssetModelResponse -> TestTree
+responseDeleteAssetModel =
+  res
+    "DeleteAssetModelResponse"
+    "fixture/DeleteAssetModelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssetModel)
+
+responseDeleteDashboard :: DeleteDashboardResponse -> TestTree
+responseDeleteDashboard =
+  res
+    "DeleteDashboardResponse"
+    "fixture/DeleteDashboardResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDashboard)
+
+responseDeleteGateway :: DeleteGatewayResponse -> TestTree
+responseDeleteGateway =
+  res
+    "DeleteGatewayResponse"
+    "fixture/DeleteGatewayResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteGateway)
+
+responseDeletePortal :: DeletePortalResponse -> TestTree
+responseDeletePortal =
+  res
+    "DeletePortalResponse"
+    "fixture/DeletePortalResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePortal)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
 responseDeleteProject =
@@ -773,21 +901,21 @@ responseDeleteProject =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteProject)
 
-responseUpdateProject :: UpdateProjectResponse -> TestTree
-responseUpdateProject =
+responseDescribeAccessPolicy :: DescribeAccessPolicyResponse -> TestTree
+responseDescribeAccessPolicy =
   res
-    "UpdateProjectResponse"
-    "fixture/UpdateProjectResponse.proto"
+    "DescribeAccessPolicyResponse"
+    "fixture/DescribeAccessPolicyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccessPolicy)
 
-responsePutLoggingOptions :: PutLoggingOptionsResponse -> TestTree
-responsePutLoggingOptions =
+responseDescribeAsset :: DescribeAssetResponse -> TestTree
+responseDescribeAsset =
   res
-    "PutLoggingOptionsResponse"
-    "fixture/PutLoggingOptionsResponse.proto"
+    "DescribeAssetResponse"
+    "fixture/DescribeAssetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutLoggingOptions)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAsset)
 
 responseDescribeAssetModel :: DescribeAssetModelResponse -> TestTree
 responseDescribeAssetModel =
@@ -805,37 +933,21 @@ responseDescribeAssetProperty =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAssetProperty)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseDescribeDashboard :: DescribeDashboardResponse -> TestTree
+responseDescribeDashboard =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "DescribeDashboardResponse"
+    "fixture/DescribeDashboardResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDashboard)
 
-responseGetAssetPropertyValue :: GetAssetPropertyValueResponse -> TestTree
-responseGetAssetPropertyValue =
+responseDescribeDefaultEncryptionConfiguration :: DescribeDefaultEncryptionConfigurationResponse -> TestTree
+responseDescribeDefaultEncryptionConfiguration =
   res
-    "GetAssetPropertyValueResponse"
-    "fixture/GetAssetPropertyValueResponse.proto"
+    "DescribeDefaultEncryptionConfigurationResponse"
+    "fixture/DescribeDefaultEncryptionConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAssetPropertyValue)
-
-responseDeleteAccessPolicy :: DeleteAccessPolicyResponse -> TestTree
-responseDeleteAccessPolicy =
-  res
-    "DeleteAccessPolicyResponse"
-    "fixture/DeleteAccessPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAccessPolicy)
-
-responseUpdateAccessPolicy :: UpdateAccessPolicyResponse -> TestTree
-responseUpdateAccessPolicy =
-  res
-    "UpdateAccessPolicyResponse"
-    "fixture/UpdateAccessPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAccessPolicy)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDefaultEncryptionConfiguration)
 
 responseDescribeGateway :: DescribeGatewayResponse -> TestTree
 responseDescribeGateway =
@@ -845,29 +957,29 @@ responseDescribeGateway =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeGateway)
 
-responseDescribeAsset :: DescribeAssetResponse -> TestTree
-responseDescribeAsset =
+responseDescribeGatewayCapabilityConfiguration :: DescribeGatewayCapabilityConfigurationResponse -> TestTree
+responseDescribeGatewayCapabilityConfiguration =
   res
-    "DescribeAssetResponse"
-    "fixture/DescribeAssetResponse.proto"
+    "DescribeGatewayCapabilityConfigurationResponse"
+    "fixture/DescribeGatewayCapabilityConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAsset)
+    (Proxy.Proxy :: Proxy.Proxy DescribeGatewayCapabilityConfiguration)
 
-responseListDashboards :: ListDashboardsResponse -> TestTree
-responseListDashboards =
+responseDescribeLoggingOptions :: DescribeLoggingOptionsResponse -> TestTree
+responseDescribeLoggingOptions =
   res
-    "ListDashboardsResponse"
-    "fixture/ListDashboardsResponse.proto"
+    "DescribeLoggingOptionsResponse"
+    "fixture/DescribeLoggingOptionsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDashboards)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoggingOptions)
 
-responseListAccessPolicies :: ListAccessPoliciesResponse -> TestTree
-responseListAccessPolicies =
+responseDescribePortal :: DescribePortalResponse -> TestTree
+responseDescribePortal =
   res
-    "ListAccessPoliciesResponse"
-    "fixture/ListAccessPoliciesResponse.proto"
+    "DescribePortalResponse"
+    "fixture/DescribePortalResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAccessPolicies)
+    (Proxy.Proxy :: Proxy.Proxy DescribePortal)
 
 responseDescribeProject :: DescribeProjectResponse -> TestTree
 responseDescribeProject =
@@ -877,126 +989,6 @@ responseDescribeProject =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeProject)
 
-responseGetAssetPropertyValueHistory :: GetAssetPropertyValueHistoryResponse -> TestTree
-responseGetAssetPropertyValueHistory =
-  res
-    "GetAssetPropertyValueHistoryResponse"
-    "fixture/GetAssetPropertyValueHistoryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAssetPropertyValueHistory)
-
-responseCreateDashboard :: CreateDashboardResponse -> TestTree
-responseCreateDashboard =
-  res
-    "CreateDashboardResponse"
-    "fixture/CreateDashboardResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDashboard)
-
-responseCreateAccessPolicy :: CreateAccessPolicyResponse -> TestTree
-responseCreateAccessPolicy =
-  res
-    "CreateAccessPolicyResponse"
-    "fixture/CreateAccessPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAccessPolicy)
-
-responseCreateAssetModel :: CreateAssetModelResponse -> TestTree
-responseCreateAssetModel =
-  res
-    "CreateAssetModelResponse"
-    "fixture/CreateAssetModelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAssetModel)
-
-responseBatchAssociateProjectAssets :: BatchAssociateProjectAssetsResponse -> TestTree
-responseBatchAssociateProjectAssets =
-  res
-    "BatchAssociateProjectAssetsResponse"
-    "fixture/BatchAssociateProjectAssetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchAssociateProjectAssets)
-
-responseListAssetModels :: ListAssetModelsResponse -> TestTree
-responseListAssetModels =
-  res
-    "ListAssetModelsResponse"
-    "fixture/ListAssetModelsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAssetModels)
-
-responseListAssociatedAssets :: ListAssociatedAssetsResponse -> TestTree
-responseListAssociatedAssets =
-  res
-    "ListAssociatedAssetsResponse"
-    "fixture/ListAssociatedAssetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAssociatedAssets)
-
-responseBatchPutAssetPropertyValue :: BatchPutAssetPropertyValueResponse -> TestTree
-responseBatchPutAssetPropertyValue =
-  res
-    "BatchPutAssetPropertyValueResponse"
-    "fixture/BatchPutAssetPropertyValueResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchPutAssetPropertyValue)
-
-responseDeleteAsset :: DeleteAssetResponse -> TestTree
-responseDeleteAsset =
-  res
-    "DeleteAssetResponse"
-    "fixture/DeleteAssetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAsset)
-
-responseUpdateAsset :: UpdateAssetResponse -> TestTree
-responseUpdateAsset =
-  res
-    "UpdateAssetResponse"
-    "fixture/UpdateAssetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAsset)
-
-responseDeleteGateway :: DeleteGatewayResponse -> TestTree
-responseDeleteGateway =
-  res
-    "DeleteGatewayResponse"
-    "fixture/DeleteGatewayResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteGateway)
-
-responseDescribeAccessPolicy :: DescribeAccessPolicyResponse -> TestTree
-responseDescribeAccessPolicy =
-  res
-    "DescribeAccessPolicyResponse"
-    "fixture/DescribeAccessPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAccessPolicy)
-
-responseUpdateGateway :: UpdateGatewayResponse -> TestTree
-responseUpdateGateway =
-  res
-    "UpdateGatewayResponse"
-    "fixture/UpdateGatewayResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateGateway)
-
-responseListProjectAssets :: ListProjectAssetsResponse -> TestTree
-responseListProjectAssets =
-  res
-    "ListProjectAssetsResponse"
-    "fixture/ListProjectAssetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListProjectAssets)
-
-responseCreateGateway :: CreateGatewayResponse -> TestTree
-responseCreateGateway =
-  res
-    "CreateGatewayResponse"
-    "fixture/CreateGatewayResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateGateway)
-
 responseDescribeStorageConfiguration :: DescribeStorageConfigurationResponse -> TestTree
 responseDescribeStorageConfiguration =
   res
@@ -1005,125 +997,13 @@ responseDescribeStorageConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeStorageConfiguration)
 
-responseCreateAsset :: CreateAssetResponse -> TestTree
-responseCreateAsset =
+responseDisassociateAssets :: DisassociateAssetsResponse -> TestTree
+responseDisassociateAssets =
   res
-    "CreateAssetResponse"
-    "fixture/CreateAssetResponse.proto"
+    "DisassociateAssetsResponse"
+    "fixture/DisassociateAssetsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAsset)
-
-responseAssociateAssets :: AssociateAssetsResponse -> TestTree
-responseAssociateAssets =
-  res
-    "AssociateAssetsResponse"
-    "fixture/AssociateAssetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociateAssets)
-
-responseGetInterpolatedAssetPropertyValues :: GetInterpolatedAssetPropertyValuesResponse -> TestTree
-responseGetInterpolatedAssetPropertyValues =
-  res
-    "GetInterpolatedAssetPropertyValuesResponse"
-    "fixture/GetInterpolatedAssetPropertyValuesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetInterpolatedAssetPropertyValues)
-
-responseDescribeGatewayCapabilityConfiguration :: DescribeGatewayCapabilityConfigurationResponse -> TestTree
-responseDescribeGatewayCapabilityConfiguration =
-  res
-    "DescribeGatewayCapabilityConfigurationResponse"
-    "fixture/DescribeGatewayCapabilityConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeGatewayCapabilityConfiguration)
-
-responsePutDefaultEncryptionConfiguration :: PutDefaultEncryptionConfigurationResponse -> TestTree
-responsePutDefaultEncryptionConfiguration =
-  res
-    "PutDefaultEncryptionConfigurationResponse"
-    "fixture/PutDefaultEncryptionConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutDefaultEncryptionConfiguration)
-
-responseDeletePortal :: DeletePortalResponse -> TestTree
-responseDeletePortal =
-  res
-    "DeletePortalResponse"
-    "fixture/DeletePortalResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeletePortal)
-
-responseListAssetRelationships :: ListAssetRelationshipsResponse -> TestTree
-responseListAssetRelationships =
-  res
-    "ListAssetRelationshipsResponse"
-    "fixture/ListAssetRelationshipsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAssetRelationships)
-
-responseUpdatePortal :: UpdatePortalResponse -> TestTree
-responseUpdatePortal =
-  res
-    "UpdatePortalResponse"
-    "fixture/UpdatePortalResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdatePortal)
-
-responseListPortals :: ListPortalsResponse -> TestTree
-responseListPortals =
-  res
-    "ListPortalsResponse"
-    "fixture/ListPortalsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPortals)
-
-responseDeleteDashboard :: DeleteDashboardResponse -> TestTree
-responseDeleteDashboard =
-  res
-    "DeleteDashboardResponse"
-    "fixture/DeleteDashboardResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDashboard)
-
-responseUpdateDashboard :: UpdateDashboardResponse -> TestTree
-responseUpdateDashboard =
-  res
-    "UpdateDashboardResponse"
-    "fixture/UpdateDashboardResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDashboard)
-
-responsePutStorageConfiguration :: PutStorageConfigurationResponse -> TestTree
-responsePutStorageConfiguration =
-  res
-    "PutStorageConfigurationResponse"
-    "fixture/PutStorageConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutStorageConfiguration)
-
-responseCreatePortal :: CreatePortalResponse -> TestTree
-responseCreatePortal =
-  res
-    "CreatePortalResponse"
-    "fixture/CreatePortalResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreatePortal)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseBatchDisassociateProjectAssets :: BatchDisassociateProjectAssetsResponse -> TestTree
-responseBatchDisassociateProjectAssets =
-  res
-    "BatchDisassociateProjectAssetsResponse"
-    "fixture/BatchDisassociateProjectAssetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateProjectAssets)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateAssets)
 
 responseGetAssetPropertyAggregates :: GetAssetPropertyAggregatesResponse -> TestTree
 responseGetAssetPropertyAggregates =
@@ -1133,6 +1013,150 @@ responseGetAssetPropertyAggregates =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAssetPropertyAggregates)
 
+responseGetAssetPropertyValue :: GetAssetPropertyValueResponse -> TestTree
+responseGetAssetPropertyValue =
+  res
+    "GetAssetPropertyValueResponse"
+    "fixture/GetAssetPropertyValueResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAssetPropertyValue)
+
+responseGetAssetPropertyValueHistory :: GetAssetPropertyValueHistoryResponse -> TestTree
+responseGetAssetPropertyValueHistory =
+  res
+    "GetAssetPropertyValueHistoryResponse"
+    "fixture/GetAssetPropertyValueHistoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAssetPropertyValueHistory)
+
+responseGetInterpolatedAssetPropertyValues :: GetInterpolatedAssetPropertyValuesResponse -> TestTree
+responseGetInterpolatedAssetPropertyValues =
+  res
+    "GetInterpolatedAssetPropertyValuesResponse"
+    "fixture/GetInterpolatedAssetPropertyValuesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetInterpolatedAssetPropertyValues)
+
+responseListAccessPolicies :: ListAccessPoliciesResponse -> TestTree
+responseListAccessPolicies =
+  res
+    "ListAccessPoliciesResponse"
+    "fixture/ListAccessPoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAccessPolicies)
+
+responseListAssetModels :: ListAssetModelsResponse -> TestTree
+responseListAssetModels =
+  res
+    "ListAssetModelsResponse"
+    "fixture/ListAssetModelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssetModels)
+
+responseListAssetRelationships :: ListAssetRelationshipsResponse -> TestTree
+responseListAssetRelationships =
+  res
+    "ListAssetRelationshipsResponse"
+    "fixture/ListAssetRelationshipsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssetRelationships)
+
+responseListAssets :: ListAssetsResponse -> TestTree
+responseListAssets =
+  res
+    "ListAssetsResponse"
+    "fixture/ListAssetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssets)
+
+responseListAssociatedAssets :: ListAssociatedAssetsResponse -> TestTree
+responseListAssociatedAssets =
+  res
+    "ListAssociatedAssetsResponse"
+    "fixture/ListAssociatedAssetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssociatedAssets)
+
+responseListDashboards :: ListDashboardsResponse -> TestTree
+responseListDashboards =
+  res
+    "ListDashboardsResponse"
+    "fixture/ListDashboardsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDashboards)
+
+responseListGateways :: ListGatewaysResponse -> TestTree
+responseListGateways =
+  res
+    "ListGatewaysResponse"
+    "fixture/ListGatewaysResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListGateways)
+
+responseListPortals :: ListPortalsResponse -> TestTree
+responseListPortals =
+  res
+    "ListPortalsResponse"
+    "fixture/ListPortalsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPortals)
+
+responseListProjectAssets :: ListProjectAssetsResponse -> TestTree
+responseListProjectAssets =
+  res
+    "ListProjectAssetsResponse"
+    "fixture/ListProjectAssetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProjectAssets)
+
+responseListProjects :: ListProjectsResponse -> TestTree
+responseListProjects =
+  res
+    "ListProjectsResponse"
+    "fixture/ListProjectsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProjects)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutDefaultEncryptionConfiguration :: PutDefaultEncryptionConfigurationResponse -> TestTree
+responsePutDefaultEncryptionConfiguration =
+  res
+    "PutDefaultEncryptionConfigurationResponse"
+    "fixture/PutDefaultEncryptionConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutDefaultEncryptionConfiguration)
+
+responsePutLoggingOptions :: PutLoggingOptionsResponse -> TestTree
+responsePutLoggingOptions =
+  res
+    "PutLoggingOptionsResponse"
+    "fixture/PutLoggingOptionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutLoggingOptions)
+
+responsePutStorageConfiguration :: PutStorageConfigurationResponse -> TestTree
+responsePutStorageConfiguration =
+  res
+    "PutStorageConfigurationResponse"
+    "fixture/PutStorageConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutStorageConfiguration)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -1141,13 +1165,21 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseDeleteAssetModel :: DeleteAssetModelResponse -> TestTree
-responseDeleteAssetModel =
+responseUpdateAccessPolicy :: UpdateAccessPolicyResponse -> TestTree
+responseUpdateAccessPolicy =
   res
-    "DeleteAssetModelResponse"
-    "fixture/DeleteAssetModelResponse.proto"
+    "UpdateAccessPolicyResponse"
+    "fixture/UpdateAccessPolicyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAssetModel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccessPolicy)
+
+responseUpdateAsset :: UpdateAssetResponse -> TestTree
+responseUpdateAsset =
+  res
+    "UpdateAssetResponse"
+    "fixture/UpdateAssetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAsset)
 
 responseUpdateAssetModel :: UpdateAssetModelResponse -> TestTree
 responseUpdateAssetModel =
@@ -1165,21 +1197,21 @@ responseUpdateAssetProperty =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateAssetProperty)
 
-responseDescribeLoggingOptions :: DescribeLoggingOptionsResponse -> TestTree
-responseDescribeLoggingOptions =
+responseUpdateDashboard :: UpdateDashboardResponse -> TestTree
+responseUpdateDashboard =
   res
-    "DescribeLoggingOptionsResponse"
-    "fixture/DescribeLoggingOptionsResponse.proto"
+    "UpdateDashboardResponse"
+    "fixture/UpdateDashboardResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeLoggingOptions)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDashboard)
 
-responseListGateways :: ListGatewaysResponse -> TestTree
-responseListGateways =
+responseUpdateGateway :: UpdateGatewayResponse -> TestTree
+responseUpdateGateway =
   res
-    "ListGatewaysResponse"
-    "fixture/ListGatewaysResponse.proto"
+    "UpdateGatewayResponse"
+    "fixture/UpdateGatewayResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListGateways)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGateway)
 
 responseUpdateGatewayCapabilityConfiguration :: UpdateGatewayCapabilityConfigurationResponse -> TestTree
 responseUpdateGatewayCapabilityConfiguration =
@@ -1189,50 +1221,18 @@ responseUpdateGatewayCapabilityConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateGatewayCapabilityConfiguration)
 
-responseDescribeDashboard :: DescribeDashboardResponse -> TestTree
-responseDescribeDashboard =
+responseUpdatePortal :: UpdatePortalResponse -> TestTree
+responseUpdatePortal =
   res
-    "DescribeDashboardResponse"
-    "fixture/DescribeDashboardResponse.proto"
+    "UpdatePortalResponse"
+    "fixture/UpdatePortalResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDashboard)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePortal)
 
-responseDescribePortal :: DescribePortalResponse -> TestTree
-responseDescribePortal =
+responseUpdateProject :: UpdateProjectResponse -> TestTree
+responseUpdateProject =
   res
-    "DescribePortalResponse"
-    "fixture/DescribePortalResponse.proto"
+    "UpdateProjectResponse"
+    "fixture/UpdateProjectResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribePortal)
-
-responseCreateProject :: CreateProjectResponse -> TestTree
-responseCreateProject =
-  res
-    "CreateProjectResponse"
-    "fixture/CreateProjectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateProject)
-
-responseDescribeDefaultEncryptionConfiguration :: DescribeDefaultEncryptionConfigurationResponse -> TestTree
-responseDescribeDefaultEncryptionConfiguration =
-  res
-    "DescribeDefaultEncryptionConfigurationResponse"
-    "fixture/DescribeDefaultEncryptionConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDefaultEncryptionConfiguration)
-
-responseListAssets :: ListAssetsResponse -> TestTree
-responseListAssets =
-  res
-    "ListAssetsResponse"
-    "fixture/ListAssetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAssets)
-
-responseDisassociateAssets :: DisassociateAssetsResponse -> TestTree
-responseDisassociateAssets =
-  res
-    "DisassociateAssetsResponse"
-    "fixture/DisassociateAssetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateAssets)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProject)

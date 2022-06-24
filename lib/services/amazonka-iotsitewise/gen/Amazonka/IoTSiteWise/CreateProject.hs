@@ -27,9 +27,9 @@ module Amazonka.IoTSiteWise.CreateProject
     newCreateProject,
 
     -- * Request Lenses
+    createProject_tags,
     createProject_clientToken,
     createProject_projectDescription,
-    createProject_tags,
     createProject_portalId,
     createProject_projectName,
 
@@ -53,17 +53,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { -- | A unique case-sensitive identifier that you can provide to ensure the
+  { -- | A list of key-value pairs that contain metadata for the project. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
+    -- in the /IoT SiteWise User Guide/.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A unique case-sensitive identifier that you can provide to ensure the
     -- idempotency of the request. Don\'t reuse this client token if a new
     -- idempotent request is required.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A description for the project.
     projectDescription :: Prelude.Maybe Prelude.Text,
-    -- | A list of key-value pairs that contain metadata for the project. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
-    -- in the /IoT SiteWise User Guide/.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the portal in which to create the project.
     portalId :: Prelude.Text,
     -- | A friendly name for the project.
@@ -79,16 +79,16 @@ data CreateProject = CreateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createProject_tags' - A list of key-value pairs that contain metadata for the project. For
+-- more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
+-- in the /IoT SiteWise User Guide/.
+--
 -- 'clientToken', 'createProject_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
 --
 -- 'projectDescription', 'createProject_projectDescription' - A description for the project.
---
--- 'tags', 'createProject_tags' - A list of key-value pairs that contain metadata for the project. For
--- more information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
--- in the /IoT SiteWise User Guide/.
 --
 -- 'portalId', 'createProject_portalId' - The ID of the portal in which to create the project.
 --
@@ -101,12 +101,19 @@ newCreateProject ::
   CreateProject
 newCreateProject pPortalId_ pProjectName_ =
   CreateProject'
-    { clientToken = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       projectDescription = Prelude.Nothing,
-      tags = Prelude.Nothing,
       portalId = pPortalId_,
       projectName = pProjectName_
     }
+
+-- | A list of key-value pairs that contain metadata for the project. For
+-- more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
+-- in the /IoT SiteWise User Guide/.
+createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique case-sensitive identifier that you can provide to ensure the
 -- idempotency of the request. Don\'t reuse this client token if a new
@@ -117,13 +124,6 @@ createProject_clientToken = Lens.lens (\CreateProject' {clientToken} -> clientTo
 -- | A description for the project.
 createProject_projectDescription :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
 createProject_projectDescription = Lens.lens (\CreateProject' {projectDescription} -> projectDescription) (\s@CreateProject' {} a -> s {projectDescription = a} :: CreateProject)
-
--- | A list of key-value pairs that contain metadata for the project. For
--- more information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
--- in the /IoT SiteWise User Guide/.
-createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the portal in which to create the project.
 createProject_portalId :: Lens.Lens' CreateProject Prelude.Text
@@ -149,17 +149,17 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` projectDescription
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` portalId
       `Prelude.hashWithSalt` projectName
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf projectDescription
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf portalId
       `Prelude.seq` Prelude.rnf projectName
 
@@ -178,10 +178,10 @@ instance Core.ToJSON CreateProject where
   toJSON CreateProject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
             ("projectDescription" Core..=)
               Prelude.<$> projectDescription,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("portalId" Core..= portalId),
             Prelude.Just ("projectName" Core..= projectName)
           ]

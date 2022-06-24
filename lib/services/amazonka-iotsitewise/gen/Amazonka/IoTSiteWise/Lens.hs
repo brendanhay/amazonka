@@ -14,29 +14,171 @@
 module Amazonka.IoTSiteWise.Lens
   ( -- * Operations
 
-    -- ** ListProjects
-    listProjects_nextToken,
-    listProjects_maxResults,
-    listProjects_portalId,
-    listProjectsResponse_nextToken,
-    listProjectsResponse_httpStatus,
-    listProjectsResponse_projectSummaries,
+    -- ** AssociateAssets
+    associateAssets_clientToken,
+    associateAssets_assetId,
+    associateAssets_hierarchyId,
+    associateAssets_childAssetId,
+
+    -- ** BatchAssociateProjectAssets
+    batchAssociateProjectAssets_clientToken,
+    batchAssociateProjectAssets_projectId,
+    batchAssociateProjectAssets_assetIds,
+    batchAssociateProjectAssetsResponse_errors,
+    batchAssociateProjectAssetsResponse_httpStatus,
+
+    -- ** BatchDisassociateProjectAssets
+    batchDisassociateProjectAssets_clientToken,
+    batchDisassociateProjectAssets_projectId,
+    batchDisassociateProjectAssets_assetIds,
+    batchDisassociateProjectAssetsResponse_errors,
+    batchDisassociateProjectAssetsResponse_httpStatus,
+
+    -- ** BatchPutAssetPropertyValue
+    batchPutAssetPropertyValue_entries,
+    batchPutAssetPropertyValueResponse_httpStatus,
+    batchPutAssetPropertyValueResponse_errorEntries,
+
+    -- ** CreateAccessPolicy
+    createAccessPolicy_tags,
+    createAccessPolicy_clientToken,
+    createAccessPolicy_accessPolicyIdentity,
+    createAccessPolicy_accessPolicyResource,
+    createAccessPolicy_accessPolicyPermission,
+    createAccessPolicyResponse_httpStatus,
+    createAccessPolicyResponse_accessPolicyId,
+    createAccessPolicyResponse_accessPolicyArn,
+
+    -- ** CreateAsset
+    createAsset_tags,
+    createAsset_clientToken,
+    createAsset_assetName,
+    createAsset_assetModelId,
+    createAssetResponse_httpStatus,
+    createAssetResponse_assetId,
+    createAssetResponse_assetArn,
+    createAssetResponse_assetStatus,
+
+    -- ** CreateAssetModel
+    createAssetModel_tags,
+    createAssetModel_clientToken,
+    createAssetModel_assetModelCompositeModels,
+    createAssetModel_assetModelDescription,
+    createAssetModel_assetModelHierarchies,
+    createAssetModel_assetModelProperties,
+    createAssetModel_assetModelName,
+    createAssetModelResponse_httpStatus,
+    createAssetModelResponse_assetModelId,
+    createAssetModelResponse_assetModelArn,
+    createAssetModelResponse_assetModelStatus,
+
+    -- ** CreateDashboard
+    createDashboard_tags,
+    createDashboard_dashboardDescription,
+    createDashboard_clientToken,
+    createDashboard_projectId,
+    createDashboard_dashboardName,
+    createDashboard_dashboardDefinition,
+    createDashboardResponse_httpStatus,
+    createDashboardResponse_dashboardId,
+    createDashboardResponse_dashboardArn,
+
+    -- ** CreateGateway
+    createGateway_tags,
+    createGateway_gatewayName,
+    createGateway_gatewayPlatform,
+    createGatewayResponse_httpStatus,
+    createGatewayResponse_gatewayId,
+    createGatewayResponse_gatewayArn,
+
+    -- ** CreatePortal
+    createPortal_tags,
+    createPortal_alarms,
+    createPortal_clientToken,
+    createPortal_portalDescription,
+    createPortal_portalAuthMode,
+    createPortal_portalLogoImageFile,
+    createPortal_notificationSenderEmail,
+    createPortal_portalName,
+    createPortal_portalContactEmail,
+    createPortal_roleArn,
+    createPortalResponse_httpStatus,
+    createPortalResponse_portalId,
+    createPortalResponse_portalArn,
+    createPortalResponse_portalStartUrl,
+    createPortalResponse_portalStatus,
+    createPortalResponse_ssoApplicationId,
+
+    -- ** CreateProject
+    createProject_tags,
+    createProject_clientToken,
+    createProject_projectDescription,
+    createProject_portalId,
+    createProject_projectName,
+    createProjectResponse_httpStatus,
+    createProjectResponse_projectId,
+    createProjectResponse_projectArn,
+
+    -- ** DeleteAccessPolicy
+    deleteAccessPolicy_clientToken,
+    deleteAccessPolicy_accessPolicyId,
+    deleteAccessPolicyResponse_httpStatus,
+
+    -- ** DeleteAsset
+    deleteAsset_clientToken,
+    deleteAsset_assetId,
+    deleteAssetResponse_httpStatus,
+    deleteAssetResponse_assetStatus,
+
+    -- ** DeleteAssetModel
+    deleteAssetModel_clientToken,
+    deleteAssetModel_assetModelId,
+    deleteAssetModelResponse_httpStatus,
+    deleteAssetModelResponse_assetModelStatus,
+
+    -- ** DeleteDashboard
+    deleteDashboard_clientToken,
+    deleteDashboard_dashboardId,
+    deleteDashboardResponse_httpStatus,
+
+    -- ** DeleteGateway
+    deleteGateway_gatewayId,
+
+    -- ** DeletePortal
+    deletePortal_clientToken,
+    deletePortal_portalId,
+    deletePortalResponse_httpStatus,
+    deletePortalResponse_portalStatus,
 
     -- ** DeleteProject
     deleteProject_clientToken,
     deleteProject_projectId,
     deleteProjectResponse_httpStatus,
 
-    -- ** UpdateProject
-    updateProject_clientToken,
-    updateProject_projectDescription,
-    updateProject_projectId,
-    updateProject_projectName,
-    updateProjectResponse_httpStatus,
+    -- ** DescribeAccessPolicy
+    describeAccessPolicy_accessPolicyId,
+    describeAccessPolicyResponse_httpStatus,
+    describeAccessPolicyResponse_accessPolicyId,
+    describeAccessPolicyResponse_accessPolicyArn,
+    describeAccessPolicyResponse_accessPolicyIdentity,
+    describeAccessPolicyResponse_accessPolicyResource,
+    describeAccessPolicyResponse_accessPolicyPermission,
+    describeAccessPolicyResponse_accessPolicyCreationDate,
+    describeAccessPolicyResponse_accessPolicyLastUpdateDate,
 
-    -- ** PutLoggingOptions
-    putLoggingOptions_loggingOptions,
-    putLoggingOptionsResponse_httpStatus,
+    -- ** DescribeAsset
+    describeAsset_assetId,
+    describeAssetResponse_assetCompositeModels,
+    describeAssetResponse_httpStatus,
+    describeAssetResponse_assetId,
+    describeAssetResponse_assetArn,
+    describeAssetResponse_assetName,
+    describeAssetResponse_assetModelId,
+    describeAssetResponse_assetProperties,
+    describeAssetResponse_assetHierarchies,
+    describeAssetResponse_assetCreationDate,
+    describeAssetResponse_assetLastUpdateDate,
+    describeAssetResponse_assetStatus,
 
     -- ** DescribeAssetModel
     describeAssetModel_assetModelId,
@@ -62,419 +204,6 @@ module Amazonka.IoTSiteWise.Lens
     describeAssetPropertyResponse_assetName,
     describeAssetPropertyResponse_assetModelId,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** GetAssetPropertyValue
-    getAssetPropertyValue_propertyAlias,
-    getAssetPropertyValue_propertyId,
-    getAssetPropertyValue_assetId,
-    getAssetPropertyValueResponse_propertyValue,
-    getAssetPropertyValueResponse_httpStatus,
-
-    -- ** DeleteAccessPolicy
-    deleteAccessPolicy_clientToken,
-    deleteAccessPolicy_accessPolicyId,
-    deleteAccessPolicyResponse_httpStatus,
-
-    -- ** UpdateAccessPolicy
-    updateAccessPolicy_clientToken,
-    updateAccessPolicy_accessPolicyId,
-    updateAccessPolicy_accessPolicyIdentity,
-    updateAccessPolicy_accessPolicyResource,
-    updateAccessPolicy_accessPolicyPermission,
-    updateAccessPolicyResponse_httpStatus,
-
-    -- ** DescribeGateway
-    describeGateway_gatewayId,
-    describeGatewayResponse_gatewayPlatform,
-    describeGatewayResponse_httpStatus,
-    describeGatewayResponse_gatewayId,
-    describeGatewayResponse_gatewayName,
-    describeGatewayResponse_gatewayArn,
-    describeGatewayResponse_gatewayCapabilitySummaries,
-    describeGatewayResponse_creationDate,
-    describeGatewayResponse_lastUpdateDate,
-
-    -- ** DescribeAsset
-    describeAsset_assetId,
-    describeAssetResponse_assetCompositeModels,
-    describeAssetResponse_httpStatus,
-    describeAssetResponse_assetId,
-    describeAssetResponse_assetArn,
-    describeAssetResponse_assetName,
-    describeAssetResponse_assetModelId,
-    describeAssetResponse_assetProperties,
-    describeAssetResponse_assetHierarchies,
-    describeAssetResponse_assetCreationDate,
-    describeAssetResponse_assetLastUpdateDate,
-    describeAssetResponse_assetStatus,
-
-    -- ** ListDashboards
-    listDashboards_nextToken,
-    listDashboards_maxResults,
-    listDashboards_projectId,
-    listDashboardsResponse_nextToken,
-    listDashboardsResponse_httpStatus,
-    listDashboardsResponse_dashboardSummaries,
-
-    -- ** ListAccessPolicies
-    listAccessPolicies_resourceId,
-    listAccessPolicies_resourceType,
-    listAccessPolicies_identityType,
-    listAccessPolicies_nextToken,
-    listAccessPolicies_iamArn,
-    listAccessPolicies_identityId,
-    listAccessPolicies_maxResults,
-    listAccessPoliciesResponse_nextToken,
-    listAccessPoliciesResponse_httpStatus,
-    listAccessPoliciesResponse_accessPolicySummaries,
-
-    -- ** DescribeProject
-    describeProject_projectId,
-    describeProjectResponse_projectDescription,
-    describeProjectResponse_httpStatus,
-    describeProjectResponse_projectId,
-    describeProjectResponse_projectArn,
-    describeProjectResponse_projectName,
-    describeProjectResponse_portalId,
-    describeProjectResponse_projectCreationDate,
-    describeProjectResponse_projectLastUpdateDate,
-
-    -- ** GetAssetPropertyValueHistory
-    getAssetPropertyValueHistory_endDate,
-    getAssetPropertyValueHistory_qualities,
-    getAssetPropertyValueHistory_timeOrdering,
-    getAssetPropertyValueHistory_propertyAlias,
-    getAssetPropertyValueHistory_startDate,
-    getAssetPropertyValueHistory_nextToken,
-    getAssetPropertyValueHistory_propertyId,
-    getAssetPropertyValueHistory_assetId,
-    getAssetPropertyValueHistory_maxResults,
-    getAssetPropertyValueHistoryResponse_nextToken,
-    getAssetPropertyValueHistoryResponse_httpStatus,
-    getAssetPropertyValueHistoryResponse_assetPropertyValueHistory,
-
-    -- ** CreateDashboard
-    createDashboard_clientToken,
-    createDashboard_dashboardDescription,
-    createDashboard_tags,
-    createDashboard_projectId,
-    createDashboard_dashboardName,
-    createDashboard_dashboardDefinition,
-    createDashboardResponse_httpStatus,
-    createDashboardResponse_dashboardId,
-    createDashboardResponse_dashboardArn,
-
-    -- ** CreateAccessPolicy
-    createAccessPolicy_clientToken,
-    createAccessPolicy_tags,
-    createAccessPolicy_accessPolicyIdentity,
-    createAccessPolicy_accessPolicyResource,
-    createAccessPolicy_accessPolicyPermission,
-    createAccessPolicyResponse_httpStatus,
-    createAccessPolicyResponse_accessPolicyId,
-    createAccessPolicyResponse_accessPolicyArn,
-
-    -- ** CreateAssetModel
-    createAssetModel_clientToken,
-    createAssetModel_assetModelDescription,
-    createAssetModel_assetModelProperties,
-    createAssetModel_assetModelCompositeModels,
-    createAssetModel_assetModelHierarchies,
-    createAssetModel_tags,
-    createAssetModel_assetModelName,
-    createAssetModelResponse_httpStatus,
-    createAssetModelResponse_assetModelId,
-    createAssetModelResponse_assetModelArn,
-    createAssetModelResponse_assetModelStatus,
-
-    -- ** BatchAssociateProjectAssets
-    batchAssociateProjectAssets_clientToken,
-    batchAssociateProjectAssets_projectId,
-    batchAssociateProjectAssets_assetIds,
-    batchAssociateProjectAssetsResponse_errors,
-    batchAssociateProjectAssetsResponse_httpStatus,
-
-    -- ** ListAssetModels
-    listAssetModels_nextToken,
-    listAssetModels_maxResults,
-    listAssetModelsResponse_nextToken,
-    listAssetModelsResponse_httpStatus,
-    listAssetModelsResponse_assetModelSummaries,
-
-    -- ** ListAssociatedAssets
-    listAssociatedAssets_hierarchyId,
-    listAssociatedAssets_traversalDirection,
-    listAssociatedAssets_nextToken,
-    listAssociatedAssets_maxResults,
-    listAssociatedAssets_assetId,
-    listAssociatedAssetsResponse_nextToken,
-    listAssociatedAssetsResponse_httpStatus,
-    listAssociatedAssetsResponse_assetSummaries,
-
-    -- ** BatchPutAssetPropertyValue
-    batchPutAssetPropertyValue_entries,
-    batchPutAssetPropertyValueResponse_httpStatus,
-    batchPutAssetPropertyValueResponse_errorEntries,
-
-    -- ** DeleteAsset
-    deleteAsset_clientToken,
-    deleteAsset_assetId,
-    deleteAssetResponse_httpStatus,
-    deleteAssetResponse_assetStatus,
-
-    -- ** UpdateAsset
-    updateAsset_clientToken,
-    updateAsset_assetId,
-    updateAsset_assetName,
-    updateAssetResponse_httpStatus,
-    updateAssetResponse_assetStatus,
-
-    -- ** DeleteGateway
-    deleteGateway_gatewayId,
-
-    -- ** DescribeAccessPolicy
-    describeAccessPolicy_accessPolicyId,
-    describeAccessPolicyResponse_httpStatus,
-    describeAccessPolicyResponse_accessPolicyId,
-    describeAccessPolicyResponse_accessPolicyArn,
-    describeAccessPolicyResponse_accessPolicyIdentity,
-    describeAccessPolicyResponse_accessPolicyResource,
-    describeAccessPolicyResponse_accessPolicyPermission,
-    describeAccessPolicyResponse_accessPolicyCreationDate,
-    describeAccessPolicyResponse_accessPolicyLastUpdateDate,
-
-    -- ** UpdateGateway
-    updateGateway_gatewayId,
-    updateGateway_gatewayName,
-
-    -- ** ListProjectAssets
-    listProjectAssets_nextToken,
-    listProjectAssets_maxResults,
-    listProjectAssets_projectId,
-    listProjectAssetsResponse_nextToken,
-    listProjectAssetsResponse_httpStatus,
-    listProjectAssetsResponse_assetIds,
-
-    -- ** CreateGateway
-    createGateway_tags,
-    createGateway_gatewayName,
-    createGateway_gatewayPlatform,
-    createGatewayResponse_httpStatus,
-    createGatewayResponse_gatewayId,
-    createGatewayResponse_gatewayArn,
-
-    -- ** DescribeStorageConfiguration
-    describeStorageConfigurationResponse_multiLayerStorage,
-    describeStorageConfigurationResponse_lastUpdateDate,
-    describeStorageConfigurationResponse_httpStatus,
-    describeStorageConfigurationResponse_storageType,
-    describeStorageConfigurationResponse_configurationStatus,
-
-    -- ** CreateAsset
-    createAsset_clientToken,
-    createAsset_tags,
-    createAsset_assetName,
-    createAsset_assetModelId,
-    createAssetResponse_httpStatus,
-    createAssetResponse_assetId,
-    createAssetResponse_assetArn,
-    createAssetResponse_assetStatus,
-
-    -- ** AssociateAssets
-    associateAssets_clientToken,
-    associateAssets_assetId,
-    associateAssets_hierarchyId,
-    associateAssets_childAssetId,
-
-    -- ** GetInterpolatedAssetPropertyValues
-    getInterpolatedAssetPropertyValues_startTimeOffsetInNanos,
-    getInterpolatedAssetPropertyValues_endTimeOffsetInNanos,
-    getInterpolatedAssetPropertyValues_propertyAlias,
-    getInterpolatedAssetPropertyValues_nextToken,
-    getInterpolatedAssetPropertyValues_intervalWindowInSeconds,
-    getInterpolatedAssetPropertyValues_propertyId,
-    getInterpolatedAssetPropertyValues_assetId,
-    getInterpolatedAssetPropertyValues_maxResults,
-    getInterpolatedAssetPropertyValues_startTimeInSeconds,
-    getInterpolatedAssetPropertyValues_endTimeInSeconds,
-    getInterpolatedAssetPropertyValues_quality,
-    getInterpolatedAssetPropertyValues_intervalInSeconds,
-    getInterpolatedAssetPropertyValues_type,
-    getInterpolatedAssetPropertyValuesResponse_nextToken,
-    getInterpolatedAssetPropertyValuesResponse_httpStatus,
-    getInterpolatedAssetPropertyValuesResponse_interpolatedAssetPropertyValues,
-
-    -- ** DescribeGatewayCapabilityConfiguration
-    describeGatewayCapabilityConfiguration_gatewayId,
-    describeGatewayCapabilityConfiguration_capabilityNamespace,
-    describeGatewayCapabilityConfigurationResponse_httpStatus,
-    describeGatewayCapabilityConfigurationResponse_gatewayId,
-    describeGatewayCapabilityConfigurationResponse_capabilityNamespace,
-    describeGatewayCapabilityConfigurationResponse_capabilityConfiguration,
-    describeGatewayCapabilityConfigurationResponse_capabilitySyncStatus,
-
-    -- ** PutDefaultEncryptionConfiguration
-    putDefaultEncryptionConfiguration_kmsKeyId,
-    putDefaultEncryptionConfiguration_encryptionType,
-    putDefaultEncryptionConfigurationResponse_kmsKeyArn,
-    putDefaultEncryptionConfigurationResponse_httpStatus,
-    putDefaultEncryptionConfigurationResponse_encryptionType,
-    putDefaultEncryptionConfigurationResponse_configurationStatus,
-
-    -- ** DeletePortal
-    deletePortal_clientToken,
-    deletePortal_portalId,
-    deletePortalResponse_httpStatus,
-    deletePortalResponse_portalStatus,
-
-    -- ** ListAssetRelationships
-    listAssetRelationships_nextToken,
-    listAssetRelationships_maxResults,
-    listAssetRelationships_assetId,
-    listAssetRelationships_traversalType,
-    listAssetRelationshipsResponse_nextToken,
-    listAssetRelationshipsResponse_httpStatus,
-    listAssetRelationshipsResponse_assetRelationshipSummaries,
-
-    -- ** UpdatePortal
-    updatePortal_clientToken,
-    updatePortal_portalDescription,
-    updatePortal_notificationSenderEmail,
-    updatePortal_portalLogoImage,
-    updatePortal_alarms,
-    updatePortal_portalId,
-    updatePortal_portalName,
-    updatePortal_portalContactEmail,
-    updatePortal_roleArn,
-    updatePortalResponse_httpStatus,
-    updatePortalResponse_portalStatus,
-
-    -- ** ListPortals
-    listPortals_nextToken,
-    listPortals_maxResults,
-    listPortalsResponse_portalSummaries,
-    listPortalsResponse_nextToken,
-    listPortalsResponse_httpStatus,
-
-    -- ** DeleteDashboard
-    deleteDashboard_clientToken,
-    deleteDashboard_dashboardId,
-    deleteDashboardResponse_httpStatus,
-
-    -- ** UpdateDashboard
-    updateDashboard_clientToken,
-    updateDashboard_dashboardDescription,
-    updateDashboard_dashboardId,
-    updateDashboard_dashboardName,
-    updateDashboard_dashboardDefinition,
-    updateDashboardResponse_httpStatus,
-
-    -- ** PutStorageConfiguration
-    putStorageConfiguration_multiLayerStorage,
-    putStorageConfiguration_storageType,
-    putStorageConfigurationResponse_multiLayerStorage,
-    putStorageConfigurationResponse_httpStatus,
-    putStorageConfigurationResponse_storageType,
-    putStorageConfigurationResponse_configurationStatus,
-
-    -- ** CreatePortal
-    createPortal_portalAuthMode,
-    createPortal_clientToken,
-    createPortal_portalDescription,
-    createPortal_notificationSenderEmail,
-    createPortal_alarms,
-    createPortal_portalLogoImageFile,
-    createPortal_tags,
-    createPortal_portalName,
-    createPortal_portalContactEmail,
-    createPortal_roleArn,
-    createPortalResponse_httpStatus,
-    createPortalResponse_portalId,
-    createPortalResponse_portalArn,
-    createPortalResponse_portalStartUrl,
-    createPortalResponse_portalStatus,
-    createPortalResponse_ssoApplicationId,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** BatchDisassociateProjectAssets
-    batchDisassociateProjectAssets_clientToken,
-    batchDisassociateProjectAssets_projectId,
-    batchDisassociateProjectAssets_assetIds,
-    batchDisassociateProjectAssetsResponse_errors,
-    batchDisassociateProjectAssetsResponse_httpStatus,
-
-    -- ** GetAssetPropertyAggregates
-    getAssetPropertyAggregates_qualities,
-    getAssetPropertyAggregates_timeOrdering,
-    getAssetPropertyAggregates_propertyAlias,
-    getAssetPropertyAggregates_nextToken,
-    getAssetPropertyAggregates_propertyId,
-    getAssetPropertyAggregates_assetId,
-    getAssetPropertyAggregates_maxResults,
-    getAssetPropertyAggregates_aggregateTypes,
-    getAssetPropertyAggregates_resolution,
-    getAssetPropertyAggregates_startDate,
-    getAssetPropertyAggregates_endDate,
-    getAssetPropertyAggregatesResponse_nextToken,
-    getAssetPropertyAggregatesResponse_httpStatus,
-    getAssetPropertyAggregatesResponse_aggregatedValues,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** DeleteAssetModel
-    deleteAssetModel_clientToken,
-    deleteAssetModel_assetModelId,
-    deleteAssetModelResponse_httpStatus,
-    deleteAssetModelResponse_assetModelStatus,
-
-    -- ** UpdateAssetModel
-    updateAssetModel_clientToken,
-    updateAssetModel_assetModelDescription,
-    updateAssetModel_assetModelProperties,
-    updateAssetModel_assetModelCompositeModels,
-    updateAssetModel_assetModelHierarchies,
-    updateAssetModel_assetModelId,
-    updateAssetModel_assetModelName,
-    updateAssetModelResponse_httpStatus,
-    updateAssetModelResponse_assetModelStatus,
-
-    -- ** UpdateAssetProperty
-    updateAssetProperty_clientToken,
-    updateAssetProperty_propertyNotificationState,
-    updateAssetProperty_propertyAlias,
-    updateAssetProperty_assetId,
-    updateAssetProperty_propertyId,
-
-    -- ** DescribeLoggingOptions
-    describeLoggingOptionsResponse_httpStatus,
-    describeLoggingOptionsResponse_loggingOptions,
-
-    -- ** ListGateways
-    listGateways_nextToken,
-    listGateways_maxResults,
-    listGatewaysResponse_nextToken,
-    listGatewaysResponse_httpStatus,
-    listGatewaysResponse_gatewaySummaries,
-
-    -- ** UpdateGatewayCapabilityConfiguration
-    updateGatewayCapabilityConfiguration_gatewayId,
-    updateGatewayCapabilityConfiguration_capabilityNamespace,
-    updateGatewayCapabilityConfiguration_capabilityConfiguration,
-    updateGatewayCapabilityConfigurationResponse_httpStatus,
-    updateGatewayCapabilityConfigurationResponse_capabilityNamespace,
-    updateGatewayCapabilityConfigurationResponse_capabilitySyncStatus,
-
     -- ** DescribeDashboard
     describeDashboard_dashboardId,
     describeDashboardResponse_dashboardDescription,
@@ -487,14 +216,44 @@ module Amazonka.IoTSiteWise.Lens
     describeDashboardResponse_dashboardCreationDate,
     describeDashboardResponse_dashboardLastUpdateDate,
 
+    -- ** DescribeDefaultEncryptionConfiguration
+    describeDefaultEncryptionConfigurationResponse_kmsKeyArn,
+    describeDefaultEncryptionConfigurationResponse_httpStatus,
+    describeDefaultEncryptionConfigurationResponse_encryptionType,
+    describeDefaultEncryptionConfigurationResponse_configurationStatus,
+
+    -- ** DescribeGateway
+    describeGateway_gatewayId,
+    describeGatewayResponse_gatewayPlatform,
+    describeGatewayResponse_httpStatus,
+    describeGatewayResponse_gatewayId,
+    describeGatewayResponse_gatewayName,
+    describeGatewayResponse_gatewayArn,
+    describeGatewayResponse_gatewayCapabilitySummaries,
+    describeGatewayResponse_creationDate,
+    describeGatewayResponse_lastUpdateDate,
+
+    -- ** DescribeGatewayCapabilityConfiguration
+    describeGatewayCapabilityConfiguration_gatewayId,
+    describeGatewayCapabilityConfiguration_capabilityNamespace,
+    describeGatewayCapabilityConfigurationResponse_httpStatus,
+    describeGatewayCapabilityConfigurationResponse_gatewayId,
+    describeGatewayCapabilityConfigurationResponse_capabilityNamespace,
+    describeGatewayCapabilityConfigurationResponse_capabilityConfiguration,
+    describeGatewayCapabilityConfigurationResponse_capabilitySyncStatus,
+
+    -- ** DescribeLoggingOptions
+    describeLoggingOptionsResponse_httpStatus,
+    describeLoggingOptionsResponse_loggingOptions,
+
     -- ** DescribePortal
     describePortal_portalId,
-    describePortalResponse_portalAuthMode,
-    describePortalResponse_portalDescription,
-    describePortalResponse_notificationSenderEmail,
-    describePortalResponse_portalLogoImageLocation,
     describePortalResponse_alarms,
     describePortalResponse_roleArn,
+    describePortalResponse_portalLogoImageLocation,
+    describePortalResponse_portalDescription,
+    describePortalResponse_portalAuthMode,
+    describePortalResponse_notificationSenderEmail,
     describePortalResponse_httpStatus,
     describePortalResponse_portalId,
     describePortalResponse_portalArn,
@@ -506,30 +265,23 @@ module Amazonka.IoTSiteWise.Lens
     describePortalResponse_portalCreationDate,
     describePortalResponse_portalLastUpdateDate,
 
-    -- ** CreateProject
-    createProject_clientToken,
-    createProject_projectDescription,
-    createProject_tags,
-    createProject_portalId,
-    createProject_projectName,
-    createProjectResponse_httpStatus,
-    createProjectResponse_projectId,
-    createProjectResponse_projectArn,
+    -- ** DescribeProject
+    describeProject_projectId,
+    describeProjectResponse_projectDescription,
+    describeProjectResponse_httpStatus,
+    describeProjectResponse_projectId,
+    describeProjectResponse_projectArn,
+    describeProjectResponse_projectName,
+    describeProjectResponse_portalId,
+    describeProjectResponse_projectCreationDate,
+    describeProjectResponse_projectLastUpdateDate,
 
-    -- ** DescribeDefaultEncryptionConfiguration
-    describeDefaultEncryptionConfigurationResponse_kmsKeyArn,
-    describeDefaultEncryptionConfigurationResponse_httpStatus,
-    describeDefaultEncryptionConfigurationResponse_encryptionType,
-    describeDefaultEncryptionConfigurationResponse_configurationStatus,
-
-    -- ** ListAssets
-    listAssets_assetModelId,
-    listAssets_nextToken,
-    listAssets_filter,
-    listAssets_maxResults,
-    listAssetsResponse_nextToken,
-    listAssetsResponse_httpStatus,
-    listAssetsResponse_assetSummaries,
+    -- ** DescribeStorageConfiguration
+    describeStorageConfigurationResponse_multiLayerStorage,
+    describeStorageConfigurationResponse_lastUpdateDate,
+    describeStorageConfigurationResponse_httpStatus,
+    describeStorageConfigurationResponse_storageType,
+    describeStorageConfigurationResponse_configurationStatus,
 
     -- ** DisassociateAssets
     disassociateAssets_clientToken,
@@ -537,11 +289,259 @@ module Amazonka.IoTSiteWise.Lens
     disassociateAssets_hierarchyId,
     disassociateAssets_childAssetId,
 
+    -- ** GetAssetPropertyAggregates
+    getAssetPropertyAggregates_nextToken,
+    getAssetPropertyAggregates_propertyAlias,
+    getAssetPropertyAggregates_assetId,
+    getAssetPropertyAggregates_qualities,
+    getAssetPropertyAggregates_propertyId,
+    getAssetPropertyAggregates_maxResults,
+    getAssetPropertyAggregates_timeOrdering,
+    getAssetPropertyAggregates_aggregateTypes,
+    getAssetPropertyAggregates_resolution,
+    getAssetPropertyAggregates_startDate,
+    getAssetPropertyAggregates_endDate,
+    getAssetPropertyAggregatesResponse_nextToken,
+    getAssetPropertyAggregatesResponse_httpStatus,
+    getAssetPropertyAggregatesResponse_aggregatedValues,
+
+    -- ** GetAssetPropertyValue
+    getAssetPropertyValue_propertyAlias,
+    getAssetPropertyValue_assetId,
+    getAssetPropertyValue_propertyId,
+    getAssetPropertyValueResponse_propertyValue,
+    getAssetPropertyValueResponse_httpStatus,
+
+    -- ** GetAssetPropertyValueHistory
+    getAssetPropertyValueHistory_nextToken,
+    getAssetPropertyValueHistory_propertyAlias,
+    getAssetPropertyValueHistory_assetId,
+    getAssetPropertyValueHistory_endDate,
+    getAssetPropertyValueHistory_qualities,
+    getAssetPropertyValueHistory_propertyId,
+    getAssetPropertyValueHistory_startDate,
+    getAssetPropertyValueHistory_maxResults,
+    getAssetPropertyValueHistory_timeOrdering,
+    getAssetPropertyValueHistoryResponse_nextToken,
+    getAssetPropertyValueHistoryResponse_httpStatus,
+    getAssetPropertyValueHistoryResponse_assetPropertyValueHistory,
+
+    -- ** GetInterpolatedAssetPropertyValues
+    getInterpolatedAssetPropertyValues_nextToken,
+    getInterpolatedAssetPropertyValues_propertyAlias,
+    getInterpolatedAssetPropertyValues_assetId,
+    getInterpolatedAssetPropertyValues_startTimeOffsetInNanos,
+    getInterpolatedAssetPropertyValues_endTimeOffsetInNanos,
+    getInterpolatedAssetPropertyValues_propertyId,
+    getInterpolatedAssetPropertyValues_maxResults,
+    getInterpolatedAssetPropertyValues_intervalWindowInSeconds,
+    getInterpolatedAssetPropertyValues_startTimeInSeconds,
+    getInterpolatedAssetPropertyValues_endTimeInSeconds,
+    getInterpolatedAssetPropertyValues_quality,
+    getInterpolatedAssetPropertyValues_intervalInSeconds,
+    getInterpolatedAssetPropertyValues_type,
+    getInterpolatedAssetPropertyValuesResponse_nextToken,
+    getInterpolatedAssetPropertyValuesResponse_httpStatus,
+    getInterpolatedAssetPropertyValuesResponse_interpolatedAssetPropertyValues,
+
+    -- ** ListAccessPolicies
+    listAccessPolicies_resourceId,
+    listAccessPolicies_iamArn,
+    listAccessPolicies_resourceType,
+    listAccessPolicies_nextToken,
+    listAccessPolicies_maxResults,
+    listAccessPolicies_identityId,
+    listAccessPolicies_identityType,
+    listAccessPoliciesResponse_nextToken,
+    listAccessPoliciesResponse_httpStatus,
+    listAccessPoliciesResponse_accessPolicySummaries,
+
+    -- ** ListAssetModels
+    listAssetModels_nextToken,
+    listAssetModels_maxResults,
+    listAssetModelsResponse_nextToken,
+    listAssetModelsResponse_httpStatus,
+    listAssetModelsResponse_assetModelSummaries,
+
+    -- ** ListAssetRelationships
+    listAssetRelationships_nextToken,
+    listAssetRelationships_maxResults,
+    listAssetRelationships_assetId,
+    listAssetRelationships_traversalType,
+    listAssetRelationshipsResponse_nextToken,
+    listAssetRelationshipsResponse_httpStatus,
+    listAssetRelationshipsResponse_assetRelationshipSummaries,
+
+    -- ** ListAssets
+    listAssets_nextToken,
+    listAssets_filter,
+    listAssets_assetModelId,
+    listAssets_maxResults,
+    listAssetsResponse_nextToken,
+    listAssetsResponse_httpStatus,
+    listAssetsResponse_assetSummaries,
+
+    -- ** ListAssociatedAssets
+    listAssociatedAssets_nextToken,
+    listAssociatedAssets_traversalDirection,
+    listAssociatedAssets_hierarchyId,
+    listAssociatedAssets_maxResults,
+    listAssociatedAssets_assetId,
+    listAssociatedAssetsResponse_nextToken,
+    listAssociatedAssetsResponse_httpStatus,
+    listAssociatedAssetsResponse_assetSummaries,
+
+    -- ** ListDashboards
+    listDashboards_nextToken,
+    listDashboards_maxResults,
+    listDashboards_projectId,
+    listDashboardsResponse_nextToken,
+    listDashboardsResponse_httpStatus,
+    listDashboardsResponse_dashboardSummaries,
+
+    -- ** ListGateways
+    listGateways_nextToken,
+    listGateways_maxResults,
+    listGatewaysResponse_nextToken,
+    listGatewaysResponse_httpStatus,
+    listGatewaysResponse_gatewaySummaries,
+
+    -- ** ListPortals
+    listPortals_nextToken,
+    listPortals_maxResults,
+    listPortalsResponse_nextToken,
+    listPortalsResponse_portalSummaries,
+    listPortalsResponse_httpStatus,
+
+    -- ** ListProjectAssets
+    listProjectAssets_nextToken,
+    listProjectAssets_maxResults,
+    listProjectAssets_projectId,
+    listProjectAssetsResponse_nextToken,
+    listProjectAssetsResponse_httpStatus,
+    listProjectAssetsResponse_assetIds,
+
+    -- ** ListProjects
+    listProjects_nextToken,
+    listProjects_maxResults,
+    listProjects_portalId,
+    listProjectsResponse_nextToken,
+    listProjectsResponse_httpStatus,
+    listProjectsResponse_projectSummaries,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** PutDefaultEncryptionConfiguration
+    putDefaultEncryptionConfiguration_kmsKeyId,
+    putDefaultEncryptionConfiguration_encryptionType,
+    putDefaultEncryptionConfigurationResponse_kmsKeyArn,
+    putDefaultEncryptionConfigurationResponse_httpStatus,
+    putDefaultEncryptionConfigurationResponse_encryptionType,
+    putDefaultEncryptionConfigurationResponse_configurationStatus,
+
+    -- ** PutLoggingOptions
+    putLoggingOptions_loggingOptions,
+    putLoggingOptionsResponse_httpStatus,
+
+    -- ** PutStorageConfiguration
+    putStorageConfiguration_multiLayerStorage,
+    putStorageConfiguration_storageType,
+    putStorageConfigurationResponse_multiLayerStorage,
+    putStorageConfigurationResponse_httpStatus,
+    putStorageConfigurationResponse_storageType,
+    putStorageConfigurationResponse_configurationStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** UpdateAccessPolicy
+    updateAccessPolicy_clientToken,
+    updateAccessPolicy_accessPolicyId,
+    updateAccessPolicy_accessPolicyIdentity,
+    updateAccessPolicy_accessPolicyResource,
+    updateAccessPolicy_accessPolicyPermission,
+    updateAccessPolicyResponse_httpStatus,
+
+    -- ** UpdateAsset
+    updateAsset_clientToken,
+    updateAsset_assetId,
+    updateAsset_assetName,
+    updateAssetResponse_httpStatus,
+    updateAssetResponse_assetStatus,
+
+    -- ** UpdateAssetModel
+    updateAssetModel_clientToken,
+    updateAssetModel_assetModelCompositeModels,
+    updateAssetModel_assetModelDescription,
+    updateAssetModel_assetModelHierarchies,
+    updateAssetModel_assetModelProperties,
+    updateAssetModel_assetModelId,
+    updateAssetModel_assetModelName,
+    updateAssetModelResponse_httpStatus,
+    updateAssetModelResponse_assetModelStatus,
+
+    -- ** UpdateAssetProperty
+    updateAssetProperty_clientToken,
+    updateAssetProperty_propertyAlias,
+    updateAssetProperty_propertyNotificationState,
+    updateAssetProperty_assetId,
+    updateAssetProperty_propertyId,
+
+    -- ** UpdateDashboard
+    updateDashboard_dashboardDescription,
+    updateDashboard_clientToken,
+    updateDashboard_dashboardId,
+    updateDashboard_dashboardName,
+    updateDashboard_dashboardDefinition,
+    updateDashboardResponse_httpStatus,
+
+    -- ** UpdateGateway
+    updateGateway_gatewayId,
+    updateGateway_gatewayName,
+
+    -- ** UpdateGatewayCapabilityConfiguration
+    updateGatewayCapabilityConfiguration_gatewayId,
+    updateGatewayCapabilityConfiguration_capabilityNamespace,
+    updateGatewayCapabilityConfiguration_capabilityConfiguration,
+    updateGatewayCapabilityConfigurationResponse_httpStatus,
+    updateGatewayCapabilityConfigurationResponse_capabilityNamespace,
+    updateGatewayCapabilityConfigurationResponse_capabilitySyncStatus,
+
+    -- ** UpdatePortal
+    updatePortal_alarms,
+    updatePortal_clientToken,
+    updatePortal_portalLogoImage,
+    updatePortal_portalDescription,
+    updatePortal_notificationSenderEmail,
+    updatePortal_portalId,
+    updatePortal_portalName,
+    updatePortal_portalContactEmail,
+    updatePortal_roleArn,
+    updatePortalResponse_httpStatus,
+    updatePortalResponse_portalStatus,
+
+    -- ** UpdateProject
+    updateProject_clientToken,
+    updateProject_projectDescription,
+    updateProject_projectId,
+    updateProject_projectName,
+    updateProjectResponse_httpStatus,
+
     -- * Types
 
     -- ** AccessPolicySummary
-    accessPolicySummary_lastUpdateDate,
     accessPolicySummary_creationDate,
+    accessPolicySummary_lastUpdateDate,
     accessPolicySummary_id,
     accessPolicySummary_identity,
     accessPolicySummary_resource,
@@ -553,12 +553,12 @@ module Amazonka.IoTSiteWise.Lens
     aggregatedValue_value,
 
     -- ** Aggregates
-    aggregates_maximum,
-    aggregates_average,
-    aggregates_count,
     aggregates_minimum,
     aggregates_standardDeviation,
+    aggregates_average,
+    aggregates_count,
     aggregates_sum,
+    aggregates_maximum,
 
     -- ** Alarms
     alarms_notificationLambdaArn,
@@ -584,14 +584,14 @@ module Amazonka.IoTSiteWise.Lens
     assetHierarchyInfo_parentAssetId,
 
     -- ** AssetModelCompositeModel
-    assetModelCompositeModel_description,
     assetModelCompositeModel_properties,
+    assetModelCompositeModel_description,
     assetModelCompositeModel_name,
     assetModelCompositeModel_type,
 
     -- ** AssetModelCompositeModelDefinition
-    assetModelCompositeModelDefinition_description,
     assetModelCompositeModelDefinition_properties,
+    assetModelCompositeModelDefinition_description,
     assetModelCompositeModelDefinition_name,
     assetModelCompositeModelDefinition_type,
 
@@ -633,9 +633,9 @@ module Amazonka.IoTSiteWise.Lens
     assetModelSummary_status,
 
     -- ** AssetProperty
+    assetProperty_alias,
     assetProperty_dataTypeSpec,
     assetProperty_notification,
-    assetProperty_alias,
     assetProperty_unit,
     assetProperty_id,
     assetProperty_name,
@@ -704,8 +704,8 @@ module Amazonka.IoTSiteWise.Lens
     customerManagedS3Storage_roleArn,
 
     -- ** DashboardSummary
-    dashboardSummary_lastUpdateDate,
     dashboardSummary_creationDate,
+    dashboardSummary_lastUpdateDate,
     dashboardSummary_description,
     dashboardSummary_id,
     dashboardSummary_name,
@@ -758,14 +758,14 @@ module Amazonka.IoTSiteWise.Lens
     iAMUserIdentity_arn,
 
     -- ** Identity
+    identity_iamRole,
+    identity_user,
     identity_iamUser,
     identity_group,
-    identity_user,
-    identity_iamRole,
 
     -- ** Image
-    image_id,
     image_file,
+    image_id,
 
     -- ** ImageFile
     imageFile_data,
@@ -801,8 +801,8 @@ module Amazonka.IoTSiteWise.Lens
     metricWindow_tumbling,
 
     -- ** MonitorErrorDetails
-    monitorErrorDetails_code,
     monitorErrorDetails_message,
+    monitorErrorDetails_code,
 
     -- ** MultiLayerStorage
     multiLayerStorage_customerManagedS3Storage,
@@ -815,10 +815,10 @@ module Amazonka.IoTSiteWise.Lens
     portalStatus_state,
 
     -- ** PortalSummary
-    portalSummary_lastUpdateDate,
-    portalSummary_creationDate,
-    portalSummary_description,
     portalSummary_roleArn,
+    portalSummary_creationDate,
+    portalSummary_lastUpdateDate,
+    portalSummary_description,
     portalSummary_id,
     portalSummary_name,
     portalSummary_startUrl,
@@ -828,16 +828,16 @@ module Amazonka.IoTSiteWise.Lens
     projectResource_id,
 
     -- ** ProjectSummary
-    projectSummary_lastUpdateDate,
     projectSummary_creationDate,
+    projectSummary_lastUpdateDate,
     projectSummary_description,
     projectSummary_id,
     projectSummary_name,
 
     -- ** Property
-    property_notification,
     property_alias,
     property_type,
+    property_notification,
     property_unit,
     property_id,
     property_name,
@@ -849,20 +849,20 @@ module Amazonka.IoTSiteWise.Lens
 
     -- ** PropertyType
     propertyType_attribute,
-    propertyType_transform,
     propertyType_metric,
+    propertyType_transform,
     propertyType_measurement,
 
     -- ** PutAssetPropertyValueEntry
     putAssetPropertyValueEntry_propertyAlias,
-    putAssetPropertyValueEntry_propertyId,
     putAssetPropertyValueEntry_assetId,
+    putAssetPropertyValueEntry_propertyId,
     putAssetPropertyValueEntry_entryId,
     putAssetPropertyValueEntry_propertyValues,
 
     -- ** Resource
-    resource_portal,
     resource_project,
+    resource_portal,
 
     -- ** TimeInNanos
     timeInNanos_offsetInNanos,
@@ -891,8 +891,8 @@ module Amazonka.IoTSiteWise.Lens
     -- ** Variant
     variant_integerValue,
     variant_doubleValue,
-    variant_stringValue,
     variant_booleanValue,
+    variant_stringValue,
   )
 where
 

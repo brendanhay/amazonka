@@ -32,12 +32,12 @@ module Amazonka.IoTSiteWise.ListAccessPolicies
 
     -- * Request Lenses
     listAccessPolicies_resourceId,
-    listAccessPolicies_resourceType,
-    listAccessPolicies_identityType,
-    listAccessPolicies_nextToken,
     listAccessPolicies_iamArn,
-    listAccessPolicies_identityId,
+    listAccessPolicies_resourceType,
+    listAccessPolicies_nextToken,
     listAccessPolicies_maxResults,
+    listAccessPolicies_identityId,
+    listAccessPolicies_identityType,
 
     -- * Destructuring the Response
     ListAccessPoliciesResponse (..),
@@ -62,27 +62,27 @@ data ListAccessPolicies = ListAccessPolicies'
   { -- | The ID of the resource. This parameter is required if you specify
     -- @resourceType@.
     resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The type of resource (portal or project). This parameter is required if
-    -- you specify @resourceId@.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | The type of identity (Amazon Web Services SSO user, Amazon Web Services
-    -- SSO group, or IAM user). This parameter is required if you specify
-    -- @identityId@.
-    identityType :: Prelude.Maybe IdentityType,
-    -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM user. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM ARNs>
     -- in the /IAM User Guide/. This parameter is required if you specify @IAM@
     -- for @identityType@.
     iamArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the identity. This parameter is required if you specify @USER@
-    -- or @GROUP@ for @identityType@.
-    identityId :: Prelude.Maybe Prelude.Text,
+    -- | The type of resource (portal or project). This parameter is required if
+    -- you specify @resourceId@.
+    resourceType :: Prelude.Maybe ResourceType,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return for each paginated request.
     --
     -- Default: 50
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the identity. This parameter is required if you specify @USER@
+    -- or @GROUP@ for @identityType@.
+    identityId :: Prelude.Maybe Prelude.Text,
+    -- | The type of identity (Amazon Web Services SSO user, Amazon Web Services
+    -- SSO group, or IAM user). This parameter is required if you specify
+    -- @identityId@.
+    identityType :: Prelude.Maybe IdentityType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,58 +97,43 @@ data ListAccessPolicies = ListAccessPolicies'
 -- 'resourceId', 'listAccessPolicies_resourceId' - The ID of the resource. This parameter is required if you specify
 -- @resourceType@.
 --
--- 'resourceType', 'listAccessPolicies_resourceType' - The type of resource (portal or project). This parameter is required if
--- you specify @resourceId@.
---
--- 'identityType', 'listAccessPolicies_identityType' - The type of identity (Amazon Web Services SSO user, Amazon Web Services
--- SSO group, or IAM user). This parameter is required if you specify
--- @identityId@.
---
--- 'nextToken', 'listAccessPolicies_nextToken' - The token to be used for the next set of paginated results.
---
 -- 'iamArn', 'listAccessPolicies_iamArn' - The ARN of the IAM user. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM ARNs>
 -- in the /IAM User Guide/. This parameter is required if you specify @IAM@
 -- for @identityType@.
 --
--- 'identityId', 'listAccessPolicies_identityId' - The ID of the identity. This parameter is required if you specify @USER@
--- or @GROUP@ for @identityType@.
+-- 'resourceType', 'listAccessPolicies_resourceType' - The type of resource (portal or project). This parameter is required if
+-- you specify @resourceId@.
+--
+-- 'nextToken', 'listAccessPolicies_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'maxResults', 'listAccessPolicies_maxResults' - The maximum number of results to return for each paginated request.
 --
 -- Default: 50
+--
+-- 'identityId', 'listAccessPolicies_identityId' - The ID of the identity. This parameter is required if you specify @USER@
+-- or @GROUP@ for @identityType@.
+--
+-- 'identityType', 'listAccessPolicies_identityType' - The type of identity (Amazon Web Services SSO user, Amazon Web Services
+-- SSO group, or IAM user). This parameter is required if you specify
+-- @identityId@.
 newListAccessPolicies ::
   ListAccessPolicies
 newListAccessPolicies =
   ListAccessPolicies'
     { resourceId = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      identityType = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       iamArn = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       identityId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      identityType = Prelude.Nothing
     }
 
 -- | The ID of the resource. This parameter is required if you specify
 -- @resourceType@.
 listAccessPolicies_resourceId :: Lens.Lens' ListAccessPolicies (Prelude.Maybe Prelude.Text)
 listAccessPolicies_resourceId = Lens.lens (\ListAccessPolicies' {resourceId} -> resourceId) (\s@ListAccessPolicies' {} a -> s {resourceId = a} :: ListAccessPolicies)
-
--- | The type of resource (portal or project). This parameter is required if
--- you specify @resourceId@.
-listAccessPolicies_resourceType :: Lens.Lens' ListAccessPolicies (Prelude.Maybe ResourceType)
-listAccessPolicies_resourceType = Lens.lens (\ListAccessPolicies' {resourceType} -> resourceType) (\s@ListAccessPolicies' {} a -> s {resourceType = a} :: ListAccessPolicies)
-
--- | The type of identity (Amazon Web Services SSO user, Amazon Web Services
--- SSO group, or IAM user). This parameter is required if you specify
--- @identityId@.
-listAccessPolicies_identityType :: Lens.Lens' ListAccessPolicies (Prelude.Maybe IdentityType)
-listAccessPolicies_identityType = Lens.lens (\ListAccessPolicies' {identityType} -> identityType) (\s@ListAccessPolicies' {} a -> s {identityType = a} :: ListAccessPolicies)
-
--- | The token to be used for the next set of paginated results.
-listAccessPolicies_nextToken :: Lens.Lens' ListAccessPolicies (Prelude.Maybe Prelude.Text)
-listAccessPolicies_nextToken = Lens.lens (\ListAccessPolicies' {nextToken} -> nextToken) (\s@ListAccessPolicies' {} a -> s {nextToken = a} :: ListAccessPolicies)
 
 -- | The ARN of the IAM user. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM ARNs>
@@ -157,16 +142,31 @@ listAccessPolicies_nextToken = Lens.lens (\ListAccessPolicies' {nextToken} -> ne
 listAccessPolicies_iamArn :: Lens.Lens' ListAccessPolicies (Prelude.Maybe Prelude.Text)
 listAccessPolicies_iamArn = Lens.lens (\ListAccessPolicies' {iamArn} -> iamArn) (\s@ListAccessPolicies' {} a -> s {iamArn = a} :: ListAccessPolicies)
 
--- | The ID of the identity. This parameter is required if you specify @USER@
--- or @GROUP@ for @identityType@.
-listAccessPolicies_identityId :: Lens.Lens' ListAccessPolicies (Prelude.Maybe Prelude.Text)
-listAccessPolicies_identityId = Lens.lens (\ListAccessPolicies' {identityId} -> identityId) (\s@ListAccessPolicies' {} a -> s {identityId = a} :: ListAccessPolicies)
+-- | The type of resource (portal or project). This parameter is required if
+-- you specify @resourceId@.
+listAccessPolicies_resourceType :: Lens.Lens' ListAccessPolicies (Prelude.Maybe ResourceType)
+listAccessPolicies_resourceType = Lens.lens (\ListAccessPolicies' {resourceType} -> resourceType) (\s@ListAccessPolicies' {} a -> s {resourceType = a} :: ListAccessPolicies)
+
+-- | The token to be used for the next set of paginated results.
+listAccessPolicies_nextToken :: Lens.Lens' ListAccessPolicies (Prelude.Maybe Prelude.Text)
+listAccessPolicies_nextToken = Lens.lens (\ListAccessPolicies' {nextToken} -> nextToken) (\s@ListAccessPolicies' {} a -> s {nextToken = a} :: ListAccessPolicies)
 
 -- | The maximum number of results to return for each paginated request.
 --
 -- Default: 50
 listAccessPolicies_maxResults :: Lens.Lens' ListAccessPolicies (Prelude.Maybe Prelude.Natural)
 listAccessPolicies_maxResults = Lens.lens (\ListAccessPolicies' {maxResults} -> maxResults) (\s@ListAccessPolicies' {} a -> s {maxResults = a} :: ListAccessPolicies)
+
+-- | The ID of the identity. This parameter is required if you specify @USER@
+-- or @GROUP@ for @identityType@.
+listAccessPolicies_identityId :: Lens.Lens' ListAccessPolicies (Prelude.Maybe Prelude.Text)
+listAccessPolicies_identityId = Lens.lens (\ListAccessPolicies' {identityId} -> identityId) (\s@ListAccessPolicies' {} a -> s {identityId = a} :: ListAccessPolicies)
+
+-- | The type of identity (Amazon Web Services SSO user, Amazon Web Services
+-- SSO group, or IAM user). This parameter is required if you specify
+-- @identityId@.
+listAccessPolicies_identityType :: Lens.Lens' ListAccessPolicies (Prelude.Maybe IdentityType)
+listAccessPolicies_identityType = Lens.lens (\ListAccessPolicies' {identityType} -> identityType) (\s@ListAccessPolicies' {} a -> s {identityType = a} :: ListAccessPolicies)
 
 instance Core.AWSPager ListAccessPolicies where
   page rq rs
@@ -208,22 +208,22 @@ instance Core.AWSRequest ListAccessPolicies where
 instance Prelude.Hashable ListAccessPolicies where
   hashWithSalt _salt ListAccessPolicies' {..} =
     _salt `Prelude.hashWithSalt` resourceId
-      `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` identityType
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` iamArn
-      `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` identityType
 
 instance Prelude.NFData ListAccessPolicies where
   rnf ListAccessPolicies' {..} =
     Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf iamArn
-      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf identityType
 
 instance Core.ToHeaders ListAccessPolicies where
   toHeaders =
@@ -243,12 +243,12 @@ instance Core.ToQuery ListAccessPolicies where
   toQuery ListAccessPolicies' {..} =
     Prelude.mconcat
       [ "resourceId" Core.=: resourceId,
-        "resourceType" Core.=: resourceType,
-        "identityType" Core.=: identityType,
-        "nextToken" Core.=: nextToken,
         "iamArn" Core.=: iamArn,
+        "resourceType" Core.=: resourceType,
+        "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults,
         "identityId" Core.=: identityId,
-        "maxResults" Core.=: maxResults
+        "identityType" Core.=: identityType
       ]
 
 -- | /See:/ 'newListAccessPoliciesResponse' smart constructor.

@@ -17,16 +17,16 @@ module Amazonka.IoTSiteWise.Types
     defaultService,
 
     -- * Errors
-    _InvalidRequestException,
     _ResourceAlreadyExistsException,
-    _TooManyTagsException,
     _ConflictingOperationException,
-    _ThrottlingException,
-    _InternalFailureException,
-    _ServiceUnavailableException,
     _UnauthorizedException,
+    _TooManyTagsException,
+    _ServiceUnavailableException,
     _ResourceNotFoundException,
     _LimitExceededException,
+    _ThrottlingException,
+    _InvalidRequestException,
+    _InternalFailureException,
 
     -- * AggregateType
     AggregateType (..),
@@ -118,8 +118,8 @@ module Amazonka.IoTSiteWise.Types
     -- * AccessPolicySummary
     AccessPolicySummary (..),
     newAccessPolicySummary,
-    accessPolicySummary_lastUpdateDate,
     accessPolicySummary_creationDate,
+    accessPolicySummary_lastUpdateDate,
     accessPolicySummary_id,
     accessPolicySummary_identity,
     accessPolicySummary_resource,
@@ -135,12 +135,12 @@ module Amazonka.IoTSiteWise.Types
     -- * Aggregates
     Aggregates (..),
     newAggregates,
-    aggregates_maximum,
-    aggregates_average,
-    aggregates_count,
     aggregates_minimum,
     aggregates_standardDeviation,
+    aggregates_average,
+    aggregates_count,
     aggregates_sum,
+    aggregates_maximum,
 
     -- * Alarms
     Alarms (..),
@@ -178,16 +178,16 @@ module Amazonka.IoTSiteWise.Types
     -- * AssetModelCompositeModel
     AssetModelCompositeModel (..),
     newAssetModelCompositeModel,
-    assetModelCompositeModel_description,
     assetModelCompositeModel_properties,
+    assetModelCompositeModel_description,
     assetModelCompositeModel_name,
     assetModelCompositeModel_type,
 
     -- * AssetModelCompositeModelDefinition
     AssetModelCompositeModelDefinition (..),
     newAssetModelCompositeModelDefinition,
-    assetModelCompositeModelDefinition_description,
     assetModelCompositeModelDefinition_properties,
+    assetModelCompositeModelDefinition_description,
     assetModelCompositeModelDefinition_name,
     assetModelCompositeModelDefinition_type,
 
@@ -243,9 +243,9 @@ module Amazonka.IoTSiteWise.Types
     -- * AssetProperty
     AssetProperty (..),
     newAssetProperty,
+    assetProperty_alias,
     assetProperty_dataTypeSpec,
     assetProperty_notification,
-    assetProperty_alias,
     assetProperty_unit,
     assetProperty_id,
     assetProperty_name,
@@ -340,8 +340,8 @@ module Amazonka.IoTSiteWise.Types
     -- * DashboardSummary
     DashboardSummary (..),
     newDashboardSummary,
-    dashboardSummary_lastUpdateDate,
     dashboardSummary_creationDate,
+    dashboardSummary_lastUpdateDate,
     dashboardSummary_description,
     dashboardSummary_id,
     dashboardSummary_name,
@@ -420,16 +420,16 @@ module Amazonka.IoTSiteWise.Types
     -- * Identity
     Identity (..),
     newIdentity,
+    identity_iamRole,
+    identity_user,
     identity_iamUser,
     identity_group,
-    identity_user,
-    identity_iamRole,
 
     -- * Image
     Image (..),
     newImage,
-    image_id,
     image_file,
+    image_id,
 
     -- * ImageFile
     ImageFile (..),
@@ -485,8 +485,8 @@ module Amazonka.IoTSiteWise.Types
     -- * MonitorErrorDetails
     MonitorErrorDetails (..),
     newMonitorErrorDetails,
-    monitorErrorDetails_code,
     monitorErrorDetails_message,
+    monitorErrorDetails_code,
 
     -- * MultiLayerStorage
     MultiLayerStorage (..),
@@ -507,10 +507,10 @@ module Amazonka.IoTSiteWise.Types
     -- * PortalSummary
     PortalSummary (..),
     newPortalSummary,
-    portalSummary_lastUpdateDate,
-    portalSummary_creationDate,
-    portalSummary_description,
     portalSummary_roleArn,
+    portalSummary_creationDate,
+    portalSummary_lastUpdateDate,
+    portalSummary_description,
     portalSummary_id,
     portalSummary_name,
     portalSummary_startUrl,
@@ -524,8 +524,8 @@ module Amazonka.IoTSiteWise.Types
     -- * ProjectSummary
     ProjectSummary (..),
     newProjectSummary,
-    projectSummary_lastUpdateDate,
     projectSummary_creationDate,
+    projectSummary_lastUpdateDate,
     projectSummary_description,
     projectSummary_id,
     projectSummary_name,
@@ -533,9 +533,9 @@ module Amazonka.IoTSiteWise.Types
     -- * Property
     Property (..),
     newProperty,
-    property_notification,
     property_alias,
     property_type,
+    property_notification,
     property_unit,
     property_id,
     property_name,
@@ -551,24 +551,24 @@ module Amazonka.IoTSiteWise.Types
     PropertyType (..),
     newPropertyType,
     propertyType_attribute,
-    propertyType_transform,
     propertyType_metric,
+    propertyType_transform,
     propertyType_measurement,
 
     -- * PutAssetPropertyValueEntry
     PutAssetPropertyValueEntry (..),
     newPutAssetPropertyValueEntry,
     putAssetPropertyValueEntry_propertyAlias,
-    putAssetPropertyValueEntry_propertyId,
     putAssetPropertyValueEntry_assetId,
+    putAssetPropertyValueEntry_propertyId,
     putAssetPropertyValueEntry_entryId,
     putAssetPropertyValueEntry_propertyValues,
 
     -- * Resource
     Resource (..),
     newResource,
-    resource_portal,
     resource_project,
+    resource_portal,
 
     -- * TimeInNanos
     TimeInNanos (..),
@@ -611,8 +611,8 @@ module Amazonka.IoTSiteWise.Types
     newVariant,
     variant_integerValue,
     variant_doubleValue,
-    variant_stringValue,
     variant_booleanValue,
+    variant_stringValue,
   )
 where
 
@@ -748,35 +748,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -785,23 +758,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The request isn\'t valid. This can occur if your request contains
--- malformed JSON or unsupported characters. Check your request and try
--- again.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
-    Prelude.. Core.hasStatus 400
 
 -- | The resource already exists.
 _ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -810,6 +800,24 @@ _ResourceAlreadyExistsException =
     defaultService
     "ResourceAlreadyExistsException"
     Prelude.. Core.hasStatus 409
+
+-- | Your request has conflicting operations. This can occur if you\'re
+-- trying to perform more than one operation on the same resource at the
+-- same time.
+_ConflictingOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictingOperationException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictingOperationException"
+    Prelude.. Core.hasStatus 409
+
+-- | You are not authorized.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedException"
+    Prelude.. Core.hasStatus 401
 
 -- | You\'ve reached the limit for the number of tags allowed for a resource.
 -- For more information, see
@@ -822,38 +830,6 @@ _TooManyTagsException =
     "TooManyTagsException"
     Prelude.. Core.hasStatus 400
 
--- | Your request has conflicting operations. This can occur if you\'re
--- trying to perform more than one operation on the same resource at the
--- same time.
-_ConflictingOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictingOperationException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictingOperationException"
-    Prelude.. Core.hasStatus 409
-
--- | Your request exceeded a rate limit. For example, you might have exceeded
--- the number of IoT SiteWise assets that can be created per second, the
--- allowed number of messages per second, and so on.
---
--- For more information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas>
--- in the /IoT SiteWise User Guide/.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
-
--- | IoT SiteWise can\'t process your request right now. Try again later.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
-  Core._MatchServiceError
-    defaultService
-    "InternalFailureException"
-    Prelude.. Core.hasStatus 500
-
 -- | The requested service is unavailable.
 _ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceUnavailableException =
@@ -861,14 +837,6 @@ _ServiceUnavailableException =
     defaultService
     "ServiceUnavailableException"
     Prelude.. Core.hasStatus 503
-
--- | You are not authorized.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
-  Core._MatchServiceError
-    defaultService
-    "UnauthorizedException"
-    Prelude.. Core.hasStatus 401
 
 -- | The requested resource can\'t be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -892,3 +860,35 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
     Prelude.. Core.hasStatus 410
+
+-- | Your request exceeded a rate limit. For example, you might have exceeded
+-- the number of IoT SiteWise assets that can be created per second, the
+-- allowed number of messages per second, and so on.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas>
+-- in the /IoT SiteWise User Guide/.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- | The request isn\'t valid. This can occur if your request contains
+-- malformed JSON or unsupported characters. Check your request and try
+-- again.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | IoT SiteWise can\'t process your request right now. Try again later.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"
+    Prelude.. Core.hasStatus 500

@@ -37,15 +37,15 @@ data PropertyType = PropertyType'
     -- <https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications IIoT>
     -- wind turbine.
     attribute :: Prelude.Maybe Attribute,
-    -- | Specifies an asset transform property. A transform contains a
-    -- mathematical expression that maps a property\'s data points from one
-    -- form to another, such as a unit conversion from Celsius to Fahrenheit.
-    transform :: Prelude.Maybe Transform,
     -- | Specifies an asset metric property. A metric contains a mathematical
     -- expression that uses aggregate functions to process all input data
     -- points over a time interval and output a single data point, such as to
     -- calculate the average hourly temperature.
     metric :: Prelude.Maybe Metric,
+    -- | Specifies an asset transform property. A transform contains a
+    -- mathematical expression that maps a property\'s data points from one
+    -- form to another, such as a unit conversion from Celsius to Fahrenheit.
+    transform :: Prelude.Maybe Transform,
     -- | Specifies an asset measurement property. A measurement represents a
     -- device\'s raw sensor data stream, such as timestamped temperature values
     -- or timestamped power values.
@@ -66,14 +66,14 @@ data PropertyType = PropertyType'
 -- <https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications IIoT>
 -- wind turbine.
 --
--- 'transform', 'propertyType_transform' - Specifies an asset transform property. A transform contains a
--- mathematical expression that maps a property\'s data points from one
--- form to another, such as a unit conversion from Celsius to Fahrenheit.
---
 -- 'metric', 'propertyType_metric' - Specifies an asset metric property. A metric contains a mathematical
 -- expression that uses aggregate functions to process all input data
 -- points over a time interval and output a single data point, such as to
 -- calculate the average hourly temperature.
+--
+-- 'transform', 'propertyType_transform' - Specifies an asset transform property. A transform contains a
+-- mathematical expression that maps a property\'s data points from one
+-- form to another, such as a unit conversion from Celsius to Fahrenheit.
 --
 -- 'measurement', 'propertyType_measurement' - Specifies an asset measurement property. A measurement represents a
 -- device\'s raw sensor data stream, such as timestamped temperature values
@@ -83,8 +83,8 @@ newPropertyType ::
 newPropertyType =
   PropertyType'
     { attribute = Prelude.Nothing,
-      transform = Prelude.Nothing,
       metric = Prelude.Nothing,
+      transform = Prelude.Nothing,
       measurement = Prelude.Nothing
     }
 
@@ -95,18 +95,18 @@ newPropertyType =
 propertyType_attribute :: Lens.Lens' PropertyType (Prelude.Maybe Attribute)
 propertyType_attribute = Lens.lens (\PropertyType' {attribute} -> attribute) (\s@PropertyType' {} a -> s {attribute = a} :: PropertyType)
 
--- | Specifies an asset transform property. A transform contains a
--- mathematical expression that maps a property\'s data points from one
--- form to another, such as a unit conversion from Celsius to Fahrenheit.
-propertyType_transform :: Lens.Lens' PropertyType (Prelude.Maybe Transform)
-propertyType_transform = Lens.lens (\PropertyType' {transform} -> transform) (\s@PropertyType' {} a -> s {transform = a} :: PropertyType)
-
 -- | Specifies an asset metric property. A metric contains a mathematical
 -- expression that uses aggregate functions to process all input data
 -- points over a time interval and output a single data point, such as to
 -- calculate the average hourly temperature.
 propertyType_metric :: Lens.Lens' PropertyType (Prelude.Maybe Metric)
 propertyType_metric = Lens.lens (\PropertyType' {metric} -> metric) (\s@PropertyType' {} a -> s {metric = a} :: PropertyType)
+
+-- | Specifies an asset transform property. A transform contains a
+-- mathematical expression that maps a property\'s data points from one
+-- form to another, such as a unit conversion from Celsius to Fahrenheit.
+propertyType_transform :: Lens.Lens' PropertyType (Prelude.Maybe Transform)
+propertyType_transform = Lens.lens (\PropertyType' {transform} -> transform) (\s@PropertyType' {} a -> s {transform = a} :: PropertyType)
 
 -- | Specifies an asset measurement property. A measurement represents a
 -- device\'s raw sensor data stream, such as timestamped temperature values
@@ -121,23 +121,23 @@ instance Core.FromJSON PropertyType where
       ( \x ->
           PropertyType'
             Prelude.<$> (x Core..:? "attribute")
-            Prelude.<*> (x Core..:? "transform")
             Prelude.<*> (x Core..:? "metric")
+            Prelude.<*> (x Core..:? "transform")
             Prelude.<*> (x Core..:? "measurement")
       )
 
 instance Prelude.Hashable PropertyType where
   hashWithSalt _salt PropertyType' {..} =
     _salt `Prelude.hashWithSalt` attribute
-      `Prelude.hashWithSalt` transform
       `Prelude.hashWithSalt` metric
+      `Prelude.hashWithSalt` transform
       `Prelude.hashWithSalt` measurement
 
 instance Prelude.NFData PropertyType where
   rnf PropertyType' {..} =
     Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf transform
       `Prelude.seq` Prelude.rnf metric
+      `Prelude.seq` Prelude.rnf transform
       `Prelude.seq` Prelude.rnf measurement
 
 instance Core.ToJSON PropertyType where
@@ -145,8 +145,8 @@ instance Core.ToJSON PropertyType where
     Core.object
       ( Prelude.catMaybes
           [ ("attribute" Core..=) Prelude.<$> attribute,
-            ("transform" Core..=) Prelude.<$> transform,
             ("metric" Core..=) Prelude.<$> metric,
+            ("transform" Core..=) Prelude.<$> transform,
             ("measurement" Core..=) Prelude.<$> measurement
           ]
       )

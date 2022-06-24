@@ -27,11 +27,11 @@ module Amazonka.IoTSiteWise.UpdatePortal
     newUpdatePortal,
 
     -- * Request Lenses
+    updatePortal_alarms,
     updatePortal_clientToken,
+    updatePortal_portalLogoImage,
     updatePortal_portalDescription,
     updatePortal_notificationSenderEmail,
-    updatePortal_portalLogoImage,
-    updatePortal_alarms,
     updatePortal_portalId,
     updatePortal_portalName,
     updatePortal_portalContactEmail,
@@ -56,22 +56,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdatePortal' smart constructor.
 data UpdatePortal = UpdatePortal'
-  { -- | A unique case-sensitive identifier that you can provide to ensure the
-    -- idempotency of the request. Don\'t reuse this client token if a new
-    -- idempotent request is required.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A new description for the portal.
-    portalDescription :: Prelude.Maybe Prelude.Text,
-    -- | The email address that sends alarm notifications.
-    notificationSenderEmail :: Prelude.Maybe Prelude.Text,
-    portalLogoImage :: Prelude.Maybe Image,
-    -- | Contains the configuration information of an alarm created in an IoT
+  { -- | Contains the configuration information of an alarm created in an IoT
     -- SiteWise Monitor portal. You can use the alarm to monitor an asset
     -- property and get notified when the asset property value is outside a
     -- specified range. For more information, see
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html Monitoring with alarms>
     -- in the /IoT SiteWise Application Guide/.
     alarms :: Prelude.Maybe Alarms,
+    -- | A unique case-sensitive identifier that you can provide to ensure the
+    -- idempotency of the request. Don\'t reuse this client token if a new
+    -- idempotent request is required.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    portalLogoImage :: Prelude.Maybe Image,
+    -- | A new description for the portal.
+    portalDescription :: Prelude.Maybe Prelude.Text,
+    -- | The email address that sends alarm notifications.
+    notificationSenderEmail :: Prelude.Maybe Prelude.Text,
     -- | The ID of the portal to update.
     portalId :: Prelude.Text,
     -- | A new friendly name for the portal.
@@ -96,22 +96,22 @@ data UpdatePortal = UpdatePortal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'updatePortal_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
--- idempotency of the request. Don\'t reuse this client token if a new
--- idempotent request is required.
---
--- 'portalDescription', 'updatePortal_portalDescription' - A new description for the portal.
---
--- 'notificationSenderEmail', 'updatePortal_notificationSenderEmail' - The email address that sends alarm notifications.
---
--- 'portalLogoImage', 'updatePortal_portalLogoImage' - Undocumented member.
---
 -- 'alarms', 'updatePortal_alarms' - Contains the configuration information of an alarm created in an IoT
 -- SiteWise Monitor portal. You can use the alarm to monitor an asset
 -- property and get notified when the asset property value is outside a
 -- specified range. For more information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html Monitoring with alarms>
 -- in the /IoT SiteWise Application Guide/.
+--
+-- 'clientToken', 'updatePortal_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
+--
+-- 'portalLogoImage', 'updatePortal_portalLogoImage' - Undocumented member.
+--
+-- 'portalDescription', 'updatePortal_portalDescription' - A new description for the portal.
+--
+-- 'notificationSenderEmail', 'updatePortal_notificationSenderEmail' - The email address that sends alarm notifications.
 --
 -- 'portalId', 'updatePortal_portalId' - The ID of the portal to update.
 --
@@ -141,34 +141,16 @@ newUpdatePortal
   pPortalContactEmail_
   pRoleArn_ =
     UpdatePortal'
-      { clientToken = Prelude.Nothing,
+      { alarms = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
+        portalLogoImage = Prelude.Nothing,
         portalDescription = Prelude.Nothing,
         notificationSenderEmail = Prelude.Nothing,
-        portalLogoImage = Prelude.Nothing,
-        alarms = Prelude.Nothing,
         portalId = pPortalId_,
         portalName = pPortalName_,
         portalContactEmail = pPortalContactEmail_,
         roleArn = pRoleArn_
       }
-
--- | A unique case-sensitive identifier that you can provide to ensure the
--- idempotency of the request. Don\'t reuse this client token if a new
--- idempotent request is required.
-updatePortal_clientToken :: Lens.Lens' UpdatePortal (Prelude.Maybe Prelude.Text)
-updatePortal_clientToken = Lens.lens (\UpdatePortal' {clientToken} -> clientToken) (\s@UpdatePortal' {} a -> s {clientToken = a} :: UpdatePortal)
-
--- | A new description for the portal.
-updatePortal_portalDescription :: Lens.Lens' UpdatePortal (Prelude.Maybe Prelude.Text)
-updatePortal_portalDescription = Lens.lens (\UpdatePortal' {portalDescription} -> portalDescription) (\s@UpdatePortal' {} a -> s {portalDescription = a} :: UpdatePortal)
-
--- | The email address that sends alarm notifications.
-updatePortal_notificationSenderEmail :: Lens.Lens' UpdatePortal (Prelude.Maybe Prelude.Text)
-updatePortal_notificationSenderEmail = Lens.lens (\UpdatePortal' {notificationSenderEmail} -> notificationSenderEmail) (\s@UpdatePortal' {} a -> s {notificationSenderEmail = a} :: UpdatePortal)
-
--- | Undocumented member.
-updatePortal_portalLogoImage :: Lens.Lens' UpdatePortal (Prelude.Maybe Image)
-updatePortal_portalLogoImage = Lens.lens (\UpdatePortal' {portalLogoImage} -> portalLogoImage) (\s@UpdatePortal' {} a -> s {portalLogoImage = a} :: UpdatePortal)
 
 -- | Contains the configuration information of an alarm created in an IoT
 -- SiteWise Monitor portal. You can use the alarm to monitor an asset
@@ -178,6 +160,24 @@ updatePortal_portalLogoImage = Lens.lens (\UpdatePortal' {portalLogoImage} -> po
 -- in the /IoT SiteWise Application Guide/.
 updatePortal_alarms :: Lens.Lens' UpdatePortal (Prelude.Maybe Alarms)
 updatePortal_alarms = Lens.lens (\UpdatePortal' {alarms} -> alarms) (\s@UpdatePortal' {} a -> s {alarms = a} :: UpdatePortal)
+
+-- | A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
+updatePortal_clientToken :: Lens.Lens' UpdatePortal (Prelude.Maybe Prelude.Text)
+updatePortal_clientToken = Lens.lens (\UpdatePortal' {clientToken} -> clientToken) (\s@UpdatePortal' {} a -> s {clientToken = a} :: UpdatePortal)
+
+-- | Undocumented member.
+updatePortal_portalLogoImage :: Lens.Lens' UpdatePortal (Prelude.Maybe Image)
+updatePortal_portalLogoImage = Lens.lens (\UpdatePortal' {portalLogoImage} -> portalLogoImage) (\s@UpdatePortal' {} a -> s {portalLogoImage = a} :: UpdatePortal)
+
+-- | A new description for the portal.
+updatePortal_portalDescription :: Lens.Lens' UpdatePortal (Prelude.Maybe Prelude.Text)
+updatePortal_portalDescription = Lens.lens (\UpdatePortal' {portalDescription} -> portalDescription) (\s@UpdatePortal' {} a -> s {portalDescription = a} :: UpdatePortal)
+
+-- | The email address that sends alarm notifications.
+updatePortal_notificationSenderEmail :: Lens.Lens' UpdatePortal (Prelude.Maybe Prelude.Text)
+updatePortal_notificationSenderEmail = Lens.lens (\UpdatePortal' {notificationSenderEmail} -> notificationSenderEmail) (\s@UpdatePortal' {} a -> s {notificationSenderEmail = a} :: UpdatePortal)
 
 -- | The ID of the portal to update.
 updatePortal_portalId :: Lens.Lens' UpdatePortal Prelude.Text
@@ -213,11 +213,11 @@ instance Core.AWSRequest UpdatePortal where
 
 instance Prelude.Hashable UpdatePortal where
   hashWithSalt _salt UpdatePortal' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` alarms
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` portalLogoImage
       `Prelude.hashWithSalt` portalDescription
       `Prelude.hashWithSalt` notificationSenderEmail
-      `Prelude.hashWithSalt` portalLogoImage
-      `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` portalId
       `Prelude.hashWithSalt` portalName
       `Prelude.hashWithSalt` portalContactEmail
@@ -225,11 +225,11 @@ instance Prelude.Hashable UpdatePortal where
 
 instance Prelude.NFData UpdatePortal where
   rnf UpdatePortal' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf portalLogoImage
       `Prelude.seq` Prelude.rnf portalDescription
       `Prelude.seq` Prelude.rnf notificationSenderEmail
-      `Prelude.seq` Prelude.rnf portalLogoImage
-      `Prelude.seq` Prelude.rnf alarms
       `Prelude.seq` Prelude.rnf portalId
       `Prelude.seq` Prelude.rnf portalName
       `Prelude.seq` Prelude.rnf portalContactEmail
@@ -250,14 +250,14 @@ instance Core.ToJSON UpdatePortal where
   toJSON UpdatePortal' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("alarms" Core..=) Prelude.<$> alarms,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("portalLogoImage" Core..=)
+              Prelude.<$> portalLogoImage,
             ("portalDescription" Core..=)
               Prelude.<$> portalDescription,
             ("notificationSenderEmail" Core..=)
               Prelude.<$> notificationSenderEmail,
-            ("portalLogoImage" Core..=)
-              Prelude.<$> portalLogoImage,
-            ("alarms" Core..=) Prelude.<$> alarms,
             Prelude.Just ("portalName" Core..= portalName),
             Prelude.Just
               ("portalContactEmail" Core..= portalContactEmail),

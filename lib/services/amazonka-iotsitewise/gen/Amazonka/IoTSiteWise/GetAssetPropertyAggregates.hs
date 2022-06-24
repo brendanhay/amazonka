@@ -40,13 +40,13 @@ module Amazonka.IoTSiteWise.GetAssetPropertyAggregates
     newGetAssetPropertyAggregates,
 
     -- * Request Lenses
-    getAssetPropertyAggregates_qualities,
-    getAssetPropertyAggregates_timeOrdering,
-    getAssetPropertyAggregates_propertyAlias,
     getAssetPropertyAggregates_nextToken,
-    getAssetPropertyAggregates_propertyId,
+    getAssetPropertyAggregates_propertyAlias,
     getAssetPropertyAggregates_assetId,
+    getAssetPropertyAggregates_qualities,
+    getAssetPropertyAggregates_propertyId,
     getAssetPropertyAggregates_maxResults,
+    getAssetPropertyAggregates_timeOrdering,
     getAssetPropertyAggregates_aggregateTypes,
     getAssetPropertyAggregates_resolution,
     getAssetPropertyAggregates_startDate,
@@ -72,12 +72,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAssetPropertyAggregates' smart constructor.
 data GetAssetPropertyAggregates = GetAssetPropertyAggregates'
-  { -- | The quality by which to filter asset data.
-    qualities :: Prelude.Maybe (Prelude.NonEmpty Quality),
-    -- | The chronological sorting order of the requested information.
-    --
-    -- Default: @ASCENDING@
-    timeOrdering :: Prelude.Maybe TimeOrdering,
+  { -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The alias that identifies the property, such as an OPC-UA server data
     -- stream path (for example,
     -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
@@ -85,16 +81,20 @@ data GetAssetPropertyAggregates = GetAssetPropertyAggregates'
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
     -- in the /IoT SiteWise User Guide/.
     propertyAlias :: Prelude.Maybe Prelude.Text,
-    -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the asset property.
-    propertyId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset.
     assetId :: Prelude.Maybe Prelude.Text,
+    -- | The quality by which to filter asset data.
+    qualities :: Prelude.Maybe (Prelude.NonEmpty Quality),
+    -- | The ID of the asset property.
+    propertyId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return for each paginated request.
     --
     -- Default: 100
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The chronological sorting order of the requested information.
+    --
+    -- Default: @ASCENDING@
+    timeOrdering :: Prelude.Maybe TimeOrdering,
     -- | The data aggregating function.
     aggregateTypes :: Prelude.NonEmpty AggregateType,
     -- | The time interval over which to aggregate data.
@@ -116,11 +116,7 @@ data GetAssetPropertyAggregates = GetAssetPropertyAggregates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'qualities', 'getAssetPropertyAggregates_qualities' - The quality by which to filter asset data.
---
--- 'timeOrdering', 'getAssetPropertyAggregates_timeOrdering' - The chronological sorting order of the requested information.
---
--- Default: @ASCENDING@
+-- 'nextToken', 'getAssetPropertyAggregates_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'propertyAlias', 'getAssetPropertyAggregates_propertyAlias' - The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
@@ -129,15 +125,19 @@ data GetAssetPropertyAggregates = GetAssetPropertyAggregates'
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
 -- in the /IoT SiteWise User Guide/.
 --
--- 'nextToken', 'getAssetPropertyAggregates_nextToken' - The token to be used for the next set of paginated results.
+-- 'assetId', 'getAssetPropertyAggregates_assetId' - The ID of the asset.
+--
+-- 'qualities', 'getAssetPropertyAggregates_qualities' - The quality by which to filter asset data.
 --
 -- 'propertyId', 'getAssetPropertyAggregates_propertyId' - The ID of the asset property.
---
--- 'assetId', 'getAssetPropertyAggregates_assetId' - The ID of the asset.
 --
 -- 'maxResults', 'getAssetPropertyAggregates_maxResults' - The maximum number of results to return for each paginated request.
 --
 -- Default: 100
+--
+-- 'timeOrdering', 'getAssetPropertyAggregates_timeOrdering' - The chronological sorting order of the requested information.
+--
+-- Default: @ASCENDING@
 --
 -- 'aggregateTypes', 'getAssetPropertyAggregates_aggregateTypes' - The data aggregating function.
 --
@@ -164,14 +164,14 @@ newGetAssetPropertyAggregates
   pStartDate_
   pEndDate_ =
     GetAssetPropertyAggregates'
-      { qualities =
+      { nextToken =
           Prelude.Nothing,
-        timeOrdering = Prelude.Nothing,
         propertyAlias = Prelude.Nothing,
-        nextToken = Prelude.Nothing,
-        propertyId = Prelude.Nothing,
         assetId = Prelude.Nothing,
+        qualities = Prelude.Nothing,
+        propertyId = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        timeOrdering = Prelude.Nothing,
         aggregateTypes =
           Lens.coerced Lens.# pAggregateTypes_,
         resolution = pResolution_,
@@ -179,15 +179,9 @@ newGetAssetPropertyAggregates
         endDate = Core._Time Lens.# pEndDate_
       }
 
--- | The quality by which to filter asset data.
-getAssetPropertyAggregates_qualities :: Lens.Lens' GetAssetPropertyAggregates (Prelude.Maybe (Prelude.NonEmpty Quality))
-getAssetPropertyAggregates_qualities = Lens.lens (\GetAssetPropertyAggregates' {qualities} -> qualities) (\s@GetAssetPropertyAggregates' {} a -> s {qualities = a} :: GetAssetPropertyAggregates) Prelude.. Lens.mapping Lens.coerced
-
--- | The chronological sorting order of the requested information.
---
--- Default: @ASCENDING@
-getAssetPropertyAggregates_timeOrdering :: Lens.Lens' GetAssetPropertyAggregates (Prelude.Maybe TimeOrdering)
-getAssetPropertyAggregates_timeOrdering = Lens.lens (\GetAssetPropertyAggregates' {timeOrdering} -> timeOrdering) (\s@GetAssetPropertyAggregates' {} a -> s {timeOrdering = a} :: GetAssetPropertyAggregates)
+-- | The token to be used for the next set of paginated results.
+getAssetPropertyAggregates_nextToken :: Lens.Lens' GetAssetPropertyAggregates (Prelude.Maybe Prelude.Text)
+getAssetPropertyAggregates_nextToken = Lens.lens (\GetAssetPropertyAggregates' {nextToken} -> nextToken) (\s@GetAssetPropertyAggregates' {} a -> s {nextToken = a} :: GetAssetPropertyAggregates)
 
 -- | The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
@@ -198,23 +192,29 @@ getAssetPropertyAggregates_timeOrdering = Lens.lens (\GetAssetPropertyAggregates
 getAssetPropertyAggregates_propertyAlias :: Lens.Lens' GetAssetPropertyAggregates (Prelude.Maybe Prelude.Text)
 getAssetPropertyAggregates_propertyAlias = Lens.lens (\GetAssetPropertyAggregates' {propertyAlias} -> propertyAlias) (\s@GetAssetPropertyAggregates' {} a -> s {propertyAlias = a} :: GetAssetPropertyAggregates)
 
--- | The token to be used for the next set of paginated results.
-getAssetPropertyAggregates_nextToken :: Lens.Lens' GetAssetPropertyAggregates (Prelude.Maybe Prelude.Text)
-getAssetPropertyAggregates_nextToken = Lens.lens (\GetAssetPropertyAggregates' {nextToken} -> nextToken) (\s@GetAssetPropertyAggregates' {} a -> s {nextToken = a} :: GetAssetPropertyAggregates)
+-- | The ID of the asset.
+getAssetPropertyAggregates_assetId :: Lens.Lens' GetAssetPropertyAggregates (Prelude.Maybe Prelude.Text)
+getAssetPropertyAggregates_assetId = Lens.lens (\GetAssetPropertyAggregates' {assetId} -> assetId) (\s@GetAssetPropertyAggregates' {} a -> s {assetId = a} :: GetAssetPropertyAggregates)
+
+-- | The quality by which to filter asset data.
+getAssetPropertyAggregates_qualities :: Lens.Lens' GetAssetPropertyAggregates (Prelude.Maybe (Prelude.NonEmpty Quality))
+getAssetPropertyAggregates_qualities = Lens.lens (\GetAssetPropertyAggregates' {qualities} -> qualities) (\s@GetAssetPropertyAggregates' {} a -> s {qualities = a} :: GetAssetPropertyAggregates) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the asset property.
 getAssetPropertyAggregates_propertyId :: Lens.Lens' GetAssetPropertyAggregates (Prelude.Maybe Prelude.Text)
 getAssetPropertyAggregates_propertyId = Lens.lens (\GetAssetPropertyAggregates' {propertyId} -> propertyId) (\s@GetAssetPropertyAggregates' {} a -> s {propertyId = a} :: GetAssetPropertyAggregates)
-
--- | The ID of the asset.
-getAssetPropertyAggregates_assetId :: Lens.Lens' GetAssetPropertyAggregates (Prelude.Maybe Prelude.Text)
-getAssetPropertyAggregates_assetId = Lens.lens (\GetAssetPropertyAggregates' {assetId} -> assetId) (\s@GetAssetPropertyAggregates' {} a -> s {assetId = a} :: GetAssetPropertyAggregates)
 
 -- | The maximum number of results to return for each paginated request.
 --
 -- Default: 100
 getAssetPropertyAggregates_maxResults :: Lens.Lens' GetAssetPropertyAggregates (Prelude.Maybe Prelude.Natural)
 getAssetPropertyAggregates_maxResults = Lens.lens (\GetAssetPropertyAggregates' {maxResults} -> maxResults) (\s@GetAssetPropertyAggregates' {} a -> s {maxResults = a} :: GetAssetPropertyAggregates)
+
+-- | The chronological sorting order of the requested information.
+--
+-- Default: @ASCENDING@
+getAssetPropertyAggregates_timeOrdering :: Lens.Lens' GetAssetPropertyAggregates (Prelude.Maybe TimeOrdering)
+getAssetPropertyAggregates_timeOrdering = Lens.lens (\GetAssetPropertyAggregates' {timeOrdering} -> timeOrdering) (\s@GetAssetPropertyAggregates' {} a -> s {timeOrdering = a} :: GetAssetPropertyAggregates)
 
 -- | The data aggregating function.
 getAssetPropertyAggregates_aggregateTypes :: Lens.Lens' GetAssetPropertyAggregates (Prelude.NonEmpty AggregateType)
@@ -273,13 +273,13 @@ instance Core.AWSRequest GetAssetPropertyAggregates where
 
 instance Prelude.Hashable GetAssetPropertyAggregates where
   hashWithSalt _salt GetAssetPropertyAggregates' {..} =
-    _salt `Prelude.hashWithSalt` qualities
-      `Prelude.hashWithSalt` timeOrdering
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` propertyAlias
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` propertyId
       `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` qualities
+      `Prelude.hashWithSalt` propertyId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` timeOrdering
       `Prelude.hashWithSalt` aggregateTypes
       `Prelude.hashWithSalt` resolution
       `Prelude.hashWithSalt` startDate
@@ -287,13 +287,13 @@ instance Prelude.Hashable GetAssetPropertyAggregates where
 
 instance Prelude.NFData GetAssetPropertyAggregates where
   rnf GetAssetPropertyAggregates' {..} =
-    Prelude.rnf qualities
-      `Prelude.seq` Prelude.rnf timeOrdering
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf propertyId
       `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf qualities
+      `Prelude.seq` Prelude.rnf propertyId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf timeOrdering
       `Prelude.seq` Prelude.rnf aggregateTypes
       `Prelude.seq` Prelude.rnf resolution
       `Prelude.seq` Prelude.rnf startDate
@@ -316,15 +316,15 @@ instance Core.ToPath GetAssetPropertyAggregates where
 instance Core.ToQuery GetAssetPropertyAggregates where
   toQuery GetAssetPropertyAggregates' {..} =
     Prelude.mconcat
-      [ "qualities"
+      [ "nextToken" Core.=: nextToken,
+        "propertyAlias" Core.=: propertyAlias,
+        "assetId" Core.=: assetId,
+        "qualities"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> qualities),
-        "timeOrdering" Core.=: timeOrdering,
-        "propertyAlias" Core.=: propertyAlias,
-        "nextToken" Core.=: nextToken,
         "propertyId" Core.=: propertyId,
-        "assetId" Core.=: assetId,
         "maxResults" Core.=: maxResults,
+        "timeOrdering" Core.=: timeOrdering,
         "aggregateTypes"
           Core.=: Core.toQueryList "member" aggregateTypes,
         "resolution" Core.=: resolution,

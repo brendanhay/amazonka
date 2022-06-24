@@ -33,36 +33,36 @@ import Amazonka.Transcribe.Types.Type
 --
 -- /See:/ 'newMedicalTranscriptionJobSummary' smart constructor.
 data MedicalTranscriptionJobSummary = MedicalTranscriptionJobSummary'
-  { -- | A timestamp that shows when the medical transcription job was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The medical specialty of the transcription job. Refer to
-    -- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation>for
-    -- a list of supported specialties.
-    specialty :: Prelude.Maybe Specialty,
-    -- | If the @TranscriptionJobStatus@ field is @FAILED@, a description of the
-    -- error.
-    failureReason :: Prelude.Maybe Prelude.Text,
-    -- | The language of the transcript in the source audio file.
-    languageCode :: Prelude.Maybe LanguageCode,
-    -- | Indicates the location of the transcription job\'s output. This field
-    -- must be the path of an S3 bucket; if you don\'t already have an S3
-    -- bucket, one is created based on the path you add.
-    outputLocationType :: Prelude.Maybe OutputLocationType,
-    -- | A timestamp that shows when the job began processing.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | A timestamp that shows when the job was completed.
-    completionTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of a medical transcription job.
-    medicalTranscriptionJobName :: Prelude.Maybe Prelude.Text,
-    -- | The status of the medical transcription job.
-    transcriptionJobStatus :: Prelude.Maybe TranscriptionJobStatus,
-    -- | The speech of the clinician in the input audio.
+  { -- | The speech of the clinician in the input audio.
     type' :: Prelude.Maybe Type,
     -- | Shows the type of information you\'ve configured Amazon Transcribe
     -- Medical to identify in a transcription job. If the value is @PHI@,
     -- you\'ve configured the transcription job to identify personal health
     -- information (PHI).
-    contentIdentificationType :: Prelude.Maybe MedicalContentIdentificationType
+    contentIdentificationType :: Prelude.Maybe MedicalContentIdentificationType,
+    -- | The name of a medical transcription job.
+    medicalTranscriptionJobName :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp that shows when the job was completed.
+    completionTime :: Prelude.Maybe Core.POSIX,
+    -- | Indicates the location of the transcription job\'s output. This field
+    -- must be the path of an S3 bucket; if you don\'t already have an S3
+    -- bucket, one is created based on the path you add.
+    outputLocationType :: Prelude.Maybe OutputLocationType,
+    -- | The language of the transcript in the source audio file.
+    languageCode :: Prelude.Maybe LanguageCode,
+    -- | The status of the medical transcription job.
+    transcriptionJobStatus :: Prelude.Maybe TranscriptionJobStatus,
+    -- | A timestamp that shows when the medical transcription job was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The medical specialty of the transcription job. Refer to
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation>for
+    -- a list of supported specialties.
+    specialty :: Prelude.Maybe Specialty,
+    -- | A timestamp that shows when the job began processing.
+    startTime :: Prelude.Maybe Core.POSIX,
+    -- | If the @TranscriptionJobStatus@ field is @FAILED@, a description of the
+    -- error.
+    failureReason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,94 +74,53 @@ data MedicalTranscriptionJobSummary = MedicalTranscriptionJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'medicalTranscriptionJobSummary_creationTime' - A timestamp that shows when the medical transcription job was created.
---
--- 'specialty', 'medicalTranscriptionJobSummary_specialty' - The medical specialty of the transcription job. Refer to
--- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation>for
--- a list of supported specialties.
---
--- 'failureReason', 'medicalTranscriptionJobSummary_failureReason' - If the @TranscriptionJobStatus@ field is @FAILED@, a description of the
--- error.
---
--- 'languageCode', 'medicalTranscriptionJobSummary_languageCode' - The language of the transcript in the source audio file.
---
--- 'outputLocationType', 'medicalTranscriptionJobSummary_outputLocationType' - Indicates the location of the transcription job\'s output. This field
--- must be the path of an S3 bucket; if you don\'t already have an S3
--- bucket, one is created based on the path you add.
---
--- 'startTime', 'medicalTranscriptionJobSummary_startTime' - A timestamp that shows when the job began processing.
---
--- 'completionTime', 'medicalTranscriptionJobSummary_completionTime' - A timestamp that shows when the job was completed.
---
--- 'medicalTranscriptionJobName', 'medicalTranscriptionJobSummary_medicalTranscriptionJobName' - The name of a medical transcription job.
---
--- 'transcriptionJobStatus', 'medicalTranscriptionJobSummary_transcriptionJobStatus' - The status of the medical transcription job.
---
 -- 'type'', 'medicalTranscriptionJobSummary_type' - The speech of the clinician in the input audio.
 --
 -- 'contentIdentificationType', 'medicalTranscriptionJobSummary_contentIdentificationType' - Shows the type of information you\'ve configured Amazon Transcribe
 -- Medical to identify in a transcription job. If the value is @PHI@,
 -- you\'ve configured the transcription job to identify personal health
 -- information (PHI).
+--
+-- 'medicalTranscriptionJobName', 'medicalTranscriptionJobSummary_medicalTranscriptionJobName' - The name of a medical transcription job.
+--
+-- 'completionTime', 'medicalTranscriptionJobSummary_completionTime' - A timestamp that shows when the job was completed.
+--
+-- 'outputLocationType', 'medicalTranscriptionJobSummary_outputLocationType' - Indicates the location of the transcription job\'s output. This field
+-- must be the path of an S3 bucket; if you don\'t already have an S3
+-- bucket, one is created based on the path you add.
+--
+-- 'languageCode', 'medicalTranscriptionJobSummary_languageCode' - The language of the transcript in the source audio file.
+--
+-- 'transcriptionJobStatus', 'medicalTranscriptionJobSummary_transcriptionJobStatus' - The status of the medical transcription job.
+--
+-- 'creationTime', 'medicalTranscriptionJobSummary_creationTime' - A timestamp that shows when the medical transcription job was created.
+--
+-- 'specialty', 'medicalTranscriptionJobSummary_specialty' - The medical specialty of the transcription job. Refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation>for
+-- a list of supported specialties.
+--
+-- 'startTime', 'medicalTranscriptionJobSummary_startTime' - A timestamp that shows when the job began processing.
+--
+-- 'failureReason', 'medicalTranscriptionJobSummary_failureReason' - If the @TranscriptionJobStatus@ field is @FAILED@, a description of the
+-- error.
 newMedicalTranscriptionJobSummary ::
   MedicalTranscriptionJobSummary
 newMedicalTranscriptionJobSummary =
   MedicalTranscriptionJobSummary'
-    { creationTime =
+    { type' =
         Prelude.Nothing,
-      specialty = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
-      languageCode = Prelude.Nothing,
-      outputLocationType = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      completionTime = Prelude.Nothing,
+      contentIdentificationType = Prelude.Nothing,
       medicalTranscriptionJobName =
         Prelude.Nothing,
+      completionTime = Prelude.Nothing,
+      outputLocationType = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
       transcriptionJobStatus = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      contentIdentificationType = Prelude.Nothing
+      creationTime = Prelude.Nothing,
+      specialty = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      failureReason = Prelude.Nothing
     }
-
--- | A timestamp that shows when the medical transcription job was created.
-medicalTranscriptionJobSummary_creationTime :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
-medicalTranscriptionJobSummary_creationTime = Lens.lens (\MedicalTranscriptionJobSummary' {creationTime} -> creationTime) (\s@MedicalTranscriptionJobSummary' {} a -> s {creationTime = a} :: MedicalTranscriptionJobSummary) Prelude.. Lens.mapping Core._Time
-
--- | The medical specialty of the transcription job. Refer to
--- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation>for
--- a list of supported specialties.
-medicalTranscriptionJobSummary_specialty :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Specialty)
-medicalTranscriptionJobSummary_specialty = Lens.lens (\MedicalTranscriptionJobSummary' {specialty} -> specialty) (\s@MedicalTranscriptionJobSummary' {} a -> s {specialty = a} :: MedicalTranscriptionJobSummary)
-
--- | If the @TranscriptionJobStatus@ field is @FAILED@, a description of the
--- error.
-medicalTranscriptionJobSummary_failureReason :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.Text)
-medicalTranscriptionJobSummary_failureReason = Lens.lens (\MedicalTranscriptionJobSummary' {failureReason} -> failureReason) (\s@MedicalTranscriptionJobSummary' {} a -> s {failureReason = a} :: MedicalTranscriptionJobSummary)
-
--- | The language of the transcript in the source audio file.
-medicalTranscriptionJobSummary_languageCode :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe LanguageCode)
-medicalTranscriptionJobSummary_languageCode = Lens.lens (\MedicalTranscriptionJobSummary' {languageCode} -> languageCode) (\s@MedicalTranscriptionJobSummary' {} a -> s {languageCode = a} :: MedicalTranscriptionJobSummary)
-
--- | Indicates the location of the transcription job\'s output. This field
--- must be the path of an S3 bucket; if you don\'t already have an S3
--- bucket, one is created based on the path you add.
-medicalTranscriptionJobSummary_outputLocationType :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe OutputLocationType)
-medicalTranscriptionJobSummary_outputLocationType = Lens.lens (\MedicalTranscriptionJobSummary' {outputLocationType} -> outputLocationType) (\s@MedicalTranscriptionJobSummary' {} a -> s {outputLocationType = a} :: MedicalTranscriptionJobSummary)
-
--- | A timestamp that shows when the job began processing.
-medicalTranscriptionJobSummary_startTime :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
-medicalTranscriptionJobSummary_startTime = Lens.lens (\MedicalTranscriptionJobSummary' {startTime} -> startTime) (\s@MedicalTranscriptionJobSummary' {} a -> s {startTime = a} :: MedicalTranscriptionJobSummary) Prelude.. Lens.mapping Core._Time
-
--- | A timestamp that shows when the job was completed.
-medicalTranscriptionJobSummary_completionTime :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
-medicalTranscriptionJobSummary_completionTime = Lens.lens (\MedicalTranscriptionJobSummary' {completionTime} -> completionTime) (\s@MedicalTranscriptionJobSummary' {} a -> s {completionTime = a} :: MedicalTranscriptionJobSummary) Prelude.. Lens.mapping Core._Time
-
--- | The name of a medical transcription job.
-medicalTranscriptionJobSummary_medicalTranscriptionJobName :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.Text)
-medicalTranscriptionJobSummary_medicalTranscriptionJobName = Lens.lens (\MedicalTranscriptionJobSummary' {medicalTranscriptionJobName} -> medicalTranscriptionJobName) (\s@MedicalTranscriptionJobSummary' {} a -> s {medicalTranscriptionJobName = a} :: MedicalTranscriptionJobSummary)
-
--- | The status of the medical transcription job.
-medicalTranscriptionJobSummary_transcriptionJobStatus :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe TranscriptionJobStatus)
-medicalTranscriptionJobSummary_transcriptionJobStatus = Lens.lens (\MedicalTranscriptionJobSummary' {transcriptionJobStatus} -> transcriptionJobStatus) (\s@MedicalTranscriptionJobSummary' {} a -> s {transcriptionJobStatus = a} :: MedicalTranscriptionJobSummary)
 
 -- | The speech of the clinician in the input audio.
 medicalTranscriptionJobSummary_type :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Type)
@@ -174,23 +133,64 @@ medicalTranscriptionJobSummary_type = Lens.lens (\MedicalTranscriptionJobSummary
 medicalTranscriptionJobSummary_contentIdentificationType :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe MedicalContentIdentificationType)
 medicalTranscriptionJobSummary_contentIdentificationType = Lens.lens (\MedicalTranscriptionJobSummary' {contentIdentificationType} -> contentIdentificationType) (\s@MedicalTranscriptionJobSummary' {} a -> s {contentIdentificationType = a} :: MedicalTranscriptionJobSummary)
 
+-- | The name of a medical transcription job.
+medicalTranscriptionJobSummary_medicalTranscriptionJobName :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.Text)
+medicalTranscriptionJobSummary_medicalTranscriptionJobName = Lens.lens (\MedicalTranscriptionJobSummary' {medicalTranscriptionJobName} -> medicalTranscriptionJobName) (\s@MedicalTranscriptionJobSummary' {} a -> s {medicalTranscriptionJobName = a} :: MedicalTranscriptionJobSummary)
+
+-- | A timestamp that shows when the job was completed.
+medicalTranscriptionJobSummary_completionTime :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
+medicalTranscriptionJobSummary_completionTime = Lens.lens (\MedicalTranscriptionJobSummary' {completionTime} -> completionTime) (\s@MedicalTranscriptionJobSummary' {} a -> s {completionTime = a} :: MedicalTranscriptionJobSummary) Prelude.. Lens.mapping Core._Time
+
+-- | Indicates the location of the transcription job\'s output. This field
+-- must be the path of an S3 bucket; if you don\'t already have an S3
+-- bucket, one is created based on the path you add.
+medicalTranscriptionJobSummary_outputLocationType :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe OutputLocationType)
+medicalTranscriptionJobSummary_outputLocationType = Lens.lens (\MedicalTranscriptionJobSummary' {outputLocationType} -> outputLocationType) (\s@MedicalTranscriptionJobSummary' {} a -> s {outputLocationType = a} :: MedicalTranscriptionJobSummary)
+
+-- | The language of the transcript in the source audio file.
+medicalTranscriptionJobSummary_languageCode :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe LanguageCode)
+medicalTranscriptionJobSummary_languageCode = Lens.lens (\MedicalTranscriptionJobSummary' {languageCode} -> languageCode) (\s@MedicalTranscriptionJobSummary' {} a -> s {languageCode = a} :: MedicalTranscriptionJobSummary)
+
+-- | The status of the medical transcription job.
+medicalTranscriptionJobSummary_transcriptionJobStatus :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe TranscriptionJobStatus)
+medicalTranscriptionJobSummary_transcriptionJobStatus = Lens.lens (\MedicalTranscriptionJobSummary' {transcriptionJobStatus} -> transcriptionJobStatus) (\s@MedicalTranscriptionJobSummary' {} a -> s {transcriptionJobStatus = a} :: MedicalTranscriptionJobSummary)
+
+-- | A timestamp that shows when the medical transcription job was created.
+medicalTranscriptionJobSummary_creationTime :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
+medicalTranscriptionJobSummary_creationTime = Lens.lens (\MedicalTranscriptionJobSummary' {creationTime} -> creationTime) (\s@MedicalTranscriptionJobSummary' {} a -> s {creationTime = a} :: MedicalTranscriptionJobSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The medical specialty of the transcription job. Refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation>for
+-- a list of supported specialties.
+medicalTranscriptionJobSummary_specialty :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Specialty)
+medicalTranscriptionJobSummary_specialty = Lens.lens (\MedicalTranscriptionJobSummary' {specialty} -> specialty) (\s@MedicalTranscriptionJobSummary' {} a -> s {specialty = a} :: MedicalTranscriptionJobSummary)
+
+-- | A timestamp that shows when the job began processing.
+medicalTranscriptionJobSummary_startTime :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
+medicalTranscriptionJobSummary_startTime = Lens.lens (\MedicalTranscriptionJobSummary' {startTime} -> startTime) (\s@MedicalTranscriptionJobSummary' {} a -> s {startTime = a} :: MedicalTranscriptionJobSummary) Prelude.. Lens.mapping Core._Time
+
+-- | If the @TranscriptionJobStatus@ field is @FAILED@, a description of the
+-- error.
+medicalTranscriptionJobSummary_failureReason :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.Text)
+medicalTranscriptionJobSummary_failureReason = Lens.lens (\MedicalTranscriptionJobSummary' {failureReason} -> failureReason) (\s@MedicalTranscriptionJobSummary' {} a -> s {failureReason = a} :: MedicalTranscriptionJobSummary)
+
 instance Core.FromJSON MedicalTranscriptionJobSummary where
   parseJSON =
     Core.withObject
       "MedicalTranscriptionJobSummary"
       ( \x ->
           MedicalTranscriptionJobSummary'
-            Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "Specialty")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "OutputLocationType")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "CompletionTime")
-            Prelude.<*> (x Core..:? "MedicalTranscriptionJobName")
-            Prelude.<*> (x Core..:? "TranscriptionJobStatus")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "ContentIdentificationType")
+            Prelude.<*> (x Core..:? "MedicalTranscriptionJobName")
+            Prelude.<*> (x Core..:? "CompletionTime")
+            Prelude.<*> (x Core..:? "OutputLocationType")
+            Prelude.<*> (x Core..:? "LanguageCode")
+            Prelude.<*> (x Core..:? "TranscriptionJobStatus")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "Specialty")
+            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "FailureReason")
       )
 
 instance
@@ -200,31 +200,31 @@ instance
   hashWithSalt
     _salt
     MedicalTranscriptionJobSummary' {..} =
-      _salt `Prelude.hashWithSalt` creationTime
-        `Prelude.hashWithSalt` specialty
-        `Prelude.hashWithSalt` failureReason
-        `Prelude.hashWithSalt` languageCode
-        `Prelude.hashWithSalt` outputLocationType
-        `Prelude.hashWithSalt` startTime
-        `Prelude.hashWithSalt` completionTime
-        `Prelude.hashWithSalt` medicalTranscriptionJobName
-        `Prelude.hashWithSalt` transcriptionJobStatus
-        `Prelude.hashWithSalt` type'
+      _salt `Prelude.hashWithSalt` type'
         `Prelude.hashWithSalt` contentIdentificationType
+        `Prelude.hashWithSalt` medicalTranscriptionJobName
+        `Prelude.hashWithSalt` completionTime
+        `Prelude.hashWithSalt` outputLocationType
+        `Prelude.hashWithSalt` languageCode
+        `Prelude.hashWithSalt` transcriptionJobStatus
+        `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` specialty
+        `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` failureReason
 
 instance
   Prelude.NFData
     MedicalTranscriptionJobSummary
   where
   rnf MedicalTranscriptionJobSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf specialty
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf outputLocationType
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf medicalTranscriptionJobName
-      `Prelude.seq` Prelude.rnf transcriptionJobStatus
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
       `Prelude.seq` Prelude.rnf contentIdentificationType
+      `Prelude.seq` Prelude.rnf medicalTranscriptionJobName
+      `Prelude.seq` Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf outputLocationType
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf transcriptionJobStatus
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf specialty
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf failureReason

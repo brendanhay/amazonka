@@ -28,12 +28,38 @@ import Amazonka.Transcribe.Types.VocabularyFilterMethod
 --
 -- /See:/ 'newSettings' smart constructor.
 data Settings = Settings'
-  { -- | The name of a vocabulary to use when processing the transcription job.
+  { -- | Set to @mask@ to remove filtered text from the transcript and replace it
+    -- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
+    -- remove filtered text from the transcript without using placeholder text.
+    -- Set to @tag@ to mark the word in the transcription output that matches
+    -- the vocabulary filter. When you set the filter method to @tag@, the
+    -- words matching your vocabulary filter are not masked or removed.
+    vocabularyFilterMethod :: Prelude.Maybe VocabularyFilterMethod,
+    -- | The name of a vocabulary to use when processing the transcription job.
     vocabularyName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of speakers to identify in the input audio. If there
+    -- are more speakers in the audio than this number, multiple speakers are
+    -- identified as a single speaker. If you specify the @MaxSpeakerLabels@
+    -- field, you must set the @ShowSpeakerLabels@ field to true.
+    maxSpeakerLabels :: Prelude.Maybe Prelude.Natural,
     -- | The number of alternative transcriptions that the service should return.
     -- If you specify the @MaxAlternatives@ field, you must set the
     -- @ShowAlternatives@ field to true.
     maxAlternatives :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the vocabulary filter to use when transcribing the audio.
+    -- The filter that you specify must have the same language code as the
+    -- transcription job.
+    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
+    -- | Determines whether the transcription job uses speaker recognition to
+    -- identify different speakers in the input audio. Speaker recognition
+    -- labels individual speakers in the audio file. If you set the
+    -- @ShowSpeakerLabels@ field to true, you must also set the maximum number
+    -- of speaker labels @MaxSpeakerLabels@ field.
+    --
+    -- You can\'t set both @ShowSpeakerLabels@ and @ChannelIdentification@ in
+    -- the same request. If you set both, your request returns a
+    -- @BadRequestException@.
+    showSpeakerLabels :: Prelude.Maybe Prelude.Bool,
     -- | Instructs Amazon Transcribe to process each audio channel separately and
     -- then merge the transcription output of each channel into a single
     -- transcription.
@@ -51,33 +77,7 @@ data Settings = Settings'
     -- transcriptions. If you set the @ShowAlternatives@ field to true, you
     -- must also set the maximum number of alternatives to return in the
     -- @MaxAlternatives@ field.
-    showAlternatives :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of speakers to identify in the input audio. If there
-    -- are more speakers in the audio than this number, multiple speakers are
-    -- identified as a single speaker. If you specify the @MaxSpeakerLabels@
-    -- field, you must set the @ShowSpeakerLabels@ field to true.
-    maxSpeakerLabels :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the vocabulary filter to use when transcribing the audio.
-    -- The filter that you specify must have the same language code as the
-    -- transcription job.
-    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
-    -- | Determines whether the transcription job uses speaker recognition to
-    -- identify different speakers in the input audio. Speaker recognition
-    -- labels individual speakers in the audio file. If you set the
-    -- @ShowSpeakerLabels@ field to true, you must also set the maximum number
-    -- of speaker labels @MaxSpeakerLabels@ field.
-    --
-    -- You can\'t set both @ShowSpeakerLabels@ and @ChannelIdentification@ in
-    -- the same request. If you set both, your request returns a
-    -- @BadRequestException@.
-    showSpeakerLabels :: Prelude.Maybe Prelude.Bool,
-    -- | Set to @mask@ to remove filtered text from the transcript and replace it
-    -- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
-    -- remove filtered text from the transcript without using placeholder text.
-    -- Set to @tag@ to mark the word in the transcription output that matches
-    -- the vocabulary filter. When you set the filter method to @tag@, the
-    -- words matching your vocabulary filter are not masked or removed.
-    vocabularyFilterMethod :: Prelude.Maybe VocabularyFilterMethod
+    showAlternatives :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,11 +89,37 @@ data Settings = Settings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'vocabularyFilterMethod', 'settings_vocabularyFilterMethod' - Set to @mask@ to remove filtered text from the transcript and replace it
+-- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
+-- remove filtered text from the transcript without using placeholder text.
+-- Set to @tag@ to mark the word in the transcription output that matches
+-- the vocabulary filter. When you set the filter method to @tag@, the
+-- words matching your vocabulary filter are not masked or removed.
+--
 -- 'vocabularyName', 'settings_vocabularyName' - The name of a vocabulary to use when processing the transcription job.
+--
+-- 'maxSpeakerLabels', 'settings_maxSpeakerLabels' - The maximum number of speakers to identify in the input audio. If there
+-- are more speakers in the audio than this number, multiple speakers are
+-- identified as a single speaker. If you specify the @MaxSpeakerLabels@
+-- field, you must set the @ShowSpeakerLabels@ field to true.
 --
 -- 'maxAlternatives', 'settings_maxAlternatives' - The number of alternative transcriptions that the service should return.
 -- If you specify the @MaxAlternatives@ field, you must set the
 -- @ShowAlternatives@ field to true.
+--
+-- 'vocabularyFilterName', 'settings_vocabularyFilterName' - The name of the vocabulary filter to use when transcribing the audio.
+-- The filter that you specify must have the same language code as the
+-- transcription job.
+--
+-- 'showSpeakerLabels', 'settings_showSpeakerLabels' - Determines whether the transcription job uses speaker recognition to
+-- identify different speakers in the input audio. Speaker recognition
+-- labels individual speakers in the audio file. If you set the
+-- @ShowSpeakerLabels@ field to true, you must also set the maximum number
+-- of speaker labels @MaxSpeakerLabels@ field.
+--
+-- You can\'t set both @ShowSpeakerLabels@ and @ChannelIdentification@ in
+-- the same request. If you set both, your request returns a
+-- @BadRequestException@.
 --
 -- 'channelIdentification', 'settings_channelIdentification' - Instructs Amazon Transcribe to process each audio channel separately and
 -- then merge the transcription output of each channel into a single
@@ -112,17 +138,53 @@ data Settings = Settings'
 -- transcriptions. If you set the @ShowAlternatives@ field to true, you
 -- must also set the maximum number of alternatives to return in the
 -- @MaxAlternatives@ field.
---
--- 'maxSpeakerLabels', 'settings_maxSpeakerLabels' - The maximum number of speakers to identify in the input audio. If there
+newSettings ::
+  Settings
+newSettings =
+  Settings'
+    { vocabularyFilterMethod = Prelude.Nothing,
+      vocabularyName = Prelude.Nothing,
+      maxSpeakerLabels = Prelude.Nothing,
+      maxAlternatives = Prelude.Nothing,
+      vocabularyFilterName = Prelude.Nothing,
+      showSpeakerLabels = Prelude.Nothing,
+      channelIdentification = Prelude.Nothing,
+      showAlternatives = Prelude.Nothing
+    }
+
+-- | Set to @mask@ to remove filtered text from the transcript and replace it
+-- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
+-- remove filtered text from the transcript without using placeholder text.
+-- Set to @tag@ to mark the word in the transcription output that matches
+-- the vocabulary filter. When you set the filter method to @tag@, the
+-- words matching your vocabulary filter are not masked or removed.
+settings_vocabularyFilterMethod :: Lens.Lens' Settings (Prelude.Maybe VocabularyFilterMethod)
+settings_vocabularyFilterMethod = Lens.lens (\Settings' {vocabularyFilterMethod} -> vocabularyFilterMethod) (\s@Settings' {} a -> s {vocabularyFilterMethod = a} :: Settings)
+
+-- | The name of a vocabulary to use when processing the transcription job.
+settings_vocabularyName :: Lens.Lens' Settings (Prelude.Maybe Prelude.Text)
+settings_vocabularyName = Lens.lens (\Settings' {vocabularyName} -> vocabularyName) (\s@Settings' {} a -> s {vocabularyName = a} :: Settings)
+
+-- | The maximum number of speakers to identify in the input audio. If there
 -- are more speakers in the audio than this number, multiple speakers are
 -- identified as a single speaker. If you specify the @MaxSpeakerLabels@
 -- field, you must set the @ShowSpeakerLabels@ field to true.
---
--- 'vocabularyFilterName', 'settings_vocabularyFilterName' - The name of the vocabulary filter to use when transcribing the audio.
+settings_maxSpeakerLabels :: Lens.Lens' Settings (Prelude.Maybe Prelude.Natural)
+settings_maxSpeakerLabels = Lens.lens (\Settings' {maxSpeakerLabels} -> maxSpeakerLabels) (\s@Settings' {} a -> s {maxSpeakerLabels = a} :: Settings)
+
+-- | The number of alternative transcriptions that the service should return.
+-- If you specify the @MaxAlternatives@ field, you must set the
+-- @ShowAlternatives@ field to true.
+settings_maxAlternatives :: Lens.Lens' Settings (Prelude.Maybe Prelude.Natural)
+settings_maxAlternatives = Lens.lens (\Settings' {maxAlternatives} -> maxAlternatives) (\s@Settings' {} a -> s {maxAlternatives = a} :: Settings)
+
+-- | The name of the vocabulary filter to use when transcribing the audio.
 -- The filter that you specify must have the same language code as the
 -- transcription job.
---
--- 'showSpeakerLabels', 'settings_showSpeakerLabels' - Determines whether the transcription job uses speaker recognition to
+settings_vocabularyFilterName :: Lens.Lens' Settings (Prelude.Maybe Prelude.Text)
+settings_vocabularyFilterName = Lens.lens (\Settings' {vocabularyFilterName} -> vocabularyFilterName) (\s@Settings' {} a -> s {vocabularyFilterName = a} :: Settings)
+
+-- | Determines whether the transcription job uses speaker recognition to
 -- identify different speakers in the input audio. Speaker recognition
 -- labels individual speakers in the audio file. If you set the
 -- @ShowSpeakerLabels@ field to true, you must also set the maximum number
@@ -131,36 +193,8 @@ data Settings = Settings'
 -- You can\'t set both @ShowSpeakerLabels@ and @ChannelIdentification@ in
 -- the same request. If you set both, your request returns a
 -- @BadRequestException@.
---
--- 'vocabularyFilterMethod', 'settings_vocabularyFilterMethod' - Set to @mask@ to remove filtered text from the transcript and replace it
--- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
--- remove filtered text from the transcript without using placeholder text.
--- Set to @tag@ to mark the word in the transcription output that matches
--- the vocabulary filter. When you set the filter method to @tag@, the
--- words matching your vocabulary filter are not masked or removed.
-newSettings ::
-  Settings
-newSettings =
-  Settings'
-    { vocabularyName = Prelude.Nothing,
-      maxAlternatives = Prelude.Nothing,
-      channelIdentification = Prelude.Nothing,
-      showAlternatives = Prelude.Nothing,
-      maxSpeakerLabels = Prelude.Nothing,
-      vocabularyFilterName = Prelude.Nothing,
-      showSpeakerLabels = Prelude.Nothing,
-      vocabularyFilterMethod = Prelude.Nothing
-    }
-
--- | The name of a vocabulary to use when processing the transcription job.
-settings_vocabularyName :: Lens.Lens' Settings (Prelude.Maybe Prelude.Text)
-settings_vocabularyName = Lens.lens (\Settings' {vocabularyName} -> vocabularyName) (\s@Settings' {} a -> s {vocabularyName = a} :: Settings)
-
--- | The number of alternative transcriptions that the service should return.
--- If you specify the @MaxAlternatives@ field, you must set the
--- @ShowAlternatives@ field to true.
-settings_maxAlternatives :: Lens.Lens' Settings (Prelude.Maybe Prelude.Natural)
-settings_maxAlternatives = Lens.lens (\Settings' {maxAlternatives} -> maxAlternatives) (\s@Settings' {} a -> s {maxAlternatives = a} :: Settings)
+settings_showSpeakerLabels :: Lens.Lens' Settings (Prelude.Maybe Prelude.Bool)
+settings_showSpeakerLabels = Lens.lens (\Settings' {showSpeakerLabels} -> showSpeakerLabels) (\s@Settings' {} a -> s {showSpeakerLabels = a} :: Settings)
 
 -- | Instructs Amazon Transcribe to process each audio channel separately and
 -- then merge the transcription output of each channel into a single
@@ -184,97 +218,63 @@ settings_channelIdentification = Lens.lens (\Settings' {channelIdentification} -
 settings_showAlternatives :: Lens.Lens' Settings (Prelude.Maybe Prelude.Bool)
 settings_showAlternatives = Lens.lens (\Settings' {showAlternatives} -> showAlternatives) (\s@Settings' {} a -> s {showAlternatives = a} :: Settings)
 
--- | The maximum number of speakers to identify in the input audio. If there
--- are more speakers in the audio than this number, multiple speakers are
--- identified as a single speaker. If you specify the @MaxSpeakerLabels@
--- field, you must set the @ShowSpeakerLabels@ field to true.
-settings_maxSpeakerLabels :: Lens.Lens' Settings (Prelude.Maybe Prelude.Natural)
-settings_maxSpeakerLabels = Lens.lens (\Settings' {maxSpeakerLabels} -> maxSpeakerLabels) (\s@Settings' {} a -> s {maxSpeakerLabels = a} :: Settings)
-
--- | The name of the vocabulary filter to use when transcribing the audio.
--- The filter that you specify must have the same language code as the
--- transcription job.
-settings_vocabularyFilterName :: Lens.Lens' Settings (Prelude.Maybe Prelude.Text)
-settings_vocabularyFilterName = Lens.lens (\Settings' {vocabularyFilterName} -> vocabularyFilterName) (\s@Settings' {} a -> s {vocabularyFilterName = a} :: Settings)
-
--- | Determines whether the transcription job uses speaker recognition to
--- identify different speakers in the input audio. Speaker recognition
--- labels individual speakers in the audio file. If you set the
--- @ShowSpeakerLabels@ field to true, you must also set the maximum number
--- of speaker labels @MaxSpeakerLabels@ field.
---
--- You can\'t set both @ShowSpeakerLabels@ and @ChannelIdentification@ in
--- the same request. If you set both, your request returns a
--- @BadRequestException@.
-settings_showSpeakerLabels :: Lens.Lens' Settings (Prelude.Maybe Prelude.Bool)
-settings_showSpeakerLabels = Lens.lens (\Settings' {showSpeakerLabels} -> showSpeakerLabels) (\s@Settings' {} a -> s {showSpeakerLabels = a} :: Settings)
-
--- | Set to @mask@ to remove filtered text from the transcript and replace it
--- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
--- remove filtered text from the transcript without using placeholder text.
--- Set to @tag@ to mark the word in the transcription output that matches
--- the vocabulary filter. When you set the filter method to @tag@, the
--- words matching your vocabulary filter are not masked or removed.
-settings_vocabularyFilterMethod :: Lens.Lens' Settings (Prelude.Maybe VocabularyFilterMethod)
-settings_vocabularyFilterMethod = Lens.lens (\Settings' {vocabularyFilterMethod} -> vocabularyFilterMethod) (\s@Settings' {} a -> s {vocabularyFilterMethod = a} :: Settings)
-
 instance Core.FromJSON Settings where
   parseJSON =
     Core.withObject
       "Settings"
       ( \x ->
           Settings'
-            Prelude.<$> (x Core..:? "VocabularyName")
-            Prelude.<*> (x Core..:? "MaxAlternatives")
-            Prelude.<*> (x Core..:? "ChannelIdentification")
-            Prelude.<*> (x Core..:? "ShowAlternatives")
+            Prelude.<$> (x Core..:? "VocabularyFilterMethod")
+            Prelude.<*> (x Core..:? "VocabularyName")
             Prelude.<*> (x Core..:? "MaxSpeakerLabels")
+            Prelude.<*> (x Core..:? "MaxAlternatives")
             Prelude.<*> (x Core..:? "VocabularyFilterName")
             Prelude.<*> (x Core..:? "ShowSpeakerLabels")
-            Prelude.<*> (x Core..:? "VocabularyFilterMethod")
+            Prelude.<*> (x Core..:? "ChannelIdentification")
+            Prelude.<*> (x Core..:? "ShowAlternatives")
       )
 
 instance Prelude.Hashable Settings where
   hashWithSalt _salt Settings' {..} =
-    _salt `Prelude.hashWithSalt` vocabularyName
-      `Prelude.hashWithSalt` maxAlternatives
-      `Prelude.hashWithSalt` channelIdentification
-      `Prelude.hashWithSalt` showAlternatives
+    _salt `Prelude.hashWithSalt` vocabularyFilterMethod
+      `Prelude.hashWithSalt` vocabularyName
       `Prelude.hashWithSalt` maxSpeakerLabels
+      `Prelude.hashWithSalt` maxAlternatives
       `Prelude.hashWithSalt` vocabularyFilterName
       `Prelude.hashWithSalt` showSpeakerLabels
-      `Prelude.hashWithSalt` vocabularyFilterMethod
+      `Prelude.hashWithSalt` channelIdentification
+      `Prelude.hashWithSalt` showAlternatives
 
 instance Prelude.NFData Settings where
   rnf Settings' {..} =
-    Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf maxAlternatives
-      `Prelude.seq` Prelude.rnf channelIdentification
-      `Prelude.seq` Prelude.rnf showAlternatives
+    Prelude.rnf vocabularyFilterMethod
+      `Prelude.seq` Prelude.rnf vocabularyName
       `Prelude.seq` Prelude.rnf maxSpeakerLabels
+      `Prelude.seq` Prelude.rnf maxAlternatives
       `Prelude.seq` Prelude.rnf vocabularyFilterName
       `Prelude.seq` Prelude.rnf showSpeakerLabels
-      `Prelude.seq` Prelude.rnf vocabularyFilterMethod
+      `Prelude.seq` Prelude.rnf channelIdentification
+      `Prelude.seq` Prelude.rnf showAlternatives
 
 instance Core.ToJSON Settings where
   toJSON Settings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VocabularyName" Core..=)
+          [ ("VocabularyFilterMethod" Core..=)
+              Prelude.<$> vocabularyFilterMethod,
+            ("VocabularyName" Core..=)
               Prelude.<$> vocabularyName,
-            ("MaxAlternatives" Core..=)
-              Prelude.<$> maxAlternatives,
-            ("ChannelIdentification" Core..=)
-              Prelude.<$> channelIdentification,
-            ("ShowAlternatives" Core..=)
-              Prelude.<$> showAlternatives,
             ("MaxSpeakerLabels" Core..=)
               Prelude.<$> maxSpeakerLabels,
+            ("MaxAlternatives" Core..=)
+              Prelude.<$> maxAlternatives,
             ("VocabularyFilterName" Core..=)
               Prelude.<$> vocabularyFilterName,
             ("ShowSpeakerLabels" Core..=)
               Prelude.<$> showSpeakerLabels,
-            ("VocabularyFilterMethod" Core..=)
-              Prelude.<$> vocabularyFilterMethod
+            ("ChannelIdentification" Core..=)
+              Prelude.<$> channelIdentification,
+            ("ShowAlternatives" Core..=)
+              Prelude.<$> showAlternatives
           ]
       )

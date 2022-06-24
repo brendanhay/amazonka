@@ -32,18 +32,18 @@ import Amazonka.Transcribe.Types.TranscriptFilter
 --
 -- /See:/ 'newRule' smart constructor.
 data Rule = Rule'
-  { -- | A condition for a time period when neither the customer nor the agent
-    -- was talking.
-    nonTalkTimeFilter :: Prelude.Maybe NonTalkTimeFilter,
-    -- | A condition that catches particular words or phrases based on a exact
+  { -- | A condition that catches particular words or phrases based on a exact
     -- match. For example, if you set the phrase \"I want to speak to the
     -- manager\", only that exact phrase will be returned.
     transcriptFilter :: Prelude.Maybe TranscriptFilter,
-    -- | A condition that is applied to a particular customer sentiment.
-    sentimentFilter :: Prelude.Maybe SentimentFilter,
     -- | A condition for a time period when either the customer or agent was
     -- interrupting the other person.
-    interruptionFilter :: Prelude.Maybe InterruptionFilter
+    interruptionFilter :: Prelude.Maybe InterruptionFilter,
+    -- | A condition that is applied to a particular customer sentiment.
+    sentimentFilter :: Prelude.Maybe SentimentFilter,
+    -- | A condition for a time period when neither the customer nor the agent
+    -- was talking.
+    nonTalkTimeFilter :: Prelude.Maybe NonTalkTimeFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,31 +55,26 @@ data Rule = Rule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nonTalkTimeFilter', 'rule_nonTalkTimeFilter' - A condition for a time period when neither the customer nor the agent
--- was talking.
---
 -- 'transcriptFilter', 'rule_transcriptFilter' - A condition that catches particular words or phrases based on a exact
 -- match. For example, if you set the phrase \"I want to speak to the
 -- manager\", only that exact phrase will be returned.
 --
--- 'sentimentFilter', 'rule_sentimentFilter' - A condition that is applied to a particular customer sentiment.
---
 -- 'interruptionFilter', 'rule_interruptionFilter' - A condition for a time period when either the customer or agent was
 -- interrupting the other person.
+--
+-- 'sentimentFilter', 'rule_sentimentFilter' - A condition that is applied to a particular customer sentiment.
+--
+-- 'nonTalkTimeFilter', 'rule_nonTalkTimeFilter' - A condition for a time period when neither the customer nor the agent
+-- was talking.
 newRule ::
   Rule
 newRule =
   Rule'
-    { nonTalkTimeFilter = Prelude.Nothing,
-      transcriptFilter = Prelude.Nothing,
+    { transcriptFilter = Prelude.Nothing,
+      interruptionFilter = Prelude.Nothing,
       sentimentFilter = Prelude.Nothing,
-      interruptionFilter = Prelude.Nothing
+      nonTalkTimeFilter = Prelude.Nothing
     }
-
--- | A condition for a time period when neither the customer nor the agent
--- was talking.
-rule_nonTalkTimeFilter :: Lens.Lens' Rule (Prelude.Maybe NonTalkTimeFilter)
-rule_nonTalkTimeFilter = Lens.lens (\Rule' {nonTalkTimeFilter} -> nonTalkTimeFilter) (\s@Rule' {} a -> s {nonTalkTimeFilter = a} :: Rule)
 
 -- | A condition that catches particular words or phrases based on a exact
 -- match. For example, if you set the phrase \"I want to speak to the
@@ -87,14 +82,19 @@ rule_nonTalkTimeFilter = Lens.lens (\Rule' {nonTalkTimeFilter} -> nonTalkTimeFil
 rule_transcriptFilter :: Lens.Lens' Rule (Prelude.Maybe TranscriptFilter)
 rule_transcriptFilter = Lens.lens (\Rule' {transcriptFilter} -> transcriptFilter) (\s@Rule' {} a -> s {transcriptFilter = a} :: Rule)
 
--- | A condition that is applied to a particular customer sentiment.
-rule_sentimentFilter :: Lens.Lens' Rule (Prelude.Maybe SentimentFilter)
-rule_sentimentFilter = Lens.lens (\Rule' {sentimentFilter} -> sentimentFilter) (\s@Rule' {} a -> s {sentimentFilter = a} :: Rule)
-
 -- | A condition for a time period when either the customer or agent was
 -- interrupting the other person.
 rule_interruptionFilter :: Lens.Lens' Rule (Prelude.Maybe InterruptionFilter)
 rule_interruptionFilter = Lens.lens (\Rule' {interruptionFilter} -> interruptionFilter) (\s@Rule' {} a -> s {interruptionFilter = a} :: Rule)
+
+-- | A condition that is applied to a particular customer sentiment.
+rule_sentimentFilter :: Lens.Lens' Rule (Prelude.Maybe SentimentFilter)
+rule_sentimentFilter = Lens.lens (\Rule' {sentimentFilter} -> sentimentFilter) (\s@Rule' {} a -> s {sentimentFilter = a} :: Rule)
+
+-- | A condition for a time period when neither the customer nor the agent
+-- was talking.
+rule_nonTalkTimeFilter :: Lens.Lens' Rule (Prelude.Maybe NonTalkTimeFilter)
+rule_nonTalkTimeFilter = Lens.lens (\Rule' {nonTalkTimeFilter} -> nonTalkTimeFilter) (\s@Rule' {} a -> s {nonTalkTimeFilter = a} :: Rule)
 
 instance Core.FromJSON Rule where
   parseJSON =
@@ -102,37 +102,37 @@ instance Core.FromJSON Rule where
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Core..:? "NonTalkTimeFilter")
-            Prelude.<*> (x Core..:? "TranscriptFilter")
-            Prelude.<*> (x Core..:? "SentimentFilter")
+            Prelude.<$> (x Core..:? "TranscriptFilter")
             Prelude.<*> (x Core..:? "InterruptionFilter")
+            Prelude.<*> (x Core..:? "SentimentFilter")
+            Prelude.<*> (x Core..:? "NonTalkTimeFilter")
       )
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` nonTalkTimeFilter
-      `Prelude.hashWithSalt` transcriptFilter
-      `Prelude.hashWithSalt` sentimentFilter
+    _salt `Prelude.hashWithSalt` transcriptFilter
       `Prelude.hashWithSalt` interruptionFilter
+      `Prelude.hashWithSalt` sentimentFilter
+      `Prelude.hashWithSalt` nonTalkTimeFilter
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf nonTalkTimeFilter
-      `Prelude.seq` Prelude.rnf transcriptFilter
-      `Prelude.seq` Prelude.rnf sentimentFilter
+    Prelude.rnf transcriptFilter
       `Prelude.seq` Prelude.rnf interruptionFilter
+      `Prelude.seq` Prelude.rnf sentimentFilter
+      `Prelude.seq` Prelude.rnf nonTalkTimeFilter
 
 instance Core.ToJSON Rule where
   toJSON Rule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NonTalkTimeFilter" Core..=)
-              Prelude.<$> nonTalkTimeFilter,
-            ("TranscriptFilter" Core..=)
+          [ ("TranscriptFilter" Core..=)
               Prelude.<$> transcriptFilter,
+            ("InterruptionFilter" Core..=)
+              Prelude.<$> interruptionFilter,
             ("SentimentFilter" Core..=)
               Prelude.<$> sentimentFilter,
-            ("InterruptionFilter" Core..=)
-              Prelude.<$> interruptionFilter
+            ("NonTalkTimeFilter" Core..=)
+              Prelude.<$> nonTalkTimeFilter
           ]
       )

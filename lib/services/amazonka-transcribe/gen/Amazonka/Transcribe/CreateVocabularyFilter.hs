@@ -28,9 +28,9 @@ module Amazonka.Transcribe.CreateVocabularyFilter
     newCreateVocabularyFilter,
 
     -- * Request Lenses
-    createVocabularyFilter_vocabularyFilterFileUri,
-    createVocabularyFilter_words,
     createVocabularyFilter_tags,
+    createVocabularyFilter_words,
+    createVocabularyFilter_vocabularyFilterFileUri,
     createVocabularyFilter_vocabularyFilterName,
     createVocabularyFilter_languageCode,
 
@@ -39,8 +39,8 @@ module Amazonka.Transcribe.CreateVocabularyFilter
     newCreateVocabularyFilterResponse,
 
     -- * Response Lenses
-    createVocabularyFilterResponse_languageCode,
     createVocabularyFilterResponse_lastModifiedTime,
+    createVocabularyFilterResponse_languageCode,
     createVocabularyFilterResponse_vocabularyFilterName,
     createVocabularyFilterResponse_httpStatus,
   )
@@ -55,7 +55,19 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newCreateVocabularyFilter' smart constructor.
 data CreateVocabularyFilter = CreateVocabularyFilter'
-  { -- | The Amazon S3 location of a text file used as input to create the
+  { -- | Adds one or more tags, each in the form of a key:value pair, to a new
+    -- Amazon Transcribe vocabulary filter at the time you create this new
+    -- vocabulary filter.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The words to use in the vocabulary filter. Only use characters from the
+    -- character set defined for custom vocabularies. For a list of character
+    -- sets, see
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
+    --
+    -- If you provide a list of words in the @Words@ parameter, you can\'t use
+    -- the @VocabularyFilterFileUri@ parameter.
+    words :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The Amazon S3 location of a text file used as input to create the
     -- vocabulary filter. Only use characters from the character set defined
     -- for custom vocabularies. For a list of character sets, see
     -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
@@ -66,18 +78,6 @@ data CreateVocabularyFilter = CreateVocabularyFilter'
     -- @VocabularyFilterFileUri@ parameter, you can\'t use the @Words@
     -- parameter.
     vocabularyFilterFileUri :: Prelude.Maybe Prelude.Text,
-    -- | The words to use in the vocabulary filter. Only use characters from the
-    -- character set defined for custom vocabularies. For a list of character
-    -- sets, see
-    -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
-    --
-    -- If you provide a list of words in the @Words@ parameter, you can\'t use
-    -- the @VocabularyFilterFileUri@ parameter.
-    words :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Adds one or more tags, each in the form of a key:value pair, to a new
-    -- Amazon Transcribe vocabulary filter at the time you create this new
-    -- vocabulary filter.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The vocabulary filter name. The name must be unique within the account
     -- that contains it. If you try to create a vocabulary filter with the same
     -- name as another vocabulary filter, you get a @ConflictException@ error.
@@ -97,6 +97,18 @@ data CreateVocabularyFilter = CreateVocabularyFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createVocabularyFilter_tags' - Adds one or more tags, each in the form of a key:value pair, to a new
+-- Amazon Transcribe vocabulary filter at the time you create this new
+-- vocabulary filter.
+--
+-- 'words', 'createVocabularyFilter_words' - The words to use in the vocabulary filter. Only use characters from the
+-- character set defined for custom vocabularies. For a list of character
+-- sets, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
+--
+-- If you provide a list of words in the @Words@ parameter, you can\'t use
+-- the @VocabularyFilterFileUri@ parameter.
+--
 -- 'vocabularyFilterFileUri', 'createVocabularyFilter_vocabularyFilterFileUri' - The Amazon S3 location of a text file used as input to create the
 -- vocabulary filter. Only use characters from the character set defined
 -- for custom vocabularies. For a list of character sets, see
@@ -107,18 +119,6 @@ data CreateVocabularyFilter = CreateVocabularyFilter'
 -- If you provide the location of a list of words in the
 -- @VocabularyFilterFileUri@ parameter, you can\'t use the @Words@
 -- parameter.
---
--- 'words', 'createVocabularyFilter_words' - The words to use in the vocabulary filter. Only use characters from the
--- character set defined for custom vocabularies. For a list of character
--- sets, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
---
--- If you provide a list of words in the @Words@ parameter, you can\'t use
--- the @VocabularyFilterFileUri@ parameter.
---
--- 'tags', 'createVocabularyFilter_tags' - Adds one or more tags, each in the form of a key:value pair, to a new
--- Amazon Transcribe vocabulary filter at the time you create this new
--- vocabulary filter.
 --
 -- 'vocabularyFilterName', 'createVocabularyFilter_vocabularyFilterName' - The vocabulary filter name. The name must be unique within the account
 -- that contains it. If you try to create a vocabulary filter with the same
@@ -137,13 +137,28 @@ newCreateVocabularyFilter
   pVocabularyFilterName_
   pLanguageCode_ =
     CreateVocabularyFilter'
-      { vocabularyFilterFileUri =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
         words = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        vocabularyFilterFileUri = Prelude.Nothing,
         vocabularyFilterName = pVocabularyFilterName_,
         languageCode = pLanguageCode_
       }
+
+-- | Adds one or more tags, each in the form of a key:value pair, to a new
+-- Amazon Transcribe vocabulary filter at the time you create this new
+-- vocabulary filter.
+createVocabularyFilter_tags :: Lens.Lens' CreateVocabularyFilter (Prelude.Maybe (Prelude.NonEmpty Tag))
+createVocabularyFilter_tags = Lens.lens (\CreateVocabularyFilter' {tags} -> tags) (\s@CreateVocabularyFilter' {} a -> s {tags = a} :: CreateVocabularyFilter) Prelude.. Lens.mapping Lens.coerced
+
+-- | The words to use in the vocabulary filter. Only use characters from the
+-- character set defined for custom vocabularies. For a list of character
+-- sets, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
+--
+-- If you provide a list of words in the @Words@ parameter, you can\'t use
+-- the @VocabularyFilterFileUri@ parameter.
+createVocabularyFilter_words :: Lens.Lens' CreateVocabularyFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createVocabularyFilter_words = Lens.lens (\CreateVocabularyFilter' {words} -> words) (\s@CreateVocabularyFilter' {} a -> s {words = a} :: CreateVocabularyFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon S3 location of a text file used as input to create the
 -- vocabulary filter. Only use characters from the character set defined
@@ -157,22 +172,6 @@ newCreateVocabularyFilter
 -- parameter.
 createVocabularyFilter_vocabularyFilterFileUri :: Lens.Lens' CreateVocabularyFilter (Prelude.Maybe Prelude.Text)
 createVocabularyFilter_vocabularyFilterFileUri = Lens.lens (\CreateVocabularyFilter' {vocabularyFilterFileUri} -> vocabularyFilterFileUri) (\s@CreateVocabularyFilter' {} a -> s {vocabularyFilterFileUri = a} :: CreateVocabularyFilter)
-
--- | The words to use in the vocabulary filter. Only use characters from the
--- character set defined for custom vocabularies. For a list of character
--- sets, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
---
--- If you provide a list of words in the @Words@ parameter, you can\'t use
--- the @VocabularyFilterFileUri@ parameter.
-createVocabularyFilter_words :: Lens.Lens' CreateVocabularyFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createVocabularyFilter_words = Lens.lens (\CreateVocabularyFilter' {words} -> words) (\s@CreateVocabularyFilter' {} a -> s {words = a} :: CreateVocabularyFilter) Prelude.. Lens.mapping Lens.coerced
-
--- | Adds one or more tags, each in the form of a key:value pair, to a new
--- Amazon Transcribe vocabulary filter at the time you create this new
--- vocabulary filter.
-createVocabularyFilter_tags :: Lens.Lens' CreateVocabularyFilter (Prelude.Maybe (Prelude.NonEmpty Tag))
-createVocabularyFilter_tags = Lens.lens (\CreateVocabularyFilter' {tags} -> tags) (\s@CreateVocabularyFilter' {} a -> s {tags = a} :: CreateVocabularyFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The vocabulary filter name. The name must be unique within the account
 -- that contains it. If you try to create a vocabulary filter with the same
@@ -195,26 +194,25 @@ instance Core.AWSRequest CreateVocabularyFilter where
     Response.receiveJSON
       ( \s h x ->
           CreateVocabularyFilterResponse'
-            Prelude.<$> (x Core..?> "LanguageCode")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<$> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "LanguageCode")
             Prelude.<*> (x Core..?> "VocabularyFilterName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateVocabularyFilter where
   hashWithSalt _salt CreateVocabularyFilter' {..} =
-    _salt
-      `Prelude.hashWithSalt` vocabularyFilterFileUri
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` words
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vocabularyFilterFileUri
       `Prelude.hashWithSalt` vocabularyFilterName
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData CreateVocabularyFilter where
   rnf CreateVocabularyFilter' {..} =
-    Prelude.rnf vocabularyFilterFileUri
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf words
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vocabularyFilterFileUri
       `Prelude.seq` Prelude.rnf vocabularyFilterName
       `Prelude.seq` Prelude.rnf languageCode
 
@@ -237,10 +235,10 @@ instance Core.ToJSON CreateVocabularyFilter where
   toJSON CreateVocabularyFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VocabularyFilterFileUri" Core..=)
-              Prelude.<$> vocabularyFilterFileUri,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Words" Core..=) Prelude.<$> words,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("VocabularyFilterFileUri" Core..=)
+              Prelude.<$> vocabularyFilterFileUri,
             Prelude.Just
               ( "VocabularyFilterName"
                   Core..= vocabularyFilterName
@@ -257,10 +255,10 @@ instance Core.ToQuery CreateVocabularyFilter where
 
 -- | /See:/ 'newCreateVocabularyFilterResponse' smart constructor.
 data CreateVocabularyFilterResponse = CreateVocabularyFilterResponse'
-  { -- | The language code of the words in the collection.
-    languageCode :: Prelude.Maybe LanguageCode,
-    -- | The date and time that the vocabulary filter was modified.
+  { -- | The date and time that the vocabulary filter was modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The language code of the words in the collection.
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | The name of the vocabulary filter.
     vocabularyFilterName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -276,9 +274,9 @@ data CreateVocabularyFilterResponse = CreateVocabularyFilterResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'languageCode', 'createVocabularyFilterResponse_languageCode' - The language code of the words in the collection.
---
 -- 'lastModifiedTime', 'createVocabularyFilterResponse_lastModifiedTime' - The date and time that the vocabulary filter was modified.
+--
+-- 'languageCode', 'createVocabularyFilterResponse_languageCode' - The language code of the words in the collection.
 --
 -- 'vocabularyFilterName', 'createVocabularyFilterResponse_vocabularyFilterName' - The name of the vocabulary filter.
 --
@@ -289,20 +287,20 @@ newCreateVocabularyFilterResponse ::
   CreateVocabularyFilterResponse
 newCreateVocabularyFilterResponse pHttpStatus_ =
   CreateVocabularyFilterResponse'
-    { languageCode =
+    { lastModifiedTime =
         Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
       vocabularyFilterName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The language code of the words in the collection.
-createVocabularyFilterResponse_languageCode :: Lens.Lens' CreateVocabularyFilterResponse (Prelude.Maybe LanguageCode)
-createVocabularyFilterResponse_languageCode = Lens.lens (\CreateVocabularyFilterResponse' {languageCode} -> languageCode) (\s@CreateVocabularyFilterResponse' {} a -> s {languageCode = a} :: CreateVocabularyFilterResponse)
-
 -- | The date and time that the vocabulary filter was modified.
 createVocabularyFilterResponse_lastModifiedTime :: Lens.Lens' CreateVocabularyFilterResponse (Prelude.Maybe Prelude.UTCTime)
 createVocabularyFilterResponse_lastModifiedTime = Lens.lens (\CreateVocabularyFilterResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateVocabularyFilterResponse' {} a -> s {lastModifiedTime = a} :: CreateVocabularyFilterResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The language code of the words in the collection.
+createVocabularyFilterResponse_languageCode :: Lens.Lens' CreateVocabularyFilterResponse (Prelude.Maybe LanguageCode)
+createVocabularyFilterResponse_languageCode = Lens.lens (\CreateVocabularyFilterResponse' {languageCode} -> languageCode) (\s@CreateVocabularyFilterResponse' {} a -> s {languageCode = a} :: CreateVocabularyFilterResponse)
 
 -- | The name of the vocabulary filter.
 createVocabularyFilterResponse_vocabularyFilterName :: Lens.Lens' CreateVocabularyFilterResponse (Prelude.Maybe Prelude.Text)
@@ -317,7 +315,7 @@ instance
     CreateVocabularyFilterResponse
   where
   rnf CreateVocabularyFilterResponse' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf vocabularyFilterName
       `Prelude.seq` Prelude.rnf httpStatus

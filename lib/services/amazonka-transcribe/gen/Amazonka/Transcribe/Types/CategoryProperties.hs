@@ -31,13 +31,13 @@ import Amazonka.Transcribe.Types.Rule
 data CategoryProperties = CategoryProperties'
   { -- | The rules used to create a call analytics category.
     rules :: Prelude.Maybe (Prelude.NonEmpty Rule),
-    -- | The name of the call analytics category.
-    categoryName :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that shows when the call analytics category was most
     -- recently updated.
     lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | A timestamp that shows when the call analytics category was created.
-    createTime :: Prelude.Maybe Core.POSIX
+    createTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the call analytics category.
+    categoryName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,29 +51,25 @@ data CategoryProperties = CategoryProperties'
 --
 -- 'rules', 'categoryProperties_rules' - The rules used to create a call analytics category.
 --
--- 'categoryName', 'categoryProperties_categoryName' - The name of the call analytics category.
---
 -- 'lastUpdateTime', 'categoryProperties_lastUpdateTime' - A timestamp that shows when the call analytics category was most
 -- recently updated.
 --
 -- 'createTime', 'categoryProperties_createTime' - A timestamp that shows when the call analytics category was created.
+--
+-- 'categoryName', 'categoryProperties_categoryName' - The name of the call analytics category.
 newCategoryProperties ::
   CategoryProperties
 newCategoryProperties =
   CategoryProperties'
     { rules = Prelude.Nothing,
-      categoryName = Prelude.Nothing,
       lastUpdateTime = Prelude.Nothing,
-      createTime = Prelude.Nothing
+      createTime = Prelude.Nothing,
+      categoryName = Prelude.Nothing
     }
 
 -- | The rules used to create a call analytics category.
 categoryProperties_rules :: Lens.Lens' CategoryProperties (Prelude.Maybe (Prelude.NonEmpty Rule))
 categoryProperties_rules = Lens.lens (\CategoryProperties' {rules} -> rules) (\s@CategoryProperties' {} a -> s {rules = a} :: CategoryProperties) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the call analytics category.
-categoryProperties_categoryName :: Lens.Lens' CategoryProperties (Prelude.Maybe Prelude.Text)
-categoryProperties_categoryName = Lens.lens (\CategoryProperties' {categoryName} -> categoryName) (\s@CategoryProperties' {} a -> s {categoryName = a} :: CategoryProperties)
 
 -- | A timestamp that shows when the call analytics category was most
 -- recently updated.
@@ -84,6 +80,10 @@ categoryProperties_lastUpdateTime = Lens.lens (\CategoryProperties' {lastUpdateT
 categoryProperties_createTime :: Lens.Lens' CategoryProperties (Prelude.Maybe Prelude.UTCTime)
 categoryProperties_createTime = Lens.lens (\CategoryProperties' {createTime} -> createTime) (\s@CategoryProperties' {} a -> s {createTime = a} :: CategoryProperties) Prelude.. Lens.mapping Core._Time
 
+-- | The name of the call analytics category.
+categoryProperties_categoryName :: Lens.Lens' CategoryProperties (Prelude.Maybe Prelude.Text)
+categoryProperties_categoryName = Lens.lens (\CategoryProperties' {categoryName} -> categoryName) (\s@CategoryProperties' {} a -> s {categoryName = a} :: CategoryProperties)
+
 instance Core.FromJSON CategoryProperties where
   parseJSON =
     Core.withObject
@@ -91,21 +91,21 @@ instance Core.FromJSON CategoryProperties where
       ( \x ->
           CategoryProperties'
             Prelude.<$> (x Core..:? "Rules")
-            Prelude.<*> (x Core..:? "CategoryName")
             Prelude.<*> (x Core..:? "LastUpdateTime")
             Prelude.<*> (x Core..:? "CreateTime")
+            Prelude.<*> (x Core..:? "CategoryName")
       )
 
 instance Prelude.Hashable CategoryProperties where
   hashWithSalt _salt CategoryProperties' {..} =
     _salt `Prelude.hashWithSalt` rules
-      `Prelude.hashWithSalt` categoryName
       `Prelude.hashWithSalt` lastUpdateTime
       `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` categoryName
 
 instance Prelude.NFData CategoryProperties where
   rnf CategoryProperties' {..} =
     Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf categoryName
       `Prelude.seq` Prelude.rnf lastUpdateTime
       `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf categoryName

@@ -28,19 +28,19 @@ module Amazonka.Transcribe.ListCallAnalyticsJobs
     newListCallAnalyticsJobs,
 
     -- * Request Lenses
-    listCallAnalyticsJobs_status,
     listCallAnalyticsJobs_nextToken,
-    listCallAnalyticsJobs_jobNameContains,
+    listCallAnalyticsJobs_status,
     listCallAnalyticsJobs_maxResults,
+    listCallAnalyticsJobs_jobNameContains,
 
     -- * Destructuring the Response
     ListCallAnalyticsJobsResponse (..),
     newListCallAnalyticsJobsResponse,
 
     -- * Response Lenses
+    listCallAnalyticsJobsResponse_nextToken,
     listCallAnalyticsJobsResponse_status,
     listCallAnalyticsJobsResponse_callAnalyticsJobSummaries,
-    listCallAnalyticsJobsResponse_nextToken,
     listCallAnalyticsJobsResponse_httpStatus,
   )
 where
@@ -54,22 +54,22 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newListCallAnalyticsJobs' smart constructor.
 data ListCallAnalyticsJobs = ListCallAnalyticsJobs'
-  { -- | When specified, returns only call analytics jobs with the specified
+  { -- | If you receive a truncated result in the previous request of , include
+    -- @NextToken@ to fetch the next set of jobs.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | When specified, returns only call analytics jobs with the specified
     -- status. Jobs are ordered by creation date, with the most recent jobs
     -- returned first. If you don\'t specify a status, Amazon Transcribe
     -- returns all analytics jobs ordered by creation date.
     status :: Prelude.Maybe CallAnalyticsJobStatus,
-    -- | If you receive a truncated result in the previous request of , include
-    -- @NextToken@ to fetch the next set of jobs.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | When specified, the jobs returned in the list are limited to jobs whose
-    -- name contains the specified string.
-    jobNameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of call analytics jobs to return in each page of
     -- results. If there are fewer results than the value you specify, only the
     -- actual results are returned. If you do not specify a value, the default
     -- of 5 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When specified, the jobs returned in the list are limited to jobs whose
+    -- name contains the specified string.
+    jobNameContains :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,30 +81,35 @@ data ListCallAnalyticsJobs = ListCallAnalyticsJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listCallAnalyticsJobs_nextToken' - If you receive a truncated result in the previous request of , include
+-- @NextToken@ to fetch the next set of jobs.
+--
 -- 'status', 'listCallAnalyticsJobs_status' - When specified, returns only call analytics jobs with the specified
 -- status. Jobs are ordered by creation date, with the most recent jobs
 -- returned first. If you don\'t specify a status, Amazon Transcribe
 -- returns all analytics jobs ordered by creation date.
 --
--- 'nextToken', 'listCallAnalyticsJobs_nextToken' - If you receive a truncated result in the previous request of , include
--- @NextToken@ to fetch the next set of jobs.
---
--- 'jobNameContains', 'listCallAnalyticsJobs_jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose
--- name contains the specified string.
---
 -- 'maxResults', 'listCallAnalyticsJobs_maxResults' - The maximum number of call analytics jobs to return in each page of
 -- results. If there are fewer results than the value you specify, only the
 -- actual results are returned. If you do not specify a value, the default
 -- of 5 is used.
+--
+-- 'jobNameContains', 'listCallAnalyticsJobs_jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose
+-- name contains the specified string.
 newListCallAnalyticsJobs ::
   ListCallAnalyticsJobs
 newListCallAnalyticsJobs =
   ListCallAnalyticsJobs'
-    { status = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      jobNameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      jobNameContains = Prelude.Nothing
     }
+
+-- | If you receive a truncated result in the previous request of , include
+-- @NextToken@ to fetch the next set of jobs.
+listCallAnalyticsJobs_nextToken :: Lens.Lens' ListCallAnalyticsJobs (Prelude.Maybe Prelude.Text)
+listCallAnalyticsJobs_nextToken = Lens.lens (\ListCallAnalyticsJobs' {nextToken} -> nextToken) (\s@ListCallAnalyticsJobs' {} a -> s {nextToken = a} :: ListCallAnalyticsJobs)
 
 -- | When specified, returns only call analytics jobs with the specified
 -- status. Jobs are ordered by creation date, with the most recent jobs
@@ -113,22 +118,17 @@ newListCallAnalyticsJobs =
 listCallAnalyticsJobs_status :: Lens.Lens' ListCallAnalyticsJobs (Prelude.Maybe CallAnalyticsJobStatus)
 listCallAnalyticsJobs_status = Lens.lens (\ListCallAnalyticsJobs' {status} -> status) (\s@ListCallAnalyticsJobs' {} a -> s {status = a} :: ListCallAnalyticsJobs)
 
--- | If you receive a truncated result in the previous request of , include
--- @NextToken@ to fetch the next set of jobs.
-listCallAnalyticsJobs_nextToken :: Lens.Lens' ListCallAnalyticsJobs (Prelude.Maybe Prelude.Text)
-listCallAnalyticsJobs_nextToken = Lens.lens (\ListCallAnalyticsJobs' {nextToken} -> nextToken) (\s@ListCallAnalyticsJobs' {} a -> s {nextToken = a} :: ListCallAnalyticsJobs)
-
--- | When specified, the jobs returned in the list are limited to jobs whose
--- name contains the specified string.
-listCallAnalyticsJobs_jobNameContains :: Lens.Lens' ListCallAnalyticsJobs (Prelude.Maybe Prelude.Text)
-listCallAnalyticsJobs_jobNameContains = Lens.lens (\ListCallAnalyticsJobs' {jobNameContains} -> jobNameContains) (\s@ListCallAnalyticsJobs' {} a -> s {jobNameContains = a} :: ListCallAnalyticsJobs)
-
 -- | The maximum number of call analytics jobs to return in each page of
 -- results. If there are fewer results than the value you specify, only the
 -- actual results are returned. If you do not specify a value, the default
 -- of 5 is used.
 listCallAnalyticsJobs_maxResults :: Lens.Lens' ListCallAnalyticsJobs (Prelude.Maybe Prelude.Natural)
 listCallAnalyticsJobs_maxResults = Lens.lens (\ListCallAnalyticsJobs' {maxResults} -> maxResults) (\s@ListCallAnalyticsJobs' {} a -> s {maxResults = a} :: ListCallAnalyticsJobs)
+
+-- | When specified, the jobs returned in the list are limited to jobs whose
+-- name contains the specified string.
+listCallAnalyticsJobs_jobNameContains :: Lens.Lens' ListCallAnalyticsJobs (Prelude.Maybe Prelude.Text)
+listCallAnalyticsJobs_jobNameContains = Lens.lens (\ListCallAnalyticsJobs' {jobNameContains} -> jobNameContains) (\s@ListCallAnalyticsJobs' {} a -> s {jobNameContains = a} :: ListCallAnalyticsJobs)
 
 instance Core.AWSRequest ListCallAnalyticsJobs where
   type
@@ -139,27 +139,27 @@ instance Core.AWSRequest ListCallAnalyticsJobs where
     Response.receiveJSON
       ( \s h x ->
           ListCallAnalyticsJobsResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> ( x Core..?> "CallAnalyticsJobSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCallAnalyticsJobs where
   hashWithSalt _salt ListCallAnalyticsJobs' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` jobNameContains
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` jobNameContains
 
 instance Prelude.NFData ListCallAnalyticsJobs where
   rnf ListCallAnalyticsJobs' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobNameContains
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf jobNameContains
 
 instance Core.ToHeaders ListCallAnalyticsJobs where
   toHeaders =
@@ -180,11 +180,11 @@ instance Core.ToJSON ListCallAnalyticsJobs where
   toJSON ListCallAnalyticsJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Status" Core..=) Prelude.<$> status,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("JobNameContains" Core..=)
-              Prelude.<$> jobNameContains,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+              Prelude.<$> jobNameContains
           ]
       )
 
@@ -196,7 +196,13 @@ instance Core.ToQuery ListCallAnalyticsJobs where
 
 -- | /See:/ 'newListCallAnalyticsJobsResponse' smart constructor.
 data ListCallAnalyticsJobsResponse = ListCallAnalyticsJobsResponse'
-  { -- | When specified, returns only call analytics jobs with that status. Jobs
+  { -- | The operation returns a page of jobs at a time. The maximum size of the
+    -- page is set by the @MaxResults@ parameter. If there are more jobs in the
+    -- list than the page size, Amazon Transcribe returns the @NextPage@ token.
+    -- Include the token in your next request to the operation to return next
+    -- page of jobs.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | When specified, returns only call analytics jobs with that status. Jobs
     -- are ordered by creation date, with the most recent jobs returned first.
     -- If you don\'t specify a status, Amazon Transcribe returns all
     -- transcription jobs ordered by creation date.
@@ -204,12 +210,6 @@ data ListCallAnalyticsJobsResponse = ListCallAnalyticsJobsResponse'
     -- | A list of objects containing summary information for a transcription
     -- job.
     callAnalyticsJobSummaries :: Prelude.Maybe [CallAnalyticsJobSummary],
-    -- | The operation returns a page of jobs at a time. The maximum size of the
-    -- page is set by the @MaxResults@ parameter. If there are more jobs in the
-    -- list than the page size, Amazon Transcribe returns the @NextPage@ token.
-    -- Include the token in your next request to the operation to return next
-    -- page of jobs.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,6 +223,12 @@ data ListCallAnalyticsJobsResponse = ListCallAnalyticsJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listCallAnalyticsJobsResponse_nextToken' - The operation returns a page of jobs at a time. The maximum size of the
+-- page is set by the @MaxResults@ parameter. If there are more jobs in the
+-- list than the page size, Amazon Transcribe returns the @NextPage@ token.
+-- Include the token in your next request to the operation to return next
+-- page of jobs.
+--
 -- 'status', 'listCallAnalyticsJobsResponse_status' - When specified, returns only call analytics jobs with that status. Jobs
 -- are ordered by creation date, with the most recent jobs returned first.
 -- If you don\'t specify a status, Amazon Transcribe returns all
@@ -231,12 +237,6 @@ data ListCallAnalyticsJobsResponse = ListCallAnalyticsJobsResponse'
 -- 'callAnalyticsJobSummaries', 'listCallAnalyticsJobsResponse_callAnalyticsJobSummaries' - A list of objects containing summary information for a transcription
 -- job.
 --
--- 'nextToken', 'listCallAnalyticsJobsResponse_nextToken' - The operation returns a page of jobs at a time. The maximum size of the
--- page is set by the @MaxResults@ parameter. If there are more jobs in the
--- list than the page size, Amazon Transcribe returns the @NextPage@ token.
--- Include the token in your next request to the operation to return next
--- page of jobs.
---
 -- 'httpStatus', 'listCallAnalyticsJobsResponse_httpStatus' - The response's http status code.
 newListCallAnalyticsJobsResponse ::
   -- | 'httpStatus'
@@ -244,12 +244,20 @@ newListCallAnalyticsJobsResponse ::
   ListCallAnalyticsJobsResponse
 newListCallAnalyticsJobsResponse pHttpStatus_ =
   ListCallAnalyticsJobsResponse'
-    { status =
+    { nextToken =
         Prelude.Nothing,
+      status = Prelude.Nothing,
       callAnalyticsJobSummaries = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The operation returns a page of jobs at a time. The maximum size of the
+-- page is set by the @MaxResults@ parameter. If there are more jobs in the
+-- list than the page size, Amazon Transcribe returns the @NextPage@ token.
+-- Include the token in your next request to the operation to return next
+-- page of jobs.
+listCallAnalyticsJobsResponse_nextToken :: Lens.Lens' ListCallAnalyticsJobsResponse (Prelude.Maybe Prelude.Text)
+listCallAnalyticsJobsResponse_nextToken = Lens.lens (\ListCallAnalyticsJobsResponse' {nextToken} -> nextToken) (\s@ListCallAnalyticsJobsResponse' {} a -> s {nextToken = a} :: ListCallAnalyticsJobsResponse)
 
 -- | When specified, returns only call analytics jobs with that status. Jobs
 -- are ordered by creation date, with the most recent jobs returned first.
@@ -263,21 +271,13 @@ listCallAnalyticsJobsResponse_status = Lens.lens (\ListCallAnalyticsJobsResponse
 listCallAnalyticsJobsResponse_callAnalyticsJobSummaries :: Lens.Lens' ListCallAnalyticsJobsResponse (Prelude.Maybe [CallAnalyticsJobSummary])
 listCallAnalyticsJobsResponse_callAnalyticsJobSummaries = Lens.lens (\ListCallAnalyticsJobsResponse' {callAnalyticsJobSummaries} -> callAnalyticsJobSummaries) (\s@ListCallAnalyticsJobsResponse' {} a -> s {callAnalyticsJobSummaries = a} :: ListCallAnalyticsJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The operation returns a page of jobs at a time. The maximum size of the
--- page is set by the @MaxResults@ parameter. If there are more jobs in the
--- list than the page size, Amazon Transcribe returns the @NextPage@ token.
--- Include the token in your next request to the operation to return next
--- page of jobs.
-listCallAnalyticsJobsResponse_nextToken :: Lens.Lens' ListCallAnalyticsJobsResponse (Prelude.Maybe Prelude.Text)
-listCallAnalyticsJobsResponse_nextToken = Lens.lens (\ListCallAnalyticsJobsResponse' {nextToken} -> nextToken) (\s@ListCallAnalyticsJobsResponse' {} a -> s {nextToken = a} :: ListCallAnalyticsJobsResponse)
-
 -- | The response's http status code.
 listCallAnalyticsJobsResponse_httpStatus :: Lens.Lens' ListCallAnalyticsJobsResponse Prelude.Int
 listCallAnalyticsJobsResponse_httpStatus = Lens.lens (\ListCallAnalyticsJobsResponse' {httpStatus} -> httpStatus) (\s@ListCallAnalyticsJobsResponse' {} a -> s {httpStatus = a} :: ListCallAnalyticsJobsResponse)
 
 instance Prelude.NFData ListCallAnalyticsJobsResponse where
   rnf ListCallAnalyticsJobsResponse' {..} =
-    Prelude.rnf status
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf callAnalyticsJobSummaries
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

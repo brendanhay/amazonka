@@ -27,19 +27,19 @@ module Amazonka.Transcribe.ListTranscriptionJobs
     newListTranscriptionJobs,
 
     -- * Request Lenses
-    listTranscriptionJobs_status,
     listTranscriptionJobs_nextToken,
-    listTranscriptionJobs_jobNameContains,
+    listTranscriptionJobs_status,
     listTranscriptionJobs_maxResults,
+    listTranscriptionJobs_jobNameContains,
 
     -- * Destructuring the Response
     ListTranscriptionJobsResponse (..),
     newListTranscriptionJobsResponse,
 
     -- * Response Lenses
-    listTranscriptionJobsResponse_status,
     listTranscriptionJobsResponse_nextToken,
     listTranscriptionJobsResponse_transcriptionJobSummaries,
+    listTranscriptionJobsResponse_status,
     listTranscriptionJobsResponse_httpStatus,
   )
 where
@@ -53,21 +53,21 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newListTranscriptionJobs' smart constructor.
 data ListTranscriptionJobs = ListTranscriptionJobs'
-  { -- | When specified, returns only transcription jobs with the specified
+  { -- | If the result of the previous request to @ListTranscriptionJobs@ is
+    -- truncated, include the @NextToken@ to fetch the next set of jobs.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | When specified, returns only transcription jobs with the specified
     -- status. Jobs are ordered by creation date, with the newest jobs returned
     -- first. If you don’t specify a status, Amazon Transcribe returns all
     -- transcription jobs ordered by creation date.
     status :: Prelude.Maybe TranscriptionJobStatus,
-    -- | If the result of the previous request to @ListTranscriptionJobs@ is
-    -- truncated, include the @NextToken@ to fetch the next set of jobs.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | When specified, the jobs returned in the list are limited to jobs whose
-    -- name contains the specified string.
-    jobNameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of jobs to return in each page of results. If there
     -- are fewer results than the value you specify, only the actual results
     -- are returned. If you do not specify a value, the default of 5 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When specified, the jobs returned in the list are limited to jobs whose
+    -- name contains the specified string.
+    jobNameContains :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,29 +79,34 @@ data ListTranscriptionJobs = ListTranscriptionJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listTranscriptionJobs_nextToken' - If the result of the previous request to @ListTranscriptionJobs@ is
+-- truncated, include the @NextToken@ to fetch the next set of jobs.
+--
 -- 'status', 'listTranscriptionJobs_status' - When specified, returns only transcription jobs with the specified
 -- status. Jobs are ordered by creation date, with the newest jobs returned
 -- first. If you don’t specify a status, Amazon Transcribe returns all
 -- transcription jobs ordered by creation date.
 --
--- 'nextToken', 'listTranscriptionJobs_nextToken' - If the result of the previous request to @ListTranscriptionJobs@ is
--- truncated, include the @NextToken@ to fetch the next set of jobs.
---
--- 'jobNameContains', 'listTranscriptionJobs_jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose
--- name contains the specified string.
---
 -- 'maxResults', 'listTranscriptionJobs_maxResults' - The maximum number of jobs to return in each page of results. If there
 -- are fewer results than the value you specify, only the actual results
 -- are returned. If you do not specify a value, the default of 5 is used.
+--
+-- 'jobNameContains', 'listTranscriptionJobs_jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose
+-- name contains the specified string.
 newListTranscriptionJobs ::
   ListTranscriptionJobs
 newListTranscriptionJobs =
   ListTranscriptionJobs'
-    { status = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      jobNameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      jobNameContains = Prelude.Nothing
     }
+
+-- | If the result of the previous request to @ListTranscriptionJobs@ is
+-- truncated, include the @NextToken@ to fetch the next set of jobs.
+listTranscriptionJobs_nextToken :: Lens.Lens' ListTranscriptionJobs (Prelude.Maybe Prelude.Text)
+listTranscriptionJobs_nextToken = Lens.lens (\ListTranscriptionJobs' {nextToken} -> nextToken) (\s@ListTranscriptionJobs' {} a -> s {nextToken = a} :: ListTranscriptionJobs)
 
 -- | When specified, returns only transcription jobs with the specified
 -- status. Jobs are ordered by creation date, with the newest jobs returned
@@ -110,21 +115,16 @@ newListTranscriptionJobs =
 listTranscriptionJobs_status :: Lens.Lens' ListTranscriptionJobs (Prelude.Maybe TranscriptionJobStatus)
 listTranscriptionJobs_status = Lens.lens (\ListTranscriptionJobs' {status} -> status) (\s@ListTranscriptionJobs' {} a -> s {status = a} :: ListTranscriptionJobs)
 
--- | If the result of the previous request to @ListTranscriptionJobs@ is
--- truncated, include the @NextToken@ to fetch the next set of jobs.
-listTranscriptionJobs_nextToken :: Lens.Lens' ListTranscriptionJobs (Prelude.Maybe Prelude.Text)
-listTranscriptionJobs_nextToken = Lens.lens (\ListTranscriptionJobs' {nextToken} -> nextToken) (\s@ListTranscriptionJobs' {} a -> s {nextToken = a} :: ListTranscriptionJobs)
-
--- | When specified, the jobs returned in the list are limited to jobs whose
--- name contains the specified string.
-listTranscriptionJobs_jobNameContains :: Lens.Lens' ListTranscriptionJobs (Prelude.Maybe Prelude.Text)
-listTranscriptionJobs_jobNameContains = Lens.lens (\ListTranscriptionJobs' {jobNameContains} -> jobNameContains) (\s@ListTranscriptionJobs' {} a -> s {jobNameContains = a} :: ListTranscriptionJobs)
-
 -- | The maximum number of jobs to return in each page of results. If there
 -- are fewer results than the value you specify, only the actual results
 -- are returned. If you do not specify a value, the default of 5 is used.
 listTranscriptionJobs_maxResults :: Lens.Lens' ListTranscriptionJobs (Prelude.Maybe Prelude.Natural)
 listTranscriptionJobs_maxResults = Lens.lens (\ListTranscriptionJobs' {maxResults} -> maxResults) (\s@ListTranscriptionJobs' {} a -> s {maxResults = a} :: ListTranscriptionJobs)
+
+-- | When specified, the jobs returned in the list are limited to jobs whose
+-- name contains the specified string.
+listTranscriptionJobs_jobNameContains :: Lens.Lens' ListTranscriptionJobs (Prelude.Maybe Prelude.Text)
+listTranscriptionJobs_jobNameContains = Lens.lens (\ListTranscriptionJobs' {jobNameContains} -> jobNameContains) (\s@ListTranscriptionJobs' {} a -> s {jobNameContains = a} :: ListTranscriptionJobs)
 
 instance Core.AWSRequest ListTranscriptionJobs where
   type
@@ -135,27 +135,27 @@ instance Core.AWSRequest ListTranscriptionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListTranscriptionJobsResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> ( x Core..?> "TranscriptionJobSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTranscriptionJobs where
   hashWithSalt _salt ListTranscriptionJobs' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` jobNameContains
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` jobNameContains
 
 instance Prelude.NFData ListTranscriptionJobs where
   rnf ListTranscriptionJobs' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobNameContains
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf jobNameContains
 
 instance Core.ToHeaders ListTranscriptionJobs where
   toHeaders =
@@ -176,11 +176,11 @@ instance Core.ToJSON ListTranscriptionJobs where
   toJSON ListTranscriptionJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Status" Core..=) Prelude.<$> status,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("JobNameContains" Core..=)
-              Prelude.<$> jobNameContains,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+              Prelude.<$> jobNameContains
           ]
       )
 
@@ -192,9 +192,7 @@ instance Core.ToQuery ListTranscriptionJobs where
 
 -- | /See:/ 'newListTranscriptionJobsResponse' smart constructor.
 data ListTranscriptionJobsResponse = ListTranscriptionJobsResponse'
-  { -- | The requested status of the jobs returned.
-    status :: Prelude.Maybe TranscriptionJobStatus,
-    -- | The @ListTranscriptionJobs@ operation returns a page of jobs at a time.
+  { -- | The @ListTranscriptionJobs@ operation returns a page of jobs at a time.
     -- The maximum size of the page is set by the @MaxResults@ parameter. If
     -- there are more jobs in the list than the page size, Amazon Transcribe
     -- returns the @NextPage@ token. Include the token in the next request to
@@ -204,6 +202,8 @@ data ListTranscriptionJobsResponse = ListTranscriptionJobsResponse'
     -- | A list of objects containing summary information for a transcription
     -- job.
     transcriptionJobSummaries :: Prelude.Maybe [TranscriptionJobSummary],
+    -- | The requested status of the jobs returned.
+    status :: Prelude.Maybe TranscriptionJobStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,8 +217,6 @@ data ListTranscriptionJobsResponse = ListTranscriptionJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'listTranscriptionJobsResponse_status' - The requested status of the jobs returned.
---
 -- 'nextToken', 'listTranscriptionJobsResponse_nextToken' - The @ListTranscriptionJobs@ operation returns a page of jobs at a time.
 -- The maximum size of the page is set by the @MaxResults@ parameter. If
 -- there are more jobs in the list than the page size, Amazon Transcribe
@@ -229,6 +227,8 @@ data ListTranscriptionJobsResponse = ListTranscriptionJobsResponse'
 -- 'transcriptionJobSummaries', 'listTranscriptionJobsResponse_transcriptionJobSummaries' - A list of objects containing summary information for a transcription
 -- job.
 --
+-- 'status', 'listTranscriptionJobsResponse_status' - The requested status of the jobs returned.
+--
 -- 'httpStatus', 'listTranscriptionJobsResponse_httpStatus' - The response's http status code.
 newListTranscriptionJobsResponse ::
   -- | 'httpStatus'
@@ -236,16 +236,12 @@ newListTranscriptionJobsResponse ::
   ListTranscriptionJobsResponse
 newListTranscriptionJobsResponse pHttpStatus_ =
   ListTranscriptionJobsResponse'
-    { status =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       transcriptionJobSummaries = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The requested status of the jobs returned.
-listTranscriptionJobsResponse_status :: Lens.Lens' ListTranscriptionJobsResponse (Prelude.Maybe TranscriptionJobStatus)
-listTranscriptionJobsResponse_status = Lens.lens (\ListTranscriptionJobsResponse' {status} -> status) (\s@ListTranscriptionJobsResponse' {} a -> s {status = a} :: ListTranscriptionJobsResponse)
 
 -- | The @ListTranscriptionJobs@ operation returns a page of jobs at a time.
 -- The maximum size of the page is set by the @MaxResults@ parameter. If
@@ -261,13 +257,17 @@ listTranscriptionJobsResponse_nextToken = Lens.lens (\ListTranscriptionJobsRespo
 listTranscriptionJobsResponse_transcriptionJobSummaries :: Lens.Lens' ListTranscriptionJobsResponse (Prelude.Maybe [TranscriptionJobSummary])
 listTranscriptionJobsResponse_transcriptionJobSummaries = Lens.lens (\ListTranscriptionJobsResponse' {transcriptionJobSummaries} -> transcriptionJobSummaries) (\s@ListTranscriptionJobsResponse' {} a -> s {transcriptionJobSummaries = a} :: ListTranscriptionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The requested status of the jobs returned.
+listTranscriptionJobsResponse_status :: Lens.Lens' ListTranscriptionJobsResponse (Prelude.Maybe TranscriptionJobStatus)
+listTranscriptionJobsResponse_status = Lens.lens (\ListTranscriptionJobsResponse' {status} -> status) (\s@ListTranscriptionJobsResponse' {} a -> s {status = a} :: ListTranscriptionJobsResponse)
+
 -- | The response's http status code.
 listTranscriptionJobsResponse_httpStatus :: Lens.Lens' ListTranscriptionJobsResponse Prelude.Int
 listTranscriptionJobsResponse_httpStatus = Lens.lens (\ListTranscriptionJobsResponse' {httpStatus} -> httpStatus) (\s@ListTranscriptionJobsResponse' {} a -> s {httpStatus = a} :: ListTranscriptionJobsResponse)
 
 instance Prelude.NFData ListTranscriptionJobsResponse where
   rnf ListTranscriptionJobsResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf transcriptionJobSummaries
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

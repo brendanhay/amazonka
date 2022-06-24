@@ -27,307 +27,247 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListLanguageModels $
---             newListLanguageModels
---
---         , requestGetVocabulary $
---             newGetVocabulary
---
---         , requestDeleteLanguageModel $
---             newDeleteLanguageModel
---
---         , requestGetTranscriptionJob $
---             newGetTranscriptionJob
---
---         , requestStartMedicalTranscriptionJob $
---             newStartMedicalTranscriptionJob
---
---         , requestListCallAnalyticsJobs $
---             newListCallAnalyticsJobs
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestGetCallAnalyticsCategory $
---             newGetCallAnalyticsCategory
---
---         , requestDeleteMedicalVocabulary $
---             newDeleteMedicalVocabulary
---
---         , requestUpdateMedicalVocabulary $
---             newUpdateMedicalVocabulary
---
---         , requestCreateCallAnalyticsCategory $
+--         [ requestCreateCallAnalyticsCategory $
 --             newCreateCallAnalyticsCategory
---
---         , requestDeleteTranscriptionJob $
---             newDeleteTranscriptionJob
---
---         , requestDescribeLanguageModel $
---             newDescribeLanguageModel
---
---         , requestListCallAnalyticsCategories $
---             newListCallAnalyticsCategories
---
---         , requestDeleteMedicalTranscriptionJob $
---             newDeleteMedicalTranscriptionJob
---
---         , requestDeleteVocabulary $
---             newDeleteVocabulary
---
---         , requestStartCallAnalyticsJob $
---             newStartCallAnalyticsJob
---
---         , requestUpdateVocabulary $
---             newUpdateVocabulary
---
---         , requestCreateVocabularyFilter $
---             newCreateVocabularyFilter
---
---         , requestGetMedicalTranscriptionJob $
---             newGetMedicalTranscriptionJob
---
---         , requestGetVocabularyFilter $
---             newGetVocabularyFilter
---
---         , requestGetMedicalVocabulary $
---             newGetMedicalVocabulary
---
---         , requestDeleteCallAnalyticsJob $
---             newDeleteCallAnalyticsJob
---
---         , requestCreateMedicalVocabulary $
---             newCreateMedicalVocabulary
---
---         , requestListMedicalVocabularies $
---             newListMedicalVocabularies
---
---         , requestDeleteCallAnalyticsCategory $
---             newDeleteCallAnalyticsCategory
---
---         , requestUpdateCallAnalyticsCategory $
---             newUpdateCallAnalyticsCategory
---
---         , requestGetCallAnalyticsJob $
---             newGetCallAnalyticsJob
---
---         , requestTagResource $
---             newTagResource
---
---         , requestListTranscriptionJobs $
---             newListTranscriptionJobs
---
---         , requestListMedicalTranscriptionJobs $
---             newListMedicalTranscriptionJobs
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestDeleteVocabularyFilter $
---             newDeleteVocabularyFilter
---
---         , requestListVocabularyFilters $
---             newListVocabularyFilters
---
---         , requestUpdateVocabularyFilter $
---             newUpdateVocabularyFilter
---
---         , requestListVocabularies $
---             newListVocabularies
---
---         , requestCreateVocabulary $
---             newCreateVocabulary
 --
 --         , requestCreateLanguageModel $
 --             newCreateLanguageModel
 --
+--         , requestCreateMedicalVocabulary $
+--             newCreateMedicalVocabulary
+--
+--         , requestCreateVocabulary $
+--             newCreateVocabulary
+--
+--         , requestCreateVocabularyFilter $
+--             newCreateVocabularyFilter
+--
+--         , requestDeleteCallAnalyticsCategory $
+--             newDeleteCallAnalyticsCategory
+--
+--         , requestDeleteCallAnalyticsJob $
+--             newDeleteCallAnalyticsJob
+--
+--         , requestDeleteLanguageModel $
+--             newDeleteLanguageModel
+--
+--         , requestDeleteMedicalTranscriptionJob $
+--             newDeleteMedicalTranscriptionJob
+--
+--         , requestDeleteMedicalVocabulary $
+--             newDeleteMedicalVocabulary
+--
+--         , requestDeleteTranscriptionJob $
+--             newDeleteTranscriptionJob
+--
+--         , requestDeleteVocabulary $
+--             newDeleteVocabulary
+--
+--         , requestDeleteVocabularyFilter $
+--             newDeleteVocabularyFilter
+--
+--         , requestDescribeLanguageModel $
+--             newDescribeLanguageModel
+--
+--         , requestGetCallAnalyticsCategory $
+--             newGetCallAnalyticsCategory
+--
+--         , requestGetCallAnalyticsJob $
+--             newGetCallAnalyticsJob
+--
+--         , requestGetMedicalTranscriptionJob $
+--             newGetMedicalTranscriptionJob
+--
+--         , requestGetMedicalVocabulary $
+--             newGetMedicalVocabulary
+--
+--         , requestGetTranscriptionJob $
+--             newGetTranscriptionJob
+--
+--         , requestGetVocabulary $
+--             newGetVocabulary
+--
+--         , requestGetVocabularyFilter $
+--             newGetVocabularyFilter
+--
+--         , requestListCallAnalyticsCategories $
+--             newListCallAnalyticsCategories
+--
+--         , requestListCallAnalyticsJobs $
+--             newListCallAnalyticsJobs
+--
+--         , requestListLanguageModels $
+--             newListLanguageModels
+--
+--         , requestListMedicalTranscriptionJobs $
+--             newListMedicalTranscriptionJobs
+--
+--         , requestListMedicalVocabularies $
+--             newListMedicalVocabularies
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListTranscriptionJobs $
+--             newListTranscriptionJobs
+--
+--         , requestListVocabularies $
+--             newListVocabularies
+--
+--         , requestListVocabularyFilters $
+--             newListVocabularyFilters
+--
+--         , requestStartCallAnalyticsJob $
+--             newStartCallAnalyticsJob
+--
+--         , requestStartMedicalTranscriptionJob $
+--             newStartMedicalTranscriptionJob
+--
 --         , requestStartTranscriptionJob $
 --             newStartTranscriptionJob
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateCallAnalyticsCategory $
+--             newUpdateCallAnalyticsCategory
+--
+--         , requestUpdateMedicalVocabulary $
+--             newUpdateMedicalVocabulary
+--
+--         , requestUpdateVocabulary $
+--             newUpdateVocabulary
+--
+--         , requestUpdateVocabularyFilter $
+--             newUpdateVocabularyFilter
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListLanguageModels $
---             newListLanguageModelsResponse
---
---         , responseGetVocabulary $
---             newGetVocabularyResponse
---
---         , responseDeleteLanguageModel $
---             newDeleteLanguageModelResponse
---
---         , responseGetTranscriptionJob $
---             newGetTranscriptionJobResponse
---
---         , responseStartMedicalTranscriptionJob $
---             newStartMedicalTranscriptionJobResponse
---
---         , responseListCallAnalyticsJobs $
---             newListCallAnalyticsJobsResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseGetCallAnalyticsCategory $
---             newGetCallAnalyticsCategoryResponse
---
---         , responseDeleteMedicalVocabulary $
---             newDeleteMedicalVocabularyResponse
---
---         , responseUpdateMedicalVocabulary $
---             newUpdateMedicalVocabularyResponse
---
---         , responseCreateCallAnalyticsCategory $
+--         [ responseCreateCallAnalyticsCategory $
 --             newCreateCallAnalyticsCategoryResponse
---
---         , responseDeleteTranscriptionJob $
---             newDeleteTranscriptionJobResponse
---
---         , responseDescribeLanguageModel $
---             newDescribeLanguageModelResponse
---
---         , responseListCallAnalyticsCategories $
---             newListCallAnalyticsCategoriesResponse
---
---         , responseDeleteMedicalTranscriptionJob $
---             newDeleteMedicalTranscriptionJobResponse
---
---         , responseDeleteVocabulary $
---             newDeleteVocabularyResponse
---
---         , responseStartCallAnalyticsJob $
---             newStartCallAnalyticsJobResponse
---
---         , responseUpdateVocabulary $
---             newUpdateVocabularyResponse
---
---         , responseCreateVocabularyFilter $
---             newCreateVocabularyFilterResponse
---
---         , responseGetMedicalTranscriptionJob $
---             newGetMedicalTranscriptionJobResponse
---
---         , responseGetVocabularyFilter $
---             newGetVocabularyFilterResponse
---
---         , responseGetMedicalVocabulary $
---             newGetMedicalVocabularyResponse
---
---         , responseDeleteCallAnalyticsJob $
---             newDeleteCallAnalyticsJobResponse
---
---         , responseCreateMedicalVocabulary $
---             newCreateMedicalVocabularyResponse
---
---         , responseListMedicalVocabularies $
---             newListMedicalVocabulariesResponse
---
---         , responseDeleteCallAnalyticsCategory $
---             newDeleteCallAnalyticsCategoryResponse
---
---         , responseUpdateCallAnalyticsCategory $
---             newUpdateCallAnalyticsCategoryResponse
---
---         , responseGetCallAnalyticsJob $
---             newGetCallAnalyticsJobResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseListTranscriptionJobs $
---             newListTranscriptionJobsResponse
---
---         , responseListMedicalTranscriptionJobs $
---             newListMedicalTranscriptionJobsResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseDeleteVocabularyFilter $
---             newDeleteVocabularyFilterResponse
---
---         , responseListVocabularyFilters $
---             newListVocabularyFiltersResponse
---
---         , responseUpdateVocabularyFilter $
---             newUpdateVocabularyFilterResponse
---
---         , responseListVocabularies $
---             newListVocabulariesResponse
---
---         , responseCreateVocabulary $
---             newCreateVocabularyResponse
 --
 --         , responseCreateLanguageModel $
 --             newCreateLanguageModelResponse
 --
+--         , responseCreateMedicalVocabulary $
+--             newCreateMedicalVocabularyResponse
+--
+--         , responseCreateVocabulary $
+--             newCreateVocabularyResponse
+--
+--         , responseCreateVocabularyFilter $
+--             newCreateVocabularyFilterResponse
+--
+--         , responseDeleteCallAnalyticsCategory $
+--             newDeleteCallAnalyticsCategoryResponse
+--
+--         , responseDeleteCallAnalyticsJob $
+--             newDeleteCallAnalyticsJobResponse
+--
+--         , responseDeleteLanguageModel $
+--             newDeleteLanguageModelResponse
+--
+--         , responseDeleteMedicalTranscriptionJob $
+--             newDeleteMedicalTranscriptionJobResponse
+--
+--         , responseDeleteMedicalVocabulary $
+--             newDeleteMedicalVocabularyResponse
+--
+--         , responseDeleteTranscriptionJob $
+--             newDeleteTranscriptionJobResponse
+--
+--         , responseDeleteVocabulary $
+--             newDeleteVocabularyResponse
+--
+--         , responseDeleteVocabularyFilter $
+--             newDeleteVocabularyFilterResponse
+--
+--         , responseDescribeLanguageModel $
+--             newDescribeLanguageModelResponse
+--
+--         , responseGetCallAnalyticsCategory $
+--             newGetCallAnalyticsCategoryResponse
+--
+--         , responseGetCallAnalyticsJob $
+--             newGetCallAnalyticsJobResponse
+--
+--         , responseGetMedicalTranscriptionJob $
+--             newGetMedicalTranscriptionJobResponse
+--
+--         , responseGetMedicalVocabulary $
+--             newGetMedicalVocabularyResponse
+--
+--         , responseGetTranscriptionJob $
+--             newGetTranscriptionJobResponse
+--
+--         , responseGetVocabulary $
+--             newGetVocabularyResponse
+--
+--         , responseGetVocabularyFilter $
+--             newGetVocabularyFilterResponse
+--
+--         , responseListCallAnalyticsCategories $
+--             newListCallAnalyticsCategoriesResponse
+--
+--         , responseListCallAnalyticsJobs $
+--             newListCallAnalyticsJobsResponse
+--
+--         , responseListLanguageModels $
+--             newListLanguageModelsResponse
+--
+--         , responseListMedicalTranscriptionJobs $
+--             newListMedicalTranscriptionJobsResponse
+--
+--         , responseListMedicalVocabularies $
+--             newListMedicalVocabulariesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListTranscriptionJobs $
+--             newListTranscriptionJobsResponse
+--
+--         , responseListVocabularies $
+--             newListVocabulariesResponse
+--
+--         , responseListVocabularyFilters $
+--             newListVocabularyFiltersResponse
+--
+--         , responseStartCallAnalyticsJob $
+--             newStartCallAnalyticsJobResponse
+--
+--         , responseStartMedicalTranscriptionJob $
+--             newStartMedicalTranscriptionJobResponse
+--
 --         , responseStartTranscriptionJob $
 --             newStartTranscriptionJobResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateCallAnalyticsCategory $
+--             newUpdateCallAnalyticsCategoryResponse
+--
+--         , responseUpdateMedicalVocabulary $
+--             newUpdateMedicalVocabularyResponse
+--
+--         , responseUpdateVocabulary $
+--             newUpdateVocabularyResponse
+--
+--         , responseUpdateVocabularyFilter $
+--             newUpdateVocabularyFilterResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListLanguageModels :: ListLanguageModels -> TestTree
-requestListLanguageModels =
-  req
-    "ListLanguageModels"
-    "fixture/ListLanguageModels.yaml"
-
-requestGetVocabulary :: GetVocabulary -> TestTree
-requestGetVocabulary =
-  req
-    "GetVocabulary"
-    "fixture/GetVocabulary.yaml"
-
-requestDeleteLanguageModel :: DeleteLanguageModel -> TestTree
-requestDeleteLanguageModel =
-  req
-    "DeleteLanguageModel"
-    "fixture/DeleteLanguageModel.yaml"
-
-requestGetTranscriptionJob :: GetTranscriptionJob -> TestTree
-requestGetTranscriptionJob =
-  req
-    "GetTranscriptionJob"
-    "fixture/GetTranscriptionJob.yaml"
-
-requestStartMedicalTranscriptionJob :: StartMedicalTranscriptionJob -> TestTree
-requestStartMedicalTranscriptionJob =
-  req
-    "StartMedicalTranscriptionJob"
-    "fixture/StartMedicalTranscriptionJob.yaml"
-
-requestListCallAnalyticsJobs :: ListCallAnalyticsJobs -> TestTree
-requestListCallAnalyticsJobs =
-  req
-    "ListCallAnalyticsJobs"
-    "fixture/ListCallAnalyticsJobs.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestGetCallAnalyticsCategory :: GetCallAnalyticsCategory -> TestTree
-requestGetCallAnalyticsCategory =
-  req
-    "GetCallAnalyticsCategory"
-    "fixture/GetCallAnalyticsCategory.yaml"
-
-requestDeleteMedicalVocabulary :: DeleteMedicalVocabulary -> TestTree
-requestDeleteMedicalVocabulary =
-  req
-    "DeleteMedicalVocabulary"
-    "fixture/DeleteMedicalVocabulary.yaml"
-
-requestUpdateMedicalVocabulary :: UpdateMedicalVocabulary -> TestTree
-requestUpdateMedicalVocabulary =
-  req
-    "UpdateMedicalVocabulary"
-    "fixture/UpdateMedicalVocabulary.yaml"
 
 requestCreateCallAnalyticsCategory :: CreateCallAnalyticsCategory -> TestTree
 requestCreateCallAnalyticsCategory =
@@ -335,77 +275,11 @@ requestCreateCallAnalyticsCategory =
     "CreateCallAnalyticsCategory"
     "fixture/CreateCallAnalyticsCategory.yaml"
 
-requestDeleteTranscriptionJob :: DeleteTranscriptionJob -> TestTree
-requestDeleteTranscriptionJob =
+requestCreateLanguageModel :: CreateLanguageModel -> TestTree
+requestCreateLanguageModel =
   req
-    "DeleteTranscriptionJob"
-    "fixture/DeleteTranscriptionJob.yaml"
-
-requestDescribeLanguageModel :: DescribeLanguageModel -> TestTree
-requestDescribeLanguageModel =
-  req
-    "DescribeLanguageModel"
-    "fixture/DescribeLanguageModel.yaml"
-
-requestListCallAnalyticsCategories :: ListCallAnalyticsCategories -> TestTree
-requestListCallAnalyticsCategories =
-  req
-    "ListCallAnalyticsCategories"
-    "fixture/ListCallAnalyticsCategories.yaml"
-
-requestDeleteMedicalTranscriptionJob :: DeleteMedicalTranscriptionJob -> TestTree
-requestDeleteMedicalTranscriptionJob =
-  req
-    "DeleteMedicalTranscriptionJob"
-    "fixture/DeleteMedicalTranscriptionJob.yaml"
-
-requestDeleteVocabulary :: DeleteVocabulary -> TestTree
-requestDeleteVocabulary =
-  req
-    "DeleteVocabulary"
-    "fixture/DeleteVocabulary.yaml"
-
-requestStartCallAnalyticsJob :: StartCallAnalyticsJob -> TestTree
-requestStartCallAnalyticsJob =
-  req
-    "StartCallAnalyticsJob"
-    "fixture/StartCallAnalyticsJob.yaml"
-
-requestUpdateVocabulary :: UpdateVocabulary -> TestTree
-requestUpdateVocabulary =
-  req
-    "UpdateVocabulary"
-    "fixture/UpdateVocabulary.yaml"
-
-requestCreateVocabularyFilter :: CreateVocabularyFilter -> TestTree
-requestCreateVocabularyFilter =
-  req
-    "CreateVocabularyFilter"
-    "fixture/CreateVocabularyFilter.yaml"
-
-requestGetMedicalTranscriptionJob :: GetMedicalTranscriptionJob -> TestTree
-requestGetMedicalTranscriptionJob =
-  req
-    "GetMedicalTranscriptionJob"
-    "fixture/GetMedicalTranscriptionJob.yaml"
-
-requestGetVocabularyFilter :: GetVocabularyFilter -> TestTree
-requestGetVocabularyFilter =
-  req
-    "GetVocabularyFilter"
-    "fixture/GetVocabularyFilter.yaml"
-
-requestGetMedicalVocabulary :: GetMedicalVocabulary -> TestTree
-requestGetMedicalVocabulary =
-  req
-    "GetMedicalVocabulary"
-    "fixture/GetMedicalVocabulary.yaml"
-
-requestDeleteCallAnalyticsJob :: DeleteCallAnalyticsJob -> TestTree
-requestDeleteCallAnalyticsJob =
-  req
-    "DeleteCallAnalyticsJob"
-    "fixture/DeleteCallAnalyticsJob.yaml"
+    "CreateLanguageModel"
+    "fixture/CreateLanguageModel.yaml"
 
 requestCreateMedicalVocabulary :: CreateMedicalVocabulary -> TestTree
 requestCreateMedicalVocabulary =
@@ -413,11 +287,17 @@ requestCreateMedicalVocabulary =
     "CreateMedicalVocabulary"
     "fixture/CreateMedicalVocabulary.yaml"
 
-requestListMedicalVocabularies :: ListMedicalVocabularies -> TestTree
-requestListMedicalVocabularies =
+requestCreateVocabulary :: CreateVocabulary -> TestTree
+requestCreateVocabulary =
   req
-    "ListMedicalVocabularies"
-    "fixture/ListMedicalVocabularies.yaml"
+    "CreateVocabulary"
+    "fixture/CreateVocabulary.yaml"
+
+requestCreateVocabularyFilter :: CreateVocabularyFilter -> TestTree
+requestCreateVocabularyFilter =
+  req
+    "CreateVocabularyFilter"
+    "fixture/CreateVocabularyFilter.yaml"
 
 requestDeleteCallAnalyticsCategory :: DeleteCallAnalyticsCategory -> TestTree
 requestDeleteCallAnalyticsCategory =
@@ -425,41 +305,41 @@ requestDeleteCallAnalyticsCategory =
     "DeleteCallAnalyticsCategory"
     "fixture/DeleteCallAnalyticsCategory.yaml"
 
-requestUpdateCallAnalyticsCategory :: UpdateCallAnalyticsCategory -> TestTree
-requestUpdateCallAnalyticsCategory =
+requestDeleteCallAnalyticsJob :: DeleteCallAnalyticsJob -> TestTree
+requestDeleteCallAnalyticsJob =
   req
-    "UpdateCallAnalyticsCategory"
-    "fixture/UpdateCallAnalyticsCategory.yaml"
+    "DeleteCallAnalyticsJob"
+    "fixture/DeleteCallAnalyticsJob.yaml"
 
-requestGetCallAnalyticsJob :: GetCallAnalyticsJob -> TestTree
-requestGetCallAnalyticsJob =
+requestDeleteLanguageModel :: DeleteLanguageModel -> TestTree
+requestDeleteLanguageModel =
   req
-    "GetCallAnalyticsJob"
-    "fixture/GetCallAnalyticsJob.yaml"
+    "DeleteLanguageModel"
+    "fixture/DeleteLanguageModel.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestDeleteMedicalTranscriptionJob :: DeleteMedicalTranscriptionJob -> TestTree
+requestDeleteMedicalTranscriptionJob =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "DeleteMedicalTranscriptionJob"
+    "fixture/DeleteMedicalTranscriptionJob.yaml"
 
-requestListTranscriptionJobs :: ListTranscriptionJobs -> TestTree
-requestListTranscriptionJobs =
+requestDeleteMedicalVocabulary :: DeleteMedicalVocabulary -> TestTree
+requestDeleteMedicalVocabulary =
   req
-    "ListTranscriptionJobs"
-    "fixture/ListTranscriptionJobs.yaml"
+    "DeleteMedicalVocabulary"
+    "fixture/DeleteMedicalVocabulary.yaml"
 
-requestListMedicalTranscriptionJobs :: ListMedicalTranscriptionJobs -> TestTree
-requestListMedicalTranscriptionJobs =
+requestDeleteTranscriptionJob :: DeleteTranscriptionJob -> TestTree
+requestDeleteTranscriptionJob =
   req
-    "ListMedicalTranscriptionJobs"
-    "fixture/ListMedicalTranscriptionJobs.yaml"
+    "DeleteTranscriptionJob"
+    "fixture/DeleteTranscriptionJob.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestDeleteVocabulary :: DeleteVocabulary -> TestTree
+requestDeleteVocabulary =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "DeleteVocabulary"
+    "fixture/DeleteVocabulary.yaml"
 
 requestDeleteVocabularyFilter :: DeleteVocabularyFilter -> TestTree
 requestDeleteVocabularyFilter =
@@ -467,17 +347,95 @@ requestDeleteVocabularyFilter =
     "DeleteVocabularyFilter"
     "fixture/DeleteVocabularyFilter.yaml"
 
-requestListVocabularyFilters :: ListVocabularyFilters -> TestTree
-requestListVocabularyFilters =
+requestDescribeLanguageModel :: DescribeLanguageModel -> TestTree
+requestDescribeLanguageModel =
   req
-    "ListVocabularyFilters"
-    "fixture/ListVocabularyFilters.yaml"
+    "DescribeLanguageModel"
+    "fixture/DescribeLanguageModel.yaml"
 
-requestUpdateVocabularyFilter :: UpdateVocabularyFilter -> TestTree
-requestUpdateVocabularyFilter =
+requestGetCallAnalyticsCategory :: GetCallAnalyticsCategory -> TestTree
+requestGetCallAnalyticsCategory =
   req
-    "UpdateVocabularyFilter"
-    "fixture/UpdateVocabularyFilter.yaml"
+    "GetCallAnalyticsCategory"
+    "fixture/GetCallAnalyticsCategory.yaml"
+
+requestGetCallAnalyticsJob :: GetCallAnalyticsJob -> TestTree
+requestGetCallAnalyticsJob =
+  req
+    "GetCallAnalyticsJob"
+    "fixture/GetCallAnalyticsJob.yaml"
+
+requestGetMedicalTranscriptionJob :: GetMedicalTranscriptionJob -> TestTree
+requestGetMedicalTranscriptionJob =
+  req
+    "GetMedicalTranscriptionJob"
+    "fixture/GetMedicalTranscriptionJob.yaml"
+
+requestGetMedicalVocabulary :: GetMedicalVocabulary -> TestTree
+requestGetMedicalVocabulary =
+  req
+    "GetMedicalVocabulary"
+    "fixture/GetMedicalVocabulary.yaml"
+
+requestGetTranscriptionJob :: GetTranscriptionJob -> TestTree
+requestGetTranscriptionJob =
+  req
+    "GetTranscriptionJob"
+    "fixture/GetTranscriptionJob.yaml"
+
+requestGetVocabulary :: GetVocabulary -> TestTree
+requestGetVocabulary =
+  req
+    "GetVocabulary"
+    "fixture/GetVocabulary.yaml"
+
+requestGetVocabularyFilter :: GetVocabularyFilter -> TestTree
+requestGetVocabularyFilter =
+  req
+    "GetVocabularyFilter"
+    "fixture/GetVocabularyFilter.yaml"
+
+requestListCallAnalyticsCategories :: ListCallAnalyticsCategories -> TestTree
+requestListCallAnalyticsCategories =
+  req
+    "ListCallAnalyticsCategories"
+    "fixture/ListCallAnalyticsCategories.yaml"
+
+requestListCallAnalyticsJobs :: ListCallAnalyticsJobs -> TestTree
+requestListCallAnalyticsJobs =
+  req
+    "ListCallAnalyticsJobs"
+    "fixture/ListCallAnalyticsJobs.yaml"
+
+requestListLanguageModels :: ListLanguageModels -> TestTree
+requestListLanguageModels =
+  req
+    "ListLanguageModels"
+    "fixture/ListLanguageModels.yaml"
+
+requestListMedicalTranscriptionJobs :: ListMedicalTranscriptionJobs -> TestTree
+requestListMedicalTranscriptionJobs =
+  req
+    "ListMedicalTranscriptionJobs"
+    "fixture/ListMedicalTranscriptionJobs.yaml"
+
+requestListMedicalVocabularies :: ListMedicalVocabularies -> TestTree
+requestListMedicalVocabularies =
+  req
+    "ListMedicalVocabularies"
+    "fixture/ListMedicalVocabularies.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListTranscriptionJobs :: ListTranscriptionJobs -> TestTree
+requestListTranscriptionJobs =
+  req
+    "ListTranscriptionJobs"
+    "fixture/ListTranscriptionJobs.yaml"
 
 requestListVocabularies :: ListVocabularies -> TestTree
 requestListVocabularies =
@@ -485,17 +443,23 @@ requestListVocabularies =
     "ListVocabularies"
     "fixture/ListVocabularies.yaml"
 
-requestCreateVocabulary :: CreateVocabulary -> TestTree
-requestCreateVocabulary =
+requestListVocabularyFilters :: ListVocabularyFilters -> TestTree
+requestListVocabularyFilters =
   req
-    "CreateVocabulary"
-    "fixture/CreateVocabulary.yaml"
+    "ListVocabularyFilters"
+    "fixture/ListVocabularyFilters.yaml"
 
-requestCreateLanguageModel :: CreateLanguageModel -> TestTree
-requestCreateLanguageModel =
+requestStartCallAnalyticsJob :: StartCallAnalyticsJob -> TestTree
+requestStartCallAnalyticsJob =
   req
-    "CreateLanguageModel"
-    "fixture/CreateLanguageModel.yaml"
+    "StartCallAnalyticsJob"
+    "fixture/StartCallAnalyticsJob.yaml"
+
+requestStartMedicalTranscriptionJob :: StartMedicalTranscriptionJob -> TestTree
+requestStartMedicalTranscriptionJob =
+  req
+    "StartMedicalTranscriptionJob"
+    "fixture/StartMedicalTranscriptionJob.yaml"
 
 requestStartTranscriptionJob :: StartTranscriptionJob -> TestTree
 requestStartTranscriptionJob =
@@ -503,87 +467,43 @@ requestStartTranscriptionJob =
     "StartTranscriptionJob"
     "fixture/StartTranscriptionJob.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateCallAnalyticsCategory :: UpdateCallAnalyticsCategory -> TestTree
+requestUpdateCallAnalyticsCategory =
+  req
+    "UpdateCallAnalyticsCategory"
+    "fixture/UpdateCallAnalyticsCategory.yaml"
+
+requestUpdateMedicalVocabulary :: UpdateMedicalVocabulary -> TestTree
+requestUpdateMedicalVocabulary =
+  req
+    "UpdateMedicalVocabulary"
+    "fixture/UpdateMedicalVocabulary.yaml"
+
+requestUpdateVocabulary :: UpdateVocabulary -> TestTree
+requestUpdateVocabulary =
+  req
+    "UpdateVocabulary"
+    "fixture/UpdateVocabulary.yaml"
+
+requestUpdateVocabularyFilter :: UpdateVocabularyFilter -> TestTree
+requestUpdateVocabularyFilter =
+  req
+    "UpdateVocabularyFilter"
+    "fixture/UpdateVocabularyFilter.yaml"
+
 -- Responses
-
-responseListLanguageModels :: ListLanguageModelsResponse -> TestTree
-responseListLanguageModels =
-  res
-    "ListLanguageModelsResponse"
-    "fixture/ListLanguageModelsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListLanguageModels)
-
-responseGetVocabulary :: GetVocabularyResponse -> TestTree
-responseGetVocabulary =
-  res
-    "GetVocabularyResponse"
-    "fixture/GetVocabularyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetVocabulary)
-
-responseDeleteLanguageModel :: DeleteLanguageModelResponse -> TestTree
-responseDeleteLanguageModel =
-  res
-    "DeleteLanguageModelResponse"
-    "fixture/DeleteLanguageModelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteLanguageModel)
-
-responseGetTranscriptionJob :: GetTranscriptionJobResponse -> TestTree
-responseGetTranscriptionJob =
-  res
-    "GetTranscriptionJobResponse"
-    "fixture/GetTranscriptionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetTranscriptionJob)
-
-responseStartMedicalTranscriptionJob :: StartMedicalTranscriptionJobResponse -> TestTree
-responseStartMedicalTranscriptionJob =
-  res
-    "StartMedicalTranscriptionJobResponse"
-    "fixture/StartMedicalTranscriptionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartMedicalTranscriptionJob)
-
-responseListCallAnalyticsJobs :: ListCallAnalyticsJobsResponse -> TestTree
-responseListCallAnalyticsJobs =
-  res
-    "ListCallAnalyticsJobsResponse"
-    "fixture/ListCallAnalyticsJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListCallAnalyticsJobs)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseGetCallAnalyticsCategory :: GetCallAnalyticsCategoryResponse -> TestTree
-responseGetCallAnalyticsCategory =
-  res
-    "GetCallAnalyticsCategoryResponse"
-    "fixture/GetCallAnalyticsCategoryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetCallAnalyticsCategory)
-
-responseDeleteMedicalVocabulary :: DeleteMedicalVocabularyResponse -> TestTree
-responseDeleteMedicalVocabulary =
-  res
-    "DeleteMedicalVocabularyResponse"
-    "fixture/DeleteMedicalVocabularyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteMedicalVocabulary)
-
-responseUpdateMedicalVocabulary :: UpdateMedicalVocabularyResponse -> TestTree
-responseUpdateMedicalVocabulary =
-  res
-    "UpdateMedicalVocabularyResponse"
-    "fixture/UpdateMedicalVocabularyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateMedicalVocabulary)
 
 responseCreateCallAnalyticsCategory :: CreateCallAnalyticsCategoryResponse -> TestTree
 responseCreateCallAnalyticsCategory =
@@ -593,101 +513,13 @@ responseCreateCallAnalyticsCategory =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateCallAnalyticsCategory)
 
-responseDeleteTranscriptionJob :: DeleteTranscriptionJobResponse -> TestTree
-responseDeleteTranscriptionJob =
+responseCreateLanguageModel :: CreateLanguageModelResponse -> TestTree
+responseCreateLanguageModel =
   res
-    "DeleteTranscriptionJobResponse"
-    "fixture/DeleteTranscriptionJobResponse.proto"
+    "CreateLanguageModelResponse"
+    "fixture/CreateLanguageModelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteTranscriptionJob)
-
-responseDescribeLanguageModel :: DescribeLanguageModelResponse -> TestTree
-responseDescribeLanguageModel =
-  res
-    "DescribeLanguageModelResponse"
-    "fixture/DescribeLanguageModelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeLanguageModel)
-
-responseListCallAnalyticsCategories :: ListCallAnalyticsCategoriesResponse -> TestTree
-responseListCallAnalyticsCategories =
-  res
-    "ListCallAnalyticsCategoriesResponse"
-    "fixture/ListCallAnalyticsCategoriesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListCallAnalyticsCategories)
-
-responseDeleteMedicalTranscriptionJob :: DeleteMedicalTranscriptionJobResponse -> TestTree
-responseDeleteMedicalTranscriptionJob =
-  res
-    "DeleteMedicalTranscriptionJobResponse"
-    "fixture/DeleteMedicalTranscriptionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteMedicalTranscriptionJob)
-
-responseDeleteVocabulary :: DeleteVocabularyResponse -> TestTree
-responseDeleteVocabulary =
-  res
-    "DeleteVocabularyResponse"
-    "fixture/DeleteVocabularyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVocabulary)
-
-responseStartCallAnalyticsJob :: StartCallAnalyticsJobResponse -> TestTree
-responseStartCallAnalyticsJob =
-  res
-    "StartCallAnalyticsJobResponse"
-    "fixture/StartCallAnalyticsJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartCallAnalyticsJob)
-
-responseUpdateVocabulary :: UpdateVocabularyResponse -> TestTree
-responseUpdateVocabulary =
-  res
-    "UpdateVocabularyResponse"
-    "fixture/UpdateVocabularyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateVocabulary)
-
-responseCreateVocabularyFilter :: CreateVocabularyFilterResponse -> TestTree
-responseCreateVocabularyFilter =
-  res
-    "CreateVocabularyFilterResponse"
-    "fixture/CreateVocabularyFilterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateVocabularyFilter)
-
-responseGetMedicalTranscriptionJob :: GetMedicalTranscriptionJobResponse -> TestTree
-responseGetMedicalTranscriptionJob =
-  res
-    "GetMedicalTranscriptionJobResponse"
-    "fixture/GetMedicalTranscriptionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetMedicalTranscriptionJob)
-
-responseGetVocabularyFilter :: GetVocabularyFilterResponse -> TestTree
-responseGetVocabularyFilter =
-  res
-    "GetVocabularyFilterResponse"
-    "fixture/GetVocabularyFilterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetVocabularyFilter)
-
-responseGetMedicalVocabulary :: GetMedicalVocabularyResponse -> TestTree
-responseGetMedicalVocabulary =
-  res
-    "GetMedicalVocabularyResponse"
-    "fixture/GetMedicalVocabularyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetMedicalVocabulary)
-
-responseDeleteCallAnalyticsJob :: DeleteCallAnalyticsJobResponse -> TestTree
-responseDeleteCallAnalyticsJob =
-  res
-    "DeleteCallAnalyticsJobResponse"
-    "fixture/DeleteCallAnalyticsJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteCallAnalyticsJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateLanguageModel)
 
 responseCreateMedicalVocabulary :: CreateMedicalVocabularyResponse -> TestTree
 responseCreateMedicalVocabulary =
@@ -697,13 +529,21 @@ responseCreateMedicalVocabulary =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateMedicalVocabulary)
 
-responseListMedicalVocabularies :: ListMedicalVocabulariesResponse -> TestTree
-responseListMedicalVocabularies =
+responseCreateVocabulary :: CreateVocabularyResponse -> TestTree
+responseCreateVocabulary =
   res
-    "ListMedicalVocabulariesResponse"
-    "fixture/ListMedicalVocabulariesResponse.proto"
+    "CreateVocabularyResponse"
+    "fixture/CreateVocabularyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListMedicalVocabularies)
+    (Proxy.Proxy :: Proxy.Proxy CreateVocabulary)
+
+responseCreateVocabularyFilter :: CreateVocabularyFilterResponse -> TestTree
+responseCreateVocabularyFilter =
+  res
+    "CreateVocabularyFilterResponse"
+    "fixture/CreateVocabularyFilterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVocabularyFilter)
 
 responseDeleteCallAnalyticsCategory :: DeleteCallAnalyticsCategoryResponse -> TestTree
 responseDeleteCallAnalyticsCategory =
@@ -713,53 +553,53 @@ responseDeleteCallAnalyticsCategory =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteCallAnalyticsCategory)
 
-responseUpdateCallAnalyticsCategory :: UpdateCallAnalyticsCategoryResponse -> TestTree
-responseUpdateCallAnalyticsCategory =
+responseDeleteCallAnalyticsJob :: DeleteCallAnalyticsJobResponse -> TestTree
+responseDeleteCallAnalyticsJob =
   res
-    "UpdateCallAnalyticsCategoryResponse"
-    "fixture/UpdateCallAnalyticsCategoryResponse.proto"
+    "DeleteCallAnalyticsJobResponse"
+    "fixture/DeleteCallAnalyticsJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateCallAnalyticsCategory)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCallAnalyticsJob)
 
-responseGetCallAnalyticsJob :: GetCallAnalyticsJobResponse -> TestTree
-responseGetCallAnalyticsJob =
+responseDeleteLanguageModel :: DeleteLanguageModelResponse -> TestTree
+responseDeleteLanguageModel =
   res
-    "GetCallAnalyticsJobResponse"
-    "fixture/GetCallAnalyticsJobResponse.proto"
+    "DeleteLanguageModelResponse"
+    "fixture/DeleteLanguageModelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetCallAnalyticsJob)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLanguageModel)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseDeleteMedicalTranscriptionJob :: DeleteMedicalTranscriptionJobResponse -> TestTree
+responseDeleteMedicalTranscriptionJob =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "DeleteMedicalTranscriptionJobResponse"
+    "fixture/DeleteMedicalTranscriptionJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMedicalTranscriptionJob)
 
-responseListTranscriptionJobs :: ListTranscriptionJobsResponse -> TestTree
-responseListTranscriptionJobs =
+responseDeleteMedicalVocabulary :: DeleteMedicalVocabularyResponse -> TestTree
+responseDeleteMedicalVocabulary =
   res
-    "ListTranscriptionJobsResponse"
-    "fixture/ListTranscriptionJobsResponse.proto"
+    "DeleteMedicalVocabularyResponse"
+    "fixture/DeleteMedicalVocabularyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTranscriptionJobs)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMedicalVocabulary)
 
-responseListMedicalTranscriptionJobs :: ListMedicalTranscriptionJobsResponse -> TestTree
-responseListMedicalTranscriptionJobs =
+responseDeleteTranscriptionJob :: DeleteTranscriptionJobResponse -> TestTree
+responseDeleteTranscriptionJob =
   res
-    "ListMedicalTranscriptionJobsResponse"
-    "fixture/ListMedicalTranscriptionJobsResponse.proto"
+    "DeleteTranscriptionJobResponse"
+    "fixture/DeleteTranscriptionJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListMedicalTranscriptionJobs)
+    (Proxy.Proxy :: Proxy.Proxy DeleteTranscriptionJob)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseDeleteVocabulary :: DeleteVocabularyResponse -> TestTree
+responseDeleteVocabulary =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "DeleteVocabularyResponse"
+    "fixture/DeleteVocabularyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVocabulary)
 
 responseDeleteVocabularyFilter :: DeleteVocabularyFilterResponse -> TestTree
 responseDeleteVocabularyFilter =
@@ -769,21 +609,125 @@ responseDeleteVocabularyFilter =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteVocabularyFilter)
 
-responseListVocabularyFilters :: ListVocabularyFiltersResponse -> TestTree
-responseListVocabularyFilters =
+responseDescribeLanguageModel :: DescribeLanguageModelResponse -> TestTree
+responseDescribeLanguageModel =
   res
-    "ListVocabularyFiltersResponse"
-    "fixture/ListVocabularyFiltersResponse.proto"
+    "DescribeLanguageModelResponse"
+    "fixture/DescribeLanguageModelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListVocabularyFilters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLanguageModel)
 
-responseUpdateVocabularyFilter :: UpdateVocabularyFilterResponse -> TestTree
-responseUpdateVocabularyFilter =
+responseGetCallAnalyticsCategory :: GetCallAnalyticsCategoryResponse -> TestTree
+responseGetCallAnalyticsCategory =
   res
-    "UpdateVocabularyFilterResponse"
-    "fixture/UpdateVocabularyFilterResponse.proto"
+    "GetCallAnalyticsCategoryResponse"
+    "fixture/GetCallAnalyticsCategoryResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateVocabularyFilter)
+    (Proxy.Proxy :: Proxy.Proxy GetCallAnalyticsCategory)
+
+responseGetCallAnalyticsJob :: GetCallAnalyticsJobResponse -> TestTree
+responseGetCallAnalyticsJob =
+  res
+    "GetCallAnalyticsJobResponse"
+    "fixture/GetCallAnalyticsJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCallAnalyticsJob)
+
+responseGetMedicalTranscriptionJob :: GetMedicalTranscriptionJobResponse -> TestTree
+responseGetMedicalTranscriptionJob =
+  res
+    "GetMedicalTranscriptionJobResponse"
+    "fixture/GetMedicalTranscriptionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMedicalTranscriptionJob)
+
+responseGetMedicalVocabulary :: GetMedicalVocabularyResponse -> TestTree
+responseGetMedicalVocabulary =
+  res
+    "GetMedicalVocabularyResponse"
+    "fixture/GetMedicalVocabularyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMedicalVocabulary)
+
+responseGetTranscriptionJob :: GetTranscriptionJobResponse -> TestTree
+responseGetTranscriptionJob =
+  res
+    "GetTranscriptionJobResponse"
+    "fixture/GetTranscriptionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTranscriptionJob)
+
+responseGetVocabulary :: GetVocabularyResponse -> TestTree
+responseGetVocabulary =
+  res
+    "GetVocabularyResponse"
+    "fixture/GetVocabularyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVocabulary)
+
+responseGetVocabularyFilter :: GetVocabularyFilterResponse -> TestTree
+responseGetVocabularyFilter =
+  res
+    "GetVocabularyFilterResponse"
+    "fixture/GetVocabularyFilterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVocabularyFilter)
+
+responseListCallAnalyticsCategories :: ListCallAnalyticsCategoriesResponse -> TestTree
+responseListCallAnalyticsCategories =
+  res
+    "ListCallAnalyticsCategoriesResponse"
+    "fixture/ListCallAnalyticsCategoriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCallAnalyticsCategories)
+
+responseListCallAnalyticsJobs :: ListCallAnalyticsJobsResponse -> TestTree
+responseListCallAnalyticsJobs =
+  res
+    "ListCallAnalyticsJobsResponse"
+    "fixture/ListCallAnalyticsJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCallAnalyticsJobs)
+
+responseListLanguageModels :: ListLanguageModelsResponse -> TestTree
+responseListLanguageModels =
+  res
+    "ListLanguageModelsResponse"
+    "fixture/ListLanguageModelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLanguageModels)
+
+responseListMedicalTranscriptionJobs :: ListMedicalTranscriptionJobsResponse -> TestTree
+responseListMedicalTranscriptionJobs =
+  res
+    "ListMedicalTranscriptionJobsResponse"
+    "fixture/ListMedicalTranscriptionJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMedicalTranscriptionJobs)
+
+responseListMedicalVocabularies :: ListMedicalVocabulariesResponse -> TestTree
+responseListMedicalVocabularies =
+  res
+    "ListMedicalVocabulariesResponse"
+    "fixture/ListMedicalVocabulariesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMedicalVocabularies)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListTranscriptionJobs :: ListTranscriptionJobsResponse -> TestTree
+responseListTranscriptionJobs =
+  res
+    "ListTranscriptionJobsResponse"
+    "fixture/ListTranscriptionJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTranscriptionJobs)
 
 responseListVocabularies :: ListVocabulariesResponse -> TestTree
 responseListVocabularies =
@@ -793,21 +737,29 @@ responseListVocabularies =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListVocabularies)
 
-responseCreateVocabulary :: CreateVocabularyResponse -> TestTree
-responseCreateVocabulary =
+responseListVocabularyFilters :: ListVocabularyFiltersResponse -> TestTree
+responseListVocabularyFilters =
   res
-    "CreateVocabularyResponse"
-    "fixture/CreateVocabularyResponse.proto"
+    "ListVocabularyFiltersResponse"
+    "fixture/ListVocabularyFiltersResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateVocabulary)
+    (Proxy.Proxy :: Proxy.Proxy ListVocabularyFilters)
 
-responseCreateLanguageModel :: CreateLanguageModelResponse -> TestTree
-responseCreateLanguageModel =
+responseStartCallAnalyticsJob :: StartCallAnalyticsJobResponse -> TestTree
+responseStartCallAnalyticsJob =
   res
-    "CreateLanguageModelResponse"
-    "fixture/CreateLanguageModelResponse.proto"
+    "StartCallAnalyticsJobResponse"
+    "fixture/StartCallAnalyticsJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateLanguageModel)
+    (Proxy.Proxy :: Proxy.Proxy StartCallAnalyticsJob)
+
+responseStartMedicalTranscriptionJob :: StartMedicalTranscriptionJobResponse -> TestTree
+responseStartMedicalTranscriptionJob =
+  res
+    "StartMedicalTranscriptionJobResponse"
+    "fixture/StartMedicalTranscriptionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartMedicalTranscriptionJob)
 
 responseStartTranscriptionJob :: StartTranscriptionJobResponse -> TestTree
 responseStartTranscriptionJob =
@@ -816,3 +768,51 @@ responseStartTranscriptionJob =
     "fixture/StartTranscriptionJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartTranscriptionJob)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateCallAnalyticsCategory :: UpdateCallAnalyticsCategoryResponse -> TestTree
+responseUpdateCallAnalyticsCategory =
+  res
+    "UpdateCallAnalyticsCategoryResponse"
+    "fixture/UpdateCallAnalyticsCategoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateCallAnalyticsCategory)
+
+responseUpdateMedicalVocabulary :: UpdateMedicalVocabularyResponse -> TestTree
+responseUpdateMedicalVocabulary =
+  res
+    "UpdateMedicalVocabularyResponse"
+    "fixture/UpdateMedicalVocabularyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateMedicalVocabulary)
+
+responseUpdateVocabulary :: UpdateVocabularyResponse -> TestTree
+responseUpdateVocabulary =
+  res
+    "UpdateVocabularyResponse"
+    "fixture/UpdateVocabularyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVocabulary)
+
+responseUpdateVocabularyFilter :: UpdateVocabularyFilterResponse -> TestTree
+responseUpdateVocabularyFilter =
+  res
+    "UpdateVocabularyFilterResponse"
+    "fixture/UpdateVocabularyFilterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVocabularyFilter)

@@ -28,19 +28,19 @@ module Amazonka.Transcribe.ListVocabularies
     newListVocabularies,
 
     -- * Request Lenses
-    listVocabularies_nameContains,
     listVocabularies_nextToken,
-    listVocabularies_stateEquals,
+    listVocabularies_nameContains,
     listVocabularies_maxResults,
+    listVocabularies_stateEquals,
 
     -- * Destructuring the Response
     ListVocabulariesResponse (..),
     newListVocabulariesResponse,
 
     -- * Response Lenses
-    listVocabulariesResponse_vocabularies,
-    listVocabulariesResponse_status,
     listVocabulariesResponse_nextToken,
+    listVocabulariesResponse_status,
+    listVocabulariesResponse_vocabularies,
     listVocabulariesResponse_httpStatus,
   )
 where
@@ -54,22 +54,22 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newListVocabularies' smart constructor.
 data ListVocabularies = ListVocabularies'
-  { -- | When specified, the vocabularies returned in the list are limited to
+  { -- | If the result of the previous request to @ListVocabularies@ was
+    -- truncated, include the @NextToken@ to fetch the next set of jobs.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | When specified, the vocabularies returned in the list are limited to
     -- vocabularies whose name contains the specified string. The search is not
     -- case sensitive, @ListVocabularies@ returns both \"vocabularyname\" and
     -- \"VocabularyName\" in the response list.
     nameContains :: Prelude.Maybe Prelude.Text,
-    -- | If the result of the previous request to @ListVocabularies@ was
-    -- truncated, include the @NextToken@ to fetch the next set of jobs.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | When specified, only returns vocabularies with the @VocabularyState@
-    -- field equal to the specified state.
-    stateEquals :: Prelude.Maybe VocabularyState,
     -- | The maximum number of vocabularies to return in each page of results. If
     -- there are fewer results than the value you specify, only the actual
     -- results are returned. If you do not specify a value, the default of 5 is
     -- used.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When specified, only returns vocabularies with the @VocabularyState@
+    -- field equal to the specified state.
+    stateEquals :: Prelude.Maybe VocabularyState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,30 +81,35 @@ data ListVocabularies = ListVocabularies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listVocabularies_nextToken' - If the result of the previous request to @ListVocabularies@ was
+-- truncated, include the @NextToken@ to fetch the next set of jobs.
+--
 -- 'nameContains', 'listVocabularies_nameContains' - When specified, the vocabularies returned in the list are limited to
 -- vocabularies whose name contains the specified string. The search is not
 -- case sensitive, @ListVocabularies@ returns both \"vocabularyname\" and
 -- \"VocabularyName\" in the response list.
 --
--- 'nextToken', 'listVocabularies_nextToken' - If the result of the previous request to @ListVocabularies@ was
--- truncated, include the @NextToken@ to fetch the next set of jobs.
---
--- 'stateEquals', 'listVocabularies_stateEquals' - When specified, only returns vocabularies with the @VocabularyState@
--- field equal to the specified state.
---
 -- 'maxResults', 'listVocabularies_maxResults' - The maximum number of vocabularies to return in each page of results. If
 -- there are fewer results than the value you specify, only the actual
 -- results are returned. If you do not specify a value, the default of 5 is
 -- used.
+--
+-- 'stateEquals', 'listVocabularies_stateEquals' - When specified, only returns vocabularies with the @VocabularyState@
+-- field equal to the specified state.
 newListVocabularies ::
   ListVocabularies
 newListVocabularies =
   ListVocabularies'
-    { nameContains = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      stateEquals = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      stateEquals = Prelude.Nothing
     }
+
+-- | If the result of the previous request to @ListVocabularies@ was
+-- truncated, include the @NextToken@ to fetch the next set of jobs.
+listVocabularies_nextToken :: Lens.Lens' ListVocabularies (Prelude.Maybe Prelude.Text)
+listVocabularies_nextToken = Lens.lens (\ListVocabularies' {nextToken} -> nextToken) (\s@ListVocabularies' {} a -> s {nextToken = a} :: ListVocabularies)
 
 -- | When specified, the vocabularies returned in the list are limited to
 -- vocabularies whose name contains the specified string. The search is not
@@ -113,22 +118,17 @@ newListVocabularies =
 listVocabularies_nameContains :: Lens.Lens' ListVocabularies (Prelude.Maybe Prelude.Text)
 listVocabularies_nameContains = Lens.lens (\ListVocabularies' {nameContains} -> nameContains) (\s@ListVocabularies' {} a -> s {nameContains = a} :: ListVocabularies)
 
--- | If the result of the previous request to @ListVocabularies@ was
--- truncated, include the @NextToken@ to fetch the next set of jobs.
-listVocabularies_nextToken :: Lens.Lens' ListVocabularies (Prelude.Maybe Prelude.Text)
-listVocabularies_nextToken = Lens.lens (\ListVocabularies' {nextToken} -> nextToken) (\s@ListVocabularies' {} a -> s {nextToken = a} :: ListVocabularies)
-
--- | When specified, only returns vocabularies with the @VocabularyState@
--- field equal to the specified state.
-listVocabularies_stateEquals :: Lens.Lens' ListVocabularies (Prelude.Maybe VocabularyState)
-listVocabularies_stateEquals = Lens.lens (\ListVocabularies' {stateEquals} -> stateEquals) (\s@ListVocabularies' {} a -> s {stateEquals = a} :: ListVocabularies)
-
 -- | The maximum number of vocabularies to return in each page of results. If
 -- there are fewer results than the value you specify, only the actual
 -- results are returned. If you do not specify a value, the default of 5 is
 -- used.
 listVocabularies_maxResults :: Lens.Lens' ListVocabularies (Prelude.Maybe Prelude.Natural)
 listVocabularies_maxResults = Lens.lens (\ListVocabularies' {maxResults} -> maxResults) (\s@ListVocabularies' {} a -> s {maxResults = a} :: ListVocabularies)
+
+-- | When specified, only returns vocabularies with the @VocabularyState@
+-- field equal to the specified state.
+listVocabularies_stateEquals :: Lens.Lens' ListVocabularies (Prelude.Maybe VocabularyState)
+listVocabularies_stateEquals = Lens.lens (\ListVocabularies' {stateEquals} -> stateEquals) (\s@ListVocabularies' {} a -> s {stateEquals = a} :: ListVocabularies)
 
 instance Core.AWSRequest ListVocabularies where
   type
@@ -139,25 +139,25 @@ instance Core.AWSRequest ListVocabularies where
     Response.receiveJSON
       ( \s h x ->
           ListVocabulariesResponse'
-            Prelude.<$> (x Core..?> "Vocabularies" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Vocabularies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListVocabularies where
   hashWithSalt _salt ListVocabularies' {..} =
-    _salt `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` stateEquals
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` nameContains
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` stateEquals
 
 instance Prelude.NFData ListVocabularies where
   rnf ListVocabularies' {..} =
-    Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stateEquals
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf nameContains
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf stateEquals
 
 instance Core.ToHeaders ListVocabularies where
   toHeaders =
@@ -178,10 +178,10 @@ instance Core.ToJSON ListVocabularies where
   toJSON ListVocabularies' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("StateEquals" Core..=) Prelude.<$> stateEquals,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("StateEquals" Core..=) Prelude.<$> stateEquals
           ]
       )
 
@@ -193,18 +193,18 @@ instance Core.ToQuery ListVocabularies where
 
 -- | /See:/ 'newListVocabulariesResponse' smart constructor.
 data ListVocabulariesResponse = ListVocabulariesResponse'
-  { -- | A list of objects that describe the vocabularies that match the search
-    -- criteria in the request.
-    vocabularies :: Prelude.Maybe [VocabularyInfo],
-    -- | The requested vocabulary state.
-    status :: Prelude.Maybe VocabularyState,
-    -- | The @ListVocabularies@ operation returns a page of vocabularies at a
+  { -- | The @ListVocabularies@ operation returns a page of vocabularies at a
     -- time. The maximum size of the page is set in the @MaxResults@ parameter.
     -- If there are more jobs in the list than will fit on the page, Amazon
     -- Transcribe returns the @NextPage@ token. To return in the next page of
     -- jobs, include the token in the next request to the @ListVocabularies@
     -- operation.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The requested vocabulary state.
+    status :: Prelude.Maybe VocabularyState,
+    -- | A list of objects that describe the vocabularies that match the search
+    -- criteria in the request.
+    vocabularies :: Prelude.Maybe [VocabularyInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,17 +218,17 @@ data ListVocabulariesResponse = ListVocabulariesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vocabularies', 'listVocabulariesResponse_vocabularies' - A list of objects that describe the vocabularies that match the search
--- criteria in the request.
---
--- 'status', 'listVocabulariesResponse_status' - The requested vocabulary state.
---
 -- 'nextToken', 'listVocabulariesResponse_nextToken' - The @ListVocabularies@ operation returns a page of vocabularies at a
 -- time. The maximum size of the page is set in the @MaxResults@ parameter.
 -- If there are more jobs in the list than will fit on the page, Amazon
 -- Transcribe returns the @NextPage@ token. To return in the next page of
 -- jobs, include the token in the next request to the @ListVocabularies@
 -- operation.
+--
+-- 'status', 'listVocabulariesResponse_status' - The requested vocabulary state.
+--
+-- 'vocabularies', 'listVocabulariesResponse_vocabularies' - A list of objects that describe the vocabularies that match the search
+-- criteria in the request.
 --
 -- 'httpStatus', 'listVocabulariesResponse_httpStatus' - The response's http status code.
 newListVocabulariesResponse ::
@@ -237,21 +237,12 @@ newListVocabulariesResponse ::
   ListVocabulariesResponse
 newListVocabulariesResponse pHttpStatus_ =
   ListVocabulariesResponse'
-    { vocabularies =
+    { nextToken =
         Prelude.Nothing,
       status = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      vocabularies = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of objects that describe the vocabularies that match the search
--- criteria in the request.
-listVocabulariesResponse_vocabularies :: Lens.Lens' ListVocabulariesResponse (Prelude.Maybe [VocabularyInfo])
-listVocabulariesResponse_vocabularies = Lens.lens (\ListVocabulariesResponse' {vocabularies} -> vocabularies) (\s@ListVocabulariesResponse' {} a -> s {vocabularies = a} :: ListVocabulariesResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The requested vocabulary state.
-listVocabulariesResponse_status :: Lens.Lens' ListVocabulariesResponse (Prelude.Maybe VocabularyState)
-listVocabulariesResponse_status = Lens.lens (\ListVocabulariesResponse' {status} -> status) (\s@ListVocabulariesResponse' {} a -> s {status = a} :: ListVocabulariesResponse)
 
 -- | The @ListVocabularies@ operation returns a page of vocabularies at a
 -- time. The maximum size of the page is set in the @MaxResults@ parameter.
@@ -262,13 +253,22 @@ listVocabulariesResponse_status = Lens.lens (\ListVocabulariesResponse' {status}
 listVocabulariesResponse_nextToken :: Lens.Lens' ListVocabulariesResponse (Prelude.Maybe Prelude.Text)
 listVocabulariesResponse_nextToken = Lens.lens (\ListVocabulariesResponse' {nextToken} -> nextToken) (\s@ListVocabulariesResponse' {} a -> s {nextToken = a} :: ListVocabulariesResponse)
 
+-- | The requested vocabulary state.
+listVocabulariesResponse_status :: Lens.Lens' ListVocabulariesResponse (Prelude.Maybe VocabularyState)
+listVocabulariesResponse_status = Lens.lens (\ListVocabulariesResponse' {status} -> status) (\s@ListVocabulariesResponse' {} a -> s {status = a} :: ListVocabulariesResponse)
+
+-- | A list of objects that describe the vocabularies that match the search
+-- criteria in the request.
+listVocabulariesResponse_vocabularies :: Lens.Lens' ListVocabulariesResponse (Prelude.Maybe [VocabularyInfo])
+listVocabulariesResponse_vocabularies = Lens.lens (\ListVocabulariesResponse' {vocabularies} -> vocabularies) (\s@ListVocabulariesResponse' {} a -> s {vocabularies = a} :: ListVocabulariesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listVocabulariesResponse_httpStatus :: Lens.Lens' ListVocabulariesResponse Prelude.Int
 listVocabulariesResponse_httpStatus = Lens.lens (\ListVocabulariesResponse' {httpStatus} -> httpStatus) (\s@ListVocabulariesResponse' {} a -> s {httpStatus = a} :: ListVocabulariesResponse)
 
 instance Prelude.NFData ListVocabulariesResponse where
   rnf ListVocabulariesResponse' {..} =
-    Prelude.rnf vocabularies
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf vocabularies
       `Prelude.seq` Prelude.rnf httpStatus

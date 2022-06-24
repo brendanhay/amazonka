@@ -31,12 +31,12 @@ data CreateExperimentTemplateActionInput = CreateExperimentTemplateActionInput'
     -- starts. Omit this parameter to run the action at the start of the
     -- experiment.
     startAfter :: Prelude.Maybe [Prelude.Text],
-    -- | The parameters for the action, if applicable.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The targets for the action.
     targets :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A description for the action.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The parameters for the action, if applicable.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the action.
     actionId :: Prelude.Text
   }
@@ -54,11 +54,11 @@ data CreateExperimentTemplateActionInput = CreateExperimentTemplateActionInput'
 -- starts. Omit this parameter to run the action at the start of the
 -- experiment.
 --
--- 'parameters', 'createExperimentTemplateActionInput_parameters' - The parameters for the action, if applicable.
---
 -- 'targets', 'createExperimentTemplateActionInput_targets' - The targets for the action.
 --
 -- 'description', 'createExperimentTemplateActionInput_description' - A description for the action.
+--
+-- 'parameters', 'createExperimentTemplateActionInput_parameters' - The parameters for the action, if applicable.
 --
 -- 'actionId', 'createExperimentTemplateActionInput_actionId' - The ID of the action.
 newCreateExperimentTemplateActionInput ::
@@ -69,9 +69,9 @@ newCreateExperimentTemplateActionInput pActionId_ =
   CreateExperimentTemplateActionInput'
     { startAfter =
         Prelude.Nothing,
-      parameters = Prelude.Nothing,
       targets = Prelude.Nothing,
       description = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       actionId = pActionId_
     }
 
@@ -81,10 +81,6 @@ newCreateExperimentTemplateActionInput pActionId_ =
 createExperimentTemplateActionInput_startAfter :: Lens.Lens' CreateExperimentTemplateActionInput (Prelude.Maybe [Prelude.Text])
 createExperimentTemplateActionInput_startAfter = Lens.lens (\CreateExperimentTemplateActionInput' {startAfter} -> startAfter) (\s@CreateExperimentTemplateActionInput' {} a -> s {startAfter = a} :: CreateExperimentTemplateActionInput) Prelude.. Lens.mapping Lens.coerced
 
--- | The parameters for the action, if applicable.
-createExperimentTemplateActionInput_parameters :: Lens.Lens' CreateExperimentTemplateActionInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createExperimentTemplateActionInput_parameters = Lens.lens (\CreateExperimentTemplateActionInput' {parameters} -> parameters) (\s@CreateExperimentTemplateActionInput' {} a -> s {parameters = a} :: CreateExperimentTemplateActionInput) Prelude.. Lens.mapping Lens.coerced
-
 -- | The targets for the action.
 createExperimentTemplateActionInput_targets :: Lens.Lens' CreateExperimentTemplateActionInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createExperimentTemplateActionInput_targets = Lens.lens (\CreateExperimentTemplateActionInput' {targets} -> targets) (\s@CreateExperimentTemplateActionInput' {} a -> s {targets = a} :: CreateExperimentTemplateActionInput) Prelude.. Lens.mapping Lens.coerced
@@ -92,6 +88,10 @@ createExperimentTemplateActionInput_targets = Lens.lens (\CreateExperimentTempla
 -- | A description for the action.
 createExperimentTemplateActionInput_description :: Lens.Lens' CreateExperimentTemplateActionInput (Prelude.Maybe Prelude.Text)
 createExperimentTemplateActionInput_description = Lens.lens (\CreateExperimentTemplateActionInput' {description} -> description) (\s@CreateExperimentTemplateActionInput' {} a -> s {description = a} :: CreateExperimentTemplateActionInput)
+
+-- | The parameters for the action, if applicable.
+createExperimentTemplateActionInput_parameters :: Lens.Lens' CreateExperimentTemplateActionInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createExperimentTemplateActionInput_parameters = Lens.lens (\CreateExperimentTemplateActionInput' {parameters} -> parameters) (\s@CreateExperimentTemplateActionInput' {} a -> s {parameters = a} :: CreateExperimentTemplateActionInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the action.
 createExperimentTemplateActionInput_actionId :: Lens.Lens' CreateExperimentTemplateActionInput Prelude.Text
@@ -105,9 +105,9 @@ instance
     _salt
     CreateExperimentTemplateActionInput' {..} =
       _salt `Prelude.hashWithSalt` startAfter
-        `Prelude.hashWithSalt` parameters
         `Prelude.hashWithSalt` targets
         `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` parameters
         `Prelude.hashWithSalt` actionId
 
 instance
@@ -116,9 +116,9 @@ instance
   where
   rnf CreateExperimentTemplateActionInput' {..} =
     Prelude.rnf startAfter
-      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf actionId
 
 instance
@@ -129,9 +129,9 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("startAfter" Core..=) Prelude.<$> startAfter,
-            ("parameters" Core..=) Prelude.<$> parameters,
             ("targets" Core..=) Prelude.<$> targets,
             ("description" Core..=) Prelude.<$> description,
+            ("parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just ("actionId" Core..= actionId)
           ]
       )

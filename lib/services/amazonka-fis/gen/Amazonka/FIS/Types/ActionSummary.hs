@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActionSummary' smart constructor.
 data ActionSummary = ActionSummary'
-  { -- | The targets for the action.
+  { -- | The tags for the action.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The targets for the action.
     targets :: Prelude.Maybe (Prelude.HashMap Prelude.Text ActionTarget),
-    -- | The ID of the action.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The description for the action.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The tags for the action.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    -- | The ID of the action.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,38 +47,38 @@ data ActionSummary = ActionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targets', 'actionSummary_targets' - The targets for the action.
+-- 'tags', 'actionSummary_tags' - The tags for the action.
 --
--- 'id', 'actionSummary_id' - The ID of the action.
+-- 'targets', 'actionSummary_targets' - The targets for the action.
 --
 -- 'description', 'actionSummary_description' - The description for the action.
 --
--- 'tags', 'actionSummary_tags' - The tags for the action.
+-- 'id', 'actionSummary_id' - The ID of the action.
 newActionSummary ::
   ActionSummary
 newActionSummary =
   ActionSummary'
-    { targets = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      targets = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing
+      id = Prelude.Nothing
     }
+
+-- | The tags for the action.
+actionSummary_tags :: Lens.Lens' ActionSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+actionSummary_tags = Lens.lens (\ActionSummary' {tags} -> tags) (\s@ActionSummary' {} a -> s {tags = a} :: ActionSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The targets for the action.
 actionSummary_targets :: Lens.Lens' ActionSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text ActionTarget))
 actionSummary_targets = Lens.lens (\ActionSummary' {targets} -> targets) (\s@ActionSummary' {} a -> s {targets = a} :: ActionSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the action.
-actionSummary_id :: Lens.Lens' ActionSummary (Prelude.Maybe Prelude.Text)
-actionSummary_id = Lens.lens (\ActionSummary' {id} -> id) (\s@ActionSummary' {} a -> s {id = a} :: ActionSummary)
-
 -- | The description for the action.
 actionSummary_description :: Lens.Lens' ActionSummary (Prelude.Maybe Prelude.Text)
 actionSummary_description = Lens.lens (\ActionSummary' {description} -> description) (\s@ActionSummary' {} a -> s {description = a} :: ActionSummary)
 
--- | The tags for the action.
-actionSummary_tags :: Lens.Lens' ActionSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-actionSummary_tags = Lens.lens (\ActionSummary' {tags} -> tags) (\s@ActionSummary' {} a -> s {tags = a} :: ActionSummary) Prelude.. Lens.mapping Lens.coerced
+-- | The ID of the action.
+actionSummary_id :: Lens.Lens' ActionSummary (Prelude.Maybe Prelude.Text)
+actionSummary_id = Lens.lens (\ActionSummary' {id} -> id) (\s@ActionSummary' {} a -> s {id = a} :: ActionSummary)
 
 instance Core.FromJSON ActionSummary where
   parseJSON =
@@ -86,22 +86,22 @@ instance Core.FromJSON ActionSummary where
       "ActionSummary"
       ( \x ->
           ActionSummary'
-            Prelude.<$> (x Core..:? "targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "targets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "id")
       )
 
 instance Prelude.Hashable ActionSummary where
   hashWithSalt _salt ActionSummary' {..} =
-    _salt `Prelude.hashWithSalt` targets
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ActionSummary where
   rnf ActionSummary' {..} =
-    Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf id

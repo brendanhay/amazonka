@@ -35,8 +35,8 @@ module Amazonka.FIS.ListActions
     newListActionsResponse,
 
     -- * Response Lenses
-    listActionsResponse_actions,
     listActionsResponse_nextToken,
+    listActionsResponse_actions,
     listActionsResponse_httpStatus,
   )
 where
@@ -97,8 +97,8 @@ instance Core.AWSRequest ListActions where
     Response.receiveJSON
       ( \s h x ->
           ListActionsResponse'
-            Prelude.<$> (x Core..?> "actions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "actions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,11 +135,11 @@ instance Core.ToQuery ListActions where
 
 -- | /See:/ 'newListActionsResponse' smart constructor.
 data ListActionsResponse = ListActionsResponse'
-  { -- | The actions.
-    actions :: Prelude.Maybe [ActionSummary],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The actions.
+    actions :: Prelude.Maybe [ActionSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,10 +153,10 @@ data ListActionsResponse = ListActionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actions', 'listActionsResponse_actions' - The actions.
---
 -- 'nextToken', 'listActionsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'actions', 'listActionsResponse_actions' - The actions.
 --
 -- 'httpStatus', 'listActionsResponse_httpStatus' - The response's http status code.
 newListActionsResponse ::
@@ -165,19 +165,19 @@ newListActionsResponse ::
   ListActionsResponse
 newListActionsResponse pHttpStatus_ =
   ListActionsResponse'
-    { actions = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      actions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The actions.
-listActionsResponse_actions :: Lens.Lens' ListActionsResponse (Prelude.Maybe [ActionSummary])
-listActionsResponse_actions = Lens.lens (\ListActionsResponse' {actions} -> actions) (\s@ListActionsResponse' {} a -> s {actions = a} :: ListActionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 listActionsResponse_nextToken :: Lens.Lens' ListActionsResponse (Prelude.Maybe Prelude.Text)
 listActionsResponse_nextToken = Lens.lens (\ListActionsResponse' {nextToken} -> nextToken) (\s@ListActionsResponse' {} a -> s {nextToken = a} :: ListActionsResponse)
+
+-- | The actions.
+listActionsResponse_actions :: Lens.Lens' ListActionsResponse (Prelude.Maybe [ActionSummary])
+listActionsResponse_actions = Lens.lens (\ListActionsResponse' {actions} -> actions) (\s@ListActionsResponse' {} a -> s {actions = a} :: ListActionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listActionsResponse_httpStatus :: Lens.Lens' ListActionsResponse Prelude.Int
@@ -185,6 +185,6 @@ listActionsResponse_httpStatus = Lens.lens (\ListActionsResponse' {httpStatus} -
 
 instance Prelude.NFData ListActionsResponse where
   rnf ListActionsResponse' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf httpStatus

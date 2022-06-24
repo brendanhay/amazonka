@@ -27,11 +27,11 @@ module Amazonka.FIS.UpdateExperimentTemplate
     newUpdateExperimentTemplate,
 
     -- * Request Lenses
-    updateExperimentTemplate_actions,
     updateExperimentTemplate_stopConditions,
+    updateExperimentTemplate_roleArn,
     updateExperimentTemplate_targets,
     updateExperimentTemplate_description,
-    updateExperimentTemplate_roleArn,
+    updateExperimentTemplate_actions,
     updateExperimentTemplate_id,
 
     -- * Destructuring the Response
@@ -53,17 +53,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateExperimentTemplate' smart constructor.
 data UpdateExperimentTemplate = UpdateExperimentTemplate'
-  { -- | The actions for the experiment.
-    actions :: Prelude.Maybe (Prelude.HashMap Prelude.Text UpdateExperimentTemplateActionInputItem),
-    -- | The stop conditions for the experiment.
+  { -- | The stop conditions for the experiment.
     stopConditions :: Prelude.Maybe [UpdateExperimentTemplateStopConditionInput],
+    -- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
+    -- service permission to perform service actions on your behalf.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The targets for the experiment.
     targets :: Prelude.Maybe (Prelude.HashMap Prelude.Text UpdateExperimentTemplateTargetInput),
     -- | A description for the template.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
-    -- service permission to perform service actions on your behalf.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The actions for the experiment.
+    actions :: Prelude.Maybe (Prelude.HashMap Prelude.Text UpdateExperimentTemplateActionInputItem),
     -- | The ID of the experiment template.
     id :: Prelude.Text
   }
@@ -77,16 +77,16 @@ data UpdateExperimentTemplate = UpdateExperimentTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actions', 'updateExperimentTemplate_actions' - The actions for the experiment.
---
 -- 'stopConditions', 'updateExperimentTemplate_stopConditions' - The stop conditions for the experiment.
+--
+-- 'roleArn', 'updateExperimentTemplate_roleArn' - The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
+-- service permission to perform service actions on your behalf.
 --
 -- 'targets', 'updateExperimentTemplate_targets' - The targets for the experiment.
 --
 -- 'description', 'updateExperimentTemplate_description' - A description for the template.
 --
--- 'roleArn', 'updateExperimentTemplate_roleArn' - The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
--- service permission to perform service actions on your behalf.
+-- 'actions', 'updateExperimentTemplate_actions' - The actions for the experiment.
 --
 -- 'id', 'updateExperimentTemplate_id' - The ID of the experiment template.
 newUpdateExperimentTemplate ::
@@ -95,22 +95,23 @@ newUpdateExperimentTemplate ::
   UpdateExperimentTemplate
 newUpdateExperimentTemplate pId_ =
   UpdateExperimentTemplate'
-    { actions =
+    { stopConditions =
         Prelude.Nothing,
-      stopConditions = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       targets = Prelude.Nothing,
       description = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+      actions = Prelude.Nothing,
       id = pId_
     }
-
--- | The actions for the experiment.
-updateExperimentTemplate_actions :: Lens.Lens' UpdateExperimentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text UpdateExperimentTemplateActionInputItem))
-updateExperimentTemplate_actions = Lens.lens (\UpdateExperimentTemplate' {actions} -> actions) (\s@UpdateExperimentTemplate' {} a -> s {actions = a} :: UpdateExperimentTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The stop conditions for the experiment.
 updateExperimentTemplate_stopConditions :: Lens.Lens' UpdateExperimentTemplate (Prelude.Maybe [UpdateExperimentTemplateStopConditionInput])
 updateExperimentTemplate_stopConditions = Lens.lens (\UpdateExperimentTemplate' {stopConditions} -> stopConditions) (\s@UpdateExperimentTemplate' {} a -> s {stopConditions = a} :: UpdateExperimentTemplate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
+-- service permission to perform service actions on your behalf.
+updateExperimentTemplate_roleArn :: Lens.Lens' UpdateExperimentTemplate (Prelude.Maybe Prelude.Text)
+updateExperimentTemplate_roleArn = Lens.lens (\UpdateExperimentTemplate' {roleArn} -> roleArn) (\s@UpdateExperimentTemplate' {} a -> s {roleArn = a} :: UpdateExperimentTemplate)
 
 -- | The targets for the experiment.
 updateExperimentTemplate_targets :: Lens.Lens' UpdateExperimentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text UpdateExperimentTemplateTargetInput))
@@ -120,10 +121,9 @@ updateExperimentTemplate_targets = Lens.lens (\UpdateExperimentTemplate' {target
 updateExperimentTemplate_description :: Lens.Lens' UpdateExperimentTemplate (Prelude.Maybe Prelude.Text)
 updateExperimentTemplate_description = Lens.lens (\UpdateExperimentTemplate' {description} -> description) (\s@UpdateExperimentTemplate' {} a -> s {description = a} :: UpdateExperimentTemplate)
 
--- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
--- service permission to perform service actions on your behalf.
-updateExperimentTemplate_roleArn :: Lens.Lens' UpdateExperimentTemplate (Prelude.Maybe Prelude.Text)
-updateExperimentTemplate_roleArn = Lens.lens (\UpdateExperimentTemplate' {roleArn} -> roleArn) (\s@UpdateExperimentTemplate' {} a -> s {roleArn = a} :: UpdateExperimentTemplate)
+-- | The actions for the experiment.
+updateExperimentTemplate_actions :: Lens.Lens' UpdateExperimentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text UpdateExperimentTemplateActionInputItem))
+updateExperimentTemplate_actions = Lens.lens (\UpdateExperimentTemplate' {actions} -> actions) (\s@UpdateExperimentTemplate' {} a -> s {actions = a} :: UpdateExperimentTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the experiment template.
 updateExperimentTemplate_id :: Lens.Lens' UpdateExperimentTemplate Prelude.Text
@@ -144,20 +144,20 @@ instance Core.AWSRequest UpdateExperimentTemplate where
 
 instance Prelude.Hashable UpdateExperimentTemplate where
   hashWithSalt _salt UpdateExperimentTemplate' {..} =
-    _salt `Prelude.hashWithSalt` actions
-      `Prelude.hashWithSalt` stopConditions
+    _salt `Prelude.hashWithSalt` stopConditions
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateExperimentTemplate where
   rnf UpdateExperimentTemplate' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf stopConditions
+    Prelude.rnf stopConditions
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders UpdateExperimentTemplate where
@@ -175,12 +175,12 @@ instance Core.ToJSON UpdateExperimentTemplate where
   toJSON UpdateExperimentTemplate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("actions" Core..=) Prelude.<$> actions,
-            ("stopConditions" Core..=)
+          [ ("stopConditions" Core..=)
               Prelude.<$> stopConditions,
+            ("roleArn" Core..=) Prelude.<$> roleArn,
             ("targets" Core..=) Prelude.<$> targets,
             ("description" Core..=) Prelude.<$> description,
-            ("roleArn" Core..=) Prelude.<$> roleArn
+            ("actions" Core..=) Prelude.<$> actions
           ]
       )
 

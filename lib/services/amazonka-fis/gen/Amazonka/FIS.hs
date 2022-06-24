@@ -22,23 +22,47 @@ module Amazonka.FIS
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ValidationException
+    _ValidationException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** CreateExperimentTemplate
+    CreateExperimentTemplate (CreateExperimentTemplate'),
+    newCreateExperimentTemplate,
+    CreateExperimentTemplateResponse (CreateExperimentTemplateResponse'),
+    newCreateExperimentTemplateResponse,
+
+    -- ** DeleteExperimentTemplate
+    DeleteExperimentTemplate (DeleteExperimentTemplate'),
+    newDeleteExperimentTemplate,
+    DeleteExperimentTemplateResponse (DeleteExperimentTemplateResponse'),
+    newDeleteExperimentTemplateResponse,
+
+    -- ** GetAction
+    GetAction (GetAction'),
+    newGetAction,
+    GetActionResponse (GetActionResponse'),
+    newGetActionResponse,
+
+    -- ** GetExperiment
+    GetExperiment (GetExperiment'),
+    newGetExperiment,
+    GetExperimentResponse (GetExperimentResponse'),
+    newGetExperimentResponse,
 
     -- ** GetExperimentTemplate
     GetExperimentTemplate (GetExperimentTemplate'),
@@ -52,17 +76,11 @@ module Amazonka.FIS
     ListActionsResponse (ListActionsResponse'),
     newListActionsResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** CreateExperimentTemplate
-    CreateExperimentTemplate (CreateExperimentTemplate'),
-    newCreateExperimentTemplate,
-    CreateExperimentTemplateResponse (CreateExperimentTemplateResponse'),
-    newCreateExperimentTemplateResponse,
+    -- ** ListExperimentTemplates
+    ListExperimentTemplates (ListExperimentTemplates'),
+    newListExperimentTemplates,
+    ListExperimentTemplatesResponse (ListExperimentTemplatesResponse'),
+    newListExperimentTemplatesResponse,
 
     -- ** ListExperiments
     ListExperiments (ListExperiments'),
@@ -70,23 +88,11 @@ module Amazonka.FIS
     ListExperimentsResponse (ListExperimentsResponse'),
     newListExperimentsResponse,
 
-    -- ** UpdateExperimentTemplate
-    UpdateExperimentTemplate (UpdateExperimentTemplate'),
-    newUpdateExperimentTemplate,
-    UpdateExperimentTemplateResponse (UpdateExperimentTemplateResponse'),
-    newUpdateExperimentTemplateResponse,
-
-    -- ** GetAction
-    GetAction (GetAction'),
-    newGetAction,
-    GetActionResponse (GetActionResponse'),
-    newGetActionResponse,
-
-    -- ** DeleteExperimentTemplate
-    DeleteExperimentTemplate (DeleteExperimentTemplate'),
-    newDeleteExperimentTemplate,
-    DeleteExperimentTemplateResponse (DeleteExperimentTemplateResponse'),
-    newDeleteExperimentTemplateResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** StartExperiment
     StartExperiment (StartExperiment'),
@@ -94,17 +100,11 @@ module Amazonka.FIS
     StartExperimentResponse (StartExperimentResponse'),
     newStartExperimentResponse,
 
-    -- ** GetExperiment
-    GetExperiment (GetExperiment'),
-    newGetExperiment,
-    GetExperimentResponse (GetExperimentResponse'),
-    newGetExperimentResponse,
-
-    -- ** ListExperimentTemplates
-    ListExperimentTemplates (ListExperimentTemplates'),
-    newListExperimentTemplates,
-    ListExperimentTemplatesResponse (ListExperimentTemplatesResponse'),
-    newListExperimentTemplatesResponse,
+    -- ** StopExperiment
+    StopExperiment (StopExperiment'),
+    newStopExperiment,
+    StopExperimentResponse (StopExperimentResponse'),
+    newStopExperimentResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -118,11 +118,11 @@ module Amazonka.FIS
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** StopExperiment
-    StopExperiment (StopExperiment'),
-    newStopExperiment,
-    StopExperimentResponse (StopExperimentResponse'),
-    newStopExperimentResponse,
+    -- ** UpdateExperimentTemplate
+    UpdateExperimentTemplate (UpdateExperimentTemplate'),
+    newUpdateExperimentTemplate,
+    UpdateExperimentTemplateResponse (UpdateExperimentTemplateResponse'),
+    newUpdateExperimentTemplateResponse,
 
     -- * Types
 

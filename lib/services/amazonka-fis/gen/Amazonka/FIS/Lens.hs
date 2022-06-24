@@ -14,26 +14,9 @@
 module Amazonka.FIS.Lens
   ( -- * Operations
 
-    -- ** GetExperimentTemplate
-    getExperimentTemplate_id,
-    getExperimentTemplateResponse_experimentTemplate,
-    getExperimentTemplateResponse_httpStatus,
-
-    -- ** ListActions
-    listActions_nextToken,
-    listActions_maxResults,
-    listActionsResponse_actions,
-    listActionsResponse_nextToken,
-    listActionsResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
     -- ** CreateExperimentTemplate
-    createExperimentTemplate_targets,
     createExperimentTemplate_tags,
+    createExperimentTemplate_targets,
     createExperimentTemplate_clientToken,
     createExperimentTemplate_description,
     createExperimentTemplate_stopConditions,
@@ -42,6 +25,40 @@ module Amazonka.FIS.Lens
     createExperimentTemplateResponse_experimentTemplate,
     createExperimentTemplateResponse_httpStatus,
 
+    -- ** DeleteExperimentTemplate
+    deleteExperimentTemplate_id,
+    deleteExperimentTemplateResponse_experimentTemplate,
+    deleteExperimentTemplateResponse_httpStatus,
+
+    -- ** GetAction
+    getAction_id,
+    getActionResponse_action,
+    getActionResponse_httpStatus,
+
+    -- ** GetExperiment
+    getExperiment_id,
+    getExperimentResponse_experiment,
+    getExperimentResponse_httpStatus,
+
+    -- ** GetExperimentTemplate
+    getExperimentTemplate_id,
+    getExperimentTemplateResponse_experimentTemplate,
+    getExperimentTemplateResponse_httpStatus,
+
+    -- ** ListActions
+    listActions_nextToken,
+    listActions_maxResults,
+    listActionsResponse_nextToken,
+    listActionsResponse_actions,
+    listActionsResponse_httpStatus,
+
+    -- ** ListExperimentTemplates
+    listExperimentTemplates_nextToken,
+    listExperimentTemplates_maxResults,
+    listExperimentTemplatesResponse_experimentTemplates,
+    listExperimentTemplatesResponse_nextToken,
+    listExperimentTemplatesResponse_httpStatus,
+
     -- ** ListExperiments
     listExperiments_nextToken,
     listExperiments_maxResults,
@@ -49,25 +66,10 @@ module Amazonka.FIS.Lens
     listExperimentsResponse_nextToken,
     listExperimentsResponse_httpStatus,
 
-    -- ** UpdateExperimentTemplate
-    updateExperimentTemplate_actions,
-    updateExperimentTemplate_stopConditions,
-    updateExperimentTemplate_targets,
-    updateExperimentTemplate_description,
-    updateExperimentTemplate_roleArn,
-    updateExperimentTemplate_id,
-    updateExperimentTemplateResponse_experimentTemplate,
-    updateExperimentTemplateResponse_httpStatus,
-
-    -- ** GetAction
-    getAction_id,
-    getActionResponse_action,
-    getActionResponse_httpStatus,
-
-    -- ** DeleteExperimentTemplate
-    deleteExperimentTemplate_id,
-    deleteExperimentTemplateResponse_experimentTemplate,
-    deleteExperimentTemplateResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** StartExperiment
     startExperiment_tags,
@@ -76,17 +78,10 @@ module Amazonka.FIS.Lens
     startExperimentResponse_experiment,
     startExperimentResponse_httpStatus,
 
-    -- ** GetExperiment
-    getExperiment_id,
-    getExperimentResponse_experiment,
-    getExperimentResponse_httpStatus,
-
-    -- ** ListExperimentTemplates
-    listExperimentTemplates_nextToken,
-    listExperimentTemplates_maxResults,
-    listExperimentTemplatesResponse_nextToken,
-    listExperimentTemplatesResponse_experimentTemplates,
-    listExperimentTemplatesResponse_httpStatus,
+    -- ** StopExperiment
+    stopExperiment_id,
+    stopExperimentResponse_experiment,
+    stopExperimentResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -98,38 +93,43 @@ module Amazonka.FIS.Lens
     untagResource_resourceArn,
     untagResourceResponse_httpStatus,
 
-    -- ** StopExperiment
-    stopExperiment_id,
-    stopExperimentResponse_experiment,
-    stopExperimentResponse_httpStatus,
+    -- ** UpdateExperimentTemplate
+    updateExperimentTemplate_stopConditions,
+    updateExperimentTemplate_roleArn,
+    updateExperimentTemplate_targets,
+    updateExperimentTemplate_description,
+    updateExperimentTemplate_actions,
+    updateExperimentTemplate_id,
+    updateExperimentTemplateResponse_experimentTemplate,
+    updateExperimentTemplateResponse_httpStatus,
 
     -- * Types
 
     -- ** Action
-    action_parameters,
-    action_targets,
-    action_id,
-    action_description,
     action_tags,
+    action_targets,
+    action_description,
+    action_id,
+    action_parameters,
 
     -- ** ActionParameter
     actionParameter_required,
     actionParameter_description,
 
     -- ** ActionSummary
-    actionSummary_targets,
-    actionSummary_id,
-    actionSummary_description,
     actionSummary_tags,
+    actionSummary_targets,
+    actionSummary_description,
+    actionSummary_id,
 
     -- ** ActionTarget
     actionTarget_resourceType,
 
     -- ** CreateExperimentTemplateActionInput
     createExperimentTemplateActionInput_startAfter,
-    createExperimentTemplateActionInput_parameters,
     createExperimentTemplateActionInput_targets,
     createExperimentTemplateActionInput_description,
+    createExperimentTemplateActionInput_parameters,
     createExperimentTemplateActionInput_actionId,
 
     -- ** CreateExperimentTemplateStopConditionInput
@@ -137,32 +137,32 @@ module Amazonka.FIS.Lens
     createExperimentTemplateStopConditionInput_source,
 
     -- ** CreateExperimentTemplateTargetInput
-    createExperimentTemplateTargetInput_resourceTags,
     createExperimentTemplateTargetInput_filters,
+    createExperimentTemplateTargetInput_resourceTags,
     createExperimentTemplateTargetInput_resourceArns,
     createExperimentTemplateTargetInput_resourceType,
     createExperimentTemplateTargetInput_selectionMode,
 
     -- ** Experiment
-    experiment_creationTime,
-    experiment_experimentTemplateId,
-    experiment_state,
-    experiment_actions,
-    experiment_startTime,
-    experiment_stopConditions,
-    experiment_endTime,
-    experiment_targets,
-    experiment_id,
     experiment_tags,
+    experiment_stopConditions,
     experiment_roleArn,
+    experiment_state,
+    experiment_targets,
+    experiment_endTime,
+    experiment_id,
+    experiment_experimentTemplateId,
+    experiment_creationTime,
+    experiment_startTime,
+    experiment_actions,
 
     -- ** ExperimentAction
     experimentAction_startAfter,
     experimentAction_state,
-    experimentAction_actionId,
-    experimentAction_parameters,
     experimentAction_targets,
     experimentAction_description,
+    experimentAction_actionId,
+    experimentAction_parameters,
 
     -- ** ExperimentActionState
     experimentActionState_status,
@@ -173,20 +173,20 @@ module Amazonka.FIS.Lens
     experimentState_reason,
 
     -- ** ExperimentStopCondition
-    experimentStopCondition_value,
     experimentStopCondition_source,
+    experimentStopCondition_value,
 
     -- ** ExperimentSummary
-    experimentSummary_creationTime,
-    experimentSummary_experimentTemplateId,
+    experimentSummary_tags,
     experimentSummary_state,
     experimentSummary_id,
-    experimentSummary_tags,
+    experimentSummary_experimentTemplateId,
+    experimentSummary_creationTime,
 
     -- ** ExperimentTarget
     experimentTarget_resourceType,
-    experimentTarget_resourceTags,
     experimentTarget_filters,
+    experimentTarget_resourceTags,
     experimentTarget_resourceArns,
     experimentTarget_selectionMode,
 
@@ -195,38 +195,38 @@ module Amazonka.FIS.Lens
     experimentTargetFilter_values,
 
     -- ** ExperimentTemplate
-    experimentTemplate_creationTime,
-    experimentTemplate_actions,
-    experimentTemplate_stopConditions,
-    experimentTemplate_targets,
-    experimentTemplate_id,
-    experimentTemplate_lastUpdateTime,
-    experimentTemplate_description,
     experimentTemplate_tags,
+    experimentTemplate_stopConditions,
     experimentTemplate_roleArn,
+    experimentTemplate_targets,
+    experimentTemplate_description,
+    experimentTemplate_id,
+    experimentTemplate_creationTime,
+    experimentTemplate_lastUpdateTime,
+    experimentTemplate_actions,
 
     -- ** ExperimentTemplateAction
     experimentTemplateAction_startAfter,
-    experimentTemplateAction_actionId,
-    experimentTemplateAction_parameters,
     experimentTemplateAction_targets,
     experimentTemplateAction_description,
+    experimentTemplateAction_actionId,
+    experimentTemplateAction_parameters,
 
     -- ** ExperimentTemplateStopCondition
-    experimentTemplateStopCondition_value,
     experimentTemplateStopCondition_source,
+    experimentTemplateStopCondition_value,
 
     -- ** ExperimentTemplateSummary
-    experimentTemplateSummary_creationTime,
-    experimentTemplateSummary_id,
-    experimentTemplateSummary_lastUpdateTime,
-    experimentTemplateSummary_description,
     experimentTemplateSummary_tags,
+    experimentTemplateSummary_description,
+    experimentTemplateSummary_id,
+    experimentTemplateSummary_creationTime,
+    experimentTemplateSummary_lastUpdateTime,
 
     -- ** ExperimentTemplateTarget
     experimentTemplateTarget_resourceType,
-    experimentTemplateTarget_resourceTags,
     experimentTemplateTarget_filters,
+    experimentTemplateTarget_resourceTags,
     experimentTemplateTarget_resourceArns,
     experimentTemplateTarget_selectionMode,
 
@@ -240,18 +240,18 @@ module Amazonka.FIS.Lens
 
     -- ** UpdateExperimentTemplateActionInputItem
     updateExperimentTemplateActionInputItem_startAfter,
-    updateExperimentTemplateActionInputItem_actionId,
-    updateExperimentTemplateActionInputItem_parameters,
     updateExperimentTemplateActionInputItem_targets,
     updateExperimentTemplateActionInputItem_description,
+    updateExperimentTemplateActionInputItem_actionId,
+    updateExperimentTemplateActionInputItem_parameters,
 
     -- ** UpdateExperimentTemplateStopConditionInput
     updateExperimentTemplateStopConditionInput_value,
     updateExperimentTemplateStopConditionInput_source,
 
     -- ** UpdateExperimentTemplateTargetInput
-    updateExperimentTemplateTargetInput_resourceTags,
     updateExperimentTemplateTargetInput_filters,
+    updateExperimentTemplateTargetInput_resourceTags,
     updateExperimentTemplateTargetInput_resourceArns,
     updateExperimentTemplateTargetInput_resourceType,
     updateExperimentTemplateTargetInput_selectionMode,

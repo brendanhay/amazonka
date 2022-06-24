@@ -44,8 +44,8 @@ module Amazonka.FIS.CreateExperimentTemplate
     newCreateExperimentTemplate,
 
     -- * Request Lenses
-    createExperimentTemplate_targets,
     createExperimentTemplate_tags,
+    createExperimentTemplate_targets,
     createExperimentTemplate_clientToken,
     createExperimentTemplate_description,
     createExperimentTemplate_stopConditions,
@@ -71,10 +71,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateExperimentTemplate' smart constructor.
 data CreateExperimentTemplate = CreateExperimentTemplate'
-  { -- | The targets for the experiment.
-    targets :: Prelude.Maybe (Prelude.HashMap Prelude.Text CreateExperimentTemplateTargetInput),
-    -- | The tags to apply to the experiment template.
+  { -- | The tags to apply to the experiment template.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The targets for the experiment.
+    targets :: Prelude.Maybe (Prelude.HashMap Prelude.Text CreateExperimentTemplateTargetInput),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Text,
@@ -99,9 +99,9 @@ data CreateExperimentTemplate = CreateExperimentTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targets', 'createExperimentTemplate_targets' - The targets for the experiment.
---
 -- 'tags', 'createExperimentTemplate_tags' - The tags to apply to the experiment template.
+--
+-- 'targets', 'createExperimentTemplate_targets' - The targets for the experiment.
 --
 -- 'clientToken', 'createExperimentTemplate_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -128,9 +128,8 @@ newCreateExperimentTemplate
   pDescription_
   pRoleArn_ =
     CreateExperimentTemplate'
-      { targets =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        targets = Prelude.Nothing,
         clientToken = pClientToken_,
         description = pDescription_,
         stopConditions = Prelude.mempty,
@@ -138,13 +137,13 @@ newCreateExperimentTemplate
         roleArn = pRoleArn_
       }
 
--- | The targets for the experiment.
-createExperimentTemplate_targets :: Lens.Lens' CreateExperimentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text CreateExperimentTemplateTargetInput))
-createExperimentTemplate_targets = Lens.lens (\CreateExperimentTemplate' {targets} -> targets) (\s@CreateExperimentTemplate' {} a -> s {targets = a} :: CreateExperimentTemplate) Prelude.. Lens.mapping Lens.coerced
-
 -- | The tags to apply to the experiment template.
 createExperimentTemplate_tags :: Lens.Lens' CreateExperimentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createExperimentTemplate_tags = Lens.lens (\CreateExperimentTemplate' {tags} -> tags) (\s@CreateExperimentTemplate' {} a -> s {tags = a} :: CreateExperimentTemplate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The targets for the experiment.
+createExperimentTemplate_targets :: Lens.Lens' CreateExperimentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text CreateExperimentTemplateTargetInput))
+createExperimentTemplate_targets = Lens.lens (\CreateExperimentTemplate' {targets} -> targets) (\s@CreateExperimentTemplate' {} a -> s {targets = a} :: CreateExperimentTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -184,8 +183,8 @@ instance Core.AWSRequest CreateExperimentTemplate where
 
 instance Prelude.Hashable CreateExperimentTemplate where
   hashWithSalt _salt CreateExperimentTemplate' {..} =
-    _salt `Prelude.hashWithSalt` targets
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` stopConditions
@@ -194,8 +193,8 @@ instance Prelude.Hashable CreateExperimentTemplate where
 
 instance Prelude.NFData CreateExperimentTemplate where
   rnf CreateExperimentTemplate' {..} =
-    Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf stopConditions
@@ -217,8 +216,8 @@ instance Core.ToJSON CreateExperimentTemplate where
   toJSON CreateExperimentTemplate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("targets" Core..=) Prelude.<$> targets,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("targets" Core..=) Prelude.<$> targets,
             Prelude.Just ("clientToken" Core..= clientToken),
             Prelude.Just ("description" Core..= description),
             Prelude.Just

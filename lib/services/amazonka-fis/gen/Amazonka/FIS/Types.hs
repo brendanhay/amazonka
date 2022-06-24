@@ -17,10 +17,10 @@ module Amazonka.FIS.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
-    _ConflictException,
     _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ValidationException,
 
     -- * ExperimentActionStatus
     ExperimentActionStatus (..),
@@ -31,11 +31,11 @@ module Amazonka.FIS.Types
     -- * Action
     Action (..),
     newAction,
-    action_parameters,
-    action_targets,
-    action_id,
-    action_description,
     action_tags,
+    action_targets,
+    action_description,
+    action_id,
+    action_parameters,
 
     -- * ActionParameter
     ActionParameter (..),
@@ -46,10 +46,10 @@ module Amazonka.FIS.Types
     -- * ActionSummary
     ActionSummary (..),
     newActionSummary,
-    actionSummary_targets,
-    actionSummary_id,
-    actionSummary_description,
     actionSummary_tags,
+    actionSummary_targets,
+    actionSummary_description,
+    actionSummary_id,
 
     -- * ActionTarget
     ActionTarget (..),
@@ -60,9 +60,9 @@ module Amazonka.FIS.Types
     CreateExperimentTemplateActionInput (..),
     newCreateExperimentTemplateActionInput,
     createExperimentTemplateActionInput_startAfter,
-    createExperimentTemplateActionInput_parameters,
     createExperimentTemplateActionInput_targets,
     createExperimentTemplateActionInput_description,
+    createExperimentTemplateActionInput_parameters,
     createExperimentTemplateActionInput_actionId,
 
     -- * CreateExperimentTemplateStopConditionInput
@@ -74,8 +74,8 @@ module Amazonka.FIS.Types
     -- * CreateExperimentTemplateTargetInput
     CreateExperimentTemplateTargetInput (..),
     newCreateExperimentTemplateTargetInput,
-    createExperimentTemplateTargetInput_resourceTags,
     createExperimentTemplateTargetInput_filters,
+    createExperimentTemplateTargetInput_resourceTags,
     createExperimentTemplateTargetInput_resourceArns,
     createExperimentTemplateTargetInput_resourceType,
     createExperimentTemplateTargetInput_selectionMode,
@@ -83,27 +83,27 @@ module Amazonka.FIS.Types
     -- * Experiment
     Experiment (..),
     newExperiment,
-    experiment_creationTime,
-    experiment_experimentTemplateId,
-    experiment_state,
-    experiment_actions,
-    experiment_startTime,
-    experiment_stopConditions,
-    experiment_endTime,
-    experiment_targets,
-    experiment_id,
     experiment_tags,
+    experiment_stopConditions,
     experiment_roleArn,
+    experiment_state,
+    experiment_targets,
+    experiment_endTime,
+    experiment_id,
+    experiment_experimentTemplateId,
+    experiment_creationTime,
+    experiment_startTime,
+    experiment_actions,
 
     -- * ExperimentAction
     ExperimentAction (..),
     newExperimentAction,
     experimentAction_startAfter,
     experimentAction_state,
-    experimentAction_actionId,
-    experimentAction_parameters,
     experimentAction_targets,
     experimentAction_description,
+    experimentAction_actionId,
+    experimentAction_parameters,
 
     -- * ExperimentActionState
     ExperimentActionState (..),
@@ -120,24 +120,24 @@ module Amazonka.FIS.Types
     -- * ExperimentStopCondition
     ExperimentStopCondition (..),
     newExperimentStopCondition,
-    experimentStopCondition_value,
     experimentStopCondition_source,
+    experimentStopCondition_value,
 
     -- * ExperimentSummary
     ExperimentSummary (..),
     newExperimentSummary,
-    experimentSummary_creationTime,
-    experimentSummary_experimentTemplateId,
+    experimentSummary_tags,
     experimentSummary_state,
     experimentSummary_id,
-    experimentSummary_tags,
+    experimentSummary_experimentTemplateId,
+    experimentSummary_creationTime,
 
     -- * ExperimentTarget
     ExperimentTarget (..),
     newExperimentTarget,
     experimentTarget_resourceType,
-    experimentTarget_resourceTags,
     experimentTarget_filters,
+    experimentTarget_resourceTags,
     experimentTarget_resourceArns,
     experimentTarget_selectionMode,
 
@@ -150,46 +150,46 @@ module Amazonka.FIS.Types
     -- * ExperimentTemplate
     ExperimentTemplate (..),
     newExperimentTemplate,
-    experimentTemplate_creationTime,
-    experimentTemplate_actions,
-    experimentTemplate_stopConditions,
-    experimentTemplate_targets,
-    experimentTemplate_id,
-    experimentTemplate_lastUpdateTime,
-    experimentTemplate_description,
     experimentTemplate_tags,
+    experimentTemplate_stopConditions,
     experimentTemplate_roleArn,
+    experimentTemplate_targets,
+    experimentTemplate_description,
+    experimentTemplate_id,
+    experimentTemplate_creationTime,
+    experimentTemplate_lastUpdateTime,
+    experimentTemplate_actions,
 
     -- * ExperimentTemplateAction
     ExperimentTemplateAction (..),
     newExperimentTemplateAction,
     experimentTemplateAction_startAfter,
-    experimentTemplateAction_actionId,
-    experimentTemplateAction_parameters,
     experimentTemplateAction_targets,
     experimentTemplateAction_description,
+    experimentTemplateAction_actionId,
+    experimentTemplateAction_parameters,
 
     -- * ExperimentTemplateStopCondition
     ExperimentTemplateStopCondition (..),
     newExperimentTemplateStopCondition,
-    experimentTemplateStopCondition_value,
     experimentTemplateStopCondition_source,
+    experimentTemplateStopCondition_value,
 
     -- * ExperimentTemplateSummary
     ExperimentTemplateSummary (..),
     newExperimentTemplateSummary,
-    experimentTemplateSummary_creationTime,
-    experimentTemplateSummary_id,
-    experimentTemplateSummary_lastUpdateTime,
-    experimentTemplateSummary_description,
     experimentTemplateSummary_tags,
+    experimentTemplateSummary_description,
+    experimentTemplateSummary_id,
+    experimentTemplateSummary_creationTime,
+    experimentTemplateSummary_lastUpdateTime,
 
     -- * ExperimentTemplateTarget
     ExperimentTemplateTarget (..),
     newExperimentTemplateTarget,
     experimentTemplateTarget_resourceType,
-    experimentTemplateTarget_resourceTags,
     experimentTemplateTarget_filters,
+    experimentTemplateTarget_resourceTags,
     experimentTemplateTarget_resourceArns,
     experimentTemplateTarget_selectionMode,
 
@@ -209,10 +209,10 @@ module Amazonka.FIS.Types
     UpdateExperimentTemplateActionInputItem (..),
     newUpdateExperimentTemplateActionInputItem,
     updateExperimentTemplateActionInputItem_startAfter,
-    updateExperimentTemplateActionInputItem_actionId,
-    updateExperimentTemplateActionInputItem_parameters,
     updateExperimentTemplateActionInputItem_targets,
     updateExperimentTemplateActionInputItem_description,
+    updateExperimentTemplateActionInputItem_actionId,
+    updateExperimentTemplateActionInputItem_parameters,
 
     -- * UpdateExperimentTemplateStopConditionInput
     UpdateExperimentTemplateStopConditionInput (..),
@@ -223,8 +223,8 @@ module Amazonka.FIS.Types
     -- * UpdateExperimentTemplateTargetInput
     UpdateExperimentTemplateTargetInput (..),
     newUpdateExperimentTemplateTargetInput,
-    updateExperimentTemplateTargetInput_resourceTags,
     updateExperimentTemplateTargetInput_filters,
+    updateExperimentTemplateTargetInput_resourceTags,
     updateExperimentTemplateTargetInput_resourceArns,
     updateExperimentTemplateTargetInput_resourceType,
     updateExperimentTemplateTargetInput_selectionMode,
@@ -288,35 +288,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -325,30 +298,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The specified input is not valid, or fails to satisfy the constraints
--- for the request.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
-
--- | The request could not be processed because of a conflict.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
 
 -- | You have exceeded your service quota.
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -365,3 +348,20 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The request could not be processed because of a conflict.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The specified input is not valid, or fails to satisfy the constraints
+-- for the request.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

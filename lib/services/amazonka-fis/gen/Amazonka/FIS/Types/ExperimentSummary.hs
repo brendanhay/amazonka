@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperimentSummary' smart constructor.
 data ExperimentSummary = ExperimentSummary'
-  { -- | The time that the experiment was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the experiment template.
-    experimentTemplateId :: Prelude.Maybe Prelude.Text,
+  { -- | The tags for the experiment.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The state of the experiment.
     state :: Prelude.Maybe ExperimentState,
     -- | The ID of the experiment.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The tags for the experiment.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    -- | The ID of the experiment template.
+    experimentTemplateId :: Prelude.Maybe Prelude.Text,
+    -- | The time that the experiment was created.
+    creationTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,33 +49,29 @@ data ExperimentSummary = ExperimentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'experimentSummary_creationTime' - The time that the experiment was created.
---
--- 'experimentTemplateId', 'experimentSummary_experimentTemplateId' - The ID of the experiment template.
+-- 'tags', 'experimentSummary_tags' - The tags for the experiment.
 --
 -- 'state', 'experimentSummary_state' - The state of the experiment.
 --
 -- 'id', 'experimentSummary_id' - The ID of the experiment.
 --
--- 'tags', 'experimentSummary_tags' - The tags for the experiment.
+-- 'experimentTemplateId', 'experimentSummary_experimentTemplateId' - The ID of the experiment template.
+--
+-- 'creationTime', 'experimentSummary_creationTime' - The time that the experiment was created.
 newExperimentSummary ::
   ExperimentSummary
 newExperimentSummary =
   ExperimentSummary'
-    { creationTime = Prelude.Nothing,
-      experimentTemplateId = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       state = Prelude.Nothing,
       id = Prelude.Nothing,
-      tags = Prelude.Nothing
+      experimentTemplateId = Prelude.Nothing,
+      creationTime = Prelude.Nothing
     }
 
--- | The time that the experiment was created.
-experimentSummary_creationTime :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.UTCTime)
-experimentSummary_creationTime = Lens.lens (\ExperimentSummary' {creationTime} -> creationTime) (\s@ExperimentSummary' {} a -> s {creationTime = a} :: ExperimentSummary) Prelude.. Lens.mapping Core._Time
-
--- | The ID of the experiment template.
-experimentSummary_experimentTemplateId :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.Text)
-experimentSummary_experimentTemplateId = Lens.lens (\ExperimentSummary' {experimentTemplateId} -> experimentTemplateId) (\s@ExperimentSummary' {} a -> s {experimentTemplateId = a} :: ExperimentSummary)
+-- | The tags for the experiment.
+experimentSummary_tags :: Lens.Lens' ExperimentSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+experimentSummary_tags = Lens.lens (\ExperimentSummary' {tags} -> tags) (\s@ExperimentSummary' {} a -> s {tags = a} :: ExperimentSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The state of the experiment.
 experimentSummary_state :: Lens.Lens' ExperimentSummary (Prelude.Maybe ExperimentState)
@@ -85,9 +81,13 @@ experimentSummary_state = Lens.lens (\ExperimentSummary' {state} -> state) (\s@E
 experimentSummary_id :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.Text)
 experimentSummary_id = Lens.lens (\ExperimentSummary' {id} -> id) (\s@ExperimentSummary' {} a -> s {id = a} :: ExperimentSummary)
 
--- | The tags for the experiment.
-experimentSummary_tags :: Lens.Lens' ExperimentSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-experimentSummary_tags = Lens.lens (\ExperimentSummary' {tags} -> tags) (\s@ExperimentSummary' {} a -> s {tags = a} :: ExperimentSummary) Prelude.. Lens.mapping Lens.coerced
+-- | The ID of the experiment template.
+experimentSummary_experimentTemplateId :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.Text)
+experimentSummary_experimentTemplateId = Lens.lens (\ExperimentSummary' {experimentTemplateId} -> experimentTemplateId) (\s@ExperimentSummary' {} a -> s {experimentTemplateId = a} :: ExperimentSummary)
+
+-- | The time that the experiment was created.
+experimentSummary_creationTime :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.UTCTime)
+experimentSummary_creationTime = Lens.lens (\ExperimentSummary' {creationTime} -> creationTime) (\s@ExperimentSummary' {} a -> s {creationTime = a} :: ExperimentSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ExperimentSummary where
   parseJSON =
@@ -95,25 +95,25 @@ instance Core.FromJSON ExperimentSummary where
       "ExperimentSummary"
       ( \x ->
           ExperimentSummary'
-            Prelude.<$> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "experimentTemplateId")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "experimentTemplateId")
+            Prelude.<*> (x Core..:? "creationTime")
       )
 
 instance Prelude.Hashable ExperimentSummary where
   hashWithSalt _salt ExperimentSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` experimentTemplateId
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` experimentTemplateId
+      `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData ExperimentSummary where
   rnf ExperimentSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf experimentTemplateId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf experimentTemplateId
+      `Prelude.seq` Prelude.rnf creationTime

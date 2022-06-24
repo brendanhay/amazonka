@@ -17,18 +17,18 @@ module Amazonka.NetworkFirewall.Types
     defaultService,
 
     -- * Errors
-    _LogDestinationPermissionException,
-    _InvalidRequestException,
-    _UnsupportedOperationException,
-    _ResourceOwnerCheckException,
-    _InvalidResourcePolicyException,
-    _ThrottlingException,
-    _InternalServerError,
     _InvalidTokenException,
     _InvalidOperationException,
-    _InsufficientCapacityException,
+    _UnsupportedOperationException,
     _ResourceNotFoundException,
+    _InvalidResourcePolicyException,
     _LimitExceededException,
+    _InsufficientCapacityException,
+    _InternalServerError,
+    _ThrottlingException,
+    _ResourceOwnerCheckException,
+    _LogDestinationPermissionException,
+    _InvalidRequestException,
 
     -- * AttachmentStatus
     AttachmentStatus (..),
@@ -88,9 +88,9 @@ module Amazonka.NetworkFirewall.Types
     -- * Attachment
     Attachment (..),
     newAttachment,
-    attachment_status,
-    attachment_subnetId,
     attachment_endpointId,
+    attachment_subnetId,
+    attachment_status,
 
     -- * CustomAction
     CustomAction (..),
@@ -106,12 +106,12 @@ module Amazonka.NetworkFirewall.Types
     -- * Firewall
     Firewall (..),
     newFirewall,
-    firewall_firewallArn,
-    firewall_firewallPolicyChangeProtection,
-    firewall_subnetChangeProtection,
-    firewall_deleteProtection,
-    firewall_description,
     firewall_tags,
+    firewall_deleteProtection,
+    firewall_subnetChangeProtection,
+    firewall_description,
+    firewall_firewallPolicyChangeProtection,
+    firewall_firewallArn,
     firewall_firewallName,
     firewall_firewallPolicyArn,
     firewall_vpcId,
@@ -128,9 +128,9 @@ module Amazonka.NetworkFirewall.Types
     FirewallPolicy (..),
     newFirewallPolicy,
     firewallPolicy_statefulEngineOptions,
+    firewallPolicy_statelessCustomActions,
     firewallPolicy_statefulRuleGroupReferences,
     firewallPolicy_statelessRuleGroupReferences,
-    firewallPolicy_statelessCustomActions,
     firewallPolicy_statefulDefaultActions,
     firewallPolicy_statelessDefaultActions,
     firewallPolicy_statelessFragmentDefaultActions,
@@ -138,18 +138,18 @@ module Amazonka.NetworkFirewall.Types
     -- * FirewallPolicyMetadata
     FirewallPolicyMetadata (..),
     newFirewallPolicyMetadata,
-    firewallPolicyMetadata_arn,
     firewallPolicyMetadata_name,
+    firewallPolicyMetadata_arn,
 
     -- * FirewallPolicyResponse
     FirewallPolicyResponse (..),
     newFirewallPolicyResponse,
-    firewallPolicyResponse_consumedStatelessRuleCapacity,
-    firewallPolicyResponse_numberOfAssociations,
+    firewallPolicyResponse_tags,
     firewallPolicyResponse_firewallPolicyStatus,
     firewallPolicyResponse_consumedStatefulRuleCapacity,
     firewallPolicyResponse_description,
-    firewallPolicyResponse_tags,
+    firewallPolicyResponse_numberOfAssociations,
+    firewallPolicyResponse_consumedStatelessRuleCapacity,
     firewallPolicyResponse_firewallPolicyName,
     firewallPolicyResponse_firewallPolicyArn,
     firewallPolicyResponse_firewallPolicyId,
@@ -191,10 +191,10 @@ module Amazonka.NetworkFirewall.Types
     -- * MatchAttributes
     MatchAttributes (..),
     newMatchAttributes,
-    matchAttributes_protocols,
-    matchAttributes_tCPFlags,
     matchAttributes_destinationPorts,
     matchAttributes_sources,
+    matchAttributes_tCPFlags,
+    matchAttributes_protocols,
     matchAttributes_sourcePorts,
     matchAttributes_destinations,
 
@@ -236,19 +236,19 @@ module Amazonka.NetworkFirewall.Types
     -- * RuleGroupMetadata
     RuleGroupMetadata (..),
     newRuleGroupMetadata,
-    ruleGroupMetadata_arn,
     ruleGroupMetadata_name,
+    ruleGroupMetadata_arn,
 
     -- * RuleGroupResponse
     RuleGroupResponse (..),
     newRuleGroupResponse,
-    ruleGroupResponse_numberOfAssociations,
-    ruleGroupResponse_capacity,
-    ruleGroupResponse_consumedCapacity,
-    ruleGroupResponse_ruleGroupStatus,
+    ruleGroupResponse_tags,
     ruleGroupResponse_type,
     ruleGroupResponse_description,
-    ruleGroupResponse_tags,
+    ruleGroupResponse_consumedCapacity,
+    ruleGroupResponse_numberOfAssociations,
+    ruleGroupResponse_capacity,
+    ruleGroupResponse_ruleGroupStatus,
     ruleGroupResponse_ruleGroupArn,
     ruleGroupResponse_ruleGroupName,
     ruleGroupResponse_ruleGroupId,
@@ -262,15 +262,15 @@ module Amazonka.NetworkFirewall.Types
     -- * RuleVariables
     RuleVariables (..),
     newRuleVariables,
-    ruleVariables_portSets,
     ruleVariables_iPSets,
+    ruleVariables_portSets,
 
     -- * RulesSource
     RulesSource (..),
     newRulesSource,
     rulesSource_rulesString,
-    rulesSource_rulesSourceList,
     rulesSource_statefulRules,
+    rulesSource_rulesSourceList,
     rulesSource_statelessRulesAndCustomActions,
 
     -- * RulesSourceList
@@ -329,8 +329,8 @@ module Amazonka.NetworkFirewall.Types
     -- * SyncState
     SyncState (..),
     newSyncState,
-    syncState_config,
     syncState_attachment,
+    syncState_config,
 
     -- * TCPFlagField
     TCPFlagField (..),
@@ -432,35 +432,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -469,13 +442,114 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The token you provided is stale or isn\'t valid for the operation.
+_InvalidTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTokenException"
+
+-- | The operation failed because it\'s not valid. For example, you might
+-- have tried to delete a rule group or firewall policy that\'s in use.
+_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOperationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidOperationException"
+
+-- | The operation you requested isn\'t supported by Network Firewall.
+_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperationException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedOperationException"
+
+-- | Unable to locate a resource using the parameters that you provided.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The policy statement failed validation.
+_InvalidResourcePolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourcePolicyException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidResourcePolicyException"
+
+-- | Unable to perform the operation because doing so would violate a limit
+-- setting.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
+-- | AWS doesn\'t currently have enough available capacity to fulfill your
+-- request. Try your request later.
+_InsufficientCapacityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientCapacityException =
+  Core._MatchServiceError
+    defaultService
+    "InsufficientCapacityException"
+
+-- | Your request is valid, but Network Firewall couldn’t perform the
+-- operation because of a system problem. Retry your request.
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerError"
+
+-- | Unable to process the request due to throttling limitations.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+
+-- | Unable to change the resource because your account doesn\'t own it.
+_ResourceOwnerCheckException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceOwnerCheckException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceOwnerCheckException"
 
 -- | Unable to send logs to a configured logging destination.
 _LogDestinationPermissionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -499,77 +573,3 @@ _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
-
--- | The operation you requested isn\'t supported by Network Firewall.
-_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedOperationException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedOperationException"
-
--- | Unable to change the resource because your account doesn\'t own it.
-_ResourceOwnerCheckException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceOwnerCheckException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceOwnerCheckException"
-
--- | The policy statement failed validation.
-_InvalidResourcePolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidResourcePolicyException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidResourcePolicyException"
-
--- | Unable to process the request due to throttling limitations.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-
--- | Your request is valid, but Network Firewall couldn’t perform the
--- operation because of a system problem. Retry your request.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerError =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerError"
-
--- | The token you provided is stale or isn\'t valid for the operation.
-_InvalidTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidTokenException"
-
--- | The operation failed because it\'s not valid. For example, you might
--- have tried to delete a rule group or firewall policy that\'s in use.
-_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidOperationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidOperationException"
-
--- | AWS doesn\'t currently have enough available capacity to fulfill your
--- request. Try your request later.
-_InsufficientCapacityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InsufficientCapacityException =
-  Core._MatchServiceError
-    defaultService
-    "InsufficientCapacityException"
-
--- | Unable to locate a resource using the parameters that you provided.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | Unable to perform the operation because doing so would violate a limit
--- setting.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"

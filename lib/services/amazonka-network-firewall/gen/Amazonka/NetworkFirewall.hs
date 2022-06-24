@@ -93,41 +93,41 @@ module Amazonka.NetworkFirewall
     -- * Errors
     -- $errors
 
-    -- ** LogDestinationPermissionException
-    _LogDestinationPermissionException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
-
-    -- ** ResourceOwnerCheckException
-    _ResourceOwnerCheckException,
-
-    -- ** InvalidResourcePolicyException
-    _InvalidResourcePolicyException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
     -- ** InvalidTokenException
     _InvalidTokenException,
 
     -- ** InvalidOperationException
     _InvalidOperationException,
 
-    -- ** InsufficientCapacityException
-    _InsufficientCapacityException,
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** InvalidResourcePolicyException
+    _InvalidResourcePolicyException,
+
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** InsufficientCapacityException
+    _InsufficientCapacityException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ResourceOwnerCheckException
+    _ResourceOwnerCheckException,
+
+    -- ** LogDestinationPermissionException
+    _LogDestinationPermissionException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters
@@ -135,119 +135,17 @@ module Amazonka.NetworkFirewall
     -- * Operations
     -- $operations
 
-    -- ** AssociateSubnets
-    AssociateSubnets (AssociateSubnets'),
-    newAssociateSubnets,
-    AssociateSubnetsResponse (AssociateSubnetsResponse'),
-    newAssociateSubnetsResponse,
-
-    -- ** UpdateSubnetChangeProtection
-    UpdateSubnetChangeProtection (UpdateSubnetChangeProtection'),
-    newUpdateSubnetChangeProtection,
-    UpdateSubnetChangeProtectionResponse (UpdateSubnetChangeProtectionResponse'),
-    newUpdateSubnetChangeProtectionResponse,
-
-    -- ** UpdateFirewallPolicy
-    UpdateFirewallPolicy (UpdateFirewallPolicy'),
-    newUpdateFirewallPolicy,
-    UpdateFirewallPolicyResponse (UpdateFirewallPolicyResponse'),
-    newUpdateFirewallPolicyResponse,
-
-    -- ** DeleteFirewallPolicy
-    DeleteFirewallPolicy (DeleteFirewallPolicy'),
-    newDeleteFirewallPolicy,
-    DeleteFirewallPolicyResponse (DeleteFirewallPolicyResponse'),
-    newDeleteFirewallPolicyResponse,
-
-    -- ** CreateFirewallPolicy
-    CreateFirewallPolicy (CreateFirewallPolicy'),
-    newCreateFirewallPolicy,
-    CreateFirewallPolicyResponse (CreateFirewallPolicyResponse'),
-    newCreateFirewallPolicyResponse,
-
-    -- ** UpdateLoggingConfiguration
-    UpdateLoggingConfiguration (UpdateLoggingConfiguration'),
-    newUpdateLoggingConfiguration,
-    UpdateLoggingConfigurationResponse (UpdateLoggingConfigurationResponse'),
-    newUpdateLoggingConfigurationResponse,
-
-    -- ** DisassociateSubnets
-    DisassociateSubnets (DisassociateSubnets'),
-    newDisassociateSubnets,
-    DisassociateSubnetsResponse (DisassociateSubnetsResponse'),
-    newDisassociateSubnetsResponse,
-
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** ListFirewallPolicies (Paginated)
-    ListFirewallPolicies (ListFirewallPolicies'),
-    newListFirewallPolicies,
-    ListFirewallPoliciesResponse (ListFirewallPoliciesResponse'),
-    newListFirewallPoliciesResponse,
-
-    -- ** UpdateFirewallDeleteProtection
-    UpdateFirewallDeleteProtection (UpdateFirewallDeleteProtection'),
-    newUpdateFirewallDeleteProtection,
-    UpdateFirewallDeleteProtectionResponse (UpdateFirewallDeleteProtectionResponse'),
-    newUpdateFirewallDeleteProtectionResponse,
-
-    -- ** CreateRuleGroup
-    CreateRuleGroup (CreateRuleGroup'),
-    newCreateRuleGroup,
-    CreateRuleGroupResponse (CreateRuleGroupResponse'),
-    newCreateRuleGroupResponse,
-
-    -- ** DescribeFirewallPolicy
-    DescribeFirewallPolicy (DescribeFirewallPolicy'),
-    newDescribeFirewallPolicy,
-    DescribeFirewallPolicyResponse (DescribeFirewallPolicyResponse'),
-    newDescribeFirewallPolicyResponse,
-
-    -- ** UpdateFirewallDescription
-    UpdateFirewallDescription (UpdateFirewallDescription'),
-    newUpdateFirewallDescription,
-    UpdateFirewallDescriptionResponse (UpdateFirewallDescriptionResponse'),
-    newUpdateFirewallDescriptionResponse,
-
-    -- ** DescribeRuleGroup
-    DescribeRuleGroup (DescribeRuleGroup'),
-    newDescribeRuleGroup,
-    DescribeRuleGroupResponse (DescribeRuleGroupResponse'),
-    newDescribeRuleGroupResponse,
-
-    -- ** DeleteFirewall
-    DeleteFirewall (DeleteFirewall'),
-    newDeleteFirewall,
-    DeleteFirewallResponse (DeleteFirewallResponse'),
-    newDeleteFirewallResponse,
-
-    -- ** ListFirewalls (Paginated)
-    ListFirewalls (ListFirewalls'),
-    newListFirewalls,
-    ListFirewallsResponse (ListFirewallsResponse'),
-    newListFirewallsResponse,
-
-    -- ** DescribeResourcePolicy
-    DescribeResourcePolicy (DescribeResourcePolicy'),
-    newDescribeResourcePolicy,
-    DescribeResourcePolicyResponse (DescribeResourcePolicyResponse'),
-    newDescribeResourcePolicyResponse,
-
     -- ** AssociateFirewallPolicy
     AssociateFirewallPolicy (AssociateFirewallPolicy'),
     newAssociateFirewallPolicy,
     AssociateFirewallPolicyResponse (AssociateFirewallPolicyResponse'),
     newAssociateFirewallPolicyResponse,
 
-    -- ** UpdateFirewallPolicyChangeProtection
-    UpdateFirewallPolicyChangeProtection (UpdateFirewallPolicyChangeProtection'),
-    newUpdateFirewallPolicyChangeProtection,
-    UpdateFirewallPolicyChangeProtectionResponse (UpdateFirewallPolicyChangeProtectionResponse'),
-    newUpdateFirewallPolicyChangeProtectionResponse,
+    -- ** AssociateSubnets
+    AssociateSubnets (AssociateSubnets'),
+    newAssociateSubnets,
+    AssociateSubnetsResponse (AssociateSubnetsResponse'),
+    newAssociateSubnetsResponse,
 
     -- ** CreateFirewall
     CreateFirewall (CreateFirewall'),
@@ -255,41 +153,29 @@ module Amazonka.NetworkFirewall
     CreateFirewallResponse (CreateFirewallResponse'),
     newCreateFirewallResponse,
 
-    -- ** ListRuleGroups (Paginated)
-    ListRuleGroups (ListRuleGroups'),
-    newListRuleGroups,
-    ListRuleGroupsResponse (ListRuleGroupsResponse'),
-    newListRuleGroupsResponse,
+    -- ** CreateFirewallPolicy
+    CreateFirewallPolicy (CreateFirewallPolicy'),
+    newCreateFirewallPolicy,
+    CreateFirewallPolicyResponse (CreateFirewallPolicyResponse'),
+    newCreateFirewallPolicyResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** CreateRuleGroup
+    CreateRuleGroup (CreateRuleGroup'),
+    newCreateRuleGroup,
+    CreateRuleGroupResponse (CreateRuleGroupResponse'),
+    newCreateRuleGroupResponse,
 
-    -- ** DeleteRuleGroup
-    DeleteRuleGroup (DeleteRuleGroup'),
-    newDeleteRuleGroup,
-    DeleteRuleGroupResponse (DeleteRuleGroupResponse'),
-    newDeleteRuleGroupResponse,
+    -- ** DeleteFirewall
+    DeleteFirewall (DeleteFirewall'),
+    newDeleteFirewall,
+    DeleteFirewallResponse (DeleteFirewallResponse'),
+    newDeleteFirewallResponse,
 
-    -- ** UpdateRuleGroup
-    UpdateRuleGroup (UpdateRuleGroup'),
-    newUpdateRuleGroup,
-    UpdateRuleGroupResponse (UpdateRuleGroupResponse'),
-    newUpdateRuleGroupResponse,
-
-    -- ** PutResourcePolicy
-    PutResourcePolicy (PutResourcePolicy'),
-    newPutResourcePolicy,
-    PutResourcePolicyResponse (PutResourcePolicyResponse'),
-    newPutResourcePolicyResponse,
-
-    -- ** DescribeFirewall
-    DescribeFirewall (DescribeFirewall'),
-    newDescribeFirewall,
-    DescribeFirewallResponse (DescribeFirewallResponse'),
-    newDescribeFirewallResponse,
+    -- ** DeleteFirewallPolicy
+    DeleteFirewallPolicy (DeleteFirewallPolicy'),
+    newDeleteFirewallPolicy,
+    DeleteFirewallPolicyResponse (DeleteFirewallPolicyResponse'),
+    newDeleteFirewallPolicyResponse,
 
     -- ** DeleteResourcePolicy
     DeleteResourcePolicy (DeleteResourcePolicy'),
@@ -297,17 +183,131 @@ module Amazonka.NetworkFirewall
     DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
     newDeleteResourcePolicyResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** DeleteRuleGroup
+    DeleteRuleGroup (DeleteRuleGroup'),
+    newDeleteRuleGroup,
+    DeleteRuleGroupResponse (DeleteRuleGroupResponse'),
+    newDeleteRuleGroupResponse,
+
+    -- ** DescribeFirewall
+    DescribeFirewall (DescribeFirewall'),
+    newDescribeFirewall,
+    DescribeFirewallResponse (DescribeFirewallResponse'),
+    newDescribeFirewallResponse,
+
+    -- ** DescribeFirewallPolicy
+    DescribeFirewallPolicy (DescribeFirewallPolicy'),
+    newDescribeFirewallPolicy,
+    DescribeFirewallPolicyResponse (DescribeFirewallPolicyResponse'),
+    newDescribeFirewallPolicyResponse,
 
     -- ** DescribeLoggingConfiguration
     DescribeLoggingConfiguration (DescribeLoggingConfiguration'),
     newDescribeLoggingConfiguration,
     DescribeLoggingConfigurationResponse (DescribeLoggingConfigurationResponse'),
     newDescribeLoggingConfigurationResponse,
+
+    -- ** DescribeResourcePolicy
+    DescribeResourcePolicy (DescribeResourcePolicy'),
+    newDescribeResourcePolicy,
+    DescribeResourcePolicyResponse (DescribeResourcePolicyResponse'),
+    newDescribeResourcePolicyResponse,
+
+    -- ** DescribeRuleGroup
+    DescribeRuleGroup (DescribeRuleGroup'),
+    newDescribeRuleGroup,
+    DescribeRuleGroupResponse (DescribeRuleGroupResponse'),
+    newDescribeRuleGroupResponse,
+
+    -- ** DisassociateSubnets
+    DisassociateSubnets (DisassociateSubnets'),
+    newDisassociateSubnets,
+    DisassociateSubnetsResponse (DisassociateSubnetsResponse'),
+    newDisassociateSubnetsResponse,
+
+    -- ** ListFirewallPolicies (Paginated)
+    ListFirewallPolicies (ListFirewallPolicies'),
+    newListFirewallPolicies,
+    ListFirewallPoliciesResponse (ListFirewallPoliciesResponse'),
+    newListFirewallPoliciesResponse,
+
+    -- ** ListFirewalls (Paginated)
+    ListFirewalls (ListFirewalls'),
+    newListFirewalls,
+    ListFirewallsResponse (ListFirewallsResponse'),
+    newListFirewallsResponse,
+
+    -- ** ListRuleGroups (Paginated)
+    ListRuleGroups (ListRuleGroups'),
+    newListRuleGroups,
+    ListRuleGroupsResponse (ListRuleGroupsResponse'),
+    newListRuleGroupsResponse,
+
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateFirewallDeleteProtection
+    UpdateFirewallDeleteProtection (UpdateFirewallDeleteProtection'),
+    newUpdateFirewallDeleteProtection,
+    UpdateFirewallDeleteProtectionResponse (UpdateFirewallDeleteProtectionResponse'),
+    newUpdateFirewallDeleteProtectionResponse,
+
+    -- ** UpdateFirewallDescription
+    UpdateFirewallDescription (UpdateFirewallDescription'),
+    newUpdateFirewallDescription,
+    UpdateFirewallDescriptionResponse (UpdateFirewallDescriptionResponse'),
+    newUpdateFirewallDescriptionResponse,
+
+    -- ** UpdateFirewallPolicy
+    UpdateFirewallPolicy (UpdateFirewallPolicy'),
+    newUpdateFirewallPolicy,
+    UpdateFirewallPolicyResponse (UpdateFirewallPolicyResponse'),
+    newUpdateFirewallPolicyResponse,
+
+    -- ** UpdateFirewallPolicyChangeProtection
+    UpdateFirewallPolicyChangeProtection (UpdateFirewallPolicyChangeProtection'),
+    newUpdateFirewallPolicyChangeProtection,
+    UpdateFirewallPolicyChangeProtectionResponse (UpdateFirewallPolicyChangeProtectionResponse'),
+    newUpdateFirewallPolicyChangeProtectionResponse,
+
+    -- ** UpdateLoggingConfiguration
+    UpdateLoggingConfiguration (UpdateLoggingConfiguration'),
+    newUpdateLoggingConfiguration,
+    UpdateLoggingConfigurationResponse (UpdateLoggingConfigurationResponse'),
+    newUpdateLoggingConfigurationResponse,
+
+    -- ** UpdateRuleGroup
+    UpdateRuleGroup (UpdateRuleGroup'),
+    newUpdateRuleGroup,
+    UpdateRuleGroupResponse (UpdateRuleGroupResponse'),
+    newUpdateRuleGroupResponse,
+
+    -- ** UpdateSubnetChangeProtection
+    UpdateSubnetChangeProtection (UpdateSubnetChangeProtection'),
+    newUpdateSubnetChangeProtection,
+    UpdateSubnetChangeProtectionResponse (UpdateSubnetChangeProtectionResponse'),
+    newUpdateSubnetChangeProtectionResponse,
 
     -- * Types
 

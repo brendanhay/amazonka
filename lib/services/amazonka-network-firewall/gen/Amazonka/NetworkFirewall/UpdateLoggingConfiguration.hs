@@ -51,8 +51,8 @@ module Amazonka.NetworkFirewall.UpdateLoggingConfiguration
 
     -- * Request Lenses
     updateLoggingConfiguration_firewallArn,
-    updateLoggingConfiguration_loggingConfiguration,
     updateLoggingConfiguration_firewallName,
+    updateLoggingConfiguration_loggingConfiguration,
 
     -- * Destructuring the Response
     UpdateLoggingConfigurationResponse (..),
@@ -60,8 +60,8 @@ module Amazonka.NetworkFirewall.UpdateLoggingConfiguration
 
     -- * Response Lenses
     updateLoggingConfigurationResponse_firewallArn,
-    updateLoggingConfigurationResponse_loggingConfiguration,
     updateLoggingConfigurationResponse_firewallName,
+    updateLoggingConfigurationResponse_loggingConfiguration,
     updateLoggingConfigurationResponse_httpStatus,
   )
 where
@@ -79,14 +79,14 @@ data UpdateLoggingConfiguration = UpdateLoggingConfiguration'
     --
     -- You must specify the ARN or the name, and you can specify both.
     firewallArn :: Prelude.Maybe Prelude.Text,
-    -- | Defines how Network Firewall performs logging for a firewall. If you
-    -- omit this setting, Network Firewall disables logging for the firewall.
-    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | The descriptive name of the firewall. You can\'t change the name of a
     -- firewall after you create it.
     --
     -- You must specify the ARN or the name, and you can specify both.
-    firewallName :: Prelude.Maybe Prelude.Text
+    firewallName :: Prelude.Maybe Prelude.Text,
+    -- | Defines how Network Firewall performs logging for a firewall. If you
+    -- omit this setting, Network Firewall disables logging for the firewall.
+    loggingConfiguration :: Prelude.Maybe LoggingConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,21 +102,21 @@ data UpdateLoggingConfiguration = UpdateLoggingConfiguration'
 --
 -- You must specify the ARN or the name, and you can specify both.
 --
--- 'loggingConfiguration', 'updateLoggingConfiguration_loggingConfiguration' - Defines how Network Firewall performs logging for a firewall. If you
--- omit this setting, Network Firewall disables logging for the firewall.
---
 -- 'firewallName', 'updateLoggingConfiguration_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
 --
 -- You must specify the ARN or the name, and you can specify both.
+--
+-- 'loggingConfiguration', 'updateLoggingConfiguration_loggingConfiguration' - Defines how Network Firewall performs logging for a firewall. If you
+-- omit this setting, Network Firewall disables logging for the firewall.
 newUpdateLoggingConfiguration ::
   UpdateLoggingConfiguration
 newUpdateLoggingConfiguration =
   UpdateLoggingConfiguration'
     { firewallArn =
         Prelude.Nothing,
-      loggingConfiguration = Prelude.Nothing,
-      firewallName = Prelude.Nothing
+      firewallName = Prelude.Nothing,
+      loggingConfiguration = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the firewall.
@@ -125,17 +125,17 @@ newUpdateLoggingConfiguration =
 updateLoggingConfiguration_firewallArn :: Lens.Lens' UpdateLoggingConfiguration (Prelude.Maybe Prelude.Text)
 updateLoggingConfiguration_firewallArn = Lens.lens (\UpdateLoggingConfiguration' {firewallArn} -> firewallArn) (\s@UpdateLoggingConfiguration' {} a -> s {firewallArn = a} :: UpdateLoggingConfiguration)
 
--- | Defines how Network Firewall performs logging for a firewall. If you
--- omit this setting, Network Firewall disables logging for the firewall.
-updateLoggingConfiguration_loggingConfiguration :: Lens.Lens' UpdateLoggingConfiguration (Prelude.Maybe LoggingConfiguration)
-updateLoggingConfiguration_loggingConfiguration = Lens.lens (\UpdateLoggingConfiguration' {loggingConfiguration} -> loggingConfiguration) (\s@UpdateLoggingConfiguration' {} a -> s {loggingConfiguration = a} :: UpdateLoggingConfiguration)
-
 -- | The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
 --
 -- You must specify the ARN or the name, and you can specify both.
 updateLoggingConfiguration_firewallName :: Lens.Lens' UpdateLoggingConfiguration (Prelude.Maybe Prelude.Text)
 updateLoggingConfiguration_firewallName = Lens.lens (\UpdateLoggingConfiguration' {firewallName} -> firewallName) (\s@UpdateLoggingConfiguration' {} a -> s {firewallName = a} :: UpdateLoggingConfiguration)
+
+-- | Defines how Network Firewall performs logging for a firewall. If you
+-- omit this setting, Network Firewall disables logging for the firewall.
+updateLoggingConfiguration_loggingConfiguration :: Lens.Lens' UpdateLoggingConfiguration (Prelude.Maybe LoggingConfiguration)
+updateLoggingConfiguration_loggingConfiguration = Lens.lens (\UpdateLoggingConfiguration' {loggingConfiguration} -> loggingConfiguration) (\s@UpdateLoggingConfiguration' {} a -> s {loggingConfiguration = a} :: UpdateLoggingConfiguration)
 
 instance Core.AWSRequest UpdateLoggingConfiguration where
   type
@@ -147,22 +147,22 @@ instance Core.AWSRequest UpdateLoggingConfiguration where
       ( \s h x ->
           UpdateLoggingConfigurationResponse'
             Prelude.<$> (x Core..?> "FirewallArn")
-            Prelude.<*> (x Core..?> "LoggingConfiguration")
             Prelude.<*> (x Core..?> "FirewallName")
+            Prelude.<*> (x Core..?> "LoggingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateLoggingConfiguration where
   hashWithSalt _salt UpdateLoggingConfiguration' {..} =
     _salt `Prelude.hashWithSalt` firewallArn
-      `Prelude.hashWithSalt` loggingConfiguration
       `Prelude.hashWithSalt` firewallName
+      `Prelude.hashWithSalt` loggingConfiguration
 
 instance Prelude.NFData UpdateLoggingConfiguration where
   rnf UpdateLoggingConfiguration' {..} =
     Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf loggingConfiguration
       `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf loggingConfiguration
 
 instance Core.ToHeaders UpdateLoggingConfiguration where
   toHeaders =
@@ -184,9 +184,9 @@ instance Core.ToJSON UpdateLoggingConfiguration where
     Core.object
       ( Prelude.catMaybes
           [ ("FirewallArn" Core..=) Prelude.<$> firewallArn,
+            ("FirewallName" Core..=) Prelude.<$> firewallName,
             ("LoggingConfiguration" Core..=)
-              Prelude.<$> loggingConfiguration,
-            ("FirewallName" Core..=) Prelude.<$> firewallName
+              Prelude.<$> loggingConfiguration
           ]
       )
 
@@ -200,10 +200,10 @@ instance Core.ToQuery UpdateLoggingConfiguration where
 data UpdateLoggingConfigurationResponse = UpdateLoggingConfigurationResponse'
   { -- | The Amazon Resource Name (ARN) of the firewall.
     firewallArn :: Prelude.Maybe Prelude.Text,
-    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | The descriptive name of the firewall. You can\'t change the name of a
     -- firewall after you create it.
     firewallName :: Prelude.Maybe Prelude.Text,
+    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,10 +219,10 @@ data UpdateLoggingConfigurationResponse = UpdateLoggingConfigurationResponse'
 --
 -- 'firewallArn', 'updateLoggingConfigurationResponse_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
 --
--- 'loggingConfiguration', 'updateLoggingConfigurationResponse_loggingConfiguration' - Undocumented member.
---
 -- 'firewallName', 'updateLoggingConfigurationResponse_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
+--
+-- 'loggingConfiguration', 'updateLoggingConfigurationResponse_loggingConfiguration' - Undocumented member.
 --
 -- 'httpStatus', 'updateLoggingConfigurationResponse_httpStatus' - The response's http status code.
 newUpdateLoggingConfigurationResponse ::
@@ -233,8 +233,8 @@ newUpdateLoggingConfigurationResponse pHttpStatus_ =
   UpdateLoggingConfigurationResponse'
     { firewallArn =
         Prelude.Nothing,
-      loggingConfiguration = Prelude.Nothing,
       firewallName = Prelude.Nothing,
+      loggingConfiguration = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -242,14 +242,14 @@ newUpdateLoggingConfigurationResponse pHttpStatus_ =
 updateLoggingConfigurationResponse_firewallArn :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateLoggingConfigurationResponse_firewallArn = Lens.lens (\UpdateLoggingConfigurationResponse' {firewallArn} -> firewallArn) (\s@UpdateLoggingConfigurationResponse' {} a -> s {firewallArn = a} :: UpdateLoggingConfigurationResponse)
 
--- | Undocumented member.
-updateLoggingConfigurationResponse_loggingConfiguration :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe LoggingConfiguration)
-updateLoggingConfigurationResponse_loggingConfiguration = Lens.lens (\UpdateLoggingConfigurationResponse' {loggingConfiguration} -> loggingConfiguration) (\s@UpdateLoggingConfigurationResponse' {} a -> s {loggingConfiguration = a} :: UpdateLoggingConfigurationResponse)
-
 -- | The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
 updateLoggingConfigurationResponse_firewallName :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateLoggingConfigurationResponse_firewallName = Lens.lens (\UpdateLoggingConfigurationResponse' {firewallName} -> firewallName) (\s@UpdateLoggingConfigurationResponse' {} a -> s {firewallName = a} :: UpdateLoggingConfigurationResponse)
+
+-- | Undocumented member.
+updateLoggingConfigurationResponse_loggingConfiguration :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe LoggingConfiguration)
+updateLoggingConfigurationResponse_loggingConfiguration = Lens.lens (\UpdateLoggingConfigurationResponse' {loggingConfiguration} -> loggingConfiguration) (\s@UpdateLoggingConfigurationResponse' {} a -> s {loggingConfiguration = a} :: UpdateLoggingConfigurationResponse)
 
 -- | The response's http status code.
 updateLoggingConfigurationResponse_httpStatus :: Lens.Lens' UpdateLoggingConfigurationResponse Prelude.Int
@@ -261,6 +261,6 @@ instance
   where
   rnf UpdateLoggingConfigurationResponse' {..} =
     Prelude.rnf firewallArn
-      `Prelude.seq` Prelude.rnf loggingConfiguration
       `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf loggingConfiguration
       `Prelude.seq` Prelude.rnf httpStatus

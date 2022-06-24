@@ -45,9 +45,9 @@ module Amazonka.NetworkFirewall.AssociateSubnets
     newAssociateSubnetsResponse,
 
     -- * Response Lenses
-    associateSubnetsResponse_subnetMappings,
     associateSubnetsResponse_updateToken,
     associateSubnetsResponse_firewallArn,
+    associateSubnetsResponse_subnetMappings,
     associateSubnetsResponse_firewallName,
     associateSubnetsResponse_httpStatus,
   )
@@ -186,9 +186,9 @@ instance Core.AWSRequest AssociateSubnets where
     Response.receiveJSON
       ( \s h x ->
           AssociateSubnetsResponse'
-            Prelude.<$> (x Core..?> "SubnetMappings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "UpdateToken")
+            Prelude.<$> (x Core..?> "UpdateToken")
             Prelude.<*> (x Core..?> "FirewallArn")
+            Prelude.<*> (x Core..?> "SubnetMappings" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "FirewallName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -242,9 +242,7 @@ instance Core.ToQuery AssociateSubnets where
 
 -- | /See:/ 'newAssociateSubnetsResponse' smart constructor.
 data AssociateSubnetsResponse = AssociateSubnetsResponse'
-  { -- | The IDs of the subnets that are associated with the firewall.
-    subnetMappings :: Prelude.Maybe [SubnetMapping],
-    -- | An optional token that you can use for optimistic locking. Network
+  { -- | An optional token that you can use for optimistic locking. Network
     -- Firewall returns a token to your requests that access the firewall. The
     -- token marks the state of the firewall resource at the time of the
     -- request.
@@ -264,6 +262,8 @@ data AssociateSubnetsResponse = AssociateSubnetsResponse'
     updateToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the firewall.
     firewallArn :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the subnets that are associated with the firewall.
+    subnetMappings :: Prelude.Maybe [SubnetMapping],
     -- | The descriptive name of the firewall. You can\'t change the name of a
     -- firewall after you create it.
     firewallName :: Prelude.Maybe Prelude.Text,
@@ -279,8 +279,6 @@ data AssociateSubnetsResponse = AssociateSubnetsResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'subnetMappings', 'associateSubnetsResponse_subnetMappings' - The IDs of the subnets that are associated with the firewall.
 --
 -- 'updateToken', 'associateSubnetsResponse_updateToken' - An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -302,6 +300,8 @@ data AssociateSubnetsResponse = AssociateSubnetsResponse'
 --
 -- 'firewallArn', 'associateSubnetsResponse_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
 --
+-- 'subnetMappings', 'associateSubnetsResponse_subnetMappings' - The IDs of the subnets that are associated with the firewall.
+--
 -- 'firewallName', 'associateSubnetsResponse_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
 --
@@ -312,17 +312,13 @@ newAssociateSubnetsResponse ::
   AssociateSubnetsResponse
 newAssociateSubnetsResponse pHttpStatus_ =
   AssociateSubnetsResponse'
-    { subnetMappings =
+    { updateToken =
         Prelude.Nothing,
-      updateToken = Prelude.Nothing,
       firewallArn = Prelude.Nothing,
+      subnetMappings = Prelude.Nothing,
       firewallName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The IDs of the subnets that are associated with the firewall.
-associateSubnetsResponse_subnetMappings :: Lens.Lens' AssociateSubnetsResponse (Prelude.Maybe [SubnetMapping])
-associateSubnetsResponse_subnetMappings = Lens.lens (\AssociateSubnetsResponse' {subnetMappings} -> subnetMappings) (\s@AssociateSubnetsResponse' {} a -> s {subnetMappings = a} :: AssociateSubnetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -348,6 +344,10 @@ associateSubnetsResponse_updateToken = Lens.lens (\AssociateSubnetsResponse' {up
 associateSubnetsResponse_firewallArn :: Lens.Lens' AssociateSubnetsResponse (Prelude.Maybe Prelude.Text)
 associateSubnetsResponse_firewallArn = Lens.lens (\AssociateSubnetsResponse' {firewallArn} -> firewallArn) (\s@AssociateSubnetsResponse' {} a -> s {firewallArn = a} :: AssociateSubnetsResponse)
 
+-- | The IDs of the subnets that are associated with the firewall.
+associateSubnetsResponse_subnetMappings :: Lens.Lens' AssociateSubnetsResponse (Prelude.Maybe [SubnetMapping])
+associateSubnetsResponse_subnetMappings = Lens.lens (\AssociateSubnetsResponse' {subnetMappings} -> subnetMappings) (\s@AssociateSubnetsResponse' {} a -> s {subnetMappings = a} :: AssociateSubnetsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
 associateSubnetsResponse_firewallName :: Lens.Lens' AssociateSubnetsResponse (Prelude.Maybe Prelude.Text)
@@ -359,8 +359,8 @@ associateSubnetsResponse_httpStatus = Lens.lens (\AssociateSubnetsResponse' {htt
 
 instance Prelude.NFData AssociateSubnetsResponse where
   rnf AssociateSubnetsResponse' {..} =
-    Prelude.rnf subnetMappings
-      `Prelude.seq` Prelude.rnf updateToken
+    Prelude.rnf updateToken
       `Prelude.seq` Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf subnetMappings
       `Prelude.seq` Prelude.rnf firewallName
       `Prelude.seq` Prelude.rnf httpStatus

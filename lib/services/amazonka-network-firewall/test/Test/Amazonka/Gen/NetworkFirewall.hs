@@ -27,289 +27,187 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAssociateSubnets $
---             newAssociateSubnets
---
---         , requestUpdateSubnetChangeProtection $
---             newUpdateSubnetChangeProtection
---
---         , requestUpdateFirewallPolicy $
---             newUpdateFirewallPolicy
---
---         , requestDeleteFirewallPolicy $
---             newDeleteFirewallPolicy
---
---         , requestCreateFirewallPolicy $
---             newCreateFirewallPolicy
---
---         , requestUpdateLoggingConfiguration $
---             newUpdateLoggingConfiguration
---
---         , requestDisassociateSubnets $
---             newDisassociateSubnets
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestListFirewallPolicies $
---             newListFirewallPolicies
---
---         , requestUpdateFirewallDeleteProtection $
---             newUpdateFirewallDeleteProtection
---
---         , requestCreateRuleGroup $
---             newCreateRuleGroup
---
---         , requestDescribeFirewallPolicy $
---             newDescribeFirewallPolicy
---
---         , requestUpdateFirewallDescription $
---             newUpdateFirewallDescription
---
---         , requestDescribeRuleGroup $
---             newDescribeRuleGroup
---
---         , requestDeleteFirewall $
---             newDeleteFirewall
---
---         , requestListFirewalls $
---             newListFirewalls
---
---         , requestDescribeResourcePolicy $
---             newDescribeResourcePolicy
---
---         , requestAssociateFirewallPolicy $
+--         [ requestAssociateFirewallPolicy $
 --             newAssociateFirewallPolicy
 --
---         , requestUpdateFirewallPolicyChangeProtection $
---             newUpdateFirewallPolicyChangeProtection
+--         , requestAssociateSubnets $
+--             newAssociateSubnets
 --
 --         , requestCreateFirewall $
 --             newCreateFirewall
 --
---         , requestListRuleGroups $
---             newListRuleGroups
+--         , requestCreateFirewallPolicy $
+--             newCreateFirewallPolicy
 --
---         , requestTagResource $
---             newTagResource
+--         , requestCreateRuleGroup $
+--             newCreateRuleGroup
 --
---         , requestDeleteRuleGroup $
---             newDeleteRuleGroup
+--         , requestDeleteFirewall $
+--             newDeleteFirewall
 --
---         , requestUpdateRuleGroup $
---             newUpdateRuleGroup
---
---         , requestPutResourcePolicy $
---             newPutResourcePolicy
---
---         , requestDescribeFirewall $
---             newDescribeFirewall
+--         , requestDeleteFirewallPolicy $
+--             newDeleteFirewallPolicy
 --
 --         , requestDeleteResourcePolicy $
 --             newDeleteResourcePolicy
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestDeleteRuleGroup $
+--             newDeleteRuleGroup
+--
+--         , requestDescribeFirewall $
+--             newDescribeFirewall
+--
+--         , requestDescribeFirewallPolicy $
+--             newDescribeFirewallPolicy
 --
 --         , requestDescribeLoggingConfiguration $
 --             newDescribeLoggingConfiguration
 --
+--         , requestDescribeResourcePolicy $
+--             newDescribeResourcePolicy
+--
+--         , requestDescribeRuleGroup $
+--             newDescribeRuleGroup
+--
+--         , requestDisassociateSubnets $
+--             newDisassociateSubnets
+--
+--         , requestListFirewallPolicies $
+--             newListFirewallPolicies
+--
+--         , requestListFirewalls $
+--             newListFirewalls
+--
+--         , requestListRuleGroups $
+--             newListRuleGroups
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateFirewallDeleteProtection $
+--             newUpdateFirewallDeleteProtection
+--
+--         , requestUpdateFirewallDescription $
+--             newUpdateFirewallDescription
+--
+--         , requestUpdateFirewallPolicy $
+--             newUpdateFirewallPolicy
+--
+--         , requestUpdateFirewallPolicyChangeProtection $
+--             newUpdateFirewallPolicyChangeProtection
+--
+--         , requestUpdateLoggingConfiguration $
+--             newUpdateLoggingConfiguration
+--
+--         , requestUpdateRuleGroup $
+--             newUpdateRuleGroup
+--
+--         , requestUpdateSubnetChangeProtection $
+--             newUpdateSubnetChangeProtection
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseAssociateSubnets $
---             newAssociateSubnetsResponse
---
---         , responseUpdateSubnetChangeProtection $
---             newUpdateSubnetChangeProtectionResponse
---
---         , responseUpdateFirewallPolicy $
---             newUpdateFirewallPolicyResponse
---
---         , responseDeleteFirewallPolicy $
---             newDeleteFirewallPolicyResponse
---
---         , responseCreateFirewallPolicy $
---             newCreateFirewallPolicyResponse
---
---         , responseUpdateLoggingConfiguration $
---             newUpdateLoggingConfigurationResponse
---
---         , responseDisassociateSubnets $
---             newDisassociateSubnetsResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseListFirewallPolicies $
---             newListFirewallPoliciesResponse
---
---         , responseUpdateFirewallDeleteProtection $
---             newUpdateFirewallDeleteProtectionResponse
---
---         , responseCreateRuleGroup $
---             newCreateRuleGroupResponse
---
---         , responseDescribeFirewallPolicy $
---             newDescribeFirewallPolicyResponse
---
---         , responseUpdateFirewallDescription $
---             newUpdateFirewallDescriptionResponse
---
---         , responseDescribeRuleGroup $
---             newDescribeRuleGroupResponse
---
---         , responseDeleteFirewall $
---             newDeleteFirewallResponse
---
---         , responseListFirewalls $
---             newListFirewallsResponse
---
---         , responseDescribeResourcePolicy $
---             newDescribeResourcePolicyResponse
---
---         , responseAssociateFirewallPolicy $
+--         [ responseAssociateFirewallPolicy $
 --             newAssociateFirewallPolicyResponse
 --
---         , responseUpdateFirewallPolicyChangeProtection $
---             newUpdateFirewallPolicyChangeProtectionResponse
+--         , responseAssociateSubnets $
+--             newAssociateSubnetsResponse
 --
 --         , responseCreateFirewall $
 --             newCreateFirewallResponse
 --
---         , responseListRuleGroups $
---             newListRuleGroupsResponse
+--         , responseCreateFirewallPolicy $
+--             newCreateFirewallPolicyResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseCreateRuleGroup $
+--             newCreateRuleGroupResponse
 --
---         , responseDeleteRuleGroup $
---             newDeleteRuleGroupResponse
+--         , responseDeleteFirewall $
+--             newDeleteFirewallResponse
 --
---         , responseUpdateRuleGroup $
---             newUpdateRuleGroupResponse
---
---         , responsePutResourcePolicy $
---             newPutResourcePolicyResponse
---
---         , responseDescribeFirewall $
---             newDescribeFirewallResponse
+--         , responseDeleteFirewallPolicy $
+--             newDeleteFirewallPolicyResponse
 --
 --         , responseDeleteResourcePolicy $
 --             newDeleteResourcePolicyResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseDeleteRuleGroup $
+--             newDeleteRuleGroupResponse
+--
+--         , responseDescribeFirewall $
+--             newDescribeFirewallResponse
+--
+--         , responseDescribeFirewallPolicy $
+--             newDescribeFirewallPolicyResponse
 --
 --         , responseDescribeLoggingConfiguration $
 --             newDescribeLoggingConfigurationResponse
+--
+--         , responseDescribeResourcePolicy $
+--             newDescribeResourcePolicyResponse
+--
+--         , responseDescribeRuleGroup $
+--             newDescribeRuleGroupResponse
+--
+--         , responseDisassociateSubnets $
+--             newDisassociateSubnetsResponse
+--
+--         , responseListFirewallPolicies $
+--             newListFirewallPoliciesResponse
+--
+--         , responseListFirewalls $
+--             newListFirewallsResponse
+--
+--         , responseListRuleGroups $
+--             newListRuleGroupsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateFirewallDeleteProtection $
+--             newUpdateFirewallDeleteProtectionResponse
+--
+--         , responseUpdateFirewallDescription $
+--             newUpdateFirewallDescriptionResponse
+--
+--         , responseUpdateFirewallPolicy $
+--             newUpdateFirewallPolicyResponse
+--
+--         , responseUpdateFirewallPolicyChangeProtection $
+--             newUpdateFirewallPolicyChangeProtectionResponse
+--
+--         , responseUpdateLoggingConfiguration $
+--             newUpdateLoggingConfigurationResponse
+--
+--         , responseUpdateRuleGroup $
+--             newUpdateRuleGroupResponse
+--
+--         , responseUpdateSubnetChangeProtection $
+--             newUpdateSubnetChangeProtectionResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestAssociateSubnets :: AssociateSubnets -> TestTree
-requestAssociateSubnets =
-  req
-    "AssociateSubnets"
-    "fixture/AssociateSubnets.yaml"
-
-requestUpdateSubnetChangeProtection :: UpdateSubnetChangeProtection -> TestTree
-requestUpdateSubnetChangeProtection =
-  req
-    "UpdateSubnetChangeProtection"
-    "fixture/UpdateSubnetChangeProtection.yaml"
-
-requestUpdateFirewallPolicy :: UpdateFirewallPolicy -> TestTree
-requestUpdateFirewallPolicy =
-  req
-    "UpdateFirewallPolicy"
-    "fixture/UpdateFirewallPolicy.yaml"
-
-requestDeleteFirewallPolicy :: DeleteFirewallPolicy -> TestTree
-requestDeleteFirewallPolicy =
-  req
-    "DeleteFirewallPolicy"
-    "fixture/DeleteFirewallPolicy.yaml"
-
-requestCreateFirewallPolicy :: CreateFirewallPolicy -> TestTree
-requestCreateFirewallPolicy =
-  req
-    "CreateFirewallPolicy"
-    "fixture/CreateFirewallPolicy.yaml"
-
-requestUpdateLoggingConfiguration :: UpdateLoggingConfiguration -> TestTree
-requestUpdateLoggingConfiguration =
-  req
-    "UpdateLoggingConfiguration"
-    "fixture/UpdateLoggingConfiguration.yaml"
-
-requestDisassociateSubnets :: DisassociateSubnets -> TestTree
-requestDisassociateSubnets =
-  req
-    "DisassociateSubnets"
-    "fixture/DisassociateSubnets.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestListFirewallPolicies :: ListFirewallPolicies -> TestTree
-requestListFirewallPolicies =
-  req
-    "ListFirewallPolicies"
-    "fixture/ListFirewallPolicies.yaml"
-
-requestUpdateFirewallDeleteProtection :: UpdateFirewallDeleteProtection -> TestTree
-requestUpdateFirewallDeleteProtection =
-  req
-    "UpdateFirewallDeleteProtection"
-    "fixture/UpdateFirewallDeleteProtection.yaml"
-
-requestCreateRuleGroup :: CreateRuleGroup -> TestTree
-requestCreateRuleGroup =
-  req
-    "CreateRuleGroup"
-    "fixture/CreateRuleGroup.yaml"
-
-requestDescribeFirewallPolicy :: DescribeFirewallPolicy -> TestTree
-requestDescribeFirewallPolicy =
-  req
-    "DescribeFirewallPolicy"
-    "fixture/DescribeFirewallPolicy.yaml"
-
-requestUpdateFirewallDescription :: UpdateFirewallDescription -> TestTree
-requestUpdateFirewallDescription =
-  req
-    "UpdateFirewallDescription"
-    "fixture/UpdateFirewallDescription.yaml"
-
-requestDescribeRuleGroup :: DescribeRuleGroup -> TestTree
-requestDescribeRuleGroup =
-  req
-    "DescribeRuleGroup"
-    "fixture/DescribeRuleGroup.yaml"
-
-requestDeleteFirewall :: DeleteFirewall -> TestTree
-requestDeleteFirewall =
-  req
-    "DeleteFirewall"
-    "fixture/DeleteFirewall.yaml"
-
-requestListFirewalls :: ListFirewalls -> TestTree
-requestListFirewalls =
-  req
-    "ListFirewalls"
-    "fixture/ListFirewalls.yaml"
-
-requestDescribeResourcePolicy :: DescribeResourcePolicy -> TestTree
-requestDescribeResourcePolicy =
-  req
-    "DescribeResourcePolicy"
-    "fixture/DescribeResourcePolicy.yaml"
 
 requestAssociateFirewallPolicy :: AssociateFirewallPolicy -> TestTree
 requestAssociateFirewallPolicy =
@@ -317,11 +215,11 @@ requestAssociateFirewallPolicy =
     "AssociateFirewallPolicy"
     "fixture/AssociateFirewallPolicy.yaml"
 
-requestUpdateFirewallPolicyChangeProtection :: UpdateFirewallPolicyChangeProtection -> TestTree
-requestUpdateFirewallPolicyChangeProtection =
+requestAssociateSubnets :: AssociateSubnets -> TestTree
+requestAssociateSubnets =
   req
-    "UpdateFirewallPolicyChangeProtection"
-    "fixture/UpdateFirewallPolicyChangeProtection.yaml"
+    "AssociateSubnets"
+    "fixture/AssociateSubnets.yaml"
 
 requestCreateFirewall :: CreateFirewall -> TestTree
 requestCreateFirewall =
@@ -329,41 +227,29 @@ requestCreateFirewall =
     "CreateFirewall"
     "fixture/CreateFirewall.yaml"
 
-requestListRuleGroups :: ListRuleGroups -> TestTree
-requestListRuleGroups =
+requestCreateFirewallPolicy :: CreateFirewallPolicy -> TestTree
+requestCreateFirewallPolicy =
   req
-    "ListRuleGroups"
-    "fixture/ListRuleGroups.yaml"
+    "CreateFirewallPolicy"
+    "fixture/CreateFirewallPolicy.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestCreateRuleGroup :: CreateRuleGroup -> TestTree
+requestCreateRuleGroup =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "CreateRuleGroup"
+    "fixture/CreateRuleGroup.yaml"
 
-requestDeleteRuleGroup :: DeleteRuleGroup -> TestTree
-requestDeleteRuleGroup =
+requestDeleteFirewall :: DeleteFirewall -> TestTree
+requestDeleteFirewall =
   req
-    "DeleteRuleGroup"
-    "fixture/DeleteRuleGroup.yaml"
+    "DeleteFirewall"
+    "fixture/DeleteFirewall.yaml"
 
-requestUpdateRuleGroup :: UpdateRuleGroup -> TestTree
-requestUpdateRuleGroup =
+requestDeleteFirewallPolicy :: DeleteFirewallPolicy -> TestTree
+requestDeleteFirewallPolicy =
   req
-    "UpdateRuleGroup"
-    "fixture/UpdateRuleGroup.yaml"
-
-requestPutResourcePolicy :: PutResourcePolicy -> TestTree
-requestPutResourcePolicy =
-  req
-    "PutResourcePolicy"
-    "fixture/PutResourcePolicy.yaml"
-
-requestDescribeFirewall :: DescribeFirewall -> TestTree
-requestDescribeFirewall =
-  req
-    "DescribeFirewall"
-    "fixture/DescribeFirewall.yaml"
+    "DeleteFirewallPolicy"
+    "fixture/DeleteFirewallPolicy.yaml"
 
 requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
 requestDeleteResourcePolicy =
@@ -371,11 +257,23 @@ requestDeleteResourcePolicy =
     "DeleteResourcePolicy"
     "fixture/DeleteResourcePolicy.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestDeleteRuleGroup :: DeleteRuleGroup -> TestTree
+requestDeleteRuleGroup =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "DeleteRuleGroup"
+    "fixture/DeleteRuleGroup.yaml"
+
+requestDescribeFirewall :: DescribeFirewall -> TestTree
+requestDescribeFirewall =
+  req
+    "DescribeFirewall"
+    "fixture/DescribeFirewall.yaml"
+
+requestDescribeFirewallPolicy :: DescribeFirewallPolicy -> TestTree
+requestDescribeFirewallPolicy =
+  req
+    "DescribeFirewallPolicy"
+    "fixture/DescribeFirewallPolicy.yaml"
 
 requestDescribeLoggingConfiguration :: DescribeLoggingConfiguration -> TestTree
 requestDescribeLoggingConfiguration =
@@ -383,143 +281,109 @@ requestDescribeLoggingConfiguration =
     "DescribeLoggingConfiguration"
     "fixture/DescribeLoggingConfiguration.yaml"
 
+requestDescribeResourcePolicy :: DescribeResourcePolicy -> TestTree
+requestDescribeResourcePolicy =
+  req
+    "DescribeResourcePolicy"
+    "fixture/DescribeResourcePolicy.yaml"
+
+requestDescribeRuleGroup :: DescribeRuleGroup -> TestTree
+requestDescribeRuleGroup =
+  req
+    "DescribeRuleGroup"
+    "fixture/DescribeRuleGroup.yaml"
+
+requestDisassociateSubnets :: DisassociateSubnets -> TestTree
+requestDisassociateSubnets =
+  req
+    "DisassociateSubnets"
+    "fixture/DisassociateSubnets.yaml"
+
+requestListFirewallPolicies :: ListFirewallPolicies -> TestTree
+requestListFirewallPolicies =
+  req
+    "ListFirewallPolicies"
+    "fixture/ListFirewallPolicies.yaml"
+
+requestListFirewalls :: ListFirewalls -> TestTree
+requestListFirewalls =
+  req
+    "ListFirewalls"
+    "fixture/ListFirewalls.yaml"
+
+requestListRuleGroups :: ListRuleGroups -> TestTree
+requestListRuleGroups =
+  req
+    "ListRuleGroups"
+    "fixture/ListRuleGroups.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
+  req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateFirewallDeleteProtection :: UpdateFirewallDeleteProtection -> TestTree
+requestUpdateFirewallDeleteProtection =
+  req
+    "UpdateFirewallDeleteProtection"
+    "fixture/UpdateFirewallDeleteProtection.yaml"
+
+requestUpdateFirewallDescription :: UpdateFirewallDescription -> TestTree
+requestUpdateFirewallDescription =
+  req
+    "UpdateFirewallDescription"
+    "fixture/UpdateFirewallDescription.yaml"
+
+requestUpdateFirewallPolicy :: UpdateFirewallPolicy -> TestTree
+requestUpdateFirewallPolicy =
+  req
+    "UpdateFirewallPolicy"
+    "fixture/UpdateFirewallPolicy.yaml"
+
+requestUpdateFirewallPolicyChangeProtection :: UpdateFirewallPolicyChangeProtection -> TestTree
+requestUpdateFirewallPolicyChangeProtection =
+  req
+    "UpdateFirewallPolicyChangeProtection"
+    "fixture/UpdateFirewallPolicyChangeProtection.yaml"
+
+requestUpdateLoggingConfiguration :: UpdateLoggingConfiguration -> TestTree
+requestUpdateLoggingConfiguration =
+  req
+    "UpdateLoggingConfiguration"
+    "fixture/UpdateLoggingConfiguration.yaml"
+
+requestUpdateRuleGroup :: UpdateRuleGroup -> TestTree
+requestUpdateRuleGroup =
+  req
+    "UpdateRuleGroup"
+    "fixture/UpdateRuleGroup.yaml"
+
+requestUpdateSubnetChangeProtection :: UpdateSubnetChangeProtection -> TestTree
+requestUpdateSubnetChangeProtection =
+  req
+    "UpdateSubnetChangeProtection"
+    "fixture/UpdateSubnetChangeProtection.yaml"
+
 -- Responses
-
-responseAssociateSubnets :: AssociateSubnetsResponse -> TestTree
-responseAssociateSubnets =
-  res
-    "AssociateSubnetsResponse"
-    "fixture/AssociateSubnetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociateSubnets)
-
-responseUpdateSubnetChangeProtection :: UpdateSubnetChangeProtectionResponse -> TestTree
-responseUpdateSubnetChangeProtection =
-  res
-    "UpdateSubnetChangeProtectionResponse"
-    "fixture/UpdateSubnetChangeProtectionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSubnetChangeProtection)
-
-responseUpdateFirewallPolicy :: UpdateFirewallPolicyResponse -> TestTree
-responseUpdateFirewallPolicy =
-  res
-    "UpdateFirewallPolicyResponse"
-    "fixture/UpdateFirewallPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallPolicy)
-
-responseDeleteFirewallPolicy :: DeleteFirewallPolicyResponse -> TestTree
-responseDeleteFirewallPolicy =
-  res
-    "DeleteFirewallPolicyResponse"
-    "fixture/DeleteFirewallPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFirewallPolicy)
-
-responseCreateFirewallPolicy :: CreateFirewallPolicyResponse -> TestTree
-responseCreateFirewallPolicy =
-  res
-    "CreateFirewallPolicyResponse"
-    "fixture/CreateFirewallPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateFirewallPolicy)
-
-responseUpdateLoggingConfiguration :: UpdateLoggingConfigurationResponse -> TestTree
-responseUpdateLoggingConfiguration =
-  res
-    "UpdateLoggingConfigurationResponse"
-    "fixture/UpdateLoggingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateLoggingConfiguration)
-
-responseDisassociateSubnets :: DisassociateSubnetsResponse -> TestTree
-responseDisassociateSubnets =
-  res
-    "DisassociateSubnetsResponse"
-    "fixture/DisassociateSubnetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateSubnets)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseListFirewallPolicies :: ListFirewallPoliciesResponse -> TestTree
-responseListFirewallPolicies =
-  res
-    "ListFirewallPoliciesResponse"
-    "fixture/ListFirewallPoliciesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFirewallPolicies)
-
-responseUpdateFirewallDeleteProtection :: UpdateFirewallDeleteProtectionResponse -> TestTree
-responseUpdateFirewallDeleteProtection =
-  res
-    "UpdateFirewallDeleteProtectionResponse"
-    "fixture/UpdateFirewallDeleteProtectionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallDeleteProtection)
-
-responseCreateRuleGroup :: CreateRuleGroupResponse -> TestTree
-responseCreateRuleGroup =
-  res
-    "CreateRuleGroupResponse"
-    "fixture/CreateRuleGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRuleGroup)
-
-responseDescribeFirewallPolicy :: DescribeFirewallPolicyResponse -> TestTree
-responseDescribeFirewallPolicy =
-  res
-    "DescribeFirewallPolicyResponse"
-    "fixture/DescribeFirewallPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFirewallPolicy)
-
-responseUpdateFirewallDescription :: UpdateFirewallDescriptionResponse -> TestTree
-responseUpdateFirewallDescription =
-  res
-    "UpdateFirewallDescriptionResponse"
-    "fixture/UpdateFirewallDescriptionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallDescription)
-
-responseDescribeRuleGroup :: DescribeRuleGroupResponse -> TestTree
-responseDescribeRuleGroup =
-  res
-    "DescribeRuleGroupResponse"
-    "fixture/DescribeRuleGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeRuleGroup)
-
-responseDeleteFirewall :: DeleteFirewallResponse -> TestTree
-responseDeleteFirewall =
-  res
-    "DeleteFirewallResponse"
-    "fixture/DeleteFirewallResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFirewall)
-
-responseListFirewalls :: ListFirewallsResponse -> TestTree
-responseListFirewalls =
-  res
-    "ListFirewallsResponse"
-    "fixture/ListFirewallsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFirewalls)
-
-responseDescribeResourcePolicy :: DescribeResourcePolicyResponse -> TestTree
-responseDescribeResourcePolicy =
-  res
-    "DescribeResourcePolicyResponse"
-    "fixture/DescribeResourcePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeResourcePolicy)
 
 responseAssociateFirewallPolicy :: AssociateFirewallPolicyResponse -> TestTree
 responseAssociateFirewallPolicy =
@@ -529,13 +393,13 @@ responseAssociateFirewallPolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateFirewallPolicy)
 
-responseUpdateFirewallPolicyChangeProtection :: UpdateFirewallPolicyChangeProtectionResponse -> TestTree
-responseUpdateFirewallPolicyChangeProtection =
+responseAssociateSubnets :: AssociateSubnetsResponse -> TestTree
+responseAssociateSubnets =
   res
-    "UpdateFirewallPolicyChangeProtectionResponse"
-    "fixture/UpdateFirewallPolicyChangeProtectionResponse.proto"
+    "AssociateSubnetsResponse"
+    "fixture/AssociateSubnetsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallPolicyChangeProtection)
+    (Proxy.Proxy :: Proxy.Proxy AssociateSubnets)
 
 responseCreateFirewall :: CreateFirewallResponse -> TestTree
 responseCreateFirewall =
@@ -545,53 +409,37 @@ responseCreateFirewall =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateFirewall)
 
-responseListRuleGroups :: ListRuleGroupsResponse -> TestTree
-responseListRuleGroups =
+responseCreateFirewallPolicy :: CreateFirewallPolicyResponse -> TestTree
+responseCreateFirewallPolicy =
   res
-    "ListRuleGroupsResponse"
-    "fixture/ListRuleGroupsResponse.proto"
+    "CreateFirewallPolicyResponse"
+    "fixture/CreateFirewallPolicyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRuleGroups)
+    (Proxy.Proxy :: Proxy.Proxy CreateFirewallPolicy)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseCreateRuleGroup :: CreateRuleGroupResponse -> TestTree
+responseCreateRuleGroup =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "CreateRuleGroupResponse"
+    "fixture/CreateRuleGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy CreateRuleGroup)
 
-responseDeleteRuleGroup :: DeleteRuleGroupResponse -> TestTree
-responseDeleteRuleGroup =
+responseDeleteFirewall :: DeleteFirewallResponse -> TestTree
+responseDeleteFirewall =
   res
-    "DeleteRuleGroupResponse"
-    "fixture/DeleteRuleGroupResponse.proto"
+    "DeleteFirewallResponse"
+    "fixture/DeleteFirewallResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRuleGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFirewall)
 
-responseUpdateRuleGroup :: UpdateRuleGroupResponse -> TestTree
-responseUpdateRuleGroup =
+responseDeleteFirewallPolicy :: DeleteFirewallPolicyResponse -> TestTree
+responseDeleteFirewallPolicy =
   res
-    "UpdateRuleGroupResponse"
-    "fixture/UpdateRuleGroupResponse.proto"
+    "DeleteFirewallPolicyResponse"
+    "fixture/DeleteFirewallPolicyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRuleGroup)
-
-responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
-responsePutResourcePolicy =
-  res
-    "PutResourcePolicyResponse"
-    "fixture/PutResourcePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
-
-responseDescribeFirewall :: DescribeFirewallResponse -> TestTree
-responseDescribeFirewall =
-  res
-    "DescribeFirewallResponse"
-    "fixture/DescribeFirewallResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFirewall)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFirewallPolicy)
 
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
 responseDeleteResourcePolicy =
@@ -601,13 +449,29 @@ responseDeleteResourcePolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseDeleteRuleGroup :: DeleteRuleGroupResponse -> TestTree
+responseDeleteRuleGroup =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "DeleteRuleGroupResponse"
+    "fixture/DeleteRuleGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRuleGroup)
+
+responseDescribeFirewall :: DescribeFirewallResponse -> TestTree
+responseDescribeFirewall =
+  res
+    "DescribeFirewallResponse"
+    "fixture/DescribeFirewallResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFirewall)
+
+responseDescribeFirewallPolicy :: DescribeFirewallPolicyResponse -> TestTree
+responseDescribeFirewallPolicy =
+  res
+    "DescribeFirewallPolicyResponse"
+    "fixture/DescribeFirewallPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFirewallPolicy)
 
 responseDescribeLoggingConfiguration :: DescribeLoggingConfigurationResponse -> TestTree
 responseDescribeLoggingConfiguration =
@@ -616,3 +480,139 @@ responseDescribeLoggingConfiguration =
     "fixture/DescribeLoggingConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeLoggingConfiguration)
+
+responseDescribeResourcePolicy :: DescribeResourcePolicyResponse -> TestTree
+responseDescribeResourcePolicy =
+  res
+    "DescribeResourcePolicyResponse"
+    "fixture/DescribeResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeResourcePolicy)
+
+responseDescribeRuleGroup :: DescribeRuleGroupResponse -> TestTree
+responseDescribeRuleGroup =
+  res
+    "DescribeRuleGroupResponse"
+    "fixture/DescribeRuleGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRuleGroup)
+
+responseDisassociateSubnets :: DisassociateSubnetsResponse -> TestTree
+responseDisassociateSubnets =
+  res
+    "DisassociateSubnetsResponse"
+    "fixture/DisassociateSubnetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateSubnets)
+
+responseListFirewallPolicies :: ListFirewallPoliciesResponse -> TestTree
+responseListFirewallPolicies =
+  res
+    "ListFirewallPoliciesResponse"
+    "fixture/ListFirewallPoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallPolicies)
+
+responseListFirewalls :: ListFirewallsResponse -> TestTree
+responseListFirewalls =
+  res
+    "ListFirewallsResponse"
+    "fixture/ListFirewallsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFirewalls)
+
+responseListRuleGroups :: ListRuleGroupsResponse -> TestTree
+responseListRuleGroups =
+  res
+    "ListRuleGroupsResponse"
+    "fixture/ListRuleGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRuleGroups)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
+  res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateFirewallDeleteProtection :: UpdateFirewallDeleteProtectionResponse -> TestTree
+responseUpdateFirewallDeleteProtection =
+  res
+    "UpdateFirewallDeleteProtectionResponse"
+    "fixture/UpdateFirewallDeleteProtectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallDeleteProtection)
+
+responseUpdateFirewallDescription :: UpdateFirewallDescriptionResponse -> TestTree
+responseUpdateFirewallDescription =
+  res
+    "UpdateFirewallDescriptionResponse"
+    "fixture/UpdateFirewallDescriptionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallDescription)
+
+responseUpdateFirewallPolicy :: UpdateFirewallPolicyResponse -> TestTree
+responseUpdateFirewallPolicy =
+  res
+    "UpdateFirewallPolicyResponse"
+    "fixture/UpdateFirewallPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallPolicy)
+
+responseUpdateFirewallPolicyChangeProtection :: UpdateFirewallPolicyChangeProtectionResponse -> TestTree
+responseUpdateFirewallPolicyChangeProtection =
+  res
+    "UpdateFirewallPolicyChangeProtectionResponse"
+    "fixture/UpdateFirewallPolicyChangeProtectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallPolicyChangeProtection)
+
+responseUpdateLoggingConfiguration :: UpdateLoggingConfigurationResponse -> TestTree
+responseUpdateLoggingConfiguration =
+  res
+    "UpdateLoggingConfigurationResponse"
+    "fixture/UpdateLoggingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLoggingConfiguration)
+
+responseUpdateRuleGroup :: UpdateRuleGroupResponse -> TestTree
+responseUpdateRuleGroup =
+  res
+    "UpdateRuleGroupResponse"
+    "fixture/UpdateRuleGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRuleGroup)
+
+responseUpdateSubnetChangeProtection :: UpdateSubnetChangeProtectionResponse -> TestTree
+responseUpdateSubnetChangeProtection =
+  res
+    "UpdateSubnetChangeProtectionResponse"
+    "fixture/UpdateSubnetChangeProtectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSubnetChangeProtection)

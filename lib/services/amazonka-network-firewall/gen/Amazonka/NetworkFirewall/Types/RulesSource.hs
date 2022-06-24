@@ -41,14 +41,14 @@ data RulesSource = RulesSource'
     -- traffic that matches the criteria, so this type of rule group doesn\'t
     -- have a separate action setting.
     rulesString :: Prelude.Maybe Prelude.Text,
-    -- | Stateful inspection criteria for a domain list rule group.
-    rulesSourceList :: Prelude.Maybe RulesSourceList,
     -- | An array of individual stateful rules inspection criteria to be used
     -- together in a stateful rule group. Use this option to specify simple
     -- Suricata rules with protocol, source and destination, ports, direction,
     -- and rule options. For information about the Suricata @Rules@ format, see
     -- <https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html# Rules Format>.
     statefulRules :: Prelude.Maybe [StatefulRule],
+    -- | Stateful inspection criteria for a domain list rule group.
+    rulesSourceList :: Prelude.Maybe RulesSourceList,
     -- | Stateless inspection criteria to be used in a stateless rule group.
     statelessRulesAndCustomActions :: Prelude.Maybe StatelessRulesAndCustomActions
   }
@@ -71,13 +71,13 @@ data RulesSource = RulesSource'
 -- traffic that matches the criteria, so this type of rule group doesn\'t
 -- have a separate action setting.
 --
--- 'rulesSourceList', 'rulesSource_rulesSourceList' - Stateful inspection criteria for a domain list rule group.
---
 -- 'statefulRules', 'rulesSource_statefulRules' - An array of individual stateful rules inspection criteria to be used
 -- together in a stateful rule group. Use this option to specify simple
 -- Suricata rules with protocol, source and destination, ports, direction,
 -- and rule options. For information about the Suricata @Rules@ format, see
 -- <https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html# Rules Format>.
+--
+-- 'rulesSourceList', 'rulesSource_rulesSourceList' - Stateful inspection criteria for a domain list rule group.
 --
 -- 'statelessRulesAndCustomActions', 'rulesSource_statelessRulesAndCustomActions' - Stateless inspection criteria to be used in a stateless rule group.
 newRulesSource ::
@@ -85,8 +85,8 @@ newRulesSource ::
 newRulesSource =
   RulesSource'
     { rulesString = Prelude.Nothing,
-      rulesSourceList = Prelude.Nothing,
       statefulRules = Prelude.Nothing,
+      rulesSourceList = Prelude.Nothing,
       statelessRulesAndCustomActions = Prelude.Nothing
     }
 
@@ -101,10 +101,6 @@ newRulesSource =
 rulesSource_rulesString :: Lens.Lens' RulesSource (Prelude.Maybe Prelude.Text)
 rulesSource_rulesString = Lens.lens (\RulesSource' {rulesString} -> rulesString) (\s@RulesSource' {} a -> s {rulesString = a} :: RulesSource)
 
--- | Stateful inspection criteria for a domain list rule group.
-rulesSource_rulesSourceList :: Lens.Lens' RulesSource (Prelude.Maybe RulesSourceList)
-rulesSource_rulesSourceList = Lens.lens (\RulesSource' {rulesSourceList} -> rulesSourceList) (\s@RulesSource' {} a -> s {rulesSourceList = a} :: RulesSource)
-
 -- | An array of individual stateful rules inspection criteria to be used
 -- together in a stateful rule group. Use this option to specify simple
 -- Suricata rules with protocol, source and destination, ports, direction,
@@ -112,6 +108,10 @@ rulesSource_rulesSourceList = Lens.lens (\RulesSource' {rulesSourceList} -> rule
 -- <https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html# Rules Format>.
 rulesSource_statefulRules :: Lens.Lens' RulesSource (Prelude.Maybe [StatefulRule])
 rulesSource_statefulRules = Lens.lens (\RulesSource' {statefulRules} -> statefulRules) (\s@RulesSource' {} a -> s {statefulRules = a} :: RulesSource) Prelude.. Lens.mapping Lens.coerced
+
+-- | Stateful inspection criteria for a domain list rule group.
+rulesSource_rulesSourceList :: Lens.Lens' RulesSource (Prelude.Maybe RulesSourceList)
+rulesSource_rulesSourceList = Lens.lens (\RulesSource' {rulesSourceList} -> rulesSourceList) (\s@RulesSource' {} a -> s {rulesSourceList = a} :: RulesSource)
 
 -- | Stateless inspection criteria to be used in a stateless rule group.
 rulesSource_statelessRulesAndCustomActions :: Lens.Lens' RulesSource (Prelude.Maybe StatelessRulesAndCustomActions)
@@ -124,23 +124,23 @@ instance Core.FromJSON RulesSource where
       ( \x ->
           RulesSource'
             Prelude.<$> (x Core..:? "RulesString")
-            Prelude.<*> (x Core..:? "RulesSourceList")
             Prelude.<*> (x Core..:? "StatefulRules" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "RulesSourceList")
             Prelude.<*> (x Core..:? "StatelessRulesAndCustomActions")
       )
 
 instance Prelude.Hashable RulesSource where
   hashWithSalt _salt RulesSource' {..} =
     _salt `Prelude.hashWithSalt` rulesString
-      `Prelude.hashWithSalt` rulesSourceList
       `Prelude.hashWithSalt` statefulRules
+      `Prelude.hashWithSalt` rulesSourceList
       `Prelude.hashWithSalt` statelessRulesAndCustomActions
 
 instance Prelude.NFData RulesSource where
   rnf RulesSource' {..} =
     Prelude.rnf rulesString
-      `Prelude.seq` Prelude.rnf rulesSourceList
       `Prelude.seq` Prelude.rnf statefulRules
+      `Prelude.seq` Prelude.rnf rulesSourceList
       `Prelude.seq` Prelude.rnf statelessRulesAndCustomActions
 
 instance Core.ToJSON RulesSource where
@@ -148,9 +148,9 @@ instance Core.ToJSON RulesSource where
     Core.object
       ( Prelude.catMaybes
           [ ("RulesString" Core..=) Prelude.<$> rulesString,
+            ("StatefulRules" Core..=) Prelude.<$> statefulRules,
             ("RulesSourceList" Core..=)
               Prelude.<$> rulesSourceList,
-            ("StatefulRules" Core..=) Prelude.<$> statefulRules,
             ("StatelessRulesAndCustomActions" Core..=)
               Prelude.<$> statelessRulesAndCustomActions
           ]

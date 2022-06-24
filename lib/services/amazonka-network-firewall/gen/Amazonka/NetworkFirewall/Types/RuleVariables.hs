@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRuleVariables' smart constructor.
 data RuleVariables = RuleVariables'
-  { -- | A list of port ranges.
-    portSets :: Prelude.Maybe (Prelude.HashMap Prelude.Text PortSet),
-    -- | A list of IP addresses and address ranges, in CIDR notation.
-    iPSets :: Prelude.Maybe (Prelude.HashMap Prelude.Text IPSet)
+  { -- | A list of IP addresses and address ranges, in CIDR notation.
+    iPSets :: Prelude.Maybe (Prelude.HashMap Prelude.Text IPSet),
+    -- | A list of port ranges.
+    portSets :: Prelude.Maybe (Prelude.HashMap Prelude.Text PortSet)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data RuleVariables = RuleVariables'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'portSets', 'ruleVariables_portSets' - A list of port ranges.
---
 -- 'iPSets', 'ruleVariables_iPSets' - A list of IP addresses and address ranges, in CIDR notation.
+--
+-- 'portSets', 'ruleVariables_portSets' - A list of port ranges.
 newRuleVariables ::
   RuleVariables
 newRuleVariables =
   RuleVariables'
-    { portSets = Prelude.Nothing,
-      iPSets = Prelude.Nothing
+    { iPSets = Prelude.Nothing,
+      portSets = Prelude.Nothing
     }
-
--- | A list of port ranges.
-ruleVariables_portSets :: Lens.Lens' RuleVariables (Prelude.Maybe (Prelude.HashMap Prelude.Text PortSet))
-ruleVariables_portSets = Lens.lens (\RuleVariables' {portSets} -> portSets) (\s@RuleVariables' {} a -> s {portSets = a} :: RuleVariables) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of IP addresses and address ranges, in CIDR notation.
 ruleVariables_iPSets :: Lens.Lens' RuleVariables (Prelude.Maybe (Prelude.HashMap Prelude.Text IPSet))
 ruleVariables_iPSets = Lens.lens (\RuleVariables' {iPSets} -> iPSets) (\s@RuleVariables' {} a -> s {iPSets = a} :: RuleVariables) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of port ranges.
+ruleVariables_portSets :: Lens.Lens' RuleVariables (Prelude.Maybe (Prelude.HashMap Prelude.Text PortSet))
+ruleVariables_portSets = Lens.lens (\RuleVariables' {portSets} -> portSets) (\s@RuleVariables' {} a -> s {portSets = a} :: RuleVariables) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON RuleVariables where
   parseJSON =
@@ -70,25 +70,25 @@ instance Core.FromJSON RuleVariables where
       "RuleVariables"
       ( \x ->
           RuleVariables'
-            Prelude.<$> (x Core..:? "PortSets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IPSets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "IPSets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "PortSets" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RuleVariables where
   hashWithSalt _salt RuleVariables' {..} =
-    _salt `Prelude.hashWithSalt` portSets
-      `Prelude.hashWithSalt` iPSets
+    _salt `Prelude.hashWithSalt` iPSets
+      `Prelude.hashWithSalt` portSets
 
 instance Prelude.NFData RuleVariables where
   rnf RuleVariables' {..} =
-    Prelude.rnf portSets
-      `Prelude.seq` Prelude.rnf iPSets
+    Prelude.rnf iPSets
+      `Prelude.seq` Prelude.rnf portSets
 
 instance Core.ToJSON RuleVariables where
   toJSON RuleVariables' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PortSets" Core..=) Prelude.<$> portSets,
-            ("IPSets" Core..=) Prelude.<$> iPSets
+          [ ("IPSets" Core..=) Prelude.<$> iPSets,
+            ("PortSets" Core..=) Prelude.<$> portSets
           ]
       )

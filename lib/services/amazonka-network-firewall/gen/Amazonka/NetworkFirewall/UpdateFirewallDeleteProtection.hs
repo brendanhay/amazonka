@@ -41,8 +41,8 @@ module Amazonka.NetworkFirewall.UpdateFirewallDeleteProtection
 
     -- * Response Lenses
     updateFirewallDeleteProtectionResponse_updateToken,
-    updateFirewallDeleteProtectionResponse_firewallArn,
     updateFirewallDeleteProtectionResponse_deleteProtection,
+    updateFirewallDeleteProtectionResponse_firewallArn,
     updateFirewallDeleteProtectionResponse_firewallName,
     updateFirewallDeleteProtectionResponse_httpStatus,
   )
@@ -200,8 +200,8 @@ instance
       ( \s h x ->
           UpdateFirewallDeleteProtectionResponse'
             Prelude.<$> (x Core..?> "UpdateToken")
-            Prelude.<*> (x Core..?> "FirewallArn")
             Prelude.<*> (x Core..?> "DeleteProtection")
+            Prelude.<*> (x Core..?> "FirewallArn")
             Prelude.<*> (x Core..?> "FirewallName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -284,9 +284,9 @@ data UpdateFirewallDeleteProtectionResponse = UpdateFirewallDeleteProtectionResp
     -- token. Reapply your changes as needed, then try the operation again
     -- using the new token.
     updateToken :: Prelude.Maybe Prelude.Text,
+    deleteProtection :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the firewall.
     firewallArn :: Prelude.Maybe Prelude.Text,
-    deleteProtection :: Prelude.Maybe Prelude.Bool,
     -- | The descriptive name of the firewall. You can\'t change the name of a
     -- firewall after you create it.
     firewallName :: Prelude.Maybe Prelude.Text,
@@ -321,9 +321,9 @@ data UpdateFirewallDeleteProtectionResponse = UpdateFirewallDeleteProtectionResp
 -- token. Reapply your changes as needed, then try the operation again
 -- using the new token.
 --
--- 'firewallArn', 'updateFirewallDeleteProtectionResponse_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
---
 -- 'deleteProtection', 'updateFirewallDeleteProtectionResponse_deleteProtection' -
+--
+-- 'firewallArn', 'updateFirewallDeleteProtectionResponse_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
 --
 -- 'firewallName', 'updateFirewallDeleteProtectionResponse_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
@@ -338,8 +338,8 @@ newUpdateFirewallDeleteProtectionResponse
     UpdateFirewallDeleteProtectionResponse'
       { updateToken =
           Prelude.Nothing,
-        firewallArn = Prelude.Nothing,
         deleteProtection = Prelude.Nothing,
+        firewallArn = Prelude.Nothing,
         firewallName = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
@@ -364,13 +364,13 @@ newUpdateFirewallDeleteProtectionResponse
 updateFirewallDeleteProtectionResponse_updateToken :: Lens.Lens' UpdateFirewallDeleteProtectionResponse (Prelude.Maybe Prelude.Text)
 updateFirewallDeleteProtectionResponse_updateToken = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {updateToken} -> updateToken) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {updateToken = a} :: UpdateFirewallDeleteProtectionResponse)
 
--- | The Amazon Resource Name (ARN) of the firewall.
-updateFirewallDeleteProtectionResponse_firewallArn :: Lens.Lens' UpdateFirewallDeleteProtectionResponse (Prelude.Maybe Prelude.Text)
-updateFirewallDeleteProtectionResponse_firewallArn = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {firewallArn} -> firewallArn) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {firewallArn = a} :: UpdateFirewallDeleteProtectionResponse)
-
 -- |
 updateFirewallDeleteProtectionResponse_deleteProtection :: Lens.Lens' UpdateFirewallDeleteProtectionResponse (Prelude.Maybe Prelude.Bool)
 updateFirewallDeleteProtectionResponse_deleteProtection = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {deleteProtection} -> deleteProtection) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {deleteProtection = a} :: UpdateFirewallDeleteProtectionResponse)
+
+-- | The Amazon Resource Name (ARN) of the firewall.
+updateFirewallDeleteProtectionResponse_firewallArn :: Lens.Lens' UpdateFirewallDeleteProtectionResponse (Prelude.Maybe Prelude.Text)
+updateFirewallDeleteProtectionResponse_firewallArn = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {firewallArn} -> firewallArn) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {firewallArn = a} :: UpdateFirewallDeleteProtectionResponse)
 
 -- | The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
@@ -387,7 +387,7 @@ instance
   where
   rnf UpdateFirewallDeleteProtectionResponse' {..} =
     Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf firewallArn
       `Prelude.seq` Prelude.rnf deleteProtection
+      `Prelude.seq` Prelude.rnf firewallArn
       `Prelude.seq` Prelude.rnf firewallName
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,11 +31,11 @@ module Amazonka.NetworkFirewall.CreateRuleGroup
     newCreateRuleGroup,
 
     -- * Request Lenses
+    createRuleGroup_tags,
+    createRuleGroup_ruleGroup,
     createRuleGroup_rules,
     createRuleGroup_description,
     createRuleGroup_dryRun,
-    createRuleGroup_tags,
-    createRuleGroup_ruleGroup,
     createRuleGroup_ruleGroupName,
     createRuleGroup_type,
     createRuleGroup_capacity,
@@ -60,7 +60,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRuleGroup' smart constructor.
 data CreateRuleGroup = CreateRuleGroup'
-  { -- | A string containing stateful rule group rules specifications in Suricata
+  { -- | The key:value pairs to associate with the resource.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | An object that defines the rule group rules.
+    --
+    -- You must provide either this rule group setting or a @Rules@ setting,
+    -- but not both.
+    ruleGroup :: Prelude.Maybe RuleGroup,
+    -- | A string containing stateful rule group rules specifications in Suricata
     -- flat format, with one rule per line. Use this to import your existing
     -- Suricata compatible rule groups.
     --
@@ -88,13 +95,6 @@ data CreateRuleGroup = CreateRuleGroup'
     -- If set to @FALSE@, Network Firewall makes the requested changes to your
     -- resources.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The key:value pairs to associate with the resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | An object that defines the rule group rules.
-    --
-    -- You must provide either this rule group setting or a @Rules@ setting,
-    -- but not both.
-    ruleGroup :: Prelude.Maybe RuleGroup,
     -- | The descriptive name of the rule group. You can\'t change the name of a
     -- rule group after you create it.
     ruleGroupName :: Prelude.Text,
@@ -158,6 +158,13 @@ data CreateRuleGroup = CreateRuleGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createRuleGroup_tags' - The key:value pairs to associate with the resource.
+--
+-- 'ruleGroup', 'createRuleGroup_ruleGroup' - An object that defines the rule group rules.
+--
+-- You must provide either this rule group setting or a @Rules@ setting,
+-- but not both.
+--
 -- 'rules', 'createRuleGroup_rules' - A string containing stateful rule group rules specifications in Suricata
 -- flat format, with one rule per line. Use this to import your existing
 -- Suricata compatible rule groups.
@@ -185,13 +192,6 @@ data CreateRuleGroup = CreateRuleGroup'
 --
 -- If set to @FALSE@, Network Firewall makes the requested changes to your
 -- resources.
---
--- 'tags', 'createRuleGroup_tags' - The key:value pairs to associate with the resource.
---
--- 'ruleGroup', 'createRuleGroup_ruleGroup' - An object that defines the rule group rules.
---
--- You must provide either this rule group setting or a @Rules@ setting,
--- but not both.
 --
 -- 'ruleGroupName', 'createRuleGroup_ruleGroupName' - The descriptive name of the rule group. You can\'t change the name of a
 -- rule group after you create it.
@@ -254,15 +254,26 @@ newCreateRuleGroup ::
   CreateRuleGroup
 newCreateRuleGroup pRuleGroupName_ pType_ pCapacity_ =
   CreateRuleGroup'
-    { rules = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      ruleGroup = Prelude.Nothing,
+      rules = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      ruleGroup = Prelude.Nothing,
       ruleGroupName = pRuleGroupName_,
       type' = pType_,
       capacity = pCapacity_
     }
+
+-- | The key:value pairs to associate with the resource.
+createRuleGroup_tags :: Lens.Lens' CreateRuleGroup (Prelude.Maybe (Prelude.NonEmpty Tag))
+createRuleGroup_tags = Lens.lens (\CreateRuleGroup' {tags} -> tags) (\s@CreateRuleGroup' {} a -> s {tags = a} :: CreateRuleGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | An object that defines the rule group rules.
+--
+-- You must provide either this rule group setting or a @Rules@ setting,
+-- but not both.
+createRuleGroup_ruleGroup :: Lens.Lens' CreateRuleGroup (Prelude.Maybe RuleGroup)
+createRuleGroup_ruleGroup = Lens.lens (\CreateRuleGroup' {ruleGroup} -> ruleGroup) (\s@CreateRuleGroup' {} a -> s {ruleGroup = a} :: CreateRuleGroup)
 
 -- | A string containing stateful rule group rules specifications in Suricata
 -- flat format, with one rule per line. Use this to import your existing
@@ -297,17 +308,6 @@ createRuleGroup_description = Lens.lens (\CreateRuleGroup' {description} -> desc
 -- resources.
 createRuleGroup_dryRun :: Lens.Lens' CreateRuleGroup (Prelude.Maybe Prelude.Bool)
 createRuleGroup_dryRun = Lens.lens (\CreateRuleGroup' {dryRun} -> dryRun) (\s@CreateRuleGroup' {} a -> s {dryRun = a} :: CreateRuleGroup)
-
--- | The key:value pairs to associate with the resource.
-createRuleGroup_tags :: Lens.Lens' CreateRuleGroup (Prelude.Maybe (Prelude.NonEmpty Tag))
-createRuleGroup_tags = Lens.lens (\CreateRuleGroup' {tags} -> tags) (\s@CreateRuleGroup' {} a -> s {tags = a} :: CreateRuleGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | An object that defines the rule group rules.
---
--- You must provide either this rule group setting or a @Rules@ setting,
--- but not both.
-createRuleGroup_ruleGroup :: Lens.Lens' CreateRuleGroup (Prelude.Maybe RuleGroup)
-createRuleGroup_ruleGroup = Lens.lens (\CreateRuleGroup' {ruleGroup} -> ruleGroup) (\s@CreateRuleGroup' {} a -> s {ruleGroup = a} :: CreateRuleGroup)
 
 -- | The descriptive name of the rule group. You can\'t change the name of a
 -- rule group after you create it.
@@ -383,22 +383,22 @@ instance Core.AWSRequest CreateRuleGroup where
 
 instance Prelude.Hashable CreateRuleGroup where
   hashWithSalt _salt CreateRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` rules
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ruleGroup
+      `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` ruleGroup
       `Prelude.hashWithSalt` ruleGroupName
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` capacity
 
 instance Prelude.NFData CreateRuleGroup where
   rnf CreateRuleGroup' {..} =
-    Prelude.rnf rules
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ruleGroup
+      `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ruleGroup
       `Prelude.seq` Prelude.rnf ruleGroupName
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf capacity
@@ -422,11 +422,11 @@ instance Core.ToJSON CreateRuleGroup where
   toJSON CreateRuleGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Rules" Core..=) Prelude.<$> rules,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("RuleGroup" Core..=) Prelude.<$> ruleGroup,
+            ("Rules" Core..=) Prelude.<$> rules,
             ("Description" Core..=) Prelude.<$> description,
             ("DryRun" Core..=) Prelude.<$> dryRun,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("RuleGroup" Core..=) Prelude.<$> ruleGroup,
             Prelude.Just ("RuleGroupName" Core..= ruleGroupName),
             Prelude.Just ("Type" Core..= type'),
             Prelude.Just ("Capacity" Core..= capacity)

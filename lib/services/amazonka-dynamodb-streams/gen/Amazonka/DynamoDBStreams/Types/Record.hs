@@ -42,6 +42,9 @@ data Record = Record'
     --
     --     \"dynamodb.amazonaws.com\"
     userIdentity :: Prelude.Maybe Identity,
+    -- | The main body of the stream record, containing all of the
+    -- DynamoDB-specific fields.
+    dynamodb :: Prelude.Maybe StreamRecord,
     -- | The version number of the stream record format. This number is updated
     -- whenever the structure of @Record@ is modified.
     --
@@ -50,11 +53,6 @@ data Record = Record'
     -- general, @eventVersion@ will only increase as the low-level DynamoDB
     -- Streams API evolves.
     eventVersion :: Prelude.Maybe Prelude.Text,
-    -- | The main body of the stream record, containing all of the
-    -- DynamoDB-specific fields.
-    dynamodb :: Prelude.Maybe StreamRecord,
-    -- | The region in which the @GetRecords@ request was received.
-    awsRegion :: Prelude.Maybe Prelude.Text,
     -- | The type of data modification that was performed on the DynamoDB table:
     --
     -- -   @INSERT@ - a new item was added to the table.
@@ -64,12 +62,14 @@ data Record = Record'
     --
     -- -   @REMOVE@ - the item was deleted from the table
     eventName :: Prelude.Maybe OperationType,
-    -- | The AWS service from which the stream record originated. For DynamoDB
-    -- Streams, this is @aws:dynamodb@.
-    eventSource :: Prelude.Maybe Prelude.Text,
     -- | A globally unique identifier for the event that was recorded in this
     -- stream record.
-    eventID :: Prelude.Maybe Prelude.Text
+    eventID :: Prelude.Maybe Prelude.Text,
+    -- | The region in which the @GetRecords@ request was received.
+    awsRegion :: Prelude.Maybe Prelude.Text,
+    -- | The AWS service from which the stream record originated. For DynamoDB
+    -- Streams, this is @aws:dynamodb@.
+    eventSource :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,6 +92,9 @@ data Record = Record'
 --
 --     \"dynamodb.amazonaws.com\"
 --
+-- 'dynamodb', 'record_dynamodb' - The main body of the stream record, containing all of the
+-- DynamoDB-specific fields.
+--
 -- 'eventVersion', 'record_eventVersion' - The version number of the stream record format. This number is updated
 -- whenever the structure of @Record@ is modified.
 --
@@ -99,11 +102,6 @@ data Record = Record'
 -- particular value, as this number is subject to change at any time. In
 -- general, @eventVersion@ will only increase as the low-level DynamoDB
 -- Streams API evolves.
---
--- 'dynamodb', 'record_dynamodb' - The main body of the stream record, containing all of the
--- DynamoDB-specific fields.
---
--- 'awsRegion', 'record_awsRegion' - The region in which the @GetRecords@ request was received.
 --
 -- 'eventName', 'record_eventName' - The type of data modification that was performed on the DynamoDB table:
 --
@@ -114,22 +112,24 @@ data Record = Record'
 --
 -- -   @REMOVE@ - the item was deleted from the table
 --
--- 'eventSource', 'record_eventSource' - The AWS service from which the stream record originated. For DynamoDB
--- Streams, this is @aws:dynamodb@.
---
 -- 'eventID', 'record_eventID' - A globally unique identifier for the event that was recorded in this
 -- stream record.
+--
+-- 'awsRegion', 'record_awsRegion' - The region in which the @GetRecords@ request was received.
+--
+-- 'eventSource', 'record_eventSource' - The AWS service from which the stream record originated. For DynamoDB
+-- Streams, this is @aws:dynamodb@.
 newRecord ::
   Record
 newRecord =
   Record'
     { userIdentity = Prelude.Nothing,
-      eventVersion = Prelude.Nothing,
       dynamodb = Prelude.Nothing,
-      awsRegion = Prelude.Nothing,
+      eventVersion = Prelude.Nothing,
       eventName = Prelude.Nothing,
-      eventSource = Prelude.Nothing,
-      eventID = Prelude.Nothing
+      eventID = Prelude.Nothing,
+      awsRegion = Prelude.Nothing,
+      eventSource = Prelude.Nothing
     }
 
 -- | Items that are deleted by the Time to Live process after expiration have
@@ -145,6 +145,11 @@ newRecord =
 record_userIdentity :: Lens.Lens' Record (Prelude.Maybe Identity)
 record_userIdentity = Lens.lens (\Record' {userIdentity} -> userIdentity) (\s@Record' {} a -> s {userIdentity = a} :: Record)
 
+-- | The main body of the stream record, containing all of the
+-- DynamoDB-specific fields.
+record_dynamodb :: Lens.Lens' Record (Prelude.Maybe StreamRecord)
+record_dynamodb = Lens.lens (\Record' {dynamodb} -> dynamodb) (\s@Record' {} a -> s {dynamodb = a} :: Record)
+
 -- | The version number of the stream record format. This number is updated
 -- whenever the structure of @Record@ is modified.
 --
@@ -154,15 +159,6 @@ record_userIdentity = Lens.lens (\Record' {userIdentity} -> userIdentity) (\s@Re
 -- Streams API evolves.
 record_eventVersion :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
 record_eventVersion = Lens.lens (\Record' {eventVersion} -> eventVersion) (\s@Record' {} a -> s {eventVersion = a} :: Record)
-
--- | The main body of the stream record, containing all of the
--- DynamoDB-specific fields.
-record_dynamodb :: Lens.Lens' Record (Prelude.Maybe StreamRecord)
-record_dynamodb = Lens.lens (\Record' {dynamodb} -> dynamodb) (\s@Record' {} a -> s {dynamodb = a} :: Record)
-
--- | The region in which the @GetRecords@ request was received.
-record_awsRegion :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
-record_awsRegion = Lens.lens (\Record' {awsRegion} -> awsRegion) (\s@Record' {} a -> s {awsRegion = a} :: Record)
 
 -- | The type of data modification that was performed on the DynamoDB table:
 --
@@ -175,15 +171,19 @@ record_awsRegion = Lens.lens (\Record' {awsRegion} -> awsRegion) (\s@Record' {} 
 record_eventName :: Lens.Lens' Record (Prelude.Maybe OperationType)
 record_eventName = Lens.lens (\Record' {eventName} -> eventName) (\s@Record' {} a -> s {eventName = a} :: Record)
 
--- | The AWS service from which the stream record originated. For DynamoDB
--- Streams, this is @aws:dynamodb@.
-record_eventSource :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
-record_eventSource = Lens.lens (\Record' {eventSource} -> eventSource) (\s@Record' {} a -> s {eventSource = a} :: Record)
-
 -- | A globally unique identifier for the event that was recorded in this
 -- stream record.
 record_eventID :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
 record_eventID = Lens.lens (\Record' {eventID} -> eventID) (\s@Record' {} a -> s {eventID = a} :: Record)
+
+-- | The region in which the @GetRecords@ request was received.
+record_awsRegion :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
+record_awsRegion = Lens.lens (\Record' {awsRegion} -> awsRegion) (\s@Record' {} a -> s {awsRegion = a} :: Record)
+
+-- | The AWS service from which the stream record originated. For DynamoDB
+-- Streams, this is @aws:dynamodb@.
+record_eventSource :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
+record_eventSource = Lens.lens (\Record' {eventSource} -> eventSource) (\s@Record' {} a -> s {eventSource = a} :: Record)
 
 instance Core.FromJSON Record where
   parseJSON =
@@ -192,30 +192,30 @@ instance Core.FromJSON Record where
       ( \x ->
           Record'
             Prelude.<$> (x Core..:? "userIdentity")
-            Prelude.<*> (x Core..:? "eventVersion")
             Prelude.<*> (x Core..:? "dynamodb")
-            Prelude.<*> (x Core..:? "awsRegion")
+            Prelude.<*> (x Core..:? "eventVersion")
             Prelude.<*> (x Core..:? "eventName")
-            Prelude.<*> (x Core..:? "eventSource")
             Prelude.<*> (x Core..:? "eventID")
+            Prelude.<*> (x Core..:? "awsRegion")
+            Prelude.<*> (x Core..:? "eventSource")
       )
 
 instance Prelude.Hashable Record where
   hashWithSalt _salt Record' {..} =
     _salt `Prelude.hashWithSalt` userIdentity
-      `Prelude.hashWithSalt` eventVersion
       `Prelude.hashWithSalt` dynamodb
-      `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` eventVersion
       `Prelude.hashWithSalt` eventName
-      `Prelude.hashWithSalt` eventSource
       `Prelude.hashWithSalt` eventID
+      `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` eventSource
 
 instance Prelude.NFData Record where
   rnf Record' {..} =
     Prelude.rnf userIdentity
-      `Prelude.seq` Prelude.rnf eventVersion
       `Prelude.seq` Prelude.rnf dynamodb
-      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf eventVersion
       `Prelude.seq` Prelude.rnf eventName
-      `Prelude.seq` Prelude.rnf eventSource
       `Prelude.seq` Prelude.rnf eventID
+      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf eventSource

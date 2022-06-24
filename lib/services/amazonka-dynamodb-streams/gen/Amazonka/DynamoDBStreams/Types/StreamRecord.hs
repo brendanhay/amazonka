@@ -32,11 +32,6 @@ import qualified Amazonka.Prelude as Prelude
 data StreamRecord = StreamRecord'
   { -- | The size of the stream record, in bytes.
     sizeBytes :: Prelude.Maybe Prelude.Natural,
-    -- | The sequence number of the stream record.
-    sequenceNumber :: Prelude.Maybe Prelude.Text,
-    -- | The approximate date and time when the stream record was created, in
-    -- <http://www.epochconverter.com/ UNIX epoch time> format.
-    approximateCreationDateTime :: Prelude.Maybe Core.POSIX,
     -- | The type of data from the modified DynamoDB item that was captured in
     -- this stream record:
     --
@@ -50,10 +45,15 @@ data StreamRecord = StreamRecord'
     -- -   @NEW_AND_OLD_IMAGES@ - both the new and the old item images of the
     --     item.
     streamViewType :: Prelude.Maybe StreamViewType,
-    -- | The primary key attribute(s) for the DynamoDB item that was modified.
-    keys :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | The item in the DynamoDB table as it appeared before it was modified.
     oldImage :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    -- | The approximate date and time when the stream record was created, in
+    -- <http://www.epochconverter.com/ UNIX epoch time> format.
+    approximateCreationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The sequence number of the stream record.
+    sequenceNumber :: Prelude.Maybe Prelude.Text,
+    -- | The primary key attribute(s) for the DynamoDB item that was modified.
+    keys :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | The item in the DynamoDB table as it appeared after it was modified.
     newImage' :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue)
   }
@@ -69,11 +69,6 @@ data StreamRecord = StreamRecord'
 --
 -- 'sizeBytes', 'streamRecord_sizeBytes' - The size of the stream record, in bytes.
 --
--- 'sequenceNumber', 'streamRecord_sequenceNumber' - The sequence number of the stream record.
---
--- 'approximateCreationDateTime', 'streamRecord_approximateCreationDateTime' - The approximate date and time when the stream record was created, in
--- <http://www.epochconverter.com/ UNIX epoch time> format.
---
 -- 'streamViewType', 'streamRecord_streamViewType' - The type of data from the modified DynamoDB item that was captured in
 -- this stream record:
 --
@@ -87,9 +82,14 @@ data StreamRecord = StreamRecord'
 -- -   @NEW_AND_OLD_IMAGES@ - both the new and the old item images of the
 --     item.
 --
--- 'keys', 'streamRecord_keys' - The primary key attribute(s) for the DynamoDB item that was modified.
---
 -- 'oldImage', 'streamRecord_oldImage' - The item in the DynamoDB table as it appeared before it was modified.
+--
+-- 'approximateCreationDateTime', 'streamRecord_approximateCreationDateTime' - The approximate date and time when the stream record was created, in
+-- <http://www.epochconverter.com/ UNIX epoch time> format.
+--
+-- 'sequenceNumber', 'streamRecord_sequenceNumber' - The sequence number of the stream record.
+--
+-- 'keys', 'streamRecord_keys' - The primary key attribute(s) for the DynamoDB item that was modified.
 --
 -- 'newImage'', 'streamRecord_newImage' - The item in the DynamoDB table as it appeared after it was modified.
 newStreamRecord ::
@@ -97,26 +97,17 @@ newStreamRecord ::
 newStreamRecord =
   StreamRecord'
     { sizeBytes = Prelude.Nothing,
-      sequenceNumber = Prelude.Nothing,
-      approximateCreationDateTime = Prelude.Nothing,
       streamViewType = Prelude.Nothing,
-      keys = Prelude.Nothing,
       oldImage = Prelude.Nothing,
+      approximateCreationDateTime = Prelude.Nothing,
+      sequenceNumber = Prelude.Nothing,
+      keys = Prelude.Nothing,
       newImage' = Prelude.Nothing
     }
 
 -- | The size of the stream record, in bytes.
 streamRecord_sizeBytes :: Lens.Lens' StreamRecord (Prelude.Maybe Prelude.Natural)
 streamRecord_sizeBytes = Lens.lens (\StreamRecord' {sizeBytes} -> sizeBytes) (\s@StreamRecord' {} a -> s {sizeBytes = a} :: StreamRecord)
-
--- | The sequence number of the stream record.
-streamRecord_sequenceNumber :: Lens.Lens' StreamRecord (Prelude.Maybe Prelude.Text)
-streamRecord_sequenceNumber = Lens.lens (\StreamRecord' {sequenceNumber} -> sequenceNumber) (\s@StreamRecord' {} a -> s {sequenceNumber = a} :: StreamRecord)
-
--- | The approximate date and time when the stream record was created, in
--- <http://www.epochconverter.com/ UNIX epoch time> format.
-streamRecord_approximateCreationDateTime :: Lens.Lens' StreamRecord (Prelude.Maybe Prelude.UTCTime)
-streamRecord_approximateCreationDateTime = Lens.lens (\StreamRecord' {approximateCreationDateTime} -> approximateCreationDateTime) (\s@StreamRecord' {} a -> s {approximateCreationDateTime = a} :: StreamRecord) Prelude.. Lens.mapping Core._Time
 
 -- | The type of data from the modified DynamoDB item that was captured in
 -- this stream record:
@@ -133,13 +124,22 @@ streamRecord_approximateCreationDateTime = Lens.lens (\StreamRecord' {approximat
 streamRecord_streamViewType :: Lens.Lens' StreamRecord (Prelude.Maybe StreamViewType)
 streamRecord_streamViewType = Lens.lens (\StreamRecord' {streamViewType} -> streamViewType) (\s@StreamRecord' {} a -> s {streamViewType = a} :: StreamRecord)
 
--- | The primary key attribute(s) for the DynamoDB item that was modified.
-streamRecord_keys :: Lens.Lens' StreamRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-streamRecord_keys = Lens.lens (\StreamRecord' {keys} -> keys) (\s@StreamRecord' {} a -> s {keys = a} :: StreamRecord) Prelude.. Lens.mapping Lens.coerced
-
 -- | The item in the DynamoDB table as it appeared before it was modified.
 streamRecord_oldImage :: Lens.Lens' StreamRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 streamRecord_oldImage = Lens.lens (\StreamRecord' {oldImage} -> oldImage) (\s@StreamRecord' {} a -> s {oldImage = a} :: StreamRecord) Prelude.. Lens.mapping Lens.coerced
+
+-- | The approximate date and time when the stream record was created, in
+-- <http://www.epochconverter.com/ UNIX epoch time> format.
+streamRecord_approximateCreationDateTime :: Lens.Lens' StreamRecord (Prelude.Maybe Prelude.UTCTime)
+streamRecord_approximateCreationDateTime = Lens.lens (\StreamRecord' {approximateCreationDateTime} -> approximateCreationDateTime) (\s@StreamRecord' {} a -> s {approximateCreationDateTime = a} :: StreamRecord) Prelude.. Lens.mapping Core._Time
+
+-- | The sequence number of the stream record.
+streamRecord_sequenceNumber :: Lens.Lens' StreamRecord (Prelude.Maybe Prelude.Text)
+streamRecord_sequenceNumber = Lens.lens (\StreamRecord' {sequenceNumber} -> sequenceNumber) (\s@StreamRecord' {} a -> s {sequenceNumber = a} :: StreamRecord)
+
+-- | The primary key attribute(s) for the DynamoDB item that was modified.
+streamRecord_keys :: Lens.Lens' StreamRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+streamRecord_keys = Lens.lens (\StreamRecord' {keys} -> keys) (\s@StreamRecord' {} a -> s {keys = a} :: StreamRecord) Prelude.. Lens.mapping Lens.coerced
 
 -- | The item in the DynamoDB table as it appeared after it was modified.
 streamRecord_newImage :: Lens.Lens' StreamRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
@@ -152,30 +152,30 @@ instance Core.FromJSON StreamRecord where
       ( \x ->
           StreamRecord'
             Prelude.<$> (x Core..:? "SizeBytes")
-            Prelude.<*> (x Core..:? "SequenceNumber")
-            Prelude.<*> (x Core..:? "ApproximateCreationDateTime")
             Prelude.<*> (x Core..:? "StreamViewType")
-            Prelude.<*> (x Core..:? "Keys" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "OldImage" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ApproximateCreationDateTime")
+            Prelude.<*> (x Core..:? "SequenceNumber")
+            Prelude.<*> (x Core..:? "Keys" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "NewImage" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StreamRecord where
   hashWithSalt _salt StreamRecord' {..} =
     _salt `Prelude.hashWithSalt` sizeBytes
-      `Prelude.hashWithSalt` sequenceNumber
-      `Prelude.hashWithSalt` approximateCreationDateTime
       `Prelude.hashWithSalt` streamViewType
-      `Prelude.hashWithSalt` keys
       `Prelude.hashWithSalt` oldImage
+      `Prelude.hashWithSalt` approximateCreationDateTime
+      `Prelude.hashWithSalt` sequenceNumber
+      `Prelude.hashWithSalt` keys
       `Prelude.hashWithSalt` newImage'
 
 instance Prelude.NFData StreamRecord where
   rnf StreamRecord' {..} =
     Prelude.rnf sizeBytes
-      `Prelude.seq` Prelude.rnf sequenceNumber
-      `Prelude.seq` Prelude.rnf approximateCreationDateTime
       `Prelude.seq` Prelude.rnf streamViewType
-      `Prelude.seq` Prelude.rnf keys
       `Prelude.seq` Prelude.rnf oldImage
+      `Prelude.seq` Prelude.rnf approximateCreationDateTime
+      `Prelude.seq` Prelude.rnf sequenceNumber
+      `Prelude.seq` Prelude.rnf keys
       `Prelude.seq` Prelude.rnf newImage'

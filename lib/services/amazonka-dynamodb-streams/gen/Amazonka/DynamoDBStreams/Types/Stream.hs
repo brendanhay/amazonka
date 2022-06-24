@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStream' smart constructor.
 data Stream = Stream'
-  { -- | A timestamp, in ISO 8601 format, for this stream.
+  { -- | The DynamoDB table with which the stream is associated.
+    tableName :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp, in ISO 8601 format, for this stream.
     --
     -- Note that @LatestStreamLabel@ is not a unique identifier for the stream,
     -- because it is possible that a stream from another table might have the
@@ -42,9 +44,7 @@ data Stream = Stream'
     -- -   the @StreamLabel@
     streamLabel :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the stream.
-    streamArn :: Prelude.Maybe Prelude.Text,
-    -- | The DynamoDB table with which the stream is associated.
-    tableName :: Prelude.Maybe Prelude.Text
+    streamArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +55,8 @@ data Stream = Stream'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tableName', 'stream_tableName' - The DynamoDB table with which the stream is associated.
 --
 -- 'streamLabel', 'stream_streamLabel' - A timestamp, in ISO 8601 format, for this stream.
 --
@@ -70,16 +72,18 @@ data Stream = Stream'
 -- -   the @StreamLabel@
 --
 -- 'streamArn', 'stream_streamArn' - The Amazon Resource Name (ARN) for the stream.
---
--- 'tableName', 'stream_tableName' - The DynamoDB table with which the stream is associated.
 newStream ::
   Stream
 newStream =
   Stream'
-    { streamLabel = Prelude.Nothing,
-      streamArn = Prelude.Nothing,
-      tableName = Prelude.Nothing
+    { tableName = Prelude.Nothing,
+      streamLabel = Prelude.Nothing,
+      streamArn = Prelude.Nothing
     }
+
+-- | The DynamoDB table with which the stream is associated.
+stream_tableName :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
+stream_tableName = Lens.lens (\Stream' {tableName} -> tableName) (\s@Stream' {} a -> s {tableName = a} :: Stream)
 
 -- | A timestamp, in ISO 8601 format, for this stream.
 --
@@ -100,29 +104,25 @@ stream_streamLabel = Lens.lens (\Stream' {streamLabel} -> streamLabel) (\s@Strea
 stream_streamArn :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
 stream_streamArn = Lens.lens (\Stream' {streamArn} -> streamArn) (\s@Stream' {} a -> s {streamArn = a} :: Stream)
 
--- | The DynamoDB table with which the stream is associated.
-stream_tableName :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
-stream_tableName = Lens.lens (\Stream' {tableName} -> tableName) (\s@Stream' {} a -> s {tableName = a} :: Stream)
-
 instance Core.FromJSON Stream where
   parseJSON =
     Core.withObject
       "Stream"
       ( \x ->
           Stream'
-            Prelude.<$> (x Core..:? "StreamLabel")
+            Prelude.<$> (x Core..:? "TableName")
+            Prelude.<*> (x Core..:? "StreamLabel")
             Prelude.<*> (x Core..:? "StreamArn")
-            Prelude.<*> (x Core..:? "TableName")
       )
 
 instance Prelude.Hashable Stream where
   hashWithSalt _salt Stream' {..} =
-    _salt `Prelude.hashWithSalt` streamLabel
+    _salt `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` streamLabel
       `Prelude.hashWithSalt` streamArn
-      `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData Stream where
   rnf Stream' {..} =
-    Prelude.rnf streamLabel
+    Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf streamLabel
       `Prelude.seq` Prelude.rnf streamArn
-      `Prelude.seq` Prelude.rnf tableName

@@ -25,20 +25,20 @@ module Amazonka.DynamoDBStreams
     -- * Errors
     -- $errors
 
-    -- ** ExpiredIteratorException
-    _ExpiredIteratorException,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
-    -- ** TrimmedDataAccessException
-    _TrimmedDataAccessException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** ExpiredIteratorException
+    _ExpiredIteratorException,
+
+    -- ** TrimmedDataAccessException
+    _TrimmedDataAccessException,
 
     -- * Waiters
     -- $waiters
@@ -46,11 +46,11 @@ module Amazonka.DynamoDBStreams
     -- * Operations
     -- $operations
 
-    -- ** GetShardIterator
-    GetShardIterator (GetShardIterator'),
-    newGetShardIterator,
-    GetShardIteratorResponse (GetShardIteratorResponse'),
-    newGetShardIteratorResponse,
+    -- ** DescribeStream
+    DescribeStream (DescribeStream'),
+    newDescribeStream,
+    DescribeStreamResponse (DescribeStreamResponse'),
+    newDescribeStreamResponse,
 
     -- ** GetRecords
     GetRecords (GetRecords'),
@@ -58,17 +58,17 @@ module Amazonka.DynamoDBStreams
     GetRecordsResponse (GetRecordsResponse'),
     newGetRecordsResponse,
 
+    -- ** GetShardIterator
+    GetShardIterator (GetShardIterator'),
+    newGetShardIterator,
+    GetShardIteratorResponse (GetShardIteratorResponse'),
+    newGetShardIteratorResponse,
+
     -- ** ListStreams
     ListStreams (ListStreams'),
     newListStreams,
     ListStreamsResponse (ListStreamsResponse'),
     newListStreamsResponse,
-
-    -- ** DescribeStream
-    DescribeStream (DescribeStream'),
-    newDescribeStream,
-    DescribeStreamResponse (DescribeStreamResponse'),
-    newDescribeStreamResponse,
 
     -- * Types
 

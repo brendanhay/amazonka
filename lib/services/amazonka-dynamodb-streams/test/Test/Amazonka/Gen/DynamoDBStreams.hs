@@ -27,55 +27,37 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetShardIterator $
---             newGetShardIterator
+--         [ requestDescribeStream $
+--             newDescribeStream
 --
 --         , requestGetRecords $
 --             newGetRecords
 --
+--         , requestGetShardIterator $
+--             newGetShardIterator
+--
 --         , requestListStreams $
 --             newListStreams
---
---         , requestDescribeStream $
---             newDescribeStream
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetShardIterator $
---             newGetShardIteratorResponse
+--         [ responseDescribeStream $
+--             newDescribeStreamResponse
 --
 --         , responseGetRecords $
 --             newGetRecordsResponse
 --
+--         , responseGetShardIterator $
+--             newGetShardIteratorResponse
+--
 --         , responseListStreams $
 --             newListStreamsResponse
---
---         , responseDescribeStream $
---             newDescribeStreamResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestGetShardIterator :: GetShardIterator -> TestTree
-requestGetShardIterator =
-  req
-    "GetShardIterator"
-    "fixture/GetShardIterator.yaml"
-
-requestGetRecords :: GetRecords -> TestTree
-requestGetRecords =
-  req
-    "GetRecords"
-    "fixture/GetRecords.yaml"
-
-requestListStreams :: ListStreams -> TestTree
-requestListStreams =
-  req
-    "ListStreams"
-    "fixture/ListStreams.yaml"
 
 requestDescribeStream :: DescribeStream -> TestTree
 requestDescribeStream =
@@ -83,15 +65,33 @@ requestDescribeStream =
     "DescribeStream"
     "fixture/DescribeStream.yaml"
 
+requestGetRecords :: GetRecords -> TestTree
+requestGetRecords =
+  req
+    "GetRecords"
+    "fixture/GetRecords.yaml"
+
+requestGetShardIterator :: GetShardIterator -> TestTree
+requestGetShardIterator =
+  req
+    "GetShardIterator"
+    "fixture/GetShardIterator.yaml"
+
+requestListStreams :: ListStreams -> TestTree
+requestListStreams =
+  req
+    "ListStreams"
+    "fixture/ListStreams.yaml"
+
 -- Responses
 
-responseGetShardIterator :: GetShardIteratorResponse -> TestTree
-responseGetShardIterator =
+responseDescribeStream :: DescribeStreamResponse -> TestTree
+responseDescribeStream =
   res
-    "GetShardIteratorResponse"
-    "fixture/GetShardIteratorResponse.proto"
+    "DescribeStreamResponse"
+    "fixture/DescribeStreamResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetShardIterator)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStream)
 
 responseGetRecords :: GetRecordsResponse -> TestTree
 responseGetRecords =
@@ -101,6 +101,14 @@ responseGetRecords =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetRecords)
 
+responseGetShardIterator :: GetShardIteratorResponse -> TestTree
+responseGetShardIterator =
+  res
+    "GetShardIteratorResponse"
+    "fixture/GetShardIteratorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetShardIterator)
+
 responseListStreams :: ListStreamsResponse -> TestTree
 responseListStreams =
   res
@@ -108,11 +116,3 @@ responseListStreams =
     "fixture/ListStreamsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListStreams)
-
-responseDescribeStream :: DescribeStreamResponse -> TestTree
-responseDescribeStream =
-  res
-    "DescribeStreamResponse"
-    "fixture/DescribeStreamResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeStream)

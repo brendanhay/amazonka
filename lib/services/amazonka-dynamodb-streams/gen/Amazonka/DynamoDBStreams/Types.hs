@@ -17,11 +17,11 @@ module Amazonka.DynamoDBStreams.Types
     defaultService,
 
     -- * Errors
-    _ExpiredIteratorException,
-    _InternalServerError,
-    _TrimmedDataAccessException,
     _ResourceNotFoundException,
     _LimitExceededException,
+    _InternalServerError,
+    _ExpiredIteratorException,
+    _TrimmedDataAccessException,
 
     -- * Re-exported Types
     module Amazonka.DynamoDBStreams.Internal,
@@ -57,55 +57,55 @@ module Amazonka.DynamoDBStreams.Types
     Record (..),
     newRecord,
     record_userIdentity,
-    record_eventVersion,
     record_dynamodb,
-    record_awsRegion,
+    record_eventVersion,
     record_eventName,
-    record_eventSource,
     record_eventID,
+    record_awsRegion,
+    record_eventSource,
 
     -- * SequenceNumberRange
     SequenceNumberRange (..),
     newSequenceNumberRange,
-    sequenceNumberRange_startingSequenceNumber,
     sequenceNumberRange_endingSequenceNumber,
+    sequenceNumberRange_startingSequenceNumber,
 
     -- * Shard
     Shard (..),
     newShard,
-    shard_parentShardId,
     shard_sequenceNumberRange,
+    shard_parentShardId,
     shard_shardId,
 
     -- * Stream
     Stream (..),
     newStream,
+    stream_tableName,
     stream_streamLabel,
     stream_streamArn,
-    stream_tableName,
 
     -- * StreamDescription
     StreamDescription (..),
     newStreamDescription,
-    streamDescription_lastEvaluatedShardId,
+    streamDescription_tableName,
     streamDescription_streamLabel,
+    streamDescription_creationRequestDateTime,
+    streamDescription_streamViewType,
     streamDescription_streamStatus,
     streamDescription_keySchema,
-    streamDescription_streamViewType,
-    streamDescription_streamArn,
     streamDescription_shards,
-    streamDescription_tableName,
-    streamDescription_creationRequestDateTime,
+    streamDescription_streamArn,
+    streamDescription_lastEvaluatedShardId,
 
     -- * StreamRecord
     StreamRecord (..),
     newStreamRecord,
     streamRecord_sizeBytes,
-    streamRecord_sequenceNumber,
-    streamRecord_approximateCreationDateTime,
     streamRecord_streamViewType,
-    streamRecord_keys,
     streamRecord_oldImage,
+    streamRecord_approximateCreationDateTime,
+    streamRecord_sequenceNumber,
+    streamRecord_keys,
     streamRecord_newImage,
   )
 where
@@ -156,35 +156,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -193,49 +166,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The shard iterator has expired and can no longer be used to retrieve
--- stream records. A shard iterator expires 15 minutes after it is
--- retrieved using the @GetShardIterator@ action.
-_ExpiredIteratorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ExpiredIteratorException =
-  Core._MatchServiceError
-    defaultService
-    "ExpiredIteratorException"
-
--- | An error occurred on the server side.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerError =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerError"
-
--- | The operation attempted to read past the oldest stream record in a
--- shard.
---
--- In DynamoDB Streams, there is a 24 hour limit on data retention. Stream
--- records whose age exceeds this limit are subject to removal (trimming)
--- from the stream. You might receive a TrimmedDataAccessException if:
---
--- -   You request a shard iterator with a sequence number older than the
---     trim point (24 hours).
---
--- -   You obtain a shard iterator, but before you use the iterator in a
---     @GetRecords@ request, a stream record in the shard exceeds the 24
---     hour period and is trimmed. This causes the iterator to access a
---     record that no longer exists.
-_TrimmedDataAccessException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TrimmedDataAccessException =
-  Core._MatchServiceError
-    defaultService
-    "TrimmedDataAccessException"
 
 -- | The operation tried to access a nonexistent table or index. The resource
 -- might not be specified correctly, or its status might not be @ACTIVE@.
@@ -264,3 +228,39 @@ _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
+
+-- | An error occurred on the server side.
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerError"
+
+-- | The shard iterator has expired and can no longer be used to retrieve
+-- stream records. A shard iterator expires 15 minutes after it is
+-- retrieved using the @GetShardIterator@ action.
+_ExpiredIteratorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredIteratorException =
+  Core._MatchServiceError
+    defaultService
+    "ExpiredIteratorException"
+
+-- | The operation attempted to read past the oldest stream record in a
+-- shard.
+--
+-- In DynamoDB Streams, there is a 24 hour limit on data retention. Stream
+-- records whose age exceeds this limit are subject to removal (trimming)
+-- from the stream. You might receive a TrimmedDataAccessException if:
+--
+-- -   You request a shard iterator with a sequence number older than the
+--     trim point (24 hours).
+--
+-- -   You obtain a shard iterator, but before you use the iterator in a
+--     @GetRecords@ request, a stream record in the shard exceeds the 24
+--     hour period and is trimmed. This causes the iterator to access a
+--     record that no longer exists.
+_TrimmedDataAccessException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TrimmedDataAccessException =
+  Core._MatchServiceError
+    defaultService
+    "TrimmedDataAccessException"

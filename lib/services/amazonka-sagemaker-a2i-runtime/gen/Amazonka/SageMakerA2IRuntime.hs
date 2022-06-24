@@ -53,23 +53,23 @@ module Amazonka.SageMakerA2IRuntime
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** ConflictException
-    _ConflictException,
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** ThrottlingException
     _ThrottlingException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -77,17 +77,23 @@ module Amazonka.SageMakerA2IRuntime
     -- * Operations
     -- $operations
 
-    -- ** ListHumanLoops (Paginated)
-    ListHumanLoops (ListHumanLoops'),
-    newListHumanLoops,
-    ListHumanLoopsResponse (ListHumanLoopsResponse'),
-    newListHumanLoopsResponse,
-
     -- ** DeleteHumanLoop
     DeleteHumanLoop (DeleteHumanLoop'),
     newDeleteHumanLoop,
     DeleteHumanLoopResponse (DeleteHumanLoopResponse'),
     newDeleteHumanLoopResponse,
+
+    -- ** DescribeHumanLoop
+    DescribeHumanLoop (DescribeHumanLoop'),
+    newDescribeHumanLoop,
+    DescribeHumanLoopResponse (DescribeHumanLoopResponse'),
+    newDescribeHumanLoopResponse,
+
+    -- ** ListHumanLoops (Paginated)
+    ListHumanLoops (ListHumanLoops'),
+    newListHumanLoops,
+    ListHumanLoopsResponse (ListHumanLoopsResponse'),
+    newListHumanLoopsResponse,
 
     -- ** StartHumanLoop
     StartHumanLoop (StartHumanLoop'),
@@ -100,12 +106,6 @@ module Amazonka.SageMakerA2IRuntime
     newStopHumanLoop,
     StopHumanLoopResponse (StopHumanLoopResponse'),
     newStopHumanLoopResponse,
-
-    -- ** DescribeHumanLoop
-    DescribeHumanLoop (DescribeHumanLoop'),
-    newDescribeHumanLoop,
-    DescribeHumanLoopResponse (DescribeHumanLoopResponse'),
-    newDescribeHumanLoopResponse,
 
     -- * Types
 

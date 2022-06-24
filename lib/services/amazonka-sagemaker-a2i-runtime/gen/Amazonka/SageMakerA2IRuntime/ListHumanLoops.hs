@@ -30,11 +30,11 @@ module Amazonka.SageMakerA2IRuntime.ListHumanLoops
     newListHumanLoops,
 
     -- * Request Lenses
-    listHumanLoops_creationTimeAfter,
-    listHumanLoops_nextToken,
     listHumanLoops_sortOrder,
+    listHumanLoops_nextToken,
     listHumanLoops_creationTimeBefore,
     listHumanLoops_maxResults,
+    listHumanLoops_creationTimeAfter,
     listHumanLoops_flowDefinitionArn,
 
     -- * Destructuring the Response
@@ -57,14 +57,11 @@ import Amazonka.SageMakerA2IRuntime.Types
 
 -- | /See:/ 'newListHumanLoops' smart constructor.
 data ListHumanLoops = ListHumanLoops'
-  { -- | (Optional) The timestamp of the date when you want the human loops to
-    -- begin in ISO 8601 format. For example, @2020-02-24@.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | A token to display the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional. The order for displaying results. Valid values: @Ascending@
+  { -- | Optional. The order for displaying results. Valid values: @Ascending@
     -- and @Descending@.
     sortOrder :: Prelude.Maybe SortOrder,
+    -- | A token to display the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | (Optional) The timestamp of the date before which you want the human
     -- loops to begin in ISO 8601 format. For example, @2020-02-24@.
     creationTimeBefore :: Prelude.Maybe Core.POSIX,
@@ -73,6 +70,9 @@ data ListHumanLoops = ListHumanLoops'
     -- @NextToken@ is returned in the output. You can use this token to display
     -- the next page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | (Optional) The timestamp of the date when you want the human loops to
+    -- begin in ISO 8601 format. For example, @2020-02-24@.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of a flow definition.
     flowDefinitionArn :: Prelude.Text
   }
@@ -86,13 +86,10 @@ data ListHumanLoops = ListHumanLoops'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTimeAfter', 'listHumanLoops_creationTimeAfter' - (Optional) The timestamp of the date when you want the human loops to
--- begin in ISO 8601 format. For example, @2020-02-24@.
---
--- 'nextToken', 'listHumanLoops_nextToken' - A token to display the next page of results.
---
 -- 'sortOrder', 'listHumanLoops_sortOrder' - Optional. The order for displaying results. Valid values: @Ascending@
 -- and @Descending@.
+--
+-- 'nextToken', 'listHumanLoops_nextToken' - A token to display the next page of results.
 --
 -- 'creationTimeBefore', 'listHumanLoops_creationTimeBefore' - (Optional) The timestamp of the date before which you want the human
 -- loops to begin in ISO 8601 format. For example, @2020-02-24@.
@@ -102,6 +99,9 @@ data ListHumanLoops = ListHumanLoops'
 -- @NextToken@ is returned in the output. You can use this token to display
 -- the next page of results.
 --
+-- 'creationTimeAfter', 'listHumanLoops_creationTimeAfter' - (Optional) The timestamp of the date when you want the human loops to
+-- begin in ISO 8601 format. For example, @2020-02-24@.
+--
 -- 'flowDefinitionArn', 'listHumanLoops_flowDefinitionArn' - The Amazon Resource Name (ARN) of a flow definition.
 newListHumanLoops ::
   -- | 'flowDefinitionArn'
@@ -109,28 +109,22 @@ newListHumanLoops ::
   ListHumanLoops
 newListHumanLoops pFlowDefinitionArn_ =
   ListHumanLoops'
-    { creationTimeAfter =
-        Prelude.Nothing,
+    { sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
       flowDefinitionArn = pFlowDefinitionArn_
     }
-
--- | (Optional) The timestamp of the date when you want the human loops to
--- begin in ISO 8601 format. For example, @2020-02-24@.
-listHumanLoops_creationTimeAfter :: Lens.Lens' ListHumanLoops (Prelude.Maybe Prelude.UTCTime)
-listHumanLoops_creationTimeAfter = Lens.lens (\ListHumanLoops' {creationTimeAfter} -> creationTimeAfter) (\s@ListHumanLoops' {} a -> s {creationTimeAfter = a} :: ListHumanLoops) Prelude.. Lens.mapping Core._Time
-
--- | A token to display the next page of results.
-listHumanLoops_nextToken :: Lens.Lens' ListHumanLoops (Prelude.Maybe Prelude.Text)
-listHumanLoops_nextToken = Lens.lens (\ListHumanLoops' {nextToken} -> nextToken) (\s@ListHumanLoops' {} a -> s {nextToken = a} :: ListHumanLoops)
 
 -- | Optional. The order for displaying results. Valid values: @Ascending@
 -- and @Descending@.
 listHumanLoops_sortOrder :: Lens.Lens' ListHumanLoops (Prelude.Maybe SortOrder)
 listHumanLoops_sortOrder = Lens.lens (\ListHumanLoops' {sortOrder} -> sortOrder) (\s@ListHumanLoops' {} a -> s {sortOrder = a} :: ListHumanLoops)
+
+-- | A token to display the next page of results.
+listHumanLoops_nextToken :: Lens.Lens' ListHumanLoops (Prelude.Maybe Prelude.Text)
+listHumanLoops_nextToken = Lens.lens (\ListHumanLoops' {nextToken} -> nextToken) (\s@ListHumanLoops' {} a -> s {nextToken = a} :: ListHumanLoops)
 
 -- | (Optional) The timestamp of the date before which you want the human
 -- loops to begin in ISO 8601 format. For example, @2020-02-24@.
@@ -143,6 +137,11 @@ listHumanLoops_creationTimeBefore = Lens.lens (\ListHumanLoops' {creationTimeBef
 -- the next page of results.
 listHumanLoops_maxResults :: Lens.Lens' ListHumanLoops (Prelude.Maybe Prelude.Natural)
 listHumanLoops_maxResults = Lens.lens (\ListHumanLoops' {maxResults} -> maxResults) (\s@ListHumanLoops' {} a -> s {maxResults = a} :: ListHumanLoops)
+
+-- | (Optional) The timestamp of the date when you want the human loops to
+-- begin in ISO 8601 format. For example, @2020-02-24@.
+listHumanLoops_creationTimeAfter :: Lens.Lens' ListHumanLoops (Prelude.Maybe Prelude.UTCTime)
+listHumanLoops_creationTimeAfter = Lens.lens (\ListHumanLoops' {creationTimeAfter} -> creationTimeAfter) (\s@ListHumanLoops' {} a -> s {creationTimeAfter = a} :: ListHumanLoops) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of a flow definition.
 listHumanLoops_flowDefinitionArn :: Lens.Lens' ListHumanLoops Prelude.Text
@@ -186,20 +185,20 @@ instance Core.AWSRequest ListHumanLoops where
 
 instance Prelude.Hashable ListHumanLoops where
   hashWithSalt _salt ListHumanLoops' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` flowDefinitionArn
 
 instance Prelude.NFData ListHumanLoops where
   rnf ListHumanLoops' {..} =
-    Prelude.rnf creationTimeAfter
+    Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf creationTimeBefore
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf flowDefinitionArn
 
 instance Core.ToHeaders ListHumanLoops where
@@ -219,11 +218,11 @@ instance Core.ToPath ListHumanLoops where
 instance Core.ToQuery ListHumanLoops where
   toQuery ListHumanLoops' {..} =
     Prelude.mconcat
-      [ "CreationTimeAfter" Core.=: creationTimeAfter,
+      [ "SortOrder" Core.=: sortOrder,
         "NextToken" Core.=: nextToken,
-        "SortOrder" Core.=: sortOrder,
         "CreationTimeBefore" Core.=: creationTimeBefore,
         "MaxResults" Core.=: maxResults,
+        "CreationTimeAfter" Core.=: creationTimeAfter,
         "FlowDefinitionArn" Core.=: flowDefinitionArn
       ]
 

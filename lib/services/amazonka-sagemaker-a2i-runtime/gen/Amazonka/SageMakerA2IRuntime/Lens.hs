@@ -14,20 +14,32 @@
 module Amazonka.SageMakerA2IRuntime.Lens
   ( -- * Operations
 
+    -- ** DeleteHumanLoop
+    deleteHumanLoop_humanLoopName,
+    deleteHumanLoopResponse_httpStatus,
+
+    -- ** DescribeHumanLoop
+    describeHumanLoop_humanLoopName,
+    describeHumanLoopResponse_failureCode,
+    describeHumanLoopResponse_humanLoopOutput,
+    describeHumanLoopResponse_failureReason,
+    describeHumanLoopResponse_httpStatus,
+    describeHumanLoopResponse_creationTime,
+    describeHumanLoopResponse_humanLoopStatus,
+    describeHumanLoopResponse_humanLoopName,
+    describeHumanLoopResponse_humanLoopArn,
+    describeHumanLoopResponse_flowDefinitionArn,
+
     -- ** ListHumanLoops
-    listHumanLoops_creationTimeAfter,
-    listHumanLoops_nextToken,
     listHumanLoops_sortOrder,
+    listHumanLoops_nextToken,
     listHumanLoops_creationTimeBefore,
     listHumanLoops_maxResults,
+    listHumanLoops_creationTimeAfter,
     listHumanLoops_flowDefinitionArn,
     listHumanLoopsResponse_nextToken,
     listHumanLoopsResponse_httpStatus,
     listHumanLoopsResponse_humanLoopSummaries,
-
-    -- ** DeleteHumanLoop
-    deleteHumanLoop_humanLoopName,
-    deleteHumanLoopResponse_httpStatus,
 
     -- ** StartHumanLoop
     startHumanLoop_dataAttributes,
@@ -41,18 +53,6 @@ module Amazonka.SageMakerA2IRuntime.Lens
     stopHumanLoop_humanLoopName,
     stopHumanLoopResponse_httpStatus,
 
-    -- ** DescribeHumanLoop
-    describeHumanLoop_humanLoopName,
-    describeHumanLoopResponse_failureReason,
-    describeHumanLoopResponse_failureCode,
-    describeHumanLoopResponse_humanLoopOutput,
-    describeHumanLoopResponse_httpStatus,
-    describeHumanLoopResponse_creationTime,
-    describeHumanLoopResponse_humanLoopStatus,
-    describeHumanLoopResponse_humanLoopName,
-    describeHumanLoopResponse_humanLoopArn,
-    describeHumanLoopResponse_flowDefinitionArn,
-
     -- * Types
 
     -- ** HumanLoopDataAttributes
@@ -65,11 +65,11 @@ module Amazonka.SageMakerA2IRuntime.Lens
     humanLoopOutput_outputS3Uri,
 
     -- ** HumanLoopSummary
-    humanLoopSummary_creationTime,
-    humanLoopSummary_failureReason,
     humanLoopSummary_humanLoopStatus,
     humanLoopSummary_humanLoopName,
     humanLoopSummary_flowDefinitionArn,
+    humanLoopSummary_creationTime,
+    humanLoopSummary_failureReason,
   )
 where
 

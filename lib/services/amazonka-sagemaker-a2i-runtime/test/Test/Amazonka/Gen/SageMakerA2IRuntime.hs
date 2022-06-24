@@ -27,11 +27,14 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListHumanLoops $
---             newListHumanLoops
---
---         , requestDeleteHumanLoop $
+--         [ requestDeleteHumanLoop $
 --             newDeleteHumanLoop
+--
+--         , requestDescribeHumanLoop $
+--             newDescribeHumanLoop
+--
+--         , requestListHumanLoops $
+--             newListHumanLoops
 --
 --         , requestStartHumanLoop $
 --             newStartHumanLoop
@@ -39,17 +42,17 @@ import Test.Tasty
 --         , requestStopHumanLoop $
 --             newStopHumanLoop
 --
---         , requestDescribeHumanLoop $
---             newDescribeHumanLoop
---
 --           ]
 
 --     , testGroup "response"
---         [ responseListHumanLoops $
---             newListHumanLoopsResponse
---
---         , responseDeleteHumanLoop $
+--         [ responseDeleteHumanLoop $
 --             newDeleteHumanLoopResponse
+--
+--         , responseDescribeHumanLoop $
+--             newDescribeHumanLoopResponse
+--
+--         , responseListHumanLoops $
+--             newListHumanLoopsResponse
 --
 --         , responseStartHumanLoop $
 --             newStartHumanLoopResponse
@@ -57,25 +60,28 @@ import Test.Tasty
 --         , responseStopHumanLoop $
 --             newStopHumanLoopResponse
 --
---         , responseDescribeHumanLoop $
---             newDescribeHumanLoopResponse
---
 --           ]
 --     ]
 
 -- Requests
-
-requestListHumanLoops :: ListHumanLoops -> TestTree
-requestListHumanLoops =
-  req
-    "ListHumanLoops"
-    "fixture/ListHumanLoops.yaml"
 
 requestDeleteHumanLoop :: DeleteHumanLoop -> TestTree
 requestDeleteHumanLoop =
   req
     "DeleteHumanLoop"
     "fixture/DeleteHumanLoop.yaml"
+
+requestDescribeHumanLoop :: DescribeHumanLoop -> TestTree
+requestDescribeHumanLoop =
+  req
+    "DescribeHumanLoop"
+    "fixture/DescribeHumanLoop.yaml"
+
+requestListHumanLoops :: ListHumanLoops -> TestTree
+requestListHumanLoops =
+  req
+    "ListHumanLoops"
+    "fixture/ListHumanLoops.yaml"
 
 requestStartHumanLoop :: StartHumanLoop -> TestTree
 requestStartHumanLoop =
@@ -89,21 +95,7 @@ requestStopHumanLoop =
     "StopHumanLoop"
     "fixture/StopHumanLoop.yaml"
 
-requestDescribeHumanLoop :: DescribeHumanLoop -> TestTree
-requestDescribeHumanLoop =
-  req
-    "DescribeHumanLoop"
-    "fixture/DescribeHumanLoop.yaml"
-
 -- Responses
-
-responseListHumanLoops :: ListHumanLoopsResponse -> TestTree
-responseListHumanLoops =
-  res
-    "ListHumanLoopsResponse"
-    "fixture/ListHumanLoopsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListHumanLoops)
 
 responseDeleteHumanLoop :: DeleteHumanLoopResponse -> TestTree
 responseDeleteHumanLoop =
@@ -112,6 +104,22 @@ responseDeleteHumanLoop =
     "fixture/DeleteHumanLoopResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteHumanLoop)
+
+responseDescribeHumanLoop :: DescribeHumanLoopResponse -> TestTree
+responseDescribeHumanLoop =
+  res
+    "DescribeHumanLoopResponse"
+    "fixture/DescribeHumanLoopResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeHumanLoop)
+
+responseListHumanLoops :: ListHumanLoopsResponse -> TestTree
+responseListHumanLoops =
+  res
+    "ListHumanLoopsResponse"
+    "fixture/ListHumanLoopsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListHumanLoops)
 
 responseStartHumanLoop :: StartHumanLoopResponse -> TestTree
 responseStartHumanLoop =
@@ -128,11 +136,3 @@ responseStopHumanLoop =
     "fixture/StopHumanLoopResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopHumanLoop)
-
-responseDescribeHumanLoop :: DescribeHumanLoopResponse -> TestTree
-responseDescribeHumanLoop =
-  res
-    "DescribeHumanLoopResponse"
-    "fixture/DescribeHumanLoopResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeHumanLoop)

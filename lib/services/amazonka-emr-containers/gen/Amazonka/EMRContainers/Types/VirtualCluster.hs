@@ -35,20 +35,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVirtualCluster' smart constructor.
 data VirtualCluster = VirtualCluster'
-  { -- | The state of the virtual cluster.
-    state :: Prelude.Maybe VirtualClusterState,
-    -- | The ARN of the virtual cluster.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the virtual cluster is created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+  { -- | The assigned tags of the virtual cluster.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the virtual cluster.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the virtual cluster.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The container provider of the virtual cluster.
     containerProvider :: Prelude.Maybe ContainerProvider,
-    -- | The assigned tags of the virtual cluster.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    -- | The ARN of the virtual cluster.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The state of the virtual cluster.
+    state :: Prelude.Maybe VirtualClusterState,
+    -- | The ID of the virtual cluster.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when the virtual cluster is created.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,59 +60,59 @@ data VirtualCluster = VirtualCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'virtualCluster_state' - The state of the virtual cluster.
---
--- 'arn', 'virtualCluster_arn' - The ARN of the virtual cluster.
---
--- 'createdAt', 'virtualCluster_createdAt' - The date and time when the virtual cluster is created.
+-- 'tags', 'virtualCluster_tags' - The assigned tags of the virtual cluster.
 --
 -- 'name', 'virtualCluster_name' - The name of the virtual cluster.
 --
--- 'id', 'virtualCluster_id' - The ID of the virtual cluster.
---
 -- 'containerProvider', 'virtualCluster_containerProvider' - The container provider of the virtual cluster.
 --
--- 'tags', 'virtualCluster_tags' - The assigned tags of the virtual cluster.
+-- 'arn', 'virtualCluster_arn' - The ARN of the virtual cluster.
+--
+-- 'state', 'virtualCluster_state' - The state of the virtual cluster.
+--
+-- 'id', 'virtualCluster_id' - The ID of the virtual cluster.
+--
+-- 'createdAt', 'virtualCluster_createdAt' - The date and time when the virtual cluster is created.
 newVirtualCluster ::
   VirtualCluster
 newVirtualCluster =
   VirtualCluster'
-    { state = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
-      id = Prelude.Nothing,
       containerProvider = Prelude.Nothing,
-      tags = Prelude.Nothing
+      arn = Prelude.Nothing,
+      state = Prelude.Nothing,
+      id = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
 
--- | The state of the virtual cluster.
-virtualCluster_state :: Lens.Lens' VirtualCluster (Prelude.Maybe VirtualClusterState)
-virtualCluster_state = Lens.lens (\VirtualCluster' {state} -> state) (\s@VirtualCluster' {} a -> s {state = a} :: VirtualCluster)
-
--- | The ARN of the virtual cluster.
-virtualCluster_arn :: Lens.Lens' VirtualCluster (Prelude.Maybe Prelude.Text)
-virtualCluster_arn = Lens.lens (\VirtualCluster' {arn} -> arn) (\s@VirtualCluster' {} a -> s {arn = a} :: VirtualCluster)
-
--- | The date and time when the virtual cluster is created.
-virtualCluster_createdAt :: Lens.Lens' VirtualCluster (Prelude.Maybe Prelude.UTCTime)
-virtualCluster_createdAt = Lens.lens (\VirtualCluster' {createdAt} -> createdAt) (\s@VirtualCluster' {} a -> s {createdAt = a} :: VirtualCluster) Prelude.. Lens.mapping Core._Time
+-- | The assigned tags of the virtual cluster.
+virtualCluster_tags :: Lens.Lens' VirtualCluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+virtualCluster_tags = Lens.lens (\VirtualCluster' {tags} -> tags) (\s@VirtualCluster' {} a -> s {tags = a} :: VirtualCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the virtual cluster.
 virtualCluster_name :: Lens.Lens' VirtualCluster (Prelude.Maybe Prelude.Text)
 virtualCluster_name = Lens.lens (\VirtualCluster' {name} -> name) (\s@VirtualCluster' {} a -> s {name = a} :: VirtualCluster)
 
--- | The ID of the virtual cluster.
-virtualCluster_id :: Lens.Lens' VirtualCluster (Prelude.Maybe Prelude.Text)
-virtualCluster_id = Lens.lens (\VirtualCluster' {id} -> id) (\s@VirtualCluster' {} a -> s {id = a} :: VirtualCluster)
-
 -- | The container provider of the virtual cluster.
 virtualCluster_containerProvider :: Lens.Lens' VirtualCluster (Prelude.Maybe ContainerProvider)
 virtualCluster_containerProvider = Lens.lens (\VirtualCluster' {containerProvider} -> containerProvider) (\s@VirtualCluster' {} a -> s {containerProvider = a} :: VirtualCluster)
 
--- | The assigned tags of the virtual cluster.
-virtualCluster_tags :: Lens.Lens' VirtualCluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-virtualCluster_tags = Lens.lens (\VirtualCluster' {tags} -> tags) (\s@VirtualCluster' {} a -> s {tags = a} :: VirtualCluster) Prelude.. Lens.mapping Lens.coerced
+-- | The ARN of the virtual cluster.
+virtualCluster_arn :: Lens.Lens' VirtualCluster (Prelude.Maybe Prelude.Text)
+virtualCluster_arn = Lens.lens (\VirtualCluster' {arn} -> arn) (\s@VirtualCluster' {} a -> s {arn = a} :: VirtualCluster)
+
+-- | The state of the virtual cluster.
+virtualCluster_state :: Lens.Lens' VirtualCluster (Prelude.Maybe VirtualClusterState)
+virtualCluster_state = Lens.lens (\VirtualCluster' {state} -> state) (\s@VirtualCluster' {} a -> s {state = a} :: VirtualCluster)
+
+-- | The ID of the virtual cluster.
+virtualCluster_id :: Lens.Lens' VirtualCluster (Prelude.Maybe Prelude.Text)
+virtualCluster_id = Lens.lens (\VirtualCluster' {id} -> id) (\s@VirtualCluster' {} a -> s {id = a} :: VirtualCluster)
+
+-- | The date and time when the virtual cluster is created.
+virtualCluster_createdAt :: Lens.Lens' VirtualCluster (Prelude.Maybe Prelude.UTCTime)
+virtualCluster_createdAt = Lens.lens (\VirtualCluster' {createdAt} -> createdAt) (\s@VirtualCluster' {} a -> s {createdAt = a} :: VirtualCluster) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON VirtualCluster where
   parseJSON =
@@ -120,31 +120,31 @@ instance Core.FromJSON VirtualCluster where
       "VirtualCluster"
       ( \x ->
           VirtualCluster'
-            Prelude.<$> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "containerProvider")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "createdAt")
       )
 
 instance Prelude.Hashable VirtualCluster where
   hashWithSalt _salt VirtualCluster' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdAt
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` containerProvider
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData VirtualCluster where
   rnf VirtualCluster' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf containerProvider
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf createdAt

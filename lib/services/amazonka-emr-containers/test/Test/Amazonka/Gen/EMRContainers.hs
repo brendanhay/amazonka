@@ -27,133 +27,103 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListManagedEndpoints $
---             newListManagedEndpoints
---
---         , requestCreateVirtualCluster $
---             newCreateVirtualCluster
---
---         , requestDeleteVirtualCluster $
---             newDeleteVirtualCluster
+--         [ requestCancelJobRun $
+--             newCancelJobRun
 --
 --         , requestCreateManagedEndpoint $
 --             newCreateManagedEndpoint
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestCancelJobRun $
---             newCancelJobRun
+--         , requestCreateVirtualCluster $
+--             newCreateVirtualCluster
 --
 --         , requestDeleteManagedEndpoint $
 --             newDeleteManagedEndpoint
 --
---         , requestListJobRuns $
---             newListJobRuns
---
---         , requestListVirtualClusters $
---             newListVirtualClusters
---
---         , requestTagResource $
---             newTagResource
---
---         , requestDescribeManagedEndpoint $
---             newDescribeManagedEndpoint
+--         , requestDeleteVirtualCluster $
+--             newDeleteVirtualCluster
 --
 --         , requestDescribeJobRun $
 --             newDescribeJobRun
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestDescribeManagedEndpoint $
+--             newDescribeManagedEndpoint
 --
 --         , requestDescribeVirtualCluster $
 --             newDescribeVirtualCluster
 --
+--         , requestListJobRuns $
+--             newListJobRuns
+--
+--         , requestListManagedEndpoints $
+--             newListManagedEndpoints
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListVirtualClusters $
+--             newListVirtualClusters
+--
 --         , requestStartJobRun $
 --             newStartJobRun
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListManagedEndpoints $
---             newListManagedEndpointsResponse
---
---         , responseCreateVirtualCluster $
---             newCreateVirtualClusterResponse
---
---         , responseDeleteVirtualCluster $
---             newDeleteVirtualClusterResponse
+--         [ responseCancelJobRun $
+--             newCancelJobRunResponse
 --
 --         , responseCreateManagedEndpoint $
 --             newCreateManagedEndpointResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseCancelJobRun $
---             newCancelJobRunResponse
+--         , responseCreateVirtualCluster $
+--             newCreateVirtualClusterResponse
 --
 --         , responseDeleteManagedEndpoint $
 --             newDeleteManagedEndpointResponse
 --
---         , responseListJobRuns $
---             newListJobRunsResponse
---
---         , responseListVirtualClusters $
---             newListVirtualClustersResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseDescribeManagedEndpoint $
---             newDescribeManagedEndpointResponse
+--         , responseDeleteVirtualCluster $
+--             newDeleteVirtualClusterResponse
 --
 --         , responseDescribeJobRun $
 --             newDescribeJobRunResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseDescribeManagedEndpoint $
+--             newDescribeManagedEndpointResponse
 --
 --         , responseDescribeVirtualCluster $
 --             newDescribeVirtualClusterResponse
 --
+--         , responseListJobRuns $
+--             newListJobRunsResponse
+--
+--         , responseListManagedEndpoints $
+--             newListManagedEndpointsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListVirtualClusters $
+--             newListVirtualClustersResponse
+--
 --         , responseStartJobRun $
 --             newStartJobRunResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListManagedEndpoints :: ListManagedEndpoints -> TestTree
-requestListManagedEndpoints =
-  req
-    "ListManagedEndpoints"
-    "fixture/ListManagedEndpoints.yaml"
-
-requestCreateVirtualCluster :: CreateVirtualCluster -> TestTree
-requestCreateVirtualCluster =
-  req
-    "CreateVirtualCluster"
-    "fixture/CreateVirtualCluster.yaml"
-
-requestDeleteVirtualCluster :: DeleteVirtualCluster -> TestTree
-requestDeleteVirtualCluster =
-  req
-    "DeleteVirtualCluster"
-    "fixture/DeleteVirtualCluster.yaml"
-
-requestCreateManagedEndpoint :: CreateManagedEndpoint -> TestTree
-requestCreateManagedEndpoint =
-  req
-    "CreateManagedEndpoint"
-    "fixture/CreateManagedEndpoint.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
 
 requestCancelJobRun :: CancelJobRun -> TestTree
 requestCancelJobRun =
@@ -161,35 +131,29 @@ requestCancelJobRun =
     "CancelJobRun"
     "fixture/CancelJobRun.yaml"
 
+requestCreateManagedEndpoint :: CreateManagedEndpoint -> TestTree
+requestCreateManagedEndpoint =
+  req
+    "CreateManagedEndpoint"
+    "fixture/CreateManagedEndpoint.yaml"
+
+requestCreateVirtualCluster :: CreateVirtualCluster -> TestTree
+requestCreateVirtualCluster =
+  req
+    "CreateVirtualCluster"
+    "fixture/CreateVirtualCluster.yaml"
+
 requestDeleteManagedEndpoint :: DeleteManagedEndpoint -> TestTree
 requestDeleteManagedEndpoint =
   req
     "DeleteManagedEndpoint"
     "fixture/DeleteManagedEndpoint.yaml"
 
-requestListJobRuns :: ListJobRuns -> TestTree
-requestListJobRuns =
+requestDeleteVirtualCluster :: DeleteVirtualCluster -> TestTree
+requestDeleteVirtualCluster =
   req
-    "ListJobRuns"
-    "fixture/ListJobRuns.yaml"
-
-requestListVirtualClusters :: ListVirtualClusters -> TestTree
-requestListVirtualClusters =
-  req
-    "ListVirtualClusters"
-    "fixture/ListVirtualClusters.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestDescribeManagedEndpoint :: DescribeManagedEndpoint -> TestTree
-requestDescribeManagedEndpoint =
-  req
-    "DescribeManagedEndpoint"
-    "fixture/DescribeManagedEndpoint.yaml"
+    "DeleteVirtualCluster"
+    "fixture/DeleteVirtualCluster.yaml"
 
 requestDescribeJobRun :: DescribeJobRun -> TestTree
 requestDescribeJobRun =
@@ -197,11 +161,11 @@ requestDescribeJobRun =
     "DescribeJobRun"
     "fixture/DescribeJobRun.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestDescribeManagedEndpoint :: DescribeManagedEndpoint -> TestTree
+requestDescribeManagedEndpoint =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "DescribeManagedEndpoint"
+    "fixture/DescribeManagedEndpoint.yaml"
 
 requestDescribeVirtualCluster :: DescribeVirtualCluster -> TestTree
 requestDescribeVirtualCluster =
@@ -209,53 +173,49 @@ requestDescribeVirtualCluster =
     "DescribeVirtualCluster"
     "fixture/DescribeVirtualCluster.yaml"
 
+requestListJobRuns :: ListJobRuns -> TestTree
+requestListJobRuns =
+  req
+    "ListJobRuns"
+    "fixture/ListJobRuns.yaml"
+
+requestListManagedEndpoints :: ListManagedEndpoints -> TestTree
+requestListManagedEndpoints =
+  req
+    "ListManagedEndpoints"
+    "fixture/ListManagedEndpoints.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListVirtualClusters :: ListVirtualClusters -> TestTree
+requestListVirtualClusters =
+  req
+    "ListVirtualClusters"
+    "fixture/ListVirtualClusters.yaml"
+
 requestStartJobRun :: StartJobRun -> TestTree
 requestStartJobRun =
   req
     "StartJobRun"
     "fixture/StartJobRun.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
 -- Responses
-
-responseListManagedEndpoints :: ListManagedEndpointsResponse -> TestTree
-responseListManagedEndpoints =
-  res
-    "ListManagedEndpointsResponse"
-    "fixture/ListManagedEndpointsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListManagedEndpoints)
-
-responseCreateVirtualCluster :: CreateVirtualClusterResponse -> TestTree
-responseCreateVirtualCluster =
-  res
-    "CreateVirtualClusterResponse"
-    "fixture/CreateVirtualClusterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateVirtualCluster)
-
-responseDeleteVirtualCluster :: DeleteVirtualClusterResponse -> TestTree
-responseDeleteVirtualCluster =
-  res
-    "DeleteVirtualClusterResponse"
-    "fixture/DeleteVirtualClusterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualCluster)
-
-responseCreateManagedEndpoint :: CreateManagedEndpointResponse -> TestTree
-responseCreateManagedEndpoint =
-  res
-    "CreateManagedEndpointResponse"
-    "fixture/CreateManagedEndpointResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateManagedEndpoint)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCancelJobRun :: CancelJobRunResponse -> TestTree
 responseCancelJobRun =
@@ -265,6 +225,22 @@ responseCancelJobRun =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelJobRun)
 
+responseCreateManagedEndpoint :: CreateManagedEndpointResponse -> TestTree
+responseCreateManagedEndpoint =
+  res
+    "CreateManagedEndpointResponse"
+    "fixture/CreateManagedEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateManagedEndpoint)
+
+responseCreateVirtualCluster :: CreateVirtualClusterResponse -> TestTree
+responseCreateVirtualCluster =
+  res
+    "CreateVirtualClusterResponse"
+    "fixture/CreateVirtualClusterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVirtualCluster)
+
 responseDeleteManagedEndpoint :: DeleteManagedEndpointResponse -> TestTree
 responseDeleteManagedEndpoint =
   res
@@ -273,37 +249,13 @@ responseDeleteManagedEndpoint =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteManagedEndpoint)
 
-responseListJobRuns :: ListJobRunsResponse -> TestTree
-responseListJobRuns =
+responseDeleteVirtualCluster :: DeleteVirtualClusterResponse -> TestTree
+responseDeleteVirtualCluster =
   res
-    "ListJobRunsResponse"
-    "fixture/ListJobRunsResponse.proto"
+    "DeleteVirtualClusterResponse"
+    "fixture/DeleteVirtualClusterResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListJobRuns)
-
-responseListVirtualClusters :: ListVirtualClustersResponse -> TestTree
-responseListVirtualClusters =
-  res
-    "ListVirtualClustersResponse"
-    "fixture/ListVirtualClustersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListVirtualClusters)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseDescribeManagedEndpoint :: DescribeManagedEndpointResponse -> TestTree
-responseDescribeManagedEndpoint =
-  res
-    "DescribeManagedEndpointResponse"
-    "fixture/DescribeManagedEndpointResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeManagedEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualCluster)
 
 responseDescribeJobRun :: DescribeJobRunResponse -> TestTree
 responseDescribeJobRun =
@@ -313,13 +265,13 @@ responseDescribeJobRun =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeJobRun)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseDescribeManagedEndpoint :: DescribeManagedEndpointResponse -> TestTree
+responseDescribeManagedEndpoint =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "DescribeManagedEndpointResponse"
+    "fixture/DescribeManagedEndpointResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeManagedEndpoint)
 
 responseDescribeVirtualCluster :: DescribeVirtualClusterResponse -> TestTree
 responseDescribeVirtualCluster =
@@ -329,6 +281,38 @@ responseDescribeVirtualCluster =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeVirtualCluster)
 
+responseListJobRuns :: ListJobRunsResponse -> TestTree
+responseListJobRuns =
+  res
+    "ListJobRunsResponse"
+    "fixture/ListJobRunsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListJobRuns)
+
+responseListManagedEndpoints :: ListManagedEndpointsResponse -> TestTree
+responseListManagedEndpoints =
+  res
+    "ListManagedEndpointsResponse"
+    "fixture/ListManagedEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListManagedEndpoints)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListVirtualClusters :: ListVirtualClustersResponse -> TestTree
+responseListVirtualClusters =
+  res
+    "ListVirtualClustersResponse"
+    "fixture/ListVirtualClustersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVirtualClusters)
+
 responseStartJobRun :: StartJobRunResponse -> TestTree
 responseStartJobRun =
   res
@@ -336,3 +320,19 @@ responseStartJobRun =
     "fixture/StartJobRunResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartJobRun)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)

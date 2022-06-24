@@ -27,17 +27,17 @@ module Amazonka.Macie
     -- * Errors
     -- $errors
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
     -- ** InvalidInputException
     _InvalidInputException,
 
-    -- ** InternalException
-    _InternalException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** InternalException
+    _InternalException,
 
     -- * Waiters
     -- $waiters
@@ -45,29 +45,17 @@ module Amazonka.Macie
     -- * Operations
     -- $operations
 
-    -- ** AssociateS3Resources
-    AssociateS3Resources (AssociateS3Resources'),
-    newAssociateS3Resources,
-    AssociateS3ResourcesResponse (AssociateS3ResourcesResponse'),
-    newAssociateS3ResourcesResponse,
-
     -- ** AssociateMemberAccount
     AssociateMemberAccount (AssociateMemberAccount'),
     newAssociateMemberAccount,
     AssociateMemberAccountResponse (AssociateMemberAccountResponse'),
     newAssociateMemberAccountResponse,
 
-    -- ** UpdateS3Resources
-    UpdateS3Resources (UpdateS3Resources'),
-    newUpdateS3Resources,
-    UpdateS3ResourcesResponse (UpdateS3ResourcesResponse'),
-    newUpdateS3ResourcesResponse,
-
-    -- ** ListMemberAccounts (Paginated)
-    ListMemberAccounts (ListMemberAccounts'),
-    newListMemberAccounts,
-    ListMemberAccountsResponse (ListMemberAccountsResponse'),
-    newListMemberAccountsResponse,
+    -- ** AssociateS3Resources
+    AssociateS3Resources (AssociateS3Resources'),
+    newAssociateS3Resources,
+    AssociateS3ResourcesResponse (AssociateS3ResourcesResponse'),
+    newAssociateS3ResourcesResponse,
 
     -- ** DisassociateMemberAccount
     DisassociateMemberAccount (DisassociateMemberAccount'),
@@ -75,17 +63,29 @@ module Amazonka.Macie
     DisassociateMemberAccountResponse (DisassociateMemberAccountResponse'),
     newDisassociateMemberAccountResponse,
 
+    -- ** DisassociateS3Resources
+    DisassociateS3Resources (DisassociateS3Resources'),
+    newDisassociateS3Resources,
+    DisassociateS3ResourcesResponse (DisassociateS3ResourcesResponse'),
+    newDisassociateS3ResourcesResponse,
+
+    -- ** ListMemberAccounts (Paginated)
+    ListMemberAccounts (ListMemberAccounts'),
+    newListMemberAccounts,
+    ListMemberAccountsResponse (ListMemberAccountsResponse'),
+    newListMemberAccountsResponse,
+
     -- ** ListS3Resources (Paginated)
     ListS3Resources (ListS3Resources'),
     newListS3Resources,
     ListS3ResourcesResponse (ListS3ResourcesResponse'),
     newListS3ResourcesResponse,
 
-    -- ** DisassociateS3Resources
-    DisassociateS3Resources (DisassociateS3Resources'),
-    newDisassociateS3Resources,
-    DisassociateS3ResourcesResponse (DisassociateS3ResourcesResponse'),
-    newDisassociateS3ResourcesResponse,
+    -- ** UpdateS3Resources
+    UpdateS3Resources (UpdateS3Resources'),
+    newUpdateS3Resources,
+    UpdateS3ResourcesResponse (UpdateS3ResourcesResponse'),
+    newUpdateS3ResourcesResponse,
 
     -- * Types
 

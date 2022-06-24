@@ -27,61 +27,55 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAssociateS3Resources $
---             newAssociateS3Resources
---
---         , requestAssociateMemberAccount $
+--         [ requestAssociateMemberAccount $
 --             newAssociateMemberAccount
 --
---         , requestUpdateS3Resources $
---             newUpdateS3Resources
---
---         , requestListMemberAccounts $
---             newListMemberAccounts
+--         , requestAssociateS3Resources $
+--             newAssociateS3Resources
 --
 --         , requestDisassociateMemberAccount $
 --             newDisassociateMemberAccount
 --
+--         , requestDisassociateS3Resources $
+--             newDisassociateS3Resources
+--
+--         , requestListMemberAccounts $
+--             newListMemberAccounts
+--
 --         , requestListS3Resources $
 --             newListS3Resources
 --
---         , requestDisassociateS3Resources $
---             newDisassociateS3Resources
+--         , requestUpdateS3Resources $
+--             newUpdateS3Resources
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseAssociateS3Resources $
---             newAssociateS3ResourcesResponse
---
---         , responseAssociateMemberAccount $
+--         [ responseAssociateMemberAccount $
 --             newAssociateMemberAccountResponse
 --
---         , responseUpdateS3Resources $
---             newUpdateS3ResourcesResponse
---
---         , responseListMemberAccounts $
---             newListMemberAccountsResponse
+--         , responseAssociateS3Resources $
+--             newAssociateS3ResourcesResponse
 --
 --         , responseDisassociateMemberAccount $
 --             newDisassociateMemberAccountResponse
 --
+--         , responseDisassociateS3Resources $
+--             newDisassociateS3ResourcesResponse
+--
+--         , responseListMemberAccounts $
+--             newListMemberAccountsResponse
+--
 --         , responseListS3Resources $
 --             newListS3ResourcesResponse
 --
---         , responseDisassociateS3Resources $
---             newDisassociateS3ResourcesResponse
+--         , responseUpdateS3Resources $
+--             newUpdateS3ResourcesResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestAssociateS3Resources :: AssociateS3Resources -> TestTree
-requestAssociateS3Resources =
-  req
-    "AssociateS3Resources"
-    "fixture/AssociateS3Resources.yaml"
 
 requestAssociateMemberAccount :: AssociateMemberAccount -> TestTree
 requestAssociateMemberAccount =
@@ -89,17 +83,11 @@ requestAssociateMemberAccount =
     "AssociateMemberAccount"
     "fixture/AssociateMemberAccount.yaml"
 
-requestUpdateS3Resources :: UpdateS3Resources -> TestTree
-requestUpdateS3Resources =
+requestAssociateS3Resources :: AssociateS3Resources -> TestTree
+requestAssociateS3Resources =
   req
-    "UpdateS3Resources"
-    "fixture/UpdateS3Resources.yaml"
-
-requestListMemberAccounts :: ListMemberAccounts -> TestTree
-requestListMemberAccounts =
-  req
-    "ListMemberAccounts"
-    "fixture/ListMemberAccounts.yaml"
+    "AssociateS3Resources"
+    "fixture/AssociateS3Resources.yaml"
 
 requestDisassociateMemberAccount :: DisassociateMemberAccount -> TestTree
 requestDisassociateMemberAccount =
@@ -107,27 +95,31 @@ requestDisassociateMemberAccount =
     "DisassociateMemberAccount"
     "fixture/DisassociateMemberAccount.yaml"
 
-requestListS3Resources :: ListS3Resources -> TestTree
-requestListS3Resources =
-  req
-    "ListS3Resources"
-    "fixture/ListS3Resources.yaml"
-
 requestDisassociateS3Resources :: DisassociateS3Resources -> TestTree
 requestDisassociateS3Resources =
   req
     "DisassociateS3Resources"
     "fixture/DisassociateS3Resources.yaml"
 
--- Responses
+requestListMemberAccounts :: ListMemberAccounts -> TestTree
+requestListMemberAccounts =
+  req
+    "ListMemberAccounts"
+    "fixture/ListMemberAccounts.yaml"
 
-responseAssociateS3Resources :: AssociateS3ResourcesResponse -> TestTree
-responseAssociateS3Resources =
-  res
-    "AssociateS3ResourcesResponse"
-    "fixture/AssociateS3ResourcesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociateS3Resources)
+requestListS3Resources :: ListS3Resources -> TestTree
+requestListS3Resources =
+  req
+    "ListS3Resources"
+    "fixture/ListS3Resources.yaml"
+
+requestUpdateS3Resources :: UpdateS3Resources -> TestTree
+requestUpdateS3Resources =
+  req
+    "UpdateS3Resources"
+    "fixture/UpdateS3Resources.yaml"
+
+-- Responses
 
 responseAssociateMemberAccount :: AssociateMemberAccountResponse -> TestTree
 responseAssociateMemberAccount =
@@ -137,21 +129,13 @@ responseAssociateMemberAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateMemberAccount)
 
-responseUpdateS3Resources :: UpdateS3ResourcesResponse -> TestTree
-responseUpdateS3Resources =
+responseAssociateS3Resources :: AssociateS3ResourcesResponse -> TestTree
+responseAssociateS3Resources =
   res
-    "UpdateS3ResourcesResponse"
-    "fixture/UpdateS3ResourcesResponse.proto"
+    "AssociateS3ResourcesResponse"
+    "fixture/AssociateS3ResourcesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateS3Resources)
-
-responseListMemberAccounts :: ListMemberAccountsResponse -> TestTree
-responseListMemberAccounts =
-  res
-    "ListMemberAccountsResponse"
-    "fixture/ListMemberAccountsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListMemberAccounts)
+    (Proxy.Proxy :: Proxy.Proxy AssociateS3Resources)
 
 responseDisassociateMemberAccount :: DisassociateMemberAccountResponse -> TestTree
 responseDisassociateMemberAccount =
@@ -161,6 +145,22 @@ responseDisassociateMemberAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateMemberAccount)
 
+responseDisassociateS3Resources :: DisassociateS3ResourcesResponse -> TestTree
+responseDisassociateS3Resources =
+  res
+    "DisassociateS3ResourcesResponse"
+    "fixture/DisassociateS3ResourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateS3Resources)
+
+responseListMemberAccounts :: ListMemberAccountsResponse -> TestTree
+responseListMemberAccounts =
+  res
+    "ListMemberAccountsResponse"
+    "fixture/ListMemberAccountsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMemberAccounts)
+
 responseListS3Resources :: ListS3ResourcesResponse -> TestTree
 responseListS3Resources =
   res
@@ -169,10 +169,10 @@ responseListS3Resources =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListS3Resources)
 
-responseDisassociateS3Resources :: DisassociateS3ResourcesResponse -> TestTree
-responseDisassociateS3Resources =
+responseUpdateS3Resources :: UpdateS3ResourcesResponse -> TestTree
+responseUpdateS3Resources =
   res
-    "DisassociateS3ResourcesResponse"
-    "fixture/DisassociateS3ResourcesResponse.proto"
+    "UpdateS3ResourcesResponse"
+    "fixture/UpdateS3ResourcesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateS3Resources)
+    (Proxy.Proxy :: Proxy.Proxy UpdateS3Resources)

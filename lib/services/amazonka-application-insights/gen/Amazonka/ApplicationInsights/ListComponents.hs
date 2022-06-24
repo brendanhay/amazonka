@@ -37,8 +37,8 @@ module Amazonka.ApplicationInsights.ListComponents
     newListComponentsResponse,
 
     -- * Response Lenses
-    listComponentsResponse_applicationComponentList,
     listComponentsResponse_nextToken,
+    listComponentsResponse_applicationComponentList,
     listComponentsResponse_httpStatus,
   )
 where
@@ -112,10 +112,10 @@ instance Core.AWSRequest ListComponents where
     Response.receiveJSON
       ( \s h x ->
           ListComponentsResponse'
-            Prelude.<$> ( x Core..?> "ApplicationComponentList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ApplicationComponentList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,10 +165,10 @@ instance Core.ToQuery ListComponents where
 
 -- | /See:/ 'newListComponentsResponse' smart constructor.
 data ListComponentsResponse = ListComponentsResponse'
-  { -- | The list of application components.
-    applicationComponentList :: Prelude.Maybe [ApplicationComponent],
-    -- | The token to request the next page of results.
+  { -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of application components.
+    applicationComponentList :: Prelude.Maybe [ApplicationComponent],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,9 +182,9 @@ data ListComponentsResponse = ListComponentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationComponentList', 'listComponentsResponse_applicationComponentList' - The list of application components.
---
 -- 'nextToken', 'listComponentsResponse_nextToken' - The token to request the next page of results.
+--
+-- 'applicationComponentList', 'listComponentsResponse_applicationComponentList' - The list of application components.
 --
 -- 'httpStatus', 'listComponentsResponse_httpStatus' - The response's http status code.
 newListComponentsResponse ::
@@ -193,19 +193,19 @@ newListComponentsResponse ::
   ListComponentsResponse
 newListComponentsResponse pHttpStatus_ =
   ListComponentsResponse'
-    { applicationComponentList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      applicationComponentList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of application components.
-listComponentsResponse_applicationComponentList :: Lens.Lens' ListComponentsResponse (Prelude.Maybe [ApplicationComponent])
-listComponentsResponse_applicationComponentList = Lens.lens (\ListComponentsResponse' {applicationComponentList} -> applicationComponentList) (\s@ListComponentsResponse' {} a -> s {applicationComponentList = a} :: ListComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to request the next page of results.
 listComponentsResponse_nextToken :: Lens.Lens' ListComponentsResponse (Prelude.Maybe Prelude.Text)
 listComponentsResponse_nextToken = Lens.lens (\ListComponentsResponse' {nextToken} -> nextToken) (\s@ListComponentsResponse' {} a -> s {nextToken = a} :: ListComponentsResponse)
+
+-- | The list of application components.
+listComponentsResponse_applicationComponentList :: Lens.Lens' ListComponentsResponse (Prelude.Maybe [ApplicationComponent])
+listComponentsResponse_applicationComponentList = Lens.lens (\ListComponentsResponse' {applicationComponentList} -> applicationComponentList) (\s@ListComponentsResponse' {} a -> s {applicationComponentList = a} :: ListComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listComponentsResponse_httpStatus :: Lens.Lens' ListComponentsResponse Prelude.Int
@@ -213,6 +213,6 @@ listComponentsResponse_httpStatus = Lens.lens (\ListComponentsResponse' {httpSta
 
 instance Prelude.NFData ListComponentsResponse where
   rnf ListComponentsResponse' {..} =
-    Prelude.rnf applicationComponentList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf applicationComponentList
       `Prelude.seq` Prelude.rnf httpStatus

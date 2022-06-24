@@ -35,9 +35,9 @@ module Amazonka.ApplicationInsights.DescribeComponentConfiguration
     newDescribeComponentConfigurationResponse,
 
     -- * Response Lenses
-    describeComponentConfigurationResponse_componentConfiguration,
-    describeComponentConfigurationResponse_monitor,
     describeComponentConfigurationResponse_tier,
+    describeComponentConfigurationResponse_monitor,
+    describeComponentConfigurationResponse_componentConfiguration,
     describeComponentConfigurationResponse_httpStatus,
   )
 where
@@ -104,9 +104,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeComponentConfigurationResponse'
-            Prelude.<$> (x Core..?> "ComponentConfiguration")
+            Prelude.<$> (x Core..?> "Tier")
             Prelude.<*> (x Core..?> "Monitor")
-            Prelude.<*> (x Core..?> "Tier")
+            Prelude.<*> (x Core..?> "ComponentConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,15 +165,15 @@ instance Core.ToQuery DescribeComponentConfiguration where
 
 -- | /See:/ 'newDescribeComponentConfigurationResponse' smart constructor.
 data DescribeComponentConfigurationResponse = DescribeComponentConfigurationResponse'
-  { -- | The configuration settings of the component. The value is the escaped
-    -- JSON of the configuration.
-    componentConfiguration :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the application component is monitored.
-    monitor :: Prelude.Maybe Prelude.Bool,
-    -- | The tier of the application component. Supported tiers include
+  { -- | The tier of the application component. Supported tiers include
     -- @DOT_NET_CORE@, @DOT_NET_WORKER@, @DOT_NET_WEB@, @SQL_SERVER@, and
     -- @DEFAULT@
     tier :: Prelude.Maybe Tier,
+    -- | Indicates whether the application component is monitored.
+    monitor :: Prelude.Maybe Prelude.Bool,
+    -- | The configuration settings of the component. The value is the escaped
+    -- JSON of the configuration.
+    componentConfiguration :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,14 +187,14 @@ data DescribeComponentConfigurationResponse = DescribeComponentConfigurationResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'componentConfiguration', 'describeComponentConfigurationResponse_componentConfiguration' - The configuration settings of the component. The value is the escaped
--- JSON of the configuration.
---
--- 'monitor', 'describeComponentConfigurationResponse_monitor' - Indicates whether the application component is monitored.
---
 -- 'tier', 'describeComponentConfigurationResponse_tier' - The tier of the application component. Supported tiers include
 -- @DOT_NET_CORE@, @DOT_NET_WORKER@, @DOT_NET_WEB@, @SQL_SERVER@, and
 -- @DEFAULT@
+--
+-- 'monitor', 'describeComponentConfigurationResponse_monitor' - Indicates whether the application component is monitored.
+--
+-- 'componentConfiguration', 'describeComponentConfigurationResponse_componentConfiguration' - The configuration settings of the component. The value is the escaped
+-- JSON of the configuration.
 --
 -- 'httpStatus', 'describeComponentConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeComponentConfigurationResponse ::
@@ -204,27 +204,28 @@ newDescribeComponentConfigurationResponse ::
 newDescribeComponentConfigurationResponse
   pHttpStatus_ =
     DescribeComponentConfigurationResponse'
-      { componentConfiguration =
+      { tier =
           Prelude.Nothing,
         monitor = Prelude.Nothing,
-        tier = Prelude.Nothing,
+        componentConfiguration =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The configuration settings of the component. The value is the escaped
--- JSON of the configuration.
-describeComponentConfigurationResponse_componentConfiguration :: Lens.Lens' DescribeComponentConfigurationResponse (Prelude.Maybe Prelude.Text)
-describeComponentConfigurationResponse_componentConfiguration = Lens.lens (\DescribeComponentConfigurationResponse' {componentConfiguration} -> componentConfiguration) (\s@DescribeComponentConfigurationResponse' {} a -> s {componentConfiguration = a} :: DescribeComponentConfigurationResponse)
-
--- | Indicates whether the application component is monitored.
-describeComponentConfigurationResponse_monitor :: Lens.Lens' DescribeComponentConfigurationResponse (Prelude.Maybe Prelude.Bool)
-describeComponentConfigurationResponse_monitor = Lens.lens (\DescribeComponentConfigurationResponse' {monitor} -> monitor) (\s@DescribeComponentConfigurationResponse' {} a -> s {monitor = a} :: DescribeComponentConfigurationResponse)
 
 -- | The tier of the application component. Supported tiers include
 -- @DOT_NET_CORE@, @DOT_NET_WORKER@, @DOT_NET_WEB@, @SQL_SERVER@, and
 -- @DEFAULT@
 describeComponentConfigurationResponse_tier :: Lens.Lens' DescribeComponentConfigurationResponse (Prelude.Maybe Tier)
 describeComponentConfigurationResponse_tier = Lens.lens (\DescribeComponentConfigurationResponse' {tier} -> tier) (\s@DescribeComponentConfigurationResponse' {} a -> s {tier = a} :: DescribeComponentConfigurationResponse)
+
+-- | Indicates whether the application component is monitored.
+describeComponentConfigurationResponse_monitor :: Lens.Lens' DescribeComponentConfigurationResponse (Prelude.Maybe Prelude.Bool)
+describeComponentConfigurationResponse_monitor = Lens.lens (\DescribeComponentConfigurationResponse' {monitor} -> monitor) (\s@DescribeComponentConfigurationResponse' {} a -> s {monitor = a} :: DescribeComponentConfigurationResponse)
+
+-- | The configuration settings of the component. The value is the escaped
+-- JSON of the configuration.
+describeComponentConfigurationResponse_componentConfiguration :: Lens.Lens' DescribeComponentConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeComponentConfigurationResponse_componentConfiguration = Lens.lens (\DescribeComponentConfigurationResponse' {componentConfiguration} -> componentConfiguration) (\s@DescribeComponentConfigurationResponse' {} a -> s {componentConfiguration = a} :: DescribeComponentConfigurationResponse)
 
 -- | The response's http status code.
 describeComponentConfigurationResponse_httpStatus :: Lens.Lens' DescribeComponentConfigurationResponse Prelude.Int
@@ -235,7 +236,7 @@ instance
     DescribeComponentConfigurationResponse
   where
   rnf DescribeComponentConfigurationResponse' {..} =
-    Prelude.rnf componentConfiguration
+    Prelude.rnf tier
       `Prelude.seq` Prelude.rnf monitor
-      `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf componentConfiguration
       `Prelude.seq` Prelude.rnf httpStatus

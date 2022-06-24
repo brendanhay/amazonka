@@ -29,20 +29,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigurationEvent' smart constructor.
 data ConfigurationEvent = ConfigurationEvent'
-  { -- | The resource monitored by Application Insights.
+  { -- | The name of the resource Application Insights attempted to configure.
+    eventResourceName :: Prelude.Maybe Prelude.Text,
+    -- | The resource monitored by Application Insights.
     monitoredResourceARN :: Prelude.Maybe Prelude.Text,
     -- | The status of the configuration update event. Possible values include
     -- INFO, WARN, and ERROR.
     eventStatus :: Prelude.Maybe ConfigurationEventStatus,
-    -- | The name of the resource Application Insights attempted to configure.
-    eventResourceName :: Prelude.Maybe Prelude.Text,
+    -- | The resource type that Application Insights attempted to configure, for
+    -- example, CLOUDWATCH_ALARM.
+    eventResourceType :: Prelude.Maybe ConfigurationEventResourceType,
     -- | The timestamp of the event.
     eventTime :: Prelude.Maybe Core.POSIX,
     -- | The details of the event in plain text.
-    eventDetail :: Prelude.Maybe Prelude.Text,
-    -- | The resource type that Application Insights attempted to configure, for
-    -- example, CLOUDWATCH_ALARM.
-    eventResourceType :: Prelude.Maybe ConfigurationEventResourceType
+    eventDetail :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,31 +54,35 @@ data ConfigurationEvent = ConfigurationEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventResourceName', 'configurationEvent_eventResourceName' - The name of the resource Application Insights attempted to configure.
+--
 -- 'monitoredResourceARN', 'configurationEvent_monitoredResourceARN' - The resource monitored by Application Insights.
 --
 -- 'eventStatus', 'configurationEvent_eventStatus' - The status of the configuration update event. Possible values include
 -- INFO, WARN, and ERROR.
 --
--- 'eventResourceName', 'configurationEvent_eventResourceName' - The name of the resource Application Insights attempted to configure.
+-- 'eventResourceType', 'configurationEvent_eventResourceType' - The resource type that Application Insights attempted to configure, for
+-- example, CLOUDWATCH_ALARM.
 --
 -- 'eventTime', 'configurationEvent_eventTime' - The timestamp of the event.
 --
 -- 'eventDetail', 'configurationEvent_eventDetail' - The details of the event in plain text.
---
--- 'eventResourceType', 'configurationEvent_eventResourceType' - The resource type that Application Insights attempted to configure, for
--- example, CLOUDWATCH_ALARM.
 newConfigurationEvent ::
   ConfigurationEvent
 newConfigurationEvent =
   ConfigurationEvent'
-    { monitoredResourceARN =
+    { eventResourceName =
         Prelude.Nothing,
+      monitoredResourceARN = Prelude.Nothing,
       eventStatus = Prelude.Nothing,
-      eventResourceName = Prelude.Nothing,
+      eventResourceType = Prelude.Nothing,
       eventTime = Prelude.Nothing,
-      eventDetail = Prelude.Nothing,
-      eventResourceType = Prelude.Nothing
+      eventDetail = Prelude.Nothing
     }
+
+-- | The name of the resource Application Insights attempted to configure.
+configurationEvent_eventResourceName :: Lens.Lens' ConfigurationEvent (Prelude.Maybe Prelude.Text)
+configurationEvent_eventResourceName = Lens.lens (\ConfigurationEvent' {eventResourceName} -> eventResourceName) (\s@ConfigurationEvent' {} a -> s {eventResourceName = a} :: ConfigurationEvent)
 
 -- | The resource monitored by Application Insights.
 configurationEvent_monitoredResourceARN :: Lens.Lens' ConfigurationEvent (Prelude.Maybe Prelude.Text)
@@ -89,9 +93,10 @@ configurationEvent_monitoredResourceARN = Lens.lens (\ConfigurationEvent' {monit
 configurationEvent_eventStatus :: Lens.Lens' ConfigurationEvent (Prelude.Maybe ConfigurationEventStatus)
 configurationEvent_eventStatus = Lens.lens (\ConfigurationEvent' {eventStatus} -> eventStatus) (\s@ConfigurationEvent' {} a -> s {eventStatus = a} :: ConfigurationEvent)
 
--- | The name of the resource Application Insights attempted to configure.
-configurationEvent_eventResourceName :: Lens.Lens' ConfigurationEvent (Prelude.Maybe Prelude.Text)
-configurationEvent_eventResourceName = Lens.lens (\ConfigurationEvent' {eventResourceName} -> eventResourceName) (\s@ConfigurationEvent' {} a -> s {eventResourceName = a} :: ConfigurationEvent)
+-- | The resource type that Application Insights attempted to configure, for
+-- example, CLOUDWATCH_ALARM.
+configurationEvent_eventResourceType :: Lens.Lens' ConfigurationEvent (Prelude.Maybe ConfigurationEventResourceType)
+configurationEvent_eventResourceType = Lens.lens (\ConfigurationEvent' {eventResourceType} -> eventResourceType) (\s@ConfigurationEvent' {} a -> s {eventResourceType = a} :: ConfigurationEvent)
 
 -- | The timestamp of the event.
 configurationEvent_eventTime :: Lens.Lens' ConfigurationEvent (Prelude.Maybe Prelude.UTCTime)
@@ -101,39 +106,34 @@ configurationEvent_eventTime = Lens.lens (\ConfigurationEvent' {eventTime} -> ev
 configurationEvent_eventDetail :: Lens.Lens' ConfigurationEvent (Prelude.Maybe Prelude.Text)
 configurationEvent_eventDetail = Lens.lens (\ConfigurationEvent' {eventDetail} -> eventDetail) (\s@ConfigurationEvent' {} a -> s {eventDetail = a} :: ConfigurationEvent)
 
--- | The resource type that Application Insights attempted to configure, for
--- example, CLOUDWATCH_ALARM.
-configurationEvent_eventResourceType :: Lens.Lens' ConfigurationEvent (Prelude.Maybe ConfigurationEventResourceType)
-configurationEvent_eventResourceType = Lens.lens (\ConfigurationEvent' {eventResourceType} -> eventResourceType) (\s@ConfigurationEvent' {} a -> s {eventResourceType = a} :: ConfigurationEvent)
-
 instance Core.FromJSON ConfigurationEvent where
   parseJSON =
     Core.withObject
       "ConfigurationEvent"
       ( \x ->
           ConfigurationEvent'
-            Prelude.<$> (x Core..:? "MonitoredResourceARN")
+            Prelude.<$> (x Core..:? "EventResourceName")
+            Prelude.<*> (x Core..:? "MonitoredResourceARN")
             Prelude.<*> (x Core..:? "EventStatus")
-            Prelude.<*> (x Core..:? "EventResourceName")
+            Prelude.<*> (x Core..:? "EventResourceType")
             Prelude.<*> (x Core..:? "EventTime")
             Prelude.<*> (x Core..:? "EventDetail")
-            Prelude.<*> (x Core..:? "EventResourceType")
       )
 
 instance Prelude.Hashable ConfigurationEvent where
   hashWithSalt _salt ConfigurationEvent' {..} =
-    _salt `Prelude.hashWithSalt` monitoredResourceARN
+    _salt `Prelude.hashWithSalt` eventResourceName
+      `Prelude.hashWithSalt` monitoredResourceARN
       `Prelude.hashWithSalt` eventStatus
-      `Prelude.hashWithSalt` eventResourceName
+      `Prelude.hashWithSalt` eventResourceType
       `Prelude.hashWithSalt` eventTime
       `Prelude.hashWithSalt` eventDetail
-      `Prelude.hashWithSalt` eventResourceType
 
 instance Prelude.NFData ConfigurationEvent where
   rnf ConfigurationEvent' {..} =
-    Prelude.rnf monitoredResourceARN
+    Prelude.rnf eventResourceName
+      `Prelude.seq` Prelude.rnf monitoredResourceARN
       `Prelude.seq` Prelude.rnf eventStatus
-      `Prelude.seq` Prelude.rnf eventResourceName
+      `Prelude.seq` Prelude.rnf eventResourceType
       `Prelude.seq` Prelude.rnf eventTime
       `Prelude.seq` Prelude.rnf eventDetail
-      `Prelude.seq` Prelude.rnf eventResourceType

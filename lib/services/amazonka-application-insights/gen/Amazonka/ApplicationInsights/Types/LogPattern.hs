@@ -38,11 +38,6 @@ data LogPattern = LogPattern'
     -- letters, digits, or one of the following symbols: period, dash,
     -- underscore.
     patternName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the log pattern. A log pattern name can contain as many as
-    -- 30 characters, and it cannot be empty. The characters can be Unicode
-    -- letters, digits, or one of the following symbols: period, dash,
-    -- underscore.
-    patternSetName :: Prelude.Maybe Prelude.Text,
     -- | Rank of the log pattern. Must be a value between @1@ and @1,000,000@.
     -- The patterns are sorted by rank, so we recommend that you set your
     -- highest priority patterns with the lowest rank. A pattern of rank @1@
@@ -53,7 +48,12 @@ data LogPattern = LogPattern'
     -- rank. And a @High@ severity pattern translates to a @250,000@ rank. Rank
     -- values less than @1@ or greater than @1,000,000@ are reserved for
     -- AWS-provided patterns.
-    rank :: Prelude.Maybe Prelude.Int
+    rank :: Prelude.Maybe Prelude.Int,
+    -- | The name of the log pattern. A log pattern name can contain as many as
+    -- 30 characters, and it cannot be empty. The characters can be Unicode
+    -- letters, digits, or one of the following symbols: period, dash,
+    -- underscore.
+    patternSetName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,11 +75,6 @@ data LogPattern = LogPattern'
 -- letters, digits, or one of the following symbols: period, dash,
 -- underscore.
 --
--- 'patternSetName', 'logPattern_patternSetName' - The name of the log pattern. A log pattern name can contain as many as
--- 30 characters, and it cannot be empty. The characters can be Unicode
--- letters, digits, or one of the following symbols: period, dash,
--- underscore.
---
 -- 'rank', 'logPattern_rank' - Rank of the log pattern. Must be a value between @1@ and @1,000,000@.
 -- The patterns are sorted by rank, so we recommend that you set your
 -- highest priority patterns with the lowest rank. A pattern of rank @1@
@@ -90,14 +85,19 @@ data LogPattern = LogPattern'
 -- rank. And a @High@ severity pattern translates to a @250,000@ rank. Rank
 -- values less than @1@ or greater than @1,000,000@ are reserved for
 -- AWS-provided patterns.
+--
+-- 'patternSetName', 'logPattern_patternSetName' - The name of the log pattern. A log pattern name can contain as many as
+-- 30 characters, and it cannot be empty. The characters can be Unicode
+-- letters, digits, or one of the following symbols: period, dash,
+-- underscore.
 newLogPattern ::
   LogPattern
 newLogPattern =
   LogPattern'
     { pattern' = Prelude.Nothing,
       patternName = Prelude.Nothing,
-      patternSetName = Prelude.Nothing,
-      rank = Prelude.Nothing
+      rank = Prelude.Nothing,
+      patternSetName = Prelude.Nothing
     }
 
 -- | A regular expression that defines the log pattern. A log pattern can
@@ -114,13 +114,6 @@ logPattern_pattern = Lens.lens (\LogPattern' {pattern'} -> pattern') (\s@LogPatt
 logPattern_patternName :: Lens.Lens' LogPattern (Prelude.Maybe Prelude.Text)
 logPattern_patternName = Lens.lens (\LogPattern' {patternName} -> patternName) (\s@LogPattern' {} a -> s {patternName = a} :: LogPattern)
 
--- | The name of the log pattern. A log pattern name can contain as many as
--- 30 characters, and it cannot be empty. The characters can be Unicode
--- letters, digits, or one of the following symbols: period, dash,
--- underscore.
-logPattern_patternSetName :: Lens.Lens' LogPattern (Prelude.Maybe Prelude.Text)
-logPattern_patternSetName = Lens.lens (\LogPattern' {patternSetName} -> patternSetName) (\s@LogPattern' {} a -> s {patternSetName = a} :: LogPattern)
-
 -- | Rank of the log pattern. Must be a value between @1@ and @1,000,000@.
 -- The patterns are sorted by rank, so we recommend that you set your
 -- highest priority patterns with the lowest rank. A pattern of rank @1@
@@ -134,6 +127,13 @@ logPattern_patternSetName = Lens.lens (\LogPattern' {patternSetName} -> patternS
 logPattern_rank :: Lens.Lens' LogPattern (Prelude.Maybe Prelude.Int)
 logPattern_rank = Lens.lens (\LogPattern' {rank} -> rank) (\s@LogPattern' {} a -> s {rank = a} :: LogPattern)
 
+-- | The name of the log pattern. A log pattern name can contain as many as
+-- 30 characters, and it cannot be empty. The characters can be Unicode
+-- letters, digits, or one of the following symbols: period, dash,
+-- underscore.
+logPattern_patternSetName :: Lens.Lens' LogPattern (Prelude.Maybe Prelude.Text)
+logPattern_patternSetName = Lens.lens (\LogPattern' {patternSetName} -> patternSetName) (\s@LogPattern' {} a -> s {patternSetName = a} :: LogPattern)
+
 instance Core.FromJSON LogPattern where
   parseJSON =
     Core.withObject
@@ -142,20 +142,20 @@ instance Core.FromJSON LogPattern where
           LogPattern'
             Prelude.<$> (x Core..:? "Pattern")
             Prelude.<*> (x Core..:? "PatternName")
-            Prelude.<*> (x Core..:? "PatternSetName")
             Prelude.<*> (x Core..:? "Rank")
+            Prelude.<*> (x Core..:? "PatternSetName")
       )
 
 instance Prelude.Hashable LogPattern where
   hashWithSalt _salt LogPattern' {..} =
     _salt `Prelude.hashWithSalt` pattern'
       `Prelude.hashWithSalt` patternName
-      `Prelude.hashWithSalt` patternSetName
       `Prelude.hashWithSalt` rank
+      `Prelude.hashWithSalt` patternSetName
 
 instance Prelude.NFData LogPattern where
   rnf LogPattern' {..} =
     Prelude.rnf pattern'
       `Prelude.seq` Prelude.rnf patternName
-      `Prelude.seq` Prelude.rnf patternSetName
       `Prelude.seq` Prelude.rnf rank
+      `Prelude.seq` Prelude.rnf patternSetName

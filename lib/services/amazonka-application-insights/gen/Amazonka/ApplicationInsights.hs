@@ -34,35 +34,71 @@ module Amazonka.ApplicationInsights
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** TagsAlreadyExistException
-    _TagsAlreadyExistException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** TagsAlreadyExistException
+    _TagsAlreadyExistException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** BadRequestException
     _BadRequestException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** CreateApplication
+    CreateApplication (CreateApplication'),
+    newCreateApplication,
+    CreateApplicationResponse (CreateApplicationResponse'),
+    newCreateApplicationResponse,
+
+    -- ** CreateComponent
+    CreateComponent (CreateComponent'),
+    newCreateComponent,
+    CreateComponentResponse (CreateComponentResponse'),
+    newCreateComponentResponse,
+
+    -- ** CreateLogPattern
+    CreateLogPattern (CreateLogPattern'),
+    newCreateLogPattern,
+    CreateLogPatternResponse (CreateLogPatternResponse'),
+    newCreateLogPatternResponse,
+
+    -- ** DeleteApplication
+    DeleteApplication (DeleteApplication'),
+    newDeleteApplication,
+    DeleteApplicationResponse (DeleteApplicationResponse'),
+    newDeleteApplicationResponse,
+
+    -- ** DeleteComponent
+    DeleteComponent (DeleteComponent'),
+    newDeleteComponent,
+    DeleteComponentResponse (DeleteComponentResponse'),
+    newDeleteComponentResponse,
+
+    -- ** DeleteLogPattern
+    DeleteLogPattern (DeleteLogPattern'),
+    newDeleteLogPattern,
+    DeleteLogPatternResponse (DeleteLogPatternResponse'),
+    newDeleteLogPatternResponse,
 
     -- ** DescribeApplication
     DescribeApplication (DescribeApplication'),
@@ -76,23 +112,11 @@ module Amazonka.ApplicationInsights
     DescribeComponentResponse (DescribeComponentResponse'),
     newDescribeComponentResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DeleteApplication
-    DeleteApplication (DeleteApplication'),
-    newDeleteApplication,
-    DeleteApplicationResponse (DeleteApplicationResponse'),
-    newDeleteApplicationResponse,
-
-    -- ** UpdateApplication
-    UpdateApplication (UpdateApplication'),
-    newUpdateApplication,
-    UpdateApplicationResponse (UpdateApplicationResponse'),
-    newUpdateApplicationResponse,
+    -- ** DescribeComponentConfiguration
+    DescribeComponentConfiguration (DescribeComponentConfiguration'),
+    newDescribeComponentConfiguration,
+    DescribeComponentConfigurationResponse (DescribeComponentConfigurationResponse'),
+    newDescribeComponentConfigurationResponse,
 
     -- ** DescribeComponentConfigurationRecommendation
     DescribeComponentConfigurationRecommendation (DescribeComponentConfigurationRecommendation'),
@@ -100,29 +124,11 @@ module Amazonka.ApplicationInsights
     DescribeComponentConfigurationRecommendationResponse (DescribeComponentConfigurationRecommendationResponse'),
     newDescribeComponentConfigurationRecommendationResponse,
 
-    -- ** DescribeProblem
-    DescribeProblem (DescribeProblem'),
-    newDescribeProblem,
-    DescribeProblemResponse (DescribeProblemResponse'),
-    newDescribeProblemResponse,
-
-    -- ** UpdateComponentConfiguration
-    UpdateComponentConfiguration (UpdateComponentConfiguration'),
-    newUpdateComponentConfiguration,
-    UpdateComponentConfigurationResponse (UpdateComponentConfigurationResponse'),
-    newUpdateComponentConfigurationResponse,
-
-    -- ** CreateApplication
-    CreateApplication (CreateApplication'),
-    newCreateApplication,
-    CreateApplicationResponse (CreateApplicationResponse'),
-    newCreateApplicationResponse,
-
-    -- ** DescribeProblemObservations
-    DescribeProblemObservations (DescribeProblemObservations'),
-    newDescribeProblemObservations,
-    DescribeProblemObservationsResponse (DescribeProblemObservationsResponse'),
-    newDescribeProblemObservationsResponse,
+    -- ** DescribeLogPattern
+    DescribeLogPattern (DescribeLogPattern'),
+    newDescribeLogPattern,
+    DescribeLogPatternResponse (DescribeLogPatternResponse'),
+    newDescribeLogPatternResponse,
 
     -- ** DescribeObservation
     DescribeObservation (DescribeObservation'),
@@ -130,59 +136,17 @@ module Amazonka.ApplicationInsights
     DescribeObservationResponse (DescribeObservationResponse'),
     newDescribeObservationResponse,
 
-    -- ** ListLogPatternSets
-    ListLogPatternSets (ListLogPatternSets'),
-    newListLogPatternSets,
-    ListLogPatternSetsResponse (ListLogPatternSetsResponse'),
-    newListLogPatternSetsResponse,
+    -- ** DescribeProblem
+    DescribeProblem (DescribeProblem'),
+    newDescribeProblem,
+    DescribeProblemResponse (DescribeProblemResponse'),
+    newDescribeProblemResponse,
 
-    -- ** DescribeComponentConfiguration
-    DescribeComponentConfiguration (DescribeComponentConfiguration'),
-    newDescribeComponentConfiguration,
-    DescribeComponentConfigurationResponse (DescribeComponentConfigurationResponse'),
-    newDescribeComponentConfigurationResponse,
-
-    -- ** ListProblems
-    ListProblems (ListProblems'),
-    newListProblems,
-    ListProblemsResponse (ListProblemsResponse'),
-    newListProblemsResponse,
-
-    -- ** ListLogPatterns
-    ListLogPatterns (ListLogPatterns'),
-    newListLogPatterns,
-    ListLogPatternsResponse (ListLogPatternsResponse'),
-    newListLogPatternsResponse,
-
-    -- ** DeleteLogPattern
-    DeleteLogPattern (DeleteLogPattern'),
-    newDeleteLogPattern,
-    DeleteLogPatternResponse (DeleteLogPatternResponse'),
-    newDeleteLogPatternResponse,
-
-    -- ** UpdateLogPattern
-    UpdateLogPattern (UpdateLogPattern'),
-    newUpdateLogPattern,
-    UpdateLogPatternResponse (UpdateLogPatternResponse'),
-    newUpdateLogPatternResponse,
-
-    -- ** CreateLogPattern
-    CreateLogPattern (CreateLogPattern'),
-    newCreateLogPattern,
-    CreateLogPatternResponse (CreateLogPatternResponse'),
-    newCreateLogPatternResponse,
-
-    -- ** ListConfigurationHistory
-    ListConfigurationHistory (ListConfigurationHistory'),
-    newListConfigurationHistory,
-    ListConfigurationHistoryResponse (ListConfigurationHistoryResponse'),
-    newListConfigurationHistoryResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** DescribeProblemObservations
+    DescribeProblemObservations (DescribeProblemObservations'),
+    newDescribeProblemObservations,
+    DescribeProblemObservationsResponse (DescribeProblemObservationsResponse'),
+    newDescribeProblemObservationsResponse,
 
     -- ** ListApplications
     ListApplications (ListApplications'),
@@ -190,29 +154,59 @@ module Amazonka.ApplicationInsights
     ListApplicationsResponse (ListApplicationsResponse'),
     newListApplicationsResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** CreateComponent
-    CreateComponent (CreateComponent'),
-    newCreateComponent,
-    CreateComponentResponse (CreateComponentResponse'),
-    newCreateComponentResponse,
-
     -- ** ListComponents
     ListComponents (ListComponents'),
     newListComponents,
     ListComponentsResponse (ListComponentsResponse'),
     newListComponentsResponse,
 
-    -- ** DeleteComponent
-    DeleteComponent (DeleteComponent'),
-    newDeleteComponent,
-    DeleteComponentResponse (DeleteComponentResponse'),
-    newDeleteComponentResponse,
+    -- ** ListConfigurationHistory
+    ListConfigurationHistory (ListConfigurationHistory'),
+    newListConfigurationHistory,
+    ListConfigurationHistoryResponse (ListConfigurationHistoryResponse'),
+    newListConfigurationHistoryResponse,
+
+    -- ** ListLogPatternSets
+    ListLogPatternSets (ListLogPatternSets'),
+    newListLogPatternSets,
+    ListLogPatternSetsResponse (ListLogPatternSetsResponse'),
+    newListLogPatternSetsResponse,
+
+    -- ** ListLogPatterns
+    ListLogPatterns (ListLogPatterns'),
+    newListLogPatterns,
+    ListLogPatternsResponse (ListLogPatternsResponse'),
+    newListLogPatternsResponse,
+
+    -- ** ListProblems
+    ListProblems (ListProblems'),
+    newListProblems,
+    ListProblemsResponse (ListProblemsResponse'),
+    newListProblemsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateApplication
+    UpdateApplication (UpdateApplication'),
+    newUpdateApplication,
+    UpdateApplicationResponse (UpdateApplicationResponse'),
+    newUpdateApplicationResponse,
 
     -- ** UpdateComponent
     UpdateComponent (UpdateComponent'),
@@ -220,11 +214,17 @@ module Amazonka.ApplicationInsights
     UpdateComponentResponse (UpdateComponentResponse'),
     newUpdateComponentResponse,
 
-    -- ** DescribeLogPattern
-    DescribeLogPattern (DescribeLogPattern'),
-    newDescribeLogPattern,
-    DescribeLogPatternResponse (DescribeLogPatternResponse'),
-    newDescribeLogPatternResponse,
+    -- ** UpdateComponentConfiguration
+    UpdateComponentConfiguration (UpdateComponentConfiguration'),
+    newUpdateComponentConfiguration,
+    UpdateComponentConfigurationResponse (UpdateComponentConfigurationResponse'),
+    newUpdateComponentConfigurationResponse,
+
+    -- ** UpdateLogPattern
+    UpdateLogPattern (UpdateLogPattern'),
+    newUpdateLogPattern,
+    UpdateLogPatternResponse (UpdateLogPatternResponse'),
+    newUpdateLogPatternResponse,
 
     -- * Types
 

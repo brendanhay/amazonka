@@ -27,9 +27,9 @@ module Amazonka.KafkaConnect.CreateConnector
     newCreateConnector,
 
     -- * Request Lenses
+    createConnector_connectorDescription,
     createConnector_logDelivery,
     createConnector_workerConfiguration,
-    createConnector_connectorDescription,
     createConnector_capacity,
     createConnector_connectorConfiguration,
     createConnector_connectorName,
@@ -61,12 +61,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConnector' smart constructor.
 data CreateConnector = CreateConnector'
-  { -- | Details about log delivery.
+  { -- | A summary description of the connector.
+    connectorDescription :: Prelude.Maybe Prelude.Text,
+    -- | Details about log delivery.
     logDelivery :: Prelude.Maybe LogDelivery,
     -- | Specifies which worker configuration to use with the connector.
     workerConfiguration :: Prelude.Maybe WorkerConfiguration,
-    -- | A summary description of the connector.
-    connectorDescription :: Prelude.Maybe Prelude.Text,
     -- | Information about the capacity allocated to the connector. Exactly one
     -- of the two properties must be specified.
     capacity :: Capacity,
@@ -103,11 +103,11 @@ data CreateConnector = CreateConnector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectorDescription', 'createConnector_connectorDescription' - A summary description of the connector.
+--
 -- 'logDelivery', 'createConnector_logDelivery' - Details about log delivery.
 --
 -- 'workerConfiguration', 'createConnector_workerConfiguration' - Specifies which worker configuration to use with the connector.
---
--- 'connectorDescription', 'createConnector_connectorDescription' - A summary description of the connector.
 --
 -- 'capacity', 'createConnector_capacity' - Information about the capacity allocated to the connector. Exactly one
 -- of the two properties must be specified.
@@ -158,9 +158,10 @@ newCreateConnector
   pKafkaConnectVersion_
   pServiceExecutionRoleArn_ =
     CreateConnector'
-      { logDelivery = Prelude.Nothing,
+      { connectorDescription =
+          Prelude.Nothing,
+        logDelivery = Prelude.Nothing,
         workerConfiguration = Prelude.Nothing,
-        connectorDescription = Prelude.Nothing,
         capacity = pCapacity_,
         connectorConfiguration = Prelude.mempty,
         connectorName = pConnectorName_,
@@ -174,6 +175,10 @@ newCreateConnector
         serviceExecutionRoleArn = pServiceExecutionRoleArn_
       }
 
+-- | A summary description of the connector.
+createConnector_connectorDescription :: Lens.Lens' CreateConnector (Prelude.Maybe Prelude.Text)
+createConnector_connectorDescription = Lens.lens (\CreateConnector' {connectorDescription} -> connectorDescription) (\s@CreateConnector' {} a -> s {connectorDescription = a} :: CreateConnector)
+
 -- | Details about log delivery.
 createConnector_logDelivery :: Lens.Lens' CreateConnector (Prelude.Maybe LogDelivery)
 createConnector_logDelivery = Lens.lens (\CreateConnector' {logDelivery} -> logDelivery) (\s@CreateConnector' {} a -> s {logDelivery = a} :: CreateConnector)
@@ -181,10 +186,6 @@ createConnector_logDelivery = Lens.lens (\CreateConnector' {logDelivery} -> logD
 -- | Specifies which worker configuration to use with the connector.
 createConnector_workerConfiguration :: Lens.Lens' CreateConnector (Prelude.Maybe WorkerConfiguration)
 createConnector_workerConfiguration = Lens.lens (\CreateConnector' {workerConfiguration} -> workerConfiguration) (\s@CreateConnector' {} a -> s {workerConfiguration = a} :: CreateConnector)
-
--- | A summary description of the connector.
-createConnector_connectorDescription :: Lens.Lens' CreateConnector (Prelude.Maybe Prelude.Text)
-createConnector_connectorDescription = Lens.lens (\CreateConnector' {connectorDescription} -> connectorDescription) (\s@CreateConnector' {} a -> s {connectorDescription = a} :: CreateConnector)
 
 -- | Information about the capacity allocated to the connector. Exactly one
 -- of the two properties must be specified.
@@ -246,9 +247,9 @@ instance Core.AWSRequest CreateConnector where
 
 instance Prelude.Hashable CreateConnector where
   hashWithSalt _salt CreateConnector' {..} =
-    _salt `Prelude.hashWithSalt` logDelivery
+    _salt `Prelude.hashWithSalt` connectorDescription
+      `Prelude.hashWithSalt` logDelivery
       `Prelude.hashWithSalt` workerConfiguration
-      `Prelude.hashWithSalt` connectorDescription
       `Prelude.hashWithSalt` capacity
       `Prelude.hashWithSalt` connectorConfiguration
       `Prelude.hashWithSalt` connectorName
@@ -261,9 +262,9 @@ instance Prelude.Hashable CreateConnector where
 
 instance Prelude.NFData CreateConnector where
   rnf CreateConnector' {..} =
-    Prelude.rnf logDelivery
+    Prelude.rnf connectorDescription
+      `Prelude.seq` Prelude.rnf logDelivery
       `Prelude.seq` Prelude.rnf workerConfiguration
-      `Prelude.seq` Prelude.rnf connectorDescription
       `Prelude.seq` Prelude.rnf capacity
       `Prelude.seq` Prelude.rnf connectorConfiguration
       `Prelude.seq` Prelude.rnf connectorName
@@ -289,11 +290,11 @@ instance Core.ToJSON CreateConnector where
   toJSON CreateConnector' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("logDelivery" Core..=) Prelude.<$> logDelivery,
+          [ ("connectorDescription" Core..=)
+              Prelude.<$> connectorDescription,
+            ("logDelivery" Core..=) Prelude.<$> logDelivery,
             ("workerConfiguration" Core..=)
               Prelude.<$> workerConfiguration,
-            ("connectorDescription" Core..=)
-              Prelude.<$> connectorDescription,
             Prelude.Just ("capacity" Core..= capacity),
             Prelude.Just
               ( "connectorConfiguration"

@@ -41,8 +41,8 @@ module Amazonka.KafkaConnect.ListConnectors
     newListConnectorsResponse,
 
     -- * Response Lenses
-    listConnectorsResponse_connectors,
     listConnectorsResponse_nextToken,
+    listConnectorsResponse_connectors,
     listConnectorsResponse_httpStatus,
   )
 where
@@ -136,8 +136,8 @@ instance Core.AWSRequest ListConnectors where
     Response.receiveJSON
       ( \s h x ->
           ListConnectorsResponse'
-            Prelude.<$> (x Core..?> "connectors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "connectors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,12 +177,12 @@ instance Core.ToQuery ListConnectors where
 
 -- | /See:/ 'newListConnectorsResponse' smart constructor.
 data ListConnectorsResponse = ListConnectorsResponse'
-  { -- | An array of connector descriptions.
-    connectors :: Prelude.Maybe [ConnectorSummary],
-    -- | If the response of a ListConnectors operation is truncated, it will
+  { -- | If the response of a ListConnectors operation is truncated, it will
     -- include a NextToken. Send this NextToken in a subsequent request to
     -- continue listing from where it left off.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of connector descriptions.
+    connectors :: Prelude.Maybe [ConnectorSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,11 +196,11 @@ data ListConnectorsResponse = ListConnectorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectors', 'listConnectorsResponse_connectors' - An array of connector descriptions.
---
 -- 'nextToken', 'listConnectorsResponse_nextToken' - If the response of a ListConnectors operation is truncated, it will
 -- include a NextToken. Send this NextToken in a subsequent request to
 -- continue listing from where it left off.
+--
+-- 'connectors', 'listConnectorsResponse_connectors' - An array of connector descriptions.
 --
 -- 'httpStatus', 'listConnectorsResponse_httpStatus' - The response's http status code.
 newListConnectorsResponse ::
@@ -209,15 +209,11 @@ newListConnectorsResponse ::
   ListConnectorsResponse
 newListConnectorsResponse pHttpStatus_ =
   ListConnectorsResponse'
-    { connectors =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      connectors = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of connector descriptions.
-listConnectorsResponse_connectors :: Lens.Lens' ListConnectorsResponse (Prelude.Maybe [ConnectorSummary])
-listConnectorsResponse_connectors = Lens.lens (\ListConnectorsResponse' {connectors} -> connectors) (\s@ListConnectorsResponse' {} a -> s {connectors = a} :: ListConnectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response of a ListConnectors operation is truncated, it will
 -- include a NextToken. Send this NextToken in a subsequent request to
@@ -225,12 +221,16 @@ listConnectorsResponse_connectors = Lens.lens (\ListConnectorsResponse' {connect
 listConnectorsResponse_nextToken :: Lens.Lens' ListConnectorsResponse (Prelude.Maybe Prelude.Text)
 listConnectorsResponse_nextToken = Lens.lens (\ListConnectorsResponse' {nextToken} -> nextToken) (\s@ListConnectorsResponse' {} a -> s {nextToken = a} :: ListConnectorsResponse)
 
+-- | An array of connector descriptions.
+listConnectorsResponse_connectors :: Lens.Lens' ListConnectorsResponse (Prelude.Maybe [ConnectorSummary])
+listConnectorsResponse_connectors = Lens.lens (\ListConnectorsResponse' {connectors} -> connectors) (\s@ListConnectorsResponse' {} a -> s {connectors = a} :: ListConnectorsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listConnectorsResponse_httpStatus :: Lens.Lens' ListConnectorsResponse Prelude.Int
 listConnectorsResponse_httpStatus = Lens.lens (\ListConnectorsResponse' {httpStatus} -> httpStatus) (\s@ListConnectorsResponse' {} a -> s {httpStatus = a} :: ListConnectorsResponse)
 
 instance Prelude.NFData ListConnectorsResponse where
   rnf ListConnectorsResponse' {..} =
-    Prelude.rnf connectors
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connectors
       `Prelude.seq` Prelude.rnf httpStatus

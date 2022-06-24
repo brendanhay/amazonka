@@ -34,11 +34,11 @@ module Amazonka.KafkaConnect.DescribeWorkerConfiguration
     newDescribeWorkerConfigurationResponse,
 
     -- * Response Lenses
-    describeWorkerConfigurationResponse_creationTime,
     describeWorkerConfigurationResponse_latestRevision,
     describeWorkerConfigurationResponse_name,
-    describeWorkerConfigurationResponse_workerConfigurationArn,
     describeWorkerConfigurationResponse_description,
+    describeWorkerConfigurationResponse_workerConfigurationArn,
+    describeWorkerConfigurationResponse_creationTime,
     describeWorkerConfigurationResponse_httpStatus,
   )
 where
@@ -93,11 +93,11 @@ instance Core.AWSRequest DescribeWorkerConfiguration where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkerConfigurationResponse'
-            Prelude.<$> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "latestRevision")
+            Prelude.<$> (x Core..?> "latestRevision")
             Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "workerConfigurationArn")
             Prelude.<*> (x Core..?> "description")
+            Prelude.<*> (x Core..?> "workerConfigurationArn")
+            Prelude.<*> (x Core..?> "creationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,16 +132,16 @@ instance Core.ToQuery DescribeWorkerConfiguration where
 
 -- | /See:/ 'newDescribeWorkerConfigurationResponse' smart constructor.
 data DescribeWorkerConfigurationResponse = DescribeWorkerConfigurationResponse'
-  { -- | The time that the worker configuration was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The latest revision of the custom configuration.
+  { -- | The latest revision of the custom configuration.
     latestRevision :: Prelude.Maybe WorkerConfigurationRevisionDescription,
     -- | The name of the worker configuration.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the custom configuration.
-    workerConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | The description of the worker configuration.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the custom configuration.
+    workerConfigurationArn :: Prelude.Maybe Prelude.Text,
+    -- | The time that the worker configuration was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -155,15 +155,15 @@ data DescribeWorkerConfigurationResponse = DescribeWorkerConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'describeWorkerConfigurationResponse_creationTime' - The time that the worker configuration was created.
---
 -- 'latestRevision', 'describeWorkerConfigurationResponse_latestRevision' - The latest revision of the custom configuration.
 --
 -- 'name', 'describeWorkerConfigurationResponse_name' - The name of the worker configuration.
 --
+-- 'description', 'describeWorkerConfigurationResponse_description' - The description of the worker configuration.
+--
 -- 'workerConfigurationArn', 'describeWorkerConfigurationResponse_workerConfigurationArn' - The Amazon Resource Name (ARN) of the custom configuration.
 --
--- 'description', 'describeWorkerConfigurationResponse_description' - The description of the worker configuration.
+-- 'creationTime', 'describeWorkerConfigurationResponse_creationTime' - The time that the worker configuration was created.
 --
 -- 'httpStatus', 'describeWorkerConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeWorkerConfigurationResponse ::
@@ -172,19 +172,15 @@ newDescribeWorkerConfigurationResponse ::
   DescribeWorkerConfigurationResponse
 newDescribeWorkerConfigurationResponse pHttpStatus_ =
   DescribeWorkerConfigurationResponse'
-    { creationTime =
+    { latestRevision =
         Prelude.Nothing,
-      latestRevision = Prelude.Nothing,
       name = Prelude.Nothing,
+      description = Prelude.Nothing,
       workerConfigurationArn =
         Prelude.Nothing,
-      description = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The time that the worker configuration was created.
-describeWorkerConfigurationResponse_creationTime :: Lens.Lens' DescribeWorkerConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-describeWorkerConfigurationResponse_creationTime = Lens.lens (\DescribeWorkerConfigurationResponse' {creationTime} -> creationTime) (\s@DescribeWorkerConfigurationResponse' {} a -> s {creationTime = a} :: DescribeWorkerConfigurationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The latest revision of the custom configuration.
 describeWorkerConfigurationResponse_latestRevision :: Lens.Lens' DescribeWorkerConfigurationResponse (Prelude.Maybe WorkerConfigurationRevisionDescription)
@@ -194,13 +190,17 @@ describeWorkerConfigurationResponse_latestRevision = Lens.lens (\DescribeWorkerC
 describeWorkerConfigurationResponse_name :: Lens.Lens' DescribeWorkerConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeWorkerConfigurationResponse_name = Lens.lens (\DescribeWorkerConfigurationResponse' {name} -> name) (\s@DescribeWorkerConfigurationResponse' {} a -> s {name = a} :: DescribeWorkerConfigurationResponse)
 
+-- | The description of the worker configuration.
+describeWorkerConfigurationResponse_description :: Lens.Lens' DescribeWorkerConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeWorkerConfigurationResponse_description = Lens.lens (\DescribeWorkerConfigurationResponse' {description} -> description) (\s@DescribeWorkerConfigurationResponse' {} a -> s {description = a} :: DescribeWorkerConfigurationResponse)
+
 -- | The Amazon Resource Name (ARN) of the custom configuration.
 describeWorkerConfigurationResponse_workerConfigurationArn :: Lens.Lens' DescribeWorkerConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeWorkerConfigurationResponse_workerConfigurationArn = Lens.lens (\DescribeWorkerConfigurationResponse' {workerConfigurationArn} -> workerConfigurationArn) (\s@DescribeWorkerConfigurationResponse' {} a -> s {workerConfigurationArn = a} :: DescribeWorkerConfigurationResponse)
 
--- | The description of the worker configuration.
-describeWorkerConfigurationResponse_description :: Lens.Lens' DescribeWorkerConfigurationResponse (Prelude.Maybe Prelude.Text)
-describeWorkerConfigurationResponse_description = Lens.lens (\DescribeWorkerConfigurationResponse' {description} -> description) (\s@DescribeWorkerConfigurationResponse' {} a -> s {description = a} :: DescribeWorkerConfigurationResponse)
+-- | The time that the worker configuration was created.
+describeWorkerConfigurationResponse_creationTime :: Lens.Lens' DescribeWorkerConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
+describeWorkerConfigurationResponse_creationTime = Lens.lens (\DescribeWorkerConfigurationResponse' {creationTime} -> creationTime) (\s@DescribeWorkerConfigurationResponse' {} a -> s {creationTime = a} :: DescribeWorkerConfigurationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 describeWorkerConfigurationResponse_httpStatus :: Lens.Lens' DescribeWorkerConfigurationResponse Prelude.Int
@@ -211,9 +211,9 @@ instance
     DescribeWorkerConfigurationResponse
   where
   rnf DescribeWorkerConfigurationResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf latestRevision
+    Prelude.rnf latestRevision
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf workerConfigurationArn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf workerConfigurationArn
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf httpStatus

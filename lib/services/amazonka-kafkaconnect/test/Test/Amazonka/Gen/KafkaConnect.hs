@@ -27,20 +27,26 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListWorkerConfigurations $
---             newListWorkerConfigurations
+--         [ requestCreateConnector $
+--             newCreateConnector
 --
---         , requestDescribeCustomPlugin $
---             newDescribeCustomPlugin
+--         , requestCreateCustomPlugin $
+--             newCreateCustomPlugin
+--
+--         , requestCreateWorkerConfiguration $
+--             newCreateWorkerConfiguration
 --
 --         , requestDeleteConnector $
 --             newDeleteConnector
 --
---         , requestUpdateConnector $
---             newUpdateConnector
+--         , requestDescribeConnector $
+--             newDescribeConnector
 --
---         , requestCreateWorkerConfiguration $
---             newCreateWorkerConfiguration
+--         , requestDescribeCustomPlugin $
+--             newDescribeCustomPlugin
+--
+--         , requestDescribeWorkerConfiguration $
+--             newDescribeWorkerConfiguration
 --
 --         , requestListConnectors $
 --             newListConnectors
@@ -48,35 +54,35 @@ import Test.Tasty
 --         , requestListCustomPlugins $
 --             newListCustomPlugins
 --
---         , requestCreateConnector $
---             newCreateConnector
+--         , requestListWorkerConfigurations $
+--             newListWorkerConfigurations
 --
---         , requestDescribeWorkerConfiguration $
---             newDescribeWorkerConfiguration
---
---         , requestDescribeConnector $
---             newDescribeConnector
---
---         , requestCreateCustomPlugin $
---             newCreateCustomPlugin
+--         , requestUpdateConnector $
+--             newUpdateConnector
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListWorkerConfigurations $
---             newListWorkerConfigurationsResponse
+--         [ responseCreateConnector $
+--             newCreateConnectorResponse
 --
---         , responseDescribeCustomPlugin $
---             newDescribeCustomPluginResponse
+--         , responseCreateCustomPlugin $
+--             newCreateCustomPluginResponse
+--
+--         , responseCreateWorkerConfiguration $
+--             newCreateWorkerConfigurationResponse
 --
 --         , responseDeleteConnector $
 --             newDeleteConnectorResponse
 --
---         , responseUpdateConnector $
---             newUpdateConnectorResponse
+--         , responseDescribeConnector $
+--             newDescribeConnectorResponse
 --
---         , responseCreateWorkerConfiguration $
---             newCreateWorkerConfigurationResponse
+--         , responseDescribeCustomPlugin $
+--             newDescribeCustomPluginResponse
+--
+--         , responseDescribeWorkerConfiguration $
+--             newDescribeWorkerConfigurationResponse
 --
 --         , responseListConnectors $
 --             newListConnectorsResponse
@@ -84,34 +90,34 @@ import Test.Tasty
 --         , responseListCustomPlugins $
 --             newListCustomPluginsResponse
 --
---         , responseCreateConnector $
---             newCreateConnectorResponse
+--         , responseListWorkerConfigurations $
+--             newListWorkerConfigurationsResponse
 --
---         , responseDescribeWorkerConfiguration $
---             newDescribeWorkerConfigurationResponse
---
---         , responseDescribeConnector $
---             newDescribeConnectorResponse
---
---         , responseCreateCustomPlugin $
---             newCreateCustomPluginResponse
+--         , responseUpdateConnector $
+--             newUpdateConnectorResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestListWorkerConfigurations :: ListWorkerConfigurations -> TestTree
-requestListWorkerConfigurations =
+requestCreateConnector :: CreateConnector -> TestTree
+requestCreateConnector =
   req
-    "ListWorkerConfigurations"
-    "fixture/ListWorkerConfigurations.yaml"
+    "CreateConnector"
+    "fixture/CreateConnector.yaml"
 
-requestDescribeCustomPlugin :: DescribeCustomPlugin -> TestTree
-requestDescribeCustomPlugin =
+requestCreateCustomPlugin :: CreateCustomPlugin -> TestTree
+requestCreateCustomPlugin =
   req
-    "DescribeCustomPlugin"
-    "fixture/DescribeCustomPlugin.yaml"
+    "CreateCustomPlugin"
+    "fixture/CreateCustomPlugin.yaml"
+
+requestCreateWorkerConfiguration :: CreateWorkerConfiguration -> TestTree
+requestCreateWorkerConfiguration =
+  req
+    "CreateWorkerConfiguration"
+    "fixture/CreateWorkerConfiguration.yaml"
 
 requestDeleteConnector :: DeleteConnector -> TestTree
 requestDeleteConnector =
@@ -119,17 +125,23 @@ requestDeleteConnector =
     "DeleteConnector"
     "fixture/DeleteConnector.yaml"
 
-requestUpdateConnector :: UpdateConnector -> TestTree
-requestUpdateConnector =
+requestDescribeConnector :: DescribeConnector -> TestTree
+requestDescribeConnector =
   req
-    "UpdateConnector"
-    "fixture/UpdateConnector.yaml"
+    "DescribeConnector"
+    "fixture/DescribeConnector.yaml"
 
-requestCreateWorkerConfiguration :: CreateWorkerConfiguration -> TestTree
-requestCreateWorkerConfiguration =
+requestDescribeCustomPlugin :: DescribeCustomPlugin -> TestTree
+requestDescribeCustomPlugin =
   req
-    "CreateWorkerConfiguration"
-    "fixture/CreateWorkerConfiguration.yaml"
+    "DescribeCustomPlugin"
+    "fixture/DescribeCustomPlugin.yaml"
+
+requestDescribeWorkerConfiguration :: DescribeWorkerConfiguration -> TestTree
+requestDescribeWorkerConfiguration =
+  req
+    "DescribeWorkerConfiguration"
+    "fixture/DescribeWorkerConfiguration.yaml"
 
 requestListConnectors :: ListConnectors -> TestTree
 requestListConnectors =
@@ -143,47 +155,43 @@ requestListCustomPlugins =
     "ListCustomPlugins"
     "fixture/ListCustomPlugins.yaml"
 
-requestCreateConnector :: CreateConnector -> TestTree
-requestCreateConnector =
+requestListWorkerConfigurations :: ListWorkerConfigurations -> TestTree
+requestListWorkerConfigurations =
   req
-    "CreateConnector"
-    "fixture/CreateConnector.yaml"
+    "ListWorkerConfigurations"
+    "fixture/ListWorkerConfigurations.yaml"
 
-requestDescribeWorkerConfiguration :: DescribeWorkerConfiguration -> TestTree
-requestDescribeWorkerConfiguration =
+requestUpdateConnector :: UpdateConnector -> TestTree
+requestUpdateConnector =
   req
-    "DescribeWorkerConfiguration"
-    "fixture/DescribeWorkerConfiguration.yaml"
-
-requestDescribeConnector :: DescribeConnector -> TestTree
-requestDescribeConnector =
-  req
-    "DescribeConnector"
-    "fixture/DescribeConnector.yaml"
-
-requestCreateCustomPlugin :: CreateCustomPlugin -> TestTree
-requestCreateCustomPlugin =
-  req
-    "CreateCustomPlugin"
-    "fixture/CreateCustomPlugin.yaml"
+    "UpdateConnector"
+    "fixture/UpdateConnector.yaml"
 
 -- Responses
 
-responseListWorkerConfigurations :: ListWorkerConfigurationsResponse -> TestTree
-responseListWorkerConfigurations =
+responseCreateConnector :: CreateConnectorResponse -> TestTree
+responseCreateConnector =
   res
-    "ListWorkerConfigurationsResponse"
-    "fixture/ListWorkerConfigurationsResponse.proto"
+    "CreateConnectorResponse"
+    "fixture/CreateConnectorResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListWorkerConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy CreateConnector)
 
-responseDescribeCustomPlugin :: DescribeCustomPluginResponse -> TestTree
-responseDescribeCustomPlugin =
+responseCreateCustomPlugin :: CreateCustomPluginResponse -> TestTree
+responseCreateCustomPlugin =
   res
-    "DescribeCustomPluginResponse"
-    "fixture/DescribeCustomPluginResponse.proto"
+    "CreateCustomPluginResponse"
+    "fixture/CreateCustomPluginResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeCustomPlugin)
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomPlugin)
+
+responseCreateWorkerConfiguration :: CreateWorkerConfigurationResponse -> TestTree
+responseCreateWorkerConfiguration =
+  res
+    "CreateWorkerConfigurationResponse"
+    "fixture/CreateWorkerConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkerConfiguration)
 
 responseDeleteConnector :: DeleteConnectorResponse -> TestTree
 responseDeleteConnector =
@@ -193,21 +201,29 @@ responseDeleteConnector =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteConnector)
 
-responseUpdateConnector :: UpdateConnectorResponse -> TestTree
-responseUpdateConnector =
+responseDescribeConnector :: DescribeConnectorResponse -> TestTree
+responseDescribeConnector =
   res
-    "UpdateConnectorResponse"
-    "fixture/UpdateConnectorResponse.proto"
+    "DescribeConnectorResponse"
+    "fixture/DescribeConnectorResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateConnector)
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnector)
 
-responseCreateWorkerConfiguration :: CreateWorkerConfigurationResponse -> TestTree
-responseCreateWorkerConfiguration =
+responseDescribeCustomPlugin :: DescribeCustomPluginResponse -> TestTree
+responseDescribeCustomPlugin =
   res
-    "CreateWorkerConfigurationResponse"
-    "fixture/CreateWorkerConfigurationResponse.proto"
+    "DescribeCustomPluginResponse"
+    "fixture/DescribeCustomPluginResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateWorkerConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCustomPlugin)
+
+responseDescribeWorkerConfiguration :: DescribeWorkerConfigurationResponse -> TestTree
+responseDescribeWorkerConfiguration =
+  res
+    "DescribeWorkerConfigurationResponse"
+    "fixture/DescribeWorkerConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkerConfiguration)
 
 responseListConnectors :: ListConnectorsResponse -> TestTree
 responseListConnectors =
@@ -225,34 +241,18 @@ responseListCustomPlugins =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListCustomPlugins)
 
-responseCreateConnector :: CreateConnectorResponse -> TestTree
-responseCreateConnector =
+responseListWorkerConfigurations :: ListWorkerConfigurationsResponse -> TestTree
+responseListWorkerConfigurations =
   res
-    "CreateConnectorResponse"
-    "fixture/CreateConnectorResponse.proto"
+    "ListWorkerConfigurationsResponse"
+    "fixture/ListWorkerConfigurationsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateConnector)
+    (Proxy.Proxy :: Proxy.Proxy ListWorkerConfigurations)
 
-responseDescribeWorkerConfiguration :: DescribeWorkerConfigurationResponse -> TestTree
-responseDescribeWorkerConfiguration =
+responseUpdateConnector :: UpdateConnectorResponse -> TestTree
+responseUpdateConnector =
   res
-    "DescribeWorkerConfigurationResponse"
-    "fixture/DescribeWorkerConfigurationResponse.proto"
+    "UpdateConnectorResponse"
+    "fixture/UpdateConnectorResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeWorkerConfiguration)
-
-responseDescribeConnector :: DescribeConnectorResponse -> TestTree
-responseDescribeConnector =
-  res
-    "DescribeConnectorResponse"
-    "fixture/DescribeConnectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeConnector)
-
-responseCreateCustomPlugin :: CreateCustomPluginResponse -> TestTree
-responseCreateCustomPlugin =
-  res
-    "CreateCustomPluginResponse"
-    "fixture/CreateCustomPluginResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateCustomPlugin)
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnector)

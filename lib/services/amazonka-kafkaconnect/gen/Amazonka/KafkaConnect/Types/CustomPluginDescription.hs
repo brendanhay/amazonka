@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomPluginDescription' smart constructor.
 data CustomPluginDescription = CustomPluginDescription'
-  { -- | The Amazon Resource Name (ARN) of the custom plugin.
-    customPluginArn :: Prelude.Maybe Prelude.Text,
-    -- | The revision of the custom plugin.
-    revision :: Prelude.Maybe Prelude.Integer
+  { -- | The revision of the custom plugin.
+    revision :: Prelude.Maybe Prelude.Integer,
+    -- | The Amazon Resource Name (ARN) of the custom plugin.
+    customPluginArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data CustomPluginDescription = CustomPluginDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customPluginArn', 'customPluginDescription_customPluginArn' - The Amazon Resource Name (ARN) of the custom plugin.
---
 -- 'revision', 'customPluginDescription_revision' - The revision of the custom plugin.
+--
+-- 'customPluginArn', 'customPluginDescription_customPluginArn' - The Amazon Resource Name (ARN) of the custom plugin.
 newCustomPluginDescription ::
   CustomPluginDescription
 newCustomPluginDescription =
   CustomPluginDescription'
-    { customPluginArn =
+    { revision =
         Prelude.Nothing,
-      revision = Prelude.Nothing
+      customPluginArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the custom plugin.
-customPluginDescription_customPluginArn :: Lens.Lens' CustomPluginDescription (Prelude.Maybe Prelude.Text)
-customPluginDescription_customPluginArn = Lens.lens (\CustomPluginDescription' {customPluginArn} -> customPluginArn) (\s@CustomPluginDescription' {} a -> s {customPluginArn = a} :: CustomPluginDescription)
 
 -- | The revision of the custom plugin.
 customPluginDescription_revision :: Lens.Lens' CustomPluginDescription (Prelude.Maybe Prelude.Integer)
 customPluginDescription_revision = Lens.lens (\CustomPluginDescription' {revision} -> revision) (\s@CustomPluginDescription' {} a -> s {revision = a} :: CustomPluginDescription)
+
+-- | The Amazon Resource Name (ARN) of the custom plugin.
+customPluginDescription_customPluginArn :: Lens.Lens' CustomPluginDescription (Prelude.Maybe Prelude.Text)
+customPluginDescription_customPluginArn = Lens.lens (\CustomPluginDescription' {customPluginArn} -> customPluginArn) (\s@CustomPluginDescription' {} a -> s {customPluginArn = a} :: CustomPluginDescription)
 
 instance Core.FromJSON CustomPluginDescription where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON CustomPluginDescription where
       "CustomPluginDescription"
       ( \x ->
           CustomPluginDescription'
-            Prelude.<$> (x Core..:? "customPluginArn")
-            Prelude.<*> (x Core..:? "revision")
+            Prelude.<$> (x Core..:? "revision")
+            Prelude.<*> (x Core..:? "customPluginArn")
       )
 
 instance Prelude.Hashable CustomPluginDescription where
   hashWithSalt _salt CustomPluginDescription' {..} =
-    _salt `Prelude.hashWithSalt` customPluginArn
-      `Prelude.hashWithSalt` revision
+    _salt `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` customPluginArn
 
 instance Prelude.NFData CustomPluginDescription where
   rnf CustomPluginDescription' {..} =
-    Prelude.rnf customPluginArn
-      `Prelude.seq` Prelude.rnf revision
+    Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf customPluginArn

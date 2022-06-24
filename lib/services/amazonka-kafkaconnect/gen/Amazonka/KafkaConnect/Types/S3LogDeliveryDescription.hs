@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3LogDeliveryDescription' smart constructor.
 data S3LogDeliveryDescription = S3LogDeliveryDescription'
-  { -- | Specifies whether connector logs get sent to the specified Amazon S3
+  { -- | The name of the S3 bucket that is the destination for log delivery.
+    bucket :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether connector logs get sent to the specified Amazon S3
     -- destination.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The S3 prefix that is the destination for log delivery.
-    prefix :: Prelude.Maybe Prelude.Text,
-    -- | The name of the S3 bucket that is the destination for log delivery.
-    bucket :: Prelude.Maybe Prelude.Text
+    prefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,21 +45,24 @@ data S3LogDeliveryDescription = S3LogDeliveryDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bucket', 's3LogDeliveryDescription_bucket' - The name of the S3 bucket that is the destination for log delivery.
+--
 -- 'enabled', 's3LogDeliveryDescription_enabled' - Specifies whether connector logs get sent to the specified Amazon S3
 -- destination.
 --
 -- 'prefix', 's3LogDeliveryDescription_prefix' - The S3 prefix that is the destination for log delivery.
---
--- 'bucket', 's3LogDeliveryDescription_bucket' - The name of the S3 bucket that is the destination for log delivery.
 newS3LogDeliveryDescription ::
   S3LogDeliveryDescription
 newS3LogDeliveryDescription =
   S3LogDeliveryDescription'
-    { enabled =
-        Prelude.Nothing,
-      prefix = Prelude.Nothing,
-      bucket = Prelude.Nothing
+    { bucket = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      prefix = Prelude.Nothing
     }
+
+-- | The name of the S3 bucket that is the destination for log delivery.
+s3LogDeliveryDescription_bucket :: Lens.Lens' S3LogDeliveryDescription (Prelude.Maybe Prelude.Text)
+s3LogDeliveryDescription_bucket = Lens.lens (\S3LogDeliveryDescription' {bucket} -> bucket) (\s@S3LogDeliveryDescription' {} a -> s {bucket = a} :: S3LogDeliveryDescription)
 
 -- | Specifies whether connector logs get sent to the specified Amazon S3
 -- destination.
@@ -70,29 +73,25 @@ s3LogDeliveryDescription_enabled = Lens.lens (\S3LogDeliveryDescription' {enable
 s3LogDeliveryDescription_prefix :: Lens.Lens' S3LogDeliveryDescription (Prelude.Maybe Prelude.Text)
 s3LogDeliveryDescription_prefix = Lens.lens (\S3LogDeliveryDescription' {prefix} -> prefix) (\s@S3LogDeliveryDescription' {} a -> s {prefix = a} :: S3LogDeliveryDescription)
 
--- | The name of the S3 bucket that is the destination for log delivery.
-s3LogDeliveryDescription_bucket :: Lens.Lens' S3LogDeliveryDescription (Prelude.Maybe Prelude.Text)
-s3LogDeliveryDescription_bucket = Lens.lens (\S3LogDeliveryDescription' {bucket} -> bucket) (\s@S3LogDeliveryDescription' {} a -> s {bucket = a} :: S3LogDeliveryDescription)
-
 instance Core.FromJSON S3LogDeliveryDescription where
   parseJSON =
     Core.withObject
       "S3LogDeliveryDescription"
       ( \x ->
           S3LogDeliveryDescription'
-            Prelude.<$> (x Core..:? "enabled")
+            Prelude.<$> (x Core..:? "bucket")
+            Prelude.<*> (x Core..:? "enabled")
             Prelude.<*> (x Core..:? "prefix")
-            Prelude.<*> (x Core..:? "bucket")
       )
 
 instance Prelude.Hashable S3LogDeliveryDescription where
   hashWithSalt _salt S3LogDeliveryDescription' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData S3LogDeliveryDescription where
   rnf S3LogDeliveryDescription' {..} =
-    Prelude.rnf enabled
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf bucket

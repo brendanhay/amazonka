@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEdgeMetric' smart constructor.
 data EdgeMetric = EdgeMetric'
-  { -- | The dimension of metrics published.
-    dimension :: Prelude.Maybe Prelude.Text,
+  { -- | Timestamp of when the metric was requested.
+    timestamp :: Prelude.Maybe Core.POSIX,
     -- | Returns the name of the metric.
     metricName :: Prelude.Maybe Prelude.Text,
+    -- | The dimension of metrics published.
+    dimension :: Prelude.Maybe Prelude.Text,
     -- | Returns the value of the metric.
-    value :: Prelude.Maybe Prelude.Double,
-    -- | Timestamp of when the metric was requested.
-    timestamp :: Prelude.Maybe Core.POSIX
+    value :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,60 +46,60 @@ data EdgeMetric = EdgeMetric'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dimension', 'edgeMetric_dimension' - The dimension of metrics published.
+-- 'timestamp', 'edgeMetric_timestamp' - Timestamp of when the metric was requested.
 --
 -- 'metricName', 'edgeMetric_metricName' - Returns the name of the metric.
 --
--- 'value', 'edgeMetric_value' - Returns the value of the metric.
+-- 'dimension', 'edgeMetric_dimension' - The dimension of metrics published.
 --
--- 'timestamp', 'edgeMetric_timestamp' - Timestamp of when the metric was requested.
+-- 'value', 'edgeMetric_value' - Returns the value of the metric.
 newEdgeMetric ::
   EdgeMetric
 newEdgeMetric =
   EdgeMetric'
-    { dimension = Prelude.Nothing,
+    { timestamp = Prelude.Nothing,
       metricName = Prelude.Nothing,
-      value = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+      dimension = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The dimension of metrics published.
-edgeMetric_dimension :: Lens.Lens' EdgeMetric (Prelude.Maybe Prelude.Text)
-edgeMetric_dimension = Lens.lens (\EdgeMetric' {dimension} -> dimension) (\s@EdgeMetric' {} a -> s {dimension = a} :: EdgeMetric)
-
--- | Returns the name of the metric.
-edgeMetric_metricName :: Lens.Lens' EdgeMetric (Prelude.Maybe Prelude.Text)
-edgeMetric_metricName = Lens.lens (\EdgeMetric' {metricName} -> metricName) (\s@EdgeMetric' {} a -> s {metricName = a} :: EdgeMetric)
-
--- | Returns the value of the metric.
-edgeMetric_value :: Lens.Lens' EdgeMetric (Prelude.Maybe Prelude.Double)
-edgeMetric_value = Lens.lens (\EdgeMetric' {value} -> value) (\s@EdgeMetric' {} a -> s {value = a} :: EdgeMetric)
 
 -- | Timestamp of when the metric was requested.
 edgeMetric_timestamp :: Lens.Lens' EdgeMetric (Prelude.Maybe Prelude.UTCTime)
 edgeMetric_timestamp = Lens.lens (\EdgeMetric' {timestamp} -> timestamp) (\s@EdgeMetric' {} a -> s {timestamp = a} :: EdgeMetric) Prelude.. Lens.mapping Core._Time
 
+-- | Returns the name of the metric.
+edgeMetric_metricName :: Lens.Lens' EdgeMetric (Prelude.Maybe Prelude.Text)
+edgeMetric_metricName = Lens.lens (\EdgeMetric' {metricName} -> metricName) (\s@EdgeMetric' {} a -> s {metricName = a} :: EdgeMetric)
+
+-- | The dimension of metrics published.
+edgeMetric_dimension :: Lens.Lens' EdgeMetric (Prelude.Maybe Prelude.Text)
+edgeMetric_dimension = Lens.lens (\EdgeMetric' {dimension} -> dimension) (\s@EdgeMetric' {} a -> s {dimension = a} :: EdgeMetric)
+
+-- | Returns the value of the metric.
+edgeMetric_value :: Lens.Lens' EdgeMetric (Prelude.Maybe Prelude.Double)
+edgeMetric_value = Lens.lens (\EdgeMetric' {value} -> value) (\s@EdgeMetric' {} a -> s {value = a} :: EdgeMetric)
+
 instance Prelude.Hashable EdgeMetric where
   hashWithSalt _salt EdgeMetric' {..} =
-    _salt `Prelude.hashWithSalt` dimension
+    _salt `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` dimension
       `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData EdgeMetric where
   rnf EdgeMetric' {..} =
-    Prelude.rnf dimension
+    Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf dimension
       `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf timestamp
 
 instance Core.ToJSON EdgeMetric where
   toJSON EdgeMetric' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Dimension" Core..=) Prelude.<$> dimension,
+          [ ("Timestamp" Core..=) Prelude.<$> timestamp,
             ("MetricName" Core..=) Prelude.<$> metricName,
-            ("Value" Core..=) Prelude.<$> value,
-            ("Timestamp" Core..=) Prelude.<$> timestamp
+            ("Dimension" Core..=) Prelude.<$> dimension,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

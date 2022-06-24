@@ -27,31 +27,25 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestSendHeartbeat $
---             newSendHeartbeat
---
---         , requestGetDeviceRegistration $
+--         [ requestGetDeviceRegistration $
 --             newGetDeviceRegistration
+--
+--         , requestSendHeartbeat $
+--             newSendHeartbeat
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseSendHeartbeat $
---             newSendHeartbeatResponse
---
---         , responseGetDeviceRegistration $
+--         [ responseGetDeviceRegistration $
 --             newGetDeviceRegistrationResponse
+--
+--         , responseSendHeartbeat $
+--             newSendHeartbeatResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestSendHeartbeat :: SendHeartbeat -> TestTree
-requestSendHeartbeat =
-  req
-    "SendHeartbeat"
-    "fixture/SendHeartbeat.yaml"
 
 requestGetDeviceRegistration :: GetDeviceRegistration -> TestTree
 requestGetDeviceRegistration =
@@ -59,15 +53,13 @@ requestGetDeviceRegistration =
     "GetDeviceRegistration"
     "fixture/GetDeviceRegistration.yaml"
 
--- Responses
+requestSendHeartbeat :: SendHeartbeat -> TestTree
+requestSendHeartbeat =
+  req
+    "SendHeartbeat"
+    "fixture/SendHeartbeat.yaml"
 
-responseSendHeartbeat :: SendHeartbeatResponse -> TestTree
-responseSendHeartbeat =
-  res
-    "SendHeartbeatResponse"
-    "fixture/SendHeartbeatResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SendHeartbeat)
+-- Responses
 
 responseGetDeviceRegistration :: GetDeviceRegistrationResponse -> TestTree
 responseGetDeviceRegistration =
@@ -76,3 +68,11 @@ responseGetDeviceRegistration =
     "fixture/GetDeviceRegistrationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDeviceRegistration)
+
+responseSendHeartbeat :: SendHeartbeatResponse -> TestTree
+responseSendHeartbeat =
+  res
+    "SendHeartbeatResponse"
+    "fixture/SendHeartbeatResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SendHeartbeat)

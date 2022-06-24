@@ -28,8 +28,8 @@ module Amazonka.SageMakerEdge.SendHeartbeat
     newSendHeartbeat,
 
     -- * Request Lenses
-    sendHeartbeat_agentMetrics,
     sendHeartbeat_models,
+    sendHeartbeat_agentMetrics,
     sendHeartbeat_agentVersion,
     sendHeartbeat_deviceName,
     sendHeartbeat_deviceFleetName,
@@ -49,11 +49,11 @@ import Amazonka.SageMakerEdge.Types
 
 -- | /See:/ 'newSendHeartbeat' smart constructor.
 data SendHeartbeat = SendHeartbeat'
-  { -- | For internal use. Returns a list of SageMaker Edge Manager agent
+  { -- | Returns a list of models deployed on the the device.
+    models :: Prelude.Maybe [Model],
+    -- | For internal use. Returns a list of SageMaker Edge Manager agent
     -- operating metrics.
     agentMetrics :: Prelude.Maybe [EdgeMetric],
-    -- | Returns a list of models deployed on the the device.
-    models :: Prelude.Maybe [Model],
     -- | Returns the version of the agent.
     agentVersion :: Prelude.Text,
     -- | The unique name of the device.
@@ -71,10 +71,10 @@ data SendHeartbeat = SendHeartbeat'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'models', 'sendHeartbeat_models' - Returns a list of models deployed on the the device.
+--
 -- 'agentMetrics', 'sendHeartbeat_agentMetrics' - For internal use. Returns a list of SageMaker Edge Manager agent
 -- operating metrics.
---
--- 'models', 'sendHeartbeat_models' - Returns a list of models deployed on the the device.
 --
 -- 'agentVersion', 'sendHeartbeat_agentVersion' - Returns the version of the agent.
 --
@@ -94,21 +94,21 @@ newSendHeartbeat
   pDeviceName_
   pDeviceFleetName_ =
     SendHeartbeat'
-      { agentMetrics = Prelude.Nothing,
-        models = Prelude.Nothing,
+      { models = Prelude.Nothing,
+        agentMetrics = Prelude.Nothing,
         agentVersion = pAgentVersion_,
         deviceName = pDeviceName_,
         deviceFleetName = pDeviceFleetName_
       }
 
+-- | Returns a list of models deployed on the the device.
+sendHeartbeat_models :: Lens.Lens' SendHeartbeat (Prelude.Maybe [Model])
+sendHeartbeat_models = Lens.lens (\SendHeartbeat' {models} -> models) (\s@SendHeartbeat' {} a -> s {models = a} :: SendHeartbeat) Prelude.. Lens.mapping Lens.coerced
+
 -- | For internal use. Returns a list of SageMaker Edge Manager agent
 -- operating metrics.
 sendHeartbeat_agentMetrics :: Lens.Lens' SendHeartbeat (Prelude.Maybe [EdgeMetric])
 sendHeartbeat_agentMetrics = Lens.lens (\SendHeartbeat' {agentMetrics} -> agentMetrics) (\s@SendHeartbeat' {} a -> s {agentMetrics = a} :: SendHeartbeat) Prelude.. Lens.mapping Lens.coerced
-
--- | Returns a list of models deployed on the the device.
-sendHeartbeat_models :: Lens.Lens' SendHeartbeat (Prelude.Maybe [Model])
-sendHeartbeat_models = Lens.lens (\SendHeartbeat' {models} -> models) (\s@SendHeartbeat' {} a -> s {models = a} :: SendHeartbeat) Prelude.. Lens.mapping Lens.coerced
 
 -- | Returns the version of the agent.
 sendHeartbeat_agentVersion :: Lens.Lens' SendHeartbeat Prelude.Text
@@ -132,16 +132,16 @@ instance Core.AWSRequest SendHeartbeat where
 
 instance Prelude.Hashable SendHeartbeat where
   hashWithSalt _salt SendHeartbeat' {..} =
-    _salt `Prelude.hashWithSalt` agentMetrics
-      `Prelude.hashWithSalt` models
+    _salt `Prelude.hashWithSalt` models
+      `Prelude.hashWithSalt` agentMetrics
       `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` deviceFleetName
 
 instance Prelude.NFData SendHeartbeat where
   rnf SendHeartbeat' {..} =
-    Prelude.rnf agentMetrics
-      `Prelude.seq` Prelude.rnf models
+    Prelude.rnf models
+      `Prelude.seq` Prelude.rnf agentMetrics
       `Prelude.seq` Prelude.rnf agentVersion
       `Prelude.seq` Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf deviceFleetName
@@ -161,8 +161,8 @@ instance Core.ToJSON SendHeartbeat where
   toJSON SendHeartbeat' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AgentMetrics" Core..=) Prelude.<$> agentMetrics,
-            ("Models" Core..=) Prelude.<$> models,
+          [ ("Models" Core..=) Prelude.<$> models,
+            ("AgentMetrics" Core..=) Prelude.<$> agentMetrics,
             Prelude.Just ("AgentVersion" Core..= agentVersion),
             Prelude.Just ("DeviceName" Core..= deviceName),
             Prelude.Just

@@ -35,8 +35,8 @@ module Amazonka.SageMakerEdge.GetDeviceRegistration
     newGetDeviceRegistrationResponse,
 
     -- * Response Lenses
-    getDeviceRegistrationResponse_cacheTTL,
     getDeviceRegistrationResponse_deviceRegistration,
+    getDeviceRegistrationResponse_cacheTTL,
     getDeviceRegistrationResponse_httpStatus,
   )
 where
@@ -102,8 +102,8 @@ instance Core.AWSRequest GetDeviceRegistration where
     Response.receiveJSON
       ( \s h x ->
           GetDeviceRegistrationResponse'
-            Prelude.<$> (x Core..?> "CacheTTL")
-            Prelude.<*> (x Core..?> "DeviceRegistration")
+            Prelude.<$> (x Core..?> "DeviceRegistration")
+            Prelude.<*> (x Core..?> "CacheTTL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,12 +146,12 @@ instance Core.ToQuery GetDeviceRegistration where
 
 -- | /See:/ 'newGetDeviceRegistrationResponse' smart constructor.
 data GetDeviceRegistrationResponse = GetDeviceRegistrationResponse'
-  { -- | The amount of time, in seconds, that the registration status is stored
-    -- on the device’s cache before it is refreshed.
-    cacheTTL :: Prelude.Maybe Prelude.Text,
-    -- | Describes if the device is currently registered with SageMaker Edge
+  { -- | Describes if the device is currently registered with SageMaker Edge
     -- Manager.
     deviceRegistration :: Prelude.Maybe Prelude.Text,
+    -- | The amount of time, in seconds, that the registration status is stored
+    -- on the device’s cache before it is refreshed.
+    cacheTTL :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,11 +165,11 @@ data GetDeviceRegistrationResponse = GetDeviceRegistrationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cacheTTL', 'getDeviceRegistrationResponse_cacheTTL' - The amount of time, in seconds, that the registration status is stored
--- on the device’s cache before it is refreshed.
---
 -- 'deviceRegistration', 'getDeviceRegistrationResponse_deviceRegistration' - Describes if the device is currently registered with SageMaker Edge
 -- Manager.
+--
+-- 'cacheTTL', 'getDeviceRegistrationResponse_cacheTTL' - The amount of time, in seconds, that the registration status is stored
+-- on the device’s cache before it is refreshed.
 --
 -- 'httpStatus', 'getDeviceRegistrationResponse_httpStatus' - The response's http status code.
 newGetDeviceRegistrationResponse ::
@@ -178,21 +178,21 @@ newGetDeviceRegistrationResponse ::
   GetDeviceRegistrationResponse
 newGetDeviceRegistrationResponse pHttpStatus_ =
   GetDeviceRegistrationResponse'
-    { cacheTTL =
+    { deviceRegistration =
         Prelude.Nothing,
-      deviceRegistration = Prelude.Nothing,
+      cacheTTL = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The amount of time, in seconds, that the registration status is stored
--- on the device’s cache before it is refreshed.
-getDeviceRegistrationResponse_cacheTTL :: Lens.Lens' GetDeviceRegistrationResponse (Prelude.Maybe Prelude.Text)
-getDeviceRegistrationResponse_cacheTTL = Lens.lens (\GetDeviceRegistrationResponse' {cacheTTL} -> cacheTTL) (\s@GetDeviceRegistrationResponse' {} a -> s {cacheTTL = a} :: GetDeviceRegistrationResponse)
 
 -- | Describes if the device is currently registered with SageMaker Edge
 -- Manager.
 getDeviceRegistrationResponse_deviceRegistration :: Lens.Lens' GetDeviceRegistrationResponse (Prelude.Maybe Prelude.Text)
 getDeviceRegistrationResponse_deviceRegistration = Lens.lens (\GetDeviceRegistrationResponse' {deviceRegistration} -> deviceRegistration) (\s@GetDeviceRegistrationResponse' {} a -> s {deviceRegistration = a} :: GetDeviceRegistrationResponse)
+
+-- | The amount of time, in seconds, that the registration status is stored
+-- on the device’s cache before it is refreshed.
+getDeviceRegistrationResponse_cacheTTL :: Lens.Lens' GetDeviceRegistrationResponse (Prelude.Maybe Prelude.Text)
+getDeviceRegistrationResponse_cacheTTL = Lens.lens (\GetDeviceRegistrationResponse' {cacheTTL} -> cacheTTL) (\s@GetDeviceRegistrationResponse' {} a -> s {cacheTTL = a} :: GetDeviceRegistrationResponse)
 
 -- | The response's http status code.
 getDeviceRegistrationResponse_httpStatus :: Lens.Lens' GetDeviceRegistrationResponse Prelude.Int
@@ -200,6 +200,6 @@ getDeviceRegistrationResponse_httpStatus = Lens.lens (\GetDeviceRegistrationResp
 
 instance Prelude.NFData GetDeviceRegistrationResponse where
   rnf GetDeviceRegistrationResponse' {..} =
-    Prelude.rnf cacheTTL
-      `Prelude.seq` Prelude.rnf deviceRegistration
+    Prelude.rnf deviceRegistration
+      `Prelude.seq` Prelude.rnf cacheTTL
       `Prelude.seq` Prelude.rnf httpStatus

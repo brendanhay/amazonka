@@ -34,23 +34,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReactiveAnomalySummary' smart constructor.
 data ReactiveAnomalySummary = ReactiveAnomalySummary'
-  { -- | A @AnomalyReportedTimeRange@ object that specifies the time range
-    -- between when the anomaly is opened and the time when it is closed.
-    anomalyReportedTimeRange :: Prelude.Maybe AnomalyReportedTimeRange,
-    -- | The status of the reactive anomaly.
-    status :: Prelude.Maybe AnomalyStatus,
-    resourceCollection :: Prelude.Maybe ResourceCollection,
+  { anomalyTimeRange :: Prelude.Maybe AnomalyTimeRange,
     -- | The severity of the reactive anomaly.
     severity :: Prelude.Maybe AnomalySeverity,
-    -- | Details about the source of the analyzed operational data that triggered
-    -- the anomaly. The one supported source is Amazon CloudWatch metrics.
-    sourceDetails :: Prelude.Maybe AnomalySourceDetails,
-    -- | The ID of the reactive anomaly.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | A @AnomalyReportedTimeRange@ object that specifies the time range
+    -- between when the anomaly is opened and the time when it is closed.
+    anomalyReportedTimeRange :: Prelude.Maybe AnomalyReportedTimeRange,
     -- | The ID of the insight that contains this anomaly. An insight is composed
     -- of related anomalies.
     associatedInsightId :: Prelude.Maybe Prelude.Text,
-    anomalyTimeRange :: Prelude.Maybe AnomalyTimeRange
+    resourceCollection :: Prelude.Maybe ResourceCollection,
+    -- | Details about the source of the analyzed operational data that triggered
+    -- the anomaly. The one supported source is Amazon CloudWatch metrics.
+    sourceDetails :: Prelude.Maybe AnomalySourceDetails,
+    -- | The status of the reactive anomaly.
+    status :: Prelude.Maybe AnomalyStatus,
+    -- | The ID of the reactive anomaly.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,64 +62,51 @@ data ReactiveAnomalySummary = ReactiveAnomalySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'anomalyReportedTimeRange', 'reactiveAnomalySummary_anomalyReportedTimeRange' - A @AnomalyReportedTimeRange@ object that specifies the time range
--- between when the anomaly is opened and the time when it is closed.
---
--- 'status', 'reactiveAnomalySummary_status' - The status of the reactive anomaly.
---
--- 'resourceCollection', 'reactiveAnomalySummary_resourceCollection' - Undocumented member.
+-- 'anomalyTimeRange', 'reactiveAnomalySummary_anomalyTimeRange' - Undocumented member.
 --
 -- 'severity', 'reactiveAnomalySummary_severity' - The severity of the reactive anomaly.
 --
--- 'sourceDetails', 'reactiveAnomalySummary_sourceDetails' - Details about the source of the analyzed operational data that triggered
--- the anomaly. The one supported source is Amazon CloudWatch metrics.
---
--- 'id', 'reactiveAnomalySummary_id' - The ID of the reactive anomaly.
+-- 'anomalyReportedTimeRange', 'reactiveAnomalySummary_anomalyReportedTimeRange' - A @AnomalyReportedTimeRange@ object that specifies the time range
+-- between when the anomaly is opened and the time when it is closed.
 --
 -- 'associatedInsightId', 'reactiveAnomalySummary_associatedInsightId' - The ID of the insight that contains this anomaly. An insight is composed
 -- of related anomalies.
 --
--- 'anomalyTimeRange', 'reactiveAnomalySummary_anomalyTimeRange' - Undocumented member.
+-- 'resourceCollection', 'reactiveAnomalySummary_resourceCollection' - Undocumented member.
+--
+-- 'sourceDetails', 'reactiveAnomalySummary_sourceDetails' - Details about the source of the analyzed operational data that triggered
+-- the anomaly. The one supported source is Amazon CloudWatch metrics.
+--
+-- 'status', 'reactiveAnomalySummary_status' - The status of the reactive anomaly.
+--
+-- 'id', 'reactiveAnomalySummary_id' - The ID of the reactive anomaly.
 newReactiveAnomalySummary ::
   ReactiveAnomalySummary
 newReactiveAnomalySummary =
   ReactiveAnomalySummary'
-    { anomalyReportedTimeRange =
+    { anomalyTimeRange =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      resourceCollection = Prelude.Nothing,
       severity = Prelude.Nothing,
-      sourceDetails = Prelude.Nothing,
-      id = Prelude.Nothing,
+      anomalyReportedTimeRange = Prelude.Nothing,
       associatedInsightId = Prelude.Nothing,
-      anomalyTimeRange = Prelude.Nothing
+      resourceCollection = Prelude.Nothing,
+      sourceDetails = Prelude.Nothing,
+      status = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
--- | A @AnomalyReportedTimeRange@ object that specifies the time range
--- between when the anomaly is opened and the time when it is closed.
-reactiveAnomalySummary_anomalyReportedTimeRange :: Lens.Lens' ReactiveAnomalySummary (Prelude.Maybe AnomalyReportedTimeRange)
-reactiveAnomalySummary_anomalyReportedTimeRange = Lens.lens (\ReactiveAnomalySummary' {anomalyReportedTimeRange} -> anomalyReportedTimeRange) (\s@ReactiveAnomalySummary' {} a -> s {anomalyReportedTimeRange = a} :: ReactiveAnomalySummary)
-
--- | The status of the reactive anomaly.
-reactiveAnomalySummary_status :: Lens.Lens' ReactiveAnomalySummary (Prelude.Maybe AnomalyStatus)
-reactiveAnomalySummary_status = Lens.lens (\ReactiveAnomalySummary' {status} -> status) (\s@ReactiveAnomalySummary' {} a -> s {status = a} :: ReactiveAnomalySummary)
-
 -- | Undocumented member.
-reactiveAnomalySummary_resourceCollection :: Lens.Lens' ReactiveAnomalySummary (Prelude.Maybe ResourceCollection)
-reactiveAnomalySummary_resourceCollection = Lens.lens (\ReactiveAnomalySummary' {resourceCollection} -> resourceCollection) (\s@ReactiveAnomalySummary' {} a -> s {resourceCollection = a} :: ReactiveAnomalySummary)
+reactiveAnomalySummary_anomalyTimeRange :: Lens.Lens' ReactiveAnomalySummary (Prelude.Maybe AnomalyTimeRange)
+reactiveAnomalySummary_anomalyTimeRange = Lens.lens (\ReactiveAnomalySummary' {anomalyTimeRange} -> anomalyTimeRange) (\s@ReactiveAnomalySummary' {} a -> s {anomalyTimeRange = a} :: ReactiveAnomalySummary)
 
 -- | The severity of the reactive anomaly.
 reactiveAnomalySummary_severity :: Lens.Lens' ReactiveAnomalySummary (Prelude.Maybe AnomalySeverity)
 reactiveAnomalySummary_severity = Lens.lens (\ReactiveAnomalySummary' {severity} -> severity) (\s@ReactiveAnomalySummary' {} a -> s {severity = a} :: ReactiveAnomalySummary)
 
--- | Details about the source of the analyzed operational data that triggered
--- the anomaly. The one supported source is Amazon CloudWatch metrics.
-reactiveAnomalySummary_sourceDetails :: Lens.Lens' ReactiveAnomalySummary (Prelude.Maybe AnomalySourceDetails)
-reactiveAnomalySummary_sourceDetails = Lens.lens (\ReactiveAnomalySummary' {sourceDetails} -> sourceDetails) (\s@ReactiveAnomalySummary' {} a -> s {sourceDetails = a} :: ReactiveAnomalySummary)
-
--- | The ID of the reactive anomaly.
-reactiveAnomalySummary_id :: Lens.Lens' ReactiveAnomalySummary (Prelude.Maybe Prelude.Text)
-reactiveAnomalySummary_id = Lens.lens (\ReactiveAnomalySummary' {id} -> id) (\s@ReactiveAnomalySummary' {} a -> s {id = a} :: ReactiveAnomalySummary)
+-- | A @AnomalyReportedTimeRange@ object that specifies the time range
+-- between when the anomaly is opened and the time when it is closed.
+reactiveAnomalySummary_anomalyReportedTimeRange :: Lens.Lens' ReactiveAnomalySummary (Prelude.Maybe AnomalyReportedTimeRange)
+reactiveAnomalySummary_anomalyReportedTimeRange = Lens.lens (\ReactiveAnomalySummary' {anomalyReportedTimeRange} -> anomalyReportedTimeRange) (\s@ReactiveAnomalySummary' {} a -> s {anomalyReportedTimeRange = a} :: ReactiveAnomalySummary)
 
 -- | The ID of the insight that contains this anomaly. An insight is composed
 -- of related anomalies.
@@ -127,8 +114,21 @@ reactiveAnomalySummary_associatedInsightId :: Lens.Lens' ReactiveAnomalySummary 
 reactiveAnomalySummary_associatedInsightId = Lens.lens (\ReactiveAnomalySummary' {associatedInsightId} -> associatedInsightId) (\s@ReactiveAnomalySummary' {} a -> s {associatedInsightId = a} :: ReactiveAnomalySummary)
 
 -- | Undocumented member.
-reactiveAnomalySummary_anomalyTimeRange :: Lens.Lens' ReactiveAnomalySummary (Prelude.Maybe AnomalyTimeRange)
-reactiveAnomalySummary_anomalyTimeRange = Lens.lens (\ReactiveAnomalySummary' {anomalyTimeRange} -> anomalyTimeRange) (\s@ReactiveAnomalySummary' {} a -> s {anomalyTimeRange = a} :: ReactiveAnomalySummary)
+reactiveAnomalySummary_resourceCollection :: Lens.Lens' ReactiveAnomalySummary (Prelude.Maybe ResourceCollection)
+reactiveAnomalySummary_resourceCollection = Lens.lens (\ReactiveAnomalySummary' {resourceCollection} -> resourceCollection) (\s@ReactiveAnomalySummary' {} a -> s {resourceCollection = a} :: ReactiveAnomalySummary)
+
+-- | Details about the source of the analyzed operational data that triggered
+-- the anomaly. The one supported source is Amazon CloudWatch metrics.
+reactiveAnomalySummary_sourceDetails :: Lens.Lens' ReactiveAnomalySummary (Prelude.Maybe AnomalySourceDetails)
+reactiveAnomalySummary_sourceDetails = Lens.lens (\ReactiveAnomalySummary' {sourceDetails} -> sourceDetails) (\s@ReactiveAnomalySummary' {} a -> s {sourceDetails = a} :: ReactiveAnomalySummary)
+
+-- | The status of the reactive anomaly.
+reactiveAnomalySummary_status :: Lens.Lens' ReactiveAnomalySummary (Prelude.Maybe AnomalyStatus)
+reactiveAnomalySummary_status = Lens.lens (\ReactiveAnomalySummary' {status} -> status) (\s@ReactiveAnomalySummary' {} a -> s {status = a} :: ReactiveAnomalySummary)
+
+-- | The ID of the reactive anomaly.
+reactiveAnomalySummary_id :: Lens.Lens' ReactiveAnomalySummary (Prelude.Maybe Prelude.Text)
+reactiveAnomalySummary_id = Lens.lens (\ReactiveAnomalySummary' {id} -> id) (\s@ReactiveAnomalySummary' {} a -> s {id = a} :: ReactiveAnomalySummary)
 
 instance Core.FromJSON ReactiveAnomalySummary where
   parseJSON =
@@ -136,35 +136,34 @@ instance Core.FromJSON ReactiveAnomalySummary where
       "ReactiveAnomalySummary"
       ( \x ->
           ReactiveAnomalySummary'
-            Prelude.<$> (x Core..:? "AnomalyReportedTimeRange")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ResourceCollection")
+            Prelude.<$> (x Core..:? "AnomalyTimeRange")
             Prelude.<*> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "SourceDetails")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "AnomalyReportedTimeRange")
             Prelude.<*> (x Core..:? "AssociatedInsightId")
-            Prelude.<*> (x Core..:? "AnomalyTimeRange")
+            Prelude.<*> (x Core..:? "ResourceCollection")
+            Prelude.<*> (x Core..:? "SourceDetails")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable ReactiveAnomalySummary where
   hashWithSalt _salt ReactiveAnomalySummary' {..} =
-    _salt
-      `Prelude.hashWithSalt` anomalyReportedTimeRange
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` resourceCollection
+    _salt `Prelude.hashWithSalt` anomalyTimeRange
       `Prelude.hashWithSalt` severity
-      `Prelude.hashWithSalt` sourceDetails
-      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` anomalyReportedTimeRange
       `Prelude.hashWithSalt` associatedInsightId
-      `Prelude.hashWithSalt` anomalyTimeRange
+      `Prelude.hashWithSalt` resourceCollection
+      `Prelude.hashWithSalt` sourceDetails
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ReactiveAnomalySummary where
   rnf ReactiveAnomalySummary' {..} =
-    Prelude.rnf anomalyReportedTimeRange
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf resourceCollection
+    Prelude.rnf anomalyTimeRange
       `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf sourceDetails
-      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf anomalyReportedTimeRange
       `Prelude.seq` Prelude.rnf associatedInsightId
-      `Prelude.seq` Prelude.rnf anomalyTimeRange
+      `Prelude.seq` Prelude.rnf resourceCollection
+      `Prelude.seq` Prelude.rnf sourceDetails
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf id

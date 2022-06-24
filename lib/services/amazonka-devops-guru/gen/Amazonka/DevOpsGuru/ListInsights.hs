@@ -40,8 +40,8 @@ module Amazonka.DevOpsGuru.ListInsights
     newListInsightsResponse,
 
     -- * Response Lenses
-    listInsightsResponse_reactiveInsights,
     listInsightsResponse_nextToken,
+    listInsightsResponse_reactiveInsights,
     listInsightsResponse_proactiveInsights,
     listInsightsResponse_httpStatus,
   )
@@ -146,10 +146,10 @@ instance Core.AWSRequest ListInsights where
     Response.receiveJSON
       ( \s h x ->
           ListInsightsResponse'
-            Prelude.<$> ( x Core..?> "ReactiveInsights"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ReactiveInsights"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> ( x Core..?> "ProactiveInsights"
                             Core..!@ Prelude.mempty
                         )
@@ -197,11 +197,11 @@ instance Core.ToQuery ListInsights where
 
 -- | /See:/ 'newListInsightsResponse' smart constructor.
 data ListInsightsResponse = ListInsightsResponse'
-  { -- | The returned list of reactive insights.
-    reactiveInsights :: Prelude.Maybe [ReactiveInsightSummary],
-    -- | The pagination token to use to retrieve the next page of results for
+  { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The returned list of reactive insights.
+    reactiveInsights :: Prelude.Maybe [ReactiveInsightSummary],
     -- | The returned list of proactive insights.
     proactiveInsights :: Prelude.Maybe [ProactiveInsightSummary],
     -- | The response's http status code.
@@ -217,10 +217,10 @@ data ListInsightsResponse = ListInsightsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reactiveInsights', 'listInsightsResponse_reactiveInsights' - The returned list of reactive insights.
---
 -- 'nextToken', 'listInsightsResponse_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
+--
+-- 'reactiveInsights', 'listInsightsResponse_reactiveInsights' - The returned list of reactive insights.
 --
 -- 'proactiveInsights', 'listInsightsResponse_proactiveInsights' - The returned list of proactive insights.
 --
@@ -231,21 +231,20 @@ newListInsightsResponse ::
   ListInsightsResponse
 newListInsightsResponse pHttpStatus_ =
   ListInsightsResponse'
-    { reactiveInsights =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      reactiveInsights = Prelude.Nothing,
       proactiveInsights = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The returned list of reactive insights.
-listInsightsResponse_reactiveInsights :: Lens.Lens' ListInsightsResponse (Prelude.Maybe [ReactiveInsightSummary])
-listInsightsResponse_reactiveInsights = Lens.lens (\ListInsightsResponse' {reactiveInsights} -> reactiveInsights) (\s@ListInsightsResponse' {} a -> s {reactiveInsights = a} :: ListInsightsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
 listInsightsResponse_nextToken :: Lens.Lens' ListInsightsResponse (Prelude.Maybe Prelude.Text)
 listInsightsResponse_nextToken = Lens.lens (\ListInsightsResponse' {nextToken} -> nextToken) (\s@ListInsightsResponse' {} a -> s {nextToken = a} :: ListInsightsResponse)
+
+-- | The returned list of reactive insights.
+listInsightsResponse_reactiveInsights :: Lens.Lens' ListInsightsResponse (Prelude.Maybe [ReactiveInsightSummary])
+listInsightsResponse_reactiveInsights = Lens.lens (\ListInsightsResponse' {reactiveInsights} -> reactiveInsights) (\s@ListInsightsResponse' {} a -> s {reactiveInsights = a} :: ListInsightsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The returned list of proactive insights.
 listInsightsResponse_proactiveInsights :: Lens.Lens' ListInsightsResponse (Prelude.Maybe [ProactiveInsightSummary])
@@ -257,7 +256,7 @@ listInsightsResponse_httpStatus = Lens.lens (\ListInsightsResponse' {httpStatus}
 
 instance Prelude.NFData ListInsightsResponse where
   rnf ListInsightsResponse' {..} =
-    Prelude.rnf reactiveInsights
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf reactiveInsights
       `Prelude.seq` Prelude.rnf proactiveInsights
       `Prelude.seq` Prelude.rnf httpStatus

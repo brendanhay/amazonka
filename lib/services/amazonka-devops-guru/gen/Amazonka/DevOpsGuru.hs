@@ -37,32 +37,50 @@ module Amazonka.DevOpsGuru
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** AddNotificationChannel
+    AddNotificationChannel (AddNotificationChannel'),
+    newAddNotificationChannel,
+    AddNotificationChannelResponse (AddNotificationChannelResponse'),
+    newAddNotificationChannelResponse,
+
+    -- ** DescribeAccountHealth
+    DescribeAccountHealth (DescribeAccountHealth'),
+    newDescribeAccountHealth,
+    DescribeAccountHealthResponse (DescribeAccountHealthResponse'),
+    newDescribeAccountHealthResponse,
+
+    -- ** DescribeAccountOverview
+    DescribeAccountOverview (DescribeAccountOverview'),
+    newDescribeAccountOverview,
+    DescribeAccountOverviewResponse (DescribeAccountOverviewResponse'),
+    newDescribeAccountOverviewResponse,
 
     -- ** DescribeAnomaly
     DescribeAnomaly (DescribeAnomaly'),
@@ -76,29 +94,11 @@ module Amazonka.DevOpsGuru
     DescribeFeedbackResponse (DescribeFeedbackResponse'),
     newDescribeFeedbackResponse,
 
-    -- ** ListInsights (Paginated)
-    ListInsights (ListInsights'),
-    newListInsights,
-    ListInsightsResponse (ListInsightsResponse'),
-    newListInsightsResponse,
-
-    -- ** AddNotificationChannel
-    AddNotificationChannel (AddNotificationChannel'),
-    newAddNotificationChannel,
-    AddNotificationChannelResponse (AddNotificationChannelResponse'),
-    newAddNotificationChannelResponse,
-
-    -- ** ListNotificationChannels (Paginated)
-    ListNotificationChannels (ListNotificationChannels'),
-    newListNotificationChannels,
-    ListNotificationChannelsResponse (ListNotificationChannelsResponse'),
-    newListNotificationChannelsResponse,
-
-    -- ** DescribeAccountOverview
-    DescribeAccountOverview (DescribeAccountOverview'),
-    newDescribeAccountOverview,
-    DescribeAccountOverviewResponse (DescribeAccountOverviewResponse'),
-    newDescribeAccountOverviewResponse,
+    -- ** DescribeInsight
+    DescribeInsight (DescribeInsight'),
+    newDescribeInsight,
+    DescribeInsightResponse (DescribeInsightResponse'),
+    newDescribeInsightResponse,
 
     -- ** DescribeResourceCollectionHealth (Paginated)
     DescribeResourceCollectionHealth (DescribeResourceCollectionHealth'),
@@ -106,41 +106,17 @@ module Amazonka.DevOpsGuru
     DescribeResourceCollectionHealthResponse (DescribeResourceCollectionHealthResponse'),
     newDescribeResourceCollectionHealthResponse,
 
-    -- ** RemoveNotificationChannel
-    RemoveNotificationChannel (RemoveNotificationChannel'),
-    newRemoveNotificationChannel,
-    RemoveNotificationChannelResponse (RemoveNotificationChannelResponse'),
-    newRemoveNotificationChannelResponse,
-
-    -- ** ListAnomaliesForInsight (Paginated)
-    ListAnomaliesForInsight (ListAnomaliesForInsight'),
-    newListAnomaliesForInsight,
-    ListAnomaliesForInsightResponse (ListAnomaliesForInsightResponse'),
-    newListAnomaliesForInsightResponse,
-
-    -- ** PutFeedback
-    PutFeedback (PutFeedback'),
-    newPutFeedback,
-    PutFeedbackResponse (PutFeedbackResponse'),
-    newPutFeedbackResponse,
-
-    -- ** SearchInsights (Paginated)
-    SearchInsights (SearchInsights'),
-    newSearchInsights,
-    SearchInsightsResponse (SearchInsightsResponse'),
-    newSearchInsightsResponse,
-
     -- ** DescribeServiceIntegration
     DescribeServiceIntegration (DescribeServiceIntegration'),
     newDescribeServiceIntegration,
     DescribeServiceIntegrationResponse (DescribeServiceIntegrationResponse'),
     newDescribeServiceIntegrationResponse,
 
-    -- ** UpdateServiceIntegration
-    UpdateServiceIntegration (UpdateServiceIntegration'),
-    newUpdateServiceIntegration,
-    UpdateServiceIntegrationResponse (UpdateServiceIntegrationResponse'),
-    newUpdateServiceIntegrationResponse,
+    -- ** GetCostEstimation (Paginated)
+    GetCostEstimation (GetCostEstimation'),
+    newGetCostEstimation,
+    GetCostEstimationResponse (GetCostEstimationResponse'),
+    newGetCostEstimationResponse,
 
     -- ** GetResourceCollection (Paginated)
     GetResourceCollection (GetResourceCollection'),
@@ -148,23 +124,29 @@ module Amazonka.DevOpsGuru
     GetResourceCollectionResponse (GetResourceCollectionResponse'),
     newGetResourceCollectionResponse,
 
+    -- ** ListAnomaliesForInsight (Paginated)
+    ListAnomaliesForInsight (ListAnomaliesForInsight'),
+    newListAnomaliesForInsight,
+    ListAnomaliesForInsightResponse (ListAnomaliesForInsightResponse'),
+    newListAnomaliesForInsightResponse,
+
     -- ** ListEvents (Paginated)
     ListEvents (ListEvents'),
     newListEvents,
     ListEventsResponse (ListEventsResponse'),
     newListEventsResponse,
 
-    -- ** UpdateResourceCollection
-    UpdateResourceCollection (UpdateResourceCollection'),
-    newUpdateResourceCollection,
-    UpdateResourceCollectionResponse (UpdateResourceCollectionResponse'),
-    newUpdateResourceCollectionResponse,
+    -- ** ListInsights (Paginated)
+    ListInsights (ListInsights'),
+    newListInsights,
+    ListInsightsResponse (ListInsightsResponse'),
+    newListInsightsResponse,
 
-    -- ** StartCostEstimation
-    StartCostEstimation (StartCostEstimation'),
-    newStartCostEstimation,
-    StartCostEstimationResponse (StartCostEstimationResponse'),
-    newStartCostEstimationResponse,
+    -- ** ListNotificationChannels (Paginated)
+    ListNotificationChannels (ListNotificationChannels'),
+    newListNotificationChannels,
+    ListNotificationChannelsResponse (ListNotificationChannelsResponse'),
+    newListNotificationChannelsResponse,
 
     -- ** ListRecommendations (Paginated)
     ListRecommendations (ListRecommendations'),
@@ -172,23 +154,41 @@ module Amazonka.DevOpsGuru
     ListRecommendationsResponse (ListRecommendationsResponse'),
     newListRecommendationsResponse,
 
-    -- ** DescribeAccountHealth
-    DescribeAccountHealth (DescribeAccountHealth'),
-    newDescribeAccountHealth,
-    DescribeAccountHealthResponse (DescribeAccountHealthResponse'),
-    newDescribeAccountHealthResponse,
+    -- ** PutFeedback
+    PutFeedback (PutFeedback'),
+    newPutFeedback,
+    PutFeedbackResponse (PutFeedbackResponse'),
+    newPutFeedbackResponse,
 
-    -- ** DescribeInsight
-    DescribeInsight (DescribeInsight'),
-    newDescribeInsight,
-    DescribeInsightResponse (DescribeInsightResponse'),
-    newDescribeInsightResponse,
+    -- ** RemoveNotificationChannel
+    RemoveNotificationChannel (RemoveNotificationChannel'),
+    newRemoveNotificationChannel,
+    RemoveNotificationChannelResponse (RemoveNotificationChannelResponse'),
+    newRemoveNotificationChannelResponse,
 
-    -- ** GetCostEstimation (Paginated)
-    GetCostEstimation (GetCostEstimation'),
-    newGetCostEstimation,
-    GetCostEstimationResponse (GetCostEstimationResponse'),
-    newGetCostEstimationResponse,
+    -- ** SearchInsights (Paginated)
+    SearchInsights (SearchInsights'),
+    newSearchInsights,
+    SearchInsightsResponse (SearchInsightsResponse'),
+    newSearchInsightsResponse,
+
+    -- ** StartCostEstimation
+    StartCostEstimation (StartCostEstimation'),
+    newStartCostEstimation,
+    StartCostEstimationResponse (StartCostEstimationResponse'),
+    newStartCostEstimationResponse,
+
+    -- ** UpdateResourceCollection
+    UpdateResourceCollection (UpdateResourceCollection'),
+    newUpdateResourceCollection,
+    UpdateResourceCollectionResponse (UpdateResourceCollectionResponse'),
+    newUpdateResourceCollectionResponse,
+
+    -- ** UpdateServiceIntegration
+    UpdateServiceIntegration (UpdateServiceIntegration'),
+    newUpdateServiceIntegration,
+    UpdateServiceIntegrationResponse (UpdateServiceIntegrationResponse'),
+    newUpdateServiceIntegrationResponse,
 
     -- * Types
 

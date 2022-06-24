@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendationRelatedEvent' smart constructor.
 data RecommendationRelatedEvent = RecommendationRelatedEvent'
-  { -- | A @ResourceCollection@ object that contains arrays of the names of AWS
+  { -- | The name of the event. This corresponds to the @Name@ field in an
+    -- @Event@ object.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A @ResourceCollection@ object that contains arrays of the names of AWS
     -- CloudFormation stacks. You can specify up to 500 AWS CloudFormation
     -- stacks.
-    resources :: Prelude.Maybe [RecommendationRelatedEventResource],
-    -- | The name of the event. This corresponds to the @Name@ field in an
-    -- @Event@ object.
-    name :: Prelude.Maybe Prelude.Text
+    resources :: Prelude.Maybe [RecommendationRelatedEventResource]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,20 +46,24 @@ data RecommendationRelatedEvent = RecommendationRelatedEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'recommendationRelatedEvent_name' - The name of the event. This corresponds to the @Name@ field in an
+-- @Event@ object.
+--
 -- 'resources', 'recommendationRelatedEvent_resources' - A @ResourceCollection@ object that contains arrays of the names of AWS
 -- CloudFormation stacks. You can specify up to 500 AWS CloudFormation
 -- stacks.
---
--- 'name', 'recommendationRelatedEvent_name' - The name of the event. This corresponds to the @Name@ field in an
--- @Event@ object.
 newRecommendationRelatedEvent ::
   RecommendationRelatedEvent
 newRecommendationRelatedEvent =
   RecommendationRelatedEvent'
-    { resources =
-        Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      resources = Prelude.Nothing
     }
+
+-- | The name of the event. This corresponds to the @Name@ field in an
+-- @Event@ object.
+recommendationRelatedEvent_name :: Lens.Lens' RecommendationRelatedEvent (Prelude.Maybe Prelude.Text)
+recommendationRelatedEvent_name = Lens.lens (\RecommendationRelatedEvent' {name} -> name) (\s@RecommendationRelatedEvent' {} a -> s {name = a} :: RecommendationRelatedEvent)
 
 -- | A @ResourceCollection@ object that contains arrays of the names of AWS
 -- CloudFormation stacks. You can specify up to 500 AWS CloudFormation
@@ -67,27 +71,22 @@ newRecommendationRelatedEvent =
 recommendationRelatedEvent_resources :: Lens.Lens' RecommendationRelatedEvent (Prelude.Maybe [RecommendationRelatedEventResource])
 recommendationRelatedEvent_resources = Lens.lens (\RecommendationRelatedEvent' {resources} -> resources) (\s@RecommendationRelatedEvent' {} a -> s {resources = a} :: RecommendationRelatedEvent) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the event. This corresponds to the @Name@ field in an
--- @Event@ object.
-recommendationRelatedEvent_name :: Lens.Lens' RecommendationRelatedEvent (Prelude.Maybe Prelude.Text)
-recommendationRelatedEvent_name = Lens.lens (\RecommendationRelatedEvent' {name} -> name) (\s@RecommendationRelatedEvent' {} a -> s {name = a} :: RecommendationRelatedEvent)
-
 instance Core.FromJSON RecommendationRelatedEvent where
   parseJSON =
     Core.withObject
       "RecommendationRelatedEvent"
       ( \x ->
           RecommendationRelatedEvent'
-            Prelude.<$> (x Core..:? "Resources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RecommendationRelatedEvent where
   hashWithSalt _salt RecommendationRelatedEvent' {..} =
-    _salt `Prelude.hashWithSalt` resources
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` resources
 
 instance Prelude.NFData RecommendationRelatedEvent where
   rnf RecommendationRelatedEvent' {..} =
-    Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf resources

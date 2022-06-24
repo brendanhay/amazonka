@@ -41,8 +41,8 @@ module Amazonka.DevOpsGuru.GetResourceCollection
     newGetResourceCollectionResponse,
 
     -- * Response Lenses
-    getResourceCollectionResponse_resourceCollection,
     getResourceCollectionResponse_nextToken,
+    getResourceCollectionResponse_resourceCollection,
     getResourceCollectionResponse_httpStatus,
   )
 where
@@ -133,8 +133,8 @@ instance Core.AWSRequest GetResourceCollection where
     Response.receiveJSON
       ( \s h x ->
           GetResourceCollectionResponse'
-            Prelude.<$> (x Core..?> "ResourceCollection")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ResourceCollection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,14 +172,14 @@ instance Core.ToQuery GetResourceCollection where
 
 -- | /See:/ 'newGetResourceCollectionResponse' smart constructor.
 data GetResourceCollectionResponse = GetResourceCollectionResponse'
-  { -- | The requested list of AWS resource collections. The one type of AWS
+  { -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If there are no more pages, this value is null.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The requested list of AWS resource collections. The one type of AWS
     -- resource collection supported is AWS CloudFormation stacks. DevOps Guru
     -- can be configured to analyze only the AWS resources that are defined in
     -- the stacks. You can specify up to 500 AWS CloudFormation stacks.
     resourceCollection :: Prelude.Maybe ResourceCollectionFilter,
-    -- | The pagination token to use to retrieve the next page of results for
-    -- this operation. If there are no more pages, this value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,13 +193,13 @@ data GetResourceCollectionResponse = GetResourceCollectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'getResourceCollectionResponse_nextToken' - The pagination token to use to retrieve the next page of results for
+-- this operation. If there are no more pages, this value is null.
+--
 -- 'resourceCollection', 'getResourceCollectionResponse_resourceCollection' - The requested list of AWS resource collections. The one type of AWS
 -- resource collection supported is AWS CloudFormation stacks. DevOps Guru
 -- can be configured to analyze only the AWS resources that are defined in
 -- the stacks. You can specify up to 500 AWS CloudFormation stacks.
---
--- 'nextToken', 'getResourceCollectionResponse_nextToken' - The pagination token to use to retrieve the next page of results for
--- this operation. If there are no more pages, this value is null.
 --
 -- 'httpStatus', 'getResourceCollectionResponse_httpStatus' - The response's http status code.
 newGetResourceCollectionResponse ::
@@ -208,11 +208,16 @@ newGetResourceCollectionResponse ::
   GetResourceCollectionResponse
 newGetResourceCollectionResponse pHttpStatus_ =
   GetResourceCollectionResponse'
-    { resourceCollection =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      resourceCollection = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If there are no more pages, this value is null.
+getResourceCollectionResponse_nextToken :: Lens.Lens' GetResourceCollectionResponse (Prelude.Maybe Prelude.Text)
+getResourceCollectionResponse_nextToken = Lens.lens (\GetResourceCollectionResponse' {nextToken} -> nextToken) (\s@GetResourceCollectionResponse' {} a -> s {nextToken = a} :: GetResourceCollectionResponse)
 
 -- | The requested list of AWS resource collections. The one type of AWS
 -- resource collection supported is AWS CloudFormation stacks. DevOps Guru
@@ -221,17 +226,12 @@ newGetResourceCollectionResponse pHttpStatus_ =
 getResourceCollectionResponse_resourceCollection :: Lens.Lens' GetResourceCollectionResponse (Prelude.Maybe ResourceCollectionFilter)
 getResourceCollectionResponse_resourceCollection = Lens.lens (\GetResourceCollectionResponse' {resourceCollection} -> resourceCollection) (\s@GetResourceCollectionResponse' {} a -> s {resourceCollection = a} :: GetResourceCollectionResponse)
 
--- | The pagination token to use to retrieve the next page of results for
--- this operation. If there are no more pages, this value is null.
-getResourceCollectionResponse_nextToken :: Lens.Lens' GetResourceCollectionResponse (Prelude.Maybe Prelude.Text)
-getResourceCollectionResponse_nextToken = Lens.lens (\GetResourceCollectionResponse' {nextToken} -> nextToken) (\s@GetResourceCollectionResponse' {} a -> s {nextToken = a} :: GetResourceCollectionResponse)
-
 -- | The response's http status code.
 getResourceCollectionResponse_httpStatus :: Lens.Lens' GetResourceCollectionResponse Prelude.Int
 getResourceCollectionResponse_httpStatus = Lens.lens (\GetResourceCollectionResponse' {httpStatus} -> httpStatus) (\s@GetResourceCollectionResponse' {} a -> s {httpStatus = a} :: GetResourceCollectionResponse)
 
 instance Prelude.NFData GetResourceCollectionResponse where
   rnf GetResourceCollectionResponse' {..} =
-    Prelude.rnf resourceCollection
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceCollection
       `Prelude.seq` Prelude.rnf httpStatus

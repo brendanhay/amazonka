@@ -40,8 +40,8 @@ module Amazonka.DevOpsGuru.ListNotificationChannels
     newListNotificationChannelsResponse,
 
     -- * Response Lenses
-    listNotificationChannelsResponse_channels,
     listNotificationChannelsResponse_nextToken,
+    listNotificationChannelsResponse_channels,
     listNotificationChannelsResponse_httpStatus,
   )
 where
@@ -115,8 +115,8 @@ instance Core.AWSRequest ListNotificationChannels where
     Response.receiveJSON
       ( \s h x ->
           ListNotificationChannelsResponse'
-            Prelude.<$> (x Core..?> "Channels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Channels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,11 +154,11 @@ instance Core.ToQuery ListNotificationChannels where
 
 -- | /See:/ 'newListNotificationChannelsResponse' smart constructor.
 data ListNotificationChannelsResponse = ListNotificationChannelsResponse'
-  { -- | An array that contains the requested notification channels.
-    channels :: Prelude.Maybe [NotificationChannel],
-    -- | The pagination token to use to retrieve the next page of results for
+  { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array that contains the requested notification channels.
+    channels :: Prelude.Maybe [NotificationChannel],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,10 +172,10 @@ data ListNotificationChannelsResponse = ListNotificationChannelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channels', 'listNotificationChannelsResponse_channels' - An array that contains the requested notification channels.
---
 -- 'nextToken', 'listNotificationChannelsResponse_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
+--
+-- 'channels', 'listNotificationChannelsResponse_channels' - An array that contains the requested notification channels.
 --
 -- 'httpStatus', 'listNotificationChannelsResponse_httpStatus' - The response's http status code.
 newListNotificationChannelsResponse ::
@@ -184,20 +184,20 @@ newListNotificationChannelsResponse ::
   ListNotificationChannelsResponse
 newListNotificationChannelsResponse pHttpStatus_ =
   ListNotificationChannelsResponse'
-    { channels =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      channels = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array that contains the requested notification channels.
-listNotificationChannelsResponse_channels :: Lens.Lens' ListNotificationChannelsResponse (Prelude.Maybe [NotificationChannel])
-listNotificationChannelsResponse_channels = Lens.lens (\ListNotificationChannelsResponse' {channels} -> channels) (\s@ListNotificationChannelsResponse' {} a -> s {channels = a} :: ListNotificationChannelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
 listNotificationChannelsResponse_nextToken :: Lens.Lens' ListNotificationChannelsResponse (Prelude.Maybe Prelude.Text)
 listNotificationChannelsResponse_nextToken = Lens.lens (\ListNotificationChannelsResponse' {nextToken} -> nextToken) (\s@ListNotificationChannelsResponse' {} a -> s {nextToken = a} :: ListNotificationChannelsResponse)
+
+-- | An array that contains the requested notification channels.
+listNotificationChannelsResponse_channels :: Lens.Lens' ListNotificationChannelsResponse (Prelude.Maybe [NotificationChannel])
+listNotificationChannelsResponse_channels = Lens.lens (\ListNotificationChannelsResponse' {channels} -> channels) (\s@ListNotificationChannelsResponse' {} a -> s {channels = a} :: ListNotificationChannelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listNotificationChannelsResponse_httpStatus :: Lens.Lens' ListNotificationChannelsResponse Prelude.Int
@@ -208,6 +208,6 @@ instance
     ListNotificationChannelsResponse
   where
   rnf ListNotificationChannelsResponse' {..} =
-    Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf channels
       `Prelude.seq` Prelude.rnf httpStatus

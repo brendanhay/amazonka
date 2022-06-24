@@ -33,12 +33,12 @@ data ListInsightsStatusFilter = ListInsightsStatusFilter'
   { -- | A @ListInsightsClosedStatusFilter@ that specifies closed insights that
     -- are either @REACTIVE@ or @PROACTIVE@.
     closed :: Prelude.Maybe ListInsightsClosedStatusFilter,
-    -- | A @ListInsightsAnyStatusFilter@ that specifies ongoing insights that are
-    -- either @REACTIVE@ or @PROACTIVE@.
-    ongoing :: Prelude.Maybe ListInsightsOngoingStatusFilter,
     -- | A @ListInsightsAnyStatusFilter@ that specifies insights of any status
     -- that are either @REACTIVE@ or @PROACTIVE@.
-    any :: Prelude.Maybe ListInsightsAnyStatusFilter
+    any :: Prelude.Maybe ListInsightsAnyStatusFilter,
+    -- | A @ListInsightsAnyStatusFilter@ that specifies ongoing insights that are
+    -- either @REACTIVE@ or @PROACTIVE@.
+    ongoing :: Prelude.Maybe ListInsightsOngoingStatusFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,18 +53,18 @@ data ListInsightsStatusFilter = ListInsightsStatusFilter'
 -- 'closed', 'listInsightsStatusFilter_closed' - A @ListInsightsClosedStatusFilter@ that specifies closed insights that
 -- are either @REACTIVE@ or @PROACTIVE@.
 --
--- 'ongoing', 'listInsightsStatusFilter_ongoing' - A @ListInsightsAnyStatusFilter@ that specifies ongoing insights that are
--- either @REACTIVE@ or @PROACTIVE@.
---
 -- 'any', 'listInsightsStatusFilter_any' - A @ListInsightsAnyStatusFilter@ that specifies insights of any status
 -- that are either @REACTIVE@ or @PROACTIVE@.
+--
+-- 'ongoing', 'listInsightsStatusFilter_ongoing' - A @ListInsightsAnyStatusFilter@ that specifies ongoing insights that are
+-- either @REACTIVE@ or @PROACTIVE@.
 newListInsightsStatusFilter ::
   ListInsightsStatusFilter
 newListInsightsStatusFilter =
   ListInsightsStatusFilter'
     { closed = Prelude.Nothing,
-      ongoing = Prelude.Nothing,
-      any = Prelude.Nothing
+      any = Prelude.Nothing,
+      ongoing = Prelude.Nothing
     }
 
 -- | A @ListInsightsClosedStatusFilter@ that specifies closed insights that
@@ -72,34 +72,34 @@ newListInsightsStatusFilter =
 listInsightsStatusFilter_closed :: Lens.Lens' ListInsightsStatusFilter (Prelude.Maybe ListInsightsClosedStatusFilter)
 listInsightsStatusFilter_closed = Lens.lens (\ListInsightsStatusFilter' {closed} -> closed) (\s@ListInsightsStatusFilter' {} a -> s {closed = a} :: ListInsightsStatusFilter)
 
--- | A @ListInsightsAnyStatusFilter@ that specifies ongoing insights that are
--- either @REACTIVE@ or @PROACTIVE@.
-listInsightsStatusFilter_ongoing :: Lens.Lens' ListInsightsStatusFilter (Prelude.Maybe ListInsightsOngoingStatusFilter)
-listInsightsStatusFilter_ongoing = Lens.lens (\ListInsightsStatusFilter' {ongoing} -> ongoing) (\s@ListInsightsStatusFilter' {} a -> s {ongoing = a} :: ListInsightsStatusFilter)
-
 -- | A @ListInsightsAnyStatusFilter@ that specifies insights of any status
 -- that are either @REACTIVE@ or @PROACTIVE@.
 listInsightsStatusFilter_any :: Lens.Lens' ListInsightsStatusFilter (Prelude.Maybe ListInsightsAnyStatusFilter)
 listInsightsStatusFilter_any = Lens.lens (\ListInsightsStatusFilter' {any} -> any) (\s@ListInsightsStatusFilter' {} a -> s {any = a} :: ListInsightsStatusFilter)
 
+-- | A @ListInsightsAnyStatusFilter@ that specifies ongoing insights that are
+-- either @REACTIVE@ or @PROACTIVE@.
+listInsightsStatusFilter_ongoing :: Lens.Lens' ListInsightsStatusFilter (Prelude.Maybe ListInsightsOngoingStatusFilter)
+listInsightsStatusFilter_ongoing = Lens.lens (\ListInsightsStatusFilter' {ongoing} -> ongoing) (\s@ListInsightsStatusFilter' {} a -> s {ongoing = a} :: ListInsightsStatusFilter)
+
 instance Prelude.Hashable ListInsightsStatusFilter where
   hashWithSalt _salt ListInsightsStatusFilter' {..} =
     _salt `Prelude.hashWithSalt` closed
-      `Prelude.hashWithSalt` ongoing
       `Prelude.hashWithSalt` any
+      `Prelude.hashWithSalt` ongoing
 
 instance Prelude.NFData ListInsightsStatusFilter where
   rnf ListInsightsStatusFilter' {..} =
     Prelude.rnf closed
-      `Prelude.seq` Prelude.rnf ongoing
       `Prelude.seq` Prelude.rnf any
+      `Prelude.seq` Prelude.rnf ongoing
 
 instance Core.ToJSON ListInsightsStatusFilter where
   toJSON ListInsightsStatusFilter' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("Closed" Core..=) Prelude.<$> closed,
-            ("Ongoing" Core..=) Prelude.<$> ongoing,
-            ("Any" Core..=) Prelude.<$> any
+            ("Any" Core..=) Prelude.<$> any,
+            ("Ongoing" Core..=) Prelude.<$> ongoing
           ]
       )

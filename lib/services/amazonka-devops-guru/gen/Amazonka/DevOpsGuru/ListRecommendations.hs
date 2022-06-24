@@ -31,8 +31,8 @@ module Amazonka.DevOpsGuru.ListRecommendations
     newListRecommendations,
 
     -- * Request Lenses
-    listRecommendations_locale,
     listRecommendations_nextToken,
+    listRecommendations_locale,
     listRecommendations_insightId,
 
     -- * Destructuring the Response
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRecommendations' smart constructor.
 data ListRecommendations = ListRecommendations'
-  { -- | A locale that specifies the language to use for recommendations.
-    locale :: Prelude.Maybe Locale,
-    -- | The pagination token to use to retrieve the next page of results for
+  { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A locale that specifies the language to use for recommendations.
+    locale :: Prelude.Maybe Locale,
     -- | The ID of the requested insight.
     insightId :: Prelude.Text
   }
@@ -73,10 +73,10 @@ data ListRecommendations = ListRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'locale', 'listRecommendations_locale' - A locale that specifies the language to use for recommendations.
---
 -- 'nextToken', 'listRecommendations_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
+--
+-- 'locale', 'listRecommendations_locale' - A locale that specifies the language to use for recommendations.
 --
 -- 'insightId', 'listRecommendations_insightId' - The ID of the requested insight.
 newListRecommendations ::
@@ -85,19 +85,19 @@ newListRecommendations ::
   ListRecommendations
 newListRecommendations pInsightId_ =
   ListRecommendations'
-    { locale = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      locale = Prelude.Nothing,
       insightId = pInsightId_
     }
-
--- | A locale that specifies the language to use for recommendations.
-listRecommendations_locale :: Lens.Lens' ListRecommendations (Prelude.Maybe Locale)
-listRecommendations_locale = Lens.lens (\ListRecommendations' {locale} -> locale) (\s@ListRecommendations' {} a -> s {locale = a} :: ListRecommendations)
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 listRecommendations_nextToken :: Lens.Lens' ListRecommendations (Prelude.Maybe Prelude.Text)
 listRecommendations_nextToken = Lens.lens (\ListRecommendations' {nextToken} -> nextToken) (\s@ListRecommendations' {} a -> s {nextToken = a} :: ListRecommendations)
+
+-- | A locale that specifies the language to use for recommendations.
+listRecommendations_locale :: Lens.Lens' ListRecommendations (Prelude.Maybe Locale)
+listRecommendations_locale = Lens.lens (\ListRecommendations' {locale} -> locale) (\s@ListRecommendations' {} a -> s {locale = a} :: ListRecommendations)
 
 -- | The ID of the requested insight.
 listRecommendations_insightId :: Lens.Lens' ListRecommendations Prelude.Text
@@ -143,14 +143,14 @@ instance Core.AWSRequest ListRecommendations where
 
 instance Prelude.Hashable ListRecommendations where
   hashWithSalt _salt ListRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` locale
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` insightId
 
 instance Prelude.NFData ListRecommendations where
   rnf ListRecommendations' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf locale
       `Prelude.seq` Prelude.rnf insightId
 
 instance Core.ToHeaders ListRecommendations where
@@ -168,8 +168,8 @@ instance Core.ToJSON ListRecommendations where
   toJSON ListRecommendations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Locale" Core..=) Prelude.<$> locale,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Locale" Core..=) Prelude.<$> locale,
             Prelude.Just ("InsightId" Core..= insightId)
           ]
       )

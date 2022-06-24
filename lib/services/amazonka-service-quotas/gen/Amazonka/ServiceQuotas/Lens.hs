@@ -14,6 +14,90 @@
 module Amazonka.ServiceQuotas.Lens
   ( -- * Operations
 
+    -- ** AssociateServiceQuotaTemplate
+    associateServiceQuotaTemplateResponse_httpStatus,
+
+    -- ** DeleteServiceQuotaIncreaseRequestFromTemplate
+    deleteServiceQuotaIncreaseRequestFromTemplate_serviceCode,
+    deleteServiceQuotaIncreaseRequestFromTemplate_quotaCode,
+    deleteServiceQuotaIncreaseRequestFromTemplate_awsRegion,
+    deleteServiceQuotaIncreaseRequestFromTemplateResponse_httpStatus,
+
+    -- ** DisassociateServiceQuotaTemplate
+    disassociateServiceQuotaTemplateResponse_httpStatus,
+
+    -- ** GetAWSDefaultServiceQuota
+    getAWSDefaultServiceQuota_serviceCode,
+    getAWSDefaultServiceQuota_quotaCode,
+    getAWSDefaultServiceQuotaResponse_quota,
+    getAWSDefaultServiceQuotaResponse_httpStatus,
+
+    -- ** GetAssociationForServiceQuotaTemplate
+    getAssociationForServiceQuotaTemplateResponse_serviceQuotaTemplateAssociationStatus,
+    getAssociationForServiceQuotaTemplateResponse_httpStatus,
+
+    -- ** GetRequestedServiceQuotaChange
+    getRequestedServiceQuotaChange_requestId,
+    getRequestedServiceQuotaChangeResponse_requestedQuota,
+    getRequestedServiceQuotaChangeResponse_httpStatus,
+
+    -- ** GetServiceQuota
+    getServiceQuota_serviceCode,
+    getServiceQuota_quotaCode,
+    getServiceQuotaResponse_quota,
+    getServiceQuotaResponse_httpStatus,
+
+    -- ** GetServiceQuotaIncreaseRequestFromTemplate
+    getServiceQuotaIncreaseRequestFromTemplate_serviceCode,
+    getServiceQuotaIncreaseRequestFromTemplate_quotaCode,
+    getServiceQuotaIncreaseRequestFromTemplate_awsRegion,
+    getServiceQuotaIncreaseRequestFromTemplateResponse_serviceQuotaIncreaseRequestInTemplate,
+    getServiceQuotaIncreaseRequestFromTemplateResponse_httpStatus,
+
+    -- ** ListAWSDefaultServiceQuotas
+    listAWSDefaultServiceQuotas_nextToken,
+    listAWSDefaultServiceQuotas_maxResults,
+    listAWSDefaultServiceQuotas_serviceCode,
+    listAWSDefaultServiceQuotasResponse_quotas,
+    listAWSDefaultServiceQuotasResponse_nextToken,
+    listAWSDefaultServiceQuotasResponse_httpStatus,
+
+    -- ** ListRequestedServiceQuotaChangeHistory
+    listRequestedServiceQuotaChangeHistory_nextToken,
+    listRequestedServiceQuotaChangeHistory_serviceCode,
+    listRequestedServiceQuotaChangeHistory_status,
+    listRequestedServiceQuotaChangeHistory_maxResults,
+    listRequestedServiceQuotaChangeHistoryResponse_nextToken,
+    listRequestedServiceQuotaChangeHistoryResponse_requestedQuotas,
+    listRequestedServiceQuotaChangeHistoryResponse_httpStatus,
+
+    -- ** ListRequestedServiceQuotaChangeHistoryByQuota
+    listRequestedServiceQuotaChangeHistoryByQuota_nextToken,
+    listRequestedServiceQuotaChangeHistoryByQuota_status,
+    listRequestedServiceQuotaChangeHistoryByQuota_maxResults,
+    listRequestedServiceQuotaChangeHistoryByQuota_serviceCode,
+    listRequestedServiceQuotaChangeHistoryByQuota_quotaCode,
+    listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken,
+    listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas,
+    listRequestedServiceQuotaChangeHistoryByQuotaResponse_httpStatus,
+
+    -- ** ListServiceQuotaIncreaseRequestsInTemplate
+    listServiceQuotaIncreaseRequestsInTemplate_nextToken,
+    listServiceQuotaIncreaseRequestsInTemplate_serviceCode,
+    listServiceQuotaIncreaseRequestsInTemplate_maxResults,
+    listServiceQuotaIncreaseRequestsInTemplate_awsRegion,
+    listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken,
+    listServiceQuotaIncreaseRequestsInTemplateResponse_serviceQuotaIncreaseRequestInTemplateList,
+    listServiceQuotaIncreaseRequestsInTemplateResponse_httpStatus,
+
+    -- ** ListServiceQuotas
+    listServiceQuotas_nextToken,
+    listServiceQuotas_maxResults,
+    listServiceQuotas_serviceCode,
+    listServiceQuotasResponse_quotas,
+    listServiceQuotasResponse_nextToken,
+    listServiceQuotasResponse_httpStatus,
+
     -- ** ListServices
     listServices_nextToken,
     listServices_maxResults,
@@ -21,31 +105,10 @@ module Amazonka.ServiceQuotas.Lens
     listServicesResponse_services,
     listServicesResponse_httpStatus,
 
-    -- ** ListAWSDefaultServiceQuotas
-    listAWSDefaultServiceQuotas_nextToken,
-    listAWSDefaultServiceQuotas_maxResults,
-    listAWSDefaultServiceQuotas_serviceCode,
-    listAWSDefaultServiceQuotasResponse_nextToken,
-    listAWSDefaultServiceQuotasResponse_quotas,
-    listAWSDefaultServiceQuotasResponse_httpStatus,
-
-    -- ** GetAssociationForServiceQuotaTemplate
-    getAssociationForServiceQuotaTemplateResponse_serviceQuotaTemplateAssociationStatus,
-    getAssociationForServiceQuotaTemplateResponse_httpStatus,
-
-    -- ** AssociateServiceQuotaTemplate
-    associateServiceQuotaTemplateResponse_httpStatus,
-
     -- ** ListTagsForResource
     listTagsForResource_resourceARN,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
-
-    -- ** GetServiceQuota
-    getServiceQuota_serviceCode,
-    getServiceQuota_quotaCode,
-    getServiceQuotaResponse_quota,
-    getServiceQuotaResponse_httpStatus,
 
     -- ** PutServiceQuotaIncreaseRequestIntoTemplate
     putServiceQuotaIncreaseRequestIntoTemplate_quotaCode,
@@ -62,89 +125,26 @@ module Amazonka.ServiceQuotas.Lens
     requestServiceQuotaIncreaseResponse_requestedQuota,
     requestServiceQuotaIncreaseResponse_httpStatus,
 
-    -- ** GetServiceQuotaIncreaseRequestFromTemplate
-    getServiceQuotaIncreaseRequestFromTemplate_serviceCode,
-    getServiceQuotaIncreaseRequestFromTemplate_quotaCode,
-    getServiceQuotaIncreaseRequestFromTemplate_awsRegion,
-    getServiceQuotaIncreaseRequestFromTemplateResponse_serviceQuotaIncreaseRequestInTemplate,
-    getServiceQuotaIncreaseRequestFromTemplateResponse_httpStatus,
-
-    -- ** DisassociateServiceQuotaTemplate
-    disassociateServiceQuotaTemplateResponse_httpStatus,
-
-    -- ** DeleteServiceQuotaIncreaseRequestFromTemplate
-    deleteServiceQuotaIncreaseRequestFromTemplate_serviceCode,
-    deleteServiceQuotaIncreaseRequestFromTemplate_quotaCode,
-    deleteServiceQuotaIncreaseRequestFromTemplate_awsRegion,
-    deleteServiceQuotaIncreaseRequestFromTemplateResponse_httpStatus,
-
-    -- ** ListServiceQuotas
-    listServiceQuotas_nextToken,
-    listServiceQuotas_maxResults,
-    listServiceQuotas_serviceCode,
-    listServiceQuotasResponse_nextToken,
-    listServiceQuotasResponse_quotas,
-    listServiceQuotasResponse_httpStatus,
-
-    -- ** ListRequestedServiceQuotaChangeHistory
-    listRequestedServiceQuotaChangeHistory_status,
-    listRequestedServiceQuotaChangeHistory_nextToken,
-    listRequestedServiceQuotaChangeHistory_serviceCode,
-    listRequestedServiceQuotaChangeHistory_maxResults,
-    listRequestedServiceQuotaChangeHistoryResponse_nextToken,
-    listRequestedServiceQuotaChangeHistoryResponse_requestedQuotas,
-    listRequestedServiceQuotaChangeHistoryResponse_httpStatus,
-
-    -- ** ListServiceQuotaIncreaseRequestsInTemplate
-    listServiceQuotaIncreaseRequestsInTemplate_nextToken,
-    listServiceQuotaIncreaseRequestsInTemplate_awsRegion,
-    listServiceQuotaIncreaseRequestsInTemplate_serviceCode,
-    listServiceQuotaIncreaseRequestsInTemplate_maxResults,
-    listServiceQuotaIncreaseRequestsInTemplateResponse_serviceQuotaIncreaseRequestInTemplateList,
-    listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken,
-    listServiceQuotaIncreaseRequestsInTemplateResponse_httpStatus,
-
     -- ** TagResource
     tagResource_resourceARN,
     tagResource_tags,
     tagResourceResponse_httpStatus,
-
-    -- ** ListRequestedServiceQuotaChangeHistoryByQuota
-    listRequestedServiceQuotaChangeHistoryByQuota_status,
-    listRequestedServiceQuotaChangeHistoryByQuota_nextToken,
-    listRequestedServiceQuotaChangeHistoryByQuota_maxResults,
-    listRequestedServiceQuotaChangeHistoryByQuota_serviceCode,
-    listRequestedServiceQuotaChangeHistoryByQuota_quotaCode,
-    listRequestedServiceQuotaChangeHistoryByQuotaResponse_nextToken,
-    listRequestedServiceQuotaChangeHistoryByQuotaResponse_requestedQuotas,
-    listRequestedServiceQuotaChangeHistoryByQuotaResponse_httpStatus,
-
-    -- ** GetRequestedServiceQuotaChange
-    getRequestedServiceQuotaChange_requestId,
-    getRequestedServiceQuotaChangeResponse_requestedQuota,
-    getRequestedServiceQuotaChangeResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_resourceARN,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** GetAWSDefaultServiceQuota
-    getAWSDefaultServiceQuota_serviceCode,
-    getAWSDefaultServiceQuota_quotaCode,
-    getAWSDefaultServiceQuotaResponse_quota,
-    getAWSDefaultServiceQuotaResponse_httpStatus,
-
     -- * Types
 
     -- ** ErrorReason
-    errorReason_errorCode,
     errorReason_errorMessage,
+    errorReason_errorCode,
 
     -- ** MetricInfo
-    metricInfo_metricDimensions,
-    metricInfo_metricName,
     metricInfo_metricStatisticRecommendation,
+    metricInfo_metricName,
+    metricInfo_metricDimensions,
     metricInfo_metricNamespace,
 
     -- ** QuotaPeriod
@@ -152,48 +152,48 @@ module Amazonka.ServiceQuotas.Lens
     quotaPeriod_periodValue,
 
     -- ** RequestedServiceQuotaChange
-    requestedServiceQuotaChange_status,
-    requestedServiceQuotaChange_lastUpdated,
-    requestedServiceQuotaChange_globalQuota,
-    requestedServiceQuotaChange_created,
-    requestedServiceQuotaChange_desiredValue,
     requestedServiceQuotaChange_quotaArn,
-    requestedServiceQuotaChange_caseId,
-    requestedServiceQuotaChange_serviceName,
-    requestedServiceQuotaChange_id,
-    requestedServiceQuotaChange_serviceCode,
+    requestedServiceQuotaChange_globalQuota,
     requestedServiceQuotaChange_quotaCode,
-    requestedServiceQuotaChange_unit,
-    requestedServiceQuotaChange_requester,
+    requestedServiceQuotaChange_caseId,
+    requestedServiceQuotaChange_created,
+    requestedServiceQuotaChange_serviceCode,
+    requestedServiceQuotaChange_status,
+    requestedServiceQuotaChange_id,
+    requestedServiceQuotaChange_lastUpdated,
     requestedServiceQuotaChange_quotaName,
+    requestedServiceQuotaChange_serviceName,
+    requestedServiceQuotaChange_requester,
+    requestedServiceQuotaChange_unit,
+    requestedServiceQuotaChange_desiredValue,
 
     -- ** ServiceInfo
-    serviceInfo_serviceName,
     serviceInfo_serviceCode,
+    serviceInfo_serviceName,
 
     -- ** ServiceQuota
-    serviceQuota_globalQuota,
-    serviceQuota_period,
-    serviceQuota_value,
     serviceQuota_quotaArn,
-    serviceQuota_usageMetric,
-    serviceQuota_errorReason,
-    serviceQuota_adjustable,
-    serviceQuota_serviceName,
-    serviceQuota_serviceCode,
+    serviceQuota_globalQuota,
     serviceQuota_quotaCode,
-    serviceQuota_unit,
+    serviceQuota_usageMetric,
+    serviceQuota_adjustable,
+    serviceQuota_errorReason,
+    serviceQuota_period,
+    serviceQuota_serviceCode,
     serviceQuota_quotaName,
+    serviceQuota_serviceName,
+    serviceQuota_unit,
+    serviceQuota_value,
 
     -- ** ServiceQuotaIncreaseRequestInTemplate
     serviceQuotaIncreaseRequestInTemplate_globalQuota,
-    serviceQuotaIncreaseRequestInTemplate_desiredValue,
-    serviceQuotaIncreaseRequestInTemplate_serviceName,
-    serviceQuotaIncreaseRequestInTemplate_awsRegion,
-    serviceQuotaIncreaseRequestInTemplate_serviceCode,
     serviceQuotaIncreaseRequestInTemplate_quotaCode,
-    serviceQuotaIncreaseRequestInTemplate_unit,
+    serviceQuotaIncreaseRequestInTemplate_serviceCode,
     serviceQuotaIncreaseRequestInTemplate_quotaName,
+    serviceQuotaIncreaseRequestInTemplate_awsRegion,
+    serviceQuotaIncreaseRequestInTemplate_serviceName,
+    serviceQuotaIncreaseRequestInTemplate_unit,
+    serviceQuotaIncreaseRequestInTemplate_desiredValue,
 
     -- ** Tag
     tag_key,

@@ -17,23 +17,23 @@ module Amazonka.ServiceQuotas.Types
     defaultService,
 
     -- * Errors
-    _TagPolicyViolationException,
-    _NoAvailableOrganizationException,
-    _AccessDeniedException,
-    _TemplatesNotAvailableInRegionException,
-    _DependencyAccessDeniedException,
     _ResourceAlreadyExistsException,
-    _AWSServiceAccessNotEnabledException,
+    _TagPolicyViolationException,
+    _DependencyAccessDeniedException,
+    _OrganizationNotInAllFeaturesModeException,
+    _AccessDeniedException,
     _InvalidResourceStateException,
     _TooManyTagsException,
-    _TooManyRequestsException,
-    _QuotaExceededException,
-    _ServiceException,
-    _IllegalArgumentException,
-    _ServiceQuotaTemplateNotInUseException,
-    _OrganizationNotInAllFeaturesModeException,
     _InvalidPaginationTokenException,
+    _TemplatesNotAvailableInRegionException,
+    _AWSServiceAccessNotEnabledException,
+    _ServiceQuotaTemplateNotInUseException,
+    _QuotaExceededException,
     _NoSuchResourceException,
+    _ServiceException,
+    _NoAvailableOrganizationException,
+    _IllegalArgumentException,
+    _TooManyRequestsException,
 
     -- * ErrorCode
     ErrorCode (..),
@@ -50,15 +50,15 @@ module Amazonka.ServiceQuotas.Types
     -- * ErrorReason
     ErrorReason (..),
     newErrorReason,
-    errorReason_errorCode,
     errorReason_errorMessage,
+    errorReason_errorCode,
 
     -- * MetricInfo
     MetricInfo (..),
     newMetricInfo,
-    metricInfo_metricDimensions,
-    metricInfo_metricName,
     metricInfo_metricStatisticRecommendation,
+    metricInfo_metricName,
+    metricInfo_metricDimensions,
     metricInfo_metricNamespace,
 
     -- * QuotaPeriod
@@ -70,54 +70,54 @@ module Amazonka.ServiceQuotas.Types
     -- * RequestedServiceQuotaChange
     RequestedServiceQuotaChange (..),
     newRequestedServiceQuotaChange,
-    requestedServiceQuotaChange_status,
-    requestedServiceQuotaChange_lastUpdated,
-    requestedServiceQuotaChange_globalQuota,
-    requestedServiceQuotaChange_created,
-    requestedServiceQuotaChange_desiredValue,
     requestedServiceQuotaChange_quotaArn,
-    requestedServiceQuotaChange_caseId,
-    requestedServiceQuotaChange_serviceName,
-    requestedServiceQuotaChange_id,
-    requestedServiceQuotaChange_serviceCode,
+    requestedServiceQuotaChange_globalQuota,
     requestedServiceQuotaChange_quotaCode,
-    requestedServiceQuotaChange_unit,
-    requestedServiceQuotaChange_requester,
+    requestedServiceQuotaChange_caseId,
+    requestedServiceQuotaChange_created,
+    requestedServiceQuotaChange_serviceCode,
+    requestedServiceQuotaChange_status,
+    requestedServiceQuotaChange_id,
+    requestedServiceQuotaChange_lastUpdated,
     requestedServiceQuotaChange_quotaName,
+    requestedServiceQuotaChange_serviceName,
+    requestedServiceQuotaChange_requester,
+    requestedServiceQuotaChange_unit,
+    requestedServiceQuotaChange_desiredValue,
 
     -- * ServiceInfo
     ServiceInfo (..),
     newServiceInfo,
-    serviceInfo_serviceName,
     serviceInfo_serviceCode,
+    serviceInfo_serviceName,
 
     -- * ServiceQuota
     ServiceQuota (..),
     newServiceQuota,
-    serviceQuota_globalQuota,
-    serviceQuota_period,
-    serviceQuota_value,
     serviceQuota_quotaArn,
-    serviceQuota_usageMetric,
-    serviceQuota_errorReason,
-    serviceQuota_adjustable,
-    serviceQuota_serviceName,
-    serviceQuota_serviceCode,
+    serviceQuota_globalQuota,
     serviceQuota_quotaCode,
-    serviceQuota_unit,
+    serviceQuota_usageMetric,
+    serviceQuota_adjustable,
+    serviceQuota_errorReason,
+    serviceQuota_period,
+    serviceQuota_serviceCode,
     serviceQuota_quotaName,
+    serviceQuota_serviceName,
+    serviceQuota_unit,
+    serviceQuota_value,
 
     -- * ServiceQuotaIncreaseRequestInTemplate
     ServiceQuotaIncreaseRequestInTemplate (..),
     newServiceQuotaIncreaseRequestInTemplate,
     serviceQuotaIncreaseRequestInTemplate_globalQuota,
-    serviceQuotaIncreaseRequestInTemplate_desiredValue,
-    serviceQuotaIncreaseRequestInTemplate_serviceName,
-    serviceQuotaIncreaseRequestInTemplate_awsRegion,
-    serviceQuotaIncreaseRequestInTemplate_serviceCode,
     serviceQuotaIncreaseRequestInTemplate_quotaCode,
-    serviceQuotaIncreaseRequestInTemplate_unit,
+    serviceQuotaIncreaseRequestInTemplate_serviceCode,
     serviceQuotaIncreaseRequestInTemplate_quotaName,
+    serviceQuotaIncreaseRequestInTemplate_awsRegion,
+    serviceQuotaIncreaseRequestInTemplate_serviceName,
+    serviceQuotaIncreaseRequestInTemplate_unit,
+    serviceQuotaIncreaseRequestInTemplate_desiredValue,
 
     -- * Tag
     Tag (..),
@@ -170,35 +170,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -207,13 +180,47 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The specified resource already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
 
 -- | The specified tag is a reserved word and cannot be used.
 _TagPolicyViolationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -221,27 +228,6 @@ _TagPolicyViolationException =
   Core._MatchServiceError
     defaultService
     "TagPolicyViolationException"
-
--- | The account making this call is not a member of an organization.
-_NoAvailableOrganizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoAvailableOrganizationException =
-  Core._MatchServiceError
-    defaultService
-    "NoAvailableOrganizationException"
-
--- | You do not have sufficient permission to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "AccessDeniedException"
-
--- | The Service Quotas template is not available in this AWS Region.
-_TemplatesNotAvailableInRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TemplatesNotAvailableInRegionException =
-  Core._MatchServiceError
-    defaultService
-    "TemplatesNotAvailableInRegionException"
 
 -- | You can\'t perform this action because a dependency does not have
 -- access.
@@ -251,20 +237,20 @@ _DependencyAccessDeniedException =
     defaultService
     "DependencyAccessDeniedException"
 
--- | The specified resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
+-- | The organization that your account belongs to is not in All Features
+-- mode.
+_OrganizationNotInAllFeaturesModeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OrganizationNotInAllFeaturesModeException =
   Core._MatchServiceError
     defaultService
-    "ResourceAlreadyExistsException"
+    "OrganizationNotInAllFeaturesModeException"
 
--- | The action you attempted is not allowed unless Service Access with
--- Service Quotas is enabled in your organization.
-_AWSServiceAccessNotEnabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AWSServiceAccessNotEnabledException =
+-- | You do not have sufficient permission to perform this action.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
   Core._MatchServiceError
     defaultService
-    "AWSServiceAccessNotEnabledException"
+    "AccessDeniedException"
 
 -- | The resource is in an invalid state.
 _InvalidResourceStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -283,13 +269,34 @@ _TooManyTagsException =
     defaultService
     "TooManyTagsException"
 
--- | Due to throttling, the request was denied. Slow down the rate of request
--- calls, or request an increase for this quota.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
+-- | Invalid input was provided.
+_InvalidPaginationTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPaginationTokenException =
   Core._MatchServiceError
     defaultService
-    "TooManyRequestsException"
+    "InvalidPaginationTokenException"
+
+-- | The Service Quotas template is not available in this AWS Region.
+_TemplatesNotAvailableInRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TemplatesNotAvailableInRegionException =
+  Core._MatchServiceError
+    defaultService
+    "TemplatesNotAvailableInRegionException"
+
+-- | The action you attempted is not allowed unless Service Access with
+-- Service Quotas is enabled in your organization.
+_AWSServiceAccessNotEnabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AWSServiceAccessNotEnabledException =
+  Core._MatchServiceError
+    defaultService
+    "AWSServiceAccessNotEnabledException"
+
+-- | The quota request template is not associated with your organization.
+_ServiceQuotaTemplateNotInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaTemplateNotInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaTemplateNotInUseException"
 
 -- | You have exceeded your service quota. To perform the requested action,
 -- remove some of the relevant resources, or use Service Quotas to request
@@ -300,12 +307,26 @@ _QuotaExceededException =
     defaultService
     "QuotaExceededException"
 
+-- | The specified resource does not exist.
+_NoSuchResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchResourceException =
+  Core._MatchServiceError
+    defaultService
+    "NoSuchResourceException"
+
 -- | Something went wrong.
 _ServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceException =
   Core._MatchServiceError
     defaultService
     "ServiceException"
+
+-- | The account making this call is not a member of an organization.
+_NoAvailableOrganizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoAvailableOrganizationException =
+  Core._MatchServiceError
+    defaultService
+    "NoAvailableOrganizationException"
 
 -- | Invalid input was provided.
 _IllegalArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -314,31 +335,10 @@ _IllegalArgumentException =
     defaultService
     "IllegalArgumentException"
 
--- | The quota request template is not associated with your organization.
-_ServiceQuotaTemplateNotInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaTemplateNotInUseException =
+-- | Due to throttling, the request was denied. Slow down the rate of request
+-- calls, or request an increase for this quota.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
   Core._MatchServiceError
     defaultService
-    "ServiceQuotaTemplateNotInUseException"
-
--- | The organization that your account belongs to is not in All Features
--- mode.
-_OrganizationNotInAllFeaturesModeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OrganizationNotInAllFeaturesModeException =
-  Core._MatchServiceError
-    defaultService
-    "OrganizationNotInAllFeaturesModeException"
-
--- | Invalid input was provided.
-_InvalidPaginationTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPaginationTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidPaginationTokenException"
-
--- | The specified resource does not exist.
-_NoSuchResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchResourceException =
-  Core._MatchServiceError
-    defaultService
-    "NoSuchResourceException"
+    "TooManyRequestsException"

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceInfo' smart constructor.
 data ServiceInfo = ServiceInfo'
-  { -- | The service name.
-    serviceName :: Prelude.Maybe Prelude.Text,
-    -- | The service identifier.
-    serviceCode :: Prelude.Maybe Prelude.Text
+  { -- | The service identifier.
+    serviceCode :: Prelude.Maybe Prelude.Text,
+    -- | The service name.
+    serviceName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data ServiceInfo = ServiceInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceName', 'serviceInfo_serviceName' - The service name.
---
 -- 'serviceCode', 'serviceInfo_serviceCode' - The service identifier.
+--
+-- 'serviceName', 'serviceInfo_serviceName' - The service name.
 newServiceInfo ::
   ServiceInfo
 newServiceInfo =
   ServiceInfo'
-    { serviceName = Prelude.Nothing,
-      serviceCode = Prelude.Nothing
+    { serviceCode = Prelude.Nothing,
+      serviceName = Prelude.Nothing
     }
-
--- | The service name.
-serviceInfo_serviceName :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
-serviceInfo_serviceName = Lens.lens (\ServiceInfo' {serviceName} -> serviceName) (\s@ServiceInfo' {} a -> s {serviceName = a} :: ServiceInfo)
 
 -- | The service identifier.
 serviceInfo_serviceCode :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_serviceCode = Lens.lens (\ServiceInfo' {serviceCode} -> serviceCode) (\s@ServiceInfo' {} a -> s {serviceCode = a} :: ServiceInfo)
+
+-- | The service name.
+serviceInfo_serviceName :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
+serviceInfo_serviceName = Lens.lens (\ServiceInfo' {serviceName} -> serviceName) (\s@ServiceInfo' {} a -> s {serviceName = a} :: ServiceInfo)
 
 instance Core.FromJSON ServiceInfo where
   parseJSON =
@@ -67,16 +67,16 @@ instance Core.FromJSON ServiceInfo where
       "ServiceInfo"
       ( \x ->
           ServiceInfo'
-            Prelude.<$> (x Core..:? "ServiceName")
-            Prelude.<*> (x Core..:? "ServiceCode")
+            Prelude.<$> (x Core..:? "ServiceCode")
+            Prelude.<*> (x Core..:? "ServiceName")
       )
 
 instance Prelude.Hashable ServiceInfo where
   hashWithSalt _salt ServiceInfo' {..} =
-    _salt `Prelude.hashWithSalt` serviceName
-      `Prelude.hashWithSalt` serviceCode
+    _salt `Prelude.hashWithSalt` serviceCode
+      `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData ServiceInfo where
   rnf ServiceInfo' {..} =
-    Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf serviceCode
+    Prelude.rnf serviceCode
+      `Prelude.seq` Prelude.rnf serviceName

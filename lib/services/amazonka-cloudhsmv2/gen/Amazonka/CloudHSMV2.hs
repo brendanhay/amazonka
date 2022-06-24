@@ -21,23 +21,23 @@ module Amazonka.CloudHSMV2
     -- * Errors
     -- $errors
 
-    -- ** CloudHsmInternalFailureException
-    _CloudHsmInternalFailureException,
-
-    -- ** CloudHsmServiceException
-    _CloudHsmServiceException,
-
-    -- ** CloudHsmInvalidRequestException
-    _CloudHsmInvalidRequestException,
+    -- ** CloudHsmResourceNotFoundException
+    _CloudHsmResourceNotFoundException,
 
     -- ** CloudHsmAccessDeniedException
     _CloudHsmAccessDeniedException,
 
-    -- ** CloudHsmResourceNotFoundException
-    _CloudHsmResourceNotFoundException,
+    -- ** CloudHsmInvalidRequestException
+    _CloudHsmInvalidRequestException,
+
+    -- ** CloudHsmServiceException
+    _CloudHsmServiceException,
 
     -- ** CloudHsmTagException
     _CloudHsmTagException,
+
+    -- ** CloudHsmInternalFailureException
+    _CloudHsmInternalFailureException,
 
     -- * Waiters
     -- $waiters
@@ -45,47 +45,11 @@ module Amazonka.CloudHSMV2
     -- * Operations
     -- $operations
 
-    -- ** DescribeClusters (Paginated)
-    DescribeClusters (DescribeClusters'),
-    newDescribeClusters,
-    DescribeClustersResponse (DescribeClustersResponse'),
-    newDescribeClustersResponse,
-
-    -- ** DeleteBackup
-    DeleteBackup (DeleteBackup'),
-    newDeleteBackup,
-    DeleteBackupResponse (DeleteBackupResponse'),
-    newDeleteBackupResponse,
-
-    -- ** InitializeCluster
-    InitializeCluster (InitializeCluster'),
-    newInitializeCluster,
-    InitializeClusterResponse (InitializeClusterResponse'),
-    newInitializeClusterResponse,
-
-    -- ** CreateHsm
-    CreateHsm (CreateHsm'),
-    newCreateHsm,
-    CreateHsmResponse (CreateHsmResponse'),
-    newCreateHsmResponse,
-
-    -- ** DescribeBackups (Paginated)
-    DescribeBackups (DescribeBackups'),
-    newDescribeBackups,
-    DescribeBackupsResponse (DescribeBackupsResponse'),
-    newDescribeBackupsResponse,
-
     -- ** CopyBackupToRegion
     CopyBackupToRegion (CopyBackupToRegion'),
     newCopyBackupToRegion,
     CopyBackupToRegionResponse (CopyBackupToRegionResponse'),
     newCopyBackupToRegionResponse,
-
-    -- ** DeleteCluster
-    DeleteCluster (DeleteCluster'),
-    newDeleteCluster,
-    DeleteClusterResponse (DeleteClusterResponse'),
-    newDeleteClusterResponse,
 
     -- ** CreateCluster
     CreateCluster (CreateCluster'),
@@ -93,11 +57,23 @@ module Amazonka.CloudHSMV2
     CreateClusterResponse (CreateClusterResponse'),
     newCreateClusterResponse,
 
-    -- ** RestoreBackup
-    RestoreBackup (RestoreBackup'),
-    newRestoreBackup,
-    RestoreBackupResponse (RestoreBackupResponse'),
-    newRestoreBackupResponse,
+    -- ** CreateHsm
+    CreateHsm (CreateHsm'),
+    newCreateHsm,
+    CreateHsmResponse (CreateHsmResponse'),
+    newCreateHsmResponse,
+
+    -- ** DeleteBackup
+    DeleteBackup (DeleteBackup'),
+    newDeleteBackup,
+    DeleteBackupResponse (DeleteBackupResponse'),
+    newDeleteBackupResponse,
+
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
 
     -- ** DeleteHsm
     DeleteHsm (DeleteHsm'),
@@ -105,17 +81,23 @@ module Amazonka.CloudHSMV2
     DeleteHsmResponse (DeleteHsmResponse'),
     newDeleteHsmResponse,
 
-    -- ** ModifyCluster
-    ModifyCluster (ModifyCluster'),
-    newModifyCluster,
-    ModifyClusterResponse (ModifyClusterResponse'),
-    newModifyClusterResponse,
+    -- ** DescribeBackups (Paginated)
+    DescribeBackups (DescribeBackups'),
+    newDescribeBackups,
+    DescribeBackupsResponse (DescribeBackupsResponse'),
+    newDescribeBackupsResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** DescribeClusters (Paginated)
+    DescribeClusters (DescribeClusters'),
+    newDescribeClusters,
+    DescribeClustersResponse (DescribeClustersResponse'),
+    newDescribeClustersResponse,
+
+    -- ** InitializeCluster
+    InitializeCluster (InitializeCluster'),
+    newInitializeCluster,
+    InitializeClusterResponse (InitializeClusterResponse'),
+    newInitializeClusterResponse,
 
     -- ** ListTags (Paginated)
     ListTags (ListTags'),
@@ -123,17 +105,35 @@ module Amazonka.CloudHSMV2
     ListTagsResponse (ListTagsResponse'),
     newListTagsResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
     -- ** ModifyBackupAttributes
     ModifyBackupAttributes (ModifyBackupAttributes'),
     newModifyBackupAttributes,
     ModifyBackupAttributesResponse (ModifyBackupAttributesResponse'),
     newModifyBackupAttributesResponse,
+
+    -- ** ModifyCluster
+    ModifyCluster (ModifyCluster'),
+    newModifyCluster,
+    ModifyClusterResponse (ModifyClusterResponse'),
+    newModifyClusterResponse,
+
+    -- ** RestoreBackup
+    RestoreBackup (RestoreBackup'),
+    newRestoreBackup,
+    RestoreBackupResponse (RestoreBackupResponse'),
+    newRestoreBackupResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- * Types
 

@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCertificates' smart constructor.
 data Certificates = Certificates'
-  { -- | The HSM hardware certificate issued (signed) by the hardware
-    -- manufacturer.
-    manufacturerHardwareCertificate :: Prelude.Maybe Prelude.Text,
-    -- | The cluster\'s certificate signing request (CSR). The CSR exists only
-    -- when the cluster\'s state is @UNINITIALIZED@.
-    clusterCsr :: Prelude.Maybe Prelude.Text,
-    -- | The HSM certificate issued (signed) by the HSM hardware.
+  { -- | The HSM certificate issued (signed) by the HSM hardware.
     hsmCertificate :: Prelude.Maybe Prelude.Text,
     -- | The cluster certificate issued (signed) by the issuing certificate
     -- authority (CA) of the cluster\'s owner.
     clusterCertificate :: Prelude.Maybe Prelude.Text,
+    -- | The cluster\'s certificate signing request (CSR). The CSR exists only
+    -- when the cluster\'s state is @UNINITIALIZED@.
+    clusterCsr :: Prelude.Maybe Prelude.Text,
+    -- | The HSM hardware certificate issued (signed) by the hardware
+    -- manufacturer.
+    manufacturerHardwareCertificate :: Prelude.Maybe Prelude.Text,
     -- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
     awsHardwareCertificate :: Prelude.Maybe Prelude.Text
   }
@@ -52,39 +52,28 @@ data Certificates = Certificates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'manufacturerHardwareCertificate', 'certificates_manufacturerHardwareCertificate' - The HSM hardware certificate issued (signed) by the hardware
--- manufacturer.
---
--- 'clusterCsr', 'certificates_clusterCsr' - The cluster\'s certificate signing request (CSR). The CSR exists only
--- when the cluster\'s state is @UNINITIALIZED@.
---
 -- 'hsmCertificate', 'certificates_hsmCertificate' - The HSM certificate issued (signed) by the HSM hardware.
 --
 -- 'clusterCertificate', 'certificates_clusterCertificate' - The cluster certificate issued (signed) by the issuing certificate
 -- authority (CA) of the cluster\'s owner.
+--
+-- 'clusterCsr', 'certificates_clusterCsr' - The cluster\'s certificate signing request (CSR). The CSR exists only
+-- when the cluster\'s state is @UNINITIALIZED@.
+--
+-- 'manufacturerHardwareCertificate', 'certificates_manufacturerHardwareCertificate' - The HSM hardware certificate issued (signed) by the hardware
+-- manufacturer.
 --
 -- 'awsHardwareCertificate', 'certificates_awsHardwareCertificate' - The HSM hardware certificate issued (signed) by AWS CloudHSM.
 newCertificates ::
   Certificates
 newCertificates =
   Certificates'
-    { manufacturerHardwareCertificate =
-        Prelude.Nothing,
-      clusterCsr = Prelude.Nothing,
-      hsmCertificate = Prelude.Nothing,
+    { hsmCertificate = Prelude.Nothing,
       clusterCertificate = Prelude.Nothing,
+      clusterCsr = Prelude.Nothing,
+      manufacturerHardwareCertificate = Prelude.Nothing,
       awsHardwareCertificate = Prelude.Nothing
     }
-
--- | The HSM hardware certificate issued (signed) by the hardware
--- manufacturer.
-certificates_manufacturerHardwareCertificate :: Lens.Lens' Certificates (Prelude.Maybe Prelude.Text)
-certificates_manufacturerHardwareCertificate = Lens.lens (\Certificates' {manufacturerHardwareCertificate} -> manufacturerHardwareCertificate) (\s@Certificates' {} a -> s {manufacturerHardwareCertificate = a} :: Certificates)
-
--- | The cluster\'s certificate signing request (CSR). The CSR exists only
--- when the cluster\'s state is @UNINITIALIZED@.
-certificates_clusterCsr :: Lens.Lens' Certificates (Prelude.Maybe Prelude.Text)
-certificates_clusterCsr = Lens.lens (\Certificates' {clusterCsr} -> clusterCsr) (\s@Certificates' {} a -> s {clusterCsr = a} :: Certificates)
 
 -- | The HSM certificate issued (signed) by the HSM hardware.
 certificates_hsmCertificate :: Lens.Lens' Certificates (Prelude.Maybe Prelude.Text)
@@ -94,6 +83,16 @@ certificates_hsmCertificate = Lens.lens (\Certificates' {hsmCertificate} -> hsmC
 -- authority (CA) of the cluster\'s owner.
 certificates_clusterCertificate :: Lens.Lens' Certificates (Prelude.Maybe Prelude.Text)
 certificates_clusterCertificate = Lens.lens (\Certificates' {clusterCertificate} -> clusterCertificate) (\s@Certificates' {} a -> s {clusterCertificate = a} :: Certificates)
+
+-- | The cluster\'s certificate signing request (CSR). The CSR exists only
+-- when the cluster\'s state is @UNINITIALIZED@.
+certificates_clusterCsr :: Lens.Lens' Certificates (Prelude.Maybe Prelude.Text)
+certificates_clusterCsr = Lens.lens (\Certificates' {clusterCsr} -> clusterCsr) (\s@Certificates' {} a -> s {clusterCsr = a} :: Certificates)
+
+-- | The HSM hardware certificate issued (signed) by the hardware
+-- manufacturer.
+certificates_manufacturerHardwareCertificate :: Lens.Lens' Certificates (Prelude.Maybe Prelude.Text)
+certificates_manufacturerHardwareCertificate = Lens.lens (\Certificates' {manufacturerHardwareCertificate} -> manufacturerHardwareCertificate) (\s@Certificates' {} a -> s {manufacturerHardwareCertificate = a} :: Certificates)
 
 -- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
 certificates_awsHardwareCertificate :: Lens.Lens' Certificates (Prelude.Maybe Prelude.Text)
@@ -105,26 +104,25 @@ instance Core.FromJSON Certificates where
       "Certificates"
       ( \x ->
           Certificates'
-            Prelude.<$> (x Core..:? "ManufacturerHardwareCertificate")
-            Prelude.<*> (x Core..:? "ClusterCsr")
-            Prelude.<*> (x Core..:? "HsmCertificate")
+            Prelude.<$> (x Core..:? "HsmCertificate")
             Prelude.<*> (x Core..:? "ClusterCertificate")
+            Prelude.<*> (x Core..:? "ClusterCsr")
+            Prelude.<*> (x Core..:? "ManufacturerHardwareCertificate")
             Prelude.<*> (x Core..:? "AwsHardwareCertificate")
       )
 
 instance Prelude.Hashable Certificates where
   hashWithSalt _salt Certificates' {..} =
-    _salt
-      `Prelude.hashWithSalt` manufacturerHardwareCertificate
-      `Prelude.hashWithSalt` clusterCsr
-      `Prelude.hashWithSalt` hsmCertificate
+    _salt `Prelude.hashWithSalt` hsmCertificate
       `Prelude.hashWithSalt` clusterCertificate
+      `Prelude.hashWithSalt` clusterCsr
+      `Prelude.hashWithSalt` manufacturerHardwareCertificate
       `Prelude.hashWithSalt` awsHardwareCertificate
 
 instance Prelude.NFData Certificates where
   rnf Certificates' {..} =
-    Prelude.rnf manufacturerHardwareCertificate
-      `Prelude.seq` Prelude.rnf clusterCsr
-      `Prelude.seq` Prelude.rnf hsmCertificate
+    Prelude.rnf hsmCertificate
       `Prelude.seq` Prelude.rnf clusterCertificate
+      `Prelude.seq` Prelude.rnf clusterCsr
+      `Prelude.seq` Prelude.rnf manufacturerHardwareCertificate
       `Prelude.seq` Prelude.rnf awsHardwareCertificate

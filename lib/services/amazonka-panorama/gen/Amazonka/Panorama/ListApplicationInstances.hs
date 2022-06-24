@@ -28,9 +28,9 @@ module Amazonka.Panorama.ListApplicationInstances
 
     -- * Request Lenses
     listApplicationInstances_nextToken,
-    listApplicationInstances_statusFilter,
     listApplicationInstances_deviceId,
     listApplicationInstances_maxResults,
+    listApplicationInstances_statusFilter,
 
     -- * Destructuring the Response
     ListApplicationInstancesResponse (..),
@@ -55,13 +55,13 @@ data ListApplicationInstances = ListApplicationInstances'
   { -- | Specify the pagination token from a previous request to retrieve the
     -- next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Only include instances with a specific status.
-    statusFilter :: Prelude.Maybe StatusFilter,
     -- | The application instances\' device ID.
     deviceId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of application instances to return in one page of
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Only include instances with a specific status.
+    statusFilter :: Prelude.Maybe StatusFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,31 +76,27 @@ data ListApplicationInstances = ListApplicationInstances'
 -- 'nextToken', 'listApplicationInstances_nextToken' - Specify the pagination token from a previous request to retrieve the
 -- next page of results.
 --
--- 'statusFilter', 'listApplicationInstances_statusFilter' - Only include instances with a specific status.
---
 -- 'deviceId', 'listApplicationInstances_deviceId' - The application instances\' device ID.
 --
 -- 'maxResults', 'listApplicationInstances_maxResults' - The maximum number of application instances to return in one page of
 -- results.
+--
+-- 'statusFilter', 'listApplicationInstances_statusFilter' - Only include instances with a specific status.
 newListApplicationInstances ::
   ListApplicationInstances
 newListApplicationInstances =
   ListApplicationInstances'
     { nextToken =
         Prelude.Nothing,
-      statusFilter = Prelude.Nothing,
       deviceId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      statusFilter = Prelude.Nothing
     }
 
 -- | Specify the pagination token from a previous request to retrieve the
 -- next page of results.
 listApplicationInstances_nextToken :: Lens.Lens' ListApplicationInstances (Prelude.Maybe Prelude.Text)
 listApplicationInstances_nextToken = Lens.lens (\ListApplicationInstances' {nextToken} -> nextToken) (\s@ListApplicationInstances' {} a -> s {nextToken = a} :: ListApplicationInstances)
-
--- | Only include instances with a specific status.
-listApplicationInstances_statusFilter :: Lens.Lens' ListApplicationInstances (Prelude.Maybe StatusFilter)
-listApplicationInstances_statusFilter = Lens.lens (\ListApplicationInstances' {statusFilter} -> statusFilter) (\s@ListApplicationInstances' {} a -> s {statusFilter = a} :: ListApplicationInstances)
 
 -- | The application instances\' device ID.
 listApplicationInstances_deviceId :: Lens.Lens' ListApplicationInstances (Prelude.Maybe Prelude.Text)
@@ -110,6 +106,10 @@ listApplicationInstances_deviceId = Lens.lens (\ListApplicationInstances' {devic
 -- results.
 listApplicationInstances_maxResults :: Lens.Lens' ListApplicationInstances (Prelude.Maybe Prelude.Natural)
 listApplicationInstances_maxResults = Lens.lens (\ListApplicationInstances' {maxResults} -> maxResults) (\s@ListApplicationInstances' {} a -> s {maxResults = a} :: ListApplicationInstances)
+
+-- | Only include instances with a specific status.
+listApplicationInstances_statusFilter :: Lens.Lens' ListApplicationInstances (Prelude.Maybe StatusFilter)
+listApplicationInstances_statusFilter = Lens.lens (\ListApplicationInstances' {statusFilter} -> statusFilter) (\s@ListApplicationInstances' {} a -> s {statusFilter = a} :: ListApplicationInstances)
 
 instance Core.AWSRequest ListApplicationInstances where
   type
@@ -130,16 +130,16 @@ instance Core.AWSRequest ListApplicationInstances where
 instance Prelude.Hashable ListApplicationInstances where
   hashWithSalt _salt ListApplicationInstances' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` statusFilter
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` statusFilter
 
 instance Prelude.NFData ListApplicationInstances where
   rnf ListApplicationInstances' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusFilter
       `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf statusFilter
 
 instance Core.ToHeaders ListApplicationInstances where
   toHeaders =
@@ -159,9 +159,9 @@ instance Core.ToQuery ListApplicationInstances where
   toQuery ListApplicationInstances' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "statusFilter" Core.=: statusFilter,
         "deviceId" Core.=: deviceId,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "statusFilter" Core.=: statusFilter
       ]
 
 -- | /See:/ 'newListApplicationInstancesResponse' smart constructor.

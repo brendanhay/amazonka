@@ -27,13 +27,13 @@ module Amazonka.Panorama.ListNodes
     newListNodes,
 
     -- * Request Lenses
-    listNodes_patchVersion,
+    listNodes_nextToken,
     listNodes_packageName,
     listNodes_packageVersion,
-    listNodes_category,
-    listNodes_nextToken,
-    listNodes_ownerAccount,
     listNodes_maxResults,
+    listNodes_category,
+    listNodes_patchVersion,
+    listNodes_ownerAccount,
 
     -- * Destructuring the Response
     ListNodesResponse (..),
@@ -55,21 +55,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListNodes' smart constructor.
 data ListNodes = ListNodes'
-  { -- | Search for nodes by patch version.
-    patchVersion :: Prelude.Maybe Prelude.Text,
+  { -- | Specify the pagination token from a previous request to retrieve the
+    -- next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Search for nodes by name.
     packageName :: Prelude.Maybe Prelude.Text,
     -- | Search for nodes by version.
     packageVersion :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of nodes to return in one page of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Search for nodes by category.
     category :: Prelude.Maybe NodeCategory,
-    -- | Specify the pagination token from a previous request to retrieve the
-    -- next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Search for nodes by patch version.
+    patchVersion :: Prelude.Maybe Prelude.Text,
     -- | Search for nodes by the account ID of the nodes\' owner.
-    ownerAccount :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of nodes to return in one page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    ownerAccount :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,36 +81,37 @@ data ListNodes = ListNodes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchVersion', 'listNodes_patchVersion' - Search for nodes by patch version.
+-- 'nextToken', 'listNodes_nextToken' - Specify the pagination token from a previous request to retrieve the
+-- next page of results.
 --
 -- 'packageName', 'listNodes_packageName' - Search for nodes by name.
 --
 -- 'packageVersion', 'listNodes_packageVersion' - Search for nodes by version.
 --
+-- 'maxResults', 'listNodes_maxResults' - The maximum number of nodes to return in one page of results.
+--
 -- 'category', 'listNodes_category' - Search for nodes by category.
 --
--- 'nextToken', 'listNodes_nextToken' - Specify the pagination token from a previous request to retrieve the
--- next page of results.
+-- 'patchVersion', 'listNodes_patchVersion' - Search for nodes by patch version.
 --
 -- 'ownerAccount', 'listNodes_ownerAccount' - Search for nodes by the account ID of the nodes\' owner.
---
--- 'maxResults', 'listNodes_maxResults' - The maximum number of nodes to return in one page of results.
 newListNodes ::
   ListNodes
 newListNodes =
   ListNodes'
-    { patchVersion = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       packageName = Prelude.Nothing,
       packageVersion = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       category = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      ownerAccount = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      patchVersion = Prelude.Nothing,
+      ownerAccount = Prelude.Nothing
     }
 
--- | Search for nodes by patch version.
-listNodes_patchVersion :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Text)
-listNodes_patchVersion = Lens.lens (\ListNodes' {patchVersion} -> patchVersion) (\s@ListNodes' {} a -> s {patchVersion = a} :: ListNodes)
+-- | Specify the pagination token from a previous request to retrieve the
+-- next page of results.
+listNodes_nextToken :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Text)
+listNodes_nextToken = Lens.lens (\ListNodes' {nextToken} -> nextToken) (\s@ListNodes' {} a -> s {nextToken = a} :: ListNodes)
 
 -- | Search for nodes by name.
 listNodes_packageName :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Text)
@@ -120,22 +121,21 @@ listNodes_packageName = Lens.lens (\ListNodes' {packageName} -> packageName) (\s
 listNodes_packageVersion :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Text)
 listNodes_packageVersion = Lens.lens (\ListNodes' {packageVersion} -> packageVersion) (\s@ListNodes' {} a -> s {packageVersion = a} :: ListNodes)
 
+-- | The maximum number of nodes to return in one page of results.
+listNodes_maxResults :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Natural)
+listNodes_maxResults = Lens.lens (\ListNodes' {maxResults} -> maxResults) (\s@ListNodes' {} a -> s {maxResults = a} :: ListNodes)
+
 -- | Search for nodes by category.
 listNodes_category :: Lens.Lens' ListNodes (Prelude.Maybe NodeCategory)
 listNodes_category = Lens.lens (\ListNodes' {category} -> category) (\s@ListNodes' {} a -> s {category = a} :: ListNodes)
 
--- | Specify the pagination token from a previous request to retrieve the
--- next page of results.
-listNodes_nextToken :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Text)
-listNodes_nextToken = Lens.lens (\ListNodes' {nextToken} -> nextToken) (\s@ListNodes' {} a -> s {nextToken = a} :: ListNodes)
+-- | Search for nodes by patch version.
+listNodes_patchVersion :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Text)
+listNodes_patchVersion = Lens.lens (\ListNodes' {patchVersion} -> patchVersion) (\s@ListNodes' {} a -> s {patchVersion = a} :: ListNodes)
 
 -- | Search for nodes by the account ID of the nodes\' owner.
 listNodes_ownerAccount :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Text)
 listNodes_ownerAccount = Lens.lens (\ListNodes' {ownerAccount} -> ownerAccount) (\s@ListNodes' {} a -> s {ownerAccount = a} :: ListNodes)
-
--- | The maximum number of nodes to return in one page of results.
-listNodes_maxResults :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Natural)
-listNodes_maxResults = Lens.lens (\ListNodes' {maxResults} -> maxResults) (\s@ListNodes' {} a -> s {maxResults = a} :: ListNodes)
 
 instance Core.AWSRequest ListNodes where
   type AWSResponse ListNodes = ListNodesResponse
@@ -151,23 +151,23 @@ instance Core.AWSRequest ListNodes where
 
 instance Prelude.Hashable ListNodes where
   hashWithSalt _salt ListNodes' {..} =
-    _salt `Prelude.hashWithSalt` patchVersion
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` packageName
       `Prelude.hashWithSalt` packageVersion
-      `Prelude.hashWithSalt` category
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` patchVersion
+      `Prelude.hashWithSalt` ownerAccount
 
 instance Prelude.NFData ListNodes where
   rnf ListNodes' {..} =
-    Prelude.rnf patchVersion
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf packageName
       `Prelude.seq` Prelude.rnf packageVersion
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ownerAccount
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf patchVersion
+      `Prelude.seq` Prelude.rnf ownerAccount
 
 instance Core.ToHeaders ListNodes where
   toHeaders =
@@ -186,13 +186,13 @@ instance Core.ToPath ListNodes where
 instance Core.ToQuery ListNodes where
   toQuery ListNodes' {..} =
     Prelude.mconcat
-      [ "patchVersion" Core.=: patchVersion,
+      [ "nextToken" Core.=: nextToken,
         "packageName" Core.=: packageName,
         "packageVersion" Core.=: packageVersion,
+        "maxResults" Core.=: maxResults,
         "category" Core.=: category,
-        "nextToken" Core.=: nextToken,
-        "ownerAccount" Core.=: ownerAccount,
-        "maxResults" Core.=: maxResults
+        "patchVersion" Core.=: patchVersion,
+        "ownerAccount" Core.=: ownerAccount
       ]
 
 -- | /See:/ 'newListNodesResponse' smart constructor.

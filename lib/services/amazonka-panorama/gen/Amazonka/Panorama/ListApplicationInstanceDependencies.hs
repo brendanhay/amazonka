@@ -36,8 +36,8 @@ module Amazonka.Panorama.ListApplicationInstanceDependencies
     newListApplicationInstanceDependenciesResponse,
 
     -- * Response Lenses
-    listApplicationInstanceDependenciesResponse_packageObjects,
     listApplicationInstanceDependenciesResponse_nextToken,
+    listApplicationInstanceDependenciesResponse_packageObjects,
     listApplicationInstanceDependenciesResponse_httpStatus,
   )
 where
@@ -117,8 +117,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListApplicationInstanceDependenciesResponse'
-            Prelude.<$> (x Core..?> "PackageObjects" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> (x Core..?> "PackageObjects" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,10 +179,10 @@ instance
 
 -- | /See:/ 'newListApplicationInstanceDependenciesResponse' smart constructor.
 data ListApplicationInstanceDependenciesResponse = ListApplicationInstanceDependenciesResponse'
-  { -- | A list of package objects.
-    packageObjects :: Prelude.Maybe [PackageObject],
-    -- | A pagination token that\'s included if more results are available.
+  { -- | A pagination token that\'s included if more results are available.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of package objects.
+    packageObjects :: Prelude.Maybe [PackageObject],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,9 +196,9 @@ data ListApplicationInstanceDependenciesResponse = ListApplicationInstanceDepend
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packageObjects', 'listApplicationInstanceDependenciesResponse_packageObjects' - A list of package objects.
---
 -- 'nextToken', 'listApplicationInstanceDependenciesResponse_nextToken' - A pagination token that\'s included if more results are available.
+--
+-- 'packageObjects', 'listApplicationInstanceDependenciesResponse_packageObjects' - A list of package objects.
 --
 -- 'httpStatus', 'listApplicationInstanceDependenciesResponse_httpStatus' - The response's http status code.
 newListApplicationInstanceDependenciesResponse ::
@@ -208,19 +208,20 @@ newListApplicationInstanceDependenciesResponse ::
 newListApplicationInstanceDependenciesResponse
   pHttpStatus_ =
     ListApplicationInstanceDependenciesResponse'
-      { packageObjects =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        packageObjects =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | A list of package objects.
-listApplicationInstanceDependenciesResponse_packageObjects :: Lens.Lens' ListApplicationInstanceDependenciesResponse (Prelude.Maybe [PackageObject])
-listApplicationInstanceDependenciesResponse_packageObjects = Lens.lens (\ListApplicationInstanceDependenciesResponse' {packageObjects} -> packageObjects) (\s@ListApplicationInstanceDependenciesResponse' {} a -> s {packageObjects = a} :: ListApplicationInstanceDependenciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token that\'s included if more results are available.
 listApplicationInstanceDependenciesResponse_nextToken :: Lens.Lens' ListApplicationInstanceDependenciesResponse (Prelude.Maybe Prelude.Text)
 listApplicationInstanceDependenciesResponse_nextToken = Lens.lens (\ListApplicationInstanceDependenciesResponse' {nextToken} -> nextToken) (\s@ListApplicationInstanceDependenciesResponse' {} a -> s {nextToken = a} :: ListApplicationInstanceDependenciesResponse)
+
+-- | A list of package objects.
+listApplicationInstanceDependenciesResponse_packageObjects :: Lens.Lens' ListApplicationInstanceDependenciesResponse (Prelude.Maybe [PackageObject])
+listApplicationInstanceDependenciesResponse_packageObjects = Lens.lens (\ListApplicationInstanceDependenciesResponse' {packageObjects} -> packageObjects) (\s@ListApplicationInstanceDependenciesResponse' {} a -> s {packageObjects = a} :: ListApplicationInstanceDependenciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listApplicationInstanceDependenciesResponse_httpStatus :: Lens.Lens' ListApplicationInstanceDependenciesResponse Prelude.Int
@@ -231,6 +232,6 @@ instance
     ListApplicationInstanceDependenciesResponse
   where
   rnf ListApplicationInstanceDependenciesResponse' {..} =
-    Prelude.rnf packageObjects
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf packageObjects
       `Prelude.seq` Prelude.rnf httpStatus

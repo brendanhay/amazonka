@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJob' smart constructor.
 data Job = Job'
-  { -- | The job\'s ID.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | The target device\'s ID.
-    deviceId :: Prelude.Maybe Prelude.Text
+  { -- | The target device\'s ID.
+    deviceId :: Prelude.Maybe Prelude.Text,
+    -- | The job\'s ID.
+    jobId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data Job = Job'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'job_jobId' - The job\'s ID.
---
 -- 'deviceId', 'job_deviceId' - The target device\'s ID.
+--
+-- 'jobId', 'job_jobId' - The job\'s ID.
 newJob ::
   Job
 newJob =
   Job'
-    { jobId = Prelude.Nothing,
-      deviceId = Prelude.Nothing
+    { deviceId = Prelude.Nothing,
+      jobId = Prelude.Nothing
     }
-
--- | The job\'s ID.
-job_jobId :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
-job_jobId = Lens.lens (\Job' {jobId} -> jobId) (\s@Job' {} a -> s {jobId = a} :: Job)
 
 -- | The target device\'s ID.
 job_deviceId :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_deviceId = Lens.lens (\Job' {deviceId} -> deviceId) (\s@Job' {} a -> s {deviceId = a} :: Job)
+
+-- | The job\'s ID.
+job_jobId :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_jobId = Lens.lens (\Job' {jobId} -> jobId) (\s@Job' {} a -> s {jobId = a} :: Job)
 
 instance Core.FromJSON Job where
   parseJSON =
@@ -67,16 +67,16 @@ instance Core.FromJSON Job where
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "DeviceId")
+            Prelude.<$> (x Core..:? "DeviceId")
+            Prelude.<*> (x Core..:? "JobId")
       )
 
 instance Prelude.Hashable Job where
   hashWithSalt _salt Job' {..} =
-    _salt `Prelude.hashWithSalt` jobId
-      `Prelude.hashWithSalt` deviceId
+    _salt `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData Job where
   rnf Job' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf jobId

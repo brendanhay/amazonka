@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkPayload' smart constructor.
 data NetworkPayload = NetworkPayload'
-  { -- | Settings for Ethernet port 1.
-    ethernet1 :: Prelude.Maybe EthernetPayload,
-    -- | Settings for Ethernet port 0.
-    ethernet0 :: Prelude.Maybe EthernetPayload
+  { -- | Settings for Ethernet port 0.
+    ethernet0 :: Prelude.Maybe EthernetPayload,
+    -- | Settings for Ethernet port 1.
+    ethernet1 :: Prelude.Maybe EthernetPayload
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data NetworkPayload = NetworkPayload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ethernet1', 'networkPayload_ethernet1' - Settings for Ethernet port 1.
---
 -- 'ethernet0', 'networkPayload_ethernet0' - Settings for Ethernet port 0.
+--
+-- 'ethernet1', 'networkPayload_ethernet1' - Settings for Ethernet port 1.
 newNetworkPayload ::
   NetworkPayload
 newNetworkPayload =
   NetworkPayload'
-    { ethernet1 = Prelude.Nothing,
-      ethernet0 = Prelude.Nothing
+    { ethernet0 = Prelude.Nothing,
+      ethernet1 = Prelude.Nothing
     }
-
--- | Settings for Ethernet port 1.
-networkPayload_ethernet1 :: Lens.Lens' NetworkPayload (Prelude.Maybe EthernetPayload)
-networkPayload_ethernet1 = Lens.lens (\NetworkPayload' {ethernet1} -> ethernet1) (\s@NetworkPayload' {} a -> s {ethernet1 = a} :: NetworkPayload)
 
 -- | Settings for Ethernet port 0.
 networkPayload_ethernet0 :: Lens.Lens' NetworkPayload (Prelude.Maybe EthernetPayload)
 networkPayload_ethernet0 = Lens.lens (\NetworkPayload' {ethernet0} -> ethernet0) (\s@NetworkPayload' {} a -> s {ethernet0 = a} :: NetworkPayload)
+
+-- | Settings for Ethernet port 1.
+networkPayload_ethernet1 :: Lens.Lens' NetworkPayload (Prelude.Maybe EthernetPayload)
+networkPayload_ethernet1 = Lens.lens (\NetworkPayload' {ethernet1} -> ethernet1) (\s@NetworkPayload' {} a -> s {ethernet1 = a} :: NetworkPayload)
 
 instance Core.FromJSON NetworkPayload where
   parseJSON =
@@ -68,25 +68,25 @@ instance Core.FromJSON NetworkPayload where
       "NetworkPayload"
       ( \x ->
           NetworkPayload'
-            Prelude.<$> (x Core..:? "Ethernet1")
-            Prelude.<*> (x Core..:? "Ethernet0")
+            Prelude.<$> (x Core..:? "Ethernet0")
+            Prelude.<*> (x Core..:? "Ethernet1")
       )
 
 instance Prelude.Hashable NetworkPayload where
   hashWithSalt _salt NetworkPayload' {..} =
-    _salt `Prelude.hashWithSalt` ethernet1
-      `Prelude.hashWithSalt` ethernet0
+    _salt `Prelude.hashWithSalt` ethernet0
+      `Prelude.hashWithSalt` ethernet1
 
 instance Prelude.NFData NetworkPayload where
   rnf NetworkPayload' {..} =
-    Prelude.rnf ethernet1
-      `Prelude.seq` Prelude.rnf ethernet0
+    Prelude.rnf ethernet0
+      `Prelude.seq` Prelude.rnf ethernet1
 
 instance Core.ToJSON NetworkPayload where
   toJSON NetworkPayload' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Ethernet1" Core..=) Prelude.<$> ethernet1,
-            ("Ethernet0" Core..=) Prelude.<$> ethernet0
+          [ ("Ethernet0" Core..=) Prelude.<$> ethernet0,
+            ("Ethernet1" Core..=) Prelude.<$> ethernet1
           ]
       )

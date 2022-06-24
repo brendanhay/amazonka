@@ -49,8 +49,8 @@ module Amazonka.GameLift.CreateAlias
     newCreateAlias,
 
     -- * Request Lenses
-    createAlias_description,
     createAlias_tags,
+    createAlias_description,
     createAlias_name,
     createAlias_routingStrategy,
 
@@ -75,9 +75,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
-  { -- | A human-readable description of the alias.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A list of labels to assign to the new alias resource. Tags are
+  { -- | A list of labels to assign to the new alias resource. Tags are
     -- developer-defined key-value pairs. Tagging AWS resources are useful for
     -- resource management, access management and cost allocation. For more
     -- information, see
@@ -87,6 +85,8 @@ data CreateAlias = CreateAlias'
     -- and view tags. The maximum tag limit may be lower than stated. See the
     -- AWS General Reference for actual tagging limits.
     tags :: Prelude.Maybe [Tag],
+    -- | A human-readable description of the alias.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A descriptive label that is associated with an alias. Alias names do not
     -- need to be unique.
     name :: Prelude.Text,
@@ -104,8 +104,6 @@ data CreateAlias = CreateAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createAlias_description' - A human-readable description of the alias.
---
 -- 'tags', 'createAlias_tags' - A list of labels to assign to the new alias resource. Tags are
 -- developer-defined key-value pairs. Tagging AWS resources are useful for
 -- resource management, access management and cost allocation. For more
@@ -115,6 +113,8 @@ data CreateAlias = CreateAlias'
 -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
 -- and view tags. The maximum tag limit may be lower than stated. See the
 -- AWS General Reference for actual tagging limits.
+--
+-- 'description', 'createAlias_description' - A human-readable description of the alias.
 --
 -- 'name', 'createAlias_name' - A descriptive label that is associated with an alias. Alias names do not
 -- need to be unique.
@@ -129,15 +129,11 @@ newCreateAlias ::
   CreateAlias
 newCreateAlias pName_ pRoutingStrategy_ =
   CreateAlias'
-    { description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_,
       routingStrategy = pRoutingStrategy_
     }
-
--- | A human-readable description of the alias.
-createAlias_description :: Lens.Lens' CreateAlias (Prelude.Maybe Prelude.Text)
-createAlias_description = Lens.lens (\CreateAlias' {description} -> description) (\s@CreateAlias' {} a -> s {description = a} :: CreateAlias)
 
 -- | A list of labels to assign to the new alias resource. Tags are
 -- developer-defined key-value pairs. Tagging AWS resources are useful for
@@ -150,6 +146,10 @@ createAlias_description = Lens.lens (\CreateAlias' {description} -> description)
 -- AWS General Reference for actual tagging limits.
 createAlias_tags :: Lens.Lens' CreateAlias (Prelude.Maybe [Tag])
 createAlias_tags = Lens.lens (\CreateAlias' {tags} -> tags) (\s@CreateAlias' {} a -> s {tags = a} :: CreateAlias) Prelude.. Lens.mapping Lens.coerced
+
+-- | A human-readable description of the alias.
+createAlias_description :: Lens.Lens' CreateAlias (Prelude.Maybe Prelude.Text)
+createAlias_description = Lens.lens (\CreateAlias' {description} -> description) (\s@CreateAlias' {} a -> s {description = a} :: CreateAlias)
 
 -- | A descriptive label that is associated with an alias. Alias names do not
 -- need to be unique.
@@ -174,15 +174,15 @@ instance Core.AWSRequest CreateAlias where
 
 instance Prelude.Hashable CreateAlias where
   hashWithSalt _salt CreateAlias' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` routingStrategy
 
 instance Prelude.NFData CreateAlias where
   rnf CreateAlias' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf routingStrategy
 
@@ -203,8 +203,8 @@ instance Core.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ("RoutingStrategy" Core..= routingStrategy)

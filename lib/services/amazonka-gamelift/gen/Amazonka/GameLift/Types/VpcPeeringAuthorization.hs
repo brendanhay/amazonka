@@ -38,7 +38,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpcPeeringAuthorization' smart constructor.
 data VpcPeeringAuthorization = VpcPeeringAuthorization'
-  { -- | Time stamp indicating when this authorization was issued. Format is a
+  { -- | Time stamp indicating when this authorization expires (24 hours after
+    -- issuance). Format is a number expressed in Unix time as milliseconds
+    -- (for example @\"1469498468.057\"@).
+    expirationTime :: Prelude.Maybe Core.POSIX,
+    -- | A unique identifier for the AWS account that you use to manage your
+    -- GameLift fleet. You can find your Account ID in the AWS Management
+    -- Console under account settings.
+    gameLiftAwsAccountId :: Prelude.Maybe Prelude.Text,
+    -- | Time stamp indicating when this authorization was issued. Format is a
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
     creationTime :: Prelude.Maybe Core.POSIX,
@@ -49,15 +57,7 @@ data VpcPeeringAuthorization = VpcPeeringAuthorization'
     -- Management Console. Learn more about VPC peering in
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
     peerVpcId :: Prelude.Maybe Prelude.Text,
-    peerVpcAwsAccountId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the AWS account that you use to manage your
-    -- GameLift fleet. You can find your Account ID in the AWS Management
-    -- Console under account settings.
-    gameLiftAwsAccountId :: Prelude.Maybe Prelude.Text,
-    -- | Time stamp indicating when this authorization expires (24 hours after
-    -- issuance). Format is a number expressed in Unix time as milliseconds
-    -- (for example @\"1469498468.057\"@).
-    expirationTime :: Prelude.Maybe Core.POSIX
+    peerVpcAwsAccountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,6 +68,14 @@ data VpcPeeringAuthorization = VpcPeeringAuthorization'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'expirationTime', 'vpcPeeringAuthorization_expirationTime' - Time stamp indicating when this authorization expires (24 hours after
+-- issuance). Format is a number expressed in Unix time as milliseconds
+-- (for example @\"1469498468.057\"@).
+--
+-- 'gameLiftAwsAccountId', 'vpcPeeringAuthorization_gameLiftAwsAccountId' - A unique identifier for the AWS account that you use to manage your
+-- GameLift fleet. You can find your Account ID in the AWS Management
+-- Console under account settings.
 --
 -- 'creationTime', 'vpcPeeringAuthorization_creationTime' - Time stamp indicating when this authorization was issued. Format is a
 -- number expressed in Unix time as milliseconds (for example
@@ -81,25 +89,29 @@ data VpcPeeringAuthorization = VpcPeeringAuthorization'
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
 --
 -- 'peerVpcAwsAccountId', 'vpcPeeringAuthorization_peerVpcAwsAccountId' -
---
--- 'gameLiftAwsAccountId', 'vpcPeeringAuthorization_gameLiftAwsAccountId' - A unique identifier for the AWS account that you use to manage your
--- GameLift fleet. You can find your Account ID in the AWS Management
--- Console under account settings.
---
--- 'expirationTime', 'vpcPeeringAuthorization_expirationTime' - Time stamp indicating when this authorization expires (24 hours after
--- issuance). Format is a number expressed in Unix time as milliseconds
--- (for example @\"1469498468.057\"@).
 newVpcPeeringAuthorization ::
   VpcPeeringAuthorization
 newVpcPeeringAuthorization =
   VpcPeeringAuthorization'
-    { creationTime =
+    { expirationTime =
         Prelude.Nothing,
-      peerVpcId = Prelude.Nothing,
-      peerVpcAwsAccountId = Prelude.Nothing,
       gameLiftAwsAccountId = Prelude.Nothing,
-      expirationTime = Prelude.Nothing
+      creationTime = Prelude.Nothing,
+      peerVpcId = Prelude.Nothing,
+      peerVpcAwsAccountId = Prelude.Nothing
     }
+
+-- | Time stamp indicating when this authorization expires (24 hours after
+-- issuance). Format is a number expressed in Unix time as milliseconds
+-- (for example @\"1469498468.057\"@).
+vpcPeeringAuthorization_expirationTime :: Lens.Lens' VpcPeeringAuthorization (Prelude.Maybe Prelude.UTCTime)
+vpcPeeringAuthorization_expirationTime = Lens.lens (\VpcPeeringAuthorization' {expirationTime} -> expirationTime) (\s@VpcPeeringAuthorization' {} a -> s {expirationTime = a} :: VpcPeeringAuthorization) Prelude.. Lens.mapping Core._Time
+
+-- | A unique identifier for the AWS account that you use to manage your
+-- GameLift fleet. You can find your Account ID in the AWS Management
+-- Console under account settings.
+vpcPeeringAuthorization_gameLiftAwsAccountId :: Lens.Lens' VpcPeeringAuthorization (Prelude.Maybe Prelude.Text)
+vpcPeeringAuthorization_gameLiftAwsAccountId = Lens.lens (\VpcPeeringAuthorization' {gameLiftAwsAccountId} -> gameLiftAwsAccountId) (\s@VpcPeeringAuthorization' {} a -> s {gameLiftAwsAccountId = a} :: VpcPeeringAuthorization)
 
 -- | Time stamp indicating when this authorization was issued. Format is a
 -- number expressed in Unix time as milliseconds (for example
@@ -120,43 +132,31 @@ vpcPeeringAuthorization_peerVpcId = Lens.lens (\VpcPeeringAuthorization' {peerVp
 vpcPeeringAuthorization_peerVpcAwsAccountId :: Lens.Lens' VpcPeeringAuthorization (Prelude.Maybe Prelude.Text)
 vpcPeeringAuthorization_peerVpcAwsAccountId = Lens.lens (\VpcPeeringAuthorization' {peerVpcAwsAccountId} -> peerVpcAwsAccountId) (\s@VpcPeeringAuthorization' {} a -> s {peerVpcAwsAccountId = a} :: VpcPeeringAuthorization)
 
--- | A unique identifier for the AWS account that you use to manage your
--- GameLift fleet. You can find your Account ID in the AWS Management
--- Console under account settings.
-vpcPeeringAuthorization_gameLiftAwsAccountId :: Lens.Lens' VpcPeeringAuthorization (Prelude.Maybe Prelude.Text)
-vpcPeeringAuthorization_gameLiftAwsAccountId = Lens.lens (\VpcPeeringAuthorization' {gameLiftAwsAccountId} -> gameLiftAwsAccountId) (\s@VpcPeeringAuthorization' {} a -> s {gameLiftAwsAccountId = a} :: VpcPeeringAuthorization)
-
--- | Time stamp indicating when this authorization expires (24 hours after
--- issuance). Format is a number expressed in Unix time as milliseconds
--- (for example @\"1469498468.057\"@).
-vpcPeeringAuthorization_expirationTime :: Lens.Lens' VpcPeeringAuthorization (Prelude.Maybe Prelude.UTCTime)
-vpcPeeringAuthorization_expirationTime = Lens.lens (\VpcPeeringAuthorization' {expirationTime} -> expirationTime) (\s@VpcPeeringAuthorization' {} a -> s {expirationTime = a} :: VpcPeeringAuthorization) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON VpcPeeringAuthorization where
   parseJSON =
     Core.withObject
       "VpcPeeringAuthorization"
       ( \x ->
           VpcPeeringAuthorization'
-            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "ExpirationTime")
+            Prelude.<*> (x Core..:? "GameLiftAwsAccountId")
+            Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "PeerVpcId")
             Prelude.<*> (x Core..:? "PeerVpcAwsAccountId")
-            Prelude.<*> (x Core..:? "GameLiftAwsAccountId")
-            Prelude.<*> (x Core..:? "ExpirationTime")
       )
 
 instance Prelude.Hashable VpcPeeringAuthorization where
   hashWithSalt _salt VpcPeeringAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt `Prelude.hashWithSalt` expirationTime
+      `Prelude.hashWithSalt` gameLiftAwsAccountId
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` peerVpcId
       `Prelude.hashWithSalt` peerVpcAwsAccountId
-      `Prelude.hashWithSalt` gameLiftAwsAccountId
-      `Prelude.hashWithSalt` expirationTime
 
 instance Prelude.NFData VpcPeeringAuthorization where
   rnf VpcPeeringAuthorization' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf expirationTime
+      `Prelude.seq` Prelude.rnf gameLiftAwsAccountId
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf peerVpcId
       `Prelude.seq` Prelude.rnf peerVpcAwsAccountId
-      `Prelude.seq` Prelude.rnf gameLiftAwsAccountId
-      `Prelude.seq` Prelude.rnf expirationTime

@@ -33,9 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFleetUtilization' smart constructor.
 data FleetUtilization = FleetUtilization'
-  { -- | The number of active game sessions that are currently being hosted
+  { -- | A unique identifier for the fleet associated with the location.
+    fleetId :: Prelude.Maybe Prelude.Text,
+    -- | The number of active player sessions that are currently being hosted
     -- across all instances in the fleet location.
-    activeGameSessionCount :: Prelude.Maybe Prelude.Natural,
+    currentPlayerSessionCount :: Prelude.Maybe Prelude.Natural,
     -- | The fleet location for the fleet utilization information, expressed as
     -- an AWS Region code, such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
@@ -48,11 +50,9 @@ data FleetUtilization = FleetUtilization'
     -- | The maximum number of players allowed across all game sessions that are
     -- currently being hosted across all instances in the fleet location.
     maximumPlayerSessionCount :: Prelude.Maybe Prelude.Natural,
-    -- | The number of active player sessions that are currently being hosted
+    -- | The number of active game sessions that are currently being hosted
     -- across all instances in the fleet location.
-    currentPlayerSessionCount :: Prelude.Maybe Prelude.Natural,
-    -- | A unique identifier for the fleet associated with the location.
-    fleetId :: Prelude.Maybe Prelude.Text,
+    activeGameSessionCount :: Prelude.Maybe Prelude.Natural,
     -- | The number of server processes in @ACTIVE@ status that are currently
     -- running across all instances in the fleet location.
     activeServerProcessCount :: Prelude.Maybe Prelude.Natural
@@ -67,7 +67,9 @@ data FleetUtilization = FleetUtilization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'activeGameSessionCount', 'fleetUtilization_activeGameSessionCount' - The number of active game sessions that are currently being hosted
+-- 'fleetId', 'fleetUtilization_fleetId' - A unique identifier for the fleet associated with the location.
+--
+-- 'currentPlayerSessionCount', 'fleetUtilization_currentPlayerSessionCount' - The number of active player sessions that are currently being hosted
 -- across all instances in the fleet location.
 --
 -- 'location', 'fleetUtilization_location' - The fleet location for the fleet utilization information, expressed as
@@ -82,10 +84,8 @@ data FleetUtilization = FleetUtilization'
 -- 'maximumPlayerSessionCount', 'fleetUtilization_maximumPlayerSessionCount' - The maximum number of players allowed across all game sessions that are
 -- currently being hosted across all instances in the fleet location.
 --
--- 'currentPlayerSessionCount', 'fleetUtilization_currentPlayerSessionCount' - The number of active player sessions that are currently being hosted
+-- 'activeGameSessionCount', 'fleetUtilization_activeGameSessionCount' - The number of active game sessions that are currently being hosted
 -- across all instances in the fleet location.
---
--- 'fleetId', 'fleetUtilization_fleetId' - A unique identifier for the fleet associated with the location.
 --
 -- 'activeServerProcessCount', 'fleetUtilization_activeServerProcessCount' - The number of server processes in @ACTIVE@ status that are currently
 -- running across all instances in the fleet location.
@@ -93,20 +93,23 @@ newFleetUtilization ::
   FleetUtilization
 newFleetUtilization =
   FleetUtilization'
-    { activeGameSessionCount =
-        Prelude.Nothing,
+    { fleetId = Prelude.Nothing,
+      currentPlayerSessionCount = Prelude.Nothing,
       location = Prelude.Nothing,
       fleetArn = Prelude.Nothing,
       maximumPlayerSessionCount = Prelude.Nothing,
-      currentPlayerSessionCount = Prelude.Nothing,
-      fleetId = Prelude.Nothing,
+      activeGameSessionCount = Prelude.Nothing,
       activeServerProcessCount = Prelude.Nothing
     }
 
--- | The number of active game sessions that are currently being hosted
+-- | A unique identifier for the fleet associated with the location.
+fleetUtilization_fleetId :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Text)
+fleetUtilization_fleetId = Lens.lens (\FleetUtilization' {fleetId} -> fleetId) (\s@FleetUtilization' {} a -> s {fleetId = a} :: FleetUtilization)
+
+-- | The number of active player sessions that are currently being hosted
 -- across all instances in the fleet location.
-fleetUtilization_activeGameSessionCount :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Natural)
-fleetUtilization_activeGameSessionCount = Lens.lens (\FleetUtilization' {activeGameSessionCount} -> activeGameSessionCount) (\s@FleetUtilization' {} a -> s {activeGameSessionCount = a} :: FleetUtilization)
+fleetUtilization_currentPlayerSessionCount :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Natural)
+fleetUtilization_currentPlayerSessionCount = Lens.lens (\FleetUtilization' {currentPlayerSessionCount} -> currentPlayerSessionCount) (\s@FleetUtilization' {} a -> s {currentPlayerSessionCount = a} :: FleetUtilization)
 
 -- | The fleet location for the fleet utilization information, expressed as
 -- an AWS Region code, such as @us-west-2@.
@@ -126,14 +129,10 @@ fleetUtilization_fleetArn = Lens.lens (\FleetUtilization' {fleetArn} -> fleetArn
 fleetUtilization_maximumPlayerSessionCount :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Natural)
 fleetUtilization_maximumPlayerSessionCount = Lens.lens (\FleetUtilization' {maximumPlayerSessionCount} -> maximumPlayerSessionCount) (\s@FleetUtilization' {} a -> s {maximumPlayerSessionCount = a} :: FleetUtilization)
 
--- | The number of active player sessions that are currently being hosted
+-- | The number of active game sessions that are currently being hosted
 -- across all instances in the fleet location.
-fleetUtilization_currentPlayerSessionCount :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Natural)
-fleetUtilization_currentPlayerSessionCount = Lens.lens (\FleetUtilization' {currentPlayerSessionCount} -> currentPlayerSessionCount) (\s@FleetUtilization' {} a -> s {currentPlayerSessionCount = a} :: FleetUtilization)
-
--- | A unique identifier for the fleet associated with the location.
-fleetUtilization_fleetId :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Text)
-fleetUtilization_fleetId = Lens.lens (\FleetUtilization' {fleetId} -> fleetId) (\s@FleetUtilization' {} a -> s {fleetId = a} :: FleetUtilization)
+fleetUtilization_activeGameSessionCount :: Lens.Lens' FleetUtilization (Prelude.Maybe Prelude.Natural)
+fleetUtilization_activeGameSessionCount = Lens.lens (\FleetUtilization' {activeGameSessionCount} -> activeGameSessionCount) (\s@FleetUtilization' {} a -> s {activeGameSessionCount = a} :: FleetUtilization)
 
 -- | The number of server processes in @ACTIVE@ status that are currently
 -- running across all instances in the fleet location.
@@ -146,31 +145,31 @@ instance Core.FromJSON FleetUtilization where
       "FleetUtilization"
       ( \x ->
           FleetUtilization'
-            Prelude.<$> (x Core..:? "ActiveGameSessionCount")
+            Prelude.<$> (x Core..:? "FleetId")
+            Prelude.<*> (x Core..:? "CurrentPlayerSessionCount")
             Prelude.<*> (x Core..:? "Location")
             Prelude.<*> (x Core..:? "FleetArn")
             Prelude.<*> (x Core..:? "MaximumPlayerSessionCount")
-            Prelude.<*> (x Core..:? "CurrentPlayerSessionCount")
-            Prelude.<*> (x Core..:? "FleetId")
+            Prelude.<*> (x Core..:? "ActiveGameSessionCount")
             Prelude.<*> (x Core..:? "ActiveServerProcessCount")
       )
 
 instance Prelude.Hashable FleetUtilization where
   hashWithSalt _salt FleetUtilization' {..} =
-    _salt `Prelude.hashWithSalt` activeGameSessionCount
+    _salt `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` currentPlayerSessionCount
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` fleetArn
       `Prelude.hashWithSalt` maximumPlayerSessionCount
-      `Prelude.hashWithSalt` currentPlayerSessionCount
-      `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` activeGameSessionCount
       `Prelude.hashWithSalt` activeServerProcessCount
 
 instance Prelude.NFData FleetUtilization where
   rnf FleetUtilization' {..} =
-    Prelude.rnf activeGameSessionCount
+    Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf currentPlayerSessionCount
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf fleetArn
       `Prelude.seq` Prelude.rnf maximumPlayerSessionCount
-      `Prelude.seq` Prelude.rnf currentPlayerSessionCount
-      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf activeGameSessionCount
       `Prelude.seq` Prelude.rnf activeServerProcessCount

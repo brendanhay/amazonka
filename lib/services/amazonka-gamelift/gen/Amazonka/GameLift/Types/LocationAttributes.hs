@@ -34,15 +34,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLocationAttributes' smart constructor.
 data LocationAttributes = LocationAttributes'
-  { -- | A list of fleet actions that have been suspended in the fleet location.
-    stoppedActions :: Prelude.Maybe (Prelude.NonEmpty FleetAction),
-    -- | A fleet location and its current life-cycle state.
-    locationState :: Prelude.Maybe LocationState,
-    -- | The status of fleet activity updates to the location. The status
+  { -- | The status of fleet activity updates to the location. The status
     -- @PENDING_UPDATE@ indicates that StopFleetActions or StartFleetActions
     -- has been requested but the update has not yet been completed for the
     -- location.
-    updateStatus :: Prelude.Maybe LocationUpdateStatus
+    updateStatus :: Prelude.Maybe LocationUpdateStatus,
+    -- | A list of fleet actions that have been suspended in the fleet location.
+    stoppedActions :: Prelude.Maybe (Prelude.NonEmpty FleetAction),
+    -- | A fleet location and its current life-cycle state.
+    locationState :: Prelude.Maybe LocationState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,23 +54,29 @@ data LocationAttributes = LocationAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stoppedActions', 'locationAttributes_stoppedActions' - A list of fleet actions that have been suspended in the fleet location.
---
--- 'locationState', 'locationAttributes_locationState' - A fleet location and its current life-cycle state.
---
 -- 'updateStatus', 'locationAttributes_updateStatus' - The status of fleet activity updates to the location. The status
 -- @PENDING_UPDATE@ indicates that StopFleetActions or StartFleetActions
 -- has been requested but the update has not yet been completed for the
 -- location.
+--
+-- 'stoppedActions', 'locationAttributes_stoppedActions' - A list of fleet actions that have been suspended in the fleet location.
+--
+-- 'locationState', 'locationAttributes_locationState' - A fleet location and its current life-cycle state.
 newLocationAttributes ::
   LocationAttributes
 newLocationAttributes =
   LocationAttributes'
-    { stoppedActions =
-        Prelude.Nothing,
-      locationState = Prelude.Nothing,
-      updateStatus = Prelude.Nothing
+    { updateStatus = Prelude.Nothing,
+      stoppedActions = Prelude.Nothing,
+      locationState = Prelude.Nothing
     }
+
+-- | The status of fleet activity updates to the location. The status
+-- @PENDING_UPDATE@ indicates that StopFleetActions or StartFleetActions
+-- has been requested but the update has not yet been completed for the
+-- location.
+locationAttributes_updateStatus :: Lens.Lens' LocationAttributes (Prelude.Maybe LocationUpdateStatus)
+locationAttributes_updateStatus = Lens.lens (\LocationAttributes' {updateStatus} -> updateStatus) (\s@LocationAttributes' {} a -> s {updateStatus = a} :: LocationAttributes)
 
 -- | A list of fleet actions that have been suspended in the fleet location.
 locationAttributes_stoppedActions :: Lens.Lens' LocationAttributes (Prelude.Maybe (Prelude.NonEmpty FleetAction))
@@ -80,32 +86,25 @@ locationAttributes_stoppedActions = Lens.lens (\LocationAttributes' {stoppedActi
 locationAttributes_locationState :: Lens.Lens' LocationAttributes (Prelude.Maybe LocationState)
 locationAttributes_locationState = Lens.lens (\LocationAttributes' {locationState} -> locationState) (\s@LocationAttributes' {} a -> s {locationState = a} :: LocationAttributes)
 
--- | The status of fleet activity updates to the location. The status
--- @PENDING_UPDATE@ indicates that StopFleetActions or StartFleetActions
--- has been requested but the update has not yet been completed for the
--- location.
-locationAttributes_updateStatus :: Lens.Lens' LocationAttributes (Prelude.Maybe LocationUpdateStatus)
-locationAttributes_updateStatus = Lens.lens (\LocationAttributes' {updateStatus} -> updateStatus) (\s@LocationAttributes' {} a -> s {updateStatus = a} :: LocationAttributes)
-
 instance Core.FromJSON LocationAttributes where
   parseJSON =
     Core.withObject
       "LocationAttributes"
       ( \x ->
           LocationAttributes'
-            Prelude.<$> (x Core..:? "StoppedActions")
+            Prelude.<$> (x Core..:? "UpdateStatus")
+            Prelude.<*> (x Core..:? "StoppedActions")
             Prelude.<*> (x Core..:? "LocationState")
-            Prelude.<*> (x Core..:? "UpdateStatus")
       )
 
 instance Prelude.Hashable LocationAttributes where
   hashWithSalt _salt LocationAttributes' {..} =
-    _salt `Prelude.hashWithSalt` stoppedActions
+    _salt `Prelude.hashWithSalt` updateStatus
+      `Prelude.hashWithSalt` stoppedActions
       `Prelude.hashWithSalt` locationState
-      `Prelude.hashWithSalt` updateStatus
 
 instance Prelude.NFData LocationAttributes where
   rnf LocationAttributes' {..} =
-    Prelude.rnf stoppedActions
+    Prelude.rnf updateStatus
+      `Prelude.seq` Prelude.rnf stoppedActions
       `Prelude.seq` Prelude.rnf locationState
-      `Prelude.seq` Prelude.rnf updateStatus

@@ -60,8 +60,8 @@ module Amazonka.GameLift.DescribeGameServerInstances
 
     -- * Request Lenses
     describeGameServerInstances_nextToken,
-    describeGameServerInstances_instanceIds,
     describeGameServerInstances_limit,
+    describeGameServerInstances_instanceIds,
     describeGameServerInstances_gameServerGroupName,
 
     -- * Destructuring the Response
@@ -69,8 +69,8 @@ module Amazonka.GameLift.DescribeGameServerInstances
     newDescribeGameServerInstancesResponse,
 
     -- * Response Lenses
-    describeGameServerInstancesResponse_gameServerInstances,
     describeGameServerInstancesResponse_nextToken,
+    describeGameServerInstancesResponse_gameServerInstances,
     describeGameServerInstancesResponse_httpStatus,
   )
 where
@@ -88,14 +88,14 @@ data DescribeGameServerInstances = DescribeGameServerInstances'
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return. Use this parameter with
+    -- @NextToken@ to get results as a set of sequential pages.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The EC2 instance IDs that you want to retrieve status on. EC2 instance
     -- IDs use a 17-character format, for example: @i-1234567890abcdef0@. To
     -- retrieve all instances in the game server group, leave this parameter
     -- empty.
     instanceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The maximum number of results to return. Use this parameter with
-    -- @NextToken@ to get results as a set of sequential pages.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for the game server group. Use either the
     -- GameServerGroup name or ARN value.
     gameServerGroupName :: Prelude.Text
@@ -114,13 +114,13 @@ data DescribeGameServerInstances = DescribeGameServerInstances'
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 --
+-- 'limit', 'describeGameServerInstances_limit' - The maximum number of results to return. Use this parameter with
+-- @NextToken@ to get results as a set of sequential pages.
+--
 -- 'instanceIds', 'describeGameServerInstances_instanceIds' - The EC2 instance IDs that you want to retrieve status on. EC2 instance
 -- IDs use a 17-character format, for example: @i-1234567890abcdef0@. To
 -- retrieve all instances in the game server group, leave this parameter
 -- empty.
---
--- 'limit', 'describeGameServerInstances_limit' - The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential pages.
 --
 -- 'gameServerGroupName', 'describeGameServerInstances_gameServerGroupName' - A unique identifier for the game server group. Use either the
 -- GameServerGroup name or ARN value.
@@ -132,8 +132,8 @@ newDescribeGameServerInstances pGameServerGroupName_ =
   DescribeGameServerInstances'
     { nextToken =
         Prelude.Nothing,
-      instanceIds = Prelude.Nothing,
       limit = Prelude.Nothing,
+      instanceIds = Prelude.Nothing,
       gameServerGroupName = pGameServerGroupName_
     }
 
@@ -143,17 +143,17 @@ newDescribeGameServerInstances pGameServerGroupName_ =
 describeGameServerInstances_nextToken :: Lens.Lens' DescribeGameServerInstances (Prelude.Maybe Prelude.Text)
 describeGameServerInstances_nextToken = Lens.lens (\DescribeGameServerInstances' {nextToken} -> nextToken) (\s@DescribeGameServerInstances' {} a -> s {nextToken = a} :: DescribeGameServerInstances)
 
+-- | The maximum number of results to return. Use this parameter with
+-- @NextToken@ to get results as a set of sequential pages.
+describeGameServerInstances_limit :: Lens.Lens' DescribeGameServerInstances (Prelude.Maybe Prelude.Natural)
+describeGameServerInstances_limit = Lens.lens (\DescribeGameServerInstances' {limit} -> limit) (\s@DescribeGameServerInstances' {} a -> s {limit = a} :: DescribeGameServerInstances)
+
 -- | The EC2 instance IDs that you want to retrieve status on. EC2 instance
 -- IDs use a 17-character format, for example: @i-1234567890abcdef0@. To
 -- retrieve all instances in the game server group, leave this parameter
 -- empty.
 describeGameServerInstances_instanceIds :: Lens.Lens' DescribeGameServerInstances (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeGameServerInstances_instanceIds = Lens.lens (\DescribeGameServerInstances' {instanceIds} -> instanceIds) (\s@DescribeGameServerInstances' {} a -> s {instanceIds = a} :: DescribeGameServerInstances) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential pages.
-describeGameServerInstances_limit :: Lens.Lens' DescribeGameServerInstances (Prelude.Maybe Prelude.Natural)
-describeGameServerInstances_limit = Lens.lens (\DescribeGameServerInstances' {limit} -> limit) (\s@DescribeGameServerInstances' {} a -> s {limit = a} :: DescribeGameServerInstances)
 
 -- | A unique identifier for the game server group. Use either the
 -- GameServerGroup name or ARN value.
@@ -191,25 +191,25 @@ instance Core.AWSRequest DescribeGameServerInstances where
     Response.receiveJSON
       ( \s h x ->
           DescribeGameServerInstancesResponse'
-            Prelude.<$> ( x Core..?> "GameServerInstances"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "GameServerInstances"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeGameServerInstances where
   hashWithSalt _salt DescribeGameServerInstances' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` gameServerGroupName
 
 instance Prelude.NFData DescribeGameServerInstances where
   rnf DescribeGameServerInstances' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceIds
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf instanceIds
       `Prelude.seq` Prelude.rnf gameServerGroupName
 
 instance Core.ToHeaders DescribeGameServerInstances where
@@ -232,8 +232,8 @@ instance Core.ToJSON DescribeGameServerInstances where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("InstanceIds" Core..=) Prelude.<$> instanceIds,
             ("Limit" Core..=) Prelude.<$> limit,
+            ("InstanceIds" Core..=) Prelude.<$> instanceIds,
             Prelude.Just
               ("GameServerGroupName" Core..= gameServerGroupName)
           ]
@@ -247,12 +247,12 @@ instance Core.ToQuery DescribeGameServerInstances where
 
 -- | /See:/ 'newDescribeGameServerInstancesResponse' smart constructor.
 data DescribeGameServerInstancesResponse = DescribeGameServerInstancesResponse'
-  { -- | The collection of requested game server instances.
-    gameServerInstances :: Prelude.Maybe [GameServerInstance],
-    -- | A token that indicates where to resume retrieving results on the next
+  { -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The collection of requested game server instances.
+    gameServerInstances :: Prelude.Maybe [GameServerInstance],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -266,11 +266,11 @@ data DescribeGameServerInstancesResponse = DescribeGameServerInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gameServerInstances', 'describeGameServerInstancesResponse_gameServerInstances' - The collection of requested game server instances.
---
 -- 'nextToken', 'describeGameServerInstancesResponse_nextToken' - A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
+--
+-- 'gameServerInstances', 'describeGameServerInstancesResponse_gameServerInstances' - The collection of requested game server instances.
 --
 -- 'httpStatus', 'describeGameServerInstancesResponse_httpStatus' - The response's http status code.
 newDescribeGameServerInstancesResponse ::
@@ -279,21 +279,21 @@ newDescribeGameServerInstancesResponse ::
   DescribeGameServerInstancesResponse
 newDescribeGameServerInstancesResponse pHttpStatus_ =
   DescribeGameServerInstancesResponse'
-    { gameServerInstances =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      gameServerInstances = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The collection of requested game server instances.
-describeGameServerInstancesResponse_gameServerInstances :: Lens.Lens' DescribeGameServerInstancesResponse (Prelude.Maybe [GameServerInstance])
-describeGameServerInstancesResponse_gameServerInstances = Lens.lens (\DescribeGameServerInstancesResponse' {gameServerInstances} -> gameServerInstances) (\s@DescribeGameServerInstancesResponse' {} a -> s {gameServerInstances = a} :: DescribeGameServerInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
 describeGameServerInstancesResponse_nextToken :: Lens.Lens' DescribeGameServerInstancesResponse (Prelude.Maybe Prelude.Text)
 describeGameServerInstancesResponse_nextToken = Lens.lens (\DescribeGameServerInstancesResponse' {nextToken} -> nextToken) (\s@DescribeGameServerInstancesResponse' {} a -> s {nextToken = a} :: DescribeGameServerInstancesResponse)
+
+-- | The collection of requested game server instances.
+describeGameServerInstancesResponse_gameServerInstances :: Lens.Lens' DescribeGameServerInstancesResponse (Prelude.Maybe [GameServerInstance])
+describeGameServerInstancesResponse_gameServerInstances = Lens.lens (\DescribeGameServerInstancesResponse' {gameServerInstances} -> gameServerInstances) (\s@DescribeGameServerInstancesResponse' {} a -> s {gameServerInstances = a} :: DescribeGameServerInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeGameServerInstancesResponse_httpStatus :: Lens.Lens' DescribeGameServerInstancesResponse Prelude.Int
@@ -304,6 +304,6 @@ instance
     DescribeGameServerInstancesResponse
   where
   rnf DescribeGameServerInstancesResponse' {..} =
-    Prelude.rnf gameServerInstances
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf gameServerInstances
       `Prelude.seq` Prelude.rnf httpStatus

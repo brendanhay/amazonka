@@ -51,10 +51,10 @@ module Amazonka.GameLift.DescribeFleetEvents
     newDescribeFleetEvents,
 
     -- * Request Lenses
-    describeFleetEvents_startTime,
     describeFleetEvents_nextToken,
     describeFleetEvents_endTime,
     describeFleetEvents_limit,
+    describeFleetEvents_startTime,
     describeFleetEvents_fleetId,
 
     -- * Destructuring the Response
@@ -79,12 +79,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeFleetEvents' smart constructor.
 data DescribeFleetEvents = DescribeFleetEvents'
-  { -- | The earliest date to retrieve event logs for. If no start time is
-    -- specified, this call returns entries starting from when the fleet was
-    -- created to the specified end time. Format is a number expressed in Unix
-    -- time as milliseconds (ex: \"1469498468.057\").
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | A token that indicates the start of the next sequential page of results.
+  { -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -96,6 +91,11 @@ data DescribeFleetEvents = DescribeFleetEvents'
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The earliest date to retrieve event logs for. If no start time is
+    -- specified, this call returns entries starting from when the fleet was
+    -- created to the specified end time. Format is a number expressed in Unix
+    -- time as milliseconds (ex: \"1469498468.057\").
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | A unique identifier for the fleet to get event logs for. You can use
     -- either the fleet ID or ARN value.
     fleetId :: Prelude.Text
@@ -110,11 +110,6 @@ data DescribeFleetEvents = DescribeFleetEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'describeFleetEvents_startTime' - The earliest date to retrieve event logs for. If no start time is
--- specified, this call returns entries starting from when the fleet was
--- created to the specified end time. Format is a number expressed in Unix
--- time as milliseconds (ex: \"1469498468.057\").
---
 -- 'nextToken', 'describeFleetEvents_nextToken' - A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
@@ -127,6 +122,11 @@ data DescribeFleetEvents = DescribeFleetEvents'
 -- 'limit', 'describeFleetEvents_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
 --
+-- 'startTime', 'describeFleetEvents_startTime' - The earliest date to retrieve event logs for. If no start time is
+-- specified, this call returns entries starting from when the fleet was
+-- created to the specified end time. Format is a number expressed in Unix
+-- time as milliseconds (ex: \"1469498468.057\").
+--
 -- 'fleetId', 'describeFleetEvents_fleetId' - A unique identifier for the fleet to get event logs for. You can use
 -- either the fleet ID or ARN value.
 newDescribeFleetEvents ::
@@ -135,19 +135,12 @@ newDescribeFleetEvents ::
   DescribeFleetEvents
 newDescribeFleetEvents pFleetId_ =
   DescribeFleetEvents'
-    { startTime = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       endTime = Prelude.Nothing,
       limit = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       fleetId = pFleetId_
     }
-
--- | The earliest date to retrieve event logs for. If no start time is
--- specified, this call returns entries starting from when the fleet was
--- created to the specified end time. Format is a number expressed in Unix
--- time as milliseconds (ex: \"1469498468.057\").
-describeFleetEvents_startTime :: Lens.Lens' DescribeFleetEvents (Prelude.Maybe Prelude.UTCTime)
-describeFleetEvents_startTime = Lens.lens (\DescribeFleetEvents' {startTime} -> startTime) (\s@DescribeFleetEvents' {} a -> s {startTime = a} :: DescribeFleetEvents) Prelude.. Lens.mapping Core._Time
 
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
@@ -166,6 +159,13 @@ describeFleetEvents_endTime = Lens.lens (\DescribeFleetEvents' {endTime} -> endT
 -- @NextToken@ to get results as a set of sequential pages.
 describeFleetEvents_limit :: Lens.Lens' DescribeFleetEvents (Prelude.Maybe Prelude.Natural)
 describeFleetEvents_limit = Lens.lens (\DescribeFleetEvents' {limit} -> limit) (\s@DescribeFleetEvents' {} a -> s {limit = a} :: DescribeFleetEvents)
+
+-- | The earliest date to retrieve event logs for. If no start time is
+-- specified, this call returns entries starting from when the fleet was
+-- created to the specified end time. Format is a number expressed in Unix
+-- time as milliseconds (ex: \"1469498468.057\").
+describeFleetEvents_startTime :: Lens.Lens' DescribeFleetEvents (Prelude.Maybe Prelude.UTCTime)
+describeFleetEvents_startTime = Lens.lens (\DescribeFleetEvents' {startTime} -> startTime) (\s@DescribeFleetEvents' {} a -> s {startTime = a} :: DescribeFleetEvents) Prelude.. Lens.mapping Core._Time
 
 -- | A unique identifier for the fleet to get event logs for. You can use
 -- either the fleet ID or ARN value.
@@ -210,18 +210,18 @@ instance Core.AWSRequest DescribeFleetEvents where
 
 instance Prelude.Hashable DescribeFleetEvents where
   hashWithSalt _salt DescribeFleetEvents' {..} =
-    _salt `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` fleetId
 
 instance Prelude.NFData DescribeFleetEvents where
   rnf DescribeFleetEvents' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf fleetId
 
 instance Core.ToHeaders DescribeFleetEvents where
@@ -243,10 +243,10 @@ instance Core.ToJSON DescribeFleetEvents where
   toJSON DescribeFleetEvents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StartTime" Core..=) Prelude.<$> startTime,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("EndTime" Core..=) Prelude.<$> endTime,
             ("Limit" Core..=) Prelude.<$> limit,
+            ("StartTime" Core..=) Prelude.<$> startTime,
             Prelude.Just ("FleetId" Core..= fleetId)
           ]
       )

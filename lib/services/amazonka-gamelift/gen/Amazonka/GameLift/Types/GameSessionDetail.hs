@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGameSessionDetail' smart constructor.
 data GameSessionDetail = GameSessionDetail'
-  { -- | Object that describes a game session.
-    gameSession :: Prelude.Maybe GameSession,
-    -- | Current status of protection for the game session.
+  { -- | Current status of protection for the game session.
     --
     -- -   __NoProtection__ -- The game session can be terminated during a
     --     scale-down event.
     --
     -- -   __FullProtection__ -- If the game session is in an @ACTIVE@ status,
     --     it cannot be terminated during a scale-down event.
-    protectionPolicy :: Prelude.Maybe ProtectionPolicy
+    protectionPolicy :: Prelude.Maybe ProtectionPolicy,
+    -- | Object that describes a game session.
+    gameSession :: Prelude.Maybe GameSession
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,8 +51,6 @@ data GameSessionDetail = GameSessionDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gameSession', 'gameSessionDetail_gameSession' - Object that describes a game session.
---
 -- 'protectionPolicy', 'gameSessionDetail_protectionPolicy' - Current status of protection for the game session.
 --
 -- -   __NoProtection__ -- The game session can be terminated during a
@@ -60,17 +58,16 @@ data GameSessionDetail = GameSessionDetail'
 --
 -- -   __FullProtection__ -- If the game session is in an @ACTIVE@ status,
 --     it cannot be terminated during a scale-down event.
+--
+-- 'gameSession', 'gameSessionDetail_gameSession' - Object that describes a game session.
 newGameSessionDetail ::
   GameSessionDetail
 newGameSessionDetail =
   GameSessionDetail'
-    { gameSession = Prelude.Nothing,
-      protectionPolicy = Prelude.Nothing
+    { protectionPolicy =
+        Prelude.Nothing,
+      gameSession = Prelude.Nothing
     }
-
--- | Object that describes a game session.
-gameSessionDetail_gameSession :: Lens.Lens' GameSessionDetail (Prelude.Maybe GameSession)
-gameSessionDetail_gameSession = Lens.lens (\GameSessionDetail' {gameSession} -> gameSession) (\s@GameSessionDetail' {} a -> s {gameSession = a} :: GameSessionDetail)
 
 -- | Current status of protection for the game session.
 --
@@ -82,22 +79,26 @@ gameSessionDetail_gameSession = Lens.lens (\GameSessionDetail' {gameSession} -> 
 gameSessionDetail_protectionPolicy :: Lens.Lens' GameSessionDetail (Prelude.Maybe ProtectionPolicy)
 gameSessionDetail_protectionPolicy = Lens.lens (\GameSessionDetail' {protectionPolicy} -> protectionPolicy) (\s@GameSessionDetail' {} a -> s {protectionPolicy = a} :: GameSessionDetail)
 
+-- | Object that describes a game session.
+gameSessionDetail_gameSession :: Lens.Lens' GameSessionDetail (Prelude.Maybe GameSession)
+gameSessionDetail_gameSession = Lens.lens (\GameSessionDetail' {gameSession} -> gameSession) (\s@GameSessionDetail' {} a -> s {gameSession = a} :: GameSessionDetail)
+
 instance Core.FromJSON GameSessionDetail where
   parseJSON =
     Core.withObject
       "GameSessionDetail"
       ( \x ->
           GameSessionDetail'
-            Prelude.<$> (x Core..:? "GameSession")
-            Prelude.<*> (x Core..:? "ProtectionPolicy")
+            Prelude.<$> (x Core..:? "ProtectionPolicy")
+            Prelude.<*> (x Core..:? "GameSession")
       )
 
 instance Prelude.Hashable GameSessionDetail where
   hashWithSalt _salt GameSessionDetail' {..} =
-    _salt `Prelude.hashWithSalt` gameSession
-      `Prelude.hashWithSalt` protectionPolicy
+    _salt `Prelude.hashWithSalt` protectionPolicy
+      `Prelude.hashWithSalt` gameSession
 
 instance Prelude.NFData GameSessionDetail where
   rnf GameSessionDetail' {..} =
-    Prelude.rnf gameSession
-      `Prelude.seq` Prelude.rnf protectionPolicy
+    Prelude.rnf protectionPolicy
+      `Prelude.seq` Prelude.rnf gameSession

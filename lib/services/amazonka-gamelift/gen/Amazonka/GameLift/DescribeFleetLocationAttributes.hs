@@ -69,10 +69,10 @@ module Amazonka.GameLift.DescribeFleetLocationAttributes
     newDescribeFleetLocationAttributesResponse,
 
     -- * Response Lenses
-    describeFleetLocationAttributesResponse_fleetArn,
+    describeFleetLocationAttributesResponse_fleetId,
     describeFleetLocationAttributesResponse_nextToken,
     describeFleetLocationAttributesResponse_locationAttributes,
-    describeFleetLocationAttributesResponse_fleetId,
+    describeFleetLocationAttributesResponse_fleetArn,
     describeFleetLocationAttributesResponse_httpStatus,
   )
 where
@@ -173,12 +173,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetLocationAttributesResponse'
-            Prelude.<$> (x Core..?> "FleetArn")
+            Prelude.<$> (x Core..?> "FleetId")
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> ( x Core..?> "LocationAttributes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "FleetId")
+            Prelude.<*> (x Core..?> "FleetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -243,12 +243,9 @@ instance Core.ToQuery DescribeFleetLocationAttributes where
 --
 -- /See:/ 'newDescribeFleetLocationAttributesResponse' smart constructor.
 data DescribeFleetLocationAttributesResponse = DescribeFleetLocationAttributesResponse'
-  { -- | The Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
-    -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
-    fleetArn :: Prelude.Maybe Prelude.Text,
+  { -- | A unique identifier for the fleet that location attributes were
+    -- requested for.
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
@@ -256,9 +253,12 @@ data DescribeFleetLocationAttributesResponse = DescribeFleetLocationAttributesRe
     -- | Location-specific information on the requested fleet\'s remote
     -- locations.
     locationAttributes :: Prelude.Maybe [LocationAttributes],
-    -- | A unique identifier for the fleet that location attributes were
-    -- requested for.
-    fleetId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+    -- that is assigned to a GameLift fleet resource and uniquely identifies
+    -- it. ARNs are unique across all Regions. Format is
+    -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
+    fleetArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -272,11 +272,8 @@ data DescribeFleetLocationAttributesResponse = DescribeFleetLocationAttributesRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetArn', 'describeFleetLocationAttributesResponse_fleetArn' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
--- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
+-- 'fleetId', 'describeFleetLocationAttributesResponse_fleetId' - A unique identifier for the fleet that location attributes were
+-- requested for.
 --
 -- 'nextToken', 'describeFleetLocationAttributesResponse_nextToken' - A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
@@ -285,8 +282,11 @@ data DescribeFleetLocationAttributesResponse = DescribeFleetLocationAttributesRe
 -- 'locationAttributes', 'describeFleetLocationAttributesResponse_locationAttributes' - Location-specific information on the requested fleet\'s remote
 -- locations.
 --
--- 'fleetId', 'describeFleetLocationAttributesResponse_fleetId' - A unique identifier for the fleet that location attributes were
--- requested for.
+-- 'fleetArn', 'describeFleetLocationAttributesResponse_fleetArn' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- that is assigned to a GameLift fleet resource and uniquely identifies
+-- it. ARNs are unique across all Regions. Format is
+-- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
 -- 'httpStatus', 'describeFleetLocationAttributesResponse_httpStatus' - The response's http status code.
 newDescribeFleetLocationAttributesResponse ::
@@ -296,22 +296,19 @@ newDescribeFleetLocationAttributesResponse ::
 newDescribeFleetLocationAttributesResponse
   pHttpStatus_ =
     DescribeFleetLocationAttributesResponse'
-      { fleetArn =
+      { fleetId =
           Prelude.Nothing,
         nextToken = Prelude.Nothing,
         locationAttributes =
           Prelude.Nothing,
-        fleetId = Prelude.Nothing,
+        fleetArn = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
--- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
-describeFleetLocationAttributesResponse_fleetArn :: Lens.Lens' DescribeFleetLocationAttributesResponse (Prelude.Maybe Prelude.Text)
-describeFleetLocationAttributesResponse_fleetArn = Lens.lens (\DescribeFleetLocationAttributesResponse' {fleetArn} -> fleetArn) (\s@DescribeFleetLocationAttributesResponse' {} a -> s {fleetArn = a} :: DescribeFleetLocationAttributesResponse)
+-- | A unique identifier for the fleet that location attributes were
+-- requested for.
+describeFleetLocationAttributesResponse_fleetId :: Lens.Lens' DescribeFleetLocationAttributesResponse (Prelude.Maybe Prelude.Text)
+describeFleetLocationAttributesResponse_fleetId = Lens.lens (\DescribeFleetLocationAttributesResponse' {fleetId} -> fleetId) (\s@DescribeFleetLocationAttributesResponse' {} a -> s {fleetId = a} :: DescribeFleetLocationAttributesResponse)
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
@@ -324,10 +321,13 @@ describeFleetLocationAttributesResponse_nextToken = Lens.lens (\DescribeFleetLoc
 describeFleetLocationAttributesResponse_locationAttributes :: Lens.Lens' DescribeFleetLocationAttributesResponse (Prelude.Maybe [LocationAttributes])
 describeFleetLocationAttributesResponse_locationAttributes = Lens.lens (\DescribeFleetLocationAttributesResponse' {locationAttributes} -> locationAttributes) (\s@DescribeFleetLocationAttributesResponse' {} a -> s {locationAttributes = a} :: DescribeFleetLocationAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A unique identifier for the fleet that location attributes were
--- requested for.
-describeFleetLocationAttributesResponse_fleetId :: Lens.Lens' DescribeFleetLocationAttributesResponse (Prelude.Maybe Prelude.Text)
-describeFleetLocationAttributesResponse_fleetId = Lens.lens (\DescribeFleetLocationAttributesResponse' {fleetId} -> fleetId) (\s@DescribeFleetLocationAttributesResponse' {} a -> s {fleetId = a} :: DescribeFleetLocationAttributesResponse)
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- that is assigned to a GameLift fleet resource and uniquely identifies
+-- it. ARNs are unique across all Regions. Format is
+-- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
+describeFleetLocationAttributesResponse_fleetArn :: Lens.Lens' DescribeFleetLocationAttributesResponse (Prelude.Maybe Prelude.Text)
+describeFleetLocationAttributesResponse_fleetArn = Lens.lens (\DescribeFleetLocationAttributesResponse' {fleetArn} -> fleetArn) (\s@DescribeFleetLocationAttributesResponse' {} a -> s {fleetArn = a} :: DescribeFleetLocationAttributesResponse)
 
 -- | The response's http status code.
 describeFleetLocationAttributesResponse_httpStatus :: Lens.Lens' DescribeFleetLocationAttributesResponse Prelude.Int
@@ -338,8 +338,8 @@ instance
     DescribeFleetLocationAttributesResponse
   where
   rnf DescribeFleetLocationAttributesResponse' {..} =
-    Prelude.rnf fleetArn
+    Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf locationAttributes
-      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf fleetArn
       `Prelude.seq` Prelude.rnf httpStatus

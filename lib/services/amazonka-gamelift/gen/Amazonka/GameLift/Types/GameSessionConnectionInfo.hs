@@ -33,12 +33,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGameSessionConnectionInfo' smart constructor.
 data GameSessionConnectionInfo = GameSessionConnectionInfo'
-  { -- | A collection of player session IDs, one for each player ID that was
+  { -- | The port number for the game session. To connect to a GameLift game
+    -- server, an app needs both the IP address and port number.
+    port :: Prelude.Maybe Prelude.Natural,
+    -- | A collection of player session IDs, one for each player ID that was
     -- included in the original matchmaking request.
     matchedPlayerSessions :: Prelude.Maybe [MatchedPlayerSession],
-    -- | The IP address of the game session. To connect to a GameLift game
-    -- server, an app needs both the IP address and port number.
-    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the game session. Use the game session ID.
     gameSessionArn :: Prelude.Maybe Prelude.Text,
     -- | The DNS identifier assigned to the instance that is running the game
@@ -54,9 +54,9 @@ data GameSessionConnectionInfo = GameSessionConnectionInfo'
     -- When connecting to a game session that is running on a TLS-enabled
     -- fleet, you must use the DNS name, not the IP address.
     dnsName :: Prelude.Maybe Prelude.Text,
-    -- | The port number for the game session. To connect to a GameLift game
+    -- | The IP address of the game session. To connect to a GameLift game
     -- server, an app needs both the IP address and port number.
-    port :: Prelude.Maybe Prelude.Natural
+    ipAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,11 +68,11 @@ data GameSessionConnectionInfo = GameSessionConnectionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'port', 'gameSessionConnectionInfo_port' - The port number for the game session. To connect to a GameLift game
+-- server, an app needs both the IP address and port number.
+--
 -- 'matchedPlayerSessions', 'gameSessionConnectionInfo_matchedPlayerSessions' - A collection of player session IDs, one for each player ID that was
 -- included in the original matchmaking request.
---
--- 'ipAddress', 'gameSessionConnectionInfo_ipAddress' - The IP address of the game session. To connect to a GameLift game
--- server, an app needs both the IP address and port number.
 --
 -- 'gameSessionArn', 'gameSessionConnectionInfo_gameSessionArn' - A unique identifier for the game session. Use the game session ID.
 --
@@ -89,29 +89,28 @@ data GameSessionConnectionInfo = GameSessionConnectionInfo'
 -- When connecting to a game session that is running on a TLS-enabled
 -- fleet, you must use the DNS name, not the IP address.
 --
--- 'port', 'gameSessionConnectionInfo_port' - The port number for the game session. To connect to a GameLift game
+-- 'ipAddress', 'gameSessionConnectionInfo_ipAddress' - The IP address of the game session. To connect to a GameLift game
 -- server, an app needs both the IP address and port number.
 newGameSessionConnectionInfo ::
   GameSessionConnectionInfo
 newGameSessionConnectionInfo =
   GameSessionConnectionInfo'
-    { matchedPlayerSessions =
-        Prelude.Nothing,
-      ipAddress = Prelude.Nothing,
+    { port = Prelude.Nothing,
+      matchedPlayerSessions = Prelude.Nothing,
       gameSessionArn = Prelude.Nothing,
       dnsName = Prelude.Nothing,
-      port = Prelude.Nothing
+      ipAddress = Prelude.Nothing
     }
+
+-- | The port number for the game session. To connect to a GameLift game
+-- server, an app needs both the IP address and port number.
+gameSessionConnectionInfo_port :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Natural)
+gameSessionConnectionInfo_port = Lens.lens (\GameSessionConnectionInfo' {port} -> port) (\s@GameSessionConnectionInfo' {} a -> s {port = a} :: GameSessionConnectionInfo)
 
 -- | A collection of player session IDs, one for each player ID that was
 -- included in the original matchmaking request.
 gameSessionConnectionInfo_matchedPlayerSessions :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe [MatchedPlayerSession])
 gameSessionConnectionInfo_matchedPlayerSessions = Lens.lens (\GameSessionConnectionInfo' {matchedPlayerSessions} -> matchedPlayerSessions) (\s@GameSessionConnectionInfo' {} a -> s {matchedPlayerSessions = a} :: GameSessionConnectionInfo) Prelude.. Lens.mapping Lens.coerced
-
--- | The IP address of the game session. To connect to a GameLift game
--- server, an app needs both the IP address and port number.
-gameSessionConnectionInfo_ipAddress :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Text)
-gameSessionConnectionInfo_ipAddress = Lens.lens (\GameSessionConnectionInfo' {ipAddress} -> ipAddress) (\s@GameSessionConnectionInfo' {} a -> s {ipAddress = a} :: GameSessionConnectionInfo)
 
 -- | A unique identifier for the game session. Use the game session ID.
 gameSessionConnectionInfo_gameSessionArn :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Text)
@@ -132,10 +131,10 @@ gameSessionConnectionInfo_gameSessionArn = Lens.lens (\GameSessionConnectionInfo
 gameSessionConnectionInfo_dnsName :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Text)
 gameSessionConnectionInfo_dnsName = Lens.lens (\GameSessionConnectionInfo' {dnsName} -> dnsName) (\s@GameSessionConnectionInfo' {} a -> s {dnsName = a} :: GameSessionConnectionInfo)
 
--- | The port number for the game session. To connect to a GameLift game
+-- | The IP address of the game session. To connect to a GameLift game
 -- server, an app needs both the IP address and port number.
-gameSessionConnectionInfo_port :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Natural)
-gameSessionConnectionInfo_port = Lens.lens (\GameSessionConnectionInfo' {port} -> port) (\s@GameSessionConnectionInfo' {} a -> s {port = a} :: GameSessionConnectionInfo)
+gameSessionConnectionInfo_ipAddress :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Text)
+gameSessionConnectionInfo_ipAddress = Lens.lens (\GameSessionConnectionInfo' {ipAddress} -> ipAddress) (\s@GameSessionConnectionInfo' {} a -> s {ipAddress = a} :: GameSessionConnectionInfo)
 
 instance Core.FromJSON GameSessionConnectionInfo where
   parseJSON =
@@ -143,27 +142,27 @@ instance Core.FromJSON GameSessionConnectionInfo where
       "GameSessionConnectionInfo"
       ( \x ->
           GameSessionConnectionInfo'
-            Prelude.<$> ( x Core..:? "MatchedPlayerSessions"
+            Prelude.<$> (x Core..:? "Port")
+            Prelude.<*> ( x Core..:? "MatchedPlayerSessions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "IpAddress")
             Prelude.<*> (x Core..:? "GameSessionArn")
             Prelude.<*> (x Core..:? "DnsName")
-            Prelude.<*> (x Core..:? "Port")
+            Prelude.<*> (x Core..:? "IpAddress")
       )
 
 instance Prelude.Hashable GameSessionConnectionInfo where
   hashWithSalt _salt GameSessionConnectionInfo' {..} =
-    _salt `Prelude.hashWithSalt` matchedPlayerSessions
-      `Prelude.hashWithSalt` ipAddress
+    _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` matchedPlayerSessions
       `Prelude.hashWithSalt` gameSessionArn
       `Prelude.hashWithSalt` dnsName
-      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` ipAddress
 
 instance Prelude.NFData GameSessionConnectionInfo where
   rnf GameSessionConnectionInfo' {..} =
-    Prelude.rnf matchedPlayerSessions
-      `Prelude.seq` Prelude.rnf ipAddress
+    Prelude.rnf port
+      `Prelude.seq` Prelude.rnf matchedPlayerSessions
       `Prelude.seq` Prelude.rnf gameSessionArn
       `Prelude.seq` Prelude.rnf dnsName
-      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf ipAddress

@@ -33,8 +33,8 @@ module Amazonka.ELBV2.SetSubnets
     newSetSubnets,
 
     -- * Request Lenses
-    setSubnets_subnetMappings,
     setSubnets_subnets,
+    setSubnets_subnetMappings,
     setSubnets_ipAddressType,
     setSubnets_loadBalancerArn,
 
@@ -62,6 +62,21 @@ data SetSubnets = SetSubnets'
     -- Availability Zone. You must specify either subnets or subnet mappings.
     --
     -- [Application Load Balancers] You must specify subnets from at least two
+    -- Availability Zones.
+    --
+    -- [Application Load Balancers on Outposts] You must specify one Outpost
+    -- subnet.
+    --
+    -- [Application Load Balancers on Local Zones] You can specify subnets from
+    -- one or more Local Zones.
+    --
+    -- [Network Load Balancers] You can specify subnets from one or more
+    -- Availability Zones.
+    subnets :: Prelude.Maybe [Prelude.Text],
+    -- | The IDs of the public subnets. You can specify only one subnet per
+    -- Availability Zone. You must specify either subnets or subnet mappings.
+    --
+    -- [Application Load Balancers] You must specify subnets from at least two
     -- Availability Zones. You cannot specify Elastic IP addresses for your
     -- subnets.
     --
@@ -78,21 +93,6 @@ data SetSubnets = SetSubnets'
     -- subnet from the IPv4 range of the subnet. For internet-facing load
     -- balancer, you can specify one IPv6 address per subnet.
     subnetMappings :: Prelude.Maybe [SubnetMapping],
-    -- | The IDs of the public subnets. You can specify only one subnet per
-    -- Availability Zone. You must specify either subnets or subnet mappings.
-    --
-    -- [Application Load Balancers] You must specify subnets from at least two
-    -- Availability Zones.
-    --
-    -- [Application Load Balancers on Outposts] You must specify one Outpost
-    -- subnet.
-    --
-    -- [Application Load Balancers on Local Zones] You can specify subnets from
-    -- one or more Local Zones.
-    --
-    -- [Network Load Balancers] You can specify subnets from one or more
-    -- Availability Zones.
-    subnets :: Prelude.Maybe [Prelude.Text],
     -- | [Network Load Balancers] The type of IP addresses used by the subnets
     -- for your load balancer. The possible values are @ipv4@ (for IPv4
     -- addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t
@@ -111,6 +111,21 @@ data SetSubnets = SetSubnets'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'subnets', 'setSubnets_subnets' - The IDs of the public subnets. You can specify only one subnet per
+-- Availability Zone. You must specify either subnets or subnet mappings.
+--
+-- [Application Load Balancers] You must specify subnets from at least two
+-- Availability Zones.
+--
+-- [Application Load Balancers on Outposts] You must specify one Outpost
+-- subnet.
+--
+-- [Application Load Balancers on Local Zones] You can specify subnets from
+-- one or more Local Zones.
+--
+-- [Network Load Balancers] You can specify subnets from one or more
+-- Availability Zones.
 --
 -- 'subnetMappings', 'setSubnets_subnetMappings' - The IDs of the public subnets. You can specify only one subnet per
 -- Availability Zone. You must specify either subnets or subnet mappings.
@@ -132,21 +147,6 @@ data SetSubnets = SetSubnets'
 -- subnet from the IPv4 range of the subnet. For internet-facing load
 -- balancer, you can specify one IPv6 address per subnet.
 --
--- 'subnets', 'setSubnets_subnets' - The IDs of the public subnets. You can specify only one subnet per
--- Availability Zone. You must specify either subnets or subnet mappings.
---
--- [Application Load Balancers] You must specify subnets from at least two
--- Availability Zones.
---
--- [Application Load Balancers on Outposts] You must specify one Outpost
--- subnet.
---
--- [Application Load Balancers on Local Zones] You can specify subnets from
--- one or more Local Zones.
---
--- [Network Load Balancers] You can specify subnets from one or more
--- Availability Zones.
---
 -- 'ipAddressType', 'setSubnets_ipAddressType' - [Network Load Balancers] The type of IP addresses used by the subnets
 -- for your load balancer. The possible values are @ipv4@ (for IPv4
 -- addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t
@@ -160,11 +160,28 @@ newSetSubnets ::
   SetSubnets
 newSetSubnets pLoadBalancerArn_ =
   SetSubnets'
-    { subnetMappings = Prelude.Nothing,
-      subnets = Prelude.Nothing,
+    { subnets = Prelude.Nothing,
+      subnetMappings = Prelude.Nothing,
       ipAddressType = Prelude.Nothing,
       loadBalancerArn = pLoadBalancerArn_
     }
+
+-- | The IDs of the public subnets. You can specify only one subnet per
+-- Availability Zone. You must specify either subnets or subnet mappings.
+--
+-- [Application Load Balancers] You must specify subnets from at least two
+-- Availability Zones.
+--
+-- [Application Load Balancers on Outposts] You must specify one Outpost
+-- subnet.
+--
+-- [Application Load Balancers on Local Zones] You can specify subnets from
+-- one or more Local Zones.
+--
+-- [Network Load Balancers] You can specify subnets from one or more
+-- Availability Zones.
+setSubnets_subnets :: Lens.Lens' SetSubnets (Prelude.Maybe [Prelude.Text])
+setSubnets_subnets = Lens.lens (\SetSubnets' {subnets} -> subnets) (\s@SetSubnets' {} a -> s {subnets = a} :: SetSubnets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the public subnets. You can specify only one subnet per
 -- Availability Zone. You must specify either subnets or subnet mappings.
@@ -187,23 +204,6 @@ newSetSubnets pLoadBalancerArn_ =
 -- balancer, you can specify one IPv6 address per subnet.
 setSubnets_subnetMappings :: Lens.Lens' SetSubnets (Prelude.Maybe [SubnetMapping])
 setSubnets_subnetMappings = Lens.lens (\SetSubnets' {subnetMappings} -> subnetMappings) (\s@SetSubnets' {} a -> s {subnetMappings = a} :: SetSubnets) Prelude.. Lens.mapping Lens.coerced
-
--- | The IDs of the public subnets. You can specify only one subnet per
--- Availability Zone. You must specify either subnets or subnet mappings.
---
--- [Application Load Balancers] You must specify subnets from at least two
--- Availability Zones.
---
--- [Application Load Balancers on Outposts] You must specify one Outpost
--- subnet.
---
--- [Application Load Balancers on Local Zones] You can specify subnets from
--- one or more Local Zones.
---
--- [Network Load Balancers] You can specify subnets from one or more
--- Availability Zones.
-setSubnets_subnets :: Lens.Lens' SetSubnets (Prelude.Maybe [Prelude.Text])
-setSubnets_subnets = Lens.lens (\SetSubnets' {subnets} -> subnets) (\s@SetSubnets' {} a -> s {subnets = a} :: SetSubnets) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Network Load Balancers] The type of IP addresses used by the subnets
 -- for your load balancer. The possible values are @ipv4@ (for IPv4
@@ -235,15 +235,15 @@ instance Core.AWSRequest SetSubnets where
 
 instance Prelude.Hashable SetSubnets where
   hashWithSalt _salt SetSubnets' {..} =
-    _salt `Prelude.hashWithSalt` subnetMappings
-      `Prelude.hashWithSalt` subnets
+    _salt `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` subnetMappings
       `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` loadBalancerArn
 
 instance Prelude.NFData SetSubnets where
   rnf SetSubnets' {..} =
-    Prelude.rnf subnetMappings
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf subnetMappings
       `Prelude.seq` Prelude.rnf ipAddressType
       `Prelude.seq` Prelude.rnf loadBalancerArn
 
@@ -260,14 +260,14 @@ instance Core.ToQuery SetSubnets where
           Core.=: ("SetSubnets" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-12-01" :: Prelude.ByteString),
+        "Subnets"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> subnets),
         "SubnetMappings"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> subnetMappings
             ),
-        "Subnets"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> subnets),
         "IpAddressType" Core.=: ipAddressType,
         "LoadBalancerArn" Core.=: loadBalancerArn
       ]

@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLimit' smart constructor.
 data Limit = Limit'
-  { -- | The maximum value of the limit.
-    max :: Prelude.Maybe Prelude.Text,
-    -- | The name of the limit. The possible values are:
+  { -- | The name of the limit. The possible values are:
     --
     -- -   application-load-balancers
     --
@@ -67,7 +65,9 @@ data Limit = Limit'
     -- -   targets-per-availability-zone-per-network-load-balancer
     --
     -- -   targets-per-network-load-balancer
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The maximum value of the limit.
+    max :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,8 +78,6 @@ data Limit = Limit'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'max', 'limit_max' - The maximum value of the limit.
 --
 -- 'name', 'limit_name' - The name of the limit. The possible values are:
 --
@@ -118,17 +116,15 @@ data Limit = Limit'
 -- -   targets-per-availability-zone-per-network-load-balancer
 --
 -- -   targets-per-network-load-balancer
+--
+-- 'max', 'limit_max' - The maximum value of the limit.
 newLimit ::
   Limit
 newLimit =
   Limit'
-    { max = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      max = Prelude.Nothing
     }
-
--- | The maximum value of the limit.
-limit_max :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
-limit_max = Lens.lens (\Limit' {max} -> max) (\s@Limit' {} a -> s {max = a} :: Limit)
 
 -- | The name of the limit. The possible values are:
 --
@@ -170,16 +166,20 @@ limit_max = Lens.lens (\Limit' {max} -> max) (\s@Limit' {} a -> s {max = a} :: L
 limit_name :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
 limit_name = Lens.lens (\Limit' {name} -> name) (\s@Limit' {} a -> s {name = a} :: Limit)
 
+-- | The maximum value of the limit.
+limit_max :: Lens.Lens' Limit (Prelude.Maybe Prelude.Text)
+limit_max = Lens.lens (\Limit' {max} -> max) (\s@Limit' {} a -> s {max = a} :: Limit)
+
 instance Core.FromXML Limit where
   parseXML x =
     Limit'
-      Prelude.<$> (x Core..@? "Max") Prelude.<*> (x Core..@? "Name")
+      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "Max")
 
 instance Prelude.Hashable Limit where
   hashWithSalt _salt Limit' {..} =
-    _salt `Prelude.hashWithSalt` max
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` max
 
 instance Prelude.NFData Limit where
   rnf Limit' {..} =
-    Prelude.rnf max `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf max

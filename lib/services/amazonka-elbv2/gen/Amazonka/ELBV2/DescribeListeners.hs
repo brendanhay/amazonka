@@ -33,8 +33,8 @@ module Amazonka.ELBV2.DescribeListeners
 
     -- * Request Lenses
     describeListeners_listenerArns,
-    describeListeners_loadBalancerArn,
     describeListeners_marker,
+    describeListeners_loadBalancerArn,
     describeListeners_pageSize,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.ELBV2.DescribeListeners
     newDescribeListenersResponse,
 
     -- * Response Lenses
-    describeListenersResponse_nextMarker,
     describeListenersResponse_listeners,
+    describeListenersResponse_nextMarker,
     describeListenersResponse_httpStatus,
   )
 where
@@ -59,11 +59,11 @@ import qualified Amazonka.Response as Response
 data DescribeListeners = DescribeListeners'
   { -- | The Amazon Resource Names (ARN) of the listeners.
     listenerArns :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerArn :: Prelude.Maybe Prelude.Text,
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the load balancer.
+    loadBalancerArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return with this call.
     pageSize :: Prelude.Maybe Prelude.Natural
   }
@@ -79,10 +79,10 @@ data DescribeListeners = DescribeListeners'
 --
 -- 'listenerArns', 'describeListeners_listenerArns' - The Amazon Resource Names (ARN) of the listeners.
 --
--- 'loadBalancerArn', 'describeListeners_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.
---
 -- 'marker', 'describeListeners_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call.)
+--
+-- 'loadBalancerArn', 'describeListeners_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.
 --
 -- 'pageSize', 'describeListeners_pageSize' - The maximum number of results to return with this call.
 newDescribeListeners ::
@@ -90,8 +90,8 @@ newDescribeListeners ::
 newDescribeListeners =
   DescribeListeners'
     { listenerArns = Prelude.Nothing,
-      loadBalancerArn = Prelude.Nothing,
       marker = Prelude.Nothing,
+      loadBalancerArn = Prelude.Nothing,
       pageSize = Prelude.Nothing
     }
 
@@ -99,14 +99,14 @@ newDescribeListeners =
 describeListeners_listenerArns :: Lens.Lens' DescribeListeners (Prelude.Maybe [Prelude.Text])
 describeListeners_listenerArns = Lens.lens (\DescribeListeners' {listenerArns} -> listenerArns) (\s@DescribeListeners' {} a -> s {listenerArns = a} :: DescribeListeners) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the load balancer.
-describeListeners_loadBalancerArn :: Lens.Lens' DescribeListeners (Prelude.Maybe Prelude.Text)
-describeListeners_loadBalancerArn = Lens.lens (\DescribeListeners' {loadBalancerArn} -> loadBalancerArn) (\s@DescribeListeners' {} a -> s {loadBalancerArn = a} :: DescribeListeners)
-
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 describeListeners_marker :: Lens.Lens' DescribeListeners (Prelude.Maybe Prelude.Text)
 describeListeners_marker = Lens.lens (\DescribeListeners' {marker} -> marker) (\s@DescribeListeners' {} a -> s {marker = a} :: DescribeListeners)
+
+-- | The Amazon Resource Name (ARN) of the load balancer.
+describeListeners_loadBalancerArn :: Lens.Lens' DescribeListeners (Prelude.Maybe Prelude.Text)
+describeListeners_loadBalancerArn = Lens.lens (\DescribeListeners' {loadBalancerArn} -> loadBalancerArn) (\s@DescribeListeners' {} a -> s {loadBalancerArn = a} :: DescribeListeners)
 
 -- | The maximum number of results to return with this call.
 describeListeners_pageSize :: Lens.Lens' DescribeListeners (Prelude.Maybe Prelude.Natural)
@@ -144,25 +144,25 @@ instance Core.AWSRequest DescribeListeners where
       "DescribeListenersResult"
       ( \s h x ->
           DescribeListenersResponse'
-            Prelude.<$> (x Core..@? "NextMarker")
-            Prelude.<*> ( x Core..@? "Listeners" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "Listeners" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeListeners where
   hashWithSalt _salt DescribeListeners' {..} =
     _salt `Prelude.hashWithSalt` listenerArns
-      `Prelude.hashWithSalt` loadBalancerArn
       `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` loadBalancerArn
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData DescribeListeners where
   rnf DescribeListeners' {..} =
     Prelude.rnf listenerArns
-      `Prelude.seq` Prelude.rnf loadBalancerArn
       `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf loadBalancerArn
       `Prelude.seq` Prelude.rnf pageSize
 
 instance Core.ToHeaders DescribeListeners where
@@ -181,18 +181,18 @@ instance Core.ToQuery DescribeListeners where
         "ListenerArns"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> listenerArns),
-        "LoadBalancerArn" Core.=: loadBalancerArn,
         "Marker" Core.=: marker,
+        "LoadBalancerArn" Core.=: loadBalancerArn,
         "PageSize" Core.=: pageSize
       ]
 
 -- | /See:/ 'newDescribeListenersResponse' smart constructor.
 data DescribeListenersResponse = DescribeListenersResponse'
-  { -- | If there are additional results, this is the marker for the next set of
+  { -- | Information about the listeners.
+    listeners :: Prelude.Maybe [Listener],
+    -- | If there are additional results, this is the marker for the next set of
     -- results. Otherwise, this is null.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | Information about the listeners.
-    listeners :: Prelude.Maybe [Listener],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,10 +206,10 @@ data DescribeListenersResponse = DescribeListenersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'listeners', 'describeListenersResponse_listeners' - Information about the listeners.
+--
 -- 'nextMarker', 'describeListenersResponse_nextMarker' - If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
---
--- 'listeners', 'describeListenersResponse_listeners' - Information about the listeners.
 --
 -- 'httpStatus', 'describeListenersResponse_httpStatus' - The response's http status code.
 newDescribeListenersResponse ::
@@ -218,20 +218,20 @@ newDescribeListenersResponse ::
   DescribeListenersResponse
 newDescribeListenersResponse pHttpStatus_ =
   DescribeListenersResponse'
-    { nextMarker =
+    { listeners =
         Prelude.Nothing,
-      listeners = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the listeners.
+describeListenersResponse_listeners :: Lens.Lens' DescribeListenersResponse (Prelude.Maybe [Listener])
+describeListenersResponse_listeners = Lens.lens (\DescribeListenersResponse' {listeners} -> listeners) (\s@DescribeListenersResponse' {} a -> s {listeners = a} :: DescribeListenersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
 describeListenersResponse_nextMarker :: Lens.Lens' DescribeListenersResponse (Prelude.Maybe Prelude.Text)
 describeListenersResponse_nextMarker = Lens.lens (\DescribeListenersResponse' {nextMarker} -> nextMarker) (\s@DescribeListenersResponse' {} a -> s {nextMarker = a} :: DescribeListenersResponse)
-
--- | Information about the listeners.
-describeListenersResponse_listeners :: Lens.Lens' DescribeListenersResponse (Prelude.Maybe [Listener])
-describeListenersResponse_listeners = Lens.lens (\DescribeListenersResponse' {listeners} -> listeners) (\s@DescribeListenersResponse' {} a -> s {listeners = a} :: DescribeListenersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeListenersResponse_httpStatus :: Lens.Lens' DescribeListenersResponse Prelude.Int
@@ -239,6 +239,6 @@ describeListenersResponse_httpStatus = Lens.lens (\DescribeListenersResponse' {h
 
 instance Prelude.NFData DescribeListenersResponse where
   rnf DescribeListenersResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf listeners
+    Prelude.rnf listeners
+      `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf httpStatus

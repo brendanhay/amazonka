@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetGroupStickinessConfig' smart constructor.
 data TargetGroupStickinessConfig = TargetGroupStickinessConfig'
-  { -- | Indicates whether target group stickiness is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The time period, in seconds, during which requests from a client should
+  { -- | The time period, in seconds, during which requests from a client should
     -- be routed to the same target group. The range is 1-604800 seconds (7
     -- days).
-    durationSeconds :: Prelude.Maybe Prelude.Int
+    durationSeconds :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether target group stickiness is enabled.
+    enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,23 +44,19 @@ data TargetGroupStickinessConfig = TargetGroupStickinessConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'targetGroupStickinessConfig_enabled' - Indicates whether target group stickiness is enabled.
---
 -- 'durationSeconds', 'targetGroupStickinessConfig_durationSeconds' - The time period, in seconds, during which requests from a client should
 -- be routed to the same target group. The range is 1-604800 seconds (7
 -- days).
+--
+-- 'enabled', 'targetGroupStickinessConfig_enabled' - Indicates whether target group stickiness is enabled.
 newTargetGroupStickinessConfig ::
   TargetGroupStickinessConfig
 newTargetGroupStickinessConfig =
   TargetGroupStickinessConfig'
-    { enabled =
+    { durationSeconds =
         Prelude.Nothing,
-      durationSeconds = Prelude.Nothing
+      enabled = Prelude.Nothing
     }
-
--- | Indicates whether target group stickiness is enabled.
-targetGroupStickinessConfig_enabled :: Lens.Lens' TargetGroupStickinessConfig (Prelude.Maybe Prelude.Bool)
-targetGroupStickinessConfig_enabled = Lens.lens (\TargetGroupStickinessConfig' {enabled} -> enabled) (\s@TargetGroupStickinessConfig' {} a -> s {enabled = a} :: TargetGroupStickinessConfig)
 
 -- | The time period, in seconds, during which requests from a client should
 -- be routed to the same target group. The range is 1-604800 seconds (7
@@ -68,25 +64,29 @@ targetGroupStickinessConfig_enabled = Lens.lens (\TargetGroupStickinessConfig' {
 targetGroupStickinessConfig_durationSeconds :: Lens.Lens' TargetGroupStickinessConfig (Prelude.Maybe Prelude.Int)
 targetGroupStickinessConfig_durationSeconds = Lens.lens (\TargetGroupStickinessConfig' {durationSeconds} -> durationSeconds) (\s@TargetGroupStickinessConfig' {} a -> s {durationSeconds = a} :: TargetGroupStickinessConfig)
 
+-- | Indicates whether target group stickiness is enabled.
+targetGroupStickinessConfig_enabled :: Lens.Lens' TargetGroupStickinessConfig (Prelude.Maybe Prelude.Bool)
+targetGroupStickinessConfig_enabled = Lens.lens (\TargetGroupStickinessConfig' {enabled} -> enabled) (\s@TargetGroupStickinessConfig' {} a -> s {enabled = a} :: TargetGroupStickinessConfig)
+
 instance Core.FromXML TargetGroupStickinessConfig where
   parseXML x =
     TargetGroupStickinessConfig'
-      Prelude.<$> (x Core..@? "Enabled")
-      Prelude.<*> (x Core..@? "DurationSeconds")
+      Prelude.<$> (x Core..@? "DurationSeconds")
+      Prelude.<*> (x Core..@? "Enabled")
 
 instance Prelude.Hashable TargetGroupStickinessConfig where
   hashWithSalt _salt TargetGroupStickinessConfig' {..} =
-    _salt `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` durationSeconds
+    _salt `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData TargetGroupStickinessConfig where
   rnf TargetGroupStickinessConfig' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf durationSeconds
+    Prelude.rnf durationSeconds
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToQuery TargetGroupStickinessConfig where
   toQuery TargetGroupStickinessConfig' {..} =
     Prelude.mconcat
-      [ "Enabled" Core.=: enabled,
-        "DurationSeconds" Core.=: durationSeconds
+      [ "DurationSeconds" Core.=: durationSeconds,
+        "Enabled" Core.=: enabled
       ]

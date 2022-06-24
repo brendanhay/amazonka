@@ -27,9 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoadBalancerAttribute' smart constructor.
 data LoadBalancerAttribute = LoadBalancerAttribute'
-  { -- | The value of the attribute.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The name of the attribute.
+  { -- | The name of the attribute.
     --
     -- The following attribute is supported by all load balancers:
     --
@@ -100,7 +98,9 @@ data LoadBalancerAttribute = LoadBalancerAttribute'
     -- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross-zone
     --     load balancing is enabled. The possible values are @true@ and
     --     @false@. The default is @false@.
-    key :: Prelude.Maybe Prelude.Text
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The value of the attribute.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -111,8 +111,6 @@ data LoadBalancerAttribute = LoadBalancerAttribute'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'value', 'loadBalancerAttribute_value' - The value of the attribute.
 --
 -- 'key', 'loadBalancerAttribute_key' - The name of the attribute.
 --
@@ -185,17 +183,15 @@ data LoadBalancerAttribute = LoadBalancerAttribute'
 -- -   @load_balancing.cross_zone.enabled@ - Indicates whether cross-zone
 --     load balancing is enabled. The possible values are @true@ and
 --     @false@. The default is @false@.
+--
+-- 'value', 'loadBalancerAttribute_value' - The value of the attribute.
 newLoadBalancerAttribute ::
   LoadBalancerAttribute
 newLoadBalancerAttribute =
   LoadBalancerAttribute'
-    { value = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the attribute.
-loadBalancerAttribute_value :: Lens.Lens' LoadBalancerAttribute (Prelude.Maybe Prelude.Text)
-loadBalancerAttribute_value = Lens.lens (\LoadBalancerAttribute' {value} -> value) (\s@LoadBalancerAttribute' {} a -> s {value = a} :: LoadBalancerAttribute)
 
 -- | The name of the attribute.
 --
@@ -271,21 +267,25 @@ loadBalancerAttribute_value = Lens.lens (\LoadBalancerAttribute' {value} -> valu
 loadBalancerAttribute_key :: Lens.Lens' LoadBalancerAttribute (Prelude.Maybe Prelude.Text)
 loadBalancerAttribute_key = Lens.lens (\LoadBalancerAttribute' {key} -> key) (\s@LoadBalancerAttribute' {} a -> s {key = a} :: LoadBalancerAttribute)
 
+-- | The value of the attribute.
+loadBalancerAttribute_value :: Lens.Lens' LoadBalancerAttribute (Prelude.Maybe Prelude.Text)
+loadBalancerAttribute_value = Lens.lens (\LoadBalancerAttribute' {value} -> value) (\s@LoadBalancerAttribute' {} a -> s {value = a} :: LoadBalancerAttribute)
+
 instance Core.FromXML LoadBalancerAttribute where
   parseXML x =
     LoadBalancerAttribute'
-      Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Key")
+      Prelude.<$> (x Core..@? "Key") Prelude.<*> (x Core..@? "Value")
 
 instance Prelude.Hashable LoadBalancerAttribute where
   hashWithSalt _salt LoadBalancerAttribute' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData LoadBalancerAttribute where
   rnf LoadBalancerAttribute' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToQuery LoadBalancerAttribute where
   toQuery LoadBalancerAttribute' {..} =
     Prelude.mconcat
-      ["Value" Core.=: value, "Key" Core.=: key]
+      ["Key" Core.=: key, "Value" Core.=: value]

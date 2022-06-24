@@ -49,128 +49,119 @@ module Amazonka.ELBV2
     -- * Errors
     -- $errors
 
-    -- ** InvalidConfigurationRequestException
-    _InvalidConfigurationRequestException,
-
-    -- ** SubnetNotFoundException
-    _SubnetNotFoundException,
-
-    -- ** TooManyTargetsException
-    _TooManyTargetsException,
-
-    -- ** RuleNotFoundException
-    _RuleNotFoundException,
-
-    -- ** InvalidSubnetException
-    _InvalidSubnetException,
-
-    -- ** TooManyRulesException
-    _TooManyRulesException,
-
-    -- ** TooManyTargetGroupsException
-    _TooManyTargetGroupsException,
-
-    -- ** TooManyActionsException
-    _TooManyActionsException,
-
-    -- ** DuplicateLoadBalancerNameException
-    _DuplicateLoadBalancerNameException,
+    -- ** InvalidSchemeException
+    _InvalidSchemeException,
 
     -- ** IncompatibleProtocolsException
     _IncompatibleProtocolsException,
 
-    -- ** TooManyCertificatesException
-    _TooManyCertificatesException,
-
-    -- ** DuplicateTagKeysException
-    _DuplicateTagKeysException,
-
-    -- ** DuplicateListenerException
-    _DuplicateListenerException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
+    -- ** ListenerNotFoundException
+    _ListenerNotFoundException,
 
     -- ** DuplicateTargetGroupNameException
     _DuplicateTargetGroupNameException,
 
-    -- ** HealthUnavailableException
-    _HealthUnavailableException,
-
-    -- ** AllocationIdNotFoundException
-    _AllocationIdNotFoundException,
-
-    -- ** PriorityInUseException
-    _PriorityInUseException,
-
-    -- ** TooManyLoadBalancersException
-    _TooManyLoadBalancersException,
-
-    -- ** UnsupportedProtocolException
-    _UnsupportedProtocolException,
-
-    -- ** ALPNPolicyNotSupportedException
-    _ALPNPolicyNotSupportedException,
-
-    -- ** InvalidTargetException
-    _InvalidTargetException,
-
-    -- ** InvalidSecurityGroupException
-    _InvalidSecurityGroupException,
-
-    -- ** TargetGroupNotFoundException
-    _TargetGroupNotFoundException,
-
-    -- ** ListenerNotFoundException
-    _ListenerNotFoundException,
-
-    -- ** InvalidLoadBalancerActionException
-    _InvalidLoadBalancerActionException,
-
-    -- ** TooManyRegistrationsForTargetIdException
-    _TooManyRegistrationsForTargetIdException,
-
-    -- ** TooManyListenersException
-    _TooManyListenersException,
+    -- ** TooManyTargetGroupsException
+    _TooManyTargetGroupsException,
 
     -- ** TargetGroupAssociationLimitException
     _TargetGroupAssociationLimitException,
 
-    -- ** OperationNotPermittedException
-    _OperationNotPermittedException,
+    -- ** DuplicateTagKeysException
+    _DuplicateTagKeysException,
 
-    -- ** SSLPolicyNotFoundException
-    _SSLPolicyNotFoundException,
+    -- ** TooManyListenersException
+    _TooManyListenersException,
 
-    -- ** InvalidSchemeException
-    _InvalidSchemeException,
+    -- ** TooManyTargetsException
+    _TooManyTargetsException,
 
-    -- ** AvailabilityZoneNotSupportedException
-    _AvailabilityZoneNotSupportedException,
-
-    -- ** TooManyUniqueTargetGroupsPerLoadBalancerException
-    _TooManyUniqueTargetGroupsPerLoadBalancerException,
-
-    -- ** LoadBalancerNotFoundException
-    _LoadBalancerNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** InvalidLoadBalancerActionException
+    _InvalidLoadBalancerActionException,
 
     -- ** CertificateNotFoundException
     _CertificateNotFoundException,
 
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** TooManyRegistrationsForTargetIdException
+    _TooManyRegistrationsForTargetIdException,
+
+    -- ** TooManyRulesException
+    _TooManyRulesException,
+
+    -- ** TooManyUniqueTargetGroupsPerLoadBalancerException
+    _TooManyUniqueTargetGroupsPerLoadBalancerException,
+
+    -- ** InvalidSecurityGroupException
+    _InvalidSecurityGroupException,
+
+    -- ** SSLPolicyNotFoundException
+    _SSLPolicyNotFoundException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** TooManyActionsException
+    _TooManyActionsException,
+
+    -- ** LoadBalancerNotFoundException
+    _LoadBalancerNotFoundException,
+
+    -- ** HealthUnavailableException
+    _HealthUnavailableException,
+
+    -- ** InvalidTargetException
+    _InvalidTargetException,
+
+    -- ** TooManyLoadBalancersException
+    _TooManyLoadBalancersException,
+
+    -- ** AllocationIdNotFoundException
+    _AllocationIdNotFoundException,
+
+    -- ** DuplicateLoadBalancerNameException
+    _DuplicateLoadBalancerNameException,
+
+    -- ** PriorityInUseException
+    _PriorityInUseException,
+
+    -- ** AvailabilityZoneNotSupportedException
+    _AvailabilityZoneNotSupportedException,
+
+    -- ** TargetGroupNotFoundException
+    _TargetGroupNotFoundException,
+
+    -- ** InvalidSubnetException
+    _InvalidSubnetException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** InvalidConfigurationRequestException
+    _InvalidConfigurationRequestException,
+
+    -- ** DuplicateListenerException
+    _DuplicateListenerException,
+
+    -- ** RuleNotFoundException
+    _RuleNotFoundException,
+
+    -- ** TooManyCertificatesException
+    _TooManyCertificatesException,
+
+    -- ** ALPNPolicyNotSupportedException
+    _ALPNPolicyNotSupportedException,
+
+    -- ** SubnetNotFoundException
+    _SubnetNotFoundException,
+
+    -- ** UnsupportedProtocolException
+    _UnsupportedProtocolException,
+
     -- * Waiters
     -- $waiters
-
-    -- ** LoadBalancersDeleted
-    newLoadBalancersDeleted,
-
-    -- ** TargetDeregistered
-    newTargetDeregistered,
-
-    -- ** LoadBalancerAvailable
-    newLoadBalancerAvailable,
 
     -- ** TargetInService
     newTargetInService,
@@ -178,44 +169,41 @@ module Amazonka.ELBV2
     -- ** LoadBalancerExists
     newLoadBalancerExists,
 
+    -- ** LoadBalancerAvailable
+    newLoadBalancerAvailable,
+
+    -- ** TargetDeregistered
+    newTargetDeregistered,
+
+    -- ** LoadBalancersDeleted
+    newLoadBalancersDeleted,
+
     -- * Operations
     -- $operations
 
-    -- ** DescribeLoadBalancers (Paginated)
-    DescribeLoadBalancers (DescribeLoadBalancers'),
-    newDescribeLoadBalancers,
-    DescribeLoadBalancersResponse (DescribeLoadBalancersResponse'),
-    newDescribeLoadBalancersResponse,
+    -- ** AddListenerCertificates
+    AddListenerCertificates (AddListenerCertificates'),
+    newAddListenerCertificates,
+    AddListenerCertificatesResponse (AddListenerCertificatesResponse'),
+    newAddListenerCertificatesResponse,
 
-    -- ** DescribeTags
-    DescribeTags (DescribeTags'),
-    newDescribeTags,
-    DescribeTagsResponse (DescribeTagsResponse'),
-    newDescribeTagsResponse,
+    -- ** AddTags
+    AddTags (AddTags'),
+    newAddTags,
+    AddTagsResponse (AddTagsResponse'),
+    newAddTagsResponse,
 
-    -- ** DeleteRule
-    DeleteRule (DeleteRule'),
-    newDeleteRule,
-    DeleteRuleResponse (DeleteRuleResponse'),
-    newDeleteRuleResponse,
+    -- ** CreateListener
+    CreateListener (CreateListener'),
+    newCreateListener,
+    CreateListenerResponse (CreateListenerResponse'),
+    newCreateListenerResponse,
 
-    -- ** RemoveTags
-    RemoveTags (RemoveTags'),
-    newRemoveTags,
-    RemoveTagsResponse (RemoveTagsResponse'),
-    newRemoveTagsResponse,
-
-    -- ** DeleteTargetGroup
-    DeleteTargetGroup (DeleteTargetGroup'),
-    newDeleteTargetGroup,
-    DeleteTargetGroupResponse (DeleteTargetGroupResponse'),
-    newDeleteTargetGroupResponse,
-
-    -- ** SetSubnets
-    SetSubnets (SetSubnets'),
-    newSetSubnets,
-    SetSubnetsResponse (SetSubnetsResponse'),
-    newSetSubnetsResponse,
+    -- ** CreateLoadBalancer
+    CreateLoadBalancer (CreateLoadBalancer'),
+    newCreateLoadBalancer,
+    CreateLoadBalancerResponse (CreateLoadBalancerResponse'),
+    newCreateLoadBalancerResponse,
 
     -- ** CreateRule
     CreateRule (CreateRule'),
@@ -223,35 +211,17 @@ module Amazonka.ELBV2
     CreateRuleResponse (CreateRuleResponse'),
     newCreateRuleResponse,
 
-    -- ** DescribeListenerCertificates (Paginated)
-    DescribeListenerCertificates (DescribeListenerCertificates'),
-    newDescribeListenerCertificates,
-    DescribeListenerCertificatesResponse (DescribeListenerCertificatesResponse'),
-    newDescribeListenerCertificatesResponse,
+    -- ** CreateTargetGroup
+    CreateTargetGroup (CreateTargetGroup'),
+    newCreateTargetGroup,
+    CreateTargetGroupResponse (CreateTargetGroupResponse'),
+    newCreateTargetGroupResponse,
 
-    -- ** SetSecurityGroups
-    SetSecurityGroups (SetSecurityGroups'),
-    newSetSecurityGroups,
-    SetSecurityGroupsResponse (SetSecurityGroupsResponse'),
-    newSetSecurityGroupsResponse,
-
-    -- ** SetRulePriorities
-    SetRulePriorities (SetRulePriorities'),
-    newSetRulePriorities,
-    SetRulePrioritiesResponse (SetRulePrioritiesResponse'),
-    newSetRulePrioritiesResponse,
-
-    -- ** DescribeTargetGroups (Paginated)
-    DescribeTargetGroups (DescribeTargetGroups'),
-    newDescribeTargetGroups,
-    DescribeTargetGroupsResponse (DescribeTargetGroupsResponse'),
-    newDescribeTargetGroupsResponse,
-
-    -- ** DescribeRules (Paginated)
-    DescribeRules (DescribeRules'),
-    newDescribeRules,
-    DescribeRulesResponse (DescribeRulesResponse'),
-    newDescribeRulesResponse,
+    -- ** DeleteListener
+    DeleteListener (DeleteListener'),
+    newDeleteListener,
+    DeleteListenerResponse (DeleteListenerResponse'),
+    newDeleteListenerResponse,
 
     -- ** DeleteLoadBalancer
     DeleteLoadBalancer (DeleteLoadBalancer'),
@@ -259,17 +229,107 @@ module Amazonka.ELBV2
     DeleteLoadBalancerResponse (DeleteLoadBalancerResponse'),
     newDeleteLoadBalancerResponse,
 
-    -- ** RegisterTargets
-    RegisterTargets (RegisterTargets'),
-    newRegisterTargets,
-    RegisterTargetsResponse (RegisterTargetsResponse'),
-    newRegisterTargetsResponse,
+    -- ** DeleteRule
+    DeleteRule (DeleteRule'),
+    newDeleteRule,
+    DeleteRuleResponse (DeleteRuleResponse'),
+    newDeleteRuleResponse,
+
+    -- ** DeleteTargetGroup
+    DeleteTargetGroup (DeleteTargetGroup'),
+    newDeleteTargetGroup,
+    DeleteTargetGroupResponse (DeleteTargetGroupResponse'),
+    newDeleteTargetGroupResponse,
+
+    -- ** DeregisterTargets
+    DeregisterTargets (DeregisterTargets'),
+    newDeregisterTargets,
+    DeregisterTargetsResponse (DeregisterTargetsResponse'),
+    newDeregisterTargetsResponse,
+
+    -- ** DescribeAccountLimits (Paginated)
+    DescribeAccountLimits (DescribeAccountLimits'),
+    newDescribeAccountLimits,
+    DescribeAccountLimitsResponse (DescribeAccountLimitsResponse'),
+    newDescribeAccountLimitsResponse,
+
+    -- ** DescribeListenerCertificates (Paginated)
+    DescribeListenerCertificates (DescribeListenerCertificates'),
+    newDescribeListenerCertificates,
+    DescribeListenerCertificatesResponse (DescribeListenerCertificatesResponse'),
+    newDescribeListenerCertificatesResponse,
+
+    -- ** DescribeListeners (Paginated)
+    DescribeListeners (DescribeListeners'),
+    newDescribeListeners,
+    DescribeListenersResponse (DescribeListenersResponse'),
+    newDescribeListenersResponse,
+
+    -- ** DescribeLoadBalancerAttributes
+    DescribeLoadBalancerAttributes (DescribeLoadBalancerAttributes'),
+    newDescribeLoadBalancerAttributes,
+    DescribeLoadBalancerAttributesResponse (DescribeLoadBalancerAttributesResponse'),
+    newDescribeLoadBalancerAttributesResponse,
+
+    -- ** DescribeLoadBalancers (Paginated)
+    DescribeLoadBalancers (DescribeLoadBalancers'),
+    newDescribeLoadBalancers,
+    DescribeLoadBalancersResponse (DescribeLoadBalancersResponse'),
+    newDescribeLoadBalancersResponse,
+
+    -- ** DescribeRules (Paginated)
+    DescribeRules (DescribeRules'),
+    newDescribeRules,
+    DescribeRulesResponse (DescribeRulesResponse'),
+    newDescribeRulesResponse,
+
+    -- ** DescribeSSLPolicies (Paginated)
+    DescribeSSLPolicies (DescribeSSLPolicies'),
+    newDescribeSSLPolicies,
+    DescribeSSLPoliciesResponse (DescribeSSLPoliciesResponse'),
+    newDescribeSSLPoliciesResponse,
+
+    -- ** DescribeTags
+    DescribeTags (DescribeTags'),
+    newDescribeTags,
+    DescribeTagsResponse (DescribeTagsResponse'),
+    newDescribeTagsResponse,
+
+    -- ** DescribeTargetGroupAttributes
+    DescribeTargetGroupAttributes (DescribeTargetGroupAttributes'),
+    newDescribeTargetGroupAttributes,
+    DescribeTargetGroupAttributesResponse (DescribeTargetGroupAttributesResponse'),
+    newDescribeTargetGroupAttributesResponse,
+
+    -- ** DescribeTargetGroups (Paginated)
+    DescribeTargetGroups (DescribeTargetGroups'),
+    newDescribeTargetGroups,
+    DescribeTargetGroupsResponse (DescribeTargetGroupsResponse'),
+    newDescribeTargetGroupsResponse,
+
+    -- ** DescribeTargetHealth
+    DescribeTargetHealth (DescribeTargetHealth'),
+    newDescribeTargetHealth,
+    DescribeTargetHealthResponse (DescribeTargetHealthResponse'),
+    newDescribeTargetHealthResponse,
 
     -- ** ModifyListener
     ModifyListener (ModifyListener'),
     newModifyListener,
     ModifyListenerResponse (ModifyListenerResponse'),
     newModifyListenerResponse,
+
+    -- ** ModifyLoadBalancerAttributes
+    ModifyLoadBalancerAttributes (ModifyLoadBalancerAttributes'),
+    newModifyLoadBalancerAttributes,
+    ModifyLoadBalancerAttributesResponse (ModifyLoadBalancerAttributesResponse'),
+    newModifyLoadBalancerAttributesResponse,
+
+    -- ** ModifyRule
+    ModifyRule (ModifyRule'),
+    newModifyRule,
+    ModifyRuleResponse (ModifyRuleResponse'),
+    newModifyRuleResponse,
 
     -- ** ModifyTargetGroup
     ModifyTargetGroup (ModifyTargetGroup'),
@@ -283,89 +343,11 @@ module Amazonka.ELBV2
     ModifyTargetGroupAttributesResponse (ModifyTargetGroupAttributesResponse'),
     newModifyTargetGroupAttributesResponse,
 
-    -- ** DescribeTargetGroupAttributes
-    DescribeTargetGroupAttributes (DescribeTargetGroupAttributes'),
-    newDescribeTargetGroupAttributes,
-    DescribeTargetGroupAttributesResponse (DescribeTargetGroupAttributesResponse'),
-    newDescribeTargetGroupAttributesResponse,
-
-    -- ** DeleteListener
-    DeleteListener (DeleteListener'),
-    newDeleteListener,
-    DeleteListenerResponse (DeleteListenerResponse'),
-    newDeleteListenerResponse,
-
-    -- ** DescribeSSLPolicies (Paginated)
-    DescribeSSLPolicies (DescribeSSLPolicies'),
-    newDescribeSSLPolicies,
-    DescribeSSLPoliciesResponse (DescribeSSLPoliciesResponse'),
-    newDescribeSSLPoliciesResponse,
-
-    -- ** DescribeAccountLimits (Paginated)
-    DescribeAccountLimits (DescribeAccountLimits'),
-    newDescribeAccountLimits,
-    DescribeAccountLimitsResponse (DescribeAccountLimitsResponse'),
-    newDescribeAccountLimitsResponse,
-
-    -- ** DeregisterTargets
-    DeregisterTargets (DeregisterTargets'),
-    newDeregisterTargets,
-    DeregisterTargetsResponse (DeregisterTargetsResponse'),
-    newDeregisterTargetsResponse,
-
-    -- ** CreateListener
-    CreateListener (CreateListener'),
-    newCreateListener,
-    CreateListenerResponse (CreateListenerResponse'),
-    newCreateListenerResponse,
-
-    -- ** CreateTargetGroup
-    CreateTargetGroup (CreateTargetGroup'),
-    newCreateTargetGroup,
-    CreateTargetGroupResponse (CreateTargetGroupResponse'),
-    newCreateTargetGroupResponse,
-
-    -- ** ModifyLoadBalancerAttributes
-    ModifyLoadBalancerAttributes (ModifyLoadBalancerAttributes'),
-    newModifyLoadBalancerAttributes,
-    ModifyLoadBalancerAttributesResponse (ModifyLoadBalancerAttributesResponse'),
-    newModifyLoadBalancerAttributesResponse,
-
-    -- ** SetIpAddressType
-    SetIpAddressType (SetIpAddressType'),
-    newSetIpAddressType,
-    SetIpAddressTypeResponse (SetIpAddressTypeResponse'),
-    newSetIpAddressTypeResponse,
-
-    -- ** AddTags
-    AddTags (AddTags'),
-    newAddTags,
-    AddTagsResponse (AddTagsResponse'),
-    newAddTagsResponse,
-
-    -- ** DescribeLoadBalancerAttributes
-    DescribeLoadBalancerAttributes (DescribeLoadBalancerAttributes'),
-    newDescribeLoadBalancerAttributes,
-    DescribeLoadBalancerAttributesResponse (DescribeLoadBalancerAttributesResponse'),
-    newDescribeLoadBalancerAttributesResponse,
-
-    -- ** DescribeListeners (Paginated)
-    DescribeListeners (DescribeListeners'),
-    newDescribeListeners,
-    DescribeListenersResponse (DescribeListenersResponse'),
-    newDescribeListenersResponse,
-
-    -- ** DescribeTargetHealth
-    DescribeTargetHealth (DescribeTargetHealth'),
-    newDescribeTargetHealth,
-    DescribeTargetHealthResponse (DescribeTargetHealthResponse'),
-    newDescribeTargetHealthResponse,
-
-    -- ** CreateLoadBalancer
-    CreateLoadBalancer (CreateLoadBalancer'),
-    newCreateLoadBalancer,
-    CreateLoadBalancerResponse (CreateLoadBalancerResponse'),
-    newCreateLoadBalancerResponse,
+    -- ** RegisterTargets
+    RegisterTargets (RegisterTargets'),
+    newRegisterTargets,
+    RegisterTargetsResponse (RegisterTargetsResponse'),
+    newRegisterTargetsResponse,
 
     -- ** RemoveListenerCertificates
     RemoveListenerCertificates (RemoveListenerCertificates'),
@@ -373,17 +355,35 @@ module Amazonka.ELBV2
     RemoveListenerCertificatesResponse (RemoveListenerCertificatesResponse'),
     newRemoveListenerCertificatesResponse,
 
-    -- ** ModifyRule
-    ModifyRule (ModifyRule'),
-    newModifyRule,
-    ModifyRuleResponse (ModifyRuleResponse'),
-    newModifyRuleResponse,
+    -- ** RemoveTags
+    RemoveTags (RemoveTags'),
+    newRemoveTags,
+    RemoveTagsResponse (RemoveTagsResponse'),
+    newRemoveTagsResponse,
 
-    -- ** AddListenerCertificates
-    AddListenerCertificates (AddListenerCertificates'),
-    newAddListenerCertificates,
-    AddListenerCertificatesResponse (AddListenerCertificatesResponse'),
-    newAddListenerCertificatesResponse,
+    -- ** SetIpAddressType
+    SetIpAddressType (SetIpAddressType'),
+    newSetIpAddressType,
+    SetIpAddressTypeResponse (SetIpAddressTypeResponse'),
+    newSetIpAddressTypeResponse,
+
+    -- ** SetRulePriorities
+    SetRulePriorities (SetRulePriorities'),
+    newSetRulePriorities,
+    SetRulePrioritiesResponse (SetRulePrioritiesResponse'),
+    newSetRulePrioritiesResponse,
+
+    -- ** SetSecurityGroups
+    SetSecurityGroups (SetSecurityGroups'),
+    newSetSecurityGroups,
+    SetSecurityGroupsResponse (SetSecurityGroupsResponse'),
+    newSetSecurityGroupsResponse,
+
+    -- ** SetSubnets
+    SetSubnets (SetSubnets'),
+    newSetSubnets,
+    SetSubnetsResponse (SetSubnetsResponse'),
+    newSetSubnetsResponse,
 
     -- * Types
 

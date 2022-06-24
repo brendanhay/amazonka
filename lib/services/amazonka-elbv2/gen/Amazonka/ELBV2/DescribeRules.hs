@@ -30,8 +30,8 @@ module Amazonka.ELBV2.DescribeRules
     newDescribeRules,
 
     -- * Request Lenses
-    describeRules_listenerArn,
     describeRules_marker,
+    describeRules_listenerArn,
     describeRules_ruleArns,
     describeRules_pageSize,
 
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRules' smart constructor.
 data DescribeRules = DescribeRules'
-  { -- | The Amazon Resource Name (ARN) of the listener.
-    listenerArn :: Prelude.Maybe Prelude.Text,
-    -- | The marker for the next set of results. (You received this marker from a
+  { -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the listener.
+    listenerArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Names (ARN) of the rules.
     ruleArns :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return with this call.
@@ -75,10 +75,10 @@ data DescribeRules = DescribeRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'listenerArn', 'describeRules_listenerArn' - The Amazon Resource Name (ARN) of the listener.
---
 -- 'marker', 'describeRules_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call.)
+--
+-- 'listenerArn', 'describeRules_listenerArn' - The Amazon Resource Name (ARN) of the listener.
 --
 -- 'ruleArns', 'describeRules_ruleArns' - The Amazon Resource Names (ARN) of the rules.
 --
@@ -87,20 +87,20 @@ newDescribeRules ::
   DescribeRules
 newDescribeRules =
   DescribeRules'
-    { listenerArn = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      listenerArn = Prelude.Nothing,
       ruleArns = Prelude.Nothing,
       pageSize = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the listener.
-describeRules_listenerArn :: Lens.Lens' DescribeRules (Prelude.Maybe Prelude.Text)
-describeRules_listenerArn = Lens.lens (\DescribeRules' {listenerArn} -> listenerArn) (\s@DescribeRules' {} a -> s {listenerArn = a} :: DescribeRules)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 describeRules_marker :: Lens.Lens' DescribeRules (Prelude.Maybe Prelude.Text)
 describeRules_marker = Lens.lens (\DescribeRules' {marker} -> marker) (\s@DescribeRules' {} a -> s {marker = a} :: DescribeRules)
+
+-- | The Amazon Resource Name (ARN) of the listener.
+describeRules_listenerArn :: Lens.Lens' DescribeRules (Prelude.Maybe Prelude.Text)
+describeRules_listenerArn = Lens.lens (\DescribeRules' {listenerArn} -> listenerArn) (\s@DescribeRules' {} a -> s {listenerArn = a} :: DescribeRules)
 
 -- | The Amazon Resource Names (ARN) of the rules.
 describeRules_ruleArns :: Lens.Lens' DescribeRules (Prelude.Maybe [Prelude.Text])
@@ -149,15 +149,15 @@ instance Core.AWSRequest DescribeRules where
 
 instance Prelude.Hashable DescribeRules where
   hashWithSalt _salt DescribeRules' {..} =
-    _salt `Prelude.hashWithSalt` listenerArn
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` listenerArn
       `Prelude.hashWithSalt` ruleArns
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData DescribeRules where
   rnf DescribeRules' {..} =
-    Prelude.rnf listenerArn
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf listenerArn
       `Prelude.seq` Prelude.rnf ruleArns
       `Prelude.seq` Prelude.rnf pageSize
 
@@ -174,8 +174,8 @@ instance Core.ToQuery DescribeRules where
           Core.=: ("DescribeRules" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "ListenerArn" Core.=: listenerArn,
         "Marker" Core.=: marker,
+        "ListenerArn" Core.=: listenerArn,
         "RuleArns"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> ruleArns),

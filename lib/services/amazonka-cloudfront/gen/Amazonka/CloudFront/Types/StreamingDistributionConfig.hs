@@ -35,12 +35,12 @@ data StreamingDistributionConfig = StreamingDistributionConfig'
   { -- | A complex type that contains information about CNAMEs (alternate domain
     -- names), if any, for this streaming distribution.
     aliases :: Prelude.Maybe Aliases,
-    -- | A complex type that contains information about price class for this
-    -- streaming distribution.
-    priceClass :: Prelude.Maybe PriceClass,
     -- | A complex type that controls whether access logs are written for the
     -- streaming distribution.
     logging :: Prelude.Maybe StreamingLoggingConfig,
+    -- | A complex type that contains information about price class for this
+    -- streaming distribution.
+    priceClass :: Prelude.Maybe PriceClass,
     -- | A unique value (for example, a date-time stamp) that ensures that the
     -- request can\'t be replayed.
     --
@@ -81,10 +81,10 @@ data StreamingDistributionConfig = StreamingDistributionConfig'
 -- 'aliases', 'streamingDistributionConfig_aliases' - A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this streaming distribution.
 --
--- 'priceClass', 'streamingDistributionConfig_priceClass' - A complex type that contains information about price class for this
+-- 'logging', 'streamingDistributionConfig_logging' - A complex type that controls whether access logs are written for the
 -- streaming distribution.
 --
--- 'logging', 'streamingDistributionConfig_logging' - A complex type that controls whether access logs are written for the
+-- 'priceClass', 'streamingDistributionConfig_priceClass' - A complex type that contains information about price class for this
 -- streaming distribution.
 --
 -- 'callerReference', 'streamingDistributionConfig_callerReference' - A unique value (for example, a date-time stamp) that ensures that the
@@ -133,8 +133,8 @@ newStreamingDistributionConfig
     StreamingDistributionConfig'
       { aliases =
           Prelude.Nothing,
-        priceClass = Prelude.Nothing,
         logging = Prelude.Nothing,
+        priceClass = Prelude.Nothing,
         callerReference = pCallerReference_,
         s3Origin = pS3Origin_,
         comment = pComment_,
@@ -147,15 +147,15 @@ newStreamingDistributionConfig
 streamingDistributionConfig_aliases :: Lens.Lens' StreamingDistributionConfig (Prelude.Maybe Aliases)
 streamingDistributionConfig_aliases = Lens.lens (\StreamingDistributionConfig' {aliases} -> aliases) (\s@StreamingDistributionConfig' {} a -> s {aliases = a} :: StreamingDistributionConfig)
 
--- | A complex type that contains information about price class for this
--- streaming distribution.
-streamingDistributionConfig_priceClass :: Lens.Lens' StreamingDistributionConfig (Prelude.Maybe PriceClass)
-streamingDistributionConfig_priceClass = Lens.lens (\StreamingDistributionConfig' {priceClass} -> priceClass) (\s@StreamingDistributionConfig' {} a -> s {priceClass = a} :: StreamingDistributionConfig)
-
 -- | A complex type that controls whether access logs are written for the
 -- streaming distribution.
 streamingDistributionConfig_logging :: Lens.Lens' StreamingDistributionConfig (Prelude.Maybe StreamingLoggingConfig)
 streamingDistributionConfig_logging = Lens.lens (\StreamingDistributionConfig' {logging} -> logging) (\s@StreamingDistributionConfig' {} a -> s {logging = a} :: StreamingDistributionConfig)
+
+-- | A complex type that contains information about price class for this
+-- streaming distribution.
+streamingDistributionConfig_priceClass :: Lens.Lens' StreamingDistributionConfig (Prelude.Maybe PriceClass)
+streamingDistributionConfig_priceClass = Lens.lens (\StreamingDistributionConfig' {priceClass} -> priceClass) (\s@StreamingDistributionConfig' {} a -> s {priceClass = a} :: StreamingDistributionConfig)
 
 -- | A unique value (for example, a date-time stamp) that ensures that the
 -- request can\'t be replayed.
@@ -197,8 +197,8 @@ instance Core.FromXML StreamingDistributionConfig where
   parseXML x =
     StreamingDistributionConfig'
       Prelude.<$> (x Core..@? "Aliases")
-      Prelude.<*> (x Core..@? "PriceClass")
       Prelude.<*> (x Core..@? "Logging")
+      Prelude.<*> (x Core..@? "PriceClass")
       Prelude.<*> (x Core..@ "CallerReference")
       Prelude.<*> (x Core..@ "S3Origin")
       Prelude.<*> (x Core..@ "Comment")
@@ -208,8 +208,8 @@ instance Core.FromXML StreamingDistributionConfig where
 instance Prelude.Hashable StreamingDistributionConfig where
   hashWithSalt _salt StreamingDistributionConfig' {..} =
     _salt `Prelude.hashWithSalt` aliases
-      `Prelude.hashWithSalt` priceClass
       `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` priceClass
       `Prelude.hashWithSalt` callerReference
       `Prelude.hashWithSalt` s3Origin
       `Prelude.hashWithSalt` comment
@@ -219,8 +219,8 @@ instance Prelude.Hashable StreamingDistributionConfig where
 instance Prelude.NFData StreamingDistributionConfig where
   rnf StreamingDistributionConfig' {..} =
     Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf priceClass
       `Prelude.seq` Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf priceClass
       `Prelude.seq` Prelude.rnf callerReference
       `Prelude.seq` Prelude.rnf s3Origin
       `Prelude.seq` Prelude.rnf comment
@@ -231,8 +231,8 @@ instance Core.ToXML StreamingDistributionConfig where
   toXML StreamingDistributionConfig' {..} =
     Prelude.mconcat
       [ "Aliases" Core.@= aliases,
-        "PriceClass" Core.@= priceClass,
         "Logging" Core.@= logging,
+        "PriceClass" Core.@= priceClass,
         "CallerReference" Core.@= callerReference,
         "S3Origin" Core.@= s3Origin,
         "Comment" Core.@= comment,

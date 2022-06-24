@@ -45,20 +45,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCachePolicyConfig' smart constructor.
 data CachePolicyConfig = CachePolicyConfig'
-  { -- | The maximum amount of time, in seconds, that objects stay in the
-    -- CloudFront cache before CloudFront sends another request to the origin
-    -- to see if the object has been updated. CloudFront uses this value only
-    -- when the origin sends @Cache-Control@ or @Expires@ headers with the
-    -- object. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)>
-    -- in the /Amazon CloudFront Developer Guide/.
-    --
-    -- The default value for this field is 31536000 seconds (one year). If the
-    -- value of @MinTTL@ or @DefaultTTL@ is more than 31536000 seconds, then
-    -- the default value for this field is the same as the value of
-    -- @DefaultTTL@.
-    maxTTL :: Prelude.Maybe Prelude.Integer,
-    -- | The HTTP headers, cookies, and URL query strings to include in the cache
+  { -- | The HTTP headers, cookies, and URL query strings to include in the cache
     -- key. The values included in the cache key are automatically included in
     -- requests that CloudFront sends to the origin.
     parametersInCacheKeyAndForwardedToOrigin :: Prelude.Maybe ParametersInCacheKeyAndForwardedToOrigin,
@@ -78,6 +65,19 @@ data CachePolicyConfig = CachePolicyConfig'
     -- | A comment to describe the cache policy. The comment cannot be longer
     -- than 128 characters.
     comment :: Prelude.Maybe Prelude.Text,
+    -- | The maximum amount of time, in seconds, that objects stay in the
+    -- CloudFront cache before CloudFront sends another request to the origin
+    -- to see if the object has been updated. CloudFront uses this value only
+    -- when the origin sends @Cache-Control@ or @Expires@ headers with the
+    -- object. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)>
+    -- in the /Amazon CloudFront Developer Guide/.
+    --
+    -- The default value for this field is 31536000 seconds (one year). If the
+    -- value of @MinTTL@ or @DefaultTTL@ is more than 31536000 seconds, then
+    -- the default value for this field is the same as the value of
+    -- @DefaultTTL@.
+    maxTTL :: Prelude.Maybe Prelude.Integer,
     -- | A unique name to identify the cache policy.
     name :: Prelude.Text,
     -- | The minimum amount of time, in seconds, that you want objects to stay in
@@ -96,19 +96,6 @@ data CachePolicyConfig = CachePolicyConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'maxTTL', 'cachePolicyConfig_maxTTL' - The maximum amount of time, in seconds, that objects stay in the
--- CloudFront cache before CloudFront sends another request to the origin
--- to see if the object has been updated. CloudFront uses this value only
--- when the origin sends @Cache-Control@ or @Expires@ headers with the
--- object. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)>
--- in the /Amazon CloudFront Developer Guide/.
---
--- The default value for this field is 31536000 seconds (one year). If the
--- value of @MinTTL@ or @DefaultTTL@ is more than 31536000 seconds, then
--- the default value for this field is the same as the value of
--- @DefaultTTL@.
 --
 -- 'parametersInCacheKeyAndForwardedToOrigin', 'cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin' - The HTTP headers, cookies, and URL query strings to include in the cache
 -- key. The values included in the cache key are automatically included in
@@ -130,6 +117,19 @@ data CachePolicyConfig = CachePolicyConfig'
 -- 'comment', 'cachePolicyConfig_comment' - A comment to describe the cache policy. The comment cannot be longer
 -- than 128 characters.
 --
+-- 'maxTTL', 'cachePolicyConfig_maxTTL' - The maximum amount of time, in seconds, that objects stay in the
+-- CloudFront cache before CloudFront sends another request to the origin
+-- to see if the object has been updated. CloudFront uses this value only
+-- when the origin sends @Cache-Control@ or @Expires@ headers with the
+-- object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)>
+-- in the /Amazon CloudFront Developer Guide/.
+--
+-- The default value for this field is 31536000 seconds (one year). If the
+-- value of @MinTTL@ or @DefaultTTL@ is more than 31536000 seconds, then
+-- the default value for this field is the same as the value of
+-- @DefaultTTL@.
+--
 -- 'name', 'cachePolicyConfig_name' - A unique name to identify the cache policy.
 --
 -- 'minTTL', 'cachePolicyConfig_minTTL' - The minimum amount of time, in seconds, that you want objects to stay in
@@ -145,29 +145,14 @@ newCachePolicyConfig ::
   CachePolicyConfig
 newCachePolicyConfig pName_ pMinTTL_ =
   CachePolicyConfig'
-    { maxTTL = Prelude.Nothing,
-      parametersInCacheKeyAndForwardedToOrigin =
+    { parametersInCacheKeyAndForwardedToOrigin =
         Prelude.Nothing,
       defaultTTL = Prelude.Nothing,
       comment = Prelude.Nothing,
+      maxTTL = Prelude.Nothing,
       name = pName_,
       minTTL = pMinTTL_
     }
-
--- | The maximum amount of time, in seconds, that objects stay in the
--- CloudFront cache before CloudFront sends another request to the origin
--- to see if the object has been updated. CloudFront uses this value only
--- when the origin sends @Cache-Control@ or @Expires@ headers with the
--- object. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)>
--- in the /Amazon CloudFront Developer Guide/.
---
--- The default value for this field is 31536000 seconds (one year). If the
--- value of @MinTTL@ or @DefaultTTL@ is more than 31536000 seconds, then
--- the default value for this field is the same as the value of
--- @DefaultTTL@.
-cachePolicyConfig_maxTTL :: Lens.Lens' CachePolicyConfig (Prelude.Maybe Prelude.Integer)
-cachePolicyConfig_maxTTL = Lens.lens (\CachePolicyConfig' {maxTTL} -> maxTTL) (\s@CachePolicyConfig' {} a -> s {maxTTL = a} :: CachePolicyConfig)
 
 -- | The HTTP headers, cookies, and URL query strings to include in the cache
 -- key. The values included in the cache key are automatically included in
@@ -195,6 +180,21 @@ cachePolicyConfig_defaultTTL = Lens.lens (\CachePolicyConfig' {defaultTTL} -> de
 cachePolicyConfig_comment :: Lens.Lens' CachePolicyConfig (Prelude.Maybe Prelude.Text)
 cachePolicyConfig_comment = Lens.lens (\CachePolicyConfig' {comment} -> comment) (\s@CachePolicyConfig' {} a -> s {comment = a} :: CachePolicyConfig)
 
+-- | The maximum amount of time, in seconds, that objects stay in the
+-- CloudFront cache before CloudFront sends another request to the origin
+-- to see if the object has been updated. CloudFront uses this value only
+-- when the origin sends @Cache-Control@ or @Expires@ headers with the
+-- object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)>
+-- in the /Amazon CloudFront Developer Guide/.
+--
+-- The default value for this field is 31536000 seconds (one year). If the
+-- value of @MinTTL@ or @DefaultTTL@ is more than 31536000 seconds, then
+-- the default value for this field is the same as the value of
+-- @DefaultTTL@.
+cachePolicyConfig_maxTTL :: Lens.Lens' CachePolicyConfig (Prelude.Maybe Prelude.Integer)
+cachePolicyConfig_maxTTL = Lens.lens (\CachePolicyConfig' {maxTTL} -> maxTTL) (\s@CachePolicyConfig' {} a -> s {maxTTL = a} :: CachePolicyConfig)
+
 -- | A unique name to identify the cache policy.
 cachePolicyConfig_name :: Lens.Lens' CachePolicyConfig Prelude.Text
 cachePolicyConfig_name = Lens.lens (\CachePolicyConfig' {name} -> name) (\s@CachePolicyConfig' {} a -> s {name = a} :: CachePolicyConfig)
@@ -210,41 +210,43 @@ cachePolicyConfig_minTTL = Lens.lens (\CachePolicyConfig' {minTTL} -> minTTL) (\
 instance Core.FromXML CachePolicyConfig where
   parseXML x =
     CachePolicyConfig'
-      Prelude.<$> (x Core..@? "MaxTTL")
-      Prelude.<*> ( x
+      Prelude.<$> ( x
                       Core..@? "ParametersInCacheKeyAndForwardedToOrigin"
                   )
       Prelude.<*> (x Core..@? "DefaultTTL")
       Prelude.<*> (x Core..@? "Comment")
+      Prelude.<*> (x Core..@? "MaxTTL")
       Prelude.<*> (x Core..@ "Name")
       Prelude.<*> (x Core..@ "MinTTL")
 
 instance Prelude.Hashable CachePolicyConfig where
   hashWithSalt _salt CachePolicyConfig' {..} =
-    _salt `Prelude.hashWithSalt` maxTTL
+    _salt
       `Prelude.hashWithSalt` parametersInCacheKeyAndForwardedToOrigin
       `Prelude.hashWithSalt` defaultTTL
       `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` maxTTL
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` minTTL
 
 instance Prelude.NFData CachePolicyConfig where
   rnf CachePolicyConfig' {..} =
-    Prelude.rnf maxTTL
-      `Prelude.seq` Prelude.rnf parametersInCacheKeyAndForwardedToOrigin
+    Prelude.rnf
+      parametersInCacheKeyAndForwardedToOrigin
       `Prelude.seq` Prelude.rnf defaultTTL
       `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf maxTTL
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf minTTL
 
 instance Core.ToXML CachePolicyConfig where
   toXML CachePolicyConfig' {..} =
     Prelude.mconcat
-      [ "MaxTTL" Core.@= maxTTL,
-        "ParametersInCacheKeyAndForwardedToOrigin"
+      [ "ParametersInCacheKeyAndForwardedToOrigin"
           Core.@= parametersInCacheKeyAndForwardedToOrigin,
         "DefaultTTL" Core.@= defaultTTL,
         "Comment" Core.@= comment,
+        "MaxTTL" Core.@= maxTTL,
         "Name" Core.@= name,
         "MinTTL" Core.@= minTTL
       ]

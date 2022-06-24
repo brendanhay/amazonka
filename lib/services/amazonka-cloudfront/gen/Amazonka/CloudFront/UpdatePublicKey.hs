@@ -37,8 +37,8 @@ module Amazonka.CloudFront.UpdatePublicKey
     newUpdatePublicKeyResponse,
 
     -- * Response Lenses
-    updatePublicKeyResponse_eTag,
     updatePublicKeyResponse_publicKey,
+    updatePublicKeyResponse_eTag,
     updatePublicKeyResponse_httpStatus,
   )
 where
@@ -111,8 +111,8 @@ instance Core.AWSRequest UpdatePublicKey where
     Response.receiveXML
       ( \s h x ->
           UpdatePublicKeyResponse'
-            Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (Core.parseXML x)
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,10 +148,10 @@ instance Core.ToQuery UpdatePublicKey where
 
 -- | /See:/ 'newUpdatePublicKeyResponse' smart constructor.
 data UpdatePublicKeyResponse = UpdatePublicKeyResponse'
-  { -- | The identifier of the current version of the public key.
-    eTag :: Prelude.Maybe Prelude.Text,
-    -- | The public key.
+  { -- | The public key.
     publicKey :: Prelude.Maybe PublicKey,
+    -- | The identifier of the current version of the public key.
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,9 +165,9 @@ data UpdatePublicKeyResponse = UpdatePublicKeyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'updatePublicKeyResponse_eTag' - The identifier of the current version of the public key.
---
 -- 'publicKey', 'updatePublicKeyResponse_publicKey' - The public key.
+--
+-- 'eTag', 'updatePublicKeyResponse_eTag' - The identifier of the current version of the public key.
 --
 -- 'httpStatus', 'updatePublicKeyResponse_httpStatus' - The response's http status code.
 newUpdatePublicKeyResponse ::
@@ -176,18 +176,19 @@ newUpdatePublicKeyResponse ::
   UpdatePublicKeyResponse
 newUpdatePublicKeyResponse pHttpStatus_ =
   UpdatePublicKeyResponse'
-    { eTag = Prelude.Nothing,
-      publicKey = Prelude.Nothing,
+    { publicKey =
+        Prelude.Nothing,
+      eTag = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The identifier of the current version of the public key.
-updatePublicKeyResponse_eTag :: Lens.Lens' UpdatePublicKeyResponse (Prelude.Maybe Prelude.Text)
-updatePublicKeyResponse_eTag = Lens.lens (\UpdatePublicKeyResponse' {eTag} -> eTag) (\s@UpdatePublicKeyResponse' {} a -> s {eTag = a} :: UpdatePublicKeyResponse)
 
 -- | The public key.
 updatePublicKeyResponse_publicKey :: Lens.Lens' UpdatePublicKeyResponse (Prelude.Maybe PublicKey)
 updatePublicKeyResponse_publicKey = Lens.lens (\UpdatePublicKeyResponse' {publicKey} -> publicKey) (\s@UpdatePublicKeyResponse' {} a -> s {publicKey = a} :: UpdatePublicKeyResponse)
+
+-- | The identifier of the current version of the public key.
+updatePublicKeyResponse_eTag :: Lens.Lens' UpdatePublicKeyResponse (Prelude.Maybe Prelude.Text)
+updatePublicKeyResponse_eTag = Lens.lens (\UpdatePublicKeyResponse' {eTag} -> eTag) (\s@UpdatePublicKeyResponse' {} a -> s {eTag = a} :: UpdatePublicKeyResponse)
 
 -- | The response's http status code.
 updatePublicKeyResponse_httpStatus :: Lens.Lens' UpdatePublicKeyResponse Prelude.Int
@@ -195,6 +196,6 @@ updatePublicKeyResponse_httpStatus = Lens.lens (\UpdatePublicKeyResponse' {httpS
 
 instance Prelude.NFData UpdatePublicKeyResponse where
   rnf UpdatePublicKeyResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf publicKey
+    Prelude.rnf publicKey
+      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf httpStatus

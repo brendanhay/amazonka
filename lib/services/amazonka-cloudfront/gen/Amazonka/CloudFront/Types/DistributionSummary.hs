@@ -38,10 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDistributionSummary' smart constructor.
 data DistributionSummary = DistributionSummary'
-  { -- | A complex type that contains information about origin groups for this
-    -- distribution.
-    originGroups :: Prelude.Maybe OriginGroups,
-    -- | Amazon Web Services services in China customers must file for an
+  { -- | Amazon Web Services services in China customers must file for an
     -- Internet Content Provider (ICP) recordal if they want to serve content
     -- publicly on an alternate domain name, also known as a CNAME, that
     -- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
@@ -51,6 +48,9 @@ data DistributionSummary = DistributionSummary'
     -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
     -- in /Getting Started with Amazon Web Services services in China/.
     aliasICPRecordals :: Prelude.Maybe [AliasICPRecordal],
+    -- | A complex type that contains information about origin groups for this
+    -- distribution.
+    originGroups :: Prelude.Maybe OriginGroups,
     -- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@.
     id :: Prelude.Text,
     -- | The ARN (Amazon Resource Name) for the distribution. For example:
@@ -116,9 +116,6 @@ data DistributionSummary = DistributionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'originGroups', 'distributionSummary_originGroups' - A complex type that contains information about origin groups for this
--- distribution.
---
 -- 'aliasICPRecordals', 'distributionSummary_aliasICPRecordals' - Amazon Web Services services in China customers must file for an
 -- Internet Content Provider (ICP) recordal if they want to serve content
 -- publicly on an alternate domain name, also known as a CNAME, that
@@ -128,6 +125,9 @@ data DistributionSummary = DistributionSummary'
 -- For more information about ICP recordals, see
 -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
 -- in /Getting Started with Amazon Web Services services in China/.
+--
+-- 'originGroups', 'distributionSummary_originGroups' - A complex type that contains information about origin groups for this
+-- distribution.
 --
 -- 'id', 'distributionSummary_id' - The identifier for the distribution. For example: @EDFDVBD632BHDS5@.
 --
@@ -240,9 +240,9 @@ newDistributionSummary
   pHttpVersion_
   pIsIPV6Enabled_ =
     DistributionSummary'
-      { originGroups =
+      { aliasICPRecordals =
           Prelude.Nothing,
-        aliasICPRecordals = Prelude.Nothing,
+        originGroups = Prelude.Nothing,
         id = pId_,
         arn = pARN_,
         status = pStatus_,
@@ -264,11 +264,6 @@ newDistributionSummary
         isIPV6Enabled = pIsIPV6Enabled_
       }
 
--- | A complex type that contains information about origin groups for this
--- distribution.
-distributionSummary_originGroups :: Lens.Lens' DistributionSummary (Prelude.Maybe OriginGroups)
-distributionSummary_originGroups = Lens.lens (\DistributionSummary' {originGroups} -> originGroups) (\s@DistributionSummary' {} a -> s {originGroups = a} :: DistributionSummary)
-
 -- | Amazon Web Services services in China customers must file for an
 -- Internet Content Provider (ICP) recordal if they want to serve content
 -- publicly on an alternate domain name, also known as a CNAME, that
@@ -280,6 +275,11 @@ distributionSummary_originGroups = Lens.lens (\DistributionSummary' {originGroup
 -- in /Getting Started with Amazon Web Services services in China/.
 distributionSummary_aliasICPRecordals :: Lens.Lens' DistributionSummary (Prelude.Maybe [AliasICPRecordal])
 distributionSummary_aliasICPRecordals = Lens.lens (\DistributionSummary' {aliasICPRecordals} -> aliasICPRecordals) (\s@DistributionSummary' {} a -> s {aliasICPRecordals = a} :: DistributionSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | A complex type that contains information about origin groups for this
+-- distribution.
+distributionSummary_originGroups :: Lens.Lens' DistributionSummary (Prelude.Maybe OriginGroups)
+distributionSummary_originGroups = Lens.lens (\DistributionSummary' {originGroups} -> originGroups) (\s@DistributionSummary' {} a -> s {originGroups = a} :: DistributionSummary)
 
 -- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@.
 distributionSummary_id :: Lens.Lens' DistributionSummary Prelude.Text
@@ -374,11 +374,11 @@ distributionSummary_isIPV6Enabled = Lens.lens (\DistributionSummary' {isIPV6Enab
 instance Core.FromXML DistributionSummary where
   parseXML x =
     DistributionSummary'
-      Prelude.<$> (x Core..@? "OriginGroups")
-      Prelude.<*> ( x Core..@? "AliasICPRecordals"
+      Prelude.<$> ( x Core..@? "AliasICPRecordals"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "AliasICPRecordal")
                   )
+      Prelude.<*> (x Core..@? "OriginGroups")
       Prelude.<*> (x Core..@ "Id")
       Prelude.<*> (x Core..@ "ARN")
       Prelude.<*> (x Core..@ "Status")
@@ -400,8 +400,8 @@ instance Core.FromXML DistributionSummary where
 
 instance Prelude.Hashable DistributionSummary where
   hashWithSalt _salt DistributionSummary' {..} =
-    _salt `Prelude.hashWithSalt` originGroups
-      `Prelude.hashWithSalt` aliasICPRecordals
+    _salt `Prelude.hashWithSalt` aliasICPRecordals
+      `Prelude.hashWithSalt` originGroups
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` status
@@ -423,8 +423,8 @@ instance Prelude.Hashable DistributionSummary where
 
 instance Prelude.NFData DistributionSummary where
   rnf DistributionSummary' {..} =
-    Prelude.rnf originGroups
-      `Prelude.seq` Prelude.rnf aliasICPRecordals
+    Prelude.rnf aliasICPRecordals
+      `Prelude.seq` Prelude.rnf originGroups
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf status

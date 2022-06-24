@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConflictingAliasesList' smart constructor.
 data ConflictingAliasesList = ConflictingAliasesList'
-  { -- | The number of conflicting aliases returned in the response.
-    quantity :: Prelude.Maybe Prelude.Int,
-    -- | Contains the conflicting aliases in the list.
+  { -- | Contains the conflicting aliases in the list.
     items :: Prelude.Maybe [ConflictingAlias],
+    -- | The number of conflicting aliases returned in the response.
+    quantity :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of conflicting aliases requested.
     maxItems :: Prelude.Maybe Prelude.Int,
     -- | If there are more items in the list than are in this response, this
@@ -54,9 +54,9 @@ data ConflictingAliasesList = ConflictingAliasesList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'quantity', 'conflictingAliasesList_quantity' - The number of conflicting aliases returned in the response.
---
 -- 'items', 'conflictingAliasesList_items' - Contains the conflicting aliases in the list.
+--
+-- 'quantity', 'conflictingAliasesList_quantity' - The number of conflicting aliases returned in the response.
 --
 -- 'maxItems', 'conflictingAliasesList_maxItems' - The maximum number of conflicting aliases requested.
 --
@@ -68,19 +68,19 @@ newConflictingAliasesList ::
   ConflictingAliasesList
 newConflictingAliasesList =
   ConflictingAliasesList'
-    { quantity = Prelude.Nothing,
-      items = Prelude.Nothing,
+    { items = Prelude.Nothing,
+      quantity = Prelude.Nothing,
       maxItems = Prelude.Nothing,
       nextMarker = Prelude.Nothing
     }
 
--- | The number of conflicting aliases returned in the response.
-conflictingAliasesList_quantity :: Lens.Lens' ConflictingAliasesList (Prelude.Maybe Prelude.Int)
-conflictingAliasesList_quantity = Lens.lens (\ConflictingAliasesList' {quantity} -> quantity) (\s@ConflictingAliasesList' {} a -> s {quantity = a} :: ConflictingAliasesList)
-
 -- | Contains the conflicting aliases in the list.
 conflictingAliasesList_items :: Lens.Lens' ConflictingAliasesList (Prelude.Maybe [ConflictingAlias])
 conflictingAliasesList_items = Lens.lens (\ConflictingAliasesList' {items} -> items) (\s@ConflictingAliasesList' {} a -> s {items = a} :: ConflictingAliasesList) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of conflicting aliases returned in the response.
+conflictingAliasesList_quantity :: Lens.Lens' ConflictingAliasesList (Prelude.Maybe Prelude.Int)
+conflictingAliasesList_quantity = Lens.lens (\ConflictingAliasesList' {quantity} -> quantity) (\s@ConflictingAliasesList' {} a -> s {quantity = a} :: ConflictingAliasesList)
 
 -- | The maximum number of conflicting aliases requested.
 conflictingAliasesList_maxItems :: Lens.Lens' ConflictingAliasesList (Prelude.Maybe Prelude.Int)
@@ -96,23 +96,23 @@ conflictingAliasesList_nextMarker = Lens.lens (\ConflictingAliasesList' {nextMar
 instance Core.FromXML ConflictingAliasesList where
   parseXML x =
     ConflictingAliasesList'
-      Prelude.<$> (x Core..@? "Quantity")
-      Prelude.<*> ( x Core..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "ConflictingAlias")
                   )
+      Prelude.<*> (x Core..@? "Quantity")
       Prelude.<*> (x Core..@? "MaxItems")
       Prelude.<*> (x Core..@? "NextMarker")
 
 instance Prelude.Hashable ConflictingAliasesList where
   hashWithSalt _salt ConflictingAliasesList' {..} =
-    _salt `Prelude.hashWithSalt` quantity
-      `Prelude.hashWithSalt` items
+    _salt `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` quantity
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ConflictingAliasesList where
   rnf ConflictingAliasesList' {..} =
-    Prelude.rnf quantity
-      `Prelude.seq` Prelude.rnf items
+    Prelude.rnf items
+      `Prelude.seq` Prelude.rnf quantity
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf nextMarker

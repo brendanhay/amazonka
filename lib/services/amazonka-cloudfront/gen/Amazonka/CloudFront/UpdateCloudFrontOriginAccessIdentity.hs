@@ -36,8 +36,8 @@ module Amazonka.CloudFront.UpdateCloudFrontOriginAccessIdentity
     newUpdateCloudFrontOriginAccessIdentityResponse,
 
     -- * Response Lenses
-    updateCloudFrontOriginAccessIdentityResponse_eTag,
     updateCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity,
+    updateCloudFrontOriginAccessIdentityResponse_eTag,
     updateCloudFrontOriginAccessIdentityResponse_httpStatus,
   )
 where
@@ -119,7 +119,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           UpdateCloudFrontOriginAccessIdentityResponse'
-            Prelude.<$> (h Core..#? "ETag") Prelude.<*> (Core.parseXML x)
+            Prelude.<$> (Core.parseXML x) Prelude.<*> (h Core..#? "ETag")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,10 +180,10 @@ instance
 --
 -- /See:/ 'newUpdateCloudFrontOriginAccessIdentityResponse' smart constructor.
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'
-  { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-    eTag :: Prelude.Maybe Prelude.Text,
-    -- | The origin access identity\'s information.
+  { -- | The origin access identity\'s information.
     cloudFrontOriginAccessIdentity :: Prelude.Maybe CloudFrontOriginAccessIdentity,
+    -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,9 +197,9 @@ data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccess
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'updateCloudFrontOriginAccessIdentityResponse_eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
---
 -- 'cloudFrontOriginAccessIdentity', 'updateCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity' - The origin access identity\'s information.
+--
+-- 'eTag', 'updateCloudFrontOriginAccessIdentityResponse_eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
 --
 -- 'httpStatus', 'updateCloudFrontOriginAccessIdentityResponse_httpStatus' - The response's http status code.
 newUpdateCloudFrontOriginAccessIdentityResponse ::
@@ -209,20 +209,19 @@ newUpdateCloudFrontOriginAccessIdentityResponse ::
 newUpdateCloudFrontOriginAccessIdentityResponse
   pHttpStatus_ =
     UpdateCloudFrontOriginAccessIdentityResponse'
-      { eTag =
+      { cloudFrontOriginAccessIdentity =
           Prelude.Nothing,
-        cloudFrontOriginAccessIdentity =
-          Prelude.Nothing,
+        eTag = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-updateCloudFrontOriginAccessIdentityResponse_eTag :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse (Prelude.Maybe Prelude.Text)
-updateCloudFrontOriginAccessIdentityResponse_eTag = Lens.lens (\UpdateCloudFrontOriginAccessIdentityResponse' {eTag} -> eTag) (\s@UpdateCloudFrontOriginAccessIdentityResponse' {} a -> s {eTag = a} :: UpdateCloudFrontOriginAccessIdentityResponse)
 
 -- | The origin access identity\'s information.
 updateCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse (Prelude.Maybe CloudFrontOriginAccessIdentity)
 updateCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity = Lens.lens (\UpdateCloudFrontOriginAccessIdentityResponse' {cloudFrontOriginAccessIdentity} -> cloudFrontOriginAccessIdentity) (\s@UpdateCloudFrontOriginAccessIdentityResponse' {} a -> s {cloudFrontOriginAccessIdentity = a} :: UpdateCloudFrontOriginAccessIdentityResponse)
+
+-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+updateCloudFrontOriginAccessIdentityResponse_eTag :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse (Prelude.Maybe Prelude.Text)
+updateCloudFrontOriginAccessIdentityResponse_eTag = Lens.lens (\UpdateCloudFrontOriginAccessIdentityResponse' {eTag} -> eTag) (\s@UpdateCloudFrontOriginAccessIdentityResponse' {} a -> s {eTag = a} :: UpdateCloudFrontOriginAccessIdentityResponse)
 
 -- | The response's http status code.
 updateCloudFrontOriginAccessIdentityResponse_httpStatus :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse Prelude.Int
@@ -233,6 +232,6 @@ instance
     UpdateCloudFrontOriginAccessIdentityResponse
   where
   rnf UpdateCloudFrontOriginAccessIdentityResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf cloudFrontOriginAccessIdentity
+    Prelude.rnf cloudFrontOriginAccessIdentity
+      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf httpStatus

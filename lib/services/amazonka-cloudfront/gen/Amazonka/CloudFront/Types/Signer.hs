@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSigner' smart constructor.
 data Signer = Signer'
-  { -- | An account number that contains active CloudFront key pairs that
+  { -- | A list of CloudFront key pair identifiers.
+    keyPairIds :: Prelude.Maybe KeyPairIds,
+    -- | An account number that contains active CloudFront key pairs that
     -- CloudFront can use to verify the signatures of signed URLs and signed
     -- cookies. If the account that owns the key pairs is the same account that
     -- owns the CloudFront distribution, the value of this field is @self@.
-    awsAccountNumber :: Prelude.Maybe Prelude.Text,
-    -- | A list of CloudFront key pair identifiers.
-    keyPairIds :: Prelude.Maybe KeyPairIds
+    awsAccountNumber :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,19 +48,23 @@ data Signer = Signer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'keyPairIds', 'signer_keyPairIds' - A list of CloudFront key pair identifiers.
+--
 -- 'awsAccountNumber', 'signer_awsAccountNumber' - An account number that contains active CloudFront key pairs that
 -- CloudFront can use to verify the signatures of signed URLs and signed
 -- cookies. If the account that owns the key pairs is the same account that
 -- owns the CloudFront distribution, the value of this field is @self@.
---
--- 'keyPairIds', 'signer_keyPairIds' - A list of CloudFront key pair identifiers.
 newSigner ::
   Signer
 newSigner =
   Signer'
-    { awsAccountNumber = Prelude.Nothing,
-      keyPairIds = Prelude.Nothing
+    { keyPairIds = Prelude.Nothing,
+      awsAccountNumber = Prelude.Nothing
     }
+
+-- | A list of CloudFront key pair identifiers.
+signer_keyPairIds :: Lens.Lens' Signer (Prelude.Maybe KeyPairIds)
+signer_keyPairIds = Lens.lens (\Signer' {keyPairIds} -> keyPairIds) (\s@Signer' {} a -> s {keyPairIds = a} :: Signer)
 
 -- | An account number that contains active CloudFront key pairs that
 -- CloudFront can use to verify the signatures of signed URLs and signed
@@ -69,22 +73,18 @@ newSigner =
 signer_awsAccountNumber :: Lens.Lens' Signer (Prelude.Maybe Prelude.Text)
 signer_awsAccountNumber = Lens.lens (\Signer' {awsAccountNumber} -> awsAccountNumber) (\s@Signer' {} a -> s {awsAccountNumber = a} :: Signer)
 
--- | A list of CloudFront key pair identifiers.
-signer_keyPairIds :: Lens.Lens' Signer (Prelude.Maybe KeyPairIds)
-signer_keyPairIds = Lens.lens (\Signer' {keyPairIds} -> keyPairIds) (\s@Signer' {} a -> s {keyPairIds = a} :: Signer)
-
 instance Core.FromXML Signer where
   parseXML x =
     Signer'
-      Prelude.<$> (x Core..@? "AwsAccountNumber")
-      Prelude.<*> (x Core..@? "KeyPairIds")
+      Prelude.<$> (x Core..@? "KeyPairIds")
+      Prelude.<*> (x Core..@? "AwsAccountNumber")
 
 instance Prelude.Hashable Signer where
   hashWithSalt _salt Signer' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountNumber
-      `Prelude.hashWithSalt` keyPairIds
+    _salt `Prelude.hashWithSalt` keyPairIds
+      `Prelude.hashWithSalt` awsAccountNumber
 
 instance Prelude.NFData Signer where
   rnf Signer' {..} =
-    Prelude.rnf awsAccountNumber
-      `Prelude.seq` Prelude.rnf keyPairIds
+    Prelude.rnf keyPairIds
+      `Prelude.seq` Prelude.rnf awsAccountNumber

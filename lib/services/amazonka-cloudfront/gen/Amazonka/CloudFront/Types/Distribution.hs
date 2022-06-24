@@ -32,13 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDistribution' smart constructor.
 data Distribution = Distribution'
-  { -- | CloudFront automatically adds this field to the response if you’ve
-    -- configured a cache behavior in this distribution to serve private
-    -- content using key groups. This field contains a list of key groups and
-    -- the public keys in each key group that CloudFront can use to verify the
-    -- signatures of signed URLs or signed cookies.
-    activeTrustedKeyGroups :: Prelude.Maybe ActiveTrustedKeyGroups,
-    -- | Amazon Web Services services in China customers must file for an
+  { -- | Amazon Web Services services in China customers must file for an
     -- Internet Content Provider (ICP) recordal if they want to serve content
     -- publicly on an alternate domain name, also known as a CNAME, that
     -- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal
@@ -48,6 +42,12 @@ data Distribution = Distribution'
     -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
     -- in /Getting Started with Amazon Web Services services in China/.
     aliasICPRecordals :: Prelude.Maybe [AliasICPRecordal],
+    -- | CloudFront automatically adds this field to the response if you’ve
+    -- configured a cache behavior in this distribution to serve private
+    -- content using key groups. This field contains a list of key groups and
+    -- the public keys in each key group that CloudFront can use to verify the
+    -- signatures of signed URLs or signed cookies.
+    activeTrustedKeyGroups :: Prelude.Maybe ActiveTrustedKeyGroups,
     -- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.
     --
     -- CloudFront automatically adds this field to the response if you’ve
@@ -88,12 +88,6 @@ data Distribution = Distribution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'activeTrustedKeyGroups', 'distribution_activeTrustedKeyGroups' - CloudFront automatically adds this field to the response if you’ve
--- configured a cache behavior in this distribution to serve private
--- content using key groups. This field contains a list of key groups and
--- the public keys in each key group that CloudFront can use to verify the
--- signatures of signed URLs or signed cookies.
---
 -- 'aliasICPRecordals', 'distribution_aliasICPRecordals' - Amazon Web Services services in China customers must file for an
 -- Internet Content Provider (ICP) recordal if they want to serve content
 -- publicly on an alternate domain name, also known as a CNAME, that
@@ -103,6 +97,12 @@ data Distribution = Distribution'
 -- For more information about ICP recordals, see
 -- <https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials>
 -- in /Getting Started with Amazon Web Services services in China/.
+--
+-- 'activeTrustedKeyGroups', 'distribution_activeTrustedKeyGroups' - CloudFront automatically adds this field to the response if you’ve
+-- configured a cache behavior in this distribution to serve private
+-- content using key groups. This field contains a list of key groups and
+-- the public keys in each key group that CloudFront can use to verify the
+-- signatures of signed URLs or signed cookies.
 --
 -- 'activeTrustedSigners', 'distribution_activeTrustedSigners' - We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.
 --
@@ -157,9 +157,8 @@ newDistribution
   pDomainName_
   pDistributionConfig_ =
     Distribution'
-      { activeTrustedKeyGroups =
-          Prelude.Nothing,
-        aliasICPRecordals = Prelude.Nothing,
+      { aliasICPRecordals = Prelude.Nothing,
+        activeTrustedKeyGroups = Prelude.Nothing,
         activeTrustedSigners = Prelude.Nothing,
         id = pId_,
         arn = pARN_,
@@ -172,14 +171,6 @@ newDistribution
         distributionConfig = pDistributionConfig_
       }
 
--- | CloudFront automatically adds this field to the response if you’ve
--- configured a cache behavior in this distribution to serve private
--- content using key groups. This field contains a list of key groups and
--- the public keys in each key group that CloudFront can use to verify the
--- signatures of signed URLs or signed cookies.
-distribution_activeTrustedKeyGroups :: Lens.Lens' Distribution (Prelude.Maybe ActiveTrustedKeyGroups)
-distribution_activeTrustedKeyGroups = Lens.lens (\Distribution' {activeTrustedKeyGroups} -> activeTrustedKeyGroups) (\s@Distribution' {} a -> s {activeTrustedKeyGroups = a} :: Distribution)
-
 -- | Amazon Web Services services in China customers must file for an
 -- Internet Content Provider (ICP) recordal if they want to serve content
 -- publicly on an alternate domain name, also known as a CNAME, that
@@ -191,6 +182,14 @@ distribution_activeTrustedKeyGroups = Lens.lens (\Distribution' {activeTrustedKe
 -- in /Getting Started with Amazon Web Services services in China/.
 distribution_aliasICPRecordals :: Lens.Lens' Distribution (Prelude.Maybe [AliasICPRecordal])
 distribution_aliasICPRecordals = Lens.lens (\Distribution' {aliasICPRecordals} -> aliasICPRecordals) (\s@Distribution' {} a -> s {aliasICPRecordals = a} :: Distribution) Prelude.. Lens.mapping Lens.coerced
+
+-- | CloudFront automatically adds this field to the response if you’ve
+-- configured a cache behavior in this distribution to serve private
+-- content using key groups. This field contains a list of key groups and
+-- the public keys in each key group that CloudFront can use to verify the
+-- signatures of signed URLs or signed cookies.
+distribution_activeTrustedKeyGroups :: Lens.Lens' Distribution (Prelude.Maybe ActiveTrustedKeyGroups)
+distribution_activeTrustedKeyGroups = Lens.lens (\Distribution' {activeTrustedKeyGroups} -> activeTrustedKeyGroups) (\s@Distribution' {} a -> s {activeTrustedKeyGroups = a} :: Distribution)
 
 -- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.
 --
@@ -240,11 +239,11 @@ distribution_distributionConfig = Lens.lens (\Distribution' {distributionConfig}
 instance Core.FromXML Distribution where
   parseXML x =
     Distribution'
-      Prelude.<$> (x Core..@? "ActiveTrustedKeyGroups")
-      Prelude.<*> ( x Core..@? "AliasICPRecordals"
+      Prelude.<$> ( x Core..@? "AliasICPRecordals"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "AliasICPRecordal")
                   )
+      Prelude.<*> (x Core..@? "ActiveTrustedKeyGroups")
       Prelude.<*> (x Core..@? "ActiveTrustedSigners")
       Prelude.<*> (x Core..@ "Id")
       Prelude.<*> (x Core..@ "ARN")
@@ -256,8 +255,8 @@ instance Core.FromXML Distribution where
 
 instance Prelude.Hashable Distribution where
   hashWithSalt _salt Distribution' {..} =
-    _salt `Prelude.hashWithSalt` activeTrustedKeyGroups
-      `Prelude.hashWithSalt` aliasICPRecordals
+    _salt `Prelude.hashWithSalt` aliasICPRecordals
+      `Prelude.hashWithSalt` activeTrustedKeyGroups
       `Prelude.hashWithSalt` activeTrustedSigners
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
@@ -269,8 +268,8 @@ instance Prelude.Hashable Distribution where
 
 instance Prelude.NFData Distribution where
   rnf Distribution' {..} =
-    Prelude.rnf activeTrustedKeyGroups
-      `Prelude.seq` Prelude.rnf aliasICPRecordals
+    Prelude.rnf aliasICPRecordals
+      `Prelude.seq` Prelude.rnf activeTrustedKeyGroups
       `Prelude.seq` Prelude.rnf activeTrustedSigners
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn

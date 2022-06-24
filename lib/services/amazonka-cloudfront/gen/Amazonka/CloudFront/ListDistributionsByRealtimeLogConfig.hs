@@ -41,9 +41,9 @@ module Amazonka.CloudFront.ListDistributionsByRealtimeLogConfig
 
     -- * Request Lenses
     listDistributionsByRealtimeLogConfig_realtimeLogConfigName,
-    listDistributionsByRealtimeLogConfig_realtimeLogConfigArn,
     listDistributionsByRealtimeLogConfig_marker,
     listDistributionsByRealtimeLogConfig_maxItems,
+    listDistributionsByRealtimeLogConfig_realtimeLogConfigArn,
 
     -- * Destructuring the Response
     ListDistributionsByRealtimeLogConfigResponse (..),
@@ -67,9 +67,6 @@ data ListDistributionsByRealtimeLogConfig = ListDistributionsByRealtimeLogConfig
   { -- | The name of the real-time log configuration whose associated
     -- distributions you want to list.
     realtimeLogConfigName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the real-time log configuration whose
-    -- associated distributions you want to list.
-    realtimeLogConfigArn :: Prelude.Maybe Prelude.Text,
     -- | Use this field when paginating results to indicate where to begin in
     -- your list of distributions. The response includes distributions in the
     -- list that occur after the marker. To get the next page of the list, set
@@ -77,7 +74,10 @@ data ListDistributionsByRealtimeLogConfig = ListDistributionsByRealtimeLogConfig
     -- response.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of distributions that you want in the response.
-    maxItems :: Prelude.Maybe Prelude.Text
+    maxItems :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the real-time log configuration whose
+    -- associated distributions you want to list.
+    realtimeLogConfigArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,9 +92,6 @@ data ListDistributionsByRealtimeLogConfig = ListDistributionsByRealtimeLogConfig
 -- 'realtimeLogConfigName', 'listDistributionsByRealtimeLogConfig_realtimeLogConfigName' - The name of the real-time log configuration whose associated
 -- distributions you want to list.
 --
--- 'realtimeLogConfigArn', 'listDistributionsByRealtimeLogConfig_realtimeLogConfigArn' - The Amazon Resource Name (ARN) of the real-time log configuration whose
--- associated distributions you want to list.
---
 -- 'marker', 'listDistributionsByRealtimeLogConfig_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of distributions. The response includes distributions in the
 -- list that occur after the marker. To get the next page of the list, set
@@ -102,27 +99,25 @@ data ListDistributionsByRealtimeLogConfig = ListDistributionsByRealtimeLogConfig
 -- response.
 --
 -- 'maxItems', 'listDistributionsByRealtimeLogConfig_maxItems' - The maximum number of distributions that you want in the response.
+--
+-- 'realtimeLogConfigArn', 'listDistributionsByRealtimeLogConfig_realtimeLogConfigArn' - The Amazon Resource Name (ARN) of the real-time log configuration whose
+-- associated distributions you want to list.
 newListDistributionsByRealtimeLogConfig ::
   ListDistributionsByRealtimeLogConfig
 newListDistributionsByRealtimeLogConfig =
   ListDistributionsByRealtimeLogConfig'
     { realtimeLogConfigName =
         Prelude.Nothing,
-      realtimeLogConfigArn =
-        Prelude.Nothing,
       marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing
+      maxItems = Prelude.Nothing,
+      realtimeLogConfigArn =
+        Prelude.Nothing
     }
 
 -- | The name of the real-time log configuration whose associated
 -- distributions you want to list.
 listDistributionsByRealtimeLogConfig_realtimeLogConfigName :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Prelude.Maybe Prelude.Text)
 listDistributionsByRealtimeLogConfig_realtimeLogConfigName = Lens.lens (\ListDistributionsByRealtimeLogConfig' {realtimeLogConfigName} -> realtimeLogConfigName) (\s@ListDistributionsByRealtimeLogConfig' {} a -> s {realtimeLogConfigName = a} :: ListDistributionsByRealtimeLogConfig)
-
--- | The Amazon Resource Name (ARN) of the real-time log configuration whose
--- associated distributions you want to list.
-listDistributionsByRealtimeLogConfig_realtimeLogConfigArn :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Prelude.Maybe Prelude.Text)
-listDistributionsByRealtimeLogConfig_realtimeLogConfigArn = Lens.lens (\ListDistributionsByRealtimeLogConfig' {realtimeLogConfigArn} -> realtimeLogConfigArn) (\s@ListDistributionsByRealtimeLogConfig' {} a -> s {realtimeLogConfigArn = a} :: ListDistributionsByRealtimeLogConfig)
 
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of distributions. The response includes distributions in the
@@ -135,6 +130,11 @@ listDistributionsByRealtimeLogConfig_marker = Lens.lens (\ListDistributionsByRea
 -- | The maximum number of distributions that you want in the response.
 listDistributionsByRealtimeLogConfig_maxItems :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Prelude.Maybe Prelude.Text)
 listDistributionsByRealtimeLogConfig_maxItems = Lens.lens (\ListDistributionsByRealtimeLogConfig' {maxItems} -> maxItems) (\s@ListDistributionsByRealtimeLogConfig' {} a -> s {maxItems = a} :: ListDistributionsByRealtimeLogConfig)
+
+-- | The Amazon Resource Name (ARN) of the real-time log configuration whose
+-- associated distributions you want to list.
+listDistributionsByRealtimeLogConfig_realtimeLogConfigArn :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Prelude.Maybe Prelude.Text)
+listDistributionsByRealtimeLogConfig_realtimeLogConfigArn = Lens.lens (\ListDistributionsByRealtimeLogConfig' {realtimeLogConfigArn} -> realtimeLogConfigArn) (\s@ListDistributionsByRealtimeLogConfig' {} a -> s {realtimeLogConfigArn = a} :: ListDistributionsByRealtimeLogConfig)
 
 instance
   Core.AWSRequest
@@ -160,9 +160,9 @@ instance
     _salt
     ListDistributionsByRealtimeLogConfig' {..} =
       _salt `Prelude.hashWithSalt` realtimeLogConfigName
-        `Prelude.hashWithSalt` realtimeLogConfigArn
         `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxItems
+        `Prelude.hashWithSalt` realtimeLogConfigArn
 
 instance
   Prelude.NFData
@@ -170,9 +170,9 @@ instance
   where
   rnf ListDistributionsByRealtimeLogConfig' {..} =
     Prelude.rnf realtimeLogConfigName
-      `Prelude.seq` Prelude.rnf realtimeLogConfigArn
       `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf realtimeLogConfigArn
 
 instance
   Core.ToElement
@@ -210,9 +210,9 @@ instance
     Prelude.mconcat
       [ "RealtimeLogConfigName"
           Core.@= realtimeLogConfigName,
-        "RealtimeLogConfigArn" Core.@= realtimeLogConfigArn,
         "Marker" Core.@= marker,
-        "MaxItems" Core.@= maxItems
+        "MaxItems" Core.@= maxItems,
+        "RealtimeLogConfigArn" Core.@= realtimeLogConfigArn
       ]
 
 -- | /See:/ 'newListDistributionsByRealtimeLogConfigResponse' smart constructor.

@@ -65,11 +65,6 @@ data Origin = Origin'
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html Adding Custom Headers to Origin Requests>
     -- in the /Amazon CloudFront Developer Guide/.
     customHeaders :: Prelude.Maybe CustomHeaders,
-    -- | Use this type to specify an origin that is not an Amazon S3 bucket, with
-    -- one exception. If the Amazon S3 bucket is configured with static website
-    -- hosting, use this type. If the Amazon S3 bucket is not configured with
-    -- static website hosting, use the @S3OriginConfig@ type instead.
-    customOriginConfig :: Prelude.Maybe CustomOriginConfig,
     -- | The number of seconds that CloudFront waits when trying to establish a
     -- connection to the origin. The minimum timeout is 1 second, the maximum
     -- is 10 seconds, and the default (if you don’t specify otherwise) is 10
@@ -79,6 +74,30 @@ data Origin = Origin'
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-timeout Origin Connection Timeout>
     -- in the /Amazon CloudFront Developer Guide/.
     connectionTimeout :: Prelude.Maybe Prelude.Int,
+    -- | Use this type to specify an origin that is an Amazon S3 bucket that is
+    -- not configured with static website hosting. To specify any other type of
+    -- origin, including an Amazon S3 bucket that is configured with static
+    -- website hosting, use the @CustomOriginConfig@ type instead.
+    s3OriginConfig :: Prelude.Maybe S3OriginConfig,
+    -- | An optional path that CloudFront appends to the origin domain name when
+    -- CloudFront requests content from the origin.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath Origin Path>
+    -- in the /Amazon CloudFront Developer Guide/.
+    originPath :: Prelude.Maybe Prelude.Text,
+    -- | Use this type to specify an origin that is not an Amazon S3 bucket, with
+    -- one exception. If the Amazon S3 bucket is configured with static website
+    -- hosting, use this type. If the Amazon S3 bucket is not configured with
+    -- static website hosting, use the @S3OriginConfig@ type instead.
+    customOriginConfig :: Prelude.Maybe CustomOriginConfig,
+    -- | CloudFront Origin Shield. Using Origin Shield can help reduce the load
+    -- on your origin.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html Using Origin Shield>
+    -- in the /Amazon CloudFront Developer Guide/.
+    originShield :: Prelude.Maybe OriginShield,
     -- | The number of times that CloudFront attempts to connect to the origin.
     -- The minimum number is 1, the maximum is 3, and the default (if you don’t
     -- specify otherwise) is 3.
@@ -93,25 +112,6 @@ data Origin = Origin'
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-attempts Origin Connection Attempts>
     -- in the /Amazon CloudFront Developer Guide/.
     connectionAttempts :: Prelude.Maybe Prelude.Int,
-    -- | Use this type to specify an origin that is an Amazon S3 bucket that is
-    -- not configured with static website hosting. To specify any other type of
-    -- origin, including an Amazon S3 bucket that is configured with static
-    -- website hosting, use the @CustomOriginConfig@ type instead.
-    s3OriginConfig :: Prelude.Maybe S3OriginConfig,
-    -- | An optional path that CloudFront appends to the origin domain name when
-    -- CloudFront requests content from the origin.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath Origin Path>
-    -- in the /Amazon CloudFront Developer Guide/.
-    originPath :: Prelude.Maybe Prelude.Text,
-    -- | CloudFront Origin Shield. Using Origin Shield can help reduce the load
-    -- on your origin.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html Using Origin Shield>
-    -- in the /Amazon CloudFront Developer Guide/.
-    originShield :: Prelude.Maybe OriginShield,
     -- | A unique identifier for the origin. This value must be unique within the
     -- distribution.
     --
@@ -142,11 +142,6 @@ data Origin = Origin'
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html Adding Custom Headers to Origin Requests>
 -- in the /Amazon CloudFront Developer Guide/.
 --
--- 'customOriginConfig', 'origin_customOriginConfig' - Use this type to specify an origin that is not an Amazon S3 bucket, with
--- one exception. If the Amazon S3 bucket is configured with static website
--- hosting, use this type. If the Amazon S3 bucket is not configured with
--- static website hosting, use the @S3OriginConfig@ type instead.
---
 -- 'connectionTimeout', 'origin_connectionTimeout' - The number of seconds that CloudFront waits when trying to establish a
 -- connection to the origin. The minimum timeout is 1 second, the maximum
 -- is 10 seconds, and the default (if you don’t specify otherwise) is 10
@@ -154,20 +149,6 @@ data Origin = Origin'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-timeout Origin Connection Timeout>
--- in the /Amazon CloudFront Developer Guide/.
---
--- 'connectionAttempts', 'origin_connectionAttempts' - The number of times that CloudFront attempts to connect to the origin.
--- The minimum number is 1, the maximum is 3, and the default (if you don’t
--- specify otherwise) is 3.
---
--- For a custom origin (including an Amazon S3 bucket that’s configured
--- with static website hosting), this value also specifies the number of
--- times that CloudFront attempts to get a response from the origin, in the
--- case of an
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout>.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-attempts Origin Connection Attempts>
 -- in the /Amazon CloudFront Developer Guide/.
 --
 -- 's3OriginConfig', 'origin_s3OriginConfig' - Use this type to specify an origin that is an Amazon S3 bucket that is
@@ -182,11 +163,30 @@ data Origin = Origin'
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath Origin Path>
 -- in the /Amazon CloudFront Developer Guide/.
 --
+-- 'customOriginConfig', 'origin_customOriginConfig' - Use this type to specify an origin that is not an Amazon S3 bucket, with
+-- one exception. If the Amazon S3 bucket is configured with static website
+-- hosting, use this type. If the Amazon S3 bucket is not configured with
+-- static website hosting, use the @S3OriginConfig@ type instead.
+--
 -- 'originShield', 'origin_originShield' - CloudFront Origin Shield. Using Origin Shield can help reduce the load
 -- on your origin.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html Using Origin Shield>
+-- in the /Amazon CloudFront Developer Guide/.
+--
+-- 'connectionAttempts', 'origin_connectionAttempts' - The number of times that CloudFront attempts to connect to the origin.
+-- The minimum number is 1, the maximum is 3, and the default (if you don’t
+-- specify otherwise) is 3.
+--
+-- For a custom origin (including an Amazon S3 bucket that’s configured
+-- with static website hosting), this value also specifies the number of
+-- times that CloudFront attempts to get a response from the origin, in the
+-- case of an
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout>.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-attempts Origin Connection Attempts>
 -- in the /Amazon CloudFront Developer Guide/.
 --
 -- 'id', 'origin_id' - A unique identifier for the origin. This value must be unique within the
@@ -209,12 +209,12 @@ newOrigin ::
 newOrigin pId_ pDomainName_ =
   Origin'
     { customHeaders = Prelude.Nothing,
-      customOriginConfig = Prelude.Nothing,
       connectionTimeout = Prelude.Nothing,
-      connectionAttempts = Prelude.Nothing,
       s3OriginConfig = Prelude.Nothing,
       originPath = Prelude.Nothing,
+      customOriginConfig = Prelude.Nothing,
       originShield = Prelude.Nothing,
+      connectionAttempts = Prelude.Nothing,
       id = pId_,
       domainName = pDomainName_
     }
@@ -228,13 +228,6 @@ newOrigin pId_ pDomainName_ =
 origin_customHeaders :: Lens.Lens' Origin (Prelude.Maybe CustomHeaders)
 origin_customHeaders = Lens.lens (\Origin' {customHeaders} -> customHeaders) (\s@Origin' {} a -> s {customHeaders = a} :: Origin)
 
--- | Use this type to specify an origin that is not an Amazon S3 bucket, with
--- one exception. If the Amazon S3 bucket is configured with static website
--- hosting, use this type. If the Amazon S3 bucket is not configured with
--- static website hosting, use the @S3OriginConfig@ type instead.
-origin_customOriginConfig :: Lens.Lens' Origin (Prelude.Maybe CustomOriginConfig)
-origin_customOriginConfig = Lens.lens (\Origin' {customOriginConfig} -> customOriginConfig) (\s@Origin' {} a -> s {customOriginConfig = a} :: Origin)
-
 -- | The number of seconds that CloudFront waits when trying to establish a
 -- connection to the origin. The minimum timeout is 1 second, the maximum
 -- is 10 seconds, and the default (if you don’t specify otherwise) is 10
@@ -245,22 +238,6 @@ origin_customOriginConfig = Lens.lens (\Origin' {customOriginConfig} -> customOr
 -- in the /Amazon CloudFront Developer Guide/.
 origin_connectionTimeout :: Lens.Lens' Origin (Prelude.Maybe Prelude.Int)
 origin_connectionTimeout = Lens.lens (\Origin' {connectionTimeout} -> connectionTimeout) (\s@Origin' {} a -> s {connectionTimeout = a} :: Origin)
-
--- | The number of times that CloudFront attempts to connect to the origin.
--- The minimum number is 1, the maximum is 3, and the default (if you don’t
--- specify otherwise) is 3.
---
--- For a custom origin (including an Amazon S3 bucket that’s configured
--- with static website hosting), this value also specifies the number of
--- times that CloudFront attempts to get a response from the origin, in the
--- case of an
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout>.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-attempts Origin Connection Attempts>
--- in the /Amazon CloudFront Developer Guide/.
-origin_connectionAttempts :: Lens.Lens' Origin (Prelude.Maybe Prelude.Int)
-origin_connectionAttempts = Lens.lens (\Origin' {connectionAttempts} -> connectionAttempts) (\s@Origin' {} a -> s {connectionAttempts = a} :: Origin)
 
 -- | Use this type to specify an origin that is an Amazon S3 bucket that is
 -- not configured with static website hosting. To specify any other type of
@@ -278,6 +255,13 @@ origin_s3OriginConfig = Lens.lens (\Origin' {s3OriginConfig} -> s3OriginConfig) 
 origin_originPath :: Lens.Lens' Origin (Prelude.Maybe Prelude.Text)
 origin_originPath = Lens.lens (\Origin' {originPath} -> originPath) (\s@Origin' {} a -> s {originPath = a} :: Origin)
 
+-- | Use this type to specify an origin that is not an Amazon S3 bucket, with
+-- one exception. If the Amazon S3 bucket is configured with static website
+-- hosting, use this type. If the Amazon S3 bucket is not configured with
+-- static website hosting, use the @S3OriginConfig@ type instead.
+origin_customOriginConfig :: Lens.Lens' Origin (Prelude.Maybe CustomOriginConfig)
+origin_customOriginConfig = Lens.lens (\Origin' {customOriginConfig} -> customOriginConfig) (\s@Origin' {} a -> s {customOriginConfig = a} :: Origin)
+
 -- | CloudFront Origin Shield. Using Origin Shield can help reduce the load
 -- on your origin.
 --
@@ -286,6 +270,22 @@ origin_originPath = Lens.lens (\Origin' {originPath} -> originPath) (\s@Origin' 
 -- in the /Amazon CloudFront Developer Guide/.
 origin_originShield :: Lens.Lens' Origin (Prelude.Maybe OriginShield)
 origin_originShield = Lens.lens (\Origin' {originShield} -> originShield) (\s@Origin' {} a -> s {originShield = a} :: Origin)
+
+-- | The number of times that CloudFront attempts to connect to the origin.
+-- The minimum number is 1, the maximum is 3, and the default (if you don’t
+-- specify otherwise) is 3.
+--
+-- For a custom origin (including an Amazon S3 bucket that’s configured
+-- with static website hosting), this value also specifies the number of
+-- times that CloudFront attempts to get a response from the origin, in the
+-- case of an
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout Origin Response Timeout>.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-attempts Origin Connection Attempts>
+-- in the /Amazon CloudFront Developer Guide/.
+origin_connectionAttempts :: Lens.Lens' Origin (Prelude.Maybe Prelude.Int)
+origin_connectionAttempts = Lens.lens (\Origin' {connectionAttempts} -> connectionAttempts) (\s@Origin' {} a -> s {connectionAttempts = a} :: Origin)
 
 -- | A unique identifier for the origin. This value must be unique within the
 -- distribution.
@@ -307,36 +307,36 @@ instance Core.FromXML Origin where
   parseXML x =
     Origin'
       Prelude.<$> (x Core..@? "CustomHeaders")
-      Prelude.<*> (x Core..@? "CustomOriginConfig")
       Prelude.<*> (x Core..@? "ConnectionTimeout")
-      Prelude.<*> (x Core..@? "ConnectionAttempts")
       Prelude.<*> (x Core..@? "S3OriginConfig")
       Prelude.<*> (x Core..@? "OriginPath")
+      Prelude.<*> (x Core..@? "CustomOriginConfig")
       Prelude.<*> (x Core..@? "OriginShield")
+      Prelude.<*> (x Core..@? "ConnectionAttempts")
       Prelude.<*> (x Core..@ "Id")
       Prelude.<*> (x Core..@ "DomainName")
 
 instance Prelude.Hashable Origin where
   hashWithSalt _salt Origin' {..} =
     _salt `Prelude.hashWithSalt` customHeaders
-      `Prelude.hashWithSalt` customOriginConfig
       `Prelude.hashWithSalt` connectionTimeout
-      `Prelude.hashWithSalt` connectionAttempts
       `Prelude.hashWithSalt` s3OriginConfig
       `Prelude.hashWithSalt` originPath
+      `Prelude.hashWithSalt` customOriginConfig
       `Prelude.hashWithSalt` originShield
+      `Prelude.hashWithSalt` connectionAttempts
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData Origin where
   rnf Origin' {..} =
     Prelude.rnf customHeaders
-      `Prelude.seq` Prelude.rnf customOriginConfig
       `Prelude.seq` Prelude.rnf connectionTimeout
-      `Prelude.seq` Prelude.rnf connectionAttempts
       `Prelude.seq` Prelude.rnf s3OriginConfig
       `Prelude.seq` Prelude.rnf originPath
+      `Prelude.seq` Prelude.rnf customOriginConfig
       `Prelude.seq` Prelude.rnf originShield
+      `Prelude.seq` Prelude.rnf connectionAttempts
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf domainName
 
@@ -344,12 +344,12 @@ instance Core.ToXML Origin where
   toXML Origin' {..} =
     Prelude.mconcat
       [ "CustomHeaders" Core.@= customHeaders,
-        "CustomOriginConfig" Core.@= customOriginConfig,
         "ConnectionTimeout" Core.@= connectionTimeout,
-        "ConnectionAttempts" Core.@= connectionAttempts,
         "S3OriginConfig" Core.@= s3OriginConfig,
         "OriginPath" Core.@= originPath,
+        "CustomOriginConfig" Core.@= customOriginConfig,
         "OriginShield" Core.@= originShield,
+        "ConnectionAttempts" Core.@= connectionAttempts,
         "Id" Core.@= id,
         "DomainName" Core.@= domainName
       ]

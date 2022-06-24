@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFieldLevelEncryptionSummary' smart constructor.
 data FieldLevelEncryptionSummary = FieldLevelEncryptionSummary'
-  { -- | A summary of a query argument-profile mapping.
-    queryArgProfileConfig :: Prelude.Maybe QueryArgProfileConfig,
-    -- | A summary of a content type-profile mapping.
-    contentTypeProfileConfig :: Prelude.Maybe ContentTypeProfileConfig,
-    -- | An optional comment about the field-level encryption item. The comment
+  { -- | An optional comment about the field-level encryption item. The comment
     -- cannot be longer than 128 characters.
     comment :: Prelude.Maybe Prelude.Text,
+    -- | A summary of a content type-profile mapping.
+    contentTypeProfileConfig :: Prelude.Maybe ContentTypeProfileConfig,
+    -- | A summary of a query argument-profile mapping.
+    queryArgProfileConfig :: Prelude.Maybe QueryArgProfileConfig,
     -- | The unique ID of a field-level encryption item.
     id :: Prelude.Text,
     -- | The last time that the summary of field-level encryption items was
@@ -52,12 +52,12 @@ data FieldLevelEncryptionSummary = FieldLevelEncryptionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queryArgProfileConfig', 'fieldLevelEncryptionSummary_queryArgProfileConfig' - A summary of a query argument-profile mapping.
+-- 'comment', 'fieldLevelEncryptionSummary_comment' - An optional comment about the field-level encryption item. The comment
+-- cannot be longer than 128 characters.
 --
 -- 'contentTypeProfileConfig', 'fieldLevelEncryptionSummary_contentTypeProfileConfig' - A summary of a content type-profile mapping.
 --
--- 'comment', 'fieldLevelEncryptionSummary_comment' - An optional comment about the field-level encryption item. The comment
--- cannot be longer than 128 characters.
+-- 'queryArgProfileConfig', 'fieldLevelEncryptionSummary_queryArgProfileConfig' - A summary of a query argument-profile mapping.
 --
 -- 'id', 'fieldLevelEncryptionSummary_id' - The unique ID of a field-level encryption item.
 --
@@ -73,27 +73,27 @@ newFieldLevelEncryptionSummary
   pId_
   pLastModifiedTime_ =
     FieldLevelEncryptionSummary'
-      { queryArgProfileConfig =
+      { comment =
           Prelude.Nothing,
         contentTypeProfileConfig = Prelude.Nothing,
-        comment = Prelude.Nothing,
+        queryArgProfileConfig = Prelude.Nothing,
         id = pId_,
         lastModifiedTime =
           Core._Time Lens.# pLastModifiedTime_
       }
 
--- | A summary of a query argument-profile mapping.
-fieldLevelEncryptionSummary_queryArgProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe QueryArgProfileConfig)
-fieldLevelEncryptionSummary_queryArgProfileConfig = Lens.lens (\FieldLevelEncryptionSummary' {queryArgProfileConfig} -> queryArgProfileConfig) (\s@FieldLevelEncryptionSummary' {} a -> s {queryArgProfileConfig = a} :: FieldLevelEncryptionSummary)
+-- | An optional comment about the field-level encryption item. The comment
+-- cannot be longer than 128 characters.
+fieldLevelEncryptionSummary_comment :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe Prelude.Text)
+fieldLevelEncryptionSummary_comment = Lens.lens (\FieldLevelEncryptionSummary' {comment} -> comment) (\s@FieldLevelEncryptionSummary' {} a -> s {comment = a} :: FieldLevelEncryptionSummary)
 
 -- | A summary of a content type-profile mapping.
 fieldLevelEncryptionSummary_contentTypeProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe ContentTypeProfileConfig)
 fieldLevelEncryptionSummary_contentTypeProfileConfig = Lens.lens (\FieldLevelEncryptionSummary' {contentTypeProfileConfig} -> contentTypeProfileConfig) (\s@FieldLevelEncryptionSummary' {} a -> s {contentTypeProfileConfig = a} :: FieldLevelEncryptionSummary)
 
--- | An optional comment about the field-level encryption item. The comment
--- cannot be longer than 128 characters.
-fieldLevelEncryptionSummary_comment :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe Prelude.Text)
-fieldLevelEncryptionSummary_comment = Lens.lens (\FieldLevelEncryptionSummary' {comment} -> comment) (\s@FieldLevelEncryptionSummary' {} a -> s {comment = a} :: FieldLevelEncryptionSummary)
+-- | A summary of a query argument-profile mapping.
+fieldLevelEncryptionSummary_queryArgProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe QueryArgProfileConfig)
+fieldLevelEncryptionSummary_queryArgProfileConfig = Lens.lens (\FieldLevelEncryptionSummary' {queryArgProfileConfig} -> queryArgProfileConfig) (\s@FieldLevelEncryptionSummary' {} a -> s {queryArgProfileConfig = a} :: FieldLevelEncryptionSummary)
 
 -- | The unique ID of a field-level encryption item.
 fieldLevelEncryptionSummary_id :: Lens.Lens' FieldLevelEncryptionSummary Prelude.Text
@@ -107,24 +107,24 @@ fieldLevelEncryptionSummary_lastModifiedTime = Lens.lens (\FieldLevelEncryptionS
 instance Core.FromXML FieldLevelEncryptionSummary where
   parseXML x =
     FieldLevelEncryptionSummary'
-      Prelude.<$> (x Core..@? "QueryArgProfileConfig")
+      Prelude.<$> (x Core..@? "Comment")
       Prelude.<*> (x Core..@? "ContentTypeProfileConfig")
-      Prelude.<*> (x Core..@? "Comment")
+      Prelude.<*> (x Core..@? "QueryArgProfileConfig")
       Prelude.<*> (x Core..@ "Id")
       Prelude.<*> (x Core..@ "LastModifiedTime")
 
 instance Prelude.Hashable FieldLevelEncryptionSummary where
   hashWithSalt _salt FieldLevelEncryptionSummary' {..} =
-    _salt `Prelude.hashWithSalt` queryArgProfileConfig
+    _salt `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` contentTypeProfileConfig
-      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` queryArgProfileConfig
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastModifiedTime
 
 instance Prelude.NFData FieldLevelEncryptionSummary where
   rnf FieldLevelEncryptionSummary' {..} =
-    Prelude.rnf queryArgProfileConfig
+    Prelude.rnf comment
       `Prelude.seq` Prelude.rnf contentTypeProfileConfig
-      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf queryArgProfileConfig
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lastModifiedTime

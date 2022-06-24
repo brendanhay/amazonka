@@ -24,26 +24,6 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Amazonka.CloudFront.GetStreamingDistribution' every 60 seconds until a successful state is reached. An error is returned after 25 failed checks.
-newStreamingDistributionDeployed :: Core.Wait GetStreamingDistribution
-newStreamingDistributionDeployed =
-  Core.Wait
-    { Core._waitName =
-        "StreamingDistributionDeployed",
-      Core._waitAttempts = 25,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "Deployed"
-            Core.AcceptSuccess
-            ( getStreamingDistributionResponse_streamingDistribution
-                Prelude.. Lens._Just
-                Prelude.. streamingDistribution_status
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
 -- | Polls 'Amazonka.CloudFront.GetDistribution' every 60 seconds until a successful state is reached. An error is returned after 35 failed checks.
 newDistributionDeployed :: Core.Wait GetDistribution
 newDistributionDeployed =
@@ -77,6 +57,26 @@ newInvalidationCompleted =
             ( getInvalidationResponse_invalidation
                 Prelude.. Lens._Just
                 Prelude.. invalidation_status
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.CloudFront.GetStreamingDistribution' every 60 seconds until a successful state is reached. An error is returned after 25 failed checks.
+newStreamingDistributionDeployed :: Core.Wait GetStreamingDistribution
+newStreamingDistributionDeployed =
+  Core.Wait
+    { Core._waitName =
+        "StreamingDistributionDeployed",
+      Core._waitAttempts = 25,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "Deployed"
+            Core.AcceptSuccess
+            ( getStreamingDistributionResponse_streamingDistribution
+                Prelude.. Lens._Just
+                Prelude.. streamingDistribution_status
                 Prelude.. Lens.to Core.toTextCI
             )
         ]

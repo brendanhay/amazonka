@@ -30,31 +30,31 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChangeSetSummaryListItem' smart constructor.
 data ChangeSetSummaryListItem = ChangeSetSummaryListItem'
-  { -- | The current status of the change set.
+  { -- | Returned if the change set is in @FAILED@ status. Can be either
+    -- @CLIENT_ERROR@, which means that there are issues with the request (see
+    -- the @ErrorDetailList@ of @DescribeChangeSet@), or @SERVER_FAULT@, which
+    -- means that there is a problem in the system, and you should retry your
+    -- request.
+    failureCode :: Prelude.Maybe FailureCode,
+    -- | The unique identifier for a change set.
+    changeSetId :: Prelude.Maybe Prelude.Text,
+    -- | The non-unique name for the change set.
+    changeSetName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN associated with the unique identifier for the change set
+    -- referenced in this request.
+    changeSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the change set.
     status :: Prelude.Maybe ChangeStatus,
+    -- | The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set
+    -- was finished.
+    endTime :: Prelude.Maybe Prelude.Text,
     -- | This object is a list of entity IDs (string) that are a part of a change
     -- set. The entity ID list is a maximum of 20 entities. It must contain at
     -- least one entity.
     entityIdList :: Prelude.Maybe [Prelude.Text],
     -- | The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set
     -- was started.
-    startTime :: Prelude.Maybe Prelude.Text,
-    -- | Returned if the change set is in @FAILED@ status. Can be either
-    -- @CLIENT_ERROR@, which means that there are issues with the request (see
-    -- the @ErrorDetailList@ of @DescribeChangeSet@), or @SERVER_FAULT@, which
-    -- means that there is a problem in the system, and you should retry your
-    -- request.
-    failureCode :: Prelude.Maybe FailureCode,
-    -- | The non-unique name for the change set.
-    changeSetName :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for a change set.
-    changeSetId :: Prelude.Maybe Prelude.Text,
-    -- | The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set
-    -- was finished.
-    endTime :: Prelude.Maybe Prelude.Text,
-    -- | The ARN associated with the unique identifier for the change set
-    -- referenced in this request.
-    changeSetArn :: Prelude.Maybe Prelude.Text
+    startTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,7 +66,23 @@ data ChangeSetSummaryListItem = ChangeSetSummaryListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'failureCode', 'changeSetSummaryListItem_failureCode' - Returned if the change set is in @FAILED@ status. Can be either
+-- @CLIENT_ERROR@, which means that there are issues with the request (see
+-- the @ErrorDetailList@ of @DescribeChangeSet@), or @SERVER_FAULT@, which
+-- means that there is a problem in the system, and you should retry your
+-- request.
+--
+-- 'changeSetId', 'changeSetSummaryListItem_changeSetId' - The unique identifier for a change set.
+--
+-- 'changeSetName', 'changeSetSummaryListItem_changeSetName' - The non-unique name for the change set.
+--
+-- 'changeSetArn', 'changeSetSummaryListItem_changeSetArn' - The ARN associated with the unique identifier for the change set
+-- referenced in this request.
+--
 -- 'status', 'changeSetSummaryListItem_status' - The current status of the change set.
+--
+-- 'endTime', 'changeSetSummaryListItem_endTime' - The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set
+-- was finished.
 --
 -- 'entityIdList', 'changeSetSummaryListItem_entityIdList' - This object is a list of entity IDs (string) that are a part of a change
 -- set. The entity ID list is a maximum of 20 entities. It must contain at
@@ -74,39 +90,50 @@ data ChangeSetSummaryListItem = ChangeSetSummaryListItem'
 --
 -- 'startTime', 'changeSetSummaryListItem_startTime' - The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set
 -- was started.
---
--- 'failureCode', 'changeSetSummaryListItem_failureCode' - Returned if the change set is in @FAILED@ status. Can be either
--- @CLIENT_ERROR@, which means that there are issues with the request (see
--- the @ErrorDetailList@ of @DescribeChangeSet@), or @SERVER_FAULT@, which
--- means that there is a problem in the system, and you should retry your
--- request.
---
--- 'changeSetName', 'changeSetSummaryListItem_changeSetName' - The non-unique name for the change set.
---
--- 'changeSetId', 'changeSetSummaryListItem_changeSetId' - The unique identifier for a change set.
---
--- 'endTime', 'changeSetSummaryListItem_endTime' - The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set
--- was finished.
---
--- 'changeSetArn', 'changeSetSummaryListItem_changeSetArn' - The ARN associated with the unique identifier for the change set
--- referenced in this request.
 newChangeSetSummaryListItem ::
   ChangeSetSummaryListItem
 newChangeSetSummaryListItem =
   ChangeSetSummaryListItem'
-    { status = Prelude.Nothing,
-      entityIdList = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      failureCode = Prelude.Nothing,
-      changeSetName = Prelude.Nothing,
+    { failureCode =
+        Prelude.Nothing,
       changeSetId = Prelude.Nothing,
+      changeSetName = Prelude.Nothing,
+      changeSetArn = Prelude.Nothing,
+      status = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      changeSetArn = Prelude.Nothing
+      entityIdList = Prelude.Nothing,
+      startTime = Prelude.Nothing
     }
+
+-- | Returned if the change set is in @FAILED@ status. Can be either
+-- @CLIENT_ERROR@, which means that there are issues with the request (see
+-- the @ErrorDetailList@ of @DescribeChangeSet@), or @SERVER_FAULT@, which
+-- means that there is a problem in the system, and you should retry your
+-- request.
+changeSetSummaryListItem_failureCode :: Lens.Lens' ChangeSetSummaryListItem (Prelude.Maybe FailureCode)
+changeSetSummaryListItem_failureCode = Lens.lens (\ChangeSetSummaryListItem' {failureCode} -> failureCode) (\s@ChangeSetSummaryListItem' {} a -> s {failureCode = a} :: ChangeSetSummaryListItem)
+
+-- | The unique identifier for a change set.
+changeSetSummaryListItem_changeSetId :: Lens.Lens' ChangeSetSummaryListItem (Prelude.Maybe Prelude.Text)
+changeSetSummaryListItem_changeSetId = Lens.lens (\ChangeSetSummaryListItem' {changeSetId} -> changeSetId) (\s@ChangeSetSummaryListItem' {} a -> s {changeSetId = a} :: ChangeSetSummaryListItem)
+
+-- | The non-unique name for the change set.
+changeSetSummaryListItem_changeSetName :: Lens.Lens' ChangeSetSummaryListItem (Prelude.Maybe Prelude.Text)
+changeSetSummaryListItem_changeSetName = Lens.lens (\ChangeSetSummaryListItem' {changeSetName} -> changeSetName) (\s@ChangeSetSummaryListItem' {} a -> s {changeSetName = a} :: ChangeSetSummaryListItem)
+
+-- | The ARN associated with the unique identifier for the change set
+-- referenced in this request.
+changeSetSummaryListItem_changeSetArn :: Lens.Lens' ChangeSetSummaryListItem (Prelude.Maybe Prelude.Text)
+changeSetSummaryListItem_changeSetArn = Lens.lens (\ChangeSetSummaryListItem' {changeSetArn} -> changeSetArn) (\s@ChangeSetSummaryListItem' {} a -> s {changeSetArn = a} :: ChangeSetSummaryListItem)
 
 -- | The current status of the change set.
 changeSetSummaryListItem_status :: Lens.Lens' ChangeSetSummaryListItem (Prelude.Maybe ChangeStatus)
 changeSetSummaryListItem_status = Lens.lens (\ChangeSetSummaryListItem' {status} -> status) (\s@ChangeSetSummaryListItem' {} a -> s {status = a} :: ChangeSetSummaryListItem)
+
+-- | The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set
+-- was finished.
+changeSetSummaryListItem_endTime :: Lens.Lens' ChangeSetSummaryListItem (Prelude.Maybe Prelude.Text)
+changeSetSummaryListItem_endTime = Lens.lens (\ChangeSetSummaryListItem' {endTime} -> endTime) (\s@ChangeSetSummaryListItem' {} a -> s {endTime = a} :: ChangeSetSummaryListItem)
 
 -- | This object is a list of entity IDs (string) that are a part of a change
 -- set. The entity ID list is a maximum of 20 entities. It must contain at
@@ -119,66 +146,40 @@ changeSetSummaryListItem_entityIdList = Lens.lens (\ChangeSetSummaryListItem' {e
 changeSetSummaryListItem_startTime :: Lens.Lens' ChangeSetSummaryListItem (Prelude.Maybe Prelude.Text)
 changeSetSummaryListItem_startTime = Lens.lens (\ChangeSetSummaryListItem' {startTime} -> startTime) (\s@ChangeSetSummaryListItem' {} a -> s {startTime = a} :: ChangeSetSummaryListItem)
 
--- | Returned if the change set is in @FAILED@ status. Can be either
--- @CLIENT_ERROR@, which means that there are issues with the request (see
--- the @ErrorDetailList@ of @DescribeChangeSet@), or @SERVER_FAULT@, which
--- means that there is a problem in the system, and you should retry your
--- request.
-changeSetSummaryListItem_failureCode :: Lens.Lens' ChangeSetSummaryListItem (Prelude.Maybe FailureCode)
-changeSetSummaryListItem_failureCode = Lens.lens (\ChangeSetSummaryListItem' {failureCode} -> failureCode) (\s@ChangeSetSummaryListItem' {} a -> s {failureCode = a} :: ChangeSetSummaryListItem)
-
--- | The non-unique name for the change set.
-changeSetSummaryListItem_changeSetName :: Lens.Lens' ChangeSetSummaryListItem (Prelude.Maybe Prelude.Text)
-changeSetSummaryListItem_changeSetName = Lens.lens (\ChangeSetSummaryListItem' {changeSetName} -> changeSetName) (\s@ChangeSetSummaryListItem' {} a -> s {changeSetName = a} :: ChangeSetSummaryListItem)
-
--- | The unique identifier for a change set.
-changeSetSummaryListItem_changeSetId :: Lens.Lens' ChangeSetSummaryListItem (Prelude.Maybe Prelude.Text)
-changeSetSummaryListItem_changeSetId = Lens.lens (\ChangeSetSummaryListItem' {changeSetId} -> changeSetId) (\s@ChangeSetSummaryListItem' {} a -> s {changeSetId = a} :: ChangeSetSummaryListItem)
-
--- | The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set
--- was finished.
-changeSetSummaryListItem_endTime :: Lens.Lens' ChangeSetSummaryListItem (Prelude.Maybe Prelude.Text)
-changeSetSummaryListItem_endTime = Lens.lens (\ChangeSetSummaryListItem' {endTime} -> endTime) (\s@ChangeSetSummaryListItem' {} a -> s {endTime = a} :: ChangeSetSummaryListItem)
-
--- | The ARN associated with the unique identifier for the change set
--- referenced in this request.
-changeSetSummaryListItem_changeSetArn :: Lens.Lens' ChangeSetSummaryListItem (Prelude.Maybe Prelude.Text)
-changeSetSummaryListItem_changeSetArn = Lens.lens (\ChangeSetSummaryListItem' {changeSetArn} -> changeSetArn) (\s@ChangeSetSummaryListItem' {} a -> s {changeSetArn = a} :: ChangeSetSummaryListItem)
-
 instance Core.FromJSON ChangeSetSummaryListItem where
   parseJSON =
     Core.withObject
       "ChangeSetSummaryListItem"
       ( \x ->
           ChangeSetSummaryListItem'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "FailureCode")
+            Prelude.<*> (x Core..:? "ChangeSetId")
+            Prelude.<*> (x Core..:? "ChangeSetName")
+            Prelude.<*> (x Core..:? "ChangeSetArn")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "EndTime")
             Prelude.<*> (x Core..:? "EntityIdList" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "FailureCode")
-            Prelude.<*> (x Core..:? "ChangeSetName")
-            Prelude.<*> (x Core..:? "ChangeSetId")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "ChangeSetArn")
       )
 
 instance Prelude.Hashable ChangeSetSummaryListItem where
   hashWithSalt _salt ChangeSetSummaryListItem' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` failureCode
+      `Prelude.hashWithSalt` changeSetId
+      `Prelude.hashWithSalt` changeSetName
+      `Prelude.hashWithSalt` changeSetArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` entityIdList
       `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` failureCode
-      `Prelude.hashWithSalt` changeSetName
-      `Prelude.hashWithSalt` changeSetId
-      `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` changeSetArn
 
 instance Prelude.NFData ChangeSetSummaryListItem where
   rnf ChangeSetSummaryListItem' {..} =
-    Prelude.rnf status
+    Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf changeSetId
+      `Prelude.seq` Prelude.rnf changeSetName
+      `Prelude.seq` Prelude.rnf changeSetArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf entityIdList
       `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf changeSetName
-      `Prelude.seq` Prelude.rnf changeSetId
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf changeSetArn

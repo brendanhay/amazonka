@@ -17,14 +17,14 @@ module Amazonka.MarketplaceCatalog.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
+    _ResourceNotSupportedException,
     _AccessDeniedException,
     _ServiceQuotaExceededException,
-    _ThrottlingException,
-    _InternalServiceException,
-    _ResourceNotSupportedException,
     _ResourceNotFoundException,
     _ResourceInUseException,
+    _ThrottlingException,
+    _ValidationException,
+    _InternalServiceException,
 
     -- * ChangeStatus
     ChangeStatus (..),
@@ -46,23 +46,23 @@ module Amazonka.MarketplaceCatalog.Types
     -- * ChangeSetSummaryListItem
     ChangeSetSummaryListItem (..),
     newChangeSetSummaryListItem,
+    changeSetSummaryListItem_failureCode,
+    changeSetSummaryListItem_changeSetId,
+    changeSetSummaryListItem_changeSetName,
+    changeSetSummaryListItem_changeSetArn,
     changeSetSummaryListItem_status,
+    changeSetSummaryListItem_endTime,
     changeSetSummaryListItem_entityIdList,
     changeSetSummaryListItem_startTime,
-    changeSetSummaryListItem_failureCode,
-    changeSetSummaryListItem_changeSetName,
-    changeSetSummaryListItem_changeSetId,
-    changeSetSummaryListItem_endTime,
-    changeSetSummaryListItem_changeSetArn,
 
     -- * ChangeSummary
     ChangeSummary (..),
     newChangeSummary,
+    changeSummary_entity,
     changeSummary_changeName,
+    changeSummary_changeType,
     changeSummary_details,
     changeSummary_errorDetailList,
-    changeSummary_entity,
-    changeSummary_changeType,
 
     -- * Entity
     Entity (..),
@@ -73,24 +73,24 @@ module Amazonka.MarketplaceCatalog.Types
     -- * EntitySummary
     EntitySummary (..),
     newEntitySummary,
-    entitySummary_lastModifiedDate,
-    entitySummary_entityType,
-    entitySummary_visibility,
-    entitySummary_name,
     entitySummary_entityId,
+    entitySummary_name,
+    entitySummary_lastModifiedDate,
+    entitySummary_visibility,
+    entitySummary_entityType,
     entitySummary_entityArn,
 
     -- * ErrorDetail
     ErrorDetail (..),
     newErrorDetail,
-    errorDetail_errorCode,
     errorDetail_errorMessage,
+    errorDetail_errorCode,
 
     -- * Filter
     Filter (..),
     newFilter,
-    filter_valueList,
     filter_name,
+    filter_valueList,
 
     -- * Sort
     Sort (..),
@@ -143,35 +143,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -180,21 +153,48 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | An error occurred during validation.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
+-- | Currently, the specified resource is not supported.
+_ResourceNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotSupportedException =
   Core._MatchServiceError
     defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 422
+    "ResourceNotSupportedException"
+    Prelude.. Core.hasStatus 415
 
 -- | Access is denied.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -212,30 +212,6 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
--- | Too many requests.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
-
--- | There was an internal service exception.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceException"
-    Prelude.. Core.hasStatus 500
-
--- | Currently, the specified resource is not supported.
-_ResourceNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotSupportedException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotSupportedException"
-    Prelude.. Core.hasStatus 415
-
 -- | The specified resource wasn\'t found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -251,3 +227,27 @@ _ResourceInUseException =
     defaultService
     "ResourceInUseException"
     Prelude.. Core.hasStatus 423
+
+-- | Too many requests.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- | An error occurred during validation.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 422
+
+-- | There was an internal service exception.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceException"
+    Prelude.. Core.hasStatus 500

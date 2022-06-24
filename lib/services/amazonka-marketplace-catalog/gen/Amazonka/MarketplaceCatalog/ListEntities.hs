@@ -39,8 +39,8 @@ module Amazonka.MarketplaceCatalog.ListEntities
     newListEntitiesResponse,
 
     -- * Response Lenses
-    listEntitiesResponse_entitySummaryList,
     listEntitiesResponse_nextToken,
+    listEntitiesResponse_entitySummaryList,
     listEntitiesResponse_httpStatus,
   )
 where
@@ -144,10 +144,10 @@ instance Core.AWSRequest ListEntities where
     Response.receiveJSON
       ( \s h x ->
           ListEntitiesResponse'
-            Prelude.<$> ( x Core..?> "EntitySummaryList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "EntitySummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,11 +201,11 @@ instance Core.ToQuery ListEntities where
 
 -- | /See:/ 'newListEntitiesResponse' smart constructor.
 data ListEntitiesResponse = ListEntitiesResponse'
-  { -- | Array of @EntitySummary@ object.
-    entitySummaryList :: Prelude.Maybe [EntitySummary],
-    -- | The value of the next token if it exists. Null if there is no more
+  { -- | The value of the next token if it exists. Null if there is no more
     -- result.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Array of @EntitySummary@ object.
+    entitySummaryList :: Prelude.Maybe [EntitySummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,10 +219,10 @@ data ListEntitiesResponse = ListEntitiesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entitySummaryList', 'listEntitiesResponse_entitySummaryList' - Array of @EntitySummary@ object.
---
 -- 'nextToken', 'listEntitiesResponse_nextToken' - The value of the next token if it exists. Null if there is no more
 -- result.
+--
+-- 'entitySummaryList', 'listEntitiesResponse_entitySummaryList' - Array of @EntitySummary@ object.
 --
 -- 'httpStatus', 'listEntitiesResponse_httpStatus' - The response's http status code.
 newListEntitiesResponse ::
@@ -231,20 +231,19 @@ newListEntitiesResponse ::
   ListEntitiesResponse
 newListEntitiesResponse pHttpStatus_ =
   ListEntitiesResponse'
-    { entitySummaryList =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      entitySummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Array of @EntitySummary@ object.
-listEntitiesResponse_entitySummaryList :: Lens.Lens' ListEntitiesResponse (Prelude.Maybe [EntitySummary])
-listEntitiesResponse_entitySummaryList = Lens.lens (\ListEntitiesResponse' {entitySummaryList} -> entitySummaryList) (\s@ListEntitiesResponse' {} a -> s {entitySummaryList = a} :: ListEntitiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value of the next token if it exists. Null if there is no more
 -- result.
 listEntitiesResponse_nextToken :: Lens.Lens' ListEntitiesResponse (Prelude.Maybe Prelude.Text)
 listEntitiesResponse_nextToken = Lens.lens (\ListEntitiesResponse' {nextToken} -> nextToken) (\s@ListEntitiesResponse' {} a -> s {nextToken = a} :: ListEntitiesResponse)
+
+-- | Array of @EntitySummary@ object.
+listEntitiesResponse_entitySummaryList :: Lens.Lens' ListEntitiesResponse (Prelude.Maybe [EntitySummary])
+listEntitiesResponse_entitySummaryList = Lens.lens (\ListEntitiesResponse' {entitySummaryList} -> entitySummaryList) (\s@ListEntitiesResponse' {} a -> s {entitySummaryList = a} :: ListEntitiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEntitiesResponse_httpStatus :: Lens.Lens' ListEntitiesResponse Prelude.Int
@@ -252,6 +251,6 @@ listEntitiesResponse_httpStatus = Lens.lens (\ListEntitiesResponse' {httpStatus}
 
 instance Prelude.NFData ListEntitiesResponse where
   rnf ListEntitiesResponse' {..} =
-    Prelude.rnf entitySummaryList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf entitySummaryList
       `Prelude.seq` Prelude.rnf httpStatus

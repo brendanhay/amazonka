@@ -28,15 +28,15 @@ import Amazonka.WorkSpaces.Types.ConnectionState
 --
 -- /See:/ 'newWorkspaceConnectionStatus' smart constructor.
 data WorkspaceConnectionStatus = WorkspaceConnectionStatus'
-  { -- | The timestamp of the last known user connection.
-    lastKnownUserConnectionTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The timestamp of the connection status check.
-    connectionStateCheckTimestamp :: Prelude.Maybe Core.POSIX,
+  { -- | The connection state of the WorkSpace. The connection state is unknown
+    -- if the WorkSpace is stopped.
+    connectionState :: Prelude.Maybe ConnectionState,
     -- | The identifier of the WorkSpace.
     workspaceId :: Prelude.Maybe Prelude.Text,
-    -- | The connection state of the WorkSpace. The connection state is unknown
-    -- if the WorkSpace is stopped.
-    connectionState :: Prelude.Maybe ConnectionState
+    -- | The timestamp of the last known user connection.
+    lastKnownUserConnectionTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The timestamp of the connection status check.
+    connectionStateCheckTimestamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,34 @@ data WorkspaceConnectionStatus = WorkspaceConnectionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastKnownUserConnectionTimestamp', 'workspaceConnectionStatus_lastKnownUserConnectionTimestamp' - The timestamp of the last known user connection.
---
--- 'connectionStateCheckTimestamp', 'workspaceConnectionStatus_connectionStateCheckTimestamp' - The timestamp of the connection status check.
+-- 'connectionState', 'workspaceConnectionStatus_connectionState' - The connection state of the WorkSpace. The connection state is unknown
+-- if the WorkSpace is stopped.
 --
 -- 'workspaceId', 'workspaceConnectionStatus_workspaceId' - The identifier of the WorkSpace.
 --
--- 'connectionState', 'workspaceConnectionStatus_connectionState' - The connection state of the WorkSpace. The connection state is unknown
--- if the WorkSpace is stopped.
+-- 'lastKnownUserConnectionTimestamp', 'workspaceConnectionStatus_lastKnownUserConnectionTimestamp' - The timestamp of the last known user connection.
+--
+-- 'connectionStateCheckTimestamp', 'workspaceConnectionStatus_connectionStateCheckTimestamp' - The timestamp of the connection status check.
 newWorkspaceConnectionStatus ::
   WorkspaceConnectionStatus
 newWorkspaceConnectionStatus =
   WorkspaceConnectionStatus'
-    { lastKnownUserConnectionTimestamp =
+    { connectionState =
         Prelude.Nothing,
-      connectionStateCheckTimestamp = Prelude.Nothing,
       workspaceId = Prelude.Nothing,
-      connectionState = Prelude.Nothing
+      lastKnownUserConnectionTimestamp =
+        Prelude.Nothing,
+      connectionStateCheckTimestamp = Prelude.Nothing
     }
+
+-- | The connection state of the WorkSpace. The connection state is unknown
+-- if the WorkSpace is stopped.
+workspaceConnectionStatus_connectionState :: Lens.Lens' WorkspaceConnectionStatus (Prelude.Maybe ConnectionState)
+workspaceConnectionStatus_connectionState = Lens.lens (\WorkspaceConnectionStatus' {connectionState} -> connectionState) (\s@WorkspaceConnectionStatus' {} a -> s {connectionState = a} :: WorkspaceConnectionStatus)
+
+-- | The identifier of the WorkSpace.
+workspaceConnectionStatus_workspaceId :: Lens.Lens' WorkspaceConnectionStatus (Prelude.Maybe Prelude.Text)
+workspaceConnectionStatus_workspaceId = Lens.lens (\WorkspaceConnectionStatus' {workspaceId} -> workspaceId) (\s@WorkspaceConnectionStatus' {} a -> s {workspaceId = a} :: WorkspaceConnectionStatus)
 
 -- | The timestamp of the last known user connection.
 workspaceConnectionStatus_lastKnownUserConnectionTimestamp :: Lens.Lens' WorkspaceConnectionStatus (Prelude.Maybe Prelude.UTCTime)
@@ -75,38 +85,28 @@ workspaceConnectionStatus_lastKnownUserConnectionTimestamp = Lens.lens (\Workspa
 workspaceConnectionStatus_connectionStateCheckTimestamp :: Lens.Lens' WorkspaceConnectionStatus (Prelude.Maybe Prelude.UTCTime)
 workspaceConnectionStatus_connectionStateCheckTimestamp = Lens.lens (\WorkspaceConnectionStatus' {connectionStateCheckTimestamp} -> connectionStateCheckTimestamp) (\s@WorkspaceConnectionStatus' {} a -> s {connectionStateCheckTimestamp = a} :: WorkspaceConnectionStatus) Prelude.. Lens.mapping Core._Time
 
--- | The identifier of the WorkSpace.
-workspaceConnectionStatus_workspaceId :: Lens.Lens' WorkspaceConnectionStatus (Prelude.Maybe Prelude.Text)
-workspaceConnectionStatus_workspaceId = Lens.lens (\WorkspaceConnectionStatus' {workspaceId} -> workspaceId) (\s@WorkspaceConnectionStatus' {} a -> s {workspaceId = a} :: WorkspaceConnectionStatus)
-
--- | The connection state of the WorkSpace. The connection state is unknown
--- if the WorkSpace is stopped.
-workspaceConnectionStatus_connectionState :: Lens.Lens' WorkspaceConnectionStatus (Prelude.Maybe ConnectionState)
-workspaceConnectionStatus_connectionState = Lens.lens (\WorkspaceConnectionStatus' {connectionState} -> connectionState) (\s@WorkspaceConnectionStatus' {} a -> s {connectionState = a} :: WorkspaceConnectionStatus)
-
 instance Core.FromJSON WorkspaceConnectionStatus where
   parseJSON =
     Core.withObject
       "WorkspaceConnectionStatus"
       ( \x ->
           WorkspaceConnectionStatus'
-            Prelude.<$> (x Core..:? "LastKnownUserConnectionTimestamp")
-            Prelude.<*> (x Core..:? "ConnectionStateCheckTimestamp")
+            Prelude.<$> (x Core..:? "ConnectionState")
             Prelude.<*> (x Core..:? "WorkspaceId")
-            Prelude.<*> (x Core..:? "ConnectionState")
+            Prelude.<*> (x Core..:? "LastKnownUserConnectionTimestamp")
+            Prelude.<*> (x Core..:? "ConnectionStateCheckTimestamp")
       )
 
 instance Prelude.Hashable WorkspaceConnectionStatus where
   hashWithSalt _salt WorkspaceConnectionStatus' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` connectionState
+      `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` lastKnownUserConnectionTimestamp
       `Prelude.hashWithSalt` connectionStateCheckTimestamp
-      `Prelude.hashWithSalt` workspaceId
-      `Prelude.hashWithSalt` connectionState
 
 instance Prelude.NFData WorkspaceConnectionStatus where
   rnf WorkspaceConnectionStatus' {..} =
-    Prelude.rnf lastKnownUserConnectionTimestamp
-      `Prelude.seq` Prelude.rnf connectionStateCheckTimestamp
+    Prelude.rnf connectionState
       `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf lastKnownUserConnectionTimestamp
+      `Prelude.seq` Prelude.rnf connectionStateCheckTimestamp

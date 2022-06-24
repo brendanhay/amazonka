@@ -30,23 +30,23 @@ import Amazonka.WorkSpaces.Types.AccessPropertyValue
 --
 -- /See:/ 'newWorkspaceAccessProperties' smart constructor.
 data WorkspaceAccessProperties = WorkspaceAccessProperties'
-  { -- | Indicates whether users can use Windows clients to access their
-    -- WorkSpaces.
-    deviceTypeWindows :: Prelude.Maybe AccessPropertyValue,
-    -- | Indicates whether users can access their WorkSpaces through a web
-    -- browser.
-    deviceTypeWeb :: Prelude.Maybe AccessPropertyValue,
-    -- | Indicates whether users can use Android and Android-compatible Chrome OS
+  { -- | Indicates whether users can use Android and Android-compatible Chrome OS
     -- devices to access their WorkSpaces.
     deviceTypeAndroid :: Prelude.Maybe AccessPropertyValue,
     -- | Indicates whether users can use Linux clients to access their
     -- WorkSpaces.
     deviceTypeLinux :: Prelude.Maybe AccessPropertyValue,
+    -- | Indicates whether users can access their WorkSpaces through a web
+    -- browser.
+    deviceTypeWeb :: Prelude.Maybe AccessPropertyValue,
     -- | Indicates whether users can use macOS clients to access their
     -- WorkSpaces.
     deviceTypeOsx :: Prelude.Maybe AccessPropertyValue,
     -- | Indicates whether users can use Chromebooks to access their WorkSpaces.
     deviceTypeChromeOs :: Prelude.Maybe AccessPropertyValue,
+    -- | Indicates whether users can use Windows clients to access their
+    -- WorkSpaces.
+    deviceTypeWindows :: Prelude.Maybe AccessPropertyValue,
     -- | Indicates whether users can use iOS devices to access their WorkSpaces.
     deviceTypeIos :: Prelude.Maybe AccessPropertyValue,
     -- | Indicates whether users can use zero client devices to access their
@@ -63,22 +63,22 @@ data WorkspaceAccessProperties = WorkspaceAccessProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceTypeWindows', 'workspaceAccessProperties_deviceTypeWindows' - Indicates whether users can use Windows clients to access their
--- WorkSpaces.
---
--- 'deviceTypeWeb', 'workspaceAccessProperties_deviceTypeWeb' - Indicates whether users can access their WorkSpaces through a web
--- browser.
---
 -- 'deviceTypeAndroid', 'workspaceAccessProperties_deviceTypeAndroid' - Indicates whether users can use Android and Android-compatible Chrome OS
 -- devices to access their WorkSpaces.
 --
 -- 'deviceTypeLinux', 'workspaceAccessProperties_deviceTypeLinux' - Indicates whether users can use Linux clients to access their
 -- WorkSpaces.
 --
+-- 'deviceTypeWeb', 'workspaceAccessProperties_deviceTypeWeb' - Indicates whether users can access their WorkSpaces through a web
+-- browser.
+--
 -- 'deviceTypeOsx', 'workspaceAccessProperties_deviceTypeOsx' - Indicates whether users can use macOS clients to access their
 -- WorkSpaces.
 --
 -- 'deviceTypeChromeOs', 'workspaceAccessProperties_deviceTypeChromeOs' - Indicates whether users can use Chromebooks to access their WorkSpaces.
+--
+-- 'deviceTypeWindows', 'workspaceAccessProperties_deviceTypeWindows' - Indicates whether users can use Windows clients to access their
+-- WorkSpaces.
 --
 -- 'deviceTypeIos', 'workspaceAccessProperties_deviceTypeIos' - Indicates whether users can use iOS devices to access their WorkSpaces.
 --
@@ -88,26 +88,16 @@ newWorkspaceAccessProperties ::
   WorkspaceAccessProperties
 newWorkspaceAccessProperties =
   WorkspaceAccessProperties'
-    { deviceTypeWindows =
+    { deviceTypeAndroid =
         Prelude.Nothing,
-      deviceTypeWeb = Prelude.Nothing,
-      deviceTypeAndroid = Prelude.Nothing,
       deviceTypeLinux = Prelude.Nothing,
+      deviceTypeWeb = Prelude.Nothing,
       deviceTypeOsx = Prelude.Nothing,
       deviceTypeChromeOs = Prelude.Nothing,
+      deviceTypeWindows = Prelude.Nothing,
       deviceTypeIos = Prelude.Nothing,
       deviceTypeZeroClient = Prelude.Nothing
     }
-
--- | Indicates whether users can use Windows clients to access their
--- WorkSpaces.
-workspaceAccessProperties_deviceTypeWindows :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
-workspaceAccessProperties_deviceTypeWindows = Lens.lens (\WorkspaceAccessProperties' {deviceTypeWindows} -> deviceTypeWindows) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeWindows = a} :: WorkspaceAccessProperties)
-
--- | Indicates whether users can access their WorkSpaces through a web
--- browser.
-workspaceAccessProperties_deviceTypeWeb :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
-workspaceAccessProperties_deviceTypeWeb = Lens.lens (\WorkspaceAccessProperties' {deviceTypeWeb} -> deviceTypeWeb) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeWeb = a} :: WorkspaceAccessProperties)
 
 -- | Indicates whether users can use Android and Android-compatible Chrome OS
 -- devices to access their WorkSpaces.
@@ -119,6 +109,11 @@ workspaceAccessProperties_deviceTypeAndroid = Lens.lens (\WorkspaceAccessPropert
 workspaceAccessProperties_deviceTypeLinux :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
 workspaceAccessProperties_deviceTypeLinux = Lens.lens (\WorkspaceAccessProperties' {deviceTypeLinux} -> deviceTypeLinux) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeLinux = a} :: WorkspaceAccessProperties)
 
+-- | Indicates whether users can access their WorkSpaces through a web
+-- browser.
+workspaceAccessProperties_deviceTypeWeb :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
+workspaceAccessProperties_deviceTypeWeb = Lens.lens (\WorkspaceAccessProperties' {deviceTypeWeb} -> deviceTypeWeb) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeWeb = a} :: WorkspaceAccessProperties)
+
 -- | Indicates whether users can use macOS clients to access their
 -- WorkSpaces.
 workspaceAccessProperties_deviceTypeOsx :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
@@ -127,6 +122,11 @@ workspaceAccessProperties_deviceTypeOsx = Lens.lens (\WorkspaceAccessProperties'
 -- | Indicates whether users can use Chromebooks to access their WorkSpaces.
 workspaceAccessProperties_deviceTypeChromeOs :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
 workspaceAccessProperties_deviceTypeChromeOs = Lens.lens (\WorkspaceAccessProperties' {deviceTypeChromeOs} -> deviceTypeChromeOs) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeChromeOs = a} :: WorkspaceAccessProperties)
+
+-- | Indicates whether users can use Windows clients to access their
+-- WorkSpaces.
+workspaceAccessProperties_deviceTypeWindows :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
+workspaceAccessProperties_deviceTypeWindows = Lens.lens (\WorkspaceAccessProperties' {deviceTypeWindows} -> deviceTypeWindows) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeWindows = a} :: WorkspaceAccessProperties)
 
 -- | Indicates whether users can use iOS devices to access their WorkSpaces.
 workspaceAccessProperties_deviceTypeIos :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
@@ -143,35 +143,35 @@ instance Core.FromJSON WorkspaceAccessProperties where
       "WorkspaceAccessProperties"
       ( \x ->
           WorkspaceAccessProperties'
-            Prelude.<$> (x Core..:? "DeviceTypeWindows")
-            Prelude.<*> (x Core..:? "DeviceTypeWeb")
-            Prelude.<*> (x Core..:? "DeviceTypeAndroid")
+            Prelude.<$> (x Core..:? "DeviceTypeAndroid")
             Prelude.<*> (x Core..:? "DeviceTypeLinux")
+            Prelude.<*> (x Core..:? "DeviceTypeWeb")
             Prelude.<*> (x Core..:? "DeviceTypeOsx")
             Prelude.<*> (x Core..:? "DeviceTypeChromeOs")
+            Prelude.<*> (x Core..:? "DeviceTypeWindows")
             Prelude.<*> (x Core..:? "DeviceTypeIos")
             Prelude.<*> (x Core..:? "DeviceTypeZeroClient")
       )
 
 instance Prelude.Hashable WorkspaceAccessProperties where
   hashWithSalt _salt WorkspaceAccessProperties' {..} =
-    _salt `Prelude.hashWithSalt` deviceTypeWindows
-      `Prelude.hashWithSalt` deviceTypeWeb
-      `Prelude.hashWithSalt` deviceTypeAndroid
+    _salt `Prelude.hashWithSalt` deviceTypeAndroid
       `Prelude.hashWithSalt` deviceTypeLinux
+      `Prelude.hashWithSalt` deviceTypeWeb
       `Prelude.hashWithSalt` deviceTypeOsx
       `Prelude.hashWithSalt` deviceTypeChromeOs
+      `Prelude.hashWithSalt` deviceTypeWindows
       `Prelude.hashWithSalt` deviceTypeIos
       `Prelude.hashWithSalt` deviceTypeZeroClient
 
 instance Prelude.NFData WorkspaceAccessProperties where
   rnf WorkspaceAccessProperties' {..} =
-    Prelude.rnf deviceTypeWindows
-      `Prelude.seq` Prelude.rnf deviceTypeWeb
-      `Prelude.seq` Prelude.rnf deviceTypeAndroid
+    Prelude.rnf deviceTypeAndroid
       `Prelude.seq` Prelude.rnf deviceTypeLinux
+      `Prelude.seq` Prelude.rnf deviceTypeWeb
       `Prelude.seq` Prelude.rnf deviceTypeOsx
       `Prelude.seq` Prelude.rnf deviceTypeChromeOs
+      `Prelude.seq` Prelude.rnf deviceTypeWindows
       `Prelude.seq` Prelude.rnf deviceTypeIos
       `Prelude.seq` Prelude.rnf deviceTypeZeroClient
 
@@ -179,16 +179,16 @@ instance Core.ToJSON WorkspaceAccessProperties where
   toJSON WorkspaceAccessProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DeviceTypeWindows" Core..=)
-              Prelude.<$> deviceTypeWindows,
-            ("DeviceTypeWeb" Core..=) Prelude.<$> deviceTypeWeb,
-            ("DeviceTypeAndroid" Core..=)
+          [ ("DeviceTypeAndroid" Core..=)
               Prelude.<$> deviceTypeAndroid,
             ("DeviceTypeLinux" Core..=)
               Prelude.<$> deviceTypeLinux,
+            ("DeviceTypeWeb" Core..=) Prelude.<$> deviceTypeWeb,
             ("DeviceTypeOsx" Core..=) Prelude.<$> deviceTypeOsx,
             ("DeviceTypeChromeOs" Core..=)
               Prelude.<$> deviceTypeChromeOs,
+            ("DeviceTypeWindows" Core..=)
+              Prelude.<$> deviceTypeWindows,
             ("DeviceTypeIos" Core..=) Prelude.<$> deviceTypeIos,
             ("DeviceTypeZeroClient" Core..=)
               Prelude.<$> deviceTypeZeroClient

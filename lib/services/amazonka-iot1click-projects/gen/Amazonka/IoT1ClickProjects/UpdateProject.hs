@@ -31,8 +31,8 @@ module Amazonka.IoT1ClickProjects.UpdateProject
     newUpdateProject,
 
     -- * Request Lenses
-    updateProject_placementTemplate,
     updateProject_description,
+    updateProject_placementTemplate,
     updateProject_projectName,
 
     -- * Destructuring the Response
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { -- | An object defining the project update. Once a project has been created,
+  { -- | An optional user-defined description for the project.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | An object defining the project update. Once a project has been created,
     -- you cannot add device template names to the project. However, for a
     -- given @placementTemplate@, you can update the associated
     -- @callbackOverrides@ for the device definition using this API.
     placementTemplate :: Prelude.Maybe PlacementTemplate,
-    -- | An optional user-defined description for the project.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the project to be updated.
     projectName :: Prelude.Text
   }
@@ -73,12 +73,12 @@ data UpdateProject = UpdateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateProject_description' - An optional user-defined description for the project.
+--
 -- 'placementTemplate', 'updateProject_placementTemplate' - An object defining the project update. Once a project has been created,
 -- you cannot add device template names to the project. However, for a
 -- given @placementTemplate@, you can update the associated
 -- @callbackOverrides@ for the device definition using this API.
---
--- 'description', 'updateProject_description' - An optional user-defined description for the project.
 --
 -- 'projectName', 'updateProject_projectName' - The name of the project to be updated.
 newUpdateProject ::
@@ -87,10 +87,14 @@ newUpdateProject ::
   UpdateProject
 newUpdateProject pProjectName_ =
   UpdateProject'
-    { placementTemplate = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      placementTemplate = Prelude.Nothing,
       projectName = pProjectName_
     }
+
+-- | An optional user-defined description for the project.
+updateProject_description :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
+updateProject_description = Lens.lens (\UpdateProject' {description} -> description) (\s@UpdateProject' {} a -> s {description = a} :: UpdateProject)
 
 -- | An object defining the project update. Once a project has been created,
 -- you cannot add device template names to the project. However, for a
@@ -98,10 +102,6 @@ newUpdateProject pProjectName_ =
 -- @callbackOverrides@ for the device definition using this API.
 updateProject_placementTemplate :: Lens.Lens' UpdateProject (Prelude.Maybe PlacementTemplate)
 updateProject_placementTemplate = Lens.lens (\UpdateProject' {placementTemplate} -> placementTemplate) (\s@UpdateProject' {} a -> s {placementTemplate = a} :: UpdateProject)
-
--- | An optional user-defined description for the project.
-updateProject_description :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
-updateProject_description = Lens.lens (\UpdateProject' {description} -> description) (\s@UpdateProject' {} a -> s {description = a} :: UpdateProject)
 
 -- | The name of the project to be updated.
 updateProject_projectName :: Lens.Lens' UpdateProject Prelude.Text
@@ -121,14 +121,14 @@ instance Core.AWSRequest UpdateProject where
 
 instance Prelude.Hashable UpdateProject where
   hashWithSalt _salt UpdateProject' {..} =
-    _salt `Prelude.hashWithSalt` placementTemplate
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` placementTemplate
       `Prelude.hashWithSalt` projectName
 
 instance Prelude.NFData UpdateProject where
   rnf UpdateProject' {..} =
-    Prelude.rnf placementTemplate
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf placementTemplate
       `Prelude.seq` Prelude.rnf projectName
 
 instance Core.ToHeaders UpdateProject where
@@ -146,9 +146,9 @@ instance Core.ToJSON UpdateProject where
   toJSON UpdateProject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("placementTemplate" Core..=)
-              Prelude.<$> placementTemplate,
-            ("description" Core..=) Prelude.<$> description
+          [ ("description" Core..=) Prelude.<$> description,
+            ("placementTemplate" Core..=)
+              Prelude.<$> placementTemplate
           ]
       )
 

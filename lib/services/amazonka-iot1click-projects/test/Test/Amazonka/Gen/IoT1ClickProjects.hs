@@ -27,163 +27,109 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListProjects $
---             newListProjects
---
---         , requestDeleteProject $
---             newDeleteProject
---
---         , requestUpdateProject $
---             newUpdateProject
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestDisassociateDeviceFromPlacement $
---             newDisassociateDeviceFromPlacement
+--         [ requestAssociateDeviceWithPlacement $
+--             newAssociateDeviceWithPlacement
 --
 --         , requestCreatePlacement $
 --             newCreatePlacement
 --
---         , requestDescribeProject $
---             newDescribeProject
---
---         , requestGetDevicesInPlacement $
---             newGetDevicesInPlacement
---
---         , requestDescribePlacement $
---             newDescribePlacement
---
---         , requestAssociateDeviceWithPlacement $
---             newAssociateDeviceWithPlacement
+--         , requestCreateProject $
+--             newCreateProject
 --
 --         , requestDeletePlacement $
 --             newDeletePlacement
 --
---         , requestUpdatePlacement $
---             newUpdatePlacement
+--         , requestDeleteProject $
+--             newDeleteProject
 --
---         , requestTagResource $
---             newTagResource
+--         , requestDescribePlacement $
+--             newDescribePlacement
+--
+--         , requestDescribeProject $
+--             newDescribeProject
+--
+--         , requestDisassociateDeviceFromPlacement $
+--             newDisassociateDeviceFromPlacement
+--
+--         , requestGetDevicesInPlacement $
+--             newGetDevicesInPlacement
 --
 --         , requestListPlacements $
 --             newListPlacements
 --
+--         , requestListProjects $
+--             newListProjects
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestTagResource $
+--             newTagResource
+--
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestCreateProject $
---             newCreateProject
+--         , requestUpdatePlacement $
+--             newUpdatePlacement
+--
+--         , requestUpdateProject $
+--             newUpdateProject
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListProjects $
---             newListProjectsResponse
---
---         , responseDeleteProject $
---             newDeleteProjectResponse
---
---         , responseUpdateProject $
---             newUpdateProjectResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseDisassociateDeviceFromPlacement $
---             newDisassociateDeviceFromPlacementResponse
+--         [ responseAssociateDeviceWithPlacement $
+--             newAssociateDeviceWithPlacementResponse
 --
 --         , responseCreatePlacement $
 --             newCreatePlacementResponse
 --
---         , responseDescribeProject $
---             newDescribeProjectResponse
---
---         , responseGetDevicesInPlacement $
---             newGetDevicesInPlacementResponse
---
---         , responseDescribePlacement $
---             newDescribePlacementResponse
---
---         , responseAssociateDeviceWithPlacement $
---             newAssociateDeviceWithPlacementResponse
+--         , responseCreateProject $
+--             newCreateProjectResponse
 --
 --         , responseDeletePlacement $
 --             newDeletePlacementResponse
 --
---         , responseUpdatePlacement $
---             newUpdatePlacementResponse
+--         , responseDeleteProject $
+--             newDeleteProjectResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseDescribePlacement $
+--             newDescribePlacementResponse
+--
+--         , responseDescribeProject $
+--             newDescribeProjectResponse
+--
+--         , responseDisassociateDeviceFromPlacement $
+--             newDisassociateDeviceFromPlacementResponse
+--
+--         , responseGetDevicesInPlacement $
+--             newGetDevicesInPlacementResponse
 --
 --         , responseListPlacements $
 --             newListPlacementsResponse
 --
+--         , responseListProjects $
+--             newListProjectsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseCreateProject $
---             newCreateProjectResponse
+--         , responseUpdatePlacement $
+--             newUpdatePlacementResponse
+--
+--         , responseUpdateProject $
+--             newUpdateProjectResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListProjects :: ListProjects -> TestTree
-requestListProjects =
-  req
-    "ListProjects"
-    "fixture/ListProjects.yaml"
-
-requestDeleteProject :: DeleteProject -> TestTree
-requestDeleteProject =
-  req
-    "DeleteProject"
-    "fixture/DeleteProject.yaml"
-
-requestUpdateProject :: UpdateProject -> TestTree
-requestUpdateProject =
-  req
-    "UpdateProject"
-    "fixture/UpdateProject.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDisassociateDeviceFromPlacement :: DisassociateDeviceFromPlacement -> TestTree
-requestDisassociateDeviceFromPlacement =
-  req
-    "DisassociateDeviceFromPlacement"
-    "fixture/DisassociateDeviceFromPlacement.yaml"
-
-requestCreatePlacement :: CreatePlacement -> TestTree
-requestCreatePlacement =
-  req
-    "CreatePlacement"
-    "fixture/CreatePlacement.yaml"
-
-requestDescribeProject :: DescribeProject -> TestTree
-requestDescribeProject =
-  req
-    "DescribeProject"
-    "fixture/DescribeProject.yaml"
-
-requestGetDevicesInPlacement :: GetDevicesInPlacement -> TestTree
-requestGetDevicesInPlacement =
-  req
-    "GetDevicesInPlacement"
-    "fixture/GetDevicesInPlacement.yaml"
-
-requestDescribePlacement :: DescribePlacement -> TestTree
-requestDescribePlacement =
-  req
-    "DescribePlacement"
-    "fixture/DescribePlacement.yaml"
 
 requestAssociateDeviceWithPlacement :: AssociateDeviceWithPlacement -> TestTree
 requestAssociateDeviceWithPlacement =
@@ -191,35 +137,11 @@ requestAssociateDeviceWithPlacement =
     "AssociateDeviceWithPlacement"
     "fixture/AssociateDeviceWithPlacement.yaml"
 
-requestDeletePlacement :: DeletePlacement -> TestTree
-requestDeletePlacement =
+requestCreatePlacement :: CreatePlacement -> TestTree
+requestCreatePlacement =
   req
-    "DeletePlacement"
-    "fixture/DeletePlacement.yaml"
-
-requestUpdatePlacement :: UpdatePlacement -> TestTree
-requestUpdatePlacement =
-  req
-    "UpdatePlacement"
-    "fixture/UpdatePlacement.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestListPlacements :: ListPlacements -> TestTree
-requestListPlacements =
-  req
-    "ListPlacements"
-    "fixture/ListPlacements.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "CreatePlacement"
+    "fixture/CreatePlacement.yaml"
 
 requestCreateProject :: CreateProject -> TestTree
 requestCreateProject =
@@ -227,79 +149,85 @@ requestCreateProject =
     "CreateProject"
     "fixture/CreateProject.yaml"
 
+requestDeletePlacement :: DeletePlacement -> TestTree
+requestDeletePlacement =
+  req
+    "DeletePlacement"
+    "fixture/DeletePlacement.yaml"
+
+requestDeleteProject :: DeleteProject -> TestTree
+requestDeleteProject =
+  req
+    "DeleteProject"
+    "fixture/DeleteProject.yaml"
+
+requestDescribePlacement :: DescribePlacement -> TestTree
+requestDescribePlacement =
+  req
+    "DescribePlacement"
+    "fixture/DescribePlacement.yaml"
+
+requestDescribeProject :: DescribeProject -> TestTree
+requestDescribeProject =
+  req
+    "DescribeProject"
+    "fixture/DescribeProject.yaml"
+
+requestDisassociateDeviceFromPlacement :: DisassociateDeviceFromPlacement -> TestTree
+requestDisassociateDeviceFromPlacement =
+  req
+    "DisassociateDeviceFromPlacement"
+    "fixture/DisassociateDeviceFromPlacement.yaml"
+
+requestGetDevicesInPlacement :: GetDevicesInPlacement -> TestTree
+requestGetDevicesInPlacement =
+  req
+    "GetDevicesInPlacement"
+    "fixture/GetDevicesInPlacement.yaml"
+
+requestListPlacements :: ListPlacements -> TestTree
+requestListPlacements =
+  req
+    "ListPlacements"
+    "fixture/ListPlacements.yaml"
+
+requestListProjects :: ListProjects -> TestTree
+requestListProjects =
+  req
+    "ListProjects"
+    "fixture/ListProjects.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdatePlacement :: UpdatePlacement -> TestTree
+requestUpdatePlacement =
+  req
+    "UpdatePlacement"
+    "fixture/UpdatePlacement.yaml"
+
+requestUpdateProject :: UpdateProject -> TestTree
+requestUpdateProject =
+  req
+    "UpdateProject"
+    "fixture/UpdateProject.yaml"
+
 -- Responses
-
-responseListProjects :: ListProjectsResponse -> TestTree
-responseListProjects =
-  res
-    "ListProjectsResponse"
-    "fixture/ListProjectsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListProjects)
-
-responseDeleteProject :: DeleteProjectResponse -> TestTree
-responseDeleteProject =
-  res
-    "DeleteProjectResponse"
-    "fixture/DeleteProjectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
-
-responseUpdateProject :: UpdateProjectResponse -> TestTree
-responseUpdateProject =
-  res
-    "UpdateProjectResponse"
-    "fixture/UpdateProjectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDisassociateDeviceFromPlacement :: DisassociateDeviceFromPlacementResponse -> TestTree
-responseDisassociateDeviceFromPlacement =
-  res
-    "DisassociateDeviceFromPlacementResponse"
-    "fixture/DisassociateDeviceFromPlacementResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateDeviceFromPlacement)
-
-responseCreatePlacement :: CreatePlacementResponse -> TestTree
-responseCreatePlacement =
-  res
-    "CreatePlacementResponse"
-    "fixture/CreatePlacementResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreatePlacement)
-
-responseDescribeProject :: DescribeProjectResponse -> TestTree
-responseDescribeProject =
-  res
-    "DescribeProjectResponse"
-    "fixture/DescribeProjectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeProject)
-
-responseGetDevicesInPlacement :: GetDevicesInPlacementResponse -> TestTree
-responseGetDevicesInPlacement =
-  res
-    "GetDevicesInPlacementResponse"
-    "fixture/GetDevicesInPlacementResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDevicesInPlacement)
-
-responseDescribePlacement :: DescribePlacementResponse -> TestTree
-responseDescribePlacement =
-  res
-    "DescribePlacementResponse"
-    "fixture/DescribePlacementResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribePlacement)
 
 responseAssociateDeviceWithPlacement :: AssociateDeviceWithPlacementResponse -> TestTree
 responseAssociateDeviceWithPlacement =
@@ -309,6 +237,22 @@ responseAssociateDeviceWithPlacement =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateDeviceWithPlacement)
 
+responseCreatePlacement :: CreatePlacementResponse -> TestTree
+responseCreatePlacement =
+  res
+    "CreatePlacementResponse"
+    "fixture/CreatePlacementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreatePlacement)
+
+responseCreateProject :: CreateProjectResponse -> TestTree
+responseCreateProject =
+  res
+    "CreateProjectResponse"
+    "fixture/CreateProjectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateProject)
+
 responseDeletePlacement :: DeletePlacementResponse -> TestTree
 responseDeletePlacement =
   res
@@ -317,21 +261,45 @@ responseDeletePlacement =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeletePlacement)
 
-responseUpdatePlacement :: UpdatePlacementResponse -> TestTree
-responseUpdatePlacement =
+responseDeleteProject :: DeleteProjectResponse -> TestTree
+responseDeleteProject =
   res
-    "UpdatePlacementResponse"
-    "fixture/UpdatePlacementResponse.proto"
+    "DeleteProjectResponse"
+    "fixture/DeleteProjectResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdatePlacement)
+    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseDescribePlacement :: DescribePlacementResponse -> TestTree
+responseDescribePlacement =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "DescribePlacementResponse"
+    "fixture/DescribePlacementResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribePlacement)
+
+responseDescribeProject :: DescribeProjectResponse -> TestTree
+responseDescribeProject =
+  res
+    "DescribeProjectResponse"
+    "fixture/DescribeProjectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeProject)
+
+responseDisassociateDeviceFromPlacement :: DisassociateDeviceFromPlacementResponse -> TestTree
+responseDisassociateDeviceFromPlacement =
+  res
+    "DisassociateDeviceFromPlacementResponse"
+    "fixture/DisassociateDeviceFromPlacementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateDeviceFromPlacement)
+
+responseGetDevicesInPlacement :: GetDevicesInPlacementResponse -> TestTree
+responseGetDevicesInPlacement =
+  res
+    "GetDevicesInPlacementResponse"
+    "fixture/GetDevicesInPlacementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDevicesInPlacement)
 
 responseListPlacements :: ListPlacementsResponse -> TestTree
 responseListPlacements =
@@ -341,6 +309,30 @@ responseListPlacements =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPlacements)
 
+responseListProjects :: ListProjectsResponse -> TestTree
+responseListProjects =
+  res
+    "ListProjectsResponse"
+    "fixture/ListProjectsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProjects)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -349,10 +341,18 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseCreateProject :: CreateProjectResponse -> TestTree
-responseCreateProject =
+responseUpdatePlacement :: UpdatePlacementResponse -> TestTree
+responseUpdatePlacement =
   res
-    "CreateProjectResponse"
-    "fixture/CreateProjectResponse.proto"
+    "UpdatePlacementResponse"
+    "fixture/UpdatePlacementResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateProject)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePlacement)
+
+responseUpdateProject :: UpdateProjectResponse -> TestTree
+responseUpdateProject =
+  res
+    "UpdateProjectResponse"
+    "fixture/UpdateProjectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateProject)

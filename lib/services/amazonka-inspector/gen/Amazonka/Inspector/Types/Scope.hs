@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScope' smart constructor.
 data Scope = Scope'
-  { -- | The resource identifier for the specified scope type.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The type of the scope.
-    key :: Prelude.Maybe ScopeType
+  { -- | The type of the scope.
+    key :: Prelude.Maybe ScopeType,
+    -- | The resource identifier for the specified scope type.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Scope = Scope'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'scope_value' - The resource identifier for the specified scope type.
---
 -- 'key', 'scope_key' - The type of the scope.
+--
+-- 'value', 'scope_value' - The resource identifier for the specified scope type.
 newScope ::
   Scope
 newScope =
   Scope'
-    { value = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The resource identifier for the specified scope type.
-scope_value :: Lens.Lens' Scope (Prelude.Maybe Prelude.Text)
-scope_value = Lens.lens (\Scope' {value} -> value) (\s@Scope' {} a -> s {value = a} :: Scope)
 
 -- | The type of the scope.
 scope_key :: Lens.Lens' Scope (Prelude.Maybe ScopeType)
 scope_key = Lens.lens (\Scope' {key} -> key) (\s@Scope' {} a -> s {key = a} :: Scope)
+
+-- | The resource identifier for the specified scope type.
+scope_value :: Lens.Lens' Scope (Prelude.Maybe Prelude.Text)
+scope_value = Lens.lens (\Scope' {value} -> value) (\s@Scope' {} a -> s {value = a} :: Scope)
 
 instance Core.FromJSON Scope where
   parseJSON =
@@ -69,14 +69,14 @@ instance Core.FromJSON Scope where
       "Scope"
       ( \x ->
           Scope'
-            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "key")
+            Prelude.<$> (x Core..:? "key") Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable Scope where
   hashWithSalt _salt Scope' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Scope where
   rnf Scope' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value

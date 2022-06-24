@@ -31,8 +31,8 @@ module Amazonka.Inspector.ListAssessmentRuns
 
     -- * Request Lenses
     listAssessmentRuns_nextToken,
-    listAssessmentRuns_filter,
     listAssessmentRuns_assessmentTemplateArns,
+    listAssessmentRuns_filter,
     listAssessmentRuns_maxResults,
 
     -- * Destructuring the Response
@@ -61,6 +61,9 @@ data ListAssessmentRuns = ListAssessmentRuns'
     -- with the value of __NextToken__ from the previous response to continue
     -- listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ARNs that specify the assessment templates whose assessment runs you
+    -- want to list.
+    assessmentTemplateArns :: Prelude.Maybe [Prelude.Text],
     -- | You can use this parameter to specify a subset of data to be included in
     -- the action\'s response.
     --
@@ -68,9 +71,6 @@ data ListAssessmentRuns = ListAssessmentRuns'
     -- match. When multiple values are specified for a filter attribute, any of
     -- the values can match.
     filter' :: Prelude.Maybe AssessmentRunFilter,
-    -- | The ARNs that specify the assessment templates whose assessment runs you
-    -- want to list.
-    assessmentTemplateArns :: Prelude.Maybe [Prelude.Text],
     -- | You can use this parameter to indicate the maximum number of items that
     -- you want in the response. The default value is 10. The maximum value is
     -- 500.
@@ -92,15 +92,15 @@ data ListAssessmentRuns = ListAssessmentRuns'
 -- with the value of __NextToken__ from the previous response to continue
 -- listing data.
 --
+-- 'assessmentTemplateArns', 'listAssessmentRuns_assessmentTemplateArns' - The ARNs that specify the assessment templates whose assessment runs you
+-- want to list.
+--
 -- 'filter'', 'listAssessmentRuns_filter' - You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
 --
 -- For a record to match a filter, all specified filter attributes must
 -- match. When multiple values are specified for a filter attribute, any of
 -- the values can match.
---
--- 'assessmentTemplateArns', 'listAssessmentRuns_assessmentTemplateArns' - The ARNs that specify the assessment templates whose assessment runs you
--- want to list.
 --
 -- 'maxResults', 'listAssessmentRuns_maxResults' - You can use this parameter to indicate the maximum number of items that
 -- you want in the response. The default value is 10. The maximum value is
@@ -110,8 +110,8 @@ newListAssessmentRuns ::
 newListAssessmentRuns =
   ListAssessmentRuns'
     { nextToken = Prelude.Nothing,
-      filter' = Prelude.Nothing,
       assessmentTemplateArns = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
@@ -123,6 +123,11 @@ newListAssessmentRuns =
 listAssessmentRuns_nextToken :: Lens.Lens' ListAssessmentRuns (Prelude.Maybe Prelude.Text)
 listAssessmentRuns_nextToken = Lens.lens (\ListAssessmentRuns' {nextToken} -> nextToken) (\s@ListAssessmentRuns' {} a -> s {nextToken = a} :: ListAssessmentRuns)
 
+-- | The ARNs that specify the assessment templates whose assessment runs you
+-- want to list.
+listAssessmentRuns_assessmentTemplateArns :: Lens.Lens' ListAssessmentRuns (Prelude.Maybe [Prelude.Text])
+listAssessmentRuns_assessmentTemplateArns = Lens.lens (\ListAssessmentRuns' {assessmentTemplateArns} -> assessmentTemplateArns) (\s@ListAssessmentRuns' {} a -> s {assessmentTemplateArns = a} :: ListAssessmentRuns) Prelude.. Lens.mapping Lens.coerced
+
 -- | You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
 --
@@ -131,11 +136,6 @@ listAssessmentRuns_nextToken = Lens.lens (\ListAssessmentRuns' {nextToken} -> ne
 -- the values can match.
 listAssessmentRuns_filter :: Lens.Lens' ListAssessmentRuns (Prelude.Maybe AssessmentRunFilter)
 listAssessmentRuns_filter = Lens.lens (\ListAssessmentRuns' {filter'} -> filter') (\s@ListAssessmentRuns' {} a -> s {filter' = a} :: ListAssessmentRuns)
-
--- | The ARNs that specify the assessment templates whose assessment runs you
--- want to list.
-listAssessmentRuns_assessmentTemplateArns :: Lens.Lens' ListAssessmentRuns (Prelude.Maybe [Prelude.Text])
-listAssessmentRuns_assessmentTemplateArns = Lens.lens (\ListAssessmentRuns' {assessmentTemplateArns} -> assessmentTemplateArns) (\s@ListAssessmentRuns' {} a -> s {assessmentTemplateArns = a} :: ListAssessmentRuns) Prelude.. Lens.mapping Lens.coerced
 
 -- | You can use this parameter to indicate the maximum number of items that
 -- you want in the response. The default value is 10. The maximum value is
@@ -183,15 +183,15 @@ instance Core.AWSRequest ListAssessmentRuns where
 instance Prelude.Hashable ListAssessmentRuns where
   hashWithSalt _salt ListAssessmentRuns' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` assessmentTemplateArns
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListAssessmentRuns where
   rnf ListAssessmentRuns' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf assessmentTemplateArns
+      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAssessmentRuns where
@@ -214,9 +214,9 @@ instance Core.ToJSON ListAssessmentRuns where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filter" Core..=) Prelude.<$> filter',
             ("assessmentTemplateArns" Core..=)
               Prelude.<$> assessmentTemplateArns,
+            ("filter" Core..=) Prelude.<$> filter',
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

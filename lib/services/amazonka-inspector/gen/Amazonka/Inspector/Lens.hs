@@ -14,51 +14,17 @@
 module Amazonka.Inspector.Lens
   ( -- * Operations
 
-    -- ** GetTelemetryMetadata
-    getTelemetryMetadata_assessmentRunArn,
-    getTelemetryMetadataResponse_httpStatus,
-    getTelemetryMetadataResponse_telemetryMetadata,
+    -- ** AddAttributesToFindings
+    addAttributesToFindings_findingArns,
+    addAttributesToFindings_attributes,
+    addAttributesToFindingsResponse_httpStatus,
+    addAttributesToFindingsResponse_failedItems,
 
-    -- ** ListFindings
-    listFindings_assessmentRunArns,
-    listFindings_nextToken,
-    listFindings_filter,
-    listFindings_maxResults,
-    listFindingsResponse_nextToken,
-    listFindingsResponse_httpStatus,
-    listFindingsResponse_findingArns,
-
-    -- ** ListAssessmentTemplates
-    listAssessmentTemplates_nextToken,
-    listAssessmentTemplates_filter,
-    listAssessmentTemplates_maxResults,
-    listAssessmentTemplates_assessmentTargetArns,
-    listAssessmentTemplatesResponse_nextToken,
-    listAssessmentTemplatesResponse_httpStatus,
-    listAssessmentTemplatesResponse_assessmentTemplateArns,
-
-    -- ** SubscribeToEvent
-    subscribeToEvent_resourceArn,
-    subscribeToEvent_event,
-    subscribeToEvent_topicArn,
-
-    -- ** ListAssessmentRunAgents
-    listAssessmentRunAgents_nextToken,
-    listAssessmentRunAgents_filter,
-    listAssessmentRunAgents_maxResults,
-    listAssessmentRunAgents_assessmentRunArn,
-    listAssessmentRunAgentsResponse_nextToken,
-    listAssessmentRunAgentsResponse_httpStatus,
-    listAssessmentRunAgentsResponse_assessmentRunAgents,
-
-    -- ** StartAssessmentRun
-    startAssessmentRun_assessmentRunName,
-    startAssessmentRun_assessmentTemplateArn,
-    startAssessmentRunResponse_httpStatus,
-    startAssessmentRunResponse_assessmentRunArn,
-
-    -- ** DeleteAssessmentTemplate
-    deleteAssessmentTemplate_assessmentTemplateArn,
+    -- ** CreateAssessmentTarget
+    createAssessmentTarget_resourceGroupArn,
+    createAssessmentTarget_assessmentTargetName,
+    createAssessmentTargetResponse_httpStatus,
+    createAssessmentTargetResponse_assessmentTargetArn,
 
     -- ** CreateAssessmentTemplate
     createAssessmentTemplate_userAttributesForFindings,
@@ -68,76 +34,6 @@ module Amazonka.Inspector.Lens
     createAssessmentTemplate_rulesPackageArns,
     createAssessmentTemplateResponse_httpStatus,
     createAssessmentTemplateResponse_assessmentTemplateArn,
-
-    -- ** DescribeExclusions
-    describeExclusions_locale,
-    describeExclusions_exclusionArns,
-    describeExclusionsResponse_httpStatus,
-    describeExclusionsResponse_exclusions,
-    describeExclusionsResponse_failedItems,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_httpStatus,
-    listTagsForResourceResponse_tags,
-
-    -- ** SetTagsForResource
-    setTagsForResource_tags,
-    setTagsForResource_resourceArn,
-
-    -- ** DescribeCrossAccountAccessRole
-    describeCrossAccountAccessRoleResponse_httpStatus,
-    describeCrossAccountAccessRoleResponse_roleArn,
-    describeCrossAccountAccessRoleResponse_valid,
-    describeCrossAccountAccessRoleResponse_registeredAt,
-
-    -- ** DescribeAssessmentTemplates
-    describeAssessmentTemplates_assessmentTemplateArns,
-    describeAssessmentTemplatesResponse_httpStatus,
-    describeAssessmentTemplatesResponse_assessmentTemplates,
-    describeAssessmentTemplatesResponse_failedItems,
-
-    -- ** DescribeResourceGroups
-    describeResourceGroups_resourceGroupArns,
-    describeResourceGroupsResponse_httpStatus,
-    describeResourceGroupsResponse_resourceGroups,
-    describeResourceGroupsResponse_failedItems,
-
-    -- ** CreateAssessmentTarget
-    createAssessmentTarget_resourceGroupArn,
-    createAssessmentTarget_assessmentTargetName,
-    createAssessmentTargetResponse_httpStatus,
-    createAssessmentTargetResponse_assessmentTargetArn,
-
-    -- ** GetExclusionsPreview
-    getExclusionsPreview_locale,
-    getExclusionsPreview_nextToken,
-    getExclusionsPreview_maxResults,
-    getExclusionsPreview_assessmentTemplateArn,
-    getExclusionsPreview_previewToken,
-    getExclusionsPreviewResponse_exclusionPreviews,
-    getExclusionsPreviewResponse_nextToken,
-    getExclusionsPreviewResponse_httpStatus,
-    getExclusionsPreviewResponse_previewStatus,
-
-    -- ** ListEventSubscriptions
-    listEventSubscriptions_nextToken,
-    listEventSubscriptions_resourceArn,
-    listEventSubscriptions_maxResults,
-    listEventSubscriptionsResponse_nextToken,
-    listEventSubscriptionsResponse_httpStatus,
-    listEventSubscriptionsResponse_subscriptions,
-
-    -- ** RegisterCrossAccountAccessRole
-    registerCrossAccountAccessRole_roleArn,
-
-    -- ** ListAssessmentTargets
-    listAssessmentTargets_nextToken,
-    listAssessmentTargets_filter,
-    listAssessmentTargets_maxResults,
-    listAssessmentTargetsResponse_nextToken,
-    listAssessmentTargetsResponse_httpStatus,
-    listAssessmentTargetsResponse_assessmentTargetArns,
 
     -- ** CreateExclusionsPreview
     createExclusionsPreview_assessmentTemplateArn,
@@ -149,32 +45,45 @@ module Amazonka.Inspector.Lens
     createResourceGroupResponse_httpStatus,
     createResourceGroupResponse_resourceGroupArn,
 
-    -- ** DescribeRulesPackages
-    describeRulesPackages_locale,
-    describeRulesPackages_rulesPackageArns,
-    describeRulesPackagesResponse_httpStatus,
-    describeRulesPackagesResponse_rulesPackages,
-    describeRulesPackagesResponse_failedItems,
+    -- ** DeleteAssessmentRun
+    deleteAssessmentRun_assessmentRunArn,
 
-    -- ** StopAssessmentRun
-    stopAssessmentRun_stopAction,
-    stopAssessmentRun_assessmentRunArn,
+    -- ** DeleteAssessmentTarget
+    deleteAssessmentTarget_assessmentTargetArn,
 
-    -- ** ListExclusions
-    listExclusions_nextToken,
-    listExclusions_maxResults,
-    listExclusions_assessmentRunArn,
-    listExclusionsResponse_nextToken,
-    listExclusionsResponse_httpStatus,
-    listExclusionsResponse_exclusionArns,
+    -- ** DeleteAssessmentTemplate
+    deleteAssessmentTemplate_assessmentTemplateArn,
 
-    -- ** PreviewAgents
-    previewAgents_nextToken,
-    previewAgents_maxResults,
-    previewAgents_previewAgentsArn,
-    previewAgentsResponse_nextToken,
-    previewAgentsResponse_httpStatus,
-    previewAgentsResponse_agentPreviews,
+    -- ** DescribeAssessmentRuns
+    describeAssessmentRuns_assessmentRunArns,
+    describeAssessmentRunsResponse_httpStatus,
+    describeAssessmentRunsResponse_assessmentRuns,
+    describeAssessmentRunsResponse_failedItems,
+
+    -- ** DescribeAssessmentTargets
+    describeAssessmentTargets_assessmentTargetArns,
+    describeAssessmentTargetsResponse_httpStatus,
+    describeAssessmentTargetsResponse_assessmentTargets,
+    describeAssessmentTargetsResponse_failedItems,
+
+    -- ** DescribeAssessmentTemplates
+    describeAssessmentTemplates_assessmentTemplateArns,
+    describeAssessmentTemplatesResponse_httpStatus,
+    describeAssessmentTemplatesResponse_assessmentTemplates,
+    describeAssessmentTemplatesResponse_failedItems,
+
+    -- ** DescribeCrossAccountAccessRole
+    describeCrossAccountAccessRoleResponse_httpStatus,
+    describeCrossAccountAccessRoleResponse_roleArn,
+    describeCrossAccountAccessRoleResponse_valid,
+    describeCrossAccountAccessRoleResponse_registeredAt,
+
+    -- ** DescribeExclusions
+    describeExclusions_locale,
+    describeExclusions_exclusionArns,
+    describeExclusionsResponse_httpStatus,
+    describeExclusionsResponse_exclusions,
+    describeExclusionsResponse_failedItems,
 
     -- ** DescribeFindings
     describeFindings_locale,
@@ -183,31 +92,18 @@ module Amazonka.Inspector.Lens
     describeFindingsResponse_findings,
     describeFindingsResponse_failedItems,
 
-    -- ** AddAttributesToFindings
-    addAttributesToFindings_findingArns,
-    addAttributesToFindings_attributes,
-    addAttributesToFindingsResponse_httpStatus,
-    addAttributesToFindingsResponse_failedItems,
+    -- ** DescribeResourceGroups
+    describeResourceGroups_resourceGroupArns,
+    describeResourceGroupsResponse_httpStatus,
+    describeResourceGroupsResponse_resourceGroups,
+    describeResourceGroupsResponse_failedItems,
 
-    -- ** UpdateAssessmentTarget
-    updateAssessmentTarget_resourceGroupArn,
-    updateAssessmentTarget_assessmentTargetArn,
-    updateAssessmentTarget_assessmentTargetName,
-
-    -- ** DeleteAssessmentTarget
-    deleteAssessmentTarget_assessmentTargetArn,
-
-    -- ** DeleteAssessmentRun
-    deleteAssessmentRun_assessmentRunArn,
-
-    -- ** ListAssessmentRuns
-    listAssessmentRuns_nextToken,
-    listAssessmentRuns_filter,
-    listAssessmentRuns_assessmentTemplateArns,
-    listAssessmentRuns_maxResults,
-    listAssessmentRunsResponse_nextToken,
-    listAssessmentRunsResponse_httpStatus,
-    listAssessmentRunsResponse_assessmentRunArns,
+    -- ** DescribeRulesPackages
+    describeRulesPackages_locale,
+    describeRulesPackages_rulesPackageArns,
+    describeRulesPackagesResponse_httpStatus,
+    describeRulesPackagesResponse_rulesPackages,
+    describeRulesPackagesResponse_failedItems,
 
     -- ** GetAssessmentReport
     getAssessmentReport_assessmentRunArn,
@@ -217,6 +113,82 @@ module Amazonka.Inspector.Lens
     getAssessmentReportResponse_httpStatus,
     getAssessmentReportResponse_status,
 
+    -- ** GetExclusionsPreview
+    getExclusionsPreview_nextToken,
+    getExclusionsPreview_locale,
+    getExclusionsPreview_maxResults,
+    getExclusionsPreview_assessmentTemplateArn,
+    getExclusionsPreview_previewToken,
+    getExclusionsPreviewResponse_nextToken,
+    getExclusionsPreviewResponse_exclusionPreviews,
+    getExclusionsPreviewResponse_httpStatus,
+    getExclusionsPreviewResponse_previewStatus,
+
+    -- ** GetTelemetryMetadata
+    getTelemetryMetadata_assessmentRunArn,
+    getTelemetryMetadataResponse_httpStatus,
+    getTelemetryMetadataResponse_telemetryMetadata,
+
+    -- ** ListAssessmentRunAgents
+    listAssessmentRunAgents_nextToken,
+    listAssessmentRunAgents_filter,
+    listAssessmentRunAgents_maxResults,
+    listAssessmentRunAgents_assessmentRunArn,
+    listAssessmentRunAgentsResponse_nextToken,
+    listAssessmentRunAgentsResponse_httpStatus,
+    listAssessmentRunAgentsResponse_assessmentRunAgents,
+
+    -- ** ListAssessmentRuns
+    listAssessmentRuns_nextToken,
+    listAssessmentRuns_assessmentTemplateArns,
+    listAssessmentRuns_filter,
+    listAssessmentRuns_maxResults,
+    listAssessmentRunsResponse_nextToken,
+    listAssessmentRunsResponse_httpStatus,
+    listAssessmentRunsResponse_assessmentRunArns,
+
+    -- ** ListAssessmentTargets
+    listAssessmentTargets_nextToken,
+    listAssessmentTargets_filter,
+    listAssessmentTargets_maxResults,
+    listAssessmentTargetsResponse_nextToken,
+    listAssessmentTargetsResponse_httpStatus,
+    listAssessmentTargetsResponse_assessmentTargetArns,
+
+    -- ** ListAssessmentTemplates
+    listAssessmentTemplates_nextToken,
+    listAssessmentTemplates_assessmentTargetArns,
+    listAssessmentTemplates_filter,
+    listAssessmentTemplates_maxResults,
+    listAssessmentTemplatesResponse_nextToken,
+    listAssessmentTemplatesResponse_httpStatus,
+    listAssessmentTemplatesResponse_assessmentTemplateArns,
+
+    -- ** ListEventSubscriptions
+    listEventSubscriptions_nextToken,
+    listEventSubscriptions_maxResults,
+    listEventSubscriptions_resourceArn,
+    listEventSubscriptionsResponse_nextToken,
+    listEventSubscriptionsResponse_httpStatus,
+    listEventSubscriptionsResponse_subscriptions,
+
+    -- ** ListExclusions
+    listExclusions_nextToken,
+    listExclusions_maxResults,
+    listExclusions_assessmentRunArn,
+    listExclusionsResponse_nextToken,
+    listExclusionsResponse_httpStatus,
+    listExclusionsResponse_exclusionArns,
+
+    -- ** ListFindings
+    listFindings_assessmentRunArns,
+    listFindings_nextToken,
+    listFindings_filter,
+    listFindings_maxResults,
+    listFindingsResponse_nextToken,
+    listFindingsResponse_httpStatus,
+    listFindingsResponse_findingArns,
+
     -- ** ListRulesPackages
     listRulesPackages_nextToken,
     listRulesPackages_maxResults,
@@ -224,16 +196,21 @@ module Amazonka.Inspector.Lens
     listRulesPackagesResponse_httpStatus,
     listRulesPackagesResponse_rulesPackageArns,
 
-    -- ** DescribeAssessmentRuns
-    describeAssessmentRuns_assessmentRunArns,
-    describeAssessmentRunsResponse_httpStatus,
-    describeAssessmentRunsResponse_assessmentRuns,
-    describeAssessmentRunsResponse_failedItems,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_httpStatus,
+    listTagsForResourceResponse_tags,
 
-    -- ** UnsubscribeFromEvent
-    unsubscribeFromEvent_resourceArn,
-    unsubscribeFromEvent_event,
-    unsubscribeFromEvent_topicArn,
+    -- ** PreviewAgents
+    previewAgents_nextToken,
+    previewAgents_maxResults,
+    previewAgents_previewAgentsArn,
+    previewAgentsResponse_nextToken,
+    previewAgentsResponse_httpStatus,
+    previewAgentsResponse_agentPreviews,
+
+    -- ** RegisterCrossAccountAccessRole
+    registerCrossAccountAccessRole_roleArn,
 
     -- ** RemoveAttributesFromFindings
     removeAttributesFromFindings_findingArns,
@@ -241,11 +218,34 @@ module Amazonka.Inspector.Lens
     removeAttributesFromFindingsResponse_httpStatus,
     removeAttributesFromFindingsResponse_failedItems,
 
-    -- ** DescribeAssessmentTargets
-    describeAssessmentTargets_assessmentTargetArns,
-    describeAssessmentTargetsResponse_httpStatus,
-    describeAssessmentTargetsResponse_assessmentTargets,
-    describeAssessmentTargetsResponse_failedItems,
+    -- ** SetTagsForResource
+    setTagsForResource_tags,
+    setTagsForResource_resourceArn,
+
+    -- ** StartAssessmentRun
+    startAssessmentRun_assessmentRunName,
+    startAssessmentRun_assessmentTemplateArn,
+    startAssessmentRunResponse_httpStatus,
+    startAssessmentRunResponse_assessmentRunArn,
+
+    -- ** StopAssessmentRun
+    stopAssessmentRun_stopAction,
+    stopAssessmentRun_assessmentRunArn,
+
+    -- ** SubscribeToEvent
+    subscribeToEvent_resourceArn,
+    subscribeToEvent_event,
+    subscribeToEvent_topicArn,
+
+    -- ** UnsubscribeFromEvent
+    unsubscribeFromEvent_resourceArn,
+    unsubscribeFromEvent_event,
+    unsubscribeFromEvent_topicArn,
+
+    -- ** UpdateAssessmentTarget
+    updateAssessmentTarget_resourceGroupArn,
+    updateAssessmentTarget_assessmentTargetArn,
+    updateAssessmentTarget_assessmentTargetName,
 
     -- * Types
 
@@ -254,13 +254,13 @@ module Amazonka.Inspector.Lens
     agentFilter_agentHealthCodes,
 
     -- ** AgentPreview
-    agentPreview_hostname,
-    agentPreview_autoScalingGroup,
     agentPreview_operatingSystem,
-    agentPreview_agentVersion,
     agentPreview_kernelVersion,
+    agentPreview_autoScalingGroup,
+    agentPreview_hostname,
     agentPreview_agentHealth,
     agentPreview_ipv4Address,
+    agentPreview_agentVersion,
     agentPreview_agentId,
 
     -- ** AssessmentRun
@@ -281,8 +281,8 @@ module Amazonka.Inspector.Lens
     assessmentRun_findingCounts,
 
     -- ** AssessmentRunAgent
-    assessmentRunAgent_autoScalingGroup,
     assessmentRunAgent_agentHealthDetails,
+    assessmentRunAgent_autoScalingGroup,
     assessmentRunAgent_agentId,
     assessmentRunAgent_assessmentRunArn,
     assessmentRunAgent_agentHealth,
@@ -290,18 +290,18 @@ module Amazonka.Inspector.Lens
     assessmentRunAgent_telemetryMetadata,
 
     -- ** AssessmentRunFilter
-    assessmentRunFilter_states,
-    assessmentRunFilter_namePattern,
     assessmentRunFilter_startTimeRange,
     assessmentRunFilter_stateChangeTimeRange,
-    assessmentRunFilter_rulesPackageArns,
     assessmentRunFilter_completionTimeRange,
     assessmentRunFilter_durationRange,
+    assessmentRunFilter_namePattern,
+    assessmentRunFilter_rulesPackageArns,
+    assessmentRunFilter_states,
 
     -- ** AssessmentRunNotification
-    assessmentRunNotification_snsTopicArn,
-    assessmentRunNotification_snsPublishStatusCode,
     assessmentRunNotification_message,
+    assessmentRunNotification_snsPublishStatusCode,
+    assessmentRunNotification_snsTopicArn,
     assessmentRunNotification_date,
     assessmentRunNotification_event,
     assessmentRunNotification_error,
@@ -332,18 +332,18 @@ module Amazonka.Inspector.Lens
     assessmentTemplate_createdAt,
 
     -- ** AssessmentTemplateFilter
+    assessmentTemplateFilter_durationRange,
     assessmentTemplateFilter_namePattern,
     assessmentTemplateFilter_rulesPackageArns,
-    assessmentTemplateFilter_durationRange,
 
     -- ** AssetAttributes
-    assetAttributes_hostname,
-    assetAttributes_autoScalingGroup,
-    assetAttributes_networkInterfaces,
-    assetAttributes_ipv4Addresses,
-    assetAttributes_agentId,
-    assetAttributes_amiId,
     assetAttributes_tags,
+    assetAttributes_amiId,
+    assetAttributes_ipv4Addresses,
+    assetAttributes_autoScalingGroup,
+    assetAttributes_hostname,
+    assetAttributes_agentId,
+    assetAttributes_networkInterfaces,
     assetAttributes_schemaVersion,
 
     -- ** Attribute
@@ -378,19 +378,19 @@ module Amazonka.Inspector.Lens
     failedItemDetails_retryable,
 
     -- ** Finding
-    finding_service,
     finding_severity,
-    finding_schemaVersion,
+    finding_indicatorOfCompromise,
+    finding_numericSeverity,
     finding_confidence,
     finding_assetAttributes,
-    finding_serviceAttributes,
-    finding_id,
-    finding_numericSeverity,
-    finding_assetType,
-    finding_title,
-    finding_indicatorOfCompromise,
     finding_description,
+    finding_assetType,
+    finding_id,
+    finding_service,
+    finding_title,
     finding_recommendation,
+    finding_schemaVersion,
+    finding_serviceAttributes,
     finding_arn,
     finding_attributes,
     finding_userAttributes,
@@ -398,30 +398,30 @@ module Amazonka.Inspector.Lens
     finding_updatedAt,
 
     -- ** FindingFilter
-    findingFilter_agentIds,
-    findingFilter_ruleNames,
-    findingFilter_userAttributes,
-    findingFilter_rulesPackageArns,
-    findingFilter_attributes,
-    findingFilter_severities,
-    findingFilter_creationTimeRange,
     findingFilter_autoScalingGroups,
+    findingFilter_severities,
+    findingFilter_ruleNames,
+    findingFilter_creationTimeRange,
+    findingFilter_userAttributes,
+    findingFilter_attributes,
+    findingFilter_rulesPackageArns,
+    findingFilter_agentIds,
 
     -- ** InspectorServiceAttributes
-    inspectorServiceAttributes_rulesPackageArn,
     inspectorServiceAttributes_assessmentRunArn,
+    inspectorServiceAttributes_rulesPackageArn,
     inspectorServiceAttributes_schemaVersion,
 
     -- ** NetworkInterface
-    networkInterface_privateIpAddresses,
-    networkInterface_publicDnsName,
-    networkInterface_securityGroups,
-    networkInterface_vpcId,
     networkInterface_subnetId,
-    networkInterface_networkInterfaceId,
-    networkInterface_privateIpAddress,
+    networkInterface_privateIpAddresses,
     networkInterface_publicIp,
+    networkInterface_publicDnsName,
+    networkInterface_networkInterfaceId,
+    networkInterface_securityGroups,
+    networkInterface_privateIpAddress,
     networkInterface_privateDnsName,
+    networkInterface_vpcId,
     networkInterface_ipv6Addresses,
 
     -- ** PrivateIp
@@ -445,12 +445,12 @@ module Amazonka.Inspector.Lens
     rulesPackage_provider,
 
     -- ** Scope
-    scope_value,
     scope_key,
+    scope_value,
 
     -- ** SecurityGroup
-    securityGroup_groupId,
     securityGroup_groupName,
+    securityGroup_groupId,
 
     -- ** Subscription
     subscription_resourceArn,

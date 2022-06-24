@@ -31,9 +31,9 @@ module Amazonka.Inspector.ListAssessmentTemplates
 
     -- * Request Lenses
     listAssessmentTemplates_nextToken,
+    listAssessmentTemplates_assessmentTargetArns,
     listAssessmentTemplates_filter,
     listAssessmentTemplates_maxResults,
-    listAssessmentTemplates_assessmentTargetArns,
 
     -- * Destructuring the Response
     ListAssessmentTemplatesResponse (..),
@@ -61,6 +61,9 @@ data ListAssessmentTemplates = ListAssessmentTemplates'
     -- __nextToken__ in the request with the value of __NextToken__ from the
     -- previous response to continue listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of ARNs that specifies the assessment targets whose assessment
+    -- templates you want to list.
+    assessmentTargetArns :: Prelude.Maybe [Prelude.Text],
     -- | You can use this parameter to specify a subset of data to be included in
     -- the action\'s response.
     --
@@ -70,10 +73,7 @@ data ListAssessmentTemplates = ListAssessmentTemplates'
     filter' :: Prelude.Maybe AssessmentTemplateFilter,
     -- | You can use this parameter to indicate the maximum number of items you
     -- want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | A list of ARNs that specifies the assessment targets whose assessment
-    -- templates you want to list.
-    assessmentTargetArns :: Prelude.Maybe [Prelude.Text]
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,6 +91,9 @@ data ListAssessmentTemplates = ListAssessmentTemplates'
 -- __nextToken__ in the request with the value of __NextToken__ from the
 -- previous response to continue listing data.
 --
+-- 'assessmentTargetArns', 'listAssessmentTemplates_assessmentTargetArns' - A list of ARNs that specifies the assessment targets whose assessment
+-- templates you want to list.
+--
 -- 'filter'', 'listAssessmentTemplates_filter' - You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
 --
@@ -100,18 +103,15 @@ data ListAssessmentTemplates = ListAssessmentTemplates'
 --
 -- 'maxResults', 'listAssessmentTemplates_maxResults' - You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 10. The maximum value is 500.
---
--- 'assessmentTargetArns', 'listAssessmentTemplates_assessmentTargetArns' - A list of ARNs that specifies the assessment targets whose assessment
--- templates you want to list.
 newListAssessmentTemplates ::
   ListAssessmentTemplates
 newListAssessmentTemplates =
   ListAssessmentTemplates'
     { nextToken =
         Prelude.Nothing,
+      assessmentTargetArns = Prelude.Nothing,
       filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      assessmentTargetArns = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
 
 -- | You can use this parameter when paginating results. Set the value of
@@ -121,6 +121,11 @@ newListAssessmentTemplates =
 -- previous response to continue listing data.
 listAssessmentTemplates_nextToken :: Lens.Lens' ListAssessmentTemplates (Prelude.Maybe Prelude.Text)
 listAssessmentTemplates_nextToken = Lens.lens (\ListAssessmentTemplates' {nextToken} -> nextToken) (\s@ListAssessmentTemplates' {} a -> s {nextToken = a} :: ListAssessmentTemplates)
+
+-- | A list of ARNs that specifies the assessment targets whose assessment
+-- templates you want to list.
+listAssessmentTemplates_assessmentTargetArns :: Lens.Lens' ListAssessmentTemplates (Prelude.Maybe [Prelude.Text])
+listAssessmentTemplates_assessmentTargetArns = Lens.lens (\ListAssessmentTemplates' {assessmentTargetArns} -> assessmentTargetArns) (\s@ListAssessmentTemplates' {} a -> s {assessmentTargetArns = a} :: ListAssessmentTemplates) Prelude.. Lens.mapping Lens.coerced
 
 -- | You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
@@ -135,11 +140,6 @@ listAssessmentTemplates_filter = Lens.lens (\ListAssessmentTemplates' {filter'} 
 -- want in the response. The default value is 10. The maximum value is 500.
 listAssessmentTemplates_maxResults :: Lens.Lens' ListAssessmentTemplates (Prelude.Maybe Prelude.Int)
 listAssessmentTemplates_maxResults = Lens.lens (\ListAssessmentTemplates' {maxResults} -> maxResults) (\s@ListAssessmentTemplates' {} a -> s {maxResults = a} :: ListAssessmentTemplates)
-
--- | A list of ARNs that specifies the assessment targets whose assessment
--- templates you want to list.
-listAssessmentTemplates_assessmentTargetArns :: Lens.Lens' ListAssessmentTemplates (Prelude.Maybe [Prelude.Text])
-listAssessmentTemplates_assessmentTargetArns = Lens.lens (\ListAssessmentTemplates' {assessmentTargetArns} -> assessmentTargetArns) (\s@ListAssessmentTemplates' {} a -> s {assessmentTargetArns = a} :: ListAssessmentTemplates) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager ListAssessmentTemplates where
   page rq rs
@@ -181,16 +181,16 @@ instance Core.AWSRequest ListAssessmentTemplates where
 instance Prelude.Hashable ListAssessmentTemplates where
   hashWithSalt _salt ListAssessmentTemplates' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` assessmentTargetArns
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` assessmentTargetArns
 
 instance Prelude.NFData ListAssessmentTemplates where
   rnf ListAssessmentTemplates' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf assessmentTargetArns
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf assessmentTargetArns
 
 instance Core.ToHeaders ListAssessmentTemplates where
   toHeaders =
@@ -212,10 +212,10 @@ instance Core.ToJSON ListAssessmentTemplates where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("filter" Core..=) Prelude.<$> filter',
-            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("assessmentTargetArns" Core..=)
-              Prelude.<$> assessmentTargetArns
+              Prelude.<$> assessmentTargetArns,
+            ("filter" Core..=) Prelude.<$> filter',
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 

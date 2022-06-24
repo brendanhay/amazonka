@@ -28,7 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssessmentTemplateFilter' smart constructor.
 data AssessmentTemplateFilter = AssessmentTemplateFilter'
-  { -- | For a record to match a filter, an explicit value or a string that
+  { -- | For a record to match a filter, the value specified for this data type
+    -- property must inclusively match any value between the specified minimum
+    -- and maximum values of the __durationInSeconds__ property of the
+    -- AssessmentTemplate data type.
+    durationRange :: Prelude.Maybe DurationRange,
+    -- | For a record to match a filter, an explicit value or a string that
     -- contains a wildcard that is specified for this data type property must
     -- match the value of the __assessmentTemplateName__ property of the
     -- AssessmentTemplate data type.
@@ -36,12 +41,7 @@ data AssessmentTemplateFilter = AssessmentTemplateFilter'
     -- | For a record to match a filter, the values that are specified for this
     -- data type property must be contained in the list of values of the
     -- __rulesPackageArns__ property of the AssessmentTemplate data type.
-    rulesPackageArns :: Prelude.Maybe [Prelude.Text],
-    -- | For a record to match a filter, the value specified for this data type
-    -- property must inclusively match any value between the specified minimum
-    -- and maximum values of the __durationInSeconds__ property of the
-    -- AssessmentTemplate data type.
-    durationRange :: Prelude.Maybe DurationRange
+    rulesPackageArns :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,11 @@ data AssessmentTemplateFilter = AssessmentTemplateFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'durationRange', 'assessmentTemplateFilter_durationRange' - For a record to match a filter, the value specified for this data type
+-- property must inclusively match any value between the specified minimum
+-- and maximum values of the __durationInSeconds__ property of the
+-- AssessmentTemplate data type.
+--
 -- 'namePattern', 'assessmentTemplateFilter_namePattern' - For a record to match a filter, an explicit value or a string that
 -- contains a wildcard that is specified for this data type property must
 -- match the value of the __assessmentTemplateName__ property of the
@@ -61,20 +66,22 @@ data AssessmentTemplateFilter = AssessmentTemplateFilter'
 -- 'rulesPackageArns', 'assessmentTemplateFilter_rulesPackageArns' - For a record to match a filter, the values that are specified for this
 -- data type property must be contained in the list of values of the
 -- __rulesPackageArns__ property of the AssessmentTemplate data type.
---
--- 'durationRange', 'assessmentTemplateFilter_durationRange' - For a record to match a filter, the value specified for this data type
--- property must inclusively match any value between the specified minimum
--- and maximum values of the __durationInSeconds__ property of the
--- AssessmentTemplate data type.
 newAssessmentTemplateFilter ::
   AssessmentTemplateFilter
 newAssessmentTemplateFilter =
   AssessmentTemplateFilter'
-    { namePattern =
+    { durationRange =
         Prelude.Nothing,
-      rulesPackageArns = Prelude.Nothing,
-      durationRange = Prelude.Nothing
+      namePattern = Prelude.Nothing,
+      rulesPackageArns = Prelude.Nothing
     }
+
+-- | For a record to match a filter, the value specified for this data type
+-- property must inclusively match any value between the specified minimum
+-- and maximum values of the __durationInSeconds__ property of the
+-- AssessmentTemplate data type.
+assessmentTemplateFilter_durationRange :: Lens.Lens' AssessmentTemplateFilter (Prelude.Maybe DurationRange)
+assessmentTemplateFilter_durationRange = Lens.lens (\AssessmentTemplateFilter' {durationRange} -> durationRange) (\s@AssessmentTemplateFilter' {} a -> s {durationRange = a} :: AssessmentTemplateFilter)
 
 -- | For a record to match a filter, an explicit value or a string that
 -- contains a wildcard that is specified for this data type property must
@@ -89,32 +96,25 @@ assessmentTemplateFilter_namePattern = Lens.lens (\AssessmentTemplateFilter' {na
 assessmentTemplateFilter_rulesPackageArns :: Lens.Lens' AssessmentTemplateFilter (Prelude.Maybe [Prelude.Text])
 assessmentTemplateFilter_rulesPackageArns = Lens.lens (\AssessmentTemplateFilter' {rulesPackageArns} -> rulesPackageArns) (\s@AssessmentTemplateFilter' {} a -> s {rulesPackageArns = a} :: AssessmentTemplateFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | For a record to match a filter, the value specified for this data type
--- property must inclusively match any value between the specified minimum
--- and maximum values of the __durationInSeconds__ property of the
--- AssessmentTemplate data type.
-assessmentTemplateFilter_durationRange :: Lens.Lens' AssessmentTemplateFilter (Prelude.Maybe DurationRange)
-assessmentTemplateFilter_durationRange = Lens.lens (\AssessmentTemplateFilter' {durationRange} -> durationRange) (\s@AssessmentTemplateFilter' {} a -> s {durationRange = a} :: AssessmentTemplateFilter)
-
 instance Prelude.Hashable AssessmentTemplateFilter where
   hashWithSalt _salt AssessmentTemplateFilter' {..} =
-    _salt `Prelude.hashWithSalt` namePattern
+    _salt `Prelude.hashWithSalt` durationRange
+      `Prelude.hashWithSalt` namePattern
       `Prelude.hashWithSalt` rulesPackageArns
-      `Prelude.hashWithSalt` durationRange
 
 instance Prelude.NFData AssessmentTemplateFilter where
   rnf AssessmentTemplateFilter' {..} =
-    Prelude.rnf namePattern
+    Prelude.rnf durationRange
+      `Prelude.seq` Prelude.rnf namePattern
       `Prelude.seq` Prelude.rnf rulesPackageArns
-      `Prelude.seq` Prelude.rnf durationRange
 
 instance Core.ToJSON AssessmentTemplateFilter where
   toJSON AssessmentTemplateFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("namePattern" Core..=) Prelude.<$> namePattern,
+          [ ("durationRange" Core..=) Prelude.<$> durationRange,
+            ("namePattern" Core..=) Prelude.<$> namePattern,
             ("rulesPackageArns" Core..=)
-              Prelude.<$> rulesPackageArns,
-            ("durationRange" Core..=) Prelude.<$> durationRange
+              Prelude.<$> rulesPackageArns
           ]
       )

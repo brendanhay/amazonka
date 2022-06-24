@@ -28,25 +28,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAgentPreview' smart constructor.
 data AgentPreview = AgentPreview'
-  { -- | The hostname of the EC2 instance on which the Amazon Inspector Agent is
-    -- installed.
-    hostname :: Prelude.Maybe Prelude.Text,
-    -- | The Auto Scaling group for the EC2 instance where the agent is
-    -- installed.
-    autoScalingGroup :: Prelude.Maybe Prelude.Text,
-    -- | The operating system running on the EC2 instance on which the Amazon
+  { -- | The operating system running on the EC2 instance on which the Amazon
     -- Inspector Agent is installed.
     operatingSystem :: Prelude.Maybe Prelude.Text,
-    -- | The version of the Amazon Inspector Agent.
-    agentVersion :: Prelude.Maybe Prelude.Text,
     -- | The kernel version of the operating system running on the EC2 instance
     -- on which the Amazon Inspector Agent is installed.
     kernelVersion :: Prelude.Maybe Prelude.Text,
+    -- | The Auto Scaling group for the EC2 instance where the agent is
+    -- installed.
+    autoScalingGroup :: Prelude.Maybe Prelude.Text,
+    -- | The hostname of the EC2 instance on which the Amazon Inspector Agent is
+    -- installed.
+    hostname :: Prelude.Maybe Prelude.Text,
     -- | The health status of the Amazon Inspector Agent.
     agentHealth :: Prelude.Maybe AgentHealth,
     -- | The IP address of the EC2 instance on which the Amazon Inspector Agent
     -- is installed.
     ipv4Address :: Prelude.Maybe Prelude.Text,
+    -- | The version of the Amazon Inspector Agent.
+    agentVersion :: Prelude.Maybe Prelude.Text,
     -- | The ID of the EC2 instance where the agent is installed.
     agentId :: Prelude.Text
   }
@@ -60,24 +60,24 @@ data AgentPreview = AgentPreview'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostname', 'agentPreview_hostname' - The hostname of the EC2 instance on which the Amazon Inspector Agent is
--- installed.
+-- 'operatingSystem', 'agentPreview_operatingSystem' - The operating system running on the EC2 instance on which the Amazon
+-- Inspector Agent is installed.
+--
+-- 'kernelVersion', 'agentPreview_kernelVersion' - The kernel version of the operating system running on the EC2 instance
+-- on which the Amazon Inspector Agent is installed.
 --
 -- 'autoScalingGroup', 'agentPreview_autoScalingGroup' - The Auto Scaling group for the EC2 instance where the agent is
 -- installed.
 --
--- 'operatingSystem', 'agentPreview_operatingSystem' - The operating system running on the EC2 instance on which the Amazon
--- Inspector Agent is installed.
---
--- 'agentVersion', 'agentPreview_agentVersion' - The version of the Amazon Inspector Agent.
---
--- 'kernelVersion', 'agentPreview_kernelVersion' - The kernel version of the operating system running on the EC2 instance
--- on which the Amazon Inspector Agent is installed.
+-- 'hostname', 'agentPreview_hostname' - The hostname of the EC2 instance on which the Amazon Inspector Agent is
+-- installed.
 --
 -- 'agentHealth', 'agentPreview_agentHealth' - The health status of the Amazon Inspector Agent.
 --
 -- 'ipv4Address', 'agentPreview_ipv4Address' - The IP address of the EC2 instance on which the Amazon Inspector Agent
 -- is installed.
+--
+-- 'agentVersion', 'agentPreview_agentVersion' - The version of the Amazon Inspector Agent.
 --
 -- 'agentId', 'agentPreview_agentId' - The ID of the EC2 instance where the agent is installed.
 newAgentPreview ::
@@ -86,39 +86,35 @@ newAgentPreview ::
   AgentPreview
 newAgentPreview pAgentId_ =
   AgentPreview'
-    { hostname = Prelude.Nothing,
-      autoScalingGroup = Prelude.Nothing,
-      operatingSystem = Prelude.Nothing,
-      agentVersion = Prelude.Nothing,
+    { operatingSystem = Prelude.Nothing,
       kernelVersion = Prelude.Nothing,
+      autoScalingGroup = Prelude.Nothing,
+      hostname = Prelude.Nothing,
       agentHealth = Prelude.Nothing,
       ipv4Address = Prelude.Nothing,
+      agentVersion = Prelude.Nothing,
       agentId = pAgentId_
     }
-
--- | The hostname of the EC2 instance on which the Amazon Inspector Agent is
--- installed.
-agentPreview_hostname :: Lens.Lens' AgentPreview (Prelude.Maybe Prelude.Text)
-agentPreview_hostname = Lens.lens (\AgentPreview' {hostname} -> hostname) (\s@AgentPreview' {} a -> s {hostname = a} :: AgentPreview)
-
--- | The Auto Scaling group for the EC2 instance where the agent is
--- installed.
-agentPreview_autoScalingGroup :: Lens.Lens' AgentPreview (Prelude.Maybe Prelude.Text)
-agentPreview_autoScalingGroup = Lens.lens (\AgentPreview' {autoScalingGroup} -> autoScalingGroup) (\s@AgentPreview' {} a -> s {autoScalingGroup = a} :: AgentPreview)
 
 -- | The operating system running on the EC2 instance on which the Amazon
 -- Inspector Agent is installed.
 agentPreview_operatingSystem :: Lens.Lens' AgentPreview (Prelude.Maybe Prelude.Text)
 agentPreview_operatingSystem = Lens.lens (\AgentPreview' {operatingSystem} -> operatingSystem) (\s@AgentPreview' {} a -> s {operatingSystem = a} :: AgentPreview)
 
--- | The version of the Amazon Inspector Agent.
-agentPreview_agentVersion :: Lens.Lens' AgentPreview (Prelude.Maybe Prelude.Text)
-agentPreview_agentVersion = Lens.lens (\AgentPreview' {agentVersion} -> agentVersion) (\s@AgentPreview' {} a -> s {agentVersion = a} :: AgentPreview)
-
 -- | The kernel version of the operating system running on the EC2 instance
 -- on which the Amazon Inspector Agent is installed.
 agentPreview_kernelVersion :: Lens.Lens' AgentPreview (Prelude.Maybe Prelude.Text)
 agentPreview_kernelVersion = Lens.lens (\AgentPreview' {kernelVersion} -> kernelVersion) (\s@AgentPreview' {} a -> s {kernelVersion = a} :: AgentPreview)
+
+-- | The Auto Scaling group for the EC2 instance where the agent is
+-- installed.
+agentPreview_autoScalingGroup :: Lens.Lens' AgentPreview (Prelude.Maybe Prelude.Text)
+agentPreview_autoScalingGroup = Lens.lens (\AgentPreview' {autoScalingGroup} -> autoScalingGroup) (\s@AgentPreview' {} a -> s {autoScalingGroup = a} :: AgentPreview)
+
+-- | The hostname of the EC2 instance on which the Amazon Inspector Agent is
+-- installed.
+agentPreview_hostname :: Lens.Lens' AgentPreview (Prelude.Maybe Prelude.Text)
+agentPreview_hostname = Lens.lens (\AgentPreview' {hostname} -> hostname) (\s@AgentPreview' {} a -> s {hostname = a} :: AgentPreview)
 
 -- | The health status of the Amazon Inspector Agent.
 agentPreview_agentHealth :: Lens.Lens' AgentPreview (Prelude.Maybe AgentHealth)
@@ -128,6 +124,10 @@ agentPreview_agentHealth = Lens.lens (\AgentPreview' {agentHealth} -> agentHealt
 -- is installed.
 agentPreview_ipv4Address :: Lens.Lens' AgentPreview (Prelude.Maybe Prelude.Text)
 agentPreview_ipv4Address = Lens.lens (\AgentPreview' {ipv4Address} -> ipv4Address) (\s@AgentPreview' {} a -> s {ipv4Address = a} :: AgentPreview)
+
+-- | The version of the Amazon Inspector Agent.
+agentPreview_agentVersion :: Lens.Lens' AgentPreview (Prelude.Maybe Prelude.Text)
+agentPreview_agentVersion = Lens.lens (\AgentPreview' {agentVersion} -> agentVersion) (\s@AgentPreview' {} a -> s {agentVersion = a} :: AgentPreview)
 
 -- | The ID of the EC2 instance where the agent is installed.
 agentPreview_agentId :: Lens.Lens' AgentPreview Prelude.Text
@@ -139,34 +139,34 @@ instance Core.FromJSON AgentPreview where
       "AgentPreview"
       ( \x ->
           AgentPreview'
-            Prelude.<$> (x Core..:? "hostname")
-            Prelude.<*> (x Core..:? "autoScalingGroup")
-            Prelude.<*> (x Core..:? "operatingSystem")
-            Prelude.<*> (x Core..:? "agentVersion")
+            Prelude.<$> (x Core..:? "operatingSystem")
             Prelude.<*> (x Core..:? "kernelVersion")
+            Prelude.<*> (x Core..:? "autoScalingGroup")
+            Prelude.<*> (x Core..:? "hostname")
             Prelude.<*> (x Core..:? "agentHealth")
             Prelude.<*> (x Core..:? "ipv4Address")
+            Prelude.<*> (x Core..:? "agentVersion")
             Prelude.<*> (x Core..: "agentId")
       )
 
 instance Prelude.Hashable AgentPreview where
   hashWithSalt _salt AgentPreview' {..} =
-    _salt `Prelude.hashWithSalt` hostname
-      `Prelude.hashWithSalt` autoScalingGroup
-      `Prelude.hashWithSalt` operatingSystem
-      `Prelude.hashWithSalt` agentVersion
+    _salt `Prelude.hashWithSalt` operatingSystem
       `Prelude.hashWithSalt` kernelVersion
+      `Prelude.hashWithSalt` autoScalingGroup
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` agentHealth
       `Prelude.hashWithSalt` ipv4Address
+      `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` agentId
 
 instance Prelude.NFData AgentPreview where
   rnf AgentPreview' {..} =
-    Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf autoScalingGroup
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf agentVersion
+    Prelude.rnf operatingSystem
       `Prelude.seq` Prelude.rnf kernelVersion
+      `Prelude.seq` Prelude.rnf autoScalingGroup
+      `Prelude.seq` Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf agentHealth
       `Prelude.seq` Prelude.rnf ipv4Address
+      `Prelude.seq` Prelude.rnf agentVersion
       `Prelude.seq` Prelude.rnf agentId

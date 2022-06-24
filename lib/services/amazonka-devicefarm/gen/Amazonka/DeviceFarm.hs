@@ -34,41 +34,41 @@ module Amazonka.DeviceFarm
     -- * Errors
     -- $errors
 
-    -- ** NotEligibleException
-    _NotEligibleException,
-
-    -- ** CannotDeleteException
-    _CannotDeleteException,
-
-    -- ** IdempotencyException
-    _IdempotencyException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** ArgumentException
-    _ArgumentException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** InternalServiceException
-    _InternalServiceException,
-
-    -- ** TagPolicyException
-    _TagPolicyException,
-
-    -- ** TagOperationException
-    _TagOperationException,
-
     -- ** ServiceAccountException
     _ServiceAccountException,
 
     -- ** InvalidOperationException
     _InvalidOperationException,
 
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** ArgumentException
+    _ArgumentException,
+
+    -- ** IdempotencyException
+    _IdempotencyException,
+
+    -- ** CannotDeleteException
+    _CannotDeleteException,
+
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** TagOperationException
+    _TagOperationException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** NotEligibleException
+    _NotEligibleException,
+
+    -- ** TagPolicyException
+    _TagPolicyException,
 
     -- * Waiters
     -- $waiters
@@ -76,221 +76,11 @@ module Amazonka.DeviceFarm
     -- * Operations
     -- $operations
 
-    -- ** ListProjects (Paginated)
-    ListProjects (ListProjects'),
-    newListProjects,
-    ListProjectsResponse (ListProjectsResponse'),
-    newListProjectsResponse,
-
-    -- ** DeleteProject
-    DeleteProject (DeleteProject'),
-    newDeleteProject,
-    DeleteProjectResponse (DeleteProjectResponse'),
-    newDeleteProjectResponse,
-
-    -- ** UpdateProject
-    UpdateProject (UpdateProject'),
-    newUpdateProject,
-    UpdateProjectResponse (UpdateProjectResponse'),
-    newUpdateProjectResponse,
-
-    -- ** UpdateNetworkProfile
-    UpdateNetworkProfile (UpdateNetworkProfile'),
-    newUpdateNetworkProfile,
-    UpdateNetworkProfileResponse (UpdateNetworkProfileResponse'),
-    newUpdateNetworkProfileResponse,
-
-    -- ** DeleteNetworkProfile
-    DeleteNetworkProfile (DeleteNetworkProfile'),
-    newDeleteNetworkProfile,
-    DeleteNetworkProfileResponse (DeleteNetworkProfileResponse'),
-    newDeleteNetworkProfileResponse,
-
-    -- ** GetDevicePoolCompatibility
-    GetDevicePoolCompatibility (GetDevicePoolCompatibility'),
-    newGetDevicePoolCompatibility,
-    GetDevicePoolCompatibilityResponse (GetDevicePoolCompatibilityResponse'),
-    newGetDevicePoolCompatibilityResponse,
-
-    -- ** InstallToRemoteAccessSession
-    InstallToRemoteAccessSession (InstallToRemoteAccessSession'),
-    newInstallToRemoteAccessSession,
-    InstallToRemoteAccessSessionResponse (InstallToRemoteAccessSessionResponse'),
-    newInstallToRemoteAccessSessionResponse,
-
-    -- ** ListTests (Paginated)
-    ListTests (ListTests'),
-    newListTests,
-    ListTestsResponse (ListTestsResponse'),
-    newListTestsResponse,
-
-    -- ** ListArtifacts (Paginated)
-    ListArtifacts (ListArtifacts'),
-    newListArtifacts,
-    ListArtifactsResponse (ListArtifactsResponse'),
-    newListArtifactsResponse,
-
-    -- ** ListTestGridSessionActions
-    ListTestGridSessionActions (ListTestGridSessionActions'),
-    newListTestGridSessionActions,
-    ListTestGridSessionActionsResponse (ListTestGridSessionActionsResponse'),
-    newListTestGridSessionActionsResponse,
-
-    -- ** CreateUpload
-    CreateUpload (CreateUpload'),
-    newCreateUpload,
-    CreateUploadResponse (CreateUploadResponse'),
-    newCreateUploadResponse,
-
-    -- ** GetDeviceInstance
-    GetDeviceInstance (GetDeviceInstance'),
-    newGetDeviceInstance,
-    GetDeviceInstanceResponse (GetDeviceInstanceResponse'),
-    newGetDeviceInstanceResponse,
-
-    -- ** StopJob
-    StopJob (StopJob'),
-    newStopJob,
-    StopJobResponse (StopJobResponse'),
-    newStopJobResponse,
-
-    -- ** DeleteRemoteAccessSession
-    DeleteRemoteAccessSession (DeleteRemoteAccessSession'),
-    newDeleteRemoteAccessSession,
-    DeleteRemoteAccessSessionResponse (DeleteRemoteAccessSessionResponse'),
-    newDeleteRemoteAccessSessionResponse,
-
-    -- ** ListTestGridSessionArtifacts
-    ListTestGridSessionArtifacts (ListTestGridSessionArtifacts'),
-    newListTestGridSessionArtifacts,
-    ListTestGridSessionArtifactsResponse (ListTestGridSessionArtifactsResponse'),
-    newListTestGridSessionArtifactsResponse,
-
-    -- ** ListTestGridProjects
-    ListTestGridProjects (ListTestGridProjects'),
-    newListTestGridProjects,
-    ListTestGridProjectsResponse (ListTestGridProjectsResponse'),
-    newListTestGridProjectsResponse,
-
-    -- ** DeleteUpload
-    DeleteUpload (DeleteUpload'),
-    newDeleteUpload,
-    DeleteUploadResponse (DeleteUploadResponse'),
-    newDeleteUploadResponse,
-
-    -- ** UpdateUpload
-    UpdateUpload (UpdateUpload'),
-    newUpdateUpload,
-    UpdateUploadResponse (UpdateUploadResponse'),
-    newUpdateUploadResponse,
-
-    -- ** DeleteTestGridProject
-    DeleteTestGridProject (DeleteTestGridProject'),
-    newDeleteTestGridProject,
-    DeleteTestGridProjectResponse (DeleteTestGridProjectResponse'),
-    newDeleteTestGridProjectResponse,
-
-    -- ** UpdateTestGridProject
-    UpdateTestGridProject (UpdateTestGridProject'),
-    newUpdateTestGridProject,
-    UpdateTestGridProjectResponse (UpdateTestGridProjectResponse'),
-    newUpdateTestGridProjectResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** GetDevicePool
-    GetDevicePool (GetDevicePool'),
-    newGetDevicePool,
-    GetDevicePoolResponse (GetDevicePoolResponse'),
-    newGetDevicePoolResponse,
-
-    -- ** ListDevicePools (Paginated)
-    ListDevicePools (ListDevicePools'),
-    newListDevicePools,
-    ListDevicePoolsResponse (ListDevicePoolsResponse'),
-    newListDevicePoolsResponse,
-
-    -- ** UpdateDevicePool
-    UpdateDevicePool (UpdateDevicePool'),
-    newUpdateDevicePool,
-    UpdateDevicePoolResponse (UpdateDevicePoolResponse'),
-    newUpdateDevicePoolResponse,
-
-    -- ** DeleteDevicePool
-    DeleteDevicePool (DeleteDevicePool'),
-    newDeleteDevicePool,
-    DeleteDevicePoolResponse (DeleteDevicePoolResponse'),
-    newDeleteDevicePoolResponse,
-
-    -- ** GetUpload
-    GetUpload (GetUpload'),
-    newGetUpload,
-    GetUploadResponse (GetUploadResponse'),
-    newGetUploadResponse,
-
-    -- ** ListOfferingTransactions (Paginated)
-    ListOfferingTransactions (ListOfferingTransactions'),
-    newListOfferingTransactions,
-    ListOfferingTransactionsResponse (ListOfferingTransactionsResponse'),
-    newListOfferingTransactionsResponse,
-
     -- ** CreateDevicePool
     CreateDevicePool (CreateDevicePool'),
     newCreateDevicePool,
     CreateDevicePoolResponse (CreateDevicePoolResponse'),
     newCreateDevicePoolResponse,
-
-    -- ** DeleteRun
-    DeleteRun (DeleteRun'),
-    newDeleteRun,
-    DeleteRunResponse (DeleteRunResponse'),
-    newDeleteRunResponse,
-
-    -- ** ListRuns (Paginated)
-    ListRuns (ListRuns'),
-    newListRuns,
-    ListRunsResponse (ListRunsResponse'),
-    newListRunsResponse,
-
-    -- ** GetTest
-    GetTest (GetTest'),
-    newGetTest,
-    GetTestResponse (GetTestResponse'),
-    newGetTestResponse,
-
-    -- ** UpdateDeviceInstance
-    UpdateDeviceInstance (UpdateDeviceInstance'),
-    newUpdateDeviceInstance,
-    UpdateDeviceInstanceResponse (UpdateDeviceInstanceResponse'),
-    newUpdateDeviceInstanceResponse,
-
-    -- ** GetNetworkProfile
-    GetNetworkProfile (GetNetworkProfile'),
-    newGetNetworkProfile,
-    GetNetworkProfileResponse (GetNetworkProfileResponse'),
-    newGetNetworkProfileResponse,
-
-    -- ** RenewOffering
-    RenewOffering (RenewOffering'),
-    newRenewOffering,
-    RenewOfferingResponse (RenewOfferingResponse'),
-    newRenewOfferingResponse,
-
-    -- ** DeleteInstanceProfile
-    DeleteInstanceProfile (DeleteInstanceProfile'),
-    newDeleteInstanceProfile,
-    DeleteInstanceProfileResponse (DeleteInstanceProfileResponse'),
-    newDeleteInstanceProfileResponse,
-
-    -- ** UpdateInstanceProfile
-    UpdateInstanceProfile (UpdateInstanceProfile'),
-    newUpdateInstanceProfile,
-    UpdateInstanceProfileResponse (UpdateInstanceProfileResponse'),
-    newUpdateInstanceProfileResponse,
 
     -- ** CreateInstanceProfile
     CreateInstanceProfile (CreateInstanceProfile'),
@@ -298,83 +88,23 @@ module Amazonka.DeviceFarm
     CreateInstanceProfileResponse (CreateInstanceProfileResponse'),
     newCreateInstanceProfileResponse,
 
-    -- ** GetDevice
-    GetDevice (GetDevice'),
-    newGetDevice,
-    GetDeviceResponse (GetDeviceResponse'),
-    newGetDeviceResponse,
-
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
-
-    -- ** GetTestGridSession
-    GetTestGridSession (GetTestGridSession'),
-    newGetTestGridSession,
-    GetTestGridSessionResponse (GetTestGridSessionResponse'),
-    newGetTestGridSessionResponse,
-
-    -- ** GetVPCEConfiguration
-    GetVPCEConfiguration (GetVPCEConfiguration'),
-    newGetVPCEConfiguration,
-    GetVPCEConfigurationResponse (GetVPCEConfigurationResponse'),
-    newGetVPCEConfigurationResponse,
-
-    -- ** StopRemoteAccessSession
-    StopRemoteAccessSession (StopRemoteAccessSession'),
-    newStopRemoteAccessSession,
-    StopRemoteAccessSessionResponse (StopRemoteAccessSessionResponse'),
-    newStopRemoteAccessSessionResponse,
-
     -- ** CreateNetworkProfile
     CreateNetworkProfile (CreateNetworkProfile'),
     newCreateNetworkProfile,
     CreateNetworkProfileResponse (CreateNetworkProfileResponse'),
     newCreateNetworkProfileResponse,
 
-    -- ** DeleteVPCEConfiguration
-    DeleteVPCEConfiguration (DeleteVPCEConfiguration'),
-    newDeleteVPCEConfiguration,
-    DeleteVPCEConfigurationResponse (DeleteVPCEConfigurationResponse'),
-    newDeleteVPCEConfigurationResponse,
+    -- ** CreateProject
+    CreateProject (CreateProject'),
+    newCreateProject,
+    CreateProjectResponse (CreateProjectResponse'),
+    newCreateProjectResponse,
 
-    -- ** UpdateVPCEConfiguration
-    UpdateVPCEConfiguration (UpdateVPCEConfiguration'),
-    newUpdateVPCEConfiguration,
-    UpdateVPCEConfigurationResponse (UpdateVPCEConfigurationResponse'),
-    newUpdateVPCEConfigurationResponse,
-
-    -- ** GetJob
-    GetJob (GetJob'),
-    newGetJob,
-    GetJobResponse (GetJobResponse'),
-    newGetJobResponse,
-
-    -- ** GetInstanceProfile
-    GetInstanceProfile (GetInstanceProfile'),
-    newGetInstanceProfile,
-    GetInstanceProfileResponse (GetInstanceProfileResponse'),
-    newGetInstanceProfileResponse,
-
-    -- ** ListNetworkProfiles (Paginated)
-    ListNetworkProfiles (ListNetworkProfiles'),
-    newListNetworkProfiles,
-    ListNetworkProfilesResponse (ListNetworkProfilesResponse'),
-    newListNetworkProfilesResponse,
-
-    -- ** CreateVPCEConfiguration
-    CreateVPCEConfiguration (CreateVPCEConfiguration'),
-    newCreateVPCEConfiguration,
-    CreateVPCEConfigurationResponse (CreateVPCEConfigurationResponse'),
-    newCreateVPCEConfigurationResponse,
-
-    -- ** ScheduleRun
-    ScheduleRun (ScheduleRun'),
-    newScheduleRun,
-    ScheduleRunResponse (ScheduleRunResponse'),
-    newScheduleRunResponse,
+    -- ** CreateRemoteAccessSession
+    CreateRemoteAccessSession (CreateRemoteAccessSession'),
+    newCreateRemoteAccessSession,
+    CreateRemoteAccessSessionResponse (CreateRemoteAccessSessionResponse'),
+    newCreateRemoteAccessSessionResponse,
 
     -- ** CreateTestGridProject
     CreateTestGridProject (CreateTestGridProject'),
@@ -382,11 +112,269 @@ module Amazonka.DeviceFarm
     CreateTestGridProjectResponse (CreateTestGridProjectResponse'),
     newCreateTestGridProjectResponse,
 
+    -- ** CreateTestGridUrl
+    CreateTestGridUrl (CreateTestGridUrl'),
+    newCreateTestGridUrl,
+    CreateTestGridUrlResponse (CreateTestGridUrlResponse'),
+    newCreateTestGridUrlResponse,
+
+    -- ** CreateUpload
+    CreateUpload (CreateUpload'),
+    newCreateUpload,
+    CreateUploadResponse (CreateUploadResponse'),
+    newCreateUploadResponse,
+
+    -- ** CreateVPCEConfiguration
+    CreateVPCEConfiguration (CreateVPCEConfiguration'),
+    newCreateVPCEConfiguration,
+    CreateVPCEConfigurationResponse (CreateVPCEConfigurationResponse'),
+    newCreateVPCEConfigurationResponse,
+
+    -- ** DeleteDevicePool
+    DeleteDevicePool (DeleteDevicePool'),
+    newDeleteDevicePool,
+    DeleteDevicePoolResponse (DeleteDevicePoolResponse'),
+    newDeleteDevicePoolResponse,
+
+    -- ** DeleteInstanceProfile
+    DeleteInstanceProfile (DeleteInstanceProfile'),
+    newDeleteInstanceProfile,
+    DeleteInstanceProfileResponse (DeleteInstanceProfileResponse'),
+    newDeleteInstanceProfileResponse,
+
+    -- ** DeleteNetworkProfile
+    DeleteNetworkProfile (DeleteNetworkProfile'),
+    newDeleteNetworkProfile,
+    DeleteNetworkProfileResponse (DeleteNetworkProfileResponse'),
+    newDeleteNetworkProfileResponse,
+
+    -- ** DeleteProject
+    DeleteProject (DeleteProject'),
+    newDeleteProject,
+    DeleteProjectResponse (DeleteProjectResponse'),
+    newDeleteProjectResponse,
+
+    -- ** DeleteRemoteAccessSession
+    DeleteRemoteAccessSession (DeleteRemoteAccessSession'),
+    newDeleteRemoteAccessSession,
+    DeleteRemoteAccessSessionResponse (DeleteRemoteAccessSessionResponse'),
+    newDeleteRemoteAccessSessionResponse,
+
+    -- ** DeleteRun
+    DeleteRun (DeleteRun'),
+    newDeleteRun,
+    DeleteRunResponse (DeleteRunResponse'),
+    newDeleteRunResponse,
+
+    -- ** DeleteTestGridProject
+    DeleteTestGridProject (DeleteTestGridProject'),
+    newDeleteTestGridProject,
+    DeleteTestGridProjectResponse (DeleteTestGridProjectResponse'),
+    newDeleteTestGridProjectResponse,
+
+    -- ** DeleteUpload
+    DeleteUpload (DeleteUpload'),
+    newDeleteUpload,
+    DeleteUploadResponse (DeleteUploadResponse'),
+    newDeleteUploadResponse,
+
+    -- ** DeleteVPCEConfiguration
+    DeleteVPCEConfiguration (DeleteVPCEConfiguration'),
+    newDeleteVPCEConfiguration,
+    DeleteVPCEConfigurationResponse (DeleteVPCEConfigurationResponse'),
+    newDeleteVPCEConfigurationResponse,
+
+    -- ** GetAccountSettings
+    GetAccountSettings (GetAccountSettings'),
+    newGetAccountSettings,
+    GetAccountSettingsResponse (GetAccountSettingsResponse'),
+    newGetAccountSettingsResponse,
+
+    -- ** GetDevice
+    GetDevice (GetDevice'),
+    newGetDevice,
+    GetDeviceResponse (GetDeviceResponse'),
+    newGetDeviceResponse,
+
+    -- ** GetDeviceInstance
+    GetDeviceInstance (GetDeviceInstance'),
+    newGetDeviceInstance,
+    GetDeviceInstanceResponse (GetDeviceInstanceResponse'),
+    newGetDeviceInstanceResponse,
+
+    -- ** GetDevicePool
+    GetDevicePool (GetDevicePool'),
+    newGetDevicePool,
+    GetDevicePoolResponse (GetDevicePoolResponse'),
+    newGetDevicePoolResponse,
+
+    -- ** GetDevicePoolCompatibility
+    GetDevicePoolCompatibility (GetDevicePoolCompatibility'),
+    newGetDevicePoolCompatibility,
+    GetDevicePoolCompatibilityResponse (GetDevicePoolCompatibilityResponse'),
+    newGetDevicePoolCompatibilityResponse,
+
+    -- ** GetInstanceProfile
+    GetInstanceProfile (GetInstanceProfile'),
+    newGetInstanceProfile,
+    GetInstanceProfileResponse (GetInstanceProfileResponse'),
+    newGetInstanceProfileResponse,
+
+    -- ** GetJob
+    GetJob (GetJob'),
+    newGetJob,
+    GetJobResponse (GetJobResponse'),
+    newGetJobResponse,
+
+    -- ** GetNetworkProfile
+    GetNetworkProfile (GetNetworkProfile'),
+    newGetNetworkProfile,
+    GetNetworkProfileResponse (GetNetworkProfileResponse'),
+    newGetNetworkProfileResponse,
+
+    -- ** GetOfferingStatus (Paginated)
+    GetOfferingStatus (GetOfferingStatus'),
+    newGetOfferingStatus,
+    GetOfferingStatusResponse (GetOfferingStatusResponse'),
+    newGetOfferingStatusResponse,
+
+    -- ** GetProject
+    GetProject (GetProject'),
+    newGetProject,
+    GetProjectResponse (GetProjectResponse'),
+    newGetProjectResponse,
+
+    -- ** GetRemoteAccessSession
+    GetRemoteAccessSession (GetRemoteAccessSession'),
+    newGetRemoteAccessSession,
+    GetRemoteAccessSessionResponse (GetRemoteAccessSessionResponse'),
+    newGetRemoteAccessSessionResponse,
+
     -- ** GetRun
     GetRun (GetRun'),
     newGetRun,
     GetRunResponse (GetRunResponse'),
     newGetRunResponse,
+
+    -- ** GetSuite
+    GetSuite (GetSuite'),
+    newGetSuite,
+    GetSuiteResponse (GetSuiteResponse'),
+    newGetSuiteResponse,
+
+    -- ** GetTest
+    GetTest (GetTest'),
+    newGetTest,
+    GetTestResponse (GetTestResponse'),
+    newGetTestResponse,
+
+    -- ** GetTestGridProject
+    GetTestGridProject (GetTestGridProject'),
+    newGetTestGridProject,
+    GetTestGridProjectResponse (GetTestGridProjectResponse'),
+    newGetTestGridProjectResponse,
+
+    -- ** GetTestGridSession
+    GetTestGridSession (GetTestGridSession'),
+    newGetTestGridSession,
+    GetTestGridSessionResponse (GetTestGridSessionResponse'),
+    newGetTestGridSessionResponse,
+
+    -- ** GetUpload
+    GetUpload (GetUpload'),
+    newGetUpload,
+    GetUploadResponse (GetUploadResponse'),
+    newGetUploadResponse,
+
+    -- ** GetVPCEConfiguration
+    GetVPCEConfiguration (GetVPCEConfiguration'),
+    newGetVPCEConfiguration,
+    GetVPCEConfigurationResponse (GetVPCEConfigurationResponse'),
+    newGetVPCEConfigurationResponse,
+
+    -- ** InstallToRemoteAccessSession
+    InstallToRemoteAccessSession (InstallToRemoteAccessSession'),
+    newInstallToRemoteAccessSession,
+    InstallToRemoteAccessSessionResponse (InstallToRemoteAccessSessionResponse'),
+    newInstallToRemoteAccessSessionResponse,
+
+    -- ** ListArtifacts (Paginated)
+    ListArtifacts (ListArtifacts'),
+    newListArtifacts,
+    ListArtifactsResponse (ListArtifactsResponse'),
+    newListArtifactsResponse,
+
+    -- ** ListDeviceInstances (Paginated)
+    ListDeviceInstances (ListDeviceInstances'),
+    newListDeviceInstances,
+    ListDeviceInstancesResponse (ListDeviceInstancesResponse'),
+    newListDeviceInstancesResponse,
+
+    -- ** ListDevicePools (Paginated)
+    ListDevicePools (ListDevicePools'),
+    newListDevicePools,
+    ListDevicePoolsResponse (ListDevicePoolsResponse'),
+    newListDevicePoolsResponse,
+
+    -- ** ListDevices (Paginated)
+    ListDevices (ListDevices'),
+    newListDevices,
+    ListDevicesResponse (ListDevicesResponse'),
+    newListDevicesResponse,
+
+    -- ** ListInstanceProfiles (Paginated)
+    ListInstanceProfiles (ListInstanceProfiles'),
+    newListInstanceProfiles,
+    ListInstanceProfilesResponse (ListInstanceProfilesResponse'),
+    newListInstanceProfilesResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** ListNetworkProfiles (Paginated)
+    ListNetworkProfiles (ListNetworkProfiles'),
+    newListNetworkProfiles,
+    ListNetworkProfilesResponse (ListNetworkProfilesResponse'),
+    newListNetworkProfilesResponse,
+
+    -- ** ListOfferingPromotions (Paginated)
+    ListOfferingPromotions (ListOfferingPromotions'),
+    newListOfferingPromotions,
+    ListOfferingPromotionsResponse (ListOfferingPromotionsResponse'),
+    newListOfferingPromotionsResponse,
+
+    -- ** ListOfferingTransactions (Paginated)
+    ListOfferingTransactions (ListOfferingTransactions'),
+    newListOfferingTransactions,
+    ListOfferingTransactionsResponse (ListOfferingTransactionsResponse'),
+    newListOfferingTransactionsResponse,
+
+    -- ** ListOfferings (Paginated)
+    ListOfferings (ListOfferings'),
+    newListOfferings,
+    ListOfferingsResponse (ListOfferingsResponse'),
+    newListOfferingsResponse,
+
+    -- ** ListProjects (Paginated)
+    ListProjects (ListProjects'),
+    newListProjects,
+    ListProjectsResponse (ListProjectsResponse'),
+    newListProjectsResponse,
+
+    -- ** ListRemoteAccessSessions (Paginated)
+    ListRemoteAccessSessions (ListRemoteAccessSessions'),
+    newListRemoteAccessSessions,
+    ListRemoteAccessSessionsResponse (ListRemoteAccessSessionsResponse'),
+    newListRemoteAccessSessionsResponse,
+
+    -- ** ListRuns (Paginated)
+    ListRuns (ListRuns'),
+    newListRuns,
+    ListRunsResponse (ListRunsResponse'),
+    newListRunsResponse,
 
     -- ** ListSamples (Paginated)
     ListSamples (ListSamples'),
@@ -400,125 +388,29 @@ module Amazonka.DeviceFarm
     ListSuitesResponse (ListSuitesResponse'),
     newListSuitesResponse,
 
-    -- ** ListRemoteAccessSessions (Paginated)
-    ListRemoteAccessSessions (ListRemoteAccessSessions'),
-    newListRemoteAccessSessions,
-    ListRemoteAccessSessionsResponse (ListRemoteAccessSessionsResponse'),
-    newListRemoteAccessSessionsResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** GetAccountSettings
-    GetAccountSettings (GetAccountSettings'),
-    newGetAccountSettings,
-    GetAccountSettingsResponse (GetAccountSettingsResponse'),
-    newGetAccountSettingsResponse,
+    -- ** ListTestGridProjects
+    ListTestGridProjects (ListTestGridProjects'),
+    newListTestGridProjects,
+    ListTestGridProjectsResponse (ListTestGridProjectsResponse'),
+    newListTestGridProjectsResponse,
 
-    -- ** CreateRemoteAccessSession
-    CreateRemoteAccessSession (CreateRemoteAccessSession'),
-    newCreateRemoteAccessSession,
-    CreateRemoteAccessSessionResponse (CreateRemoteAccessSessionResponse'),
-    newCreateRemoteAccessSessionResponse,
+    -- ** ListTestGridSessionActions
+    ListTestGridSessionActions (ListTestGridSessionActions'),
+    newListTestGridSessionActions,
+    ListTestGridSessionActionsResponse (ListTestGridSessionActionsResponse'),
+    newListTestGridSessionActionsResponse,
 
-    -- ** ListOfferingPromotions (Paginated)
-    ListOfferingPromotions (ListOfferingPromotions'),
-    newListOfferingPromotions,
-    ListOfferingPromotionsResponse (ListOfferingPromotionsResponse'),
-    newListOfferingPromotionsResponse,
-
-    -- ** GetOfferingStatus (Paginated)
-    GetOfferingStatus (GetOfferingStatus'),
-    newGetOfferingStatus,
-    GetOfferingStatusResponse (GetOfferingStatusResponse'),
-    newGetOfferingStatusResponse,
-
-    -- ** ListUploads (Paginated)
-    ListUploads (ListUploads'),
-    newListUploads,
-    ListUploadsResponse (ListUploadsResponse'),
-    newListUploadsResponse,
-
-    -- ** GetTestGridProject
-    GetTestGridProject (GetTestGridProject'),
-    newGetTestGridProject,
-    GetTestGridProjectResponse (GetTestGridProjectResponse'),
-    newGetTestGridProjectResponse,
-
-    -- ** GetSuite
-    GetSuite (GetSuite'),
-    newGetSuite,
-    GetSuiteResponse (GetSuiteResponse'),
-    newGetSuiteResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** GetRemoteAccessSession
-    GetRemoteAccessSession (GetRemoteAccessSession'),
-    newGetRemoteAccessSession,
-    GetRemoteAccessSessionResponse (GetRemoteAccessSessionResponse'),
-    newGetRemoteAccessSessionResponse,
-
-    -- ** ListDeviceInstances (Paginated)
-    ListDeviceInstances (ListDeviceInstances'),
-    newListDeviceInstances,
-    ListDeviceInstancesResponse (ListDeviceInstancesResponse'),
-    newListDeviceInstancesResponse,
-
-    -- ** PurchaseOffering
-    PurchaseOffering (PurchaseOffering'),
-    newPurchaseOffering,
-    PurchaseOfferingResponse (PurchaseOfferingResponse'),
-    newPurchaseOfferingResponse,
-
-    -- ** ListInstanceProfiles (Paginated)
-    ListInstanceProfiles (ListInstanceProfiles'),
-    newListInstanceProfiles,
-    ListInstanceProfilesResponse (ListInstanceProfilesResponse'),
-    newListInstanceProfilesResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** GetProject
-    GetProject (GetProject'),
-    newGetProject,
-    GetProjectResponse (GetProjectResponse'),
-    newGetProjectResponse,
-
-    -- ** ListUniqueProblems (Paginated)
-    ListUniqueProblems (ListUniqueProblems'),
-    newListUniqueProblems,
-    ListUniqueProblemsResponse (ListUniqueProblemsResponse'),
-    newListUniqueProblemsResponse,
-
-    -- ** ListVPCEConfigurations (Paginated)
-    ListVPCEConfigurations (ListVPCEConfigurations'),
-    newListVPCEConfigurations,
-    ListVPCEConfigurationsResponse (ListVPCEConfigurationsResponse'),
-    newListVPCEConfigurationsResponse,
-
-    -- ** StopRun
-    StopRun (StopRun'),
-    newStopRun,
-    StopRunResponse (StopRunResponse'),
-    newStopRunResponse,
-
-    -- ** ListDevices (Paginated)
-    ListDevices (ListDevices'),
-    newListDevices,
-    ListDevicesResponse (ListDevicesResponse'),
-    newListDevicesResponse,
-
-    -- ** CreateProject
-    CreateProject (CreateProject'),
-    newCreateProject,
-    CreateProjectResponse (CreateProjectResponse'),
-    newCreateProjectResponse,
+    -- ** ListTestGridSessionArtifacts
+    ListTestGridSessionArtifacts (ListTestGridSessionArtifacts'),
+    newListTestGridSessionArtifacts,
+    ListTestGridSessionArtifactsResponse (ListTestGridSessionArtifactsResponse'),
+    newListTestGridSessionArtifactsResponse,
 
     -- ** ListTestGridSessions
     ListTestGridSessions (ListTestGridSessions'),
@@ -526,17 +418,125 @@ module Amazonka.DeviceFarm
     ListTestGridSessionsResponse (ListTestGridSessionsResponse'),
     newListTestGridSessionsResponse,
 
-    -- ** CreateTestGridUrl
-    CreateTestGridUrl (CreateTestGridUrl'),
-    newCreateTestGridUrl,
-    CreateTestGridUrlResponse (CreateTestGridUrlResponse'),
-    newCreateTestGridUrlResponse,
+    -- ** ListTests (Paginated)
+    ListTests (ListTests'),
+    newListTests,
+    ListTestsResponse (ListTestsResponse'),
+    newListTestsResponse,
 
-    -- ** ListOfferings (Paginated)
-    ListOfferings (ListOfferings'),
-    newListOfferings,
-    ListOfferingsResponse (ListOfferingsResponse'),
-    newListOfferingsResponse,
+    -- ** ListUniqueProblems (Paginated)
+    ListUniqueProblems (ListUniqueProblems'),
+    newListUniqueProblems,
+    ListUniqueProblemsResponse (ListUniqueProblemsResponse'),
+    newListUniqueProblemsResponse,
+
+    -- ** ListUploads (Paginated)
+    ListUploads (ListUploads'),
+    newListUploads,
+    ListUploadsResponse (ListUploadsResponse'),
+    newListUploadsResponse,
+
+    -- ** ListVPCEConfigurations (Paginated)
+    ListVPCEConfigurations (ListVPCEConfigurations'),
+    newListVPCEConfigurations,
+    ListVPCEConfigurationsResponse (ListVPCEConfigurationsResponse'),
+    newListVPCEConfigurationsResponse,
+
+    -- ** PurchaseOffering
+    PurchaseOffering (PurchaseOffering'),
+    newPurchaseOffering,
+    PurchaseOfferingResponse (PurchaseOfferingResponse'),
+    newPurchaseOfferingResponse,
+
+    -- ** RenewOffering
+    RenewOffering (RenewOffering'),
+    newRenewOffering,
+    RenewOfferingResponse (RenewOfferingResponse'),
+    newRenewOfferingResponse,
+
+    -- ** ScheduleRun
+    ScheduleRun (ScheduleRun'),
+    newScheduleRun,
+    ScheduleRunResponse (ScheduleRunResponse'),
+    newScheduleRunResponse,
+
+    -- ** StopJob
+    StopJob (StopJob'),
+    newStopJob,
+    StopJobResponse (StopJobResponse'),
+    newStopJobResponse,
+
+    -- ** StopRemoteAccessSession
+    StopRemoteAccessSession (StopRemoteAccessSession'),
+    newStopRemoteAccessSession,
+    StopRemoteAccessSessionResponse (StopRemoteAccessSessionResponse'),
+    newStopRemoteAccessSessionResponse,
+
+    -- ** StopRun
+    StopRun (StopRun'),
+    newStopRun,
+    StopRunResponse (StopRunResponse'),
+    newStopRunResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateDeviceInstance
+    UpdateDeviceInstance (UpdateDeviceInstance'),
+    newUpdateDeviceInstance,
+    UpdateDeviceInstanceResponse (UpdateDeviceInstanceResponse'),
+    newUpdateDeviceInstanceResponse,
+
+    -- ** UpdateDevicePool
+    UpdateDevicePool (UpdateDevicePool'),
+    newUpdateDevicePool,
+    UpdateDevicePoolResponse (UpdateDevicePoolResponse'),
+    newUpdateDevicePoolResponse,
+
+    -- ** UpdateInstanceProfile
+    UpdateInstanceProfile (UpdateInstanceProfile'),
+    newUpdateInstanceProfile,
+    UpdateInstanceProfileResponse (UpdateInstanceProfileResponse'),
+    newUpdateInstanceProfileResponse,
+
+    -- ** UpdateNetworkProfile
+    UpdateNetworkProfile (UpdateNetworkProfile'),
+    newUpdateNetworkProfile,
+    UpdateNetworkProfileResponse (UpdateNetworkProfileResponse'),
+    newUpdateNetworkProfileResponse,
+
+    -- ** UpdateProject
+    UpdateProject (UpdateProject'),
+    newUpdateProject,
+    UpdateProjectResponse (UpdateProjectResponse'),
+    newUpdateProjectResponse,
+
+    -- ** UpdateTestGridProject
+    UpdateTestGridProject (UpdateTestGridProject'),
+    newUpdateTestGridProject,
+    UpdateTestGridProjectResponse (UpdateTestGridProjectResponse'),
+    newUpdateTestGridProjectResponse,
+
+    -- ** UpdateUpload
+    UpdateUpload (UpdateUpload'),
+    newUpdateUpload,
+    UpdateUploadResponse (UpdateUploadResponse'),
+    newUpdateUploadResponse,
+
+    -- ** UpdateVPCEConfiguration
+    UpdateVPCEConfiguration (UpdateVPCEConfiguration'),
+    newUpdateVPCEConfiguration,
+    UpdateVPCEConfigurationResponse (UpdateVPCEConfigurationResponse'),
+    newUpdateVPCEConfigurationResponse,
 
     -- * Types
 

@@ -27,13 +27,13 @@ module Amazonka.DeviceFarm.ListTestGridSessions
     newListTestGridSessions,
 
     -- * Request Lenses
-    listTestGridSessions_status,
+    listTestGridSessions_nextToken,
     listTestGridSessions_maxResult,
-    listTestGridSessions_creationTimeAfter,
+    listTestGridSessions_status,
+    listTestGridSessions_creationTimeBefore,
     listTestGridSessions_endTimeBefore,
     listTestGridSessions_endTimeAfter,
-    listTestGridSessions_nextToken,
-    listTestGridSessions_creationTimeBefore,
+    listTestGridSessions_creationTimeAfter,
     listTestGridSessions_projectArn,
 
     -- * Destructuring the Response
@@ -56,20 +56,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTestGridSessions' smart constructor.
 data ListTestGridSessions = ListTestGridSessions'
-  { -- | Return only sessions in this state.
-    status :: Prelude.Maybe TestGridSessionStatus,
+  { -- | Pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Return only this many results at a time.
     maxResult :: Prelude.Maybe Prelude.Natural,
-    -- | Return only sessions created after this time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
+    -- | Return only sessions in this state.
+    status :: Prelude.Maybe TestGridSessionStatus,
+    -- | Return only sessions created before this time.
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | Return only sessions that ended before this time.
     endTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | Return only sessions that ended after this time.
     endTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Return only sessions created before this time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | Return only sessions created after this time.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | ARN of a TestGridProject.
     projectArn :: Prelude.Text
   }
@@ -83,19 +83,19 @@ data ListTestGridSessions = ListTestGridSessions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'listTestGridSessions_status' - Return only sessions in this state.
+-- 'nextToken', 'listTestGridSessions_nextToken' - Pagination token.
 --
 -- 'maxResult', 'listTestGridSessions_maxResult' - Return only this many results at a time.
 --
--- 'creationTimeAfter', 'listTestGridSessions_creationTimeAfter' - Return only sessions created after this time.
+-- 'status', 'listTestGridSessions_status' - Return only sessions in this state.
+--
+-- 'creationTimeBefore', 'listTestGridSessions_creationTimeBefore' - Return only sessions created before this time.
 --
 -- 'endTimeBefore', 'listTestGridSessions_endTimeBefore' - Return only sessions that ended before this time.
 --
 -- 'endTimeAfter', 'listTestGridSessions_endTimeAfter' - Return only sessions that ended after this time.
 --
--- 'nextToken', 'listTestGridSessions_nextToken' - Pagination token.
---
--- 'creationTimeBefore', 'listTestGridSessions_creationTimeBefore' - Return only sessions created before this time.
+-- 'creationTimeAfter', 'listTestGridSessions_creationTimeAfter' - Return only sessions created after this time.
 --
 -- 'projectArn', 'listTestGridSessions_projectArn' - ARN of a TestGridProject.
 newListTestGridSessions ::
@@ -104,27 +104,31 @@ newListTestGridSessions ::
   ListTestGridSessions
 newListTestGridSessions pProjectArn_ =
   ListTestGridSessions'
-    { status = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       maxResult = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing,
+      status = Prelude.Nothing,
+      creationTimeBefore = Prelude.Nothing,
       endTimeBefore = Prelude.Nothing,
       endTimeAfter = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      creationTimeBefore = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
       projectArn = pProjectArn_
     }
 
--- | Return only sessions in this state.
-listTestGridSessions_status :: Lens.Lens' ListTestGridSessions (Prelude.Maybe TestGridSessionStatus)
-listTestGridSessions_status = Lens.lens (\ListTestGridSessions' {status} -> status) (\s@ListTestGridSessions' {} a -> s {status = a} :: ListTestGridSessions)
+-- | Pagination token.
+listTestGridSessions_nextToken :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.Text)
+listTestGridSessions_nextToken = Lens.lens (\ListTestGridSessions' {nextToken} -> nextToken) (\s@ListTestGridSessions' {} a -> s {nextToken = a} :: ListTestGridSessions)
 
 -- | Return only this many results at a time.
 listTestGridSessions_maxResult :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.Natural)
 listTestGridSessions_maxResult = Lens.lens (\ListTestGridSessions' {maxResult} -> maxResult) (\s@ListTestGridSessions' {} a -> s {maxResult = a} :: ListTestGridSessions)
 
--- | Return only sessions created after this time.
-listTestGridSessions_creationTimeAfter :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.UTCTime)
-listTestGridSessions_creationTimeAfter = Lens.lens (\ListTestGridSessions' {creationTimeAfter} -> creationTimeAfter) (\s@ListTestGridSessions' {} a -> s {creationTimeAfter = a} :: ListTestGridSessions) Prelude.. Lens.mapping Core._Time
+-- | Return only sessions in this state.
+listTestGridSessions_status :: Lens.Lens' ListTestGridSessions (Prelude.Maybe TestGridSessionStatus)
+listTestGridSessions_status = Lens.lens (\ListTestGridSessions' {status} -> status) (\s@ListTestGridSessions' {} a -> s {status = a} :: ListTestGridSessions)
+
+-- | Return only sessions created before this time.
+listTestGridSessions_creationTimeBefore :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.UTCTime)
+listTestGridSessions_creationTimeBefore = Lens.lens (\ListTestGridSessions' {creationTimeBefore} -> creationTimeBefore) (\s@ListTestGridSessions' {} a -> s {creationTimeBefore = a} :: ListTestGridSessions) Prelude.. Lens.mapping Core._Time
 
 -- | Return only sessions that ended before this time.
 listTestGridSessions_endTimeBefore :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.UTCTime)
@@ -134,13 +138,9 @@ listTestGridSessions_endTimeBefore = Lens.lens (\ListTestGridSessions' {endTimeB
 listTestGridSessions_endTimeAfter :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.UTCTime)
 listTestGridSessions_endTimeAfter = Lens.lens (\ListTestGridSessions' {endTimeAfter} -> endTimeAfter) (\s@ListTestGridSessions' {} a -> s {endTimeAfter = a} :: ListTestGridSessions) Prelude.. Lens.mapping Core._Time
 
--- | Pagination token.
-listTestGridSessions_nextToken :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.Text)
-listTestGridSessions_nextToken = Lens.lens (\ListTestGridSessions' {nextToken} -> nextToken) (\s@ListTestGridSessions' {} a -> s {nextToken = a} :: ListTestGridSessions)
-
--- | Return only sessions created before this time.
-listTestGridSessions_creationTimeBefore :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.UTCTime)
-listTestGridSessions_creationTimeBefore = Lens.lens (\ListTestGridSessions' {creationTimeBefore} -> creationTimeBefore) (\s@ListTestGridSessions' {} a -> s {creationTimeBefore = a} :: ListTestGridSessions) Prelude.. Lens.mapping Core._Time
+-- | Return only sessions created after this time.
+listTestGridSessions_creationTimeAfter :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.UTCTime)
+listTestGridSessions_creationTimeAfter = Lens.lens (\ListTestGridSessions' {creationTimeAfter} -> creationTimeAfter) (\s@ListTestGridSessions' {} a -> s {creationTimeAfter = a} :: ListTestGridSessions) Prelude.. Lens.mapping Core._Time
 
 -- | ARN of a TestGridProject.
 listTestGridSessions_projectArn :: Lens.Lens' ListTestGridSessions Prelude.Text
@@ -164,24 +164,24 @@ instance Core.AWSRequest ListTestGridSessions where
 
 instance Prelude.Hashable ListTestGridSessions where
   hashWithSalt _salt ListTestGridSessions' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResult
-      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` endTimeBefore
       `Prelude.hashWithSalt` endTimeAfter
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` projectArn
 
 instance Prelude.NFData ListTestGridSessions where
   rnf ListTestGridSessions' {..} =
-    Prelude.rnf status
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResult
-      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTimeBefore
       `Prelude.seq` Prelude.rnf endTimeBefore
       `Prelude.seq` Prelude.rnf endTimeAfter
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf creationTimeBefore
+      `Prelude.seq` Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf projectArn
 
 instance Core.ToHeaders ListTestGridSessions where
@@ -203,15 +203,15 @@ instance Core.ToJSON ListTestGridSessions where
   toJSON ListTestGridSessions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("status" Core..=) Prelude.<$> status,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResult" Core..=) Prelude.<$> maxResult,
-            ("creationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter,
-            ("endTimeBefore" Core..=) Prelude.<$> endTimeBefore,
-            ("endTimeAfter" Core..=) Prelude.<$> endTimeAfter,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("status" Core..=) Prelude.<$> status,
             ("creationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,
+            ("endTimeBefore" Core..=) Prelude.<$> endTimeBefore,
+            ("endTimeAfter" Core..=) Prelude.<$> endTimeAfter,
+            ("creationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter,
             Prelude.Just ("projectArn" Core..= projectArn)
           ]
       )

@@ -27,8 +27,8 @@ module Amazonka.DeviceFarm.UpdateUpload
     newUpdateUpload,
 
     -- * Request Lenses
-    updateUpload_editContent,
     updateUpload_name,
+    updateUpload_editContent,
     updateUpload_contentType,
     updateUpload_arn,
 
@@ -51,13 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateUpload' smart constructor.
 data UpdateUpload = UpdateUpload'
-  { -- | Set to true if the YAML file has changed and must be updated. Otherwise,
-    -- set to false.
-    editContent :: Prelude.Maybe Prelude.Bool,
-    -- | The upload\'s test spec file name. The name must not contain any forward
+  { -- | The upload\'s test spec file name. The name must not contain any forward
     -- slashes (\/). The test spec file name must end with the @.yaml@ or
     -- @.yml@ file extension.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Set to true if the YAML file has changed and must be updated. Otherwise,
+    -- set to false.
+    editContent :: Prelude.Maybe Prelude.Bool,
     -- | The upload\'s content type (for example, @application\/x-yaml@).
     contentType :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the uploaded test spec.
@@ -73,12 +73,12 @@ data UpdateUpload = UpdateUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'editContent', 'updateUpload_editContent' - Set to true if the YAML file has changed and must be updated. Otherwise,
--- set to false.
---
 -- 'name', 'updateUpload_name' - The upload\'s test spec file name. The name must not contain any forward
 -- slashes (\/). The test spec file name must end with the @.yaml@ or
 -- @.yml@ file extension.
+--
+-- 'editContent', 'updateUpload_editContent' - Set to true if the YAML file has changed and must be updated. Otherwise,
+-- set to false.
 --
 -- 'contentType', 'updateUpload_contentType' - The upload\'s content type (for example, @application\/x-yaml@).
 --
@@ -89,22 +89,22 @@ newUpdateUpload ::
   UpdateUpload
 newUpdateUpload pArn_ =
   UpdateUpload'
-    { editContent = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      editContent = Prelude.Nothing,
       contentType = Prelude.Nothing,
       arn = pArn_
     }
-
--- | Set to true if the YAML file has changed and must be updated. Otherwise,
--- set to false.
-updateUpload_editContent :: Lens.Lens' UpdateUpload (Prelude.Maybe Prelude.Bool)
-updateUpload_editContent = Lens.lens (\UpdateUpload' {editContent} -> editContent) (\s@UpdateUpload' {} a -> s {editContent = a} :: UpdateUpload)
 
 -- | The upload\'s test spec file name. The name must not contain any forward
 -- slashes (\/). The test spec file name must end with the @.yaml@ or
 -- @.yml@ file extension.
 updateUpload_name :: Lens.Lens' UpdateUpload (Prelude.Maybe Prelude.Text)
 updateUpload_name = Lens.lens (\UpdateUpload' {name} -> name) (\s@UpdateUpload' {} a -> s {name = a} :: UpdateUpload)
+
+-- | Set to true if the YAML file has changed and must be updated. Otherwise,
+-- set to false.
+updateUpload_editContent :: Lens.Lens' UpdateUpload (Prelude.Maybe Prelude.Bool)
+updateUpload_editContent = Lens.lens (\UpdateUpload' {editContent} -> editContent) (\s@UpdateUpload' {} a -> s {editContent = a} :: UpdateUpload)
 
 -- | The upload\'s content type (for example, @application\/x-yaml@).
 updateUpload_contentType :: Lens.Lens' UpdateUpload (Prelude.Maybe Prelude.Text)
@@ -127,15 +127,15 @@ instance Core.AWSRequest UpdateUpload where
 
 instance Prelude.Hashable UpdateUpload where
   hashWithSalt _salt UpdateUpload' {..} =
-    _salt `Prelude.hashWithSalt` editContent
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` editContent
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData UpdateUpload where
   rnf UpdateUpload' {..} =
-    Prelude.rnf editContent
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf editContent
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf arn
 
@@ -158,8 +158,8 @@ instance Core.ToJSON UpdateUpload where
   toJSON UpdateUpload' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("editContent" Core..=) Prelude.<$> editContent,
-            ("name" Core..=) Prelude.<$> name,
+          [ ("name" Core..=) Prelude.<$> name,
+            ("editContent" Core..=) Prelude.<$> editContent,
             ("contentType" Core..=) Prelude.<$> contentType,
             Prelude.Just ("arn" Core..= arn)
           ]

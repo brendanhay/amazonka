@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProblemDetail' smart constructor.
 data ProblemDetail = ProblemDetail'
-  { -- | The problem detail\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The problem detail\'s name.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The problem detail\'s name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The problem detail\'s ARN.
+    arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data ProblemDetail = ProblemDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'problemDetail_arn' - The problem detail\'s ARN.
---
 -- 'name', 'problemDetail_name' - The problem detail\'s name.
+--
+-- 'arn', 'problemDetail_arn' - The problem detail\'s ARN.
 newProblemDetail ::
   ProblemDetail
 newProblemDetail =
   ProblemDetail'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing
     }
-
--- | The problem detail\'s ARN.
-problemDetail_arn :: Lens.Lens' ProblemDetail (Prelude.Maybe Prelude.Text)
-problemDetail_arn = Lens.lens (\ProblemDetail' {arn} -> arn) (\s@ProblemDetail' {} a -> s {arn = a} :: ProblemDetail)
 
 -- | The problem detail\'s name.
 problemDetail_name :: Lens.Lens' ProblemDetail (Prelude.Maybe Prelude.Text)
 problemDetail_name = Lens.lens (\ProblemDetail' {name} -> name) (\s@ProblemDetail' {} a -> s {name = a} :: ProblemDetail)
+
+-- | The problem detail\'s ARN.
+problemDetail_arn :: Lens.Lens' ProblemDetail (Prelude.Maybe Prelude.Text)
+problemDetail_arn = Lens.lens (\ProblemDetail' {arn} -> arn) (\s@ProblemDetail' {} a -> s {arn = a} :: ProblemDetail)
 
 instance Core.FromJSON ProblemDetail where
   parseJSON =
@@ -67,14 +67,14 @@ instance Core.FromJSON ProblemDetail where
       "ProblemDetail"
       ( \x ->
           ProblemDetail'
-            Prelude.<$> (x Core..:? "arn") Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "arn")
       )
 
 instance Prelude.Hashable ProblemDetail where
   hashWithSalt _salt ProblemDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ProblemDetail where
   rnf ProblemDetail' {..} =
-    Prelude.rnf arn `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf arn

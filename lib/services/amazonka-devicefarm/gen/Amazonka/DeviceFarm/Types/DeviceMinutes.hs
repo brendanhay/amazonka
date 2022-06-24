@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeviceMinutes' smart constructor.
 data DeviceMinutes = DeviceMinutes'
-  { -- | When specified, represents only the sum of metered minutes used by the
+  { -- | When specified, represents only the sum of unmetered minutes used by the
     -- resource to run tests.
-    metered :: Prelude.Maybe Prelude.Double,
+    unmetered :: Prelude.Maybe Prelude.Double,
     -- | When specified, represents the total minutes used by the resource to run
     -- tests.
     total :: Prelude.Maybe Prelude.Double,
-    -- | When specified, represents only the sum of unmetered minutes used by the
+    -- | When specified, represents only the sum of metered minutes used by the
     -- resource to run tests.
-    unmetered :: Prelude.Maybe Prelude.Double
+    metered :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,37 +48,37 @@ data DeviceMinutes = DeviceMinutes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metered', 'deviceMinutes_metered' - When specified, represents only the sum of metered minutes used by the
+-- 'unmetered', 'deviceMinutes_unmetered' - When specified, represents only the sum of unmetered minutes used by the
 -- resource to run tests.
 --
 -- 'total', 'deviceMinutes_total' - When specified, represents the total minutes used by the resource to run
 -- tests.
 --
--- 'unmetered', 'deviceMinutes_unmetered' - When specified, represents only the sum of unmetered minutes used by the
+-- 'metered', 'deviceMinutes_metered' - When specified, represents only the sum of metered minutes used by the
 -- resource to run tests.
 newDeviceMinutes ::
   DeviceMinutes
 newDeviceMinutes =
   DeviceMinutes'
-    { metered = Prelude.Nothing,
+    { unmetered = Prelude.Nothing,
       total = Prelude.Nothing,
-      unmetered = Prelude.Nothing
+      metered = Prelude.Nothing
     }
 
--- | When specified, represents only the sum of metered minutes used by the
+-- | When specified, represents only the sum of unmetered minutes used by the
 -- resource to run tests.
-deviceMinutes_metered :: Lens.Lens' DeviceMinutes (Prelude.Maybe Prelude.Double)
-deviceMinutes_metered = Lens.lens (\DeviceMinutes' {metered} -> metered) (\s@DeviceMinutes' {} a -> s {metered = a} :: DeviceMinutes)
+deviceMinutes_unmetered :: Lens.Lens' DeviceMinutes (Prelude.Maybe Prelude.Double)
+deviceMinutes_unmetered = Lens.lens (\DeviceMinutes' {unmetered} -> unmetered) (\s@DeviceMinutes' {} a -> s {unmetered = a} :: DeviceMinutes)
 
 -- | When specified, represents the total minutes used by the resource to run
 -- tests.
 deviceMinutes_total :: Lens.Lens' DeviceMinutes (Prelude.Maybe Prelude.Double)
 deviceMinutes_total = Lens.lens (\DeviceMinutes' {total} -> total) (\s@DeviceMinutes' {} a -> s {total = a} :: DeviceMinutes)
 
--- | When specified, represents only the sum of unmetered minutes used by the
+-- | When specified, represents only the sum of metered minutes used by the
 -- resource to run tests.
-deviceMinutes_unmetered :: Lens.Lens' DeviceMinutes (Prelude.Maybe Prelude.Double)
-deviceMinutes_unmetered = Lens.lens (\DeviceMinutes' {unmetered} -> unmetered) (\s@DeviceMinutes' {} a -> s {unmetered = a} :: DeviceMinutes)
+deviceMinutes_metered :: Lens.Lens' DeviceMinutes (Prelude.Maybe Prelude.Double)
+deviceMinutes_metered = Lens.lens (\DeviceMinutes' {metered} -> metered) (\s@DeviceMinutes' {} a -> s {metered = a} :: DeviceMinutes)
 
 instance Core.FromJSON DeviceMinutes where
   parseJSON =
@@ -86,19 +86,19 @@ instance Core.FromJSON DeviceMinutes where
       "DeviceMinutes"
       ( \x ->
           DeviceMinutes'
-            Prelude.<$> (x Core..:? "metered")
+            Prelude.<$> (x Core..:? "unmetered")
             Prelude.<*> (x Core..:? "total")
-            Prelude.<*> (x Core..:? "unmetered")
+            Prelude.<*> (x Core..:? "metered")
       )
 
 instance Prelude.Hashable DeviceMinutes where
   hashWithSalt _salt DeviceMinutes' {..} =
-    _salt `Prelude.hashWithSalt` metered
+    _salt `Prelude.hashWithSalt` unmetered
       `Prelude.hashWithSalt` total
-      `Prelude.hashWithSalt` unmetered
+      `Prelude.hashWithSalt` metered
 
 instance Prelude.NFData DeviceMinutes where
   rnf DeviceMinutes' {..} =
-    Prelude.rnf metered
+    Prelude.rnf unmetered
       `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf unmetered
+      `Prelude.seq` Prelude.rnf metered

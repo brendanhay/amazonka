@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateRemoteAccessSessionConfiguration' smart constructor.
 data CreateRemoteAccessSessionConfiguration = CreateRemoteAccessSessionConfiguration'
-  { -- | The billing method for the remote access session.
-    billingMethod :: Prelude.Maybe BillingMethod,
-    -- | An array of ARNs included in the VPC endpoint configuration.
-    vpceConfigurationArns :: Prelude.Maybe [Prelude.Text]
+  { -- | An array of ARNs included in the VPC endpoint configuration.
+    vpceConfigurationArns :: Prelude.Maybe [Prelude.Text],
+    -- | The billing method for the remote access session.
+    billingMethod :: Prelude.Maybe BillingMethod
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,25 @@ data CreateRemoteAccessSessionConfiguration = CreateRemoteAccessSessionConfigura
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'billingMethod', 'createRemoteAccessSessionConfiguration_billingMethod' - The billing method for the remote access session.
---
 -- 'vpceConfigurationArns', 'createRemoteAccessSessionConfiguration_vpceConfigurationArns' - An array of ARNs included in the VPC endpoint configuration.
+--
+-- 'billingMethod', 'createRemoteAccessSessionConfiguration_billingMethod' - The billing method for the remote access session.
 newCreateRemoteAccessSessionConfiguration ::
   CreateRemoteAccessSessionConfiguration
 newCreateRemoteAccessSessionConfiguration =
   CreateRemoteAccessSessionConfiguration'
-    { billingMethod =
+    { vpceConfigurationArns =
         Prelude.Nothing,
-      vpceConfigurationArns =
-        Prelude.Nothing
+      billingMethod = Prelude.Nothing
     }
-
--- | The billing method for the remote access session.
-createRemoteAccessSessionConfiguration_billingMethod :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Prelude.Maybe BillingMethod)
-createRemoteAccessSessionConfiguration_billingMethod = Lens.lens (\CreateRemoteAccessSessionConfiguration' {billingMethod} -> billingMethod) (\s@CreateRemoteAccessSessionConfiguration' {} a -> s {billingMethod = a} :: CreateRemoteAccessSessionConfiguration)
 
 -- | An array of ARNs included in the VPC endpoint configuration.
 createRemoteAccessSessionConfiguration_vpceConfigurationArns :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Prelude.Maybe [Prelude.Text])
 createRemoteAccessSessionConfiguration_vpceConfigurationArns = Lens.lens (\CreateRemoteAccessSessionConfiguration' {vpceConfigurationArns} -> vpceConfigurationArns) (\s@CreateRemoteAccessSessionConfiguration' {} a -> s {vpceConfigurationArns = a} :: CreateRemoteAccessSessionConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The billing method for the remote access session.
+createRemoteAccessSessionConfiguration_billingMethod :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Prelude.Maybe BillingMethod)
+createRemoteAccessSessionConfiguration_billingMethod = Lens.lens (\CreateRemoteAccessSessionConfiguration' {billingMethod} -> billingMethod) (\s@CreateRemoteAccessSessionConfiguration' {} a -> s {billingMethod = a} :: CreateRemoteAccessSessionConfiguration)
 
 instance
   Prelude.Hashable
@@ -72,16 +71,16 @@ instance
   hashWithSalt
     _salt
     CreateRemoteAccessSessionConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` billingMethod
-        `Prelude.hashWithSalt` vpceConfigurationArns
+      _salt `Prelude.hashWithSalt` vpceConfigurationArns
+        `Prelude.hashWithSalt` billingMethod
 
 instance
   Prelude.NFData
     CreateRemoteAccessSessionConfiguration
   where
   rnf CreateRemoteAccessSessionConfiguration' {..} =
-    Prelude.rnf billingMethod
-      `Prelude.seq` Prelude.rnf vpceConfigurationArns
+    Prelude.rnf vpceConfigurationArns
+      `Prelude.seq` Prelude.rnf billingMethod
 
 instance
   Core.ToJSON
@@ -90,8 +89,8 @@ instance
   toJSON CreateRemoteAccessSessionConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("billingMethod" Core..=) Prelude.<$> billingMethod,
-            ("vpceConfigurationArns" Core..=)
-              Prelude.<$> vpceConfigurationArns
+          [ ("vpceConfigurationArns" Core..=)
+              Prelude.<$> vpceConfigurationArns,
+            ("billingMethod" Core..=) Prelude.<$> billingMethod
           ]
       )

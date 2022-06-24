@@ -38,8 +38,8 @@ module Amazonka.DeviceFarm.ListArtifacts
     newListArtifactsResponse,
 
     -- * Response Lenses
-    listArtifactsResponse_artifacts,
     listArtifactsResponse_nextToken,
+    listArtifactsResponse_artifacts,
     listArtifactsResponse_httpStatus,
   )
 where
@@ -160,8 +160,8 @@ instance Core.AWSRequest ListArtifacts where
     Response.receiveJSON
       ( \s h x ->
           ListArtifactsResponse'
-            Prelude.<$> (x Core..?> "artifacts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "artifacts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -212,12 +212,12 @@ instance Core.ToQuery ListArtifacts where
 --
 -- /See:/ 'newListArtifactsResponse' smart constructor.
 data ListArtifactsResponse = ListArtifactsResponse'
-  { -- | Information about the artifacts.
-    artifacts :: Prelude.Maybe [Artifact],
-    -- | If the number of items that are returned is significantly large, this is
+  { -- | If the number of items that are returned is significantly large, this is
     -- an identifier that is also returned. It can be used in a subsequent call
     -- to this operation to return the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the artifacts.
+    artifacts :: Prelude.Maybe [Artifact],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -231,11 +231,11 @@ data ListArtifactsResponse = ListArtifactsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'artifacts', 'listArtifactsResponse_artifacts' - Information about the artifacts.
---
 -- 'nextToken', 'listArtifactsResponse_nextToken' - If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
+--
+-- 'artifacts', 'listArtifactsResponse_artifacts' - Information about the artifacts.
 --
 -- 'httpStatus', 'listArtifactsResponse_httpStatus' - The response's http status code.
 newListArtifactsResponse ::
@@ -244,14 +244,10 @@ newListArtifactsResponse ::
   ListArtifactsResponse
 newListArtifactsResponse pHttpStatus_ =
   ListArtifactsResponse'
-    { artifacts = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      artifacts = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the artifacts.
-listArtifactsResponse_artifacts :: Lens.Lens' ListArtifactsResponse (Prelude.Maybe [Artifact])
-listArtifactsResponse_artifacts = Lens.lens (\ListArtifactsResponse' {artifacts} -> artifacts) (\s@ListArtifactsResponse' {} a -> s {artifacts = a} :: ListArtifactsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
@@ -259,12 +255,16 @@ listArtifactsResponse_artifacts = Lens.lens (\ListArtifactsResponse' {artifacts}
 listArtifactsResponse_nextToken :: Lens.Lens' ListArtifactsResponse (Prelude.Maybe Prelude.Text)
 listArtifactsResponse_nextToken = Lens.lens (\ListArtifactsResponse' {nextToken} -> nextToken) (\s@ListArtifactsResponse' {} a -> s {nextToken = a} :: ListArtifactsResponse)
 
+-- | Information about the artifacts.
+listArtifactsResponse_artifacts :: Lens.Lens' ListArtifactsResponse (Prelude.Maybe [Artifact])
+listArtifactsResponse_artifacts = Lens.lens (\ListArtifactsResponse' {artifacts} -> artifacts) (\s@ListArtifactsResponse' {} a -> s {artifacts = a} :: ListArtifactsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listArtifactsResponse_httpStatus :: Lens.Lens' ListArtifactsResponse Prelude.Int
 listArtifactsResponse_httpStatus = Lens.lens (\ListArtifactsResponse' {httpStatus} -> httpStatus) (\s@ListArtifactsResponse' {} a -> s {httpStatus = a} :: ListArtifactsResponse)
 
 instance Prelude.NFData ListArtifactsResponse where
   rnf ListArtifactsResponse' {..} =
-    Prelude.rnf artifacts
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf artifacts
       `Prelude.seq` Prelude.rnf httpStatus

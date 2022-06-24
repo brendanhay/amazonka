@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScheduleRunTest' smart constructor.
 data ScheduleRunTest = ScheduleRunTest'
-  { -- | The ARN of the YAML-formatted test specification.
+  { -- | The test\'s filter.
+    filter' :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the YAML-formatted test specification.
     testSpecArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the uploaded test to be run.
     testPackageArn :: Prelude.Maybe Prelude.Text,
@@ -117,8 +119,6 @@ data ScheduleRunTest = ScheduleRunTest'
     --     -   Running multiple tests:
     --         @com.android.abc.Test1,com.android.abc.Test2@
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The test\'s filter.
-    filter' :: Prelude.Maybe Prelude.Text,
     -- | The test\'s type.
     --
     -- Must be one of the following values:
@@ -171,6 +171,8 @@ data ScheduleRunTest = ScheduleRunTest'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'filter'', 'scheduleRunTest_filter' - The test\'s filter.
 --
 -- 'testSpecArn', 'scheduleRunTest_testSpecArn' - The ARN of the YAML-formatted test specification.
 --
@@ -259,8 +261,6 @@ data ScheduleRunTest = ScheduleRunTest'
 --     -   Running multiple tests:
 --         @com.android.abc.Test1,com.android.abc.Test2@
 --
--- 'filter'', 'scheduleRunTest_filter' - The test\'s filter.
---
 -- 'type'', 'scheduleRunTest_type' - The test\'s type.
 --
 -- Must be one of the following values:
@@ -308,12 +308,16 @@ newScheduleRunTest ::
   ScheduleRunTest
 newScheduleRunTest pType_ =
   ScheduleRunTest'
-    { testSpecArn = Prelude.Nothing,
+    { filter' = Prelude.Nothing,
+      testSpecArn = Prelude.Nothing,
       testPackageArn = Prelude.Nothing,
       parameters = Prelude.Nothing,
-      filter' = Prelude.Nothing,
       type' = pType_
     }
+
+-- | The test\'s filter.
+scheduleRunTest_filter :: Lens.Lens' ScheduleRunTest (Prelude.Maybe Prelude.Text)
+scheduleRunTest_filter = Lens.lens (\ScheduleRunTest' {filter'} -> filter') (\s@ScheduleRunTest' {} a -> s {filter' = a} :: ScheduleRunTest)
 
 -- | The ARN of the YAML-formatted test specification.
 scheduleRunTest_testSpecArn :: Lens.Lens' ScheduleRunTest (Prelude.Maybe Prelude.Text)
@@ -408,10 +412,6 @@ scheduleRunTest_testPackageArn = Lens.lens (\ScheduleRunTest' {testPackageArn} -
 scheduleRunTest_parameters :: Lens.Lens' ScheduleRunTest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 scheduleRunTest_parameters = Lens.lens (\ScheduleRunTest' {parameters} -> parameters) (\s@ScheduleRunTest' {} a -> s {parameters = a} :: ScheduleRunTest) Prelude.. Lens.mapping Lens.coerced
 
--- | The test\'s filter.
-scheduleRunTest_filter :: Lens.Lens' ScheduleRunTest (Prelude.Maybe Prelude.Text)
-scheduleRunTest_filter = Lens.lens (\ScheduleRunTest' {filter'} -> filter') (\s@ScheduleRunTest' {} a -> s {filter' = a} :: ScheduleRunTest)
-
 -- | The test\'s type.
 --
 -- Must be one of the following values:
@@ -458,29 +458,29 @@ scheduleRunTest_type = Lens.lens (\ScheduleRunTest' {type'} -> type') (\s@Schedu
 
 instance Prelude.Hashable ScheduleRunTest where
   hashWithSalt _salt ScheduleRunTest' {..} =
-    _salt `Prelude.hashWithSalt` testSpecArn
+    _salt `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` testSpecArn
       `Prelude.hashWithSalt` testPackageArn
       `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ScheduleRunTest where
   rnf ScheduleRunTest' {..} =
-    Prelude.rnf testSpecArn
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf testSpecArn
       `Prelude.seq` Prelude.rnf testPackageArn
       `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ScheduleRunTest where
   toJSON ScheduleRunTest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("testSpecArn" Core..=) Prelude.<$> testSpecArn,
+          [ ("filter" Core..=) Prelude.<$> filter',
+            ("testSpecArn" Core..=) Prelude.<$> testSpecArn,
             ("testPackageArn" Core..=)
               Prelude.<$> testPackageArn,
             ("parameters" Core..=) Prelude.<$> parameters,
-            ("filter" Core..=) Prelude.<$> filter',
             Prelude.Just ("type" Core..= type')
           ]
       )

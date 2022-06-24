@@ -14,59 +14,59 @@
 module Amazonka.MediaStoreData.Lens
   ( -- * Operations
 
-    -- ** PutObject
-    putObject_storageClass,
-    putObject_uploadAvailability,
-    putObject_cacheControl,
-    putObject_contentType,
-    putObject_path,
-    putObject_body,
-    putObjectResponse_eTag,
-    putObjectResponse_storageClass,
-    putObjectResponse_contentSHA256,
-    putObjectResponse_httpStatus,
-
     -- ** DeleteObject
     deleteObject_path,
     deleteObjectResponse_httpStatus,
 
     -- ** DescribeObject
     describeObject_path,
-    describeObjectResponse_eTag,
     describeObjectResponse_contentLength,
-    describeObjectResponse_cacheControl,
     describeObjectResponse_lastModified,
+    describeObjectResponse_cacheControl,
+    describeObjectResponse_eTag,
     describeObjectResponse_contentType,
     describeObjectResponse_httpStatus,
 
     -- ** GetObject
     getObject_range,
     getObject_path,
-    getObjectResponse_eTag,
     getObjectResponse_contentLength,
-    getObjectResponse_cacheControl,
-    getObjectResponse_lastModified,
     getObjectResponse_contentRange,
+    getObjectResponse_lastModified,
+    getObjectResponse_cacheControl,
+    getObjectResponse_eTag,
     getObjectResponse_contentType,
     getObjectResponse_statusCode,
     getObjectResponse_body,
 
     -- ** ListItems
-    listItems_path,
     listItems_nextToken,
+    listItems_path,
     listItems_maxResults,
     listItemsResponse_items,
     listItemsResponse_nextToken,
     listItemsResponse_httpStatus,
 
+    -- ** PutObject
+    putObject_uploadAvailability,
+    putObject_cacheControl,
+    putObject_storageClass,
+    putObject_contentType,
+    putObject_path,
+    putObject_body,
+    putObjectResponse_storageClass,
+    putObjectResponse_eTag,
+    putObjectResponse_contentSHA256,
+    putObjectResponse_httpStatus,
+
     -- * Types
 
     -- ** Item
-    item_eTag,
-    item_contentLength,
     item_name,
     item_type,
+    item_contentLength,
     item_lastModified,
+    item_eTag,
     item_contentType,
   )
 where

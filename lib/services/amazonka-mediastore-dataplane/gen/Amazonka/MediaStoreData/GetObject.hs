@@ -37,11 +37,11 @@ module Amazonka.MediaStoreData.GetObject
     newGetObjectResponse,
 
     -- * Response Lenses
-    getObjectResponse_eTag,
     getObjectResponse_contentLength,
-    getObjectResponse_cacheControl,
-    getObjectResponse_lastModified,
     getObjectResponse_contentRange,
+    getObjectResponse_lastModified,
+    getObjectResponse_cacheControl,
+    getObjectResponse_eTag,
     getObjectResponse_contentType,
     getObjectResponse_statusCode,
     getObjectResponse_body,
@@ -184,11 +184,11 @@ instance Core.AWSRequest GetObject where
     Response.receiveBody
       ( \s h x ->
           GetObjectResponse'
-            Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (h Core..#? "Content-Length")
-            Prelude.<*> (h Core..#? "Cache-Control")
-            Prelude.<*> (h Core..#? "Last-Modified")
+            Prelude.<$> (h Core..#? "Content-Length")
             Prelude.<*> (h Core..#? "Content-Range")
+            Prelude.<*> (h Core..#? "Last-Modified")
+            Prelude.<*> (h Core..#? "Cache-Control")
+            Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
@@ -216,10 +216,12 @@ instance Core.ToQuery GetObject where
 
 -- | /See:/ 'newGetObjectResponse' smart constructor.
 data GetObjectResponse = GetObjectResponse'
-  { -- | The ETag that represents a unique instance of the object.
-    eTag :: Prelude.Maybe Prelude.Text,
-    -- | The length of the object in bytes.
+  { -- | The length of the object in bytes.
     contentLength :: Prelude.Maybe Prelude.Natural,
+    -- | The range of bytes to retrieve.
+    contentRange :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the object was last modified.
+    lastModified :: Prelude.Maybe Core.POSIX,
     -- | An optional @CacheControl@ header that allows the caller to control the
     -- object\'s cache behavior. Headers can be passed in as specified in the
     -- HTTP spec at
@@ -227,10 +229,8 @@ data GetObjectResponse = GetObjectResponse'
     --
     -- Headers with a custom user-defined value are also accepted.
     cacheControl :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the object was last modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
-    -- | The range of bytes to retrieve.
-    contentRange :: Prelude.Maybe Prelude.Text,
+    -- | The ETag that represents a unique instance of the object.
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The content type of the object.
     contentType :: Prelude.Maybe Prelude.Text,
     -- | The HTML status code of the request. Status codes ranging from 200 to
@@ -250,9 +250,11 @@ data GetObjectResponse = GetObjectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'getObjectResponse_eTag' - The ETag that represents a unique instance of the object.
---
 -- 'contentLength', 'getObjectResponse_contentLength' - The length of the object in bytes.
+--
+-- 'contentRange', 'getObjectResponse_contentRange' - The range of bytes to retrieve.
+--
+-- 'lastModified', 'getObjectResponse_lastModified' - The date and time that the object was last modified.
 --
 -- 'cacheControl', 'getObjectResponse_cacheControl' - An optional @CacheControl@ header that allows the caller to control the
 -- object\'s cache behavior. Headers can be passed in as specified in the
@@ -261,9 +263,7 @@ data GetObjectResponse = GetObjectResponse'
 --
 -- Headers with a custom user-defined value are also accepted.
 --
--- 'lastModified', 'getObjectResponse_lastModified' - The date and time that the object was last modified.
---
--- 'contentRange', 'getObjectResponse_contentRange' - The range of bytes to retrieve.
+-- 'eTag', 'getObjectResponse_eTag' - The ETag that represents a unique instance of the object.
 --
 -- 'contentType', 'getObjectResponse_contentType' - The content type of the object.
 --
@@ -280,23 +280,27 @@ newGetObjectResponse ::
   GetObjectResponse
 newGetObjectResponse pStatusCode_ pBody_ =
   GetObjectResponse'
-    { eTag = Prelude.Nothing,
-      contentLength = Prelude.Nothing,
-      cacheControl = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
+    { contentLength = Prelude.Nothing,
       contentRange = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
+      cacheControl = Prelude.Nothing,
+      eTag = Prelude.Nothing,
       contentType = Prelude.Nothing,
       statusCode = pStatusCode_,
       body = pBody_
     }
 
--- | The ETag that represents a unique instance of the object.
-getObjectResponse_eTag :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
-getObjectResponse_eTag = Lens.lens (\GetObjectResponse' {eTag} -> eTag) (\s@GetObjectResponse' {} a -> s {eTag = a} :: GetObjectResponse)
-
 -- | The length of the object in bytes.
 getObjectResponse_contentLength :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Natural)
 getObjectResponse_contentLength = Lens.lens (\GetObjectResponse' {contentLength} -> contentLength) (\s@GetObjectResponse' {} a -> s {contentLength = a} :: GetObjectResponse)
+
+-- | The range of bytes to retrieve.
+getObjectResponse_contentRange :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
+getObjectResponse_contentRange = Lens.lens (\GetObjectResponse' {contentRange} -> contentRange) (\s@GetObjectResponse' {} a -> s {contentRange = a} :: GetObjectResponse)
+
+-- | The date and time that the object was last modified.
+getObjectResponse_lastModified :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.UTCTime)
+getObjectResponse_lastModified = Lens.lens (\GetObjectResponse' {lastModified} -> lastModified) (\s@GetObjectResponse' {} a -> s {lastModified = a} :: GetObjectResponse) Prelude.. Lens.mapping Core._Time
 
 -- | An optional @CacheControl@ header that allows the caller to control the
 -- object\'s cache behavior. Headers can be passed in as specified in the
@@ -307,13 +311,9 @@ getObjectResponse_contentLength = Lens.lens (\GetObjectResponse' {contentLength}
 getObjectResponse_cacheControl :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_cacheControl = Lens.lens (\GetObjectResponse' {cacheControl} -> cacheControl) (\s@GetObjectResponse' {} a -> s {cacheControl = a} :: GetObjectResponse)
 
--- | The date and time that the object was last modified.
-getObjectResponse_lastModified :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.UTCTime)
-getObjectResponse_lastModified = Lens.lens (\GetObjectResponse' {lastModified} -> lastModified) (\s@GetObjectResponse' {} a -> s {lastModified = a} :: GetObjectResponse) Prelude.. Lens.mapping Core._Time
-
--- | The range of bytes to retrieve.
-getObjectResponse_contentRange :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
-getObjectResponse_contentRange = Lens.lens (\GetObjectResponse' {contentRange} -> contentRange) (\s@GetObjectResponse' {} a -> s {contentRange = a} :: GetObjectResponse)
+-- | The ETag that represents a unique instance of the object.
+getObjectResponse_eTag :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
+getObjectResponse_eTag = Lens.lens (\GetObjectResponse' {eTag} -> eTag) (\s@GetObjectResponse' {} a -> s {eTag = a} :: GetObjectResponse)
 
 -- | The content type of the object.
 getObjectResponse_contentType :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)

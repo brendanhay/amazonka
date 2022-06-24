@@ -35,8 +35,8 @@ module Amazonka.DirectConnect.DescribeLoa
     newDescribeLoa,
 
     -- * Request Lenses
-    describeLoa_loaContentType,
     describeLoa_providerName,
+    describeLoa_loaContentType,
     describeLoa_connectionId,
 
     -- * Destructuring the Response
@@ -59,13 +59,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLoa' smart constructor.
 data DescribeLoa = DescribeLoa'
-  { -- | The standard media type for the LOA-CFA document. The only supported
-    -- value is application\/pdf.
-    loaContentType :: Prelude.Maybe LoaContentType,
-    -- | The name of the service provider who establishes connectivity on your
+  { -- | The name of the service provider who establishes connectivity on your
     -- behalf. If you specify this parameter, the LOA-CFA lists the provider
     -- name alongside your company name as the requester of the cross connect.
     providerName :: Prelude.Maybe Prelude.Text,
+    -- | The standard media type for the LOA-CFA document. The only supported
+    -- value is application\/pdf.
+    loaContentType :: Prelude.Maybe LoaContentType,
     -- | The ID of a connection, LAG, or interconnect.
     connectionId :: Prelude.Text
   }
@@ -79,12 +79,12 @@ data DescribeLoa = DescribeLoa'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loaContentType', 'describeLoa_loaContentType' - The standard media type for the LOA-CFA document. The only supported
--- value is application\/pdf.
---
 -- 'providerName', 'describeLoa_providerName' - The name of the service provider who establishes connectivity on your
 -- behalf. If you specify this parameter, the LOA-CFA lists the provider
 -- name alongside your company name as the requester of the cross connect.
+--
+-- 'loaContentType', 'describeLoa_loaContentType' - The standard media type for the LOA-CFA document. The only supported
+-- value is application\/pdf.
 --
 -- 'connectionId', 'describeLoa_connectionId' - The ID of a connection, LAG, or interconnect.
 newDescribeLoa ::
@@ -93,21 +93,21 @@ newDescribeLoa ::
   DescribeLoa
 newDescribeLoa pConnectionId_ =
   DescribeLoa'
-    { loaContentType = Prelude.Nothing,
-      providerName = Prelude.Nothing,
+    { providerName = Prelude.Nothing,
+      loaContentType = Prelude.Nothing,
       connectionId = pConnectionId_
     }
-
--- | The standard media type for the LOA-CFA document. The only supported
--- value is application\/pdf.
-describeLoa_loaContentType :: Lens.Lens' DescribeLoa (Prelude.Maybe LoaContentType)
-describeLoa_loaContentType = Lens.lens (\DescribeLoa' {loaContentType} -> loaContentType) (\s@DescribeLoa' {} a -> s {loaContentType = a} :: DescribeLoa)
 
 -- | The name of the service provider who establishes connectivity on your
 -- behalf. If you specify this parameter, the LOA-CFA lists the provider
 -- name alongside your company name as the requester of the cross connect.
 describeLoa_providerName :: Lens.Lens' DescribeLoa (Prelude.Maybe Prelude.Text)
 describeLoa_providerName = Lens.lens (\DescribeLoa' {providerName} -> providerName) (\s@DescribeLoa' {} a -> s {providerName = a} :: DescribeLoa)
+
+-- | The standard media type for the LOA-CFA document. The only supported
+-- value is application\/pdf.
+describeLoa_loaContentType :: Lens.Lens' DescribeLoa (Prelude.Maybe LoaContentType)
+describeLoa_loaContentType = Lens.lens (\DescribeLoa' {loaContentType} -> loaContentType) (\s@DescribeLoa' {} a -> s {loaContentType = a} :: DescribeLoa)
 
 -- | The ID of a connection, LAG, or interconnect.
 describeLoa_connectionId :: Lens.Lens' DescribeLoa Prelude.Text
@@ -127,14 +127,14 @@ instance Core.AWSRequest DescribeLoa where
 
 instance Prelude.Hashable DescribeLoa where
   hashWithSalt _salt DescribeLoa' {..} =
-    _salt `Prelude.hashWithSalt` loaContentType
-      `Prelude.hashWithSalt` providerName
+    _salt `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` loaContentType
       `Prelude.hashWithSalt` connectionId
 
 instance Prelude.NFData DescribeLoa where
   rnf DescribeLoa' {..} =
-    Prelude.rnf loaContentType
-      `Prelude.seq` Prelude.rnf providerName
+    Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf loaContentType
       `Prelude.seq` Prelude.rnf connectionId
 
 instance Core.ToHeaders DescribeLoa where
@@ -156,9 +156,9 @@ instance Core.ToJSON DescribeLoa where
   toJSON DescribeLoa' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("loaContentType" Core..=)
+          [ ("providerName" Core..=) Prelude.<$> providerName,
+            ("loaContentType" Core..=)
               Prelude.<$> loaContentType,
-            ("providerName" Core..=) Prelude.<$> providerName,
             Prelude.Just ("connectionId" Core..= connectionId)
           ]
       )

@@ -36,9 +36,9 @@ module Amazonka.DirectConnect.AssociateMacSecKey
     newAssociateMacSecKey,
 
     -- * Request Lenses
-    associateMacSecKey_ckn,
     associateMacSecKey_cak,
     associateMacSecKey_secretARN,
+    associateMacSecKey_ckn,
     associateMacSecKey_connectionId,
 
     -- * Destructuring the Response
@@ -46,8 +46,8 @@ module Amazonka.DirectConnect.AssociateMacSecKey
     newAssociateMacSecKeyResponse,
 
     -- * Response Lenses
-    associateMacSecKeyResponse_connectionId,
     associateMacSecKeyResponse_macSecKeys,
+    associateMacSecKeyResponse_connectionId,
     associateMacSecKeyResponse_httpStatus,
   )
 where
@@ -61,17 +61,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateMacSecKey' smart constructor.
 data AssociateMacSecKey = AssociateMacSecKey'
-  { -- | The MAC Security (MACsec) CKN to associate with the dedicated
-    -- connection.
-    --
-    -- You can create the CKN\/CAK pair using an industry standard tool.
-    --
-    -- The valid values are 64 hexadecimal characters (0-9, A-E).
-    --
-    -- If you use this request parameter, you must use the @cak@ request
-    -- parameter and not use the @secretARN@ request parameter.
-    ckn :: Prelude.Maybe Prelude.Text,
-    -- | The MAC Security (MACsec) CAK to associate with the dedicated
+  { -- | The MAC Security (MACsec) CAK to associate with the dedicated
     -- connection.
     --
     -- You can create the CKN\/CAK pair using an industry standard tool.
@@ -90,6 +80,16 @@ data AssociateMacSecKey = AssociateMacSecKey'
     -- If you use this request parameter, you do not use the @ckn@ and @cak@
     -- request parameters.
     secretARN :: Prelude.Maybe Prelude.Text,
+    -- | The MAC Security (MACsec) CKN to associate with the dedicated
+    -- connection.
+    --
+    -- You can create the CKN\/CAK pair using an industry standard tool.
+    --
+    -- The valid values are 64 hexadecimal characters (0-9, A-E).
+    --
+    -- If you use this request parameter, you must use the @cak@ request
+    -- parameter and not use the @secretARN@ request parameter.
+    ckn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
     -- (dxlag-xxxx).
     --
@@ -106,16 +106,6 @@ data AssociateMacSecKey = AssociateMacSecKey'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'ckn', 'associateMacSecKey_ckn' - The MAC Security (MACsec) CKN to associate with the dedicated
--- connection.
---
--- You can create the CKN\/CAK pair using an industry standard tool.
---
--- The valid values are 64 hexadecimal characters (0-9, A-E).
---
--- If you use this request parameter, you must use the @cak@ request
--- parameter and not use the @secretARN@ request parameter.
 --
 -- 'cak', 'associateMacSecKey_cak' - The MAC Security (MACsec) CAK to associate with the dedicated
 -- connection.
@@ -136,6 +126,16 @@ data AssociateMacSecKey = AssociateMacSecKey'
 -- If you use this request parameter, you do not use the @ckn@ and @cak@
 -- request parameters.
 --
+-- 'ckn', 'associateMacSecKey_ckn' - The MAC Security (MACsec) CKN to associate with the dedicated
+-- connection.
+--
+-- You can create the CKN\/CAK pair using an industry standard tool.
+--
+-- The valid values are 64 hexadecimal characters (0-9, A-E).
+--
+-- If you use this request parameter, you must use the @cak@ request
+-- parameter and not use the @secretARN@ request parameter.
+--
 -- 'connectionId', 'associateMacSecKey_connectionId' - The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
 -- (dxlag-xxxx).
 --
@@ -147,23 +147,11 @@ newAssociateMacSecKey ::
   AssociateMacSecKey
 newAssociateMacSecKey pConnectionId_ =
   AssociateMacSecKey'
-    { ckn = Prelude.Nothing,
-      cak = Prelude.Nothing,
+    { cak = Prelude.Nothing,
       secretARN = Prelude.Nothing,
+      ckn = Prelude.Nothing,
       connectionId = pConnectionId_
     }
-
--- | The MAC Security (MACsec) CKN to associate with the dedicated
--- connection.
---
--- You can create the CKN\/CAK pair using an industry standard tool.
---
--- The valid values are 64 hexadecimal characters (0-9, A-E).
---
--- If you use this request parameter, you must use the @cak@ request
--- parameter and not use the @secretARN@ request parameter.
-associateMacSecKey_ckn :: Lens.Lens' AssociateMacSecKey (Prelude.Maybe Prelude.Text)
-associateMacSecKey_ckn = Lens.lens (\AssociateMacSecKey' {ckn} -> ckn) (\s@AssociateMacSecKey' {} a -> s {ckn = a} :: AssociateMacSecKey)
 
 -- | The MAC Security (MACsec) CAK to associate with the dedicated
 -- connection.
@@ -188,6 +176,18 @@ associateMacSecKey_cak = Lens.lens (\AssociateMacSecKey' {cak} -> cak) (\s@Assoc
 associateMacSecKey_secretARN :: Lens.Lens' AssociateMacSecKey (Prelude.Maybe Prelude.Text)
 associateMacSecKey_secretARN = Lens.lens (\AssociateMacSecKey' {secretARN} -> secretARN) (\s@AssociateMacSecKey' {} a -> s {secretARN = a} :: AssociateMacSecKey)
 
+-- | The MAC Security (MACsec) CKN to associate with the dedicated
+-- connection.
+--
+-- You can create the CKN\/CAK pair using an industry standard tool.
+--
+-- The valid values are 64 hexadecimal characters (0-9, A-E).
+--
+-- If you use this request parameter, you must use the @cak@ request
+-- parameter and not use the @secretARN@ request parameter.
+associateMacSecKey_ckn :: Lens.Lens' AssociateMacSecKey (Prelude.Maybe Prelude.Text)
+associateMacSecKey_ckn = Lens.lens (\AssociateMacSecKey' {ckn} -> ckn) (\s@AssociateMacSecKey' {} a -> s {ckn = a} :: AssociateMacSecKey)
+
 -- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
 -- (dxlag-xxxx).
 --
@@ -205,23 +205,23 @@ instance Core.AWSRequest AssociateMacSecKey where
     Response.receiveJSON
       ( \s h x ->
           AssociateMacSecKeyResponse'
-            Prelude.<$> (x Core..?> "connectionId")
-            Prelude.<*> (x Core..?> "macSecKeys" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "macSecKeys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "connectionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable AssociateMacSecKey where
   hashWithSalt _salt AssociateMacSecKey' {..} =
-    _salt `Prelude.hashWithSalt` ckn
-      `Prelude.hashWithSalt` cak
+    _salt `Prelude.hashWithSalt` cak
       `Prelude.hashWithSalt` secretARN
+      `Prelude.hashWithSalt` ckn
       `Prelude.hashWithSalt` connectionId
 
 instance Prelude.NFData AssociateMacSecKey where
   rnf AssociateMacSecKey' {..} =
-    Prelude.rnf ckn
-      `Prelude.seq` Prelude.rnf cak
+    Prelude.rnf cak
       `Prelude.seq` Prelude.rnf secretARN
+      `Prelude.seq` Prelude.rnf ckn
       `Prelude.seq` Prelude.rnf connectionId
 
 instance Core.ToHeaders AssociateMacSecKey where
@@ -243,9 +243,9 @@ instance Core.ToJSON AssociateMacSecKey where
   toJSON AssociateMacSecKey' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ckn" Core..=) Prelude.<$> ckn,
-            ("cak" Core..=) Prelude.<$> cak,
+          [ ("cak" Core..=) Prelude.<$> cak,
             ("secretARN" Core..=) Prelude.<$> secretARN,
+            ("ckn" Core..=) Prelude.<$> ckn,
             Prelude.Just ("connectionId" Core..= connectionId)
           ]
       )
@@ -258,12 +258,12 @@ instance Core.ToQuery AssociateMacSecKey where
 
 -- | /See:/ 'newAssociateMacSecKeyResponse' smart constructor.
 data AssociateMacSecKeyResponse = AssociateMacSecKeyResponse'
-  { -- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
-    -- (dxlag-xxxx).
-    connectionId :: Prelude.Maybe Prelude.Text,
-    -- | The MAC Security (MACsec) security keys associated with the dedicated
+  { -- | The MAC Security (MACsec) security keys associated with the dedicated
     -- connection.
     macSecKeys :: Prelude.Maybe [MacSecKey],
+    -- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
+    -- (dxlag-xxxx).
+    connectionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -277,11 +277,11 @@ data AssociateMacSecKeyResponse = AssociateMacSecKeyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionId', 'associateMacSecKeyResponse_connectionId' - The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
--- (dxlag-xxxx).
---
 -- 'macSecKeys', 'associateMacSecKeyResponse_macSecKeys' - The MAC Security (MACsec) security keys associated with the dedicated
 -- connection.
+--
+-- 'connectionId', 'associateMacSecKeyResponse_connectionId' - The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
+-- (dxlag-xxxx).
 --
 -- 'httpStatus', 'associateMacSecKeyResponse_httpStatus' - The response's http status code.
 newAssociateMacSecKeyResponse ::
@@ -290,21 +290,21 @@ newAssociateMacSecKeyResponse ::
   AssociateMacSecKeyResponse
 newAssociateMacSecKeyResponse pHttpStatus_ =
   AssociateMacSecKeyResponse'
-    { connectionId =
+    { macSecKeys =
         Prelude.Nothing,
-      macSecKeys = Prelude.Nothing,
+      connectionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
--- (dxlag-xxxx).
-associateMacSecKeyResponse_connectionId :: Lens.Lens' AssociateMacSecKeyResponse (Prelude.Maybe Prelude.Text)
-associateMacSecKeyResponse_connectionId = Lens.lens (\AssociateMacSecKeyResponse' {connectionId} -> connectionId) (\s@AssociateMacSecKeyResponse' {} a -> s {connectionId = a} :: AssociateMacSecKeyResponse)
 
 -- | The MAC Security (MACsec) security keys associated with the dedicated
 -- connection.
 associateMacSecKeyResponse_macSecKeys :: Lens.Lens' AssociateMacSecKeyResponse (Prelude.Maybe [MacSecKey])
 associateMacSecKeyResponse_macSecKeys = Lens.lens (\AssociateMacSecKeyResponse' {macSecKeys} -> macSecKeys) (\s@AssociateMacSecKeyResponse' {} a -> s {macSecKeys = a} :: AssociateMacSecKeyResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
+-- (dxlag-xxxx).
+associateMacSecKeyResponse_connectionId :: Lens.Lens' AssociateMacSecKeyResponse (Prelude.Maybe Prelude.Text)
+associateMacSecKeyResponse_connectionId = Lens.lens (\AssociateMacSecKeyResponse' {connectionId} -> connectionId) (\s@AssociateMacSecKeyResponse' {} a -> s {connectionId = a} :: AssociateMacSecKeyResponse)
 
 -- | The response's http status code.
 associateMacSecKeyResponse_httpStatus :: Lens.Lens' AssociateMacSecKeyResponse Prelude.Int
@@ -312,6 +312,6 @@ associateMacSecKeyResponse_httpStatus = Lens.lens (\AssociateMacSecKeyResponse' 
 
 instance Prelude.NFData AssociateMacSecKeyResponse where
   rnf AssociateMacSecKeyResponse' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf macSecKeys
+    Prelude.rnf macSecKeys
+      `Prelude.seq` Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf httpStatus

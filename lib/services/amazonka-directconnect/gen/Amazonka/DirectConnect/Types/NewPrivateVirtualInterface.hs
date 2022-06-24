@@ -29,24 +29,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNewPrivateVirtualInterface' smart constructor.
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
-  { -- | The ID of the virtual private gateway.
+  { -- | The tags associated with the private virtual interface.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The address family for the BGP peer.
+    addressFamily :: Prelude.Maybe AddressFamily,
+    -- | The authentication key for BGP configuration. This string has a minimum
+    -- length of 6 characters and and a maximun lenth of 80 characters.
+    authKey :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the virtual private gateway.
     virtualGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum transmission unit (MTU), in bytes. The supported values are
-    -- 1500 and 9001. The default value is 1500.
-    mtu :: Prelude.Maybe Prelude.Int,
     -- | The IP address assigned to the customer interface.
     customerAddress :: Prelude.Maybe Prelude.Text,
     -- | The IP address assigned to the Amazon interface.
     amazonAddress :: Prelude.Maybe Prelude.Text,
-    -- | The address family for the BGP peer.
-    addressFamily :: Prelude.Maybe AddressFamily,
-    -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The authentication key for BGP configuration. This string has a minimum
-    -- length of 6 characters and and a maximun lenth of 80 characters.
-    authKey :: Prelude.Maybe Prelude.Text,
-    -- | The tags associated with the private virtual interface.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The maximum transmission unit (MTU), in bytes. The supported values are
+    -- 1500 and 9001. The default value is 1500.
+    mtu :: Prelude.Maybe Prelude.Int,
     -- | The name of the virtual interface assigned by the customer network. The
     -- name has a maximum of 100 characters. The following are valid
     -- characters: a-z, 0-9 and a hyphen (-).
@@ -69,23 +69,23 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'virtualGatewayId', 'newPrivateVirtualInterface_virtualGatewayId' - The ID of the virtual private gateway.
+-- 'tags', 'newPrivateVirtualInterface_tags' - The tags associated with the private virtual interface.
 --
--- 'mtu', 'newPrivateVirtualInterface_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are
--- 1500 and 9001. The default value is 1500.
+-- 'addressFamily', 'newPrivateVirtualInterface_addressFamily' - The address family for the BGP peer.
+--
+-- 'authKey', 'newPrivateVirtualInterface_authKey' - The authentication key for BGP configuration. This string has a minimum
+-- length of 6 characters and and a maximun lenth of 80 characters.
+--
+-- 'directConnectGatewayId', 'newPrivateVirtualInterface_directConnectGatewayId' - The ID of the Direct Connect gateway.
+--
+-- 'virtualGatewayId', 'newPrivateVirtualInterface_virtualGatewayId' - The ID of the virtual private gateway.
 --
 -- 'customerAddress', 'newPrivateVirtualInterface_customerAddress' - The IP address assigned to the customer interface.
 --
 -- 'amazonAddress', 'newPrivateVirtualInterface_amazonAddress' - The IP address assigned to the Amazon interface.
 --
--- 'addressFamily', 'newPrivateVirtualInterface_addressFamily' - The address family for the BGP peer.
---
--- 'directConnectGatewayId', 'newPrivateVirtualInterface_directConnectGatewayId' - The ID of the Direct Connect gateway.
---
--- 'authKey', 'newPrivateVirtualInterface_authKey' - The authentication key for BGP configuration. This string has a minimum
--- length of 6 characters and and a maximun lenth of 80 characters.
---
--- 'tags', 'newPrivateVirtualInterface_tags' - The tags associated with the private virtual interface.
+-- 'mtu', 'newPrivateVirtualInterface_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are
+-- 1500 and 9001. The default value is 1500.
 --
 -- 'virtualInterfaceName', 'newPrivateVirtualInterface_virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
@@ -110,28 +110,39 @@ newNewPrivateVirtualInterface
   pVlan_
   pAsn_ =
     NewPrivateVirtualInterface'
-      { virtualGatewayId =
-          Prelude.Nothing,
-        mtu = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        addressFamily = Prelude.Nothing,
+        authKey = Prelude.Nothing,
+        directConnectGatewayId = Prelude.Nothing,
+        virtualGatewayId = Prelude.Nothing,
         customerAddress = Prelude.Nothing,
         amazonAddress = Prelude.Nothing,
-        addressFamily = Prelude.Nothing,
-        directConnectGatewayId = Prelude.Nothing,
-        authKey = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        mtu = Prelude.Nothing,
         virtualInterfaceName = pVirtualInterfaceName_,
         vlan = pVlan_,
         asn = pAsn_
       }
 
+-- | The tags associated with the private virtual interface.
+newPrivateVirtualInterface_tags :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe (Prelude.NonEmpty Tag))
+newPrivateVirtualInterface_tags = Lens.lens (\NewPrivateVirtualInterface' {tags} -> tags) (\s@NewPrivateVirtualInterface' {} a -> s {tags = a} :: NewPrivateVirtualInterface) Prelude.. Lens.mapping Lens.coerced
+
+-- | The address family for the BGP peer.
+newPrivateVirtualInterface_addressFamily :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe AddressFamily)
+newPrivateVirtualInterface_addressFamily = Lens.lens (\NewPrivateVirtualInterface' {addressFamily} -> addressFamily) (\s@NewPrivateVirtualInterface' {} a -> s {addressFamily = a} :: NewPrivateVirtualInterface)
+
+-- | The authentication key for BGP configuration. This string has a minimum
+-- length of 6 characters and and a maximun lenth of 80 characters.
+newPrivateVirtualInterface_authKey :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
+newPrivateVirtualInterface_authKey = Lens.lens (\NewPrivateVirtualInterface' {authKey} -> authKey) (\s@NewPrivateVirtualInterface' {} a -> s {authKey = a} :: NewPrivateVirtualInterface)
+
+-- | The ID of the Direct Connect gateway.
+newPrivateVirtualInterface_directConnectGatewayId :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
+newPrivateVirtualInterface_directConnectGatewayId = Lens.lens (\NewPrivateVirtualInterface' {directConnectGatewayId} -> directConnectGatewayId) (\s@NewPrivateVirtualInterface' {} a -> s {directConnectGatewayId = a} :: NewPrivateVirtualInterface)
+
 -- | The ID of the virtual private gateway.
 newPrivateVirtualInterface_virtualGatewayId :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
 newPrivateVirtualInterface_virtualGatewayId = Lens.lens (\NewPrivateVirtualInterface' {virtualGatewayId} -> virtualGatewayId) (\s@NewPrivateVirtualInterface' {} a -> s {virtualGatewayId = a} :: NewPrivateVirtualInterface)
-
--- | The maximum transmission unit (MTU), in bytes. The supported values are
--- 1500 and 9001. The default value is 1500.
-newPrivateVirtualInterface_mtu :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Int)
-newPrivateVirtualInterface_mtu = Lens.lens (\NewPrivateVirtualInterface' {mtu} -> mtu) (\s@NewPrivateVirtualInterface' {} a -> s {mtu = a} :: NewPrivateVirtualInterface)
 
 -- | The IP address assigned to the customer interface.
 newPrivateVirtualInterface_customerAddress :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
@@ -141,22 +152,10 @@ newPrivateVirtualInterface_customerAddress = Lens.lens (\NewPrivateVirtualInterf
 newPrivateVirtualInterface_amazonAddress :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
 newPrivateVirtualInterface_amazonAddress = Lens.lens (\NewPrivateVirtualInterface' {amazonAddress} -> amazonAddress) (\s@NewPrivateVirtualInterface' {} a -> s {amazonAddress = a} :: NewPrivateVirtualInterface)
 
--- | The address family for the BGP peer.
-newPrivateVirtualInterface_addressFamily :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe AddressFamily)
-newPrivateVirtualInterface_addressFamily = Lens.lens (\NewPrivateVirtualInterface' {addressFamily} -> addressFamily) (\s@NewPrivateVirtualInterface' {} a -> s {addressFamily = a} :: NewPrivateVirtualInterface)
-
--- | The ID of the Direct Connect gateway.
-newPrivateVirtualInterface_directConnectGatewayId :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
-newPrivateVirtualInterface_directConnectGatewayId = Lens.lens (\NewPrivateVirtualInterface' {directConnectGatewayId} -> directConnectGatewayId) (\s@NewPrivateVirtualInterface' {} a -> s {directConnectGatewayId = a} :: NewPrivateVirtualInterface)
-
--- | The authentication key for BGP configuration. This string has a minimum
--- length of 6 characters and and a maximun lenth of 80 characters.
-newPrivateVirtualInterface_authKey :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
-newPrivateVirtualInterface_authKey = Lens.lens (\NewPrivateVirtualInterface' {authKey} -> authKey) (\s@NewPrivateVirtualInterface' {} a -> s {authKey = a} :: NewPrivateVirtualInterface)
-
--- | The tags associated with the private virtual interface.
-newPrivateVirtualInterface_tags :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe (Prelude.NonEmpty Tag))
-newPrivateVirtualInterface_tags = Lens.lens (\NewPrivateVirtualInterface' {tags} -> tags) (\s@NewPrivateVirtualInterface' {} a -> s {tags = a} :: NewPrivateVirtualInterface) Prelude.. Lens.mapping Lens.coerced
+-- | The maximum transmission unit (MTU), in bytes. The supported values are
+-- 1500 and 9001. The default value is 1500.
+newPrivateVirtualInterface_mtu :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Int)
+newPrivateVirtualInterface_mtu = Lens.lens (\NewPrivateVirtualInterface' {mtu} -> mtu) (\s@NewPrivateVirtualInterface' {} a -> s {mtu = a} :: NewPrivateVirtualInterface)
 
 -- | The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
@@ -177,28 +176,28 @@ newPrivateVirtualInterface_asn = Lens.lens (\NewPrivateVirtualInterface' {asn} -
 
 instance Prelude.Hashable NewPrivateVirtualInterface where
   hashWithSalt _salt NewPrivateVirtualInterface' {..} =
-    _salt `Prelude.hashWithSalt` virtualGatewayId
-      `Prelude.hashWithSalt` mtu
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` addressFamily
+      `Prelude.hashWithSalt` authKey
+      `Prelude.hashWithSalt` directConnectGatewayId
+      `Prelude.hashWithSalt` virtualGatewayId
       `Prelude.hashWithSalt` customerAddress
       `Prelude.hashWithSalt` amazonAddress
-      `Prelude.hashWithSalt` addressFamily
-      `Prelude.hashWithSalt` directConnectGatewayId
-      `Prelude.hashWithSalt` authKey
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` mtu
       `Prelude.hashWithSalt` virtualInterfaceName
       `Prelude.hashWithSalt` vlan
       `Prelude.hashWithSalt` asn
 
 instance Prelude.NFData NewPrivateVirtualInterface where
   rnf NewPrivateVirtualInterface' {..} =
-    Prelude.rnf virtualGatewayId
-      `Prelude.seq` Prelude.rnf mtu
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf addressFamily
+      `Prelude.seq` Prelude.rnf authKey
+      `Prelude.seq` Prelude.rnf directConnectGatewayId
+      `Prelude.seq` Prelude.rnf virtualGatewayId
       `Prelude.seq` Prelude.rnf customerAddress
       `Prelude.seq` Prelude.rnf amazonAddress
-      `Prelude.seq` Prelude.rnf addressFamily
-      `Prelude.seq` Prelude.rnf directConnectGatewayId
-      `Prelude.seq` Prelude.rnf authKey
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf mtu
       `Prelude.seq` Prelude.rnf virtualInterfaceName
       `Prelude.seq` Prelude.rnf vlan
       `Prelude.seq` Prelude.rnf asn
@@ -207,17 +206,17 @@ instance Core.ToJSON NewPrivateVirtualInterface where
   toJSON NewPrivateVirtualInterface' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("virtualGatewayId" Core..=)
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("addressFamily" Core..=) Prelude.<$> addressFamily,
+            ("authKey" Core..=) Prelude.<$> authKey,
+            ("directConnectGatewayId" Core..=)
+              Prelude.<$> directConnectGatewayId,
+            ("virtualGatewayId" Core..=)
               Prelude.<$> virtualGatewayId,
-            ("mtu" Core..=) Prelude.<$> mtu,
             ("customerAddress" Core..=)
               Prelude.<$> customerAddress,
             ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
-            ("addressFamily" Core..=) Prelude.<$> addressFamily,
-            ("directConnectGatewayId" Core..=)
-              Prelude.<$> directConnectGatewayId,
-            ("authKey" Core..=) Prelude.<$> authKey,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("mtu" Core..=) Prelude.<$> mtu,
             Prelude.Just
               ( "virtualInterfaceName"
                   Core..= virtualInterfaceName

@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomerAgreement' smart constructor.
 data CustomerAgreement = CustomerAgreement'
-  { -- | The status of the customer agreement. This will be either @signed@ or
+  { -- | The name of the agreement.
+    agreementName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the customer agreement. This will be either @signed@ or
     -- @unsigned@
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The name of the agreement.
-    agreementName :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data CustomerAgreement = CustomerAgreement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'agreementName', 'customerAgreement_agreementName' - The name of the agreement.
+--
 -- 'status', 'customerAgreement_status' - The status of the customer agreement. This will be either @signed@ or
 -- @unsigned@
---
--- 'agreementName', 'customerAgreement_agreementName' - The name of the agreement.
 newCustomerAgreement ::
   CustomerAgreement
 newCustomerAgreement =
   CustomerAgreement'
-    { status = Prelude.Nothing,
-      agreementName = Prelude.Nothing
+    { agreementName = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The name of the agreement.
+customerAgreement_agreementName :: Lens.Lens' CustomerAgreement (Prelude.Maybe Prelude.Text)
+customerAgreement_agreementName = Lens.lens (\CustomerAgreement' {agreementName} -> agreementName) (\s@CustomerAgreement' {} a -> s {agreementName = a} :: CustomerAgreement)
 
 -- | The status of the customer agreement. This will be either @signed@ or
 -- @unsigned@
 customerAgreement_status :: Lens.Lens' CustomerAgreement (Prelude.Maybe Prelude.Text)
 customerAgreement_status = Lens.lens (\CustomerAgreement' {status} -> status) (\s@CustomerAgreement' {} a -> s {status = a} :: CustomerAgreement)
-
--- | The name of the agreement.
-customerAgreement_agreementName :: Lens.Lens' CustomerAgreement (Prelude.Maybe Prelude.Text)
-customerAgreement_agreementName = Lens.lens (\CustomerAgreement' {agreementName} -> agreementName) (\s@CustomerAgreement' {} a -> s {agreementName = a} :: CustomerAgreement)
 
 instance Core.FromJSON CustomerAgreement where
   parseJSON =
@@ -70,16 +70,16 @@ instance Core.FromJSON CustomerAgreement where
       "CustomerAgreement"
       ( \x ->
           CustomerAgreement'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "agreementName")
+            Prelude.<$> (x Core..:? "agreementName")
+            Prelude.<*> (x Core..:? "status")
       )
 
 instance Prelude.Hashable CustomerAgreement where
   hashWithSalt _salt CustomerAgreement' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` agreementName
+    _salt `Prelude.hashWithSalt` agreementName
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData CustomerAgreement where
   rnf CustomerAgreement' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf agreementName
+    Prelude.rnf agreementName
+      `Prelude.seq` Prelude.rnf status

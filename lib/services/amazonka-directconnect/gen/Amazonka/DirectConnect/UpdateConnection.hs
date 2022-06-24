@@ -33,8 +33,8 @@ module Amazonka.DirectConnect.UpdateConnection
     newUpdateConnection,
 
     -- * Request Lenses
-    updateConnection_connectionName,
     updateConnection_encryptionMode,
+    updateConnection_connectionName,
     updateConnection_connectionId,
 
     -- * Destructuring the Response
@@ -42,28 +42,28 @@ module Amazonka.DirectConnect.UpdateConnection
     newConnection,
 
     -- * Response Lenses
-    connection_lagId,
+    connection_tags,
+    connection_macSecKeys,
     connection_macSecCapable,
-    connection_portEncryptionStatus,
-    connection_vlan,
-    connection_location,
-    connection_awsDevice,
-    connection_hasLogicalRedundancy,
-    connection_connectionId,
-    connection_awsLogicalDeviceId,
-    connection_loaIssueTime,
-    connection_partnerName,
-    connection_connectionName,
-    connection_encryptionMode,
+    connection_providerName,
     connection_bandwidth,
     connection_jumboFrameCapable,
-    connection_ownerAccount,
-    connection_region,
-    connection_macSecKeys,
-    connection_providerName,
-    connection_awsDeviceV2,
+    connection_portEncryptionStatus,
+    connection_lagId,
     connection_connectionState,
-    connection_tags,
+    connection_hasLogicalRedundancy,
+    connection_vlan,
+    connection_loaIssueTime,
+    connection_awsDevice,
+    connection_connectionId,
+    connection_location,
+    connection_region,
+    connection_partnerName,
+    connection_ownerAccount,
+    connection_awsLogicalDeviceId,
+    connection_encryptionMode,
+    connection_connectionName,
+    connection_awsDeviceV2,
   )
 where
 
@@ -76,12 +76,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateConnection' smart constructor.
 data UpdateConnection = UpdateConnection'
-  { -- | The name of the connection.
-    connectionName :: Prelude.Maybe Prelude.Text,
-    -- | The connection MAC Security (MACsec) encryption mode.
+  { -- | The connection MAC Security (MACsec) encryption mode.
     --
     -- The valid values are @no_encrypt@, @should_encrypt@, and @must_encrypt@.
     encryptionMode :: Prelude.Maybe Prelude.Text,
+    -- | The name of the connection.
+    connectionName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the dedicated connection.
     --
     -- You can use DescribeConnections to retrieve the connection ID.
@@ -97,11 +97,11 @@ data UpdateConnection = UpdateConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionName', 'updateConnection_connectionName' - The name of the connection.
---
 -- 'encryptionMode', 'updateConnection_encryptionMode' - The connection MAC Security (MACsec) encryption mode.
 --
 -- The valid values are @no_encrypt@, @should_encrypt@, and @must_encrypt@.
+--
+-- 'connectionName', 'updateConnection_connectionName' - The name of the connection.
 --
 -- 'connectionId', 'updateConnection_connectionId' - The ID of the dedicated connection.
 --
@@ -112,20 +112,20 @@ newUpdateConnection ::
   UpdateConnection
 newUpdateConnection pConnectionId_ =
   UpdateConnection'
-    { connectionName = Prelude.Nothing,
-      encryptionMode = Prelude.Nothing,
+    { encryptionMode = Prelude.Nothing,
+      connectionName = Prelude.Nothing,
       connectionId = pConnectionId_
     }
-
--- | The name of the connection.
-updateConnection_connectionName :: Lens.Lens' UpdateConnection (Prelude.Maybe Prelude.Text)
-updateConnection_connectionName = Lens.lens (\UpdateConnection' {connectionName} -> connectionName) (\s@UpdateConnection' {} a -> s {connectionName = a} :: UpdateConnection)
 
 -- | The connection MAC Security (MACsec) encryption mode.
 --
 -- The valid values are @no_encrypt@, @should_encrypt@, and @must_encrypt@.
 updateConnection_encryptionMode :: Lens.Lens' UpdateConnection (Prelude.Maybe Prelude.Text)
 updateConnection_encryptionMode = Lens.lens (\UpdateConnection' {encryptionMode} -> encryptionMode) (\s@UpdateConnection' {} a -> s {encryptionMode = a} :: UpdateConnection)
+
+-- | The name of the connection.
+updateConnection_connectionName :: Lens.Lens' UpdateConnection (Prelude.Maybe Prelude.Text)
+updateConnection_connectionName = Lens.lens (\UpdateConnection' {connectionName} -> connectionName) (\s@UpdateConnection' {} a -> s {connectionName = a} :: UpdateConnection)
 
 -- | The ID of the dedicated connection.
 --
@@ -142,14 +142,14 @@ instance Core.AWSRequest UpdateConnection where
 
 instance Prelude.Hashable UpdateConnection where
   hashWithSalt _salt UpdateConnection' {..} =
-    _salt `Prelude.hashWithSalt` connectionName
-      `Prelude.hashWithSalt` encryptionMode
+    _salt `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` connectionId
 
 instance Prelude.NFData UpdateConnection where
   rnf UpdateConnection' {..} =
-    Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf encryptionMode
+    Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf connectionName
       `Prelude.seq` Prelude.rnf connectionId
 
 instance Core.ToHeaders UpdateConnection where
@@ -171,10 +171,10 @@ instance Core.ToJSON UpdateConnection where
   toJSON UpdateConnection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("connectionName" Core..=)
-              Prelude.<$> connectionName,
-            ("encryptionMode" Core..=)
+          [ ("encryptionMode" Core..=)
               Prelude.<$> encryptionMode,
+            ("connectionName" Core..=)
+              Prelude.<$> connectionName,
             Prelude.Just ("connectionId" Core..= connectionId)
           ]
       )

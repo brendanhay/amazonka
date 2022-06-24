@@ -50,9 +50,9 @@ module Amazonka.DirectConnect.CreateInterconnect
     newCreateInterconnect,
 
     -- * Request Lenses
-    createInterconnect_lagId,
-    createInterconnect_providerName,
     createInterconnect_tags,
+    createInterconnect_providerName,
+    createInterconnect_lagId,
     createInterconnect_interconnectName,
     createInterconnect_bandwidth,
     createInterconnect_location,
@@ -62,21 +62,21 @@ module Amazonka.DirectConnect.CreateInterconnect
     newInterconnect,
 
     -- * Response Lenses
-    interconnect_lagId,
-    interconnect_interconnectId,
-    interconnect_location,
-    interconnect_interconnectName,
-    interconnect_awsDevice,
-    interconnect_hasLogicalRedundancy,
-    interconnect_awsLogicalDeviceId,
-    interconnect_loaIssueTime,
-    interconnect_bandwidth,
-    interconnect_jumboFrameCapable,
-    interconnect_interconnectState,
-    interconnect_region,
-    interconnect_providerName,
-    interconnect_awsDeviceV2,
     interconnect_tags,
+    interconnect_providerName,
+    interconnect_bandwidth,
+    interconnect_interconnectName,
+    interconnect_jumboFrameCapable,
+    interconnect_lagId,
+    interconnect_hasLogicalRedundancy,
+    interconnect_loaIssueTime,
+    interconnect_interconnectState,
+    interconnect_awsDevice,
+    interconnect_location,
+    interconnect_region,
+    interconnect_interconnectId,
+    interconnect_awsLogicalDeviceId,
+    interconnect_awsDeviceV2,
   )
 where
 
@@ -89,12 +89,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateInterconnect' smart constructor.
 data CreateInterconnect = CreateInterconnect'
-  { -- | The ID of the LAG.
-    lagId :: Prelude.Maybe Prelude.Text,
+  { -- | The tags to associate with the interconnect.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The name of the service provider associated with the interconnect.
     providerName :: Prelude.Maybe Prelude.Text,
-    -- | The tags to associate with the interconnect.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The ID of the LAG.
+    lagId :: Prelude.Maybe Prelude.Text,
     -- | The name of the interconnect.
     interconnectName :: Prelude.Text,
     -- | The port bandwidth, in Gbps. The possible values are 1 and 10.
@@ -112,11 +112,11 @@ data CreateInterconnect = CreateInterconnect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lagId', 'createInterconnect_lagId' - The ID of the LAG.
+-- 'tags', 'createInterconnect_tags' - The tags to associate with the interconnect.
 --
 -- 'providerName', 'createInterconnect_providerName' - The name of the service provider associated with the interconnect.
 --
--- 'tags', 'createInterconnect_tags' - The tags to associate with the interconnect.
+-- 'lagId', 'createInterconnect_lagId' - The ID of the LAG.
 --
 -- 'interconnectName', 'createInterconnect_interconnectName' - The name of the interconnect.
 --
@@ -136,25 +136,25 @@ newCreateInterconnect
   pBandwidth_
   pLocation_ =
     CreateInterconnect'
-      { lagId = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         providerName = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        lagId = Prelude.Nothing,
         interconnectName = pInterconnectName_,
         bandwidth = pBandwidth_,
         location = pLocation_
       }
 
--- | The ID of the LAG.
-createInterconnect_lagId :: Lens.Lens' CreateInterconnect (Prelude.Maybe Prelude.Text)
-createInterconnect_lagId = Lens.lens (\CreateInterconnect' {lagId} -> lagId) (\s@CreateInterconnect' {} a -> s {lagId = a} :: CreateInterconnect)
+-- | The tags to associate with the interconnect.
+createInterconnect_tags :: Lens.Lens' CreateInterconnect (Prelude.Maybe (Prelude.NonEmpty Tag))
+createInterconnect_tags = Lens.lens (\CreateInterconnect' {tags} -> tags) (\s@CreateInterconnect' {} a -> s {tags = a} :: CreateInterconnect) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the service provider associated with the interconnect.
 createInterconnect_providerName :: Lens.Lens' CreateInterconnect (Prelude.Maybe Prelude.Text)
 createInterconnect_providerName = Lens.lens (\CreateInterconnect' {providerName} -> providerName) (\s@CreateInterconnect' {} a -> s {providerName = a} :: CreateInterconnect)
 
--- | The tags to associate with the interconnect.
-createInterconnect_tags :: Lens.Lens' CreateInterconnect (Prelude.Maybe (Prelude.NonEmpty Tag))
-createInterconnect_tags = Lens.lens (\CreateInterconnect' {tags} -> tags) (\s@CreateInterconnect' {} a -> s {tags = a} :: CreateInterconnect) Prelude.. Lens.mapping Lens.coerced
+-- | The ID of the LAG.
+createInterconnect_lagId :: Lens.Lens' CreateInterconnect (Prelude.Maybe Prelude.Text)
+createInterconnect_lagId = Lens.lens (\CreateInterconnect' {lagId} -> lagId) (\s@CreateInterconnect' {} a -> s {lagId = a} :: CreateInterconnect)
 
 -- | The name of the interconnect.
 createInterconnect_interconnectName :: Lens.Lens' CreateInterconnect Prelude.Text
@@ -177,18 +177,18 @@ instance Core.AWSRequest CreateInterconnect where
 
 instance Prelude.Hashable CreateInterconnect where
   hashWithSalt _salt CreateInterconnect' {..} =
-    _salt `Prelude.hashWithSalt` lagId
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` providerName
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` lagId
       `Prelude.hashWithSalt` interconnectName
       `Prelude.hashWithSalt` bandwidth
       `Prelude.hashWithSalt` location
 
 instance Prelude.NFData CreateInterconnect where
   rnf CreateInterconnect' {..} =
-    Prelude.rnf lagId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf providerName
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lagId
       `Prelude.seq` Prelude.rnf interconnectName
       `Prelude.seq` Prelude.rnf bandwidth
       `Prelude.seq` Prelude.rnf location
@@ -212,9 +212,9 @@ instance Core.ToJSON CreateInterconnect where
   toJSON CreateInterconnect' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("lagId" Core..=) Prelude.<$> lagId,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("providerName" Core..=) Prelude.<$> providerName,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("lagId" Core..=) Prelude.<$> lagId,
             Prelude.Just
               ("interconnectName" Core..= interconnectName),
             Prelude.Just ("bandwidth" Core..= bandwidth),

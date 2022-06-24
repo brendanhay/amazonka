@@ -35,8 +35,8 @@ module Amazonka.Outposts.ListSites
     newListSitesResponse,
 
     -- * Response Lenses
-    listSitesResponse_nextToken,
     listSitesResponse_sites,
+    listSitesResponse_nextToken,
     listSitesResponse_httpStatus,
   )
 where
@@ -89,8 +89,8 @@ instance Core.AWSRequest ListSites where
     Response.receiveJSON
       ( \s h x ->
           ListSitesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Sites" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Sites" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,8 +127,8 @@ instance Core.ToQuery ListSites where
 
 -- | /See:/ 'newListSitesResponse' smart constructor.
 data ListSitesResponse = ListSitesResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    sites :: Prelude.Maybe [Site],
+  { sites :: Prelude.Maybe [Site],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -142,9 +142,9 @@ data ListSitesResponse = ListSitesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSitesResponse_nextToken' - Undocumented member.
---
 -- 'sites', 'listSitesResponse_sites' - Undocumented member.
+--
+-- 'nextToken', 'listSitesResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'listSitesResponse_httpStatus' - The response's http status code.
 newListSitesResponse ::
@@ -153,18 +153,18 @@ newListSitesResponse ::
   ListSitesResponse
 newListSitesResponse pHttpStatus_ =
   ListSitesResponse'
-    { nextToken = Prelude.Nothing,
-      sites = Prelude.Nothing,
+    { sites = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listSitesResponse_nextToken :: Lens.Lens' ListSitesResponse (Prelude.Maybe Prelude.Text)
-listSitesResponse_nextToken = Lens.lens (\ListSitesResponse' {nextToken} -> nextToken) (\s@ListSitesResponse' {} a -> s {nextToken = a} :: ListSitesResponse)
-
--- | Undocumented member.
 listSitesResponse_sites :: Lens.Lens' ListSitesResponse (Prelude.Maybe [Site])
 listSitesResponse_sites = Lens.lens (\ListSitesResponse' {sites} -> sites) (\s@ListSitesResponse' {} a -> s {sites = a} :: ListSitesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listSitesResponse_nextToken :: Lens.Lens' ListSitesResponse (Prelude.Maybe Prelude.Text)
+listSitesResponse_nextToken = Lens.lens (\ListSitesResponse' {nextToken} -> nextToken) (\s@ListSitesResponse' {} a -> s {nextToken = a} :: ListSitesResponse)
 
 -- | The response's http status code.
 listSitesResponse_httpStatus :: Lens.Lens' ListSitesResponse Prelude.Int
@@ -172,6 +172,6 @@ listSitesResponse_httpStatus = Lens.lens (\ListSitesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListSitesResponse where
   rnf ListSitesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sites
+    Prelude.rnf sites
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,14 +27,23 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteOutpost $
+--         [ requestCreateOrder $
+--             newCreateOrder
+--
+--         , requestCreateOutpost $
+--             newCreateOutpost
+--
+--         , requestDeleteOutpost $
 --             newDeleteOutpost
 --
 --         , requestDeleteSite $
 --             newDeleteSite
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestGetOutpost $
+--             newGetOutpost
+--
+--         , requestGetOutpostInstanceTypes $
+--             newGetOutpostInstanceTypes
 --
 --         , requestListOutposts $
 --             newListOutposts
@@ -42,17 +51,8 @@ import Test.Tasty
 --         , requestListSites $
 --             newListSites
 --
---         , requestCreateOrder $
---             newCreateOrder
---
---         , requestGetOutpostInstanceTypes $
---             newGetOutpostInstanceTypes
---
---         , requestCreateOutpost $
---             newCreateOutpost
---
---         , requestGetOutpost $
---             newGetOutpost
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestTagResource $
 --             newTagResource
@@ -63,14 +63,23 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteOutpost $
+--         [ responseCreateOrder $
+--             newCreateOrderResponse
+--
+--         , responseCreateOutpost $
+--             newCreateOutpostResponse
+--
+--         , responseDeleteOutpost $
 --             newDeleteOutpostResponse
 --
 --         , responseDeleteSite $
 --             newDeleteSiteResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseGetOutpost $
+--             newGetOutpostResponse
+--
+--         , responseGetOutpostInstanceTypes $
+--             newGetOutpostInstanceTypesResponse
 --
 --         , responseListOutposts $
 --             newListOutpostsResponse
@@ -78,17 +87,8 @@ import Test.Tasty
 --         , responseListSites $
 --             newListSitesResponse
 --
---         , responseCreateOrder $
---             newCreateOrderResponse
---
---         , responseGetOutpostInstanceTypes $
---             newGetOutpostInstanceTypesResponse
---
---         , responseCreateOutpost $
---             newCreateOutpostResponse
---
---         , responseGetOutpost $
---             newGetOutpostResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -100,6 +100,18 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestCreateOrder :: CreateOrder -> TestTree
+requestCreateOrder =
+  req
+    "CreateOrder"
+    "fixture/CreateOrder.yaml"
+
+requestCreateOutpost :: CreateOutpost -> TestTree
+requestCreateOutpost =
+  req
+    "CreateOutpost"
+    "fixture/CreateOutpost.yaml"
 
 requestDeleteOutpost :: DeleteOutpost -> TestTree
 requestDeleteOutpost =
@@ -113,11 +125,17 @@ requestDeleteSite =
     "DeleteSite"
     "fixture/DeleteSite.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestGetOutpost :: GetOutpost -> TestTree
+requestGetOutpost =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "GetOutpost"
+    "fixture/GetOutpost.yaml"
+
+requestGetOutpostInstanceTypes :: GetOutpostInstanceTypes -> TestTree
+requestGetOutpostInstanceTypes =
+  req
+    "GetOutpostInstanceTypes"
+    "fixture/GetOutpostInstanceTypes.yaml"
 
 requestListOutposts :: ListOutposts -> TestTree
 requestListOutposts =
@@ -131,29 +149,11 @@ requestListSites =
     "ListSites"
     "fixture/ListSites.yaml"
 
-requestCreateOrder :: CreateOrder -> TestTree
-requestCreateOrder =
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
   req
-    "CreateOrder"
-    "fixture/CreateOrder.yaml"
-
-requestGetOutpostInstanceTypes :: GetOutpostInstanceTypes -> TestTree
-requestGetOutpostInstanceTypes =
-  req
-    "GetOutpostInstanceTypes"
-    "fixture/GetOutpostInstanceTypes.yaml"
-
-requestCreateOutpost :: CreateOutpost -> TestTree
-requestCreateOutpost =
-  req
-    "CreateOutpost"
-    "fixture/CreateOutpost.yaml"
-
-requestGetOutpost :: GetOutpost -> TestTree
-requestGetOutpost =
-  req
-    "GetOutpost"
-    "fixture/GetOutpost.yaml"
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -168,6 +168,22 @@ requestUntagResource =
     "fixture/UntagResource.yaml"
 
 -- Responses
+
+responseCreateOrder :: CreateOrderResponse -> TestTree
+responseCreateOrder =
+  res
+    "CreateOrderResponse"
+    "fixture/CreateOrderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateOrder)
+
+responseCreateOutpost :: CreateOutpostResponse -> TestTree
+responseCreateOutpost =
+  res
+    "CreateOutpostResponse"
+    "fixture/CreateOutpostResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateOutpost)
 
 responseDeleteOutpost :: DeleteOutpostResponse -> TestTree
 responseDeleteOutpost =
@@ -185,13 +201,21 @@ responseDeleteSite =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteSite)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseGetOutpost :: GetOutpostResponse -> TestTree
+responseGetOutpost =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "GetOutpostResponse"
+    "fixture/GetOutpostResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy GetOutpost)
+
+responseGetOutpostInstanceTypes :: GetOutpostInstanceTypesResponse -> TestTree
+responseGetOutpostInstanceTypes =
+  res
+    "GetOutpostInstanceTypesResponse"
+    "fixture/GetOutpostInstanceTypesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetOutpostInstanceTypes)
 
 responseListOutposts :: ListOutpostsResponse -> TestTree
 responseListOutposts =
@@ -209,37 +233,13 @@ responseListSites =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListSites)
 
-responseCreateOrder :: CreateOrderResponse -> TestTree
-responseCreateOrder =
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
   res
-    "CreateOrderResponse"
-    "fixture/CreateOrderResponse.proto"
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateOrder)
-
-responseGetOutpostInstanceTypes :: GetOutpostInstanceTypesResponse -> TestTree
-responseGetOutpostInstanceTypes =
-  res
-    "GetOutpostInstanceTypesResponse"
-    "fixture/GetOutpostInstanceTypesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetOutpostInstanceTypes)
-
-responseCreateOutpost :: CreateOutpostResponse -> TestTree
-responseCreateOutpost =
-  res
-    "CreateOutpostResponse"
-    "fixture/CreateOutpostResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateOutpost)
-
-responseGetOutpost :: GetOutpostResponse -> TestTree
-responseGetOutpost =
-  res
-    "GetOutpostResponse"
-    "fixture/GetOutpostResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetOutpost)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

@@ -14,36 +14,6 @@
 module Amazonka.Outposts.Lens
   ( -- * Operations
 
-    -- ** DeleteOutpost
-    deleteOutpost_outpostId,
-    deleteOutpostResponse_httpStatus,
-
-    -- ** DeleteSite
-    deleteSite_siteId,
-    deleteSiteResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** ListOutposts
-    listOutposts_availabilityZoneFilter,
-    listOutposts_lifeCycleStatusFilter,
-    listOutposts_nextToken,
-    listOutposts_availabilityZoneIdFilter,
-    listOutposts_maxResults,
-    listOutpostsResponse_nextToken,
-    listOutpostsResponse_outposts,
-    listOutpostsResponse_httpStatus,
-
-    -- ** ListSites
-    listSites_nextToken,
-    listSites_maxResults,
-    listSitesResponse_nextToken,
-    listSitesResponse_sites,
-    listSitesResponse_httpStatus,
-
     -- ** CreateOrder
     createOrder_paymentTerm,
     createOrder_outpostIdentifier,
@@ -52,30 +22,60 @@ module Amazonka.Outposts.Lens
     createOrderResponse_order,
     createOrderResponse_httpStatus,
 
-    -- ** GetOutpostInstanceTypes
-    getOutpostInstanceTypes_nextToken,
-    getOutpostInstanceTypes_maxResults,
-    getOutpostInstanceTypes_outpostId,
-    getOutpostInstanceTypesResponse_instanceTypes,
-    getOutpostInstanceTypesResponse_outpostArn,
-    getOutpostInstanceTypesResponse_nextToken,
-    getOutpostInstanceTypesResponse_outpostId,
-    getOutpostInstanceTypesResponse_httpStatus,
-
     -- ** CreateOutpost
-    createOutpost_availabilityZoneId,
+    createOutpost_tags,
     createOutpost_availabilityZone,
     createOutpost_description,
-    createOutpost_tags,
+    createOutpost_availabilityZoneId,
     createOutpost_name,
     createOutpost_siteId,
     createOutpostResponse_outpost,
     createOutpostResponse_httpStatus,
 
+    -- ** DeleteOutpost
+    deleteOutpost_outpostId,
+    deleteOutpostResponse_httpStatus,
+
+    -- ** DeleteSite
+    deleteSite_siteId,
+    deleteSiteResponse_httpStatus,
+
     -- ** GetOutpost
     getOutpost_outpostId,
     getOutpostResponse_outpost,
     getOutpostResponse_httpStatus,
+
+    -- ** GetOutpostInstanceTypes
+    getOutpostInstanceTypes_nextToken,
+    getOutpostInstanceTypes_maxResults,
+    getOutpostInstanceTypes_outpostId,
+    getOutpostInstanceTypesResponse_nextToken,
+    getOutpostInstanceTypesResponse_outpostId,
+    getOutpostInstanceTypesResponse_outpostArn,
+    getOutpostInstanceTypesResponse_instanceTypes,
+    getOutpostInstanceTypesResponse_httpStatus,
+
+    -- ** ListOutposts
+    listOutposts_nextToken,
+    listOutposts_maxResults,
+    listOutposts_lifeCycleStatusFilter,
+    listOutposts_availabilityZoneFilter,
+    listOutposts_availabilityZoneIdFilter,
+    listOutpostsResponse_nextToken,
+    listOutpostsResponse_outposts,
+    listOutpostsResponse_httpStatus,
+
+    -- ** ListSites
+    listSites_nextToken,
+    listSites_maxResults,
+    listSitesResponse_sites,
+    listSitesResponse_nextToken,
+    listSitesResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -93,8 +93,8 @@ module Amazonka.Outposts.Lens
     instanceTypeItem_instanceType,
 
     -- ** LineItem
-    lineItem_status,
     lineItem_quantity,
+    lineItem_status,
     lineItem_catalogItemId,
     lineItem_lineItemId,
 
@@ -103,34 +103,34 @@ module Amazonka.Outposts.Lens
     lineItemRequest_catalogItemId,
 
     -- ** Order
-    order_status,
-    order_orderSubmissionDate,
-    order_lineItems,
-    order_orderFulfilledDate,
-    order_orderId,
     order_outpostId,
+    order_orderFulfilledDate,
+    order_lineItems,
+    order_status,
+    order_orderId,
+    order_orderSubmissionDate,
     order_paymentOption,
 
     -- ** Outpost
-    outpost_availabilityZoneId,
+    outpost_tags,
+    outpost_name,
+    outpost_outpostId,
     outpost_outpostArn,
     outpost_ownerId,
-    outpost_availabilityZone,
-    outpost_name,
-    outpost_lifeCycleStatus,
-    outpost_outpostId,
-    outpost_siteId,
     outpost_siteArn,
+    outpost_availabilityZone,
     outpost_description,
-    outpost_tags,
+    outpost_siteId,
+    outpost_lifeCycleStatus,
+    outpost_availabilityZoneId,
 
     -- ** Site
-    site_accountId,
+    site_tags,
     site_name,
-    site_siteId,
     site_siteArn,
     site_description,
-    site_tags,
+    site_siteId,
+    site_accountId,
   )
 where
 

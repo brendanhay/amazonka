@@ -24,14 +24,11 @@ module Amazonka.Outposts
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** NotFoundException
     _NotFoundException,
@@ -39,14 +36,29 @@ module Amazonka.Outposts
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
-    -- ** InternalServerException
-    _InternalServerException,
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** CreateOrder
+    CreateOrder (CreateOrder'),
+    newCreateOrder,
+    CreateOrderResponse (CreateOrderResponse'),
+    newCreateOrderResponse,
+
+    -- ** CreateOutpost
+    CreateOutpost (CreateOutpost'),
+    newCreateOutpost,
+    CreateOutpostResponse (CreateOutpostResponse'),
+    newCreateOutpostResponse,
 
     -- ** DeleteOutpost
     DeleteOutpost (DeleteOutpost'),
@@ -60,11 +72,17 @@ module Amazonka.Outposts
     DeleteSiteResponse (DeleteSiteResponse'),
     newDeleteSiteResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** GetOutpost
+    GetOutpost (GetOutpost'),
+    newGetOutpost,
+    GetOutpostResponse (GetOutpostResponse'),
+    newGetOutpostResponse,
+
+    -- ** GetOutpostInstanceTypes
+    GetOutpostInstanceTypes (GetOutpostInstanceTypes'),
+    newGetOutpostInstanceTypes,
+    GetOutpostInstanceTypesResponse (GetOutpostInstanceTypesResponse'),
+    newGetOutpostInstanceTypesResponse,
 
     -- ** ListOutposts
     ListOutposts (ListOutposts'),
@@ -78,29 +96,11 @@ module Amazonka.Outposts
     ListSitesResponse (ListSitesResponse'),
     newListSitesResponse,
 
-    -- ** CreateOrder
-    CreateOrder (CreateOrder'),
-    newCreateOrder,
-    CreateOrderResponse (CreateOrderResponse'),
-    newCreateOrderResponse,
-
-    -- ** GetOutpostInstanceTypes
-    GetOutpostInstanceTypes (GetOutpostInstanceTypes'),
-    newGetOutpostInstanceTypes,
-    GetOutpostInstanceTypesResponse (GetOutpostInstanceTypesResponse'),
-    newGetOutpostInstanceTypesResponse,
-
-    -- ** CreateOutpost
-    CreateOutpost (CreateOutpost'),
-    newCreateOutpost,
-    CreateOutpostResponse (CreateOutpostResponse'),
-    newCreateOutpostResponse,
-
-    -- ** GetOutpost
-    GetOutpost (GetOutpost'),
-    newGetOutpost,
-    GetOutpostResponse (GetOutpostResponse'),
-    newGetOutpostResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** TagResource
     TagResource (TagResource'),

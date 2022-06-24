@@ -34,11 +34,11 @@ module Amazonka.Outposts.ListOutposts
     newListOutposts,
 
     -- * Request Lenses
-    listOutposts_availabilityZoneFilter,
-    listOutposts_lifeCycleStatusFilter,
     listOutposts_nextToken,
-    listOutposts_availabilityZoneIdFilter,
     listOutposts_maxResults,
+    listOutposts_lifeCycleStatusFilter,
+    listOutposts_availabilityZoneFilter,
+    listOutposts_availabilityZoneIdFilter,
 
     -- * Destructuring the Response
     ListOutpostsResponse (..),
@@ -60,26 +60,26 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListOutposts' smart constructor.
 data ListOutposts = ListOutposts'
-  { -- | A filter for the Availibility Zone (@us-east-1a@) of the Outpost.
-    --
-    -- Filter values are case sensitive. If you specify multiple values for a
-    -- filter, the values are joined with an @OR@, and the request returns all
-    -- results that match any of the specified values.
-    availabilityZoneFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter for the lifecycle status of the Outpost.
     --
     -- Filter values are case sensitive. If you specify multiple values for a
     -- filter, the values are joined with an @OR@, and the request returns all
     -- results that match any of the specified values.
     lifeCycleStatusFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A filter for the Availibility Zone (@us-east-1a@) of the Outpost.
+    --
+    -- Filter values are case sensitive. If you specify multiple values for a
+    -- filter, the values are joined with an @OR@, and the request returns all
+    -- results that match any of the specified values.
+    availabilityZoneFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A filter for the AZ IDs (@use1-az1@) of the Outpost.
     --
     -- Filter values are case sensitive. If you specify multiple values for a
     -- filter, the values are joined with an @OR@, and the request returns all
     -- results that match any of the specified values.
-    availabilityZoneIdFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    maxResults :: Prelude.Maybe Prelude.Natural
+    availabilityZoneIdFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,11 +91,9 @@ data ListOutposts = ListOutposts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'availabilityZoneFilter', 'listOutposts_availabilityZoneFilter' - A filter for the Availibility Zone (@us-east-1a@) of the Outpost.
+-- 'nextToken', 'listOutposts_nextToken' - Undocumented member.
 --
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
+-- 'maxResults', 'listOutposts_maxResults' - Undocumented member.
 --
 -- 'lifeCycleStatusFilter', 'listOutposts_lifeCycleStatusFilter' - A filter for the lifecycle status of the Outpost.
 --
@@ -103,34 +101,35 @@ data ListOutposts = ListOutposts'
 -- filter, the values are joined with an @OR@, and the request returns all
 -- results that match any of the specified values.
 --
--- 'nextToken', 'listOutposts_nextToken' - Undocumented member.
+-- 'availabilityZoneFilter', 'listOutposts_availabilityZoneFilter' - A filter for the Availibility Zone (@us-east-1a@) of the Outpost.
+--
+-- Filter values are case sensitive. If you specify multiple values for a
+-- filter, the values are joined with an @OR@, and the request returns all
+-- results that match any of the specified values.
 --
 -- 'availabilityZoneIdFilter', 'listOutposts_availabilityZoneIdFilter' - A filter for the AZ IDs (@use1-az1@) of the Outpost.
 --
 -- Filter values are case sensitive. If you specify multiple values for a
 -- filter, the values are joined with an @OR@, and the request returns all
 -- results that match any of the specified values.
---
--- 'maxResults', 'listOutposts_maxResults' - Undocumented member.
 newListOutposts ::
   ListOutposts
 newListOutposts =
   ListOutposts'
-    { availabilityZoneFilter =
-        Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       lifeCycleStatusFilter = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      availabilityZoneIdFilter = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      availabilityZoneFilter = Prelude.Nothing,
+      availabilityZoneIdFilter = Prelude.Nothing
     }
 
--- | A filter for the Availibility Zone (@us-east-1a@) of the Outpost.
---
--- Filter values are case sensitive. If you specify multiple values for a
--- filter, the values are joined with an @OR@, and the request returns all
--- results that match any of the specified values.
-listOutposts_availabilityZoneFilter :: Lens.Lens' ListOutposts (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listOutposts_availabilityZoneFilter = Lens.lens (\ListOutposts' {availabilityZoneFilter} -> availabilityZoneFilter) (\s@ListOutposts' {} a -> s {availabilityZoneFilter = a} :: ListOutposts) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+listOutposts_nextToken :: Lens.Lens' ListOutposts (Prelude.Maybe Prelude.Text)
+listOutposts_nextToken = Lens.lens (\ListOutposts' {nextToken} -> nextToken) (\s@ListOutposts' {} a -> s {nextToken = a} :: ListOutposts)
+
+-- | Undocumented member.
+listOutposts_maxResults :: Lens.Lens' ListOutposts (Prelude.Maybe Prelude.Natural)
+listOutposts_maxResults = Lens.lens (\ListOutposts' {maxResults} -> maxResults) (\s@ListOutposts' {} a -> s {maxResults = a} :: ListOutposts)
 
 -- | A filter for the lifecycle status of the Outpost.
 --
@@ -140,9 +139,13 @@ listOutposts_availabilityZoneFilter = Lens.lens (\ListOutposts' {availabilityZon
 listOutposts_lifeCycleStatusFilter :: Lens.Lens' ListOutposts (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listOutposts_lifeCycleStatusFilter = Lens.lens (\ListOutposts' {lifeCycleStatusFilter} -> lifeCycleStatusFilter) (\s@ListOutposts' {} a -> s {lifeCycleStatusFilter = a} :: ListOutposts) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
-listOutposts_nextToken :: Lens.Lens' ListOutposts (Prelude.Maybe Prelude.Text)
-listOutposts_nextToken = Lens.lens (\ListOutposts' {nextToken} -> nextToken) (\s@ListOutposts' {} a -> s {nextToken = a} :: ListOutposts)
+-- | A filter for the Availibility Zone (@us-east-1a@) of the Outpost.
+--
+-- Filter values are case sensitive. If you specify multiple values for a
+-- filter, the values are joined with an @OR@, and the request returns all
+-- results that match any of the specified values.
+listOutposts_availabilityZoneFilter :: Lens.Lens' ListOutposts (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listOutposts_availabilityZoneFilter = Lens.lens (\ListOutposts' {availabilityZoneFilter} -> availabilityZoneFilter) (\s@ListOutposts' {} a -> s {availabilityZoneFilter = a} :: ListOutposts) Prelude.. Lens.mapping Lens.coerced
 
 -- | A filter for the AZ IDs (@use1-az1@) of the Outpost.
 --
@@ -151,10 +154,6 @@ listOutposts_nextToken = Lens.lens (\ListOutposts' {nextToken} -> nextToken) (\s
 -- results that match any of the specified values.
 listOutposts_availabilityZoneIdFilter :: Lens.Lens' ListOutposts (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listOutposts_availabilityZoneIdFilter = Lens.lens (\ListOutposts' {availabilityZoneIdFilter} -> availabilityZoneIdFilter) (\s@ListOutposts' {} a -> s {availabilityZoneIdFilter = a} :: ListOutposts) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-listOutposts_maxResults :: Lens.Lens' ListOutposts (Prelude.Maybe Prelude.Natural)
-listOutposts_maxResults = Lens.lens (\ListOutposts' {maxResults} -> maxResults) (\s@ListOutposts' {} a -> s {maxResults = a} :: ListOutposts)
 
 instance Core.AWSRequest ListOutposts where
   type AWSResponse ListOutposts = ListOutpostsResponse
@@ -170,19 +169,19 @@ instance Core.AWSRequest ListOutposts where
 
 instance Prelude.Hashable ListOutposts where
   hashWithSalt _salt ListOutposts' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZoneFilter
-      `Prelude.hashWithSalt` lifeCycleStatusFilter
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` availabilityZoneIdFilter
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` lifeCycleStatusFilter
+      `Prelude.hashWithSalt` availabilityZoneFilter
+      `Prelude.hashWithSalt` availabilityZoneIdFilter
 
 instance Prelude.NFData ListOutposts where
   rnf ListOutposts' {..} =
-    Prelude.rnf availabilityZoneFilter
-      `Prelude.seq` Prelude.rnf lifeCycleStatusFilter
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf availabilityZoneIdFilter
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf lifeCycleStatusFilter
+      `Prelude.seq` Prelude.rnf availabilityZoneFilter
+      `Prelude.seq` Prelude.rnf availabilityZoneIdFilter
 
 instance Core.ToHeaders ListOutposts where
   toHeaders =
@@ -201,23 +200,23 @@ instance Core.ToPath ListOutposts where
 instance Core.ToQuery ListOutposts where
   toQuery ListOutposts' {..} =
     Prelude.mconcat
-      [ "AvailabilityZoneFilter"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> availabilityZoneFilter
-            ),
+      [ "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults,
         "LifeCycleStatusFilter"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> lifeCycleStatusFilter
             ),
-        "NextToken" Core.=: nextToken,
+        "AvailabilityZoneFilter"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> availabilityZoneFilter
+            ),
         "AvailabilityZoneIdFilter"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> availabilityZoneIdFilter
-            ),
-        "MaxResults" Core.=: maxResults
+            )
       ]
 
 -- | /See:/ 'newListOutpostsResponse' smart constructor.

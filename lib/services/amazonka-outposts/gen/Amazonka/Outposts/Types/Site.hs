@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSite' smart constructor.
 data Site = Site'
-  { accountId :: Prelude.Maybe Prelude.Text,
+  { -- | The site tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     name :: Prelude.Maybe Prelude.Text,
-    siteId :: Prelude.Maybe Prelude.Text,
     siteArn :: Prelude.Maybe Prelude.Text,
     description :: Prelude.Maybe Prelude.Text,
-    -- | The site tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    siteId :: Prelude.Maybe Prelude.Text,
+    accountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,40 +45,36 @@ data Site = Site'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'site_accountId' - Undocumented member.
+-- 'tags', 'site_tags' - The site tags.
 --
 -- 'name', 'site_name' - Undocumented member.
---
--- 'siteId', 'site_siteId' - Undocumented member.
 --
 -- 'siteArn', 'site_siteArn' - Undocumented member.
 --
 -- 'description', 'site_description' - Undocumented member.
 --
--- 'tags', 'site_tags' - The site tags.
+-- 'siteId', 'site_siteId' - Undocumented member.
+--
+-- 'accountId', 'site_accountId' - Undocumented member.
 newSite ::
   Site
 newSite =
   Site'
-    { accountId = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
-      siteId = Prelude.Nothing,
       siteArn = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing
+      siteId = Prelude.Nothing,
+      accountId = Prelude.Nothing
     }
 
--- | Undocumented member.
-site_accountId :: Lens.Lens' Site (Prelude.Maybe Prelude.Text)
-site_accountId = Lens.lens (\Site' {accountId} -> accountId) (\s@Site' {} a -> s {accountId = a} :: Site)
+-- | The site tags.
+site_tags :: Lens.Lens' Site (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+site_tags = Lens.lens (\Site' {tags} -> tags) (\s@Site' {} a -> s {tags = a} :: Site) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 site_name :: Lens.Lens' Site (Prelude.Maybe Prelude.Text)
 site_name = Lens.lens (\Site' {name} -> name) (\s@Site' {} a -> s {name = a} :: Site)
-
--- | Undocumented member.
-site_siteId :: Lens.Lens' Site (Prelude.Maybe Prelude.Text)
-site_siteId = Lens.lens (\Site' {siteId} -> siteId) (\s@Site' {} a -> s {siteId = a} :: Site)
 
 -- | Undocumented member.
 site_siteArn :: Lens.Lens' Site (Prelude.Maybe Prelude.Text)
@@ -88,9 +84,13 @@ site_siteArn = Lens.lens (\Site' {siteArn} -> siteArn) (\s@Site' {} a -> s {site
 site_description :: Lens.Lens' Site (Prelude.Maybe Prelude.Text)
 site_description = Lens.lens (\Site' {description} -> description) (\s@Site' {} a -> s {description = a} :: Site)
 
--- | The site tags.
-site_tags :: Lens.Lens' Site (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-site_tags = Lens.lens (\Site' {tags} -> tags) (\s@Site' {} a -> s {tags = a} :: Site) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+site_siteId :: Lens.Lens' Site (Prelude.Maybe Prelude.Text)
+site_siteId = Lens.lens (\Site' {siteId} -> siteId) (\s@Site' {} a -> s {siteId = a} :: Site)
+
+-- | Undocumented member.
+site_accountId :: Lens.Lens' Site (Prelude.Maybe Prelude.Text)
+site_accountId = Lens.lens (\Site' {accountId} -> accountId) (\s@Site' {} a -> s {accountId = a} :: Site)
 
 instance Core.FromJSON Site where
   parseJSON =
@@ -98,28 +98,28 @@ instance Core.FromJSON Site where
       "Site"
       ( \x ->
           Site'
-            Prelude.<$> (x Core..:? "AccountId")
+            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "SiteId")
             Prelude.<*> (x Core..:? "SiteArn")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "SiteId")
+            Prelude.<*> (x Core..:? "AccountId")
       )
 
 instance Prelude.Hashable Site where
   hashWithSalt _salt Site' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` siteId
       `Prelude.hashWithSalt` siteArn
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` siteId
+      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData Site where
   rnf Site' {..} =
-    Prelude.rnf accountId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf siteId
       `Prelude.seq` Prelude.rnf siteArn
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf siteId
+      `Prelude.seq` Prelude.rnf accountId

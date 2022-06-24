@@ -34,9 +34,9 @@ module Amazonka.AppConfig.CreateEnvironment
     newCreateEnvironment,
 
     -- * Request Lenses
+    createEnvironment_tags,
     createEnvironment_monitors,
     createEnvironment_description,
-    createEnvironment_tags,
     createEnvironment_applicationId,
     createEnvironment_name,
 
@@ -45,12 +45,12 @@ module Amazonka.AppConfig.CreateEnvironment
     newEnvironment,
 
     -- * Response Lenses
+    environment_name,
     environment_state,
     environment_monitors,
-    environment_applicationId,
-    environment_name,
     environment_id,
     environment_description,
+    environment_applicationId,
   )
 where
 
@@ -63,14 +63,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEnvironment' smart constructor.
 data CreateEnvironment = CreateEnvironment'
-  { -- | Amazon CloudWatch alarms to monitor during the deployment process.
-    monitors :: Prelude.Maybe [Monitor],
-    -- | A description of the environment.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Metadata to assign to the environment. Tags help organize and categorize
+  { -- | Metadata to assign to the environment. Tags help organize and categorize
     -- your AppConfig resources. Each tag consists of a key and an optional
     -- value, both of which you define.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Amazon CloudWatch alarms to monitor during the deployment process.
+    monitors :: Prelude.Maybe [Monitor],
+    -- | A description of the environment.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The application ID.
     applicationId :: Prelude.Text,
     -- | A name for the environment.
@@ -86,13 +86,13 @@ data CreateEnvironment = CreateEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'monitors', 'createEnvironment_monitors' - Amazon CloudWatch alarms to monitor during the deployment process.
---
--- 'description', 'createEnvironment_description' - A description of the environment.
---
 -- 'tags', 'createEnvironment_tags' - Metadata to assign to the environment. Tags help organize and categorize
 -- your AppConfig resources. Each tag consists of a key and an optional
 -- value, both of which you define.
+--
+-- 'monitors', 'createEnvironment_monitors' - Amazon CloudWatch alarms to monitor during the deployment process.
+--
+-- 'description', 'createEnvironment_description' - A description of the environment.
 --
 -- 'applicationId', 'createEnvironment_applicationId' - The application ID.
 --
@@ -105,12 +105,18 @@ newCreateEnvironment ::
   CreateEnvironment
 newCreateEnvironment pApplicationId_ pName_ =
   CreateEnvironment'
-    { monitors = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      monitors = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
       applicationId = pApplicationId_,
       name = pName_
     }
+
+-- | Metadata to assign to the environment. Tags help organize and categorize
+-- your AppConfig resources. Each tag consists of a key and an optional
+-- value, both of which you define.
+createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | Amazon CloudWatch alarms to monitor during the deployment process.
 createEnvironment_monitors :: Lens.Lens' CreateEnvironment (Prelude.Maybe [Monitor])
@@ -119,12 +125,6 @@ createEnvironment_monitors = Lens.lens (\CreateEnvironment' {monitors} -> monito
 -- | A description of the environment.
 createEnvironment_description :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
 createEnvironment_description = Lens.lens (\CreateEnvironment' {description} -> description) (\s@CreateEnvironment' {} a -> s {description = a} :: CreateEnvironment)
-
--- | Metadata to assign to the environment. Tags help organize and categorize
--- your AppConfig resources. Each tag consists of a key and an optional
--- value, both of which you define.
-createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The application ID.
 createEnvironment_applicationId :: Lens.Lens' CreateEnvironment Prelude.Text
@@ -143,17 +143,17 @@ instance Core.AWSRequest CreateEnvironment where
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` monitors
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` monitors
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateEnvironment where
   rnf CreateEnvironment' {..} =
-    Prelude.rnf monitors
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf monitors
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf name
 
@@ -172,9 +172,9 @@ instance Core.ToJSON CreateEnvironment where
   toJSON CreateEnvironment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Monitors" Core..=) Prelude.<$> monitors,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Monitors" Core..=) Prelude.<$> monitors,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name)
           ]
       )

@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHostedConfigurationVersionSummary' smart constructor.
 data HostedConfigurationVersionSummary = HostedConfigurationVersionSummary'
-  { -- | The configuration version.
+  { -- | A description of the configuration.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The configuration version.
     versionNumber :: Prelude.Maybe Prelude.Int,
     -- | The application ID.
     applicationId :: Prelude.Maybe Prelude.Text,
-    -- | A description of the configuration.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The configuration profile ID.
     configurationProfileId :: Prelude.Maybe Prelude.Text,
     -- | A standard MIME type describing the format of the configuration content.
@@ -50,11 +50,11 @@ data HostedConfigurationVersionSummary = HostedConfigurationVersionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'hostedConfigurationVersionSummary_description' - A description of the configuration.
+--
 -- 'versionNumber', 'hostedConfigurationVersionSummary_versionNumber' - The configuration version.
 --
 -- 'applicationId', 'hostedConfigurationVersionSummary_applicationId' - The application ID.
---
--- 'description', 'hostedConfigurationVersionSummary_description' - A description of the configuration.
 --
 -- 'configurationProfileId', 'hostedConfigurationVersionSummary_configurationProfileId' - The configuration profile ID.
 --
@@ -65,13 +65,17 @@ newHostedConfigurationVersionSummary ::
   HostedConfigurationVersionSummary
 newHostedConfigurationVersionSummary =
   HostedConfigurationVersionSummary'
-    { versionNumber =
+    { description =
         Prelude.Nothing,
+      versionNumber = Prelude.Nothing,
       applicationId = Prelude.Nothing,
-      description = Prelude.Nothing,
       configurationProfileId = Prelude.Nothing,
       contentType = Prelude.Nothing
     }
+
+-- | A description of the configuration.
+hostedConfigurationVersionSummary_description :: Lens.Lens' HostedConfigurationVersionSummary (Prelude.Maybe Prelude.Text)
+hostedConfigurationVersionSummary_description = Lens.lens (\HostedConfigurationVersionSummary' {description} -> description) (\s@HostedConfigurationVersionSummary' {} a -> s {description = a} :: HostedConfigurationVersionSummary)
 
 -- | The configuration version.
 hostedConfigurationVersionSummary_versionNumber :: Lens.Lens' HostedConfigurationVersionSummary (Prelude.Maybe Prelude.Int)
@@ -80,10 +84,6 @@ hostedConfigurationVersionSummary_versionNumber = Lens.lens (\HostedConfiguratio
 -- | The application ID.
 hostedConfigurationVersionSummary_applicationId :: Lens.Lens' HostedConfigurationVersionSummary (Prelude.Maybe Prelude.Text)
 hostedConfigurationVersionSummary_applicationId = Lens.lens (\HostedConfigurationVersionSummary' {applicationId} -> applicationId) (\s@HostedConfigurationVersionSummary' {} a -> s {applicationId = a} :: HostedConfigurationVersionSummary)
-
--- | A description of the configuration.
-hostedConfigurationVersionSummary_description :: Lens.Lens' HostedConfigurationVersionSummary (Prelude.Maybe Prelude.Text)
-hostedConfigurationVersionSummary_description = Lens.lens (\HostedConfigurationVersionSummary' {description} -> description) (\s@HostedConfigurationVersionSummary' {} a -> s {description = a} :: HostedConfigurationVersionSummary)
 
 -- | The configuration profile ID.
 hostedConfigurationVersionSummary_configurationProfileId :: Lens.Lens' HostedConfigurationVersionSummary (Prelude.Maybe Prelude.Text)
@@ -104,9 +104,9 @@ instance
       "HostedConfigurationVersionSummary"
       ( \x ->
           HostedConfigurationVersionSummary'
-            Prelude.<$> (x Core..:? "VersionNumber")
+            Prelude.<$> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "VersionNumber")
             Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "ConfigurationProfileId")
             Prelude.<*> (x Core..:? "ContentType")
       )
@@ -118,9 +118,9 @@ instance
   hashWithSalt
     _salt
     HostedConfigurationVersionSummary' {..} =
-      _salt `Prelude.hashWithSalt` versionNumber
+      _salt `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` versionNumber
         `Prelude.hashWithSalt` applicationId
-        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` configurationProfileId
         `Prelude.hashWithSalt` contentType
 
@@ -129,8 +129,8 @@ instance
     HostedConfigurationVersionSummary
   where
   rnf HostedConfigurationVersionSummary' {..} =
-    Prelude.rnf versionNumber
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf versionNumber
       `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf configurationProfileId
       `Prelude.seq` Prelude.rnf contentType

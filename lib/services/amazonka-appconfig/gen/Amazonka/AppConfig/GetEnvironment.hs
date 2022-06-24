@@ -40,12 +40,12 @@ module Amazonka.AppConfig.GetEnvironment
     newEnvironment,
 
     -- * Response Lenses
+    environment_name,
     environment_state,
     environment_monitors,
-    environment_applicationId,
-    environment_name,
     environment_id,
     environment_description,
+    environment_applicationId,
   )
 where
 

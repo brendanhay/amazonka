@@ -17,11 +17,11 @@ module Amazonka.AppConfig.Types
     defaultService,
 
     -- * Errors
-    _PayloadTooLargeException,
-    _ConflictException,
-    _ServiceQuotaExceededException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _PayloadTooLargeException,
     _BadRequestException,
 
     -- * DeploymentEventType
@@ -55,106 +55,106 @@ module Amazonka.AppConfig.Types
     -- * ConfigurationProfile
     ConfigurationProfile (..),
     newConfigurationProfile,
-    configurationProfile_retrievalRoleArn,
-    configurationProfile_validators,
-    configurationProfile_locationUri,
-    configurationProfile_applicationId,
     configurationProfile_name,
+    configurationProfile_retrievalRoleArn,
     configurationProfile_id,
     configurationProfile_description,
+    configurationProfile_locationUri,
+    configurationProfile_applicationId,
+    configurationProfile_validators,
 
     -- * ConfigurationProfileSummary
     ConfigurationProfileSummary (..),
     newConfigurationProfileSummary,
+    configurationProfileSummary_name,
+    configurationProfileSummary_validatorTypes,
+    configurationProfileSummary_id,
     configurationProfileSummary_locationUri,
     configurationProfileSummary_applicationId,
-    configurationProfileSummary_name,
-    configurationProfileSummary_id,
-    configurationProfileSummary_validatorTypes,
 
     -- * Deployment
     Deployment (..),
     newDeployment,
-    deployment_growthFactor,
-    deployment_configurationName,
-    deployment_state,
     deployment_deploymentStrategyId,
-    deployment_deploymentNumber,
-    deployment_configurationVersion,
-    deployment_eventLog,
-    deployment_percentageComplete,
-    deployment_startedAt,
-    deployment_applicationId,
-    deployment_deploymentDurationInMinutes,
-    deployment_environmentId,
-    deployment_completedAt,
-    deployment_configurationLocationUri,
-    deployment_finalBakeTimeInMinutes,
-    deployment_description,
-    deployment_configurationProfileId,
     deployment_growthType,
+    deployment_state,
+    deployment_deploymentDurationInMinutes,
+    deployment_deploymentNumber,
+    deployment_description,
+    deployment_finalBakeTimeInMinutes,
+    deployment_startedAt,
+    deployment_configurationName,
+    deployment_growthFactor,
+    deployment_eventLog,
+    deployment_configurationVersion,
+    deployment_environmentId,
+    deployment_percentageComplete,
+    deployment_configurationLocationUri,
+    deployment_applicationId,
+    deployment_completedAt,
+    deployment_configurationProfileId,
 
     -- * DeploymentEvent
     DeploymentEvent (..),
     newDeploymentEvent,
-    deploymentEvent_triggeredBy,
-    deploymentEvent_occurredAt,
     deploymentEvent_eventType,
+    deploymentEvent_occurredAt,
     deploymentEvent_description,
+    deploymentEvent_triggeredBy,
 
     -- * DeploymentStrategy
     DeploymentStrategy (..),
     newDeploymentStrategy,
-    deploymentStrategy_growthFactor,
-    deploymentStrategy_replicateTo,
     deploymentStrategy_name,
-    deploymentStrategy_id,
-    deploymentStrategy_deploymentDurationInMinutes,
-    deploymentStrategy_finalBakeTimeInMinutes,
-    deploymentStrategy_description,
     deploymentStrategy_growthType,
+    deploymentStrategy_deploymentDurationInMinutes,
+    deploymentStrategy_id,
+    deploymentStrategy_description,
+    deploymentStrategy_finalBakeTimeInMinutes,
+    deploymentStrategy_replicateTo,
+    deploymentStrategy_growthFactor,
 
     -- * DeploymentSummary
     DeploymentSummary (..),
     newDeploymentSummary,
-    deploymentSummary_growthFactor,
-    deploymentSummary_configurationName,
+    deploymentSummary_growthType,
     deploymentSummary_state,
+    deploymentSummary_deploymentDurationInMinutes,
     deploymentSummary_deploymentNumber,
+    deploymentSummary_finalBakeTimeInMinutes,
+    deploymentSummary_startedAt,
+    deploymentSummary_configurationName,
+    deploymentSummary_growthFactor,
     deploymentSummary_configurationVersion,
     deploymentSummary_percentageComplete,
-    deploymentSummary_startedAt,
-    deploymentSummary_deploymentDurationInMinutes,
     deploymentSummary_completedAt,
-    deploymentSummary_finalBakeTimeInMinutes,
-    deploymentSummary_growthType,
 
     -- * Environment
     Environment (..),
     newEnvironment,
+    environment_name,
     environment_state,
     environment_monitors,
-    environment_applicationId,
-    environment_name,
     environment_id,
     environment_description,
+    environment_applicationId,
 
     -- * HostedConfigurationVersion
     HostedConfigurationVersion (..),
     newHostedConfigurationVersion,
-    hostedConfigurationVersion_content,
+    hostedConfigurationVersion_description,
     hostedConfigurationVersion_versionNumber,
     hostedConfigurationVersion_applicationId,
-    hostedConfigurationVersion_description,
+    hostedConfigurationVersion_content,
     hostedConfigurationVersion_configurationProfileId,
     hostedConfigurationVersion_contentType,
 
     -- * HostedConfigurationVersionSummary
     HostedConfigurationVersionSummary (..),
     newHostedConfigurationVersionSummary,
+    hostedConfigurationVersionSummary_description,
     hostedConfigurationVersionSummary_versionNumber,
     hostedConfigurationVersionSummary_applicationId,
-    hostedConfigurationVersionSummary_description,
     hostedConfigurationVersionSummary_configurationProfileId,
     hostedConfigurationVersionSummary_contentType,
 
@@ -221,35 +221,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -258,30 +231,48 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The configuration size is too large.
-_PayloadTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PayloadTooLargeException =
+-- | There was an internal failure in the AppConfig service.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "PayloadTooLargeException"
-    Prelude.. Core.hasStatus 413
-
--- | The request could not be processed because of conflict in the current
--- state of the resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
 
 -- | The number of hosted configuration versions exceeds the limit for the
 -- AppConfig configuration store. Delete one or more versions and try
@@ -293,14 +284,6 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
--- | There was an internal failure in the AppConfig service.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
 -- | The requested resource could not be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -308,6 +291,23 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The request could not be processed because of conflict in the current
+-- state of the resource.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The configuration size is too large.
+_PayloadTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PayloadTooLargeException =
+  Core._MatchServiceError
+    defaultService
+    "PayloadTooLargeException"
+    Prelude.. Core.hasStatus 413
 
 -- | The input fails to satisfy the constraints specified by an AWS service.
 _BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

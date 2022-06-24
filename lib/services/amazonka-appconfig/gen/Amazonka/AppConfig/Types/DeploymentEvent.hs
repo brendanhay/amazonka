@@ -29,22 +29,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentEvent' smart constructor.
 data DeploymentEvent = DeploymentEvent'
-  { -- | The entity that triggered the deployment event. Events can be triggered
-    -- by a user, AWS AppConfig, an Amazon CloudWatch alarm, or an internal
-    -- error.
-    triggeredBy :: Prelude.Maybe TriggeredBy,
-    -- | The date and time the event occurred.
-    occurredAt :: Prelude.Maybe Core.POSIX,
-    -- | The type of deployment event. Deployment event types include the start,
+  { -- | The type of deployment event. Deployment event types include the start,
     -- stop, or completion of a deployment; a percentage update; the start or
     -- stop of a bake period; the start or completion of a rollback.
     eventType :: Prelude.Maybe DeploymentEventType,
+    -- | The date and time the event occurred.
+    occurredAt :: Prelude.Maybe Core.POSIX,
     -- | A description of the deployment event. Descriptions include, but are not
     -- limited to, the user account or the CloudWatch alarm ARN that initiated
     -- a rollback, the percentage of hosts that received the deployment, or in
     -- the case of an internal error, a recommendation to attempt a new
     -- deployment.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The entity that triggered the deployment event. Events can be triggered
+    -- by a user, AWS AppConfig, an Amazon CloudWatch alarm, or an internal
+    -- error.
+    triggeredBy :: Prelude.Maybe TriggeredBy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,46 +56,40 @@ data DeploymentEvent = DeploymentEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'triggeredBy', 'deploymentEvent_triggeredBy' - The entity that triggered the deployment event. Events can be triggered
--- by a user, AWS AppConfig, an Amazon CloudWatch alarm, or an internal
--- error.
---
--- 'occurredAt', 'deploymentEvent_occurredAt' - The date and time the event occurred.
---
 -- 'eventType', 'deploymentEvent_eventType' - The type of deployment event. Deployment event types include the start,
 -- stop, or completion of a deployment; a percentage update; the start or
 -- stop of a bake period; the start or completion of a rollback.
+--
+-- 'occurredAt', 'deploymentEvent_occurredAt' - The date and time the event occurred.
 --
 -- 'description', 'deploymentEvent_description' - A description of the deployment event. Descriptions include, but are not
 -- limited to, the user account or the CloudWatch alarm ARN that initiated
 -- a rollback, the percentage of hosts that received the deployment, or in
 -- the case of an internal error, a recommendation to attempt a new
 -- deployment.
+--
+-- 'triggeredBy', 'deploymentEvent_triggeredBy' - The entity that triggered the deployment event. Events can be triggered
+-- by a user, AWS AppConfig, an Amazon CloudWatch alarm, or an internal
+-- error.
 newDeploymentEvent ::
   DeploymentEvent
 newDeploymentEvent =
   DeploymentEvent'
-    { triggeredBy = Prelude.Nothing,
+    { eventType = Prelude.Nothing,
       occurredAt = Prelude.Nothing,
-      eventType = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      triggeredBy = Prelude.Nothing
     }
-
--- | The entity that triggered the deployment event. Events can be triggered
--- by a user, AWS AppConfig, an Amazon CloudWatch alarm, or an internal
--- error.
-deploymentEvent_triggeredBy :: Lens.Lens' DeploymentEvent (Prelude.Maybe TriggeredBy)
-deploymentEvent_triggeredBy = Lens.lens (\DeploymentEvent' {triggeredBy} -> triggeredBy) (\s@DeploymentEvent' {} a -> s {triggeredBy = a} :: DeploymentEvent)
-
--- | The date and time the event occurred.
-deploymentEvent_occurredAt :: Lens.Lens' DeploymentEvent (Prelude.Maybe Prelude.UTCTime)
-deploymentEvent_occurredAt = Lens.lens (\DeploymentEvent' {occurredAt} -> occurredAt) (\s@DeploymentEvent' {} a -> s {occurredAt = a} :: DeploymentEvent) Prelude.. Lens.mapping Core._Time
 
 -- | The type of deployment event. Deployment event types include the start,
 -- stop, or completion of a deployment; a percentage update; the start or
 -- stop of a bake period; the start or completion of a rollback.
 deploymentEvent_eventType :: Lens.Lens' DeploymentEvent (Prelude.Maybe DeploymentEventType)
 deploymentEvent_eventType = Lens.lens (\DeploymentEvent' {eventType} -> eventType) (\s@DeploymentEvent' {} a -> s {eventType = a} :: DeploymentEvent)
+
+-- | The date and time the event occurred.
+deploymentEvent_occurredAt :: Lens.Lens' DeploymentEvent (Prelude.Maybe Prelude.UTCTime)
+deploymentEvent_occurredAt = Lens.lens (\DeploymentEvent' {occurredAt} -> occurredAt) (\s@DeploymentEvent' {} a -> s {occurredAt = a} :: DeploymentEvent) Prelude.. Lens.mapping Core._Time
 
 -- | A description of the deployment event. Descriptions include, but are not
 -- limited to, the user account or the CloudWatch alarm ARN that initiated
@@ -105,28 +99,34 @@ deploymentEvent_eventType = Lens.lens (\DeploymentEvent' {eventType} -> eventTyp
 deploymentEvent_description :: Lens.Lens' DeploymentEvent (Prelude.Maybe Prelude.Text)
 deploymentEvent_description = Lens.lens (\DeploymentEvent' {description} -> description) (\s@DeploymentEvent' {} a -> s {description = a} :: DeploymentEvent)
 
+-- | The entity that triggered the deployment event. Events can be triggered
+-- by a user, AWS AppConfig, an Amazon CloudWatch alarm, or an internal
+-- error.
+deploymentEvent_triggeredBy :: Lens.Lens' DeploymentEvent (Prelude.Maybe TriggeredBy)
+deploymentEvent_triggeredBy = Lens.lens (\DeploymentEvent' {triggeredBy} -> triggeredBy) (\s@DeploymentEvent' {} a -> s {triggeredBy = a} :: DeploymentEvent)
+
 instance Core.FromJSON DeploymentEvent where
   parseJSON =
     Core.withObject
       "DeploymentEvent"
       ( \x ->
           DeploymentEvent'
-            Prelude.<$> (x Core..:? "TriggeredBy")
+            Prelude.<$> (x Core..:? "EventType")
             Prelude.<*> (x Core..:? "OccurredAt")
-            Prelude.<*> (x Core..:? "EventType")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "TriggeredBy")
       )
 
 instance Prelude.Hashable DeploymentEvent where
   hashWithSalt _salt DeploymentEvent' {..} =
-    _salt `Prelude.hashWithSalt` triggeredBy
+    _salt `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` occurredAt
-      `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` triggeredBy
 
 instance Prelude.NFData DeploymentEvent where
   rnf DeploymentEvent' {..} =
-    Prelude.rnf triggeredBy
+    Prelude.rnf eventType
       `Prelude.seq` Prelude.rnf occurredAt
-      `Prelude.seq` Prelude.rnf eventType
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf triggeredBy

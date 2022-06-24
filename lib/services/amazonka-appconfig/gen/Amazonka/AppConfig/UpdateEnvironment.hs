@@ -27,8 +27,8 @@ module Amazonka.AppConfig.UpdateEnvironment
     newUpdateEnvironment,
 
     -- * Request Lenses
-    updateEnvironment_monitors,
     updateEnvironment_name,
+    updateEnvironment_monitors,
     updateEnvironment_description,
     updateEnvironment_applicationId,
     updateEnvironment_environmentId,
@@ -38,12 +38,12 @@ module Amazonka.AppConfig.UpdateEnvironment
     newEnvironment,
 
     -- * Response Lenses
+    environment_name,
     environment_state,
     environment_monitors,
-    environment_applicationId,
-    environment_name,
     environment_id,
     environment_description,
+    environment_applicationId,
   )
 where
 
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { -- | Amazon CloudWatch alarms to monitor during the deployment process.
-    monitors :: Prelude.Maybe [Monitor],
-    -- | The name of the environment.
+  { -- | The name of the environment.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Amazon CloudWatch alarms to monitor during the deployment process.
+    monitors :: Prelude.Maybe [Monitor],
     -- | A description of the environment.
     description :: Prelude.Maybe Prelude.Text,
     -- | The application ID.
@@ -77,9 +77,9 @@ data UpdateEnvironment = UpdateEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'monitors', 'updateEnvironment_monitors' - Amazon CloudWatch alarms to monitor during the deployment process.
---
 -- 'name', 'updateEnvironment_name' - The name of the environment.
+--
+-- 'monitors', 'updateEnvironment_monitors' - Amazon CloudWatch alarms to monitor during the deployment process.
 --
 -- 'description', 'updateEnvironment_description' - A description of the environment.
 --
@@ -94,20 +94,20 @@ newUpdateEnvironment ::
   UpdateEnvironment
 newUpdateEnvironment pApplicationId_ pEnvironmentId_ =
   UpdateEnvironment'
-    { monitors = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      monitors = Prelude.Nothing,
       description = Prelude.Nothing,
       applicationId = pApplicationId_,
       environmentId = pEnvironmentId_
     }
 
--- | Amazon CloudWatch alarms to monitor during the deployment process.
-updateEnvironment_monitors :: Lens.Lens' UpdateEnvironment (Prelude.Maybe [Monitor])
-updateEnvironment_monitors = Lens.lens (\UpdateEnvironment' {monitors} -> monitors) (\s@UpdateEnvironment' {} a -> s {monitors = a} :: UpdateEnvironment) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the environment.
 updateEnvironment_name :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_name = Lens.lens (\UpdateEnvironment' {name} -> name) (\s@UpdateEnvironment' {} a -> s {name = a} :: UpdateEnvironment)
+
+-- | Amazon CloudWatch alarms to monitor during the deployment process.
+updateEnvironment_monitors :: Lens.Lens' UpdateEnvironment (Prelude.Maybe [Monitor])
+updateEnvironment_monitors = Lens.lens (\UpdateEnvironment' {monitors} -> monitors) (\s@UpdateEnvironment' {} a -> s {monitors = a} :: UpdateEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the environment.
 updateEnvironment_description :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
@@ -130,16 +130,16 @@ instance Core.AWSRequest UpdateEnvironment where
 
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` monitors
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` monitors
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` environmentId
 
 instance Prelude.NFData UpdateEnvironment where
   rnf UpdateEnvironment' {..} =
-    Prelude.rnf monitors
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf monitors
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf environmentId
@@ -159,8 +159,8 @@ instance Core.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Monitors" Core..=) Prelude.<$> monitors,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Monitors" Core..=) Prelude.<$> monitors,
             ("Description" Core..=) Prelude.<$> description
           ]
       )

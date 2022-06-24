@@ -35,13 +35,13 @@ module Amazonka.AppConfig.GetConfigurationProfile
     newConfigurationProfile,
 
     -- * Response Lenses
-    configurationProfile_retrievalRoleArn,
-    configurationProfile_validators,
-    configurationProfile_locationUri,
-    configurationProfile_applicationId,
     configurationProfile_name,
+    configurationProfile_retrievalRoleArn,
     configurationProfile_id,
     configurationProfile_description,
+    configurationProfile_locationUri,
+    configurationProfile_applicationId,
+    configurationProfile_validators,
   )
 where
 

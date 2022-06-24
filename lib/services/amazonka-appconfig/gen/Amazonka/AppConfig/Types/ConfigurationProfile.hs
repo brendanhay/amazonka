@@ -26,21 +26,21 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newConfigurationProfile' smart constructor.
 data ConfigurationProfile = ConfigurationProfile'
-  { -- | The ARN of an IAM role with permission to access the configuration at
+  { -- | The name of the configuration profile.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of an IAM role with permission to access the configuration at
     -- the specified LocationUri.
     retrievalRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of methods for validating the configuration.
-    validators :: Prelude.Maybe [Validator],
+    -- | The configuration profile ID.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The configuration profile description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The URI location of the configuration.
     locationUri :: Prelude.Maybe Prelude.Text,
     -- | The application ID.
     applicationId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration profile.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The configuration profile ID.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The configuration profile description.
-    description :: Prelude.Maybe Prelude.Text
+    -- | A list of methods for validating the configuration.
+    validators :: Prelude.Maybe [Validator]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -52,54 +52,41 @@ data ConfigurationProfile = ConfigurationProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'configurationProfile_name' - The name of the configuration profile.
+--
 -- 'retrievalRoleArn', 'configurationProfile_retrievalRoleArn' - The ARN of an IAM role with permission to access the configuration at
 -- the specified LocationUri.
 --
--- 'validators', 'configurationProfile_validators' - A list of methods for validating the configuration.
+-- 'id', 'configurationProfile_id' - The configuration profile ID.
+--
+-- 'description', 'configurationProfile_description' - The configuration profile description.
 --
 -- 'locationUri', 'configurationProfile_locationUri' - The URI location of the configuration.
 --
 -- 'applicationId', 'configurationProfile_applicationId' - The application ID.
 --
--- 'name', 'configurationProfile_name' - The name of the configuration profile.
---
--- 'id', 'configurationProfile_id' - The configuration profile ID.
---
--- 'description', 'configurationProfile_description' - The configuration profile description.
+-- 'validators', 'configurationProfile_validators' - A list of methods for validating the configuration.
 newConfigurationProfile ::
   ConfigurationProfile
 newConfigurationProfile =
   ConfigurationProfile'
-    { retrievalRoleArn =
-        Prelude.Nothing,
-      validators = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      retrievalRoleArn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      description = Prelude.Nothing,
       locationUri = Prelude.Nothing,
       applicationId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      id = Prelude.Nothing,
-      description = Prelude.Nothing
+      validators = Prelude.Nothing
     }
+
+-- | The name of the configuration profile.
+configurationProfile_name :: Lens.Lens' ConfigurationProfile (Prelude.Maybe Prelude.Text)
+configurationProfile_name = Lens.lens (\ConfigurationProfile' {name} -> name) (\s@ConfigurationProfile' {} a -> s {name = a} :: ConfigurationProfile)
 
 -- | The ARN of an IAM role with permission to access the configuration at
 -- the specified LocationUri.
 configurationProfile_retrievalRoleArn :: Lens.Lens' ConfigurationProfile (Prelude.Maybe Prelude.Text)
 configurationProfile_retrievalRoleArn = Lens.lens (\ConfigurationProfile' {retrievalRoleArn} -> retrievalRoleArn) (\s@ConfigurationProfile' {} a -> s {retrievalRoleArn = a} :: ConfigurationProfile)
-
--- | A list of methods for validating the configuration.
-configurationProfile_validators :: Lens.Lens' ConfigurationProfile (Prelude.Maybe [Validator])
-configurationProfile_validators = Lens.lens (\ConfigurationProfile' {validators} -> validators) (\s@ConfigurationProfile' {} a -> s {validators = a} :: ConfigurationProfile) Prelude.. Lens.mapping Lens.coerced
-
--- | The URI location of the configuration.
-configurationProfile_locationUri :: Lens.Lens' ConfigurationProfile (Prelude.Maybe Prelude.Text)
-configurationProfile_locationUri = Lens.lens (\ConfigurationProfile' {locationUri} -> locationUri) (\s@ConfigurationProfile' {} a -> s {locationUri = a} :: ConfigurationProfile)
-
--- | The application ID.
-configurationProfile_applicationId :: Lens.Lens' ConfigurationProfile (Prelude.Maybe Prelude.Text)
-configurationProfile_applicationId = Lens.lens (\ConfigurationProfile' {applicationId} -> applicationId) (\s@ConfigurationProfile' {} a -> s {applicationId = a} :: ConfigurationProfile)
-
--- | The name of the configuration profile.
-configurationProfile_name :: Lens.Lens' ConfigurationProfile (Prelude.Maybe Prelude.Text)
-configurationProfile_name = Lens.lens (\ConfigurationProfile' {name} -> name) (\s@ConfigurationProfile' {} a -> s {name = a} :: ConfigurationProfile)
 
 -- | The configuration profile ID.
 configurationProfile_id :: Lens.Lens' ConfigurationProfile (Prelude.Maybe Prelude.Text)
@@ -109,37 +96,49 @@ configurationProfile_id = Lens.lens (\ConfigurationProfile' {id} -> id) (\s@Conf
 configurationProfile_description :: Lens.Lens' ConfigurationProfile (Prelude.Maybe Prelude.Text)
 configurationProfile_description = Lens.lens (\ConfigurationProfile' {description} -> description) (\s@ConfigurationProfile' {} a -> s {description = a} :: ConfigurationProfile)
 
+-- | The URI location of the configuration.
+configurationProfile_locationUri :: Lens.Lens' ConfigurationProfile (Prelude.Maybe Prelude.Text)
+configurationProfile_locationUri = Lens.lens (\ConfigurationProfile' {locationUri} -> locationUri) (\s@ConfigurationProfile' {} a -> s {locationUri = a} :: ConfigurationProfile)
+
+-- | The application ID.
+configurationProfile_applicationId :: Lens.Lens' ConfigurationProfile (Prelude.Maybe Prelude.Text)
+configurationProfile_applicationId = Lens.lens (\ConfigurationProfile' {applicationId} -> applicationId) (\s@ConfigurationProfile' {} a -> s {applicationId = a} :: ConfigurationProfile)
+
+-- | A list of methods for validating the configuration.
+configurationProfile_validators :: Lens.Lens' ConfigurationProfile (Prelude.Maybe [Validator])
+configurationProfile_validators = Lens.lens (\ConfigurationProfile' {validators} -> validators) (\s@ConfigurationProfile' {} a -> s {validators = a} :: ConfigurationProfile) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON ConfigurationProfile where
   parseJSON =
     Core.withObject
       "ConfigurationProfile"
       ( \x ->
           ConfigurationProfile'
-            Prelude.<$> (x Core..:? "RetrievalRoleArn")
-            Prelude.<*> (x Core..:? "Validators" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LocationUri")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "RetrievalRoleArn")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "LocationUri")
+            Prelude.<*> (x Core..:? "ApplicationId")
+            Prelude.<*> (x Core..:? "Validators" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ConfigurationProfile where
   hashWithSalt _salt ConfigurationProfile' {..} =
-    _salt `Prelude.hashWithSalt` retrievalRoleArn
-      `Prelude.hashWithSalt` validators
-      `Prelude.hashWithSalt` locationUri
-      `Prelude.hashWithSalt` applicationId
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` retrievalRoleArn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` locationUri
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` validators
 
 instance Prelude.NFData ConfigurationProfile where
   rnf ConfigurationProfile' {..} =
-    Prelude.rnf retrievalRoleArn
-      `Prelude.seq` Prelude.rnf validators
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf retrievalRoleArn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf validators

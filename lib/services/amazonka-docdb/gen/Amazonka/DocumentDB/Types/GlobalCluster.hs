@@ -28,12 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGlobalCluster' smart constructor.
 data GlobalCluster = GlobalCluster'
-  { -- | Indicates the database engine version.
-    engineVersion :: Prelude.Maybe Prelude.Text,
+  { -- | The list of cluster IDs for secondary clusters within the global
+    -- cluster. Currently limited to one item.
+    globalClusterMembers :: Prelude.Maybe [GlobalClusterMember],
+    -- | The default database name within the new global cluster.
+    databaseName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the current state of this global cluster.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The deletion protection setting for the new global cluster.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) for the global cluster.
+    globalClusterArn :: Prelude.Maybe Prelude.Text,
     -- | The storage encryption setting for the global cluster.
     storageEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | Contains a user-supplied global cluster identifier. This identifier is
@@ -41,17 +44,14 @@ data GlobalCluster = GlobalCluster'
     globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The Amazon DocumentDB database engine used by the global cluster.
     engine :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the global cluster.
-    globalClusterArn :: Prelude.Maybe Prelude.Text,
-    -- | The default database name within the new global cluster.
-    databaseName :: Prelude.Maybe Prelude.Text,
-    -- | The list of cluster IDs for secondary clusters within the global
-    -- cluster. Currently limited to one item.
-    globalClusterMembers :: Prelude.Maybe [GlobalClusterMember],
+    -- | The deletion protection setting for the new global cluster.
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The Region-unique, immutable identifier for the global database cluster.
     -- This identifier is found in AWS CloudTrail log entries whenever the AWS
     -- KMS customer master key (CMK) for the cluster is accessed.
-    globalClusterResourceId :: Prelude.Maybe Prelude.Text
+    globalClusterResourceId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the database engine version.
+    engineVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,11 +63,14 @@ data GlobalCluster = GlobalCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineVersion', 'globalCluster_engineVersion' - Indicates the database engine version.
+-- 'globalClusterMembers', 'globalCluster_globalClusterMembers' - The list of cluster IDs for secondary clusters within the global
+-- cluster. Currently limited to one item.
+--
+-- 'databaseName', 'globalCluster_databaseName' - The default database name within the new global cluster.
 --
 -- 'status', 'globalCluster_status' - Specifies the current state of this global cluster.
 --
--- 'deletionProtection', 'globalCluster_deletionProtection' - The deletion protection setting for the new global cluster.
+-- 'globalClusterArn', 'globalCluster_globalClusterArn' - The Amazon Resource Name (ARN) for the global cluster.
 --
 -- 'storageEncrypted', 'globalCluster_storageEncrypted' - The storage encryption setting for the global cluster.
 --
@@ -76,43 +79,46 @@ data GlobalCluster = GlobalCluster'
 --
 -- 'engine', 'globalCluster_engine' - The Amazon DocumentDB database engine used by the global cluster.
 --
--- 'globalClusterArn', 'globalCluster_globalClusterArn' - The Amazon Resource Name (ARN) for the global cluster.
---
--- 'databaseName', 'globalCluster_databaseName' - The default database name within the new global cluster.
---
--- 'globalClusterMembers', 'globalCluster_globalClusterMembers' - The list of cluster IDs for secondary clusters within the global
--- cluster. Currently limited to one item.
+-- 'deletionProtection', 'globalCluster_deletionProtection' - The deletion protection setting for the new global cluster.
 --
 -- 'globalClusterResourceId', 'globalCluster_globalClusterResourceId' - The Region-unique, immutable identifier for the global database cluster.
 -- This identifier is found in AWS CloudTrail log entries whenever the AWS
 -- KMS customer master key (CMK) for the cluster is accessed.
+--
+-- 'engineVersion', 'globalCluster_engineVersion' - Indicates the database engine version.
 newGlobalCluster ::
   GlobalCluster
 newGlobalCluster =
   GlobalCluster'
-    { engineVersion = Prelude.Nothing,
+    { globalClusterMembers =
+        Prelude.Nothing,
+      databaseName = Prelude.Nothing,
       status = Prelude.Nothing,
-      deletionProtection = Prelude.Nothing,
+      globalClusterArn = Prelude.Nothing,
       storageEncrypted = Prelude.Nothing,
       globalClusterIdentifier = Prelude.Nothing,
       engine = Prelude.Nothing,
-      globalClusterArn = Prelude.Nothing,
-      databaseName = Prelude.Nothing,
-      globalClusterMembers = Prelude.Nothing,
-      globalClusterResourceId = Prelude.Nothing
+      deletionProtection = Prelude.Nothing,
+      globalClusterResourceId = Prelude.Nothing,
+      engineVersion = Prelude.Nothing
     }
 
--- | Indicates the database engine version.
-globalCluster_engineVersion :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
-globalCluster_engineVersion = Lens.lens (\GlobalCluster' {engineVersion} -> engineVersion) (\s@GlobalCluster' {} a -> s {engineVersion = a} :: GlobalCluster)
+-- | The list of cluster IDs for secondary clusters within the global
+-- cluster. Currently limited to one item.
+globalCluster_globalClusterMembers :: Lens.Lens' GlobalCluster (Prelude.Maybe [GlobalClusterMember])
+globalCluster_globalClusterMembers = Lens.lens (\GlobalCluster' {globalClusterMembers} -> globalClusterMembers) (\s@GlobalCluster' {} a -> s {globalClusterMembers = a} :: GlobalCluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | The default database name within the new global cluster.
+globalCluster_databaseName :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
+globalCluster_databaseName = Lens.lens (\GlobalCluster' {databaseName} -> databaseName) (\s@GlobalCluster' {} a -> s {databaseName = a} :: GlobalCluster)
 
 -- | Specifies the current state of this global cluster.
 globalCluster_status :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
 globalCluster_status = Lens.lens (\GlobalCluster' {status} -> status) (\s@GlobalCluster' {} a -> s {status = a} :: GlobalCluster)
 
--- | The deletion protection setting for the new global cluster.
-globalCluster_deletionProtection :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Bool)
-globalCluster_deletionProtection = Lens.lens (\GlobalCluster' {deletionProtection} -> deletionProtection) (\s@GlobalCluster' {} a -> s {deletionProtection = a} :: GlobalCluster)
+-- | The Amazon Resource Name (ARN) for the global cluster.
+globalCluster_globalClusterArn :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
+globalCluster_globalClusterArn = Lens.lens (\GlobalCluster' {globalClusterArn} -> globalClusterArn) (\s@GlobalCluster' {} a -> s {globalClusterArn = a} :: GlobalCluster)
 
 -- | The storage encryption setting for the global cluster.
 globalCluster_storageEncrypted :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Bool)
@@ -127,18 +133,9 @@ globalCluster_globalClusterIdentifier = Lens.lens (\GlobalCluster' {globalCluste
 globalCluster_engine :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
 globalCluster_engine = Lens.lens (\GlobalCluster' {engine} -> engine) (\s@GlobalCluster' {} a -> s {engine = a} :: GlobalCluster)
 
--- | The Amazon Resource Name (ARN) for the global cluster.
-globalCluster_globalClusterArn :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
-globalCluster_globalClusterArn = Lens.lens (\GlobalCluster' {globalClusterArn} -> globalClusterArn) (\s@GlobalCluster' {} a -> s {globalClusterArn = a} :: GlobalCluster)
-
--- | The default database name within the new global cluster.
-globalCluster_databaseName :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
-globalCluster_databaseName = Lens.lens (\GlobalCluster' {databaseName} -> databaseName) (\s@GlobalCluster' {} a -> s {databaseName = a} :: GlobalCluster)
-
--- | The list of cluster IDs for secondary clusters within the global
--- cluster. Currently limited to one item.
-globalCluster_globalClusterMembers :: Lens.Lens' GlobalCluster (Prelude.Maybe [GlobalClusterMember])
-globalCluster_globalClusterMembers = Lens.lens (\GlobalCluster' {globalClusterMembers} -> globalClusterMembers) (\s@GlobalCluster' {} a -> s {globalClusterMembers = a} :: GlobalCluster) Prelude.. Lens.mapping Lens.coerced
+-- | The deletion protection setting for the new global cluster.
+globalCluster_deletionProtection :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Bool)
+globalCluster_deletionProtection = Lens.lens (\GlobalCluster' {deletionProtection} -> deletionProtection) (\s@GlobalCluster' {} a -> s {deletionProtection = a} :: GlobalCluster)
 
 -- | The Region-unique, immutable identifier for the global database cluster.
 -- This identifier is found in AWS CloudTrail log entries whenever the AWS
@@ -146,45 +143,49 @@ globalCluster_globalClusterMembers = Lens.lens (\GlobalCluster' {globalClusterMe
 globalCluster_globalClusterResourceId :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
 globalCluster_globalClusterResourceId = Lens.lens (\GlobalCluster' {globalClusterResourceId} -> globalClusterResourceId) (\s@GlobalCluster' {} a -> s {globalClusterResourceId = a} :: GlobalCluster)
 
+-- | Indicates the database engine version.
+globalCluster_engineVersion :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
+globalCluster_engineVersion = Lens.lens (\GlobalCluster' {engineVersion} -> engineVersion) (\s@GlobalCluster' {} a -> s {engineVersion = a} :: GlobalCluster)
+
 instance Core.FromXML GlobalCluster where
   parseXML x =
     GlobalCluster'
-      Prelude.<$> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "DeletionProtection")
-      Prelude.<*> (x Core..@? "StorageEncrypted")
-      Prelude.<*> (x Core..@? "GlobalClusterIdentifier")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "GlobalClusterArn")
-      Prelude.<*> (x Core..@? "DatabaseName")
-      Prelude.<*> ( x Core..@? "GlobalClusterMembers"
+      Prelude.<$> ( x Core..@? "GlobalClusterMembers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "GlobalClusterMember")
                   )
+      Prelude.<*> (x Core..@? "DatabaseName")
+      Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "GlobalClusterArn")
+      Prelude.<*> (x Core..@? "StorageEncrypted")
+      Prelude.<*> (x Core..@? "GlobalClusterIdentifier")
+      Prelude.<*> (x Core..@? "Engine")
+      Prelude.<*> (x Core..@? "DeletionProtection")
       Prelude.<*> (x Core..@? "GlobalClusterResourceId")
+      Prelude.<*> (x Core..@? "EngineVersion")
 
 instance Prelude.Hashable GlobalCluster where
   hashWithSalt _salt GlobalCluster' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
+    _salt `Prelude.hashWithSalt` globalClusterMembers
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` globalClusterArn
       `Prelude.hashWithSalt` storageEncrypted
       `Prelude.hashWithSalt` globalClusterIdentifier
       `Prelude.hashWithSalt` engine
-      `Prelude.hashWithSalt` globalClusterArn
-      `Prelude.hashWithSalt` databaseName
-      `Prelude.hashWithSalt` globalClusterMembers
+      `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` globalClusterResourceId
+      `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData GlobalCluster where
   rnf GlobalCluster' {..} =
-    Prelude.rnf engineVersion
+    Prelude.rnf globalClusterMembers
+      `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf globalClusterArn
       `Prelude.seq` Prelude.rnf storageEncrypted
       `Prelude.seq` Prelude.rnf globalClusterIdentifier
       `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf globalClusterArn
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf globalClusterMembers
+      `Prelude.seq` Prelude.rnf deletionProtection
       `Prelude.seq` Prelude.rnf globalClusterResourceId
+      `Prelude.seq` Prelude.rnf engineVersion

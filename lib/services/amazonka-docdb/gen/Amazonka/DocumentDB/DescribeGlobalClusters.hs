@@ -32,18 +32,18 @@ module Amazonka.DocumentDB.DescribeGlobalClusters
     newDescribeGlobalClusters,
 
     -- * Request Lenses
-    describeGlobalClusters_globalClusterIdentifier,
-    describeGlobalClusters_filters,
     describeGlobalClusters_marker,
+    describeGlobalClusters_filters,
     describeGlobalClusters_maxRecords,
+    describeGlobalClusters_globalClusterIdentifier,
 
     -- * Destructuring the Response
     DescribeGlobalClustersResponse (..),
     newDescribeGlobalClustersResponse,
 
     -- * Response Lenses
-    describeGlobalClustersResponse_globalClusters,
     describeGlobalClustersResponse_marker,
+    describeGlobalClustersResponse_globalClusters,
     describeGlobalClustersResponse_httpStatus,
   )
 where
@@ -57,26 +57,26 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeGlobalClusters' smart constructor.
 data DescribeGlobalClusters = DescribeGlobalClusters'
-  { -- | The user-supplied cluster identifier. If this parameter is specified,
-    -- information from only the specific cluster is returned. This parameter
-    -- isn\'t case-sensitive.
-    globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
+  { -- | An optional pagination token provided by a previous
+    -- @DescribeGlobalClusters@ request. If this parameter is specified, the
+    -- response includes only records beyond the marker, up to the value
+    -- specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | A filter that specifies one or more global DB clusters to describe.
     --
     -- Supported filters: @db-cluster-id@ accepts cluster identifiers and
     -- cluster Amazon Resource Names (ARNs). The results list will only include
     -- information about the clusters identified by these ARNs.
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous
-    -- @DescribeGlobalClusters@ request. If this parameter is specified, the
-    -- response includes only records beyond the marker, up to the value
-    -- specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
     -- remaining results.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The user-supplied cluster identifier. If this parameter is specified,
+    -- information from only the specific cluster is returned. This parameter
+    -- isn\'t case-sensitive.
+    globalClusterIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,9 +88,10 @@ data DescribeGlobalClusters = DescribeGlobalClusters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'globalClusterIdentifier', 'describeGlobalClusters_globalClusterIdentifier' - The user-supplied cluster identifier. If this parameter is specified,
--- information from only the specific cluster is returned. This parameter
--- isn\'t case-sensitive.
+-- 'marker', 'describeGlobalClusters_marker' - An optional pagination token provided by a previous
+-- @DescribeGlobalClusters@ request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
 --
 -- 'filters', 'describeGlobalClusters_filters' - A filter that specifies one or more global DB clusters to describe.
 --
@@ -98,31 +99,30 @@ data DescribeGlobalClusters = DescribeGlobalClusters'
 -- cluster Amazon Resource Names (ARNs). The results list will only include
 -- information about the clusters identified by these ARNs.
 --
--- 'marker', 'describeGlobalClusters_marker' - An optional pagination token provided by a previous
--- @DescribeGlobalClusters@ request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeGlobalClusters_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
 -- remaining results.
+--
+-- 'globalClusterIdentifier', 'describeGlobalClusters_globalClusterIdentifier' - The user-supplied cluster identifier. If this parameter is specified,
+-- information from only the specific cluster is returned. This parameter
+-- isn\'t case-sensitive.
 newDescribeGlobalClusters ::
   DescribeGlobalClusters
 newDescribeGlobalClusters =
   DescribeGlobalClusters'
-    { globalClusterIdentifier =
-        Prelude.Nothing,
+    { marker = Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      globalClusterIdentifier = Prelude.Nothing
     }
 
--- | The user-supplied cluster identifier. If this parameter is specified,
--- information from only the specific cluster is returned. This parameter
--- isn\'t case-sensitive.
-describeGlobalClusters_globalClusterIdentifier :: Lens.Lens' DescribeGlobalClusters (Prelude.Maybe Prelude.Text)
-describeGlobalClusters_globalClusterIdentifier = Lens.lens (\DescribeGlobalClusters' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@DescribeGlobalClusters' {} a -> s {globalClusterIdentifier = a} :: DescribeGlobalClusters)
+-- | An optional pagination token provided by a previous
+-- @DescribeGlobalClusters@ request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+describeGlobalClusters_marker :: Lens.Lens' DescribeGlobalClusters (Prelude.Maybe Prelude.Text)
+describeGlobalClusters_marker = Lens.lens (\DescribeGlobalClusters' {marker} -> marker) (\s@DescribeGlobalClusters' {} a -> s {marker = a} :: DescribeGlobalClusters)
 
 -- | A filter that specifies one or more global DB clusters to describe.
 --
@@ -132,19 +132,18 @@ describeGlobalClusters_globalClusterIdentifier = Lens.lens (\DescribeGlobalClust
 describeGlobalClusters_filters :: Lens.Lens' DescribeGlobalClusters (Prelude.Maybe [Filter])
 describeGlobalClusters_filters = Lens.lens (\DescribeGlobalClusters' {filters} -> filters) (\s@DescribeGlobalClusters' {} a -> s {filters = a} :: DescribeGlobalClusters) Prelude.. Lens.mapping Lens.coerced
 
--- | An optional pagination token provided by a previous
--- @DescribeGlobalClusters@ request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
-describeGlobalClusters_marker :: Lens.Lens' DescribeGlobalClusters (Prelude.Maybe Prelude.Text)
-describeGlobalClusters_marker = Lens.lens (\DescribeGlobalClusters' {marker} -> marker) (\s@DescribeGlobalClusters' {} a -> s {marker = a} :: DescribeGlobalClusters)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
 -- remaining results.
 describeGlobalClusters_maxRecords :: Lens.Lens' DescribeGlobalClusters (Prelude.Maybe Prelude.Int)
 describeGlobalClusters_maxRecords = Lens.lens (\DescribeGlobalClusters' {maxRecords} -> maxRecords) (\s@DescribeGlobalClusters' {} a -> s {maxRecords = a} :: DescribeGlobalClusters)
+
+-- | The user-supplied cluster identifier. If this parameter is specified,
+-- information from only the specific cluster is returned. This parameter
+-- isn\'t case-sensitive.
+describeGlobalClusters_globalClusterIdentifier :: Lens.Lens' DescribeGlobalClusters (Prelude.Maybe Prelude.Text)
+describeGlobalClusters_globalClusterIdentifier = Lens.lens (\DescribeGlobalClusters' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@DescribeGlobalClusters' {} a -> s {globalClusterIdentifier = a} :: DescribeGlobalClusters)
 
 instance Core.AWSPager DescribeGlobalClusters where
   page rq rs
@@ -178,27 +177,26 @@ instance Core.AWSRequest DescribeGlobalClusters where
       "DescribeGlobalClustersResult"
       ( \s h x ->
           DescribeGlobalClustersResponse'
-            Prelude.<$> ( x Core..@? "GlobalClusters" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> ( x Core..@? "GlobalClusters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "GlobalClusterMember")
                         )
-            Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeGlobalClusters where
   hashWithSalt _salt DescribeGlobalClusters' {..} =
-    _salt
-      `Prelude.hashWithSalt` globalClusterIdentifier
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` globalClusterIdentifier
 
 instance Prelude.NFData DescribeGlobalClusters where
   rnf DescribeGlobalClusters' {..} =
-    Prelude.rnf globalClusterIdentifier
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf globalClusterIdentifier
 
 instance Core.ToHeaders DescribeGlobalClusters where
   toHeaders = Prelude.const Prelude.mempty
@@ -213,19 +211,19 @@ instance Core.ToQuery DescribeGlobalClusters where
           Core.=: ("DescribeGlobalClusters" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "GlobalClusterIdentifier"
-          Core.=: globalClusterIdentifier,
+        "Marker" Core.=: marker,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "GlobalClusterIdentifier"
+          Core.=: globalClusterIdentifier
       ]
 
 -- | /See:/ 'newDescribeGlobalClustersResponse' smart constructor.
 data DescribeGlobalClustersResponse = DescribeGlobalClustersResponse'
-  { globalClusters :: Prelude.Maybe [GlobalCluster],
-    marker :: Prelude.Maybe Prelude.Text,
+  { marker :: Prelude.Maybe Prelude.Text,
+    globalClusters :: Prelude.Maybe [GlobalCluster],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -239,9 +237,9 @@ data DescribeGlobalClustersResponse = DescribeGlobalClustersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'globalClusters', 'describeGlobalClustersResponse_globalClusters' -
---
 -- 'marker', 'describeGlobalClustersResponse_marker' -
+--
+-- 'globalClusters', 'describeGlobalClustersResponse_globalClusters' -
 --
 -- 'httpStatus', 'describeGlobalClustersResponse_httpStatus' - The response's http status code.
 newDescribeGlobalClustersResponse ::
@@ -250,19 +248,19 @@ newDescribeGlobalClustersResponse ::
   DescribeGlobalClustersResponse
 newDescribeGlobalClustersResponse pHttpStatus_ =
   DescribeGlobalClustersResponse'
-    { globalClusters =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      globalClusters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- |
-describeGlobalClustersResponse_globalClusters :: Lens.Lens' DescribeGlobalClustersResponse (Prelude.Maybe [GlobalCluster])
-describeGlobalClustersResponse_globalClusters = Lens.lens (\DescribeGlobalClustersResponse' {globalClusters} -> globalClusters) (\s@DescribeGlobalClustersResponse' {} a -> s {globalClusters = a} :: DescribeGlobalClustersResponse) Prelude.. Lens.mapping Lens.coerced
-
--- |
 describeGlobalClustersResponse_marker :: Lens.Lens' DescribeGlobalClustersResponse (Prelude.Maybe Prelude.Text)
 describeGlobalClustersResponse_marker = Lens.lens (\DescribeGlobalClustersResponse' {marker} -> marker) (\s@DescribeGlobalClustersResponse' {} a -> s {marker = a} :: DescribeGlobalClustersResponse)
+
+-- |
+describeGlobalClustersResponse_globalClusters :: Lens.Lens' DescribeGlobalClustersResponse (Prelude.Maybe [GlobalCluster])
+describeGlobalClustersResponse_globalClusters = Lens.lens (\DescribeGlobalClustersResponse' {globalClusters} -> globalClusters) (\s@DescribeGlobalClustersResponse' {} a -> s {globalClusters = a} :: DescribeGlobalClustersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeGlobalClustersResponse_httpStatus :: Lens.Lens' DescribeGlobalClustersResponse Prelude.Int
@@ -273,6 +271,6 @@ instance
     DescribeGlobalClustersResponse
   where
   rnf DescribeGlobalClustersResponse' {..} =
-    Prelude.rnf globalClusters
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf globalClusters
       `Prelude.seq` Prelude.rnf httpStatus

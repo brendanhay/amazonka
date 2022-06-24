@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The optional value of the tag. The string value can be from 1 to 256
+  { -- | The required name of the tag. The string value can be from 1 to 128
     -- Unicode characters in length and can\'t be prefixed with \"@aws:@\" or
     -- \"@rds:@\". The string can contain only the set of Unicode letters,
     -- digits, white space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
     -- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The required name of the tag. The string value can be from 1 to 128
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The optional value of the tag. The string value can be from 1 to 256
     -- Unicode characters in length and can\'t be prefixed with \"@aws:@\" or
     -- \"@rds:@\". The string can contain only the set of Unicode letters,
     -- digits, white space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
     -- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
-    key :: Prelude.Maybe Prelude.Text
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,13 +51,13 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'tag_value' - The optional value of the tag. The string value can be from 1 to 256
+-- 'key', 'tag_key' - The required name of the tag. The string value can be from 1 to 128
 -- Unicode characters in length and can\'t be prefixed with \"@aws:@\" or
 -- \"@rds:@\". The string can contain only the set of Unicode letters,
 -- digits, white space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
 -- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
 --
--- 'key', 'tag_key' - The required name of the tag. The string value can be from 1 to 128
+-- 'value', 'tag_value' - The optional value of the tag. The string value can be from 1 to 256
 -- Unicode characters in length and can\'t be prefixed with \"@aws:@\" or
 -- \"@rds:@\". The string can contain only the set of Unicode letters,
 -- digits, white space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
@@ -66,17 +66,9 @@ newTag ::
   Tag
 newTag =
   Tag'
-    { value = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The optional value of the tag. The string value can be from 1 to 256
--- Unicode characters in length and can\'t be prefixed with \"@aws:@\" or
--- \"@rds:@\". The string can contain only the set of Unicode letters,
--- digits, white space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
--- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
-tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
-tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 -- | The required name of the tag. The string value can be from 1 to 128
 -- Unicode characters in length and can\'t be prefixed with \"@aws:@\" or
@@ -86,21 +78,29 @@ tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} ::
 tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
+-- | The optional value of the tag. The string value can be from 1 to 256
+-- Unicode characters in length and can\'t be prefixed with \"@aws:@\" or
+-- \"@rds:@\". The string can contain only the set of Unicode letters,
+-- digits, white space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
+-- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
+tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
+
 instance Core.FromXML Tag where
   parseXML x =
     Tag'
-      Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Key")
+      Prelude.<$> (x Core..@? "Key") Prelude.<*> (x Core..@? "Value")
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Tag where
   rnf Tag' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToQuery Tag where
   toQuery Tag' {..} =
     Prelude.mconcat
-      ["Value" Core.=: value, "Key" Core.=: key]
+      ["Key" Core.=: key, "Value" Core.=: value]

@@ -27,17 +27,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDBInstanceStatusInfo' smart constructor.
 data DBInstanceStatusInfo = DBInstanceStatusInfo'
-  { -- | Status of the instance. For a @StatusType@ of read replica, the values
+  { -- | Details of the error if there is an error for the instance. If the
+    -- instance is not in an error state, this value is blank.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | Status of the instance. For a @StatusType@ of read replica, the values
     -- can be @replicating@, error, @stopped@, or @terminated@.
     status :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value that is @true@ if the instance is operating normally, or
     -- @false@ if the instance is in an error state.
     normal :: Prelude.Maybe Prelude.Bool,
     -- | This value is currently \"@read replication@.\"
-    statusType :: Prelude.Maybe Prelude.Text,
-    -- | Details of the error if there is an error for the instance. If the
-    -- instance is not in an error state, this value is blank.
-    message :: Prelude.Maybe Prelude.Text
+    statusType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,6 +49,9 @@ data DBInstanceStatusInfo = DBInstanceStatusInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'message', 'dbInstanceStatusInfo_message' - Details of the error if there is an error for the instance. If the
+-- instance is not in an error state, this value is blank.
+--
 -- 'status', 'dbInstanceStatusInfo_status' - Status of the instance. For a @StatusType@ of read replica, the values
 -- can be @replicating@, error, @stopped@, or @terminated@.
 --
@@ -56,18 +59,20 @@ data DBInstanceStatusInfo = DBInstanceStatusInfo'
 -- @false@ if the instance is in an error state.
 --
 -- 'statusType', 'dbInstanceStatusInfo_statusType' - This value is currently \"@read replication@.\"
---
--- 'message', 'dbInstanceStatusInfo_message' - Details of the error if there is an error for the instance. If the
--- instance is not in an error state, this value is blank.
 newDBInstanceStatusInfo ::
   DBInstanceStatusInfo
 newDBInstanceStatusInfo =
   DBInstanceStatusInfo'
-    { status = Prelude.Nothing,
+    { message = Prelude.Nothing,
+      status = Prelude.Nothing,
       normal = Prelude.Nothing,
-      statusType = Prelude.Nothing,
-      message = Prelude.Nothing
+      statusType = Prelude.Nothing
     }
+
+-- | Details of the error if there is an error for the instance. If the
+-- instance is not in an error state, this value is blank.
+dbInstanceStatusInfo_message :: Lens.Lens' DBInstanceStatusInfo (Prelude.Maybe Prelude.Text)
+dbInstanceStatusInfo_message = Lens.lens (\DBInstanceStatusInfo' {message} -> message) (\s@DBInstanceStatusInfo' {} a -> s {message = a} :: DBInstanceStatusInfo)
 
 -- | Status of the instance. For a @StatusType@ of read replica, the values
 -- can be @replicating@, error, @stopped@, or @terminated@.
@@ -83,29 +88,24 @@ dbInstanceStatusInfo_normal = Lens.lens (\DBInstanceStatusInfo' {normal} -> norm
 dbInstanceStatusInfo_statusType :: Lens.Lens' DBInstanceStatusInfo (Prelude.Maybe Prelude.Text)
 dbInstanceStatusInfo_statusType = Lens.lens (\DBInstanceStatusInfo' {statusType} -> statusType) (\s@DBInstanceStatusInfo' {} a -> s {statusType = a} :: DBInstanceStatusInfo)
 
--- | Details of the error if there is an error for the instance. If the
--- instance is not in an error state, this value is blank.
-dbInstanceStatusInfo_message :: Lens.Lens' DBInstanceStatusInfo (Prelude.Maybe Prelude.Text)
-dbInstanceStatusInfo_message = Lens.lens (\DBInstanceStatusInfo' {message} -> message) (\s@DBInstanceStatusInfo' {} a -> s {message = a} :: DBInstanceStatusInfo)
-
 instance Core.FromXML DBInstanceStatusInfo where
   parseXML x =
     DBInstanceStatusInfo'
-      Prelude.<$> (x Core..@? "Status")
+      Prelude.<$> (x Core..@? "Message")
+      Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "Normal")
       Prelude.<*> (x Core..@? "StatusType")
-      Prelude.<*> (x Core..@? "Message")
 
 instance Prelude.Hashable DBInstanceStatusInfo where
   hashWithSalt _salt DBInstanceStatusInfo' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` normal
       `Prelude.hashWithSalt` statusType
-      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData DBInstanceStatusInfo where
   rnf DBInstanceStatusInfo' {..} =
-    Prelude.rnf status
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf normal
       `Prelude.seq` Prelude.rnf statusType
-      `Prelude.seq` Prelude.rnf message

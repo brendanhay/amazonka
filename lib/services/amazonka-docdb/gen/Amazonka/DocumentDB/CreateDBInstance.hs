@@ -27,11 +27,11 @@ module Amazonka.DocumentDB.CreateDBInstance
     newCreateDBInstance,
 
     -- * Request Lenses
-    createDBInstance_autoMinorVersionUpgrade,
-    createDBInstance_promotionTier,
-    createDBInstance_preferredMaintenanceWindow,
-    createDBInstance_availabilityZone,
     createDBInstance_tags,
+    createDBInstance_promotionTier,
+    createDBInstance_autoMinorVersionUpgrade,
+    createDBInstance_availabilityZone,
+    createDBInstance_preferredMaintenanceWindow,
     createDBInstance_dbInstanceIdentifier,
     createDBInstance_dbInstanceClass,
     createDBInstance_engine,
@@ -58,11 +58,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateDBInstance' smart constructor.
 data CreateDBInstance = CreateDBInstance'
-  { -- | This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB
-    -- does not perform minor version upgrades regardless of the value set.
-    --
-    -- Default: @false@
-    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+  { -- | The tags to be assigned to the instance. You can assign up to 10 tags to
+    -- an instance.
+    tags :: Prelude.Maybe [Tag],
     -- | A value that specifies the order in which an Amazon DocumentDB replica
     -- is promoted to the primary instance after a failure of the existing
     -- primary instance.
@@ -71,6 +69,18 @@ data CreateDBInstance = CreateDBInstance'
     --
     -- Valid values: 0-15
     promotionTier :: Prelude.Maybe Prelude.Int,
+    -- | This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB
+    -- does not perform minor version upgrades regardless of the value set.
+    --
+    -- Default: @false@
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon EC2 Availability Zone that the instance is created in.
+    --
+    -- Default: A random, system-chosen Availability Zone in the endpoint\'s
+    -- Region.
+    --
+    -- Example: @us-east-1d@
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The time range each week during which system maintenance can occur, in
     -- Universal Coordinated Time (UTC).
     --
@@ -83,16 +93,6 @@ data CreateDBInstance = CreateDBInstance'
     --
     -- Constraints: Minimum 30-minute window.
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon EC2 Availability Zone that the instance is created in.
-    --
-    -- Default: A random, system-chosen Availability Zone in the endpoint\'s
-    -- Region.
-    --
-    -- Example: @us-east-1d@
-    availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The tags to be assigned to the instance. You can assign up to 10 tags to
-    -- an instance.
-    tags :: Prelude.Maybe [Tag],
     -- | The instance identifier. This parameter is stored as a lowercase string.
     --
     -- Constraints:
@@ -125,10 +125,8 @@ data CreateDBInstance = CreateDBInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoMinorVersionUpgrade', 'createDBInstance_autoMinorVersionUpgrade' - This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB
--- does not perform minor version upgrades regardless of the value set.
---
--- Default: @false@
+-- 'tags', 'createDBInstance_tags' - The tags to be assigned to the instance. You can assign up to 10 tags to
+-- an instance.
 --
 -- 'promotionTier', 'createDBInstance_promotionTier' - A value that specifies the order in which an Amazon DocumentDB replica
 -- is promoted to the primary instance after a failure of the existing
@@ -137,6 +135,18 @@ data CreateDBInstance = CreateDBInstance'
 -- Default: 1
 --
 -- Valid values: 0-15
+--
+-- 'autoMinorVersionUpgrade', 'createDBInstance_autoMinorVersionUpgrade' - This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB
+-- does not perform minor version upgrades regardless of the value set.
+--
+-- Default: @false@
+--
+-- 'availabilityZone', 'createDBInstance_availabilityZone' - The Amazon EC2 Availability Zone that the instance is created in.
+--
+-- Default: A random, system-chosen Availability Zone in the endpoint\'s
+-- Region.
+--
+-- Example: @us-east-1d@
 --
 -- 'preferredMaintenanceWindow', 'createDBInstance_preferredMaintenanceWindow' - The time range each week during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC).
@@ -149,16 +159,6 @@ data CreateDBInstance = CreateDBInstance'
 -- Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 --
 -- Constraints: Minimum 30-minute window.
---
--- 'availabilityZone', 'createDBInstance_availabilityZone' - The Amazon EC2 Availability Zone that the instance is created in.
---
--- Default: A random, system-chosen Availability Zone in the endpoint\'s
--- Region.
---
--- Example: @us-east-1d@
---
--- 'tags', 'createDBInstance_tags' - The tags to be assigned to the instance. You can assign up to 10 tags to
--- an instance.
 --
 -- 'dbInstanceIdentifier', 'createDBInstance_dbInstanceIdentifier' - The instance identifier. This parameter is stored as a lowercase string.
 --
@@ -196,24 +196,21 @@ newCreateDBInstance
   pEngine_
   pDBClusterIdentifier_ =
     CreateDBInstance'
-      { autoMinorVersionUpgrade =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
         promotionTier = Prelude.Nothing,
-        preferredMaintenanceWindow = Prelude.Nothing,
+        autoMinorVersionUpgrade = Prelude.Nothing,
         availabilityZone = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        preferredMaintenanceWindow = Prelude.Nothing,
         dbInstanceIdentifier = pDBInstanceIdentifier_,
         dbInstanceClass = pDBInstanceClass_,
         engine = pEngine_,
         dbClusterIdentifier = pDBClusterIdentifier_
       }
 
--- | This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB
--- does not perform minor version upgrades regardless of the value set.
---
--- Default: @false@
-createDBInstance_autoMinorVersionUpgrade :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Bool)
-createDBInstance_autoMinorVersionUpgrade = Lens.lens (\CreateDBInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateDBInstance' {} a -> s {autoMinorVersionUpgrade = a} :: CreateDBInstance)
+-- | The tags to be assigned to the instance. You can assign up to 10 tags to
+-- an instance.
+createDBInstance_tags :: Lens.Lens' CreateDBInstance (Prelude.Maybe [Tag])
+createDBInstance_tags = Lens.lens (\CreateDBInstance' {tags} -> tags) (\s@CreateDBInstance' {} a -> s {tags = a} :: CreateDBInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that specifies the order in which an Amazon DocumentDB replica
 -- is promoted to the primary instance after a failure of the existing
@@ -224,6 +221,22 @@ createDBInstance_autoMinorVersionUpgrade = Lens.lens (\CreateDBInstance' {autoMi
 -- Valid values: 0-15
 createDBInstance_promotionTier :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Int)
 createDBInstance_promotionTier = Lens.lens (\CreateDBInstance' {promotionTier} -> promotionTier) (\s@CreateDBInstance' {} a -> s {promotionTier = a} :: CreateDBInstance)
+
+-- | This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB
+-- does not perform minor version upgrades regardless of the value set.
+--
+-- Default: @false@
+createDBInstance_autoMinorVersionUpgrade :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Bool)
+createDBInstance_autoMinorVersionUpgrade = Lens.lens (\CreateDBInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateDBInstance' {} a -> s {autoMinorVersionUpgrade = a} :: CreateDBInstance)
+
+-- | The Amazon EC2 Availability Zone that the instance is created in.
+--
+-- Default: A random, system-chosen Availability Zone in the endpoint\'s
+-- Region.
+--
+-- Example: @us-east-1d@
+createDBInstance_availabilityZone :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
+createDBInstance_availabilityZone = Lens.lens (\CreateDBInstance' {availabilityZone} -> availabilityZone) (\s@CreateDBInstance' {} a -> s {availabilityZone = a} :: CreateDBInstance)
 
 -- | The time range each week during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC).
@@ -238,20 +251,6 @@ createDBInstance_promotionTier = Lens.lens (\CreateDBInstance' {promotionTier} -
 -- Constraints: Minimum 30-minute window.
 createDBInstance_preferredMaintenanceWindow :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
 createDBInstance_preferredMaintenanceWindow = Lens.lens (\CreateDBInstance' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateDBInstance' {} a -> s {preferredMaintenanceWindow = a} :: CreateDBInstance)
-
--- | The Amazon EC2 Availability Zone that the instance is created in.
---
--- Default: A random, system-chosen Availability Zone in the endpoint\'s
--- Region.
---
--- Example: @us-east-1d@
-createDBInstance_availabilityZone :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
-createDBInstance_availabilityZone = Lens.lens (\CreateDBInstance' {availabilityZone} -> availabilityZone) (\s@CreateDBInstance' {} a -> s {availabilityZone = a} :: CreateDBInstance)
-
--- | The tags to be assigned to the instance. You can assign up to 10 tags to
--- an instance.
-createDBInstance_tags :: Lens.Lens' CreateDBInstance (Prelude.Maybe [Tag])
-createDBInstance_tags = Lens.lens (\CreateDBInstance' {tags} -> tags) (\s@CreateDBInstance' {} a -> s {tags = a} :: CreateDBInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The instance identifier. This parameter is stored as a lowercase string.
 --
@@ -298,12 +297,11 @@ instance Core.AWSRequest CreateDBInstance where
 
 instance Prelude.Hashable CreateDBInstance where
   hashWithSalt _salt CreateDBInstance' {..} =
-    _salt
-      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` promotionTier
-      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` dbInstanceClass
       `Prelude.hashWithSalt` engine
@@ -311,11 +309,11 @@ instance Prelude.Hashable CreateDBInstance where
 
 instance Prelude.NFData CreateDBInstance where
   rnf CreateDBInstance' {..} =
-    Prelude.rnf autoMinorVersionUpgrade
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf promotionTier
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
       `Prelude.seq` Prelude.rnf dbInstanceClass
       `Prelude.seq` Prelude.rnf engine
@@ -334,15 +332,15 @@ instance Core.ToQuery CreateDBInstance where
           Core.=: ("CreateDBInstance" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
-        "PromotionTier" Core.=: promotionTier,
-        "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "AvailabilityZone" Core.=: availabilityZone,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
+        "PromotionTier" Core.=: promotionTier,
+        "AutoMinorVersionUpgrade"
+          Core.=: autoMinorVersionUpgrade,
+        "AvailabilityZone" Core.=: availabilityZone,
+        "PreferredMaintenanceWindow"
+          Core.=: preferredMaintenanceWindow,
         "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
         "DBInstanceClass" Core.=: dbInstanceClass,
         "Engine" Core.=: engine,

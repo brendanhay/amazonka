@@ -35,9 +35,9 @@ module Amazonka.FinSpaceData.GetWorkingLocation
     newGetWorkingLocationResponse,
 
     -- * Response Lenses
+    getWorkingLocationResponse_s3Bucket,
     getWorkingLocationResponse_s3Path,
     getWorkingLocationResponse_s3Uri,
-    getWorkingLocationResponse_s3Bucket,
     getWorkingLocationResponse_httpStatus,
   )
 where
@@ -107,9 +107,9 @@ instance Core.AWSRequest GetWorkingLocation where
     Response.receiveJSON
       ( \s h x ->
           GetWorkingLocationResponse'
-            Prelude.<$> (x Core..?> "s3Path")
+            Prelude.<$> (x Core..?> "s3Bucket")
+            Prelude.<*> (x Core..?> "s3Path")
             Prelude.<*> (x Core..?> "s3Uri")
-            Prelude.<*> (x Core..?> "s3Bucket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,12 +147,12 @@ instance Core.ToQuery GetWorkingLocation where
 
 -- | /See:/ 'newGetWorkingLocationResponse' smart constructor.
 data GetWorkingLocationResponse = GetWorkingLocationResponse'
-  { -- | Returns the Amazon S3 Path for the working location.
+  { -- | Returns the Amazon S3 bucket name for the working location.
+    s3Bucket :: Prelude.Maybe Prelude.Text,
+    -- | Returns the Amazon S3 Path for the working location.
     s3Path :: Prelude.Maybe Prelude.Text,
     -- | Returns the Amazon S3 URI for the working location.
     s3Uri :: Prelude.Maybe Prelude.Text,
-    -- | Returns the Amazon S3 bucket name for the working location.
-    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,11 +166,11 @@ data GetWorkingLocationResponse = GetWorkingLocationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 's3Bucket', 'getWorkingLocationResponse_s3Bucket' - Returns the Amazon S3 bucket name for the working location.
+--
 -- 's3Path', 'getWorkingLocationResponse_s3Path' - Returns the Amazon S3 Path for the working location.
 --
 -- 's3Uri', 'getWorkingLocationResponse_s3Uri' - Returns the Amazon S3 URI for the working location.
---
--- 's3Bucket', 'getWorkingLocationResponse_s3Bucket' - Returns the Amazon S3 bucket name for the working location.
 --
 -- 'httpStatus', 'getWorkingLocationResponse_httpStatus' - The response's http status code.
 newGetWorkingLocationResponse ::
@@ -179,12 +179,16 @@ newGetWorkingLocationResponse ::
   GetWorkingLocationResponse
 newGetWorkingLocationResponse pHttpStatus_ =
   GetWorkingLocationResponse'
-    { s3Path =
+    { s3Bucket =
         Prelude.Nothing,
+      s3Path = Prelude.Nothing,
       s3Uri = Prelude.Nothing,
-      s3Bucket = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Returns the Amazon S3 bucket name for the working location.
+getWorkingLocationResponse_s3Bucket :: Lens.Lens' GetWorkingLocationResponse (Prelude.Maybe Prelude.Text)
+getWorkingLocationResponse_s3Bucket = Lens.lens (\GetWorkingLocationResponse' {s3Bucket} -> s3Bucket) (\s@GetWorkingLocationResponse' {} a -> s {s3Bucket = a} :: GetWorkingLocationResponse)
 
 -- | Returns the Amazon S3 Path for the working location.
 getWorkingLocationResponse_s3Path :: Lens.Lens' GetWorkingLocationResponse (Prelude.Maybe Prelude.Text)
@@ -194,17 +198,13 @@ getWorkingLocationResponse_s3Path = Lens.lens (\GetWorkingLocationResponse' {s3P
 getWorkingLocationResponse_s3Uri :: Lens.Lens' GetWorkingLocationResponse (Prelude.Maybe Prelude.Text)
 getWorkingLocationResponse_s3Uri = Lens.lens (\GetWorkingLocationResponse' {s3Uri} -> s3Uri) (\s@GetWorkingLocationResponse' {} a -> s {s3Uri = a} :: GetWorkingLocationResponse)
 
--- | Returns the Amazon S3 bucket name for the working location.
-getWorkingLocationResponse_s3Bucket :: Lens.Lens' GetWorkingLocationResponse (Prelude.Maybe Prelude.Text)
-getWorkingLocationResponse_s3Bucket = Lens.lens (\GetWorkingLocationResponse' {s3Bucket} -> s3Bucket) (\s@GetWorkingLocationResponse' {} a -> s {s3Bucket = a} :: GetWorkingLocationResponse)
-
 -- | The response's http status code.
 getWorkingLocationResponse_httpStatus :: Lens.Lens' GetWorkingLocationResponse Prelude.Int
 getWorkingLocationResponse_httpStatus = Lens.lens (\GetWorkingLocationResponse' {httpStatus} -> httpStatus) (\s@GetWorkingLocationResponse' {} a -> s {httpStatus = a} :: GetWorkingLocationResponse)
 
 instance Prelude.NFData GetWorkingLocationResponse where
   rnf GetWorkingLocationResponse' {..} =
-    Prelude.rnf s3Path
+    Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf s3Path
       `Prelude.seq` Prelude.rnf s3Uri
-      `Prelude.seq` Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf httpStatus

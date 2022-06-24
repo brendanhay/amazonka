@@ -19,20 +19,20 @@ module Amazonka.FinSpaceData
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

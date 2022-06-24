@@ -27,9 +27,9 @@ module Amazonka.FinSpaceData.CreateChangeset
     newCreateChangeset,
 
     -- * Request Lenses
+    createChangeset_tags,
     createChangeset_formatParams,
     createChangeset_formatType,
-    createChangeset_tags,
     createChangeset_datasetId,
     createChangeset_changeType,
     createChangeset_sourceType,
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateChangeset' smart constructor.
 data CreateChangeset = CreateChangeset'
-  { -- | Options that define the structure of the source file(s).
+  { -- | Metadata tags to apply to this changeset.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Options that define the structure of the source file(s).
     formatParams :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Format type of the input files being loaded into the changeset.
     formatType :: Prelude.Maybe FormatType,
-    -- | Metadata tags to apply to this changeset.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique identifier for the FinSpace dataset in which the changeset
     -- will be created.
     datasetId :: Prelude.Text,
@@ -90,11 +90,11 @@ data CreateChangeset = CreateChangeset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createChangeset_tags' - Metadata tags to apply to this changeset.
+--
 -- 'formatParams', 'createChangeset_formatParams' - Options that define the structure of the source file(s).
 --
 -- 'formatType', 'createChangeset_formatType' - Format type of the input files being loaded into the changeset.
---
--- 'tags', 'createChangeset_tags' - Metadata tags to apply to this changeset.
 --
 -- 'datasetId', 'createChangeset_datasetId' - The unique identifier for the FinSpace dataset in which the changeset
 -- will be created.
@@ -127,14 +127,18 @@ newCreateChangeset
   pChangeType_
   pSourceType_ =
     CreateChangeset'
-      { formatParams = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        formatParams = Prelude.Nothing,
         formatType = Prelude.Nothing,
-        tags = Prelude.Nothing,
         datasetId = pDatasetId_,
         changeType = pChangeType_,
         sourceType = pSourceType_,
         sourceParams = Prelude.mempty
       }
+
+-- | Metadata tags to apply to this changeset.
+createChangeset_tags :: Lens.Lens' CreateChangeset (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createChangeset_tags = Lens.lens (\CreateChangeset' {tags} -> tags) (\s@CreateChangeset' {} a -> s {tags = a} :: CreateChangeset) Prelude.. Lens.mapping Lens.coerced
 
 -- | Options that define the structure of the source file(s).
 createChangeset_formatParams :: Lens.Lens' CreateChangeset (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -143,10 +147,6 @@ createChangeset_formatParams = Lens.lens (\CreateChangeset' {formatParams} -> fo
 -- | Format type of the input files being loaded into the changeset.
 createChangeset_formatType :: Lens.Lens' CreateChangeset (Prelude.Maybe FormatType)
 createChangeset_formatType = Lens.lens (\CreateChangeset' {formatType} -> formatType) (\s@CreateChangeset' {} a -> s {formatType = a} :: CreateChangeset)
-
--- | Metadata tags to apply to this changeset.
-createChangeset_tags :: Lens.Lens' CreateChangeset (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createChangeset_tags = Lens.lens (\CreateChangeset' {tags} -> tags) (\s@CreateChangeset' {} a -> s {tags = a} :: CreateChangeset) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier for the FinSpace dataset in which the changeset
 -- will be created.
@@ -190,9 +190,9 @@ instance Core.AWSRequest CreateChangeset where
 
 instance Prelude.Hashable CreateChangeset where
   hashWithSalt _salt CreateChangeset' {..} =
-    _salt `Prelude.hashWithSalt` formatParams
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` formatParams
       `Prelude.hashWithSalt` formatType
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` datasetId
       `Prelude.hashWithSalt` changeType
       `Prelude.hashWithSalt` sourceType
@@ -200,9 +200,9 @@ instance Prelude.Hashable CreateChangeset where
 
 instance Prelude.NFData CreateChangeset where
   rnf CreateChangeset' {..} =
-    Prelude.rnf formatParams
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf formatParams
       `Prelude.seq` Prelude.rnf formatType
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf datasetId
       `Prelude.seq` Prelude.rnf changeType
       `Prelude.seq` Prelude.rnf sourceType
@@ -223,9 +223,9 @@ instance Core.ToJSON CreateChangeset where
   toJSON CreateChangeset' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("formatParams" Core..=) Prelude.<$> formatParams,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("formatParams" Core..=) Prelude.<$> formatParams,
             ("formatType" Core..=) Prelude.<$> formatType,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("changeType" Core..= changeType),
             Prelude.Just ("sourceType" Core..= sourceType),
             Prelude.Just ("sourceParams" Core..= sourceParams)

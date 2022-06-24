@@ -14,33 +14,10 @@
 module Amazonka.ApplicationCostProfiler.Lens
   ( -- * Operations
 
-    -- ** ImportApplicationUsage
-    importApplicationUsage_sourceS3Location,
-    importApplicationUsageResponse_httpStatus,
-    importApplicationUsageResponse_importId,
-
-    -- ** PutReportDefinition
-    putReportDefinition_reportId,
-    putReportDefinition_reportDescription,
-    putReportDefinition_reportFrequency,
-    putReportDefinition_format,
-    putReportDefinition_destinationS3Location,
-    putReportDefinitionResponse_reportId,
-    putReportDefinitionResponse_httpStatus,
-
     -- ** DeleteReportDefinition
     deleteReportDefinition_reportId,
     deleteReportDefinitionResponse_reportId,
     deleteReportDefinitionResponse_httpStatus,
-
-    -- ** UpdateReportDefinition
-    updateReportDefinition_reportId,
-    updateReportDefinition_reportDescription,
-    updateReportDefinition_reportFrequency,
-    updateReportDefinition_format,
-    updateReportDefinition_destinationS3Location,
-    updateReportDefinitionResponse_reportId,
-    updateReportDefinitionResponse_httpStatus,
 
     -- ** GetReportDefinition
     getReportDefinition_reportId,
@@ -53,6 +30,11 @@ module Amazonka.ApplicationCostProfiler.Lens
     getReportDefinitionResponse_createdAt,
     getReportDefinitionResponse_lastUpdated,
 
+    -- ** ImportApplicationUsage
+    importApplicationUsage_sourceS3Location,
+    importApplicationUsageResponse_httpStatus,
+    importApplicationUsageResponse_importId,
+
     -- ** ListReportDefinitions
     listReportDefinitions_nextToken,
     listReportDefinitions_maxResults,
@@ -60,16 +42,34 @@ module Amazonka.ApplicationCostProfiler.Lens
     listReportDefinitionsResponse_reportDefinitions,
     listReportDefinitionsResponse_httpStatus,
 
+    -- ** PutReportDefinition
+    putReportDefinition_reportId,
+    putReportDefinition_reportDescription,
+    putReportDefinition_reportFrequency,
+    putReportDefinition_format,
+    putReportDefinition_destinationS3Location,
+    putReportDefinitionResponse_reportId,
+    putReportDefinitionResponse_httpStatus,
+
+    -- ** UpdateReportDefinition
+    updateReportDefinition_reportId,
+    updateReportDefinition_reportDescription,
+    updateReportDefinition_reportFrequency,
+    updateReportDefinition_format,
+    updateReportDefinition_destinationS3Location,
+    updateReportDefinitionResponse_reportId,
+    updateReportDefinitionResponse_httpStatus,
+
     -- * Types
 
     -- ** ReportDefinition
     reportDefinition_lastUpdatedAt,
-    reportDefinition_createdAt,
-    reportDefinition_reportId,
-    reportDefinition_format,
+    reportDefinition_destinationS3Location,
     reportDefinition_reportFrequency,
     reportDefinition_reportDescription,
-    reportDefinition_destinationS3Location,
+    reportDefinition_format,
+    reportDefinition_reportId,
+    reportDefinition_createdAt,
 
     -- ** S3Location
     s3Location_bucket,

@@ -28,11 +28,11 @@ module Amazonka.ApplicationCostProfiler
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
+
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
@@ -40,8 +40,8 @@ module Amazonka.ApplicationCostProfiler
     -- ** ThrottlingException
     _ThrottlingException,
 
-    -- ** InternalServerException
-    _InternalServerException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -49,29 +49,11 @@ module Amazonka.ApplicationCostProfiler
     -- * Operations
     -- $operations
 
-    -- ** ImportApplicationUsage
-    ImportApplicationUsage (ImportApplicationUsage'),
-    newImportApplicationUsage,
-    ImportApplicationUsageResponse (ImportApplicationUsageResponse'),
-    newImportApplicationUsageResponse,
-
-    -- ** PutReportDefinition
-    PutReportDefinition (PutReportDefinition'),
-    newPutReportDefinition,
-    PutReportDefinitionResponse (PutReportDefinitionResponse'),
-    newPutReportDefinitionResponse,
-
     -- ** DeleteReportDefinition
     DeleteReportDefinition (DeleteReportDefinition'),
     newDeleteReportDefinition,
     DeleteReportDefinitionResponse (DeleteReportDefinitionResponse'),
     newDeleteReportDefinitionResponse,
-
-    -- ** UpdateReportDefinition
-    UpdateReportDefinition (UpdateReportDefinition'),
-    newUpdateReportDefinition,
-    UpdateReportDefinitionResponse (UpdateReportDefinitionResponse'),
-    newUpdateReportDefinitionResponse,
 
     -- ** GetReportDefinition
     GetReportDefinition (GetReportDefinition'),
@@ -79,11 +61,29 @@ module Amazonka.ApplicationCostProfiler
     GetReportDefinitionResponse (GetReportDefinitionResponse'),
     newGetReportDefinitionResponse,
 
+    -- ** ImportApplicationUsage
+    ImportApplicationUsage (ImportApplicationUsage'),
+    newImportApplicationUsage,
+    ImportApplicationUsageResponse (ImportApplicationUsageResponse'),
+    newImportApplicationUsageResponse,
+
     -- ** ListReportDefinitions (Paginated)
     ListReportDefinitions (ListReportDefinitions'),
     newListReportDefinitions,
     ListReportDefinitionsResponse (ListReportDefinitionsResponse'),
     newListReportDefinitionsResponse,
+
+    -- ** PutReportDefinition
+    PutReportDefinition (PutReportDefinition'),
+    newPutReportDefinition,
+    PutReportDefinitionResponse (PutReportDefinitionResponse'),
+    newPutReportDefinitionResponse,
+
+    -- ** UpdateReportDefinition
+    UpdateReportDefinition (UpdateReportDefinition'),
+    newUpdateReportDefinition,
+    UpdateReportDefinitionResponse (UpdateReportDefinitionResponse'),
+    newUpdateReportDefinitionResponse,
 
     -- * Types
 

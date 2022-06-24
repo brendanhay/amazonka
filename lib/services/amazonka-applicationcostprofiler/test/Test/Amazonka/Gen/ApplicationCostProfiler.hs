@@ -27,61 +27,49 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestImportApplicationUsage $
---             newImportApplicationUsage
---
---         , requestPutReportDefinition $
---             newPutReportDefinition
---
---         , requestDeleteReportDefinition $
+--         [ requestDeleteReportDefinition $
 --             newDeleteReportDefinition
---
---         , requestUpdateReportDefinition $
---             newUpdateReportDefinition
 --
 --         , requestGetReportDefinition $
 --             newGetReportDefinition
 --
+--         , requestImportApplicationUsage $
+--             newImportApplicationUsage
+--
 --         , requestListReportDefinitions $
 --             newListReportDefinitions
+--
+--         , requestPutReportDefinition $
+--             newPutReportDefinition
+--
+--         , requestUpdateReportDefinition $
+--             newUpdateReportDefinition
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseImportApplicationUsage $
---             newImportApplicationUsageResponse
---
---         , responsePutReportDefinition $
---             newPutReportDefinitionResponse
---
---         , responseDeleteReportDefinition $
+--         [ responseDeleteReportDefinition $
 --             newDeleteReportDefinitionResponse
---
---         , responseUpdateReportDefinition $
---             newUpdateReportDefinitionResponse
 --
 --         , responseGetReportDefinition $
 --             newGetReportDefinitionResponse
 --
+--         , responseImportApplicationUsage $
+--             newImportApplicationUsageResponse
+--
 --         , responseListReportDefinitions $
 --             newListReportDefinitionsResponse
+--
+--         , responsePutReportDefinition $
+--             newPutReportDefinitionResponse
+--
+--         , responseUpdateReportDefinition $
+--             newUpdateReportDefinitionResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestImportApplicationUsage :: ImportApplicationUsage -> TestTree
-requestImportApplicationUsage =
-  req
-    "ImportApplicationUsage"
-    "fixture/ImportApplicationUsage.yaml"
-
-requestPutReportDefinition :: PutReportDefinition -> TestTree
-requestPutReportDefinition =
-  req
-    "PutReportDefinition"
-    "fixture/PutReportDefinition.yaml"
 
 requestDeleteReportDefinition :: DeleteReportDefinition -> TestTree
 requestDeleteReportDefinition =
@@ -89,17 +77,17 @@ requestDeleteReportDefinition =
     "DeleteReportDefinition"
     "fixture/DeleteReportDefinition.yaml"
 
-requestUpdateReportDefinition :: UpdateReportDefinition -> TestTree
-requestUpdateReportDefinition =
-  req
-    "UpdateReportDefinition"
-    "fixture/UpdateReportDefinition.yaml"
-
 requestGetReportDefinition :: GetReportDefinition -> TestTree
 requestGetReportDefinition =
   req
     "GetReportDefinition"
     "fixture/GetReportDefinition.yaml"
+
+requestImportApplicationUsage :: ImportApplicationUsage -> TestTree
+requestImportApplicationUsage =
+  req
+    "ImportApplicationUsage"
+    "fixture/ImportApplicationUsage.yaml"
 
 requestListReportDefinitions :: ListReportDefinitions -> TestTree
 requestListReportDefinitions =
@@ -107,23 +95,19 @@ requestListReportDefinitions =
     "ListReportDefinitions"
     "fixture/ListReportDefinitions.yaml"
 
+requestPutReportDefinition :: PutReportDefinition -> TestTree
+requestPutReportDefinition =
+  req
+    "PutReportDefinition"
+    "fixture/PutReportDefinition.yaml"
+
+requestUpdateReportDefinition :: UpdateReportDefinition -> TestTree
+requestUpdateReportDefinition =
+  req
+    "UpdateReportDefinition"
+    "fixture/UpdateReportDefinition.yaml"
+
 -- Responses
-
-responseImportApplicationUsage :: ImportApplicationUsageResponse -> TestTree
-responseImportApplicationUsage =
-  res
-    "ImportApplicationUsageResponse"
-    "fixture/ImportApplicationUsageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ImportApplicationUsage)
-
-responsePutReportDefinition :: PutReportDefinitionResponse -> TestTree
-responsePutReportDefinition =
-  res
-    "PutReportDefinitionResponse"
-    "fixture/PutReportDefinitionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutReportDefinition)
 
 responseDeleteReportDefinition :: DeleteReportDefinitionResponse -> TestTree
 responseDeleteReportDefinition =
@@ -133,14 +117,6 @@ responseDeleteReportDefinition =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteReportDefinition)
 
-responseUpdateReportDefinition :: UpdateReportDefinitionResponse -> TestTree
-responseUpdateReportDefinition =
-  res
-    "UpdateReportDefinitionResponse"
-    "fixture/UpdateReportDefinitionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateReportDefinition)
-
 responseGetReportDefinition :: GetReportDefinitionResponse -> TestTree
 responseGetReportDefinition =
   res
@@ -149,6 +125,14 @@ responseGetReportDefinition =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetReportDefinition)
 
+responseImportApplicationUsage :: ImportApplicationUsageResponse -> TestTree
+responseImportApplicationUsage =
+  res
+    "ImportApplicationUsageResponse"
+    "fixture/ImportApplicationUsageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportApplicationUsage)
+
 responseListReportDefinitions :: ListReportDefinitionsResponse -> TestTree
 responseListReportDefinitions =
   res
@@ -156,3 +140,19 @@ responseListReportDefinitions =
     "fixture/ListReportDefinitionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListReportDefinitions)
+
+responsePutReportDefinition :: PutReportDefinitionResponse -> TestTree
+responsePutReportDefinition =
+  res
+    "PutReportDefinitionResponse"
+    "fixture/PutReportDefinitionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutReportDefinition)
+
+responseUpdateReportDefinition :: UpdateReportDefinitionResponse -> TestTree
+responseUpdateReportDefinition =
+  res
+    "UpdateReportDefinitionResponse"
+    "fixture/UpdateReportDefinitionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateReportDefinition)

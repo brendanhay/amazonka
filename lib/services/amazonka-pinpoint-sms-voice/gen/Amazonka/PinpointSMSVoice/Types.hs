@@ -18,11 +18,11 @@ module Amazonka.PinpointSMSVoice.Types
 
     -- * Errors
     _NotFoundException,
-    _TooManyRequestsException,
-    _InternalServiceErrorException,
-    _BadRequestException,
     _AlreadyExistsException,
     _LimitExceededException,
+    _BadRequestException,
+    _InternalServiceErrorException,
+    _TooManyRequestsException,
 
     -- * EventType
     EventType (..),
@@ -35,47 +35,47 @@ module Amazonka.PinpointSMSVoice.Types
     -- * CloudWatchLogsDestination
     CloudWatchLogsDestination (..),
     newCloudWatchLogsDestination,
-    cloudWatchLogsDestination_iamRoleArn,
     cloudWatchLogsDestination_logGroupArn,
+    cloudWatchLogsDestination_iamRoleArn,
 
     -- * EventDestination
     EventDestination (..),
     newEventDestination,
+    eventDestination_name,
+    eventDestination_cloudWatchLogsDestination,
     eventDestination_matchingEventTypes,
+    eventDestination_snsDestination,
     eventDestination_enabled,
     eventDestination_kinesisFirehoseDestination,
-    eventDestination_name,
-    eventDestination_snsDestination,
-    eventDestination_cloudWatchLogsDestination,
 
     -- * EventDestinationDefinition
     EventDestinationDefinition (..),
     newEventDestinationDefinition,
+    eventDestinationDefinition_cloudWatchLogsDestination,
     eventDestinationDefinition_matchingEventTypes,
+    eventDestinationDefinition_snsDestination,
     eventDestinationDefinition_enabled,
     eventDestinationDefinition_kinesisFirehoseDestination,
-    eventDestinationDefinition_snsDestination,
-    eventDestinationDefinition_cloudWatchLogsDestination,
 
     -- * KinesisFirehoseDestination
     KinesisFirehoseDestination (..),
     newKinesisFirehoseDestination,
-    kinesisFirehoseDestination_iamRoleArn,
     kinesisFirehoseDestination_deliveryStreamArn,
+    kinesisFirehoseDestination_iamRoleArn,
 
     -- * PlainTextMessageType
     PlainTextMessageType (..),
     newPlainTextMessageType,
+    plainTextMessageType_voiceId,
     plainTextMessageType_languageCode,
     plainTextMessageType_text,
-    plainTextMessageType_voiceId,
 
     -- * SSMLMessageType
     SSMLMessageType (..),
     newSSMLMessageType,
+    sSMLMessageType_voiceId,
     sSMLMessageType_languageCode,
     sSMLMessageType_text,
-    sSMLMessageType_voiceId,
 
     -- * SnsDestination
     SnsDestination (..),
@@ -85,8 +85,8 @@ module Amazonka.PinpointSMSVoice.Types
     -- * VoiceMessageContent
     VoiceMessageContent (..),
     newVoiceMessageContent,
-    voiceMessageContent_callInstructionsMessage,
     voiceMessageContent_sSMLMessage,
+    voiceMessageContent_callInstructionsMessage,
     voiceMessageContent_plainTextMessage,
   )
 where
@@ -133,35 +133,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -170,12 +143,39 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The resource you attempted to access doesn\'t exist.
@@ -185,33 +185,6 @@ _NotFoundException =
     defaultService
     "NotFoundException"
     Prelude.. Core.hasStatus 404
-
--- | You\'ve issued too many requests to the resource. Wait a few minutes,
--- and then try again.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyRequestsException"
-    Prelude.. Core.hasStatus 429
-
--- | The API encountered an unexpected error and couldn\'t complete the
--- request. You might be able to successfully issue the request again in
--- the future.
-_InternalServiceErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceErrorException"
-    Prelude.. Core.hasStatus 500
-
--- | The input you provided is invalid.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
 
 -- | The resource specified in your request already exists.
 _AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -228,3 +201,30 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
     Prelude.. Core.hasStatus 412
+
+-- | The input you provided is invalid.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | The API encountered an unexpected error and couldn\'t complete the
+-- request. You might be able to successfully issue the request again in
+-- the future.
+_InternalServiceErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceErrorException"
+    Prelude.. Core.hasStatus 500
+
+-- | You\'ve issued too many requests to the resource. Wait a few minutes,
+-- and then try again.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
+    Prelude.. Core.hasStatus 429

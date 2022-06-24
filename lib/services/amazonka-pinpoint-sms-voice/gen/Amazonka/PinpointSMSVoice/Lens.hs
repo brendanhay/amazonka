@@ -14,34 +14,9 @@
 module Amazonka.PinpointSMSVoice.Lens
   ( -- * Operations
 
-    -- ** UpdateConfigurationSetEventDestination
-    updateConfigurationSetEventDestination_eventDestination,
-    updateConfigurationSetEventDestination_eventDestinationName,
-    updateConfigurationSetEventDestination_configurationSetName,
-    updateConfigurationSetEventDestinationResponse_httpStatus,
-
-    -- ** DeleteConfigurationSetEventDestination
-    deleteConfigurationSetEventDestination_eventDestinationName,
-    deleteConfigurationSetEventDestination_configurationSetName,
-    deleteConfigurationSetEventDestinationResponse_httpStatus,
-
-    -- ** DeleteConfigurationSet
-    deleteConfigurationSet_configurationSetName,
-    deleteConfigurationSetResponse_httpStatus,
-
-    -- ** SendVoiceMessage
-    sendVoiceMessage_configurationSetName,
-    sendVoiceMessage_callerId,
-    sendVoiceMessage_originationPhoneNumber,
-    sendVoiceMessage_content,
-    sendVoiceMessage_destinationPhoneNumber,
-    sendVoiceMessageResponse_messageId,
-    sendVoiceMessageResponse_httpStatus,
-
-    -- ** GetConfigurationSetEventDestinations
-    getConfigurationSetEventDestinations_configurationSetName,
-    getConfigurationSetEventDestinationsResponse_eventDestinations,
-    getConfigurationSetEventDestinationsResponse_httpStatus,
+    -- ** CreateConfigurationSet
+    createConfigurationSet_configurationSetName,
+    createConfigurationSetResponse_httpStatus,
 
     -- ** CreateConfigurationSetEventDestination
     createConfigurationSetEventDestination_eventDestination,
@@ -49,9 +24,34 @@ module Amazonka.PinpointSMSVoice.Lens
     createConfigurationSetEventDestination_configurationSetName,
     createConfigurationSetEventDestinationResponse_httpStatus,
 
-    -- ** CreateConfigurationSet
-    createConfigurationSet_configurationSetName,
-    createConfigurationSetResponse_httpStatus,
+    -- ** DeleteConfigurationSet
+    deleteConfigurationSet_configurationSetName,
+    deleteConfigurationSetResponse_httpStatus,
+
+    -- ** DeleteConfigurationSetEventDestination
+    deleteConfigurationSetEventDestination_eventDestinationName,
+    deleteConfigurationSetEventDestination_configurationSetName,
+    deleteConfigurationSetEventDestinationResponse_httpStatus,
+
+    -- ** GetConfigurationSetEventDestinations
+    getConfigurationSetEventDestinations_configurationSetName,
+    getConfigurationSetEventDestinationsResponse_eventDestinations,
+    getConfigurationSetEventDestinationsResponse_httpStatus,
+
+    -- ** SendVoiceMessage
+    sendVoiceMessage_callerId,
+    sendVoiceMessage_configurationSetName,
+    sendVoiceMessage_destinationPhoneNumber,
+    sendVoiceMessage_originationPhoneNumber,
+    sendVoiceMessage_content,
+    sendVoiceMessageResponse_messageId,
+    sendVoiceMessageResponse_httpStatus,
+
+    -- ** UpdateConfigurationSetEventDestination
+    updateConfigurationSetEventDestination_eventDestination,
+    updateConfigurationSetEventDestination_eventDestinationName,
+    updateConfigurationSetEventDestination_configurationSetName,
+    updateConfigurationSetEventDestinationResponse_httpStatus,
 
     -- * Types
 
@@ -59,44 +59,44 @@ module Amazonka.PinpointSMSVoice.Lens
     callInstructionsMessageType_text,
 
     -- ** CloudWatchLogsDestination
-    cloudWatchLogsDestination_iamRoleArn,
     cloudWatchLogsDestination_logGroupArn,
+    cloudWatchLogsDestination_iamRoleArn,
 
     -- ** EventDestination
+    eventDestination_name,
+    eventDestination_cloudWatchLogsDestination,
     eventDestination_matchingEventTypes,
+    eventDestination_snsDestination,
     eventDestination_enabled,
     eventDestination_kinesisFirehoseDestination,
-    eventDestination_name,
-    eventDestination_snsDestination,
-    eventDestination_cloudWatchLogsDestination,
 
     -- ** EventDestinationDefinition
+    eventDestinationDefinition_cloudWatchLogsDestination,
     eventDestinationDefinition_matchingEventTypes,
+    eventDestinationDefinition_snsDestination,
     eventDestinationDefinition_enabled,
     eventDestinationDefinition_kinesisFirehoseDestination,
-    eventDestinationDefinition_snsDestination,
-    eventDestinationDefinition_cloudWatchLogsDestination,
 
     -- ** KinesisFirehoseDestination
-    kinesisFirehoseDestination_iamRoleArn,
     kinesisFirehoseDestination_deliveryStreamArn,
+    kinesisFirehoseDestination_iamRoleArn,
 
     -- ** PlainTextMessageType
+    plainTextMessageType_voiceId,
     plainTextMessageType_languageCode,
     plainTextMessageType_text,
-    plainTextMessageType_voiceId,
 
     -- ** SSMLMessageType
+    sSMLMessageType_voiceId,
     sSMLMessageType_languageCode,
     sSMLMessageType_text,
-    sSMLMessageType_voiceId,
 
     -- ** SnsDestination
     snsDestination_topicArn,
 
     -- ** VoiceMessageContent
-    voiceMessageContent_callInstructionsMessage,
     voiceMessageContent_sSMLMessage,
+    voiceMessageContent_callInstructionsMessage,
     voiceMessageContent_plainTextMessage,
   )
 where

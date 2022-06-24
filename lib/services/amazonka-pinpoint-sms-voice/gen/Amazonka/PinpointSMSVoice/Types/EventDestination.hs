@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventDestination' smart constructor.
 data EventDestination = EventDestination'
-  { matchingEventTypes :: Prelude.Maybe [EventType],
+  { -- | A name that identifies the event destination configuration.
+    name :: Prelude.Maybe Prelude.Text,
+    cloudWatchLogsDestination :: Prelude.Maybe CloudWatchLogsDestination,
+    matchingEventTypes :: Prelude.Maybe [EventType],
+    snsDestination :: Prelude.Maybe SnsDestination,
     -- | Indicates whether or not the event destination is enabled. If the event
     -- destination is enabled, then Amazon Pinpoint sends response data to the
     -- specified event destination.
     enabled :: Prelude.Maybe Prelude.Bool,
-    kinesisFirehoseDestination :: Prelude.Maybe KinesisFirehoseDestination,
-    -- | A name that identifies the event destination configuration.
-    name :: Prelude.Maybe Prelude.Text,
-    snsDestination :: Prelude.Maybe SnsDestination,
-    cloudWatchLogsDestination :: Prelude.Maybe CloudWatchLogsDestination
+    kinesisFirehoseDestination :: Prelude.Maybe KinesisFirehoseDestination
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,35 +52,46 @@ data EventDestination = EventDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'eventDestination_name' - A name that identifies the event destination configuration.
+--
+-- 'cloudWatchLogsDestination', 'eventDestination_cloudWatchLogsDestination' - Undocumented member.
+--
 -- 'matchingEventTypes', 'eventDestination_matchingEventTypes' - Undocumented member.
+--
+-- 'snsDestination', 'eventDestination_snsDestination' - Undocumented member.
 --
 -- 'enabled', 'eventDestination_enabled' - Indicates whether or not the event destination is enabled. If the event
 -- destination is enabled, then Amazon Pinpoint sends response data to the
 -- specified event destination.
 --
 -- 'kinesisFirehoseDestination', 'eventDestination_kinesisFirehoseDestination' - Undocumented member.
---
--- 'name', 'eventDestination_name' - A name that identifies the event destination configuration.
---
--- 'snsDestination', 'eventDestination_snsDestination' - Undocumented member.
---
--- 'cloudWatchLogsDestination', 'eventDestination_cloudWatchLogsDestination' - Undocumented member.
 newEventDestination ::
   EventDestination
 newEventDestination =
   EventDestination'
-    { matchingEventTypes =
-        Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      kinesisFirehoseDestination = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      cloudWatchLogsDestination = Prelude.Nothing,
+      matchingEventTypes = Prelude.Nothing,
       snsDestination = Prelude.Nothing,
-      cloudWatchLogsDestination = Prelude.Nothing
+      enabled = Prelude.Nothing,
+      kinesisFirehoseDestination = Prelude.Nothing
     }
+
+-- | A name that identifies the event destination configuration.
+eventDestination_name :: Lens.Lens' EventDestination (Prelude.Maybe Prelude.Text)
+eventDestination_name = Lens.lens (\EventDestination' {name} -> name) (\s@EventDestination' {} a -> s {name = a} :: EventDestination)
+
+-- | Undocumented member.
+eventDestination_cloudWatchLogsDestination :: Lens.Lens' EventDestination (Prelude.Maybe CloudWatchLogsDestination)
+eventDestination_cloudWatchLogsDestination = Lens.lens (\EventDestination' {cloudWatchLogsDestination} -> cloudWatchLogsDestination) (\s@EventDestination' {} a -> s {cloudWatchLogsDestination = a} :: EventDestination)
 
 -- | Undocumented member.
 eventDestination_matchingEventTypes :: Lens.Lens' EventDestination (Prelude.Maybe [EventType])
 eventDestination_matchingEventTypes = Lens.lens (\EventDestination' {matchingEventTypes} -> matchingEventTypes) (\s@EventDestination' {} a -> s {matchingEventTypes = a} :: EventDestination) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+eventDestination_snsDestination :: Lens.Lens' EventDestination (Prelude.Maybe SnsDestination)
+eventDestination_snsDestination = Lens.lens (\EventDestination' {snsDestination} -> snsDestination) (\s@EventDestination' {} a -> s {snsDestination = a} :: EventDestination)
 
 -- | Indicates whether or not the event destination is enabled. If the event
 -- destination is enabled, then Amazon Pinpoint sends response data to the
@@ -92,48 +103,36 @@ eventDestination_enabled = Lens.lens (\EventDestination' {enabled} -> enabled) (
 eventDestination_kinesisFirehoseDestination :: Lens.Lens' EventDestination (Prelude.Maybe KinesisFirehoseDestination)
 eventDestination_kinesisFirehoseDestination = Lens.lens (\EventDestination' {kinesisFirehoseDestination} -> kinesisFirehoseDestination) (\s@EventDestination' {} a -> s {kinesisFirehoseDestination = a} :: EventDestination)
 
--- | A name that identifies the event destination configuration.
-eventDestination_name :: Lens.Lens' EventDestination (Prelude.Maybe Prelude.Text)
-eventDestination_name = Lens.lens (\EventDestination' {name} -> name) (\s@EventDestination' {} a -> s {name = a} :: EventDestination)
-
--- | Undocumented member.
-eventDestination_snsDestination :: Lens.Lens' EventDestination (Prelude.Maybe SnsDestination)
-eventDestination_snsDestination = Lens.lens (\EventDestination' {snsDestination} -> snsDestination) (\s@EventDestination' {} a -> s {snsDestination = a} :: EventDestination)
-
--- | Undocumented member.
-eventDestination_cloudWatchLogsDestination :: Lens.Lens' EventDestination (Prelude.Maybe CloudWatchLogsDestination)
-eventDestination_cloudWatchLogsDestination = Lens.lens (\EventDestination' {cloudWatchLogsDestination} -> cloudWatchLogsDestination) (\s@EventDestination' {} a -> s {cloudWatchLogsDestination = a} :: EventDestination)
-
 instance Core.FromJSON EventDestination where
   parseJSON =
     Core.withObject
       "EventDestination"
       ( \x ->
           EventDestination'
-            Prelude.<$> ( x Core..:? "MatchingEventTypes"
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "CloudWatchLogsDestination")
+            Prelude.<*> ( x Core..:? "MatchingEventTypes"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "SnsDestination")
             Prelude.<*> (x Core..:? "Enabled")
             Prelude.<*> (x Core..:? "KinesisFirehoseDestination")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "SnsDestination")
-            Prelude.<*> (x Core..:? "CloudWatchLogsDestination")
       )
 
 instance Prelude.Hashable EventDestination where
   hashWithSalt _salt EventDestination' {..} =
-    _salt `Prelude.hashWithSalt` matchingEventTypes
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` cloudWatchLogsDestination
+      `Prelude.hashWithSalt` matchingEventTypes
+      `Prelude.hashWithSalt` snsDestination
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` kinesisFirehoseDestination
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` snsDestination
-      `Prelude.hashWithSalt` cloudWatchLogsDestination
 
 instance Prelude.NFData EventDestination where
   rnf EventDestination' {..} =
-    Prelude.rnf matchingEventTypes
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf cloudWatchLogsDestination
+      `Prelude.seq` Prelude.rnf matchingEventTypes
+      `Prelude.seq` Prelude.rnf snsDestination
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf snsDestination
-      `Prelude.seq` Prelude.rnf cloudWatchLogsDestination

@@ -27,91 +27,55 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdateConfigurationSetEventDestination $
---             newUpdateConfigurationSetEventDestination
---
---         , requestDeleteConfigurationSetEventDestination $
---             newDeleteConfigurationSetEventDestination
---
---         , requestDeleteConfigurationSet $
---             newDeleteConfigurationSet
---
---         , requestSendVoiceMessage $
---             newSendVoiceMessage
---
---         , requestGetConfigurationSetEventDestinations $
---             newGetConfigurationSetEventDestinations
+--         [ requestCreateConfigurationSet $
+--             newCreateConfigurationSet
 --
 --         , requestCreateConfigurationSetEventDestination $
 --             newCreateConfigurationSetEventDestination
 --
---         , requestCreateConfigurationSet $
---             newCreateConfigurationSet
+--         , requestDeleteConfigurationSet $
+--             newDeleteConfigurationSet
+--
+--         , requestDeleteConfigurationSetEventDestination $
+--             newDeleteConfigurationSetEventDestination
+--
+--         , requestGetConfigurationSetEventDestinations $
+--             newGetConfigurationSetEventDestinations
+--
+--         , requestSendVoiceMessage $
+--             newSendVoiceMessage
+--
+--         , requestUpdateConfigurationSetEventDestination $
+--             newUpdateConfigurationSetEventDestination
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdateConfigurationSetEventDestination $
---             newUpdateConfigurationSetEventDestinationResponse
---
---         , responseDeleteConfigurationSetEventDestination $
---             newDeleteConfigurationSetEventDestinationResponse
---
---         , responseDeleteConfigurationSet $
---             newDeleteConfigurationSetResponse
---
---         , responseSendVoiceMessage $
---             newSendVoiceMessageResponse
---
---         , responseGetConfigurationSetEventDestinations $
---             newGetConfigurationSetEventDestinationsResponse
+--         [ responseCreateConfigurationSet $
+--             newCreateConfigurationSetResponse
 --
 --         , responseCreateConfigurationSetEventDestination $
 --             newCreateConfigurationSetEventDestinationResponse
 --
---         , responseCreateConfigurationSet $
---             newCreateConfigurationSetResponse
+--         , responseDeleteConfigurationSet $
+--             newDeleteConfigurationSetResponse
+--
+--         , responseDeleteConfigurationSetEventDestination $
+--             newDeleteConfigurationSetEventDestinationResponse
+--
+--         , responseGetConfigurationSetEventDestinations $
+--             newGetConfigurationSetEventDestinationsResponse
+--
+--         , responseSendVoiceMessage $
+--             newSendVoiceMessageResponse
+--
+--         , responseUpdateConfigurationSetEventDestination $
+--             newUpdateConfigurationSetEventDestinationResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestination -> TestTree
-requestUpdateConfigurationSetEventDestination =
-  req
-    "UpdateConfigurationSetEventDestination"
-    "fixture/UpdateConfigurationSetEventDestination.yaml"
-
-requestDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestination -> TestTree
-requestDeleteConfigurationSetEventDestination =
-  req
-    "DeleteConfigurationSetEventDestination"
-    "fixture/DeleteConfigurationSetEventDestination.yaml"
-
-requestDeleteConfigurationSet :: DeleteConfigurationSet -> TestTree
-requestDeleteConfigurationSet =
-  req
-    "DeleteConfigurationSet"
-    "fixture/DeleteConfigurationSet.yaml"
-
-requestSendVoiceMessage :: SendVoiceMessage -> TestTree
-requestSendVoiceMessage =
-  req
-    "SendVoiceMessage"
-    "fixture/SendVoiceMessage.yaml"
-
-requestGetConfigurationSetEventDestinations :: GetConfigurationSetEventDestinations -> TestTree
-requestGetConfigurationSetEventDestinations =
-  req
-    "GetConfigurationSetEventDestinations"
-    "fixture/GetConfigurationSetEventDestinations.yaml"
-
-requestCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestination -> TestTree
-requestCreateConfigurationSetEventDestination =
-  req
-    "CreateConfigurationSetEventDestination"
-    "fixture/CreateConfigurationSetEventDestination.yaml"
 
 requestCreateConfigurationSet :: CreateConfigurationSet -> TestTree
 requestCreateConfigurationSet =
@@ -119,47 +83,51 @@ requestCreateConfigurationSet =
     "CreateConfigurationSet"
     "fixture/CreateConfigurationSet.yaml"
 
+requestCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestination -> TestTree
+requestCreateConfigurationSetEventDestination =
+  req
+    "CreateConfigurationSetEventDestination"
+    "fixture/CreateConfigurationSetEventDestination.yaml"
+
+requestDeleteConfigurationSet :: DeleteConfigurationSet -> TestTree
+requestDeleteConfigurationSet =
+  req
+    "DeleteConfigurationSet"
+    "fixture/DeleteConfigurationSet.yaml"
+
+requestDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestination -> TestTree
+requestDeleteConfigurationSetEventDestination =
+  req
+    "DeleteConfigurationSetEventDestination"
+    "fixture/DeleteConfigurationSetEventDestination.yaml"
+
+requestGetConfigurationSetEventDestinations :: GetConfigurationSetEventDestinations -> TestTree
+requestGetConfigurationSetEventDestinations =
+  req
+    "GetConfigurationSetEventDestinations"
+    "fixture/GetConfigurationSetEventDestinations.yaml"
+
+requestSendVoiceMessage :: SendVoiceMessage -> TestTree
+requestSendVoiceMessage =
+  req
+    "SendVoiceMessage"
+    "fixture/SendVoiceMessage.yaml"
+
+requestUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestination -> TestTree
+requestUpdateConfigurationSetEventDestination =
+  req
+    "UpdateConfigurationSetEventDestination"
+    "fixture/UpdateConfigurationSetEventDestination.yaml"
+
 -- Responses
 
-responseUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestinationResponse -> TestTree
-responseUpdateConfigurationSetEventDestination =
+responseCreateConfigurationSet :: CreateConfigurationSetResponse -> TestTree
+responseCreateConfigurationSet =
   res
-    "UpdateConfigurationSetEventDestinationResponse"
-    "fixture/UpdateConfigurationSetEventDestinationResponse.proto"
+    "CreateConfigurationSetResponse"
+    "fixture/CreateConfigurationSetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateConfigurationSetEventDestination)
-
-responseDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestinationResponse -> TestTree
-responseDeleteConfigurationSetEventDestination =
-  res
-    "DeleteConfigurationSetEventDestinationResponse"
-    "fixture/DeleteConfigurationSetEventDestinationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationSetEventDestination)
-
-responseDeleteConfigurationSet :: DeleteConfigurationSetResponse -> TestTree
-responseDeleteConfigurationSet =
-  res
-    "DeleteConfigurationSetResponse"
-    "fixture/DeleteConfigurationSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationSet)
-
-responseSendVoiceMessage :: SendVoiceMessageResponse -> TestTree
-responseSendVoiceMessage =
-  res
-    "SendVoiceMessageResponse"
-    "fixture/SendVoiceMessageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SendVoiceMessage)
-
-responseGetConfigurationSetEventDestinations :: GetConfigurationSetEventDestinationsResponse -> TestTree
-responseGetConfigurationSetEventDestinations =
-  res
-    "GetConfigurationSetEventDestinationsResponse"
-    "fixture/GetConfigurationSetEventDestinationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetConfigurationSetEventDestinations)
+    (Proxy.Proxy :: Proxy.Proxy CreateConfigurationSet)
 
 responseCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestinationResponse -> TestTree
 responseCreateConfigurationSetEventDestination =
@@ -169,10 +137,42 @@ responseCreateConfigurationSetEventDestination =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateConfigurationSetEventDestination)
 
-responseCreateConfigurationSet :: CreateConfigurationSetResponse -> TestTree
-responseCreateConfigurationSet =
+responseDeleteConfigurationSet :: DeleteConfigurationSetResponse -> TestTree
+responseDeleteConfigurationSet =
   res
-    "CreateConfigurationSetResponse"
-    "fixture/CreateConfigurationSetResponse.proto"
+    "DeleteConfigurationSetResponse"
+    "fixture/DeleteConfigurationSetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateConfigurationSet)
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationSet)
+
+responseDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestinationResponse -> TestTree
+responseDeleteConfigurationSetEventDestination =
+  res
+    "DeleteConfigurationSetEventDestinationResponse"
+    "fixture/DeleteConfigurationSetEventDestinationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfigurationSetEventDestination)
+
+responseGetConfigurationSetEventDestinations :: GetConfigurationSetEventDestinationsResponse -> TestTree
+responseGetConfigurationSetEventDestinations =
+  res
+    "GetConfigurationSetEventDestinationsResponse"
+    "fixture/GetConfigurationSetEventDestinationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetConfigurationSetEventDestinations)
+
+responseSendVoiceMessage :: SendVoiceMessageResponse -> TestTree
+responseSendVoiceMessage =
+  res
+    "SendVoiceMessageResponse"
+    "fixture/SendVoiceMessageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SendVoiceMessage)
+
+responseUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestinationResponse -> TestTree
+responseUpdateConfigurationSetEventDestination =
+  res
+    "UpdateConfigurationSetEventDestinationResponse"
+    "fixture/UpdateConfigurationSetEventDestinationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateConfigurationSetEventDestination)

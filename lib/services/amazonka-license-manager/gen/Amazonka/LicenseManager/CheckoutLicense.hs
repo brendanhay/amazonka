@@ -40,14 +40,14 @@ module Amazonka.LicenseManager.CheckoutLicense
     newCheckoutLicenseResponse,
 
     -- * Response Lenses
-    checkoutLicenseResponse_entitlementsAllowed,
-    checkoutLicenseResponse_checkoutType,
-    checkoutLicenseResponse_expiration,
-    checkoutLicenseResponse_signedToken,
-    checkoutLicenseResponse_licenseConsumptionToken,
     checkoutLicenseResponse_nodeId,
-    checkoutLicenseResponse_issuedAt,
     checkoutLicenseResponse_licenseArn,
+    checkoutLicenseResponse_expiration,
+    checkoutLicenseResponse_licenseConsumptionToken,
+    checkoutLicenseResponse_checkoutType,
+    checkoutLicenseResponse_signedToken,
+    checkoutLicenseResponse_entitlementsAllowed,
+    checkoutLicenseResponse_issuedAt,
     checkoutLicenseResponse_httpStatus,
   )
 where
@@ -164,16 +164,16 @@ instance Core.AWSRequest CheckoutLicense where
     Response.receiveJSON
       ( \s h x ->
           CheckoutLicenseResponse'
-            Prelude.<$> ( x Core..?> "EntitlementsAllowed"
+            Prelude.<$> (x Core..?> "NodeId")
+            Prelude.<*> (x Core..?> "LicenseArn")
+            Prelude.<*> (x Core..?> "Expiration")
+            Prelude.<*> (x Core..?> "LicenseConsumptionToken")
+            Prelude.<*> (x Core..?> "CheckoutType")
+            Prelude.<*> (x Core..?> "SignedToken")
+            Prelude.<*> ( x Core..?> "EntitlementsAllowed"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "CheckoutType")
-            Prelude.<*> (x Core..?> "Expiration")
-            Prelude.<*> (x Core..?> "SignedToken")
-            Prelude.<*> (x Core..?> "LicenseConsumptionToken")
-            Prelude.<*> (x Core..?> "NodeId")
             Prelude.<*> (x Core..?> "IssuedAt")
-            Prelude.<*> (x Core..?> "LicenseArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -235,22 +235,22 @@ instance Core.ToQuery CheckoutLicense where
 
 -- | /See:/ 'newCheckoutLicenseResponse' smart constructor.
 data CheckoutLicenseResponse = CheckoutLicenseResponse'
-  { -- | Allowed license entitlements.
-    entitlementsAllowed :: Prelude.Maybe [EntitlementData],
-    -- | Checkout type.
-    checkoutType :: Prelude.Maybe CheckoutType,
-    -- | Date and time at which the license checkout expires.
-    expiration :: Prelude.Maybe Prelude.Text,
-    -- | Signed token.
-    signedToken :: Prelude.Maybe Prelude.Text,
-    -- | License consumption token.
-    licenseConsumptionToken :: Prelude.Maybe Prelude.Text,
-    -- | Node ID.
+  { -- | Node ID.
     nodeId :: Prelude.Maybe Prelude.Text,
-    -- | Date and time at which the license checkout is issued.
-    issuedAt :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name (ARN) of the checkout license.
     licenseArn :: Prelude.Maybe Prelude.Text,
+    -- | Date and time at which the license checkout expires.
+    expiration :: Prelude.Maybe Prelude.Text,
+    -- | License consumption token.
+    licenseConsumptionToken :: Prelude.Maybe Prelude.Text,
+    -- | Checkout type.
+    checkoutType :: Prelude.Maybe CheckoutType,
+    -- | Signed token.
+    signedToken :: Prelude.Maybe Prelude.Text,
+    -- | Allowed license entitlements.
+    entitlementsAllowed :: Prelude.Maybe [EntitlementData],
+    -- | Date and time at which the license checkout is issued.
+    issuedAt :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -264,21 +264,21 @@ data CheckoutLicenseResponse = CheckoutLicenseResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entitlementsAllowed', 'checkoutLicenseResponse_entitlementsAllowed' - Allowed license entitlements.
+-- 'nodeId', 'checkoutLicenseResponse_nodeId' - Node ID.
 --
--- 'checkoutType', 'checkoutLicenseResponse_checkoutType' - Checkout type.
+-- 'licenseArn', 'checkoutLicenseResponse_licenseArn' - Amazon Resource Name (ARN) of the checkout license.
 --
 -- 'expiration', 'checkoutLicenseResponse_expiration' - Date and time at which the license checkout expires.
 --
--- 'signedToken', 'checkoutLicenseResponse_signedToken' - Signed token.
---
 -- 'licenseConsumptionToken', 'checkoutLicenseResponse_licenseConsumptionToken' - License consumption token.
 --
--- 'nodeId', 'checkoutLicenseResponse_nodeId' - Node ID.
+-- 'checkoutType', 'checkoutLicenseResponse_checkoutType' - Checkout type.
+--
+-- 'signedToken', 'checkoutLicenseResponse_signedToken' - Signed token.
+--
+-- 'entitlementsAllowed', 'checkoutLicenseResponse_entitlementsAllowed' - Allowed license entitlements.
 --
 -- 'issuedAt', 'checkoutLicenseResponse_issuedAt' - Date and time at which the license checkout is issued.
---
--- 'licenseArn', 'checkoutLicenseResponse_licenseArn' - Amazon Resource Name (ARN) of the checkout license.
 --
 -- 'httpStatus', 'checkoutLicenseResponse_httpStatus' - The response's http status code.
 newCheckoutLicenseResponse ::
@@ -287,49 +287,48 @@ newCheckoutLicenseResponse ::
   CheckoutLicenseResponse
 newCheckoutLicenseResponse pHttpStatus_ =
   CheckoutLicenseResponse'
-    { entitlementsAllowed =
-        Prelude.Nothing,
-      checkoutType = Prelude.Nothing,
-      expiration = Prelude.Nothing,
-      signedToken = Prelude.Nothing,
-      licenseConsumptionToken = Prelude.Nothing,
-      nodeId = Prelude.Nothing,
-      issuedAt = Prelude.Nothing,
+    { nodeId = Prelude.Nothing,
       licenseArn = Prelude.Nothing,
+      expiration = Prelude.Nothing,
+      licenseConsumptionToken = Prelude.Nothing,
+      checkoutType = Prelude.Nothing,
+      signedToken = Prelude.Nothing,
+      entitlementsAllowed = Prelude.Nothing,
+      issuedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Allowed license entitlements.
-checkoutLicenseResponse_entitlementsAllowed :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe [EntitlementData])
-checkoutLicenseResponse_entitlementsAllowed = Lens.lens (\CheckoutLicenseResponse' {entitlementsAllowed} -> entitlementsAllowed) (\s@CheckoutLicenseResponse' {} a -> s {entitlementsAllowed = a} :: CheckoutLicenseResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Checkout type.
-checkoutLicenseResponse_checkoutType :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe CheckoutType)
-checkoutLicenseResponse_checkoutType = Lens.lens (\CheckoutLicenseResponse' {checkoutType} -> checkoutType) (\s@CheckoutLicenseResponse' {} a -> s {checkoutType = a} :: CheckoutLicenseResponse)
-
--- | Date and time at which the license checkout expires.
-checkoutLicenseResponse_expiration :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe Prelude.Text)
-checkoutLicenseResponse_expiration = Lens.lens (\CheckoutLicenseResponse' {expiration} -> expiration) (\s@CheckoutLicenseResponse' {} a -> s {expiration = a} :: CheckoutLicenseResponse)
-
--- | Signed token.
-checkoutLicenseResponse_signedToken :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe Prelude.Text)
-checkoutLicenseResponse_signedToken = Lens.lens (\CheckoutLicenseResponse' {signedToken} -> signedToken) (\s@CheckoutLicenseResponse' {} a -> s {signedToken = a} :: CheckoutLicenseResponse)
-
--- | License consumption token.
-checkoutLicenseResponse_licenseConsumptionToken :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe Prelude.Text)
-checkoutLicenseResponse_licenseConsumptionToken = Lens.lens (\CheckoutLicenseResponse' {licenseConsumptionToken} -> licenseConsumptionToken) (\s@CheckoutLicenseResponse' {} a -> s {licenseConsumptionToken = a} :: CheckoutLicenseResponse)
 
 -- | Node ID.
 checkoutLicenseResponse_nodeId :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe Prelude.Text)
 checkoutLicenseResponse_nodeId = Lens.lens (\CheckoutLicenseResponse' {nodeId} -> nodeId) (\s@CheckoutLicenseResponse' {} a -> s {nodeId = a} :: CheckoutLicenseResponse)
 
--- | Date and time at which the license checkout is issued.
-checkoutLicenseResponse_issuedAt :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe Prelude.Text)
-checkoutLicenseResponse_issuedAt = Lens.lens (\CheckoutLicenseResponse' {issuedAt} -> issuedAt) (\s@CheckoutLicenseResponse' {} a -> s {issuedAt = a} :: CheckoutLicenseResponse)
-
 -- | Amazon Resource Name (ARN) of the checkout license.
 checkoutLicenseResponse_licenseArn :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe Prelude.Text)
 checkoutLicenseResponse_licenseArn = Lens.lens (\CheckoutLicenseResponse' {licenseArn} -> licenseArn) (\s@CheckoutLicenseResponse' {} a -> s {licenseArn = a} :: CheckoutLicenseResponse)
+
+-- | Date and time at which the license checkout expires.
+checkoutLicenseResponse_expiration :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe Prelude.Text)
+checkoutLicenseResponse_expiration = Lens.lens (\CheckoutLicenseResponse' {expiration} -> expiration) (\s@CheckoutLicenseResponse' {} a -> s {expiration = a} :: CheckoutLicenseResponse)
+
+-- | License consumption token.
+checkoutLicenseResponse_licenseConsumptionToken :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe Prelude.Text)
+checkoutLicenseResponse_licenseConsumptionToken = Lens.lens (\CheckoutLicenseResponse' {licenseConsumptionToken} -> licenseConsumptionToken) (\s@CheckoutLicenseResponse' {} a -> s {licenseConsumptionToken = a} :: CheckoutLicenseResponse)
+
+-- | Checkout type.
+checkoutLicenseResponse_checkoutType :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe CheckoutType)
+checkoutLicenseResponse_checkoutType = Lens.lens (\CheckoutLicenseResponse' {checkoutType} -> checkoutType) (\s@CheckoutLicenseResponse' {} a -> s {checkoutType = a} :: CheckoutLicenseResponse)
+
+-- | Signed token.
+checkoutLicenseResponse_signedToken :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe Prelude.Text)
+checkoutLicenseResponse_signedToken = Lens.lens (\CheckoutLicenseResponse' {signedToken} -> signedToken) (\s@CheckoutLicenseResponse' {} a -> s {signedToken = a} :: CheckoutLicenseResponse)
+
+-- | Allowed license entitlements.
+checkoutLicenseResponse_entitlementsAllowed :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe [EntitlementData])
+checkoutLicenseResponse_entitlementsAllowed = Lens.lens (\CheckoutLicenseResponse' {entitlementsAllowed} -> entitlementsAllowed) (\s@CheckoutLicenseResponse' {} a -> s {entitlementsAllowed = a} :: CheckoutLicenseResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Date and time at which the license checkout is issued.
+checkoutLicenseResponse_issuedAt :: Lens.Lens' CheckoutLicenseResponse (Prelude.Maybe Prelude.Text)
+checkoutLicenseResponse_issuedAt = Lens.lens (\CheckoutLicenseResponse' {issuedAt} -> issuedAt) (\s@CheckoutLicenseResponse' {} a -> s {issuedAt = a} :: CheckoutLicenseResponse)
 
 -- | The response's http status code.
 checkoutLicenseResponse_httpStatus :: Lens.Lens' CheckoutLicenseResponse Prelude.Int
@@ -337,12 +336,12 @@ checkoutLicenseResponse_httpStatus = Lens.lens (\CheckoutLicenseResponse' {httpS
 
 instance Prelude.NFData CheckoutLicenseResponse where
   rnf CheckoutLicenseResponse' {..} =
-    Prelude.rnf entitlementsAllowed
-      `Prelude.seq` Prelude.rnf checkoutType
-      `Prelude.seq` Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf signedToken
-      `Prelude.seq` Prelude.rnf licenseConsumptionToken
-      `Prelude.seq` Prelude.rnf nodeId
-      `Prelude.seq` Prelude.rnf issuedAt
+    Prelude.rnf nodeId
       `Prelude.seq` Prelude.rnf licenseArn
+      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf licenseConsumptionToken
+      `Prelude.seq` Prelude.rnf checkoutType
+      `Prelude.seq` Prelude.rnf signedToken
+      `Prelude.seq` Prelude.rnf entitlementsAllowed
+      `Prelude.seq` Prelude.rnf issuedAt
       `Prelude.seq` Prelude.rnf httpStatus

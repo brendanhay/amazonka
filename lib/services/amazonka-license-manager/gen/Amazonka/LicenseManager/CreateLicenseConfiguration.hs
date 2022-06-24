@@ -35,13 +35,13 @@ module Amazonka.LicenseManager.CreateLicenseConfiguration
     newCreateLicenseConfiguration,
 
     -- * Request Lenses
-    createLicenseConfiguration_licenseCount,
-    createLicenseConfiguration_licenseCountHardLimit,
-    createLicenseConfiguration_disassociateWhenNotFound,
+    createLicenseConfiguration_tags,
     createLicenseConfiguration_productInformationList,
     createLicenseConfiguration_licenseRules,
     createLicenseConfiguration_description,
-    createLicenseConfiguration_tags,
+    createLicenseConfiguration_licenseCount,
+    createLicenseConfiguration_licenseCountHardLimit,
+    createLicenseConfiguration_disassociateWhenNotFound,
     createLicenseConfiguration_name,
     createLicenseConfiguration_licenseCountingType,
 
@@ -64,13 +64,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLicenseConfiguration' smart constructor.
 data CreateLicenseConfiguration = CreateLicenseConfiguration'
-  { -- | Number of licenses managed by the license configuration.
-    licenseCount :: Prelude.Maybe Prelude.Integer,
-    -- | Indicates whether hard or soft license enforcement is used. Exceeding a
-    -- hard limit blocks the launch of new instances.
-    licenseCountHardLimit :: Prelude.Maybe Prelude.Bool,
-    -- | When true, disassociates a resource when software is uninstalled.
-    disassociateWhenNotFound :: Prelude.Maybe Prelude.Bool,
+  { -- | Tags to add to the license configuration.
+    tags :: Prelude.Maybe [Tag],
     -- | Product information.
     productInformationList :: Prelude.Maybe [ProductInformation],
     -- | License rules. The syntax is #name=value (for example,
@@ -97,8 +92,13 @@ data CreateLicenseConfiguration = CreateLicenseConfiguration'
     licenseRules :: Prelude.Maybe [Prelude.Text],
     -- | Description of the license configuration.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Tags to add to the license configuration.
-    tags :: Prelude.Maybe [Tag],
+    -- | Number of licenses managed by the license configuration.
+    licenseCount :: Prelude.Maybe Prelude.Integer,
+    -- | Indicates whether hard or soft license enforcement is used. Exceeding a
+    -- hard limit blocks the launch of new instances.
+    licenseCountHardLimit :: Prelude.Maybe Prelude.Bool,
+    -- | When true, disassociates a resource when software is uninstalled.
+    disassociateWhenNotFound :: Prelude.Maybe Prelude.Bool,
     -- | Name of the license configuration.
     name :: Prelude.Text,
     -- | Dimension used to track the license inventory.
@@ -114,12 +114,7 @@ data CreateLicenseConfiguration = CreateLicenseConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'licenseCount', 'createLicenseConfiguration_licenseCount' - Number of licenses managed by the license configuration.
---
--- 'licenseCountHardLimit', 'createLicenseConfiguration_licenseCountHardLimit' - Indicates whether hard or soft license enforcement is used. Exceeding a
--- hard limit blocks the launch of new instances.
---
--- 'disassociateWhenNotFound', 'createLicenseConfiguration_disassociateWhenNotFound' - When true, disassociates a resource when software is uninstalled.
+-- 'tags', 'createLicenseConfiguration_tags' - Tags to add to the license configuration.
 --
 -- 'productInformationList', 'createLicenseConfiguration_productInformationList' - Product information.
 --
@@ -147,7 +142,12 @@ data CreateLicenseConfiguration = CreateLicenseConfiguration'
 --
 -- 'description', 'createLicenseConfiguration_description' - Description of the license configuration.
 --
--- 'tags', 'createLicenseConfiguration_tags' - Tags to add to the license configuration.
+-- 'licenseCount', 'createLicenseConfiguration_licenseCount' - Number of licenses managed by the license configuration.
+--
+-- 'licenseCountHardLimit', 'createLicenseConfiguration_licenseCountHardLimit' - Indicates whether hard or soft license enforcement is used. Exceeding a
+-- hard limit blocks the launch of new instances.
+--
+-- 'disassociateWhenNotFound', 'createLicenseConfiguration_disassociateWhenNotFound' - When true, disassociates a resource when software is uninstalled.
 --
 -- 'name', 'createLicenseConfiguration_name' - Name of the license configuration.
 --
@@ -162,30 +162,20 @@ newCreateLicenseConfiguration
   pName_
   pLicenseCountingType_ =
     CreateLicenseConfiguration'
-      { licenseCount =
-          Prelude.Nothing,
-        licenseCountHardLimit = Prelude.Nothing,
-        disassociateWhenNotFound = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         productInformationList = Prelude.Nothing,
         licenseRules = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        licenseCount = Prelude.Nothing,
+        licenseCountHardLimit = Prelude.Nothing,
+        disassociateWhenNotFound = Prelude.Nothing,
         name = pName_,
         licenseCountingType = pLicenseCountingType_
       }
 
--- | Number of licenses managed by the license configuration.
-createLicenseConfiguration_licenseCount :: Lens.Lens' CreateLicenseConfiguration (Prelude.Maybe Prelude.Integer)
-createLicenseConfiguration_licenseCount = Lens.lens (\CreateLicenseConfiguration' {licenseCount} -> licenseCount) (\s@CreateLicenseConfiguration' {} a -> s {licenseCount = a} :: CreateLicenseConfiguration)
-
--- | Indicates whether hard or soft license enforcement is used. Exceeding a
--- hard limit blocks the launch of new instances.
-createLicenseConfiguration_licenseCountHardLimit :: Lens.Lens' CreateLicenseConfiguration (Prelude.Maybe Prelude.Bool)
-createLicenseConfiguration_licenseCountHardLimit = Lens.lens (\CreateLicenseConfiguration' {licenseCountHardLimit} -> licenseCountHardLimit) (\s@CreateLicenseConfiguration' {} a -> s {licenseCountHardLimit = a} :: CreateLicenseConfiguration)
-
--- | When true, disassociates a resource when software is uninstalled.
-createLicenseConfiguration_disassociateWhenNotFound :: Lens.Lens' CreateLicenseConfiguration (Prelude.Maybe Prelude.Bool)
-createLicenseConfiguration_disassociateWhenNotFound = Lens.lens (\CreateLicenseConfiguration' {disassociateWhenNotFound} -> disassociateWhenNotFound) (\s@CreateLicenseConfiguration' {} a -> s {disassociateWhenNotFound = a} :: CreateLicenseConfiguration)
+-- | Tags to add to the license configuration.
+createLicenseConfiguration_tags :: Lens.Lens' CreateLicenseConfiguration (Prelude.Maybe [Tag])
+createLicenseConfiguration_tags = Lens.lens (\CreateLicenseConfiguration' {tags} -> tags) (\s@CreateLicenseConfiguration' {} a -> s {tags = a} :: CreateLicenseConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Product information.
 createLicenseConfiguration_productInformationList :: Lens.Lens' CreateLicenseConfiguration (Prelude.Maybe [ProductInformation])
@@ -219,9 +209,18 @@ createLicenseConfiguration_licenseRules = Lens.lens (\CreateLicenseConfiguration
 createLicenseConfiguration_description :: Lens.Lens' CreateLicenseConfiguration (Prelude.Maybe Prelude.Text)
 createLicenseConfiguration_description = Lens.lens (\CreateLicenseConfiguration' {description} -> description) (\s@CreateLicenseConfiguration' {} a -> s {description = a} :: CreateLicenseConfiguration)
 
--- | Tags to add to the license configuration.
-createLicenseConfiguration_tags :: Lens.Lens' CreateLicenseConfiguration (Prelude.Maybe [Tag])
-createLicenseConfiguration_tags = Lens.lens (\CreateLicenseConfiguration' {tags} -> tags) (\s@CreateLicenseConfiguration' {} a -> s {tags = a} :: CreateLicenseConfiguration) Prelude.. Lens.mapping Lens.coerced
+-- | Number of licenses managed by the license configuration.
+createLicenseConfiguration_licenseCount :: Lens.Lens' CreateLicenseConfiguration (Prelude.Maybe Prelude.Integer)
+createLicenseConfiguration_licenseCount = Lens.lens (\CreateLicenseConfiguration' {licenseCount} -> licenseCount) (\s@CreateLicenseConfiguration' {} a -> s {licenseCount = a} :: CreateLicenseConfiguration)
+
+-- | Indicates whether hard or soft license enforcement is used. Exceeding a
+-- hard limit blocks the launch of new instances.
+createLicenseConfiguration_licenseCountHardLimit :: Lens.Lens' CreateLicenseConfiguration (Prelude.Maybe Prelude.Bool)
+createLicenseConfiguration_licenseCountHardLimit = Lens.lens (\CreateLicenseConfiguration' {licenseCountHardLimit} -> licenseCountHardLimit) (\s@CreateLicenseConfiguration' {} a -> s {licenseCountHardLimit = a} :: CreateLicenseConfiguration)
+
+-- | When true, disassociates a resource when software is uninstalled.
+createLicenseConfiguration_disassociateWhenNotFound :: Lens.Lens' CreateLicenseConfiguration (Prelude.Maybe Prelude.Bool)
+createLicenseConfiguration_disassociateWhenNotFound = Lens.lens (\CreateLicenseConfiguration' {disassociateWhenNotFound} -> disassociateWhenNotFound) (\s@CreateLicenseConfiguration' {} a -> s {disassociateWhenNotFound = a} :: CreateLicenseConfiguration)
 
 -- | Name of the license configuration.
 createLicenseConfiguration_name :: Lens.Lens' CreateLicenseConfiguration Prelude.Text
@@ -246,25 +245,25 @@ instance Core.AWSRequest CreateLicenseConfiguration where
 
 instance Prelude.Hashable CreateLicenseConfiguration where
   hashWithSalt _salt CreateLicenseConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` licenseCount
-      `Prelude.hashWithSalt` licenseCountHardLimit
-      `Prelude.hashWithSalt` disassociateWhenNotFound
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` productInformationList
       `Prelude.hashWithSalt` licenseRules
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` licenseCount
+      `Prelude.hashWithSalt` licenseCountHardLimit
+      `Prelude.hashWithSalt` disassociateWhenNotFound
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` licenseCountingType
 
 instance Prelude.NFData CreateLicenseConfiguration where
   rnf CreateLicenseConfiguration' {..} =
-    Prelude.rnf licenseCount
-      `Prelude.seq` Prelude.rnf licenseCountHardLimit
-      `Prelude.seq` Prelude.rnf disassociateWhenNotFound
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf productInformationList
       `Prelude.seq` Prelude.rnf licenseRules
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf licenseCount
+      `Prelude.seq` Prelude.rnf licenseCountHardLimit
+      `Prelude.seq` Prelude.rnf disassociateWhenNotFound
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf licenseCountingType
 
@@ -287,16 +286,16 @@ instance Core.ToJSON CreateLicenseConfiguration where
   toJSON CreateLicenseConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LicenseCount" Core..=) Prelude.<$> licenseCount,
-            ("LicenseCountHardLimit" Core..=)
-              Prelude.<$> licenseCountHardLimit,
-            ("DisassociateWhenNotFound" Core..=)
-              Prelude.<$> disassociateWhenNotFound,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("ProductInformationList" Core..=)
               Prelude.<$> productInformationList,
             ("LicenseRules" Core..=) Prelude.<$> licenseRules,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("LicenseCount" Core..=) Prelude.<$> licenseCount,
+            ("LicenseCountHardLimit" Core..=)
+              Prelude.<$> licenseCountHardLimit,
+            ("DisassociateWhenNotFound" Core..=)
+              Prelude.<$> disassociateWhenNotFound,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ("LicenseCountingType" Core..= licenseCountingType)

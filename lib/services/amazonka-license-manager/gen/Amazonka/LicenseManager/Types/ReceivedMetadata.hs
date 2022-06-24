@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReceivedMetadata' smart constructor.
 data ReceivedMetadata = ReceivedMetadata'
-  { -- | Received status.
-    receivedStatus :: Prelude.Maybe ReceivedStatus,
-    -- | Allowed operations.
+  { -- | Allowed operations.
     allowedOperations :: Prelude.Maybe (Prelude.NonEmpty AllowedOperation),
+    -- | Received status.
+    receivedStatus :: Prelude.Maybe ReceivedStatus,
     -- | Received status reason.
     receivedStatusReason :: Prelude.Maybe Prelude.Text
   }
@@ -46,27 +46,28 @@ data ReceivedMetadata = ReceivedMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'receivedStatus', 'receivedMetadata_receivedStatus' - Received status.
---
 -- 'allowedOperations', 'receivedMetadata_allowedOperations' - Allowed operations.
+--
+-- 'receivedStatus', 'receivedMetadata_receivedStatus' - Received status.
 --
 -- 'receivedStatusReason', 'receivedMetadata_receivedStatusReason' - Received status reason.
 newReceivedMetadata ::
   ReceivedMetadata
 newReceivedMetadata =
   ReceivedMetadata'
-    { receivedStatus = Prelude.Nothing,
-      allowedOperations = Prelude.Nothing,
+    { allowedOperations =
+        Prelude.Nothing,
+      receivedStatus = Prelude.Nothing,
       receivedStatusReason = Prelude.Nothing
     }
-
--- | Received status.
-receivedMetadata_receivedStatus :: Lens.Lens' ReceivedMetadata (Prelude.Maybe ReceivedStatus)
-receivedMetadata_receivedStatus = Lens.lens (\ReceivedMetadata' {receivedStatus} -> receivedStatus) (\s@ReceivedMetadata' {} a -> s {receivedStatus = a} :: ReceivedMetadata)
 
 -- | Allowed operations.
 receivedMetadata_allowedOperations :: Lens.Lens' ReceivedMetadata (Prelude.Maybe (Prelude.NonEmpty AllowedOperation))
 receivedMetadata_allowedOperations = Lens.lens (\ReceivedMetadata' {allowedOperations} -> allowedOperations) (\s@ReceivedMetadata' {} a -> s {allowedOperations = a} :: ReceivedMetadata) Prelude.. Lens.mapping Lens.coerced
+
+-- | Received status.
+receivedMetadata_receivedStatus :: Lens.Lens' ReceivedMetadata (Prelude.Maybe ReceivedStatus)
+receivedMetadata_receivedStatus = Lens.lens (\ReceivedMetadata' {receivedStatus} -> receivedStatus) (\s@ReceivedMetadata' {} a -> s {receivedStatus = a} :: ReceivedMetadata)
 
 -- | Received status reason.
 receivedMetadata_receivedStatusReason :: Lens.Lens' ReceivedMetadata (Prelude.Maybe Prelude.Text)
@@ -78,19 +79,19 @@ instance Core.FromJSON ReceivedMetadata where
       "ReceivedMetadata"
       ( \x ->
           ReceivedMetadata'
-            Prelude.<$> (x Core..:? "ReceivedStatus")
-            Prelude.<*> (x Core..:? "AllowedOperations")
+            Prelude.<$> (x Core..:? "AllowedOperations")
+            Prelude.<*> (x Core..:? "ReceivedStatus")
             Prelude.<*> (x Core..:? "ReceivedStatusReason")
       )
 
 instance Prelude.Hashable ReceivedMetadata where
   hashWithSalt _salt ReceivedMetadata' {..} =
-    _salt `Prelude.hashWithSalt` receivedStatus
-      `Prelude.hashWithSalt` allowedOperations
+    _salt `Prelude.hashWithSalt` allowedOperations
+      `Prelude.hashWithSalt` receivedStatus
       `Prelude.hashWithSalt` receivedStatusReason
 
 instance Prelude.NFData ReceivedMetadata where
   rnf ReceivedMetadata' {..} =
-    Prelude.rnf receivedStatus
-      `Prelude.seq` Prelude.rnf allowedOperations
+    Prelude.rnf allowedOperations
+      `Prelude.seq` Prelude.rnf receivedStatus
       `Prelude.seq` Prelude.rnf receivedStatusReason

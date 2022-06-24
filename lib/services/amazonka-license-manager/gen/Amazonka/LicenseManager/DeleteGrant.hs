@@ -37,8 +37,8 @@ module Amazonka.LicenseManager.DeleteGrant
 
     -- * Response Lenses
     deleteGrantResponse_status,
-    deleteGrantResponse_version,
     deleteGrantResponse_grantArn,
+    deleteGrantResponse_version,
     deleteGrantResponse_httpStatus,
   )
 where
@@ -107,8 +107,8 @@ instance Core.AWSRequest DeleteGrant where
       ( \s h x ->
           DeleteGrantResponse'
             Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (x Core..?> "GrantArn")
+            Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,10 +159,10 @@ instance Core.ToQuery DeleteGrant where
 data DeleteGrantResponse = DeleteGrantResponse'
   { -- | Grant status.
     status :: Prelude.Maybe GrantStatus,
-    -- | Grant version.
-    version :: Prelude.Maybe Prelude.Text,
     -- | Grant ARN.
     grantArn :: Prelude.Maybe Prelude.Text,
+    -- | Grant version.
+    version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,9 +178,9 @@ data DeleteGrantResponse = DeleteGrantResponse'
 --
 -- 'status', 'deleteGrantResponse_status' - Grant status.
 --
--- 'version', 'deleteGrantResponse_version' - Grant version.
---
 -- 'grantArn', 'deleteGrantResponse_grantArn' - Grant ARN.
+--
+-- 'version', 'deleteGrantResponse_version' - Grant version.
 --
 -- 'httpStatus', 'deleteGrantResponse_httpStatus' - The response's http status code.
 newDeleteGrantResponse ::
@@ -190,8 +190,8 @@ newDeleteGrantResponse ::
 newDeleteGrantResponse pHttpStatus_ =
   DeleteGrantResponse'
     { status = Prelude.Nothing,
-      version = Prelude.Nothing,
       grantArn = Prelude.Nothing,
+      version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -199,13 +199,13 @@ newDeleteGrantResponse pHttpStatus_ =
 deleteGrantResponse_status :: Lens.Lens' DeleteGrantResponse (Prelude.Maybe GrantStatus)
 deleteGrantResponse_status = Lens.lens (\DeleteGrantResponse' {status} -> status) (\s@DeleteGrantResponse' {} a -> s {status = a} :: DeleteGrantResponse)
 
--- | Grant version.
-deleteGrantResponse_version :: Lens.Lens' DeleteGrantResponse (Prelude.Maybe Prelude.Text)
-deleteGrantResponse_version = Lens.lens (\DeleteGrantResponse' {version} -> version) (\s@DeleteGrantResponse' {} a -> s {version = a} :: DeleteGrantResponse)
-
 -- | Grant ARN.
 deleteGrantResponse_grantArn :: Lens.Lens' DeleteGrantResponse (Prelude.Maybe Prelude.Text)
 deleteGrantResponse_grantArn = Lens.lens (\DeleteGrantResponse' {grantArn} -> grantArn) (\s@DeleteGrantResponse' {} a -> s {grantArn = a} :: DeleteGrantResponse)
+
+-- | Grant version.
+deleteGrantResponse_version :: Lens.Lens' DeleteGrantResponse (Prelude.Maybe Prelude.Text)
+deleteGrantResponse_version = Lens.lens (\DeleteGrantResponse' {version} -> version) (\s@DeleteGrantResponse' {} a -> s {version = a} :: DeleteGrantResponse)
 
 -- | The response's http status code.
 deleteGrantResponse_httpStatus :: Lens.Lens' DeleteGrantResponse Prelude.Int
@@ -214,6 +214,6 @@ deleteGrantResponse_httpStatus = Lens.lens (\DeleteGrantResponse' {httpStatus} -
 instance Prelude.NFData DeleteGrantResponse where
   rnf DeleteGrantResponse' {..} =
     Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf grantArn
+      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

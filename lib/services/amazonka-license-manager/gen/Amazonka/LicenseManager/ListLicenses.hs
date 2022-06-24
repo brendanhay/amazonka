@@ -27,8 +27,8 @@ module Amazonka.LicenseManager.ListLicenses
     newListLicenses,
 
     -- * Request Lenses
-    listLicenses_filters,
     listLicenses_nextToken,
+    listLicenses_filters,
     listLicenses_licenseArns,
     listLicenses_maxResults,
 
@@ -52,7 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLicenses' smart constructor.
 data ListLicenses = ListLicenses'
-  { -- | Filters to scope the results. The following filters are supported:
+  { -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filters to scope the results. The following filters are supported:
     --
     -- -   @Beneficiary@
     --
@@ -62,8 +64,6 @@ data ListLicenses = ListLicenses'
     --
     -- -   @Status@
     filters :: Prelude.Maybe [Filter],
-    -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Names (ARNs) of the licenses.
     licenseArns :: Prelude.Maybe [Prelude.Text],
     -- | Maximum number of results to return in a single call.
@@ -79,6 +79,8 @@ data ListLicenses = ListLicenses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listLicenses_nextToken' - Token for the next set of results.
+--
 -- 'filters', 'listLicenses_filters' - Filters to scope the results. The following filters are supported:
 --
 -- -   @Beneficiary@
@@ -89,8 +91,6 @@ data ListLicenses = ListLicenses'
 --
 -- -   @Status@
 --
--- 'nextToken', 'listLicenses_nextToken' - Token for the next set of results.
---
 -- 'licenseArns', 'listLicenses_licenseArns' - Amazon Resource Names (ARNs) of the licenses.
 --
 -- 'maxResults', 'listLicenses_maxResults' - Maximum number of results to return in a single call.
@@ -98,11 +98,15 @@ newListLicenses ::
   ListLicenses
 newListLicenses =
   ListLicenses'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       licenseArns = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | Token for the next set of results.
+listLicenses_nextToken :: Lens.Lens' ListLicenses (Prelude.Maybe Prelude.Text)
+listLicenses_nextToken = Lens.lens (\ListLicenses' {nextToken} -> nextToken) (\s@ListLicenses' {} a -> s {nextToken = a} :: ListLicenses)
 
 -- | Filters to scope the results. The following filters are supported:
 --
@@ -115,10 +119,6 @@ newListLicenses =
 -- -   @Status@
 listLicenses_filters :: Lens.Lens' ListLicenses (Prelude.Maybe [Filter])
 listLicenses_filters = Lens.lens (\ListLicenses' {filters} -> filters) (\s@ListLicenses' {} a -> s {filters = a} :: ListLicenses) Prelude.. Lens.mapping Lens.coerced
-
--- | Token for the next set of results.
-listLicenses_nextToken :: Lens.Lens' ListLicenses (Prelude.Maybe Prelude.Text)
-listLicenses_nextToken = Lens.lens (\ListLicenses' {nextToken} -> nextToken) (\s@ListLicenses' {} a -> s {nextToken = a} :: ListLicenses)
 
 -- | Amazon Resource Names (ARNs) of the licenses.
 listLicenses_licenseArns :: Lens.Lens' ListLicenses (Prelude.Maybe [Prelude.Text])
@@ -142,15 +142,15 @@ instance Core.AWSRequest ListLicenses where
 
 instance Prelude.Hashable ListLicenses where
   hashWithSalt _salt ListLicenses' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` licenseArns
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListLicenses where
   rnf ListLicenses' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf licenseArns
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -173,8 +173,8 @@ instance Core.ToJSON ListLicenses where
   toJSON ListLicenses' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("LicenseArns" Core..=) Prelude.<$> licenseArns,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]

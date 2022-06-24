@@ -42,8 +42,8 @@ module Amazonka.LicenseManager.ListAssociationsForLicenseConfiguration
     newListAssociationsForLicenseConfigurationResponse,
 
     -- * Response Lenses
-    listAssociationsForLicenseConfigurationResponse_licenseConfigurationAssociations,
     listAssociationsForLicenseConfigurationResponse_nextToken,
+    listAssociationsForLicenseConfigurationResponse_licenseConfigurationAssociations,
     listAssociationsForLicenseConfigurationResponse_httpStatus,
   )
 where
@@ -143,10 +143,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAssociationsForLicenseConfigurationResponse'
-            Prelude.<$> ( x Core..?> "LicenseConfigurationAssociations"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "LicenseConfigurationAssociations"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,10 +218,10 @@ instance
 
 -- | /See:/ 'newListAssociationsForLicenseConfigurationResponse' smart constructor.
 data ListAssociationsForLicenseConfigurationResponse = ListAssociationsForLicenseConfigurationResponse'
-  { -- | Information about the associations for the license configuration.
-    licenseConfigurationAssociations :: Prelude.Maybe [LicenseConfigurationAssociation],
-    -- | Token for the next set of results.
+  { -- | Token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the associations for the license configuration.
+    licenseConfigurationAssociations :: Prelude.Maybe [LicenseConfigurationAssociation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -235,9 +235,9 @@ data ListAssociationsForLicenseConfigurationResponse = ListAssociationsForLicens
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'licenseConfigurationAssociations', 'listAssociationsForLicenseConfigurationResponse_licenseConfigurationAssociations' - Information about the associations for the license configuration.
---
 -- 'nextToken', 'listAssociationsForLicenseConfigurationResponse_nextToken' - Token for the next set of results.
+--
+-- 'licenseConfigurationAssociations', 'listAssociationsForLicenseConfigurationResponse_licenseConfigurationAssociations' - Information about the associations for the license configuration.
 --
 -- 'httpStatus', 'listAssociationsForLicenseConfigurationResponse_httpStatus' - The response's http status code.
 newListAssociationsForLicenseConfigurationResponse ::
@@ -247,20 +247,20 @@ newListAssociationsForLicenseConfigurationResponse ::
 newListAssociationsForLicenseConfigurationResponse
   pHttpStatus_ =
     ListAssociationsForLicenseConfigurationResponse'
-      { licenseConfigurationAssociations =
+      { nextToken =
           Prelude.Nothing,
-        nextToken =
+        licenseConfigurationAssociations =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | Information about the associations for the license configuration.
-listAssociationsForLicenseConfigurationResponse_licenseConfigurationAssociations :: Lens.Lens' ListAssociationsForLicenseConfigurationResponse (Prelude.Maybe [LicenseConfigurationAssociation])
-listAssociationsForLicenseConfigurationResponse_licenseConfigurationAssociations = Lens.lens (\ListAssociationsForLicenseConfigurationResponse' {licenseConfigurationAssociations} -> licenseConfigurationAssociations) (\s@ListAssociationsForLicenseConfigurationResponse' {} a -> s {licenseConfigurationAssociations = a} :: ListAssociationsForLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | Token for the next set of results.
 listAssociationsForLicenseConfigurationResponse_nextToken :: Lens.Lens' ListAssociationsForLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
 listAssociationsForLicenseConfigurationResponse_nextToken = Lens.lens (\ListAssociationsForLicenseConfigurationResponse' {nextToken} -> nextToken) (\s@ListAssociationsForLicenseConfigurationResponse' {} a -> s {nextToken = a} :: ListAssociationsForLicenseConfigurationResponse)
+
+-- | Information about the associations for the license configuration.
+listAssociationsForLicenseConfigurationResponse_licenseConfigurationAssociations :: Lens.Lens' ListAssociationsForLicenseConfigurationResponse (Prelude.Maybe [LicenseConfigurationAssociation])
+listAssociationsForLicenseConfigurationResponse_licenseConfigurationAssociations = Lens.lens (\ListAssociationsForLicenseConfigurationResponse' {licenseConfigurationAssociations} -> licenseConfigurationAssociations) (\s@ListAssociationsForLicenseConfigurationResponse' {} a -> s {licenseConfigurationAssociations = a} :: ListAssociationsForLicenseConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAssociationsForLicenseConfigurationResponse_httpStatus :: Lens.Lens' ListAssociationsForLicenseConfigurationResponse Prelude.Int
@@ -272,6 +272,6 @@ instance
   where
   rnf
     ListAssociationsForLicenseConfigurationResponse' {..} =
-      Prelude.rnf licenseConfigurationAssociations
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf licenseConfigurationAssociations
         `Prelude.seq` Prelude.rnf httpStatus

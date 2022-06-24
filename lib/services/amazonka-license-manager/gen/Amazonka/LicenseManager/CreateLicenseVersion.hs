@@ -27,8 +27,8 @@ module Amazonka.LicenseManager.CreateLicenseVersion
     newCreateLicenseVersion,
 
     -- * Request Lenses
-    createLicenseVersion_sourceVersion,
     createLicenseVersion_licenseMetadata,
+    createLicenseVersion_sourceVersion,
     createLicenseVersion_licenseArn,
     createLicenseVersion_licenseName,
     createLicenseVersion_productName,
@@ -45,9 +45,9 @@ module Amazonka.LicenseManager.CreateLicenseVersion
     newCreateLicenseVersionResponse,
 
     -- * Response Lenses
+    createLicenseVersionResponse_licenseArn,
     createLicenseVersionResponse_status,
     createLicenseVersionResponse_version,
-    createLicenseVersionResponse_licenseArn,
     createLicenseVersionResponse_httpStatus,
   )
 where
@@ -61,10 +61,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLicenseVersion' smart constructor.
 data CreateLicenseVersion = CreateLicenseVersion'
-  { -- | Current version of the license.
-    sourceVersion :: Prelude.Maybe Prelude.Text,
-    -- | Information about the license.
+  { -- | Information about the license.
     licenseMetadata :: Prelude.Maybe [Metadata],
+    -- | Current version of the license.
+    sourceVersion :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name (ARN) of the license.
     licenseArn :: Prelude.Text,
     -- | License name.
@@ -100,9 +100,9 @@ data CreateLicenseVersion = CreateLicenseVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceVersion', 'createLicenseVersion_sourceVersion' - Current version of the license.
---
 -- 'licenseMetadata', 'createLicenseVersion_licenseMetadata' - Information about the license.
+--
+-- 'sourceVersion', 'createLicenseVersion_sourceVersion' - Current version of the license.
 --
 -- 'licenseArn', 'createLicenseVersion_licenseArn' - Amazon Resource Name (ARN) of the license.
 --
@@ -158,9 +158,9 @@ newCreateLicenseVersion
   pStatus_
   pClientToken_ =
     CreateLicenseVersion'
-      { sourceVersion =
+      { licenseMetadata =
           Prelude.Nothing,
-        licenseMetadata = Prelude.Nothing,
+        sourceVersion = Prelude.Nothing,
         licenseArn = pLicenseArn_,
         licenseName = pLicenseName_,
         productName = pProductName_,
@@ -174,13 +174,13 @@ newCreateLicenseVersion
         clientToken = pClientToken_
       }
 
--- | Current version of the license.
-createLicenseVersion_sourceVersion :: Lens.Lens' CreateLicenseVersion (Prelude.Maybe Prelude.Text)
-createLicenseVersion_sourceVersion = Lens.lens (\CreateLicenseVersion' {sourceVersion} -> sourceVersion) (\s@CreateLicenseVersion' {} a -> s {sourceVersion = a} :: CreateLicenseVersion)
-
 -- | Information about the license.
 createLicenseVersion_licenseMetadata :: Lens.Lens' CreateLicenseVersion (Prelude.Maybe [Metadata])
 createLicenseVersion_licenseMetadata = Lens.lens (\CreateLicenseVersion' {licenseMetadata} -> licenseMetadata) (\s@CreateLicenseVersion' {} a -> s {licenseMetadata = a} :: CreateLicenseVersion) Prelude.. Lens.mapping Lens.coerced
+
+-- | Current version of the license.
+createLicenseVersion_sourceVersion :: Lens.Lens' CreateLicenseVersion (Prelude.Maybe Prelude.Text)
+createLicenseVersion_sourceVersion = Lens.lens (\CreateLicenseVersion' {sourceVersion} -> sourceVersion) (\s@CreateLicenseVersion' {} a -> s {sourceVersion = a} :: CreateLicenseVersion)
 
 -- | Amazon Resource Name (ARN) of the license.
 createLicenseVersion_licenseArn :: Lens.Lens' CreateLicenseVersion Prelude.Text
@@ -235,16 +235,16 @@ instance Core.AWSRequest CreateLicenseVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateLicenseVersionResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Core..?> "LicenseArn")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "Version")
-            Prelude.<*> (x Core..?> "LicenseArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateLicenseVersion where
   hashWithSalt _salt CreateLicenseVersion' {..} =
-    _salt `Prelude.hashWithSalt` sourceVersion
-      `Prelude.hashWithSalt` licenseMetadata
+    _salt `Prelude.hashWithSalt` licenseMetadata
+      `Prelude.hashWithSalt` sourceVersion
       `Prelude.hashWithSalt` licenseArn
       `Prelude.hashWithSalt` licenseName
       `Prelude.hashWithSalt` productName
@@ -258,8 +258,8 @@ instance Prelude.Hashable CreateLicenseVersion where
 
 instance Prelude.NFData CreateLicenseVersion where
   rnf CreateLicenseVersion' {..} =
-    Prelude.rnf sourceVersion
-      `Prelude.seq` Prelude.rnf licenseMetadata
+    Prelude.rnf licenseMetadata
+      `Prelude.seq` Prelude.rnf sourceVersion
       `Prelude.seq` Prelude.rnf licenseArn
       `Prelude.seq` Prelude.rnf licenseName
       `Prelude.seq` Prelude.rnf productName
@@ -290,9 +290,9 @@ instance Core.ToJSON CreateLicenseVersion where
   toJSON CreateLicenseVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SourceVersion" Core..=) Prelude.<$> sourceVersion,
-            ("LicenseMetadata" Core..=)
+          [ ("LicenseMetadata" Core..=)
               Prelude.<$> licenseMetadata,
+            ("SourceVersion" Core..=) Prelude.<$> sourceVersion,
             Prelude.Just ("LicenseArn" Core..= licenseArn),
             Prelude.Just ("LicenseName" Core..= licenseName),
             Prelude.Just ("ProductName" Core..= productName),
@@ -317,12 +317,12 @@ instance Core.ToQuery CreateLicenseVersion where
 
 -- | /See:/ 'newCreateLicenseVersionResponse' smart constructor.
 data CreateLicenseVersionResponse = CreateLicenseVersionResponse'
-  { -- | License status.
+  { -- | License ARN.
+    licenseArn :: Prelude.Maybe Prelude.Text,
+    -- | License status.
     status :: Prelude.Maybe LicenseStatus,
     -- | New version of the license.
     version :: Prelude.Maybe Prelude.Text,
-    -- | License ARN.
-    licenseArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -336,11 +336,11 @@ data CreateLicenseVersionResponse = CreateLicenseVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'licenseArn', 'createLicenseVersionResponse_licenseArn' - License ARN.
+--
 -- 'status', 'createLicenseVersionResponse_status' - License status.
 --
 -- 'version', 'createLicenseVersionResponse_version' - New version of the license.
---
--- 'licenseArn', 'createLicenseVersionResponse_licenseArn' - License ARN.
 --
 -- 'httpStatus', 'createLicenseVersionResponse_httpStatus' - The response's http status code.
 newCreateLicenseVersionResponse ::
@@ -349,12 +349,16 @@ newCreateLicenseVersionResponse ::
   CreateLicenseVersionResponse
 newCreateLicenseVersionResponse pHttpStatus_ =
   CreateLicenseVersionResponse'
-    { status =
+    { licenseArn =
         Prelude.Nothing,
+      status = Prelude.Nothing,
       version = Prelude.Nothing,
-      licenseArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | License ARN.
+createLicenseVersionResponse_licenseArn :: Lens.Lens' CreateLicenseVersionResponse (Prelude.Maybe Prelude.Text)
+createLicenseVersionResponse_licenseArn = Lens.lens (\CreateLicenseVersionResponse' {licenseArn} -> licenseArn) (\s@CreateLicenseVersionResponse' {} a -> s {licenseArn = a} :: CreateLicenseVersionResponse)
 
 -- | License status.
 createLicenseVersionResponse_status :: Lens.Lens' CreateLicenseVersionResponse (Prelude.Maybe LicenseStatus)
@@ -364,17 +368,13 @@ createLicenseVersionResponse_status = Lens.lens (\CreateLicenseVersionResponse' 
 createLicenseVersionResponse_version :: Lens.Lens' CreateLicenseVersionResponse (Prelude.Maybe Prelude.Text)
 createLicenseVersionResponse_version = Lens.lens (\CreateLicenseVersionResponse' {version} -> version) (\s@CreateLicenseVersionResponse' {} a -> s {version = a} :: CreateLicenseVersionResponse)
 
--- | License ARN.
-createLicenseVersionResponse_licenseArn :: Lens.Lens' CreateLicenseVersionResponse (Prelude.Maybe Prelude.Text)
-createLicenseVersionResponse_licenseArn = Lens.lens (\CreateLicenseVersionResponse' {licenseArn} -> licenseArn) (\s@CreateLicenseVersionResponse' {} a -> s {licenseArn = a} :: CreateLicenseVersionResponse)
-
 -- | The response's http status code.
 createLicenseVersionResponse_httpStatus :: Lens.Lens' CreateLicenseVersionResponse Prelude.Int
 createLicenseVersionResponse_httpStatus = Lens.lens (\CreateLicenseVersionResponse' {httpStatus} -> httpStatus) (\s@CreateLicenseVersionResponse' {} a -> s {httpStatus = a} :: CreateLicenseVersionResponse)
 
 instance Prelude.NFData CreateLicenseVersionResponse where
   rnf CreateLicenseVersionResponse' {..} =
-    Prelude.rnf status
+    Prelude.rnf licenseArn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf licenseArn
       `Prelude.seq` Prelude.rnf httpStatus

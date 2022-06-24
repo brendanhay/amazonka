@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newManagedResourceSummary' smart constructor.
 data ManagedResourceSummary = ManagedResourceSummary'
-  { -- | Number of resources associated with licenses.
-    associationCount :: Prelude.Maybe Prelude.Integer,
-    -- | Type of resource associated with a license.
-    resourceType :: Prelude.Maybe ResourceType
+  { -- | Type of resource associated with a license.
+    resourceType :: Prelude.Maybe ResourceType,
+    -- | Number of resources associated with licenses.
+    associationCount :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data ManagedResourceSummary = ManagedResourceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'associationCount', 'managedResourceSummary_associationCount' - Number of resources associated with licenses.
---
 -- 'resourceType', 'managedResourceSummary_resourceType' - Type of resource associated with a license.
+--
+-- 'associationCount', 'managedResourceSummary_associationCount' - Number of resources associated with licenses.
 newManagedResourceSummary ::
   ManagedResourceSummary
 newManagedResourceSummary =
   ManagedResourceSummary'
-    { associationCount =
+    { resourceType =
         Prelude.Nothing,
-      resourceType = Prelude.Nothing
+      associationCount = Prelude.Nothing
     }
-
--- | Number of resources associated with licenses.
-managedResourceSummary_associationCount :: Lens.Lens' ManagedResourceSummary (Prelude.Maybe Prelude.Integer)
-managedResourceSummary_associationCount = Lens.lens (\ManagedResourceSummary' {associationCount} -> associationCount) (\s@ManagedResourceSummary' {} a -> s {associationCount = a} :: ManagedResourceSummary)
 
 -- | Type of resource associated with a license.
 managedResourceSummary_resourceType :: Lens.Lens' ManagedResourceSummary (Prelude.Maybe ResourceType)
 managedResourceSummary_resourceType = Lens.lens (\ManagedResourceSummary' {resourceType} -> resourceType) (\s@ManagedResourceSummary' {} a -> s {resourceType = a} :: ManagedResourceSummary)
+
+-- | Number of resources associated with licenses.
+managedResourceSummary_associationCount :: Lens.Lens' ManagedResourceSummary (Prelude.Maybe Prelude.Integer)
+managedResourceSummary_associationCount = Lens.lens (\ManagedResourceSummary' {associationCount} -> associationCount) (\s@ManagedResourceSummary' {} a -> s {associationCount = a} :: ManagedResourceSummary)
 
 instance Core.FromJSON ManagedResourceSummary where
   parseJSON =
@@ -69,16 +69,16 @@ instance Core.FromJSON ManagedResourceSummary where
       "ManagedResourceSummary"
       ( \x ->
           ManagedResourceSummary'
-            Prelude.<$> (x Core..:? "AssociationCount")
-            Prelude.<*> (x Core..:? "ResourceType")
+            Prelude.<$> (x Core..:? "ResourceType")
+            Prelude.<*> (x Core..:? "AssociationCount")
       )
 
 instance Prelude.Hashable ManagedResourceSummary where
   hashWithSalt _salt ManagedResourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` associationCount
-      `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` associationCount
 
 instance Prelude.NFData ManagedResourceSummary where
   rnf ManagedResourceSummary' {..} =
-    Prelude.rnf associationCount
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf associationCount

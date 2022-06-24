@@ -29,8 +29,8 @@ module Amazonka.LicenseManager.ListResourceInventory
     newListResourceInventory,
 
     -- * Request Lenses
-    listResourceInventory_filters,
     listResourceInventory_nextToken,
+    listResourceInventory_filters,
     listResourceInventory_maxResults,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.LicenseManager.ListResourceInventory
     newListResourceInventoryResponse,
 
     -- * Response Lenses
-    listResourceInventoryResponse_resourceInventoryList,
     listResourceInventoryResponse_nextToken,
+    listResourceInventoryResponse_resourceInventoryList,
     listResourceInventoryResponse_httpStatus,
   )
 where
@@ -53,7 +53,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceInventory' smart constructor.
 data ListResourceInventory = ListResourceInventory'
-  { -- | Filters to scope the results. The following filters and logical
+  { -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filters to scope the results. The following filters and logical
     -- operators are supported:
     --
     -- -   @account_id@ - The ID of the Amazon Web Services account that owns
@@ -77,8 +79,6 @@ data ListResourceInventory = ListResourceInventory'
     --     resource. Logical operators are @EQUALS@ (single account) or
     --     @EQUALS@ | @NOT_EQUALS@ (cross account).
     filters :: Prelude.Maybe [InventoryFilter],
-    -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Int
   }
@@ -91,6 +91,8 @@ data ListResourceInventory = ListResourceInventory'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'listResourceInventory_nextToken' - Token for the next set of results.
 --
 -- 'filters', 'listResourceInventory_filters' - Filters to scope the results. The following filters and logical
 -- operators are supported:
@@ -116,17 +118,19 @@ data ListResourceInventory = ListResourceInventory'
 --     resource. Logical operators are @EQUALS@ (single account) or
 --     @EQUALS@ | @NOT_EQUALS@ (cross account).
 --
--- 'nextToken', 'listResourceInventory_nextToken' - Token for the next set of results.
---
 -- 'maxResults', 'listResourceInventory_maxResults' - Maximum number of results to return in a single call.
 newListResourceInventory ::
   ListResourceInventory
 newListResourceInventory =
   ListResourceInventory'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | Token for the next set of results.
+listResourceInventory_nextToken :: Lens.Lens' ListResourceInventory (Prelude.Maybe Prelude.Text)
+listResourceInventory_nextToken = Lens.lens (\ListResourceInventory' {nextToken} -> nextToken) (\s@ListResourceInventory' {} a -> s {nextToken = a} :: ListResourceInventory)
 
 -- | Filters to scope the results. The following filters and logical
 -- operators are supported:
@@ -153,10 +157,6 @@ newListResourceInventory =
 --     @EQUALS@ | @NOT_EQUALS@ (cross account).
 listResourceInventory_filters :: Lens.Lens' ListResourceInventory (Prelude.Maybe [InventoryFilter])
 listResourceInventory_filters = Lens.lens (\ListResourceInventory' {filters} -> filters) (\s@ListResourceInventory' {} a -> s {filters = a} :: ListResourceInventory) Prelude.. Lens.mapping Lens.coerced
-
--- | Token for the next set of results.
-listResourceInventory_nextToken :: Lens.Lens' ListResourceInventory (Prelude.Maybe Prelude.Text)
-listResourceInventory_nextToken = Lens.lens (\ListResourceInventory' {nextToken} -> nextToken) (\s@ListResourceInventory' {} a -> s {nextToken = a} :: ListResourceInventory)
 
 -- | Maximum number of results to return in a single call.
 listResourceInventory_maxResults :: Lens.Lens' ListResourceInventory (Prelude.Maybe Prelude.Int)
@@ -193,23 +193,23 @@ instance Core.AWSRequest ListResourceInventory where
     Response.receiveJSON
       ( \s h x ->
           ListResourceInventoryResponse'
-            Prelude.<$> ( x Core..?> "ResourceInventoryList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ResourceInventoryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListResourceInventory where
   hashWithSalt _salt ListResourceInventory' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListResourceInventory where
   rnf ListResourceInventory' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListResourceInventory where
@@ -231,8 +231,8 @@ instance Core.ToJSON ListResourceInventory where
   toJSON ListResourceInventory' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -245,10 +245,10 @@ instance Core.ToQuery ListResourceInventory where
 
 -- | /See:/ 'newListResourceInventoryResponse' smart constructor.
 data ListResourceInventoryResponse = ListResourceInventoryResponse'
-  { -- | Information about the resources.
-    resourceInventoryList :: Prelude.Maybe [ResourceInventory],
-    -- | Token for the next set of results.
+  { -- | Token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the resources.
+    resourceInventoryList :: Prelude.Maybe [ResourceInventory],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -262,9 +262,9 @@ data ListResourceInventoryResponse = ListResourceInventoryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceInventoryList', 'listResourceInventoryResponse_resourceInventoryList' - Information about the resources.
---
 -- 'nextToken', 'listResourceInventoryResponse_nextToken' - Token for the next set of results.
+--
+-- 'resourceInventoryList', 'listResourceInventoryResponse_resourceInventoryList' - Information about the resources.
 --
 -- 'httpStatus', 'listResourceInventoryResponse_httpStatus' - The response's http status code.
 newListResourceInventoryResponse ::
@@ -273,19 +273,19 @@ newListResourceInventoryResponse ::
   ListResourceInventoryResponse
 newListResourceInventoryResponse pHttpStatus_ =
   ListResourceInventoryResponse'
-    { resourceInventoryList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      resourceInventoryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the resources.
-listResourceInventoryResponse_resourceInventoryList :: Lens.Lens' ListResourceInventoryResponse (Prelude.Maybe [ResourceInventory])
-listResourceInventoryResponse_resourceInventoryList = Lens.lens (\ListResourceInventoryResponse' {resourceInventoryList} -> resourceInventoryList) (\s@ListResourceInventoryResponse' {} a -> s {resourceInventoryList = a} :: ListResourceInventoryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Token for the next set of results.
 listResourceInventoryResponse_nextToken :: Lens.Lens' ListResourceInventoryResponse (Prelude.Maybe Prelude.Text)
 listResourceInventoryResponse_nextToken = Lens.lens (\ListResourceInventoryResponse' {nextToken} -> nextToken) (\s@ListResourceInventoryResponse' {} a -> s {nextToken = a} :: ListResourceInventoryResponse)
+
+-- | Information about the resources.
+listResourceInventoryResponse_resourceInventoryList :: Lens.Lens' ListResourceInventoryResponse (Prelude.Maybe [ResourceInventory])
+listResourceInventoryResponse_resourceInventoryList = Lens.lens (\ListResourceInventoryResponse' {resourceInventoryList} -> resourceInventoryList) (\s@ListResourceInventoryResponse' {} a -> s {resourceInventoryList = a} :: ListResourceInventoryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listResourceInventoryResponse_httpStatus :: Lens.Lens' ListResourceInventoryResponse Prelude.Int
@@ -293,6 +293,6 @@ listResourceInventoryResponse_httpStatus = Lens.lens (\ListResourceInventoryResp
 
 instance Prelude.NFData ListResourceInventoryResponse where
   rnf ListResourceInventoryResponse' {..} =
-    Prelude.rnf resourceInventoryList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceInventoryList
       `Prelude.seq` Prelude.rnf httpStatus

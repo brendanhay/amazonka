@@ -44,9 +44,9 @@ module Amazonka.LicenseManager.CreateLicense
     newCreateLicenseResponse,
 
     -- * Response Lenses
+    createLicenseResponse_licenseArn,
     createLicenseResponse_status,
     createLicenseResponse_version,
-    createLicenseResponse_licenseArn,
     createLicenseResponse_httpStatus,
   )
 where
@@ -224,9 +224,9 @@ instance Core.AWSRequest CreateLicense where
     Response.receiveJSON
       ( \s h x ->
           CreateLicenseResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Core..?> "LicenseArn")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "Version")
-            Prelude.<*> (x Core..?> "LicenseArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -303,12 +303,12 @@ instance Core.ToQuery CreateLicense where
 
 -- | /See:/ 'newCreateLicenseResponse' smart constructor.
 data CreateLicenseResponse = CreateLicenseResponse'
-  { -- | License status.
+  { -- | Amazon Resource Name (ARN) of the license.
+    licenseArn :: Prelude.Maybe Prelude.Text,
+    -- | License status.
     status :: Prelude.Maybe LicenseStatus,
     -- | License version.
     version :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Resource Name (ARN) of the license.
-    licenseArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -322,11 +322,11 @@ data CreateLicenseResponse = CreateLicenseResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'licenseArn', 'createLicenseResponse_licenseArn' - Amazon Resource Name (ARN) of the license.
+--
 -- 'status', 'createLicenseResponse_status' - License status.
 --
 -- 'version', 'createLicenseResponse_version' - License version.
---
--- 'licenseArn', 'createLicenseResponse_licenseArn' - Amazon Resource Name (ARN) of the license.
 --
 -- 'httpStatus', 'createLicenseResponse_httpStatus' - The response's http status code.
 newCreateLicenseResponse ::
@@ -335,11 +335,16 @@ newCreateLicenseResponse ::
   CreateLicenseResponse
 newCreateLicenseResponse pHttpStatus_ =
   CreateLicenseResponse'
-    { status = Prelude.Nothing,
+    { licenseArn =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       version = Prelude.Nothing,
-      licenseArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Amazon Resource Name (ARN) of the license.
+createLicenseResponse_licenseArn :: Lens.Lens' CreateLicenseResponse (Prelude.Maybe Prelude.Text)
+createLicenseResponse_licenseArn = Lens.lens (\CreateLicenseResponse' {licenseArn} -> licenseArn) (\s@CreateLicenseResponse' {} a -> s {licenseArn = a} :: CreateLicenseResponse)
 
 -- | License status.
 createLicenseResponse_status :: Lens.Lens' CreateLicenseResponse (Prelude.Maybe LicenseStatus)
@@ -349,17 +354,13 @@ createLicenseResponse_status = Lens.lens (\CreateLicenseResponse' {status} -> st
 createLicenseResponse_version :: Lens.Lens' CreateLicenseResponse (Prelude.Maybe Prelude.Text)
 createLicenseResponse_version = Lens.lens (\CreateLicenseResponse' {version} -> version) (\s@CreateLicenseResponse' {} a -> s {version = a} :: CreateLicenseResponse)
 
--- | Amazon Resource Name (ARN) of the license.
-createLicenseResponse_licenseArn :: Lens.Lens' CreateLicenseResponse (Prelude.Maybe Prelude.Text)
-createLicenseResponse_licenseArn = Lens.lens (\CreateLicenseResponse' {licenseArn} -> licenseArn) (\s@CreateLicenseResponse' {} a -> s {licenseArn = a} :: CreateLicenseResponse)
-
 -- | The response's http status code.
 createLicenseResponse_httpStatus :: Lens.Lens' CreateLicenseResponse Prelude.Int
 createLicenseResponse_httpStatus = Lens.lens (\CreateLicenseResponse' {httpStatus} -> httpStatus) (\s@CreateLicenseResponse' {} a -> s {httpStatus = a} :: CreateLicenseResponse)
 
 instance Prelude.NFData CreateLicenseResponse where
   rnf CreateLicenseResponse' {..} =
-    Prelude.rnf status
+    Prelude.rnf licenseArn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf licenseArn
       `Prelude.seq` Prelude.rnf httpStatus

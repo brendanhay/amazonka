@@ -38,8 +38,8 @@ module Amazonka.LicenseManager.ListLicenseSpecificationsForResource
     newListLicenseSpecificationsForResourceResponse,
 
     -- * Response Lenses
-    listLicenseSpecificationsForResourceResponse_licenseSpecifications,
     listLicenseSpecificationsForResourceResponse_nextToken,
+    listLicenseSpecificationsForResourceResponse_licenseSpecifications,
     listLicenseSpecificationsForResourceResponse_httpStatus,
   )
 where
@@ -139,10 +139,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListLicenseSpecificationsForResourceResponse'
-            Prelude.<$> ( x Core..?> "LicenseSpecifications"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "LicenseSpecifications"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,10 +211,10 @@ instance
 
 -- | /See:/ 'newListLicenseSpecificationsForResourceResponse' smart constructor.
 data ListLicenseSpecificationsForResourceResponse = ListLicenseSpecificationsForResourceResponse'
-  { -- | License configurations associated with a resource.
-    licenseSpecifications :: Prelude.Maybe [LicenseSpecification],
-    -- | Token for the next set of results.
+  { -- | Token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | License configurations associated with a resource.
+    licenseSpecifications :: Prelude.Maybe [LicenseSpecification],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -228,9 +228,9 @@ data ListLicenseSpecificationsForResourceResponse = ListLicenseSpecificationsFor
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'licenseSpecifications', 'listLicenseSpecificationsForResourceResponse_licenseSpecifications' - License configurations associated with a resource.
---
 -- 'nextToken', 'listLicenseSpecificationsForResourceResponse_nextToken' - Token for the next set of results.
+--
+-- 'licenseSpecifications', 'listLicenseSpecificationsForResourceResponse_licenseSpecifications' - License configurations associated with a resource.
 --
 -- 'httpStatus', 'listLicenseSpecificationsForResourceResponse_httpStatus' - The response's http status code.
 newListLicenseSpecificationsForResourceResponse ::
@@ -240,19 +240,20 @@ newListLicenseSpecificationsForResourceResponse ::
 newListLicenseSpecificationsForResourceResponse
   pHttpStatus_ =
     ListLicenseSpecificationsForResourceResponse'
-      { licenseSpecifications =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        licenseSpecifications =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | License configurations associated with a resource.
-listLicenseSpecificationsForResourceResponse_licenseSpecifications :: Lens.Lens' ListLicenseSpecificationsForResourceResponse (Prelude.Maybe [LicenseSpecification])
-listLicenseSpecificationsForResourceResponse_licenseSpecifications = Lens.lens (\ListLicenseSpecificationsForResourceResponse' {licenseSpecifications} -> licenseSpecifications) (\s@ListLicenseSpecificationsForResourceResponse' {} a -> s {licenseSpecifications = a} :: ListLicenseSpecificationsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Token for the next set of results.
 listLicenseSpecificationsForResourceResponse_nextToken :: Lens.Lens' ListLicenseSpecificationsForResourceResponse (Prelude.Maybe Prelude.Text)
 listLicenseSpecificationsForResourceResponse_nextToken = Lens.lens (\ListLicenseSpecificationsForResourceResponse' {nextToken} -> nextToken) (\s@ListLicenseSpecificationsForResourceResponse' {} a -> s {nextToken = a} :: ListLicenseSpecificationsForResourceResponse)
+
+-- | License configurations associated with a resource.
+listLicenseSpecificationsForResourceResponse_licenseSpecifications :: Lens.Lens' ListLicenseSpecificationsForResourceResponse (Prelude.Maybe [LicenseSpecification])
+listLicenseSpecificationsForResourceResponse_licenseSpecifications = Lens.lens (\ListLicenseSpecificationsForResourceResponse' {licenseSpecifications} -> licenseSpecifications) (\s@ListLicenseSpecificationsForResourceResponse' {} a -> s {licenseSpecifications = a} :: ListLicenseSpecificationsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLicenseSpecificationsForResourceResponse_httpStatus :: Lens.Lens' ListLicenseSpecificationsForResourceResponse Prelude.Int
@@ -263,6 +264,6 @@ instance
     ListLicenseSpecificationsForResourceResponse
   where
   rnf ListLicenseSpecificationsForResourceResponse' {..} =
-    Prelude.rnf licenseSpecifications
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf licenseSpecifications
       `Prelude.seq` Prelude.rnf httpStatus

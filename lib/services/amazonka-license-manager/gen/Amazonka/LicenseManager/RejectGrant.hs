@@ -35,8 +35,8 @@ module Amazonka.LicenseManager.RejectGrant
 
     -- * Response Lenses
     rejectGrantResponse_status,
-    rejectGrantResponse_version,
     rejectGrantResponse_grantArn,
+    rejectGrantResponse_version,
     rejectGrantResponse_httpStatus,
   )
 where
@@ -83,8 +83,8 @@ instance Core.AWSRequest RejectGrant where
       ( \s h x ->
           RejectGrantResponse'
             Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (x Core..?> "GrantArn")
+            Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,10 +127,10 @@ instance Core.ToQuery RejectGrant where
 data RejectGrantResponse = RejectGrantResponse'
   { -- | Grant status.
     status :: Prelude.Maybe GrantStatus,
-    -- | Grant version.
-    version :: Prelude.Maybe Prelude.Text,
     -- | Grant ARN.
     grantArn :: Prelude.Maybe Prelude.Text,
+    -- | Grant version.
+    version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -146,9 +146,9 @@ data RejectGrantResponse = RejectGrantResponse'
 --
 -- 'status', 'rejectGrantResponse_status' - Grant status.
 --
--- 'version', 'rejectGrantResponse_version' - Grant version.
---
 -- 'grantArn', 'rejectGrantResponse_grantArn' - Grant ARN.
+--
+-- 'version', 'rejectGrantResponse_version' - Grant version.
 --
 -- 'httpStatus', 'rejectGrantResponse_httpStatus' - The response's http status code.
 newRejectGrantResponse ::
@@ -158,8 +158,8 @@ newRejectGrantResponse ::
 newRejectGrantResponse pHttpStatus_ =
   RejectGrantResponse'
     { status = Prelude.Nothing,
-      version = Prelude.Nothing,
       grantArn = Prelude.Nothing,
+      version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -167,13 +167,13 @@ newRejectGrantResponse pHttpStatus_ =
 rejectGrantResponse_status :: Lens.Lens' RejectGrantResponse (Prelude.Maybe GrantStatus)
 rejectGrantResponse_status = Lens.lens (\RejectGrantResponse' {status} -> status) (\s@RejectGrantResponse' {} a -> s {status = a} :: RejectGrantResponse)
 
--- | Grant version.
-rejectGrantResponse_version :: Lens.Lens' RejectGrantResponse (Prelude.Maybe Prelude.Text)
-rejectGrantResponse_version = Lens.lens (\RejectGrantResponse' {version} -> version) (\s@RejectGrantResponse' {} a -> s {version = a} :: RejectGrantResponse)
-
 -- | Grant ARN.
 rejectGrantResponse_grantArn :: Lens.Lens' RejectGrantResponse (Prelude.Maybe Prelude.Text)
 rejectGrantResponse_grantArn = Lens.lens (\RejectGrantResponse' {grantArn} -> grantArn) (\s@RejectGrantResponse' {} a -> s {grantArn = a} :: RejectGrantResponse)
+
+-- | Grant version.
+rejectGrantResponse_version :: Lens.Lens' RejectGrantResponse (Prelude.Maybe Prelude.Text)
+rejectGrantResponse_version = Lens.lens (\RejectGrantResponse' {version} -> version) (\s@RejectGrantResponse' {} a -> s {version = a} :: RejectGrantResponse)
 
 -- | The response's http status code.
 rejectGrantResponse_httpStatus :: Lens.Lens' RejectGrantResponse Prelude.Int
@@ -182,6 +182,6 @@ rejectGrantResponse_httpStatus = Lens.lens (\RejectGrantResponse' {httpStatus} -
 instance Prelude.NFData RejectGrantResponse where
   rnf RejectGrantResponse' {..} =
     Prelude.rnf status
-      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf grantArn
+      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetadata' smart constructor.
 data Metadata = Metadata'
-  { -- | The value.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The key name.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The key name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The value.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data Metadata = Metadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'metadata_value' - The value.
---
 -- 'name', 'metadata_name' - The key name.
+--
+-- 'value', 'metadata_value' - The value.
 newMetadata ::
   Metadata
 newMetadata =
   Metadata'
-    { value = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value.
-metadata_value :: Lens.Lens' Metadata (Prelude.Maybe Prelude.Text)
-metadata_value = Lens.lens (\Metadata' {value} -> value) (\s@Metadata' {} a -> s {value = a} :: Metadata)
 
 -- | The key name.
 metadata_name :: Lens.Lens' Metadata (Prelude.Maybe Prelude.Text)
 metadata_name = Lens.lens (\Metadata' {name} -> name) (\s@Metadata' {} a -> s {name = a} :: Metadata)
+
+-- | The value.
+metadata_value :: Lens.Lens' Metadata (Prelude.Maybe Prelude.Text)
+metadata_value = Lens.lens (\Metadata' {value} -> value) (\s@Metadata' {} a -> s {value = a} :: Metadata)
 
 instance Core.FromJSON Metadata where
   parseJSON =
@@ -67,23 +67,23 @@ instance Core.FromJSON Metadata where
       "Metadata"
       ( \x ->
           Metadata'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Metadata where
   hashWithSalt _salt Metadata' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Metadata where
   rnf Metadata' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Metadata where
   toJSON Metadata' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

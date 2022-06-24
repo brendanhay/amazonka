@@ -27,8 +27,8 @@ module Amazonka.LicenseManager.ListLicenseConversionTasks
     newListLicenseConversionTasks,
 
     -- * Request Lenses
-    listLicenseConversionTasks_filters,
     listLicenseConversionTasks_nextToken,
+    listLicenseConversionTasks_filters,
     listLicenseConversionTasks_maxResults,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.LicenseManager.ListLicenseConversionTasks
     newListLicenseConversionTasksResponse,
 
     -- * Response Lenses
-    listLicenseConversionTasksResponse_licenseConversionTasks,
     listLicenseConversionTasksResponse_nextToken,
+    listLicenseConversionTasksResponse_licenseConversionTasks,
     listLicenseConversionTasksResponse_httpStatus,
   )
 where
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLicenseConversionTasks' smart constructor.
 data ListLicenseConversionTasks = ListLicenseConversionTasks'
-  { -- | Filters to scope the results. Valid filters are @ResourceArns@ and
+  { -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filters to scope the results. Valid filters are @ResourceArns@ and
     -- @Status@.
     filters :: Prelude.Maybe [Filter],
-    -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Int
   }
@@ -69,30 +69,30 @@ data ListLicenseConversionTasks = ListLicenseConversionTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listLicenseConversionTasks_nextToken' - Token for the next set of results.
+--
 -- 'filters', 'listLicenseConversionTasks_filters' - Filters to scope the results. Valid filters are @ResourceArns@ and
 -- @Status@.
---
--- 'nextToken', 'listLicenseConversionTasks_nextToken' - Token for the next set of results.
 --
 -- 'maxResults', 'listLicenseConversionTasks_maxResults' - Maximum number of results to return in a single call.
 newListLicenseConversionTasks ::
   ListLicenseConversionTasks
 newListLicenseConversionTasks =
   ListLicenseConversionTasks'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | Token for the next set of results.
+listLicenseConversionTasks_nextToken :: Lens.Lens' ListLicenseConversionTasks (Prelude.Maybe Prelude.Text)
+listLicenseConversionTasks_nextToken = Lens.lens (\ListLicenseConversionTasks' {nextToken} -> nextToken) (\s@ListLicenseConversionTasks' {} a -> s {nextToken = a} :: ListLicenseConversionTasks)
 
 -- | Filters to scope the results. Valid filters are @ResourceArns@ and
 -- @Status@.
 listLicenseConversionTasks_filters :: Lens.Lens' ListLicenseConversionTasks (Prelude.Maybe [Filter])
 listLicenseConversionTasks_filters = Lens.lens (\ListLicenseConversionTasks' {filters} -> filters) (\s@ListLicenseConversionTasks' {} a -> s {filters = a} :: ListLicenseConversionTasks) Prelude.. Lens.mapping Lens.coerced
-
--- | Token for the next set of results.
-listLicenseConversionTasks_nextToken :: Lens.Lens' ListLicenseConversionTasks (Prelude.Maybe Prelude.Text)
-listLicenseConversionTasks_nextToken = Lens.lens (\ListLicenseConversionTasks' {nextToken} -> nextToken) (\s@ListLicenseConversionTasks' {} a -> s {nextToken = a} :: ListLicenseConversionTasks)
 
 -- | Maximum number of results to return in a single call.
 listLicenseConversionTasks_maxResults :: Lens.Lens' ListLicenseConversionTasks (Prelude.Maybe Prelude.Int)
@@ -107,23 +107,23 @@ instance Core.AWSRequest ListLicenseConversionTasks where
     Response.receiveJSON
       ( \s h x ->
           ListLicenseConversionTasksResponse'
-            Prelude.<$> ( x Core..?> "LicenseConversionTasks"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "LicenseConversionTasks"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLicenseConversionTasks where
   hashWithSalt _salt ListLicenseConversionTasks' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListLicenseConversionTasks where
   rnf ListLicenseConversionTasks' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListLicenseConversionTasks where
@@ -145,8 +145,8 @@ instance Core.ToJSON ListLicenseConversionTasks where
   toJSON ListLicenseConversionTasks' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -159,10 +159,10 @@ instance Core.ToQuery ListLicenseConversionTasks where
 
 -- | /See:/ 'newListLicenseConversionTasksResponse' smart constructor.
 data ListLicenseConversionTasksResponse = ListLicenseConversionTasksResponse'
-  { -- | Information about the license configuration tasks for your account.
-    licenseConversionTasks :: Prelude.Maybe [LicenseConversionTask],
-    -- | Token for the next set of results.
+  { -- | Token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the license configuration tasks for your account.
+    licenseConversionTasks :: Prelude.Maybe [LicenseConversionTask],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,9 +176,9 @@ data ListLicenseConversionTasksResponse = ListLicenseConversionTasksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'licenseConversionTasks', 'listLicenseConversionTasksResponse_licenseConversionTasks' - Information about the license configuration tasks for your account.
---
 -- 'nextToken', 'listLicenseConversionTasksResponse_nextToken' - Token for the next set of results.
+--
+-- 'licenseConversionTasks', 'listLicenseConversionTasksResponse_licenseConversionTasks' - Information about the license configuration tasks for your account.
 --
 -- 'httpStatus', 'listLicenseConversionTasksResponse_httpStatus' - The response's http status code.
 newListLicenseConversionTasksResponse ::
@@ -187,19 +187,20 @@ newListLicenseConversionTasksResponse ::
   ListLicenseConversionTasksResponse
 newListLicenseConversionTasksResponse pHttpStatus_ =
   ListLicenseConversionTasksResponse'
-    { licenseConversionTasks =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      licenseConversionTasks =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the license configuration tasks for your account.
-listLicenseConversionTasksResponse_licenseConversionTasks :: Lens.Lens' ListLicenseConversionTasksResponse (Prelude.Maybe [LicenseConversionTask])
-listLicenseConversionTasksResponse_licenseConversionTasks = Lens.lens (\ListLicenseConversionTasksResponse' {licenseConversionTasks} -> licenseConversionTasks) (\s@ListLicenseConversionTasksResponse' {} a -> s {licenseConversionTasks = a} :: ListLicenseConversionTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Token for the next set of results.
 listLicenseConversionTasksResponse_nextToken :: Lens.Lens' ListLicenseConversionTasksResponse (Prelude.Maybe Prelude.Text)
 listLicenseConversionTasksResponse_nextToken = Lens.lens (\ListLicenseConversionTasksResponse' {nextToken} -> nextToken) (\s@ListLicenseConversionTasksResponse' {} a -> s {nextToken = a} :: ListLicenseConversionTasksResponse)
+
+-- | Information about the license configuration tasks for your account.
+listLicenseConversionTasksResponse_licenseConversionTasks :: Lens.Lens' ListLicenseConversionTasksResponse (Prelude.Maybe [LicenseConversionTask])
+listLicenseConversionTasksResponse_licenseConversionTasks = Lens.lens (\ListLicenseConversionTasksResponse' {licenseConversionTasks} -> licenseConversionTasks) (\s@ListLicenseConversionTasksResponse' {} a -> s {licenseConversionTasks = a} :: ListLicenseConversionTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLicenseConversionTasksResponse_httpStatus :: Lens.Lens' ListLicenseConversionTasksResponse Prelude.Int
@@ -210,6 +211,6 @@ instance
     ListLicenseConversionTasksResponse
   where
   rnf ListLicenseConversionTasksResponse' {..} =
-    Prelude.rnf licenseConversionTasks
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf licenseConversionTasks
       `Prelude.seq` Prelude.rnf httpStatus

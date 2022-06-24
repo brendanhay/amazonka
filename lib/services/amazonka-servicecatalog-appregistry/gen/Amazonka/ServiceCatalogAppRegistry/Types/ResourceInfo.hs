@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceInfo' smart constructor.
 data ResourceInfo = ResourceInfo'
-  { -- | The Amazon resource name (ARN) that specifies the resource across
+  { -- | The name of the resource.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon resource name (ARN) that specifies the resource across
     -- services.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the resource.
-    name :: Prelude.Maybe Prelude.Text
+    arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data ResourceInfo = ResourceInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'resourceInfo_name' - The name of the resource.
+--
 -- 'arn', 'resourceInfo_arn' - The Amazon resource name (ARN) that specifies the resource across
 -- services.
---
--- 'name', 'resourceInfo_name' - The name of the resource.
 newResourceInfo ::
   ResourceInfo
 newResourceInfo =
   ResourceInfo'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing
     }
+
+-- | The name of the resource.
+resourceInfo_name :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.Text)
+resourceInfo_name = Lens.lens (\ResourceInfo' {name} -> name) (\s@ResourceInfo' {} a -> s {name = a} :: ResourceInfo)
 
 -- | The Amazon resource name (ARN) that specifies the resource across
 -- services.
 resourceInfo_arn :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.Text)
 resourceInfo_arn = Lens.lens (\ResourceInfo' {arn} -> arn) (\s@ResourceInfo' {} a -> s {arn = a} :: ResourceInfo)
-
--- | The name of the resource.
-resourceInfo_name :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.Text)
-resourceInfo_name = Lens.lens (\ResourceInfo' {name} -> name) (\s@ResourceInfo' {} a -> s {name = a} :: ResourceInfo)
 
 instance Core.FromJSON ResourceInfo where
   parseJSON =
@@ -70,14 +70,14 @@ instance Core.FromJSON ResourceInfo where
       "ResourceInfo"
       ( \x ->
           ResourceInfo'
-            Prelude.<$> (x Core..:? "arn") Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "arn")
       )
 
 instance Prelude.Hashable ResourceInfo where
   hashWithSalt _salt ResourceInfo' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ResourceInfo where
   rnf ResourceInfo' {..} =
-    Prelude.rnf arn `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf arn

@@ -28,8 +28,8 @@ module Amazonka.ServiceCatalogAppRegistry.CreateApplication
     newCreateApplication,
 
     -- * Request Lenses
-    createApplication_description,
     createApplication_tags,
+    createApplication_description,
     createApplication_name,
     createApplication_clientToken,
 
@@ -52,10 +52,10 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { -- | The description of the application.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Key-value pairs you can use to associate with the application.
+  { -- | Key-value pairs you can use to associate with the application.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The description of the application.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the application. The name must be unique in the region in
     -- which you are creating the application.
     name :: Prelude.Text,
@@ -76,9 +76,9 @@ data CreateApplication = CreateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createApplication_description' - The description of the application.
---
 -- 'tags', 'createApplication_tags' - Key-value pairs you can use to associate with the application.
+--
+-- 'description', 'createApplication_description' - The description of the application.
 --
 -- 'name', 'createApplication_name' - The name of the application. The name must be unique in the region in
 -- which you are creating the application.
@@ -96,19 +96,19 @@ newCreateApplication ::
   CreateApplication
 newCreateApplication pName_ pClientToken_ =
   CreateApplication'
-    { description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_,
       clientToken = pClientToken_
     }
 
--- | The description of the application.
-createApplication_description :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
-createApplication_description = Lens.lens (\CreateApplication' {description} -> description) (\s@CreateApplication' {} a -> s {description = a} :: CreateApplication)
-
 -- | Key-value pairs you can use to associate with the application.
 createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description of the application.
+createApplication_description :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_description = Lens.lens (\CreateApplication' {description} -> description) (\s@CreateApplication' {} a -> s {description = a} :: CreateApplication)
 
 -- | The name of the application. The name must be unique in the region in
 -- which you are creating the application.
@@ -138,15 +138,15 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf clientToken
 
@@ -165,8 +165,8 @@ instance Core.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("clientToken" Core..= clientToken)
           ]

@@ -34,8 +34,8 @@ module Amazonka.Schemas.StartDiscoverer
     newStartDiscovererResponse,
 
     -- * Response Lenses
-    startDiscovererResponse_state,
     startDiscovererResponse_discovererId,
+    startDiscovererResponse_state,
     startDiscovererResponse_httpStatus,
   )
 where
@@ -83,8 +83,8 @@ instance Core.AWSRequest StartDiscoverer where
     Response.receiveJSON
       ( \s h x ->
           StartDiscovererResponse'
-            Prelude.<$> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "DiscovererId")
+            Prelude.<$> (x Core..?> "DiscovererId")
+            Prelude.<*> (x Core..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,10 +122,10 @@ instance Core.ToQuery StartDiscoverer where
 
 -- | /See:/ 'newStartDiscovererResponse' smart constructor.
 data StartDiscovererResponse = StartDiscovererResponse'
-  { -- | The state of the discoverer.
-    state :: Prelude.Maybe DiscovererState,
-    -- | The ID of the discoverer.
+  { -- | The ID of the discoverer.
     discovererId :: Prelude.Maybe Prelude.Text,
+    -- | The state of the discoverer.
+    state :: Prelude.Maybe DiscovererState,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -139,9 +139,9 @@ data StartDiscovererResponse = StartDiscovererResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'startDiscovererResponse_state' - The state of the discoverer.
---
 -- 'discovererId', 'startDiscovererResponse_discovererId' - The ID of the discoverer.
+--
+-- 'state', 'startDiscovererResponse_state' - The state of the discoverer.
 --
 -- 'httpStatus', 'startDiscovererResponse_httpStatus' - The response's http status code.
 newStartDiscovererResponse ::
@@ -150,18 +150,19 @@ newStartDiscovererResponse ::
   StartDiscovererResponse
 newStartDiscovererResponse pHttpStatus_ =
   StartDiscovererResponse'
-    { state = Prelude.Nothing,
-      discovererId = Prelude.Nothing,
+    { discovererId =
+        Prelude.Nothing,
+      state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The state of the discoverer.
-startDiscovererResponse_state :: Lens.Lens' StartDiscovererResponse (Prelude.Maybe DiscovererState)
-startDiscovererResponse_state = Lens.lens (\StartDiscovererResponse' {state} -> state) (\s@StartDiscovererResponse' {} a -> s {state = a} :: StartDiscovererResponse)
 
 -- | The ID of the discoverer.
 startDiscovererResponse_discovererId :: Lens.Lens' StartDiscovererResponse (Prelude.Maybe Prelude.Text)
 startDiscovererResponse_discovererId = Lens.lens (\StartDiscovererResponse' {discovererId} -> discovererId) (\s@StartDiscovererResponse' {} a -> s {discovererId = a} :: StartDiscovererResponse)
+
+-- | The state of the discoverer.
+startDiscovererResponse_state :: Lens.Lens' StartDiscovererResponse (Prelude.Maybe DiscovererState)
+startDiscovererResponse_state = Lens.lens (\StartDiscovererResponse' {state} -> state) (\s@StartDiscovererResponse' {} a -> s {state = a} :: StartDiscovererResponse)
 
 -- | The response's http status code.
 startDiscovererResponse_httpStatus :: Lens.Lens' StartDiscovererResponse Prelude.Int
@@ -169,6 +170,6 @@ startDiscovererResponse_httpStatus = Lens.lens (\StartDiscovererResponse' {httpS
 
 instance Prelude.NFData StartDiscovererResponse where
   rnf StartDiscovererResponse' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf discovererId
+    Prelude.rnf discovererId
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpStatus

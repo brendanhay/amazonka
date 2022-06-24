@@ -18,15 +18,15 @@ module Amazonka.Schemas.Types
 
     -- * Errors
     _PreconditionFailedException,
-    _ConflictException,
-    _ForbiddenException,
-    _GoneException,
-    _NotFoundException,
-    _TooManyRequestsException,
-    _InternalServerErrorException,
-    _ServiceUnavailableException,
     _UnauthorizedException,
+    _NotFoundException,
+    _ServiceUnavailableException,
+    _InternalServerErrorException,
+    _ForbiddenException,
+    _ConflictException,
+    _GoneException,
     _BadRequestException,
+    _TooManyRequestsException,
 
     -- * CodeGenerationStatus
     CodeGenerationStatus (..),
@@ -40,36 +40,36 @@ module Amazonka.Schemas.Types
     -- * DiscovererSummary
     DiscovererSummary (..),
     newDiscovererSummary,
+    discovererSummary_tags,
+    discovererSummary_discovererId,
+    discovererSummary_sourceArn,
     discovererSummary_state,
     discovererSummary_crossAccount,
-    discovererSummary_sourceArn,
-    discovererSummary_discovererId,
-    discovererSummary_tags,
     discovererSummary_discovererArn,
 
     -- * RegistrySummary
     RegistrySummary (..),
     newRegistrySummary,
+    registrySummary_tags,
     registrySummary_registryName,
     registrySummary_registryArn,
-    registrySummary_tags,
 
     -- * SchemaSummary
     SchemaSummary (..),
     newSchemaSummary,
+    schemaSummary_tags,
     schemaSummary_schemaName,
     schemaSummary_schemaArn,
     schemaSummary_lastModified,
-    schemaSummary_tags,
     schemaSummary_versionCount,
 
     -- * SchemaVersionSummary
     SchemaVersionSummary (..),
     newSchemaVersionSummary,
-    schemaVersionSummary_schemaVersion,
+    schemaVersionSummary_type,
     schemaVersionSummary_schemaName,
     schemaVersionSummary_schemaArn,
-    schemaVersionSummary_type,
+    schemaVersionSummary_schemaVersion,
 
     -- * SearchSchemaSummary
     SearchSchemaSummary (..),
@@ -82,9 +82,9 @@ module Amazonka.Schemas.Types
     -- * SearchSchemaVersionSummary
     SearchSchemaVersionSummary (..),
     newSearchSchemaVersionSummary,
+    searchSchemaVersionSummary_type,
     searchSchemaVersionSummary_schemaVersion,
     searchSchemaVersionSummary_createdDate,
-    searchSchemaVersionSummary_type,
   )
 where
 
@@ -127,35 +127,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -164,12 +137,39 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Prism for PreconditionFailedException' errors.
@@ -180,29 +180,13 @@ _PreconditionFailedException =
     "PreconditionFailedException"
     Prelude.. Core.hasStatus 412
 
--- | Prism for ConflictException' errors.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | Prism for UnauthorizedException' errors.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | Prism for ForbiddenException' errors.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
-  Core._MatchServiceError
-    defaultService
-    "ForbiddenException"
-    Prelude.. Core.hasStatus 403
-
--- | Prism for GoneException' errors.
-_GoneException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_GoneException =
-  Core._MatchServiceError
-    defaultService
-    "GoneException"
-    Prelude.. Core.hasStatus 410
+    "UnauthorizedException"
+    Prelude.. Core.hasStatus 401
 
 -- | Prism for NotFoundException' errors.
 _NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -212,13 +196,13 @@ _NotFoundException =
     "NotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | Prism for TooManyRequestsException' errors.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
+-- | Prism for ServiceUnavailableException' errors.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
-    "TooManyRequestsException"
-    Prelude.. Core.hasStatus 429
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
 
 -- | Prism for InternalServerErrorException' errors.
 _InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -228,21 +212,29 @@ _InternalServerErrorException =
     "InternalServerErrorException"
     Prelude.. Core.hasStatus 500
 
--- | Prism for ServiceUnavailableException' errors.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
+-- | Prism for ForbiddenException' errors.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
   Core._MatchServiceError
     defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
 
--- | Prism for UnauthorizedException' errors.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
+-- | Prism for ConflictException' errors.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "UnauthorizedException"
-    Prelude.. Core.hasStatus 401
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | Prism for GoneException' errors.
+_GoneException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GoneException =
+  Core._MatchServiceError
+    defaultService
+    "GoneException"
+    Prelude.. Core.hasStatus 410
 
 -- | Prism for BadRequestException' errors.
 _BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -251,3 +243,11 @@ _BadRequestException =
     defaultService
     "BadRequestException"
     Prelude.. Core.hasStatus 400
+
+-- | Prism for TooManyRequestsException' errors.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
+    Prelude.. Core.hasStatus 429

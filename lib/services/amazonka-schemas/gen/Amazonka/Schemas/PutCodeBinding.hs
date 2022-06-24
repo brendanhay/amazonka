@@ -37,10 +37,10 @@ module Amazonka.Schemas.PutCodeBinding
     newPutCodeBindingResponse,
 
     -- * Response Lenses
-    putCodeBindingResponse_status,
-    putCodeBindingResponse_schemaVersion,
     putCodeBindingResponse_creationDate,
+    putCodeBindingResponse_status,
     putCodeBindingResponse_lastModified,
+    putCodeBindingResponse_schemaVersion,
     putCodeBindingResponse_httpStatus,
   )
 where
@@ -124,10 +124,10 @@ instance Core.AWSRequest PutCodeBinding where
     Response.receiveJSON
       ( \s h x ->
           PutCodeBindingResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "SchemaVersion")
-            Prelude.<*> (x Core..?> "CreationDate")
+            Prelude.<$> (x Core..?> "CreationDate")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "LastModified")
+            Prelude.<*> (x Core..?> "SchemaVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,14 +177,14 @@ instance Core.ToQuery PutCodeBinding where
 
 -- | /See:/ 'newPutCodeBindingResponse' smart constructor.
 data PutCodeBindingResponse = PutCodeBindingResponse'
-  { -- | The current status of code binding generation.
-    status :: Prelude.Maybe CodeGenerationStatus,
-    -- | The version number of the schema.
-    schemaVersion :: Prelude.Maybe Prelude.Text,
-    -- | The time and date that the code binding was created.
+  { -- | The time and date that the code binding was created.
     creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The current status of code binding generation.
+    status :: Prelude.Maybe CodeGenerationStatus,
     -- | The date and time that code bindings were modified.
     lastModified :: Prelude.Maybe Core.POSIX,
+    -- | The version number of the schema.
+    schemaVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,13 +198,13 @@ data PutCodeBindingResponse = PutCodeBindingResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'putCodeBindingResponse_status' - The current status of code binding generation.
---
--- 'schemaVersion', 'putCodeBindingResponse_schemaVersion' - The version number of the schema.
---
 -- 'creationDate', 'putCodeBindingResponse_creationDate' - The time and date that the code binding was created.
 --
+-- 'status', 'putCodeBindingResponse_status' - The current status of code binding generation.
+--
 -- 'lastModified', 'putCodeBindingResponse_lastModified' - The date and time that code bindings were modified.
+--
+-- 'schemaVersion', 'putCodeBindingResponse_schemaVersion' - The version number of the schema.
 --
 -- 'httpStatus', 'putCodeBindingResponse_httpStatus' - The response's http status code.
 newPutCodeBindingResponse ::
@@ -213,28 +213,29 @@ newPutCodeBindingResponse ::
   PutCodeBindingResponse
 newPutCodeBindingResponse pHttpStatus_ =
   PutCodeBindingResponse'
-    { status = Prelude.Nothing,
-      schemaVersion = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
+    { creationDate =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       lastModified = Prelude.Nothing,
+      schemaVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current status of code binding generation.
-putCodeBindingResponse_status :: Lens.Lens' PutCodeBindingResponse (Prelude.Maybe CodeGenerationStatus)
-putCodeBindingResponse_status = Lens.lens (\PutCodeBindingResponse' {status} -> status) (\s@PutCodeBindingResponse' {} a -> s {status = a} :: PutCodeBindingResponse)
-
--- | The version number of the schema.
-putCodeBindingResponse_schemaVersion :: Lens.Lens' PutCodeBindingResponse (Prelude.Maybe Prelude.Text)
-putCodeBindingResponse_schemaVersion = Lens.lens (\PutCodeBindingResponse' {schemaVersion} -> schemaVersion) (\s@PutCodeBindingResponse' {} a -> s {schemaVersion = a} :: PutCodeBindingResponse)
 
 -- | The time and date that the code binding was created.
 putCodeBindingResponse_creationDate :: Lens.Lens' PutCodeBindingResponse (Prelude.Maybe Prelude.UTCTime)
 putCodeBindingResponse_creationDate = Lens.lens (\PutCodeBindingResponse' {creationDate} -> creationDate) (\s@PutCodeBindingResponse' {} a -> s {creationDate = a} :: PutCodeBindingResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The current status of code binding generation.
+putCodeBindingResponse_status :: Lens.Lens' PutCodeBindingResponse (Prelude.Maybe CodeGenerationStatus)
+putCodeBindingResponse_status = Lens.lens (\PutCodeBindingResponse' {status} -> status) (\s@PutCodeBindingResponse' {} a -> s {status = a} :: PutCodeBindingResponse)
+
 -- | The date and time that code bindings were modified.
 putCodeBindingResponse_lastModified :: Lens.Lens' PutCodeBindingResponse (Prelude.Maybe Prelude.UTCTime)
 putCodeBindingResponse_lastModified = Lens.lens (\PutCodeBindingResponse' {lastModified} -> lastModified) (\s@PutCodeBindingResponse' {} a -> s {lastModified = a} :: PutCodeBindingResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The version number of the schema.
+putCodeBindingResponse_schemaVersion :: Lens.Lens' PutCodeBindingResponse (Prelude.Maybe Prelude.Text)
+putCodeBindingResponse_schemaVersion = Lens.lens (\PutCodeBindingResponse' {schemaVersion} -> schemaVersion) (\s@PutCodeBindingResponse' {} a -> s {schemaVersion = a} :: PutCodeBindingResponse)
 
 -- | The response's http status code.
 putCodeBindingResponse_httpStatus :: Lens.Lens' PutCodeBindingResponse Prelude.Int
@@ -242,8 +243,8 @@ putCodeBindingResponse_httpStatus = Lens.lens (\PutCodeBindingResponse' {httpSta
 
 instance Prelude.NFData PutCodeBindingResponse where
   rnf PutCodeBindingResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf schemaVersion
       `Prelude.seq` Prelude.rnf httpStatus

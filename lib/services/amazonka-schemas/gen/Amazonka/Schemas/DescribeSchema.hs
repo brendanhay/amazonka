@@ -36,15 +36,15 @@ module Amazonka.Schemas.DescribeSchema
     newDescribeSchemaResponse,
 
     -- * Response Lenses
-    describeSchemaResponse_schemaVersion,
-    describeSchemaResponse_schemaName,
-    describeSchemaResponse_content,
-    describeSchemaResponse_schemaArn,
-    describeSchemaResponse_type,
-    describeSchemaResponse_lastModified,
-    describeSchemaResponse_description,
-    describeSchemaResponse_versionCreatedDate,
     describeSchemaResponse_tags,
+    describeSchemaResponse_type,
+    describeSchemaResponse_schemaName,
+    describeSchemaResponse_description,
+    describeSchemaResponse_schemaArn,
+    describeSchemaResponse_lastModified,
+    describeSchemaResponse_schemaVersion,
+    describeSchemaResponse_content,
+    describeSchemaResponse_versionCreatedDate,
     describeSchemaResponse_httpStatus,
   )
 where
@@ -114,15 +114,15 @@ instance Core.AWSRequest DescribeSchema where
     Response.receiveJSON
       ( \s h x ->
           DescribeSchemaResponse'
-            Prelude.<$> (x Core..?> "SchemaVersion")
-            Prelude.<*> (x Core..?> "SchemaName")
-            Prelude.<*> (x Core..?> "Content")
-            Prelude.<*> (x Core..?> "SchemaArn")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "LastModified")
+            Prelude.<*> (x Core..?> "SchemaName")
             Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "SchemaArn")
+            Prelude.<*> (x Core..?> "LastModified")
+            Prelude.<*> (x Core..?> "SchemaVersion")
+            Prelude.<*> (x Core..?> "Content")
             Prelude.<*> (x Core..?> "VersionCreatedDate")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,24 +165,24 @@ instance Core.ToQuery DescribeSchema where
 
 -- | /See:/ 'newDescribeSchemaResponse' smart constructor.
 data DescribeSchemaResponse = DescribeSchemaResponse'
-  { -- | The version number of the schema
-    schemaVersion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the schema.
-    schemaName :: Prelude.Maybe Prelude.Text,
-    -- | The source of the schema definition.
-    content :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the schema.
-    schemaArn :: Prelude.Maybe Prelude.Text,
+  { -- | Tags associated with the resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of the schema.
     type' :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that schema was modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    -- | The name of the schema.
+    schemaName :: Prelude.Maybe Prelude.Text,
     -- | The description of the schema.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the schema.
+    schemaArn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that schema was modified.
+    lastModified :: Prelude.Maybe Core.POSIX,
+    -- | The version number of the schema
+    schemaVersion :: Prelude.Maybe Prelude.Text,
+    -- | The source of the schema definition.
+    content :: Prelude.Maybe Prelude.Text,
     -- | The date the schema version was created.
     versionCreatedDate :: Prelude.Maybe Core.POSIX,
-    -- | Tags associated with the resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,23 +196,23 @@ data DescribeSchemaResponse = DescribeSchemaResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaVersion', 'describeSchemaResponse_schemaVersion' - The version number of the schema
---
--- 'schemaName', 'describeSchemaResponse_schemaName' - The name of the schema.
---
--- 'content', 'describeSchemaResponse_content' - The source of the schema definition.
---
--- 'schemaArn', 'describeSchemaResponse_schemaArn' - The ARN of the schema.
+-- 'tags', 'describeSchemaResponse_tags' - Tags associated with the resource.
 --
 -- 'type'', 'describeSchemaResponse_type' - The type of the schema.
 --
--- 'lastModified', 'describeSchemaResponse_lastModified' - The date and time that schema was modified.
+-- 'schemaName', 'describeSchemaResponse_schemaName' - The name of the schema.
 --
 -- 'description', 'describeSchemaResponse_description' - The description of the schema.
 --
--- 'versionCreatedDate', 'describeSchemaResponse_versionCreatedDate' - The date the schema version was created.
+-- 'schemaArn', 'describeSchemaResponse_schemaArn' - The ARN of the schema.
 --
--- 'tags', 'describeSchemaResponse_tags' - Tags associated with the resource.
+-- 'lastModified', 'describeSchemaResponse_lastModified' - The date and time that schema was modified.
+--
+-- 'schemaVersion', 'describeSchemaResponse_schemaVersion' - The version number of the schema
+--
+-- 'content', 'describeSchemaResponse_content' - The source of the schema definition.
+--
+-- 'versionCreatedDate', 'describeSchemaResponse_versionCreatedDate' - The date the schema version was created.
 --
 -- 'httpStatus', 'describeSchemaResponse_httpStatus' - The response's http status code.
 newDescribeSchemaResponse ::
@@ -221,54 +221,53 @@ newDescribeSchemaResponse ::
   DescribeSchemaResponse
 newDescribeSchemaResponse pHttpStatus_ =
   DescribeSchemaResponse'
-    { schemaVersion =
-        Prelude.Nothing,
-      schemaName = Prelude.Nothing,
-      content = Prelude.Nothing,
-      schemaArn = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       type' = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
+      schemaName = Prelude.Nothing,
       description = Prelude.Nothing,
+      schemaArn = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
+      schemaVersion = Prelude.Nothing,
+      content = Prelude.Nothing,
       versionCreatedDate = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The version number of the schema
-describeSchemaResponse_schemaVersion :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe Prelude.Text)
-describeSchemaResponse_schemaVersion = Lens.lens (\DescribeSchemaResponse' {schemaVersion} -> schemaVersion) (\s@DescribeSchemaResponse' {} a -> s {schemaVersion = a} :: DescribeSchemaResponse)
-
--- | The name of the schema.
-describeSchemaResponse_schemaName :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe Prelude.Text)
-describeSchemaResponse_schemaName = Lens.lens (\DescribeSchemaResponse' {schemaName} -> schemaName) (\s@DescribeSchemaResponse' {} a -> s {schemaName = a} :: DescribeSchemaResponse)
-
--- | The source of the schema definition.
-describeSchemaResponse_content :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe Prelude.Text)
-describeSchemaResponse_content = Lens.lens (\DescribeSchemaResponse' {content} -> content) (\s@DescribeSchemaResponse' {} a -> s {content = a} :: DescribeSchemaResponse)
-
--- | The ARN of the schema.
-describeSchemaResponse_schemaArn :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe Prelude.Text)
-describeSchemaResponse_schemaArn = Lens.lens (\DescribeSchemaResponse' {schemaArn} -> schemaArn) (\s@DescribeSchemaResponse' {} a -> s {schemaArn = a} :: DescribeSchemaResponse)
+-- | Tags associated with the resource.
+describeSchemaResponse_tags :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeSchemaResponse_tags = Lens.lens (\DescribeSchemaResponse' {tags} -> tags) (\s@DescribeSchemaResponse' {} a -> s {tags = a} :: DescribeSchemaResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of the schema.
 describeSchemaResponse_type :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe Prelude.Text)
 describeSchemaResponse_type = Lens.lens (\DescribeSchemaResponse' {type'} -> type') (\s@DescribeSchemaResponse' {} a -> s {type' = a} :: DescribeSchemaResponse)
 
--- | The date and time that schema was modified.
-describeSchemaResponse_lastModified :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe Prelude.UTCTime)
-describeSchemaResponse_lastModified = Lens.lens (\DescribeSchemaResponse' {lastModified} -> lastModified) (\s@DescribeSchemaResponse' {} a -> s {lastModified = a} :: DescribeSchemaResponse) Prelude.. Lens.mapping Core._Time
+-- | The name of the schema.
+describeSchemaResponse_schemaName :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe Prelude.Text)
+describeSchemaResponse_schemaName = Lens.lens (\DescribeSchemaResponse' {schemaName} -> schemaName) (\s@DescribeSchemaResponse' {} a -> s {schemaName = a} :: DescribeSchemaResponse)
 
 -- | The description of the schema.
 describeSchemaResponse_description :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe Prelude.Text)
 describeSchemaResponse_description = Lens.lens (\DescribeSchemaResponse' {description} -> description) (\s@DescribeSchemaResponse' {} a -> s {description = a} :: DescribeSchemaResponse)
 
+-- | The ARN of the schema.
+describeSchemaResponse_schemaArn :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe Prelude.Text)
+describeSchemaResponse_schemaArn = Lens.lens (\DescribeSchemaResponse' {schemaArn} -> schemaArn) (\s@DescribeSchemaResponse' {} a -> s {schemaArn = a} :: DescribeSchemaResponse)
+
+-- | The date and time that schema was modified.
+describeSchemaResponse_lastModified :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe Prelude.UTCTime)
+describeSchemaResponse_lastModified = Lens.lens (\DescribeSchemaResponse' {lastModified} -> lastModified) (\s@DescribeSchemaResponse' {} a -> s {lastModified = a} :: DescribeSchemaResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The version number of the schema
+describeSchemaResponse_schemaVersion :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe Prelude.Text)
+describeSchemaResponse_schemaVersion = Lens.lens (\DescribeSchemaResponse' {schemaVersion} -> schemaVersion) (\s@DescribeSchemaResponse' {} a -> s {schemaVersion = a} :: DescribeSchemaResponse)
+
+-- | The source of the schema definition.
+describeSchemaResponse_content :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe Prelude.Text)
+describeSchemaResponse_content = Lens.lens (\DescribeSchemaResponse' {content} -> content) (\s@DescribeSchemaResponse' {} a -> s {content = a} :: DescribeSchemaResponse)
+
 -- | The date the schema version was created.
 describeSchemaResponse_versionCreatedDate :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe Prelude.UTCTime)
 describeSchemaResponse_versionCreatedDate = Lens.lens (\DescribeSchemaResponse' {versionCreatedDate} -> versionCreatedDate) (\s@DescribeSchemaResponse' {} a -> s {versionCreatedDate = a} :: DescribeSchemaResponse) Prelude.. Lens.mapping Core._Time
-
--- | Tags associated with the resource.
-describeSchemaResponse_tags :: Lens.Lens' DescribeSchemaResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeSchemaResponse_tags = Lens.lens (\DescribeSchemaResponse' {tags} -> tags) (\s@DescribeSchemaResponse' {} a -> s {tags = a} :: DescribeSchemaResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeSchemaResponse_httpStatus :: Lens.Lens' DescribeSchemaResponse Prelude.Int
@@ -276,13 +275,13 @@ describeSchemaResponse_httpStatus = Lens.lens (\DescribeSchemaResponse' {httpSta
 
 instance Prelude.NFData DescribeSchemaResponse where
   rnf DescribeSchemaResponse' {..} =
-    Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf schemaArn
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf versionCreatedDate
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

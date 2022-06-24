@@ -29,9 +29,9 @@ module Amazonka.Schemas.ListDiscoverers
     newListDiscoverers,
 
     -- * Request Lenses
-    listDiscoverers_sourceArnPrefix,
-    listDiscoverers_discovererIdPrefix,
     listDiscoverers_nextToken,
+    listDiscoverers_discovererIdPrefix,
+    listDiscoverers_sourceArnPrefix,
     listDiscoverers_limit,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.Schemas.ListDiscoverers
     newListDiscoverersResponse,
 
     -- * Response Lenses
-    listDiscoverersResponse_discoverers,
     listDiscoverersResponse_nextToken,
+    listDiscoverersResponse_discoverers,
     listDiscoverersResponse_httpStatus,
   )
 where
@@ -54,16 +54,16 @@ import Amazonka.Schemas.Types
 
 -- | /See:/ 'newListDiscoverers' smart constructor.
 data ListDiscoverers = ListDiscoverers'
-  { -- | Specifying this limits the results to only those ARNs that start with
-    -- the specified prefix.
-    sourceArnPrefix :: Prelude.Maybe Prelude.Text,
-    -- | Specifying this limits the results to only those discoverer IDs that
-    -- start with the specified prefix.
-    discovererIdPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The token that specifies the next page of results to return. To request
+  { -- | The token that specifies the next page of results to return. To request
     -- the first page, leave NextToken empty. The token will expire in 24
     -- hours, and cannot be shared with other accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifying this limits the results to only those discoverer IDs that
+    -- start with the specified prefix.
+    discovererIdPrefix :: Prelude.Maybe Prelude.Text,
+    -- | Specifying this limits the results to only those ARNs that start with
+    -- the specified prefix.
+    sourceArnPrefix :: Prelude.Maybe Prelude.Text,
     limit :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,42 +76,42 @@ data ListDiscoverers = ListDiscoverers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceArnPrefix', 'listDiscoverers_sourceArnPrefix' - Specifying this limits the results to only those ARNs that start with
--- the specified prefix.
+-- 'nextToken', 'listDiscoverers_nextToken' - The token that specifies the next page of results to return. To request
+-- the first page, leave NextToken empty. The token will expire in 24
+-- hours, and cannot be shared with other accounts.
 --
 -- 'discovererIdPrefix', 'listDiscoverers_discovererIdPrefix' - Specifying this limits the results to only those discoverer IDs that
 -- start with the specified prefix.
 --
--- 'nextToken', 'listDiscoverers_nextToken' - The token that specifies the next page of results to return. To request
--- the first page, leave NextToken empty. The token will expire in 24
--- hours, and cannot be shared with other accounts.
+-- 'sourceArnPrefix', 'listDiscoverers_sourceArnPrefix' - Specifying this limits the results to only those ARNs that start with
+-- the specified prefix.
 --
 -- 'limit', 'listDiscoverers_limit' - Undocumented member.
 newListDiscoverers ::
   ListDiscoverers
 newListDiscoverers =
   ListDiscoverers'
-    { sourceArnPrefix = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       discovererIdPrefix = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sourceArnPrefix = Prelude.Nothing,
       limit = Prelude.Nothing
     }
-
--- | Specifying this limits the results to only those ARNs that start with
--- the specified prefix.
-listDiscoverers_sourceArnPrefix :: Lens.Lens' ListDiscoverers (Prelude.Maybe Prelude.Text)
-listDiscoverers_sourceArnPrefix = Lens.lens (\ListDiscoverers' {sourceArnPrefix} -> sourceArnPrefix) (\s@ListDiscoverers' {} a -> s {sourceArnPrefix = a} :: ListDiscoverers)
-
--- | Specifying this limits the results to only those discoverer IDs that
--- start with the specified prefix.
-listDiscoverers_discovererIdPrefix :: Lens.Lens' ListDiscoverers (Prelude.Maybe Prelude.Text)
-listDiscoverers_discovererIdPrefix = Lens.lens (\ListDiscoverers' {discovererIdPrefix} -> discovererIdPrefix) (\s@ListDiscoverers' {} a -> s {discovererIdPrefix = a} :: ListDiscoverers)
 
 -- | The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
 -- hours, and cannot be shared with other accounts.
 listDiscoverers_nextToken :: Lens.Lens' ListDiscoverers (Prelude.Maybe Prelude.Text)
 listDiscoverers_nextToken = Lens.lens (\ListDiscoverers' {nextToken} -> nextToken) (\s@ListDiscoverers' {} a -> s {nextToken = a} :: ListDiscoverers)
+
+-- | Specifying this limits the results to only those discoverer IDs that
+-- start with the specified prefix.
+listDiscoverers_discovererIdPrefix :: Lens.Lens' ListDiscoverers (Prelude.Maybe Prelude.Text)
+listDiscoverers_discovererIdPrefix = Lens.lens (\ListDiscoverers' {discovererIdPrefix} -> discovererIdPrefix) (\s@ListDiscoverers' {} a -> s {discovererIdPrefix = a} :: ListDiscoverers)
+
+-- | Specifying this limits the results to only those ARNs that start with
+-- the specified prefix.
+listDiscoverers_sourceArnPrefix :: Lens.Lens' ListDiscoverers (Prelude.Maybe Prelude.Text)
+listDiscoverers_sourceArnPrefix = Lens.lens (\ListDiscoverers' {sourceArnPrefix} -> sourceArnPrefix) (\s@ListDiscoverers' {} a -> s {sourceArnPrefix = a} :: ListDiscoverers)
 
 -- | Undocumented member.
 listDiscoverers_limit :: Lens.Lens' ListDiscoverers (Prelude.Maybe Prelude.Int)
@@ -148,23 +148,23 @@ instance Core.AWSRequest ListDiscoverers where
     Response.receiveJSON
       ( \s h x ->
           ListDiscoverersResponse'
-            Prelude.<$> (x Core..?> "Discoverers" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Discoverers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDiscoverers where
   hashWithSalt _salt ListDiscoverers' {..} =
-    _salt `Prelude.hashWithSalt` sourceArnPrefix
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` discovererIdPrefix
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sourceArnPrefix
       `Prelude.hashWithSalt` limit
 
 instance Prelude.NFData ListDiscoverers where
   rnf ListDiscoverers' {..} =
-    Prelude.rnf sourceArnPrefix
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf discovererIdPrefix
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sourceArnPrefix
       `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListDiscoverers where
@@ -184,20 +184,20 @@ instance Core.ToPath ListDiscoverers where
 instance Core.ToQuery ListDiscoverers where
   toQuery ListDiscoverers' {..} =
     Prelude.mconcat
-      [ "sourceArnPrefix" Core.=: sourceArnPrefix,
+      [ "nextToken" Core.=: nextToken,
         "discovererIdPrefix" Core.=: discovererIdPrefix,
-        "nextToken" Core.=: nextToken,
+        "sourceArnPrefix" Core.=: sourceArnPrefix,
         "limit" Core.=: limit
       ]
 
 -- | /See:/ 'newListDiscoverersResponse' smart constructor.
 data ListDiscoverersResponse = ListDiscoverersResponse'
-  { -- | An array of DiscovererSummary information.
-    discoverers :: Prelude.Maybe [DiscovererSummary],
-    -- | The token that specifies the next page of results to return. To request
+  { -- | The token that specifies the next page of results to return. To request
     -- the first page, leave NextToken empty. The token will expire in 24
     -- hours, and cannot be shared with other accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of DiscovererSummary information.
+    discoverers :: Prelude.Maybe [DiscovererSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,11 +211,11 @@ data ListDiscoverersResponse = ListDiscoverersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'discoverers', 'listDiscoverersResponse_discoverers' - An array of DiscovererSummary information.
---
 -- 'nextToken', 'listDiscoverersResponse_nextToken' - The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
 -- hours, and cannot be shared with other accounts.
+--
+-- 'discoverers', 'listDiscoverersResponse_discoverers' - An array of DiscovererSummary information.
 --
 -- 'httpStatus', 'listDiscoverersResponse_httpStatus' - The response's http status code.
 newListDiscoverersResponse ::
@@ -224,15 +224,11 @@ newListDiscoverersResponse ::
   ListDiscoverersResponse
 newListDiscoverersResponse pHttpStatus_ =
   ListDiscoverersResponse'
-    { discoverers =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      discoverers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of DiscovererSummary information.
-listDiscoverersResponse_discoverers :: Lens.Lens' ListDiscoverersResponse (Prelude.Maybe [DiscovererSummary])
-listDiscoverersResponse_discoverers = Lens.lens (\ListDiscoverersResponse' {discoverers} -> discoverers) (\s@ListDiscoverersResponse' {} a -> s {discoverers = a} :: ListDiscoverersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
@@ -240,12 +236,16 @@ listDiscoverersResponse_discoverers = Lens.lens (\ListDiscoverersResponse' {disc
 listDiscoverersResponse_nextToken :: Lens.Lens' ListDiscoverersResponse (Prelude.Maybe Prelude.Text)
 listDiscoverersResponse_nextToken = Lens.lens (\ListDiscoverersResponse' {nextToken} -> nextToken) (\s@ListDiscoverersResponse' {} a -> s {nextToken = a} :: ListDiscoverersResponse)
 
+-- | An array of DiscovererSummary information.
+listDiscoverersResponse_discoverers :: Lens.Lens' ListDiscoverersResponse (Prelude.Maybe [DiscovererSummary])
+listDiscoverersResponse_discoverers = Lens.lens (\ListDiscoverersResponse' {discoverers} -> discoverers) (\s@ListDiscoverersResponse' {} a -> s {discoverers = a} :: ListDiscoverersResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listDiscoverersResponse_httpStatus :: Lens.Lens' ListDiscoverersResponse Prelude.Int
 listDiscoverersResponse_httpStatus = Lens.lens (\ListDiscoverersResponse' {httpStatus} -> httpStatus) (\s@ListDiscoverersResponse' {} a -> s {httpStatus = a} :: ListDiscoverersResponse)
 
 instance Prelude.NFData ListDiscoverersResponse where
   rnf ListDiscoverersResponse' {..} =
-    Prelude.rnf discoverers
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf discoverers
       `Prelude.seq` Prelude.rnf httpStatus

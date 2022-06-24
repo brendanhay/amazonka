@@ -26,17 +26,17 @@ import Amazonka.Schemas.Types.DiscovererState
 
 -- | /See:/ 'newDiscovererSummary' smart constructor.
 data DiscovererSummary = DiscovererSummary'
-  { -- | The state of the discoverer.
+  { -- | Tags associated with the resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The ID of the discoverer.
+    discovererId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the event bus.
+    sourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The state of the discoverer.
     state :: Prelude.Maybe DiscovererState,
     -- | The Status if the discoverer will discover schemas from events sent from
     -- another account.
     crossAccount :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of the event bus.
-    sourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the discoverer.
-    discovererId :: Prelude.Maybe Prelude.Text,
-    -- | Tags associated with the resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the discoverer.
     discovererArn :: Prelude.Maybe Prelude.Text
   }
@@ -50,29 +50,41 @@ data DiscovererSummary = DiscovererSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'discovererSummary_tags' - Tags associated with the resource.
+--
+-- 'discovererId', 'discovererSummary_discovererId' - The ID of the discoverer.
+--
+-- 'sourceArn', 'discovererSummary_sourceArn' - The ARN of the event bus.
+--
 -- 'state', 'discovererSummary_state' - The state of the discoverer.
 --
 -- 'crossAccount', 'discovererSummary_crossAccount' - The Status if the discoverer will discover schemas from events sent from
 -- another account.
---
--- 'sourceArn', 'discovererSummary_sourceArn' - The ARN of the event bus.
---
--- 'discovererId', 'discovererSummary_discovererId' - The ID of the discoverer.
---
--- 'tags', 'discovererSummary_tags' - Tags associated with the resource.
 --
 -- 'discovererArn', 'discovererSummary_discovererArn' - The ARN of the discoverer.
 newDiscovererSummary ::
   DiscovererSummary
 newDiscovererSummary =
   DiscovererSummary'
-    { state = Prelude.Nothing,
-      crossAccount = Prelude.Nothing,
-      sourceArn = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       discovererId = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
+      state = Prelude.Nothing,
+      crossAccount = Prelude.Nothing,
       discovererArn = Prelude.Nothing
     }
+
+-- | Tags associated with the resource.
+discovererSummary_tags :: Lens.Lens' DiscovererSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+discovererSummary_tags = Lens.lens (\DiscovererSummary' {tags} -> tags) (\s@DiscovererSummary' {} a -> s {tags = a} :: DiscovererSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the discoverer.
+discovererSummary_discovererId :: Lens.Lens' DiscovererSummary (Prelude.Maybe Prelude.Text)
+discovererSummary_discovererId = Lens.lens (\DiscovererSummary' {discovererId} -> discovererId) (\s@DiscovererSummary' {} a -> s {discovererId = a} :: DiscovererSummary)
+
+-- | The ARN of the event bus.
+discovererSummary_sourceArn :: Lens.Lens' DiscovererSummary (Prelude.Maybe Prelude.Text)
+discovererSummary_sourceArn = Lens.lens (\DiscovererSummary' {sourceArn} -> sourceArn) (\s@DiscovererSummary' {} a -> s {sourceArn = a} :: DiscovererSummary)
 
 -- | The state of the discoverer.
 discovererSummary_state :: Lens.Lens' DiscovererSummary (Prelude.Maybe DiscovererState)
@@ -82,18 +94,6 @@ discovererSummary_state = Lens.lens (\DiscovererSummary' {state} -> state) (\s@D
 -- another account.
 discovererSummary_crossAccount :: Lens.Lens' DiscovererSummary (Prelude.Maybe Prelude.Bool)
 discovererSummary_crossAccount = Lens.lens (\DiscovererSummary' {crossAccount} -> crossAccount) (\s@DiscovererSummary' {} a -> s {crossAccount = a} :: DiscovererSummary)
-
--- | The ARN of the event bus.
-discovererSummary_sourceArn :: Lens.Lens' DiscovererSummary (Prelude.Maybe Prelude.Text)
-discovererSummary_sourceArn = Lens.lens (\DiscovererSummary' {sourceArn} -> sourceArn) (\s@DiscovererSummary' {} a -> s {sourceArn = a} :: DiscovererSummary)
-
--- | The ID of the discoverer.
-discovererSummary_discovererId :: Lens.Lens' DiscovererSummary (Prelude.Maybe Prelude.Text)
-discovererSummary_discovererId = Lens.lens (\DiscovererSummary' {discovererId} -> discovererId) (\s@DiscovererSummary' {} a -> s {discovererId = a} :: DiscovererSummary)
-
--- | Tags associated with the resource.
-discovererSummary_tags :: Lens.Lens' DiscovererSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-discovererSummary_tags = Lens.lens (\DiscovererSummary' {tags} -> tags) (\s@DiscovererSummary' {} a -> s {tags = a} :: DiscovererSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the discoverer.
 discovererSummary_discovererArn :: Lens.Lens' DiscovererSummary (Prelude.Maybe Prelude.Text)
@@ -105,28 +105,28 @@ instance Core.FromJSON DiscovererSummary where
       "DiscovererSummary"
       ( \x ->
           DiscovererSummary'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CrossAccount")
-            Prelude.<*> (x Core..:? "SourceArn")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "DiscovererId")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "SourceArn")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "CrossAccount")
             Prelude.<*> (x Core..:? "DiscovererArn")
       )
 
 instance Prelude.Hashable DiscovererSummary where
   hashWithSalt _salt DiscovererSummary' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` crossAccount
-      `Prelude.hashWithSalt` sourceArn
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` discovererId
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` crossAccount
       `Prelude.hashWithSalt` discovererArn
 
 instance Prelude.NFData DiscovererSummary where
   rnf DiscovererSummary' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf crossAccount
-      `Prelude.seq` Prelude.rnf sourceArn
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf discovererId
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf crossAccount
       `Prelude.seq` Prelude.rnf discovererArn

@@ -39,8 +39,8 @@ module Amazonka.Schemas.SearchSchemas
     newSearchSchemasResponse,
 
     -- * Response Lenses
-    searchSchemasResponse_schemas,
     searchSchemasResponse_nextToken,
+    searchSchemasResponse_schemas,
     searchSchemasResponse_httpStatus,
   )
 where
@@ -146,8 +146,8 @@ instance Core.AWSRequest SearchSchemas where
     Response.receiveJSON
       ( \s h x ->
           SearchSchemasResponse'
-            Prelude.<$> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,12 +194,12 @@ instance Core.ToQuery SearchSchemas where
 
 -- | /See:/ 'newSearchSchemasResponse' smart constructor.
 data SearchSchemasResponse = SearchSchemasResponse'
-  { -- | An array of SearchSchemaSummary information.
-    schemas :: Prelude.Maybe [SearchSchemaSummary],
-    -- | The token that specifies the next page of results to return. To request
+  { -- | The token that specifies the next page of results to return. To request
     -- the first page, leave NextToken empty. The token will expire in 24
     -- hours, and cannot be shared with other accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of SearchSchemaSummary information.
+    schemas :: Prelude.Maybe [SearchSchemaSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,11 +213,11 @@ data SearchSchemasResponse = SearchSchemasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemas', 'searchSchemasResponse_schemas' - An array of SearchSchemaSummary information.
---
 -- 'nextToken', 'searchSchemasResponse_nextToken' - The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
 -- hours, and cannot be shared with other accounts.
+--
+-- 'schemas', 'searchSchemasResponse_schemas' - An array of SearchSchemaSummary information.
 --
 -- 'httpStatus', 'searchSchemasResponse_httpStatus' - The response's http status code.
 newSearchSchemasResponse ::
@@ -226,14 +226,10 @@ newSearchSchemasResponse ::
   SearchSchemasResponse
 newSearchSchemasResponse pHttpStatus_ =
   SearchSchemasResponse'
-    { schemas = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      schemas = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of SearchSchemaSummary information.
-searchSchemasResponse_schemas :: Lens.Lens' SearchSchemasResponse (Prelude.Maybe [SearchSchemaSummary])
-searchSchemasResponse_schemas = Lens.lens (\SearchSchemasResponse' {schemas} -> schemas) (\s@SearchSchemasResponse' {} a -> s {schemas = a} :: SearchSchemasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
@@ -241,12 +237,16 @@ searchSchemasResponse_schemas = Lens.lens (\SearchSchemasResponse' {schemas} -> 
 searchSchemasResponse_nextToken :: Lens.Lens' SearchSchemasResponse (Prelude.Maybe Prelude.Text)
 searchSchemasResponse_nextToken = Lens.lens (\SearchSchemasResponse' {nextToken} -> nextToken) (\s@SearchSchemasResponse' {} a -> s {nextToken = a} :: SearchSchemasResponse)
 
+-- | An array of SearchSchemaSummary information.
+searchSchemasResponse_schemas :: Lens.Lens' SearchSchemasResponse (Prelude.Maybe [SearchSchemaSummary])
+searchSchemasResponse_schemas = Lens.lens (\SearchSchemasResponse' {schemas} -> schemas) (\s@SearchSchemasResponse' {} a -> s {schemas = a} :: SearchSchemasResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 searchSchemasResponse_httpStatus :: Lens.Lens' SearchSchemasResponse Prelude.Int
 searchSchemasResponse_httpStatus = Lens.lens (\SearchSchemasResponse' {httpStatus} -> httpStatus) (\s@SearchSchemasResponse' {} a -> s {httpStatus = a} :: SearchSchemasResponse)
 
 instance Prelude.NFData SearchSchemasResponse where
   rnf SearchSchemasResponse' {..} =
-    Prelude.rnf schemas
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemas
       `Prelude.seq` Prelude.rnf httpStatus

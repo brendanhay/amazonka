@@ -27,8 +27,8 @@ module Amazonka.Schemas.CreateRegistry
     newCreateRegistry,
 
     -- * Request Lenses
-    createRegistry_description,
     createRegistry_tags,
+    createRegistry_description,
     createRegistry_registryName,
 
     -- * Destructuring the Response
@@ -36,10 +36,10 @@ module Amazonka.Schemas.CreateRegistry
     newCreateRegistryResponse,
 
     -- * Response Lenses
-    createRegistryResponse_registryName,
-    createRegistryResponse_registryArn,
-    createRegistryResponse_description,
     createRegistryResponse_tags,
+    createRegistryResponse_registryName,
+    createRegistryResponse_description,
+    createRegistryResponse_registryArn,
     createRegistryResponse_httpStatus,
   )
 where
@@ -53,10 +53,10 @@ import Amazonka.Schemas.Types
 
 -- | /See:/ 'newCreateRegistry' smart constructor.
 data CreateRegistry = CreateRegistry'
-  { -- | A description of the registry to be created.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Tags to associate with the registry.
+  { -- | Tags to associate with the registry.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A description of the registry to be created.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the registry.
     registryName :: Prelude.Text
   }
@@ -70,9 +70,9 @@ data CreateRegistry = CreateRegistry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createRegistry_description' - A description of the registry to be created.
---
 -- 'tags', 'createRegistry_tags' - Tags to associate with the registry.
+--
+-- 'description', 'createRegistry_description' - A description of the registry to be created.
 --
 -- 'registryName', 'createRegistry_registryName' - The name of the registry.
 newCreateRegistry ::
@@ -81,18 +81,18 @@ newCreateRegistry ::
   CreateRegistry
 newCreateRegistry pRegistryName_ =
   CreateRegistry'
-    { description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       registryName = pRegistryName_
     }
-
--- | A description of the registry to be created.
-createRegistry_description :: Lens.Lens' CreateRegistry (Prelude.Maybe Prelude.Text)
-createRegistry_description = Lens.lens (\CreateRegistry' {description} -> description) (\s@CreateRegistry' {} a -> s {description = a} :: CreateRegistry)
 
 -- | Tags to associate with the registry.
 createRegistry_tags :: Lens.Lens' CreateRegistry (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRegistry_tags = Lens.lens (\CreateRegistry' {tags} -> tags) (\s@CreateRegistry' {} a -> s {tags = a} :: CreateRegistry) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description of the registry to be created.
+createRegistry_description :: Lens.Lens' CreateRegistry (Prelude.Maybe Prelude.Text)
+createRegistry_description = Lens.lens (\CreateRegistry' {description} -> description) (\s@CreateRegistry' {} a -> s {description = a} :: CreateRegistry)
 
 -- | The name of the registry.
 createRegistry_registryName :: Lens.Lens' CreateRegistry Prelude.Text
@@ -107,23 +107,23 @@ instance Core.AWSRequest CreateRegistry where
     Response.receiveJSON
       ( \s h x ->
           CreateRegistryResponse'
-            Prelude.<$> (x Core..?> "RegistryName")
-            Prelude.<*> (x Core..?> "RegistryArn")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "RegistryName")
             Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "RegistryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateRegistry where
   hashWithSalt _salt CreateRegistry' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` registryName
 
 instance Prelude.NFData CreateRegistry where
   rnf CreateRegistry' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf registryName
 
 instance Core.ToHeaders CreateRegistry where
@@ -141,8 +141,8 @@ instance Core.ToJSON CreateRegistry where
   toJSON CreateRegistry' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description
           ]
       )
 
@@ -156,14 +156,14 @@ instance Core.ToQuery CreateRegistry where
 
 -- | /See:/ 'newCreateRegistryResponse' smart constructor.
 data CreateRegistryResponse = CreateRegistryResponse'
-  { -- | The name of the registry.
+  { -- | Tags associated with the registry.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the registry.
     registryName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the registry.
-    registryArn :: Prelude.Maybe Prelude.Text,
     -- | The description of the registry.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Tags associated with the registry.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The ARN of the registry.
+    registryArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,13 +177,13 @@ data CreateRegistryResponse = CreateRegistryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryName', 'createRegistryResponse_registryName' - The name of the registry.
+-- 'tags', 'createRegistryResponse_tags' - Tags associated with the registry.
 --
--- 'registryArn', 'createRegistryResponse_registryArn' - The ARN of the registry.
+-- 'registryName', 'createRegistryResponse_registryName' - The name of the registry.
 --
 -- 'description', 'createRegistryResponse_description' - The description of the registry.
 --
--- 'tags', 'createRegistryResponse_tags' - Tags associated with the registry.
+-- 'registryArn', 'createRegistryResponse_registryArn' - The ARN of the registry.
 --
 -- 'httpStatus', 'createRegistryResponse_httpStatus' - The response's http status code.
 newCreateRegistryResponse ::
@@ -192,29 +192,28 @@ newCreateRegistryResponse ::
   CreateRegistryResponse
 newCreateRegistryResponse pHttpStatus_ =
   CreateRegistryResponse'
-    { registryName =
-        Prelude.Nothing,
-      registryArn = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      registryName = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      registryArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Tags associated with the registry.
+createRegistryResponse_tags :: Lens.Lens' CreateRegistryResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createRegistryResponse_tags = Lens.lens (\CreateRegistryResponse' {tags} -> tags) (\s@CreateRegistryResponse' {} a -> s {tags = a} :: CreateRegistryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the registry.
 createRegistryResponse_registryName :: Lens.Lens' CreateRegistryResponse (Prelude.Maybe Prelude.Text)
 createRegistryResponse_registryName = Lens.lens (\CreateRegistryResponse' {registryName} -> registryName) (\s@CreateRegistryResponse' {} a -> s {registryName = a} :: CreateRegistryResponse)
 
--- | The ARN of the registry.
-createRegistryResponse_registryArn :: Lens.Lens' CreateRegistryResponse (Prelude.Maybe Prelude.Text)
-createRegistryResponse_registryArn = Lens.lens (\CreateRegistryResponse' {registryArn} -> registryArn) (\s@CreateRegistryResponse' {} a -> s {registryArn = a} :: CreateRegistryResponse)
-
 -- | The description of the registry.
 createRegistryResponse_description :: Lens.Lens' CreateRegistryResponse (Prelude.Maybe Prelude.Text)
 createRegistryResponse_description = Lens.lens (\CreateRegistryResponse' {description} -> description) (\s@CreateRegistryResponse' {} a -> s {description = a} :: CreateRegistryResponse)
 
--- | Tags associated with the registry.
-createRegistryResponse_tags :: Lens.Lens' CreateRegistryResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRegistryResponse_tags = Lens.lens (\CreateRegistryResponse' {tags} -> tags) (\s@CreateRegistryResponse' {} a -> s {tags = a} :: CreateRegistryResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The ARN of the registry.
+createRegistryResponse_registryArn :: Lens.Lens' CreateRegistryResponse (Prelude.Maybe Prelude.Text)
+createRegistryResponse_registryArn = Lens.lens (\CreateRegistryResponse' {registryArn} -> registryArn) (\s@CreateRegistryResponse' {} a -> s {registryArn = a} :: CreateRegistryResponse)
 
 -- | The response's http status code.
 createRegistryResponse_httpStatus :: Lens.Lens' CreateRegistryResponse Prelude.Int
@@ -222,8 +221,8 @@ createRegistryResponse_httpStatus = Lens.lens (\CreateRegistryResponse' {httpSta
 
 instance Prelude.NFData CreateRegistryResponse where
   rnf CreateRegistryResponse' {..} =
-    Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf registryArn
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf registryName
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf registryArn
       `Prelude.seq` Prelude.rnf httpStatus

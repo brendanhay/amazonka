@@ -29,8 +29,8 @@ module Amazonka.Schemas.CreateSchema
     newCreateSchema,
 
     -- * Request Lenses
-    createSchema_description,
     createSchema_tags,
+    createSchema_description,
     createSchema_registryName,
     createSchema_schemaName,
     createSchema_type,
@@ -41,14 +41,14 @@ module Amazonka.Schemas.CreateSchema
     newCreateSchemaResponse,
 
     -- * Response Lenses
-    createSchemaResponse_schemaVersion,
-    createSchemaResponse_schemaName,
-    createSchemaResponse_schemaArn,
-    createSchemaResponse_type,
-    createSchemaResponse_lastModified,
-    createSchemaResponse_description,
-    createSchemaResponse_versionCreatedDate,
     createSchemaResponse_tags,
+    createSchemaResponse_type,
+    createSchemaResponse_schemaName,
+    createSchemaResponse_description,
+    createSchemaResponse_schemaArn,
+    createSchemaResponse_lastModified,
+    createSchemaResponse_schemaVersion,
+    createSchemaResponse_versionCreatedDate,
     createSchemaResponse_httpStatus,
   )
 where
@@ -62,10 +62,10 @@ import Amazonka.Schemas.Types
 
 -- | /See:/ 'newCreateSchema' smart constructor.
 data CreateSchema = CreateSchema'
-  { -- | A description of the schema.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Tags associated with the schema.
+  { -- | Tags associated with the schema.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A description of the schema.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the registry.
     registryName :: Prelude.Text,
     -- | The name of the schema.
@@ -85,9 +85,9 @@ data CreateSchema = CreateSchema'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createSchema_description' - A description of the schema.
---
 -- 'tags', 'createSchema_tags' - Tags associated with the schema.
+--
+-- 'description', 'createSchema_description' - A description of the schema.
 --
 -- 'registryName', 'createSchema_registryName' - The name of the registry.
 --
@@ -112,21 +112,21 @@ newCreateSchema
   pType_
   pContent_ =
     CreateSchema'
-      { description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        description = Prelude.Nothing,
         registryName = pRegistryName_,
         schemaName = pSchemaName_,
         type' = pType_,
         content = pContent_
       }
 
--- | A description of the schema.
-createSchema_description :: Lens.Lens' CreateSchema (Prelude.Maybe Prelude.Text)
-createSchema_description = Lens.lens (\CreateSchema' {description} -> description) (\s@CreateSchema' {} a -> s {description = a} :: CreateSchema)
-
 -- | Tags associated with the schema.
 createSchema_tags :: Lens.Lens' CreateSchema (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSchema_tags = Lens.lens (\CreateSchema' {tags} -> tags) (\s@CreateSchema' {} a -> s {tags = a} :: CreateSchema) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description of the schema.
+createSchema_description :: Lens.Lens' CreateSchema (Prelude.Maybe Prelude.Text)
+createSchema_description = Lens.lens (\CreateSchema' {description} -> description) (\s@CreateSchema' {} a -> s {description = a} :: CreateSchema)
 
 -- | The name of the registry.
 createSchema_registryName :: Lens.Lens' CreateSchema Prelude.Text
@@ -151,21 +151,21 @@ instance Core.AWSRequest CreateSchema where
     Response.receiveJSON
       ( \s h x ->
           CreateSchemaResponse'
-            Prelude.<$> (x Core..?> "SchemaVersion")
-            Prelude.<*> (x Core..?> "SchemaName")
-            Prelude.<*> (x Core..?> "SchemaArn")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "LastModified")
+            Prelude.<*> (x Core..?> "SchemaName")
             Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "SchemaArn")
+            Prelude.<*> (x Core..?> "LastModified")
+            Prelude.<*> (x Core..?> "SchemaVersion")
             Prelude.<*> (x Core..?> "VersionCreatedDate")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateSchema where
   hashWithSalt _salt CreateSchema' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` schemaName
       `Prelude.hashWithSalt` type'
@@ -173,8 +173,8 @@ instance Prelude.Hashable CreateSchema where
 
 instance Prelude.NFData CreateSchema where
   rnf CreateSchema' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf registryName
       `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf type'
@@ -195,8 +195,8 @@ instance Core.ToJSON CreateSchema where
   toJSON CreateSchema' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("Type" Core..= type'),
             Prelude.Just ("Content" Core..= content)
           ]
@@ -216,21 +216,21 @@ instance Core.ToQuery CreateSchema where
 
 -- | /See:/ 'newCreateSchemaResponse' smart constructor.
 data CreateSchemaResponse = CreateSchemaResponse'
-  { -- | The version number of the schema
-    schemaVersion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the schema.
-    schemaName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the schema.
-    schemaArn :: Prelude.Maybe Prelude.Text,
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of the schema.
     type' :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that schema was modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    -- | The name of the schema.
+    schemaName :: Prelude.Maybe Prelude.Text,
     -- | The description of the schema.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the schema.
+    schemaArn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that schema was modified.
+    lastModified :: Prelude.Maybe Core.POSIX,
+    -- | The version number of the schema
+    schemaVersion :: Prelude.Maybe Prelude.Text,
     -- | The date the schema version was created.
     versionCreatedDate :: Prelude.Maybe Core.POSIX,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -244,21 +244,21 @@ data CreateSchemaResponse = CreateSchemaResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaVersion', 'createSchemaResponse_schemaVersion' - The version number of the schema
---
--- 'schemaName', 'createSchemaResponse_schemaName' - The name of the schema.
---
--- 'schemaArn', 'createSchemaResponse_schemaArn' - The ARN of the schema.
+-- 'tags', 'createSchemaResponse_tags' - Undocumented member.
 --
 -- 'type'', 'createSchemaResponse_type' - The type of the schema.
 --
--- 'lastModified', 'createSchemaResponse_lastModified' - The date and time that schema was modified.
+-- 'schemaName', 'createSchemaResponse_schemaName' - The name of the schema.
 --
 -- 'description', 'createSchemaResponse_description' - The description of the schema.
 --
--- 'versionCreatedDate', 'createSchemaResponse_versionCreatedDate' - The date the schema version was created.
+-- 'schemaArn', 'createSchemaResponse_schemaArn' - The ARN of the schema.
 --
--- 'tags', 'createSchemaResponse_tags' - Undocumented member.
+-- 'lastModified', 'createSchemaResponse_lastModified' - The date and time that schema was modified.
+--
+-- 'schemaVersion', 'createSchemaResponse_schemaVersion' - The version number of the schema
+--
+-- 'versionCreatedDate', 'createSchemaResponse_versionCreatedDate' - The date the schema version was created.
 --
 -- 'httpStatus', 'createSchemaResponse_httpStatus' - The response's http status code.
 newCreateSchemaResponse ::
@@ -267,49 +267,48 @@ newCreateSchemaResponse ::
   CreateSchemaResponse
 newCreateSchemaResponse pHttpStatus_ =
   CreateSchemaResponse'
-    { schemaVersion =
-        Prelude.Nothing,
-      schemaName = Prelude.Nothing,
-      schemaArn = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       type' = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
+      schemaName = Prelude.Nothing,
       description = Prelude.Nothing,
+      schemaArn = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
+      schemaVersion = Prelude.Nothing,
       versionCreatedDate = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The version number of the schema
-createSchemaResponse_schemaVersion :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
-createSchemaResponse_schemaVersion = Lens.lens (\CreateSchemaResponse' {schemaVersion} -> schemaVersion) (\s@CreateSchemaResponse' {} a -> s {schemaVersion = a} :: CreateSchemaResponse)
-
--- | The name of the schema.
-createSchemaResponse_schemaName :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
-createSchemaResponse_schemaName = Lens.lens (\CreateSchemaResponse' {schemaName} -> schemaName) (\s@CreateSchemaResponse' {} a -> s {schemaName = a} :: CreateSchemaResponse)
-
--- | The ARN of the schema.
-createSchemaResponse_schemaArn :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
-createSchemaResponse_schemaArn = Lens.lens (\CreateSchemaResponse' {schemaArn} -> schemaArn) (\s@CreateSchemaResponse' {} a -> s {schemaArn = a} :: CreateSchemaResponse)
+-- | Undocumented member.
+createSchemaResponse_tags :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createSchemaResponse_tags = Lens.lens (\CreateSchemaResponse' {tags} -> tags) (\s@CreateSchemaResponse' {} a -> s {tags = a} :: CreateSchemaResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of the schema.
 createSchemaResponse_type :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
 createSchemaResponse_type = Lens.lens (\CreateSchemaResponse' {type'} -> type') (\s@CreateSchemaResponse' {} a -> s {type' = a} :: CreateSchemaResponse)
 
--- | The date and time that schema was modified.
-createSchemaResponse_lastModified :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.UTCTime)
-createSchemaResponse_lastModified = Lens.lens (\CreateSchemaResponse' {lastModified} -> lastModified) (\s@CreateSchemaResponse' {} a -> s {lastModified = a} :: CreateSchemaResponse) Prelude.. Lens.mapping Core._Time
+-- | The name of the schema.
+createSchemaResponse_schemaName :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
+createSchemaResponse_schemaName = Lens.lens (\CreateSchemaResponse' {schemaName} -> schemaName) (\s@CreateSchemaResponse' {} a -> s {schemaName = a} :: CreateSchemaResponse)
 
 -- | The description of the schema.
 createSchemaResponse_description :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
 createSchemaResponse_description = Lens.lens (\CreateSchemaResponse' {description} -> description) (\s@CreateSchemaResponse' {} a -> s {description = a} :: CreateSchemaResponse)
 
+-- | The ARN of the schema.
+createSchemaResponse_schemaArn :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
+createSchemaResponse_schemaArn = Lens.lens (\CreateSchemaResponse' {schemaArn} -> schemaArn) (\s@CreateSchemaResponse' {} a -> s {schemaArn = a} :: CreateSchemaResponse)
+
+-- | The date and time that schema was modified.
+createSchemaResponse_lastModified :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.UTCTime)
+createSchemaResponse_lastModified = Lens.lens (\CreateSchemaResponse' {lastModified} -> lastModified) (\s@CreateSchemaResponse' {} a -> s {lastModified = a} :: CreateSchemaResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The version number of the schema
+createSchemaResponse_schemaVersion :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.Text)
+createSchemaResponse_schemaVersion = Lens.lens (\CreateSchemaResponse' {schemaVersion} -> schemaVersion) (\s@CreateSchemaResponse' {} a -> s {schemaVersion = a} :: CreateSchemaResponse)
+
 -- | The date the schema version was created.
 createSchemaResponse_versionCreatedDate :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe Prelude.UTCTime)
 createSchemaResponse_versionCreatedDate = Lens.lens (\CreateSchemaResponse' {versionCreatedDate} -> versionCreatedDate) (\s@CreateSchemaResponse' {} a -> s {versionCreatedDate = a} :: CreateSchemaResponse) Prelude.. Lens.mapping Core._Time
-
--- | Undocumented member.
-createSchemaResponse_tags :: Lens.Lens' CreateSchemaResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createSchemaResponse_tags = Lens.lens (\CreateSchemaResponse' {tags} -> tags) (\s@CreateSchemaResponse' {} a -> s {tags = a} :: CreateSchemaResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createSchemaResponse_httpStatus :: Lens.Lens' CreateSchemaResponse Prelude.Int
@@ -317,12 +316,12 @@ createSchemaResponse_httpStatus = Lens.lens (\CreateSchemaResponse' {httpStatus}
 
 instance Prelude.NFData CreateSchemaResponse where
   rnf CreateSchemaResponse' {..} =
-    Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf schemaArn
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf schemaArn
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf schemaVersion
       `Prelude.seq` Prelude.rnf versionCreatedDate
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

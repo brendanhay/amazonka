@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSchemaSummary' smart constructor.
 data SchemaSummary = SchemaSummary'
-  { -- | The name of the schema.
+  { -- | Tags associated with the schema.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the schema.
     schemaName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the schema.
     schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that schema was modified.
     lastModified :: Prelude.Maybe Core.POSIX,
-    -- | Tags associated with the schema.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The number of versions available for the schema.
     versionCount :: Prelude.Maybe Prelude.Integer
   }
@@ -48,25 +48,29 @@ data SchemaSummary = SchemaSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'schemaSummary_tags' - Tags associated with the schema.
+--
 -- 'schemaName', 'schemaSummary_schemaName' - The name of the schema.
 --
 -- 'schemaArn', 'schemaSummary_schemaArn' - The ARN of the schema.
 --
 -- 'lastModified', 'schemaSummary_lastModified' - The date and time that schema was modified.
 --
--- 'tags', 'schemaSummary_tags' - Tags associated with the schema.
---
 -- 'versionCount', 'schemaSummary_versionCount' - The number of versions available for the schema.
 newSchemaSummary ::
   SchemaSummary
 newSchemaSummary =
   SchemaSummary'
-    { schemaName = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      schemaName = Prelude.Nothing,
       schemaArn = Prelude.Nothing,
       lastModified = Prelude.Nothing,
-      tags = Prelude.Nothing,
       versionCount = Prelude.Nothing
     }
+
+-- | Tags associated with the schema.
+schemaSummary_tags :: Lens.Lens' SchemaSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+schemaSummary_tags = Lens.lens (\SchemaSummary' {tags} -> tags) (\s@SchemaSummary' {} a -> s {tags = a} :: SchemaSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the schema.
 schemaSummary_schemaName :: Lens.Lens' SchemaSummary (Prelude.Maybe Prelude.Text)
@@ -80,10 +84,6 @@ schemaSummary_schemaArn = Lens.lens (\SchemaSummary' {schemaArn} -> schemaArn) (
 schemaSummary_lastModified :: Lens.Lens' SchemaSummary (Prelude.Maybe Prelude.UTCTime)
 schemaSummary_lastModified = Lens.lens (\SchemaSummary' {lastModified} -> lastModified) (\s@SchemaSummary' {} a -> s {lastModified = a} :: SchemaSummary) Prelude.. Lens.mapping Core._Time
 
--- | Tags associated with the schema.
-schemaSummary_tags :: Lens.Lens' SchemaSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-schemaSummary_tags = Lens.lens (\SchemaSummary' {tags} -> tags) (\s@SchemaSummary' {} a -> s {tags = a} :: SchemaSummary) Prelude.. Lens.mapping Lens.coerced
-
 -- | The number of versions available for the schema.
 schemaSummary_versionCount :: Lens.Lens' SchemaSummary (Prelude.Maybe Prelude.Integer)
 schemaSummary_versionCount = Lens.lens (\SchemaSummary' {versionCount} -> versionCount) (\s@SchemaSummary' {} a -> s {versionCount = a} :: SchemaSummary)
@@ -94,25 +94,25 @@ instance Core.FromJSON SchemaSummary where
       "SchemaSummary"
       ( \x ->
           SchemaSummary'
-            Prelude.<$> (x Core..:? "SchemaName")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "SchemaName")
             Prelude.<*> (x Core..:? "SchemaArn")
             Prelude.<*> (x Core..:? "LastModified")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "VersionCount")
       )
 
 instance Prelude.Hashable SchemaSummary where
   hashWithSalt _salt SchemaSummary' {..} =
-    _salt `Prelude.hashWithSalt` schemaName
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` schemaName
       `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` lastModified
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` versionCount
 
 instance Prelude.NFData SchemaSummary where
   rnf SchemaSummary' {..} =
-    Prelude.rnf schemaName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf versionCount

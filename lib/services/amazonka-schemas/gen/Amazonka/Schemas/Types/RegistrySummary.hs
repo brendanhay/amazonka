@@ -25,12 +25,12 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newRegistrySummary' smart constructor.
 data RegistrySummary = RegistrySummary'
-  { -- | The name of the registry.
+  { -- | Tags associated with the registry.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the registry.
     registryName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the registry.
-    registryArn :: Prelude.Maybe Prelude.Text,
-    -- | Tags associated with the registry.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    registryArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,19 +42,23 @@ data RegistrySummary = RegistrySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'registrySummary_tags' - Tags associated with the registry.
+--
 -- 'registryName', 'registrySummary_registryName' - The name of the registry.
 --
 -- 'registryArn', 'registrySummary_registryArn' - The ARN of the registry.
---
--- 'tags', 'registrySummary_tags' - Tags associated with the registry.
 newRegistrySummary ::
   RegistrySummary
 newRegistrySummary =
   RegistrySummary'
-    { registryName = Prelude.Nothing,
-      registryArn = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      registryName = Prelude.Nothing,
+      registryArn = Prelude.Nothing
     }
+
+-- | Tags associated with the registry.
+registrySummary_tags :: Lens.Lens' RegistrySummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+registrySummary_tags = Lens.lens (\RegistrySummary' {tags} -> tags) (\s@RegistrySummary' {} a -> s {tags = a} :: RegistrySummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the registry.
 registrySummary_registryName :: Lens.Lens' RegistrySummary (Prelude.Maybe Prelude.Text)
@@ -64,29 +68,25 @@ registrySummary_registryName = Lens.lens (\RegistrySummary' {registryName} -> re
 registrySummary_registryArn :: Lens.Lens' RegistrySummary (Prelude.Maybe Prelude.Text)
 registrySummary_registryArn = Lens.lens (\RegistrySummary' {registryArn} -> registryArn) (\s@RegistrySummary' {} a -> s {registryArn = a} :: RegistrySummary)
 
--- | Tags associated with the registry.
-registrySummary_tags :: Lens.Lens' RegistrySummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-registrySummary_tags = Lens.lens (\RegistrySummary' {tags} -> tags) (\s@RegistrySummary' {} a -> s {tags = a} :: RegistrySummary) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON RegistrySummary where
   parseJSON =
     Core.withObject
       "RegistrySummary"
       ( \x ->
           RegistrySummary'
-            Prelude.<$> (x Core..:? "RegistryName")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "RegistryName")
             Prelude.<*> (x Core..:? "RegistryArn")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RegistrySummary where
   hashWithSalt _salt RegistrySummary' {..} =
-    _salt `Prelude.hashWithSalt` registryName
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` registryArn
-      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData RegistrySummary where
   rnf RegistrySummary' {..} =
-    Prelude.rnf registryName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf registryName
       `Prelude.seq` Prelude.rnf registryArn
-      `Prelude.seq` Prelude.rnf tags

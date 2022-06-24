@@ -14,26 +14,12 @@
 module Amazonka.MarketplaceMetering.Lens
   ( -- * Operations
 
-    -- ** RegisterUsage
-    registerUsage_nonce,
-    registerUsage_productCode,
-    registerUsage_publicKeyVersion,
-    registerUsageResponse_signature,
-    registerUsageResponse_publicKeyRotationTimestamp,
-    registerUsageResponse_httpStatus,
-
     -- ** BatchMeterUsage
     batchMeterUsage_usageRecords,
     batchMeterUsage_productCode,
-    batchMeterUsageResponse_results,
     batchMeterUsageResponse_unprocessedRecords,
+    batchMeterUsageResponse_results,
     batchMeterUsageResponse_httpStatus,
-
-    -- ** ResolveCustomer
-    resolveCustomer_registrationToken,
-    resolveCustomerResponse_customerIdentifier,
-    resolveCustomerResponse_productCode,
-    resolveCustomerResponse_httpStatus,
 
     -- ** MeterUsage
     meterUsage_usageQuantity,
@@ -44,6 +30,20 @@ module Amazonka.MarketplaceMetering.Lens
     meterUsage_usageDimension,
     meterUsageResponse_meteringRecordId,
     meterUsageResponse_httpStatus,
+
+    -- ** RegisterUsage
+    registerUsage_nonce,
+    registerUsage_productCode,
+    registerUsage_publicKeyVersion,
+    registerUsageResponse_publicKeyRotationTimestamp,
+    registerUsageResponse_signature,
+    registerUsageResponse_httpStatus,
+
+    -- ** ResolveCustomer
+    resolveCustomer_registrationToken,
+    resolveCustomerResponse_customerIdentifier,
+    resolveCustomerResponse_productCode,
+    resolveCustomerResponse_httpStatus,
 
     -- * Types
 
@@ -64,8 +64,8 @@ module Amazonka.MarketplaceMetering.Lens
 
     -- ** UsageRecordResult
     usageRecordResult_status,
-    usageRecordResult_usageRecord,
     usageRecordResult_meteringRecordId,
+    usageRecordResult_usageRecord,
   )
 where
 

@@ -27,451 +27,319 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestRunJobFlow $
---             newRunJobFlow
---
---         , requestRemoveAutoScalingPolicy $
---             newRemoveAutoScalingPolicy
---
---         , requestCreateStudio $
---             newCreateStudio
---
---         , requestSetVisibleToAllUsers $
---             newSetVisibleToAllUsers
---
---         , requestTerminateJobFlows $
---             newTerminateJobFlows
---
---         , requestDescribeStep $
---             newDescribeStep
---
---         , requestRemoveTags $
---             newRemoveTags
---
---         , requestDescribeCluster $
---             newDescribeCluster
---
---         , requestListSecurityConfigurations $
---             newListSecurityConfigurations
---
---         , requestCancelSteps $
---             newCancelSteps
---
---         , requestListNotebookExecutions $
---             newListNotebookExecutions
---
---         , requestPutAutoTerminationPolicy $
---             newPutAutoTerminationPolicy
---
---         , requestCreateSecurityConfiguration $
---             newCreateSecurityConfiguration
---
---         , requestDescribeReleaseLabel $
---             newDescribeReleaseLabel
---
---         , requestSetTerminationProtection $
---             newSetTerminationProtection
---
---         , requestAddJobFlowSteps $
---             newAddJobFlowSteps
---
---         , requestDescribeStudio $
---             newDescribeStudio
---
---         , requestModifyInstanceGroups $
---             newModifyInstanceGroups
---
---         , requestStartNotebookExecution $
---             newStartNotebookExecution
---
---         , requestListSteps $
---             newListSteps
---
---         , requestListReleaseLabels $
---             newListReleaseLabels
---
---         , requestCreateStudioSessionMapping $
---             newCreateStudioSessionMapping
---
---         , requestAddInstanceFleet $
+--         [ requestAddInstanceFleet $
 --             newAddInstanceFleet
---
---         , requestDeleteStudio $
---             newDeleteStudio
---
---         , requestUpdateStudio $
---             newUpdateStudio
---
---         , requestListStudios $
---             newListStudios
---
---         , requestPutManagedScalingPolicy $
---             newPutManagedScalingPolicy
 --
 --         , requestAddInstanceGroups $
 --             newAddInstanceGroups
 --
---         , requestGetStudioSessionMapping $
---             newGetStudioSessionMapping
---
---         , requestDeleteSecurityConfiguration $
---             newDeleteSecurityConfiguration
---
---         , requestModifyInstanceFleet $
---             newModifyInstanceFleet
---
---         , requestListInstanceGroups $
---             newListInstanceGroups
---
---         , requestGetBlockPublicAccessConfiguration $
---             newGetBlockPublicAccessConfiguration
---
---         , requestModifyCluster $
---             newModifyCluster
---
---         , requestGetAutoTerminationPolicy $
---             newGetAutoTerminationPolicy
---
---         , requestPutBlockPublicAccessConfiguration $
---             newPutBlockPublicAccessConfiguration
---
---         , requestListBootstrapActions $
---             newListBootstrapActions
---
---         , requestRemoveAutoTerminationPolicy $
---             newRemoveAutoTerminationPolicy
+--         , requestAddJobFlowSteps $
+--             newAddJobFlowSteps
 --
 --         , requestAddTags $
 --             newAddTags
 --
---         , requestListInstances $
---             newListInstances
+--         , requestCancelSteps $
+--             newCancelSteps
 --
---         , requestPutAutoScalingPolicy $
---             newPutAutoScalingPolicy
+--         , requestCreateSecurityConfiguration $
+--             newCreateSecurityConfiguration
+--
+--         , requestCreateStudio $
+--             newCreateStudio
+--
+--         , requestCreateStudioSessionMapping $
+--             newCreateStudioSessionMapping
+--
+--         , requestDeleteSecurityConfiguration $
+--             newDeleteSecurityConfiguration
+--
+--         , requestDeleteStudio $
+--             newDeleteStudio
 --
 --         , requestDeleteStudioSessionMapping $
 --             newDeleteStudioSessionMapping
 --
---         , requestUpdateStudioSessionMapping $
---             newUpdateStudioSessionMapping
---
---         , requestListClusters $
---             newListClusters
---
---         , requestDescribeSecurityConfiguration $
---             newDescribeSecurityConfiguration
---
---         , requestStopNotebookExecution $
---             newStopNotebookExecution
---
---         , requestListStudioSessionMappings $
---             newListStudioSessionMappings
---
---         , requestGetManagedScalingPolicy $
---             newGetManagedScalingPolicy
---
---         , requestListInstanceFleets $
---             newListInstanceFleets
---
---         , requestRemoveManagedScalingPolicy $
---             newRemoveManagedScalingPolicy
+--         , requestDescribeCluster $
+--             newDescribeCluster
 --
 --         , requestDescribeNotebookExecution $
 --             newDescribeNotebookExecution
 --
+--         , requestDescribeReleaseLabel $
+--             newDescribeReleaseLabel
+--
+--         , requestDescribeSecurityConfiguration $
+--             newDescribeSecurityConfiguration
+--
+--         , requestDescribeStep $
+--             newDescribeStep
+--
+--         , requestDescribeStudio $
+--             newDescribeStudio
+--
+--         , requestGetAutoTerminationPolicy $
+--             newGetAutoTerminationPolicy
+--
+--         , requestGetBlockPublicAccessConfiguration $
+--             newGetBlockPublicAccessConfiguration
+--
+--         , requestGetManagedScalingPolicy $
+--             newGetManagedScalingPolicy
+--
+--         , requestGetStudioSessionMapping $
+--             newGetStudioSessionMapping
+--
+--         , requestListBootstrapActions $
+--             newListBootstrapActions
+--
+--         , requestListClusters $
+--             newListClusters
+--
+--         , requestListInstanceFleets $
+--             newListInstanceFleets
+--
+--         , requestListInstanceGroups $
+--             newListInstanceGroups
+--
+--         , requestListInstances $
+--             newListInstances
+--
+--         , requestListNotebookExecutions $
+--             newListNotebookExecutions
+--
+--         , requestListReleaseLabels $
+--             newListReleaseLabels
+--
+--         , requestListSecurityConfigurations $
+--             newListSecurityConfigurations
+--
+--         , requestListSteps $
+--             newListSteps
+--
+--         , requestListStudioSessionMappings $
+--             newListStudioSessionMappings
+--
+--         , requestListStudios $
+--             newListStudios
+--
+--         , requestModifyCluster $
+--             newModifyCluster
+--
+--         , requestModifyInstanceFleet $
+--             newModifyInstanceFleet
+--
+--         , requestModifyInstanceGroups $
+--             newModifyInstanceGroups
+--
+--         , requestPutAutoScalingPolicy $
+--             newPutAutoScalingPolicy
+--
+--         , requestPutAutoTerminationPolicy $
+--             newPutAutoTerminationPolicy
+--
+--         , requestPutBlockPublicAccessConfiguration $
+--             newPutBlockPublicAccessConfiguration
+--
+--         , requestPutManagedScalingPolicy $
+--             newPutManagedScalingPolicy
+--
+--         , requestRemoveAutoScalingPolicy $
+--             newRemoveAutoScalingPolicy
+--
+--         , requestRemoveAutoTerminationPolicy $
+--             newRemoveAutoTerminationPolicy
+--
+--         , requestRemoveManagedScalingPolicy $
+--             newRemoveManagedScalingPolicy
+--
+--         , requestRemoveTags $
+--             newRemoveTags
+--
+--         , requestRunJobFlow $
+--             newRunJobFlow
+--
+--         , requestSetTerminationProtection $
+--             newSetTerminationProtection
+--
+--         , requestSetVisibleToAllUsers $
+--             newSetVisibleToAllUsers
+--
+--         , requestStartNotebookExecution $
+--             newStartNotebookExecution
+--
+--         , requestStopNotebookExecution $
+--             newStopNotebookExecution
+--
+--         , requestTerminateJobFlows $
+--             newTerminateJobFlows
+--
+--         , requestUpdateStudio $
+--             newUpdateStudio
+--
+--         , requestUpdateStudioSessionMapping $
+--             newUpdateStudioSessionMapping
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseRunJobFlow $
---             newRunJobFlowResponse
---
---         , responseRemoveAutoScalingPolicy $
---             newRemoveAutoScalingPolicyResponse
---
---         , responseCreateStudio $
---             newCreateStudioResponse
---
---         , responseSetVisibleToAllUsers $
---             newSetVisibleToAllUsersResponse
---
---         , responseTerminateJobFlows $
---             newTerminateJobFlowsResponse
---
---         , responseDescribeStep $
---             newDescribeStepResponse
---
---         , responseRemoveTags $
---             newRemoveTagsResponse
---
---         , responseDescribeCluster $
---             newDescribeClusterResponse
---
---         , responseListSecurityConfigurations $
---             newListSecurityConfigurationsResponse
---
---         , responseCancelSteps $
---             newCancelStepsResponse
---
---         , responseListNotebookExecutions $
---             newListNotebookExecutionsResponse
---
---         , responsePutAutoTerminationPolicy $
---             newPutAutoTerminationPolicyResponse
---
---         , responseCreateSecurityConfiguration $
---             newCreateSecurityConfigurationResponse
---
---         , responseDescribeReleaseLabel $
---             newDescribeReleaseLabelResponse
---
---         , responseSetTerminationProtection $
---             newSetTerminationProtectionResponse
---
---         , responseAddJobFlowSteps $
---             newAddJobFlowStepsResponse
---
---         , responseDescribeStudio $
---             newDescribeStudioResponse
---
---         , responseModifyInstanceGroups $
---             newModifyInstanceGroupsResponse
---
---         , responseStartNotebookExecution $
---             newStartNotebookExecutionResponse
---
---         , responseListSteps $
---             newListStepsResponse
---
---         , responseListReleaseLabels $
---             newListReleaseLabelsResponse
---
---         , responseCreateStudioSessionMapping $
---             newCreateStudioSessionMappingResponse
---
---         , responseAddInstanceFleet $
+--         [ responseAddInstanceFleet $
 --             newAddInstanceFleetResponse
---
---         , responseDeleteStudio $
---             newDeleteStudioResponse
---
---         , responseUpdateStudio $
---             newUpdateStudioResponse
---
---         , responseListStudios $
---             newListStudiosResponse
---
---         , responsePutManagedScalingPolicy $
---             newPutManagedScalingPolicyResponse
 --
 --         , responseAddInstanceGroups $
 --             newAddInstanceGroupsResponse
 --
---         , responseGetStudioSessionMapping $
---             newGetStudioSessionMappingResponse
---
---         , responseDeleteSecurityConfiguration $
---             newDeleteSecurityConfigurationResponse
---
---         , responseModifyInstanceFleet $
---             newModifyInstanceFleetResponse
---
---         , responseListInstanceGroups $
---             newListInstanceGroupsResponse
---
---         , responseGetBlockPublicAccessConfiguration $
---             newGetBlockPublicAccessConfigurationResponse
---
---         , responseModifyCluster $
---             newModifyClusterResponse
---
---         , responseGetAutoTerminationPolicy $
---             newGetAutoTerminationPolicyResponse
---
---         , responsePutBlockPublicAccessConfiguration $
---             newPutBlockPublicAccessConfigurationResponse
---
---         , responseListBootstrapActions $
---             newListBootstrapActionsResponse
---
---         , responseRemoveAutoTerminationPolicy $
---             newRemoveAutoTerminationPolicyResponse
+--         , responseAddJobFlowSteps $
+--             newAddJobFlowStepsResponse
 --
 --         , responseAddTags $
 --             newAddTagsResponse
 --
---         , responseListInstances $
---             newListInstancesResponse
+--         , responseCancelSteps $
+--             newCancelStepsResponse
 --
---         , responsePutAutoScalingPolicy $
---             newPutAutoScalingPolicyResponse
+--         , responseCreateSecurityConfiguration $
+--             newCreateSecurityConfigurationResponse
+--
+--         , responseCreateStudio $
+--             newCreateStudioResponse
+--
+--         , responseCreateStudioSessionMapping $
+--             newCreateStudioSessionMappingResponse
+--
+--         , responseDeleteSecurityConfiguration $
+--             newDeleteSecurityConfigurationResponse
+--
+--         , responseDeleteStudio $
+--             newDeleteStudioResponse
 --
 --         , responseDeleteStudioSessionMapping $
 --             newDeleteStudioSessionMappingResponse
 --
---         , responseUpdateStudioSessionMapping $
---             newUpdateStudioSessionMappingResponse
+--         , responseDescribeCluster $
+--             newDescribeClusterResponse
 --
---         , responseListClusters $
---             newListClustersResponse
+--         , responseDescribeNotebookExecution $
+--             newDescribeNotebookExecutionResponse
+--
+--         , responseDescribeReleaseLabel $
+--             newDescribeReleaseLabelResponse
 --
 --         , responseDescribeSecurityConfiguration $
 --             newDescribeSecurityConfigurationResponse
 --
---         , responseStopNotebookExecution $
---             newStopNotebookExecutionResponse
+--         , responseDescribeStep $
+--             newDescribeStepResponse
 --
---         , responseListStudioSessionMappings $
---             newListStudioSessionMappingsResponse
+--         , responseDescribeStudio $
+--             newDescribeStudioResponse
+--
+--         , responseGetAutoTerminationPolicy $
+--             newGetAutoTerminationPolicyResponse
+--
+--         , responseGetBlockPublicAccessConfiguration $
+--             newGetBlockPublicAccessConfigurationResponse
 --
 --         , responseGetManagedScalingPolicy $
 --             newGetManagedScalingPolicyResponse
 --
+--         , responseGetStudioSessionMapping $
+--             newGetStudioSessionMappingResponse
+--
+--         , responseListBootstrapActions $
+--             newListBootstrapActionsResponse
+--
+--         , responseListClusters $
+--             newListClustersResponse
+--
 --         , responseListInstanceFleets $
 --             newListInstanceFleetsResponse
+--
+--         , responseListInstanceGroups $
+--             newListInstanceGroupsResponse
+--
+--         , responseListInstances $
+--             newListInstancesResponse
+--
+--         , responseListNotebookExecutions $
+--             newListNotebookExecutionsResponse
+--
+--         , responseListReleaseLabels $
+--             newListReleaseLabelsResponse
+--
+--         , responseListSecurityConfigurations $
+--             newListSecurityConfigurationsResponse
+--
+--         , responseListSteps $
+--             newListStepsResponse
+--
+--         , responseListStudioSessionMappings $
+--             newListStudioSessionMappingsResponse
+--
+--         , responseListStudios $
+--             newListStudiosResponse
+--
+--         , responseModifyCluster $
+--             newModifyClusterResponse
+--
+--         , responseModifyInstanceFleet $
+--             newModifyInstanceFleetResponse
+--
+--         , responseModifyInstanceGroups $
+--             newModifyInstanceGroupsResponse
+--
+--         , responsePutAutoScalingPolicy $
+--             newPutAutoScalingPolicyResponse
+--
+--         , responsePutAutoTerminationPolicy $
+--             newPutAutoTerminationPolicyResponse
+--
+--         , responsePutBlockPublicAccessConfiguration $
+--             newPutBlockPublicAccessConfigurationResponse
+--
+--         , responsePutManagedScalingPolicy $
+--             newPutManagedScalingPolicyResponse
+--
+--         , responseRemoveAutoScalingPolicy $
+--             newRemoveAutoScalingPolicyResponse
+--
+--         , responseRemoveAutoTerminationPolicy $
+--             newRemoveAutoTerminationPolicyResponse
 --
 --         , responseRemoveManagedScalingPolicy $
 --             newRemoveManagedScalingPolicyResponse
 --
---         , responseDescribeNotebookExecution $
---             newDescribeNotebookExecutionResponse
+--         , responseRemoveTags $
+--             newRemoveTagsResponse
+--
+--         , responseRunJobFlow $
+--             newRunJobFlowResponse
+--
+--         , responseSetTerminationProtection $
+--             newSetTerminationProtectionResponse
+--
+--         , responseSetVisibleToAllUsers $
+--             newSetVisibleToAllUsersResponse
+--
+--         , responseStartNotebookExecution $
+--             newStartNotebookExecutionResponse
+--
+--         , responseStopNotebookExecution $
+--             newStopNotebookExecutionResponse
+--
+--         , responseTerminateJobFlows $
+--             newTerminateJobFlowsResponse
+--
+--         , responseUpdateStudio $
+--             newUpdateStudioResponse
+--
+--         , responseUpdateStudioSessionMapping $
+--             newUpdateStudioSessionMappingResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestRunJobFlow :: RunJobFlow -> TestTree
-requestRunJobFlow =
-  req
-    "RunJobFlow"
-    "fixture/RunJobFlow.yaml"
-
-requestRemoveAutoScalingPolicy :: RemoveAutoScalingPolicy -> TestTree
-requestRemoveAutoScalingPolicy =
-  req
-    "RemoveAutoScalingPolicy"
-    "fixture/RemoveAutoScalingPolicy.yaml"
-
-requestCreateStudio :: CreateStudio -> TestTree
-requestCreateStudio =
-  req
-    "CreateStudio"
-    "fixture/CreateStudio.yaml"
-
-requestSetVisibleToAllUsers :: SetVisibleToAllUsers -> TestTree
-requestSetVisibleToAllUsers =
-  req
-    "SetVisibleToAllUsers"
-    "fixture/SetVisibleToAllUsers.yaml"
-
-requestTerminateJobFlows :: TerminateJobFlows -> TestTree
-requestTerminateJobFlows =
-  req
-    "TerminateJobFlows"
-    "fixture/TerminateJobFlows.yaml"
-
-requestDescribeStep :: DescribeStep -> TestTree
-requestDescribeStep =
-  req
-    "DescribeStep"
-    "fixture/DescribeStep.yaml"
-
-requestRemoveTags :: RemoveTags -> TestTree
-requestRemoveTags =
-  req
-    "RemoveTags"
-    "fixture/RemoveTags.yaml"
-
-requestDescribeCluster :: DescribeCluster -> TestTree
-requestDescribeCluster =
-  req
-    "DescribeCluster"
-    "fixture/DescribeCluster.yaml"
-
-requestListSecurityConfigurations :: ListSecurityConfigurations -> TestTree
-requestListSecurityConfigurations =
-  req
-    "ListSecurityConfigurations"
-    "fixture/ListSecurityConfigurations.yaml"
-
-requestCancelSteps :: CancelSteps -> TestTree
-requestCancelSteps =
-  req
-    "CancelSteps"
-    "fixture/CancelSteps.yaml"
-
-requestListNotebookExecutions :: ListNotebookExecutions -> TestTree
-requestListNotebookExecutions =
-  req
-    "ListNotebookExecutions"
-    "fixture/ListNotebookExecutions.yaml"
-
-requestPutAutoTerminationPolicy :: PutAutoTerminationPolicy -> TestTree
-requestPutAutoTerminationPolicy =
-  req
-    "PutAutoTerminationPolicy"
-    "fixture/PutAutoTerminationPolicy.yaml"
-
-requestCreateSecurityConfiguration :: CreateSecurityConfiguration -> TestTree
-requestCreateSecurityConfiguration =
-  req
-    "CreateSecurityConfiguration"
-    "fixture/CreateSecurityConfiguration.yaml"
-
-requestDescribeReleaseLabel :: DescribeReleaseLabel -> TestTree
-requestDescribeReleaseLabel =
-  req
-    "DescribeReleaseLabel"
-    "fixture/DescribeReleaseLabel.yaml"
-
-requestSetTerminationProtection :: SetTerminationProtection -> TestTree
-requestSetTerminationProtection =
-  req
-    "SetTerminationProtection"
-    "fixture/SetTerminationProtection.yaml"
-
-requestAddJobFlowSteps :: AddJobFlowSteps -> TestTree
-requestAddJobFlowSteps =
-  req
-    "AddJobFlowSteps"
-    "fixture/AddJobFlowSteps.yaml"
-
-requestDescribeStudio :: DescribeStudio -> TestTree
-requestDescribeStudio =
-  req
-    "DescribeStudio"
-    "fixture/DescribeStudio.yaml"
-
-requestModifyInstanceGroups :: ModifyInstanceGroups -> TestTree
-requestModifyInstanceGroups =
-  req
-    "ModifyInstanceGroups"
-    "fixture/ModifyInstanceGroups.yaml"
-
-requestStartNotebookExecution :: StartNotebookExecution -> TestTree
-requestStartNotebookExecution =
-  req
-    "StartNotebookExecution"
-    "fixture/StartNotebookExecution.yaml"
-
-requestListSteps :: ListSteps -> TestTree
-requestListSteps =
-  req
-    "ListSteps"
-    "fixture/ListSteps.yaml"
-
-requestListReleaseLabels :: ListReleaseLabels -> TestTree
-requestListReleaseLabels =
-  req
-    "ListReleaseLabels"
-    "fixture/ListReleaseLabels.yaml"
-
-requestCreateStudioSessionMapping :: CreateStudioSessionMapping -> TestTree
-requestCreateStudioSessionMapping =
-  req
-    "CreateStudioSessionMapping"
-    "fixture/CreateStudioSessionMapping.yaml"
 
 requestAddInstanceFleet :: AddInstanceFleet -> TestTree
 requestAddInstanceFleet =
@@ -479,95 +347,17 @@ requestAddInstanceFleet =
     "AddInstanceFleet"
     "fixture/AddInstanceFleet.yaml"
 
-requestDeleteStudio :: DeleteStudio -> TestTree
-requestDeleteStudio =
-  req
-    "DeleteStudio"
-    "fixture/DeleteStudio.yaml"
-
-requestUpdateStudio :: UpdateStudio -> TestTree
-requestUpdateStudio =
-  req
-    "UpdateStudio"
-    "fixture/UpdateStudio.yaml"
-
-requestListStudios :: ListStudios -> TestTree
-requestListStudios =
-  req
-    "ListStudios"
-    "fixture/ListStudios.yaml"
-
-requestPutManagedScalingPolicy :: PutManagedScalingPolicy -> TestTree
-requestPutManagedScalingPolicy =
-  req
-    "PutManagedScalingPolicy"
-    "fixture/PutManagedScalingPolicy.yaml"
-
 requestAddInstanceGroups :: AddInstanceGroups -> TestTree
 requestAddInstanceGroups =
   req
     "AddInstanceGroups"
     "fixture/AddInstanceGroups.yaml"
 
-requestGetStudioSessionMapping :: GetStudioSessionMapping -> TestTree
-requestGetStudioSessionMapping =
+requestAddJobFlowSteps :: AddJobFlowSteps -> TestTree
+requestAddJobFlowSteps =
   req
-    "GetStudioSessionMapping"
-    "fixture/GetStudioSessionMapping.yaml"
-
-requestDeleteSecurityConfiguration :: DeleteSecurityConfiguration -> TestTree
-requestDeleteSecurityConfiguration =
-  req
-    "DeleteSecurityConfiguration"
-    "fixture/DeleteSecurityConfiguration.yaml"
-
-requestModifyInstanceFleet :: ModifyInstanceFleet -> TestTree
-requestModifyInstanceFleet =
-  req
-    "ModifyInstanceFleet"
-    "fixture/ModifyInstanceFleet.yaml"
-
-requestListInstanceGroups :: ListInstanceGroups -> TestTree
-requestListInstanceGroups =
-  req
-    "ListInstanceGroups"
-    "fixture/ListInstanceGroups.yaml"
-
-requestGetBlockPublicAccessConfiguration :: GetBlockPublicAccessConfiguration -> TestTree
-requestGetBlockPublicAccessConfiguration =
-  req
-    "GetBlockPublicAccessConfiguration"
-    "fixture/GetBlockPublicAccessConfiguration.yaml"
-
-requestModifyCluster :: ModifyCluster -> TestTree
-requestModifyCluster =
-  req
-    "ModifyCluster"
-    "fixture/ModifyCluster.yaml"
-
-requestGetAutoTerminationPolicy :: GetAutoTerminationPolicy -> TestTree
-requestGetAutoTerminationPolicy =
-  req
-    "GetAutoTerminationPolicy"
-    "fixture/GetAutoTerminationPolicy.yaml"
-
-requestPutBlockPublicAccessConfiguration :: PutBlockPublicAccessConfiguration -> TestTree
-requestPutBlockPublicAccessConfiguration =
-  req
-    "PutBlockPublicAccessConfiguration"
-    "fixture/PutBlockPublicAccessConfiguration.yaml"
-
-requestListBootstrapActions :: ListBootstrapActions -> TestTree
-requestListBootstrapActions =
-  req
-    "ListBootstrapActions"
-    "fixture/ListBootstrapActions.yaml"
-
-requestRemoveAutoTerminationPolicy :: RemoveAutoTerminationPolicy -> TestTree
-requestRemoveAutoTerminationPolicy =
-  req
-    "RemoveAutoTerminationPolicy"
-    "fixture/RemoveAutoTerminationPolicy.yaml"
+    "AddJobFlowSteps"
+    "fixture/AddJobFlowSteps.yaml"
 
 requestAddTags :: AddTags -> TestTree
 requestAddTags =
@@ -575,17 +365,41 @@ requestAddTags =
     "AddTags"
     "fixture/AddTags.yaml"
 
-requestListInstances :: ListInstances -> TestTree
-requestListInstances =
+requestCancelSteps :: CancelSteps -> TestTree
+requestCancelSteps =
   req
-    "ListInstances"
-    "fixture/ListInstances.yaml"
+    "CancelSteps"
+    "fixture/CancelSteps.yaml"
 
-requestPutAutoScalingPolicy :: PutAutoScalingPolicy -> TestTree
-requestPutAutoScalingPolicy =
+requestCreateSecurityConfiguration :: CreateSecurityConfiguration -> TestTree
+requestCreateSecurityConfiguration =
   req
-    "PutAutoScalingPolicy"
-    "fixture/PutAutoScalingPolicy.yaml"
+    "CreateSecurityConfiguration"
+    "fixture/CreateSecurityConfiguration.yaml"
+
+requestCreateStudio :: CreateStudio -> TestTree
+requestCreateStudio =
+  req
+    "CreateStudio"
+    "fixture/CreateStudio.yaml"
+
+requestCreateStudioSessionMapping :: CreateStudioSessionMapping -> TestTree
+requestCreateStudioSessionMapping =
+  req
+    "CreateStudioSessionMapping"
+    "fixture/CreateStudioSessionMapping.yaml"
+
+requestDeleteSecurityConfiguration :: DeleteSecurityConfiguration -> TestTree
+requestDeleteSecurityConfiguration =
+  req
+    "DeleteSecurityConfiguration"
+    "fixture/DeleteSecurityConfiguration.yaml"
+
+requestDeleteStudio :: DeleteStudio -> TestTree
+requestDeleteStudio =
+  req
+    "DeleteStudio"
+    "fixture/DeleteStudio.yaml"
 
 requestDeleteStudioSessionMapping :: DeleteStudioSessionMapping -> TestTree
 requestDeleteStudioSessionMapping =
@@ -593,53 +407,11 @@ requestDeleteStudioSessionMapping =
     "DeleteStudioSessionMapping"
     "fixture/DeleteStudioSessionMapping.yaml"
 
-requestUpdateStudioSessionMapping :: UpdateStudioSessionMapping -> TestTree
-requestUpdateStudioSessionMapping =
+requestDescribeCluster :: DescribeCluster -> TestTree
+requestDescribeCluster =
   req
-    "UpdateStudioSessionMapping"
-    "fixture/UpdateStudioSessionMapping.yaml"
-
-requestListClusters :: ListClusters -> TestTree
-requestListClusters =
-  req
-    "ListClusters"
-    "fixture/ListClusters.yaml"
-
-requestDescribeSecurityConfiguration :: DescribeSecurityConfiguration -> TestTree
-requestDescribeSecurityConfiguration =
-  req
-    "DescribeSecurityConfiguration"
-    "fixture/DescribeSecurityConfiguration.yaml"
-
-requestStopNotebookExecution :: StopNotebookExecution -> TestTree
-requestStopNotebookExecution =
-  req
-    "StopNotebookExecution"
-    "fixture/StopNotebookExecution.yaml"
-
-requestListStudioSessionMappings :: ListStudioSessionMappings -> TestTree
-requestListStudioSessionMappings =
-  req
-    "ListStudioSessionMappings"
-    "fixture/ListStudioSessionMappings.yaml"
-
-requestGetManagedScalingPolicy :: GetManagedScalingPolicy -> TestTree
-requestGetManagedScalingPolicy =
-  req
-    "GetManagedScalingPolicy"
-    "fixture/GetManagedScalingPolicy.yaml"
-
-requestListInstanceFleets :: ListInstanceFleets -> TestTree
-requestListInstanceFleets =
-  req
-    "ListInstanceFleets"
-    "fixture/ListInstanceFleets.yaml"
-
-requestRemoveManagedScalingPolicy :: RemoveManagedScalingPolicy -> TestTree
-requestRemoveManagedScalingPolicy =
-  req
-    "RemoveManagedScalingPolicy"
-    "fixture/RemoveManagedScalingPolicy.yaml"
+    "DescribeCluster"
+    "fixture/DescribeCluster.yaml"
 
 requestDescribeNotebookExecution :: DescribeNotebookExecution -> TestTree
 requestDescribeNotebookExecution =
@@ -647,183 +419,235 @@ requestDescribeNotebookExecution =
     "DescribeNotebookExecution"
     "fixture/DescribeNotebookExecution.yaml"
 
+requestDescribeReleaseLabel :: DescribeReleaseLabel -> TestTree
+requestDescribeReleaseLabel =
+  req
+    "DescribeReleaseLabel"
+    "fixture/DescribeReleaseLabel.yaml"
+
+requestDescribeSecurityConfiguration :: DescribeSecurityConfiguration -> TestTree
+requestDescribeSecurityConfiguration =
+  req
+    "DescribeSecurityConfiguration"
+    "fixture/DescribeSecurityConfiguration.yaml"
+
+requestDescribeStep :: DescribeStep -> TestTree
+requestDescribeStep =
+  req
+    "DescribeStep"
+    "fixture/DescribeStep.yaml"
+
+requestDescribeStudio :: DescribeStudio -> TestTree
+requestDescribeStudio =
+  req
+    "DescribeStudio"
+    "fixture/DescribeStudio.yaml"
+
+requestGetAutoTerminationPolicy :: GetAutoTerminationPolicy -> TestTree
+requestGetAutoTerminationPolicy =
+  req
+    "GetAutoTerminationPolicy"
+    "fixture/GetAutoTerminationPolicy.yaml"
+
+requestGetBlockPublicAccessConfiguration :: GetBlockPublicAccessConfiguration -> TestTree
+requestGetBlockPublicAccessConfiguration =
+  req
+    "GetBlockPublicAccessConfiguration"
+    "fixture/GetBlockPublicAccessConfiguration.yaml"
+
+requestGetManagedScalingPolicy :: GetManagedScalingPolicy -> TestTree
+requestGetManagedScalingPolicy =
+  req
+    "GetManagedScalingPolicy"
+    "fixture/GetManagedScalingPolicy.yaml"
+
+requestGetStudioSessionMapping :: GetStudioSessionMapping -> TestTree
+requestGetStudioSessionMapping =
+  req
+    "GetStudioSessionMapping"
+    "fixture/GetStudioSessionMapping.yaml"
+
+requestListBootstrapActions :: ListBootstrapActions -> TestTree
+requestListBootstrapActions =
+  req
+    "ListBootstrapActions"
+    "fixture/ListBootstrapActions.yaml"
+
+requestListClusters :: ListClusters -> TestTree
+requestListClusters =
+  req
+    "ListClusters"
+    "fixture/ListClusters.yaml"
+
+requestListInstanceFleets :: ListInstanceFleets -> TestTree
+requestListInstanceFleets =
+  req
+    "ListInstanceFleets"
+    "fixture/ListInstanceFleets.yaml"
+
+requestListInstanceGroups :: ListInstanceGroups -> TestTree
+requestListInstanceGroups =
+  req
+    "ListInstanceGroups"
+    "fixture/ListInstanceGroups.yaml"
+
+requestListInstances :: ListInstances -> TestTree
+requestListInstances =
+  req
+    "ListInstances"
+    "fixture/ListInstances.yaml"
+
+requestListNotebookExecutions :: ListNotebookExecutions -> TestTree
+requestListNotebookExecutions =
+  req
+    "ListNotebookExecutions"
+    "fixture/ListNotebookExecutions.yaml"
+
+requestListReleaseLabels :: ListReleaseLabels -> TestTree
+requestListReleaseLabels =
+  req
+    "ListReleaseLabels"
+    "fixture/ListReleaseLabels.yaml"
+
+requestListSecurityConfigurations :: ListSecurityConfigurations -> TestTree
+requestListSecurityConfigurations =
+  req
+    "ListSecurityConfigurations"
+    "fixture/ListSecurityConfigurations.yaml"
+
+requestListSteps :: ListSteps -> TestTree
+requestListSteps =
+  req
+    "ListSteps"
+    "fixture/ListSteps.yaml"
+
+requestListStudioSessionMappings :: ListStudioSessionMappings -> TestTree
+requestListStudioSessionMappings =
+  req
+    "ListStudioSessionMappings"
+    "fixture/ListStudioSessionMappings.yaml"
+
+requestListStudios :: ListStudios -> TestTree
+requestListStudios =
+  req
+    "ListStudios"
+    "fixture/ListStudios.yaml"
+
+requestModifyCluster :: ModifyCluster -> TestTree
+requestModifyCluster =
+  req
+    "ModifyCluster"
+    "fixture/ModifyCluster.yaml"
+
+requestModifyInstanceFleet :: ModifyInstanceFleet -> TestTree
+requestModifyInstanceFleet =
+  req
+    "ModifyInstanceFleet"
+    "fixture/ModifyInstanceFleet.yaml"
+
+requestModifyInstanceGroups :: ModifyInstanceGroups -> TestTree
+requestModifyInstanceGroups =
+  req
+    "ModifyInstanceGroups"
+    "fixture/ModifyInstanceGroups.yaml"
+
+requestPutAutoScalingPolicy :: PutAutoScalingPolicy -> TestTree
+requestPutAutoScalingPolicy =
+  req
+    "PutAutoScalingPolicy"
+    "fixture/PutAutoScalingPolicy.yaml"
+
+requestPutAutoTerminationPolicy :: PutAutoTerminationPolicy -> TestTree
+requestPutAutoTerminationPolicy =
+  req
+    "PutAutoTerminationPolicy"
+    "fixture/PutAutoTerminationPolicy.yaml"
+
+requestPutBlockPublicAccessConfiguration :: PutBlockPublicAccessConfiguration -> TestTree
+requestPutBlockPublicAccessConfiguration =
+  req
+    "PutBlockPublicAccessConfiguration"
+    "fixture/PutBlockPublicAccessConfiguration.yaml"
+
+requestPutManagedScalingPolicy :: PutManagedScalingPolicy -> TestTree
+requestPutManagedScalingPolicy =
+  req
+    "PutManagedScalingPolicy"
+    "fixture/PutManagedScalingPolicy.yaml"
+
+requestRemoveAutoScalingPolicy :: RemoveAutoScalingPolicy -> TestTree
+requestRemoveAutoScalingPolicy =
+  req
+    "RemoveAutoScalingPolicy"
+    "fixture/RemoveAutoScalingPolicy.yaml"
+
+requestRemoveAutoTerminationPolicy :: RemoveAutoTerminationPolicy -> TestTree
+requestRemoveAutoTerminationPolicy =
+  req
+    "RemoveAutoTerminationPolicy"
+    "fixture/RemoveAutoTerminationPolicy.yaml"
+
+requestRemoveManagedScalingPolicy :: RemoveManagedScalingPolicy -> TestTree
+requestRemoveManagedScalingPolicy =
+  req
+    "RemoveManagedScalingPolicy"
+    "fixture/RemoveManagedScalingPolicy.yaml"
+
+requestRemoveTags :: RemoveTags -> TestTree
+requestRemoveTags =
+  req
+    "RemoveTags"
+    "fixture/RemoveTags.yaml"
+
+requestRunJobFlow :: RunJobFlow -> TestTree
+requestRunJobFlow =
+  req
+    "RunJobFlow"
+    "fixture/RunJobFlow.yaml"
+
+requestSetTerminationProtection :: SetTerminationProtection -> TestTree
+requestSetTerminationProtection =
+  req
+    "SetTerminationProtection"
+    "fixture/SetTerminationProtection.yaml"
+
+requestSetVisibleToAllUsers :: SetVisibleToAllUsers -> TestTree
+requestSetVisibleToAllUsers =
+  req
+    "SetVisibleToAllUsers"
+    "fixture/SetVisibleToAllUsers.yaml"
+
+requestStartNotebookExecution :: StartNotebookExecution -> TestTree
+requestStartNotebookExecution =
+  req
+    "StartNotebookExecution"
+    "fixture/StartNotebookExecution.yaml"
+
+requestStopNotebookExecution :: StopNotebookExecution -> TestTree
+requestStopNotebookExecution =
+  req
+    "StopNotebookExecution"
+    "fixture/StopNotebookExecution.yaml"
+
+requestTerminateJobFlows :: TerminateJobFlows -> TestTree
+requestTerminateJobFlows =
+  req
+    "TerminateJobFlows"
+    "fixture/TerminateJobFlows.yaml"
+
+requestUpdateStudio :: UpdateStudio -> TestTree
+requestUpdateStudio =
+  req
+    "UpdateStudio"
+    "fixture/UpdateStudio.yaml"
+
+requestUpdateStudioSessionMapping :: UpdateStudioSessionMapping -> TestTree
+requestUpdateStudioSessionMapping =
+  req
+    "UpdateStudioSessionMapping"
+    "fixture/UpdateStudioSessionMapping.yaml"
+
 -- Responses
-
-responseRunJobFlow :: RunJobFlowResponse -> TestTree
-responseRunJobFlow =
-  res
-    "RunJobFlowResponse"
-    "fixture/RunJobFlowResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RunJobFlow)
-
-responseRemoveAutoScalingPolicy :: RemoveAutoScalingPolicyResponse -> TestTree
-responseRemoveAutoScalingPolicy =
-  res
-    "RemoveAutoScalingPolicyResponse"
-    "fixture/RemoveAutoScalingPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveAutoScalingPolicy)
-
-responseCreateStudio :: CreateStudioResponse -> TestTree
-responseCreateStudio =
-  res
-    "CreateStudioResponse"
-    "fixture/CreateStudioResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateStudio)
-
-responseSetVisibleToAllUsers :: SetVisibleToAllUsersResponse -> TestTree
-responseSetVisibleToAllUsers =
-  res
-    "SetVisibleToAllUsersResponse"
-    "fixture/SetVisibleToAllUsersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SetVisibleToAllUsers)
-
-responseTerminateJobFlows :: TerminateJobFlowsResponse -> TestTree
-responseTerminateJobFlows =
-  res
-    "TerminateJobFlowsResponse"
-    "fixture/TerminateJobFlowsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TerminateJobFlows)
-
-responseDescribeStep :: DescribeStepResponse -> TestTree
-responseDescribeStep =
-  res
-    "DescribeStepResponse"
-    "fixture/DescribeStepResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeStep)
-
-responseRemoveTags :: RemoveTagsResponse -> TestTree
-responseRemoveTags =
-  res
-    "RemoveTagsResponse"
-    "fixture/RemoveTagsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveTags)
-
-responseDescribeCluster :: DescribeClusterResponse -> TestTree
-responseDescribeCluster =
-  res
-    "DescribeClusterResponse"
-    "fixture/DescribeClusterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeCluster)
-
-responseListSecurityConfigurations :: ListSecurityConfigurationsResponse -> TestTree
-responseListSecurityConfigurations =
-  res
-    "ListSecurityConfigurationsResponse"
-    "fixture/ListSecurityConfigurationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSecurityConfigurations)
-
-responseCancelSteps :: CancelStepsResponse -> TestTree
-responseCancelSteps =
-  res
-    "CancelStepsResponse"
-    "fixture/CancelStepsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelSteps)
-
-responseListNotebookExecutions :: ListNotebookExecutionsResponse -> TestTree
-responseListNotebookExecutions =
-  res
-    "ListNotebookExecutionsResponse"
-    "fixture/ListNotebookExecutionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListNotebookExecutions)
-
-responsePutAutoTerminationPolicy :: PutAutoTerminationPolicyResponse -> TestTree
-responsePutAutoTerminationPolicy =
-  res
-    "PutAutoTerminationPolicyResponse"
-    "fixture/PutAutoTerminationPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutAutoTerminationPolicy)
-
-responseCreateSecurityConfiguration :: CreateSecurityConfigurationResponse -> TestTree
-responseCreateSecurityConfiguration =
-  res
-    "CreateSecurityConfigurationResponse"
-    "fixture/CreateSecurityConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateSecurityConfiguration)
-
-responseDescribeReleaseLabel :: DescribeReleaseLabelResponse -> TestTree
-responseDescribeReleaseLabel =
-  res
-    "DescribeReleaseLabelResponse"
-    "fixture/DescribeReleaseLabelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeReleaseLabel)
-
-responseSetTerminationProtection :: SetTerminationProtectionResponse -> TestTree
-responseSetTerminationProtection =
-  res
-    "SetTerminationProtectionResponse"
-    "fixture/SetTerminationProtectionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SetTerminationProtection)
-
-responseAddJobFlowSteps :: AddJobFlowStepsResponse -> TestTree
-responseAddJobFlowSteps =
-  res
-    "AddJobFlowStepsResponse"
-    "fixture/AddJobFlowStepsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddJobFlowSteps)
-
-responseDescribeStudio :: DescribeStudioResponse -> TestTree
-responseDescribeStudio =
-  res
-    "DescribeStudioResponse"
-    "fixture/DescribeStudioResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeStudio)
-
-responseModifyInstanceGroups :: ModifyInstanceGroupsResponse -> TestTree
-responseModifyInstanceGroups =
-  res
-    "ModifyInstanceGroupsResponse"
-    "fixture/ModifyInstanceGroupsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ModifyInstanceGroups)
-
-responseStartNotebookExecution :: StartNotebookExecutionResponse -> TestTree
-responseStartNotebookExecution =
-  res
-    "StartNotebookExecutionResponse"
-    "fixture/StartNotebookExecutionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartNotebookExecution)
-
-responseListSteps :: ListStepsResponse -> TestTree
-responseListSteps =
-  res
-    "ListStepsResponse"
-    "fixture/ListStepsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSteps)
-
-responseListReleaseLabels :: ListReleaseLabelsResponse -> TestTree
-responseListReleaseLabels =
-  res
-    "ListReleaseLabelsResponse"
-    "fixture/ListReleaseLabelsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListReleaseLabels)
-
-responseCreateStudioSessionMapping :: CreateStudioSessionMappingResponse -> TestTree
-responseCreateStudioSessionMapping =
-  res
-    "CreateStudioSessionMappingResponse"
-    "fixture/CreateStudioSessionMappingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateStudioSessionMapping)
 
 responseAddInstanceFleet :: AddInstanceFleetResponse -> TestTree
 responseAddInstanceFleet =
@@ -833,38 +657,6 @@ responseAddInstanceFleet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddInstanceFleet)
 
-responseDeleteStudio :: DeleteStudioResponse -> TestTree
-responseDeleteStudio =
-  res
-    "DeleteStudioResponse"
-    "fixture/DeleteStudioResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteStudio)
-
-responseUpdateStudio :: UpdateStudioResponse -> TestTree
-responseUpdateStudio =
-  res
-    "UpdateStudioResponse"
-    "fixture/UpdateStudioResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateStudio)
-
-responseListStudios :: ListStudiosResponse -> TestTree
-responseListStudios =
-  res
-    "ListStudiosResponse"
-    "fixture/ListStudiosResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListStudios)
-
-responsePutManagedScalingPolicy :: PutManagedScalingPolicyResponse -> TestTree
-responsePutManagedScalingPolicy =
-  res
-    "PutManagedScalingPolicyResponse"
-    "fixture/PutManagedScalingPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutManagedScalingPolicy)
-
 responseAddInstanceGroups :: AddInstanceGroupsResponse -> TestTree
 responseAddInstanceGroups =
   res
@@ -873,85 +665,13 @@ responseAddInstanceGroups =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddInstanceGroups)
 
-responseGetStudioSessionMapping :: GetStudioSessionMappingResponse -> TestTree
-responseGetStudioSessionMapping =
+responseAddJobFlowSteps :: AddJobFlowStepsResponse -> TestTree
+responseAddJobFlowSteps =
   res
-    "GetStudioSessionMappingResponse"
-    "fixture/GetStudioSessionMappingResponse.proto"
+    "AddJobFlowStepsResponse"
+    "fixture/AddJobFlowStepsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetStudioSessionMapping)
-
-responseDeleteSecurityConfiguration :: DeleteSecurityConfigurationResponse -> TestTree
-responseDeleteSecurityConfiguration =
-  res
-    "DeleteSecurityConfigurationResponse"
-    "fixture/DeleteSecurityConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSecurityConfiguration)
-
-responseModifyInstanceFleet :: ModifyInstanceFleetResponse -> TestTree
-responseModifyInstanceFleet =
-  res
-    "ModifyInstanceFleetResponse"
-    "fixture/ModifyInstanceFleetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ModifyInstanceFleet)
-
-responseListInstanceGroups :: ListInstanceGroupsResponse -> TestTree
-responseListInstanceGroups =
-  res
-    "ListInstanceGroupsResponse"
-    "fixture/ListInstanceGroupsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInstanceGroups)
-
-responseGetBlockPublicAccessConfiguration :: GetBlockPublicAccessConfigurationResponse -> TestTree
-responseGetBlockPublicAccessConfiguration =
-  res
-    "GetBlockPublicAccessConfigurationResponse"
-    "fixture/GetBlockPublicAccessConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetBlockPublicAccessConfiguration)
-
-responseModifyCluster :: ModifyClusterResponse -> TestTree
-responseModifyCluster =
-  res
-    "ModifyClusterResponse"
-    "fixture/ModifyClusterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ModifyCluster)
-
-responseGetAutoTerminationPolicy :: GetAutoTerminationPolicyResponse -> TestTree
-responseGetAutoTerminationPolicy =
-  res
-    "GetAutoTerminationPolicyResponse"
-    "fixture/GetAutoTerminationPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAutoTerminationPolicy)
-
-responsePutBlockPublicAccessConfiguration :: PutBlockPublicAccessConfigurationResponse -> TestTree
-responsePutBlockPublicAccessConfiguration =
-  res
-    "PutBlockPublicAccessConfigurationResponse"
-    "fixture/PutBlockPublicAccessConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutBlockPublicAccessConfiguration)
-
-responseListBootstrapActions :: ListBootstrapActionsResponse -> TestTree
-responseListBootstrapActions =
-  res
-    "ListBootstrapActionsResponse"
-    "fixture/ListBootstrapActionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListBootstrapActions)
-
-responseRemoveAutoTerminationPolicy :: RemoveAutoTerminationPolicyResponse -> TestTree
-responseRemoveAutoTerminationPolicy =
-  res
-    "RemoveAutoTerminationPolicyResponse"
-    "fixture/RemoveAutoTerminationPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveAutoTerminationPolicy)
+    (Proxy.Proxy :: Proxy.Proxy AddJobFlowSteps)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags =
@@ -961,21 +681,53 @@ responseAddTags =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddTags)
 
-responseListInstances :: ListInstancesResponse -> TestTree
-responseListInstances =
+responseCancelSteps :: CancelStepsResponse -> TestTree
+responseCancelSteps =
   res
-    "ListInstancesResponse"
-    "fixture/ListInstancesResponse.proto"
+    "CancelStepsResponse"
+    "fixture/CancelStepsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInstances)
+    (Proxy.Proxy :: Proxy.Proxy CancelSteps)
 
-responsePutAutoScalingPolicy :: PutAutoScalingPolicyResponse -> TestTree
-responsePutAutoScalingPolicy =
+responseCreateSecurityConfiguration :: CreateSecurityConfigurationResponse -> TestTree
+responseCreateSecurityConfiguration =
   res
-    "PutAutoScalingPolicyResponse"
-    "fixture/PutAutoScalingPolicyResponse.proto"
+    "CreateSecurityConfigurationResponse"
+    "fixture/CreateSecurityConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutAutoScalingPolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreateSecurityConfiguration)
+
+responseCreateStudio :: CreateStudioResponse -> TestTree
+responseCreateStudio =
+  res
+    "CreateStudioResponse"
+    "fixture/CreateStudioResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateStudio)
+
+responseCreateStudioSessionMapping :: CreateStudioSessionMappingResponse -> TestTree
+responseCreateStudioSessionMapping =
+  res
+    "CreateStudioSessionMappingResponse"
+    "fixture/CreateStudioSessionMappingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateStudioSessionMapping)
+
+responseDeleteSecurityConfiguration :: DeleteSecurityConfigurationResponse -> TestTree
+responseDeleteSecurityConfiguration =
+  res
+    "DeleteSecurityConfigurationResponse"
+    "fixture/DeleteSecurityConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSecurityConfiguration)
+
+responseDeleteStudio :: DeleteStudioResponse -> TestTree
+responseDeleteStudio =
+  res
+    "DeleteStudioResponse"
+    "fixture/DeleteStudioResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteStudio)
 
 responseDeleteStudioSessionMapping :: DeleteStudioSessionMappingResponse -> TestTree
 responseDeleteStudioSessionMapping =
@@ -985,21 +737,29 @@ responseDeleteStudioSessionMapping =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteStudioSessionMapping)
 
-responseUpdateStudioSessionMapping :: UpdateStudioSessionMappingResponse -> TestTree
-responseUpdateStudioSessionMapping =
+responseDescribeCluster :: DescribeClusterResponse -> TestTree
+responseDescribeCluster =
   res
-    "UpdateStudioSessionMappingResponse"
-    "fixture/UpdateStudioSessionMappingResponse.proto"
+    "DescribeClusterResponse"
+    "fixture/DescribeClusterResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateStudioSessionMapping)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCluster)
 
-responseListClusters :: ListClustersResponse -> TestTree
-responseListClusters =
+responseDescribeNotebookExecution :: DescribeNotebookExecutionResponse -> TestTree
+responseDescribeNotebookExecution =
   res
-    "ListClustersResponse"
-    "fixture/ListClustersResponse.proto"
+    "DescribeNotebookExecutionResponse"
+    "fixture/DescribeNotebookExecutionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListClusters)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNotebookExecution)
+
+responseDescribeReleaseLabel :: DescribeReleaseLabelResponse -> TestTree
+responseDescribeReleaseLabel =
+  res
+    "DescribeReleaseLabelResponse"
+    "fixture/DescribeReleaseLabelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeReleaseLabel)
 
 responseDescribeSecurityConfiguration :: DescribeSecurityConfigurationResponse -> TestTree
 responseDescribeSecurityConfiguration =
@@ -1009,21 +769,37 @@ responseDescribeSecurityConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeSecurityConfiguration)
 
-responseStopNotebookExecution :: StopNotebookExecutionResponse -> TestTree
-responseStopNotebookExecution =
+responseDescribeStep :: DescribeStepResponse -> TestTree
+responseDescribeStep =
   res
-    "StopNotebookExecutionResponse"
-    "fixture/StopNotebookExecutionResponse.proto"
+    "DescribeStepResponse"
+    "fixture/DescribeStepResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopNotebookExecution)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStep)
 
-responseListStudioSessionMappings :: ListStudioSessionMappingsResponse -> TestTree
-responseListStudioSessionMappings =
+responseDescribeStudio :: DescribeStudioResponse -> TestTree
+responseDescribeStudio =
   res
-    "ListStudioSessionMappingsResponse"
-    "fixture/ListStudioSessionMappingsResponse.proto"
+    "DescribeStudioResponse"
+    "fixture/DescribeStudioResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListStudioSessionMappings)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStudio)
+
+responseGetAutoTerminationPolicy :: GetAutoTerminationPolicyResponse -> TestTree
+responseGetAutoTerminationPolicy =
+  res
+    "GetAutoTerminationPolicyResponse"
+    "fixture/GetAutoTerminationPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAutoTerminationPolicy)
+
+responseGetBlockPublicAccessConfiguration :: GetBlockPublicAccessConfigurationResponse -> TestTree
+responseGetBlockPublicAccessConfiguration =
+  res
+    "GetBlockPublicAccessConfigurationResponse"
+    "fixture/GetBlockPublicAccessConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetBlockPublicAccessConfiguration)
 
 responseGetManagedScalingPolicy :: GetManagedScalingPolicyResponse -> TestTree
 responseGetManagedScalingPolicy =
@@ -1033,6 +809,30 @@ responseGetManagedScalingPolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetManagedScalingPolicy)
 
+responseGetStudioSessionMapping :: GetStudioSessionMappingResponse -> TestTree
+responseGetStudioSessionMapping =
+  res
+    "GetStudioSessionMappingResponse"
+    "fixture/GetStudioSessionMappingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetStudioSessionMapping)
+
+responseListBootstrapActions :: ListBootstrapActionsResponse -> TestTree
+responseListBootstrapActions =
+  res
+    "ListBootstrapActionsResponse"
+    "fixture/ListBootstrapActionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListBootstrapActions)
+
+responseListClusters :: ListClustersResponse -> TestTree
+responseListClusters =
+  res
+    "ListClustersResponse"
+    "fixture/ListClustersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListClusters)
+
 responseListInstanceFleets :: ListInstanceFleetsResponse -> TestTree
 responseListInstanceFleets =
   res
@@ -1040,6 +840,142 @@ responseListInstanceFleets =
     "fixture/ListInstanceFleetsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListInstanceFleets)
+
+responseListInstanceGroups :: ListInstanceGroupsResponse -> TestTree
+responseListInstanceGroups =
+  res
+    "ListInstanceGroupsResponse"
+    "fixture/ListInstanceGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListInstanceGroups)
+
+responseListInstances :: ListInstancesResponse -> TestTree
+responseListInstances =
+  res
+    "ListInstancesResponse"
+    "fixture/ListInstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListInstances)
+
+responseListNotebookExecutions :: ListNotebookExecutionsResponse -> TestTree
+responseListNotebookExecutions =
+  res
+    "ListNotebookExecutionsResponse"
+    "fixture/ListNotebookExecutionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListNotebookExecutions)
+
+responseListReleaseLabels :: ListReleaseLabelsResponse -> TestTree
+responseListReleaseLabels =
+  res
+    "ListReleaseLabelsResponse"
+    "fixture/ListReleaseLabelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListReleaseLabels)
+
+responseListSecurityConfigurations :: ListSecurityConfigurationsResponse -> TestTree
+responseListSecurityConfigurations =
+  res
+    "ListSecurityConfigurationsResponse"
+    "fixture/ListSecurityConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSecurityConfigurations)
+
+responseListSteps :: ListStepsResponse -> TestTree
+responseListSteps =
+  res
+    "ListStepsResponse"
+    "fixture/ListStepsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSteps)
+
+responseListStudioSessionMappings :: ListStudioSessionMappingsResponse -> TestTree
+responseListStudioSessionMappings =
+  res
+    "ListStudioSessionMappingsResponse"
+    "fixture/ListStudioSessionMappingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStudioSessionMappings)
+
+responseListStudios :: ListStudiosResponse -> TestTree
+responseListStudios =
+  res
+    "ListStudiosResponse"
+    "fixture/ListStudiosResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStudios)
+
+responseModifyCluster :: ModifyClusterResponse -> TestTree
+responseModifyCluster =
+  res
+    "ModifyClusterResponse"
+    "fixture/ModifyClusterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyCluster)
+
+responseModifyInstanceFleet :: ModifyInstanceFleetResponse -> TestTree
+responseModifyInstanceFleet =
+  res
+    "ModifyInstanceFleetResponse"
+    "fixture/ModifyInstanceFleetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyInstanceFleet)
+
+responseModifyInstanceGroups :: ModifyInstanceGroupsResponse -> TestTree
+responseModifyInstanceGroups =
+  res
+    "ModifyInstanceGroupsResponse"
+    "fixture/ModifyInstanceGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyInstanceGroups)
+
+responsePutAutoScalingPolicy :: PutAutoScalingPolicyResponse -> TestTree
+responsePutAutoScalingPolicy =
+  res
+    "PutAutoScalingPolicyResponse"
+    "fixture/PutAutoScalingPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAutoScalingPolicy)
+
+responsePutAutoTerminationPolicy :: PutAutoTerminationPolicyResponse -> TestTree
+responsePutAutoTerminationPolicy =
+  res
+    "PutAutoTerminationPolicyResponse"
+    "fixture/PutAutoTerminationPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAutoTerminationPolicy)
+
+responsePutBlockPublicAccessConfiguration :: PutBlockPublicAccessConfigurationResponse -> TestTree
+responsePutBlockPublicAccessConfiguration =
+  res
+    "PutBlockPublicAccessConfigurationResponse"
+    "fixture/PutBlockPublicAccessConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutBlockPublicAccessConfiguration)
+
+responsePutManagedScalingPolicy :: PutManagedScalingPolicyResponse -> TestTree
+responsePutManagedScalingPolicy =
+  res
+    "PutManagedScalingPolicyResponse"
+    "fixture/PutManagedScalingPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutManagedScalingPolicy)
+
+responseRemoveAutoScalingPolicy :: RemoveAutoScalingPolicyResponse -> TestTree
+responseRemoveAutoScalingPolicy =
+  res
+    "RemoveAutoScalingPolicyResponse"
+    "fixture/RemoveAutoScalingPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveAutoScalingPolicy)
+
+responseRemoveAutoTerminationPolicy :: RemoveAutoTerminationPolicyResponse -> TestTree
+responseRemoveAutoTerminationPolicy =
+  res
+    "RemoveAutoTerminationPolicyResponse"
+    "fixture/RemoveAutoTerminationPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveAutoTerminationPolicy)
 
 responseRemoveManagedScalingPolicy :: RemoveManagedScalingPolicyResponse -> TestTree
 responseRemoveManagedScalingPolicy =
@@ -1049,10 +985,74 @@ responseRemoveManagedScalingPolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RemoveManagedScalingPolicy)
 
-responseDescribeNotebookExecution :: DescribeNotebookExecutionResponse -> TestTree
-responseDescribeNotebookExecution =
+responseRemoveTags :: RemoveTagsResponse -> TestTree
+responseRemoveTags =
   res
-    "DescribeNotebookExecutionResponse"
-    "fixture/DescribeNotebookExecutionResponse.proto"
+    "RemoveTagsResponse"
+    "fixture/RemoveTagsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeNotebookExecution)
+    (Proxy.Proxy :: Proxy.Proxy RemoveTags)
+
+responseRunJobFlow :: RunJobFlowResponse -> TestTree
+responseRunJobFlow =
+  res
+    "RunJobFlowResponse"
+    "fixture/RunJobFlowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RunJobFlow)
+
+responseSetTerminationProtection :: SetTerminationProtectionResponse -> TestTree
+responseSetTerminationProtection =
+  res
+    "SetTerminationProtectionResponse"
+    "fixture/SetTerminationProtectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SetTerminationProtection)
+
+responseSetVisibleToAllUsers :: SetVisibleToAllUsersResponse -> TestTree
+responseSetVisibleToAllUsers =
+  res
+    "SetVisibleToAllUsersResponse"
+    "fixture/SetVisibleToAllUsersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SetVisibleToAllUsers)
+
+responseStartNotebookExecution :: StartNotebookExecutionResponse -> TestTree
+responseStartNotebookExecution =
+  res
+    "StartNotebookExecutionResponse"
+    "fixture/StartNotebookExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartNotebookExecution)
+
+responseStopNotebookExecution :: StopNotebookExecutionResponse -> TestTree
+responseStopNotebookExecution =
+  res
+    "StopNotebookExecutionResponse"
+    "fixture/StopNotebookExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopNotebookExecution)
+
+responseTerminateJobFlows :: TerminateJobFlowsResponse -> TestTree
+responseTerminateJobFlows =
+  res
+    "TerminateJobFlowsResponse"
+    "fixture/TerminateJobFlowsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TerminateJobFlows)
+
+responseUpdateStudio :: UpdateStudioResponse -> TestTree
+responseUpdateStudio =
+  res
+    "UpdateStudioResponse"
+    "fixture/UpdateStudioResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateStudio)
+
+responseUpdateStudioSessionMapping :: UpdateStudioSessionMappingResponse -> TestTree
+responseUpdateStudioSessionMapping =
+  res
+    "UpdateStudioSessionMappingResponse"
+    "fixture/UpdateStudioSessionMappingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateStudioSessionMapping)

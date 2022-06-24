@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceFleetStateChangeReason' smart constructor.
 data InstanceFleetStateChangeReason = InstanceFleetStateChangeReason'
-  { -- | A code corresponding to the reason the state change occurred.
-    code :: Prelude.Maybe InstanceFleetStateChangeReasonCode,
-    -- | An explanatory message.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | An explanatory message.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | A code corresponding to the reason the state change occurred.
+    code :: Prelude.Maybe InstanceFleetStateChangeReasonCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,25 @@ data InstanceFleetStateChangeReason = InstanceFleetStateChangeReason'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'instanceFleetStateChangeReason_code' - A code corresponding to the reason the state change occurred.
---
 -- 'message', 'instanceFleetStateChangeReason_message' - An explanatory message.
+--
+-- 'code', 'instanceFleetStateChangeReason_code' - A code corresponding to the reason the state change occurred.
 newInstanceFleetStateChangeReason ::
   InstanceFleetStateChangeReason
 newInstanceFleetStateChangeReason =
   InstanceFleetStateChangeReason'
-    { code =
+    { message =
         Prelude.Nothing,
-      message = Prelude.Nothing
+      code = Prelude.Nothing
     }
-
--- | A code corresponding to the reason the state change occurred.
-instanceFleetStateChangeReason_code :: Lens.Lens' InstanceFleetStateChangeReason (Prelude.Maybe InstanceFleetStateChangeReasonCode)
-instanceFleetStateChangeReason_code = Lens.lens (\InstanceFleetStateChangeReason' {code} -> code) (\s@InstanceFleetStateChangeReason' {} a -> s {code = a} :: InstanceFleetStateChangeReason)
 
 -- | An explanatory message.
 instanceFleetStateChangeReason_message :: Lens.Lens' InstanceFleetStateChangeReason (Prelude.Maybe Prelude.Text)
 instanceFleetStateChangeReason_message = Lens.lens (\InstanceFleetStateChangeReason' {message} -> message) (\s@InstanceFleetStateChangeReason' {} a -> s {message = a} :: InstanceFleetStateChangeReason)
+
+-- | A code corresponding to the reason the state change occurred.
+instanceFleetStateChangeReason_code :: Lens.Lens' InstanceFleetStateChangeReason (Prelude.Maybe InstanceFleetStateChangeReasonCode)
+instanceFleetStateChangeReason_code = Lens.lens (\InstanceFleetStateChangeReason' {code} -> code) (\s@InstanceFleetStateChangeReason' {} a -> s {code = a} :: InstanceFleetStateChangeReason)
 
 instance Core.FromJSON InstanceFleetStateChangeReason where
   parseJSON =
@@ -72,8 +72,8 @@ instance Core.FromJSON InstanceFleetStateChangeReason where
       "InstanceFleetStateChangeReason"
       ( \x ->
           InstanceFleetStateChangeReason'
-            Prelude.<$> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Code")
       )
 
 instance
@@ -83,12 +83,12 @@ instance
   hashWithSalt
     _salt
     InstanceFleetStateChangeReason' {..} =
-      _salt `Prelude.hashWithSalt` code
-        `Prelude.hashWithSalt` message
+      _salt `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` code
 
 instance
   Prelude.NFData
     InstanceFleetStateChangeReason
   where
   rnf InstanceFleetStateChangeReason' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

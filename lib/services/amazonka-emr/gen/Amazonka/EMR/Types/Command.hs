@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCommand' smart constructor.
 data Command = Command'
-  { -- | Arguments for Amazon EMR to pass to the command for execution.
-    args :: Prelude.Maybe [Prelude.Text],
+  { -- | The name of the command.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 location of the command script.
     scriptPath :: Prelude.Maybe Prelude.Text,
-    -- | The name of the command.
-    name :: Prelude.Maybe Prelude.Text
+    -- | Arguments for Amazon EMR to pass to the command for execution.
+    args :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,31 +44,31 @@ data Command = Command'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'args', 'command_args' - Arguments for Amazon EMR to pass to the command for execution.
+-- 'name', 'command_name' - The name of the command.
 --
 -- 'scriptPath', 'command_scriptPath' - The Amazon S3 location of the command script.
 --
--- 'name', 'command_name' - The name of the command.
+-- 'args', 'command_args' - Arguments for Amazon EMR to pass to the command for execution.
 newCommand ::
   Command
 newCommand =
   Command'
-    { args = Prelude.Nothing,
+    { name = Prelude.Nothing,
       scriptPath = Prelude.Nothing,
-      name = Prelude.Nothing
+      args = Prelude.Nothing
     }
 
--- | Arguments for Amazon EMR to pass to the command for execution.
-command_args :: Lens.Lens' Command (Prelude.Maybe [Prelude.Text])
-command_args = Lens.lens (\Command' {args} -> args) (\s@Command' {} a -> s {args = a} :: Command) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the command.
+command_name :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
+command_name = Lens.lens (\Command' {name} -> name) (\s@Command' {} a -> s {name = a} :: Command)
 
 -- | The Amazon S3 location of the command script.
 command_scriptPath :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
 command_scriptPath = Lens.lens (\Command' {scriptPath} -> scriptPath) (\s@Command' {} a -> s {scriptPath = a} :: Command)
 
--- | The name of the command.
-command_name :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
-command_name = Lens.lens (\Command' {name} -> name) (\s@Command' {} a -> s {name = a} :: Command)
+-- | Arguments for Amazon EMR to pass to the command for execution.
+command_args :: Lens.Lens' Command (Prelude.Maybe [Prelude.Text])
+command_args = Lens.lens (\Command' {args} -> args) (\s@Command' {} a -> s {args = a} :: Command) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Command where
   parseJSON =
@@ -76,19 +76,19 @@ instance Core.FromJSON Command where
       "Command"
       ( \x ->
           Command'
-            Prelude.<$> (x Core..:? "Args" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "ScriptPath")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Args" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Command where
   hashWithSalt _salt Command' {..} =
-    _salt `Prelude.hashWithSalt` args
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scriptPath
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` args
 
 instance Prelude.NFData Command where
   rnf Command' {..} =
-    Prelude.rnf args
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf scriptPath
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf args

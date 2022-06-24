@@ -28,8 +28,8 @@ module Amazonka.EMR.ListReleaseLabels
     newListReleaseLabels,
 
     -- * Request Lenses
-    listReleaseLabels_filters,
     listReleaseLabels_nextToken,
+    listReleaseLabels_filters,
     listReleaseLabels_maxResults,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.EMR.ListReleaseLabels
     newListReleaseLabelsResponse,
 
     -- * Response Lenses
-    listReleaseLabelsResponse_releaseLabels,
     listReleaseLabelsResponse_nextToken,
+    listReleaseLabelsResponse_releaseLabels,
     listReleaseLabelsResponse_httpStatus,
   )
 where
@@ -52,11 +52,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReleaseLabels' smart constructor.
 data ListReleaseLabels = ListReleaseLabels'
-  { -- | Filters the results of the request. @Prefix@ specifies the prefix of
-    -- release labels to return. @Application@ specifies the application
-    -- (with\/without version) of release labels to return.
-    filters :: Prelude.Maybe ReleaseLabelFilter,
-    -- | Specifies the next page of results. If @NextToken@ is not specified,
+  { -- | Specifies the next page of results. If @NextToken@ is not specified,
     -- which is usually the case for the first request of ListReleaseLabels,
     -- the first page of results are determined by other filtering parameters
     -- or by the latest version. The @ListReleaseLabels@ request fails if the
@@ -64,6 +60,10 @@ data ListReleaseLabels = ListReleaseLabels'
     -- are different from the original request, or if the @NextToken@ is
     -- expired or tampered with.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filters the results of the request. @Prefix@ specifies the prefix of
+    -- release labels to return. @Application@ specifies the application
+    -- (with\/without version) of release labels to return.
+    filters :: Prelude.Maybe ReleaseLabelFilter,
     -- | Defines the maximum number of release labels to return in a single
     -- response. The default is @100@.
     maxResults :: Prelude.Maybe Prelude.Natural
@@ -78,10 +78,6 @@ data ListReleaseLabels = ListReleaseLabels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'listReleaseLabels_filters' - Filters the results of the request. @Prefix@ specifies the prefix of
--- release labels to return. @Application@ specifies the application
--- (with\/without version) of release labels to return.
---
 -- 'nextToken', 'listReleaseLabels_nextToken' - Specifies the next page of results. If @NextToken@ is not specified,
 -- which is usually the case for the first request of ListReleaseLabels,
 -- the first page of results are determined by other filtering parameters
@@ -90,22 +86,20 @@ data ListReleaseLabels = ListReleaseLabels'
 -- are different from the original request, or if the @NextToken@ is
 -- expired or tampered with.
 --
+-- 'filters', 'listReleaseLabels_filters' - Filters the results of the request. @Prefix@ specifies the prefix of
+-- release labels to return. @Application@ specifies the application
+-- (with\/without version) of release labels to return.
+--
 -- 'maxResults', 'listReleaseLabels_maxResults' - Defines the maximum number of release labels to return in a single
 -- response. The default is @100@.
 newListReleaseLabels ::
   ListReleaseLabels
 newListReleaseLabels =
   ListReleaseLabels'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | Filters the results of the request. @Prefix@ specifies the prefix of
--- release labels to return. @Application@ specifies the application
--- (with\/without version) of release labels to return.
-listReleaseLabels_filters :: Lens.Lens' ListReleaseLabels (Prelude.Maybe ReleaseLabelFilter)
-listReleaseLabels_filters = Lens.lens (\ListReleaseLabels' {filters} -> filters) (\s@ListReleaseLabels' {} a -> s {filters = a} :: ListReleaseLabels)
 
 -- | Specifies the next page of results. If @NextToken@ is not specified,
 -- which is usually the case for the first request of ListReleaseLabels,
@@ -116,6 +110,12 @@ listReleaseLabels_filters = Lens.lens (\ListReleaseLabels' {filters} -> filters)
 -- expired or tampered with.
 listReleaseLabels_nextToken :: Lens.Lens' ListReleaseLabels (Prelude.Maybe Prelude.Text)
 listReleaseLabels_nextToken = Lens.lens (\ListReleaseLabels' {nextToken} -> nextToken) (\s@ListReleaseLabels' {} a -> s {nextToken = a} :: ListReleaseLabels)
+
+-- | Filters the results of the request. @Prefix@ specifies the prefix of
+-- release labels to return. @Application@ specifies the application
+-- (with\/without version) of release labels to return.
+listReleaseLabels_filters :: Lens.Lens' ListReleaseLabels (Prelude.Maybe ReleaseLabelFilter)
+listReleaseLabels_filters = Lens.lens (\ListReleaseLabels' {filters} -> filters) (\s@ListReleaseLabels' {} a -> s {filters = a} :: ListReleaseLabels)
 
 -- | Defines the maximum number of release labels to return in a single
 -- response. The default is @100@.
@@ -131,21 +131,21 @@ instance Core.AWSRequest ListReleaseLabels where
     Response.receiveJSON
       ( \s h x ->
           ListReleaseLabelsResponse'
-            Prelude.<$> (x Core..?> "ReleaseLabels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ReleaseLabels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListReleaseLabels where
   hashWithSalt _salt ListReleaseLabels' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListReleaseLabels where
   rnf ListReleaseLabels' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListReleaseLabels where
@@ -167,8 +167,8 @@ instance Core.ToJSON ListReleaseLabels where
   toJSON ListReleaseLabels' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -181,11 +181,11 @@ instance Core.ToQuery ListReleaseLabels where
 
 -- | /See:/ 'newListReleaseLabelsResponse' smart constructor.
 data ListReleaseLabelsResponse = ListReleaseLabelsResponse'
-  { -- | The returned release labels.
-    releaseLabels :: Prelude.Maybe [Prelude.Text],
-    -- | Used to paginate the next page of results if specified in the next
+  { -- | Used to paginate the next page of results if specified in the next
     -- @ListReleaseLabels@ request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The returned release labels.
+    releaseLabels :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,10 +199,10 @@ data ListReleaseLabelsResponse = ListReleaseLabelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'releaseLabels', 'listReleaseLabelsResponse_releaseLabels' - The returned release labels.
---
 -- 'nextToken', 'listReleaseLabelsResponse_nextToken' - Used to paginate the next page of results if specified in the next
 -- @ListReleaseLabels@ request.
+--
+-- 'releaseLabels', 'listReleaseLabelsResponse_releaseLabels' - The returned release labels.
 --
 -- 'httpStatus', 'listReleaseLabelsResponse_httpStatus' - The response's http status code.
 newListReleaseLabelsResponse ::
@@ -211,20 +211,20 @@ newListReleaseLabelsResponse ::
   ListReleaseLabelsResponse
 newListReleaseLabelsResponse pHttpStatus_ =
   ListReleaseLabelsResponse'
-    { releaseLabels =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      releaseLabels = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The returned release labels.
-listReleaseLabelsResponse_releaseLabels :: Lens.Lens' ListReleaseLabelsResponse (Prelude.Maybe [Prelude.Text])
-listReleaseLabelsResponse_releaseLabels = Lens.lens (\ListReleaseLabelsResponse' {releaseLabels} -> releaseLabels) (\s@ListReleaseLabelsResponse' {} a -> s {releaseLabels = a} :: ListReleaseLabelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Used to paginate the next page of results if specified in the next
 -- @ListReleaseLabels@ request.
 listReleaseLabelsResponse_nextToken :: Lens.Lens' ListReleaseLabelsResponse (Prelude.Maybe Prelude.Text)
 listReleaseLabelsResponse_nextToken = Lens.lens (\ListReleaseLabelsResponse' {nextToken} -> nextToken) (\s@ListReleaseLabelsResponse' {} a -> s {nextToken = a} :: ListReleaseLabelsResponse)
+
+-- | The returned release labels.
+listReleaseLabelsResponse_releaseLabels :: Lens.Lens' ListReleaseLabelsResponse (Prelude.Maybe [Prelude.Text])
+listReleaseLabelsResponse_releaseLabels = Lens.lens (\ListReleaseLabelsResponse' {releaseLabels} -> releaseLabels) (\s@ListReleaseLabelsResponse' {} a -> s {releaseLabels = a} :: ListReleaseLabelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listReleaseLabelsResponse_httpStatus :: Lens.Lens' ListReleaseLabelsResponse Prelude.Int
@@ -232,6 +232,6 @@ listReleaseLabelsResponse_httpStatus = Lens.lens (\ListReleaseLabelsResponse' {h
 
 instance Prelude.NFData ListReleaseLabelsResponse where
   rnf ListReleaseLabelsResponse' {..} =
-    Prelude.rnf releaseLabels
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf releaseLabels
       `Prelude.seq` Prelude.rnf httpStatus

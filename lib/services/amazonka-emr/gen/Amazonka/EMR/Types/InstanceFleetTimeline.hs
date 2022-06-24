@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceFleetTimeline' smart constructor.
 data InstanceFleetTimeline = InstanceFleetTimeline'
-  { -- | The time and date the instance fleet was ready to run jobs.
-    readyDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The time and date the instance fleet was created.
+  { -- | The time and date the instance fleet was created.
     creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The time and date the instance fleet was ready to run jobs.
+    readyDateTime :: Prelude.Maybe Core.POSIX,
     -- | The time and date the instance fleet terminated.
     endDateTime :: Prelude.Maybe Core.POSIX
   }
@@ -49,28 +49,28 @@ data InstanceFleetTimeline = InstanceFleetTimeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readyDateTime', 'instanceFleetTimeline_readyDateTime' - The time and date the instance fleet was ready to run jobs.
---
 -- 'creationDateTime', 'instanceFleetTimeline_creationDateTime' - The time and date the instance fleet was created.
+--
+-- 'readyDateTime', 'instanceFleetTimeline_readyDateTime' - The time and date the instance fleet was ready to run jobs.
 --
 -- 'endDateTime', 'instanceFleetTimeline_endDateTime' - The time and date the instance fleet terminated.
 newInstanceFleetTimeline ::
   InstanceFleetTimeline
 newInstanceFleetTimeline =
   InstanceFleetTimeline'
-    { readyDateTime =
+    { creationDateTime =
         Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
+      readyDateTime = Prelude.Nothing,
       endDateTime = Prelude.Nothing
     }
-
--- | The time and date the instance fleet was ready to run jobs.
-instanceFleetTimeline_readyDateTime :: Lens.Lens' InstanceFleetTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceFleetTimeline_readyDateTime = Lens.lens (\InstanceFleetTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceFleetTimeline' {} a -> s {readyDateTime = a} :: InstanceFleetTimeline) Prelude.. Lens.mapping Core._Time
 
 -- | The time and date the instance fleet was created.
 instanceFleetTimeline_creationDateTime :: Lens.Lens' InstanceFleetTimeline (Prelude.Maybe Prelude.UTCTime)
 instanceFleetTimeline_creationDateTime = Lens.lens (\InstanceFleetTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceFleetTimeline' {} a -> s {creationDateTime = a} :: InstanceFleetTimeline) Prelude.. Lens.mapping Core._Time
+
+-- | The time and date the instance fleet was ready to run jobs.
+instanceFleetTimeline_readyDateTime :: Lens.Lens' InstanceFleetTimeline (Prelude.Maybe Prelude.UTCTime)
+instanceFleetTimeline_readyDateTime = Lens.lens (\InstanceFleetTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceFleetTimeline' {} a -> s {readyDateTime = a} :: InstanceFleetTimeline) Prelude.. Lens.mapping Core._Time
 
 -- | The time and date the instance fleet terminated.
 instanceFleetTimeline_endDateTime :: Lens.Lens' InstanceFleetTimeline (Prelude.Maybe Prelude.UTCTime)
@@ -82,19 +82,19 @@ instance Core.FromJSON InstanceFleetTimeline where
       "InstanceFleetTimeline"
       ( \x ->
           InstanceFleetTimeline'
-            Prelude.<$> (x Core..:? "ReadyDateTime")
-            Prelude.<*> (x Core..:? "CreationDateTime")
+            Prelude.<$> (x Core..:? "CreationDateTime")
+            Prelude.<*> (x Core..:? "ReadyDateTime")
             Prelude.<*> (x Core..:? "EndDateTime")
       )
 
 instance Prelude.Hashable InstanceFleetTimeline where
   hashWithSalt _salt InstanceFleetTimeline' {..} =
-    _salt `Prelude.hashWithSalt` readyDateTime
-      `Prelude.hashWithSalt` creationDateTime
+    _salt `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` readyDateTime
       `Prelude.hashWithSalt` endDateTime
 
 instance Prelude.NFData InstanceFleetTimeline where
   rnf InstanceFleetTimeline' {..} =
-    Prelude.rnf readyDateTime
-      `Prelude.seq` Prelude.rnf creationDateTime
+    Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf readyDateTime
       `Prelude.seq` Prelude.rnf endDateTime

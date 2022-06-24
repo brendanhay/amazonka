@@ -30,8 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStep' smart constructor.
 data Step = Step'
-  { -- | The current execution status details of the cluster step.
+  { -- | The name of the cluster step.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The current execution status details of the cluster step.
     status :: Prelude.Maybe StepStatus,
+    -- | The identifier of the cluster step.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The action to take when the cluster step fails. Possible values are
     -- @TERMINATE_CLUSTER@, @CANCEL_AND_WAIT@, and @CONTINUE@.
     -- @TERMINATE_JOB_FLOW@ is provided for backward compatibility. We
@@ -51,11 +55,7 @@ data Step = Step'
     -- @TERMINATE_CLUSTER@, the cluster does not terminate.
     actionOnFailure :: Prelude.Maybe ActionOnFailure,
     -- | The Hadoop job configuration of the cluster step.
-    config :: Prelude.Maybe HadoopStepConfig,
-    -- | The name of the cluster step.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the cluster step.
-    id :: Prelude.Maybe Prelude.Text
+    config :: Prelude.Maybe HadoopStepConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,7 +67,11 @@ data Step = Step'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'step_name' - The name of the cluster step.
+--
 -- 'status', 'step_status' - The current execution status details of the cluster step.
+--
+-- 'id', 'step_id' - The identifier of the cluster step.
 --
 -- 'actionOnFailure', 'step_actionOnFailure' - The action to take when the cluster step fails. Possible values are
 -- @TERMINATE_CLUSTER@, @CANCEL_AND_WAIT@, and @CONTINUE@.
@@ -88,24 +92,28 @@ data Step = Step'
 -- @TERMINATE_CLUSTER@, the cluster does not terminate.
 --
 -- 'config', 'step_config' - The Hadoop job configuration of the cluster step.
---
--- 'name', 'step_name' - The name of the cluster step.
---
--- 'id', 'step_id' - The identifier of the cluster step.
 newStep ::
   Step
 newStep =
   Step'
-    { status = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      status = Prelude.Nothing,
+      id = Prelude.Nothing,
       actionOnFailure = Prelude.Nothing,
-      config = Prelude.Nothing,
-      name = Prelude.Nothing,
-      id = Prelude.Nothing
+      config = Prelude.Nothing
     }
+
+-- | The name of the cluster step.
+step_name :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
+step_name = Lens.lens (\Step' {name} -> name) (\s@Step' {} a -> s {name = a} :: Step)
 
 -- | The current execution status details of the cluster step.
 step_status :: Lens.Lens' Step (Prelude.Maybe StepStatus)
 step_status = Lens.lens (\Step' {status} -> status) (\s@Step' {} a -> s {status = a} :: Step)
+
+-- | The identifier of the cluster step.
+step_id :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
+step_id = Lens.lens (\Step' {id} -> id) (\s@Step' {} a -> s {id = a} :: Step)
 
 -- | The action to take when the cluster step fails. Possible values are
 -- @TERMINATE_CLUSTER@, @CANCEL_AND_WAIT@, and @CONTINUE@.
@@ -131,39 +139,31 @@ step_actionOnFailure = Lens.lens (\Step' {actionOnFailure} -> actionOnFailure) (
 step_config :: Lens.Lens' Step (Prelude.Maybe HadoopStepConfig)
 step_config = Lens.lens (\Step' {config} -> config) (\s@Step' {} a -> s {config = a} :: Step)
 
--- | The name of the cluster step.
-step_name :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
-step_name = Lens.lens (\Step' {name} -> name) (\s@Step' {} a -> s {name = a} :: Step)
-
--- | The identifier of the cluster step.
-step_id :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
-step_id = Lens.lens (\Step' {id} -> id) (\s@Step' {} a -> s {id = a} :: Step)
-
 instance Core.FromJSON Step where
   parseJSON =
     Core.withObject
       "Step"
       ( \x ->
           Step'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "ActionOnFailure")
             Prelude.<*> (x Core..:? "Config")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable Step where
   hashWithSalt _salt Step' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` actionOnFailure
       `Prelude.hashWithSalt` config
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData Step where
   rnf Step' {..} =
-    Prelude.rnf status
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf actionOnFailure
       `Prelude.seq` Prelude.rnf config
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id

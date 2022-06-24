@@ -29,17 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSessionMappingDetail' smart constructor.
 data SessionMappingDetail = SessionMappingDetail'
-  { -- | The time the session mapping was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the Amazon EMR Studio.
+  { -- | The ID of the Amazon EMR Studio.
     studioId :: Prelude.Maybe Prelude.Text,
-    -- | The time the session mapping was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | Specifies whether the identity mapped to the Amazon EMR Studio is a user
-    -- or a group.
-    identityType :: Prelude.Maybe IdentityType,
-    -- | The globally unique identifier (GUID) of the user or group.
-    identityId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the session policy associated with the
     -- user or group.
     sessionPolicyArn :: Prelude.Maybe Prelude.Text,
@@ -48,7 +39,16 @@ data SessionMappingDetail = SessionMappingDetail'
     -- and
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
     -- in the /Amazon Web Services SSO Identity Store API Reference/.
-    identityName :: Prelude.Maybe Prelude.Text
+    identityName :: Prelude.Maybe Prelude.Text,
+    -- | The time the session mapping was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The time the session mapping was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The globally unique identifier (GUID) of the user or group.
+    identityId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the identity mapped to the Amazon EMR Studio is a user
+    -- or a group.
+    identityType :: Prelude.Maybe IdentityType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,16 +60,7 @@ data SessionMappingDetail = SessionMappingDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'sessionMappingDetail_creationTime' - The time the session mapping was created.
---
 -- 'studioId', 'sessionMappingDetail_studioId' - The ID of the Amazon EMR Studio.
---
--- 'lastModifiedTime', 'sessionMappingDetail_lastModifiedTime' - The time the session mapping was last modified.
---
--- 'identityType', 'sessionMappingDetail_identityType' - Specifies whether the identity mapped to the Amazon EMR Studio is a user
--- or a group.
---
--- 'identityId', 'sessionMappingDetail_identityId' - The globally unique identifier (GUID) of the user or group.
 --
 -- 'sessionPolicyArn', 'sessionMappingDetail_sessionPolicyArn' - The Amazon Resource Name (ARN) of the session policy associated with the
 -- user or group.
@@ -79,40 +70,31 @@ data SessionMappingDetail = SessionMappingDetail'
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
 -- in the /Amazon Web Services SSO Identity Store API Reference/.
+--
+-- 'lastModifiedTime', 'sessionMappingDetail_lastModifiedTime' - The time the session mapping was last modified.
+--
+-- 'creationTime', 'sessionMappingDetail_creationTime' - The time the session mapping was created.
+--
+-- 'identityId', 'sessionMappingDetail_identityId' - The globally unique identifier (GUID) of the user or group.
+--
+-- 'identityType', 'sessionMappingDetail_identityType' - Specifies whether the identity mapped to the Amazon EMR Studio is a user
+-- or a group.
 newSessionMappingDetail ::
   SessionMappingDetail
 newSessionMappingDetail =
   SessionMappingDetail'
-    { creationTime =
-        Prelude.Nothing,
-      studioId = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      identityType = Prelude.Nothing,
-      identityId = Prelude.Nothing,
+    { studioId = Prelude.Nothing,
       sessionPolicyArn = Prelude.Nothing,
-      identityName = Prelude.Nothing
+      identityName = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      identityId = Prelude.Nothing,
+      identityType = Prelude.Nothing
     }
-
--- | The time the session mapping was created.
-sessionMappingDetail_creationTime :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.UTCTime)
-sessionMappingDetail_creationTime = Lens.lens (\SessionMappingDetail' {creationTime} -> creationTime) (\s@SessionMappingDetail' {} a -> s {creationTime = a} :: SessionMappingDetail) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the Amazon EMR Studio.
 sessionMappingDetail_studioId :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.Text)
 sessionMappingDetail_studioId = Lens.lens (\SessionMappingDetail' {studioId} -> studioId) (\s@SessionMappingDetail' {} a -> s {studioId = a} :: SessionMappingDetail)
-
--- | The time the session mapping was last modified.
-sessionMappingDetail_lastModifiedTime :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.UTCTime)
-sessionMappingDetail_lastModifiedTime = Lens.lens (\SessionMappingDetail' {lastModifiedTime} -> lastModifiedTime) (\s@SessionMappingDetail' {} a -> s {lastModifiedTime = a} :: SessionMappingDetail) Prelude.. Lens.mapping Core._Time
-
--- | Specifies whether the identity mapped to the Amazon EMR Studio is a user
--- or a group.
-sessionMappingDetail_identityType :: Lens.Lens' SessionMappingDetail (Prelude.Maybe IdentityType)
-sessionMappingDetail_identityType = Lens.lens (\SessionMappingDetail' {identityType} -> identityType) (\s@SessionMappingDetail' {} a -> s {identityType = a} :: SessionMappingDetail)
-
--- | The globally unique identifier (GUID) of the user or group.
-sessionMappingDetail_identityId :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.Text)
-sessionMappingDetail_identityId = Lens.lens (\SessionMappingDetail' {identityId} -> identityId) (\s@SessionMappingDetail' {} a -> s {identityId = a} :: SessionMappingDetail)
 
 -- | The Amazon Resource Name (ARN) of the session policy associated with the
 -- user or group.
@@ -127,37 +109,54 @@ sessionMappingDetail_sessionPolicyArn = Lens.lens (\SessionMappingDetail' {sessi
 sessionMappingDetail_identityName :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.Text)
 sessionMappingDetail_identityName = Lens.lens (\SessionMappingDetail' {identityName} -> identityName) (\s@SessionMappingDetail' {} a -> s {identityName = a} :: SessionMappingDetail)
 
+-- | The time the session mapping was last modified.
+sessionMappingDetail_lastModifiedTime :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.UTCTime)
+sessionMappingDetail_lastModifiedTime = Lens.lens (\SessionMappingDetail' {lastModifiedTime} -> lastModifiedTime) (\s@SessionMappingDetail' {} a -> s {lastModifiedTime = a} :: SessionMappingDetail) Prelude.. Lens.mapping Core._Time
+
+-- | The time the session mapping was created.
+sessionMappingDetail_creationTime :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.UTCTime)
+sessionMappingDetail_creationTime = Lens.lens (\SessionMappingDetail' {creationTime} -> creationTime) (\s@SessionMappingDetail' {} a -> s {creationTime = a} :: SessionMappingDetail) Prelude.. Lens.mapping Core._Time
+
+-- | The globally unique identifier (GUID) of the user or group.
+sessionMappingDetail_identityId :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.Text)
+sessionMappingDetail_identityId = Lens.lens (\SessionMappingDetail' {identityId} -> identityId) (\s@SessionMappingDetail' {} a -> s {identityId = a} :: SessionMappingDetail)
+
+-- | Specifies whether the identity mapped to the Amazon EMR Studio is a user
+-- or a group.
+sessionMappingDetail_identityType :: Lens.Lens' SessionMappingDetail (Prelude.Maybe IdentityType)
+sessionMappingDetail_identityType = Lens.lens (\SessionMappingDetail' {identityType} -> identityType) (\s@SessionMappingDetail' {} a -> s {identityType = a} :: SessionMappingDetail)
+
 instance Core.FromJSON SessionMappingDetail where
   parseJSON =
     Core.withObject
       "SessionMappingDetail"
       ( \x ->
           SessionMappingDetail'
-            Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "StudioId")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "IdentityType")
-            Prelude.<*> (x Core..:? "IdentityId")
+            Prelude.<$> (x Core..:? "StudioId")
             Prelude.<*> (x Core..:? "SessionPolicyArn")
             Prelude.<*> (x Core..:? "IdentityName")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "IdentityId")
+            Prelude.<*> (x Core..:? "IdentityType")
       )
 
 instance Prelude.Hashable SessionMappingDetail where
   hashWithSalt _salt SessionMappingDetail' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` studioId
-      `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` identityType
-      `Prelude.hashWithSalt` identityId
+    _salt `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` sessionPolicyArn
       `Prelude.hashWithSalt` identityName
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` identityType
 
 instance Prelude.NFData SessionMappingDetail where
   rnf SessionMappingDetail' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf identityType
-      `Prelude.seq` Prelude.rnf identityId
+    Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf sessionPolicyArn
       `Prelude.seq` Prelude.rnf identityName
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf identityType

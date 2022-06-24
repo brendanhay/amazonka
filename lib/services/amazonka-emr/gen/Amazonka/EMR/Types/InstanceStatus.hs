@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceStatus' smart constructor.
 data InstanceStatus = InstanceStatus'
-  { -- | The current state of the instance.
-    state :: Prelude.Maybe InstanceState,
-    -- | The details of the status change reason for the instance.
+  { -- | The details of the status change reason for the instance.
     stateChangeReason :: Prelude.Maybe InstanceStateChangeReason,
     -- | The timeline of the instance status over time.
-    timeline :: Prelude.Maybe InstanceTimeline
+    timeline :: Prelude.Maybe InstanceTimeline,
+    -- | The current state of the instance.
+    state :: Prelude.Maybe InstanceState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,23 +47,20 @@ data InstanceStatus = InstanceStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'instanceStatus_state' - The current state of the instance.
---
 -- 'stateChangeReason', 'instanceStatus_stateChangeReason' - The details of the status change reason for the instance.
 --
 -- 'timeline', 'instanceStatus_timeline' - The timeline of the instance status over time.
+--
+-- 'state', 'instanceStatus_state' - The current state of the instance.
 newInstanceStatus ::
   InstanceStatus
 newInstanceStatus =
   InstanceStatus'
-    { state = Prelude.Nothing,
-      stateChangeReason = Prelude.Nothing,
-      timeline = Prelude.Nothing
+    { stateChangeReason =
+        Prelude.Nothing,
+      timeline = Prelude.Nothing,
+      state = Prelude.Nothing
     }
-
--- | The current state of the instance.
-instanceStatus_state :: Lens.Lens' InstanceStatus (Prelude.Maybe InstanceState)
-instanceStatus_state = Lens.lens (\InstanceStatus' {state} -> state) (\s@InstanceStatus' {} a -> s {state = a} :: InstanceStatus)
 
 -- | The details of the status change reason for the instance.
 instanceStatus_stateChangeReason :: Lens.Lens' InstanceStatus (Prelude.Maybe InstanceStateChangeReason)
@@ -73,25 +70,29 @@ instanceStatus_stateChangeReason = Lens.lens (\InstanceStatus' {stateChangeReaso
 instanceStatus_timeline :: Lens.Lens' InstanceStatus (Prelude.Maybe InstanceTimeline)
 instanceStatus_timeline = Lens.lens (\InstanceStatus' {timeline} -> timeline) (\s@InstanceStatus' {} a -> s {timeline = a} :: InstanceStatus)
 
+-- | The current state of the instance.
+instanceStatus_state :: Lens.Lens' InstanceStatus (Prelude.Maybe InstanceState)
+instanceStatus_state = Lens.lens (\InstanceStatus' {state} -> state) (\s@InstanceStatus' {} a -> s {state = a} :: InstanceStatus)
+
 instance Core.FromJSON InstanceStatus where
   parseJSON =
     Core.withObject
       "InstanceStatus"
       ( \x ->
           InstanceStatus'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "StateChangeReason")
+            Prelude.<$> (x Core..:? "StateChangeReason")
             Prelude.<*> (x Core..:? "Timeline")
+            Prelude.<*> (x Core..:? "State")
       )
 
 instance Prelude.Hashable InstanceStatus where
   hashWithSalt _salt InstanceStatus' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` stateChangeReason
+    _salt `Prelude.hashWithSalt` stateChangeReason
       `Prelude.hashWithSalt` timeline
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData InstanceStatus where
   rnf InstanceStatus' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateChangeReason
+    Prelude.rnf stateChangeReason
       `Prelude.seq` Prelude.rnf timeline
+      `Prelude.seq` Prelude.rnf state

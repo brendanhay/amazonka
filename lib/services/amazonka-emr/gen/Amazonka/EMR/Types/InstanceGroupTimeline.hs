@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceGroupTimeline' smart constructor.
 data InstanceGroupTimeline = InstanceGroupTimeline'
-  { -- | The date and time when the instance group became ready to perform tasks.
-    readyDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The creation date and time of the instance group.
+  { -- | The creation date and time of the instance group.
     creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The date and time when the instance group became ready to perform tasks.
+    readyDateTime :: Prelude.Maybe Core.POSIX,
     -- | The date and time when the instance group terminated.
     endDateTime :: Prelude.Maybe Core.POSIX
   }
@@ -44,28 +44,28 @@ data InstanceGroupTimeline = InstanceGroupTimeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readyDateTime', 'instanceGroupTimeline_readyDateTime' - The date and time when the instance group became ready to perform tasks.
---
 -- 'creationDateTime', 'instanceGroupTimeline_creationDateTime' - The creation date and time of the instance group.
+--
+-- 'readyDateTime', 'instanceGroupTimeline_readyDateTime' - The date and time when the instance group became ready to perform tasks.
 --
 -- 'endDateTime', 'instanceGroupTimeline_endDateTime' - The date and time when the instance group terminated.
 newInstanceGroupTimeline ::
   InstanceGroupTimeline
 newInstanceGroupTimeline =
   InstanceGroupTimeline'
-    { readyDateTime =
+    { creationDateTime =
         Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
+      readyDateTime = Prelude.Nothing,
       endDateTime = Prelude.Nothing
     }
-
--- | The date and time when the instance group became ready to perform tasks.
-instanceGroupTimeline_readyDateTime :: Lens.Lens' InstanceGroupTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceGroupTimeline_readyDateTime = Lens.lens (\InstanceGroupTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceGroupTimeline' {} a -> s {readyDateTime = a} :: InstanceGroupTimeline) Prelude.. Lens.mapping Core._Time
 
 -- | The creation date and time of the instance group.
 instanceGroupTimeline_creationDateTime :: Lens.Lens' InstanceGroupTimeline (Prelude.Maybe Prelude.UTCTime)
 instanceGroupTimeline_creationDateTime = Lens.lens (\InstanceGroupTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceGroupTimeline' {} a -> s {creationDateTime = a} :: InstanceGroupTimeline) Prelude.. Lens.mapping Core._Time
+
+-- | The date and time when the instance group became ready to perform tasks.
+instanceGroupTimeline_readyDateTime :: Lens.Lens' InstanceGroupTimeline (Prelude.Maybe Prelude.UTCTime)
+instanceGroupTimeline_readyDateTime = Lens.lens (\InstanceGroupTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceGroupTimeline' {} a -> s {readyDateTime = a} :: InstanceGroupTimeline) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time when the instance group terminated.
 instanceGroupTimeline_endDateTime :: Lens.Lens' InstanceGroupTimeline (Prelude.Maybe Prelude.UTCTime)
@@ -77,19 +77,19 @@ instance Core.FromJSON InstanceGroupTimeline where
       "InstanceGroupTimeline"
       ( \x ->
           InstanceGroupTimeline'
-            Prelude.<$> (x Core..:? "ReadyDateTime")
-            Prelude.<*> (x Core..:? "CreationDateTime")
+            Prelude.<$> (x Core..:? "CreationDateTime")
+            Prelude.<*> (x Core..:? "ReadyDateTime")
             Prelude.<*> (x Core..:? "EndDateTime")
       )
 
 instance Prelude.Hashable InstanceGroupTimeline where
   hashWithSalt _salt InstanceGroupTimeline' {..} =
-    _salt `Prelude.hashWithSalt` readyDateTime
-      `Prelude.hashWithSalt` creationDateTime
+    _salt `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` readyDateTime
       `Prelude.hashWithSalt` endDateTime
 
 instance Prelude.NFData InstanceGroupTimeline where
   rnf InstanceGroupTimeline' {..} =
-    Prelude.rnf readyDateTime
-      `Prelude.seq` Prelude.rnf creationDateTime
+    Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf readyDateTime
       `Prelude.seq` Prelude.rnf endDateTime

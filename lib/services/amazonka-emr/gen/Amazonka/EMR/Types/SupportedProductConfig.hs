@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSupportedProductConfig' smart constructor.
 data SupportedProductConfig = SupportedProductConfig'
-  { -- | The list of user-supplied arguments.
-    args :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the product configuration.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the product configuration.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The list of user-supplied arguments.
+    args :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,39 +44,39 @@ data SupportedProductConfig = SupportedProductConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'args', 'supportedProductConfig_args' - The list of user-supplied arguments.
---
 -- 'name', 'supportedProductConfig_name' - The name of the product configuration.
+--
+-- 'args', 'supportedProductConfig_args' - The list of user-supplied arguments.
 newSupportedProductConfig ::
   SupportedProductConfig
 newSupportedProductConfig =
   SupportedProductConfig'
-    { args = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      args = Prelude.Nothing
     }
-
--- | The list of user-supplied arguments.
-supportedProductConfig_args :: Lens.Lens' SupportedProductConfig (Prelude.Maybe [Prelude.Text])
-supportedProductConfig_args = Lens.lens (\SupportedProductConfig' {args} -> args) (\s@SupportedProductConfig' {} a -> s {args = a} :: SupportedProductConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the product configuration.
 supportedProductConfig_name :: Lens.Lens' SupportedProductConfig (Prelude.Maybe Prelude.Text)
 supportedProductConfig_name = Lens.lens (\SupportedProductConfig' {name} -> name) (\s@SupportedProductConfig' {} a -> s {name = a} :: SupportedProductConfig)
 
+-- | The list of user-supplied arguments.
+supportedProductConfig_args :: Lens.Lens' SupportedProductConfig (Prelude.Maybe [Prelude.Text])
+supportedProductConfig_args = Lens.lens (\SupportedProductConfig' {args} -> args) (\s@SupportedProductConfig' {} a -> s {args = a} :: SupportedProductConfig) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable SupportedProductConfig where
   hashWithSalt _salt SupportedProductConfig' {..} =
-    _salt `Prelude.hashWithSalt` args
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` args
 
 instance Prelude.NFData SupportedProductConfig where
   rnf SupportedProductConfig' {..} =
-    Prelude.rnf args `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf args
 
 instance Core.ToJSON SupportedProductConfig where
   toJSON SupportedProductConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Args" Core..=) Prelude.<$> args,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Args" Core..=) Prelude.<$> args
           ]
       )

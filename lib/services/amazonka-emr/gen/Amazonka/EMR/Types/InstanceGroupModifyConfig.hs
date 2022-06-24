@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceGroupModifyConfig' smart constructor.
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
-  { -- | Target size for the instance group.
-    instanceCount :: Prelude.Maybe Prelude.Int,
-    -- | A list of new or modified configurations to apply for an instance group.
-    configurations :: Prelude.Maybe [Configuration],
-    -- | The EC2 InstanceIds to terminate. After you terminate the instances, the
+  { -- | The EC2 InstanceIds to terminate. After you terminate the instances, the
     -- instance group will not return to its original requested size.
     eC2InstanceIdsToTerminate :: Prelude.Maybe [Prelude.Text],
     -- | Policy for customizing shrink operations.
     shrinkPolicy :: Prelude.Maybe ShrinkPolicy,
+    -- | A list of new or modified configurations to apply for an instance group.
+    configurations :: Prelude.Maybe [Configuration],
+    -- | Target size for the instance group.
+    instanceCount :: Prelude.Maybe Prelude.Int,
     -- | Unique ID of the instance group to modify.
     instanceGroupId :: Prelude.Text
   }
@@ -51,14 +51,14 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceCount', 'instanceGroupModifyConfig_instanceCount' - Target size for the instance group.
---
--- 'configurations', 'instanceGroupModifyConfig_configurations' - A list of new or modified configurations to apply for an instance group.
---
 -- 'eC2InstanceIdsToTerminate', 'instanceGroupModifyConfig_eC2InstanceIdsToTerminate' - The EC2 InstanceIds to terminate. After you terminate the instances, the
 -- instance group will not return to its original requested size.
 --
 -- 'shrinkPolicy', 'instanceGroupModifyConfig_shrinkPolicy' - Policy for customizing shrink operations.
+--
+-- 'configurations', 'instanceGroupModifyConfig_configurations' - A list of new or modified configurations to apply for an instance group.
+--
+-- 'instanceCount', 'instanceGroupModifyConfig_instanceCount' - Target size for the instance group.
 --
 -- 'instanceGroupId', 'instanceGroupModifyConfig_instanceGroupId' - Unique ID of the instance group to modify.
 newInstanceGroupModifyConfig ::
@@ -67,21 +67,13 @@ newInstanceGroupModifyConfig ::
   InstanceGroupModifyConfig
 newInstanceGroupModifyConfig pInstanceGroupId_ =
   InstanceGroupModifyConfig'
-    { instanceCount =
+    { eC2InstanceIdsToTerminate =
         Prelude.Nothing,
-      configurations = Prelude.Nothing,
-      eC2InstanceIdsToTerminate = Prelude.Nothing,
       shrinkPolicy = Prelude.Nothing,
+      configurations = Prelude.Nothing,
+      instanceCount = Prelude.Nothing,
       instanceGroupId = pInstanceGroupId_
     }
-
--- | Target size for the instance group.
-instanceGroupModifyConfig_instanceCount :: Lens.Lens' InstanceGroupModifyConfig (Prelude.Maybe Prelude.Int)
-instanceGroupModifyConfig_instanceCount = Lens.lens (\InstanceGroupModifyConfig' {instanceCount} -> instanceCount) (\s@InstanceGroupModifyConfig' {} a -> s {instanceCount = a} :: InstanceGroupModifyConfig)
-
--- | A list of new or modified configurations to apply for an instance group.
-instanceGroupModifyConfig_configurations :: Lens.Lens' InstanceGroupModifyConfig (Prelude.Maybe [Configuration])
-instanceGroupModifyConfig_configurations = Lens.lens (\InstanceGroupModifyConfig' {configurations} -> configurations) (\s@InstanceGroupModifyConfig' {} a -> s {configurations = a} :: InstanceGroupModifyConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The EC2 InstanceIds to terminate. After you terminate the instances, the
 -- instance group will not return to its original requested size.
@@ -92,36 +84,45 @@ instanceGroupModifyConfig_eC2InstanceIdsToTerminate = Lens.lens (\InstanceGroupM
 instanceGroupModifyConfig_shrinkPolicy :: Lens.Lens' InstanceGroupModifyConfig (Prelude.Maybe ShrinkPolicy)
 instanceGroupModifyConfig_shrinkPolicy = Lens.lens (\InstanceGroupModifyConfig' {shrinkPolicy} -> shrinkPolicy) (\s@InstanceGroupModifyConfig' {} a -> s {shrinkPolicy = a} :: InstanceGroupModifyConfig)
 
+-- | A list of new or modified configurations to apply for an instance group.
+instanceGroupModifyConfig_configurations :: Lens.Lens' InstanceGroupModifyConfig (Prelude.Maybe [Configuration])
+instanceGroupModifyConfig_configurations = Lens.lens (\InstanceGroupModifyConfig' {configurations} -> configurations) (\s@InstanceGroupModifyConfig' {} a -> s {configurations = a} :: InstanceGroupModifyConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | Target size for the instance group.
+instanceGroupModifyConfig_instanceCount :: Lens.Lens' InstanceGroupModifyConfig (Prelude.Maybe Prelude.Int)
+instanceGroupModifyConfig_instanceCount = Lens.lens (\InstanceGroupModifyConfig' {instanceCount} -> instanceCount) (\s@InstanceGroupModifyConfig' {} a -> s {instanceCount = a} :: InstanceGroupModifyConfig)
+
 -- | Unique ID of the instance group to modify.
 instanceGroupModifyConfig_instanceGroupId :: Lens.Lens' InstanceGroupModifyConfig Prelude.Text
 instanceGroupModifyConfig_instanceGroupId = Lens.lens (\InstanceGroupModifyConfig' {instanceGroupId} -> instanceGroupId) (\s@InstanceGroupModifyConfig' {} a -> s {instanceGroupId = a} :: InstanceGroupModifyConfig)
 
 instance Prelude.Hashable InstanceGroupModifyConfig where
   hashWithSalt _salt InstanceGroupModifyConfig' {..} =
-    _salt `Prelude.hashWithSalt` instanceCount
-      `Prelude.hashWithSalt` configurations
+    _salt
       `Prelude.hashWithSalt` eC2InstanceIdsToTerminate
       `Prelude.hashWithSalt` shrinkPolicy
+      `Prelude.hashWithSalt` configurations
+      `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` instanceGroupId
 
 instance Prelude.NFData InstanceGroupModifyConfig where
   rnf InstanceGroupModifyConfig' {..} =
-    Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf configurations
-      `Prelude.seq` Prelude.rnf eC2InstanceIdsToTerminate
+    Prelude.rnf eC2InstanceIdsToTerminate
       `Prelude.seq` Prelude.rnf shrinkPolicy
+      `Prelude.seq` Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf instanceCount
       `Prelude.seq` Prelude.rnf instanceGroupId
 
 instance Core.ToJSON InstanceGroupModifyConfig where
   toJSON InstanceGroupModifyConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InstanceCount" Core..=) Prelude.<$> instanceCount,
-            ("Configurations" Core..=)
-              Prelude.<$> configurations,
-            ("EC2InstanceIdsToTerminate" Core..=)
+          [ ("EC2InstanceIdsToTerminate" Core..=)
               Prelude.<$> eC2InstanceIdsToTerminate,
             ("ShrinkPolicy" Core..=) Prelude.<$> shrinkPolicy,
+            ("Configurations" Core..=)
+              Prelude.<$> configurations,
+            ("InstanceCount" Core..=) Prelude.<$> instanceCount,
             Prelude.Just
               ("InstanceGroupId" Core..= instanceGroupId)
           ]

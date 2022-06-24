@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFailureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-  { -- | The path to the log file where the step failure root cause was
-    -- originally recorded.
-    logFile :: Prelude.Maybe Prelude.Text,
+  { -- | The descriptive message including the error the Amazon EMR service has
+    -- identified as the cause of step failure. This is text from an error log
+    -- that describes the root cause of the failure.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The reason for the step failure. In the case where the service cannot
     -- successfully determine the root cause of the failure, it returns
     -- \"Unknown Error\" as a reason.
     reason :: Prelude.Maybe Prelude.Text,
-    -- | The descriptive message including the error the Amazon EMR service has
-    -- identified as the cause of step failure. This is text from an error log
-    -- that describes the root cause of the failure.
-    message :: Prelude.Maybe Prelude.Text
+    -- | The path to the log file where the step failure root cause was
+    -- originally recorded.
+    logFile :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,35 +50,24 @@ data FailureDetails = FailureDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logFile', 'failureDetails_logFile' - The path to the log file where the step failure root cause was
--- originally recorded.
+-- 'message', 'failureDetails_message' - The descriptive message including the error the Amazon EMR service has
+-- identified as the cause of step failure. This is text from an error log
+-- that describes the root cause of the failure.
 --
 -- 'reason', 'failureDetails_reason' - The reason for the step failure. In the case where the service cannot
 -- successfully determine the root cause of the failure, it returns
 -- \"Unknown Error\" as a reason.
 --
--- 'message', 'failureDetails_message' - The descriptive message including the error the Amazon EMR service has
--- identified as the cause of step failure. This is text from an error log
--- that describes the root cause of the failure.
+-- 'logFile', 'failureDetails_logFile' - The path to the log file where the step failure root cause was
+-- originally recorded.
 newFailureDetails ::
   FailureDetails
 newFailureDetails =
   FailureDetails'
-    { logFile = Prelude.Nothing,
+    { message = Prelude.Nothing,
       reason = Prelude.Nothing,
-      message = Prelude.Nothing
+      logFile = Prelude.Nothing
     }
-
--- | The path to the log file where the step failure root cause was
--- originally recorded.
-failureDetails_logFile :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
-failureDetails_logFile = Lens.lens (\FailureDetails' {logFile} -> logFile) (\s@FailureDetails' {} a -> s {logFile = a} :: FailureDetails)
-
--- | The reason for the step failure. In the case where the service cannot
--- successfully determine the root cause of the failure, it returns
--- \"Unknown Error\" as a reason.
-failureDetails_reason :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
-failureDetails_reason = Lens.lens (\FailureDetails' {reason} -> reason) (\s@FailureDetails' {} a -> s {reason = a} :: FailureDetails)
 
 -- | The descriptive message including the error the Amazon EMR service has
 -- identified as the cause of step failure. This is text from an error log
@@ -86,25 +75,36 @@ failureDetails_reason = Lens.lens (\FailureDetails' {reason} -> reason) (\s@Fail
 failureDetails_message :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
 failureDetails_message = Lens.lens (\FailureDetails' {message} -> message) (\s@FailureDetails' {} a -> s {message = a} :: FailureDetails)
 
+-- | The reason for the step failure. In the case where the service cannot
+-- successfully determine the root cause of the failure, it returns
+-- \"Unknown Error\" as a reason.
+failureDetails_reason :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
+failureDetails_reason = Lens.lens (\FailureDetails' {reason} -> reason) (\s@FailureDetails' {} a -> s {reason = a} :: FailureDetails)
+
+-- | The path to the log file where the step failure root cause was
+-- originally recorded.
+failureDetails_logFile :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
+failureDetails_logFile = Lens.lens (\FailureDetails' {logFile} -> logFile) (\s@FailureDetails' {} a -> s {logFile = a} :: FailureDetails)
+
 instance Core.FromJSON FailureDetails where
   parseJSON =
     Core.withObject
       "FailureDetails"
       ( \x ->
           FailureDetails'
-            Prelude.<$> (x Core..:? "LogFile")
+            Prelude.<$> (x Core..:? "Message")
             Prelude.<*> (x Core..:? "Reason")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "LogFile")
       )
 
 instance Prelude.Hashable FailureDetails where
   hashWithSalt _salt FailureDetails' {..} =
-    _salt `Prelude.hashWithSalt` logFile
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` reason
-      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` logFile
 
 instance Prelude.NFData FailureDetails where
   rnf FailureDetails' {..} =
-    Prelude.rnf logFile
+    Prelude.rnf message
       `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf logFile

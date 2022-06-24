@@ -23,14 +23,14 @@ module Amazonka.EMR
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** InternalServerError
     _InternalServerError,
 
-    -- ** InternalServerException
-    _InternalServerException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters
@@ -38,146 +38,14 @@ module Amazonka.EMR
     -- ** StepComplete
     newStepComplete,
 
-    -- ** ClusterTerminated
-    newClusterTerminated,
-
     -- ** ClusterRunning
     newClusterRunning,
 
+    -- ** ClusterTerminated
+    newClusterTerminated,
+
     -- * Operations
     -- $operations
-
-    -- ** RunJobFlow
-    RunJobFlow (RunJobFlow'),
-    newRunJobFlow,
-    RunJobFlowResponse (RunJobFlowResponse'),
-    newRunJobFlowResponse,
-
-    -- ** RemoveAutoScalingPolicy
-    RemoveAutoScalingPolicy (RemoveAutoScalingPolicy'),
-    newRemoveAutoScalingPolicy,
-    RemoveAutoScalingPolicyResponse (RemoveAutoScalingPolicyResponse'),
-    newRemoveAutoScalingPolicyResponse,
-
-    -- ** CreateStudio
-    CreateStudio (CreateStudio'),
-    newCreateStudio,
-    CreateStudioResponse (CreateStudioResponse'),
-    newCreateStudioResponse,
-
-    -- ** SetVisibleToAllUsers
-    SetVisibleToAllUsers (SetVisibleToAllUsers'),
-    newSetVisibleToAllUsers,
-    SetVisibleToAllUsersResponse (SetVisibleToAllUsersResponse'),
-    newSetVisibleToAllUsersResponse,
-
-    -- ** TerminateJobFlows
-    TerminateJobFlows (TerminateJobFlows'),
-    newTerminateJobFlows,
-    TerminateJobFlowsResponse (TerminateJobFlowsResponse'),
-    newTerminateJobFlowsResponse,
-
-    -- ** DescribeStep
-    DescribeStep (DescribeStep'),
-    newDescribeStep,
-    DescribeStepResponse (DescribeStepResponse'),
-    newDescribeStepResponse,
-
-    -- ** RemoveTags
-    RemoveTags (RemoveTags'),
-    newRemoveTags,
-    RemoveTagsResponse (RemoveTagsResponse'),
-    newRemoveTagsResponse,
-
-    -- ** DescribeCluster
-    DescribeCluster (DescribeCluster'),
-    newDescribeCluster,
-    DescribeClusterResponse (DescribeClusterResponse'),
-    newDescribeClusterResponse,
-
-    -- ** ListSecurityConfigurations (Paginated)
-    ListSecurityConfigurations (ListSecurityConfigurations'),
-    newListSecurityConfigurations,
-    ListSecurityConfigurationsResponse (ListSecurityConfigurationsResponse'),
-    newListSecurityConfigurationsResponse,
-
-    -- ** CancelSteps
-    CancelSteps (CancelSteps'),
-    newCancelSteps,
-    CancelStepsResponse (CancelStepsResponse'),
-    newCancelStepsResponse,
-
-    -- ** ListNotebookExecutions (Paginated)
-    ListNotebookExecutions (ListNotebookExecutions'),
-    newListNotebookExecutions,
-    ListNotebookExecutionsResponse (ListNotebookExecutionsResponse'),
-    newListNotebookExecutionsResponse,
-
-    -- ** PutAutoTerminationPolicy
-    PutAutoTerminationPolicy (PutAutoTerminationPolicy'),
-    newPutAutoTerminationPolicy,
-    PutAutoTerminationPolicyResponse (PutAutoTerminationPolicyResponse'),
-    newPutAutoTerminationPolicyResponse,
-
-    -- ** CreateSecurityConfiguration
-    CreateSecurityConfiguration (CreateSecurityConfiguration'),
-    newCreateSecurityConfiguration,
-    CreateSecurityConfigurationResponse (CreateSecurityConfigurationResponse'),
-    newCreateSecurityConfigurationResponse,
-
-    -- ** DescribeReleaseLabel
-    DescribeReleaseLabel (DescribeReleaseLabel'),
-    newDescribeReleaseLabel,
-    DescribeReleaseLabelResponse (DescribeReleaseLabelResponse'),
-    newDescribeReleaseLabelResponse,
-
-    -- ** SetTerminationProtection
-    SetTerminationProtection (SetTerminationProtection'),
-    newSetTerminationProtection,
-    SetTerminationProtectionResponse (SetTerminationProtectionResponse'),
-    newSetTerminationProtectionResponse,
-
-    -- ** AddJobFlowSteps
-    AddJobFlowSteps (AddJobFlowSteps'),
-    newAddJobFlowSteps,
-    AddJobFlowStepsResponse (AddJobFlowStepsResponse'),
-    newAddJobFlowStepsResponse,
-
-    -- ** DescribeStudio
-    DescribeStudio (DescribeStudio'),
-    newDescribeStudio,
-    DescribeStudioResponse (DescribeStudioResponse'),
-    newDescribeStudioResponse,
-
-    -- ** ModifyInstanceGroups
-    ModifyInstanceGroups (ModifyInstanceGroups'),
-    newModifyInstanceGroups,
-    ModifyInstanceGroupsResponse (ModifyInstanceGroupsResponse'),
-    newModifyInstanceGroupsResponse,
-
-    -- ** StartNotebookExecution
-    StartNotebookExecution (StartNotebookExecution'),
-    newStartNotebookExecution,
-    StartNotebookExecutionResponse (StartNotebookExecutionResponse'),
-    newStartNotebookExecutionResponse,
-
-    -- ** ListSteps (Paginated)
-    ListSteps (ListSteps'),
-    newListSteps,
-    ListStepsResponse (ListStepsResponse'),
-    newListStepsResponse,
-
-    -- ** ListReleaseLabels
-    ListReleaseLabels (ListReleaseLabels'),
-    newListReleaseLabels,
-    ListReleaseLabelsResponse (ListReleaseLabelsResponse'),
-    newListReleaseLabelsResponse,
-
-    -- ** CreateStudioSessionMapping
-    CreateStudioSessionMapping (CreateStudioSessionMapping'),
-    newCreateStudioSessionMapping,
-    CreateStudioSessionMappingResponse (CreateStudioSessionMappingResponse'),
-    newCreateStudioSessionMappingResponse,
 
     -- ** AddInstanceFleet
     AddInstanceFleet (AddInstanceFleet'),
@@ -185,95 +53,17 @@ module Amazonka.EMR
     AddInstanceFleetResponse (AddInstanceFleetResponse'),
     newAddInstanceFleetResponse,
 
-    -- ** DeleteStudio
-    DeleteStudio (DeleteStudio'),
-    newDeleteStudio,
-    DeleteStudioResponse (DeleteStudioResponse'),
-    newDeleteStudioResponse,
-
-    -- ** UpdateStudio
-    UpdateStudio (UpdateStudio'),
-    newUpdateStudio,
-    UpdateStudioResponse (UpdateStudioResponse'),
-    newUpdateStudioResponse,
-
-    -- ** ListStudios (Paginated)
-    ListStudios (ListStudios'),
-    newListStudios,
-    ListStudiosResponse (ListStudiosResponse'),
-    newListStudiosResponse,
-
-    -- ** PutManagedScalingPolicy
-    PutManagedScalingPolicy (PutManagedScalingPolicy'),
-    newPutManagedScalingPolicy,
-    PutManagedScalingPolicyResponse (PutManagedScalingPolicyResponse'),
-    newPutManagedScalingPolicyResponse,
-
     -- ** AddInstanceGroups
     AddInstanceGroups (AddInstanceGroups'),
     newAddInstanceGroups,
     AddInstanceGroupsResponse (AddInstanceGroupsResponse'),
     newAddInstanceGroupsResponse,
 
-    -- ** GetStudioSessionMapping
-    GetStudioSessionMapping (GetStudioSessionMapping'),
-    newGetStudioSessionMapping,
-    GetStudioSessionMappingResponse (GetStudioSessionMappingResponse'),
-    newGetStudioSessionMappingResponse,
-
-    -- ** DeleteSecurityConfiguration
-    DeleteSecurityConfiguration (DeleteSecurityConfiguration'),
-    newDeleteSecurityConfiguration,
-    DeleteSecurityConfigurationResponse (DeleteSecurityConfigurationResponse'),
-    newDeleteSecurityConfigurationResponse,
-
-    -- ** ModifyInstanceFleet
-    ModifyInstanceFleet (ModifyInstanceFleet'),
-    newModifyInstanceFleet,
-    ModifyInstanceFleetResponse (ModifyInstanceFleetResponse'),
-    newModifyInstanceFleetResponse,
-
-    -- ** ListInstanceGroups (Paginated)
-    ListInstanceGroups (ListInstanceGroups'),
-    newListInstanceGroups,
-    ListInstanceGroupsResponse (ListInstanceGroupsResponse'),
-    newListInstanceGroupsResponse,
-
-    -- ** GetBlockPublicAccessConfiguration
-    GetBlockPublicAccessConfiguration (GetBlockPublicAccessConfiguration'),
-    newGetBlockPublicAccessConfiguration,
-    GetBlockPublicAccessConfigurationResponse (GetBlockPublicAccessConfigurationResponse'),
-    newGetBlockPublicAccessConfigurationResponse,
-
-    -- ** ModifyCluster
-    ModifyCluster (ModifyCluster'),
-    newModifyCluster,
-    ModifyClusterResponse (ModifyClusterResponse'),
-    newModifyClusterResponse,
-
-    -- ** GetAutoTerminationPolicy
-    GetAutoTerminationPolicy (GetAutoTerminationPolicy'),
-    newGetAutoTerminationPolicy,
-    GetAutoTerminationPolicyResponse (GetAutoTerminationPolicyResponse'),
-    newGetAutoTerminationPolicyResponse,
-
-    -- ** PutBlockPublicAccessConfiguration
-    PutBlockPublicAccessConfiguration (PutBlockPublicAccessConfiguration'),
-    newPutBlockPublicAccessConfiguration,
-    PutBlockPublicAccessConfigurationResponse (PutBlockPublicAccessConfigurationResponse'),
-    newPutBlockPublicAccessConfigurationResponse,
-
-    -- ** ListBootstrapActions (Paginated)
-    ListBootstrapActions (ListBootstrapActions'),
-    newListBootstrapActions,
-    ListBootstrapActionsResponse (ListBootstrapActionsResponse'),
-    newListBootstrapActionsResponse,
-
-    -- ** RemoveAutoTerminationPolicy
-    RemoveAutoTerminationPolicy (RemoveAutoTerminationPolicy'),
-    newRemoveAutoTerminationPolicy,
-    RemoveAutoTerminationPolicyResponse (RemoveAutoTerminationPolicyResponse'),
-    newRemoveAutoTerminationPolicyResponse,
+    -- ** AddJobFlowSteps
+    AddJobFlowSteps (AddJobFlowSteps'),
+    newAddJobFlowSteps,
+    AddJobFlowStepsResponse (AddJobFlowStepsResponse'),
+    newAddJobFlowStepsResponse,
 
     -- ** AddTags
     AddTags (AddTags'),
@@ -281,17 +71,41 @@ module Amazonka.EMR
     AddTagsResponse (AddTagsResponse'),
     newAddTagsResponse,
 
-    -- ** ListInstances (Paginated)
-    ListInstances (ListInstances'),
-    newListInstances,
-    ListInstancesResponse (ListInstancesResponse'),
-    newListInstancesResponse,
+    -- ** CancelSteps
+    CancelSteps (CancelSteps'),
+    newCancelSteps,
+    CancelStepsResponse (CancelStepsResponse'),
+    newCancelStepsResponse,
 
-    -- ** PutAutoScalingPolicy
-    PutAutoScalingPolicy (PutAutoScalingPolicy'),
-    newPutAutoScalingPolicy,
-    PutAutoScalingPolicyResponse (PutAutoScalingPolicyResponse'),
-    newPutAutoScalingPolicyResponse,
+    -- ** CreateSecurityConfiguration
+    CreateSecurityConfiguration (CreateSecurityConfiguration'),
+    newCreateSecurityConfiguration,
+    CreateSecurityConfigurationResponse (CreateSecurityConfigurationResponse'),
+    newCreateSecurityConfigurationResponse,
+
+    -- ** CreateStudio
+    CreateStudio (CreateStudio'),
+    newCreateStudio,
+    CreateStudioResponse (CreateStudioResponse'),
+    newCreateStudioResponse,
+
+    -- ** CreateStudioSessionMapping
+    CreateStudioSessionMapping (CreateStudioSessionMapping'),
+    newCreateStudioSessionMapping,
+    CreateStudioSessionMappingResponse (CreateStudioSessionMappingResponse'),
+    newCreateStudioSessionMappingResponse,
+
+    -- ** DeleteSecurityConfiguration
+    DeleteSecurityConfiguration (DeleteSecurityConfiguration'),
+    newDeleteSecurityConfiguration,
+    DeleteSecurityConfigurationResponse (DeleteSecurityConfigurationResponse'),
+    newDeleteSecurityConfigurationResponse,
+
+    -- ** DeleteStudio
+    DeleteStudio (DeleteStudio'),
+    newDeleteStudio,
+    DeleteStudioResponse (DeleteStudioResponse'),
+    newDeleteStudioResponse,
 
     -- ** DeleteStudioSessionMapping
     DeleteStudioSessionMapping (DeleteStudioSessionMapping'),
@@ -299,17 +113,23 @@ module Amazonka.EMR
     DeleteStudioSessionMappingResponse (DeleteStudioSessionMappingResponse'),
     newDeleteStudioSessionMappingResponse,
 
-    -- ** UpdateStudioSessionMapping
-    UpdateStudioSessionMapping (UpdateStudioSessionMapping'),
-    newUpdateStudioSessionMapping,
-    UpdateStudioSessionMappingResponse (UpdateStudioSessionMappingResponse'),
-    newUpdateStudioSessionMappingResponse,
+    -- ** DescribeCluster
+    DescribeCluster (DescribeCluster'),
+    newDescribeCluster,
+    DescribeClusterResponse (DescribeClusterResponse'),
+    newDescribeClusterResponse,
 
-    -- ** ListClusters (Paginated)
-    ListClusters (ListClusters'),
-    newListClusters,
-    ListClustersResponse (ListClustersResponse'),
-    newListClustersResponse,
+    -- ** DescribeNotebookExecution
+    DescribeNotebookExecution (DescribeNotebookExecution'),
+    newDescribeNotebookExecution,
+    DescribeNotebookExecutionResponse (DescribeNotebookExecutionResponse'),
+    newDescribeNotebookExecutionResponse,
+
+    -- ** DescribeReleaseLabel
+    DescribeReleaseLabel (DescribeReleaseLabel'),
+    newDescribeReleaseLabel,
+    DescribeReleaseLabelResponse (DescribeReleaseLabelResponse'),
+    newDescribeReleaseLabelResponse,
 
     -- ** DescribeSecurityConfiguration
     DescribeSecurityConfiguration (DescribeSecurityConfiguration'),
@@ -317,17 +137,29 @@ module Amazonka.EMR
     DescribeSecurityConfigurationResponse (DescribeSecurityConfigurationResponse'),
     newDescribeSecurityConfigurationResponse,
 
-    -- ** StopNotebookExecution
-    StopNotebookExecution (StopNotebookExecution'),
-    newStopNotebookExecution,
-    StopNotebookExecutionResponse (StopNotebookExecutionResponse'),
-    newStopNotebookExecutionResponse,
+    -- ** DescribeStep
+    DescribeStep (DescribeStep'),
+    newDescribeStep,
+    DescribeStepResponse (DescribeStepResponse'),
+    newDescribeStepResponse,
 
-    -- ** ListStudioSessionMappings (Paginated)
-    ListStudioSessionMappings (ListStudioSessionMappings'),
-    newListStudioSessionMappings,
-    ListStudioSessionMappingsResponse (ListStudioSessionMappingsResponse'),
-    newListStudioSessionMappingsResponse,
+    -- ** DescribeStudio
+    DescribeStudio (DescribeStudio'),
+    newDescribeStudio,
+    DescribeStudioResponse (DescribeStudioResponse'),
+    newDescribeStudioResponse,
+
+    -- ** GetAutoTerminationPolicy
+    GetAutoTerminationPolicy (GetAutoTerminationPolicy'),
+    newGetAutoTerminationPolicy,
+    GetAutoTerminationPolicyResponse (GetAutoTerminationPolicyResponse'),
+    newGetAutoTerminationPolicyResponse,
+
+    -- ** GetBlockPublicAccessConfiguration
+    GetBlockPublicAccessConfiguration (GetBlockPublicAccessConfiguration'),
+    newGetBlockPublicAccessConfiguration,
+    GetBlockPublicAccessConfigurationResponse (GetBlockPublicAccessConfigurationResponse'),
+    newGetBlockPublicAccessConfigurationResponse,
 
     -- ** GetManagedScalingPolicy
     GetManagedScalingPolicy (GetManagedScalingPolicy'),
@@ -335,11 +167,131 @@ module Amazonka.EMR
     GetManagedScalingPolicyResponse (GetManagedScalingPolicyResponse'),
     newGetManagedScalingPolicyResponse,
 
+    -- ** GetStudioSessionMapping
+    GetStudioSessionMapping (GetStudioSessionMapping'),
+    newGetStudioSessionMapping,
+    GetStudioSessionMappingResponse (GetStudioSessionMappingResponse'),
+    newGetStudioSessionMappingResponse,
+
+    -- ** ListBootstrapActions (Paginated)
+    ListBootstrapActions (ListBootstrapActions'),
+    newListBootstrapActions,
+    ListBootstrapActionsResponse (ListBootstrapActionsResponse'),
+    newListBootstrapActionsResponse,
+
+    -- ** ListClusters (Paginated)
+    ListClusters (ListClusters'),
+    newListClusters,
+    ListClustersResponse (ListClustersResponse'),
+    newListClustersResponse,
+
     -- ** ListInstanceFleets (Paginated)
     ListInstanceFleets (ListInstanceFleets'),
     newListInstanceFleets,
     ListInstanceFleetsResponse (ListInstanceFleetsResponse'),
     newListInstanceFleetsResponse,
+
+    -- ** ListInstanceGroups (Paginated)
+    ListInstanceGroups (ListInstanceGroups'),
+    newListInstanceGroups,
+    ListInstanceGroupsResponse (ListInstanceGroupsResponse'),
+    newListInstanceGroupsResponse,
+
+    -- ** ListInstances (Paginated)
+    ListInstances (ListInstances'),
+    newListInstances,
+    ListInstancesResponse (ListInstancesResponse'),
+    newListInstancesResponse,
+
+    -- ** ListNotebookExecutions (Paginated)
+    ListNotebookExecutions (ListNotebookExecutions'),
+    newListNotebookExecutions,
+    ListNotebookExecutionsResponse (ListNotebookExecutionsResponse'),
+    newListNotebookExecutionsResponse,
+
+    -- ** ListReleaseLabels
+    ListReleaseLabels (ListReleaseLabels'),
+    newListReleaseLabels,
+    ListReleaseLabelsResponse (ListReleaseLabelsResponse'),
+    newListReleaseLabelsResponse,
+
+    -- ** ListSecurityConfigurations (Paginated)
+    ListSecurityConfigurations (ListSecurityConfigurations'),
+    newListSecurityConfigurations,
+    ListSecurityConfigurationsResponse (ListSecurityConfigurationsResponse'),
+    newListSecurityConfigurationsResponse,
+
+    -- ** ListSteps (Paginated)
+    ListSteps (ListSteps'),
+    newListSteps,
+    ListStepsResponse (ListStepsResponse'),
+    newListStepsResponse,
+
+    -- ** ListStudioSessionMappings (Paginated)
+    ListStudioSessionMappings (ListStudioSessionMappings'),
+    newListStudioSessionMappings,
+    ListStudioSessionMappingsResponse (ListStudioSessionMappingsResponse'),
+    newListStudioSessionMappingsResponse,
+
+    -- ** ListStudios (Paginated)
+    ListStudios (ListStudios'),
+    newListStudios,
+    ListStudiosResponse (ListStudiosResponse'),
+    newListStudiosResponse,
+
+    -- ** ModifyCluster
+    ModifyCluster (ModifyCluster'),
+    newModifyCluster,
+    ModifyClusterResponse (ModifyClusterResponse'),
+    newModifyClusterResponse,
+
+    -- ** ModifyInstanceFleet
+    ModifyInstanceFleet (ModifyInstanceFleet'),
+    newModifyInstanceFleet,
+    ModifyInstanceFleetResponse (ModifyInstanceFleetResponse'),
+    newModifyInstanceFleetResponse,
+
+    -- ** ModifyInstanceGroups
+    ModifyInstanceGroups (ModifyInstanceGroups'),
+    newModifyInstanceGroups,
+    ModifyInstanceGroupsResponse (ModifyInstanceGroupsResponse'),
+    newModifyInstanceGroupsResponse,
+
+    -- ** PutAutoScalingPolicy
+    PutAutoScalingPolicy (PutAutoScalingPolicy'),
+    newPutAutoScalingPolicy,
+    PutAutoScalingPolicyResponse (PutAutoScalingPolicyResponse'),
+    newPutAutoScalingPolicyResponse,
+
+    -- ** PutAutoTerminationPolicy
+    PutAutoTerminationPolicy (PutAutoTerminationPolicy'),
+    newPutAutoTerminationPolicy,
+    PutAutoTerminationPolicyResponse (PutAutoTerminationPolicyResponse'),
+    newPutAutoTerminationPolicyResponse,
+
+    -- ** PutBlockPublicAccessConfiguration
+    PutBlockPublicAccessConfiguration (PutBlockPublicAccessConfiguration'),
+    newPutBlockPublicAccessConfiguration,
+    PutBlockPublicAccessConfigurationResponse (PutBlockPublicAccessConfigurationResponse'),
+    newPutBlockPublicAccessConfigurationResponse,
+
+    -- ** PutManagedScalingPolicy
+    PutManagedScalingPolicy (PutManagedScalingPolicy'),
+    newPutManagedScalingPolicy,
+    PutManagedScalingPolicyResponse (PutManagedScalingPolicyResponse'),
+    newPutManagedScalingPolicyResponse,
+
+    -- ** RemoveAutoScalingPolicy
+    RemoveAutoScalingPolicy (RemoveAutoScalingPolicy'),
+    newRemoveAutoScalingPolicy,
+    RemoveAutoScalingPolicyResponse (RemoveAutoScalingPolicyResponse'),
+    newRemoveAutoScalingPolicyResponse,
+
+    -- ** RemoveAutoTerminationPolicy
+    RemoveAutoTerminationPolicy (RemoveAutoTerminationPolicy'),
+    newRemoveAutoTerminationPolicy,
+    RemoveAutoTerminationPolicyResponse (RemoveAutoTerminationPolicyResponse'),
+    newRemoveAutoTerminationPolicyResponse,
 
     -- ** RemoveManagedScalingPolicy
     RemoveManagedScalingPolicy (RemoveManagedScalingPolicy'),
@@ -347,11 +299,59 @@ module Amazonka.EMR
     RemoveManagedScalingPolicyResponse (RemoveManagedScalingPolicyResponse'),
     newRemoveManagedScalingPolicyResponse,
 
-    -- ** DescribeNotebookExecution
-    DescribeNotebookExecution (DescribeNotebookExecution'),
-    newDescribeNotebookExecution,
-    DescribeNotebookExecutionResponse (DescribeNotebookExecutionResponse'),
-    newDescribeNotebookExecutionResponse,
+    -- ** RemoveTags
+    RemoveTags (RemoveTags'),
+    newRemoveTags,
+    RemoveTagsResponse (RemoveTagsResponse'),
+    newRemoveTagsResponse,
+
+    -- ** RunJobFlow
+    RunJobFlow (RunJobFlow'),
+    newRunJobFlow,
+    RunJobFlowResponse (RunJobFlowResponse'),
+    newRunJobFlowResponse,
+
+    -- ** SetTerminationProtection
+    SetTerminationProtection (SetTerminationProtection'),
+    newSetTerminationProtection,
+    SetTerminationProtectionResponse (SetTerminationProtectionResponse'),
+    newSetTerminationProtectionResponse,
+
+    -- ** SetVisibleToAllUsers
+    SetVisibleToAllUsers (SetVisibleToAllUsers'),
+    newSetVisibleToAllUsers,
+    SetVisibleToAllUsersResponse (SetVisibleToAllUsersResponse'),
+    newSetVisibleToAllUsersResponse,
+
+    -- ** StartNotebookExecution
+    StartNotebookExecution (StartNotebookExecution'),
+    newStartNotebookExecution,
+    StartNotebookExecutionResponse (StartNotebookExecutionResponse'),
+    newStartNotebookExecutionResponse,
+
+    -- ** StopNotebookExecution
+    StopNotebookExecution (StopNotebookExecution'),
+    newStopNotebookExecution,
+    StopNotebookExecutionResponse (StopNotebookExecutionResponse'),
+    newStopNotebookExecutionResponse,
+
+    -- ** TerminateJobFlows
+    TerminateJobFlows (TerminateJobFlows'),
+    newTerminateJobFlows,
+    TerminateJobFlowsResponse (TerminateJobFlowsResponse'),
+    newTerminateJobFlowsResponse,
+
+    -- ** UpdateStudio
+    UpdateStudio (UpdateStudio'),
+    newUpdateStudio,
+    UpdateStudioResponse (UpdateStudioResponse'),
+    newUpdateStudioResponse,
+
+    -- ** UpdateStudioSessionMapping
+    UpdateStudioSessionMapping (UpdateStudioSessionMapping'),
+    newUpdateStudioSessionMapping,
+    UpdateStudioSessionMappingResponse (UpdateStudioSessionMappingResponse'),
+    newUpdateStudioSessionMappingResponse,
 
     -- * Types
 

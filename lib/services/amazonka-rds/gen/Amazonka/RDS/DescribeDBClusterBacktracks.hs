@@ -35,9 +35,9 @@ module Amazonka.RDS.DescribeDBClusterBacktracks
     newDescribeDBClusterBacktracks,
 
     -- * Request Lenses
-    describeDBClusterBacktracks_backtrackIdentifier,
-    describeDBClusterBacktracks_filters,
     describeDBClusterBacktracks_marker,
+    describeDBClusterBacktracks_filters,
+    describeDBClusterBacktracks_backtrackIdentifier,
     describeDBClusterBacktracks_maxRecords,
     describeDBClusterBacktracks_dbClusterIdentifier,
 
@@ -63,17 +63,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeDBClusterBacktracks' smart constructor.
 data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
-  { -- | If specified, this value is the backtrack identifier of the backtrack to
-    -- be described.
-    --
-    -- Constraints:
-    --
-    -- -   Must contain a valid universally unique identifier (UUID). For more
-    --     information about UUIDs, see
-    --     <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace>.
-    --
-    -- Example: @123e4567-e89b-12d3-a456-426655440000@
-    backtrackIdentifier :: Prelude.Maybe Prelude.Text,
+  { -- | An optional pagination token provided by a previous
+    -- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
+    -- the response includes only records beyond the marker, up to the value
+    -- specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | A filter that specifies one or more DB clusters to describe. Supported
     -- filters include the following:
     --
@@ -95,11 +89,17 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
     --     The results list includes information about only the backtracks
     --     identified by these values.
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous
-    -- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
-    -- the response includes only records beyond the marker, up to the value
-    -- specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    -- | If specified, this value is the backtrack identifier of the backtrack to
+    -- be described.
+    --
+    -- Constraints:
+    --
+    -- -   Must contain a valid universally unique identifier (UUID). For more
+    --     information about UUIDs, see
+    --     <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace>.
+    --
+    -- Example: @123e4567-e89b-12d3-a456-426655440000@
+    backtrackIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -133,16 +133,10 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'backtrackIdentifier', 'describeDBClusterBacktracks_backtrackIdentifier' - If specified, this value is the backtrack identifier of the backtrack to
--- be described.
---
--- Constraints:
---
--- -   Must contain a valid universally unique identifier (UUID). For more
---     information about UUIDs, see
---     <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace>.
---
--- Example: @123e4567-e89b-12d3-a456-426655440000@
+-- 'marker', 'describeDBClusterBacktracks_marker' - An optional pagination token provided by a previous
+-- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
 --
 -- 'filters', 'describeDBClusterBacktracks_filters' - A filter that specifies one or more DB clusters to describe. Supported
 -- filters include the following:
@@ -165,10 +159,16 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
 --     The results list includes information about only the backtracks
 --     identified by these values.
 --
--- 'marker', 'describeDBClusterBacktracks_marker' - An optional pagination token provided by a previous
--- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
+-- 'backtrackIdentifier', 'describeDBClusterBacktracks_backtrackIdentifier' - If specified, this value is the backtrack identifier of the backtrack to
+-- be described.
+--
+-- Constraints:
+--
+-- -   Must contain a valid universally unique identifier (UUID). For more
+--     information about UUIDs, see
+--     <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace>.
+--
+-- Example: @123e4567-e89b-12d3-a456-426655440000@
 --
 -- 'maxRecords', 'describeDBClusterBacktracks_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -197,26 +197,20 @@ newDescribeDBClusterBacktracks ::
   DescribeDBClusterBacktracks
 newDescribeDBClusterBacktracks pDBClusterIdentifier_ =
   DescribeDBClusterBacktracks'
-    { backtrackIdentifier =
+    { marker =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
+      backtrackIdentifier = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
       dbClusterIdentifier = pDBClusterIdentifier_
     }
 
--- | If specified, this value is the backtrack identifier of the backtrack to
--- be described.
---
--- Constraints:
---
--- -   Must contain a valid universally unique identifier (UUID). For more
---     information about UUIDs, see
---     <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace>.
---
--- Example: @123e4567-e89b-12d3-a456-426655440000@
-describeDBClusterBacktracks_backtrackIdentifier :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Text)
-describeDBClusterBacktracks_backtrackIdentifier = Lens.lens (\DescribeDBClusterBacktracks' {backtrackIdentifier} -> backtrackIdentifier) (\s@DescribeDBClusterBacktracks' {} a -> s {backtrackIdentifier = a} :: DescribeDBClusterBacktracks)
+-- | An optional pagination token provided by a previous
+-- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+describeDBClusterBacktracks_marker :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Text)
+describeDBClusterBacktracks_marker = Lens.lens (\DescribeDBClusterBacktracks' {marker} -> marker) (\s@DescribeDBClusterBacktracks' {} a -> s {marker = a} :: DescribeDBClusterBacktracks)
 
 -- | A filter that specifies one or more DB clusters to describe. Supported
 -- filters include the following:
@@ -241,12 +235,18 @@ describeDBClusterBacktracks_backtrackIdentifier = Lens.lens (\DescribeDBClusterB
 describeDBClusterBacktracks_filters :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe [Filter])
 describeDBClusterBacktracks_filters = Lens.lens (\DescribeDBClusterBacktracks' {filters} -> filters) (\s@DescribeDBClusterBacktracks' {} a -> s {filters = a} :: DescribeDBClusterBacktracks) Prelude.. Lens.mapping Lens.coerced
 
--- | An optional pagination token provided by a previous
--- @DescribeDBClusterBacktracks@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
-describeDBClusterBacktracks_marker :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Text)
-describeDBClusterBacktracks_marker = Lens.lens (\DescribeDBClusterBacktracks' {marker} -> marker) (\s@DescribeDBClusterBacktracks' {} a -> s {marker = a} :: DescribeDBClusterBacktracks)
+-- | If specified, this value is the backtrack identifier of the backtrack to
+-- be described.
+--
+-- Constraints:
+--
+-- -   Must contain a valid universally unique identifier (UUID). For more
+--     information about UUIDs, see
+--     <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace>.
+--
+-- Example: @123e4567-e89b-12d3-a456-426655440000@
+describeDBClusterBacktracks_backtrackIdentifier :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Text)
+describeDBClusterBacktracks_backtrackIdentifier = Lens.lens (\DescribeDBClusterBacktracks' {backtrackIdentifier} -> backtrackIdentifier) (\s@DescribeDBClusterBacktracks' {} a -> s {backtrackIdentifier = a} :: DescribeDBClusterBacktracks)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -316,17 +316,17 @@ instance Core.AWSRequest DescribeDBClusterBacktracks where
 
 instance Prelude.Hashable DescribeDBClusterBacktracks where
   hashWithSalt _salt DescribeDBClusterBacktracks' {..} =
-    _salt `Prelude.hashWithSalt` backtrackIdentifier
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` backtrackIdentifier
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` dbClusterIdentifier
 
 instance Prelude.NFData DescribeDBClusterBacktracks where
   rnf DescribeDBClusterBacktracks' {..} =
-    Prelude.rnf backtrackIdentifier
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf backtrackIdentifier
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
@@ -345,11 +345,11 @@ instance Core.ToQuery DescribeDBClusterBacktracks where
                   ),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "BacktrackIdentifier" Core.=: backtrackIdentifier,
+        "Marker" Core.=: marker,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
+        "BacktrackIdentifier" Core.=: backtrackIdentifier,
         "MaxRecords" Core.=: maxRecords,
         "DBClusterIdentifier" Core.=: dbClusterIdentifier
       ]

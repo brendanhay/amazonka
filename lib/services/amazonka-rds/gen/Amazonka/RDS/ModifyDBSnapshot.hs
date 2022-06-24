@@ -31,8 +31,8 @@ module Amazonka.RDS.ModifyDBSnapshot
     newModifyDBSnapshot,
 
     -- * Request Lenses
-    modifyDBSnapshot_engineVersion,
     modifyDBSnapshot_optionGroupName,
+    modifyDBSnapshot_engineVersion,
     modifyDBSnapshot_dbSnapshotIdentifier,
 
     -- * Destructuring the Response
@@ -54,7 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyDBSnapshot' smart constructor.
 data ModifyDBSnapshot = ModifyDBSnapshot'
-  { -- | The engine version to upgrade the DB snapshot to.
+  { -- | The option group to identify with the upgraded DB snapshot.
+    --
+    -- You can specify this parameter when you upgrade an Oracle DB snapshot.
+    -- The same option group considerations apply when upgrading a DB snapshot
+    -- as when upgrading a DB instance. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations>
+    -- in the /Amazon RDS User Guide./
+    optionGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The engine version to upgrade the DB snapshot to.
     --
     -- The following are the database engines and engine versions that are
     -- available when you upgrade a DB snapshot.
@@ -77,14 +85,6 @@ data ModifyDBSnapshot = ModifyDBSnapshot'
     -- snapshot, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion Upgrading the PostgreSQL DB Engine for Amazon RDS>.
     engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The option group to identify with the upgraded DB snapshot.
-    --
-    -- You can specify this parameter when you upgrade an Oracle DB snapshot.
-    -- The same option group considerations apply when upgrading a DB snapshot
-    -- as when upgrading a DB instance. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations>
-    -- in the /Amazon RDS User Guide./
-    optionGroupName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the DB snapshot to modify.
     dbSnapshotIdentifier :: Prelude.Text
   }
@@ -97,6 +97,14 @@ data ModifyDBSnapshot = ModifyDBSnapshot'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'optionGroupName', 'modifyDBSnapshot_optionGroupName' - The option group to identify with the upgraded DB snapshot.
+--
+-- You can specify this parameter when you upgrade an Oracle DB snapshot.
+-- The same option group considerations apply when upgrading a DB snapshot
+-- as when upgrading a DB instance. For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations>
+-- in the /Amazon RDS User Guide./
 --
 -- 'engineVersion', 'modifyDBSnapshot_engineVersion' - The engine version to upgrade the DB snapshot to.
 --
@@ -121,14 +129,6 @@ data ModifyDBSnapshot = ModifyDBSnapshot'
 -- snapshot, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion Upgrading the PostgreSQL DB Engine for Amazon RDS>.
 --
--- 'optionGroupName', 'modifyDBSnapshot_optionGroupName' - The option group to identify with the upgraded DB snapshot.
---
--- You can specify this parameter when you upgrade an Oracle DB snapshot.
--- The same option group considerations apply when upgrading a DB snapshot
--- as when upgrading a DB instance. For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations>
--- in the /Amazon RDS User Guide./
---
 -- 'dbSnapshotIdentifier', 'modifyDBSnapshot_dbSnapshotIdentifier' - The identifier of the DB snapshot to modify.
 newModifyDBSnapshot ::
   -- | 'dbSnapshotIdentifier'
@@ -136,10 +136,21 @@ newModifyDBSnapshot ::
   ModifyDBSnapshot
 newModifyDBSnapshot pDBSnapshotIdentifier_ =
   ModifyDBSnapshot'
-    { engineVersion = Prelude.Nothing,
-      optionGroupName = Prelude.Nothing,
+    { optionGroupName =
+        Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
       dbSnapshotIdentifier = pDBSnapshotIdentifier_
     }
+
+-- | The option group to identify with the upgraded DB snapshot.
+--
+-- You can specify this parameter when you upgrade an Oracle DB snapshot.
+-- The same option group considerations apply when upgrading a DB snapshot
+-- as when upgrading a DB instance. For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations>
+-- in the /Amazon RDS User Guide./
+modifyDBSnapshot_optionGroupName :: Lens.Lens' ModifyDBSnapshot (Prelude.Maybe Prelude.Text)
+modifyDBSnapshot_optionGroupName = Lens.lens (\ModifyDBSnapshot' {optionGroupName} -> optionGroupName) (\s@ModifyDBSnapshot' {} a -> s {optionGroupName = a} :: ModifyDBSnapshot)
 
 -- | The engine version to upgrade the DB snapshot to.
 --
@@ -166,16 +177,6 @@ newModifyDBSnapshot pDBSnapshotIdentifier_ =
 modifyDBSnapshot_engineVersion :: Lens.Lens' ModifyDBSnapshot (Prelude.Maybe Prelude.Text)
 modifyDBSnapshot_engineVersion = Lens.lens (\ModifyDBSnapshot' {engineVersion} -> engineVersion) (\s@ModifyDBSnapshot' {} a -> s {engineVersion = a} :: ModifyDBSnapshot)
 
--- | The option group to identify with the upgraded DB snapshot.
---
--- You can specify this parameter when you upgrade an Oracle DB snapshot.
--- The same option group considerations apply when upgrading a DB snapshot
--- as when upgrading a DB instance. For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations>
--- in the /Amazon RDS User Guide./
-modifyDBSnapshot_optionGroupName :: Lens.Lens' ModifyDBSnapshot (Prelude.Maybe Prelude.Text)
-modifyDBSnapshot_optionGroupName = Lens.lens (\ModifyDBSnapshot' {optionGroupName} -> optionGroupName) (\s@ModifyDBSnapshot' {} a -> s {optionGroupName = a} :: ModifyDBSnapshot)
-
 -- | The identifier of the DB snapshot to modify.
 modifyDBSnapshot_dbSnapshotIdentifier :: Lens.Lens' ModifyDBSnapshot Prelude.Text
 modifyDBSnapshot_dbSnapshotIdentifier = Lens.lens (\ModifyDBSnapshot' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@ModifyDBSnapshot' {} a -> s {dbSnapshotIdentifier = a} :: ModifyDBSnapshot)
@@ -196,14 +197,14 @@ instance Core.AWSRequest ModifyDBSnapshot where
 
 instance Prelude.Hashable ModifyDBSnapshot where
   hashWithSalt _salt ModifyDBSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
-      `Prelude.hashWithSalt` optionGroupName
+    _salt `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` dbSnapshotIdentifier
 
 instance Prelude.NFData ModifyDBSnapshot where
   rnf ModifyDBSnapshot' {..} =
-    Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf optionGroupName
+    Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
 
 instance Core.ToHeaders ModifyDBSnapshot where
@@ -219,8 +220,8 @@ instance Core.ToQuery ModifyDBSnapshot where
           Core.=: ("ModifyDBSnapshot" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "EngineVersion" Core.=: engineVersion,
         "OptionGroupName" Core.=: optionGroupName,
+        "EngineVersion" Core.=: engineVersion,
         "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier
       ]
 

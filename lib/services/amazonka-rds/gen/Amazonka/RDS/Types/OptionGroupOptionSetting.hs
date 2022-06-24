@@ -30,25 +30,25 @@ import Amazonka.RDS.Types.MinimumEngineVersionPerAllowedValue
 --
 -- /See:/ 'newOptionGroupOptionSetting' smart constructor.
 data OptionGroupOptionSetting = OptionGroupOptionSetting'
-  { -- | The DB engine specific parameter type for the option group option.
+  { -- | The description of the option group option.
+    settingDescription :: Prelude.Maybe Prelude.Text,
+    -- | The DB engine specific parameter type for the option group option.
     applyType :: Prelude.Maybe Prelude.Text,
-    -- | The minimum DB engine version required for the corresponding allowed
-    -- value for this option setting.
-    minimumEngineVersionPerAllowedValue :: Prelude.Maybe [MinimumEngineVersionPerAllowedValue],
-    -- | The name of the option group option.
-    settingName :: Prelude.Maybe Prelude.Text,
     -- | The default value for the option group option.
     defaultValue :: Prelude.Maybe Prelude.Text,
     -- | Boolean value where true indicates that this option group option can be
     -- changed from the default value.
     isModifiable :: Prelude.Maybe Prelude.Bool,
-    -- | The description of the option group option.
-    settingDescription :: Prelude.Maybe Prelude.Text,
+    -- | The name of the option group option.
+    settingName :: Prelude.Maybe Prelude.Text,
     -- | Indicates the acceptable values for the option group option.
     allowedValues :: Prelude.Maybe Prelude.Text,
     -- | Boolean value where true indicates that a value must be specified for
     -- this option setting of the option group option.
-    isRequired :: Prelude.Maybe Prelude.Bool
+    isRequired :: Prelude.Maybe Prelude.Bool,
+    -- | The minimum DB engine version required for the corresponding allowed
+    -- value for this option setting.
+    minimumEngineVersionPerAllowedValue :: Prelude.Maybe [MinimumEngineVersionPerAllowedValue]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,52 +60,47 @@ data OptionGroupOptionSetting = OptionGroupOptionSetting'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'settingDescription', 'optionGroupOptionSetting_settingDescription' - The description of the option group option.
+--
 -- 'applyType', 'optionGroupOptionSetting_applyType' - The DB engine specific parameter type for the option group option.
---
--- 'minimumEngineVersionPerAllowedValue', 'optionGroupOptionSetting_minimumEngineVersionPerAllowedValue' - The minimum DB engine version required for the corresponding allowed
--- value for this option setting.
---
--- 'settingName', 'optionGroupOptionSetting_settingName' - The name of the option group option.
 --
 -- 'defaultValue', 'optionGroupOptionSetting_defaultValue' - The default value for the option group option.
 --
 -- 'isModifiable', 'optionGroupOptionSetting_isModifiable' - Boolean value where true indicates that this option group option can be
 -- changed from the default value.
 --
--- 'settingDescription', 'optionGroupOptionSetting_settingDescription' - The description of the option group option.
+-- 'settingName', 'optionGroupOptionSetting_settingName' - The name of the option group option.
 --
 -- 'allowedValues', 'optionGroupOptionSetting_allowedValues' - Indicates the acceptable values for the option group option.
 --
 -- 'isRequired', 'optionGroupOptionSetting_isRequired' - Boolean value where true indicates that a value must be specified for
 -- this option setting of the option group option.
+--
+-- 'minimumEngineVersionPerAllowedValue', 'optionGroupOptionSetting_minimumEngineVersionPerAllowedValue' - The minimum DB engine version required for the corresponding allowed
+-- value for this option setting.
 newOptionGroupOptionSetting ::
   OptionGroupOptionSetting
 newOptionGroupOptionSetting =
   OptionGroupOptionSetting'
-    { applyType =
+    { settingDescription =
         Prelude.Nothing,
-      minimumEngineVersionPerAllowedValue =
-        Prelude.Nothing,
-      settingName = Prelude.Nothing,
+      applyType = Prelude.Nothing,
       defaultValue = Prelude.Nothing,
       isModifiable = Prelude.Nothing,
-      settingDescription = Prelude.Nothing,
+      settingName = Prelude.Nothing,
       allowedValues = Prelude.Nothing,
-      isRequired = Prelude.Nothing
+      isRequired = Prelude.Nothing,
+      minimumEngineVersionPerAllowedValue =
+        Prelude.Nothing
     }
+
+-- | The description of the option group option.
+optionGroupOptionSetting_settingDescription :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Text)
+optionGroupOptionSetting_settingDescription = Lens.lens (\OptionGroupOptionSetting' {settingDescription} -> settingDescription) (\s@OptionGroupOptionSetting' {} a -> s {settingDescription = a} :: OptionGroupOptionSetting)
 
 -- | The DB engine specific parameter type for the option group option.
 optionGroupOptionSetting_applyType :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Text)
 optionGroupOptionSetting_applyType = Lens.lens (\OptionGroupOptionSetting' {applyType} -> applyType) (\s@OptionGroupOptionSetting' {} a -> s {applyType = a} :: OptionGroupOptionSetting)
-
--- | The minimum DB engine version required for the corresponding allowed
--- value for this option setting.
-optionGroupOptionSetting_minimumEngineVersionPerAllowedValue :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe [MinimumEngineVersionPerAllowedValue])
-optionGroupOptionSetting_minimumEngineVersionPerAllowedValue = Lens.lens (\OptionGroupOptionSetting' {minimumEngineVersionPerAllowedValue} -> minimumEngineVersionPerAllowedValue) (\s@OptionGroupOptionSetting' {} a -> s {minimumEngineVersionPerAllowedValue = a} :: OptionGroupOptionSetting) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the option group option.
-optionGroupOptionSetting_settingName :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Text)
-optionGroupOptionSetting_settingName = Lens.lens (\OptionGroupOptionSetting' {settingName} -> settingName) (\s@OptionGroupOptionSetting' {} a -> s {settingName = a} :: OptionGroupOptionSetting)
 
 -- | The default value for the option group option.
 optionGroupOptionSetting_defaultValue :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Text)
@@ -116,9 +111,9 @@ optionGroupOptionSetting_defaultValue = Lens.lens (\OptionGroupOptionSetting' {d
 optionGroupOptionSetting_isModifiable :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Bool)
 optionGroupOptionSetting_isModifiable = Lens.lens (\OptionGroupOptionSetting' {isModifiable} -> isModifiable) (\s@OptionGroupOptionSetting' {} a -> s {isModifiable = a} :: OptionGroupOptionSetting)
 
--- | The description of the option group option.
-optionGroupOptionSetting_settingDescription :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Text)
-optionGroupOptionSetting_settingDescription = Lens.lens (\OptionGroupOptionSetting' {settingDescription} -> settingDescription) (\s@OptionGroupOptionSetting' {} a -> s {settingDescription = a} :: OptionGroupOptionSetting)
+-- | The name of the option group option.
+optionGroupOptionSetting_settingName :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Text)
+optionGroupOptionSetting_settingName = Lens.lens (\OptionGroupOptionSetting' {settingName} -> settingName) (\s@OptionGroupOptionSetting' {} a -> s {settingName = a} :: OptionGroupOptionSetting)
 
 -- | Indicates the acceptable values for the option group option.
 optionGroupOptionSetting_allowedValues :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Text)
@@ -129,10 +124,21 @@ optionGroupOptionSetting_allowedValues = Lens.lens (\OptionGroupOptionSetting' {
 optionGroupOptionSetting_isRequired :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe Prelude.Bool)
 optionGroupOptionSetting_isRequired = Lens.lens (\OptionGroupOptionSetting' {isRequired} -> isRequired) (\s@OptionGroupOptionSetting' {} a -> s {isRequired = a} :: OptionGroupOptionSetting)
 
+-- | The minimum DB engine version required for the corresponding allowed
+-- value for this option setting.
+optionGroupOptionSetting_minimumEngineVersionPerAllowedValue :: Lens.Lens' OptionGroupOptionSetting (Prelude.Maybe [MinimumEngineVersionPerAllowedValue])
+optionGroupOptionSetting_minimumEngineVersionPerAllowedValue = Lens.lens (\OptionGroupOptionSetting' {minimumEngineVersionPerAllowedValue} -> minimumEngineVersionPerAllowedValue) (\s@OptionGroupOptionSetting' {} a -> s {minimumEngineVersionPerAllowedValue = a} :: OptionGroupOptionSetting) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML OptionGroupOptionSetting where
   parseXML x =
     OptionGroupOptionSetting'
-      Prelude.<$> (x Core..@? "ApplyType")
+      Prelude.<$> (x Core..@? "SettingDescription")
+      Prelude.<*> (x Core..@? "ApplyType")
+      Prelude.<*> (x Core..@? "DefaultValue")
+      Prelude.<*> (x Core..@? "IsModifiable")
+      Prelude.<*> (x Core..@? "SettingName")
+      Prelude.<*> (x Core..@? "AllowedValues")
+      Prelude.<*> (x Core..@? "IsRequired")
       Prelude.<*> ( x Core..@? "MinimumEngineVersionPerAllowedValue"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
@@ -140,31 +146,25 @@ instance Core.FromXML OptionGroupOptionSetting where
                             "MinimumEngineVersionPerAllowedValue"
                         )
                   )
-      Prelude.<*> (x Core..@? "SettingName")
-      Prelude.<*> (x Core..@? "DefaultValue")
-      Prelude.<*> (x Core..@? "IsModifiable")
-      Prelude.<*> (x Core..@? "SettingDescription")
-      Prelude.<*> (x Core..@? "AllowedValues")
-      Prelude.<*> (x Core..@? "IsRequired")
 
 instance Prelude.Hashable OptionGroupOptionSetting where
   hashWithSalt _salt OptionGroupOptionSetting' {..} =
-    _salt `Prelude.hashWithSalt` applyType
-      `Prelude.hashWithSalt` minimumEngineVersionPerAllowedValue
-      `Prelude.hashWithSalt` settingName
+    _salt `Prelude.hashWithSalt` settingDescription
+      `Prelude.hashWithSalt` applyType
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` isModifiable
-      `Prelude.hashWithSalt` settingDescription
+      `Prelude.hashWithSalt` settingName
       `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` isRequired
+      `Prelude.hashWithSalt` minimumEngineVersionPerAllowedValue
 
 instance Prelude.NFData OptionGroupOptionSetting where
   rnf OptionGroupOptionSetting' {..} =
-    Prelude.rnf applyType
-      `Prelude.seq` Prelude.rnf minimumEngineVersionPerAllowedValue
-      `Prelude.seq` Prelude.rnf settingName
+    Prelude.rnf settingDescription
+      `Prelude.seq` Prelude.rnf applyType
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf isModifiable
-      `Prelude.seq` Prelude.rnf settingDescription
+      `Prelude.seq` Prelude.rnf settingName
       `Prelude.seq` Prelude.rnf allowedValues
       `Prelude.seq` Prelude.rnf isRequired
+      `Prelude.seq` Prelude.rnf minimumEngineVersionPerAllowedValue

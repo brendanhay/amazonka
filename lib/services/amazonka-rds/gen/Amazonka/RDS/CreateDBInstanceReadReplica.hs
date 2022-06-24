@@ -42,37 +42,37 @@ module Amazonka.RDS.CreateDBInstanceReadReplica
     newCreateDBInstanceReadReplica,
 
     -- * Request Lenses
-    createDBInstanceReadReplica_deletionProtection,
-    createDBInstanceReadReplica_publiclyAccessible,
-    createDBInstanceReadReplica_autoMinorVersionUpgrade,
-    createDBInstanceReadReplica_dbSubnetGroupName,
-    createDBInstanceReadReplica_monitoringRoleArn,
-    createDBInstanceReadReplica_iops,
-    createDBInstanceReadReplica_domain,
-    createDBInstanceReadReplica_replicaMode,
-    createDBInstanceReadReplica_monitoringInterval,
-    createDBInstanceReadReplica_preSignedUrl,
-    createDBInstanceReadReplica_processorFeatures,
-    createDBInstanceReadReplica_dbInstanceClass,
-    createDBInstanceReadReplica_performanceInsightsRetentionPeriod,
-    createDBInstanceReadReplica_destinationRegion,
+    createDBInstanceReadReplica_tags,
     createDBInstanceReadReplica_maxAllocatedStorage,
-    createDBInstanceReadReplica_enablePerformanceInsights,
-    createDBInstanceReadReplica_kmsKeyId,
-    createDBInstanceReadReplica_dbParameterGroupName,
-    createDBInstanceReadReplica_availabilityZone,
-    createDBInstanceReadReplica_performanceInsightsKMSKeyId,
+    createDBInstanceReadReplica_port,
+    createDBInstanceReadReplica_performanceInsightsRetentionPeriod,
     createDBInstanceReadReplica_vpcSecurityGroupIds,
-    createDBInstanceReadReplica_multiAZ,
-    createDBInstanceReadReplica_optionGroupName,
+    createDBInstanceReadReplica_dbParameterGroupName,
+    createDBInstanceReadReplica_dbInstanceClass,
     createDBInstanceReadReplica_copyTagsToSnapshot,
     createDBInstanceReadReplica_domainIAMRoleName,
-    createDBInstanceReadReplica_tags,
-    createDBInstanceReadReplica_port,
+    createDBInstanceReadReplica_dbSubnetGroupName,
+    createDBInstanceReadReplica_autoMinorVersionUpgrade,
+    createDBInstanceReadReplica_domain,
+    createDBInstanceReadReplica_optionGroupName,
+    createDBInstanceReadReplica_performanceInsightsKMSKeyId,
     createDBInstanceReadReplica_enableIAMDatabaseAuthentication,
-    createDBInstanceReadReplica_useDefaultProcessorFeatures,
+    createDBInstanceReadReplica_monitoringInterval,
+    createDBInstanceReadReplica_availabilityZone,
+    createDBInstanceReadReplica_publiclyAccessible,
     createDBInstanceReadReplica_storageType,
     createDBInstanceReadReplica_enableCloudwatchLogsExports,
+    createDBInstanceReadReplica_processorFeatures,
+    createDBInstanceReadReplica_enablePerformanceInsights,
+    createDBInstanceReadReplica_monitoringRoleArn,
+    createDBInstanceReadReplica_replicaMode,
+    createDBInstanceReadReplica_kmsKeyId,
+    createDBInstanceReadReplica_deletionProtection,
+    createDBInstanceReadReplica_destinationRegion,
+    createDBInstanceReadReplica_iops,
+    createDBInstanceReadReplica_preSignedUrl,
+    createDBInstanceReadReplica_multiAZ,
+    createDBInstanceReadReplica_useDefaultProcessorFeatures,
     createDBInstanceReadReplica_dbInstanceIdentifier,
     createDBInstanceReadReplica_sourceDBInstanceIdentifier,
 
@@ -95,31 +95,62 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDBInstanceReadReplica' smart constructor.
 data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
-  { -- | A value that indicates whether the DB instance has deletion protection
-    -- enabled. The database can\'t be deleted when deletion protection is
-    -- enabled. By default, deletion protection is disabled. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
-    -- | A value that indicates whether the DB instance is publicly accessible.
+  { tags :: Prelude.Maybe [Tag],
+    -- | The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
+    -- scale the storage of the DB instance.
     --
-    -- When the DB instance is publicly accessible, its DNS endpoint resolves
-    -- to the private IP address from within the DB instance\'s VPC, and to the
-    -- public IP address from outside of the DB instance\'s VPC. Access to the
-    -- DB instance is ultimately controlled by the security group it uses, and
-    -- that public access is not permitted if the security group assigned to
-    -- the DB instance doesn\'t permit it.
-    --
-    -- When the DB instance isn\'t publicly accessible, it is an internal DB
-    -- instance with a DNS name that resolves to a private IP address.
-    --
-    -- For more information, see CreateDBInstance.
-    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
-    -- | A value that indicates whether minor engine upgrades are applied
-    -- automatically to the read replica during the maintenance window.
+    -- For more information about this setting, including limitations that
+    -- apply to it, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
+    -- in the /Amazon RDS User Guide/.
+    maxAllocatedStorage :: Prelude.Maybe Prelude.Int,
+    -- | The port number that the DB instance uses for connections.
     --
     -- Default: Inherits from the source DB instance
-    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    --
+    -- Valid Values: @1150-65535@
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The amount of time, in days, to retain Performance Insights data. Valid
+    -- values are 7 or 731 (2 years).
+    performanceInsightsRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | A list of EC2 VPC security groups to associate with the read replica.
+    --
+    -- Default: The default EC2 VPC security group for the DB subnet group\'s
+    -- VPC.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the DB parameter group to associate with this DB instance.
+    --
+    -- If you do not specify a value for @DBParameterGroupName@, then Amazon
+    -- RDS uses the @DBParameterGroup@ of source DB instance for a same region
+    -- read replica, or the default @DBParameterGroup@ for the specified DB
+    -- engine for a cross region read replica.
+    --
+    -- Currently, specifying a parameter group for this operation is only
+    -- supported for Oracle DB instances.
+    --
+    -- Constraints:
+    --
+    -- -   Must be 1 to 255 letters, numbers, or hyphens.
+    --
+    -- -   First character must be a letter
+    --
+    -- -   Can\'t end with a hyphen or contain two consecutive hyphens
+    dbParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The compute and memory capacity of the read replica, for example,
+    -- @db.m4.large@. Not all DB instance classes are available in all Amazon
+    -- Web Services Regions, or for all database engines. For the full list of
+    -- DB instance classes, and availability for your engine, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
+    -- in the /Amazon RDS User Guide./
+    --
+    -- Default: Inherits from the source DB instance.
+    dbInstanceClass :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to copy all tags from the read replica to
+    -- snapshots of the read replica. By default, tags are not copied.
+    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
+    -- | Specify the name of the IAM role to be used when making API calls to the
+    -- Directory Service.
+    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
     -- | Specifies a DB subnet group for the DB instance. The new DB instance is
     -- created in the VPC associated with the DB subnet group. If no DB subnet
     -- group is specified, then the new DB instance isn\'t created in a VPC.
@@ -145,6 +176,100 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     --
     -- Example: @mySubnetgroup@
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether minor engine upgrades are applied
+    -- automatically to the read replica during the maintenance window.
+    --
+    -- Default: Inherits from the source DB instance
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | The Active Directory directory ID to create the DB instance in.
+    -- Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB
+    -- instances can be created in an Active Directory Domain.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
+    -- in the /Amazon RDS User Guide/.
+    domain :: Prelude.Maybe Prelude.Text,
+    -- | The option group the DB instance is associated with. If omitted, the
+    -- option group associated with the source instance is used.
+    --
+    -- For SQL Server, you must use the option group associated with the source
+    -- instance.
+    optionGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services KMS key identifier for encryption of Performance
+    -- Insights data.
+    --
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the Amazon Web Services KMS customer master key
+    -- (CMK).
+    --
+    -- If you do not specify a value for @PerformanceInsightsKMSKeyId@, then
+    -- Amazon RDS uses your default CMK. There is a default CMK for your Amazon
+    -- Web Services account. Your Amazon Web Services account has a different
+    -- default CMK for each Amazon Web Services Region.
+    performanceInsightsKMSKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to enable mapping of Amazon Web Services
+    -- Identity and Access Management (IAM) accounts to database accounts. By
+    -- default, mapping is disabled.
+    --
+    -- For more information about IAM database authentication, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
+    -- in the /Amazon RDS User Guide./
+    enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
+    -- | The interval, in seconds, between points when Enhanced Monitoring
+    -- metrics are collected for the read replica. To disable collecting
+    -- Enhanced Monitoring metrics, specify 0. The default is 0.
+    --
+    -- If @MonitoringRoleArn@ is specified, then you must also set
+    -- @MonitoringInterval@ to a value other than 0.
+    --
+    -- Valid Values: @0, 1, 5, 10, 15, 30, 60@
+    monitoringInterval :: Prelude.Maybe Prelude.Int,
+    -- | The Availability Zone (AZ) where the read replica will be created.
+    --
+    -- Default: A random, system-chosen Availability Zone in the endpoint\'s
+    -- Amazon Web Services Region.
+    --
+    -- Example: @us-east-1d@
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether the DB instance is publicly accessible.
+    --
+    -- When the DB instance is publicly accessible, its DNS endpoint resolves
+    -- to the private IP address from within the DB instance\'s VPC, and to the
+    -- public IP address from outside of the DB instance\'s VPC. Access to the
+    -- DB instance is ultimately controlled by the security group it uses, and
+    -- that public access is not permitted if the security group assigned to
+    -- the DB instance doesn\'t permit it.
+    --
+    -- When the DB instance isn\'t publicly accessible, it is an internal DB
+    -- instance with a DNS name that resolves to a private IP address.
+    --
+    -- For more information, see CreateDBInstance.
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the storage type to be associated with the read replica.
+    --
+    -- Valid values: @standard | gp2 | io1@
+    --
+    -- If you specify @io1@, you must also include a value for the @Iops@
+    -- parameter.
+    --
+    -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
+    storageType :: Prelude.Maybe Prelude.Text,
+    -- | The list of logs that the new DB instance is to export to CloudWatch
+    -- Logs. The values in the list depend on the DB engine being used. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
+    -- in the /Amazon RDS User Guide/.
+    enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
+    -- | The number of CPU cores and the number of threads per core for the DB
+    -- instance class of the DB instance.
+    processorFeatures :: Prelude.Maybe [ProcessorFeature],
+    -- | A value that indicates whether to enable Performance Insights for the
+    -- read replica.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
+    -- in the /Amazon RDS User Guide/.
+    enablePerformanceInsights :: Prelude.Maybe Prelude.Bool,
     -- | The ARN for the IAM role that permits RDS to send enhanced monitoring
     -- metrics to Amazon CloudWatch Logs. For example,
     -- @arn:aws:iam:123456789012:role\/emaccess@. For information on creating a
@@ -155,17 +280,6 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- If @MonitoringInterval@ is set to a value other than 0, then you must
     -- supply a @MonitoringRoleArn@ value.
     monitoringRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The amount of Provisioned IOPS (input\/output operations per second) to
-    -- be initially allocated for the DB instance.
-    iops :: Prelude.Maybe Prelude.Int,
-    -- | The Active Directory directory ID to create the DB instance in.
-    -- Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB
-    -- instances can be created in an Active Directory Domain.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
-    -- in the /Amazon RDS User Guide/.
-    domain :: Prelude.Maybe Prelude.Text,
     -- | The open mode of the replica database: mounted or read-only.
     --
     -- This parameter is only supported for Oracle DB instances.
@@ -181,15 +295,42 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS>
     -- in the /Amazon RDS User Guide/.
     replicaMode :: Prelude.Maybe ReplicaMode,
-    -- | The interval, in seconds, between points when Enhanced Monitoring
-    -- metrics are collected for the read replica. To disable collecting
-    -- Enhanced Monitoring metrics, specify 0. The default is 0.
+    -- | The Amazon Web Services KMS key identifier for an encrypted read
+    -- replica.
     --
-    -- If @MonitoringRoleArn@ is specified, then you must also set
-    -- @MonitoringInterval@ to a value other than 0.
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the Amazon Web Services KMS CMK.
     --
-    -- Valid Values: @0, 1, 5, 10, 15, 30, 60@
-    monitoringInterval :: Prelude.Maybe Prelude.Int,
+    -- If you create an encrypted read replica in the same Amazon Web Services
+    -- Region as the source DB instance, then do not specify a value for this
+    -- parameter. A read replica in the same Region is always encrypted with
+    -- the same Amazon Web Services KMS CMK as the source DB instance.
+    --
+    -- If you create an encrypted read replica in a different Amazon Web
+    -- Services Region, then you must specify a Amazon Web Services KMS key
+    -- identifier for the destination Amazon Web Services Region. Amazon Web
+    -- Services KMS CMKs are specific to the Amazon Web Services Region that
+    -- they are created in, and you can\'t use CMKs from one Amazon Web
+    -- Services Region in another Amazon Web Services Region.
+    --
+    -- You can\'t create an encrypted read replica from an unencrypted DB
+    -- instance.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether the DB instance has deletion protection
+    -- enabled. The database can\'t be deleted when deletion protection is
+    -- enabled. By default, deletion protection is disabled. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
+    -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+    -- cross-region @CreateDBInstanceReadReplica@ request. To replicate from
+    -- region @SRC@ to region @DST@, send a request to region @DST@. In that
+    -- request, pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@
+    -- set to region @DST@.
+    destinationRegion :: Prelude.Maybe Prelude.Text,
+    -- | The amount of Provisioned IOPS (input\/output operations per second) to
+    -- be initially allocated for the DB instance.
+    iops :: Prelude.Maybe Prelude.Int,
     -- | The URL that contains a Signature Version 4 signed request for the
     -- @CreateDBInstanceReadReplica@ API action in the source Amazon Web
     -- Services Region that contains the source DB instance.
@@ -250,105 +391,6 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- @SourceRegion@ isn\'t supported for SQL Server, because SQL Server on
     -- Amazon RDS doesn\'t support cross-region read replicas.
     preSignedUrl :: Prelude.Maybe Prelude.Text,
-    -- | The number of CPU cores and the number of threads per core for the DB
-    -- instance class of the DB instance.
-    processorFeatures :: Prelude.Maybe [ProcessorFeature],
-    -- | The compute and memory capacity of the read replica, for example,
-    -- @db.m4.large@. Not all DB instance classes are available in all Amazon
-    -- Web Services Regions, or for all database engines. For the full list of
-    -- DB instance classes, and availability for your engine, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
-    -- in the /Amazon RDS User Guide./
-    --
-    -- Default: Inherits from the source DB instance.
-    dbInstanceClass :: Prelude.Maybe Prelude.Text,
-    -- | The amount of time, in days, to retain Performance Insights data. Valid
-    -- values are 7 or 731 (2 years).
-    performanceInsightsRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
-    -- cross-region @CreateDBInstanceReadReplica@ request. To replicate from
-    -- region @SRC@ to region @DST@, send a request to region @DST@. In that
-    -- request, pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@
-    -- set to region @DST@.
-    destinationRegion :: Prelude.Maybe Prelude.Text,
-    -- | The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
-    -- scale the storage of the DB instance.
-    --
-    -- For more information about this setting, including limitations that
-    -- apply to it, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
-    -- in the /Amazon RDS User Guide/.
-    maxAllocatedStorage :: Prelude.Maybe Prelude.Int,
-    -- | A value that indicates whether to enable Performance Insights for the
-    -- read replica.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
-    -- in the /Amazon RDS User Guide/.
-    enablePerformanceInsights :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Web Services KMS key identifier for an encrypted read
-    -- replica.
-    --
-    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS CMK.
-    --
-    -- If you create an encrypted read replica in the same Amazon Web Services
-    -- Region as the source DB instance, then do not specify a value for this
-    -- parameter. A read replica in the same Region is always encrypted with
-    -- the same Amazon Web Services KMS CMK as the source DB instance.
-    --
-    -- If you create an encrypted read replica in a different Amazon Web
-    -- Services Region, then you must specify a Amazon Web Services KMS key
-    -- identifier for the destination Amazon Web Services Region. Amazon Web
-    -- Services KMS CMKs are specific to the Amazon Web Services Region that
-    -- they are created in, and you can\'t use CMKs from one Amazon Web
-    -- Services Region in another Amazon Web Services Region.
-    --
-    -- You can\'t create an encrypted read replica from an unencrypted DB
-    -- instance.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the DB parameter group to associate with this DB instance.
-    --
-    -- If you do not specify a value for @DBParameterGroupName@, then Amazon
-    -- RDS uses the @DBParameterGroup@ of source DB instance for a same region
-    -- read replica, or the default @DBParameterGroup@ for the specified DB
-    -- engine for a cross region read replica.
-    --
-    -- Currently, specifying a parameter group for this operation is only
-    -- supported for Oracle DB instances.
-    --
-    -- Constraints:
-    --
-    -- -   Must be 1 to 255 letters, numbers, or hyphens.
-    --
-    -- -   First character must be a letter
-    --
-    -- -   Can\'t end with a hyphen or contain two consecutive hyphens
-    dbParameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zone (AZ) where the read replica will be created.
-    --
-    -- Default: A random, system-chosen Availability Zone in the endpoint\'s
-    -- Amazon Web Services Region.
-    --
-    -- Example: @us-east-1d@
-    availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services KMS key identifier for encryption of Performance
-    -- Insights data.
-    --
-    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK).
-    --
-    -- If you do not specify a value for @PerformanceInsightsKMSKeyId@, then
-    -- Amazon RDS uses your default CMK. There is a default CMK for your Amazon
-    -- Web Services account. Your Amazon Web Services account has a different
-    -- default CMK for each Amazon Web Services Region.
-    performanceInsightsKMSKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A list of EC2 VPC security groups to associate with the read replica.
-    --
-    -- Default: The default EC2 VPC security group for the DB subnet group\'s
-    -- VPC.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | A value that indicates whether the read replica is in a Multi-AZ
     -- deployment.
     --
@@ -358,51 +400,9 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- instance is independent of whether the source database is a Multi-AZ DB
     -- instance.
     multiAZ :: Prelude.Maybe Prelude.Bool,
-    -- | The option group the DB instance is associated with. If omitted, the
-    -- option group associated with the source instance is used.
-    --
-    -- For SQL Server, you must use the option group associated with the source
-    -- instance.
-    optionGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether to copy all tags from the read replica to
-    -- snapshots of the read replica. By default, tags are not copied.
-    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
-    -- | Specify the name of the IAM role to be used when making API calls to the
-    -- Directory Service.
-    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe [Tag],
-    -- | The port number that the DB instance uses for connections.
-    --
-    -- Default: Inherits from the source DB instance
-    --
-    -- Valid Values: @1150-65535@
-    port :: Prelude.Maybe Prelude.Int,
-    -- | A value that indicates whether to enable mapping of Amazon Web Services
-    -- Identity and Access Management (IAM) accounts to database accounts. By
-    -- default, mapping is disabled.
-    --
-    -- For more information about IAM database authentication, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
-    -- in the /Amazon RDS User Guide./
-    enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether the DB instance class of the DB instance
     -- uses its default processor features.
     useDefaultProcessorFeatures :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the storage type to be associated with the read replica.
-    --
-    -- Valid values: @standard | gp2 | io1@
-    --
-    -- If you specify @io1@, you must also include a value for the @Iops@
-    -- parameter.
-    --
-    -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
-    storageType :: Prelude.Maybe Prelude.Text,
-    -- | The list of logs that the new DB instance is to export to CloudWatch
-    -- Logs. The values in the list depend on the DB engine being used. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
-    -- in the /Amazon RDS User Guide/.
-    enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
     -- | The DB instance identifier of the read replica. This identifier is the
     -- unique key that identifies a DB instance. This parameter is stored as a
     -- lowercase string.
@@ -454,30 +454,62 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deletionProtection', 'createDBInstanceReadReplica_deletionProtection' - A value that indicates whether the DB instance has deletion protection
--- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
+-- 'tags', 'createDBInstanceReadReplica_tags' - Undocumented member.
 --
--- 'publiclyAccessible', 'createDBInstanceReadReplica_publiclyAccessible' - A value that indicates whether the DB instance is publicly accessible.
+-- 'maxAllocatedStorage', 'createDBInstanceReadReplica_maxAllocatedStorage' - The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
+-- scale the storage of the DB instance.
 --
--- When the DB instance is publicly accessible, its DNS endpoint resolves
--- to the private IP address from within the DB instance\'s VPC, and to the
--- public IP address from outside of the DB instance\'s VPC. Access to the
--- DB instance is ultimately controlled by the security group it uses, and
--- that public access is not permitted if the security group assigned to
--- the DB instance doesn\'t permit it.
+-- For more information about this setting, including limitations that
+-- apply to it, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
+-- in the /Amazon RDS User Guide/.
 --
--- When the DB instance isn\'t publicly accessible, it is an internal DB
--- instance with a DNS name that resolves to a private IP address.
---
--- For more information, see CreateDBInstance.
---
--- 'autoMinorVersionUpgrade', 'createDBInstanceReadReplica_autoMinorVersionUpgrade' - A value that indicates whether minor engine upgrades are applied
--- automatically to the read replica during the maintenance window.
+-- 'port', 'createDBInstanceReadReplica_port' - The port number that the DB instance uses for connections.
 --
 -- Default: Inherits from the source DB instance
+--
+-- Valid Values: @1150-65535@
+--
+-- 'performanceInsightsRetentionPeriod', 'createDBInstanceReadReplica_performanceInsightsRetentionPeriod' - The amount of time, in days, to retain Performance Insights data. Valid
+-- values are 7 or 731 (2 years).
+--
+-- 'vpcSecurityGroupIds', 'createDBInstanceReadReplica_vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with the read replica.
+--
+-- Default: The default EC2 VPC security group for the DB subnet group\'s
+-- VPC.
+--
+-- 'dbParameterGroupName', 'createDBInstanceReadReplica_dbParameterGroupName' - The name of the DB parameter group to associate with this DB instance.
+--
+-- If you do not specify a value for @DBParameterGroupName@, then Amazon
+-- RDS uses the @DBParameterGroup@ of source DB instance for a same region
+-- read replica, or the default @DBParameterGroup@ for the specified DB
+-- engine for a cross region read replica.
+--
+-- Currently, specifying a parameter group for this operation is only
+-- supported for Oracle DB instances.
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 letters, numbers, or hyphens.
+--
+-- -   First character must be a letter
+--
+-- -   Can\'t end with a hyphen or contain two consecutive hyphens
+--
+-- 'dbInstanceClass', 'createDBInstanceReadReplica_dbInstanceClass' - The compute and memory capacity of the read replica, for example,
+-- @db.m4.large@. Not all DB instance classes are available in all Amazon
+-- Web Services Regions, or for all database engines. For the full list of
+-- DB instance classes, and availability for your engine, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
+-- in the /Amazon RDS User Guide./
+--
+-- Default: Inherits from the source DB instance.
+--
+-- 'copyTagsToSnapshot', 'createDBInstanceReadReplica_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the read replica to
+-- snapshots of the read replica. By default, tags are not copied.
+--
+-- 'domainIAMRoleName', 'createDBInstanceReadReplica_domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the
+-- Directory Service.
 --
 -- 'dbSubnetGroupName', 'createDBInstanceReadReplica_dbSubnetGroupName' - Specifies a DB subnet group for the DB instance. The new DB instance is
 -- created in the VPC associated with the DB subnet group. If no DB subnet
@@ -504,6 +536,100 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 --
 -- Example: @mySubnetgroup@
 --
+-- 'autoMinorVersionUpgrade', 'createDBInstanceReadReplica_autoMinorVersionUpgrade' - A value that indicates whether minor engine upgrades are applied
+-- automatically to the read replica during the maintenance window.
+--
+-- Default: Inherits from the source DB instance
+--
+-- 'domain', 'createDBInstanceReadReplica_domain' - The Active Directory directory ID to create the DB instance in.
+-- Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB
+-- instances can be created in an Active Directory Domain.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
+-- in the /Amazon RDS User Guide/.
+--
+-- 'optionGroupName', 'createDBInstanceReadReplica_optionGroupName' - The option group the DB instance is associated with. If omitted, the
+-- option group associated with the source instance is used.
+--
+-- For SQL Server, you must use the option group associated with the source
+-- instance.
+--
+-- 'performanceInsightsKMSKeyId', 'createDBInstanceReadReplica_performanceInsightsKMSKeyId' - The Amazon Web Services KMS key identifier for encryption of Performance
+-- Insights data.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK).
+--
+-- If you do not specify a value for @PerformanceInsightsKMSKeyId@, then
+-- Amazon RDS uses your default CMK. There is a default CMK for your Amazon
+-- Web Services account. Your Amazon Web Services account has a different
+-- default CMK for each Amazon Web Services Region.
+--
+-- 'enableIAMDatabaseAuthentication', 'createDBInstanceReadReplica_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
+--
+-- For more information about IAM database authentication, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
+-- in the /Amazon RDS User Guide./
+--
+-- 'monitoringInterval', 'createDBInstanceReadReplica_monitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring
+-- metrics are collected for the read replica. To disable collecting
+-- Enhanced Monitoring metrics, specify 0. The default is 0.
+--
+-- If @MonitoringRoleArn@ is specified, then you must also set
+-- @MonitoringInterval@ to a value other than 0.
+--
+-- Valid Values: @0, 1, 5, 10, 15, 30, 60@
+--
+-- 'availabilityZone', 'createDBInstanceReadReplica_availabilityZone' - The Availability Zone (AZ) where the read replica will be created.
+--
+-- Default: A random, system-chosen Availability Zone in the endpoint\'s
+-- Amazon Web Services Region.
+--
+-- Example: @us-east-1d@
+--
+-- 'publiclyAccessible', 'createDBInstanceReadReplica_publiclyAccessible' - A value that indicates whether the DB instance is publicly accessible.
+--
+-- When the DB instance is publicly accessible, its DNS endpoint resolves
+-- to the private IP address from within the DB instance\'s VPC, and to the
+-- public IP address from outside of the DB instance\'s VPC. Access to the
+-- DB instance is ultimately controlled by the security group it uses, and
+-- that public access is not permitted if the security group assigned to
+-- the DB instance doesn\'t permit it.
+--
+-- When the DB instance isn\'t publicly accessible, it is an internal DB
+-- instance with a DNS name that resolves to a private IP address.
+--
+-- For more information, see CreateDBInstance.
+--
+-- 'storageType', 'createDBInstanceReadReplica_storageType' - Specifies the storage type to be associated with the read replica.
+--
+-- Valid values: @standard | gp2 | io1@
+--
+-- If you specify @io1@, you must also include a value for the @Iops@
+-- parameter.
+--
+-- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
+--
+-- 'enableCloudwatchLogsExports', 'createDBInstanceReadReplica_enableCloudwatchLogsExports' - The list of logs that the new DB instance is to export to CloudWatch
+-- Logs. The values in the list depend on the DB engine being used. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
+-- in the /Amazon RDS User Guide/.
+--
+-- 'processorFeatures', 'createDBInstanceReadReplica_processorFeatures' - The number of CPU cores and the number of threads per core for the DB
+-- instance class of the DB instance.
+--
+-- 'enablePerformanceInsights', 'createDBInstanceReadReplica_enablePerformanceInsights' - A value that indicates whether to enable Performance Insights for the
+-- read replica.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
+-- in the /Amazon RDS User Guide/.
+--
 -- 'monitoringRoleArn', 'createDBInstanceReadReplica_monitoringRoleArn' - The ARN for the IAM role that permits RDS to send enhanced monitoring
 -- metrics to Amazon CloudWatch Logs. For example,
 -- @arn:aws:iam:123456789012:role\/emaccess@. For information on creating a
@@ -513,17 +639,6 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 --
 -- If @MonitoringInterval@ is set to a value other than 0, then you must
 -- supply a @MonitoringRoleArn@ value.
---
--- 'iops', 'createDBInstanceReadReplica_iops' - The amount of Provisioned IOPS (input\/output operations per second) to
--- be initially allocated for the DB instance.
---
--- 'domain', 'createDBInstanceReadReplica_domain' - The Active Directory directory ID to create the DB instance in.
--- Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB
--- instances can be created in an Active Directory Domain.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
--- in the /Amazon RDS User Guide/.
 --
 -- 'replicaMode', 'createDBInstanceReadReplica_replicaMode' - The open mode of the replica database: mounted or read-only.
 --
@@ -540,14 +655,41 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS>
 -- in the /Amazon RDS User Guide/.
 --
--- 'monitoringInterval', 'createDBInstanceReadReplica_monitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring
--- metrics are collected for the read replica. To disable collecting
--- Enhanced Monitoring metrics, specify 0. The default is 0.
+-- 'kmsKeyId', 'createDBInstanceReadReplica_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted read
+-- replica.
 --
--- If @MonitoringRoleArn@ is specified, then you must also set
--- @MonitoringInterval@ to a value other than 0.
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS CMK.
 --
--- Valid Values: @0, 1, 5, 10, 15, 30, 60@
+-- If you create an encrypted read replica in the same Amazon Web Services
+-- Region as the source DB instance, then do not specify a value for this
+-- parameter. A read replica in the same Region is always encrypted with
+-- the same Amazon Web Services KMS CMK as the source DB instance.
+--
+-- If you create an encrypted read replica in a different Amazon Web
+-- Services Region, then you must specify a Amazon Web Services KMS key
+-- identifier for the destination Amazon Web Services Region. Amazon Web
+-- Services KMS CMKs are specific to the Amazon Web Services Region that
+-- they are created in, and you can\'t use CMKs from one Amazon Web
+-- Services Region in another Amazon Web Services Region.
+--
+-- You can\'t create an encrypted read replica from an unencrypted DB
+-- instance.
+--
+-- 'deletionProtection', 'createDBInstanceReadReplica_deletionProtection' - A value that indicates whether the DB instance has deletion protection
+-- enabled. The database can\'t be deleted when deletion protection is
+-- enabled. By default, deletion protection is disabled. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
+--
+-- 'destinationRegion', 'createDBInstanceReadReplica_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @CreateDBInstanceReadReplica@ request. To replicate from
+-- region @SRC@ to region @DST@, send a request to region @DST@. In that
+-- request, pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@
+-- set to region @DST@.
+--
+-- 'iops', 'createDBInstanceReadReplica_iops' - The amount of Provisioned IOPS (input\/output operations per second) to
+-- be initially allocated for the DB instance.
 --
 -- 'preSignedUrl', 'createDBInstanceReadReplica_preSignedUrl' - The URL that contains a Signature Version 4 signed request for the
 -- @CreateDBInstanceReadReplica@ API action in the source Amazon Web
@@ -609,105 +751,6 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 -- @SourceRegion@ isn\'t supported for SQL Server, because SQL Server on
 -- Amazon RDS doesn\'t support cross-region read replicas.
 --
--- 'processorFeatures', 'createDBInstanceReadReplica_processorFeatures' - The number of CPU cores and the number of threads per core for the DB
--- instance class of the DB instance.
---
--- 'dbInstanceClass', 'createDBInstanceReadReplica_dbInstanceClass' - The compute and memory capacity of the read replica, for example,
--- @db.m4.large@. Not all DB instance classes are available in all Amazon
--- Web Services Regions, or for all database engines. For the full list of
--- DB instance classes, and availability for your engine, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
--- in the /Amazon RDS User Guide./
---
--- Default: Inherits from the source DB instance.
---
--- 'performanceInsightsRetentionPeriod', 'createDBInstanceReadReplica_performanceInsightsRetentionPeriod' - The amount of time, in days, to retain Performance Insights data. Valid
--- values are 7 or 731 (2 years).
---
--- 'destinationRegion', 'createDBInstanceReadReplica_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
--- cross-region @CreateDBInstanceReadReplica@ request. To replicate from
--- region @SRC@ to region @DST@, send a request to region @DST@. In that
--- request, pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@
--- set to region @DST@.
---
--- 'maxAllocatedStorage', 'createDBInstanceReadReplica_maxAllocatedStorage' - The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
--- scale the storage of the DB instance.
---
--- For more information about this setting, including limitations that
--- apply to it, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
--- in the /Amazon RDS User Guide/.
---
--- 'enablePerformanceInsights', 'createDBInstanceReadReplica_enablePerformanceInsights' - A value that indicates whether to enable Performance Insights for the
--- read replica.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
--- in the /Amazon RDS User Guide/.
---
--- 'kmsKeyId', 'createDBInstanceReadReplica_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted read
--- replica.
---
--- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS CMK.
---
--- If you create an encrypted read replica in the same Amazon Web Services
--- Region as the source DB instance, then do not specify a value for this
--- parameter. A read replica in the same Region is always encrypted with
--- the same Amazon Web Services KMS CMK as the source DB instance.
---
--- If you create an encrypted read replica in a different Amazon Web
--- Services Region, then you must specify a Amazon Web Services KMS key
--- identifier for the destination Amazon Web Services Region. Amazon Web
--- Services KMS CMKs are specific to the Amazon Web Services Region that
--- they are created in, and you can\'t use CMKs from one Amazon Web
--- Services Region in another Amazon Web Services Region.
---
--- You can\'t create an encrypted read replica from an unencrypted DB
--- instance.
---
--- 'dbParameterGroupName', 'createDBInstanceReadReplica_dbParameterGroupName' - The name of the DB parameter group to associate with this DB instance.
---
--- If you do not specify a value for @DBParameterGroupName@, then Amazon
--- RDS uses the @DBParameterGroup@ of source DB instance for a same region
--- read replica, or the default @DBParameterGroup@ for the specified DB
--- engine for a cross region read replica.
---
--- Currently, specifying a parameter group for this operation is only
--- supported for Oracle DB instances.
---
--- Constraints:
---
--- -   Must be 1 to 255 letters, numbers, or hyphens.
---
--- -   First character must be a letter
---
--- -   Can\'t end with a hyphen or contain two consecutive hyphens
---
--- 'availabilityZone', 'createDBInstanceReadReplica_availabilityZone' - The Availability Zone (AZ) where the read replica will be created.
---
--- Default: A random, system-chosen Availability Zone in the endpoint\'s
--- Amazon Web Services Region.
---
--- Example: @us-east-1d@
---
--- 'performanceInsightsKMSKeyId', 'createDBInstanceReadReplica_performanceInsightsKMSKeyId' - The Amazon Web Services KMS key identifier for encryption of Performance
--- Insights data.
---
--- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
---
--- If you do not specify a value for @PerformanceInsightsKMSKeyId@, then
--- Amazon RDS uses your default CMK. There is a default CMK for your Amazon
--- Web Services account. Your Amazon Web Services account has a different
--- default CMK for each Amazon Web Services Region.
---
--- 'vpcSecurityGroupIds', 'createDBInstanceReadReplica_vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with the read replica.
---
--- Default: The default EC2 VPC security group for the DB subnet group\'s
--- VPC.
---
 -- 'multiAZ', 'createDBInstanceReadReplica_multiAZ' - A value that indicates whether the read replica is in a Multi-AZ
 -- deployment.
 --
@@ -717,51 +760,8 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 -- instance is independent of whether the source database is a Multi-AZ DB
 -- instance.
 --
--- 'optionGroupName', 'createDBInstanceReadReplica_optionGroupName' - The option group the DB instance is associated with. If omitted, the
--- option group associated with the source instance is used.
---
--- For SQL Server, you must use the option group associated with the source
--- instance.
---
--- 'copyTagsToSnapshot', 'createDBInstanceReadReplica_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the read replica to
--- snapshots of the read replica. By default, tags are not copied.
---
--- 'domainIAMRoleName', 'createDBInstanceReadReplica_domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the
--- Directory Service.
---
--- 'tags', 'createDBInstanceReadReplica_tags' - Undocumented member.
---
--- 'port', 'createDBInstanceReadReplica_port' - The port number that the DB instance uses for connections.
---
--- Default: Inherits from the source DB instance
---
--- Valid Values: @1150-65535@
---
--- 'enableIAMDatabaseAuthentication', 'createDBInstanceReadReplica_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
--- Identity and Access Management (IAM) accounts to database accounts. By
--- default, mapping is disabled.
---
--- For more information about IAM database authentication, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
--- in the /Amazon RDS User Guide./
---
 -- 'useDefaultProcessorFeatures', 'createDBInstanceReadReplica_useDefaultProcessorFeatures' - A value that indicates whether the DB instance class of the DB instance
 -- uses its default processor features.
---
--- 'storageType', 'createDBInstanceReadReplica_storageType' - Specifies the storage type to be associated with the read replica.
---
--- Valid values: @standard | gp2 | io1@
---
--- If you specify @io1@, you must also include a value for the @Iops@
--- parameter.
---
--- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
---
--- 'enableCloudwatchLogsExports', 'createDBInstanceReadReplica_enableCloudwatchLogsExports' - The list of logs that the new DB instance is to export to CloudWatch
--- Logs. The values in the list depend on the DB engine being used. For
--- more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
--- in the /Amazon RDS User Guide/.
 --
 -- 'dbInstanceIdentifier', 'createDBInstanceReadReplica_dbInstanceIdentifier' - The DB instance identifier of the read replica. This identifier is the
 -- unique key that identifies a DB instance. This parameter is stored as a
@@ -812,75 +812,119 @@ newCreateDBInstanceReadReplica
   pDBInstanceIdentifier_
   pSourceDBInstanceIdentifier_ =
     CreateDBInstanceReadReplica'
-      { deletionProtection =
+      { tags =
           Prelude.Nothing,
-        publiclyAccessible = Prelude.Nothing,
-        autoMinorVersionUpgrade = Prelude.Nothing,
-        dbSubnetGroupName = Prelude.Nothing,
-        monitoringRoleArn = Prelude.Nothing,
-        iops = Prelude.Nothing,
-        domain = Prelude.Nothing,
-        replicaMode = Prelude.Nothing,
-        monitoringInterval = Prelude.Nothing,
-        preSignedUrl = Prelude.Nothing,
-        processorFeatures = Prelude.Nothing,
-        dbInstanceClass = Prelude.Nothing,
+        maxAllocatedStorage = Prelude.Nothing,
+        port = Prelude.Nothing,
         performanceInsightsRetentionPeriod =
           Prelude.Nothing,
-        destinationRegion = Prelude.Nothing,
-        maxAllocatedStorage = Prelude.Nothing,
-        enablePerformanceInsights = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
-        dbParameterGroupName = Prelude.Nothing,
-        availabilityZone = Prelude.Nothing,
-        performanceInsightsKMSKeyId = Prelude.Nothing,
         vpcSecurityGroupIds = Prelude.Nothing,
-        multiAZ = Prelude.Nothing,
-        optionGroupName = Prelude.Nothing,
+        dbParameterGroupName = Prelude.Nothing,
+        dbInstanceClass = Prelude.Nothing,
         copyTagsToSnapshot = Prelude.Nothing,
         domainIAMRoleName = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        port = Prelude.Nothing,
+        dbSubnetGroupName = Prelude.Nothing,
+        autoMinorVersionUpgrade = Prelude.Nothing,
+        domain = Prelude.Nothing,
+        optionGroupName = Prelude.Nothing,
+        performanceInsightsKMSKeyId = Prelude.Nothing,
         enableIAMDatabaseAuthentication =
           Prelude.Nothing,
-        useDefaultProcessorFeatures = Prelude.Nothing,
+        monitoringInterval = Prelude.Nothing,
+        availabilityZone = Prelude.Nothing,
+        publiclyAccessible = Prelude.Nothing,
         storageType = Prelude.Nothing,
         enableCloudwatchLogsExports = Prelude.Nothing,
+        processorFeatures = Prelude.Nothing,
+        enablePerformanceInsights = Prelude.Nothing,
+        monitoringRoleArn = Prelude.Nothing,
+        replicaMode = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        deletionProtection = Prelude.Nothing,
+        destinationRegion = Prelude.Nothing,
+        iops = Prelude.Nothing,
+        preSignedUrl = Prelude.Nothing,
+        multiAZ = Prelude.Nothing,
+        useDefaultProcessorFeatures = Prelude.Nothing,
         dbInstanceIdentifier = pDBInstanceIdentifier_,
         sourceDBInstanceIdentifier =
           pSourceDBInstanceIdentifier_
       }
 
--- | A value that indicates whether the DB instance has deletion protection
--- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
-createDBInstanceReadReplica_deletionProtection :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
-createDBInstanceReadReplica_deletionProtection = Lens.lens (\CreateDBInstanceReadReplica' {deletionProtection} -> deletionProtection) (\s@CreateDBInstanceReadReplica' {} a -> s {deletionProtection = a} :: CreateDBInstanceReadReplica)
+-- | Undocumented member.
+createDBInstanceReadReplica_tags :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe [Tag])
+createDBInstanceReadReplica_tags = Lens.lens (\CreateDBInstanceReadReplica' {tags} -> tags) (\s@CreateDBInstanceReadReplica' {} a -> s {tags = a} :: CreateDBInstanceReadReplica) Prelude.. Lens.mapping Lens.coerced
 
--- | A value that indicates whether the DB instance is publicly accessible.
+-- | The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
+-- scale the storage of the DB instance.
 --
--- When the DB instance is publicly accessible, its DNS endpoint resolves
--- to the private IP address from within the DB instance\'s VPC, and to the
--- public IP address from outside of the DB instance\'s VPC. Access to the
--- DB instance is ultimately controlled by the security group it uses, and
--- that public access is not permitted if the security group assigned to
--- the DB instance doesn\'t permit it.
---
--- When the DB instance isn\'t publicly accessible, it is an internal DB
--- instance with a DNS name that resolves to a private IP address.
---
--- For more information, see CreateDBInstance.
-createDBInstanceReadReplica_publiclyAccessible :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
-createDBInstanceReadReplica_publiclyAccessible = Lens.lens (\CreateDBInstanceReadReplica' {publiclyAccessible} -> publiclyAccessible) (\s@CreateDBInstanceReadReplica' {} a -> s {publiclyAccessible = a} :: CreateDBInstanceReadReplica)
+-- For more information about this setting, including limitations that
+-- apply to it, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
+-- in the /Amazon RDS User Guide/.
+createDBInstanceReadReplica_maxAllocatedStorage :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
+createDBInstanceReadReplica_maxAllocatedStorage = Lens.lens (\CreateDBInstanceReadReplica' {maxAllocatedStorage} -> maxAllocatedStorage) (\s@CreateDBInstanceReadReplica' {} a -> s {maxAllocatedStorage = a} :: CreateDBInstanceReadReplica)
 
--- | A value that indicates whether minor engine upgrades are applied
--- automatically to the read replica during the maintenance window.
+-- | The port number that the DB instance uses for connections.
 --
 -- Default: Inherits from the source DB instance
-createDBInstanceReadReplica_autoMinorVersionUpgrade :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
-createDBInstanceReadReplica_autoMinorVersionUpgrade = Lens.lens (\CreateDBInstanceReadReplica' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateDBInstanceReadReplica' {} a -> s {autoMinorVersionUpgrade = a} :: CreateDBInstanceReadReplica)
+--
+-- Valid Values: @1150-65535@
+createDBInstanceReadReplica_port :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
+createDBInstanceReadReplica_port = Lens.lens (\CreateDBInstanceReadReplica' {port} -> port) (\s@CreateDBInstanceReadReplica' {} a -> s {port = a} :: CreateDBInstanceReadReplica)
+
+-- | The amount of time, in days, to retain Performance Insights data. Valid
+-- values are 7 or 731 (2 years).
+createDBInstanceReadReplica_performanceInsightsRetentionPeriod :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
+createDBInstanceReadReplica_performanceInsightsRetentionPeriod = Lens.lens (\CreateDBInstanceReadReplica' {performanceInsightsRetentionPeriod} -> performanceInsightsRetentionPeriod) (\s@CreateDBInstanceReadReplica' {} a -> s {performanceInsightsRetentionPeriod = a} :: CreateDBInstanceReadReplica)
+
+-- | A list of EC2 VPC security groups to associate with the read replica.
+--
+-- Default: The default EC2 VPC security group for the DB subnet group\'s
+-- VPC.
+createDBInstanceReadReplica_vpcSecurityGroupIds :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe [Prelude.Text])
+createDBInstanceReadReplica_vpcSecurityGroupIds = Lens.lens (\CreateDBInstanceReadReplica' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBInstanceReadReplica' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBInstanceReadReplica) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the DB parameter group to associate with this DB instance.
+--
+-- If you do not specify a value for @DBParameterGroupName@, then Amazon
+-- RDS uses the @DBParameterGroup@ of source DB instance for a same region
+-- read replica, or the default @DBParameterGroup@ for the specified DB
+-- engine for a cross region read replica.
+--
+-- Currently, specifying a parameter group for this operation is only
+-- supported for Oracle DB instances.
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 letters, numbers, or hyphens.
+--
+-- -   First character must be a letter
+--
+-- -   Can\'t end with a hyphen or contain two consecutive hyphens
+createDBInstanceReadReplica_dbParameterGroupName :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_dbParameterGroupName = Lens.lens (\CreateDBInstanceReadReplica' {dbParameterGroupName} -> dbParameterGroupName) (\s@CreateDBInstanceReadReplica' {} a -> s {dbParameterGroupName = a} :: CreateDBInstanceReadReplica)
+
+-- | The compute and memory capacity of the read replica, for example,
+-- @db.m4.large@. Not all DB instance classes are available in all Amazon
+-- Web Services Regions, or for all database engines. For the full list of
+-- DB instance classes, and availability for your engine, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
+-- in the /Amazon RDS User Guide./
+--
+-- Default: Inherits from the source DB instance.
+createDBInstanceReadReplica_dbInstanceClass :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_dbInstanceClass = Lens.lens (\CreateDBInstanceReadReplica' {dbInstanceClass} -> dbInstanceClass) (\s@CreateDBInstanceReadReplica' {} a -> s {dbInstanceClass = a} :: CreateDBInstanceReadReplica)
+
+-- | A value that indicates whether to copy all tags from the read replica to
+-- snapshots of the read replica. By default, tags are not copied.
+createDBInstanceReadReplica_copyTagsToSnapshot :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_copyTagsToSnapshot = Lens.lens (\CreateDBInstanceReadReplica' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@CreateDBInstanceReadReplica' {} a -> s {copyTagsToSnapshot = a} :: CreateDBInstanceReadReplica)
+
+-- | Specify the name of the IAM role to be used when making API calls to the
+-- Directory Service.
+createDBInstanceReadReplica_domainIAMRoleName :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_domainIAMRoleName = Lens.lens (\CreateDBInstanceReadReplica' {domainIAMRoleName} -> domainIAMRoleName) (\s@CreateDBInstanceReadReplica' {} a -> s {domainIAMRoleName = a} :: CreateDBInstanceReadReplica)
 
 -- | Specifies a DB subnet group for the DB instance. The new DB instance is
 -- created in the VPC associated with the DB subnet group. If no DB subnet
@@ -909,6 +953,124 @@ createDBInstanceReadReplica_autoMinorVersionUpgrade = Lens.lens (\CreateDBInstan
 createDBInstanceReadReplica_dbSubnetGroupName :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
 createDBInstanceReadReplica_dbSubnetGroupName = Lens.lens (\CreateDBInstanceReadReplica' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@CreateDBInstanceReadReplica' {} a -> s {dbSubnetGroupName = a} :: CreateDBInstanceReadReplica)
 
+-- | A value that indicates whether minor engine upgrades are applied
+-- automatically to the read replica during the maintenance window.
+--
+-- Default: Inherits from the source DB instance
+createDBInstanceReadReplica_autoMinorVersionUpgrade :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_autoMinorVersionUpgrade = Lens.lens (\CreateDBInstanceReadReplica' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateDBInstanceReadReplica' {} a -> s {autoMinorVersionUpgrade = a} :: CreateDBInstanceReadReplica)
+
+-- | The Active Directory directory ID to create the DB instance in.
+-- Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB
+-- instances can be created in an Active Directory Domain.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
+-- in the /Amazon RDS User Guide/.
+createDBInstanceReadReplica_domain :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_domain = Lens.lens (\CreateDBInstanceReadReplica' {domain} -> domain) (\s@CreateDBInstanceReadReplica' {} a -> s {domain = a} :: CreateDBInstanceReadReplica)
+
+-- | The option group the DB instance is associated with. If omitted, the
+-- option group associated with the source instance is used.
+--
+-- For SQL Server, you must use the option group associated with the source
+-- instance.
+createDBInstanceReadReplica_optionGroupName :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_optionGroupName = Lens.lens (\CreateDBInstanceReadReplica' {optionGroupName} -> optionGroupName) (\s@CreateDBInstanceReadReplica' {} a -> s {optionGroupName = a} :: CreateDBInstanceReadReplica)
+
+-- | The Amazon Web Services KMS key identifier for encryption of Performance
+-- Insights data.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK).
+--
+-- If you do not specify a value for @PerformanceInsightsKMSKeyId@, then
+-- Amazon RDS uses your default CMK. There is a default CMK for your Amazon
+-- Web Services account. Your Amazon Web Services account has a different
+-- default CMK for each Amazon Web Services Region.
+createDBInstanceReadReplica_performanceInsightsKMSKeyId :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_performanceInsightsKMSKeyId = Lens.lens (\CreateDBInstanceReadReplica' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@CreateDBInstanceReadReplica' {} a -> s {performanceInsightsKMSKeyId = a} :: CreateDBInstanceReadReplica)
+
+-- | A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
+--
+-- For more information about IAM database authentication, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
+-- in the /Amazon RDS User Guide./
+createDBInstanceReadReplica_enableIAMDatabaseAuthentication :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_enableIAMDatabaseAuthentication = Lens.lens (\CreateDBInstanceReadReplica' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@CreateDBInstanceReadReplica' {} a -> s {enableIAMDatabaseAuthentication = a} :: CreateDBInstanceReadReplica)
+
+-- | The interval, in seconds, between points when Enhanced Monitoring
+-- metrics are collected for the read replica. To disable collecting
+-- Enhanced Monitoring metrics, specify 0. The default is 0.
+--
+-- If @MonitoringRoleArn@ is specified, then you must also set
+-- @MonitoringInterval@ to a value other than 0.
+--
+-- Valid Values: @0, 1, 5, 10, 15, 30, 60@
+createDBInstanceReadReplica_monitoringInterval :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
+createDBInstanceReadReplica_monitoringInterval = Lens.lens (\CreateDBInstanceReadReplica' {monitoringInterval} -> monitoringInterval) (\s@CreateDBInstanceReadReplica' {} a -> s {monitoringInterval = a} :: CreateDBInstanceReadReplica)
+
+-- | The Availability Zone (AZ) where the read replica will be created.
+--
+-- Default: A random, system-chosen Availability Zone in the endpoint\'s
+-- Amazon Web Services Region.
+--
+-- Example: @us-east-1d@
+createDBInstanceReadReplica_availabilityZone :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_availabilityZone = Lens.lens (\CreateDBInstanceReadReplica' {availabilityZone} -> availabilityZone) (\s@CreateDBInstanceReadReplica' {} a -> s {availabilityZone = a} :: CreateDBInstanceReadReplica)
+
+-- | A value that indicates whether the DB instance is publicly accessible.
+--
+-- When the DB instance is publicly accessible, its DNS endpoint resolves
+-- to the private IP address from within the DB instance\'s VPC, and to the
+-- public IP address from outside of the DB instance\'s VPC. Access to the
+-- DB instance is ultimately controlled by the security group it uses, and
+-- that public access is not permitted if the security group assigned to
+-- the DB instance doesn\'t permit it.
+--
+-- When the DB instance isn\'t publicly accessible, it is an internal DB
+-- instance with a DNS name that resolves to a private IP address.
+--
+-- For more information, see CreateDBInstance.
+createDBInstanceReadReplica_publiclyAccessible :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_publiclyAccessible = Lens.lens (\CreateDBInstanceReadReplica' {publiclyAccessible} -> publiclyAccessible) (\s@CreateDBInstanceReadReplica' {} a -> s {publiclyAccessible = a} :: CreateDBInstanceReadReplica)
+
+-- | Specifies the storage type to be associated with the read replica.
+--
+-- Valid values: @standard | gp2 | io1@
+--
+-- If you specify @io1@, you must also include a value for the @Iops@
+-- parameter.
+--
+-- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
+createDBInstanceReadReplica_storageType :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_storageType = Lens.lens (\CreateDBInstanceReadReplica' {storageType} -> storageType) (\s@CreateDBInstanceReadReplica' {} a -> s {storageType = a} :: CreateDBInstanceReadReplica)
+
+-- | The list of logs that the new DB instance is to export to CloudWatch
+-- Logs. The values in the list depend on the DB engine being used. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
+-- in the /Amazon RDS User Guide/.
+createDBInstanceReadReplica_enableCloudwatchLogsExports :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe [Prelude.Text])
+createDBInstanceReadReplica_enableCloudwatchLogsExports = Lens.lens (\CreateDBInstanceReadReplica' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@CreateDBInstanceReadReplica' {} a -> s {enableCloudwatchLogsExports = a} :: CreateDBInstanceReadReplica) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of CPU cores and the number of threads per core for the DB
+-- instance class of the DB instance.
+createDBInstanceReadReplica_processorFeatures :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe [ProcessorFeature])
+createDBInstanceReadReplica_processorFeatures = Lens.lens (\CreateDBInstanceReadReplica' {processorFeatures} -> processorFeatures) (\s@CreateDBInstanceReadReplica' {} a -> s {processorFeatures = a} :: CreateDBInstanceReadReplica) Prelude.. Lens.mapping Lens.coerced
+
+-- | A value that indicates whether to enable Performance Insights for the
+-- read replica.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
+-- in the /Amazon RDS User Guide/.
+createDBInstanceReadReplica_enablePerformanceInsights :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_enablePerformanceInsights = Lens.lens (\CreateDBInstanceReadReplica' {enablePerformanceInsights} -> enablePerformanceInsights) (\s@CreateDBInstanceReadReplica' {} a -> s {enablePerformanceInsights = a} :: CreateDBInstanceReadReplica)
+
 -- | The ARN for the IAM role that permits RDS to send enhanced monitoring
 -- metrics to Amazon CloudWatch Logs. For example,
 -- @arn:aws:iam:123456789012:role\/emaccess@. For information on creating a
@@ -920,21 +1082,6 @@ createDBInstanceReadReplica_dbSubnetGroupName = Lens.lens (\CreateDBInstanceRead
 -- supply a @MonitoringRoleArn@ value.
 createDBInstanceReadReplica_monitoringRoleArn :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
 createDBInstanceReadReplica_monitoringRoleArn = Lens.lens (\CreateDBInstanceReadReplica' {monitoringRoleArn} -> monitoringRoleArn) (\s@CreateDBInstanceReadReplica' {} a -> s {monitoringRoleArn = a} :: CreateDBInstanceReadReplica)
-
--- | The amount of Provisioned IOPS (input\/output operations per second) to
--- be initially allocated for the DB instance.
-createDBInstanceReadReplica_iops :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
-createDBInstanceReadReplica_iops = Lens.lens (\CreateDBInstanceReadReplica' {iops} -> iops) (\s@CreateDBInstanceReadReplica' {} a -> s {iops = a} :: CreateDBInstanceReadReplica)
-
--- | The Active Directory directory ID to create the DB instance in.
--- Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB
--- instances can be created in an Active Directory Domain.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
--- in the /Amazon RDS User Guide/.
-createDBInstanceReadReplica_domain :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
-createDBInstanceReadReplica_domain = Lens.lens (\CreateDBInstanceReadReplica' {domain} -> domain) (\s@CreateDBInstanceReadReplica' {} a -> s {domain = a} :: CreateDBInstanceReadReplica)
 
 -- | The open mode of the replica database: mounted or read-only.
 --
@@ -953,16 +1100,49 @@ createDBInstanceReadReplica_domain = Lens.lens (\CreateDBInstanceReadReplica' {d
 createDBInstanceReadReplica_replicaMode :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe ReplicaMode)
 createDBInstanceReadReplica_replicaMode = Lens.lens (\CreateDBInstanceReadReplica' {replicaMode} -> replicaMode) (\s@CreateDBInstanceReadReplica' {} a -> s {replicaMode = a} :: CreateDBInstanceReadReplica)
 
--- | The interval, in seconds, between points when Enhanced Monitoring
--- metrics are collected for the read replica. To disable collecting
--- Enhanced Monitoring metrics, specify 0. The default is 0.
+-- | The Amazon Web Services KMS key identifier for an encrypted read
+-- replica.
 --
--- If @MonitoringRoleArn@ is specified, then you must also set
--- @MonitoringInterval@ to a value other than 0.
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS CMK.
 --
--- Valid Values: @0, 1, 5, 10, 15, 30, 60@
-createDBInstanceReadReplica_monitoringInterval :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
-createDBInstanceReadReplica_monitoringInterval = Lens.lens (\CreateDBInstanceReadReplica' {monitoringInterval} -> monitoringInterval) (\s@CreateDBInstanceReadReplica' {} a -> s {monitoringInterval = a} :: CreateDBInstanceReadReplica)
+-- If you create an encrypted read replica in the same Amazon Web Services
+-- Region as the source DB instance, then do not specify a value for this
+-- parameter. A read replica in the same Region is always encrypted with
+-- the same Amazon Web Services KMS CMK as the source DB instance.
+--
+-- If you create an encrypted read replica in a different Amazon Web
+-- Services Region, then you must specify a Amazon Web Services KMS key
+-- identifier for the destination Amazon Web Services Region. Amazon Web
+-- Services KMS CMKs are specific to the Amazon Web Services Region that
+-- they are created in, and you can\'t use CMKs from one Amazon Web
+-- Services Region in another Amazon Web Services Region.
+--
+-- You can\'t create an encrypted read replica from an unencrypted DB
+-- instance.
+createDBInstanceReadReplica_kmsKeyId :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_kmsKeyId = Lens.lens (\CreateDBInstanceReadReplica' {kmsKeyId} -> kmsKeyId) (\s@CreateDBInstanceReadReplica' {} a -> s {kmsKeyId = a} :: CreateDBInstanceReadReplica)
+
+-- | A value that indicates whether the DB instance has deletion protection
+-- enabled. The database can\'t be deleted when deletion protection is
+-- enabled. By default, deletion protection is disabled. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
+createDBInstanceReadReplica_deletionProtection :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_deletionProtection = Lens.lens (\CreateDBInstanceReadReplica' {deletionProtection} -> deletionProtection) (\s@CreateDBInstanceReadReplica' {} a -> s {deletionProtection = a} :: CreateDBInstanceReadReplica)
+
+-- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @CreateDBInstanceReadReplica@ request. To replicate from
+-- region @SRC@ to region @DST@, send a request to region @DST@. In that
+-- request, pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@
+-- set to region @DST@.
+createDBInstanceReadReplica_destinationRegion :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_destinationRegion = Lens.lens (\CreateDBInstanceReadReplica' {destinationRegion} -> destinationRegion) (\s@CreateDBInstanceReadReplica' {} a -> s {destinationRegion = a} :: CreateDBInstanceReadReplica)
+
+-- | The amount of Provisioned IOPS (input\/output operations per second) to
+-- be initially allocated for the DB instance.
+createDBInstanceReadReplica_iops :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
+createDBInstanceReadReplica_iops = Lens.lens (\CreateDBInstanceReadReplica' {iops} -> iops) (\s@CreateDBInstanceReadReplica' {} a -> s {iops = a} :: CreateDBInstanceReadReplica)
 
 -- | The URL that contains a Signature Version 4 signed request for the
 -- @CreateDBInstanceReadReplica@ API action in the source Amazon Web
@@ -1026,127 +1206,6 @@ createDBInstanceReadReplica_monitoringInterval = Lens.lens (\CreateDBInstanceRea
 createDBInstanceReadReplica_preSignedUrl :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
 createDBInstanceReadReplica_preSignedUrl = Lens.lens (\CreateDBInstanceReadReplica' {preSignedUrl} -> preSignedUrl) (\s@CreateDBInstanceReadReplica' {} a -> s {preSignedUrl = a} :: CreateDBInstanceReadReplica)
 
--- | The number of CPU cores and the number of threads per core for the DB
--- instance class of the DB instance.
-createDBInstanceReadReplica_processorFeatures :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe [ProcessorFeature])
-createDBInstanceReadReplica_processorFeatures = Lens.lens (\CreateDBInstanceReadReplica' {processorFeatures} -> processorFeatures) (\s@CreateDBInstanceReadReplica' {} a -> s {processorFeatures = a} :: CreateDBInstanceReadReplica) Prelude.. Lens.mapping Lens.coerced
-
--- | The compute and memory capacity of the read replica, for example,
--- @db.m4.large@. Not all DB instance classes are available in all Amazon
--- Web Services Regions, or for all database engines. For the full list of
--- DB instance classes, and availability for your engine, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
--- in the /Amazon RDS User Guide./
---
--- Default: Inherits from the source DB instance.
-createDBInstanceReadReplica_dbInstanceClass :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
-createDBInstanceReadReplica_dbInstanceClass = Lens.lens (\CreateDBInstanceReadReplica' {dbInstanceClass} -> dbInstanceClass) (\s@CreateDBInstanceReadReplica' {} a -> s {dbInstanceClass = a} :: CreateDBInstanceReadReplica)
-
--- | The amount of time, in days, to retain Performance Insights data. Valid
--- values are 7 or 731 (2 years).
-createDBInstanceReadReplica_performanceInsightsRetentionPeriod :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
-createDBInstanceReadReplica_performanceInsightsRetentionPeriod = Lens.lens (\CreateDBInstanceReadReplica' {performanceInsightsRetentionPeriod} -> performanceInsightsRetentionPeriod) (\s@CreateDBInstanceReadReplica' {} a -> s {performanceInsightsRetentionPeriod = a} :: CreateDBInstanceReadReplica)
-
--- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
--- cross-region @CreateDBInstanceReadReplica@ request. To replicate from
--- region @SRC@ to region @DST@, send a request to region @DST@. In that
--- request, pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@
--- set to region @DST@.
-createDBInstanceReadReplica_destinationRegion :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
-createDBInstanceReadReplica_destinationRegion = Lens.lens (\CreateDBInstanceReadReplica' {destinationRegion} -> destinationRegion) (\s@CreateDBInstanceReadReplica' {} a -> s {destinationRegion = a} :: CreateDBInstanceReadReplica)
-
--- | The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
--- scale the storage of the DB instance.
---
--- For more information about this setting, including limitations that
--- apply to it, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
--- in the /Amazon RDS User Guide/.
-createDBInstanceReadReplica_maxAllocatedStorage :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
-createDBInstanceReadReplica_maxAllocatedStorage = Lens.lens (\CreateDBInstanceReadReplica' {maxAllocatedStorage} -> maxAllocatedStorage) (\s@CreateDBInstanceReadReplica' {} a -> s {maxAllocatedStorage = a} :: CreateDBInstanceReadReplica)
-
--- | A value that indicates whether to enable Performance Insights for the
--- read replica.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
--- in the /Amazon RDS User Guide/.
-createDBInstanceReadReplica_enablePerformanceInsights :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
-createDBInstanceReadReplica_enablePerformanceInsights = Lens.lens (\CreateDBInstanceReadReplica' {enablePerformanceInsights} -> enablePerformanceInsights) (\s@CreateDBInstanceReadReplica' {} a -> s {enablePerformanceInsights = a} :: CreateDBInstanceReadReplica)
-
--- | The Amazon Web Services KMS key identifier for an encrypted read
--- replica.
---
--- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS CMK.
---
--- If you create an encrypted read replica in the same Amazon Web Services
--- Region as the source DB instance, then do not specify a value for this
--- parameter. A read replica in the same Region is always encrypted with
--- the same Amazon Web Services KMS CMK as the source DB instance.
---
--- If you create an encrypted read replica in a different Amazon Web
--- Services Region, then you must specify a Amazon Web Services KMS key
--- identifier for the destination Amazon Web Services Region. Amazon Web
--- Services KMS CMKs are specific to the Amazon Web Services Region that
--- they are created in, and you can\'t use CMKs from one Amazon Web
--- Services Region in another Amazon Web Services Region.
---
--- You can\'t create an encrypted read replica from an unencrypted DB
--- instance.
-createDBInstanceReadReplica_kmsKeyId :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
-createDBInstanceReadReplica_kmsKeyId = Lens.lens (\CreateDBInstanceReadReplica' {kmsKeyId} -> kmsKeyId) (\s@CreateDBInstanceReadReplica' {} a -> s {kmsKeyId = a} :: CreateDBInstanceReadReplica)
-
--- | The name of the DB parameter group to associate with this DB instance.
---
--- If you do not specify a value for @DBParameterGroupName@, then Amazon
--- RDS uses the @DBParameterGroup@ of source DB instance for a same region
--- read replica, or the default @DBParameterGroup@ for the specified DB
--- engine for a cross region read replica.
---
--- Currently, specifying a parameter group for this operation is only
--- supported for Oracle DB instances.
---
--- Constraints:
---
--- -   Must be 1 to 255 letters, numbers, or hyphens.
---
--- -   First character must be a letter
---
--- -   Can\'t end with a hyphen or contain two consecutive hyphens
-createDBInstanceReadReplica_dbParameterGroupName :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
-createDBInstanceReadReplica_dbParameterGroupName = Lens.lens (\CreateDBInstanceReadReplica' {dbParameterGroupName} -> dbParameterGroupName) (\s@CreateDBInstanceReadReplica' {} a -> s {dbParameterGroupName = a} :: CreateDBInstanceReadReplica)
-
--- | The Availability Zone (AZ) where the read replica will be created.
---
--- Default: A random, system-chosen Availability Zone in the endpoint\'s
--- Amazon Web Services Region.
---
--- Example: @us-east-1d@
-createDBInstanceReadReplica_availabilityZone :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
-createDBInstanceReadReplica_availabilityZone = Lens.lens (\CreateDBInstanceReadReplica' {availabilityZone} -> availabilityZone) (\s@CreateDBInstanceReadReplica' {} a -> s {availabilityZone = a} :: CreateDBInstanceReadReplica)
-
--- | The Amazon Web Services KMS key identifier for encryption of Performance
--- Insights data.
---
--- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
---
--- If you do not specify a value for @PerformanceInsightsKMSKeyId@, then
--- Amazon RDS uses your default CMK. There is a default CMK for your Amazon
--- Web Services account. Your Amazon Web Services account has a different
--- default CMK for each Amazon Web Services Region.
-createDBInstanceReadReplica_performanceInsightsKMSKeyId :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
-createDBInstanceReadReplica_performanceInsightsKMSKeyId = Lens.lens (\CreateDBInstanceReadReplica' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@CreateDBInstanceReadReplica' {} a -> s {performanceInsightsKMSKeyId = a} :: CreateDBInstanceReadReplica)
-
--- | A list of EC2 VPC security groups to associate with the read replica.
---
--- Default: The default EC2 VPC security group for the DB subnet group\'s
--- VPC.
-createDBInstanceReadReplica_vpcSecurityGroupIds :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe [Prelude.Text])
-createDBInstanceReadReplica_vpcSecurityGroupIds = Lens.lens (\CreateDBInstanceReadReplica' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBInstanceReadReplica' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBInstanceReadReplica) Prelude.. Lens.mapping Lens.coerced
-
 -- | A value that indicates whether the read replica is in a Multi-AZ
 -- deployment.
 --
@@ -1158,69 +1217,10 @@ createDBInstanceReadReplica_vpcSecurityGroupIds = Lens.lens (\CreateDBInstanceRe
 createDBInstanceReadReplica_multiAZ :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
 createDBInstanceReadReplica_multiAZ = Lens.lens (\CreateDBInstanceReadReplica' {multiAZ} -> multiAZ) (\s@CreateDBInstanceReadReplica' {} a -> s {multiAZ = a} :: CreateDBInstanceReadReplica)
 
--- | The option group the DB instance is associated with. If omitted, the
--- option group associated with the source instance is used.
---
--- For SQL Server, you must use the option group associated with the source
--- instance.
-createDBInstanceReadReplica_optionGroupName :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
-createDBInstanceReadReplica_optionGroupName = Lens.lens (\CreateDBInstanceReadReplica' {optionGroupName} -> optionGroupName) (\s@CreateDBInstanceReadReplica' {} a -> s {optionGroupName = a} :: CreateDBInstanceReadReplica)
-
--- | A value that indicates whether to copy all tags from the read replica to
--- snapshots of the read replica. By default, tags are not copied.
-createDBInstanceReadReplica_copyTagsToSnapshot :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
-createDBInstanceReadReplica_copyTagsToSnapshot = Lens.lens (\CreateDBInstanceReadReplica' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@CreateDBInstanceReadReplica' {} a -> s {copyTagsToSnapshot = a} :: CreateDBInstanceReadReplica)
-
--- | Specify the name of the IAM role to be used when making API calls to the
--- Directory Service.
-createDBInstanceReadReplica_domainIAMRoleName :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
-createDBInstanceReadReplica_domainIAMRoleName = Lens.lens (\CreateDBInstanceReadReplica' {domainIAMRoleName} -> domainIAMRoleName) (\s@CreateDBInstanceReadReplica' {} a -> s {domainIAMRoleName = a} :: CreateDBInstanceReadReplica)
-
--- | Undocumented member.
-createDBInstanceReadReplica_tags :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe [Tag])
-createDBInstanceReadReplica_tags = Lens.lens (\CreateDBInstanceReadReplica' {tags} -> tags) (\s@CreateDBInstanceReadReplica' {} a -> s {tags = a} :: CreateDBInstanceReadReplica) Prelude.. Lens.mapping Lens.coerced
-
--- | The port number that the DB instance uses for connections.
---
--- Default: Inherits from the source DB instance
---
--- Valid Values: @1150-65535@
-createDBInstanceReadReplica_port :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
-createDBInstanceReadReplica_port = Lens.lens (\CreateDBInstanceReadReplica' {port} -> port) (\s@CreateDBInstanceReadReplica' {} a -> s {port = a} :: CreateDBInstanceReadReplica)
-
--- | A value that indicates whether to enable mapping of Amazon Web Services
--- Identity and Access Management (IAM) accounts to database accounts. By
--- default, mapping is disabled.
---
--- For more information about IAM database authentication, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
--- in the /Amazon RDS User Guide./
-createDBInstanceReadReplica_enableIAMDatabaseAuthentication :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
-createDBInstanceReadReplica_enableIAMDatabaseAuthentication = Lens.lens (\CreateDBInstanceReadReplica' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@CreateDBInstanceReadReplica' {} a -> s {enableIAMDatabaseAuthentication = a} :: CreateDBInstanceReadReplica)
-
 -- | A value that indicates whether the DB instance class of the DB instance
 -- uses its default processor features.
 createDBInstanceReadReplica_useDefaultProcessorFeatures :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
 createDBInstanceReadReplica_useDefaultProcessorFeatures = Lens.lens (\CreateDBInstanceReadReplica' {useDefaultProcessorFeatures} -> useDefaultProcessorFeatures) (\s@CreateDBInstanceReadReplica' {} a -> s {useDefaultProcessorFeatures = a} :: CreateDBInstanceReadReplica)
-
--- | Specifies the storage type to be associated with the read replica.
---
--- Valid values: @standard | gp2 | io1@
---
--- If you specify @io1@, you must also include a value for the @Iops@
--- parameter.
---
--- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
-createDBInstanceReadReplica_storageType :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
-createDBInstanceReadReplica_storageType = Lens.lens (\CreateDBInstanceReadReplica' {storageType} -> storageType) (\s@CreateDBInstanceReadReplica' {} a -> s {storageType = a} :: CreateDBInstanceReadReplica)
-
--- | The list of logs that the new DB instance is to export to CloudWatch
--- Logs. The values in the list depend on the DB engine being used. For
--- more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
--- in the /Amazon RDS User Guide/.
-createDBInstanceReadReplica_enableCloudwatchLogsExports :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe [Prelude.Text])
-createDBInstanceReadReplica_enableCloudwatchLogsExports = Lens.lens (\CreateDBInstanceReadReplica' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@CreateDBInstanceReadReplica' {} a -> s {enableCloudwatchLogsExports = a} :: CreateDBInstanceReadReplica) Prelude.. Lens.mapping Lens.coerced
 
 -- | The DB instance identifier of the read replica. This identifier is the
 -- unique key that identifies a DB instance. This parameter is stored as a
@@ -1282,83 +1282,85 @@ instance Core.AWSRequest CreateDBInstanceReadReplica where
 
 instance Prelude.Hashable CreateDBInstanceReadReplica where
   hashWithSalt _salt CreateDBInstanceReadReplica' {..} =
-    _salt `Prelude.hashWithSalt` deletionProtection
-      `Prelude.hashWithSalt` publiclyAccessible
-      `Prelude.hashWithSalt` autoMinorVersionUpgrade
-      `Prelude.hashWithSalt` dbSubnetGroupName
-      `Prelude.hashWithSalt` monitoringRoleArn
-      `Prelude.hashWithSalt` iops
-      `Prelude.hashWithSalt` domain
-      `Prelude.hashWithSalt` replicaMode
-      `Prelude.hashWithSalt` monitoringInterval
-      `Prelude.hashWithSalt` preSignedUrl
-      `Prelude.hashWithSalt` processorFeatures
-      `Prelude.hashWithSalt` dbInstanceClass
-      `Prelude.hashWithSalt` performanceInsightsRetentionPeriod
-      `Prelude.hashWithSalt` destinationRegion
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` maxAllocatedStorage
-      `Prelude.hashWithSalt` enablePerformanceInsights
-      `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` dbParameterGroupName
-      `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` performanceInsightsKMSKeyId
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` performanceInsightsRetentionPeriod
       `Prelude.hashWithSalt` vpcSecurityGroupIds
-      `Prelude.hashWithSalt` multiAZ
-      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` dbParameterGroupName
+      `Prelude.hashWithSalt` dbInstanceClass
       `Prelude.hashWithSalt` copyTagsToSnapshot
       `Prelude.hashWithSalt` domainIAMRoleName
-      `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` performanceInsightsKMSKeyId
       `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
-      `Prelude.hashWithSalt` useDefaultProcessorFeatures
+      `Prelude.hashWithSalt` monitoringInterval
+      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` publiclyAccessible
       `Prelude.hashWithSalt` storageType
       `Prelude.hashWithSalt` enableCloudwatchLogsExports
+      `Prelude.hashWithSalt` processorFeatures
+      `Prelude.hashWithSalt` enablePerformanceInsights
+      `Prelude.hashWithSalt` monitoringRoleArn
+      `Prelude.hashWithSalt` replicaMode
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` destinationRegion
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` preSignedUrl
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` useDefaultProcessorFeatures
       `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` sourceDBInstanceIdentifier
 
 instance Prelude.NFData CreateDBInstanceReadReplica where
   rnf CreateDBInstanceReadReplica' {..} =
-    Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf publiclyAccessible
-      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
-      `Prelude.seq` Prelude.rnf dbSubnetGroupName
-      `Prelude.seq` Prelude.rnf monitoringRoleArn
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf replicaMode
-      `Prelude.seq` Prelude.rnf monitoringInterval
-      `Prelude.seq` Prelude.rnf preSignedUrl
-      `Prelude.seq` Prelude.rnf processorFeatures
-      `Prelude.seq` Prelude.rnf dbInstanceClass
-      `Prelude.seq` Prelude.rnf
-        performanceInsightsRetentionPeriod
-      `Prelude.seq` Prelude.rnf destinationRegion
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf maxAllocatedStorage
-      `Prelude.seq` Prelude.rnf enablePerformanceInsights
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf dbParameterGroupName
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf
-        performanceInsightsKMSKeyId
-      `Prelude.seq` Prelude.rnf
-        vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf multiAZ
-      `Prelude.seq` Prelude.rnf
-        optionGroupName
-      `Prelude.seq` Prelude.rnf
-        copyTagsToSnapshot
-      `Prelude.seq` Prelude.rnf
-        domainIAMRoleName
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf performanceInsightsRetentionPeriod
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+      `Prelude.seq` Prelude.rnf dbParameterGroupName
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf domainIAMRoleName
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf performanceInsightsKMSKeyId
       `Prelude.seq` Prelude.rnf
         enableIAMDatabaseAuthentication
-      `Prelude.seq` Prelude.rnf
-        useDefaultProcessorFeatures
-      `Prelude.seq` Prelude.rnf
-        storageType
+      `Prelude.seq` Prelude.rnf monitoringInterval
+      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf storageType
       `Prelude.seq` Prelude.rnf
         enableCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf
+        processorFeatures
+      `Prelude.seq` Prelude.rnf
+        enablePerformanceInsights
+      `Prelude.seq` Prelude.rnf
+        monitoringRoleArn
+      `Prelude.seq` Prelude.rnf
+        replicaMode
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf
+        deletionProtection
+      `Prelude.seq` Prelude.rnf
+        destinationRegion
+      `Prelude.seq` Prelude.rnf
+        iops
+      `Prelude.seq` Prelude.rnf
+        preSignedUrl
+      `Prelude.seq` Prelude.rnf
+        multiAZ
+      `Prelude.seq` Prelude.rnf
+        useDefaultProcessorFeatures
       `Prelude.seq` Prelude.rnf
         dbInstanceIdentifier
       `Prelude.seq` Prelude.rnf
@@ -1379,57 +1381,57 @@ instance Core.ToQuery CreateDBInstanceReadReplica where
                   ),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DeletionProtection" Core.=: deletionProtection,
-        "PubliclyAccessible" Core.=: publiclyAccessible,
-        "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
-        "MonitoringRoleArn" Core.=: monitoringRoleArn,
-        "Iops" Core.=: iops,
-        "Domain" Core.=: domain,
-        "ReplicaMode" Core.=: replicaMode,
-        "MonitoringInterval" Core.=: monitoringInterval,
-        "PreSignedUrl" Core.=: preSignedUrl,
-        "ProcessorFeatures"
+        "Tags"
           Core.=: Core.toQuery
-            ( Core.toQueryList "ProcessorFeature"
-                Prelude.<$> processorFeatures
-            ),
-        "DBInstanceClass" Core.=: dbInstanceClass,
+            (Core.toQueryList "Tag" Prelude.<$> tags),
+        "MaxAllocatedStorage" Core.=: maxAllocatedStorage,
+        "Port" Core.=: port,
         "PerformanceInsightsRetentionPeriod"
           Core.=: performanceInsightsRetentionPeriod,
-        "DestinationRegion" Core.=: destinationRegion,
-        "MaxAllocatedStorage" Core.=: maxAllocatedStorage,
-        "EnablePerformanceInsights"
-          Core.=: enablePerformanceInsights,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "DBParameterGroupName" Core.=: dbParameterGroupName,
-        "AvailabilityZone" Core.=: availabilityZone,
-        "PerformanceInsightsKMSKeyId"
-          Core.=: performanceInsightsKMSKeyId,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "MultiAZ" Core.=: multiAZ,
-        "OptionGroupName" Core.=: optionGroupName,
+        "DBParameterGroupName" Core.=: dbParameterGroupName,
+        "DBInstanceClass" Core.=: dbInstanceClass,
         "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
         "DomainIAMRoleName" Core.=: domainIAMRoleName,
-        "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "Port" Core.=: port,
+        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+        "AutoMinorVersionUpgrade"
+          Core.=: autoMinorVersionUpgrade,
+        "Domain" Core.=: domain,
+        "OptionGroupName" Core.=: optionGroupName,
+        "PerformanceInsightsKMSKeyId"
+          Core.=: performanceInsightsKMSKeyId,
         "EnableIAMDatabaseAuthentication"
           Core.=: enableIAMDatabaseAuthentication,
-        "UseDefaultProcessorFeatures"
-          Core.=: useDefaultProcessorFeatures,
+        "MonitoringInterval" Core.=: monitoringInterval,
+        "AvailabilityZone" Core.=: availabilityZone,
+        "PubliclyAccessible" Core.=: publiclyAccessible,
         "StorageType" Core.=: storageType,
         "EnableCloudwatchLogsExports"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
+        "ProcessorFeatures"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "ProcessorFeature"
+                Prelude.<$> processorFeatures
+            ),
+        "EnablePerformanceInsights"
+          Core.=: enablePerformanceInsights,
+        "MonitoringRoleArn" Core.=: monitoringRoleArn,
+        "ReplicaMode" Core.=: replicaMode,
+        "KmsKeyId" Core.=: kmsKeyId,
+        "DeletionProtection" Core.=: deletionProtection,
+        "DestinationRegion" Core.=: destinationRegion,
+        "Iops" Core.=: iops,
+        "PreSignedUrl" Core.=: preSignedUrl,
+        "MultiAZ" Core.=: multiAZ,
+        "UseDefaultProcessorFeatures"
+          Core.=: useDefaultProcessorFeatures,
         "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
         "SourceDBInstanceIdentifier"
           Core.=: sourceDBInstanceIdentifier

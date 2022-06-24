@@ -30,8 +30,8 @@ module Amazonka.RDS.DownloadDBLogFilePortion
     newDownloadDBLogFilePortion,
 
     -- * Request Lenses
-    downloadDBLogFilePortion_numberOfLines,
     downloadDBLogFilePortion_marker,
+    downloadDBLogFilePortion_numberOfLines,
     downloadDBLogFilePortion_dbInstanceIdentifier,
     downloadDBLogFilePortion_logFileName,
 
@@ -40,9 +40,9 @@ module Amazonka.RDS.DownloadDBLogFilePortion
     newDownloadDBLogFilePortionResponse,
 
     -- * Response Lenses
-    downloadDBLogFilePortionResponse_logFileData,
-    downloadDBLogFilePortionResponse_additionalDataPending,
     downloadDBLogFilePortionResponse_marker,
+    downloadDBLogFilePortionResponse_additionalDataPending,
+    downloadDBLogFilePortionResponse_logFileData,
     downloadDBLogFilePortionResponse_httpStatus,
   )
 where
@@ -58,7 +58,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDownloadDBLogFilePortion' smart constructor.
 data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
-  { -- | The number of lines to download. If the number of lines specified
+  { -- | The pagination token provided in the previous request or \"0\". If the
+    -- Marker parameter is specified the response includes only records beyond
+    -- the marker until the end of the file or up to NumberOfLines.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The number of lines to download. If the number of lines specified
     -- results in a file over 1 MB in size, the file is truncated at 1 MB in
     -- size.
     --
@@ -83,10 +87,6 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
     --     Marker value for the next request, continuing until the
     --     AdditionalDataPending response element returns false.
     numberOfLines :: Prelude.Maybe Prelude.Int,
-    -- | The pagination token provided in the previous request or \"0\". If the
-    -- Marker parameter is specified the response includes only records beyond
-    -- the marker until the end of the file or up to NumberOfLines.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The customer-assigned name of the DB instance that contains the log
     -- files you want to list.
     --
@@ -106,6 +106,10 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'marker', 'downloadDBLogFilePortion_marker' - The pagination token provided in the previous request or \"0\". If the
+-- Marker parameter is specified the response includes only records beyond
+-- the marker until the end of the file or up to NumberOfLines.
 --
 -- 'numberOfLines', 'downloadDBLogFilePortion_numberOfLines' - The number of lines to download. If the number of lines specified
 -- results in a file over 1 MB in size, the file is truncated at 1 MB in
@@ -132,10 +136,6 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
 --     Marker value for the next request, continuing until the
 --     AdditionalDataPending response element returns false.
 --
--- 'marker', 'downloadDBLogFilePortion_marker' - The pagination token provided in the previous request or \"0\". If the
--- Marker parameter is specified the response includes only records beyond
--- the marker until the end of the file or up to NumberOfLines.
---
 -- 'dbInstanceIdentifier', 'downloadDBLogFilePortion_dbInstanceIdentifier' - The customer-assigned name of the DB instance that contains the log
 -- files you want to list.
 --
@@ -154,12 +154,17 @@ newDownloadDBLogFilePortion
   pDBInstanceIdentifier_
   pLogFileName_ =
     DownloadDBLogFilePortion'
-      { numberOfLines =
-          Prelude.Nothing,
-        marker = Prelude.Nothing,
+      { marker = Prelude.Nothing,
+        numberOfLines = Prelude.Nothing,
         dbInstanceIdentifier = pDBInstanceIdentifier_,
         logFileName = pLogFileName_
       }
+
+-- | The pagination token provided in the previous request or \"0\". If the
+-- Marker parameter is specified the response includes only records beyond
+-- the marker until the end of the file or up to NumberOfLines.
+downloadDBLogFilePortion_marker :: Lens.Lens' DownloadDBLogFilePortion (Prelude.Maybe Prelude.Text)
+downloadDBLogFilePortion_marker = Lens.lens (\DownloadDBLogFilePortion' {marker} -> marker) (\s@DownloadDBLogFilePortion' {} a -> s {marker = a} :: DownloadDBLogFilePortion)
 
 -- | The number of lines to download. If the number of lines specified
 -- results in a file over 1 MB in size, the file is truncated at 1 MB in
@@ -187,12 +192,6 @@ newDownloadDBLogFilePortion
 --     AdditionalDataPending response element returns false.
 downloadDBLogFilePortion_numberOfLines :: Lens.Lens' DownloadDBLogFilePortion (Prelude.Maybe Prelude.Int)
 downloadDBLogFilePortion_numberOfLines = Lens.lens (\DownloadDBLogFilePortion' {numberOfLines} -> numberOfLines) (\s@DownloadDBLogFilePortion' {} a -> s {numberOfLines = a} :: DownloadDBLogFilePortion)
-
--- | The pagination token provided in the previous request or \"0\". If the
--- Marker parameter is specified the response includes only records beyond
--- the marker until the end of the file or up to NumberOfLines.
-downloadDBLogFilePortion_marker :: Lens.Lens' DownloadDBLogFilePortion (Prelude.Maybe Prelude.Text)
-downloadDBLogFilePortion_marker = Lens.lens (\DownloadDBLogFilePortion' {marker} -> marker) (\s@DownloadDBLogFilePortion' {} a -> s {marker = a} :: DownloadDBLogFilePortion)
 
 -- | The customer-assigned name of the DB instance that contains the log
 -- files you want to list.
@@ -239,23 +238,23 @@ instance Core.AWSRequest DownloadDBLogFilePortion where
       "DownloadDBLogFilePortionResult"
       ( \s h x ->
           DownloadDBLogFilePortionResponse'
-            Prelude.<$> (x Core..@? "LogFileData")
+            Prelude.<$> (x Core..@? "Marker")
             Prelude.<*> (x Core..@? "AdditionalDataPending")
-            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (x Core..@? "LogFileData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DownloadDBLogFilePortion where
   hashWithSalt _salt DownloadDBLogFilePortion' {..} =
-    _salt `Prelude.hashWithSalt` numberOfLines
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` numberOfLines
       `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` logFileName
 
 instance Prelude.NFData DownloadDBLogFilePortion where
   rnf DownloadDBLogFilePortion' {..} =
-    Prelude.rnf numberOfLines
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf numberOfLines
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
       `Prelude.seq` Prelude.rnf logFileName
 
@@ -272,8 +271,8 @@ instance Core.ToQuery DownloadDBLogFilePortion where
           Core.=: ("DownloadDBLogFilePortion" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "NumberOfLines" Core.=: numberOfLines,
         "Marker" Core.=: marker,
+        "NumberOfLines" Core.=: numberOfLines,
         "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
         "LogFileName" Core.=: logFileName
       ]
@@ -283,14 +282,14 @@ instance Core.ToQuery DownloadDBLogFilePortion where
 --
 -- /See:/ 'newDownloadDBLogFilePortionResponse' smart constructor.
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
-  { -- | Entries from the specified log file.
-    logFileData :: Prelude.Maybe Prelude.Text,
+  { -- | A pagination token that can be used in a later DownloadDBLogFilePortion
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Boolean value that if true, indicates there is more data to be
     -- downloaded.
     additionalDataPending :: Prelude.Maybe Prelude.Bool,
-    -- | A pagination token that can be used in a later DownloadDBLogFilePortion
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    -- | Entries from the specified log file.
+    logFileData :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -304,13 +303,13 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logFileData', 'downloadDBLogFilePortionResponse_logFileData' - Entries from the specified log file.
+-- 'marker', 'downloadDBLogFilePortionResponse_marker' - A pagination token that can be used in a later DownloadDBLogFilePortion
+-- request.
 --
 -- 'additionalDataPending', 'downloadDBLogFilePortionResponse_additionalDataPending' - Boolean value that if true, indicates there is more data to be
 -- downloaded.
 --
--- 'marker', 'downloadDBLogFilePortionResponse_marker' - A pagination token that can be used in a later DownloadDBLogFilePortion
--- request.
+-- 'logFileData', 'downloadDBLogFilePortionResponse_logFileData' - Entries from the specified log file.
 --
 -- 'httpStatus', 'downloadDBLogFilePortionResponse_httpStatus' - The response's http status code.
 newDownloadDBLogFilePortionResponse ::
@@ -319,26 +318,26 @@ newDownloadDBLogFilePortionResponse ::
   DownloadDBLogFilePortionResponse
 newDownloadDBLogFilePortionResponse pHttpStatus_ =
   DownloadDBLogFilePortionResponse'
-    { logFileData =
+    { marker =
         Prelude.Nothing,
       additionalDataPending = Prelude.Nothing,
-      marker = Prelude.Nothing,
+      logFileData = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Entries from the specified log file.
-downloadDBLogFilePortionResponse_logFileData :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Text)
-downloadDBLogFilePortionResponse_logFileData = Lens.lens (\DownloadDBLogFilePortionResponse' {logFileData} -> logFileData) (\s@DownloadDBLogFilePortionResponse' {} a -> s {logFileData = a} :: DownloadDBLogFilePortionResponse)
+-- | A pagination token that can be used in a later DownloadDBLogFilePortion
+-- request.
+downloadDBLogFilePortionResponse_marker :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Text)
+downloadDBLogFilePortionResponse_marker = Lens.lens (\DownloadDBLogFilePortionResponse' {marker} -> marker) (\s@DownloadDBLogFilePortionResponse' {} a -> s {marker = a} :: DownloadDBLogFilePortionResponse)
 
 -- | Boolean value that if true, indicates there is more data to be
 -- downloaded.
 downloadDBLogFilePortionResponse_additionalDataPending :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Bool)
 downloadDBLogFilePortionResponse_additionalDataPending = Lens.lens (\DownloadDBLogFilePortionResponse' {additionalDataPending} -> additionalDataPending) (\s@DownloadDBLogFilePortionResponse' {} a -> s {additionalDataPending = a} :: DownloadDBLogFilePortionResponse)
 
--- | A pagination token that can be used in a later DownloadDBLogFilePortion
--- request.
-downloadDBLogFilePortionResponse_marker :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Text)
-downloadDBLogFilePortionResponse_marker = Lens.lens (\DownloadDBLogFilePortionResponse' {marker} -> marker) (\s@DownloadDBLogFilePortionResponse' {} a -> s {marker = a} :: DownloadDBLogFilePortionResponse)
+-- | Entries from the specified log file.
+downloadDBLogFilePortionResponse_logFileData :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Text)
+downloadDBLogFilePortionResponse_logFileData = Lens.lens (\DownloadDBLogFilePortionResponse' {logFileData} -> logFileData) (\s@DownloadDBLogFilePortionResponse' {} a -> s {logFileData = a} :: DownloadDBLogFilePortionResponse)
 
 -- | The response's http status code.
 downloadDBLogFilePortionResponse_httpStatus :: Lens.Lens' DownloadDBLogFilePortionResponse Prelude.Int
@@ -349,7 +348,7 @@ instance
     DownloadDBLogFilePortionResponse
   where
   rnf DownloadDBLogFilePortionResponse' {..} =
-    Prelude.rnf logFileData
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf additionalDataPending
-      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf logFileData
       `Prelude.seq` Prelude.rnf httpStatus

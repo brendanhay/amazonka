@@ -30,9 +30,9 @@ module Amazonka.RDS.CreateDBClusterEndpoint
     newCreateDBClusterEndpoint,
 
     -- * Request Lenses
+    createDBClusterEndpoint_tags,
     createDBClusterEndpoint_staticMembers,
     createDBClusterEndpoint_excludedMembers,
-    createDBClusterEndpoint_tags,
     createDBClusterEndpoint_dbClusterIdentifier,
     createDBClusterEndpoint_dbClusterEndpointIdentifier,
     createDBClusterEndpoint_endpointType,
@@ -42,16 +42,16 @@ module Amazonka.RDS.CreateDBClusterEndpoint
     newDBClusterEndpoint,
 
     -- * Response Lenses
-    dbClusterEndpoint_status,
-    dbClusterEndpoint_dbClusterIdentifier,
-    dbClusterEndpoint_dbClusterEndpointArn,
-    dbClusterEndpoint_customEndpointType,
+    dbClusterEndpoint_dbClusterEndpointResourceIdentifier,
     dbClusterEndpoint_staticMembers,
+    dbClusterEndpoint_dbClusterIdentifier,
+    dbClusterEndpoint_excludedMembers,
+    dbClusterEndpoint_customEndpointType,
+    dbClusterEndpoint_status,
     dbClusterEndpoint_endpointType,
     dbClusterEndpoint_dbClusterEndpointIdentifier,
+    dbClusterEndpoint_dbClusterEndpointArn,
     dbClusterEndpoint_endpoint,
-    dbClusterEndpoint_dbClusterEndpointResourceIdentifier,
-    dbClusterEndpoint_excludedMembers,
   )
 where
 
@@ -64,15 +64,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDBClusterEndpoint' smart constructor.
 data CreateDBClusterEndpoint = CreateDBClusterEndpoint'
-  { -- | List of DB instance identifiers that are part of the custom endpoint
+  { -- | The tags to be assigned to the Amazon RDS resource.
+    tags :: Prelude.Maybe [Tag],
+    -- | List of DB instance identifiers that are part of the custom endpoint
     -- group.
     staticMembers :: Prelude.Maybe [Prelude.Text],
     -- | List of DB instance identifiers that aren\'t part of the custom endpoint
     -- group. All other eligible instances are reachable through the custom
     -- endpoint. Only relevant if the list of static members is empty.
     excludedMembers :: Prelude.Maybe [Prelude.Text],
-    -- | The tags to be assigned to the Amazon RDS resource.
-    tags :: Prelude.Maybe [Tag],
     -- | The DB cluster identifier of the DB cluster associated with the
     -- endpoint. This parameter is stored as a lowercase string.
     dbClusterIdentifier :: Prelude.Text,
@@ -92,14 +92,14 @@ data CreateDBClusterEndpoint = CreateDBClusterEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createDBClusterEndpoint_tags' - The tags to be assigned to the Amazon RDS resource.
+--
 -- 'staticMembers', 'createDBClusterEndpoint_staticMembers' - List of DB instance identifiers that are part of the custom endpoint
 -- group.
 --
 -- 'excludedMembers', 'createDBClusterEndpoint_excludedMembers' - List of DB instance identifiers that aren\'t part of the custom endpoint
 -- group. All other eligible instances are reachable through the custom
 -- endpoint. Only relevant if the list of static members is empty.
---
--- 'tags', 'createDBClusterEndpoint_tags' - The tags to be assigned to the Amazon RDS resource.
 --
 -- 'dbClusterIdentifier', 'createDBClusterEndpoint_dbClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the
 -- endpoint. This parameter is stored as a lowercase string.
@@ -121,15 +121,18 @@ newCreateDBClusterEndpoint
   pDBClusterEndpointIdentifier_
   pEndpointType_ =
     CreateDBClusterEndpoint'
-      { staticMembers =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        staticMembers = Prelude.Nothing,
         excludedMembers = Prelude.Nothing,
-        tags = Prelude.Nothing,
         dbClusterIdentifier = pDBClusterIdentifier_,
         dbClusterEndpointIdentifier =
           pDBClusterEndpointIdentifier_,
         endpointType = pEndpointType_
       }
+
+-- | The tags to be assigned to the Amazon RDS resource.
+createDBClusterEndpoint_tags :: Lens.Lens' CreateDBClusterEndpoint (Prelude.Maybe [Tag])
+createDBClusterEndpoint_tags = Lens.lens (\CreateDBClusterEndpoint' {tags} -> tags) (\s@CreateDBClusterEndpoint' {} a -> s {tags = a} :: CreateDBClusterEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | List of DB instance identifiers that are part of the custom endpoint
 -- group.
@@ -141,10 +144,6 @@ createDBClusterEndpoint_staticMembers = Lens.lens (\CreateDBClusterEndpoint' {st
 -- endpoint. Only relevant if the list of static members is empty.
 createDBClusterEndpoint_excludedMembers :: Lens.Lens' CreateDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
 createDBClusterEndpoint_excludedMembers = Lens.lens (\CreateDBClusterEndpoint' {excludedMembers} -> excludedMembers) (\s@CreateDBClusterEndpoint' {} a -> s {excludedMembers = a} :: CreateDBClusterEndpoint) Prelude.. Lens.mapping Lens.coerced
-
--- | The tags to be assigned to the Amazon RDS resource.
-createDBClusterEndpoint_tags :: Lens.Lens' CreateDBClusterEndpoint (Prelude.Maybe [Tag])
-createDBClusterEndpoint_tags = Lens.lens (\CreateDBClusterEndpoint' {tags} -> tags) (\s@CreateDBClusterEndpoint' {} a -> s {tags = a} :: CreateDBClusterEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The DB cluster identifier of the DB cluster associated with the
 -- endpoint. This parameter is stored as a lowercase string.
@@ -172,18 +171,18 @@ instance Core.AWSRequest CreateDBClusterEndpoint where
 
 instance Prelude.Hashable CreateDBClusterEndpoint where
   hashWithSalt _salt CreateDBClusterEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` staticMembers
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` staticMembers
       `Prelude.hashWithSalt` excludedMembers
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` dbClusterEndpointIdentifier
       `Prelude.hashWithSalt` endpointType
 
 instance Prelude.NFData CreateDBClusterEndpoint where
   rnf CreateDBClusterEndpoint' {..} =
-    Prelude.rnf staticMembers
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf staticMembers
       `Prelude.seq` Prelude.rnf excludedMembers
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
       `Prelude.seq` Prelude.rnf endpointType
@@ -201,6 +200,9 @@ instance Core.ToQuery CreateDBClusterEndpoint where
           Core.=: ("CreateDBClusterEndpoint" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "StaticMembers"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
@@ -211,9 +213,6 @@ instance Core.ToQuery CreateDBClusterEndpoint where
             ( Core.toQueryList "member"
                 Prelude.<$> excludedMembers
             ),
-        "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
         "DBClusterIdentifier" Core.=: dbClusterIdentifier,
         "DBClusterEndpointIdentifier"
           Core.=: dbClusterEndpointIdentifier,

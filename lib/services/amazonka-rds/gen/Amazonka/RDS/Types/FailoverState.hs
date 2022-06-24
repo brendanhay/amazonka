@@ -50,11 +50,11 @@ data FailoverState = FailoverState'
     --     previous states.
     status :: Prelude.Maybe FailoverStatus,
     -- | The Amazon Resource Name (ARN) of the Aurora DB cluster that is
-    -- currently being promoted, and which is associated with this state.
-    toDbClusterArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Aurora DB cluster that is
     -- currently being demoted, and which is associated with this state.
-    fromDbClusterArn :: Prelude.Maybe Prelude.Text
+    fromDbClusterArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Aurora DB cluster that is
+    -- currently being promoted, and which is associated with this state.
+    toDbClusterArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,18 +84,18 @@ data FailoverState = FailoverState'
 --     the selected secondary Aurora DB cluster are returning to their
 --     previous states.
 --
--- 'toDbClusterArn', 'failoverState_toDbClusterArn' - The Amazon Resource Name (ARN) of the Aurora DB cluster that is
--- currently being promoted, and which is associated with this state.
---
 -- 'fromDbClusterArn', 'failoverState_fromDbClusterArn' - The Amazon Resource Name (ARN) of the Aurora DB cluster that is
 -- currently being demoted, and which is associated with this state.
+--
+-- 'toDbClusterArn', 'failoverState_toDbClusterArn' - The Amazon Resource Name (ARN) of the Aurora DB cluster that is
+-- currently being promoted, and which is associated with this state.
 newFailoverState ::
   FailoverState
 newFailoverState =
   FailoverState'
     { status = Prelude.Nothing,
-      toDbClusterArn = Prelude.Nothing,
-      fromDbClusterArn = Prelude.Nothing
+      fromDbClusterArn = Prelude.Nothing,
+      toDbClusterArn = Prelude.Nothing
     }
 
 -- | The current status of the Aurora global database (GlobalCluster).
@@ -119,30 +119,30 @@ failoverState_status :: Lens.Lens' FailoverState (Prelude.Maybe FailoverStatus)
 failoverState_status = Lens.lens (\FailoverState' {status} -> status) (\s@FailoverState' {} a -> s {status = a} :: FailoverState)
 
 -- | The Amazon Resource Name (ARN) of the Aurora DB cluster that is
--- currently being promoted, and which is associated with this state.
-failoverState_toDbClusterArn :: Lens.Lens' FailoverState (Prelude.Maybe Prelude.Text)
-failoverState_toDbClusterArn = Lens.lens (\FailoverState' {toDbClusterArn} -> toDbClusterArn) (\s@FailoverState' {} a -> s {toDbClusterArn = a} :: FailoverState)
-
--- | The Amazon Resource Name (ARN) of the Aurora DB cluster that is
 -- currently being demoted, and which is associated with this state.
 failoverState_fromDbClusterArn :: Lens.Lens' FailoverState (Prelude.Maybe Prelude.Text)
 failoverState_fromDbClusterArn = Lens.lens (\FailoverState' {fromDbClusterArn} -> fromDbClusterArn) (\s@FailoverState' {} a -> s {fromDbClusterArn = a} :: FailoverState)
+
+-- | The Amazon Resource Name (ARN) of the Aurora DB cluster that is
+-- currently being promoted, and which is associated with this state.
+failoverState_toDbClusterArn :: Lens.Lens' FailoverState (Prelude.Maybe Prelude.Text)
+failoverState_toDbClusterArn = Lens.lens (\FailoverState' {toDbClusterArn} -> toDbClusterArn) (\s@FailoverState' {} a -> s {toDbClusterArn = a} :: FailoverState)
 
 instance Core.FromXML FailoverState where
   parseXML x =
     FailoverState'
       Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "ToDbClusterArn")
       Prelude.<*> (x Core..@? "FromDbClusterArn")
+      Prelude.<*> (x Core..@? "ToDbClusterArn")
 
 instance Prelude.Hashable FailoverState where
   hashWithSalt _salt FailoverState' {..} =
     _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` toDbClusterArn
       `Prelude.hashWithSalt` fromDbClusterArn
+      `Prelude.hashWithSalt` toDbClusterArn
 
 instance Prelude.NFData FailoverState where
   rnf FailoverState' {..} =
     Prelude.rnf status
-      `Prelude.seq` Prelude.rnf toDbClusterArn
       `Prelude.seq` Prelude.rnf fromDbClusterArn
+      `Prelude.seq` Prelude.rnf toDbClusterArn

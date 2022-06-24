@@ -33,10 +33,10 @@ import Amazonka.RDS.Types.DBSnapshotAttribute
 --
 -- /See:/ 'newDBSnapshotAttributesResult' smart constructor.
 data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
-  { -- | The identifier of the manual DB snapshot that the attributes apply to.
-    dbSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The list of attributes and values for the manual DB snapshot.
-    dbSnapshotAttributes :: Prelude.Maybe [DBSnapshotAttribute]
+  { -- | The list of attributes and values for the manual DB snapshot.
+    dbSnapshotAttributes :: Prelude.Maybe [DBSnapshotAttribute],
+    -- | The identifier of the manual DB snapshot that the attributes apply to.
+    dbSnapshotIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,41 +48,41 @@ data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbSnapshotIdentifier', 'dbSnapshotAttributesResult_dbSnapshotIdentifier' - The identifier of the manual DB snapshot that the attributes apply to.
---
 -- 'dbSnapshotAttributes', 'dbSnapshotAttributesResult_dbSnapshotAttributes' - The list of attributes and values for the manual DB snapshot.
+--
+-- 'dbSnapshotIdentifier', 'dbSnapshotAttributesResult_dbSnapshotIdentifier' - The identifier of the manual DB snapshot that the attributes apply to.
 newDBSnapshotAttributesResult ::
   DBSnapshotAttributesResult
 newDBSnapshotAttributesResult =
   DBSnapshotAttributesResult'
-    { dbSnapshotIdentifier =
+    { dbSnapshotAttributes =
         Prelude.Nothing,
-      dbSnapshotAttributes = Prelude.Nothing
+      dbSnapshotIdentifier = Prelude.Nothing
     }
-
--- | The identifier of the manual DB snapshot that the attributes apply to.
-dbSnapshotAttributesResult_dbSnapshotIdentifier :: Lens.Lens' DBSnapshotAttributesResult (Prelude.Maybe Prelude.Text)
-dbSnapshotAttributesResult_dbSnapshotIdentifier = Lens.lens (\DBSnapshotAttributesResult' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@DBSnapshotAttributesResult' {} a -> s {dbSnapshotIdentifier = a} :: DBSnapshotAttributesResult)
 
 -- | The list of attributes and values for the manual DB snapshot.
 dbSnapshotAttributesResult_dbSnapshotAttributes :: Lens.Lens' DBSnapshotAttributesResult (Prelude.Maybe [DBSnapshotAttribute])
 dbSnapshotAttributesResult_dbSnapshotAttributes = Lens.lens (\DBSnapshotAttributesResult' {dbSnapshotAttributes} -> dbSnapshotAttributes) (\s@DBSnapshotAttributesResult' {} a -> s {dbSnapshotAttributes = a} :: DBSnapshotAttributesResult) Prelude.. Lens.mapping Lens.coerced
 
+-- | The identifier of the manual DB snapshot that the attributes apply to.
+dbSnapshotAttributesResult_dbSnapshotIdentifier :: Lens.Lens' DBSnapshotAttributesResult (Prelude.Maybe Prelude.Text)
+dbSnapshotAttributesResult_dbSnapshotIdentifier = Lens.lens (\DBSnapshotAttributesResult' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@DBSnapshotAttributesResult' {} a -> s {dbSnapshotIdentifier = a} :: DBSnapshotAttributesResult)
+
 instance Core.FromXML DBSnapshotAttributesResult where
   parseXML x =
     DBSnapshotAttributesResult'
-      Prelude.<$> (x Core..@? "DBSnapshotIdentifier")
-      Prelude.<*> ( x Core..@? "DBSnapshotAttributes"
+      Prelude.<$> ( x Core..@? "DBSnapshotAttributes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "DBSnapshotAttribute")
                   )
+      Prelude.<*> (x Core..@? "DBSnapshotIdentifier")
 
 instance Prelude.Hashable DBSnapshotAttributesResult where
   hashWithSalt _salt DBSnapshotAttributesResult' {..} =
-    _salt `Prelude.hashWithSalt` dbSnapshotIdentifier
-      `Prelude.hashWithSalt` dbSnapshotAttributes
+    _salt `Prelude.hashWithSalt` dbSnapshotAttributes
+      `Prelude.hashWithSalt` dbSnapshotIdentifier
 
 instance Prelude.NFData DBSnapshotAttributesResult where
   rnf DBSnapshotAttributesResult' {..} =
-    Prelude.rnf dbSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf dbSnapshotAttributes
+    Prelude.rnf dbSnapshotAttributes
+      `Prelude.seq` Prelude.rnf dbSnapshotIdentifier

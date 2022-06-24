@@ -30,16 +30,16 @@ import Amazonka.RDS.Types.PendingCloudwatchLogsExports
 --
 -- /See:/ 'newClusterPendingModifiedValues' smart constructor.
 data ClusterPendingModifiedValues = ClusterPendingModifiedValues'
-  { -- | The database engine version.
-    engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The DBClusterIdentifier value for the DB cluster.
+  { -- | The DBClusterIdentifier value for the DB cluster.
     dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    pendingCloudwatchLogsExports :: Prelude.Maybe PendingCloudwatchLogsExports,
     -- | The master credentials for the DB cluster.
     masterUserPassword :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether mapping of Amazon Web Services Identity
     -- and Access Management (IAM) accounts to database accounts is enabled.
     iAMDatabaseAuthenticationEnabled :: Prelude.Maybe Prelude.Bool,
-    pendingCloudwatchLogsExports :: Prelude.Maybe PendingCloudwatchLogsExports
+    -- | The database engine version.
+    engineVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,37 +51,37 @@ data ClusterPendingModifiedValues = ClusterPendingModifiedValues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineVersion', 'clusterPendingModifiedValues_engineVersion' - The database engine version.
---
 -- 'dbClusterIdentifier', 'clusterPendingModifiedValues_dbClusterIdentifier' - The DBClusterIdentifier value for the DB cluster.
+--
+-- 'pendingCloudwatchLogsExports', 'clusterPendingModifiedValues_pendingCloudwatchLogsExports' - Undocumented member.
 --
 -- 'masterUserPassword', 'clusterPendingModifiedValues_masterUserPassword' - The master credentials for the DB cluster.
 --
 -- 'iAMDatabaseAuthenticationEnabled', 'clusterPendingModifiedValues_iAMDatabaseAuthenticationEnabled' - A value that indicates whether mapping of Amazon Web Services Identity
 -- and Access Management (IAM) accounts to database accounts is enabled.
 --
--- 'pendingCloudwatchLogsExports', 'clusterPendingModifiedValues_pendingCloudwatchLogsExports' - Undocumented member.
+-- 'engineVersion', 'clusterPendingModifiedValues_engineVersion' - The database engine version.
 newClusterPendingModifiedValues ::
   ClusterPendingModifiedValues
 newClusterPendingModifiedValues =
   ClusterPendingModifiedValues'
-    { engineVersion =
+    { dbClusterIdentifier =
         Prelude.Nothing,
-      dbClusterIdentifier = Prelude.Nothing,
+      pendingCloudwatchLogsExports =
+        Prelude.Nothing,
       masterUserPassword = Prelude.Nothing,
       iAMDatabaseAuthenticationEnabled =
         Prelude.Nothing,
-      pendingCloudwatchLogsExports =
-        Prelude.Nothing
+      engineVersion = Prelude.Nothing
     }
-
--- | The database engine version.
-clusterPendingModifiedValues_engineVersion :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
-clusterPendingModifiedValues_engineVersion = Lens.lens (\ClusterPendingModifiedValues' {engineVersion} -> engineVersion) (\s@ClusterPendingModifiedValues' {} a -> s {engineVersion = a} :: ClusterPendingModifiedValues)
 
 -- | The DBClusterIdentifier value for the DB cluster.
 clusterPendingModifiedValues_dbClusterIdentifier :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
 clusterPendingModifiedValues_dbClusterIdentifier = Lens.lens (\ClusterPendingModifiedValues' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@ClusterPendingModifiedValues' {} a -> s {dbClusterIdentifier = a} :: ClusterPendingModifiedValues)
+
+-- | Undocumented member.
+clusterPendingModifiedValues_pendingCloudwatchLogsExports :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe PendingCloudwatchLogsExports)
+clusterPendingModifiedValues_pendingCloudwatchLogsExports = Lens.lens (\ClusterPendingModifiedValues' {pendingCloudwatchLogsExports} -> pendingCloudwatchLogsExports) (\s@ClusterPendingModifiedValues' {} a -> s {pendingCloudwatchLogsExports = a} :: ClusterPendingModifiedValues)
 
 -- | The master credentials for the DB cluster.
 clusterPendingModifiedValues_masterUserPassword :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
@@ -92,34 +92,34 @@ clusterPendingModifiedValues_masterUserPassword = Lens.lens (\ClusterPendingModi
 clusterPendingModifiedValues_iAMDatabaseAuthenticationEnabled :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Bool)
 clusterPendingModifiedValues_iAMDatabaseAuthenticationEnabled = Lens.lens (\ClusterPendingModifiedValues' {iAMDatabaseAuthenticationEnabled} -> iAMDatabaseAuthenticationEnabled) (\s@ClusterPendingModifiedValues' {} a -> s {iAMDatabaseAuthenticationEnabled = a} :: ClusterPendingModifiedValues)
 
--- | Undocumented member.
-clusterPendingModifiedValues_pendingCloudwatchLogsExports :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe PendingCloudwatchLogsExports)
-clusterPendingModifiedValues_pendingCloudwatchLogsExports = Lens.lens (\ClusterPendingModifiedValues' {pendingCloudwatchLogsExports} -> pendingCloudwatchLogsExports) (\s@ClusterPendingModifiedValues' {} a -> s {pendingCloudwatchLogsExports = a} :: ClusterPendingModifiedValues)
+-- | The database engine version.
+clusterPendingModifiedValues_engineVersion :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
+clusterPendingModifiedValues_engineVersion = Lens.lens (\ClusterPendingModifiedValues' {engineVersion} -> engineVersion) (\s@ClusterPendingModifiedValues' {} a -> s {engineVersion = a} :: ClusterPendingModifiedValues)
 
 instance Core.FromXML ClusterPendingModifiedValues where
   parseXML x =
     ClusterPendingModifiedValues'
-      Prelude.<$> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "DBClusterIdentifier")
+      Prelude.<$> (x Core..@? "DBClusterIdentifier")
+      Prelude.<*> (x Core..@? "PendingCloudwatchLogsExports")
       Prelude.<*> (x Core..@? "MasterUserPassword")
       Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
-      Prelude.<*> (x Core..@? "PendingCloudwatchLogsExports")
+      Prelude.<*> (x Core..@? "EngineVersion")
 
 instance
   Prelude.Hashable
     ClusterPendingModifiedValues
   where
   hashWithSalt _salt ClusterPendingModifiedValues' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
-      `Prelude.hashWithSalt` dbClusterIdentifier
+    _salt `Prelude.hashWithSalt` dbClusterIdentifier
+      `Prelude.hashWithSalt` pendingCloudwatchLogsExports
       `Prelude.hashWithSalt` masterUserPassword
       `Prelude.hashWithSalt` iAMDatabaseAuthenticationEnabled
-      `Prelude.hashWithSalt` pendingCloudwatchLogsExports
+      `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData ClusterPendingModifiedValues where
   rnf ClusterPendingModifiedValues' {..} =
-    Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
+    Prelude.rnf dbClusterIdentifier
+      `Prelude.seq` Prelude.rnf pendingCloudwatchLogsExports
       `Prelude.seq` Prelude.rnf masterUserPassword
       `Prelude.seq` Prelude.rnf iAMDatabaseAuthenticationEnabled
-      `Prelude.seq` Prelude.rnf pendingCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf engineVersion

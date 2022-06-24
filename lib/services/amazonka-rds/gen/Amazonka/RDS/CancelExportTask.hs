@@ -36,21 +36,21 @@ module Amazonka.RDS.CancelExportTask
     newExportTask,
 
     -- * Response Lenses
+    exportTask_s3Bucket,
+    exportTask_percentProgress,
+    exportTask_taskStartTime,
+    exportTask_exportOnly,
+    exportTask_sourceArn,
     exportTask_totalExtractedDataInGB,
     exportTask_status,
-    exportTask_iamRoleArn,
-    exportTask_sourceArn,
-    exportTask_exportOnly,
-    exportTask_taskStartTime,
     exportTask_warningMessage,
     exportTask_snapshotTime,
-    exportTask_kmsKeyId,
-    exportTask_taskEndTime,
     exportTask_exportTaskIdentifier,
-    exportTask_s3Prefix,
-    exportTask_percentProgress,
-    exportTask_s3Bucket,
+    exportTask_iamRoleArn,
+    exportTask_kmsKeyId,
     exportTask_failureCause,
+    exportTask_taskEndTime,
+    exportTask_s3Prefix,
   )
 where
 

@@ -32,10 +32,10 @@ module Amazonka.RDS.DescribeSourceRegions
     newDescribeSourceRegions,
 
     -- * Request Lenses
-    describeSourceRegions_regionName,
-    describeSourceRegions_filters,
     describeSourceRegions_marker,
+    describeSourceRegions_filters,
     describeSourceRegions_maxRecords,
+    describeSourceRegions_regionName,
 
     -- * Destructuring the Response
     DescribeSourceRegionsResponse (..),
@@ -59,19 +59,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeSourceRegions' smart constructor.
 data DescribeSourceRegions = DescribeSourceRegions'
-  { -- | The source Amazon Web Services Region name. For example, @us-east-1@.
-    --
-    -- Constraints:
-    --
-    -- -   Must specify a valid Amazon Web Services Region name.
-    regionName :: Prelude.Maybe Prelude.Text,
-    -- | This parameter isn\'t currently supported.
-    filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous
+  { -- | An optional pagination token provided by a previous
     -- @DescribeSourceRegions@ request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | This parameter isn\'t currently supported.
+    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -80,7 +74,13 @@ data DescribeSourceRegions = DescribeSourceRegions'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The source Amazon Web Services Region name. For example, @us-east-1@.
+    --
+    -- Constraints:
+    --
+    -- -   Must specify a valid Amazon Web Services Region name.
+    regionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,18 +92,12 @@ data DescribeSourceRegions = DescribeSourceRegions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'regionName', 'describeSourceRegions_regionName' - The source Amazon Web Services Region name. For example, @us-east-1@.
---
--- Constraints:
---
--- -   Must specify a valid Amazon Web Services Region name.
---
--- 'filters', 'describeSourceRegions_filters' - This parameter isn\'t currently supported.
---
 -- 'marker', 'describeSourceRegions_marker' - An optional pagination token provided by a previous
 -- @DescribeSourceRegions@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
+--
+-- 'filters', 'describeSourceRegions_filters' - This parameter isn\'t currently supported.
 --
 -- 'maxRecords', 'describeSourceRegions_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -113,28 +107,21 @@ data DescribeSourceRegions = DescribeSourceRegions'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
-newDescribeSourceRegions ::
-  DescribeSourceRegions
-newDescribeSourceRegions =
-  DescribeSourceRegions'
-    { regionName =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
-    }
-
--- | The source Amazon Web Services Region name. For example, @us-east-1@.
+--
+-- 'regionName', 'describeSourceRegions_regionName' - The source Amazon Web Services Region name. For example, @us-east-1@.
 --
 -- Constraints:
 --
 -- -   Must specify a valid Amazon Web Services Region name.
-describeSourceRegions_regionName :: Lens.Lens' DescribeSourceRegions (Prelude.Maybe Prelude.Text)
-describeSourceRegions_regionName = Lens.lens (\DescribeSourceRegions' {regionName} -> regionName) (\s@DescribeSourceRegions' {} a -> s {regionName = a} :: DescribeSourceRegions)
-
--- | This parameter isn\'t currently supported.
-describeSourceRegions_filters :: Lens.Lens' DescribeSourceRegions (Prelude.Maybe [Filter])
-describeSourceRegions_filters = Lens.lens (\DescribeSourceRegions' {filters} -> filters) (\s@DescribeSourceRegions' {} a -> s {filters = a} :: DescribeSourceRegions) Prelude.. Lens.mapping Lens.coerced
+newDescribeSourceRegions ::
+  DescribeSourceRegions
+newDescribeSourceRegions =
+  DescribeSourceRegions'
+    { marker = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      regionName = Prelude.Nothing
+    }
 
 -- | An optional pagination token provided by a previous
 -- @DescribeSourceRegions@ request. If this parameter is specified, the
@@ -142,6 +129,10 @@ describeSourceRegions_filters = Lens.lens (\DescribeSourceRegions' {filters} -> 
 -- specified by @MaxRecords@.
 describeSourceRegions_marker :: Lens.Lens' DescribeSourceRegions (Prelude.Maybe Prelude.Text)
 describeSourceRegions_marker = Lens.lens (\DescribeSourceRegions' {marker} -> marker) (\s@DescribeSourceRegions' {} a -> s {marker = a} :: DescribeSourceRegions)
+
+-- | This parameter isn\'t currently supported.
+describeSourceRegions_filters :: Lens.Lens' DescribeSourceRegions (Prelude.Maybe [Filter])
+describeSourceRegions_filters = Lens.lens (\DescribeSourceRegions' {filters} -> filters) (\s@DescribeSourceRegions' {} a -> s {filters = a} :: DescribeSourceRegions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -153,6 +144,14 @@ describeSourceRegions_marker = Lens.lens (\DescribeSourceRegions' {marker} -> ma
 -- Constraints: Minimum 20, maximum 100.
 describeSourceRegions_maxRecords :: Lens.Lens' DescribeSourceRegions (Prelude.Maybe Prelude.Int)
 describeSourceRegions_maxRecords = Lens.lens (\DescribeSourceRegions' {maxRecords} -> maxRecords) (\s@DescribeSourceRegions' {} a -> s {maxRecords = a} :: DescribeSourceRegions)
+
+-- | The source Amazon Web Services Region name. For example, @us-east-1@.
+--
+-- Constraints:
+--
+-- -   Must specify a valid Amazon Web Services Region name.
+describeSourceRegions_regionName :: Lens.Lens' DescribeSourceRegions (Prelude.Maybe Prelude.Text)
+describeSourceRegions_regionName = Lens.lens (\DescribeSourceRegions' {regionName} -> regionName) (\s@DescribeSourceRegions' {} a -> s {regionName = a} :: DescribeSourceRegions)
 
 instance Core.AWSPager DescribeSourceRegions where
   page rq rs
@@ -195,17 +194,17 @@ instance Core.AWSRequest DescribeSourceRegions where
 
 instance Prelude.Hashable DescribeSourceRegions where
   hashWithSalt _salt DescribeSourceRegions' {..} =
-    _salt `Prelude.hashWithSalt` regionName
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` regionName
 
 instance Prelude.NFData DescribeSourceRegions where
   rnf DescribeSourceRegions' {..} =
-    Prelude.rnf regionName
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf regionName
 
 instance Core.ToHeaders DescribeSourceRegions where
   toHeaders = Prelude.const Prelude.mempty
@@ -220,12 +219,12 @@ instance Core.ToQuery DescribeSourceRegions where
           Core.=: ("DescribeSourceRegions" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "RegionName" Core.=: regionName,
+        "Marker" Core.=: marker,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "RegionName" Core.=: regionName
       ]
 
 -- | Contains the result of a successful invocation of the

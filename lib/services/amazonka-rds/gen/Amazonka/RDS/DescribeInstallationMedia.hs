@@ -30,10 +30,10 @@ module Amazonka.RDS.DescribeInstallationMedia
     newDescribeInstallationMedia,
 
     -- * Request Lenses
-    describeInstallationMedia_installationMediaId,
-    describeInstallationMedia_filters,
     describeInstallationMedia_marker,
+    describeInstallationMedia_filters,
     describeInstallationMedia_maxRecords,
+    describeInstallationMedia_installationMediaId,
 
     -- * Destructuring the Response
     DescribeInstallationMediaResponse (..),
@@ -55,8 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeInstallationMedia' smart constructor.
 data DescribeInstallationMedia = DescribeInstallationMedia'
-  { -- | The installation medium ID.
-    installationMediaId :: Prelude.Maybe Prelude.Text,
+  { -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | A filter that specifies one or more installation media to describe.
     -- Supported filters include the following:
     --
@@ -71,15 +73,13 @@ data DescribeInstallationMedia = DescribeInstallationMedia'
     --     For more information about the valid engines for installation media,
     --     see ImportInstallationMedia.
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | An optional pagination token provided by a previous
     -- DescribeInstallationMedia request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The installation medium ID.
+    installationMediaId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,7 +91,9 @@ data DescribeInstallationMedia = DescribeInstallationMedia'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'installationMediaId', 'describeInstallationMedia_installationMediaId' - The installation medium ID.
+-- 'marker', 'describeInstallationMedia_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 --
 -- 'filters', 'describeInstallationMedia_filters' - A filter that specifies one or more installation media to describe.
 -- Supported filters include the following:
@@ -107,28 +109,28 @@ data DescribeInstallationMedia = DescribeInstallationMedia'
 --     For more information about the valid engines for installation media,
 --     see ImportInstallationMedia.
 --
--- 'marker', 'describeInstallationMedia_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeInstallationMedia_maxRecords' - An optional pagination token provided by a previous
 -- DescribeInstallationMedia request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
+--
+-- 'installationMediaId', 'describeInstallationMedia_installationMediaId' - The installation medium ID.
 newDescribeInstallationMedia ::
   DescribeInstallationMedia
 newDescribeInstallationMedia =
   DescribeInstallationMedia'
-    { installationMediaId =
+    { marker =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      installationMediaId = Prelude.Nothing
     }
 
--- | The installation medium ID.
-describeInstallationMedia_installationMediaId :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe Prelude.Text)
-describeInstallationMedia_installationMediaId = Lens.lens (\DescribeInstallationMedia' {installationMediaId} -> installationMediaId) (\s@DescribeInstallationMedia' {} a -> s {installationMediaId = a} :: DescribeInstallationMedia)
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeInstallationMedia_marker :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe Prelude.Text)
+describeInstallationMedia_marker = Lens.lens (\DescribeInstallationMedia' {marker} -> marker) (\s@DescribeInstallationMedia' {} a -> s {marker = a} :: DescribeInstallationMedia)
 
 -- | A filter that specifies one or more installation media to describe.
 -- Supported filters include the following:
@@ -146,18 +148,16 @@ describeInstallationMedia_installationMediaId = Lens.lens (\DescribeInstallation
 describeInstallationMedia_filters :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe [Filter])
 describeInstallationMedia_filters = Lens.lens (\DescribeInstallationMedia' {filters} -> filters) (\s@DescribeInstallationMedia' {} a -> s {filters = a} :: DescribeInstallationMedia) Prelude.. Lens.mapping Lens.coerced
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeInstallationMedia_marker :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe Prelude.Text)
-describeInstallationMedia_marker = Lens.lens (\DescribeInstallationMedia' {marker} -> marker) (\s@DescribeInstallationMedia' {} a -> s {marker = a} :: DescribeInstallationMedia)
-
 -- | An optional pagination token provided by a previous
 -- DescribeInstallationMedia request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
 describeInstallationMedia_maxRecords :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe Prelude.Int)
 describeInstallationMedia_maxRecords = Lens.lens (\DescribeInstallationMedia' {maxRecords} -> maxRecords) (\s@DescribeInstallationMedia' {} a -> s {maxRecords = a} :: DescribeInstallationMedia)
+
+-- | The installation medium ID.
+describeInstallationMedia_installationMediaId :: Lens.Lens' DescribeInstallationMedia (Prelude.Maybe Prelude.Text)
+describeInstallationMedia_installationMediaId = Lens.lens (\DescribeInstallationMedia' {installationMediaId} -> installationMediaId) (\s@DescribeInstallationMedia' {} a -> s {installationMediaId = a} :: DescribeInstallationMedia)
 
 instance Core.AWSPager DescribeInstallationMedia where
   page rq rs
@@ -201,17 +201,17 @@ instance Core.AWSRequest DescribeInstallationMedia where
 
 instance Prelude.Hashable DescribeInstallationMedia where
   hashWithSalt _salt DescribeInstallationMedia' {..} =
-    _salt `Prelude.hashWithSalt` installationMediaId
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` installationMediaId
 
 instance Prelude.NFData DescribeInstallationMedia where
   rnf DescribeInstallationMedia' {..} =
-    Prelude.rnf installationMediaId
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf installationMediaId
 
 instance Core.ToHeaders DescribeInstallationMedia where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,12 +226,12 @@ instance Core.ToQuery DescribeInstallationMedia where
           Core.=: ("DescribeInstallationMedia" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "InstallationMediaId" Core.=: installationMediaId,
+        "Marker" Core.=: marker,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "InstallationMediaId" Core.=: installationMediaId
       ]
 
 -- | /See:/ 'newDescribeInstallationMediaResponse' smart constructor.

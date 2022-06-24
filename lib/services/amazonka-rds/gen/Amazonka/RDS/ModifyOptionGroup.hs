@@ -28,8 +28,8 @@ module Amazonka.RDS.ModifyOptionGroup
 
     -- * Request Lenses
     modifyOptionGroup_optionsToInclude,
-    modifyOptionGroup_optionsToRemove,
     modifyOptionGroup_applyImmediately,
+    modifyOptionGroup_optionsToRemove,
     modifyOptionGroup_optionGroupName,
 
     -- * Destructuring the Response
@@ -57,12 +57,12 @@ data ModifyOptionGroup = ModifyOptionGroup'
     -- present, the specified configuration is used to update the existing
     -- configuration.
     optionsToInclude :: Prelude.Maybe [OptionConfiguration],
-    -- | Options in this list are removed from the option group.
-    optionsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | A value that indicates whether to apply the change immediately or during
     -- the next maintenance window for each instance associated with the option
     -- group.
     applyImmediately :: Prelude.Maybe Prelude.Bool,
+    -- | Options in this list are removed from the option group.
+    optionsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | The name of the option group to be modified.
     --
     -- Permanent options, such as the TDE option for Oracle Advanced Security
@@ -85,11 +85,11 @@ data ModifyOptionGroup = ModifyOptionGroup'
 -- present, the specified configuration is used to update the existing
 -- configuration.
 --
--- 'optionsToRemove', 'modifyOptionGroup_optionsToRemove' - Options in this list are removed from the option group.
---
 -- 'applyImmediately', 'modifyOptionGroup_applyImmediately' - A value that indicates whether to apply the change immediately or during
 -- the next maintenance window for each instance associated with the option
 -- group.
+--
+-- 'optionsToRemove', 'modifyOptionGroup_optionsToRemove' - Options in this list are removed from the option group.
 --
 -- 'optionGroupName', 'modifyOptionGroup_optionGroupName' - The name of the option group to be modified.
 --
@@ -105,8 +105,8 @@ newModifyOptionGroup pOptionGroupName_ =
   ModifyOptionGroup'
     { optionsToInclude =
         Prelude.Nothing,
-      optionsToRemove = Prelude.Nothing,
       applyImmediately = Prelude.Nothing,
+      optionsToRemove = Prelude.Nothing,
       optionGroupName = pOptionGroupName_
     }
 
@@ -116,15 +116,15 @@ newModifyOptionGroup pOptionGroupName_ =
 modifyOptionGroup_optionsToInclude :: Lens.Lens' ModifyOptionGroup (Prelude.Maybe [OptionConfiguration])
 modifyOptionGroup_optionsToInclude = Lens.lens (\ModifyOptionGroup' {optionsToInclude} -> optionsToInclude) (\s@ModifyOptionGroup' {} a -> s {optionsToInclude = a} :: ModifyOptionGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | Options in this list are removed from the option group.
-modifyOptionGroup_optionsToRemove :: Lens.Lens' ModifyOptionGroup (Prelude.Maybe [Prelude.Text])
-modifyOptionGroup_optionsToRemove = Lens.lens (\ModifyOptionGroup' {optionsToRemove} -> optionsToRemove) (\s@ModifyOptionGroup' {} a -> s {optionsToRemove = a} :: ModifyOptionGroup) Prelude.. Lens.mapping Lens.coerced
-
 -- | A value that indicates whether to apply the change immediately or during
 -- the next maintenance window for each instance associated with the option
 -- group.
 modifyOptionGroup_applyImmediately :: Lens.Lens' ModifyOptionGroup (Prelude.Maybe Prelude.Bool)
 modifyOptionGroup_applyImmediately = Lens.lens (\ModifyOptionGroup' {applyImmediately} -> applyImmediately) (\s@ModifyOptionGroup' {} a -> s {applyImmediately = a} :: ModifyOptionGroup)
+
+-- | Options in this list are removed from the option group.
+modifyOptionGroup_optionsToRemove :: Lens.Lens' ModifyOptionGroup (Prelude.Maybe [Prelude.Text])
+modifyOptionGroup_optionsToRemove = Lens.lens (\ModifyOptionGroup' {optionsToRemove} -> optionsToRemove) (\s@ModifyOptionGroup' {} a -> s {optionsToRemove = a} :: ModifyOptionGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the option group to be modified.
 --
@@ -152,15 +152,15 @@ instance Core.AWSRequest ModifyOptionGroup where
 instance Prelude.Hashable ModifyOptionGroup where
   hashWithSalt _salt ModifyOptionGroup' {..} =
     _salt `Prelude.hashWithSalt` optionsToInclude
-      `Prelude.hashWithSalt` optionsToRemove
       `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` optionsToRemove
       `Prelude.hashWithSalt` optionGroupName
 
 instance Prelude.NFData ModifyOptionGroup where
   rnf ModifyOptionGroup' {..} =
     Prelude.rnf optionsToInclude
-      `Prelude.seq` Prelude.rnf optionsToRemove
       `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf optionsToRemove
       `Prelude.seq` Prelude.rnf optionGroupName
 
 instance Core.ToHeaders ModifyOptionGroup where
@@ -181,12 +181,12 @@ instance Core.ToQuery ModifyOptionGroup where
             ( Core.toQueryList "OptionConfiguration"
                 Prelude.<$> optionsToInclude
             ),
+        "ApplyImmediately" Core.=: applyImmediately,
         "OptionsToRemove"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> optionsToRemove
             ),
-        "ApplyImmediately" Core.=: applyImmediately,
         "OptionGroupName" Core.=: optionGroupName
       ]
 

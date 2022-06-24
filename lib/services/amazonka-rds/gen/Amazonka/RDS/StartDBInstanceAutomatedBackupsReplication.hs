@@ -32,10 +32,10 @@ module Amazonka.RDS.StartDBInstanceAutomatedBackupsReplication
     newStartDBInstanceAutomatedBackupsReplication,
 
     -- * Request Lenses
-    startDBInstanceAutomatedBackupsReplication_preSignedUrl,
-    startDBInstanceAutomatedBackupsReplication_destinationRegion,
-    startDBInstanceAutomatedBackupsReplication_kmsKeyId,
     startDBInstanceAutomatedBackupsReplication_backupRetentionPeriod,
+    startDBInstanceAutomatedBackupsReplication_kmsKeyId,
+    startDBInstanceAutomatedBackupsReplication_destinationRegion,
+    startDBInstanceAutomatedBackupsReplication_preSignedUrl,
     startDBInstanceAutomatedBackupsReplication_sourceDBInstanceArn,
 
     -- * Destructuring the Response
@@ -57,7 +57,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartDBInstanceAutomatedBackupsReplication' smart constructor.
 data StartDBInstanceAutomatedBackupsReplication = StartDBInstanceAutomatedBackupsReplication'
-  { -- | A URL that contains a Signature Version 4 signed request for the
+  { -- | The retention period for the replicated automated backups.
+    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon Web Services KMS key identifier for encryption of the
+    -- replicated automated backups. The KMS key ID is the Amazon Resource Name
+    -- (ARN) for the KMS encryption key in the destination Amazon Web Services
+    -- Region, for example,
+    -- @arn:aws:kms:us-east-1:123456789012:key\/AKIAIOSFODNN7EXAMPLE@.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+    -- cross-region @StartDBInstanceAutomatedBackupsReplication@ request. To
+    -- replicate from region @SRC@ to region @DST@, send a request to region
+    -- @DST@. In that request, pass a @PreSignedUrl@ for region @SRC@ with
+    -- @DestinationRegion@ set to region @DST@.
+    destinationRegion :: Prelude.Maybe Prelude.Text,
+    -- | A URL that contains a Signature Version 4 signed request for the
     -- StartDBInstanceAutomatedBackupsReplication action to be called in the
     -- Amazon Web Services Region of the source DB instance. The presigned URL
     -- must be a valid request for the
@@ -65,20 +79,6 @@ data StartDBInstanceAutomatedBackupsReplication = StartDBInstanceAutomatedBackup
     -- executed in the Amazon Web Services Region that contains the source DB
     -- instance.
     preSignedUrl :: Prelude.Maybe Prelude.Text,
-    -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
-    -- cross-region @StartDBInstanceAutomatedBackupsReplication@ request. To
-    -- replicate from region @SRC@ to region @DST@, send a request to region
-    -- @DST@. In that request, pass a @PreSignedUrl@ for region @SRC@ with
-    -- @DestinationRegion@ set to region @DST@.
-    destinationRegion :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services KMS key identifier for encryption of the
-    -- replicated automated backups. The KMS key ID is the Amazon Resource Name
-    -- (ARN) for the KMS encryption key in the destination Amazon Web Services
-    -- Region, for example,
-    -- @arn:aws:kms:us-east-1:123456789012:key\/AKIAIOSFODNN7EXAMPLE@.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The retention period for the replicated automated backups.
-    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the source DB instance for the
     -- replicated automated backups, for example,
     -- @arn:aws:rds:us-west-2:123456789012:db:mydatabase@.
@@ -94,19 +94,7 @@ data StartDBInstanceAutomatedBackupsReplication = StartDBInstanceAutomatedBackup
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'preSignedUrl', 'startDBInstanceAutomatedBackupsReplication_preSignedUrl' - A URL that contains a Signature Version 4 signed request for the
--- StartDBInstanceAutomatedBackupsReplication action to be called in the
--- Amazon Web Services Region of the source DB instance. The presigned URL
--- must be a valid request for the
--- StartDBInstanceAutomatedBackupsReplication API action that can be
--- executed in the Amazon Web Services Region that contains the source DB
--- instance.
---
--- 'destinationRegion', 'startDBInstanceAutomatedBackupsReplication_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
--- cross-region @StartDBInstanceAutomatedBackupsReplication@ request. To
--- replicate from region @SRC@ to region @DST@, send a request to region
--- @DST@. In that request, pass a @PreSignedUrl@ for region @SRC@ with
--- @DestinationRegion@ set to region @DST@.
+-- 'backupRetentionPeriod', 'startDBInstanceAutomatedBackupsReplication_backupRetentionPeriod' - The retention period for the replicated automated backups.
 --
 -- 'kmsKeyId', 'startDBInstanceAutomatedBackupsReplication_kmsKeyId' - The Amazon Web Services KMS key identifier for encryption of the
 -- replicated automated backups. The KMS key ID is the Amazon Resource Name
@@ -114,7 +102,19 @@ data StartDBInstanceAutomatedBackupsReplication = StartDBInstanceAutomatedBackup
 -- Region, for example,
 -- @arn:aws:kms:us-east-1:123456789012:key\/AKIAIOSFODNN7EXAMPLE@.
 --
--- 'backupRetentionPeriod', 'startDBInstanceAutomatedBackupsReplication_backupRetentionPeriod' - The retention period for the replicated automated backups.
+-- 'destinationRegion', 'startDBInstanceAutomatedBackupsReplication_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @StartDBInstanceAutomatedBackupsReplication@ request. To
+-- replicate from region @SRC@ to region @DST@, send a request to region
+-- @DST@. In that request, pass a @PreSignedUrl@ for region @SRC@ with
+-- @DestinationRegion@ set to region @DST@.
+--
+-- 'preSignedUrl', 'startDBInstanceAutomatedBackupsReplication_preSignedUrl' - A URL that contains a Signature Version 4 signed request for the
+-- StartDBInstanceAutomatedBackupsReplication action to be called in the
+-- Amazon Web Services Region of the source DB instance. The presigned URL
+-- must be a valid request for the
+-- StartDBInstanceAutomatedBackupsReplication API action that can be
+-- executed in the Amazon Web Services Region that contains the source DB
+-- instance.
 --
 -- 'sourceDBInstanceArn', 'startDBInstanceAutomatedBackupsReplication_sourceDBInstanceArn' - The Amazon Resource Name (ARN) of the source DB instance for the
 -- replicated automated backups, for example,
@@ -126,16 +126,35 @@ newStartDBInstanceAutomatedBackupsReplication ::
 newStartDBInstanceAutomatedBackupsReplication
   pSourceDBInstanceArn_ =
     StartDBInstanceAutomatedBackupsReplication'
-      { preSignedUrl =
-          Prelude.Nothing,
-        destinationRegion =
+      { backupRetentionPeriod =
           Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
-        backupRetentionPeriod =
+        destinationRegion =
           Prelude.Nothing,
+        preSignedUrl = Prelude.Nothing,
         sourceDBInstanceArn =
           pSourceDBInstanceArn_
       }
+
+-- | The retention period for the replicated automated backups.
+startDBInstanceAutomatedBackupsReplication_backupRetentionPeriod :: Lens.Lens' StartDBInstanceAutomatedBackupsReplication (Prelude.Maybe Prelude.Int)
+startDBInstanceAutomatedBackupsReplication_backupRetentionPeriod = Lens.lens (\StartDBInstanceAutomatedBackupsReplication' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@StartDBInstanceAutomatedBackupsReplication' {} a -> s {backupRetentionPeriod = a} :: StartDBInstanceAutomatedBackupsReplication)
+
+-- | The Amazon Web Services KMS key identifier for encryption of the
+-- replicated automated backups. The KMS key ID is the Amazon Resource Name
+-- (ARN) for the KMS encryption key in the destination Amazon Web Services
+-- Region, for example,
+-- @arn:aws:kms:us-east-1:123456789012:key\/AKIAIOSFODNN7EXAMPLE@.
+startDBInstanceAutomatedBackupsReplication_kmsKeyId :: Lens.Lens' StartDBInstanceAutomatedBackupsReplication (Prelude.Maybe Prelude.Text)
+startDBInstanceAutomatedBackupsReplication_kmsKeyId = Lens.lens (\StartDBInstanceAutomatedBackupsReplication' {kmsKeyId} -> kmsKeyId) (\s@StartDBInstanceAutomatedBackupsReplication' {} a -> s {kmsKeyId = a} :: StartDBInstanceAutomatedBackupsReplication)
+
+-- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @StartDBInstanceAutomatedBackupsReplication@ request. To
+-- replicate from region @SRC@ to region @DST@, send a request to region
+-- @DST@. In that request, pass a @PreSignedUrl@ for region @SRC@ with
+-- @DestinationRegion@ set to region @DST@.
+startDBInstanceAutomatedBackupsReplication_destinationRegion :: Lens.Lens' StartDBInstanceAutomatedBackupsReplication (Prelude.Maybe Prelude.Text)
+startDBInstanceAutomatedBackupsReplication_destinationRegion = Lens.lens (\StartDBInstanceAutomatedBackupsReplication' {destinationRegion} -> destinationRegion) (\s@StartDBInstanceAutomatedBackupsReplication' {} a -> s {destinationRegion = a} :: StartDBInstanceAutomatedBackupsReplication)
 
 -- | A URL that contains a Signature Version 4 signed request for the
 -- StartDBInstanceAutomatedBackupsReplication action to be called in the
@@ -146,26 +165,6 @@ newStartDBInstanceAutomatedBackupsReplication
 -- instance.
 startDBInstanceAutomatedBackupsReplication_preSignedUrl :: Lens.Lens' StartDBInstanceAutomatedBackupsReplication (Prelude.Maybe Prelude.Text)
 startDBInstanceAutomatedBackupsReplication_preSignedUrl = Lens.lens (\StartDBInstanceAutomatedBackupsReplication' {preSignedUrl} -> preSignedUrl) (\s@StartDBInstanceAutomatedBackupsReplication' {} a -> s {preSignedUrl = a} :: StartDBInstanceAutomatedBackupsReplication)
-
--- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
--- cross-region @StartDBInstanceAutomatedBackupsReplication@ request. To
--- replicate from region @SRC@ to region @DST@, send a request to region
--- @DST@. In that request, pass a @PreSignedUrl@ for region @SRC@ with
--- @DestinationRegion@ set to region @DST@.
-startDBInstanceAutomatedBackupsReplication_destinationRegion :: Lens.Lens' StartDBInstanceAutomatedBackupsReplication (Prelude.Maybe Prelude.Text)
-startDBInstanceAutomatedBackupsReplication_destinationRegion = Lens.lens (\StartDBInstanceAutomatedBackupsReplication' {destinationRegion} -> destinationRegion) (\s@StartDBInstanceAutomatedBackupsReplication' {} a -> s {destinationRegion = a} :: StartDBInstanceAutomatedBackupsReplication)
-
--- | The Amazon Web Services KMS key identifier for encryption of the
--- replicated automated backups. The KMS key ID is the Amazon Resource Name
--- (ARN) for the KMS encryption key in the destination Amazon Web Services
--- Region, for example,
--- @arn:aws:kms:us-east-1:123456789012:key\/AKIAIOSFODNN7EXAMPLE@.
-startDBInstanceAutomatedBackupsReplication_kmsKeyId :: Lens.Lens' StartDBInstanceAutomatedBackupsReplication (Prelude.Maybe Prelude.Text)
-startDBInstanceAutomatedBackupsReplication_kmsKeyId = Lens.lens (\StartDBInstanceAutomatedBackupsReplication' {kmsKeyId} -> kmsKeyId) (\s@StartDBInstanceAutomatedBackupsReplication' {} a -> s {kmsKeyId = a} :: StartDBInstanceAutomatedBackupsReplication)
-
--- | The retention period for the replicated automated backups.
-startDBInstanceAutomatedBackupsReplication_backupRetentionPeriod :: Lens.Lens' StartDBInstanceAutomatedBackupsReplication (Prelude.Maybe Prelude.Int)
-startDBInstanceAutomatedBackupsReplication_backupRetentionPeriod = Lens.lens (\StartDBInstanceAutomatedBackupsReplication' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@StartDBInstanceAutomatedBackupsReplication' {} a -> s {backupRetentionPeriod = a} :: StartDBInstanceAutomatedBackupsReplication)
 
 -- | The Amazon Resource Name (ARN) of the source DB instance for the
 -- replicated automated backups, for example,
@@ -198,10 +197,10 @@ instance
   hashWithSalt
     _salt
     StartDBInstanceAutomatedBackupsReplication' {..} =
-      _salt `Prelude.hashWithSalt` preSignedUrl
-        `Prelude.hashWithSalt` destinationRegion
+      _salt `Prelude.hashWithSalt` backupRetentionPeriod
         `Prelude.hashWithSalt` kmsKeyId
-        `Prelude.hashWithSalt` backupRetentionPeriod
+        `Prelude.hashWithSalt` destinationRegion
+        `Prelude.hashWithSalt` preSignedUrl
         `Prelude.hashWithSalt` sourceDBInstanceArn
 
 instance
@@ -209,10 +208,10 @@ instance
     StartDBInstanceAutomatedBackupsReplication
   where
   rnf StartDBInstanceAutomatedBackupsReplication' {..} =
-    Prelude.rnf preSignedUrl
-      `Prelude.seq` Prelude.rnf destinationRegion
+    Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf destinationRegion
+      `Prelude.seq` Prelude.rnf preSignedUrl
       `Prelude.seq` Prelude.rnf sourceDBInstanceArn
 
 instance
@@ -240,11 +239,11 @@ instance
                     ),
           "Version"
             Core.=: ("2014-10-31" :: Prelude.ByteString),
-          "PreSignedUrl" Core.=: preSignedUrl,
-          "DestinationRegion" Core.=: destinationRegion,
-          "KmsKeyId" Core.=: kmsKeyId,
           "BackupRetentionPeriod"
             Core.=: backupRetentionPeriod,
+          "KmsKeyId" Core.=: kmsKeyId,
+          "DestinationRegion" Core.=: destinationRegion,
+          "PreSignedUrl" Core.=: preSignedUrl,
           "SourceDBInstanceArn" Core.=: sourceDBInstanceArn
         ]
 

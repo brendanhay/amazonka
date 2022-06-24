@@ -36,11 +36,11 @@ data TargetHealth = TargetHealth'
     -- @registering@ > @unavailable@ > @available@ > @unavailable@ >
     -- @available@
     state :: Prelude.Maybe TargetState,
-    -- | The reason for the current health @State@ of the RDS Proxy target.
-    reason :: Prelude.Maybe TargetHealthReason,
     -- | A description of the health of the RDS Proxy target. If the @State@ is
     -- @AVAILABLE@, a description is not included.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The reason for the current health @State@ of the RDS Proxy target.
+    reason :: Prelude.Maybe TargetHealthReason
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,17 +59,17 @@ data TargetHealth = TargetHealth'
 -- @registering@ > @unavailable@ > @available@ > @unavailable@ >
 -- @available@
 --
--- 'reason', 'targetHealth_reason' - The reason for the current health @State@ of the RDS Proxy target.
---
 -- 'description', 'targetHealth_description' - A description of the health of the RDS Proxy target. If the @State@ is
 -- @AVAILABLE@, a description is not included.
+--
+-- 'reason', 'targetHealth_reason' - The reason for the current health @State@ of the RDS Proxy target.
 newTargetHealth ::
   TargetHealth
 newTargetHealth =
   TargetHealth'
     { state = Prelude.Nothing,
-      reason = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      reason = Prelude.Nothing
     }
 
 -- | The current state of the connection health lifecycle for the RDS Proxy
@@ -81,30 +81,30 @@ newTargetHealth =
 targetHealth_state :: Lens.Lens' TargetHealth (Prelude.Maybe TargetState)
 targetHealth_state = Lens.lens (\TargetHealth' {state} -> state) (\s@TargetHealth' {} a -> s {state = a} :: TargetHealth)
 
--- | The reason for the current health @State@ of the RDS Proxy target.
-targetHealth_reason :: Lens.Lens' TargetHealth (Prelude.Maybe TargetHealthReason)
-targetHealth_reason = Lens.lens (\TargetHealth' {reason} -> reason) (\s@TargetHealth' {} a -> s {reason = a} :: TargetHealth)
-
 -- | A description of the health of the RDS Proxy target. If the @State@ is
 -- @AVAILABLE@, a description is not included.
 targetHealth_description :: Lens.Lens' TargetHealth (Prelude.Maybe Prelude.Text)
 targetHealth_description = Lens.lens (\TargetHealth' {description} -> description) (\s@TargetHealth' {} a -> s {description = a} :: TargetHealth)
 
+-- | The reason for the current health @State@ of the RDS Proxy target.
+targetHealth_reason :: Lens.Lens' TargetHealth (Prelude.Maybe TargetHealthReason)
+targetHealth_reason = Lens.lens (\TargetHealth' {reason} -> reason) (\s@TargetHealth' {} a -> s {reason = a} :: TargetHealth)
+
 instance Core.FromXML TargetHealth where
   parseXML x =
     TargetHealth'
       Prelude.<$> (x Core..@? "State")
-      Prelude.<*> (x Core..@? "Reason")
       Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "Reason")
 
 instance Prelude.Hashable TargetHealth where
   hashWithSalt _salt TargetHealth' {..} =
     _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData TargetHealth where
   rnf TargetHealth' {..} =
     Prelude.rnf state
-      `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf reason

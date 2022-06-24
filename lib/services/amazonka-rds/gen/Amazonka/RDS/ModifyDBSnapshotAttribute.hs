@@ -49,8 +49,8 @@ module Amazonka.RDS.ModifyDBSnapshotAttribute
     newModifyDBSnapshotAttribute,
 
     -- * Request Lenses
-    modifyDBSnapshotAttribute_valuesToAdd,
     modifyDBSnapshotAttribute_valuesToRemove,
+    modifyDBSnapshotAttribute_valuesToAdd,
     modifyDBSnapshotAttribute_dbSnapshotIdentifier,
     modifyDBSnapshotAttribute_attributeName,
 
@@ -75,17 +75,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newModifyDBSnapshotAttribute' smart constructor.
 data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
-  { -- | A list of DB snapshot attributes to add to the attribute specified by
-    -- @AttributeName@.
-    --
-    -- To authorize other Amazon Web Services accounts to copy or restore a
-    -- manual snapshot, set this list to include one or more Amazon Web
-    -- Services account IDs, or @all@ to make the manual DB snapshot restorable
-    -- by any Amazon Web Services account. Do not add the @all@ value for any
-    -- manual DB snapshots that contain private information that you don\'t
-    -- want available to all Amazon Web Services accounts.
-    valuesToAdd :: Prelude.Maybe [Prelude.Text],
-    -- | A list of DB snapshot attributes to remove from the attribute specified
+  { -- | A list of DB snapshot attributes to remove from the attribute specified
     -- by @AttributeName@.
     --
     -- To remove authorization for other Amazon Web Services accounts to copy
@@ -96,6 +86,16 @@ data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
     -- account ID is explicitly added to the @restore@ attribute can still copy
     -- or restore the manual DB snapshot.
     valuesToRemove :: Prelude.Maybe [Prelude.Text],
+    -- | A list of DB snapshot attributes to add to the attribute specified by
+    -- @AttributeName@.
+    --
+    -- To authorize other Amazon Web Services accounts to copy or restore a
+    -- manual snapshot, set this list to include one or more Amazon Web
+    -- Services account IDs, or @all@ to make the manual DB snapshot restorable
+    -- by any Amazon Web Services account. Do not add the @all@ value for any
+    -- manual DB snapshots that contain private information that you don\'t
+    -- want available to all Amazon Web Services accounts.
+    valuesToAdd :: Prelude.Maybe [Prelude.Text],
     -- | The identifier for the DB snapshot to modify the attributes for.
     dbSnapshotIdentifier :: Prelude.Text,
     -- | The name of the DB snapshot attribute to modify.
@@ -117,16 +117,6 @@ data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'valuesToAdd', 'modifyDBSnapshotAttribute_valuesToAdd' - A list of DB snapshot attributes to add to the attribute specified by
--- @AttributeName@.
---
--- To authorize other Amazon Web Services accounts to copy or restore a
--- manual snapshot, set this list to include one or more Amazon Web
--- Services account IDs, or @all@ to make the manual DB snapshot restorable
--- by any Amazon Web Services account. Do not add the @all@ value for any
--- manual DB snapshots that contain private information that you don\'t
--- want available to all Amazon Web Services accounts.
---
 -- 'valuesToRemove', 'modifyDBSnapshotAttribute_valuesToRemove' - A list of DB snapshot attributes to remove from the attribute specified
 -- by @AttributeName@.
 --
@@ -137,6 +127,16 @@ data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
 -- DB snapshot. If you specify @all@, an Amazon Web Services account whose
 -- account ID is explicitly added to the @restore@ attribute can still copy
 -- or restore the manual DB snapshot.
+--
+-- 'valuesToAdd', 'modifyDBSnapshotAttribute_valuesToAdd' - A list of DB snapshot attributes to add to the attribute specified by
+-- @AttributeName@.
+--
+-- To authorize other Amazon Web Services accounts to copy or restore a
+-- manual snapshot, set this list to include one or more Amazon Web
+-- Services account IDs, or @all@ to make the manual DB snapshot restorable
+-- by any Amazon Web Services account. Do not add the @all@ value for any
+-- manual DB snapshots that contain private information that you don\'t
+-- want available to all Amazon Web Services accounts.
 --
 -- 'dbSnapshotIdentifier', 'modifyDBSnapshotAttribute_dbSnapshotIdentifier' - The identifier for the DB snapshot to modify the attributes for.
 --
@@ -157,24 +157,12 @@ newModifyDBSnapshotAttribute
   pDBSnapshotIdentifier_
   pAttributeName_ =
     ModifyDBSnapshotAttribute'
-      { valuesToAdd =
+      { valuesToRemove =
           Prelude.Nothing,
-        valuesToRemove = Prelude.Nothing,
+        valuesToAdd = Prelude.Nothing,
         dbSnapshotIdentifier = pDBSnapshotIdentifier_,
         attributeName = pAttributeName_
       }
-
--- | A list of DB snapshot attributes to add to the attribute specified by
--- @AttributeName@.
---
--- To authorize other Amazon Web Services accounts to copy or restore a
--- manual snapshot, set this list to include one or more Amazon Web
--- Services account IDs, or @all@ to make the manual DB snapshot restorable
--- by any Amazon Web Services account. Do not add the @all@ value for any
--- manual DB snapshots that contain private information that you don\'t
--- want available to all Amazon Web Services accounts.
-modifyDBSnapshotAttribute_valuesToAdd :: Lens.Lens' ModifyDBSnapshotAttribute (Prelude.Maybe [Prelude.Text])
-modifyDBSnapshotAttribute_valuesToAdd = Lens.lens (\ModifyDBSnapshotAttribute' {valuesToAdd} -> valuesToAdd) (\s@ModifyDBSnapshotAttribute' {} a -> s {valuesToAdd = a} :: ModifyDBSnapshotAttribute) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of DB snapshot attributes to remove from the attribute specified
 -- by @AttributeName@.
@@ -188,6 +176,18 @@ modifyDBSnapshotAttribute_valuesToAdd = Lens.lens (\ModifyDBSnapshotAttribute' {
 -- or restore the manual DB snapshot.
 modifyDBSnapshotAttribute_valuesToRemove :: Lens.Lens' ModifyDBSnapshotAttribute (Prelude.Maybe [Prelude.Text])
 modifyDBSnapshotAttribute_valuesToRemove = Lens.lens (\ModifyDBSnapshotAttribute' {valuesToRemove} -> valuesToRemove) (\s@ModifyDBSnapshotAttribute' {} a -> s {valuesToRemove = a} :: ModifyDBSnapshotAttribute) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of DB snapshot attributes to add to the attribute specified by
+-- @AttributeName@.
+--
+-- To authorize other Amazon Web Services accounts to copy or restore a
+-- manual snapshot, set this list to include one or more Amazon Web
+-- Services account IDs, or @all@ to make the manual DB snapshot restorable
+-- by any Amazon Web Services account. Do not add the @all@ value for any
+-- manual DB snapshots that contain private information that you don\'t
+-- want available to all Amazon Web Services accounts.
+modifyDBSnapshotAttribute_valuesToAdd :: Lens.Lens' ModifyDBSnapshotAttribute (Prelude.Maybe [Prelude.Text])
+modifyDBSnapshotAttribute_valuesToAdd = Lens.lens (\ModifyDBSnapshotAttribute' {valuesToAdd} -> valuesToAdd) (\s@ModifyDBSnapshotAttribute' {} a -> s {valuesToAdd = a} :: ModifyDBSnapshotAttribute) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier for the DB snapshot to modify the attributes for.
 modifyDBSnapshotAttribute_dbSnapshotIdentifier :: Lens.Lens' ModifyDBSnapshotAttribute Prelude.Text
@@ -219,15 +219,15 @@ instance Core.AWSRequest ModifyDBSnapshotAttribute where
 
 instance Prelude.Hashable ModifyDBSnapshotAttribute where
   hashWithSalt _salt ModifyDBSnapshotAttribute' {..} =
-    _salt `Prelude.hashWithSalt` valuesToAdd
-      `Prelude.hashWithSalt` valuesToRemove
+    _salt `Prelude.hashWithSalt` valuesToRemove
+      `Prelude.hashWithSalt` valuesToAdd
       `Prelude.hashWithSalt` dbSnapshotIdentifier
       `Prelude.hashWithSalt` attributeName
 
 instance Prelude.NFData ModifyDBSnapshotAttribute where
   rnf ModifyDBSnapshotAttribute' {..} =
-    Prelude.rnf valuesToAdd
-      `Prelude.seq` Prelude.rnf valuesToRemove
+    Prelude.rnf valuesToRemove
+      `Prelude.seq` Prelude.rnf valuesToAdd
       `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
       `Prelude.seq` Prelude.rnf attributeName
 
@@ -244,15 +244,15 @@ instance Core.ToQuery ModifyDBSnapshotAttribute where
           Core.=: ("ModifyDBSnapshotAttribute" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "ValuesToAdd"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "AttributeValue"
-                Prelude.<$> valuesToAdd
-            ),
         "ValuesToRemove"
           Core.=: Core.toQuery
             ( Core.toQueryList "AttributeValue"
                 Prelude.<$> valuesToRemove
+            ),
+        "ValuesToAdd"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "AttributeValue"
+                Prelude.<$> valuesToAdd
             ),
         "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier,
         "AttributeName" Core.=: attributeName

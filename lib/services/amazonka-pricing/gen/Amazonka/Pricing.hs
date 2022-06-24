@@ -46,14 +46,11 @@ module Amazonka.Pricing
     -- * Errors
     -- $errors
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** ExpiredNextTokenException
+    _ExpiredNextTokenException,
 
     -- ** InternalErrorException
     _InternalErrorException,
-
-    -- ** ExpiredNextTokenException
-    _ExpiredNextTokenException,
 
     -- ** NotFoundException
     _NotFoundException,
@@ -61,23 +58,26 @@ module Amazonka.Pricing
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** GetAttributeValues (Paginated)
-    GetAttributeValues (GetAttributeValues'),
-    newGetAttributeValues,
-    GetAttributeValuesResponse (GetAttributeValuesResponse'),
-    newGetAttributeValuesResponse,
-
     -- ** DescribeServices (Paginated)
     DescribeServices (DescribeServices'),
     newDescribeServices,
     DescribeServicesResponse (DescribeServicesResponse'),
     newDescribeServicesResponse,
+
+    -- ** GetAttributeValues (Paginated)
+    GetAttributeValues (GetAttributeValues'),
+    newGetAttributeValues,
+    GetAttributeValuesResponse (GetAttributeValuesResponse'),
+    newGetAttributeValuesResponse,
 
     -- ** GetProducts (Paginated)
     GetProducts (GetProducts'),

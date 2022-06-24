@@ -43,8 +43,8 @@ module Amazonka.Pricing.GetAttributeValues
     newGetAttributeValuesResponse,
 
     -- * Response Lenses
-    getAttributeValuesResponse_attributeValues,
     getAttributeValuesResponse_nextToken,
+    getAttributeValuesResponse_attributeValues,
     getAttributeValuesResponse_httpStatus,
   )
 where
@@ -154,10 +154,10 @@ instance Core.AWSRequest GetAttributeValues where
     Response.receiveJSON
       ( \s h x ->
           GetAttributeValuesResponse'
-            Prelude.<$> ( x Core..?> "AttributeValues"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "AttributeValues"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,12 +210,12 @@ instance Core.ToQuery GetAttributeValues where
 
 -- | /See:/ 'newGetAttributeValuesResponse' smart constructor.
 data GetAttributeValuesResponse = GetAttributeValuesResponse'
-  { -- | The list of values for an attribute. For example,
+  { -- | The pagination token that indicates the next set of results to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of values for an attribute. For example,
     -- @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available
     -- values for the @AmazonEC2@ @volumeType@.
     attributeValues :: Prelude.Maybe [AttributeValue],
-    -- | The pagination token that indicates the next set of results to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -229,11 +229,11 @@ data GetAttributeValuesResponse = GetAttributeValuesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'getAttributeValuesResponse_nextToken' - The pagination token that indicates the next set of results to retrieve.
+--
 -- 'attributeValues', 'getAttributeValuesResponse_attributeValues' - The list of values for an attribute. For example,
 -- @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available
 -- values for the @AmazonEC2@ @volumeType@.
---
--- 'nextToken', 'getAttributeValuesResponse_nextToken' - The pagination token that indicates the next set of results to retrieve.
 --
 -- 'httpStatus', 'getAttributeValuesResponse_httpStatus' - The response's http status code.
 newGetAttributeValuesResponse ::
@@ -242,11 +242,15 @@ newGetAttributeValuesResponse ::
   GetAttributeValuesResponse
 newGetAttributeValuesResponse pHttpStatus_ =
   GetAttributeValuesResponse'
-    { attributeValues =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      attributeValues = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The pagination token that indicates the next set of results to retrieve.
+getAttributeValuesResponse_nextToken :: Lens.Lens' GetAttributeValuesResponse (Prelude.Maybe Prelude.Text)
+getAttributeValuesResponse_nextToken = Lens.lens (\GetAttributeValuesResponse' {nextToken} -> nextToken) (\s@GetAttributeValuesResponse' {} a -> s {nextToken = a} :: GetAttributeValuesResponse)
 
 -- | The list of values for an attribute. For example,
 -- @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available
@@ -254,16 +258,12 @@ newGetAttributeValuesResponse pHttpStatus_ =
 getAttributeValuesResponse_attributeValues :: Lens.Lens' GetAttributeValuesResponse (Prelude.Maybe [AttributeValue])
 getAttributeValuesResponse_attributeValues = Lens.lens (\GetAttributeValuesResponse' {attributeValues} -> attributeValues) (\s@GetAttributeValuesResponse' {} a -> s {attributeValues = a} :: GetAttributeValuesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The pagination token that indicates the next set of results to retrieve.
-getAttributeValuesResponse_nextToken :: Lens.Lens' GetAttributeValuesResponse (Prelude.Maybe Prelude.Text)
-getAttributeValuesResponse_nextToken = Lens.lens (\GetAttributeValuesResponse' {nextToken} -> nextToken) (\s@GetAttributeValuesResponse' {} a -> s {nextToken = a} :: GetAttributeValuesResponse)
-
 -- | The response's http status code.
 getAttributeValuesResponse_httpStatus :: Lens.Lens' GetAttributeValuesResponse Prelude.Int
 getAttributeValuesResponse_httpStatus = Lens.lens (\GetAttributeValuesResponse' {httpStatus} -> httpStatus) (\s@GetAttributeValuesResponse' {} a -> s {httpStatus = a} :: GetAttributeValuesResponse)
 
 instance Prelude.NFData GetAttributeValuesResponse where
   rnf GetAttributeValuesResponse' {..} =
-    Prelude.rnf attributeValues
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf attributeValues
       `Prelude.seq` Prelude.rnf httpStatus

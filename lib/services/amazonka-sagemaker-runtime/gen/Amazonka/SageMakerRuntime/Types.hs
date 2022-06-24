@@ -17,10 +17,10 @@ module Amazonka.SageMakerRuntime.Types
     defaultService,
 
     -- * Errors
-    _ServiceUnavailable,
     _ModelError,
-    _InternalFailure,
+    _ServiceUnavailable,
     _ValidationError,
+    _InternalFailure,
   )
 where
 
@@ -56,35 +56,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -93,13 +66,47 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | Model (owned by the customer in the container) returned 4xx or 5xx error
+-- code.
+_ModelError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ModelError =
+  Core._MatchServiceError defaultService "ModelError"
+    Prelude.. Core.hasStatus 424
 
 -- | The service is unavailable. Try your call again.
 _ServiceUnavailable :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -109,12 +116,13 @@ _ServiceUnavailable =
     "ServiceUnavailable"
     Prelude.. Core.hasStatus 503
 
--- | Model (owned by the customer in the container) returned 4xx or 5xx error
--- code.
-_ModelError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ModelError =
-  Core._MatchServiceError defaultService "ModelError"
-    Prelude.. Core.hasStatus 424
+-- | Inspect your request and try again.
+_ValidationError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationError =
+  Core._MatchServiceError
+    defaultService
+    "ValidationError"
+    Prelude.. Core.hasStatus 400
 
 -- | An internal failure occurred.
 _InternalFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -123,11 +131,3 @@ _InternalFailure =
     defaultService
     "InternalFailure"
     Prelude.. Core.hasStatus 500
-
--- | Inspect your request and try again.
-_ValidationError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationError =
-  Core._MatchServiceError
-    defaultService
-    "ValidationError"
-    Prelude.. Core.hasStatus 400

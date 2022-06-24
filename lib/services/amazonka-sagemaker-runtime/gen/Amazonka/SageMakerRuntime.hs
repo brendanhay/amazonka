@@ -19,17 +19,17 @@ module Amazonka.SageMakerRuntime
     -- * Errors
     -- $errors
 
-    -- ** ServiceUnavailable
-    _ServiceUnavailable,
-
     -- ** ModelError
     _ModelError,
 
-    -- ** InternalFailure
-    _InternalFailure,
+    -- ** ServiceUnavailable
+    _ServiceUnavailable,
 
     -- ** ValidationError
     _ValidationError,
+
+    -- ** InternalFailure
+    _InternalFailure,
 
     -- * Waiters
     -- $waiters
@@ -37,17 +37,17 @@ module Amazonka.SageMakerRuntime
     -- * Operations
     -- $operations
 
-    -- ** InvokeEndpointAsync
-    InvokeEndpointAsync (InvokeEndpointAsync'),
-    newInvokeEndpointAsync,
-    InvokeEndpointAsyncResponse (InvokeEndpointAsyncResponse'),
-    newInvokeEndpointAsyncResponse,
-
     -- ** InvokeEndpoint
     InvokeEndpoint (InvokeEndpoint'),
     newInvokeEndpoint,
     InvokeEndpointResponse (InvokeEndpointResponse'),
     newInvokeEndpointResponse,
+
+    -- ** InvokeEndpointAsync
+    InvokeEndpointAsync (InvokeEndpointAsync'),
+    newInvokeEndpointAsync,
+    InvokeEndpointAsyncResponse (InvokeEndpointAsyncResponse'),
+    newInvokeEndpointAsyncResponse,
 
     -- * Types
   )

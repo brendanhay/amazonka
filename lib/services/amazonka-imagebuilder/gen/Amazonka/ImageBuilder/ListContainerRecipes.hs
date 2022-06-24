@@ -27,9 +27,9 @@ module Amazonka.ImageBuilder.ListContainerRecipes
     newListContainerRecipes,
 
     -- * Request Lenses
+    listContainerRecipes_nextToken,
     listContainerRecipes_filters,
     listContainerRecipes_owner,
-    listContainerRecipes_nextToken,
     listContainerRecipes_maxResults,
 
     -- * Destructuring the Response
@@ -37,9 +37,9 @@ module Amazonka.ImageBuilder.ListContainerRecipes
     newListContainerRecipesResponse,
 
     -- * Response Lenses
+    listContainerRecipesResponse_nextToken,
     listContainerRecipesResponse_requestId,
     listContainerRecipesResponse_containerRecipeSummaryList,
-    listContainerRecipesResponse_nextToken,
     listContainerRecipesResponse_httpStatus,
   )
 where
@@ -53,7 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListContainerRecipes' smart constructor.
 data ListContainerRecipes = ListContainerRecipes'
-  { -- | Use the following filters to streamline results:
+  { -- | Provides a token for pagination, which determines where to begin the
+    -- next set of results when the current set reaches the maximum for one
+    -- request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Use the following filters to streamline results:
     --
     -- -   @containerType@
     --
@@ -67,10 +71,6 @@ data ListContainerRecipes = ListContainerRecipes'
     -- been shared with you. You can omit this field to return container
     -- recipes belonging to your account.
     owner :: Prelude.Maybe Ownership,
-    -- | Provides a token for pagination, which determines where to begin the
-    -- next set of results when the current set reaches the maximum for one
-    -- request.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in the list.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -83,6 +83,10 @@ data ListContainerRecipes = ListContainerRecipes'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'listContainerRecipes_nextToken' - Provides a token for pagination, which determines where to begin the
+-- next set of results when the current set reaches the maximum for one
+-- request.
 --
 -- 'filters', 'listContainerRecipes_filters' - Use the following filters to streamline results:
 --
@@ -98,20 +102,22 @@ data ListContainerRecipes = ListContainerRecipes'
 -- been shared with you. You can omit this field to return container
 -- recipes belonging to your account.
 --
--- 'nextToken', 'listContainerRecipes_nextToken' - Provides a token for pagination, which determines where to begin the
--- next set of results when the current set reaches the maximum for one
--- request.
---
 -- 'maxResults', 'listContainerRecipes_maxResults' - The maximum number of results to return in the list.
 newListContainerRecipes ::
   ListContainerRecipes
 newListContainerRecipes =
   ListContainerRecipes'
-    { filters = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       owner = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | Provides a token for pagination, which determines where to begin the
+-- next set of results when the current set reaches the maximum for one
+-- request.
+listContainerRecipes_nextToken :: Lens.Lens' ListContainerRecipes (Prelude.Maybe Prelude.Text)
+listContainerRecipes_nextToken = Lens.lens (\ListContainerRecipes' {nextToken} -> nextToken) (\s@ListContainerRecipes' {} a -> s {nextToken = a} :: ListContainerRecipes)
 
 -- | Use the following filters to streamline results:
 --
@@ -131,12 +137,6 @@ listContainerRecipes_filters = Lens.lens (\ListContainerRecipes' {filters} -> fi
 listContainerRecipes_owner :: Lens.Lens' ListContainerRecipes (Prelude.Maybe Ownership)
 listContainerRecipes_owner = Lens.lens (\ListContainerRecipes' {owner} -> owner) (\s@ListContainerRecipes' {} a -> s {owner = a} :: ListContainerRecipes)
 
--- | Provides a token for pagination, which determines where to begin the
--- next set of results when the current set reaches the maximum for one
--- request.
-listContainerRecipes_nextToken :: Lens.Lens' ListContainerRecipes (Prelude.Maybe Prelude.Text)
-listContainerRecipes_nextToken = Lens.lens (\ListContainerRecipes' {nextToken} -> nextToken) (\s@ListContainerRecipes' {} a -> s {nextToken = a} :: ListContainerRecipes)
-
 -- | The maximum number of results to return in the list.
 listContainerRecipes_maxResults :: Lens.Lens' ListContainerRecipes (Prelude.Maybe Prelude.Natural)
 listContainerRecipes_maxResults = Lens.lens (\ListContainerRecipes' {maxResults} -> maxResults) (\s@ListContainerRecipes' {} a -> s {maxResults = a} :: ListContainerRecipes)
@@ -150,26 +150,26 @@ instance Core.AWSRequest ListContainerRecipes where
     Response.receiveJSON
       ( \s h x ->
           ListContainerRecipesResponse'
-            Prelude.<$> (x Core..?> "requestId")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> ( x Core..?> "containerRecipeSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListContainerRecipes where
   hashWithSalt _salt ListContainerRecipes' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` owner
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListContainerRecipes where
   rnf ListContainerRecipes' {..} =
-    Prelude.rnf filters
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListContainerRecipes where
@@ -187,9 +187,9 @@ instance Core.ToJSON ListContainerRecipes where
   toJSON ListContainerRecipes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filters" Core..=) Prelude.<$> filters,
             ("owner" Core..=) Prelude.<$> owner,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -202,15 +202,15 @@ instance Core.ToQuery ListContainerRecipes where
 
 -- | /See:/ 'newListContainerRecipesResponse' smart constructor.
 data ListContainerRecipesResponse = ListContainerRecipesResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The list of container recipes returned for the request.
-    containerRecipeSummaryList :: Prelude.Maybe [ContainerRecipeSummary],
-    -- | The next token field is used for paginated responses. When this is not
+  { -- | The next token field is used for paginated responses. When this is not
     -- empty, there are additional container recipes that the service has not
     -- included in this response. Use this token with the next request to
     -- retrieve additional list items.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
+    -- | The list of container recipes returned for the request.
+    containerRecipeSummaryList :: Prelude.Maybe [ContainerRecipeSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,14 +224,14 @@ data ListContainerRecipesResponse = ListContainerRecipesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'listContainerRecipesResponse_requestId' - The request ID that uniquely identifies this request.
---
--- 'containerRecipeSummaryList', 'listContainerRecipesResponse_containerRecipeSummaryList' - The list of container recipes returned for the request.
---
 -- 'nextToken', 'listContainerRecipesResponse_nextToken' - The next token field is used for paginated responses. When this is not
 -- empty, there are additional container recipes that the service has not
 -- included in this response. Use this token with the next request to
 -- retrieve additional list items.
+--
+-- 'requestId', 'listContainerRecipesResponse_requestId' - The request ID that uniquely identifies this request.
+--
+-- 'containerRecipeSummaryList', 'listContainerRecipesResponse_containerRecipeSummaryList' - The list of container recipes returned for the request.
 --
 -- 'httpStatus', 'listContainerRecipesResponse_httpStatus' - The response's http status code.
 newListContainerRecipesResponse ::
@@ -240,12 +240,19 @@ newListContainerRecipesResponse ::
   ListContainerRecipesResponse
 newListContainerRecipesResponse pHttpStatus_ =
   ListContainerRecipesResponse'
-    { requestId =
+    { nextToken =
         Prelude.Nothing,
+      requestId = Prelude.Nothing,
       containerRecipeSummaryList = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The next token field is used for paginated responses. When this is not
+-- empty, there are additional container recipes that the service has not
+-- included in this response. Use this token with the next request to
+-- retrieve additional list items.
+listContainerRecipesResponse_nextToken :: Lens.Lens' ListContainerRecipesResponse (Prelude.Maybe Prelude.Text)
+listContainerRecipesResponse_nextToken = Lens.lens (\ListContainerRecipesResponse' {nextToken} -> nextToken) (\s@ListContainerRecipesResponse' {} a -> s {nextToken = a} :: ListContainerRecipesResponse)
 
 -- | The request ID that uniquely identifies this request.
 listContainerRecipesResponse_requestId :: Lens.Lens' ListContainerRecipesResponse (Prelude.Maybe Prelude.Text)
@@ -255,20 +262,13 @@ listContainerRecipesResponse_requestId = Lens.lens (\ListContainerRecipesRespons
 listContainerRecipesResponse_containerRecipeSummaryList :: Lens.Lens' ListContainerRecipesResponse (Prelude.Maybe [ContainerRecipeSummary])
 listContainerRecipesResponse_containerRecipeSummaryList = Lens.lens (\ListContainerRecipesResponse' {containerRecipeSummaryList} -> containerRecipeSummaryList) (\s@ListContainerRecipesResponse' {} a -> s {containerRecipeSummaryList = a} :: ListContainerRecipesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The next token field is used for paginated responses. When this is not
--- empty, there are additional container recipes that the service has not
--- included in this response. Use this token with the next request to
--- retrieve additional list items.
-listContainerRecipesResponse_nextToken :: Lens.Lens' ListContainerRecipesResponse (Prelude.Maybe Prelude.Text)
-listContainerRecipesResponse_nextToken = Lens.lens (\ListContainerRecipesResponse' {nextToken} -> nextToken) (\s@ListContainerRecipesResponse' {} a -> s {nextToken = a} :: ListContainerRecipesResponse)
-
 -- | The response's http status code.
 listContainerRecipesResponse_httpStatus :: Lens.Lens' ListContainerRecipesResponse Prelude.Int
 listContainerRecipesResponse_httpStatus = Lens.lens (\ListContainerRecipesResponse' {httpStatus} -> httpStatus) (\s@ListContainerRecipesResponse' {} a -> s {httpStatus = a} :: ListContainerRecipesResponse)
 
 instance Prelude.NFData ListContainerRecipesResponse where
   rnf ListContainerRecipesResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf containerRecipeSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

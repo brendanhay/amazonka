@@ -23,44 +23,26 @@ module Amazonka.ImageBuilder
     -- * Errors
     -- $errors
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
-    -- ** CallRateLimitExceededException
-    _CallRateLimitExceededException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
-
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
-
-    -- ** InvalidVersionNumberException
-    _InvalidVersionNumberException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ServiceException
-    _ServiceException,
+    -- ** ClientException
+    _ClientException,
 
     -- ** ResourceDependencyException
     _ResourceDependencyException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** InvalidVersionNumberException
+    _InvalidVersionNumberException,
+
+    -- ** InvalidPaginationTokenException
+    _InvalidPaginationTokenException,
+
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
-
-    -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
-
-    -- ** ClientException
-    _ClientException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -68,11 +50,29 @@ module Amazonka.ImageBuilder
     -- ** InvalidParameterCombinationException
     _InvalidParameterCombinationException,
 
-    -- ** InvalidPaginationTokenException
-    _InvalidPaginationTokenException,
+    -- ** CallRateLimitExceededException
+    _CallRateLimitExceededException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** ServiceException
+    _ServiceException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters
@@ -80,17 +80,161 @@ module Amazonka.ImageBuilder
     -- * Operations
     -- $operations
 
-    -- ** ListImagePackages
-    ListImagePackages (ListImagePackages'),
-    newListImagePackages,
-    ListImagePackagesResponse (ListImagePackagesResponse'),
-    newListImagePackagesResponse,
+    -- ** CancelImageCreation
+    CancelImageCreation (CancelImageCreation'),
+    newCancelImageCreation,
+    CancelImageCreationResponse (CancelImageCreationResponse'),
+    newCancelImageCreationResponse,
+
+    -- ** CreateComponent
+    CreateComponent (CreateComponent'),
+    newCreateComponent,
+    CreateComponentResponse (CreateComponentResponse'),
+    newCreateComponentResponse,
+
+    -- ** CreateContainerRecipe
+    CreateContainerRecipe (CreateContainerRecipe'),
+    newCreateContainerRecipe,
+    CreateContainerRecipeResponse (CreateContainerRecipeResponse'),
+    newCreateContainerRecipeResponse,
+
+    -- ** CreateDistributionConfiguration
+    CreateDistributionConfiguration (CreateDistributionConfiguration'),
+    newCreateDistributionConfiguration,
+    CreateDistributionConfigurationResponse (CreateDistributionConfigurationResponse'),
+    newCreateDistributionConfigurationResponse,
+
+    -- ** CreateImage
+    CreateImage (CreateImage'),
+    newCreateImage,
+    CreateImageResponse (CreateImageResponse'),
+    newCreateImageResponse,
+
+    -- ** CreateImagePipeline
+    CreateImagePipeline (CreateImagePipeline'),
+    newCreateImagePipeline,
+    CreateImagePipelineResponse (CreateImagePipelineResponse'),
+    newCreateImagePipelineResponse,
+
+    -- ** CreateImageRecipe
+    CreateImageRecipe (CreateImageRecipe'),
+    newCreateImageRecipe,
+    CreateImageRecipeResponse (CreateImageRecipeResponse'),
+    newCreateImageRecipeResponse,
+
+    -- ** CreateInfrastructureConfiguration
+    CreateInfrastructureConfiguration (CreateInfrastructureConfiguration'),
+    newCreateInfrastructureConfiguration,
+    CreateInfrastructureConfigurationResponse (CreateInfrastructureConfigurationResponse'),
+    newCreateInfrastructureConfigurationResponse,
+
+    -- ** DeleteComponent
+    DeleteComponent (DeleteComponent'),
+    newDeleteComponent,
+    DeleteComponentResponse (DeleteComponentResponse'),
+    newDeleteComponentResponse,
+
+    -- ** DeleteContainerRecipe
+    DeleteContainerRecipe (DeleteContainerRecipe'),
+    newDeleteContainerRecipe,
+    DeleteContainerRecipeResponse (DeleteContainerRecipeResponse'),
+    newDeleteContainerRecipeResponse,
+
+    -- ** DeleteDistributionConfiguration
+    DeleteDistributionConfiguration (DeleteDistributionConfiguration'),
+    newDeleteDistributionConfiguration,
+    DeleteDistributionConfigurationResponse (DeleteDistributionConfigurationResponse'),
+    newDeleteDistributionConfigurationResponse,
+
+    -- ** DeleteImage
+    DeleteImage (DeleteImage'),
+    newDeleteImage,
+    DeleteImageResponse (DeleteImageResponse'),
+    newDeleteImageResponse,
+
+    -- ** DeleteImagePipeline
+    DeleteImagePipeline (DeleteImagePipeline'),
+    newDeleteImagePipeline,
+    DeleteImagePipelineResponse (DeleteImagePipelineResponse'),
+    newDeleteImagePipelineResponse,
+
+    -- ** DeleteImageRecipe
+    DeleteImageRecipe (DeleteImageRecipe'),
+    newDeleteImageRecipe,
+    DeleteImageRecipeResponse (DeleteImageRecipeResponse'),
+    newDeleteImageRecipeResponse,
+
+    -- ** DeleteInfrastructureConfiguration
+    DeleteInfrastructureConfiguration (DeleteInfrastructureConfiguration'),
+    newDeleteInfrastructureConfiguration,
+    DeleteInfrastructureConfigurationResponse (DeleteInfrastructureConfigurationResponse'),
+    newDeleteInfrastructureConfigurationResponse,
+
+    -- ** GetComponent
+    GetComponent (GetComponent'),
+    newGetComponent,
+    GetComponentResponse (GetComponentResponse'),
+    newGetComponentResponse,
+
+    -- ** GetComponentPolicy
+    GetComponentPolicy (GetComponentPolicy'),
+    newGetComponentPolicy,
+    GetComponentPolicyResponse (GetComponentPolicyResponse'),
+    newGetComponentPolicyResponse,
+
+    -- ** GetContainerRecipe
+    GetContainerRecipe (GetContainerRecipe'),
+    newGetContainerRecipe,
+    GetContainerRecipeResponse (GetContainerRecipeResponse'),
+    newGetContainerRecipeResponse,
+
+    -- ** GetContainerRecipePolicy
+    GetContainerRecipePolicy (GetContainerRecipePolicy'),
+    newGetContainerRecipePolicy,
+    GetContainerRecipePolicyResponse (GetContainerRecipePolicyResponse'),
+    newGetContainerRecipePolicyResponse,
 
     -- ** GetDistributionConfiguration
     GetDistributionConfiguration (GetDistributionConfiguration'),
     newGetDistributionConfiguration,
     GetDistributionConfigurationResponse (GetDistributionConfigurationResponse'),
     newGetDistributionConfigurationResponse,
+
+    -- ** GetImage
+    GetImage (GetImage'),
+    newGetImage,
+    GetImageResponse (GetImageResponse'),
+    newGetImageResponse,
+
+    -- ** GetImagePipeline
+    GetImagePipeline (GetImagePipeline'),
+    newGetImagePipeline,
+    GetImagePipelineResponse (GetImagePipelineResponse'),
+    newGetImagePipelineResponse,
+
+    -- ** GetImagePolicy
+    GetImagePolicy (GetImagePolicy'),
+    newGetImagePolicy,
+    GetImagePolicyResponse (GetImagePolicyResponse'),
+    newGetImagePolicyResponse,
+
+    -- ** GetImageRecipe
+    GetImageRecipe (GetImageRecipe'),
+    newGetImageRecipe,
+    GetImageRecipeResponse (GetImageRecipeResponse'),
+    newGetImageRecipeResponse,
+
+    -- ** GetImageRecipePolicy
+    GetImageRecipePolicy (GetImageRecipePolicy'),
+    newGetImageRecipePolicy,
+    GetImageRecipePolicyResponse (GetImageRecipePolicyResponse'),
+    newGetImageRecipePolicyResponse,
+
+    -- ** GetInfrastructureConfiguration
+    GetInfrastructureConfiguration (GetInfrastructureConfiguration'),
+    newGetInfrastructureConfiguration,
+    GetInfrastructureConfigurationResponse (GetInfrastructureConfigurationResponse'),
+    newGetInfrastructureConfigurationResponse,
 
     -- ** ImportComponent
     ImportComponent (ImportComponent'),
@@ -104,59 +248,11 @@ module Amazonka.ImageBuilder
     ListComponentBuildVersionsResponse (ListComponentBuildVersionsResponse'),
     newListComponentBuildVersionsResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** ListImageBuildVersions
-    ListImageBuildVersions (ListImageBuildVersions'),
-    newListImageBuildVersions,
-    ListImageBuildVersionsResponse (ListImageBuildVersionsResponse'),
-    newListImageBuildVersionsResponse,
-
-    -- ** CancelImageCreation
-    CancelImageCreation (CancelImageCreation'),
-    newCancelImageCreation,
-    CancelImageCreationResponse (CancelImageCreationResponse'),
-    newCancelImageCreationResponse,
-
-    -- ** GetImagePipeline
-    GetImagePipeline (GetImagePipeline'),
-    newGetImagePipeline,
-    GetImagePipelineResponse (GetImagePipelineResponse'),
-    newGetImagePipelineResponse,
-
-    -- ** CreateInfrastructureConfiguration
-    CreateInfrastructureConfiguration (CreateInfrastructureConfiguration'),
-    newCreateInfrastructureConfiguration,
-    CreateInfrastructureConfigurationResponse (CreateInfrastructureConfigurationResponse'),
-    newCreateInfrastructureConfigurationResponse,
-
-    -- ** ListDistributionConfigurations
-    ListDistributionConfigurations (ListDistributionConfigurations'),
-    newListDistributionConfigurations,
-    ListDistributionConfigurationsResponse (ListDistributionConfigurationsResponse'),
-    newListDistributionConfigurationsResponse,
-
-    -- ** CreateContainerRecipe
-    CreateContainerRecipe (CreateContainerRecipe'),
-    newCreateContainerRecipe,
-    CreateContainerRecipeResponse (CreateContainerRecipeResponse'),
-    newCreateContainerRecipeResponse,
-
-    -- ** ListInfrastructureConfigurations
-    ListInfrastructureConfigurations (ListInfrastructureConfigurations'),
-    newListInfrastructureConfigurations,
-    ListInfrastructureConfigurationsResponse (ListInfrastructureConfigurationsResponse'),
-    newListInfrastructureConfigurationsResponse,
-
-    -- ** PutImageRecipePolicy
-    PutImageRecipePolicy (PutImageRecipePolicy'),
-    newPutImageRecipePolicy,
-    PutImageRecipePolicyResponse (PutImageRecipePolicyResponse'),
-    newPutImageRecipePolicyResponse,
+    -- ** ListComponents
+    ListComponents (ListComponents'),
+    newListComponents,
+    ListComponentsResponse (ListComponentsResponse'),
+    newListComponentsResponse,
 
     -- ** ListContainerRecipes
     ListContainerRecipes (ListContainerRecipes'),
@@ -164,17 +260,59 @@ module Amazonka.ImageBuilder
     ListContainerRecipesResponse (ListContainerRecipesResponse'),
     newListContainerRecipesResponse,
 
-    -- ** PutImagePolicy
-    PutImagePolicy (PutImagePolicy'),
-    newPutImagePolicy,
-    PutImagePolicyResponse (PutImagePolicyResponse'),
-    newPutImagePolicyResponse,
+    -- ** ListDistributionConfigurations
+    ListDistributionConfigurations (ListDistributionConfigurations'),
+    newListDistributionConfigurations,
+    ListDistributionConfigurationsResponse (ListDistributionConfigurationsResponse'),
+    newListDistributionConfigurationsResponse,
 
-    -- ** DeleteContainerRecipe
-    DeleteContainerRecipe (DeleteContainerRecipe'),
-    newDeleteContainerRecipe,
-    DeleteContainerRecipeResponse (DeleteContainerRecipeResponse'),
-    newDeleteContainerRecipeResponse,
+    -- ** ListImageBuildVersions
+    ListImageBuildVersions (ListImageBuildVersions'),
+    newListImageBuildVersions,
+    ListImageBuildVersionsResponse (ListImageBuildVersionsResponse'),
+    newListImageBuildVersionsResponse,
+
+    -- ** ListImagePackages
+    ListImagePackages (ListImagePackages'),
+    newListImagePackages,
+    ListImagePackagesResponse (ListImagePackagesResponse'),
+    newListImagePackagesResponse,
+
+    -- ** ListImagePipelineImages
+    ListImagePipelineImages (ListImagePipelineImages'),
+    newListImagePipelineImages,
+    ListImagePipelineImagesResponse (ListImagePipelineImagesResponse'),
+    newListImagePipelineImagesResponse,
+
+    -- ** ListImagePipelines
+    ListImagePipelines (ListImagePipelines'),
+    newListImagePipelines,
+    ListImagePipelinesResponse (ListImagePipelinesResponse'),
+    newListImagePipelinesResponse,
+
+    -- ** ListImageRecipes
+    ListImageRecipes (ListImageRecipes'),
+    newListImageRecipes,
+    ListImageRecipesResponse (ListImageRecipesResponse'),
+    newListImageRecipesResponse,
+
+    -- ** ListImages
+    ListImages (ListImages'),
+    newListImages,
+    ListImagesResponse (ListImagesResponse'),
+    newListImagesResponse,
+
+    -- ** ListInfrastructureConfigurations
+    ListInfrastructureConfigurations (ListInfrastructureConfigurations'),
+    newListInfrastructureConfigurations,
+    ListInfrastructureConfigurationsResponse (ListInfrastructureConfigurationsResponse'),
+    newListInfrastructureConfigurationsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** PutComponentPolicy
     PutComponentPolicy (PutComponentPolicy'),
@@ -182,71 +320,23 @@ module Amazonka.ImageBuilder
     PutComponentPolicyResponse (PutComponentPolicyResponse'),
     newPutComponentPolicyResponse,
 
-    -- ** DeleteInfrastructureConfiguration
-    DeleteInfrastructureConfiguration (DeleteInfrastructureConfiguration'),
-    newDeleteInfrastructureConfiguration,
-    DeleteInfrastructureConfigurationResponse (DeleteInfrastructureConfigurationResponse'),
-    newDeleteInfrastructureConfigurationResponse,
+    -- ** PutContainerRecipePolicy
+    PutContainerRecipePolicy (PutContainerRecipePolicy'),
+    newPutContainerRecipePolicy,
+    PutContainerRecipePolicyResponse (PutContainerRecipePolicyResponse'),
+    newPutContainerRecipePolicyResponse,
 
-    -- ** UpdateInfrastructureConfiguration
-    UpdateInfrastructureConfiguration (UpdateInfrastructureConfiguration'),
-    newUpdateInfrastructureConfiguration,
-    UpdateInfrastructureConfigurationResponse (UpdateInfrastructureConfigurationResponse'),
-    newUpdateInfrastructureConfigurationResponse,
+    -- ** PutImagePolicy
+    PutImagePolicy (PutImagePolicy'),
+    newPutImagePolicy,
+    PutImagePolicyResponse (PutImagePolicyResponse'),
+    newPutImagePolicyResponse,
 
-    -- ** CreateImagePipeline
-    CreateImagePipeline (CreateImagePipeline'),
-    newCreateImagePipeline,
-    CreateImagePipelineResponse (CreateImagePipelineResponse'),
-    newCreateImagePipelineResponse,
-
-    -- ** GetContainerRecipe
-    GetContainerRecipe (GetContainerRecipe'),
-    newGetContainerRecipe,
-    GetContainerRecipeResponse (GetContainerRecipeResponse'),
-    newGetContainerRecipeResponse,
-
-    -- ** GetInfrastructureConfiguration
-    GetInfrastructureConfiguration (GetInfrastructureConfiguration'),
-    newGetInfrastructureConfiguration,
-    GetInfrastructureConfigurationResponse (GetInfrastructureConfigurationResponse'),
-    newGetInfrastructureConfigurationResponse,
-
-    -- ** GetImagePolicy
-    GetImagePolicy (GetImagePolicy'),
-    newGetImagePolicy,
-    GetImagePolicyResponse (GetImagePolicyResponse'),
-    newGetImagePolicyResponse,
-
-    -- ** GetImageRecipePolicy
-    GetImageRecipePolicy (GetImageRecipePolicy'),
-    newGetImageRecipePolicy,
-    GetImageRecipePolicyResponse (GetImageRecipePolicyResponse'),
-    newGetImageRecipePolicyResponse,
-
-    -- ** GetComponentPolicy
-    GetComponentPolicy (GetComponentPolicy'),
-    newGetComponentPolicy,
-    GetComponentPolicyResponse (GetComponentPolicyResponse'),
-    newGetComponentPolicyResponse,
-
-    -- ** DeleteImagePipeline
-    DeleteImagePipeline (DeleteImagePipeline'),
-    newDeleteImagePipeline,
-    DeleteImagePipelineResponse (DeleteImagePipelineResponse'),
-    newDeleteImagePipelineResponse,
-
-    -- ** UpdateImagePipeline
-    UpdateImagePipeline (UpdateImagePipeline'),
-    newUpdateImagePipeline,
-    UpdateImagePipelineResponse (UpdateImagePipelineResponse'),
-    newUpdateImagePipelineResponse,
-
-    -- ** ListImagePipelines
-    ListImagePipelines (ListImagePipelines'),
-    newListImagePipelines,
-    ListImagePipelinesResponse (ListImagePipelinesResponse'),
-    newListImagePipelinesResponse,
+    -- ** PutImageRecipePolicy
+    PutImageRecipePolicy (PutImageRecipePolicy'),
+    newPutImageRecipePolicy,
+    PutImageRecipePolicyResponse (PutImageRecipePolicyResponse'),
+    newPutImageRecipePolicyResponse,
 
     -- ** StartImagePipelineExecution
     StartImagePipelineExecution (StartImagePipelineExecution'),
@@ -260,35 +350,11 @@ module Amazonka.ImageBuilder
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** CreateImageRecipe
-    CreateImageRecipe (CreateImageRecipe'),
-    newCreateImageRecipe,
-    CreateImageRecipeResponse (CreateImageRecipeResponse'),
-    newCreateImageRecipeResponse,
-
-    -- ** CreateImage
-    CreateImage (CreateImage'),
-    newCreateImage,
-    CreateImageResponse (CreateImageResponse'),
-    newCreateImageResponse,
-
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** CreateComponent
-    CreateComponent (CreateComponent'),
-    newCreateComponent,
-    CreateComponentResponse (CreateComponentResponse'),
-    newCreateComponentResponse,
-
-    -- ** DeleteDistributionConfiguration
-    DeleteDistributionConfiguration (DeleteDistributionConfiguration'),
-    newDeleteDistributionConfiguration,
-    DeleteDistributionConfigurationResponse (DeleteDistributionConfigurationResponse'),
-    newDeleteDistributionConfigurationResponse,
 
     -- ** UpdateDistributionConfiguration
     UpdateDistributionConfiguration (UpdateDistributionConfiguration'),
@@ -296,83 +362,17 @@ module Amazonka.ImageBuilder
     UpdateDistributionConfigurationResponse (UpdateDistributionConfigurationResponse'),
     newUpdateDistributionConfigurationResponse,
 
-    -- ** ListImagePipelineImages
-    ListImagePipelineImages (ListImagePipelineImages'),
-    newListImagePipelineImages,
-    ListImagePipelineImagesResponse (ListImagePipelineImagesResponse'),
-    newListImagePipelineImagesResponse,
+    -- ** UpdateImagePipeline
+    UpdateImagePipeline (UpdateImagePipeline'),
+    newUpdateImagePipeline,
+    UpdateImagePipelineResponse (UpdateImagePipelineResponse'),
+    newUpdateImagePipelineResponse,
 
-    -- ** DeleteImageRecipe
-    DeleteImageRecipe (DeleteImageRecipe'),
-    newDeleteImageRecipe,
-    DeleteImageRecipeResponse (DeleteImageRecipeResponse'),
-    newDeleteImageRecipeResponse,
-
-    -- ** ListComponents
-    ListComponents (ListComponents'),
-    newListComponents,
-    ListComponentsResponse (ListComponentsResponse'),
-    newListComponentsResponse,
-
-    -- ** PutContainerRecipePolicy
-    PutContainerRecipePolicy (PutContainerRecipePolicy'),
-    newPutContainerRecipePolicy,
-    PutContainerRecipePolicyResponse (PutContainerRecipePolicyResponse'),
-    newPutContainerRecipePolicyResponse,
-
-    -- ** ListImages
-    ListImages (ListImages'),
-    newListImages,
-    ListImagesResponse (ListImagesResponse'),
-    newListImagesResponse,
-
-    -- ** CreateDistributionConfiguration
-    CreateDistributionConfiguration (CreateDistributionConfiguration'),
-    newCreateDistributionConfiguration,
-    CreateDistributionConfigurationResponse (CreateDistributionConfigurationResponse'),
-    newCreateDistributionConfigurationResponse,
-
-    -- ** ListImageRecipes
-    ListImageRecipes (ListImageRecipes'),
-    newListImageRecipes,
-    ListImageRecipesResponse (ListImageRecipesResponse'),
-    newListImageRecipesResponse,
-
-    -- ** DeleteImage
-    DeleteImage (DeleteImage'),
-    newDeleteImage,
-    DeleteImageResponse (DeleteImageResponse'),
-    newDeleteImageResponse,
-
-    -- ** DeleteComponent
-    DeleteComponent (DeleteComponent'),
-    newDeleteComponent,
-    DeleteComponentResponse (DeleteComponentResponse'),
-    newDeleteComponentResponse,
-
-    -- ** GetImage
-    GetImage (GetImage'),
-    newGetImage,
-    GetImageResponse (GetImageResponse'),
-    newGetImageResponse,
-
-    -- ** GetContainerRecipePolicy
-    GetContainerRecipePolicy (GetContainerRecipePolicy'),
-    newGetContainerRecipePolicy,
-    GetContainerRecipePolicyResponse (GetContainerRecipePolicyResponse'),
-    newGetContainerRecipePolicyResponse,
-
-    -- ** GetImageRecipe
-    GetImageRecipe (GetImageRecipe'),
-    newGetImageRecipe,
-    GetImageRecipeResponse (GetImageRecipeResponse'),
-    newGetImageRecipeResponse,
-
-    -- ** GetComponent
-    GetComponent (GetComponent'),
-    newGetComponent,
-    GetComponentResponse (GetComponentResponse'),
-    newGetComponentResponse,
+    -- ** UpdateInfrastructureConfiguration
+    UpdateInfrastructureConfiguration (UpdateInfrastructureConfiguration'),
+    newUpdateInfrastructureConfiguration,
+    UpdateInfrastructureConfigurationResponse (UpdateInfrastructureConfigurationResponse'),
+    newUpdateInfrastructureConfigurationResponse,
 
     -- * Types
 

@@ -38,8 +38,8 @@ module Amazonka.ImageBuilder.UpdateDistributionConfiguration
     newUpdateDistributionConfigurationResponse,
 
     -- * Response Lenses
-    updateDistributionConfigurationResponse_requestId,
     updateDistributionConfigurationResponse_clientToken,
+    updateDistributionConfigurationResponse_requestId,
     updateDistributionConfigurationResponse_distributionConfigurationArn,
     updateDistributionConfigurationResponse_httpStatus,
   )
@@ -129,8 +129,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateDistributionConfigurationResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "clientToken")
+            Prelude.<$> (x Core..?> "clientToken")
+            Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (x Core..?> "distributionConfigurationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -194,10 +194,10 @@ instance Core.ToQuery UpdateDistributionConfiguration where
 
 -- | /See:/ 'newUpdateDistributionConfigurationResponse' smart constructor.
 data UpdateDistributionConfigurationResponse = UpdateDistributionConfigurationResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The idempotency token used to make this request idempotent.
+  { -- | The idempotency token used to make this request idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the distribution configuration that
     -- was updated by this request.
     distributionConfigurationArn :: Prelude.Maybe Prelude.Text,
@@ -214,9 +214,9 @@ data UpdateDistributionConfigurationResponse = UpdateDistributionConfigurationRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateDistributionConfigurationResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'clientToken', 'updateDistributionConfigurationResponse_clientToken' - The idempotency token used to make this request idempotent.
+--
+-- 'requestId', 'updateDistributionConfigurationResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'distributionConfigurationArn', 'updateDistributionConfigurationResponse_distributionConfigurationArn' - The Amazon Resource Name (ARN) of the distribution configuration that
 -- was updated by this request.
@@ -229,21 +229,21 @@ newUpdateDistributionConfigurationResponse ::
 newUpdateDistributionConfigurationResponse
   pHttpStatus_ =
     UpdateDistributionConfigurationResponse'
-      { requestId =
+      { clientToken =
           Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        requestId = Prelude.Nothing,
         distributionConfigurationArn =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The request ID that uniquely identifies this request.
-updateDistributionConfigurationResponse_requestId :: Lens.Lens' UpdateDistributionConfigurationResponse (Prelude.Maybe Prelude.Text)
-updateDistributionConfigurationResponse_requestId = Lens.lens (\UpdateDistributionConfigurationResponse' {requestId} -> requestId) (\s@UpdateDistributionConfigurationResponse' {} a -> s {requestId = a} :: UpdateDistributionConfigurationResponse)
-
 -- | The idempotency token used to make this request idempotent.
 updateDistributionConfigurationResponse_clientToken :: Lens.Lens' UpdateDistributionConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateDistributionConfigurationResponse_clientToken = Lens.lens (\UpdateDistributionConfigurationResponse' {clientToken} -> clientToken) (\s@UpdateDistributionConfigurationResponse' {} a -> s {clientToken = a} :: UpdateDistributionConfigurationResponse)
+
+-- | The request ID that uniquely identifies this request.
+updateDistributionConfigurationResponse_requestId :: Lens.Lens' UpdateDistributionConfigurationResponse (Prelude.Maybe Prelude.Text)
+updateDistributionConfigurationResponse_requestId = Lens.lens (\UpdateDistributionConfigurationResponse' {requestId} -> requestId) (\s@UpdateDistributionConfigurationResponse' {} a -> s {requestId = a} :: UpdateDistributionConfigurationResponse)
 
 -- | The Amazon Resource Name (ARN) of the distribution configuration that
 -- was updated by this request.
@@ -259,7 +259,7 @@ instance
     UpdateDistributionConfigurationResponse
   where
   rnf UpdateDistributionConfigurationResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf distributionConfigurationArn
       `Prelude.seq` Prelude.rnf httpStatus

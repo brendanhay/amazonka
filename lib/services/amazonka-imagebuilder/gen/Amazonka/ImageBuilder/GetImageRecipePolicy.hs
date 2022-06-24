@@ -34,8 +34,8 @@ module Amazonka.ImageBuilder.GetImageRecipePolicy
     newGetImageRecipePolicyResponse,
 
     -- * Response Lenses
-    getImageRecipePolicyResponse_requestId,
     getImageRecipePolicyResponse_policy,
+    getImageRecipePolicyResponse_requestId,
     getImageRecipePolicyResponse_httpStatus,
   )
 where
@@ -89,8 +89,8 @@ instance Core.AWSRequest GetImageRecipePolicy where
     Response.receiveJSON
       ( \s h x ->
           GetImageRecipePolicyResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "policy")
+            Prelude.<$> (x Core..?> "policy")
+            Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,10 +123,10 @@ instance Core.ToQuery GetImageRecipePolicy where
 
 -- | /See:/ 'newGetImageRecipePolicyResponse' smart constructor.
 data GetImageRecipePolicyResponse = GetImageRecipePolicyResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The image recipe policy object.
+  { -- | The image recipe policy object.
     policy :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -140,9 +140,9 @@ data GetImageRecipePolicyResponse = GetImageRecipePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'getImageRecipePolicyResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'policy', 'getImageRecipePolicyResponse_policy' - The image recipe policy object.
+--
+-- 'requestId', 'getImageRecipePolicyResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'getImageRecipePolicyResponse_httpStatus' - The response's http status code.
 newGetImageRecipePolicyResponse ::
@@ -151,19 +151,19 @@ newGetImageRecipePolicyResponse ::
   GetImageRecipePolicyResponse
 newGetImageRecipePolicyResponse pHttpStatus_ =
   GetImageRecipePolicyResponse'
-    { requestId =
+    { policy =
         Prelude.Nothing,
-      policy = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-getImageRecipePolicyResponse_requestId :: Lens.Lens' GetImageRecipePolicyResponse (Prelude.Maybe Prelude.Text)
-getImageRecipePolicyResponse_requestId = Lens.lens (\GetImageRecipePolicyResponse' {requestId} -> requestId) (\s@GetImageRecipePolicyResponse' {} a -> s {requestId = a} :: GetImageRecipePolicyResponse)
 
 -- | The image recipe policy object.
 getImageRecipePolicyResponse_policy :: Lens.Lens' GetImageRecipePolicyResponse (Prelude.Maybe Prelude.Text)
 getImageRecipePolicyResponse_policy = Lens.lens (\GetImageRecipePolicyResponse' {policy} -> policy) (\s@GetImageRecipePolicyResponse' {} a -> s {policy = a} :: GetImageRecipePolicyResponse)
+
+-- | The request ID that uniquely identifies this request.
+getImageRecipePolicyResponse_requestId :: Lens.Lens' GetImageRecipePolicyResponse (Prelude.Maybe Prelude.Text)
+getImageRecipePolicyResponse_requestId = Lens.lens (\GetImageRecipePolicyResponse' {requestId} -> requestId) (\s@GetImageRecipePolicyResponse' {} a -> s {requestId = a} :: GetImageRecipePolicyResponse)
 
 -- | The response's http status code.
 getImageRecipePolicyResponse_httpStatus :: Lens.Lens' GetImageRecipePolicyResponse Prelude.Int
@@ -171,6 +171,6 @@ getImageRecipePolicyResponse_httpStatus = Lens.lens (\GetImageRecipePolicyRespon
 
 instance Prelude.NFData GetImageRecipePolicyResponse where
   rnf GetImageRecipePolicyResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

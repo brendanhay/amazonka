@@ -28,15 +28,15 @@ module Amazonka.ImageBuilder.CreateImagePipeline
     newCreateImagePipeline,
 
     -- * Request Lenses
-    createImagePipeline_status,
-    createImagePipeline_containerRecipeArn,
-    createImagePipeline_imageTestsConfiguration,
-    createImagePipeline_schedule,
     createImagePipeline_enhancedImageMetadataEnabled,
-    createImagePipeline_distributionConfigurationArn,
-    createImagePipeline_imageRecipeArn,
-    createImagePipeline_description,
+    createImagePipeline_schedule,
     createImagePipeline_tags,
+    createImagePipeline_imageTestsConfiguration,
+    createImagePipeline_imageRecipeArn,
+    createImagePipeline_status,
+    createImagePipeline_description,
+    createImagePipeline_containerRecipeArn,
+    createImagePipeline_distributionConfigurationArn,
     createImagePipeline_name,
     createImagePipeline_infrastructureConfigurationArn,
     createImagePipeline_clientToken,
@@ -46,8 +46,8 @@ module Amazonka.ImageBuilder.CreateImagePipeline
     newCreateImagePipelineResponse,
 
     -- * Response Lenses
-    createImagePipelineResponse_requestId,
     createImagePipelineResponse_clientToken,
+    createImagePipelineResponse_requestId,
     createImagePipelineResponse_imagePipelineArn,
     createImagePipelineResponse_httpStatus,
   )
@@ -62,31 +62,31 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateImagePipeline' smart constructor.
 data CreateImagePipeline = CreateImagePipeline'
-  { -- | The status of the image pipeline.
-    status :: Prelude.Maybe PipelineStatus,
-    -- | The Amazon Resource Name (ARN) of the container recipe that is used to
-    -- configure images created by this container pipeline.
-    containerRecipeArn :: Prelude.Maybe Prelude.Text,
-    -- | The image test configuration of the image pipeline.
-    imageTestsConfiguration :: Prelude.Maybe ImageTestsConfiguration,
-    -- | The schedule of the image pipeline.
-    schedule :: Prelude.Maybe Schedule,
-    -- | Collects additional information about the image being created, including
+  { -- | Collects additional information about the image being created, including
     -- the operating system (OS) version and package list. This information is
     -- used to enhance the overall experience of using EC2 Image Builder.
     -- Enabled by default.
     enhancedImageMetadataEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The schedule of the image pipeline.
+    schedule :: Prelude.Maybe Schedule,
+    -- | The tags of the image pipeline.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The image test configuration of the image pipeline.
+    imageTestsConfiguration :: Prelude.Maybe ImageTestsConfiguration,
+    -- | The Amazon Resource Name (ARN) of the image recipe that will be used to
+    -- configure images created by this image pipeline.
+    imageRecipeArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the image pipeline.
+    status :: Prelude.Maybe PipelineStatus,
+    -- | The description of the image pipeline.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the container recipe that is used to
+    -- configure images created by this container pipeline.
+    containerRecipeArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the distribution configuration that
     -- will be used to configure and distribute images created by this image
     -- pipeline.
     distributionConfigurationArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the image recipe that will be used to
-    -- configure images created by this image pipeline.
-    imageRecipeArn :: Prelude.Maybe Prelude.Text,
-    -- | The description of the image pipeline.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The tags of the image pipeline.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the image pipeline.
     name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the infrastructure configuration that
@@ -105,30 +105,30 @@ data CreateImagePipeline = CreateImagePipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'createImagePipeline_status' - The status of the image pipeline.
---
--- 'containerRecipeArn', 'createImagePipeline_containerRecipeArn' - The Amazon Resource Name (ARN) of the container recipe that is used to
--- configure images created by this container pipeline.
---
--- 'imageTestsConfiguration', 'createImagePipeline_imageTestsConfiguration' - The image test configuration of the image pipeline.
---
--- 'schedule', 'createImagePipeline_schedule' - The schedule of the image pipeline.
---
 -- 'enhancedImageMetadataEnabled', 'createImagePipeline_enhancedImageMetadataEnabled' - Collects additional information about the image being created, including
 -- the operating system (OS) version and package list. This information is
 -- used to enhance the overall experience of using EC2 Image Builder.
 -- Enabled by default.
 --
--- 'distributionConfigurationArn', 'createImagePipeline_distributionConfigurationArn' - The Amazon Resource Name (ARN) of the distribution configuration that
--- will be used to configure and distribute images created by this image
--- pipeline.
+-- 'schedule', 'createImagePipeline_schedule' - The schedule of the image pipeline.
+--
+-- 'tags', 'createImagePipeline_tags' - The tags of the image pipeline.
+--
+-- 'imageTestsConfiguration', 'createImagePipeline_imageTestsConfiguration' - The image test configuration of the image pipeline.
 --
 -- 'imageRecipeArn', 'createImagePipeline_imageRecipeArn' - The Amazon Resource Name (ARN) of the image recipe that will be used to
 -- configure images created by this image pipeline.
 --
+-- 'status', 'createImagePipeline_status' - The status of the image pipeline.
+--
 -- 'description', 'createImagePipeline_description' - The description of the image pipeline.
 --
--- 'tags', 'createImagePipeline_tags' - The tags of the image pipeline.
+-- 'containerRecipeArn', 'createImagePipeline_containerRecipeArn' - The Amazon Resource Name (ARN) of the container recipe that is used to
+-- configure images created by this container pipeline.
+--
+-- 'distributionConfigurationArn', 'createImagePipeline_distributionConfigurationArn' - The Amazon Resource Name (ARN) of the distribution configuration that
+-- will be used to configure and distribute images created by this image
+-- pipeline.
 --
 -- 'name', 'createImagePipeline_name' - The name of the image pipeline.
 --
@@ -149,37 +149,21 @@ newCreateImagePipeline
   pInfrastructureConfigurationArn_
   pClientToken_ =
     CreateImagePipeline'
-      { status = Prelude.Nothing,
-        containerRecipeArn = Prelude.Nothing,
-        imageTestsConfiguration = Prelude.Nothing,
+      { enhancedImageMetadataEnabled =
+          Prelude.Nothing,
         schedule = Prelude.Nothing,
-        enhancedImageMetadataEnabled = Prelude.Nothing,
-        distributionConfigurationArn = Prelude.Nothing,
-        imageRecipeArn = Prelude.Nothing,
-        description = Prelude.Nothing,
         tags = Prelude.Nothing,
+        imageTestsConfiguration = Prelude.Nothing,
+        imageRecipeArn = Prelude.Nothing,
+        status = Prelude.Nothing,
+        description = Prelude.Nothing,
+        containerRecipeArn = Prelude.Nothing,
+        distributionConfigurationArn = Prelude.Nothing,
         name = pName_,
         infrastructureConfigurationArn =
           pInfrastructureConfigurationArn_,
         clientToken = pClientToken_
       }
-
--- | The status of the image pipeline.
-createImagePipeline_status :: Lens.Lens' CreateImagePipeline (Prelude.Maybe PipelineStatus)
-createImagePipeline_status = Lens.lens (\CreateImagePipeline' {status} -> status) (\s@CreateImagePipeline' {} a -> s {status = a} :: CreateImagePipeline)
-
--- | The Amazon Resource Name (ARN) of the container recipe that is used to
--- configure images created by this container pipeline.
-createImagePipeline_containerRecipeArn :: Lens.Lens' CreateImagePipeline (Prelude.Maybe Prelude.Text)
-createImagePipeline_containerRecipeArn = Lens.lens (\CreateImagePipeline' {containerRecipeArn} -> containerRecipeArn) (\s@CreateImagePipeline' {} a -> s {containerRecipeArn = a} :: CreateImagePipeline)
-
--- | The image test configuration of the image pipeline.
-createImagePipeline_imageTestsConfiguration :: Lens.Lens' CreateImagePipeline (Prelude.Maybe ImageTestsConfiguration)
-createImagePipeline_imageTestsConfiguration = Lens.lens (\CreateImagePipeline' {imageTestsConfiguration} -> imageTestsConfiguration) (\s@CreateImagePipeline' {} a -> s {imageTestsConfiguration = a} :: CreateImagePipeline)
-
--- | The schedule of the image pipeline.
-createImagePipeline_schedule :: Lens.Lens' CreateImagePipeline (Prelude.Maybe Schedule)
-createImagePipeline_schedule = Lens.lens (\CreateImagePipeline' {schedule} -> schedule) (\s@CreateImagePipeline' {} a -> s {schedule = a} :: CreateImagePipeline)
 
 -- | Collects additional information about the image being created, including
 -- the operating system (OS) version and package list. This information is
@@ -188,24 +172,41 @@ createImagePipeline_schedule = Lens.lens (\CreateImagePipeline' {schedule} -> sc
 createImagePipeline_enhancedImageMetadataEnabled :: Lens.Lens' CreateImagePipeline (Prelude.Maybe Prelude.Bool)
 createImagePipeline_enhancedImageMetadataEnabled = Lens.lens (\CreateImagePipeline' {enhancedImageMetadataEnabled} -> enhancedImageMetadataEnabled) (\s@CreateImagePipeline' {} a -> s {enhancedImageMetadataEnabled = a} :: CreateImagePipeline)
 
--- | The Amazon Resource Name (ARN) of the distribution configuration that
--- will be used to configure and distribute images created by this image
--- pipeline.
-createImagePipeline_distributionConfigurationArn :: Lens.Lens' CreateImagePipeline (Prelude.Maybe Prelude.Text)
-createImagePipeline_distributionConfigurationArn = Lens.lens (\CreateImagePipeline' {distributionConfigurationArn} -> distributionConfigurationArn) (\s@CreateImagePipeline' {} a -> s {distributionConfigurationArn = a} :: CreateImagePipeline)
+-- | The schedule of the image pipeline.
+createImagePipeline_schedule :: Lens.Lens' CreateImagePipeline (Prelude.Maybe Schedule)
+createImagePipeline_schedule = Lens.lens (\CreateImagePipeline' {schedule} -> schedule) (\s@CreateImagePipeline' {} a -> s {schedule = a} :: CreateImagePipeline)
+
+-- | The tags of the image pipeline.
+createImagePipeline_tags :: Lens.Lens' CreateImagePipeline (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createImagePipeline_tags = Lens.lens (\CreateImagePipeline' {tags} -> tags) (\s@CreateImagePipeline' {} a -> s {tags = a} :: CreateImagePipeline) Prelude.. Lens.mapping Lens.coerced
+
+-- | The image test configuration of the image pipeline.
+createImagePipeline_imageTestsConfiguration :: Lens.Lens' CreateImagePipeline (Prelude.Maybe ImageTestsConfiguration)
+createImagePipeline_imageTestsConfiguration = Lens.lens (\CreateImagePipeline' {imageTestsConfiguration} -> imageTestsConfiguration) (\s@CreateImagePipeline' {} a -> s {imageTestsConfiguration = a} :: CreateImagePipeline)
 
 -- | The Amazon Resource Name (ARN) of the image recipe that will be used to
 -- configure images created by this image pipeline.
 createImagePipeline_imageRecipeArn :: Lens.Lens' CreateImagePipeline (Prelude.Maybe Prelude.Text)
 createImagePipeline_imageRecipeArn = Lens.lens (\CreateImagePipeline' {imageRecipeArn} -> imageRecipeArn) (\s@CreateImagePipeline' {} a -> s {imageRecipeArn = a} :: CreateImagePipeline)
 
+-- | The status of the image pipeline.
+createImagePipeline_status :: Lens.Lens' CreateImagePipeline (Prelude.Maybe PipelineStatus)
+createImagePipeline_status = Lens.lens (\CreateImagePipeline' {status} -> status) (\s@CreateImagePipeline' {} a -> s {status = a} :: CreateImagePipeline)
+
 -- | The description of the image pipeline.
 createImagePipeline_description :: Lens.Lens' CreateImagePipeline (Prelude.Maybe Prelude.Text)
 createImagePipeline_description = Lens.lens (\CreateImagePipeline' {description} -> description) (\s@CreateImagePipeline' {} a -> s {description = a} :: CreateImagePipeline)
 
--- | The tags of the image pipeline.
-createImagePipeline_tags :: Lens.Lens' CreateImagePipeline (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createImagePipeline_tags = Lens.lens (\CreateImagePipeline' {tags} -> tags) (\s@CreateImagePipeline' {} a -> s {tags = a} :: CreateImagePipeline) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the container recipe that is used to
+-- configure images created by this container pipeline.
+createImagePipeline_containerRecipeArn :: Lens.Lens' CreateImagePipeline (Prelude.Maybe Prelude.Text)
+createImagePipeline_containerRecipeArn = Lens.lens (\CreateImagePipeline' {containerRecipeArn} -> containerRecipeArn) (\s@CreateImagePipeline' {} a -> s {containerRecipeArn = a} :: CreateImagePipeline)
+
+-- | The Amazon Resource Name (ARN) of the distribution configuration that
+-- will be used to configure and distribute images created by this image
+-- pipeline.
+createImagePipeline_distributionConfigurationArn :: Lens.Lens' CreateImagePipeline (Prelude.Maybe Prelude.Text)
+createImagePipeline_distributionConfigurationArn = Lens.lens (\CreateImagePipeline' {distributionConfigurationArn} -> distributionConfigurationArn) (\s@CreateImagePipeline' {} a -> s {distributionConfigurationArn = a} :: CreateImagePipeline)
 
 -- | The name of the image pipeline.
 createImagePipeline_name :: Lens.Lens' CreateImagePipeline Prelude.Text
@@ -229,38 +230,39 @@ instance Core.AWSRequest CreateImagePipeline where
     Response.receiveJSON
       ( \s h x ->
           CreateImagePipelineResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "clientToken")
+            Prelude.<$> (x Core..?> "clientToken")
+            Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (x Core..?> "imagePipelineArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateImagePipeline where
   hashWithSalt _salt CreateImagePipeline' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` containerRecipeArn
-      `Prelude.hashWithSalt` imageTestsConfiguration
-      `Prelude.hashWithSalt` schedule
+    _salt
       `Prelude.hashWithSalt` enhancedImageMetadataEnabled
-      `Prelude.hashWithSalt` distributionConfigurationArn
-      `Prelude.hashWithSalt` imageRecipeArn
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` schedule
       `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` imageTestsConfiguration
+      `Prelude.hashWithSalt` imageRecipeArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` containerRecipeArn
+      `Prelude.hashWithSalt` distributionConfigurationArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` infrastructureConfigurationArn
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData CreateImagePipeline where
   rnf CreateImagePipeline' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf containerRecipeArn
-      `Prelude.seq` Prelude.rnf imageTestsConfiguration
+    Prelude.rnf enhancedImageMetadataEnabled
       `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf enhancedImageMetadataEnabled
-      `Prelude.seq` Prelude.rnf distributionConfigurationArn
-      `Prelude.seq` Prelude.rnf imageRecipeArn
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf imageTestsConfiguration
+      `Prelude.seq` Prelude.rnf imageRecipeArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf containerRecipeArn
+      `Prelude.seq` Prelude.rnf distributionConfigurationArn
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf infrastructureConfigurationArn
       `Prelude.seq` Prelude.rnf clientToken
@@ -280,20 +282,20 @@ instance Core.ToJSON CreateImagePipeline where
   toJSON CreateImagePipeline' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("status" Core..=) Prelude.<$> status,
-            ("containerRecipeArn" Core..=)
-              Prelude.<$> containerRecipeArn,
+          [ ("enhancedImageMetadataEnabled" Core..=)
+              Prelude.<$> enhancedImageMetadataEnabled,
+            ("schedule" Core..=) Prelude.<$> schedule,
+            ("tags" Core..=) Prelude.<$> tags,
             ("imageTestsConfiguration" Core..=)
               Prelude.<$> imageTestsConfiguration,
-            ("schedule" Core..=) Prelude.<$> schedule,
-            ("enhancedImageMetadataEnabled" Core..=)
-              Prelude.<$> enhancedImageMetadataEnabled,
-            ("distributionConfigurationArn" Core..=)
-              Prelude.<$> distributionConfigurationArn,
             ("imageRecipeArn" Core..=)
               Prelude.<$> imageRecipeArn,
+            ("status" Core..=) Prelude.<$> status,
             ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("containerRecipeArn" Core..=)
+              Prelude.<$> containerRecipeArn,
+            ("distributionConfigurationArn" Core..=)
+              Prelude.<$> distributionConfigurationArn,
             Prelude.Just ("name" Core..= name),
             Prelude.Just
               ( "infrastructureConfigurationArn"
@@ -311,10 +313,10 @@ instance Core.ToQuery CreateImagePipeline where
 
 -- | /See:/ 'newCreateImagePipelineResponse' smart constructor.
 data CreateImagePipelineResponse = CreateImagePipelineResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The idempotency token used to make this request idempotent.
+  { -- | The idempotency token used to make this request idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the image pipeline that was created by
     -- this request.
     imagePipelineArn :: Prelude.Maybe Prelude.Text,
@@ -331,9 +333,9 @@ data CreateImagePipelineResponse = CreateImagePipelineResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'createImagePipelineResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'clientToken', 'createImagePipelineResponse_clientToken' - The idempotency token used to make this request idempotent.
+--
+-- 'requestId', 'createImagePipelineResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'imagePipelineArn', 'createImagePipelineResponse_imagePipelineArn' - The Amazon Resource Name (ARN) of the image pipeline that was created by
 -- this request.
@@ -345,20 +347,20 @@ newCreateImagePipelineResponse ::
   CreateImagePipelineResponse
 newCreateImagePipelineResponse pHttpStatus_ =
   CreateImagePipelineResponse'
-    { requestId =
+    { clientToken =
         Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       imagePipelineArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The request ID that uniquely identifies this request.
-createImagePipelineResponse_requestId :: Lens.Lens' CreateImagePipelineResponse (Prelude.Maybe Prelude.Text)
-createImagePipelineResponse_requestId = Lens.lens (\CreateImagePipelineResponse' {requestId} -> requestId) (\s@CreateImagePipelineResponse' {} a -> s {requestId = a} :: CreateImagePipelineResponse)
-
 -- | The idempotency token used to make this request idempotent.
 createImagePipelineResponse_clientToken :: Lens.Lens' CreateImagePipelineResponse (Prelude.Maybe Prelude.Text)
 createImagePipelineResponse_clientToken = Lens.lens (\CreateImagePipelineResponse' {clientToken} -> clientToken) (\s@CreateImagePipelineResponse' {} a -> s {clientToken = a} :: CreateImagePipelineResponse)
+
+-- | The request ID that uniquely identifies this request.
+createImagePipelineResponse_requestId :: Lens.Lens' CreateImagePipelineResponse (Prelude.Maybe Prelude.Text)
+createImagePipelineResponse_requestId = Lens.lens (\CreateImagePipelineResponse' {requestId} -> requestId) (\s@CreateImagePipelineResponse' {} a -> s {requestId = a} :: CreateImagePipelineResponse)
 
 -- | The Amazon Resource Name (ARN) of the image pipeline that was created by
 -- this request.
@@ -371,7 +373,7 @@ createImagePipelineResponse_httpStatus = Lens.lens (\CreateImagePipelineResponse
 
 instance Prelude.NFData CreateImagePipelineResponse where
   rnf CreateImagePipelineResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf imagePipelineArn
       `Prelude.seq` Prelude.rnf httpStatus

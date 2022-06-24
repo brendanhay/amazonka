@@ -29,7 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSchedule' smart constructor.
 data Schedule = Schedule'
-  { -- | The cron expression determines how often EC2 Image Builder evaluates
+  { -- | The timezone that applies to the scheduling expression. For example,
+    -- \"Etc\/UTC\", \"America\/Los_Angeles\" in the
+    -- <https://www.joda.org/joda-time/timezones.html IANA timezone format>. If
+    -- not specified this defaults to UTC.
+    timezone :: Prelude.Maybe Prelude.Text,
+    -- | The cron expression determines how often EC2 Image Builder evaluates
     -- your @pipelineExecutionStartCondition@.
     --
     -- For information on how to format a cron expression in Image Builder, see
@@ -46,12 +51,7 @@ data Schedule = Schedule'
     -- current time. For semantic version syntax, see
     -- <https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html CreateComponent>
     -- in the /EC2 Image Builder API Reference/.
-    pipelineExecutionStartCondition :: Prelude.Maybe PipelineExecutionStartCondition,
-    -- | The timezone that applies to the scheduling expression. For example,
-    -- \"Etc\/UTC\", \"America\/Los_Angeles\" in the
-    -- <https://www.joda.org/joda-time/timezones.html IANA timezone format>. If
-    -- not specified this defaults to UTC.
-    timezone :: Prelude.Maybe Prelude.Text
+    pipelineExecutionStartCondition :: Prelude.Maybe PipelineExecutionStartCondition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +62,11 @@ data Schedule = Schedule'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'timezone', 'schedule_timezone' - The timezone that applies to the scheduling expression. For example,
+-- \"Etc\/UTC\", \"America\/Los_Angeles\" in the
+-- <https://www.joda.org/joda-time/timezones.html IANA timezone format>. If
+-- not specified this defaults to UTC.
 --
 -- 'scheduleExpression', 'schedule_scheduleExpression' - The cron expression determines how often EC2 Image Builder evaluates
 -- your @pipelineExecutionStartCondition@.
@@ -80,19 +85,21 @@ data Schedule = Schedule'
 -- current time. For semantic version syntax, see
 -- <https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html CreateComponent>
 -- in the /EC2 Image Builder API Reference/.
---
--- 'timezone', 'schedule_timezone' - The timezone that applies to the scheduling expression. For example,
--- \"Etc\/UTC\", \"America\/Los_Angeles\" in the
--- <https://www.joda.org/joda-time/timezones.html IANA timezone format>. If
--- not specified this defaults to UTC.
 newSchedule ::
   Schedule
 newSchedule =
   Schedule'
-    { scheduleExpression = Prelude.Nothing,
-      pipelineExecutionStartCondition = Prelude.Nothing,
-      timezone = Prelude.Nothing
+    { timezone = Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
+      pipelineExecutionStartCondition = Prelude.Nothing
     }
+
+-- | The timezone that applies to the scheduling expression. For example,
+-- \"Etc\/UTC\", \"America\/Los_Angeles\" in the
+-- <https://www.joda.org/joda-time/timezones.html IANA timezone format>. If
+-- not specified this defaults to UTC.
+schedule_timezone :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
+schedule_timezone = Lens.lens (\Schedule' {timezone} -> timezone) (\s@Schedule' {} a -> s {timezone = a} :: Schedule)
 
 -- | The cron expression determines how often EC2 Image Builder evaluates
 -- your @pipelineExecutionStartCondition@.
@@ -116,44 +123,37 @@ schedule_scheduleExpression = Lens.lens (\Schedule' {scheduleExpression} -> sche
 schedule_pipelineExecutionStartCondition :: Lens.Lens' Schedule (Prelude.Maybe PipelineExecutionStartCondition)
 schedule_pipelineExecutionStartCondition = Lens.lens (\Schedule' {pipelineExecutionStartCondition} -> pipelineExecutionStartCondition) (\s@Schedule' {} a -> s {pipelineExecutionStartCondition = a} :: Schedule)
 
--- | The timezone that applies to the scheduling expression. For example,
--- \"Etc\/UTC\", \"America\/Los_Angeles\" in the
--- <https://www.joda.org/joda-time/timezones.html IANA timezone format>. If
--- not specified this defaults to UTC.
-schedule_timezone :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
-schedule_timezone = Lens.lens (\Schedule' {timezone} -> timezone) (\s@Schedule' {} a -> s {timezone = a} :: Schedule)
-
 instance Core.FromJSON Schedule where
   parseJSON =
     Core.withObject
       "Schedule"
       ( \x ->
           Schedule'
-            Prelude.<$> (x Core..:? "scheduleExpression")
+            Prelude.<$> (x Core..:? "timezone")
+            Prelude.<*> (x Core..:? "scheduleExpression")
             Prelude.<*> (x Core..:? "pipelineExecutionStartCondition")
-            Prelude.<*> (x Core..:? "timezone")
       )
 
 instance Prelude.Hashable Schedule where
   hashWithSalt _salt Schedule' {..} =
-    _salt `Prelude.hashWithSalt` scheduleExpression
+    _salt `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` scheduleExpression
       `Prelude.hashWithSalt` pipelineExecutionStartCondition
-      `Prelude.hashWithSalt` timezone
 
 instance Prelude.NFData Schedule where
   rnf Schedule' {..} =
-    Prelude.rnf scheduleExpression
+    Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf scheduleExpression
       `Prelude.seq` Prelude.rnf pipelineExecutionStartCondition
-      `Prelude.seq` Prelude.rnf timezone
 
 instance Core.ToJSON Schedule where
   toJSON Schedule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("scheduleExpression" Core..=)
+          [ ("timezone" Core..=) Prelude.<$> timezone,
+            ("scheduleExpression" Core..=)
               Prelude.<$> scheduleExpression,
             ("pipelineExecutionStartCondition" Core..=)
-              Prelude.<$> pipelineExecutionStartCondition,
-            ("timezone" Core..=) Prelude.<$> timezone
+              Prelude.<$> pipelineExecutionStartCondition
           ]
       )

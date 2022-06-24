@@ -34,10 +34,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchPermissionConfiguration' smart constructor.
 data LaunchPermissionConfiguration = LaunchPermissionConfiguration'
-  { -- | The Amazon Web Services account ID.
-    userIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The name of the group.
-    userGroups :: Prelude.Maybe [Prelude.Text]
+  { -- | The name of the group.
+    userGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Web Services account ID.
+    userIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,25 +49,25 @@ data LaunchPermissionConfiguration = LaunchPermissionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userIds', 'launchPermissionConfiguration_userIds' - The Amazon Web Services account ID.
---
 -- 'userGroups', 'launchPermissionConfiguration_userGroups' - The name of the group.
+--
+-- 'userIds', 'launchPermissionConfiguration_userIds' - The Amazon Web Services account ID.
 newLaunchPermissionConfiguration ::
   LaunchPermissionConfiguration
 newLaunchPermissionConfiguration =
   LaunchPermissionConfiguration'
-    { userIds =
+    { userGroups =
         Prelude.Nothing,
-      userGroups = Prelude.Nothing
+      userIds = Prelude.Nothing
     }
-
--- | The Amazon Web Services account ID.
-launchPermissionConfiguration_userIds :: Lens.Lens' LaunchPermissionConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-launchPermissionConfiguration_userIds = Lens.lens (\LaunchPermissionConfiguration' {userIds} -> userIds) (\s@LaunchPermissionConfiguration' {} a -> s {userIds = a} :: LaunchPermissionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the group.
 launchPermissionConfiguration_userGroups :: Lens.Lens' LaunchPermissionConfiguration (Prelude.Maybe [Prelude.Text])
 launchPermissionConfiguration_userGroups = Lens.lens (\LaunchPermissionConfiguration' {userGroups} -> userGroups) (\s@LaunchPermissionConfiguration' {} a -> s {userGroups = a} :: LaunchPermissionConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Web Services account ID.
+launchPermissionConfiguration_userIds :: Lens.Lens' LaunchPermissionConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+launchPermissionConfiguration_userIds = Lens.lens (\LaunchPermissionConfiguration' {userIds} -> userIds) (\s@LaunchPermissionConfiguration' {} a -> s {userIds = a} :: LaunchPermissionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON LaunchPermissionConfiguration where
   parseJSON =
@@ -75,8 +75,8 @@ instance Core.FromJSON LaunchPermissionConfiguration where
       "LaunchPermissionConfiguration"
       ( \x ->
           LaunchPermissionConfiguration'
-            Prelude.<$> (x Core..:? "userIds")
-            Prelude.<*> (x Core..:? "userGroups" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "userGroups" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "userIds")
       )
 
 instance
@@ -84,19 +84,19 @@ instance
     LaunchPermissionConfiguration
   where
   hashWithSalt _salt LaunchPermissionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` userIds
-      `Prelude.hashWithSalt` userGroups
+    _salt `Prelude.hashWithSalt` userGroups
+      `Prelude.hashWithSalt` userIds
 
 instance Prelude.NFData LaunchPermissionConfiguration where
   rnf LaunchPermissionConfiguration' {..} =
-    Prelude.rnf userIds
-      `Prelude.seq` Prelude.rnf userGroups
+    Prelude.rnf userGroups
+      `Prelude.seq` Prelude.rnf userIds
 
 instance Core.ToJSON LaunchPermissionConfiguration where
   toJSON LaunchPermissionConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("userIds" Core..=) Prelude.<$> userIds,
-            ("userGroups" Core..=) Prelude.<$> userGroups
+          [ ("userGroups" Core..=) Prelude.<$> userGroups,
+            ("userIds" Core..=) Prelude.<$> userIds
           ]
       )

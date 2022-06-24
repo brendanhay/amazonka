@@ -27,11 +27,83 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListImagePackages $
---             newListImagePackages
+--         [ requestCancelImageCreation $
+--             newCancelImageCreation
+--
+--         , requestCreateComponent $
+--             newCreateComponent
+--
+--         , requestCreateContainerRecipe $
+--             newCreateContainerRecipe
+--
+--         , requestCreateDistributionConfiguration $
+--             newCreateDistributionConfiguration
+--
+--         , requestCreateImage $
+--             newCreateImage
+--
+--         , requestCreateImagePipeline $
+--             newCreateImagePipeline
+--
+--         , requestCreateImageRecipe $
+--             newCreateImageRecipe
+--
+--         , requestCreateInfrastructureConfiguration $
+--             newCreateInfrastructureConfiguration
+--
+--         , requestDeleteComponent $
+--             newDeleteComponent
+--
+--         , requestDeleteContainerRecipe $
+--             newDeleteContainerRecipe
+--
+--         , requestDeleteDistributionConfiguration $
+--             newDeleteDistributionConfiguration
+--
+--         , requestDeleteImage $
+--             newDeleteImage
+--
+--         , requestDeleteImagePipeline $
+--             newDeleteImagePipeline
+--
+--         , requestDeleteImageRecipe $
+--             newDeleteImageRecipe
+--
+--         , requestDeleteInfrastructureConfiguration $
+--             newDeleteInfrastructureConfiguration
+--
+--         , requestGetComponent $
+--             newGetComponent
+--
+--         , requestGetComponentPolicy $
+--             newGetComponentPolicy
+--
+--         , requestGetContainerRecipe $
+--             newGetContainerRecipe
+--
+--         , requestGetContainerRecipePolicy $
+--             newGetContainerRecipePolicy
 --
 --         , requestGetDistributionConfiguration $
 --             newGetDistributionConfiguration
+--
+--         , requestGetImage $
+--             newGetImage
+--
+--         , requestGetImagePipeline $
+--             newGetImagePipeline
+--
+--         , requestGetImagePolicy $
+--             newGetImagePolicy
+--
+--         , requestGetImageRecipe $
+--             newGetImageRecipe
+--
+--         , requestGetImageRecipePolicy $
+--             newGetImageRecipePolicy
+--
+--         , requestGetInfrastructureConfiguration $
+--             newGetInfrastructureConfiguration
 --
 --         , requestImportComponent $
 --             newImportComponent
@@ -39,77 +111,50 @@ import Test.Tasty
 --         , requestListComponentBuildVersions $
 --             newListComponentBuildVersions
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestListImageBuildVersions $
---             newListImageBuildVersions
---
---         , requestCancelImageCreation $
---             newCancelImageCreation
---
---         , requestGetImagePipeline $
---             newGetImagePipeline
---
---         , requestCreateInfrastructureConfiguration $
---             newCreateInfrastructureConfiguration
---
---         , requestListDistributionConfigurations $
---             newListDistributionConfigurations
---
---         , requestCreateContainerRecipe $
---             newCreateContainerRecipe
---
---         , requestListInfrastructureConfigurations $
---             newListInfrastructureConfigurations
---
---         , requestPutImageRecipePolicy $
---             newPutImageRecipePolicy
+--         , requestListComponents $
+--             newListComponents
 --
 --         , requestListContainerRecipes $
 --             newListContainerRecipes
 --
---         , requestPutImagePolicy $
---             newPutImagePolicy
+--         , requestListDistributionConfigurations $
+--             newListDistributionConfigurations
 --
---         , requestDeleteContainerRecipe $
---             newDeleteContainerRecipe
+--         , requestListImageBuildVersions $
+--             newListImageBuildVersions
+--
+--         , requestListImagePackages $
+--             newListImagePackages
+--
+--         , requestListImagePipelineImages $
+--             newListImagePipelineImages
+--
+--         , requestListImagePipelines $
+--             newListImagePipelines
+--
+--         , requestListImageRecipes $
+--             newListImageRecipes
+--
+--         , requestListImages $
+--             newListImages
+--
+--         , requestListInfrastructureConfigurations $
+--             newListInfrastructureConfigurations
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestPutComponentPolicy $
 --             newPutComponentPolicy
 --
---         , requestDeleteInfrastructureConfiguration $
---             newDeleteInfrastructureConfiguration
+--         , requestPutContainerRecipePolicy $
+--             newPutContainerRecipePolicy
 --
---         , requestUpdateInfrastructureConfiguration $
---             newUpdateInfrastructureConfiguration
+--         , requestPutImagePolicy $
+--             newPutImagePolicy
 --
---         , requestCreateImagePipeline $
---             newCreateImagePipeline
---
---         , requestGetContainerRecipe $
---             newGetContainerRecipe
---
---         , requestGetInfrastructureConfiguration $
---             newGetInfrastructureConfiguration
---
---         , requestGetImagePolicy $
---             newGetImagePolicy
---
---         , requestGetImageRecipePolicy $
---             newGetImageRecipePolicy
---
---         , requestGetComponentPolicy $
---             newGetComponentPolicy
---
---         , requestDeleteImagePipeline $
---             newDeleteImagePipeline
---
---         , requestUpdateImagePipeline $
---             newUpdateImagePipeline
---
---         , requestListImagePipelines $
---             newListImagePipelines
+--         , requestPutImageRecipePolicy $
+--             newPutImageRecipePolicy
 --
 --         , requestStartImagePipelineExecution $
 --             newStartImagePipelineExecution
@@ -117,71 +162,98 @@ import Test.Tasty
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestCreateImageRecipe $
---             newCreateImageRecipe
---
---         , requestCreateImage $
---             newCreateImage
---
 --         , requestUntagResource $
 --             newUntagResource
---
---         , requestCreateComponent $
---             newCreateComponent
---
---         , requestDeleteDistributionConfiguration $
---             newDeleteDistributionConfiguration
 --
 --         , requestUpdateDistributionConfiguration $
 --             newUpdateDistributionConfiguration
 --
---         , requestListImagePipelineImages $
---             newListImagePipelineImages
+--         , requestUpdateImagePipeline $
+--             newUpdateImagePipeline
 --
---         , requestDeleteImageRecipe $
---             newDeleteImageRecipe
---
---         , requestListComponents $
---             newListComponents
---
---         , requestPutContainerRecipePolicy $
---             newPutContainerRecipePolicy
---
---         , requestListImages $
---             newListImages
---
---         , requestCreateDistributionConfiguration $
---             newCreateDistributionConfiguration
---
---         , requestListImageRecipes $
---             newListImageRecipes
---
---         , requestDeleteImage $
---             newDeleteImage
---
---         , requestDeleteComponent $
---             newDeleteComponent
---
---         , requestGetImage $
---             newGetImage
---
---         , requestGetContainerRecipePolicy $
---             newGetContainerRecipePolicy
---
---         , requestGetImageRecipe $
---             newGetImageRecipe
---
---         , requestGetComponent $
---             newGetComponent
+--         , requestUpdateInfrastructureConfiguration $
+--             newUpdateInfrastructureConfiguration
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListImagePackages $
---             newListImagePackagesResponse
+--         [ responseCancelImageCreation $
+--             newCancelImageCreationResponse
+--
+--         , responseCreateComponent $
+--             newCreateComponentResponse
+--
+--         , responseCreateContainerRecipe $
+--             newCreateContainerRecipeResponse
+--
+--         , responseCreateDistributionConfiguration $
+--             newCreateDistributionConfigurationResponse
+--
+--         , responseCreateImage $
+--             newCreateImageResponse
+--
+--         , responseCreateImagePipeline $
+--             newCreateImagePipelineResponse
+--
+--         , responseCreateImageRecipe $
+--             newCreateImageRecipeResponse
+--
+--         , responseCreateInfrastructureConfiguration $
+--             newCreateInfrastructureConfigurationResponse
+--
+--         , responseDeleteComponent $
+--             newDeleteComponentResponse
+--
+--         , responseDeleteContainerRecipe $
+--             newDeleteContainerRecipeResponse
+--
+--         , responseDeleteDistributionConfiguration $
+--             newDeleteDistributionConfigurationResponse
+--
+--         , responseDeleteImage $
+--             newDeleteImageResponse
+--
+--         , responseDeleteImagePipeline $
+--             newDeleteImagePipelineResponse
+--
+--         , responseDeleteImageRecipe $
+--             newDeleteImageRecipeResponse
+--
+--         , responseDeleteInfrastructureConfiguration $
+--             newDeleteInfrastructureConfigurationResponse
+--
+--         , responseGetComponent $
+--             newGetComponentResponse
+--
+--         , responseGetComponentPolicy $
+--             newGetComponentPolicyResponse
+--
+--         , responseGetContainerRecipe $
+--             newGetContainerRecipeResponse
+--
+--         , responseGetContainerRecipePolicy $
+--             newGetContainerRecipePolicyResponse
 --
 --         , responseGetDistributionConfiguration $
 --             newGetDistributionConfigurationResponse
+--
+--         , responseGetImage $
+--             newGetImageResponse
+--
+--         , responseGetImagePipeline $
+--             newGetImagePipelineResponse
+--
+--         , responseGetImagePolicy $
+--             newGetImagePolicyResponse
+--
+--         , responseGetImageRecipe $
+--             newGetImageRecipeResponse
+--
+--         , responseGetImageRecipePolicy $
+--             newGetImageRecipePolicyResponse
+--
+--         , responseGetInfrastructureConfiguration $
+--             newGetInfrastructureConfigurationResponse
 --
 --         , responseImportComponent $
 --             newImportComponentResponse
@@ -189,77 +261,50 @@ import Test.Tasty
 --         , responseListComponentBuildVersions $
 --             newListComponentBuildVersionsResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseListImageBuildVersions $
---             newListImageBuildVersionsResponse
---
---         , responseCancelImageCreation $
---             newCancelImageCreationResponse
---
---         , responseGetImagePipeline $
---             newGetImagePipelineResponse
---
---         , responseCreateInfrastructureConfiguration $
---             newCreateInfrastructureConfigurationResponse
---
---         , responseListDistributionConfigurations $
---             newListDistributionConfigurationsResponse
---
---         , responseCreateContainerRecipe $
---             newCreateContainerRecipeResponse
---
---         , responseListInfrastructureConfigurations $
---             newListInfrastructureConfigurationsResponse
---
---         , responsePutImageRecipePolicy $
---             newPutImageRecipePolicyResponse
+--         , responseListComponents $
+--             newListComponentsResponse
 --
 --         , responseListContainerRecipes $
 --             newListContainerRecipesResponse
 --
---         , responsePutImagePolicy $
---             newPutImagePolicyResponse
+--         , responseListDistributionConfigurations $
+--             newListDistributionConfigurationsResponse
 --
---         , responseDeleteContainerRecipe $
---             newDeleteContainerRecipeResponse
+--         , responseListImageBuildVersions $
+--             newListImageBuildVersionsResponse
+--
+--         , responseListImagePackages $
+--             newListImagePackagesResponse
+--
+--         , responseListImagePipelineImages $
+--             newListImagePipelineImagesResponse
+--
+--         , responseListImagePipelines $
+--             newListImagePipelinesResponse
+--
+--         , responseListImageRecipes $
+--             newListImageRecipesResponse
+--
+--         , responseListImages $
+--             newListImagesResponse
+--
+--         , responseListInfrastructureConfigurations $
+--             newListInfrastructureConfigurationsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responsePutComponentPolicy $
 --             newPutComponentPolicyResponse
 --
---         , responseDeleteInfrastructureConfiguration $
---             newDeleteInfrastructureConfigurationResponse
+--         , responsePutContainerRecipePolicy $
+--             newPutContainerRecipePolicyResponse
 --
---         , responseUpdateInfrastructureConfiguration $
---             newUpdateInfrastructureConfigurationResponse
+--         , responsePutImagePolicy $
+--             newPutImagePolicyResponse
 --
---         , responseCreateImagePipeline $
---             newCreateImagePipelineResponse
---
---         , responseGetContainerRecipe $
---             newGetContainerRecipeResponse
---
---         , responseGetInfrastructureConfiguration $
---             newGetInfrastructureConfigurationResponse
---
---         , responseGetImagePolicy $
---             newGetImagePolicyResponse
---
---         , responseGetImageRecipePolicy $
---             newGetImageRecipePolicyResponse
---
---         , responseGetComponentPolicy $
---             newGetComponentPolicyResponse
---
---         , responseDeleteImagePipeline $
---             newDeleteImagePipelineResponse
---
---         , responseUpdateImagePipeline $
---             newUpdateImagePipelineResponse
---
---         , responseListImagePipelines $
---             newListImagePipelinesResponse
+--         , responsePutImageRecipePolicy $
+--             newPutImageRecipePolicyResponse
 --
 --         , responseStartImagePipelineExecution $
 --             newStartImagePipelineExecutionResponse
@@ -267,79 +312,178 @@ import Test.Tasty
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseCreateImageRecipe $
---             newCreateImageRecipeResponse
---
---         , responseCreateImage $
---             newCreateImageResponse
---
 --         , responseUntagResource $
 --             newUntagResourceResponse
---
---         , responseCreateComponent $
---             newCreateComponentResponse
---
---         , responseDeleteDistributionConfiguration $
---             newDeleteDistributionConfigurationResponse
 --
 --         , responseUpdateDistributionConfiguration $
 --             newUpdateDistributionConfigurationResponse
 --
---         , responseListImagePipelineImages $
---             newListImagePipelineImagesResponse
+--         , responseUpdateImagePipeline $
+--             newUpdateImagePipelineResponse
 --
---         , responseDeleteImageRecipe $
---             newDeleteImageRecipeResponse
---
---         , responseListComponents $
---             newListComponentsResponse
---
---         , responsePutContainerRecipePolicy $
---             newPutContainerRecipePolicyResponse
---
---         , responseListImages $
---             newListImagesResponse
---
---         , responseCreateDistributionConfiguration $
---             newCreateDistributionConfigurationResponse
---
---         , responseListImageRecipes $
---             newListImageRecipesResponse
---
---         , responseDeleteImage $
---             newDeleteImageResponse
---
---         , responseDeleteComponent $
---             newDeleteComponentResponse
---
---         , responseGetImage $
---             newGetImageResponse
---
---         , responseGetContainerRecipePolicy $
---             newGetContainerRecipePolicyResponse
---
---         , responseGetImageRecipe $
---             newGetImageRecipeResponse
---
---         , responseGetComponent $
---             newGetComponentResponse
+--         , responseUpdateInfrastructureConfiguration $
+--             newUpdateInfrastructureConfigurationResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestListImagePackages :: ListImagePackages -> TestTree
-requestListImagePackages =
+requestCancelImageCreation :: CancelImageCreation -> TestTree
+requestCancelImageCreation =
   req
-    "ListImagePackages"
-    "fixture/ListImagePackages.yaml"
+    "CancelImageCreation"
+    "fixture/CancelImageCreation.yaml"
+
+requestCreateComponent :: CreateComponent -> TestTree
+requestCreateComponent =
+  req
+    "CreateComponent"
+    "fixture/CreateComponent.yaml"
+
+requestCreateContainerRecipe :: CreateContainerRecipe -> TestTree
+requestCreateContainerRecipe =
+  req
+    "CreateContainerRecipe"
+    "fixture/CreateContainerRecipe.yaml"
+
+requestCreateDistributionConfiguration :: CreateDistributionConfiguration -> TestTree
+requestCreateDistributionConfiguration =
+  req
+    "CreateDistributionConfiguration"
+    "fixture/CreateDistributionConfiguration.yaml"
+
+requestCreateImage :: CreateImage -> TestTree
+requestCreateImage =
+  req
+    "CreateImage"
+    "fixture/CreateImage.yaml"
+
+requestCreateImagePipeline :: CreateImagePipeline -> TestTree
+requestCreateImagePipeline =
+  req
+    "CreateImagePipeline"
+    "fixture/CreateImagePipeline.yaml"
+
+requestCreateImageRecipe :: CreateImageRecipe -> TestTree
+requestCreateImageRecipe =
+  req
+    "CreateImageRecipe"
+    "fixture/CreateImageRecipe.yaml"
+
+requestCreateInfrastructureConfiguration :: CreateInfrastructureConfiguration -> TestTree
+requestCreateInfrastructureConfiguration =
+  req
+    "CreateInfrastructureConfiguration"
+    "fixture/CreateInfrastructureConfiguration.yaml"
+
+requestDeleteComponent :: DeleteComponent -> TestTree
+requestDeleteComponent =
+  req
+    "DeleteComponent"
+    "fixture/DeleteComponent.yaml"
+
+requestDeleteContainerRecipe :: DeleteContainerRecipe -> TestTree
+requestDeleteContainerRecipe =
+  req
+    "DeleteContainerRecipe"
+    "fixture/DeleteContainerRecipe.yaml"
+
+requestDeleteDistributionConfiguration :: DeleteDistributionConfiguration -> TestTree
+requestDeleteDistributionConfiguration =
+  req
+    "DeleteDistributionConfiguration"
+    "fixture/DeleteDistributionConfiguration.yaml"
+
+requestDeleteImage :: DeleteImage -> TestTree
+requestDeleteImage =
+  req
+    "DeleteImage"
+    "fixture/DeleteImage.yaml"
+
+requestDeleteImagePipeline :: DeleteImagePipeline -> TestTree
+requestDeleteImagePipeline =
+  req
+    "DeleteImagePipeline"
+    "fixture/DeleteImagePipeline.yaml"
+
+requestDeleteImageRecipe :: DeleteImageRecipe -> TestTree
+requestDeleteImageRecipe =
+  req
+    "DeleteImageRecipe"
+    "fixture/DeleteImageRecipe.yaml"
+
+requestDeleteInfrastructureConfiguration :: DeleteInfrastructureConfiguration -> TestTree
+requestDeleteInfrastructureConfiguration =
+  req
+    "DeleteInfrastructureConfiguration"
+    "fixture/DeleteInfrastructureConfiguration.yaml"
+
+requestGetComponent :: GetComponent -> TestTree
+requestGetComponent =
+  req
+    "GetComponent"
+    "fixture/GetComponent.yaml"
+
+requestGetComponentPolicy :: GetComponentPolicy -> TestTree
+requestGetComponentPolicy =
+  req
+    "GetComponentPolicy"
+    "fixture/GetComponentPolicy.yaml"
+
+requestGetContainerRecipe :: GetContainerRecipe -> TestTree
+requestGetContainerRecipe =
+  req
+    "GetContainerRecipe"
+    "fixture/GetContainerRecipe.yaml"
+
+requestGetContainerRecipePolicy :: GetContainerRecipePolicy -> TestTree
+requestGetContainerRecipePolicy =
+  req
+    "GetContainerRecipePolicy"
+    "fixture/GetContainerRecipePolicy.yaml"
 
 requestGetDistributionConfiguration :: GetDistributionConfiguration -> TestTree
 requestGetDistributionConfiguration =
   req
     "GetDistributionConfiguration"
     "fixture/GetDistributionConfiguration.yaml"
+
+requestGetImage :: GetImage -> TestTree
+requestGetImage =
+  req
+    "GetImage"
+    "fixture/GetImage.yaml"
+
+requestGetImagePipeline :: GetImagePipeline -> TestTree
+requestGetImagePipeline =
+  req
+    "GetImagePipeline"
+    "fixture/GetImagePipeline.yaml"
+
+requestGetImagePolicy :: GetImagePolicy -> TestTree
+requestGetImagePolicy =
+  req
+    "GetImagePolicy"
+    "fixture/GetImagePolicy.yaml"
+
+requestGetImageRecipe :: GetImageRecipe -> TestTree
+requestGetImageRecipe =
+  req
+    "GetImageRecipe"
+    "fixture/GetImageRecipe.yaml"
+
+requestGetImageRecipePolicy :: GetImageRecipePolicy -> TestTree
+requestGetImageRecipePolicy =
+  req
+    "GetImageRecipePolicy"
+    "fixture/GetImageRecipePolicy.yaml"
+
+requestGetInfrastructureConfiguration :: GetInfrastructureConfiguration -> TestTree
+requestGetInfrastructureConfiguration =
+  req
+    "GetInfrastructureConfiguration"
+    "fixture/GetInfrastructureConfiguration.yaml"
 
 requestImportComponent :: ImportComponent -> TestTree
 requestImportComponent =
@@ -353,59 +497,11 @@ requestListComponentBuildVersions =
     "ListComponentBuildVersions"
     "fixture/ListComponentBuildVersions.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestListComponents :: ListComponents -> TestTree
+requestListComponents =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestListImageBuildVersions :: ListImageBuildVersions -> TestTree
-requestListImageBuildVersions =
-  req
-    "ListImageBuildVersions"
-    "fixture/ListImageBuildVersions.yaml"
-
-requestCancelImageCreation :: CancelImageCreation -> TestTree
-requestCancelImageCreation =
-  req
-    "CancelImageCreation"
-    "fixture/CancelImageCreation.yaml"
-
-requestGetImagePipeline :: GetImagePipeline -> TestTree
-requestGetImagePipeline =
-  req
-    "GetImagePipeline"
-    "fixture/GetImagePipeline.yaml"
-
-requestCreateInfrastructureConfiguration :: CreateInfrastructureConfiguration -> TestTree
-requestCreateInfrastructureConfiguration =
-  req
-    "CreateInfrastructureConfiguration"
-    "fixture/CreateInfrastructureConfiguration.yaml"
-
-requestListDistributionConfigurations :: ListDistributionConfigurations -> TestTree
-requestListDistributionConfigurations =
-  req
-    "ListDistributionConfigurations"
-    "fixture/ListDistributionConfigurations.yaml"
-
-requestCreateContainerRecipe :: CreateContainerRecipe -> TestTree
-requestCreateContainerRecipe =
-  req
-    "CreateContainerRecipe"
-    "fixture/CreateContainerRecipe.yaml"
-
-requestListInfrastructureConfigurations :: ListInfrastructureConfigurations -> TestTree
-requestListInfrastructureConfigurations =
-  req
-    "ListInfrastructureConfigurations"
-    "fixture/ListInfrastructureConfigurations.yaml"
-
-requestPutImageRecipePolicy :: PutImageRecipePolicy -> TestTree
-requestPutImageRecipePolicy =
-  req
-    "PutImageRecipePolicy"
-    "fixture/PutImageRecipePolicy.yaml"
+    "ListComponents"
+    "fixture/ListComponents.yaml"
 
 requestListContainerRecipes :: ListContainerRecipes -> TestTree
 requestListContainerRecipes =
@@ -413,17 +509,59 @@ requestListContainerRecipes =
     "ListContainerRecipes"
     "fixture/ListContainerRecipes.yaml"
 
-requestPutImagePolicy :: PutImagePolicy -> TestTree
-requestPutImagePolicy =
+requestListDistributionConfigurations :: ListDistributionConfigurations -> TestTree
+requestListDistributionConfigurations =
   req
-    "PutImagePolicy"
-    "fixture/PutImagePolicy.yaml"
+    "ListDistributionConfigurations"
+    "fixture/ListDistributionConfigurations.yaml"
 
-requestDeleteContainerRecipe :: DeleteContainerRecipe -> TestTree
-requestDeleteContainerRecipe =
+requestListImageBuildVersions :: ListImageBuildVersions -> TestTree
+requestListImageBuildVersions =
   req
-    "DeleteContainerRecipe"
-    "fixture/DeleteContainerRecipe.yaml"
+    "ListImageBuildVersions"
+    "fixture/ListImageBuildVersions.yaml"
+
+requestListImagePackages :: ListImagePackages -> TestTree
+requestListImagePackages =
+  req
+    "ListImagePackages"
+    "fixture/ListImagePackages.yaml"
+
+requestListImagePipelineImages :: ListImagePipelineImages -> TestTree
+requestListImagePipelineImages =
+  req
+    "ListImagePipelineImages"
+    "fixture/ListImagePipelineImages.yaml"
+
+requestListImagePipelines :: ListImagePipelines -> TestTree
+requestListImagePipelines =
+  req
+    "ListImagePipelines"
+    "fixture/ListImagePipelines.yaml"
+
+requestListImageRecipes :: ListImageRecipes -> TestTree
+requestListImageRecipes =
+  req
+    "ListImageRecipes"
+    "fixture/ListImageRecipes.yaml"
+
+requestListImages :: ListImages -> TestTree
+requestListImages =
+  req
+    "ListImages"
+    "fixture/ListImages.yaml"
+
+requestListInfrastructureConfigurations :: ListInfrastructureConfigurations -> TestTree
+requestListInfrastructureConfigurations =
+  req
+    "ListInfrastructureConfigurations"
+    "fixture/ListInfrastructureConfigurations.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestPutComponentPolicy :: PutComponentPolicy -> TestTree
 requestPutComponentPolicy =
@@ -431,71 +569,23 @@ requestPutComponentPolicy =
     "PutComponentPolicy"
     "fixture/PutComponentPolicy.yaml"
 
-requestDeleteInfrastructureConfiguration :: DeleteInfrastructureConfiguration -> TestTree
-requestDeleteInfrastructureConfiguration =
+requestPutContainerRecipePolicy :: PutContainerRecipePolicy -> TestTree
+requestPutContainerRecipePolicy =
   req
-    "DeleteInfrastructureConfiguration"
-    "fixture/DeleteInfrastructureConfiguration.yaml"
+    "PutContainerRecipePolicy"
+    "fixture/PutContainerRecipePolicy.yaml"
 
-requestUpdateInfrastructureConfiguration :: UpdateInfrastructureConfiguration -> TestTree
-requestUpdateInfrastructureConfiguration =
+requestPutImagePolicy :: PutImagePolicy -> TestTree
+requestPutImagePolicy =
   req
-    "UpdateInfrastructureConfiguration"
-    "fixture/UpdateInfrastructureConfiguration.yaml"
+    "PutImagePolicy"
+    "fixture/PutImagePolicy.yaml"
 
-requestCreateImagePipeline :: CreateImagePipeline -> TestTree
-requestCreateImagePipeline =
+requestPutImageRecipePolicy :: PutImageRecipePolicy -> TestTree
+requestPutImageRecipePolicy =
   req
-    "CreateImagePipeline"
-    "fixture/CreateImagePipeline.yaml"
-
-requestGetContainerRecipe :: GetContainerRecipe -> TestTree
-requestGetContainerRecipe =
-  req
-    "GetContainerRecipe"
-    "fixture/GetContainerRecipe.yaml"
-
-requestGetInfrastructureConfiguration :: GetInfrastructureConfiguration -> TestTree
-requestGetInfrastructureConfiguration =
-  req
-    "GetInfrastructureConfiguration"
-    "fixture/GetInfrastructureConfiguration.yaml"
-
-requestGetImagePolicy :: GetImagePolicy -> TestTree
-requestGetImagePolicy =
-  req
-    "GetImagePolicy"
-    "fixture/GetImagePolicy.yaml"
-
-requestGetImageRecipePolicy :: GetImageRecipePolicy -> TestTree
-requestGetImageRecipePolicy =
-  req
-    "GetImageRecipePolicy"
-    "fixture/GetImageRecipePolicy.yaml"
-
-requestGetComponentPolicy :: GetComponentPolicy -> TestTree
-requestGetComponentPolicy =
-  req
-    "GetComponentPolicy"
-    "fixture/GetComponentPolicy.yaml"
-
-requestDeleteImagePipeline :: DeleteImagePipeline -> TestTree
-requestDeleteImagePipeline =
-  req
-    "DeleteImagePipeline"
-    "fixture/DeleteImagePipeline.yaml"
-
-requestUpdateImagePipeline :: UpdateImagePipeline -> TestTree
-requestUpdateImagePipeline =
-  req
-    "UpdateImagePipeline"
-    "fixture/UpdateImagePipeline.yaml"
-
-requestListImagePipelines :: ListImagePipelines -> TestTree
-requestListImagePipelines =
-  req
-    "ListImagePipelines"
-    "fixture/ListImagePipelines.yaml"
+    "PutImageRecipePolicy"
+    "fixture/PutImageRecipePolicy.yaml"
 
 requestStartImagePipelineExecution :: StartImagePipelineExecution -> TestTree
 requestStartImagePipelineExecution =
@@ -509,35 +599,11 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestCreateImageRecipe :: CreateImageRecipe -> TestTree
-requestCreateImageRecipe =
-  req
-    "CreateImageRecipe"
-    "fixture/CreateImageRecipe.yaml"
-
-requestCreateImage :: CreateImage -> TestTree
-requestCreateImage =
-  req
-    "CreateImage"
-    "fixture/CreateImage.yaml"
-
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
-
-requestCreateComponent :: CreateComponent -> TestTree
-requestCreateComponent =
-  req
-    "CreateComponent"
-    "fixture/CreateComponent.yaml"
-
-requestDeleteDistributionConfiguration :: DeleteDistributionConfiguration -> TestTree
-requestDeleteDistributionConfiguration =
-  req
-    "DeleteDistributionConfiguration"
-    "fixture/DeleteDistributionConfiguration.yaml"
 
 requestUpdateDistributionConfiguration :: UpdateDistributionConfiguration -> TestTree
 requestUpdateDistributionConfiguration =
@@ -545,93 +611,171 @@ requestUpdateDistributionConfiguration =
     "UpdateDistributionConfiguration"
     "fixture/UpdateDistributionConfiguration.yaml"
 
-requestListImagePipelineImages :: ListImagePipelineImages -> TestTree
-requestListImagePipelineImages =
+requestUpdateImagePipeline :: UpdateImagePipeline -> TestTree
+requestUpdateImagePipeline =
   req
-    "ListImagePipelineImages"
-    "fixture/ListImagePipelineImages.yaml"
+    "UpdateImagePipeline"
+    "fixture/UpdateImagePipeline.yaml"
 
-requestDeleteImageRecipe :: DeleteImageRecipe -> TestTree
-requestDeleteImageRecipe =
+requestUpdateInfrastructureConfiguration :: UpdateInfrastructureConfiguration -> TestTree
+requestUpdateInfrastructureConfiguration =
   req
-    "DeleteImageRecipe"
-    "fixture/DeleteImageRecipe.yaml"
-
-requestListComponents :: ListComponents -> TestTree
-requestListComponents =
-  req
-    "ListComponents"
-    "fixture/ListComponents.yaml"
-
-requestPutContainerRecipePolicy :: PutContainerRecipePolicy -> TestTree
-requestPutContainerRecipePolicy =
-  req
-    "PutContainerRecipePolicy"
-    "fixture/PutContainerRecipePolicy.yaml"
-
-requestListImages :: ListImages -> TestTree
-requestListImages =
-  req
-    "ListImages"
-    "fixture/ListImages.yaml"
-
-requestCreateDistributionConfiguration :: CreateDistributionConfiguration -> TestTree
-requestCreateDistributionConfiguration =
-  req
-    "CreateDistributionConfiguration"
-    "fixture/CreateDistributionConfiguration.yaml"
-
-requestListImageRecipes :: ListImageRecipes -> TestTree
-requestListImageRecipes =
-  req
-    "ListImageRecipes"
-    "fixture/ListImageRecipes.yaml"
-
-requestDeleteImage :: DeleteImage -> TestTree
-requestDeleteImage =
-  req
-    "DeleteImage"
-    "fixture/DeleteImage.yaml"
-
-requestDeleteComponent :: DeleteComponent -> TestTree
-requestDeleteComponent =
-  req
-    "DeleteComponent"
-    "fixture/DeleteComponent.yaml"
-
-requestGetImage :: GetImage -> TestTree
-requestGetImage =
-  req
-    "GetImage"
-    "fixture/GetImage.yaml"
-
-requestGetContainerRecipePolicy :: GetContainerRecipePolicy -> TestTree
-requestGetContainerRecipePolicy =
-  req
-    "GetContainerRecipePolicy"
-    "fixture/GetContainerRecipePolicy.yaml"
-
-requestGetImageRecipe :: GetImageRecipe -> TestTree
-requestGetImageRecipe =
-  req
-    "GetImageRecipe"
-    "fixture/GetImageRecipe.yaml"
-
-requestGetComponent :: GetComponent -> TestTree
-requestGetComponent =
-  req
-    "GetComponent"
-    "fixture/GetComponent.yaml"
+    "UpdateInfrastructureConfiguration"
+    "fixture/UpdateInfrastructureConfiguration.yaml"
 
 -- Responses
 
-responseListImagePackages :: ListImagePackagesResponse -> TestTree
-responseListImagePackages =
+responseCancelImageCreation :: CancelImageCreationResponse -> TestTree
+responseCancelImageCreation =
   res
-    "ListImagePackagesResponse"
-    "fixture/ListImagePackagesResponse.proto"
+    "CancelImageCreationResponse"
+    "fixture/CancelImageCreationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListImagePackages)
+    (Proxy.Proxy :: Proxy.Proxy CancelImageCreation)
+
+responseCreateComponent :: CreateComponentResponse -> TestTree
+responseCreateComponent =
+  res
+    "CreateComponentResponse"
+    "fixture/CreateComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateComponent)
+
+responseCreateContainerRecipe :: CreateContainerRecipeResponse -> TestTree
+responseCreateContainerRecipe =
+  res
+    "CreateContainerRecipeResponse"
+    "fixture/CreateContainerRecipeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateContainerRecipe)
+
+responseCreateDistributionConfiguration :: CreateDistributionConfigurationResponse -> TestTree
+responseCreateDistributionConfiguration =
+  res
+    "CreateDistributionConfigurationResponse"
+    "fixture/CreateDistributionConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDistributionConfiguration)
+
+responseCreateImage :: CreateImageResponse -> TestTree
+responseCreateImage =
+  res
+    "CreateImageResponse"
+    "fixture/CreateImageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateImage)
+
+responseCreateImagePipeline :: CreateImagePipelineResponse -> TestTree
+responseCreateImagePipeline =
+  res
+    "CreateImagePipelineResponse"
+    "fixture/CreateImagePipelineResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateImagePipeline)
+
+responseCreateImageRecipe :: CreateImageRecipeResponse -> TestTree
+responseCreateImageRecipe =
+  res
+    "CreateImageRecipeResponse"
+    "fixture/CreateImageRecipeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateImageRecipe)
+
+responseCreateInfrastructureConfiguration :: CreateInfrastructureConfigurationResponse -> TestTree
+responseCreateInfrastructureConfiguration =
+  res
+    "CreateInfrastructureConfigurationResponse"
+    "fixture/CreateInfrastructureConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateInfrastructureConfiguration)
+
+responseDeleteComponent :: DeleteComponentResponse -> TestTree
+responseDeleteComponent =
+  res
+    "DeleteComponentResponse"
+    "fixture/DeleteComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteComponent)
+
+responseDeleteContainerRecipe :: DeleteContainerRecipeResponse -> TestTree
+responseDeleteContainerRecipe =
+  res
+    "DeleteContainerRecipeResponse"
+    "fixture/DeleteContainerRecipeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteContainerRecipe)
+
+responseDeleteDistributionConfiguration :: DeleteDistributionConfigurationResponse -> TestTree
+responseDeleteDistributionConfiguration =
+  res
+    "DeleteDistributionConfigurationResponse"
+    "fixture/DeleteDistributionConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDistributionConfiguration)
+
+responseDeleteImage :: DeleteImageResponse -> TestTree
+responseDeleteImage =
+  res
+    "DeleteImageResponse"
+    "fixture/DeleteImageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteImage)
+
+responseDeleteImagePipeline :: DeleteImagePipelineResponse -> TestTree
+responseDeleteImagePipeline =
+  res
+    "DeleteImagePipelineResponse"
+    "fixture/DeleteImagePipelineResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteImagePipeline)
+
+responseDeleteImageRecipe :: DeleteImageRecipeResponse -> TestTree
+responseDeleteImageRecipe =
+  res
+    "DeleteImageRecipeResponse"
+    "fixture/DeleteImageRecipeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteImageRecipe)
+
+responseDeleteInfrastructureConfiguration :: DeleteInfrastructureConfigurationResponse -> TestTree
+responseDeleteInfrastructureConfiguration =
+  res
+    "DeleteInfrastructureConfigurationResponse"
+    "fixture/DeleteInfrastructureConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteInfrastructureConfiguration)
+
+responseGetComponent :: GetComponentResponse -> TestTree
+responseGetComponent =
+  res
+    "GetComponentResponse"
+    "fixture/GetComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetComponent)
+
+responseGetComponentPolicy :: GetComponentPolicyResponse -> TestTree
+responseGetComponentPolicy =
+  res
+    "GetComponentPolicyResponse"
+    "fixture/GetComponentPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetComponentPolicy)
+
+responseGetContainerRecipe :: GetContainerRecipeResponse -> TestTree
+responseGetContainerRecipe =
+  res
+    "GetContainerRecipeResponse"
+    "fixture/GetContainerRecipeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetContainerRecipe)
+
+responseGetContainerRecipePolicy :: GetContainerRecipePolicyResponse -> TestTree
+responseGetContainerRecipePolicy =
+  res
+    "GetContainerRecipePolicyResponse"
+    "fixture/GetContainerRecipePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetContainerRecipePolicy)
 
 responseGetDistributionConfiguration :: GetDistributionConfigurationResponse -> TestTree
 responseGetDistributionConfiguration =
@@ -640,6 +784,54 @@ responseGetDistributionConfiguration =
     "fixture/GetDistributionConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDistributionConfiguration)
+
+responseGetImage :: GetImageResponse -> TestTree
+responseGetImage =
+  res
+    "GetImageResponse"
+    "fixture/GetImageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetImage)
+
+responseGetImagePipeline :: GetImagePipelineResponse -> TestTree
+responseGetImagePipeline =
+  res
+    "GetImagePipelineResponse"
+    "fixture/GetImagePipelineResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetImagePipeline)
+
+responseGetImagePolicy :: GetImagePolicyResponse -> TestTree
+responseGetImagePolicy =
+  res
+    "GetImagePolicyResponse"
+    "fixture/GetImagePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetImagePolicy)
+
+responseGetImageRecipe :: GetImageRecipeResponse -> TestTree
+responseGetImageRecipe =
+  res
+    "GetImageRecipeResponse"
+    "fixture/GetImageRecipeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetImageRecipe)
+
+responseGetImageRecipePolicy :: GetImageRecipePolicyResponse -> TestTree
+responseGetImageRecipePolicy =
+  res
+    "GetImageRecipePolicyResponse"
+    "fixture/GetImageRecipePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetImageRecipePolicy)
+
+responseGetInfrastructureConfiguration :: GetInfrastructureConfigurationResponse -> TestTree
+responseGetInfrastructureConfiguration =
+  res
+    "GetInfrastructureConfigurationResponse"
+    "fixture/GetInfrastructureConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetInfrastructureConfiguration)
 
 responseImportComponent :: ImportComponentResponse -> TestTree
 responseImportComponent =
@@ -657,77 +849,13 @@ responseListComponentBuildVersions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListComponentBuildVersions)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseListComponents :: ListComponentsResponse -> TestTree
+responseListComponents =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "ListComponentsResponse"
+    "fixture/ListComponentsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseListImageBuildVersions :: ListImageBuildVersionsResponse -> TestTree
-responseListImageBuildVersions =
-  res
-    "ListImageBuildVersionsResponse"
-    "fixture/ListImageBuildVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListImageBuildVersions)
-
-responseCancelImageCreation :: CancelImageCreationResponse -> TestTree
-responseCancelImageCreation =
-  res
-    "CancelImageCreationResponse"
-    "fixture/CancelImageCreationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelImageCreation)
-
-responseGetImagePipeline :: GetImagePipelineResponse -> TestTree
-responseGetImagePipeline =
-  res
-    "GetImagePipelineResponse"
-    "fixture/GetImagePipelineResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetImagePipeline)
-
-responseCreateInfrastructureConfiguration :: CreateInfrastructureConfigurationResponse -> TestTree
-responseCreateInfrastructureConfiguration =
-  res
-    "CreateInfrastructureConfigurationResponse"
-    "fixture/CreateInfrastructureConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateInfrastructureConfiguration)
-
-responseListDistributionConfigurations :: ListDistributionConfigurationsResponse -> TestTree
-responseListDistributionConfigurations =
-  res
-    "ListDistributionConfigurationsResponse"
-    "fixture/ListDistributionConfigurationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDistributionConfigurations)
-
-responseCreateContainerRecipe :: CreateContainerRecipeResponse -> TestTree
-responseCreateContainerRecipe =
-  res
-    "CreateContainerRecipeResponse"
-    "fixture/CreateContainerRecipeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateContainerRecipe)
-
-responseListInfrastructureConfigurations :: ListInfrastructureConfigurationsResponse -> TestTree
-responseListInfrastructureConfigurations =
-  res
-    "ListInfrastructureConfigurationsResponse"
-    "fixture/ListInfrastructureConfigurationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInfrastructureConfigurations)
-
-responsePutImageRecipePolicy :: PutImageRecipePolicyResponse -> TestTree
-responsePutImageRecipePolicy =
-  res
-    "PutImageRecipePolicyResponse"
-    "fixture/PutImageRecipePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutImageRecipePolicy)
+    (Proxy.Proxy :: Proxy.Proxy ListComponents)
 
 responseListContainerRecipes :: ListContainerRecipesResponse -> TestTree
 responseListContainerRecipes =
@@ -737,21 +865,77 @@ responseListContainerRecipes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListContainerRecipes)
 
-responsePutImagePolicy :: PutImagePolicyResponse -> TestTree
-responsePutImagePolicy =
+responseListDistributionConfigurations :: ListDistributionConfigurationsResponse -> TestTree
+responseListDistributionConfigurations =
   res
-    "PutImagePolicyResponse"
-    "fixture/PutImagePolicyResponse.proto"
+    "ListDistributionConfigurationsResponse"
+    "fixture/ListDistributionConfigurationsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutImagePolicy)
+    (Proxy.Proxy :: Proxy.Proxy ListDistributionConfigurations)
 
-responseDeleteContainerRecipe :: DeleteContainerRecipeResponse -> TestTree
-responseDeleteContainerRecipe =
+responseListImageBuildVersions :: ListImageBuildVersionsResponse -> TestTree
+responseListImageBuildVersions =
   res
-    "DeleteContainerRecipeResponse"
-    "fixture/DeleteContainerRecipeResponse.proto"
+    "ListImageBuildVersionsResponse"
+    "fixture/ListImageBuildVersionsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteContainerRecipe)
+    (Proxy.Proxy :: Proxy.Proxy ListImageBuildVersions)
+
+responseListImagePackages :: ListImagePackagesResponse -> TestTree
+responseListImagePackages =
+  res
+    "ListImagePackagesResponse"
+    "fixture/ListImagePackagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImagePackages)
+
+responseListImagePipelineImages :: ListImagePipelineImagesResponse -> TestTree
+responseListImagePipelineImages =
+  res
+    "ListImagePipelineImagesResponse"
+    "fixture/ListImagePipelineImagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImagePipelineImages)
+
+responseListImagePipelines :: ListImagePipelinesResponse -> TestTree
+responseListImagePipelines =
+  res
+    "ListImagePipelinesResponse"
+    "fixture/ListImagePipelinesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImagePipelines)
+
+responseListImageRecipes :: ListImageRecipesResponse -> TestTree
+responseListImageRecipes =
+  res
+    "ListImageRecipesResponse"
+    "fixture/ListImageRecipesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImageRecipes)
+
+responseListImages :: ListImagesResponse -> TestTree
+responseListImages =
+  res
+    "ListImagesResponse"
+    "fixture/ListImagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImages)
+
+responseListInfrastructureConfigurations :: ListInfrastructureConfigurationsResponse -> TestTree
+responseListInfrastructureConfigurations =
+  res
+    "ListInfrastructureConfigurationsResponse"
+    "fixture/ListInfrastructureConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListInfrastructureConfigurations)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responsePutComponentPolicy :: PutComponentPolicyResponse -> TestTree
 responsePutComponentPolicy =
@@ -761,93 +945,29 @@ responsePutComponentPolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutComponentPolicy)
 
-responseDeleteInfrastructureConfiguration :: DeleteInfrastructureConfigurationResponse -> TestTree
-responseDeleteInfrastructureConfiguration =
+responsePutContainerRecipePolicy :: PutContainerRecipePolicyResponse -> TestTree
+responsePutContainerRecipePolicy =
   res
-    "DeleteInfrastructureConfigurationResponse"
-    "fixture/DeleteInfrastructureConfigurationResponse.proto"
+    "PutContainerRecipePolicyResponse"
+    "fixture/PutContainerRecipePolicyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteInfrastructureConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutContainerRecipePolicy)
 
-responseUpdateInfrastructureConfiguration :: UpdateInfrastructureConfigurationResponse -> TestTree
-responseUpdateInfrastructureConfiguration =
+responsePutImagePolicy :: PutImagePolicyResponse -> TestTree
+responsePutImagePolicy =
   res
-    "UpdateInfrastructureConfigurationResponse"
-    "fixture/UpdateInfrastructureConfigurationResponse.proto"
+    "PutImagePolicyResponse"
+    "fixture/PutImagePolicyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateInfrastructureConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy PutImagePolicy)
 
-responseCreateImagePipeline :: CreateImagePipelineResponse -> TestTree
-responseCreateImagePipeline =
+responsePutImageRecipePolicy :: PutImageRecipePolicyResponse -> TestTree
+responsePutImageRecipePolicy =
   res
-    "CreateImagePipelineResponse"
-    "fixture/CreateImagePipelineResponse.proto"
+    "PutImageRecipePolicyResponse"
+    "fixture/PutImageRecipePolicyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateImagePipeline)
-
-responseGetContainerRecipe :: GetContainerRecipeResponse -> TestTree
-responseGetContainerRecipe =
-  res
-    "GetContainerRecipeResponse"
-    "fixture/GetContainerRecipeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetContainerRecipe)
-
-responseGetInfrastructureConfiguration :: GetInfrastructureConfigurationResponse -> TestTree
-responseGetInfrastructureConfiguration =
-  res
-    "GetInfrastructureConfigurationResponse"
-    "fixture/GetInfrastructureConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetInfrastructureConfiguration)
-
-responseGetImagePolicy :: GetImagePolicyResponse -> TestTree
-responseGetImagePolicy =
-  res
-    "GetImagePolicyResponse"
-    "fixture/GetImagePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetImagePolicy)
-
-responseGetImageRecipePolicy :: GetImageRecipePolicyResponse -> TestTree
-responseGetImageRecipePolicy =
-  res
-    "GetImageRecipePolicyResponse"
-    "fixture/GetImageRecipePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetImageRecipePolicy)
-
-responseGetComponentPolicy :: GetComponentPolicyResponse -> TestTree
-responseGetComponentPolicy =
-  res
-    "GetComponentPolicyResponse"
-    "fixture/GetComponentPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetComponentPolicy)
-
-responseDeleteImagePipeline :: DeleteImagePipelineResponse -> TestTree
-responseDeleteImagePipeline =
-  res
-    "DeleteImagePipelineResponse"
-    "fixture/DeleteImagePipelineResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteImagePipeline)
-
-responseUpdateImagePipeline :: UpdateImagePipelineResponse -> TestTree
-responseUpdateImagePipeline =
-  res
-    "UpdateImagePipelineResponse"
-    "fixture/UpdateImagePipelineResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateImagePipeline)
-
-responseListImagePipelines :: ListImagePipelinesResponse -> TestTree
-responseListImagePipelines =
-  res
-    "ListImagePipelinesResponse"
-    "fixture/ListImagePipelinesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListImagePipelines)
+    (Proxy.Proxy :: Proxy.Proxy PutImageRecipePolicy)
 
 responseStartImagePipelineExecution :: StartImagePipelineExecutionResponse -> TestTree
 responseStartImagePipelineExecution =
@@ -865,22 +985,6 @@ responseTagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
 
-responseCreateImageRecipe :: CreateImageRecipeResponse -> TestTree
-responseCreateImageRecipe =
-  res
-    "CreateImageRecipeResponse"
-    "fixture/CreateImageRecipeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateImageRecipe)
-
-responseCreateImage :: CreateImageResponse -> TestTree
-responseCreateImage =
-  res
-    "CreateImageResponse"
-    "fixture/CreateImageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateImage)
-
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -888,22 +992,6 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseCreateComponent :: CreateComponentResponse -> TestTree
-responseCreateComponent =
-  res
-    "CreateComponentResponse"
-    "fixture/CreateComponentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateComponent)
-
-responseDeleteDistributionConfiguration :: DeleteDistributionConfigurationResponse -> TestTree
-responseDeleteDistributionConfiguration =
-  res
-    "DeleteDistributionConfigurationResponse"
-    "fixture/DeleteDistributionConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDistributionConfiguration)
 
 responseUpdateDistributionConfiguration :: UpdateDistributionConfigurationResponse -> TestTree
 responseUpdateDistributionConfiguration =
@@ -913,106 +1001,18 @@ responseUpdateDistributionConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDistributionConfiguration)
 
-responseListImagePipelineImages :: ListImagePipelineImagesResponse -> TestTree
-responseListImagePipelineImages =
+responseUpdateImagePipeline :: UpdateImagePipelineResponse -> TestTree
+responseUpdateImagePipeline =
   res
-    "ListImagePipelineImagesResponse"
-    "fixture/ListImagePipelineImagesResponse.proto"
+    "UpdateImagePipelineResponse"
+    "fixture/UpdateImagePipelineResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListImagePipelineImages)
+    (Proxy.Proxy :: Proxy.Proxy UpdateImagePipeline)
 
-responseDeleteImageRecipe :: DeleteImageRecipeResponse -> TestTree
-responseDeleteImageRecipe =
+responseUpdateInfrastructureConfiguration :: UpdateInfrastructureConfigurationResponse -> TestTree
+responseUpdateInfrastructureConfiguration =
   res
-    "DeleteImageRecipeResponse"
-    "fixture/DeleteImageRecipeResponse.proto"
+    "UpdateInfrastructureConfigurationResponse"
+    "fixture/UpdateInfrastructureConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteImageRecipe)
-
-responseListComponents :: ListComponentsResponse -> TestTree
-responseListComponents =
-  res
-    "ListComponentsResponse"
-    "fixture/ListComponentsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListComponents)
-
-responsePutContainerRecipePolicy :: PutContainerRecipePolicyResponse -> TestTree
-responsePutContainerRecipePolicy =
-  res
-    "PutContainerRecipePolicyResponse"
-    "fixture/PutContainerRecipePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutContainerRecipePolicy)
-
-responseListImages :: ListImagesResponse -> TestTree
-responseListImages =
-  res
-    "ListImagesResponse"
-    "fixture/ListImagesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListImages)
-
-responseCreateDistributionConfiguration :: CreateDistributionConfigurationResponse -> TestTree
-responseCreateDistributionConfiguration =
-  res
-    "CreateDistributionConfigurationResponse"
-    "fixture/CreateDistributionConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDistributionConfiguration)
-
-responseListImageRecipes :: ListImageRecipesResponse -> TestTree
-responseListImageRecipes =
-  res
-    "ListImageRecipesResponse"
-    "fixture/ListImageRecipesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListImageRecipes)
-
-responseDeleteImage :: DeleteImageResponse -> TestTree
-responseDeleteImage =
-  res
-    "DeleteImageResponse"
-    "fixture/DeleteImageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteImage)
-
-responseDeleteComponent :: DeleteComponentResponse -> TestTree
-responseDeleteComponent =
-  res
-    "DeleteComponentResponse"
-    "fixture/DeleteComponentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteComponent)
-
-responseGetImage :: GetImageResponse -> TestTree
-responseGetImage =
-  res
-    "GetImageResponse"
-    "fixture/GetImageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetImage)
-
-responseGetContainerRecipePolicy :: GetContainerRecipePolicyResponse -> TestTree
-responseGetContainerRecipePolicy =
-  res
-    "GetContainerRecipePolicyResponse"
-    "fixture/GetContainerRecipePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetContainerRecipePolicy)
-
-responseGetImageRecipe :: GetImageRecipeResponse -> TestTree
-responseGetImageRecipe =
-  res
-    "GetImageRecipeResponse"
-    "fixture/GetImageRecipeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetImageRecipe)
-
-responseGetComponent :: GetComponentResponse -> TestTree
-responseGetComponent =
-  res
-    "GetComponentResponse"
-    "fixture/GetComponentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetComponent)
+    (Proxy.Proxy :: Proxy.Proxy UpdateInfrastructureConfiguration)

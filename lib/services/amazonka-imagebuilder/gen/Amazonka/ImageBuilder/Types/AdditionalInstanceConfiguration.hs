@@ -32,9 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAdditionalInstanceConfiguration' smart constructor.
 data AdditionalInstanceConfiguration = AdditionalInstanceConfiguration'
-  { -- | Contains settings for the Systems Manager agent on your build instance.
-    systemsManagerAgent :: Prelude.Maybe SystemsManagerAgent,
-    -- | Use this property to provide commands or a command script to run when
+  { -- | Use this property to provide commands or a command script to run when
     -- you launch your build instance.
     --
     -- The userDataOverride property replaces any commands that Image Builder
@@ -42,7 +40,9 @@ data AdditionalInstanceConfiguration = AdditionalInstanceConfiguration'
     -- Linux build instance. If you override the user data, make sure that you
     -- add commands to install Systems Manager, if it is not pre-installed on
     -- your base image.
-    userDataOverride :: Prelude.Maybe Prelude.Text
+    userDataOverride :: Prelude.Maybe Prelude.Text,
+    -- | Contains settings for the Systems Manager agent on your build instance.
+    systemsManagerAgent :: Prelude.Maybe SystemsManagerAgent
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,8 +54,6 @@ data AdditionalInstanceConfiguration = AdditionalInstanceConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'systemsManagerAgent', 'additionalInstanceConfiguration_systemsManagerAgent' - Contains settings for the Systems Manager agent on your build instance.
---
 -- 'userDataOverride', 'additionalInstanceConfiguration_userDataOverride' - Use this property to provide commands or a command script to run when
 -- you launch your build instance.
 --
@@ -64,18 +62,16 @@ data AdditionalInstanceConfiguration = AdditionalInstanceConfiguration'
 -- Linux build instance. If you override the user data, make sure that you
 -- add commands to install Systems Manager, if it is not pre-installed on
 -- your base image.
+--
+-- 'systemsManagerAgent', 'additionalInstanceConfiguration_systemsManagerAgent' - Contains settings for the Systems Manager agent on your build instance.
 newAdditionalInstanceConfiguration ::
   AdditionalInstanceConfiguration
 newAdditionalInstanceConfiguration =
   AdditionalInstanceConfiguration'
-    { systemsManagerAgent =
+    { userDataOverride =
         Prelude.Nothing,
-      userDataOverride = Prelude.Nothing
+      systemsManagerAgent = Prelude.Nothing
     }
-
--- | Contains settings for the Systems Manager agent on your build instance.
-additionalInstanceConfiguration_systemsManagerAgent :: Lens.Lens' AdditionalInstanceConfiguration (Prelude.Maybe SystemsManagerAgent)
-additionalInstanceConfiguration_systemsManagerAgent = Lens.lens (\AdditionalInstanceConfiguration' {systemsManagerAgent} -> systemsManagerAgent) (\s@AdditionalInstanceConfiguration' {} a -> s {systemsManagerAgent = a} :: AdditionalInstanceConfiguration)
 
 -- | Use this property to provide commands or a command script to run when
 -- you launch your build instance.
@@ -88,6 +84,10 @@ additionalInstanceConfiguration_systemsManagerAgent = Lens.lens (\AdditionalInst
 additionalInstanceConfiguration_userDataOverride :: Lens.Lens' AdditionalInstanceConfiguration (Prelude.Maybe Prelude.Text)
 additionalInstanceConfiguration_userDataOverride = Lens.lens (\AdditionalInstanceConfiguration' {userDataOverride} -> userDataOverride) (\s@AdditionalInstanceConfiguration' {} a -> s {userDataOverride = a} :: AdditionalInstanceConfiguration)
 
+-- | Contains settings for the Systems Manager agent on your build instance.
+additionalInstanceConfiguration_systemsManagerAgent :: Lens.Lens' AdditionalInstanceConfiguration (Prelude.Maybe SystemsManagerAgent)
+additionalInstanceConfiguration_systemsManagerAgent = Lens.lens (\AdditionalInstanceConfiguration' {systemsManagerAgent} -> systemsManagerAgent) (\s@AdditionalInstanceConfiguration' {} a -> s {systemsManagerAgent = a} :: AdditionalInstanceConfiguration)
+
 instance
   Core.FromJSON
     AdditionalInstanceConfiguration
@@ -97,8 +97,8 @@ instance
       "AdditionalInstanceConfiguration"
       ( \x ->
           AdditionalInstanceConfiguration'
-            Prelude.<$> (x Core..:? "systemsManagerAgent")
-            Prelude.<*> (x Core..:? "userDataOverride")
+            Prelude.<$> (x Core..:? "userDataOverride")
+            Prelude.<*> (x Core..:? "systemsManagerAgent")
       )
 
 instance
@@ -108,24 +108,24 @@ instance
   hashWithSalt
     _salt
     AdditionalInstanceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` systemsManagerAgent
-        `Prelude.hashWithSalt` userDataOverride
+      _salt `Prelude.hashWithSalt` userDataOverride
+        `Prelude.hashWithSalt` systemsManagerAgent
 
 instance
   Prelude.NFData
     AdditionalInstanceConfiguration
   where
   rnf AdditionalInstanceConfiguration' {..} =
-    Prelude.rnf systemsManagerAgent
-      `Prelude.seq` Prelude.rnf userDataOverride
+    Prelude.rnf userDataOverride
+      `Prelude.seq` Prelude.rnf systemsManagerAgent
 
 instance Core.ToJSON AdditionalInstanceConfiguration where
   toJSON AdditionalInstanceConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("systemsManagerAgent" Core..=)
-              Prelude.<$> systemsManagerAgent,
-            ("userDataOverride" Core..=)
-              Prelude.<$> userDataOverride
+          [ ("userDataOverride" Core..=)
+              Prelude.<$> userDataOverride,
+            ("systemsManagerAgent" Core..=)
+              Prelude.<$> systemsManagerAgent
           ]
       )

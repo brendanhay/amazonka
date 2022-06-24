@@ -34,8 +34,8 @@ module Amazonka.ImageBuilder.GetContainerRecipePolicy
     newGetContainerRecipePolicyResponse,
 
     -- * Response Lenses
-    getContainerRecipePolicyResponse_requestId,
     getContainerRecipePolicyResponse_policy,
+    getContainerRecipePolicyResponse_requestId,
     getContainerRecipePolicyResponse_httpStatus,
   )
 where
@@ -89,8 +89,8 @@ instance Core.AWSRequest GetContainerRecipePolicy where
     Response.receiveJSON
       ( \s h x ->
           GetContainerRecipePolicyResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "policy")
+            Prelude.<$> (x Core..?> "policy")
+            Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,10 +123,10 @@ instance Core.ToQuery GetContainerRecipePolicy where
 
 -- | /See:/ 'newGetContainerRecipePolicyResponse' smart constructor.
 data GetContainerRecipePolicyResponse = GetContainerRecipePolicyResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The container recipe policy object that is returned.
+  { -- | The container recipe policy object that is returned.
     policy :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -140,9 +140,9 @@ data GetContainerRecipePolicyResponse = GetContainerRecipePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'getContainerRecipePolicyResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'policy', 'getContainerRecipePolicyResponse_policy' - The container recipe policy object that is returned.
+--
+-- 'requestId', 'getContainerRecipePolicyResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'getContainerRecipePolicyResponse_httpStatus' - The response's http status code.
 newGetContainerRecipePolicyResponse ::
@@ -151,19 +151,19 @@ newGetContainerRecipePolicyResponse ::
   GetContainerRecipePolicyResponse
 newGetContainerRecipePolicyResponse pHttpStatus_ =
   GetContainerRecipePolicyResponse'
-    { requestId =
+    { policy =
         Prelude.Nothing,
-      policy = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-getContainerRecipePolicyResponse_requestId :: Lens.Lens' GetContainerRecipePolicyResponse (Prelude.Maybe Prelude.Text)
-getContainerRecipePolicyResponse_requestId = Lens.lens (\GetContainerRecipePolicyResponse' {requestId} -> requestId) (\s@GetContainerRecipePolicyResponse' {} a -> s {requestId = a} :: GetContainerRecipePolicyResponse)
 
 -- | The container recipe policy object that is returned.
 getContainerRecipePolicyResponse_policy :: Lens.Lens' GetContainerRecipePolicyResponse (Prelude.Maybe Prelude.Text)
 getContainerRecipePolicyResponse_policy = Lens.lens (\GetContainerRecipePolicyResponse' {policy} -> policy) (\s@GetContainerRecipePolicyResponse' {} a -> s {policy = a} :: GetContainerRecipePolicyResponse)
+
+-- | The request ID that uniquely identifies this request.
+getContainerRecipePolicyResponse_requestId :: Lens.Lens' GetContainerRecipePolicyResponse (Prelude.Maybe Prelude.Text)
+getContainerRecipePolicyResponse_requestId = Lens.lens (\GetContainerRecipePolicyResponse' {requestId} -> requestId) (\s@GetContainerRecipePolicyResponse' {} a -> s {requestId = a} :: GetContainerRecipePolicyResponse)
 
 -- | The response's http status code.
 getContainerRecipePolicyResponse_httpStatus :: Lens.Lens' GetContainerRecipePolicyResponse Prelude.Int
@@ -174,6 +174,6 @@ instance
     GetContainerRecipePolicyResponse
   where
   rnf GetContainerRecipePolicyResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

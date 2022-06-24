@@ -25,60 +25,6 @@ module Amazonka.Polly
     -- * Errors
     -- $errors
 
-    -- ** InvalidSnsTopicArnException
-    _InvalidSnsTopicArnException,
-
-    -- ** UnsupportedPlsLanguageException
-    _UnsupportedPlsLanguageException,
-
-    -- ** InvalidSsmlException
-    _InvalidSsmlException,
-
-    -- ** InvalidSampleRateException
-    _InvalidSampleRateException,
-
-    -- ** EngineNotSupportedException
-    _EngineNotSupportedException,
-
-    -- ** MaxLexiconsNumberExceededException
-    _MaxLexiconsNumberExceededException,
-
-    -- ** TextLengthExceededException
-    _TextLengthExceededException,
-
-    -- ** MaxLexemeLengthExceededException
-    _MaxLexemeLengthExceededException,
-
-    -- ** InvalidTaskIdException
-    _InvalidTaskIdException,
-
-    -- ** InvalidLexiconException
-    _InvalidLexiconException,
-
-    -- ** ServiceFailureException
-    _ServiceFailureException,
-
-    -- ** UnsupportedPlsAlphabetException
-    _UnsupportedPlsAlphabetException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** MarksNotSupportedForFormatException
-    _MarksNotSupportedForFormatException,
-
-    -- ** SynthesisTaskNotFoundException
-    _SynthesisTaskNotFoundException,
-
-    -- ** SsmlMarksNotSupportedForTextTypeException
-    _SsmlMarksNotSupportedForTextTypeException,
-
-    -- ** InvalidS3BucketException
-    _InvalidS3BucketException,
-
-    -- ** LexiconSizeExceededException
-    _LexiconSizeExceededException,
-
     -- ** LanguageNotSupportedException
     _LanguageNotSupportedException,
 
@@ -88,11 +34,77 @@ module Amazonka.Polly
     -- ** InvalidS3KeyException
     _InvalidS3KeyException,
 
+    -- ** UnsupportedPlsLanguageException
+    _UnsupportedPlsLanguageException,
+
+    -- ** LexiconSizeExceededException
+    _LexiconSizeExceededException,
+
+    -- ** InvalidSampleRateException
+    _InvalidSampleRateException,
+
+    -- ** InvalidSsmlException
+    _InvalidSsmlException,
+
+    -- ** MaxLexemeLengthExceededException
+    _MaxLexemeLengthExceededException,
+
+    -- ** MaxLexiconsNumberExceededException
+    _MaxLexiconsNumberExceededException,
+
+    -- ** InvalidSnsTopicArnException
+    _InvalidSnsTopicArnException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** EngineNotSupportedException
+    _EngineNotSupportedException,
+
+    -- ** MarksNotSupportedForFormatException
+    _MarksNotSupportedForFormatException,
+
+    -- ** TextLengthExceededException
+    _TextLengthExceededException,
+
+    -- ** InvalidLexiconException
+    _InvalidLexiconException,
+
+    -- ** SsmlMarksNotSupportedForTextTypeException
+    _SsmlMarksNotSupportedForTextTypeException,
+
+    -- ** UnsupportedPlsAlphabetException
+    _UnsupportedPlsAlphabetException,
+
+    -- ** InvalidTaskIdException
+    _InvalidTaskIdException,
+
+    -- ** SynthesisTaskNotFoundException
+    _SynthesisTaskNotFoundException,
+
+    -- ** ServiceFailureException
+    _ServiceFailureException,
+
+    -- ** InvalidS3BucketException
+    _InvalidS3BucketException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** DeleteLexicon
+    DeleteLexicon (DeleteLexicon'),
+    newDeleteLexicon,
+    DeleteLexiconResponse (DeleteLexiconResponse'),
+    newDeleteLexiconResponse,
+
+    -- ** DescribeVoices (Paginated)
+    DescribeVoices (DescribeVoices'),
+    newDescribeVoices,
+    DescribeVoicesResponse (DescribeVoicesResponse'),
+    newDescribeVoicesResponse,
 
     -- ** GetLexicon
     GetLexicon (GetLexicon'),
@@ -106,23 +118,11 @@ module Amazonka.Polly
     GetSpeechSynthesisTaskResponse (GetSpeechSynthesisTaskResponse'),
     newGetSpeechSynthesisTaskResponse,
 
-    -- ** DescribeVoices (Paginated)
-    DescribeVoices (DescribeVoices'),
-    newDescribeVoices,
-    DescribeVoicesResponse (DescribeVoicesResponse'),
-    newDescribeVoicesResponse,
-
     -- ** ListLexicons (Paginated)
     ListLexicons (ListLexicons'),
     newListLexicons,
     ListLexiconsResponse (ListLexiconsResponse'),
     newListLexiconsResponse,
-
-    -- ** SynthesizeSpeech
-    SynthesizeSpeech (SynthesizeSpeech'),
-    newSynthesizeSpeech,
-    SynthesizeSpeechResponse (SynthesizeSpeechResponse'),
-    newSynthesizeSpeechResponse,
 
     -- ** ListSpeechSynthesisTasks (Paginated)
     ListSpeechSynthesisTasks (ListSpeechSynthesisTasks'),
@@ -136,17 +136,17 @@ module Amazonka.Polly
     PutLexiconResponse (PutLexiconResponse'),
     newPutLexiconResponse,
 
-    -- ** DeleteLexicon
-    DeleteLexicon (DeleteLexicon'),
-    newDeleteLexicon,
-    DeleteLexiconResponse (DeleteLexiconResponse'),
-    newDeleteLexiconResponse,
-
     -- ** StartSpeechSynthesisTask
     StartSpeechSynthesisTask (StartSpeechSynthesisTask'),
     newStartSpeechSynthesisTask,
     StartSpeechSynthesisTaskResponse (StartSpeechSynthesisTaskResponse'),
     newStartSpeechSynthesisTaskResponse,
+
+    -- ** SynthesizeSpeech
+    SynthesizeSpeech (SynthesizeSpeech'),
+    newSynthesizeSpeech,
+    SynthesizeSpeechResponse (SynthesizeSpeechResponse'),
+    newSynthesizeSpeechResponse,
 
     -- * Types
 

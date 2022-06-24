@@ -30,21 +30,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLexiconAttributes' smart constructor.
 data LexiconAttributes = LexiconAttributes'
-  { -- | Language code that the lexicon applies to. A lexicon with a language
+  { -- | Phonetic alphabet used in the lexicon. Valid values are @ipa@ and
+    -- @x-sampa@.
+    alphabet :: Prelude.Maybe Prelude.Text,
+    -- | Amazon Resource Name (ARN) of the lexicon.
+    lexiconArn :: Prelude.Maybe Prelude.Text,
+    -- | Total size of the lexicon, in characters.
+    size :: Prelude.Maybe Prelude.Int,
+    -- | Language code that the lexicon applies to. A lexicon with a language
     -- code such as \"en\" would be applied to all English languages (en-GB,
     -- en-US, en-AUS, en-WLS, and so on.
     languageCode :: Prelude.Maybe LanguageCode,
-    -- | Total size of the lexicon, in characters.
-    size :: Prelude.Maybe Prelude.Int,
-    -- | Number of lexemes in the lexicon.
-    lexemesCount :: Prelude.Maybe Prelude.Int,
-    -- | Amazon Resource Name (ARN) of the lexicon.
-    lexiconArn :: Prelude.Maybe Prelude.Text,
-    -- | Phonetic alphabet used in the lexicon. Valid values are @ipa@ and
-    -- @x-sampa@.
-    alphabet :: Prelude.Maybe Prelude.Text,
     -- | Date lexicon was last modified (a timestamp value).
-    lastModified :: Prelude.Maybe Core.POSIX
+    lastModified :: Prelude.Maybe Core.POSIX,
+    -- | Number of lexemes in the lexicon.
+    lexemesCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,31 +56,44 @@ data LexiconAttributes = LexiconAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'alphabet', 'lexiconAttributes_alphabet' - Phonetic alphabet used in the lexicon. Valid values are @ipa@ and
+-- @x-sampa@.
+--
+-- 'lexiconArn', 'lexiconAttributes_lexiconArn' - Amazon Resource Name (ARN) of the lexicon.
+--
+-- 'size', 'lexiconAttributes_size' - Total size of the lexicon, in characters.
+--
 -- 'languageCode', 'lexiconAttributes_languageCode' - Language code that the lexicon applies to. A lexicon with a language
 -- code such as \"en\" would be applied to all English languages (en-GB,
 -- en-US, en-AUS, en-WLS, and so on.
 --
--- 'size', 'lexiconAttributes_size' - Total size of the lexicon, in characters.
+-- 'lastModified', 'lexiconAttributes_lastModified' - Date lexicon was last modified (a timestamp value).
 --
 -- 'lexemesCount', 'lexiconAttributes_lexemesCount' - Number of lexemes in the lexicon.
---
--- 'lexiconArn', 'lexiconAttributes_lexiconArn' - Amazon Resource Name (ARN) of the lexicon.
---
--- 'alphabet', 'lexiconAttributes_alphabet' - Phonetic alphabet used in the lexicon. Valid values are @ipa@ and
--- @x-sampa@.
---
--- 'lastModified', 'lexiconAttributes_lastModified' - Date lexicon was last modified (a timestamp value).
 newLexiconAttributes ::
   LexiconAttributes
 newLexiconAttributes =
   LexiconAttributes'
-    { languageCode = Prelude.Nothing,
-      size = Prelude.Nothing,
-      lexemesCount = Prelude.Nothing,
+    { alphabet = Prelude.Nothing,
       lexiconArn = Prelude.Nothing,
-      alphabet = Prelude.Nothing,
-      lastModified = Prelude.Nothing
+      size = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
+      lexemesCount = Prelude.Nothing
     }
+
+-- | Phonetic alphabet used in the lexicon. Valid values are @ipa@ and
+-- @x-sampa@.
+lexiconAttributes_alphabet :: Lens.Lens' LexiconAttributes (Prelude.Maybe Prelude.Text)
+lexiconAttributes_alphabet = Lens.lens (\LexiconAttributes' {alphabet} -> alphabet) (\s@LexiconAttributes' {} a -> s {alphabet = a} :: LexiconAttributes)
+
+-- | Amazon Resource Name (ARN) of the lexicon.
+lexiconAttributes_lexiconArn :: Lens.Lens' LexiconAttributes (Prelude.Maybe Prelude.Text)
+lexiconAttributes_lexiconArn = Lens.lens (\LexiconAttributes' {lexiconArn} -> lexiconArn) (\s@LexiconAttributes' {} a -> s {lexiconArn = a} :: LexiconAttributes)
+
+-- | Total size of the lexicon, in characters.
+lexiconAttributes_size :: Lens.Lens' LexiconAttributes (Prelude.Maybe Prelude.Int)
+lexiconAttributes_size = Lens.lens (\LexiconAttributes' {size} -> size) (\s@LexiconAttributes' {} a -> s {size = a} :: LexiconAttributes)
 
 -- | Language code that the lexicon applies to. A lexicon with a language
 -- code such as \"en\" would be applied to all English languages (en-GB,
@@ -88,26 +101,13 @@ newLexiconAttributes =
 lexiconAttributes_languageCode :: Lens.Lens' LexiconAttributes (Prelude.Maybe LanguageCode)
 lexiconAttributes_languageCode = Lens.lens (\LexiconAttributes' {languageCode} -> languageCode) (\s@LexiconAttributes' {} a -> s {languageCode = a} :: LexiconAttributes)
 
--- | Total size of the lexicon, in characters.
-lexiconAttributes_size :: Lens.Lens' LexiconAttributes (Prelude.Maybe Prelude.Int)
-lexiconAttributes_size = Lens.lens (\LexiconAttributes' {size} -> size) (\s@LexiconAttributes' {} a -> s {size = a} :: LexiconAttributes)
+-- | Date lexicon was last modified (a timestamp value).
+lexiconAttributes_lastModified :: Lens.Lens' LexiconAttributes (Prelude.Maybe Prelude.UTCTime)
+lexiconAttributes_lastModified = Lens.lens (\LexiconAttributes' {lastModified} -> lastModified) (\s@LexiconAttributes' {} a -> s {lastModified = a} :: LexiconAttributes) Prelude.. Lens.mapping Core._Time
 
 -- | Number of lexemes in the lexicon.
 lexiconAttributes_lexemesCount :: Lens.Lens' LexiconAttributes (Prelude.Maybe Prelude.Int)
 lexiconAttributes_lexemesCount = Lens.lens (\LexiconAttributes' {lexemesCount} -> lexemesCount) (\s@LexiconAttributes' {} a -> s {lexemesCount = a} :: LexiconAttributes)
-
--- | Amazon Resource Name (ARN) of the lexicon.
-lexiconAttributes_lexiconArn :: Lens.Lens' LexiconAttributes (Prelude.Maybe Prelude.Text)
-lexiconAttributes_lexiconArn = Lens.lens (\LexiconAttributes' {lexiconArn} -> lexiconArn) (\s@LexiconAttributes' {} a -> s {lexiconArn = a} :: LexiconAttributes)
-
--- | Phonetic alphabet used in the lexicon. Valid values are @ipa@ and
--- @x-sampa@.
-lexiconAttributes_alphabet :: Lens.Lens' LexiconAttributes (Prelude.Maybe Prelude.Text)
-lexiconAttributes_alphabet = Lens.lens (\LexiconAttributes' {alphabet} -> alphabet) (\s@LexiconAttributes' {} a -> s {alphabet = a} :: LexiconAttributes)
-
--- | Date lexicon was last modified (a timestamp value).
-lexiconAttributes_lastModified :: Lens.Lens' LexiconAttributes (Prelude.Maybe Prelude.UTCTime)
-lexiconAttributes_lastModified = Lens.lens (\LexiconAttributes' {lastModified} -> lastModified) (\s@LexiconAttributes' {} a -> s {lastModified = a} :: LexiconAttributes) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON LexiconAttributes where
   parseJSON =
@@ -115,28 +115,28 @@ instance Core.FromJSON LexiconAttributes where
       "LexiconAttributes"
       ( \x ->
           LexiconAttributes'
-            Prelude.<$> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "Size")
-            Prelude.<*> (x Core..:? "LexemesCount")
+            Prelude.<$> (x Core..:? "Alphabet")
             Prelude.<*> (x Core..:? "LexiconArn")
-            Prelude.<*> (x Core..:? "Alphabet")
+            Prelude.<*> (x Core..:? "Size")
+            Prelude.<*> (x Core..:? "LanguageCode")
             Prelude.<*> (x Core..:? "LastModified")
+            Prelude.<*> (x Core..:? "LexemesCount")
       )
 
 instance Prelude.Hashable LexiconAttributes where
   hashWithSalt _salt LexiconAttributes' {..} =
-    _salt `Prelude.hashWithSalt` languageCode
-      `Prelude.hashWithSalt` size
-      `Prelude.hashWithSalt` lexemesCount
+    _salt `Prelude.hashWithSalt` alphabet
       `Prelude.hashWithSalt` lexiconArn
-      `Prelude.hashWithSalt` alphabet
+      `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` lexemesCount
 
 instance Prelude.NFData LexiconAttributes where
   rnf LexiconAttributes' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf lexemesCount
+    Prelude.rnf alphabet
       `Prelude.seq` Prelude.rnf lexiconArn
-      `Prelude.seq` Prelude.rnf alphabet
+      `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf lexemesCount

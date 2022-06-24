@@ -27,10 +27,10 @@ module Amazonka.Connect.CreateIntegrationAssociation
     newCreateIntegrationAssociation,
 
     -- * Request Lenses
-    createIntegrationAssociation_sourceType,
-    createIntegrationAssociation_sourceApplicationUrl,
-    createIntegrationAssociation_sourceApplicationName,
     createIntegrationAssociation_tags,
+    createIntegrationAssociation_sourceType,
+    createIntegrationAssociation_sourceApplicationName,
+    createIntegrationAssociation_sourceApplicationUrl,
     createIntegrationAssociation_instanceId,
     createIntegrationAssociation_integrationType,
     createIntegrationAssociation_integrationArn,
@@ -40,8 +40,8 @@ module Amazonka.Connect.CreateIntegrationAssociation
     newCreateIntegrationAssociationResponse,
 
     -- * Response Lenses
-    createIntegrationAssociationResponse_integrationAssociationId,
     createIntegrationAssociationResponse_integrationAssociationArn,
+    createIntegrationAssociationResponse_integrationAssociationId,
     createIntegrationAssociationResponse_httpStatus,
   )
 where
@@ -55,17 +55,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateIntegrationAssociation' smart constructor.
 data CreateIntegrationAssociation = CreateIntegrationAssociation'
-  { -- | The type of the data source. This field is only required for the EVENT
+  { -- | One or more tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The type of the data source. This field is only required for the EVENT
     -- integration type.
     sourceType :: Prelude.Maybe SourceType,
-    -- | The URL for the external application. This field is only required for
-    -- the EVENT integration type.
-    sourceApplicationUrl :: Prelude.Maybe Prelude.Text,
     -- | The name of the external application. This field is only required for
     -- the EVENT integration type.
     sourceApplicationName :: Prelude.Maybe Prelude.Text,
-    -- | One or more tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The URL for the external application. This field is only required for
+    -- the EVENT integration type.
+    sourceApplicationUrl :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -84,16 +84,16 @@ data CreateIntegrationAssociation = CreateIntegrationAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createIntegrationAssociation_tags' - One or more tags.
+--
 -- 'sourceType', 'createIntegrationAssociation_sourceType' - The type of the data source. This field is only required for the EVENT
 -- integration type.
---
--- 'sourceApplicationUrl', 'createIntegrationAssociation_sourceApplicationUrl' - The URL for the external application. This field is only required for
--- the EVENT integration type.
 --
 -- 'sourceApplicationName', 'createIntegrationAssociation_sourceApplicationName' - The name of the external application. This field is only required for
 -- the EVENT integration type.
 --
--- 'tags', 'createIntegrationAssociation_tags' - One or more tags.
+-- 'sourceApplicationUrl', 'createIntegrationAssociation_sourceApplicationUrl' - The URL for the external application. This field is only required for
+-- the EVENT integration type.
 --
 -- 'instanceId', 'createIntegrationAssociation_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -114,34 +114,34 @@ newCreateIntegrationAssociation
   pIntegrationType_
   pIntegrationArn_ =
     CreateIntegrationAssociation'
-      { sourceType =
+      { tags =
           Prelude.Nothing,
-        sourceApplicationUrl = Prelude.Nothing,
+        sourceType = Prelude.Nothing,
         sourceApplicationName = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        sourceApplicationUrl = Prelude.Nothing,
         instanceId = pInstanceId_,
         integrationType = pIntegrationType_,
         integrationArn = pIntegrationArn_
       }
+
+-- | One or more tags.
+createIntegrationAssociation_tags :: Lens.Lens' CreateIntegrationAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createIntegrationAssociation_tags = Lens.lens (\CreateIntegrationAssociation' {tags} -> tags) (\s@CreateIntegrationAssociation' {} a -> s {tags = a} :: CreateIntegrationAssociation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of the data source. This field is only required for the EVENT
 -- integration type.
 createIntegrationAssociation_sourceType :: Lens.Lens' CreateIntegrationAssociation (Prelude.Maybe SourceType)
 createIntegrationAssociation_sourceType = Lens.lens (\CreateIntegrationAssociation' {sourceType} -> sourceType) (\s@CreateIntegrationAssociation' {} a -> s {sourceType = a} :: CreateIntegrationAssociation)
 
--- | The URL for the external application. This field is only required for
--- the EVENT integration type.
-createIntegrationAssociation_sourceApplicationUrl :: Lens.Lens' CreateIntegrationAssociation (Prelude.Maybe Prelude.Text)
-createIntegrationAssociation_sourceApplicationUrl = Lens.lens (\CreateIntegrationAssociation' {sourceApplicationUrl} -> sourceApplicationUrl) (\s@CreateIntegrationAssociation' {} a -> s {sourceApplicationUrl = a} :: CreateIntegrationAssociation)
-
 -- | The name of the external application. This field is only required for
 -- the EVENT integration type.
 createIntegrationAssociation_sourceApplicationName :: Lens.Lens' CreateIntegrationAssociation (Prelude.Maybe Prelude.Text)
 createIntegrationAssociation_sourceApplicationName = Lens.lens (\CreateIntegrationAssociation' {sourceApplicationName} -> sourceApplicationName) (\s@CreateIntegrationAssociation' {} a -> s {sourceApplicationName = a} :: CreateIntegrationAssociation)
 
--- | One or more tags.
-createIntegrationAssociation_tags :: Lens.Lens' CreateIntegrationAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createIntegrationAssociation_tags = Lens.lens (\CreateIntegrationAssociation' {tags} -> tags) (\s@CreateIntegrationAssociation' {} a -> s {tags = a} :: CreateIntegrationAssociation) Prelude.. Lens.mapping Lens.coerced
+-- | The URL for the external application. This field is only required for
+-- the EVENT integration type.
+createIntegrationAssociation_sourceApplicationUrl :: Lens.Lens' CreateIntegrationAssociation (Prelude.Maybe Prelude.Text)
+createIntegrationAssociation_sourceApplicationUrl = Lens.lens (\CreateIntegrationAssociation' {sourceApplicationUrl} -> sourceApplicationUrl) (\s@CreateIntegrationAssociation' {} a -> s {sourceApplicationUrl = a} :: CreateIntegrationAssociation)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -165,8 +165,8 @@ instance Core.AWSRequest CreateIntegrationAssociation where
     Response.receiveJSON
       ( \s h x ->
           CreateIntegrationAssociationResponse'
-            Prelude.<$> (x Core..?> "IntegrationAssociationId")
-            Prelude.<*> (x Core..?> "IntegrationAssociationArn")
+            Prelude.<$> (x Core..?> "IntegrationAssociationArn")
+            Prelude.<*> (x Core..?> "IntegrationAssociationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,20 +175,20 @@ instance
     CreateIntegrationAssociation
   where
   hashWithSalt _salt CreateIntegrationAssociation' {..} =
-    _salt `Prelude.hashWithSalt` sourceType
-      `Prelude.hashWithSalt` sourceApplicationUrl
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` sourceApplicationName
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sourceApplicationUrl
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` integrationType
       `Prelude.hashWithSalt` integrationArn
 
 instance Prelude.NFData CreateIntegrationAssociation where
   rnf CreateIntegrationAssociation' {..} =
-    Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf sourceApplicationUrl
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf sourceApplicationName
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceApplicationUrl
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf integrationType
       `Prelude.seq` Prelude.rnf integrationArn
@@ -208,12 +208,12 @@ instance Core.ToJSON CreateIntegrationAssociation where
   toJSON CreateIntegrationAssociation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SourceType" Core..=) Prelude.<$> sourceType,
-            ("SourceApplicationUrl" Core..=)
-              Prelude.<$> sourceApplicationUrl,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("SourceType" Core..=) Prelude.<$> sourceType,
             ("SourceApplicationName" Core..=)
               Prelude.<$> sourceApplicationName,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("SourceApplicationUrl" Core..=)
+              Prelude.<$> sourceApplicationUrl,
             Prelude.Just
               ("IntegrationType" Core..= integrationType),
             Prelude.Just
@@ -234,10 +234,10 @@ instance Core.ToQuery CreateIntegrationAssociation where
 
 -- | /See:/ 'newCreateIntegrationAssociationResponse' smart constructor.
 data CreateIntegrationAssociationResponse = CreateIntegrationAssociationResponse'
-  { -- | The identifier for the integration association.
-    integrationAssociationId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the association.
+  { -- | The Amazon Resource Name (ARN) for the association.
     integrationAssociationArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the integration association.
+    integrationAssociationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -251,9 +251,9 @@ data CreateIntegrationAssociationResponse = CreateIntegrationAssociationResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'integrationAssociationId', 'createIntegrationAssociationResponse_integrationAssociationId' - The identifier for the integration association.
---
 -- 'integrationAssociationArn', 'createIntegrationAssociationResponse_integrationAssociationArn' - The Amazon Resource Name (ARN) for the association.
+--
+-- 'integrationAssociationId', 'createIntegrationAssociationResponse_integrationAssociationId' - The identifier for the integration association.
 --
 -- 'httpStatus', 'createIntegrationAssociationResponse_httpStatus' - The response's http status code.
 newCreateIntegrationAssociationResponse ::
@@ -262,20 +262,20 @@ newCreateIntegrationAssociationResponse ::
   CreateIntegrationAssociationResponse
 newCreateIntegrationAssociationResponse pHttpStatus_ =
   CreateIntegrationAssociationResponse'
-    { integrationAssociationId =
+    { integrationAssociationArn =
         Prelude.Nothing,
-      integrationAssociationArn =
+      integrationAssociationId =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The identifier for the integration association.
-createIntegrationAssociationResponse_integrationAssociationId :: Lens.Lens' CreateIntegrationAssociationResponse (Prelude.Maybe Prelude.Text)
-createIntegrationAssociationResponse_integrationAssociationId = Lens.lens (\CreateIntegrationAssociationResponse' {integrationAssociationId} -> integrationAssociationId) (\s@CreateIntegrationAssociationResponse' {} a -> s {integrationAssociationId = a} :: CreateIntegrationAssociationResponse)
-
 -- | The Amazon Resource Name (ARN) for the association.
 createIntegrationAssociationResponse_integrationAssociationArn :: Lens.Lens' CreateIntegrationAssociationResponse (Prelude.Maybe Prelude.Text)
 createIntegrationAssociationResponse_integrationAssociationArn = Lens.lens (\CreateIntegrationAssociationResponse' {integrationAssociationArn} -> integrationAssociationArn) (\s@CreateIntegrationAssociationResponse' {} a -> s {integrationAssociationArn = a} :: CreateIntegrationAssociationResponse)
+
+-- | The identifier for the integration association.
+createIntegrationAssociationResponse_integrationAssociationId :: Lens.Lens' CreateIntegrationAssociationResponse (Prelude.Maybe Prelude.Text)
+createIntegrationAssociationResponse_integrationAssociationId = Lens.lens (\CreateIntegrationAssociationResponse' {integrationAssociationId} -> integrationAssociationId) (\s@CreateIntegrationAssociationResponse' {} a -> s {integrationAssociationId = a} :: CreateIntegrationAssociationResponse)
 
 -- | The response's http status code.
 createIntegrationAssociationResponse_httpStatus :: Lens.Lens' CreateIntegrationAssociationResponse Prelude.Int
@@ -286,6 +286,6 @@ instance
     CreateIntegrationAssociationResponse
   where
   rnf CreateIntegrationAssociationResponse' {..} =
-    Prelude.rnf integrationAssociationId
-      `Prelude.seq` Prelude.rnf integrationAssociationArn
+    Prelude.rnf integrationAssociationArn
+      `Prelude.seq` Prelude.rnf integrationAssociationId
       `Prelude.seq` Prelude.rnf httpStatus

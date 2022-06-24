@@ -27,15 +27,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserIdentityInfo' smart constructor.
 data UserIdentityInfo = UserIdentityInfo'
-  { -- | The email address. If you are using SAML for identity management and
+  { -- | The first name. This is required if you are using Amazon Connect or SAML
+    -- for identity management.
+    firstName :: Prelude.Maybe Prelude.Text,
+    -- | The email address. If you are using SAML for identity management and
     -- include this parameter, an error is returned.
     email :: Prelude.Maybe Prelude.Text,
     -- | The last name. This is required if you are using Amazon Connect or SAML
     -- for identity management.
-    lastName :: Prelude.Maybe Prelude.Text,
-    -- | The first name. This is required if you are using Amazon Connect or SAML
-    -- for identity management.
-    firstName :: Prelude.Maybe Prelude.Text
+    lastName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,22 +47,27 @@ data UserIdentityInfo = UserIdentityInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'firstName', 'userIdentityInfo_firstName' - The first name. This is required if you are using Amazon Connect or SAML
+-- for identity management.
+--
 -- 'email', 'userIdentityInfo_email' - The email address. If you are using SAML for identity management and
 -- include this parameter, an error is returned.
 --
 -- 'lastName', 'userIdentityInfo_lastName' - The last name. This is required if you are using Amazon Connect or SAML
 -- for identity management.
---
--- 'firstName', 'userIdentityInfo_firstName' - The first name. This is required if you are using Amazon Connect or SAML
--- for identity management.
 newUserIdentityInfo ::
   UserIdentityInfo
 newUserIdentityInfo =
   UserIdentityInfo'
-    { email = Prelude.Nothing,
-      lastName = Prelude.Nothing,
-      firstName = Prelude.Nothing
+    { firstName = Prelude.Nothing,
+      email = Prelude.Nothing,
+      lastName = Prelude.Nothing
     }
+
+-- | The first name. This is required if you are using Amazon Connect or SAML
+-- for identity management.
+userIdentityInfo_firstName :: Lens.Lens' UserIdentityInfo (Prelude.Maybe Prelude.Text)
+userIdentityInfo_firstName = Lens.lens (\UserIdentityInfo' {firstName} -> firstName) (\s@UserIdentityInfo' {} a -> s {firstName = a} :: UserIdentityInfo)
 
 -- | The email address. If you are using SAML for identity management and
 -- include this parameter, an error is returned.
@@ -74,40 +79,35 @@ userIdentityInfo_email = Lens.lens (\UserIdentityInfo' {email} -> email) (\s@Use
 userIdentityInfo_lastName :: Lens.Lens' UserIdentityInfo (Prelude.Maybe Prelude.Text)
 userIdentityInfo_lastName = Lens.lens (\UserIdentityInfo' {lastName} -> lastName) (\s@UserIdentityInfo' {} a -> s {lastName = a} :: UserIdentityInfo)
 
--- | The first name. This is required if you are using Amazon Connect or SAML
--- for identity management.
-userIdentityInfo_firstName :: Lens.Lens' UserIdentityInfo (Prelude.Maybe Prelude.Text)
-userIdentityInfo_firstName = Lens.lens (\UserIdentityInfo' {firstName} -> firstName) (\s@UserIdentityInfo' {} a -> s {firstName = a} :: UserIdentityInfo)
-
 instance Core.FromJSON UserIdentityInfo where
   parseJSON =
     Core.withObject
       "UserIdentityInfo"
       ( \x ->
           UserIdentityInfo'
-            Prelude.<$> (x Core..:? "Email")
+            Prelude.<$> (x Core..:? "FirstName")
+            Prelude.<*> (x Core..:? "Email")
             Prelude.<*> (x Core..:? "LastName")
-            Prelude.<*> (x Core..:? "FirstName")
       )
 
 instance Prelude.Hashable UserIdentityInfo where
   hashWithSalt _salt UserIdentityInfo' {..} =
-    _salt `Prelude.hashWithSalt` email
+    _salt `Prelude.hashWithSalt` firstName
+      `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` lastName
-      `Prelude.hashWithSalt` firstName
 
 instance Prelude.NFData UserIdentityInfo where
   rnf UserIdentityInfo' {..} =
-    Prelude.rnf email
+    Prelude.rnf firstName
+      `Prelude.seq` Prelude.rnf email
       `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf firstName
 
 instance Core.ToJSON UserIdentityInfo where
   toJSON UserIdentityInfo' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Email" Core..=) Prelude.<$> email,
-            ("LastName" Core..=) Prelude.<$> lastName,
-            ("FirstName" Core..=) Prelude.<$> firstName
+          [ ("FirstName" Core..=) Prelude.<$> firstName,
+            ("Email" Core..=) Prelude.<$> email,
+            ("LastName" Core..=) Prelude.<$> lastName
           ]
       )

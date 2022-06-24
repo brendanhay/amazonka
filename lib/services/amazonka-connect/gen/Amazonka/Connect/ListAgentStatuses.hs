@@ -32,8 +32,8 @@ module Amazonka.Connect.ListAgentStatuses
     newListAgentStatuses,
 
     -- * Request Lenses
-    listAgentStatuses_agentStatusTypes,
     listAgentStatuses_nextToken,
+    listAgentStatuses_agentStatusTypes,
     listAgentStatuses_maxResults,
     listAgentStatuses_instanceId,
 
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAgentStatuses' smart constructor.
 data ListAgentStatuses = ListAgentStatuses'
-  { -- | Available agent status types.
-    agentStatusTypes :: Prelude.Maybe [AgentStatusType],
-    -- | The token for the next set of results. Use the value returned in the
+  { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Available agent status types.
+    agentStatusTypes :: Prelude.Maybe [AgentStatusType],
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
@@ -79,11 +79,11 @@ data ListAgentStatuses = ListAgentStatuses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agentStatusTypes', 'listAgentStatuses_agentStatusTypes' - Available agent status types.
---
 -- 'nextToken', 'listAgentStatuses_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
+--
+-- 'agentStatusTypes', 'listAgentStatuses_agentStatusTypes' - Available agent status types.
 --
 -- 'maxResults', 'listAgentStatuses_maxResults' - The maximum number of results to return per page.
 --
@@ -95,22 +95,21 @@ newListAgentStatuses ::
   ListAgentStatuses
 newListAgentStatuses pInstanceId_ =
   ListAgentStatuses'
-    { agentStatusTypes =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      agentStatusTypes = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       instanceId = pInstanceId_
     }
-
--- | Available agent status types.
-listAgentStatuses_agentStatusTypes :: Lens.Lens' ListAgentStatuses (Prelude.Maybe [AgentStatusType])
-listAgentStatuses_agentStatusTypes = Lens.lens (\ListAgentStatuses' {agentStatusTypes} -> agentStatusTypes) (\s@ListAgentStatuses' {} a -> s {agentStatusTypes = a} :: ListAgentStatuses) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listAgentStatuses_nextToken :: Lens.Lens' ListAgentStatuses (Prelude.Maybe Prelude.Text)
 listAgentStatuses_nextToken = Lens.lens (\ListAgentStatuses' {nextToken} -> nextToken) (\s@ListAgentStatuses' {} a -> s {nextToken = a} :: ListAgentStatuses)
+
+-- | Available agent status types.
+listAgentStatuses_agentStatusTypes :: Lens.Lens' ListAgentStatuses (Prelude.Maybe [AgentStatusType])
+listAgentStatuses_agentStatusTypes = Lens.lens (\ListAgentStatuses' {agentStatusTypes} -> agentStatusTypes) (\s@ListAgentStatuses' {} a -> s {agentStatusTypes = a} :: ListAgentStatuses) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return per page.
 listAgentStatuses_maxResults :: Lens.Lens' ListAgentStatuses (Prelude.Maybe Prelude.Natural)
@@ -161,15 +160,15 @@ instance Core.AWSRequest ListAgentStatuses where
 
 instance Prelude.Hashable ListAgentStatuses where
   hashWithSalt _salt ListAgentStatuses' {..} =
-    _salt `Prelude.hashWithSalt` agentStatusTypes
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` agentStatusTypes
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ListAgentStatuses where
   rnf ListAgentStatuses' {..} =
-    Prelude.rnf agentStatusTypes
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf agentStatusTypes
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
@@ -192,12 +191,12 @@ instance Core.ToPath ListAgentStatuses where
 instance Core.ToQuery ListAgentStatuses where
   toQuery ListAgentStatuses' {..} =
     Prelude.mconcat
-      [ "AgentStatusTypes"
+      [ "nextToken" Core.=: nextToken,
+        "AgentStatusTypes"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> agentStatusTypes
             ),
-        "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
 

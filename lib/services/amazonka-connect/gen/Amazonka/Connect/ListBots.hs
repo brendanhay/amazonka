@@ -43,8 +43,8 @@ module Amazonka.Connect.ListBots
     newListBotsResponse,
 
     -- * Response Lenses
-    listBotsResponse_nextToken,
     listBotsResponse_lexBots,
+    listBotsResponse_nextToken,
     listBotsResponse_httpStatus,
   )
 where
@@ -149,8 +149,8 @@ instance Core.AWSRequest ListBots where
     Response.receiveJSON
       ( \s h x ->
           ListBotsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "LexBots" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "LexBots" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,12 +194,12 @@ instance Core.ToQuery ListBots where
 
 -- | /See:/ 'newListBotsResponse' smart constructor.
 data ListBotsResponse = ListBotsResponse'
-  { -- | If there are additional results, this is the token for the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated
+  { -- | The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated
     -- with the specified instance.
     lexBots :: Prelude.Maybe [LexBotConfig],
+    -- | If there are additional results, this is the token for the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,11 +213,11 @@ data ListBotsResponse = ListBotsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBotsResponse_nextToken' - If there are additional results, this is the token for the next set of
--- results.
---
 -- 'lexBots', 'listBotsResponse_lexBots' - The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated
 -- with the specified instance.
+--
+-- 'nextToken', 'listBotsResponse_nextToken' - If there are additional results, this is the token for the next set of
+-- results.
 --
 -- 'httpStatus', 'listBotsResponse_httpStatus' - The response's http status code.
 newListBotsResponse ::
@@ -226,20 +226,20 @@ newListBotsResponse ::
   ListBotsResponse
 newListBotsResponse pHttpStatus_ =
   ListBotsResponse'
-    { nextToken = Prelude.Nothing,
-      lexBots = Prelude.Nothing,
+    { lexBots = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If there are additional results, this is the token for the next set of
--- results.
-listBotsResponse_nextToken :: Lens.Lens' ListBotsResponse (Prelude.Maybe Prelude.Text)
-listBotsResponse_nextToken = Lens.lens (\ListBotsResponse' {nextToken} -> nextToken) (\s@ListBotsResponse' {} a -> s {nextToken = a} :: ListBotsResponse)
 
 -- | The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated
 -- with the specified instance.
 listBotsResponse_lexBots :: Lens.Lens' ListBotsResponse (Prelude.Maybe [LexBotConfig])
 listBotsResponse_lexBots = Lens.lens (\ListBotsResponse' {lexBots} -> lexBots) (\s@ListBotsResponse' {} a -> s {lexBots = a} :: ListBotsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | If there are additional results, this is the token for the next set of
+-- results.
+listBotsResponse_nextToken :: Lens.Lens' ListBotsResponse (Prelude.Maybe Prelude.Text)
+listBotsResponse_nextToken = Lens.lens (\ListBotsResponse' {nextToken} -> nextToken) (\s@ListBotsResponse' {} a -> s {nextToken = a} :: ListBotsResponse)
 
 -- | The response's http status code.
 listBotsResponse_httpStatus :: Lens.Lens' ListBotsResponse Prelude.Int
@@ -247,6 +247,6 @@ listBotsResponse_httpStatus = Lens.lens (\ListBotsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListBotsResponse where
   rnf ListBotsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf lexBots
+    Prelude.rnf lexBots
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

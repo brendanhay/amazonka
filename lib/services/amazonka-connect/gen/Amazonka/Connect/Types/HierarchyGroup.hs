@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHierarchyGroup' smart constructor.
 data HierarchyGroup = HierarchyGroup'
-  { -- | The Amazon Resource Name (ARN) of the hierarchy group.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the hierarchy group.
+  { -- | The name of the hierarchy group.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the hierarchy group.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Information about the levels in the hierarchy group.
     hierarchyPath :: Prelude.Maybe HierarchyPath,
     -- | The identifier of the hierarchy group.
@@ -49,9 +49,9 @@ data HierarchyGroup = HierarchyGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'hierarchyGroup_arn' - The Amazon Resource Name (ARN) of the hierarchy group.
---
 -- 'name', 'hierarchyGroup_name' - The name of the hierarchy group.
+--
+-- 'arn', 'hierarchyGroup_arn' - The Amazon Resource Name (ARN) of the hierarchy group.
 --
 -- 'hierarchyPath', 'hierarchyGroup_hierarchyPath' - Information about the levels in the hierarchy group.
 --
@@ -62,20 +62,20 @@ newHierarchyGroup ::
   HierarchyGroup
 newHierarchyGroup =
   HierarchyGroup'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       hierarchyPath = Prelude.Nothing,
       id = Prelude.Nothing,
       levelId = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the hierarchy group.
-hierarchyGroup_arn :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
-hierarchyGroup_arn = Lens.lens (\HierarchyGroup' {arn} -> arn) (\s@HierarchyGroup' {} a -> s {arn = a} :: HierarchyGroup)
-
 -- | The name of the hierarchy group.
 hierarchyGroup_name :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
 hierarchyGroup_name = Lens.lens (\HierarchyGroup' {name} -> name) (\s@HierarchyGroup' {} a -> s {name = a} :: HierarchyGroup)
+
+-- | The Amazon Resource Name (ARN) of the hierarchy group.
+hierarchyGroup_arn :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
+hierarchyGroup_arn = Lens.lens (\HierarchyGroup' {arn} -> arn) (\s@HierarchyGroup' {} a -> s {arn = a} :: HierarchyGroup)
 
 -- | Information about the levels in the hierarchy group.
 hierarchyGroup_hierarchyPath :: Lens.Lens' HierarchyGroup (Prelude.Maybe HierarchyPath)
@@ -95,8 +95,8 @@ instance Core.FromJSON HierarchyGroup where
       "HierarchyGroup"
       ( \x ->
           HierarchyGroup'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "HierarchyPath")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "LevelId")
@@ -104,16 +104,16 @@ instance Core.FromJSON HierarchyGroup where
 
 instance Prelude.Hashable HierarchyGroup where
   hashWithSalt _salt HierarchyGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` hierarchyPath
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` levelId
 
 instance Prelude.NFData HierarchyGroup where
   rnf HierarchyGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf hierarchyPath
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf levelId

@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPhoneNumberSummary' smart constructor.
 data PhoneNumberSummary = PhoneNumberSummary'
-  { -- | The type of phone number.
+  { -- | The ISO country code.
+    phoneNumberCountryCode :: Prelude.Maybe PhoneNumberCountryCode,
+    -- | The type of phone number.
     phoneNumberType :: Prelude.Maybe PhoneNumberType,
     -- | The Amazon Resource Name (ARN) of the phone number.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The phone number.
-    phoneNumber :: Prelude.Maybe Prelude.Text,
-    -- | The ISO country code.
-    phoneNumberCountryCode :: Prelude.Maybe PhoneNumberCountryCode,
     -- | The identifier of the phone number.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The phone number.
+    phoneNumber :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,30 @@ data PhoneNumberSummary = PhoneNumberSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'phoneNumberCountryCode', 'phoneNumberSummary_phoneNumberCountryCode' - The ISO country code.
+--
 -- 'phoneNumberType', 'phoneNumberSummary_phoneNumberType' - The type of phone number.
 --
 -- 'arn', 'phoneNumberSummary_arn' - The Amazon Resource Name (ARN) of the phone number.
 --
--- 'phoneNumber', 'phoneNumberSummary_phoneNumber' - The phone number.
---
--- 'phoneNumberCountryCode', 'phoneNumberSummary_phoneNumberCountryCode' - The ISO country code.
---
 -- 'id', 'phoneNumberSummary_id' - The identifier of the phone number.
+--
+-- 'phoneNumber', 'phoneNumberSummary_phoneNumber' - The phone number.
 newPhoneNumberSummary ::
   PhoneNumberSummary
 newPhoneNumberSummary =
   PhoneNumberSummary'
-    { phoneNumberType =
+    { phoneNumberCountryCode =
         Prelude.Nothing,
+      phoneNumberType = Prelude.Nothing,
       arn = Prelude.Nothing,
-      phoneNumber = Prelude.Nothing,
-      phoneNumberCountryCode = Prelude.Nothing,
-      id = Prelude.Nothing
+      id = Prelude.Nothing,
+      phoneNumber = Prelude.Nothing
     }
+
+-- | The ISO country code.
+phoneNumberSummary_phoneNumberCountryCode :: Lens.Lens' PhoneNumberSummary (Prelude.Maybe PhoneNumberCountryCode)
+phoneNumberSummary_phoneNumberCountryCode = Lens.lens (\PhoneNumberSummary' {phoneNumberCountryCode} -> phoneNumberCountryCode) (\s@PhoneNumberSummary' {} a -> s {phoneNumberCountryCode = a} :: PhoneNumberSummary)
 
 -- | The type of phone number.
 phoneNumberSummary_phoneNumberType :: Lens.Lens' PhoneNumberSummary (Prelude.Maybe PhoneNumberType)
@@ -79,17 +83,13 @@ phoneNumberSummary_phoneNumberType = Lens.lens (\PhoneNumberSummary' {phoneNumbe
 phoneNumberSummary_arn :: Lens.Lens' PhoneNumberSummary (Prelude.Maybe Prelude.Text)
 phoneNumberSummary_arn = Lens.lens (\PhoneNumberSummary' {arn} -> arn) (\s@PhoneNumberSummary' {} a -> s {arn = a} :: PhoneNumberSummary)
 
--- | The phone number.
-phoneNumberSummary_phoneNumber :: Lens.Lens' PhoneNumberSummary (Prelude.Maybe Prelude.Text)
-phoneNumberSummary_phoneNumber = Lens.lens (\PhoneNumberSummary' {phoneNumber} -> phoneNumber) (\s@PhoneNumberSummary' {} a -> s {phoneNumber = a} :: PhoneNumberSummary)
-
--- | The ISO country code.
-phoneNumberSummary_phoneNumberCountryCode :: Lens.Lens' PhoneNumberSummary (Prelude.Maybe PhoneNumberCountryCode)
-phoneNumberSummary_phoneNumberCountryCode = Lens.lens (\PhoneNumberSummary' {phoneNumberCountryCode} -> phoneNumberCountryCode) (\s@PhoneNumberSummary' {} a -> s {phoneNumberCountryCode = a} :: PhoneNumberSummary)
-
 -- | The identifier of the phone number.
 phoneNumberSummary_id :: Lens.Lens' PhoneNumberSummary (Prelude.Maybe Prelude.Text)
 phoneNumberSummary_id = Lens.lens (\PhoneNumberSummary' {id} -> id) (\s@PhoneNumberSummary' {} a -> s {id = a} :: PhoneNumberSummary)
+
+-- | The phone number.
+phoneNumberSummary_phoneNumber :: Lens.Lens' PhoneNumberSummary (Prelude.Maybe Prelude.Text)
+phoneNumberSummary_phoneNumber = Lens.lens (\PhoneNumberSummary' {phoneNumber} -> phoneNumber) (\s@PhoneNumberSummary' {} a -> s {phoneNumber = a} :: PhoneNumberSummary)
 
 instance Core.FromJSON PhoneNumberSummary where
   parseJSON =
@@ -97,25 +97,25 @@ instance Core.FromJSON PhoneNumberSummary where
       "PhoneNumberSummary"
       ( \x ->
           PhoneNumberSummary'
-            Prelude.<$> (x Core..:? "PhoneNumberType")
+            Prelude.<$> (x Core..:? "PhoneNumberCountryCode")
+            Prelude.<*> (x Core..:? "PhoneNumberType")
             Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "PhoneNumber")
-            Prelude.<*> (x Core..:? "PhoneNumberCountryCode")
             Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "PhoneNumber")
       )
 
 instance Prelude.Hashable PhoneNumberSummary where
   hashWithSalt _salt PhoneNumberSummary' {..} =
-    _salt `Prelude.hashWithSalt` phoneNumberType
+    _salt `Prelude.hashWithSalt` phoneNumberCountryCode
+      `Prelude.hashWithSalt` phoneNumberType
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` phoneNumber
-      `Prelude.hashWithSalt` phoneNumberCountryCode
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` phoneNumber
 
 instance Prelude.NFData PhoneNumberSummary where
   rnf PhoneNumberSummary' {..} =
-    Prelude.rnf phoneNumberType
+    Prelude.rnf phoneNumberCountryCode
+      `Prelude.seq` Prelude.rnf phoneNumberType
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf phoneNumberCountryCode
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf phoneNumber

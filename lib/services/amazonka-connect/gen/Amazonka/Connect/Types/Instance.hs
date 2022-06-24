@@ -30,27 +30,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
-  { -- | The Amazon Resource Name (ARN) of the instance.
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | The identity management type.
+    identityManagementType :: Prelude.Maybe DirectoryType,
     -- | When the instance was created.
     createdTime :: Prelude.Maybe Core.POSIX,
-    -- | Whether outbound calls are enabled.
-    outboundCallsEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The state of the instance.
+    instanceStatus :: Prelude.Maybe InstanceStatus,
+    -- | The Amazon Resource Name (ARN) of the instance.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | Relevant details why the instance was not successfully created.
+    statusReason :: Prelude.Maybe InstanceStatusReason,
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The service role of the instance.
+    serviceRole :: Prelude.Maybe Prelude.Text,
     -- | Whether inbound calls are enabled.
     inboundCallsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The alias of instance.
     instanceAlias :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The state of the instance.
-    instanceStatus :: Prelude.Maybe InstanceStatus,
-    -- | The identity management type.
-    identityManagementType :: Prelude.Maybe DirectoryType,
-    -- | Relevant details why the instance was not successfully created.
-    statusReason :: Prelude.Maybe InstanceStatusReason,
-    -- | The service role of the instance.
-    serviceRole :: Prelude.Maybe Prelude.Text
+    -- | Whether outbound calls are enabled.
+    outboundCallsEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -62,53 +62,70 @@ data Instance = Instance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'instance_arn' - The Amazon Resource Name (ARN) of the instance.
+-- 'identityManagementType', 'instance_identityManagementType' - The identity management type.
 --
 -- 'createdTime', 'instance_createdTime' - When the instance was created.
 --
--- 'outboundCallsEnabled', 'instance_outboundCallsEnabled' - Whether outbound calls are enabled.
+-- 'instanceStatus', 'instance_instanceStatus' - The state of the instance.
+--
+-- 'arn', 'instance_arn' - The Amazon Resource Name (ARN) of the instance.
+--
+-- 'statusReason', 'instance_statusReason' - Relevant details why the instance was not successfully created.
+--
+-- 'id', 'instance_id' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
+--
+-- 'serviceRole', 'instance_serviceRole' - The service role of the instance.
 --
 -- 'inboundCallsEnabled', 'instance_inboundCallsEnabled' - Whether inbound calls are enabled.
 --
 -- 'instanceAlias', 'instance_instanceAlias' - The alias of instance.
 --
--- 'id', 'instance_id' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
---
--- 'instanceStatus', 'instance_instanceStatus' - The state of the instance.
---
--- 'identityManagementType', 'instance_identityManagementType' - The identity management type.
---
--- 'statusReason', 'instance_statusReason' - Relevant details why the instance was not successfully created.
---
--- 'serviceRole', 'instance_serviceRole' - The service role of the instance.
+-- 'outboundCallsEnabled', 'instance_outboundCallsEnabled' - Whether outbound calls are enabled.
 newInstance ::
   Instance
 newInstance =
   Instance'
-    { arn = Prelude.Nothing,
+    { identityManagementType = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      outboundCallsEnabled = Prelude.Nothing,
+      instanceStatus = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      statusReason = Prelude.Nothing,
+      id = Prelude.Nothing,
+      serviceRole = Prelude.Nothing,
       inboundCallsEnabled = Prelude.Nothing,
       instanceAlias = Prelude.Nothing,
-      id = Prelude.Nothing,
-      instanceStatus = Prelude.Nothing,
-      identityManagementType = Prelude.Nothing,
-      statusReason = Prelude.Nothing,
-      serviceRole = Prelude.Nothing
+      outboundCallsEnabled = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the instance.
-instance_arn :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_arn = Lens.lens (\Instance' {arn} -> arn) (\s@Instance' {} a -> s {arn = a} :: Instance)
+-- | The identity management type.
+instance_identityManagementType :: Lens.Lens' Instance (Prelude.Maybe DirectoryType)
+instance_identityManagementType = Lens.lens (\Instance' {identityManagementType} -> identityManagementType) (\s@Instance' {} a -> s {identityManagementType = a} :: Instance)
 
 -- | When the instance was created.
 instance_createdTime :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
 instance_createdTime = Lens.lens (\Instance' {createdTime} -> createdTime) (\s@Instance' {} a -> s {createdTime = a} :: Instance) Prelude.. Lens.mapping Core._Time
 
--- | Whether outbound calls are enabled.
-instance_outboundCallsEnabled :: Lens.Lens' Instance (Prelude.Maybe Prelude.Bool)
-instance_outboundCallsEnabled = Lens.lens (\Instance' {outboundCallsEnabled} -> outboundCallsEnabled) (\s@Instance' {} a -> s {outboundCallsEnabled = a} :: Instance)
+-- | The state of the instance.
+instance_instanceStatus :: Lens.Lens' Instance (Prelude.Maybe InstanceStatus)
+instance_instanceStatus = Lens.lens (\Instance' {instanceStatus} -> instanceStatus) (\s@Instance' {} a -> s {instanceStatus = a} :: Instance)
+
+-- | The Amazon Resource Name (ARN) of the instance.
+instance_arn :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_arn = Lens.lens (\Instance' {arn} -> arn) (\s@Instance' {} a -> s {arn = a} :: Instance)
+
+-- | Relevant details why the instance was not successfully created.
+instance_statusReason :: Lens.Lens' Instance (Prelude.Maybe InstanceStatusReason)
+instance_statusReason = Lens.lens (\Instance' {statusReason} -> statusReason) (\s@Instance' {} a -> s {statusReason = a} :: Instance)
+
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
+instance_id :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_id = Lens.lens (\Instance' {id} -> id) (\s@Instance' {} a -> s {id = a} :: Instance)
+
+-- | The service role of the instance.
+instance_serviceRole :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_serviceRole = Lens.lens (\Instance' {serviceRole} -> serviceRole) (\s@Instance' {} a -> s {serviceRole = a} :: Instance)
 
 -- | Whether inbound calls are enabled.
 instance_inboundCallsEnabled :: Lens.Lens' Instance (Prelude.Maybe Prelude.Bool)
@@ -118,26 +135,9 @@ instance_inboundCallsEnabled = Lens.lens (\Instance' {inboundCallsEnabled} -> in
 instance_instanceAlias :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_instanceAlias = Lens.lens (\Instance' {instanceAlias} -> instanceAlias) (\s@Instance' {} a -> s {instanceAlias = a} :: Instance) Prelude.. Lens.mapping Core._Sensitive
 
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
-instance_id :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_id = Lens.lens (\Instance' {id} -> id) (\s@Instance' {} a -> s {id = a} :: Instance)
-
--- | The state of the instance.
-instance_instanceStatus :: Lens.Lens' Instance (Prelude.Maybe InstanceStatus)
-instance_instanceStatus = Lens.lens (\Instance' {instanceStatus} -> instanceStatus) (\s@Instance' {} a -> s {instanceStatus = a} :: Instance)
-
--- | The identity management type.
-instance_identityManagementType :: Lens.Lens' Instance (Prelude.Maybe DirectoryType)
-instance_identityManagementType = Lens.lens (\Instance' {identityManagementType} -> identityManagementType) (\s@Instance' {} a -> s {identityManagementType = a} :: Instance)
-
--- | Relevant details why the instance was not successfully created.
-instance_statusReason :: Lens.Lens' Instance (Prelude.Maybe InstanceStatusReason)
-instance_statusReason = Lens.lens (\Instance' {statusReason} -> statusReason) (\s@Instance' {} a -> s {statusReason = a} :: Instance)
-
--- | The service role of the instance.
-instance_serviceRole :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_serviceRole = Lens.lens (\Instance' {serviceRole} -> serviceRole) (\s@Instance' {} a -> s {serviceRole = a} :: Instance)
+-- | Whether outbound calls are enabled.
+instance_outboundCallsEnabled :: Lens.Lens' Instance (Prelude.Maybe Prelude.Bool)
+instance_outboundCallsEnabled = Lens.lens (\Instance' {outboundCallsEnabled} -> outboundCallsEnabled) (\s@Instance' {} a -> s {outboundCallsEnabled = a} :: Instance)
 
 instance Core.FromJSON Instance where
   parseJSON =
@@ -145,40 +145,40 @@ instance Core.FromJSON Instance where
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<$> (x Core..:? "IdentityManagementType")
             Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "OutboundCallsEnabled")
+            Prelude.<*> (x Core..:? "InstanceStatus")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "StatusReason")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "ServiceRole")
             Prelude.<*> (x Core..:? "InboundCallsEnabled")
             Prelude.<*> (x Core..:? "InstanceAlias")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "InstanceStatus")
-            Prelude.<*> (x Core..:? "IdentityManagementType")
-            Prelude.<*> (x Core..:? "StatusReason")
-            Prelude.<*> (x Core..:? "ServiceRole")
+            Prelude.<*> (x Core..:? "OutboundCallsEnabled")
       )
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` identityManagementType
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` outboundCallsEnabled
+      `Prelude.hashWithSalt` instanceStatus
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` serviceRole
       `Prelude.hashWithSalt` inboundCallsEnabled
       `Prelude.hashWithSalt` instanceAlias
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` instanceStatus
-      `Prelude.hashWithSalt` identityManagementType
-      `Prelude.hashWithSalt` statusReason
-      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` outboundCallsEnabled
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf arn
+    Prelude.rnf identityManagementType
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf outboundCallsEnabled
+      `Prelude.seq` Prelude.rnf instanceStatus
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf serviceRole
       `Prelude.seq` Prelude.rnf inboundCallsEnabled
       `Prelude.seq` Prelude.rnf instanceAlias
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf instanceStatus
-      `Prelude.seq` Prelude.rnf identityManagementType
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf outboundCallsEnabled

@@ -27,10 +27,10 @@ module Amazonka.Connect.UpdateHoursOfOperation
     newUpdateHoursOfOperation,
 
     -- * Request Lenses
-    updateHoursOfOperation_config,
     updateHoursOfOperation_name,
     updateHoursOfOperation_timeZone,
     updateHoursOfOperation_description,
+    updateHoursOfOperation_config,
     updateHoursOfOperation_instanceId,
     updateHoursOfOperation_hoursOfOperationId,
 
@@ -49,14 +49,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateHoursOfOperation' smart constructor.
 data UpdateHoursOfOperation = UpdateHoursOfOperation'
-  { -- | Configuration information of the hours of operation.
-    config :: Prelude.Maybe [HoursOfOperationConfig],
-    -- | The name of the hours of operation.
+  { -- | The name of the hours of operation.
     name :: Prelude.Maybe Prelude.Text,
     -- | The time zone of the hours of operation.
     timeZone :: Prelude.Maybe Prelude.Text,
     -- | The description of the hours of operation.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Configuration information of the hours of operation.
+    config :: Prelude.Maybe [HoursOfOperationConfig],
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -73,13 +73,13 @@ data UpdateHoursOfOperation = UpdateHoursOfOperation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'config', 'updateHoursOfOperation_config' - Configuration information of the hours of operation.
---
 -- 'name', 'updateHoursOfOperation_name' - The name of the hours of operation.
 --
 -- 'timeZone', 'updateHoursOfOperation_timeZone' - The time zone of the hours of operation.
 --
 -- 'description', 'updateHoursOfOperation_description' - The description of the hours of operation.
+--
+-- 'config', 'updateHoursOfOperation_config' - Configuration information of the hours of operation.
 --
 -- 'instanceId', 'updateHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -95,17 +95,13 @@ newUpdateHoursOfOperation
   pInstanceId_
   pHoursOfOperationId_ =
     UpdateHoursOfOperation'
-      { config = Prelude.Nothing,
-        name = Prelude.Nothing,
+      { name = Prelude.Nothing,
         timeZone = Prelude.Nothing,
         description = Prelude.Nothing,
+        config = Prelude.Nothing,
         instanceId = pInstanceId_,
         hoursOfOperationId = pHoursOfOperationId_
       }
-
--- | Configuration information of the hours of operation.
-updateHoursOfOperation_config :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe [HoursOfOperationConfig])
-updateHoursOfOperation_config = Lens.lens (\UpdateHoursOfOperation' {config} -> config) (\s@UpdateHoursOfOperation' {} a -> s {config = a} :: UpdateHoursOfOperation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the hours of operation.
 updateHoursOfOperation_name :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe Prelude.Text)
@@ -118,6 +114,10 @@ updateHoursOfOperation_timeZone = Lens.lens (\UpdateHoursOfOperation' {timeZone}
 -- | The description of the hours of operation.
 updateHoursOfOperation_description :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe Prelude.Text)
 updateHoursOfOperation_description = Lens.lens (\UpdateHoursOfOperation' {description} -> description) (\s@UpdateHoursOfOperation' {} a -> s {description = a} :: UpdateHoursOfOperation)
+
+-- | Configuration information of the hours of operation.
+updateHoursOfOperation_config :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe [HoursOfOperationConfig])
+updateHoursOfOperation_config = Lens.lens (\UpdateHoursOfOperation' {config} -> config) (\s@UpdateHoursOfOperation' {} a -> s {config = a} :: UpdateHoursOfOperation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -139,19 +139,19 @@ instance Core.AWSRequest UpdateHoursOfOperation where
 
 instance Prelude.Hashable UpdateHoursOfOperation where
   hashWithSalt _salt UpdateHoursOfOperation' {..} =
-    _salt `Prelude.hashWithSalt` config
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` timeZone
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` config
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` hoursOfOperationId
 
 instance Prelude.NFData UpdateHoursOfOperation where
   rnf UpdateHoursOfOperation' {..} =
-    Prelude.rnf config
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf timeZone
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf config
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf hoursOfOperationId
 
@@ -170,10 +170,10 @@ instance Core.ToJSON UpdateHoursOfOperation where
   toJSON UpdateHoursOfOperation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Config" Core..=) Prelude.<$> config,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
             ("TimeZone" Core..=) Prelude.<$> timeZone,
-            ("Description" Core..=) Prelude.<$> description
+            ("Description" Core..=) Prelude.<$> description,
+            ("Config" Core..=) Prelude.<$> config
           ]
       )
 

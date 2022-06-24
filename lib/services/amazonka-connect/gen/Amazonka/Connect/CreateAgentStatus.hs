@@ -30,9 +30,9 @@ module Amazonka.Connect.CreateAgentStatus
     newCreateAgentStatus,
 
     -- * Request Lenses
+    createAgentStatus_tags,
     createAgentStatus_displayOrder,
     createAgentStatus_description,
-    createAgentStatus_tags,
     createAgentStatus_instanceId,
     createAgentStatus_name,
     createAgentStatus_state,
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAgentStatus' smart constructor.
 data CreateAgentStatus = CreateAgentStatus'
-  { -- | The display order of the status.
+  { -- | One or more tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The display order of the status.
     displayOrder :: Prelude.Maybe Prelude.Natural,
     -- | The description of the status.
     description :: Prelude.Maybe Prelude.Text,
-    -- | One or more tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -81,11 +81,11 @@ data CreateAgentStatus = CreateAgentStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createAgentStatus_tags' - One or more tags.
+--
 -- 'displayOrder', 'createAgentStatus_displayOrder' - The display order of the status.
 --
 -- 'description', 'createAgentStatus_description' - The description of the status.
---
--- 'tags', 'createAgentStatus_tags' - One or more tags.
 --
 -- 'instanceId', 'createAgentStatus_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -103,13 +103,17 @@ newCreateAgentStatus ::
   CreateAgentStatus
 newCreateAgentStatus pInstanceId_ pName_ pState_ =
   CreateAgentStatus'
-    { displayOrder = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      displayOrder = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
       instanceId = pInstanceId_,
       name = pName_,
       state = pState_
     }
+
+-- | One or more tags.
+createAgentStatus_tags :: Lens.Lens' CreateAgentStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createAgentStatus_tags = Lens.lens (\CreateAgentStatus' {tags} -> tags) (\s@CreateAgentStatus' {} a -> s {tags = a} :: CreateAgentStatus) Prelude.. Lens.mapping Lens.coerced
 
 -- | The display order of the status.
 createAgentStatus_displayOrder :: Lens.Lens' CreateAgentStatus (Prelude.Maybe Prelude.Natural)
@@ -118,10 +122,6 @@ createAgentStatus_displayOrder = Lens.lens (\CreateAgentStatus' {displayOrder} -
 -- | The description of the status.
 createAgentStatus_description :: Lens.Lens' CreateAgentStatus (Prelude.Maybe Prelude.Text)
 createAgentStatus_description = Lens.lens (\CreateAgentStatus' {description} -> description) (\s@CreateAgentStatus' {} a -> s {description = a} :: CreateAgentStatus)
-
--- | One or more tags.
-createAgentStatus_tags :: Lens.Lens' CreateAgentStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createAgentStatus_tags = Lens.lens (\CreateAgentStatus' {tags} -> tags) (\s@CreateAgentStatus' {} a -> s {tags = a} :: CreateAgentStatus) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -152,18 +152,18 @@ instance Core.AWSRequest CreateAgentStatus where
 
 instance Prelude.Hashable CreateAgentStatus where
   hashWithSalt _salt CreateAgentStatus' {..} =
-    _salt `Prelude.hashWithSalt` displayOrder
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` displayOrder
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData CreateAgentStatus where
   rnf CreateAgentStatus' {..} =
-    Prelude.rnf displayOrder
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf displayOrder
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf state
@@ -183,9 +183,9 @@ instance Core.ToJSON CreateAgentStatus where
   toJSON CreateAgentStatus' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DisplayOrder" Core..=) Prelude.<$> displayOrder,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("DisplayOrder" Core..=) Prelude.<$> displayOrder,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("State" Core..= state)
           ]

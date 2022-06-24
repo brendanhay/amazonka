@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttribute' smart constructor.
 data Attribute = Attribute'
-  { -- | The value of the attribute.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The type of attribute.
-    attributeType :: Prelude.Maybe InstanceAttributeType
+  { -- | The type of attribute.
+    attributeType :: Prelude.Maybe InstanceAttributeType,
+    -- | The value of the attribute.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Attribute = Attribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'attribute_value' - The value of the attribute.
---
 -- 'attributeType', 'attribute_attributeType' - The type of attribute.
+--
+-- 'value', 'attribute_value' - The value of the attribute.
 newAttribute ::
   Attribute
 newAttribute =
   Attribute'
-    { value = Prelude.Nothing,
-      attributeType = Prelude.Nothing
+    { attributeType = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the attribute.
-attribute_value :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
-attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
 -- | The type of attribute.
 attribute_attributeType :: Lens.Lens' Attribute (Prelude.Maybe InstanceAttributeType)
 attribute_attributeType = Lens.lens (\Attribute' {attributeType} -> attributeType) (\s@Attribute' {} a -> s {attributeType = a} :: Attribute)
+
+-- | The value of the attribute.
+attribute_value :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
+attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
 instance Core.FromJSON Attribute where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON Attribute where
       "Attribute"
       ( \x ->
           Attribute'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "AttributeType")
+            Prelude.<$> (x Core..:? "AttributeType")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Attribute where
   hashWithSalt _salt Attribute' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` attributeType
+    _salt `Prelude.hashWithSalt` attributeType
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Attribute where
   rnf Attribute' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf attributeType
+    Prelude.rnf attributeType
+      `Prelude.seq` Prelude.rnf value

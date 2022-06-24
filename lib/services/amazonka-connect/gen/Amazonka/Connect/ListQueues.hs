@@ -40,8 +40,8 @@ module Amazonka.Connect.ListQueues
 
     -- * Request Lenses
     listQueues_nextToken,
-    listQueues_queueTypes,
     listQueues_maxResults,
+    listQueues_queueTypes,
     listQueues_instanceId,
 
     -- * Destructuring the Response
@@ -68,10 +68,10 @@ data ListQueues = ListQueues'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The type of queue.
-    queueTypes :: Prelude.Maybe [QueueType],
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The type of queue.
+    queueTypes :: Prelude.Maybe [QueueType],
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -90,9 +90,9 @@ data ListQueues = ListQueues'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'queueTypes', 'listQueues_queueTypes' - The type of queue.
---
 -- 'maxResults', 'listQueues_maxResults' - The maximum number of results to return per page.
+--
+-- 'queueTypes', 'listQueues_queueTypes' - The type of queue.
 --
 -- 'instanceId', 'listQueues_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -103,8 +103,8 @@ newListQueues ::
 newListQueues pInstanceId_ =
   ListQueues'
     { nextToken = Prelude.Nothing,
-      queueTypes = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      queueTypes = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -114,13 +114,13 @@ newListQueues pInstanceId_ =
 listQueues_nextToken :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Text)
 listQueues_nextToken = Lens.lens (\ListQueues' {nextToken} -> nextToken) (\s@ListQueues' {} a -> s {nextToken = a} :: ListQueues)
 
--- | The type of queue.
-listQueues_queueTypes :: Lens.Lens' ListQueues (Prelude.Maybe [QueueType])
-listQueues_queueTypes = Lens.lens (\ListQueues' {queueTypes} -> queueTypes) (\s@ListQueues' {} a -> s {queueTypes = a} :: ListQueues) Prelude.. Lens.mapping Lens.coerced
-
 -- | The maximum number of results to return per page.
 listQueues_maxResults :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Natural)
 listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@ListQueues' {} a -> s {maxResults = a} :: ListQueues)
+
+-- | The type of queue.
+listQueues_queueTypes :: Lens.Lens' ListQueues (Prelude.Maybe [QueueType])
+listQueues_queueTypes = Lens.lens (\ListQueues' {queueTypes} -> queueTypes) (\s@ListQueues' {} a -> s {queueTypes = a} :: ListQueues) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -164,15 +164,15 @@ instance Core.AWSRequest ListQueues where
 instance Prelude.Hashable ListQueues where
   hashWithSalt _salt ListQueues' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` queueTypes
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` queueTypes
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ListQueues where
   rnf ListQueues' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queueTypes
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf queueTypes
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders ListQueues where
@@ -195,10 +195,10 @@ instance Core.ToQuery ListQueues where
   toQuery ListQueues' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults,
         "queueTypes"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> queueTypes),
-        "maxResults" Core.=: maxResults
+            (Core.toQueryList "member" Prelude.<$> queueTypes)
       ]
 
 -- | /See:/ 'newListQueuesResponse' smart constructor.

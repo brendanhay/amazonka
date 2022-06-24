@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPromptSummary' smart constructor.
 data PromptSummary = PromptSummary'
-  { -- | The Amazon Resource Name (ARN) of the prompt.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the prompt.
+  { -- | The name of the prompt.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the prompt.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the prompt.
     id :: Prelude.Maybe Prelude.Text
   }
@@ -44,27 +44,27 @@ data PromptSummary = PromptSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'promptSummary_arn' - The Amazon Resource Name (ARN) of the prompt.
---
 -- 'name', 'promptSummary_name' - The name of the prompt.
+--
+-- 'arn', 'promptSummary_arn' - The Amazon Resource Name (ARN) of the prompt.
 --
 -- 'id', 'promptSummary_id' - The identifier of the prompt.
 newPromptSummary ::
   PromptSummary
 newPromptSummary =
   PromptSummary'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       id = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the prompt.
-promptSummary_arn :: Lens.Lens' PromptSummary (Prelude.Maybe Prelude.Text)
-promptSummary_arn = Lens.lens (\PromptSummary' {arn} -> arn) (\s@PromptSummary' {} a -> s {arn = a} :: PromptSummary)
 
 -- | The name of the prompt.
 promptSummary_name :: Lens.Lens' PromptSummary (Prelude.Maybe Prelude.Text)
 promptSummary_name = Lens.lens (\PromptSummary' {name} -> name) (\s@PromptSummary' {} a -> s {name = a} :: PromptSummary)
+
+-- | The Amazon Resource Name (ARN) of the prompt.
+promptSummary_arn :: Lens.Lens' PromptSummary (Prelude.Maybe Prelude.Text)
+promptSummary_arn = Lens.lens (\PromptSummary' {arn} -> arn) (\s@PromptSummary' {} a -> s {arn = a} :: PromptSummary)
 
 -- | The identifier of the prompt.
 promptSummary_id :: Lens.Lens' PromptSummary (Prelude.Maybe Prelude.Text)
@@ -76,19 +76,19 @@ instance Core.FromJSON PromptSummary where
       "PromptSummary"
       ( \x ->
           PromptSummary'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable PromptSummary where
   hashWithSalt _salt PromptSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData PromptSummary where
   rnf PromptSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id

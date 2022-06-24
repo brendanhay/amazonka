@@ -39,8 +39,8 @@ module Amazonka.Connect.ListPrompts
     newListPromptsResponse,
 
     -- * Response Lenses
-    listPromptsResponse_promptSummaryList,
     listPromptsResponse_nextToken,
+    listPromptsResponse_promptSummaryList,
     listPromptsResponse_httpStatus,
   )
 where
@@ -132,10 +132,10 @@ instance Core.AWSRequest ListPrompts where
     Response.receiveJSON
       ( \s h x ->
           ListPromptsResponse'
-            Prelude.<$> ( x Core..?> "PromptSummaryList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "PromptSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,11 +176,11 @@ instance Core.ToQuery ListPrompts where
 
 -- | /See:/ 'newListPromptsResponse' smart constructor.
 data ListPromptsResponse = ListPromptsResponse'
-  { -- | Information about the prompts.
-    promptSummaryList :: Prelude.Maybe [PromptSummary],
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the prompts.
+    promptSummaryList :: Prelude.Maybe [PromptSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,10 +194,10 @@ data ListPromptsResponse = ListPromptsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'promptSummaryList', 'listPromptsResponse_promptSummaryList' - Information about the prompts.
---
 -- 'nextToken', 'listPromptsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
+--
+-- 'promptSummaryList', 'listPromptsResponse_promptSummaryList' - Information about the prompts.
 --
 -- 'httpStatus', 'listPromptsResponse_httpStatus' - The response's http status code.
 newListPromptsResponse ::
@@ -206,20 +206,19 @@ newListPromptsResponse ::
   ListPromptsResponse
 newListPromptsResponse pHttpStatus_ =
   ListPromptsResponse'
-    { promptSummaryList =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      promptSummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the prompts.
-listPromptsResponse_promptSummaryList :: Lens.Lens' ListPromptsResponse (Prelude.Maybe [PromptSummary])
-listPromptsResponse_promptSummaryList = Lens.lens (\ListPromptsResponse' {promptSummaryList} -> promptSummaryList) (\s@ListPromptsResponse' {} a -> s {promptSummaryList = a} :: ListPromptsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listPromptsResponse_nextToken :: Lens.Lens' ListPromptsResponse (Prelude.Maybe Prelude.Text)
 listPromptsResponse_nextToken = Lens.lens (\ListPromptsResponse' {nextToken} -> nextToken) (\s@ListPromptsResponse' {} a -> s {nextToken = a} :: ListPromptsResponse)
+
+-- | Information about the prompts.
+listPromptsResponse_promptSummaryList :: Lens.Lens' ListPromptsResponse (Prelude.Maybe [PromptSummary])
+listPromptsResponse_promptSummaryList = Lens.lens (\ListPromptsResponse' {promptSummaryList} -> promptSummaryList) (\s@ListPromptsResponse' {} a -> s {promptSummaryList = a} :: ListPromptsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPromptsResponse_httpStatus :: Lens.Lens' ListPromptsResponse Prelude.Int
@@ -227,6 +226,6 @@ listPromptsResponse_httpStatus = Lens.lens (\ListPromptsResponse' {httpStatus} -
 
 instance Prelude.NFData ListPromptsResponse where
   rnf ListPromptsResponse' {..} =
-    Prelude.rnf promptSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf promptSummaryList
       `Prelude.seq` Prelude.rnf httpStatus

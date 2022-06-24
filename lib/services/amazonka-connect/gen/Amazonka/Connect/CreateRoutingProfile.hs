@@ -27,8 +27,8 @@ module Amazonka.Connect.CreateRoutingProfile
     newCreateRoutingProfile,
 
     -- * Request Lenses
-    createRoutingProfile_queueConfigs,
     createRoutingProfile_tags,
+    createRoutingProfile_queueConfigs,
     createRoutingProfile_instanceId,
     createRoutingProfile_name,
     createRoutingProfile_description,
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRoutingProfile' smart constructor.
 data CreateRoutingProfile = CreateRoutingProfile'
-  { -- | The inbound queues associated with the routing profile. If no queue is
+  { -- | One or more tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The inbound queues associated with the routing profile. If no queue is
     -- added, the agent can make only outbound calls.
     queueConfigs :: Prelude.Maybe (Prelude.NonEmpty RoutingProfileQueueConfig),
-    -- | One or more tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -84,10 +84,10 @@ data CreateRoutingProfile = CreateRoutingProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createRoutingProfile_tags' - One or more tags.
+--
 -- 'queueConfigs', 'createRoutingProfile_queueConfigs' - The inbound queues associated with the routing profile. If no queue is
 -- added, the agent can make only outbound calls.
---
--- 'tags', 'createRoutingProfile_tags' - One or more tags.
 --
 -- 'instanceId', 'createRoutingProfile_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -117,9 +117,8 @@ newCreateRoutingProfile
   pDescription_
   pDefaultOutboundQueueId_ =
     CreateRoutingProfile'
-      { queueConfigs =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        queueConfigs = Prelude.Nothing,
         instanceId = pInstanceId_,
         name = pName_,
         description = pDescription_,
@@ -127,14 +126,14 @@ newCreateRoutingProfile
         mediaConcurrencies = Prelude.mempty
       }
 
+-- | One or more tags.
+createRoutingProfile_tags :: Lens.Lens' CreateRoutingProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createRoutingProfile_tags = Lens.lens (\CreateRoutingProfile' {tags} -> tags) (\s@CreateRoutingProfile' {} a -> s {tags = a} :: CreateRoutingProfile) Prelude.. Lens.mapping Lens.coerced
+
 -- | The inbound queues associated with the routing profile. If no queue is
 -- added, the agent can make only outbound calls.
 createRoutingProfile_queueConfigs :: Lens.Lens' CreateRoutingProfile (Prelude.Maybe (Prelude.NonEmpty RoutingProfileQueueConfig))
 createRoutingProfile_queueConfigs = Lens.lens (\CreateRoutingProfile' {queueConfigs} -> queueConfigs) (\s@CreateRoutingProfile' {} a -> s {queueConfigs = a} :: CreateRoutingProfile) Prelude.. Lens.mapping Lens.coerced
-
--- | One or more tags.
-createRoutingProfile_tags :: Lens.Lens' CreateRoutingProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRoutingProfile_tags = Lens.lens (\CreateRoutingProfile' {tags} -> tags) (\s@CreateRoutingProfile' {} a -> s {tags = a} :: CreateRoutingProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -175,8 +174,8 @@ instance Core.AWSRequest CreateRoutingProfile where
 
 instance Prelude.Hashable CreateRoutingProfile where
   hashWithSalt _salt CreateRoutingProfile' {..} =
-    _salt `Prelude.hashWithSalt` queueConfigs
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` queueConfigs
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` description
@@ -185,8 +184,8 @@ instance Prelude.Hashable CreateRoutingProfile where
 
 instance Prelude.NFData CreateRoutingProfile where
   rnf CreateRoutingProfile' {..} =
-    Prelude.rnf queueConfigs
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf queueConfigs
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf description
@@ -208,8 +207,8 @@ instance Core.ToJSON CreateRoutingProfile where
   toJSON CreateRoutingProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("QueueConfigs" Core..=) Prelude.<$> queueConfigs,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("QueueConfigs" Core..=) Prelude.<$> queueConfigs,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Description" Core..= description),
             Prelude.Just

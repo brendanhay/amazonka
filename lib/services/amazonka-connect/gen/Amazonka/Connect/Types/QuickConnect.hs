@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQuickConnect' smart constructor.
 data QuickConnect = QuickConnect'
-  { -- | The name of the quick connect.
+  { -- | One or more tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the quick connect.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the quick connect.
-    quickConnectId :: Prelude.Maybe Prelude.Text,
+    -- | Contains information about the quick connect.
+    quickConnectConfig :: Prelude.Maybe QuickConnectConfig,
     -- | The description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the quick connect.
     quickConnectARN :: Prelude.Maybe Prelude.Text,
-    -- | One or more tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Contains information about the quick connect.
-    quickConnectConfig :: Prelude.Maybe QuickConnectConfig
+    -- | The identifier for the quick connect.
+    quickConnectId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,36 +51,40 @@ data QuickConnect = QuickConnect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'quickConnect_tags' - One or more tags.
+--
 -- 'name', 'quickConnect_name' - The name of the quick connect.
 --
--- 'quickConnectId', 'quickConnect_quickConnectId' - The identifier for the quick connect.
+-- 'quickConnectConfig', 'quickConnect_quickConnectConfig' - Contains information about the quick connect.
 --
 -- 'description', 'quickConnect_description' - The description.
 --
 -- 'quickConnectARN', 'quickConnect_quickConnectARN' - The Amazon Resource Name (ARN) of the quick connect.
 --
--- 'tags', 'quickConnect_tags' - One or more tags.
---
--- 'quickConnectConfig', 'quickConnect_quickConnectConfig' - Contains information about the quick connect.
+-- 'quickConnectId', 'quickConnect_quickConnectId' - The identifier for the quick connect.
 newQuickConnect ::
   QuickConnect
 newQuickConnect =
   QuickConnect'
-    { name = Prelude.Nothing,
-      quickConnectId = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      name = Prelude.Nothing,
+      quickConnectConfig = Prelude.Nothing,
       description = Prelude.Nothing,
       quickConnectARN = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      quickConnectConfig = Prelude.Nothing
+      quickConnectId = Prelude.Nothing
     }
+
+-- | One or more tags.
+quickConnect_tags :: Lens.Lens' QuickConnect (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+quickConnect_tags = Lens.lens (\QuickConnect' {tags} -> tags) (\s@QuickConnect' {} a -> s {tags = a} :: QuickConnect) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the quick connect.
 quickConnect_name :: Lens.Lens' QuickConnect (Prelude.Maybe Prelude.Text)
 quickConnect_name = Lens.lens (\QuickConnect' {name} -> name) (\s@QuickConnect' {} a -> s {name = a} :: QuickConnect)
 
--- | The identifier for the quick connect.
-quickConnect_quickConnectId :: Lens.Lens' QuickConnect (Prelude.Maybe Prelude.Text)
-quickConnect_quickConnectId = Lens.lens (\QuickConnect' {quickConnectId} -> quickConnectId) (\s@QuickConnect' {} a -> s {quickConnectId = a} :: QuickConnect)
+-- | Contains information about the quick connect.
+quickConnect_quickConnectConfig :: Lens.Lens' QuickConnect (Prelude.Maybe QuickConnectConfig)
+quickConnect_quickConnectConfig = Lens.lens (\QuickConnect' {quickConnectConfig} -> quickConnectConfig) (\s@QuickConnect' {} a -> s {quickConnectConfig = a} :: QuickConnect)
 
 -- | The description.
 quickConnect_description :: Lens.Lens' QuickConnect (Prelude.Maybe Prelude.Text)
@@ -90,13 +94,9 @@ quickConnect_description = Lens.lens (\QuickConnect' {description} -> descriptio
 quickConnect_quickConnectARN :: Lens.Lens' QuickConnect (Prelude.Maybe Prelude.Text)
 quickConnect_quickConnectARN = Lens.lens (\QuickConnect' {quickConnectARN} -> quickConnectARN) (\s@QuickConnect' {} a -> s {quickConnectARN = a} :: QuickConnect)
 
--- | One or more tags.
-quickConnect_tags :: Lens.Lens' QuickConnect (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-quickConnect_tags = Lens.lens (\QuickConnect' {tags} -> tags) (\s@QuickConnect' {} a -> s {tags = a} :: QuickConnect) Prelude.. Lens.mapping Lens.coerced
-
--- | Contains information about the quick connect.
-quickConnect_quickConnectConfig :: Lens.Lens' QuickConnect (Prelude.Maybe QuickConnectConfig)
-quickConnect_quickConnectConfig = Lens.lens (\QuickConnect' {quickConnectConfig} -> quickConnectConfig) (\s@QuickConnect' {} a -> s {quickConnectConfig = a} :: QuickConnect)
+-- | The identifier for the quick connect.
+quickConnect_quickConnectId :: Lens.Lens' QuickConnect (Prelude.Maybe Prelude.Text)
+quickConnect_quickConnectId = Lens.lens (\QuickConnect' {quickConnectId} -> quickConnectId) (\s@QuickConnect' {} a -> s {quickConnectId = a} :: QuickConnect)
 
 instance Core.FromJSON QuickConnect where
   parseJSON =
@@ -104,28 +104,28 @@ instance Core.FromJSON QuickConnect where
       "QuickConnect"
       ( \x ->
           QuickConnect'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "QuickConnectId")
+            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "QuickConnectConfig")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "QuickConnectARN")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "QuickConnectConfig")
+            Prelude.<*> (x Core..:? "QuickConnectId")
       )
 
 instance Prelude.Hashable QuickConnect where
   hashWithSalt _salt QuickConnect' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` quickConnectId
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` quickConnectConfig
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` quickConnectARN
-      `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` quickConnectConfig
+      `Prelude.hashWithSalt` quickConnectId
 
 instance Prelude.NFData QuickConnect where
   rnf QuickConnect' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf quickConnectId
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf quickConnectConfig
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf quickConnectARN
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf quickConnectConfig
+      `Prelude.seq` Prelude.rnf quickConnectId

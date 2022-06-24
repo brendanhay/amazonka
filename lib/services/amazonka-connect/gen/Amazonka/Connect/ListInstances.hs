@@ -43,8 +43,8 @@ module Amazonka.Connect.ListInstances
     newListInstancesResponse,
 
     -- * Response Lenses
-    listInstancesResponse_instanceSummaryList,
     listInstancesResponse_nextToken,
+    listInstancesResponse_instanceSummaryList,
     listInstancesResponse_httpStatus,
   )
 where
@@ -127,10 +127,10 @@ instance Core.AWSRequest ListInstances where
     Response.receiveJSON
       ( \s h x ->
           ListInstancesResponse'
-            Prelude.<$> ( x Core..?> "InstanceSummaryList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "InstanceSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,11 +167,11 @@ instance Core.ToQuery ListInstances where
 
 -- | /See:/ 'newListInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-  { -- | Information about the instances.
-    instanceSummaryList :: Prelude.Maybe [InstanceSummary],
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the instances.
+    instanceSummaryList :: Prelude.Maybe [InstanceSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,10 +185,10 @@ data ListInstancesResponse = ListInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceSummaryList', 'listInstancesResponse_instanceSummaryList' - Information about the instances.
---
 -- 'nextToken', 'listInstancesResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
+--
+-- 'instanceSummaryList', 'listInstancesResponse_instanceSummaryList' - Information about the instances.
 --
 -- 'httpStatus', 'listInstancesResponse_httpStatus' - The response's http status code.
 newListInstancesResponse ::
@@ -197,20 +197,19 @@ newListInstancesResponse ::
   ListInstancesResponse
 newListInstancesResponse pHttpStatus_ =
   ListInstancesResponse'
-    { instanceSummaryList =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      instanceSummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the instances.
-listInstancesResponse_instanceSummaryList :: Lens.Lens' ListInstancesResponse (Prelude.Maybe [InstanceSummary])
-listInstancesResponse_instanceSummaryList = Lens.lens (\ListInstancesResponse' {instanceSummaryList} -> instanceSummaryList) (\s@ListInstancesResponse' {} a -> s {instanceSummaryList = a} :: ListInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listInstancesResponse_nextToken :: Lens.Lens' ListInstancesResponse (Prelude.Maybe Prelude.Text)
 listInstancesResponse_nextToken = Lens.lens (\ListInstancesResponse' {nextToken} -> nextToken) (\s@ListInstancesResponse' {} a -> s {nextToken = a} :: ListInstancesResponse)
+
+-- | Information about the instances.
+listInstancesResponse_instanceSummaryList :: Lens.Lens' ListInstancesResponse (Prelude.Maybe [InstanceSummary])
+listInstancesResponse_instanceSummaryList = Lens.lens (\ListInstancesResponse' {instanceSummaryList} -> instanceSummaryList) (\s@ListInstancesResponse' {} a -> s {instanceSummaryList = a} :: ListInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listInstancesResponse_httpStatus :: Lens.Lens' ListInstancesResponse Prelude.Int
@@ -218,6 +217,6 @@ listInstancesResponse_httpStatus = Lens.lens (\ListInstancesResponse' {httpStatu
 
 instance Prelude.NFData ListInstancesResponse where
   rnf ListInstancesResponse' {..} =
-    Prelude.rnf instanceSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceSummaryList
       `Prelude.seq` Prelude.rnf httpStatus

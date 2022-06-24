@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHistoricalMetricData' smart constructor.
 data HistoricalMetricData = HistoricalMetricData'
-  { -- | The value of the metric.
-    value :: Prelude.Maybe Prelude.Double,
-    -- | Information about the metric.
-    metric :: Prelude.Maybe HistoricalMetric
+  { -- | Information about the metric.
+    metric :: Prelude.Maybe HistoricalMetric,
+    -- | The value of the metric.
+    value :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data HistoricalMetricData = HistoricalMetricData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'historicalMetricData_value' - The value of the metric.
---
 -- 'metric', 'historicalMetricData_metric' - Information about the metric.
+--
+-- 'value', 'historicalMetricData_value' - The value of the metric.
 newHistoricalMetricData ::
   HistoricalMetricData
 newHistoricalMetricData =
   HistoricalMetricData'
-    { value = Prelude.Nothing,
-      metric = Prelude.Nothing
+    { metric = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the metric.
-historicalMetricData_value :: Lens.Lens' HistoricalMetricData (Prelude.Maybe Prelude.Double)
-historicalMetricData_value = Lens.lens (\HistoricalMetricData' {value} -> value) (\s@HistoricalMetricData' {} a -> s {value = a} :: HistoricalMetricData)
 
 -- | Information about the metric.
 historicalMetricData_metric :: Lens.Lens' HistoricalMetricData (Prelude.Maybe HistoricalMetric)
 historicalMetricData_metric = Lens.lens (\HistoricalMetricData' {metric} -> metric) (\s@HistoricalMetricData' {} a -> s {metric = a} :: HistoricalMetricData)
+
+-- | The value of the metric.
+historicalMetricData_value :: Lens.Lens' HistoricalMetricData (Prelude.Maybe Prelude.Double)
+historicalMetricData_value = Lens.lens (\HistoricalMetricData' {value} -> value) (\s@HistoricalMetricData' {} a -> s {value = a} :: HistoricalMetricData)
 
 instance Core.FromJSON HistoricalMetricData where
   parseJSON =
@@ -68,15 +68,15 @@ instance Core.FromJSON HistoricalMetricData where
       "HistoricalMetricData"
       ( \x ->
           HistoricalMetricData'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Metric")
+            Prelude.<$> (x Core..:? "Metric")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable HistoricalMetricData where
   hashWithSalt _salt HistoricalMetricData' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` metric
+    _salt `Prelude.hashWithSalt` metric
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData HistoricalMetricData where
   rnf HistoricalMetricData' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf metric
+    Prelude.rnf metric `Prelude.seq` Prelude.rnf value

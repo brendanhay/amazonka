@@ -32,8 +32,8 @@ module Amazonka.Connect.GetCurrentMetricData
     newGetCurrentMetricData,
 
     -- * Request Lenses
-    getCurrentMetricData_nextToken,
     getCurrentMetricData_groupings,
+    getCurrentMetricData_nextToken,
     getCurrentMetricData_maxResults,
     getCurrentMetricData_instanceId,
     getCurrentMetricData_filters,
@@ -44,9 +44,9 @@ module Amazonka.Connect.GetCurrentMetricData
     newGetCurrentMetricDataResponse,
 
     -- * Response Lenses
-    getCurrentMetricDataResponse_metricResults,
-    getCurrentMetricDataResponse_dataSnapshotTime,
     getCurrentMetricDataResponse_nextToken,
+    getCurrentMetricDataResponse_dataSnapshotTime,
+    getCurrentMetricDataResponse_metricResults,
     getCurrentMetricDataResponse_httpStatus,
   )
 where
@@ -60,15 +60,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetCurrentMetricData' smart constructor.
 data GetCurrentMetricData = GetCurrentMetricData'
-  { -- | The token for the next set of results. Use the value returned in the
-    -- previous response in the next request to retrieve the next set of
-    -- results.
-    --
-    -- The token expires after 5 minutes from the time it is created.
-    -- Subsequent requests that use the token must use the same request
-    -- parameters as the request that generated the token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The grouping applied to the metrics returned. For example, when grouped
+  { -- | The grouping applied to the metrics returned. For example, when grouped
     -- by @QUEUE@, the metrics returned apply to each queue rather than
     -- aggregated for all queues. If you group by @CHANNEL@, you should include
     -- a Channels filter. VOICE, CHAT, and TASK channels are supported.
@@ -76,6 +68,14 @@ data GetCurrentMetricData = GetCurrentMetricData'
     -- If no @Grouping@ is included in the request, a summary of metrics is
     -- returned.
     groupings :: Prelude.Maybe [Grouping],
+    -- | The token for the next set of results. Use the value returned in the
+    -- previous response in the next request to retrieve the next set of
+    -- results.
+    --
+    -- The token expires after 5 minutes from the time it is created.
+    -- Subsequent requests that use the token must use the same request
+    -- parameters as the request that generated the token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
@@ -193,14 +193,6 @@ data GetCurrentMetricData = GetCurrentMetricData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getCurrentMetricData_nextToken' - The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
---
--- The token expires after 5 minutes from the time it is created.
--- Subsequent requests that use the token must use the same request
--- parameters as the request that generated the token.
---
 -- 'groupings', 'getCurrentMetricData_groupings' - The grouping applied to the metrics returned. For example, when grouped
 -- by @QUEUE@, the metrics returned apply to each queue rather than
 -- aggregated for all queues. If you group by @CHANNEL@, you should include
@@ -208,6 +200,14 @@ data GetCurrentMetricData = GetCurrentMetricData'
 --
 -- If no @Grouping@ is included in the request, a summary of metrics is
 -- returned.
+--
+-- 'nextToken', 'getCurrentMetricData_nextToken' - The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+--
+-- The token expires after 5 minutes from the time it is created.
+-- Subsequent requests that use the token must use the same request
+-- parameters as the request that generated the token.
 --
 -- 'maxResults', 'getCurrentMetricData_maxResults' - The maximum number of results to return per page.
 --
@@ -322,23 +322,13 @@ newGetCurrentMetricData ::
   GetCurrentMetricData
 newGetCurrentMetricData pInstanceId_ pFilters_ =
   GetCurrentMetricData'
-    { nextToken = Prelude.Nothing,
-      groupings = Prelude.Nothing,
+    { groupings = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       instanceId = pInstanceId_,
       filters = pFilters_,
       currentMetrics = Prelude.mempty
     }
-
--- | The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
---
--- The token expires after 5 minutes from the time it is created.
--- Subsequent requests that use the token must use the same request
--- parameters as the request that generated the token.
-getCurrentMetricData_nextToken :: Lens.Lens' GetCurrentMetricData (Prelude.Maybe Prelude.Text)
-getCurrentMetricData_nextToken = Lens.lens (\GetCurrentMetricData' {nextToken} -> nextToken) (\s@GetCurrentMetricData' {} a -> s {nextToken = a} :: GetCurrentMetricData)
 
 -- | The grouping applied to the metrics returned. For example, when grouped
 -- by @QUEUE@, the metrics returned apply to each queue rather than
@@ -349,6 +339,16 @@ getCurrentMetricData_nextToken = Lens.lens (\GetCurrentMetricData' {nextToken} -
 -- returned.
 getCurrentMetricData_groupings :: Lens.Lens' GetCurrentMetricData (Prelude.Maybe [Grouping])
 getCurrentMetricData_groupings = Lens.lens (\GetCurrentMetricData' {groupings} -> groupings) (\s@GetCurrentMetricData' {} a -> s {groupings = a} :: GetCurrentMetricData) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+--
+-- The token expires after 5 minutes from the time it is created.
+-- Subsequent requests that use the token must use the same request
+-- parameters as the request that generated the token.
+getCurrentMetricData_nextToken :: Lens.Lens' GetCurrentMetricData (Prelude.Maybe Prelude.Text)
+getCurrentMetricData_nextToken = Lens.lens (\GetCurrentMetricData' {nextToken} -> nextToken) (\s@GetCurrentMetricData' {} a -> s {nextToken = a} :: GetCurrentMetricData)
 
 -- | The maximum number of results to return per page.
 getCurrentMetricData_maxResults :: Lens.Lens' GetCurrentMetricData (Prelude.Maybe Prelude.Natural)
@@ -473,16 +473,16 @@ instance Core.AWSRequest GetCurrentMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetCurrentMetricDataResponse'
-            Prelude.<$> (x Core..?> "MetricResults" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "DataSnapshotTime")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "MetricResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetCurrentMetricData where
   hashWithSalt _salt GetCurrentMetricData' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` groupings
+    _salt `Prelude.hashWithSalt` groupings
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` filters
@@ -490,8 +490,8 @@ instance Prelude.Hashable GetCurrentMetricData where
 
 instance Prelude.NFData GetCurrentMetricData where
   rnf GetCurrentMetricData' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf groupings
+    Prelude.rnf groupings
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf filters
@@ -512,8 +512,8 @@ instance Core.ToJSON GetCurrentMetricData where
   toJSON GetCurrentMetricData' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Groupings" Core..=) Prelude.<$> groupings,
+          [ ("Groupings" Core..=) Prelude.<$> groupings,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("Filters" Core..= filters),
             Prelude.Just
@@ -531,17 +531,17 @@ instance Core.ToQuery GetCurrentMetricData where
 
 -- | /See:/ 'newGetCurrentMetricDataResponse' smart constructor.
 data GetCurrentMetricDataResponse = GetCurrentMetricDataResponse'
-  { -- | Information about the real-time metrics.
-    metricResults :: Prelude.Maybe [CurrentMetricResult],
-    -- | The time at which the metrics were retrieved and cached for pagination.
-    dataSnapshotTime :: Prelude.Maybe Core.POSIX,
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     --
     -- The token expires after 5 minutes from the time it is created.
     -- Subsequent requests that use the token must use the same request
     -- parameters as the request that generated the token.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the metrics were retrieved and cached for pagination.
+    dataSnapshotTime :: Prelude.Maybe Core.POSIX,
+    -- | Information about the real-time metrics.
+    metricResults :: Prelude.Maybe [CurrentMetricResult],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -555,16 +555,16 @@ data GetCurrentMetricDataResponse = GetCurrentMetricDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricResults', 'getCurrentMetricDataResponse_metricResults' - Information about the real-time metrics.
---
--- 'dataSnapshotTime', 'getCurrentMetricDataResponse_dataSnapshotTime' - The time at which the metrics were retrieved and cached for pagination.
---
 -- 'nextToken', 'getCurrentMetricDataResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
 --
 -- The token expires after 5 minutes from the time it is created.
 -- Subsequent requests that use the token must use the same request
 -- parameters as the request that generated the token.
+--
+-- 'dataSnapshotTime', 'getCurrentMetricDataResponse_dataSnapshotTime' - The time at which the metrics were retrieved and cached for pagination.
+--
+-- 'metricResults', 'getCurrentMetricDataResponse_metricResults' - Information about the real-time metrics.
 --
 -- 'httpStatus', 'getCurrentMetricDataResponse_httpStatus' - The response's http status code.
 newGetCurrentMetricDataResponse ::
@@ -573,20 +573,12 @@ newGetCurrentMetricDataResponse ::
   GetCurrentMetricDataResponse
 newGetCurrentMetricDataResponse pHttpStatus_ =
   GetCurrentMetricDataResponse'
-    { metricResults =
+    { nextToken =
         Prelude.Nothing,
       dataSnapshotTime = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      metricResults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the real-time metrics.
-getCurrentMetricDataResponse_metricResults :: Lens.Lens' GetCurrentMetricDataResponse (Prelude.Maybe [CurrentMetricResult])
-getCurrentMetricDataResponse_metricResults = Lens.lens (\GetCurrentMetricDataResponse' {metricResults} -> metricResults) (\s@GetCurrentMetricDataResponse' {} a -> s {metricResults = a} :: GetCurrentMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The time at which the metrics were retrieved and cached for pagination.
-getCurrentMetricDataResponse_dataSnapshotTime :: Lens.Lens' GetCurrentMetricDataResponse (Prelude.Maybe Prelude.UTCTime)
-getCurrentMetricDataResponse_dataSnapshotTime = Lens.lens (\GetCurrentMetricDataResponse' {dataSnapshotTime} -> dataSnapshotTime) (\s@GetCurrentMetricDataResponse' {} a -> s {dataSnapshotTime = a} :: GetCurrentMetricDataResponse) Prelude.. Lens.mapping Core._Time
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
@@ -597,13 +589,21 @@ getCurrentMetricDataResponse_dataSnapshotTime = Lens.lens (\GetCurrentMetricData
 getCurrentMetricDataResponse_nextToken :: Lens.Lens' GetCurrentMetricDataResponse (Prelude.Maybe Prelude.Text)
 getCurrentMetricDataResponse_nextToken = Lens.lens (\GetCurrentMetricDataResponse' {nextToken} -> nextToken) (\s@GetCurrentMetricDataResponse' {} a -> s {nextToken = a} :: GetCurrentMetricDataResponse)
 
+-- | The time at which the metrics were retrieved and cached for pagination.
+getCurrentMetricDataResponse_dataSnapshotTime :: Lens.Lens' GetCurrentMetricDataResponse (Prelude.Maybe Prelude.UTCTime)
+getCurrentMetricDataResponse_dataSnapshotTime = Lens.lens (\GetCurrentMetricDataResponse' {dataSnapshotTime} -> dataSnapshotTime) (\s@GetCurrentMetricDataResponse' {} a -> s {dataSnapshotTime = a} :: GetCurrentMetricDataResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Information about the real-time metrics.
+getCurrentMetricDataResponse_metricResults :: Lens.Lens' GetCurrentMetricDataResponse (Prelude.Maybe [CurrentMetricResult])
+getCurrentMetricDataResponse_metricResults = Lens.lens (\GetCurrentMetricDataResponse' {metricResults} -> metricResults) (\s@GetCurrentMetricDataResponse' {} a -> s {metricResults = a} :: GetCurrentMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 getCurrentMetricDataResponse_httpStatus :: Lens.Lens' GetCurrentMetricDataResponse Prelude.Int
 getCurrentMetricDataResponse_httpStatus = Lens.lens (\GetCurrentMetricDataResponse' {httpStatus} -> httpStatus) (\s@GetCurrentMetricDataResponse' {} a -> s {httpStatus = a} :: GetCurrentMetricDataResponse)
 
 instance Prelude.NFData GetCurrentMetricDataResponse where
   rnf GetCurrentMetricDataResponse' {..} =
-    Prelude.rnf metricResults
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf dataSnapshotTime
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf metricResults
       `Prelude.seq` Prelude.rnf httpStatus

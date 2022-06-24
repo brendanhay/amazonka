@@ -34,18 +34,18 @@ module Amazonka.DataSync.DescribeTaskExecution
     newDescribeTaskExecutionResponse,
 
     -- * Response Lenses
-    describeTaskExecutionResponse_status,
-    describeTaskExecutionResponse_taskExecutionArn,
-    describeTaskExecutionResponse_startTime,
-    describeTaskExecutionResponse_filesTransferred,
-    describeTaskExecutionResponse_bytesWritten,
-    describeTaskExecutionResponse_bytesTransferred,
-    describeTaskExecutionResponse_result,
-    describeTaskExecutionResponse_includes,
-    describeTaskExecutionResponse_estimatedFilesToTransfer,
     describeTaskExecutionResponse_excludes,
+    describeTaskExecutionResponse_filesTransferred,
+    describeTaskExecutionResponse_status,
     describeTaskExecutionResponse_options,
+    describeTaskExecutionResponse_estimatedFilesToTransfer,
+    describeTaskExecutionResponse_includes,
+    describeTaskExecutionResponse_result,
     describeTaskExecutionResponse_estimatedBytesToTransfer,
+    describeTaskExecutionResponse_bytesTransferred,
+    describeTaskExecutionResponse_taskExecutionArn,
+    describeTaskExecutionResponse_bytesWritten,
+    describeTaskExecutionResponse_startTime,
     describeTaskExecutionResponse_httpStatus,
   )
 where
@@ -98,18 +98,18 @@ instance Core.AWSRequest DescribeTaskExecution where
     Response.receiveJSON
       ( \s h x ->
           DescribeTaskExecutionResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "TaskExecutionArn")
-            Prelude.<*> (x Core..?> "StartTime")
+            Prelude.<$> (x Core..?> "Excludes" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "FilesTransferred")
-            Prelude.<*> (x Core..?> "BytesWritten")
-            Prelude.<*> (x Core..?> "BytesTransferred")
-            Prelude.<*> (x Core..?> "Result")
-            Prelude.<*> (x Core..?> "Includes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "EstimatedFilesToTransfer")
-            Prelude.<*> (x Core..?> "Excludes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "Options")
+            Prelude.<*> (x Core..?> "EstimatedFilesToTransfer")
+            Prelude.<*> (x Core..?> "Includes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Result")
             Prelude.<*> (x Core..?> "EstimatedBytesToTransfer")
+            Prelude.<*> (x Core..?> "BytesTransferred")
+            Prelude.<*> (x Core..?> "TaskExecutionArn")
+            Prelude.<*> (x Core..?> "BytesWritten")
+            Prelude.<*> (x Core..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,22 +155,11 @@ instance Core.ToQuery DescribeTaskExecution where
 --
 -- /See:/ 'newDescribeTaskExecutionResponse' smart constructor.
 data DescribeTaskExecutionResponse = DescribeTaskExecutionResponse'
-  { -- | The status of the task execution.
-    --
-    -- For detailed information about task execution statuses, see
-    -- Understanding Task Statuses in the /DataSync User Guide./
-    status :: Prelude.Maybe TaskExecutionStatus,
-    -- | The Amazon Resource Name (ARN) of the task execution that was described.
-    -- @TaskExecutionArn@ is hierarchical and includes @TaskArn@ for the task
-    -- that was executed.
-    --
-    -- For example, a @TaskExecution@ value with the ARN
-    -- @arn:aws:datasync:us-east-1:111222333444:task\/task-0208075f79cedf4a2\/execution\/exec-08ef1e88ec491019b@
-    -- executed the task with the ARN
-    -- @arn:aws:datasync:us-east-1:111222333444:task\/task-0208075f79cedf4a2@.
-    taskExecutionArn :: Prelude.Maybe Prelude.Text,
-    -- | The time that the task execution was started.
-    startTime :: Prelude.Maybe Core.POSIX,
+  { -- | A list of filter rules that determines which files to exclude from a
+    -- task. The list should contain a single filter string that consists of
+    -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
+    -- pipe), for example: @\"\/folder1|\/folder2\"@
+    excludes :: Prelude.Maybe [FilterRule],
     -- | The actual number of files that was transferred over the network. This
     -- value is calculated and updated on an ongoing basis during the
     -- TRANSFERRING phase. It\'s updated periodically when each file is read
@@ -182,18 +171,12 @@ data DescribeTaskExecutionResponse = DescribeTaskExecutionResponse'
     -- implementation-specific for some location types, so don\'t use it as an
     -- indicator for a correct file number or to monitor your task execution.
     filesTransferred :: Prelude.Maybe Prelude.Integer,
-    -- | The number of logical bytes written to the destination Amazon Web
-    -- Services storage resource.
-    bytesWritten :: Prelude.Maybe Prelude.Integer,
-    -- | The physical number of bytes transferred over the network.
-    bytesTransferred :: Prelude.Maybe Prelude.Integer,
-    -- | The result of the task execution.
-    result :: Prelude.Maybe TaskExecutionResultDetail,
-    -- | A list of filter rules that determines which files to include when
-    -- running a task. The list should contain a single filter string that
-    -- consists of the patterns to include. The patterns are delimited by \"|\"
-    -- (that is, a pipe), for example: @\"\/folder1|\/folder2\"@
-    includes :: Prelude.Maybe [FilterRule],
+    -- | The status of the task execution.
+    --
+    -- For detailed information about task execution statuses, see
+    -- Understanding Task Statuses in the /DataSync User Guide./
+    status :: Prelude.Maybe TaskExecutionStatus,
+    options :: Prelude.Maybe Options,
     -- | The expected number of files that is to be transferred over the network.
     -- This value is calculated during the PREPARING phase, before the
     -- TRANSFERRING phase. This value is the expected number of files to be
@@ -201,15 +184,32 @@ data DescribeTaskExecutionResponse = DescribeTaskExecutionResponse'
     -- source and destination locations and finding the delta that needs to be
     -- transferred.
     estimatedFilesToTransfer :: Prelude.Maybe Prelude.Integer,
-    -- | A list of filter rules that determines which files to exclude from a
-    -- task. The list should contain a single filter string that consists of
-    -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
-    -- pipe), for example: @\"\/folder1|\/folder2\"@
-    excludes :: Prelude.Maybe [FilterRule],
-    options :: Prelude.Maybe Options,
+    -- | A list of filter rules that determines which files to include when
+    -- running a task. The list should contain a single filter string that
+    -- consists of the patterns to include. The patterns are delimited by \"|\"
+    -- (that is, a pipe), for example: @\"\/folder1|\/folder2\"@
+    includes :: Prelude.Maybe [FilterRule],
+    -- | The result of the task execution.
+    result :: Prelude.Maybe TaskExecutionResultDetail,
     -- | The estimated physical number of bytes that is to be transferred over
     -- the network.
     estimatedBytesToTransfer :: Prelude.Maybe Prelude.Integer,
+    -- | The physical number of bytes transferred over the network.
+    bytesTransferred :: Prelude.Maybe Prelude.Integer,
+    -- | The Amazon Resource Name (ARN) of the task execution that was described.
+    -- @TaskExecutionArn@ is hierarchical and includes @TaskArn@ for the task
+    -- that was executed.
+    --
+    -- For example, a @TaskExecution@ value with the ARN
+    -- @arn:aws:datasync:us-east-1:111222333444:task\/task-0208075f79cedf4a2\/execution\/exec-08ef1e88ec491019b@
+    -- executed the task with the ARN
+    -- @arn:aws:datasync:us-east-1:111222333444:task\/task-0208075f79cedf4a2@.
+    taskExecutionArn :: Prelude.Maybe Prelude.Text,
+    -- | The number of logical bytes written to the destination Amazon Web
+    -- Services storage resource.
+    bytesWritten :: Prelude.Maybe Prelude.Integer,
+    -- | The time that the task execution was started.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,21 +223,10 @@ data DescribeTaskExecutionResponse = DescribeTaskExecutionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeTaskExecutionResponse_status' - The status of the task execution.
---
--- For detailed information about task execution statuses, see
--- Understanding Task Statuses in the /DataSync User Guide./
---
--- 'taskExecutionArn', 'describeTaskExecutionResponse_taskExecutionArn' - The Amazon Resource Name (ARN) of the task execution that was described.
--- @TaskExecutionArn@ is hierarchical and includes @TaskArn@ for the task
--- that was executed.
---
--- For example, a @TaskExecution@ value with the ARN
--- @arn:aws:datasync:us-east-1:111222333444:task\/task-0208075f79cedf4a2\/execution\/exec-08ef1e88ec491019b@
--- executed the task with the ARN
--- @arn:aws:datasync:us-east-1:111222333444:task\/task-0208075f79cedf4a2@.
---
--- 'startTime', 'describeTaskExecutionResponse_startTime' - The time that the task execution was started.
+-- 'excludes', 'describeTaskExecutionResponse_excludes' - A list of filter rules that determines which files to exclude from a
+-- task. The list should contain a single filter string that consists of
+-- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
+-- pipe), for example: @\"\/folder1|\/folder2\"@
 --
 -- 'filesTransferred', 'describeTaskExecutionResponse_filesTransferred' - The actual number of files that was transferred over the network. This
 -- value is calculated and updated on an ongoing basis during the
@@ -250,17 +239,12 @@ data DescribeTaskExecutionResponse = DescribeTaskExecutionResponse'
 -- implementation-specific for some location types, so don\'t use it as an
 -- indicator for a correct file number or to monitor your task execution.
 --
--- 'bytesWritten', 'describeTaskExecutionResponse_bytesWritten' - The number of logical bytes written to the destination Amazon Web
--- Services storage resource.
+-- 'status', 'describeTaskExecutionResponse_status' - The status of the task execution.
 --
--- 'bytesTransferred', 'describeTaskExecutionResponse_bytesTransferred' - The physical number of bytes transferred over the network.
+-- For detailed information about task execution statuses, see
+-- Understanding Task Statuses in the /DataSync User Guide./
 --
--- 'result', 'describeTaskExecutionResponse_result' - The result of the task execution.
---
--- 'includes', 'describeTaskExecutionResponse_includes' - A list of filter rules that determines which files to include when
--- running a task. The list should contain a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe), for example: @\"\/folder1|\/folder2\"@
+-- 'options', 'describeTaskExecutionResponse_options' - Undocumented member.
 --
 -- 'estimatedFilesToTransfer', 'describeTaskExecutionResponse_estimatedFilesToTransfer' - The expected number of files that is to be transferred over the network.
 -- This value is calculated during the PREPARING phase, before the
@@ -269,15 +253,31 @@ data DescribeTaskExecutionResponse = DescribeTaskExecutionResponse'
 -- source and destination locations and finding the delta that needs to be
 -- transferred.
 --
--- 'excludes', 'describeTaskExecutionResponse_excludes' - A list of filter rules that determines which files to exclude from a
--- task. The list should contain a single filter string that consists of
--- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
--- pipe), for example: @\"\/folder1|\/folder2\"@
+-- 'includes', 'describeTaskExecutionResponse_includes' - A list of filter rules that determines which files to include when
+-- running a task. The list should contain a single filter string that
+-- consists of the patterns to include. The patterns are delimited by \"|\"
+-- (that is, a pipe), for example: @\"\/folder1|\/folder2\"@
 --
--- 'options', 'describeTaskExecutionResponse_options' - Undocumented member.
+-- 'result', 'describeTaskExecutionResponse_result' - The result of the task execution.
 --
 -- 'estimatedBytesToTransfer', 'describeTaskExecutionResponse_estimatedBytesToTransfer' - The estimated physical number of bytes that is to be transferred over
 -- the network.
+--
+-- 'bytesTransferred', 'describeTaskExecutionResponse_bytesTransferred' - The physical number of bytes transferred over the network.
+--
+-- 'taskExecutionArn', 'describeTaskExecutionResponse_taskExecutionArn' - The Amazon Resource Name (ARN) of the task execution that was described.
+-- @TaskExecutionArn@ is hierarchical and includes @TaskArn@ for the task
+-- that was executed.
+--
+-- For example, a @TaskExecution@ value with the ARN
+-- @arn:aws:datasync:us-east-1:111222333444:task\/task-0208075f79cedf4a2\/execution\/exec-08ef1e88ec491019b@
+-- executed the task with the ARN
+-- @arn:aws:datasync:us-east-1:111222333444:task\/task-0208075f79cedf4a2@.
+--
+-- 'bytesWritten', 'describeTaskExecutionResponse_bytesWritten' - The number of logical bytes written to the destination Amazon Web
+-- Services storage resource.
+--
+-- 'startTime', 'describeTaskExecutionResponse_startTime' - The time that the task execution was started.
 --
 -- 'httpStatus', 'describeTaskExecutionResponse_httpStatus' - The response's http status code.
 newDescribeTaskExecutionResponse ::
@@ -286,43 +286,28 @@ newDescribeTaskExecutionResponse ::
   DescribeTaskExecutionResponse
 newDescribeTaskExecutionResponse pHttpStatus_ =
   DescribeTaskExecutionResponse'
-    { status =
+    { excludes =
         Prelude.Nothing,
-      taskExecutionArn = Prelude.Nothing,
-      startTime = Prelude.Nothing,
       filesTransferred = Prelude.Nothing,
-      bytesWritten = Prelude.Nothing,
-      bytesTransferred = Prelude.Nothing,
-      result = Prelude.Nothing,
-      includes = Prelude.Nothing,
-      estimatedFilesToTransfer = Prelude.Nothing,
-      excludes = Prelude.Nothing,
+      status = Prelude.Nothing,
       options = Prelude.Nothing,
+      estimatedFilesToTransfer = Prelude.Nothing,
+      includes = Prelude.Nothing,
+      result = Prelude.Nothing,
       estimatedBytesToTransfer = Prelude.Nothing,
+      bytesTransferred = Prelude.Nothing,
+      taskExecutionArn = Prelude.Nothing,
+      bytesWritten = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The status of the task execution.
---
--- For detailed information about task execution statuses, see
--- Understanding Task Statuses in the /DataSync User Guide./
-describeTaskExecutionResponse_status :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe TaskExecutionStatus)
-describeTaskExecutionResponse_status = Lens.lens (\DescribeTaskExecutionResponse' {status} -> status) (\s@DescribeTaskExecutionResponse' {} a -> s {status = a} :: DescribeTaskExecutionResponse)
-
--- | The Amazon Resource Name (ARN) of the task execution that was described.
--- @TaskExecutionArn@ is hierarchical and includes @TaskArn@ for the task
--- that was executed.
---
--- For example, a @TaskExecution@ value with the ARN
--- @arn:aws:datasync:us-east-1:111222333444:task\/task-0208075f79cedf4a2\/execution\/exec-08ef1e88ec491019b@
--- executed the task with the ARN
--- @arn:aws:datasync:us-east-1:111222333444:task\/task-0208075f79cedf4a2@.
-describeTaskExecutionResponse_taskExecutionArn :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Text)
-describeTaskExecutionResponse_taskExecutionArn = Lens.lens (\DescribeTaskExecutionResponse' {taskExecutionArn} -> taskExecutionArn) (\s@DescribeTaskExecutionResponse' {} a -> s {taskExecutionArn = a} :: DescribeTaskExecutionResponse)
-
--- | The time that the task execution was started.
-describeTaskExecutionResponse_startTime :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-describeTaskExecutionResponse_startTime = Lens.lens (\DescribeTaskExecutionResponse' {startTime} -> startTime) (\s@DescribeTaskExecutionResponse' {} a -> s {startTime = a} :: DescribeTaskExecutionResponse) Prelude.. Lens.mapping Core._Time
+-- | A list of filter rules that determines which files to exclude from a
+-- task. The list should contain a single filter string that consists of
+-- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
+-- pipe), for example: @\"\/folder1|\/folder2\"@
+describeTaskExecutionResponse_excludes :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe [FilterRule])
+describeTaskExecutionResponse_excludes = Lens.lens (\DescribeTaskExecutionResponse' {excludes} -> excludes) (\s@DescribeTaskExecutionResponse' {} a -> s {excludes = a} :: DescribeTaskExecutionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The actual number of files that was transferred over the network. This
 -- value is calculated and updated on an ongoing basis during the
@@ -337,25 +322,16 @@ describeTaskExecutionResponse_startTime = Lens.lens (\DescribeTaskExecutionRespo
 describeTaskExecutionResponse_filesTransferred :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
 describeTaskExecutionResponse_filesTransferred = Lens.lens (\DescribeTaskExecutionResponse' {filesTransferred} -> filesTransferred) (\s@DescribeTaskExecutionResponse' {} a -> s {filesTransferred = a} :: DescribeTaskExecutionResponse)
 
--- | The number of logical bytes written to the destination Amazon Web
--- Services storage resource.
-describeTaskExecutionResponse_bytesWritten :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
-describeTaskExecutionResponse_bytesWritten = Lens.lens (\DescribeTaskExecutionResponse' {bytesWritten} -> bytesWritten) (\s@DescribeTaskExecutionResponse' {} a -> s {bytesWritten = a} :: DescribeTaskExecutionResponse)
+-- | The status of the task execution.
+--
+-- For detailed information about task execution statuses, see
+-- Understanding Task Statuses in the /DataSync User Guide./
+describeTaskExecutionResponse_status :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe TaskExecutionStatus)
+describeTaskExecutionResponse_status = Lens.lens (\DescribeTaskExecutionResponse' {status} -> status) (\s@DescribeTaskExecutionResponse' {} a -> s {status = a} :: DescribeTaskExecutionResponse)
 
--- | The physical number of bytes transferred over the network.
-describeTaskExecutionResponse_bytesTransferred :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
-describeTaskExecutionResponse_bytesTransferred = Lens.lens (\DescribeTaskExecutionResponse' {bytesTransferred} -> bytesTransferred) (\s@DescribeTaskExecutionResponse' {} a -> s {bytesTransferred = a} :: DescribeTaskExecutionResponse)
-
--- | The result of the task execution.
-describeTaskExecutionResponse_result :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe TaskExecutionResultDetail)
-describeTaskExecutionResponse_result = Lens.lens (\DescribeTaskExecutionResponse' {result} -> result) (\s@DescribeTaskExecutionResponse' {} a -> s {result = a} :: DescribeTaskExecutionResponse)
-
--- | A list of filter rules that determines which files to include when
--- running a task. The list should contain a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe), for example: @\"\/folder1|\/folder2\"@
-describeTaskExecutionResponse_includes :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe [FilterRule])
-describeTaskExecutionResponse_includes = Lens.lens (\DescribeTaskExecutionResponse' {includes} -> includes) (\s@DescribeTaskExecutionResponse' {} a -> s {includes = a} :: DescribeTaskExecutionResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+describeTaskExecutionResponse_options :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Options)
+describeTaskExecutionResponse_options = Lens.lens (\DescribeTaskExecutionResponse' {options} -> options) (\s@DescribeTaskExecutionResponse' {} a -> s {options = a} :: DescribeTaskExecutionResponse)
 
 -- | The expected number of files that is to be transferred over the network.
 -- This value is calculated during the PREPARING phase, before the
@@ -366,21 +342,45 @@ describeTaskExecutionResponse_includes = Lens.lens (\DescribeTaskExecutionRespon
 describeTaskExecutionResponse_estimatedFilesToTransfer :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
 describeTaskExecutionResponse_estimatedFilesToTransfer = Lens.lens (\DescribeTaskExecutionResponse' {estimatedFilesToTransfer} -> estimatedFilesToTransfer) (\s@DescribeTaskExecutionResponse' {} a -> s {estimatedFilesToTransfer = a} :: DescribeTaskExecutionResponse)
 
--- | A list of filter rules that determines which files to exclude from a
--- task. The list should contain a single filter string that consists of
--- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
--- pipe), for example: @\"\/folder1|\/folder2\"@
-describeTaskExecutionResponse_excludes :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe [FilterRule])
-describeTaskExecutionResponse_excludes = Lens.lens (\DescribeTaskExecutionResponse' {excludes} -> excludes) (\s@DescribeTaskExecutionResponse' {} a -> s {excludes = a} :: DescribeTaskExecutionResponse) Prelude.. Lens.mapping Lens.coerced
+-- | A list of filter rules that determines which files to include when
+-- running a task. The list should contain a single filter string that
+-- consists of the patterns to include. The patterns are delimited by \"|\"
+-- (that is, a pipe), for example: @\"\/folder1|\/folder2\"@
+describeTaskExecutionResponse_includes :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe [FilterRule])
+describeTaskExecutionResponse_includes = Lens.lens (\DescribeTaskExecutionResponse' {includes} -> includes) (\s@DescribeTaskExecutionResponse' {} a -> s {includes = a} :: DescribeTaskExecutionResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
-describeTaskExecutionResponse_options :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Options)
-describeTaskExecutionResponse_options = Lens.lens (\DescribeTaskExecutionResponse' {options} -> options) (\s@DescribeTaskExecutionResponse' {} a -> s {options = a} :: DescribeTaskExecutionResponse)
+-- | The result of the task execution.
+describeTaskExecutionResponse_result :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe TaskExecutionResultDetail)
+describeTaskExecutionResponse_result = Lens.lens (\DescribeTaskExecutionResponse' {result} -> result) (\s@DescribeTaskExecutionResponse' {} a -> s {result = a} :: DescribeTaskExecutionResponse)
 
 -- | The estimated physical number of bytes that is to be transferred over
 -- the network.
 describeTaskExecutionResponse_estimatedBytesToTransfer :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
 describeTaskExecutionResponse_estimatedBytesToTransfer = Lens.lens (\DescribeTaskExecutionResponse' {estimatedBytesToTransfer} -> estimatedBytesToTransfer) (\s@DescribeTaskExecutionResponse' {} a -> s {estimatedBytesToTransfer = a} :: DescribeTaskExecutionResponse)
+
+-- | The physical number of bytes transferred over the network.
+describeTaskExecutionResponse_bytesTransferred :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
+describeTaskExecutionResponse_bytesTransferred = Lens.lens (\DescribeTaskExecutionResponse' {bytesTransferred} -> bytesTransferred) (\s@DescribeTaskExecutionResponse' {} a -> s {bytesTransferred = a} :: DescribeTaskExecutionResponse)
+
+-- | The Amazon Resource Name (ARN) of the task execution that was described.
+-- @TaskExecutionArn@ is hierarchical and includes @TaskArn@ for the task
+-- that was executed.
+--
+-- For example, a @TaskExecution@ value with the ARN
+-- @arn:aws:datasync:us-east-1:111222333444:task\/task-0208075f79cedf4a2\/execution\/exec-08ef1e88ec491019b@
+-- executed the task with the ARN
+-- @arn:aws:datasync:us-east-1:111222333444:task\/task-0208075f79cedf4a2@.
+describeTaskExecutionResponse_taskExecutionArn :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Text)
+describeTaskExecutionResponse_taskExecutionArn = Lens.lens (\DescribeTaskExecutionResponse' {taskExecutionArn} -> taskExecutionArn) (\s@DescribeTaskExecutionResponse' {} a -> s {taskExecutionArn = a} :: DescribeTaskExecutionResponse)
+
+-- | The number of logical bytes written to the destination Amazon Web
+-- Services storage resource.
+describeTaskExecutionResponse_bytesWritten :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.Integer)
+describeTaskExecutionResponse_bytesWritten = Lens.lens (\DescribeTaskExecutionResponse' {bytesWritten} -> bytesWritten) (\s@DescribeTaskExecutionResponse' {} a -> s {bytesWritten = a} :: DescribeTaskExecutionResponse)
+
+-- | The time that the task execution was started.
+describeTaskExecutionResponse_startTime :: Lens.Lens' DescribeTaskExecutionResponse (Prelude.Maybe Prelude.UTCTime)
+describeTaskExecutionResponse_startTime = Lens.lens (\DescribeTaskExecutionResponse' {startTime} -> startTime) (\s@DescribeTaskExecutionResponse' {} a -> s {startTime = a} :: DescribeTaskExecutionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 describeTaskExecutionResponse_httpStatus :: Lens.Lens' DescribeTaskExecutionResponse Prelude.Int
@@ -388,16 +388,16 @@ describeTaskExecutionResponse_httpStatus = Lens.lens (\DescribeTaskExecutionResp
 
 instance Prelude.NFData DescribeTaskExecutionResponse where
   rnf DescribeTaskExecutionResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf taskExecutionArn
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf excludes
       `Prelude.seq` Prelude.rnf filesTransferred
-      `Prelude.seq` Prelude.rnf bytesWritten
-      `Prelude.seq` Prelude.rnf bytesTransferred
-      `Prelude.seq` Prelude.rnf result
-      `Prelude.seq` Prelude.rnf includes
-      `Prelude.seq` Prelude.rnf estimatedFilesToTransfer
-      `Prelude.seq` Prelude.rnf excludes
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf estimatedFilesToTransfer
+      `Prelude.seq` Prelude.rnf includes
+      `Prelude.seq` Prelude.rnf result
       `Prelude.seq` Prelude.rnf estimatedBytesToTransfer
+      `Prelude.seq` Prelude.rnf bytesTransferred
+      `Prelude.seq` Prelude.rnf taskExecutionArn
+      `Prelude.seq` Prelude.rnf bytesWritten
+      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf httpStatus

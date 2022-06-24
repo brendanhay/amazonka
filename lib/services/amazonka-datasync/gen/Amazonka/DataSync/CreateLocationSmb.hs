@@ -28,9 +28,9 @@ module Amazonka.DataSync.CreateLocationSmb
     newCreateLocationSmb,
 
     -- * Request Lenses
+    createLocationSmb_tags,
     createLocationSmb_domain,
     createLocationSmb_mountOptions,
-    createLocationSmb_tags,
     createLocationSmb_subdirectory,
     createLocationSmb_serverHostname,
     createLocationSmb_user,
@@ -58,14 +58,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateLocationSmb' smart constructor.
 data CreateLocationSmb = CreateLocationSmb'
-  { -- | The name of the Windows domain that the SMB server belongs to.
-    domain :: Prelude.Maybe Prelude.Text,
-    -- | The mount options used by DataSync to access the SMB server.
-    mountOptions :: Prelude.Maybe SmbMountOptions,
-    -- | The key-value pair that represents the tag that you want to add to the
+  { -- | The key-value pair that represents the tag that you want to add to the
     -- location. The value can be an empty string. We recommend using tags to
     -- name your resources.
     tags :: Prelude.Maybe [TagListEntry],
+    -- | The name of the Windows domain that the SMB server belongs to.
+    domain :: Prelude.Maybe Prelude.Text,
+    -- | The mount options used by DataSync to access the SMB server.
+    mountOptions :: Prelude.Maybe SmbMountOptions,
     -- | The subdirectory in the SMB file system that is used to read data from
     -- the SMB source location or write data to the SMB destination. The SMB
     -- path should be a path that\'s exported by the SMB server, or a
@@ -116,13 +116,13 @@ data CreateLocationSmb = CreateLocationSmb'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domain', 'createLocationSmb_domain' - The name of the Windows domain that the SMB server belongs to.
---
--- 'mountOptions', 'createLocationSmb_mountOptions' - The mount options used by DataSync to access the SMB server.
---
 -- 'tags', 'createLocationSmb_tags' - The key-value pair that represents the tag that you want to add to the
 -- location. The value can be an empty string. We recommend using tags to
 -- name your resources.
+--
+-- 'domain', 'createLocationSmb_domain' - The name of the Windows domain that the SMB server belongs to.
+--
+-- 'mountOptions', 'createLocationSmb_mountOptions' - The mount options used by DataSync to access the SMB server.
 --
 -- 'subdirectory', 'createLocationSmb_subdirectory' - The subdirectory in the SMB file system that is used to read data from
 -- the SMB source location or write data to the SMB destination. The SMB
@@ -181,15 +181,21 @@ newCreateLocationSmb
   pPassword_
   pAgentArns_ =
     CreateLocationSmb'
-      { domain = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        domain = Prelude.Nothing,
         mountOptions = Prelude.Nothing,
-        tags = Prelude.Nothing,
         subdirectory = pSubdirectory_,
         serverHostname = pServerHostname_,
         user = pUser_,
         password = Core._Sensitive Lens.# pPassword_,
         agentArns = Lens.coerced Lens.# pAgentArns_
       }
+
+-- | The key-value pair that represents the tag that you want to add to the
+-- location. The value can be an empty string. We recommend using tags to
+-- name your resources.
+createLocationSmb_tags :: Lens.Lens' CreateLocationSmb (Prelude.Maybe [TagListEntry])
+createLocationSmb_tags = Lens.lens (\CreateLocationSmb' {tags} -> tags) (\s@CreateLocationSmb' {} a -> s {tags = a} :: CreateLocationSmb) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Windows domain that the SMB server belongs to.
 createLocationSmb_domain :: Lens.Lens' CreateLocationSmb (Prelude.Maybe Prelude.Text)
@@ -198,12 +204,6 @@ createLocationSmb_domain = Lens.lens (\CreateLocationSmb' {domain} -> domain) (\
 -- | The mount options used by DataSync to access the SMB server.
 createLocationSmb_mountOptions :: Lens.Lens' CreateLocationSmb (Prelude.Maybe SmbMountOptions)
 createLocationSmb_mountOptions = Lens.lens (\CreateLocationSmb' {mountOptions} -> mountOptions) (\s@CreateLocationSmb' {} a -> s {mountOptions = a} :: CreateLocationSmb)
-
--- | The key-value pair that represents the tag that you want to add to the
--- location. The value can be an empty string. We recommend using tags to
--- name your resources.
-createLocationSmb_tags :: Lens.Lens' CreateLocationSmb (Prelude.Maybe [TagListEntry])
-createLocationSmb_tags = Lens.lens (\CreateLocationSmb' {tags} -> tags) (\s@CreateLocationSmb' {} a -> s {tags = a} :: CreateLocationSmb) Prelude.. Lens.mapping Lens.coerced
 
 -- | The subdirectory in the SMB file system that is used to read data from
 -- the SMB source location or write data to the SMB destination. The SMB
@@ -269,9 +269,9 @@ instance Core.AWSRequest CreateLocationSmb where
 
 instance Prelude.Hashable CreateLocationSmb where
   hashWithSalt _salt CreateLocationSmb' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` mountOptions
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` subdirectory
       `Prelude.hashWithSalt` serverHostname
       `Prelude.hashWithSalt` user
@@ -280,9 +280,9 @@ instance Prelude.Hashable CreateLocationSmb where
 
 instance Prelude.NFData CreateLocationSmb where
   rnf CreateLocationSmb' {..} =
-    Prelude.rnf domain
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf mountOptions
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf subdirectory
       `Prelude.seq` Prelude.rnf serverHostname
       `Prelude.seq` Prelude.rnf user
@@ -308,9 +308,9 @@ instance Core.ToJSON CreateLocationSmb where
   toJSON CreateLocationSmb' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Domain" Core..=) Prelude.<$> domain,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Domain" Core..=) Prelude.<$> domain,
             ("MountOptions" Core..=) Prelude.<$> mountOptions,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Subdirectory" Core..= subdirectory),
             Prelude.Just
               ("ServerHostname" Core..= serverHostname),

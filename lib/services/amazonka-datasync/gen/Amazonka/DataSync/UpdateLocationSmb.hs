@@ -30,12 +30,12 @@ module Amazonka.DataSync.UpdateLocationSmb
     newUpdateLocationSmb,
 
     -- * Request Lenses
-    updateLocationSmb_agentArns,
-    updateLocationSmb_domain,
-    updateLocationSmb_user,
     updateLocationSmb_password,
-    updateLocationSmb_subdirectory,
+    updateLocationSmb_user,
+    updateLocationSmb_domain,
     updateLocationSmb_mountOptions,
+    updateLocationSmb_subdirectory,
+    updateLocationSmb_agentArns,
     updateLocationSmb_locationArn,
 
     -- * Destructuring the Response
@@ -56,17 +56,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLocationSmb' smart constructor.
 data UpdateLocationSmb = UpdateLocationSmb'
-  { -- | The Amazon Resource Names (ARNs) of agents to use for a Simple Message
-    -- Block (SMB) location.
-    agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The name of the Windows domain that the SMB server belongs to.
-    domain :: Prelude.Maybe Prelude.Text,
+  { -- | The password of the user who can mount the share has the permissions to
+    -- access files and folders in the SMB share.
+    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The user who can mount the share has the permissions to access files and
     -- folders in the SMB share.
     user :: Prelude.Maybe Prelude.Text,
-    -- | The password of the user who can mount the share has the permissions to
-    -- access files and folders in the SMB share.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The name of the Windows domain that the SMB server belongs to.
+    domain :: Prelude.Maybe Prelude.Text,
+    mountOptions :: Prelude.Maybe SmbMountOptions,
     -- | The subdirectory in the SMB file system that is used to read data from
     -- the SMB source location or write data to the SMB destination. The SMB
     -- path should be a path that\'s exported by the SMB server, or a
@@ -91,7 +89,9 @@ data UpdateLocationSmb = UpdateLocationSmb'
     -- the agent to access directories, you must also enable all execute
     -- access.
     subdirectory :: Prelude.Maybe Prelude.Text,
-    mountOptions :: Prelude.Maybe SmbMountOptions,
+    -- | The Amazon Resource Names (ARNs) of agents to use for a Simple Message
+    -- Block (SMB) location.
+    agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the SMB location to update.
     locationArn :: Prelude.Text
   }
@@ -105,16 +105,15 @@ data UpdateLocationSmb = UpdateLocationSmb'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agentArns', 'updateLocationSmb_agentArns' - The Amazon Resource Names (ARNs) of agents to use for a Simple Message
--- Block (SMB) location.
---
--- 'domain', 'updateLocationSmb_domain' - The name of the Windows domain that the SMB server belongs to.
+-- 'password', 'updateLocationSmb_password' - The password of the user who can mount the share has the permissions to
+-- access files and folders in the SMB share.
 --
 -- 'user', 'updateLocationSmb_user' - The user who can mount the share has the permissions to access files and
 -- folders in the SMB share.
 --
--- 'password', 'updateLocationSmb_password' - The password of the user who can mount the share has the permissions to
--- access files and folders in the SMB share.
+-- 'domain', 'updateLocationSmb_domain' - The name of the Windows domain that the SMB server belongs to.
+--
+-- 'mountOptions', 'updateLocationSmb_mountOptions' - Undocumented member.
 --
 -- 'subdirectory', 'updateLocationSmb_subdirectory' - The subdirectory in the SMB file system that is used to read data from
 -- the SMB source location or write data to the SMB destination. The SMB
@@ -140,7 +139,8 @@ data UpdateLocationSmb = UpdateLocationSmb'
 -- the agent to access directories, you must also enable all execute
 -- access.
 --
--- 'mountOptions', 'updateLocationSmb_mountOptions' - Undocumented member.
+-- 'agentArns', 'updateLocationSmb_agentArns' - The Amazon Resource Names (ARNs) of agents to use for a Simple Message
+-- Block (SMB) location.
 --
 -- 'locationArn', 'updateLocationSmb_locationArn' - The Amazon Resource Name (ARN) of the SMB location to update.
 newUpdateLocationSmb ::
@@ -149,33 +149,32 @@ newUpdateLocationSmb ::
   UpdateLocationSmb
 newUpdateLocationSmb pLocationArn_ =
   UpdateLocationSmb'
-    { agentArns = Prelude.Nothing,
-      domain = Prelude.Nothing,
+    { password = Prelude.Nothing,
       user = Prelude.Nothing,
-      password = Prelude.Nothing,
-      subdirectory = Prelude.Nothing,
+      domain = Prelude.Nothing,
       mountOptions = Prelude.Nothing,
+      subdirectory = Prelude.Nothing,
+      agentArns = Prelude.Nothing,
       locationArn = pLocationArn_
     }
 
--- | The Amazon Resource Names (ARNs) of agents to use for a Simple Message
--- Block (SMB) location.
-updateLocationSmb_agentArns :: Lens.Lens' UpdateLocationSmb (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateLocationSmb_agentArns = Lens.lens (\UpdateLocationSmb' {agentArns} -> agentArns) (\s@UpdateLocationSmb' {} a -> s {agentArns = a} :: UpdateLocationSmb) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the Windows domain that the SMB server belongs to.
-updateLocationSmb_domain :: Lens.Lens' UpdateLocationSmb (Prelude.Maybe Prelude.Text)
-updateLocationSmb_domain = Lens.lens (\UpdateLocationSmb' {domain} -> domain) (\s@UpdateLocationSmb' {} a -> s {domain = a} :: UpdateLocationSmb)
+-- | The password of the user who can mount the share has the permissions to
+-- access files and folders in the SMB share.
+updateLocationSmb_password :: Lens.Lens' UpdateLocationSmb (Prelude.Maybe Prelude.Text)
+updateLocationSmb_password = Lens.lens (\UpdateLocationSmb' {password} -> password) (\s@UpdateLocationSmb' {} a -> s {password = a} :: UpdateLocationSmb) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The user who can mount the share has the permissions to access files and
 -- folders in the SMB share.
 updateLocationSmb_user :: Lens.Lens' UpdateLocationSmb (Prelude.Maybe Prelude.Text)
 updateLocationSmb_user = Lens.lens (\UpdateLocationSmb' {user} -> user) (\s@UpdateLocationSmb' {} a -> s {user = a} :: UpdateLocationSmb)
 
--- | The password of the user who can mount the share has the permissions to
--- access files and folders in the SMB share.
-updateLocationSmb_password :: Lens.Lens' UpdateLocationSmb (Prelude.Maybe Prelude.Text)
-updateLocationSmb_password = Lens.lens (\UpdateLocationSmb' {password} -> password) (\s@UpdateLocationSmb' {} a -> s {password = a} :: UpdateLocationSmb) Prelude.. Lens.mapping Core._Sensitive
+-- | The name of the Windows domain that the SMB server belongs to.
+updateLocationSmb_domain :: Lens.Lens' UpdateLocationSmb (Prelude.Maybe Prelude.Text)
+updateLocationSmb_domain = Lens.lens (\UpdateLocationSmb' {domain} -> domain) (\s@UpdateLocationSmb' {} a -> s {domain = a} :: UpdateLocationSmb)
+
+-- | Undocumented member.
+updateLocationSmb_mountOptions :: Lens.Lens' UpdateLocationSmb (Prelude.Maybe SmbMountOptions)
+updateLocationSmb_mountOptions = Lens.lens (\UpdateLocationSmb' {mountOptions} -> mountOptions) (\s@UpdateLocationSmb' {} a -> s {mountOptions = a} :: UpdateLocationSmb)
 
 -- | The subdirectory in the SMB file system that is used to read data from
 -- the SMB source location or write data to the SMB destination. The SMB
@@ -203,9 +202,10 @@ updateLocationSmb_password = Lens.lens (\UpdateLocationSmb' {password} -> passwo
 updateLocationSmb_subdirectory :: Lens.Lens' UpdateLocationSmb (Prelude.Maybe Prelude.Text)
 updateLocationSmb_subdirectory = Lens.lens (\UpdateLocationSmb' {subdirectory} -> subdirectory) (\s@UpdateLocationSmb' {} a -> s {subdirectory = a} :: UpdateLocationSmb)
 
--- | Undocumented member.
-updateLocationSmb_mountOptions :: Lens.Lens' UpdateLocationSmb (Prelude.Maybe SmbMountOptions)
-updateLocationSmb_mountOptions = Lens.lens (\UpdateLocationSmb' {mountOptions} -> mountOptions) (\s@UpdateLocationSmb' {} a -> s {mountOptions = a} :: UpdateLocationSmb)
+-- | The Amazon Resource Names (ARNs) of agents to use for a Simple Message
+-- Block (SMB) location.
+updateLocationSmb_agentArns :: Lens.Lens' UpdateLocationSmb (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateLocationSmb_agentArns = Lens.lens (\UpdateLocationSmb' {agentArns} -> agentArns) (\s@UpdateLocationSmb' {} a -> s {agentArns = a} :: UpdateLocationSmb) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the SMB location to update.
 updateLocationSmb_locationArn :: Lens.Lens' UpdateLocationSmb Prelude.Text
@@ -225,22 +225,22 @@ instance Core.AWSRequest UpdateLocationSmb where
 
 instance Prelude.Hashable UpdateLocationSmb where
   hashWithSalt _salt UpdateLocationSmb' {..} =
-    _salt `Prelude.hashWithSalt` agentArns
-      `Prelude.hashWithSalt` domain
+    _salt `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` user
-      `Prelude.hashWithSalt` password
-      `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` mountOptions
+      `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` agentArns
       `Prelude.hashWithSalt` locationArn
 
 instance Prelude.NFData UpdateLocationSmb where
   rnf UpdateLocationSmb' {..} =
-    Prelude.rnf agentArns
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf password
       `Prelude.seq` Prelude.rnf user
-      `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf mountOptions
+      `Prelude.seq` Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf agentArns
       `Prelude.seq` Prelude.rnf locationArn
 
 instance Core.ToHeaders UpdateLocationSmb where
@@ -262,12 +262,12 @@ instance Core.ToJSON UpdateLocationSmb where
   toJSON UpdateLocationSmb' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AgentArns" Core..=) Prelude.<$> agentArns,
-            ("Domain" Core..=) Prelude.<$> domain,
+          [ ("Password" Core..=) Prelude.<$> password,
             ("User" Core..=) Prelude.<$> user,
-            ("Password" Core..=) Prelude.<$> password,
-            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
+            ("Domain" Core..=) Prelude.<$> domain,
             ("MountOptions" Core..=) Prelude.<$> mountOptions,
+            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
+            ("AgentArns" Core..=) Prelude.<$> agentArns,
             Prelude.Just ("LocationArn" Core..= locationArn)
           ]
       )

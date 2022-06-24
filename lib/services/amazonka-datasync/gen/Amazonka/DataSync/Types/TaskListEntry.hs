@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTaskListEntry' smart constructor.
 data TaskListEntry = TaskListEntry'
-  { -- | The status of the task.
-    status :: Prelude.Maybe TaskStatus,
+  { -- | The name of the task.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the task.
     taskArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the task.
-    name :: Prelude.Maybe Prelude.Text
+    -- | The status of the task.
+    status :: Prelude.Maybe TaskStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,31 +49,31 @@ data TaskListEntry = TaskListEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'taskListEntry_status' - The status of the task.
+-- 'name', 'taskListEntry_name' - The name of the task.
 --
 -- 'taskArn', 'taskListEntry_taskArn' - The Amazon Resource Name (ARN) of the task.
 --
--- 'name', 'taskListEntry_name' - The name of the task.
+-- 'status', 'taskListEntry_status' - The status of the task.
 newTaskListEntry ::
   TaskListEntry
 newTaskListEntry =
   TaskListEntry'
-    { status = Prelude.Nothing,
+    { name = Prelude.Nothing,
       taskArn = Prelude.Nothing,
-      name = Prelude.Nothing
+      status = Prelude.Nothing
     }
 
--- | The status of the task.
-taskListEntry_status :: Lens.Lens' TaskListEntry (Prelude.Maybe TaskStatus)
-taskListEntry_status = Lens.lens (\TaskListEntry' {status} -> status) (\s@TaskListEntry' {} a -> s {status = a} :: TaskListEntry)
+-- | The name of the task.
+taskListEntry_name :: Lens.Lens' TaskListEntry (Prelude.Maybe Prelude.Text)
+taskListEntry_name = Lens.lens (\TaskListEntry' {name} -> name) (\s@TaskListEntry' {} a -> s {name = a} :: TaskListEntry)
 
 -- | The Amazon Resource Name (ARN) of the task.
 taskListEntry_taskArn :: Lens.Lens' TaskListEntry (Prelude.Maybe Prelude.Text)
 taskListEntry_taskArn = Lens.lens (\TaskListEntry' {taskArn} -> taskArn) (\s@TaskListEntry' {} a -> s {taskArn = a} :: TaskListEntry)
 
--- | The name of the task.
-taskListEntry_name :: Lens.Lens' TaskListEntry (Prelude.Maybe Prelude.Text)
-taskListEntry_name = Lens.lens (\TaskListEntry' {name} -> name) (\s@TaskListEntry' {} a -> s {name = a} :: TaskListEntry)
+-- | The status of the task.
+taskListEntry_status :: Lens.Lens' TaskListEntry (Prelude.Maybe TaskStatus)
+taskListEntry_status = Lens.lens (\TaskListEntry' {status} -> status) (\s@TaskListEntry' {} a -> s {status = a} :: TaskListEntry)
 
 instance Core.FromJSON TaskListEntry where
   parseJSON =
@@ -81,19 +81,19 @@ instance Core.FromJSON TaskListEntry where
       "TaskListEntry"
       ( \x ->
           TaskListEntry'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "TaskArn")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Status")
       )
 
 instance Prelude.Hashable TaskListEntry where
   hashWithSalt _salt TaskListEntry' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` taskArn
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData TaskListEntry where
   rnf TaskListEntry' {..} =
-    Prelude.rnf status
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf taskArn
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status

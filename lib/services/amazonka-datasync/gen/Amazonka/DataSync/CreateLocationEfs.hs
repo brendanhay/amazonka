@@ -27,8 +27,8 @@ module Amazonka.DataSync.CreateLocationEfs
     newCreateLocationEfs,
 
     -- * Request Lenses
-    createLocationEfs_subdirectory,
     createLocationEfs_tags,
+    createLocationEfs_subdirectory,
     createLocationEfs_efsFilesystemArn,
     createLocationEfs_ec2Config,
 
@@ -53,18 +53,18 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateLocationEfs' smart constructor.
 data CreateLocationEfs = CreateLocationEfs'
-  { -- | A subdirectory in the location’s path. This subdirectory in the EFS file
+  { -- | The key-value pair that represents a tag that you want to add to the
+    -- resource. The value can be an empty string. This value helps you manage,
+    -- filter, and search for your resources. We recommend that you create a
+    -- name tag for your location.
+    tags :: Prelude.Maybe [TagListEntry],
+    -- | A subdirectory in the location’s path. This subdirectory in the EFS file
     -- system is used to read data from the EFS source location or write data
     -- to the EFS destination. By default, DataSync uses the root directory.
     --
     -- @Subdirectory@ must be specified with forward slashes. For example,
     -- @\/path\/to\/folder@.
     subdirectory :: Prelude.Maybe Prelude.Text,
-    -- | The key-value pair that represents a tag that you want to add to the
-    -- resource. The value can be an empty string. This value helps you manage,
-    -- filter, and search for your resources. We recommend that you create a
-    -- name tag for your location.
-    tags :: Prelude.Maybe [TagListEntry],
     -- | The Amazon Resource Name (ARN) for the Amazon EFS file system.
     efsFilesystemArn :: Prelude.Text,
     -- | The subnet and security group that the Amazon EFS file system uses. The
@@ -100,17 +100,17 @@ data CreateLocationEfs = CreateLocationEfs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createLocationEfs_tags' - The key-value pair that represents a tag that you want to add to the
+-- resource. The value can be an empty string. This value helps you manage,
+-- filter, and search for your resources. We recommend that you create a
+-- name tag for your location.
+--
 -- 'subdirectory', 'createLocationEfs_subdirectory' - A subdirectory in the location’s path. This subdirectory in the EFS file
 -- system is used to read data from the EFS source location or write data
 -- to the EFS destination. By default, DataSync uses the root directory.
 --
 -- @Subdirectory@ must be specified with forward slashes. For example,
 -- @\/path\/to\/folder@.
---
--- 'tags', 'createLocationEfs_tags' - The key-value pair that represents a tag that you want to add to the
--- resource. The value can be an empty string. This value helps you manage,
--- filter, and search for your resources. We recommend that you create a
--- name tag for your location.
 --
 -- 'efsFilesystemArn', 'createLocationEfs_efsFilesystemArn' - The Amazon Resource Name (ARN) for the Amazon EFS file system.
 --
@@ -143,11 +143,18 @@ newCreateLocationEfs ::
   CreateLocationEfs
 newCreateLocationEfs pEfsFilesystemArn_ pEc2Config_ =
   CreateLocationEfs'
-    { subdirectory = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      subdirectory = Prelude.Nothing,
       efsFilesystemArn = pEfsFilesystemArn_,
       ec2Config = pEc2Config_
     }
+
+-- | The key-value pair that represents a tag that you want to add to the
+-- resource. The value can be an empty string. This value helps you manage,
+-- filter, and search for your resources. We recommend that you create a
+-- name tag for your location.
+createLocationEfs_tags :: Lens.Lens' CreateLocationEfs (Prelude.Maybe [TagListEntry])
+createLocationEfs_tags = Lens.lens (\CreateLocationEfs' {tags} -> tags) (\s@CreateLocationEfs' {} a -> s {tags = a} :: CreateLocationEfs) Prelude.. Lens.mapping Lens.coerced
 
 -- | A subdirectory in the location’s path. This subdirectory in the EFS file
 -- system is used to read data from the EFS source location or write data
@@ -157,13 +164,6 @@ newCreateLocationEfs pEfsFilesystemArn_ pEc2Config_ =
 -- @\/path\/to\/folder@.
 createLocationEfs_subdirectory :: Lens.Lens' CreateLocationEfs (Prelude.Maybe Prelude.Text)
 createLocationEfs_subdirectory = Lens.lens (\CreateLocationEfs' {subdirectory} -> subdirectory) (\s@CreateLocationEfs' {} a -> s {subdirectory = a} :: CreateLocationEfs)
-
--- | The key-value pair that represents a tag that you want to add to the
--- resource. The value can be an empty string. This value helps you manage,
--- filter, and search for your resources. We recommend that you create a
--- name tag for your location.
-createLocationEfs_tags :: Lens.Lens' CreateLocationEfs (Prelude.Maybe [TagListEntry])
-createLocationEfs_tags = Lens.lens (\CreateLocationEfs' {tags} -> tags) (\s@CreateLocationEfs' {} a -> s {tags = a} :: CreateLocationEfs) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) for the Amazon EFS file system.
 createLocationEfs_efsFilesystemArn :: Lens.Lens' CreateLocationEfs Prelude.Text
@@ -208,15 +208,15 @@ instance Core.AWSRequest CreateLocationEfs where
 
 instance Prelude.Hashable CreateLocationEfs where
   hashWithSalt _salt CreateLocationEfs' {..} =
-    _salt `Prelude.hashWithSalt` subdirectory
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` subdirectory
       `Prelude.hashWithSalt` efsFilesystemArn
       `Prelude.hashWithSalt` ec2Config
 
 instance Prelude.NFData CreateLocationEfs where
   rnf CreateLocationEfs' {..} =
-    Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf subdirectory
       `Prelude.seq` Prelude.rnf efsFilesystemArn
       `Prelude.seq` Prelude.rnf ec2Config
 
@@ -239,8 +239,8 @@ instance Core.ToJSON CreateLocationEfs where
   toJSON CreateLocationEfs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Subdirectory" Core..=) Prelude.<$> subdirectory,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Subdirectory" Core..=) Prelude.<$> subdirectory,
             Prelude.Just
               ("EfsFilesystemArn" Core..= efsFilesystemArn),
             Prelude.Just ("Ec2Config" Core..= ec2Config)

@@ -28,11 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPrivateLinkConfig' smart constructor.
 data PrivateLinkConfig = PrivateLinkConfig'
-  { -- | The Amazon Resource Names (ARNs) of the security groups that are
-    -- configured for the EC2 resource that hosts an agent activated in a VPC
-    -- or an agent that has access to a VPC endpoint.
-    securityGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The Amazon Resource Names (ARNs) of the subnets that are configured for
+  { -- | The Amazon Resource Names (ARNs) of the subnets that are configured for
     -- an agent activated in a VPC or an agent that has access to a VPC
     -- endpoint.
     subnetArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -45,7 +41,11 @@ data PrivateLinkConfig = PrivateLinkConfig'
     -- | The ID of the VPC endpoint that is configured for an agent. An agent
     -- that is configured with a VPC endpoint will not be accessible over the
     -- public internet.
-    vpcEndpointId :: Prelude.Maybe Prelude.Text
+    vpcEndpointId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Names (ARNs) of the security groups that are
+    -- configured for the EC2 resource that hosts an agent activated in a VPC
+    -- or an agent that has access to a VPC endpoint.
+    securityGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,10 +56,6 @@ data PrivateLinkConfig = PrivateLinkConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'securityGroupArns', 'privateLinkConfig_securityGroupArns' - The Amazon Resource Names (ARNs) of the security groups that are
--- configured for the EC2 resource that hosts an agent activated in a VPC
--- or an agent that has access to a VPC endpoint.
 --
 -- 'subnetArns', 'privateLinkConfig_subnetArns' - The Amazon Resource Names (ARNs) of the subnets that are configured for
 -- an agent activated in a VPC or an agent that has access to a VPC
@@ -74,22 +70,19 @@ data PrivateLinkConfig = PrivateLinkConfig'
 -- 'vpcEndpointId', 'privateLinkConfig_vpcEndpointId' - The ID of the VPC endpoint that is configured for an agent. An agent
 -- that is configured with a VPC endpoint will not be accessible over the
 -- public internet.
+--
+-- 'securityGroupArns', 'privateLinkConfig_securityGroupArns' - The Amazon Resource Names (ARNs) of the security groups that are
+-- configured for the EC2 resource that hosts an agent activated in a VPC
+-- or an agent that has access to a VPC endpoint.
 newPrivateLinkConfig ::
   PrivateLinkConfig
 newPrivateLinkConfig =
   PrivateLinkConfig'
-    { securityGroupArns =
-        Prelude.Nothing,
-      subnetArns = Prelude.Nothing,
+    { subnetArns = Prelude.Nothing,
       privateLinkEndpoint = Prelude.Nothing,
-      vpcEndpointId = Prelude.Nothing
+      vpcEndpointId = Prelude.Nothing,
+      securityGroupArns = Prelude.Nothing
     }
-
--- | The Amazon Resource Names (ARNs) of the security groups that are
--- configured for the EC2 resource that hosts an agent activated in a VPC
--- or an agent that has access to a VPC endpoint.
-privateLinkConfig_securityGroupArns :: Lens.Lens' PrivateLinkConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-privateLinkConfig_securityGroupArns = Lens.lens (\PrivateLinkConfig' {securityGroupArns} -> securityGroupArns) (\s@PrivateLinkConfig' {} a -> s {securityGroupArns = a} :: PrivateLinkConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Names (ARNs) of the subnets that are configured for
 -- an agent activated in a VPC or an agent that has access to a VPC
@@ -111,28 +104,34 @@ privateLinkConfig_privateLinkEndpoint = Lens.lens (\PrivateLinkConfig' {privateL
 privateLinkConfig_vpcEndpointId :: Lens.Lens' PrivateLinkConfig (Prelude.Maybe Prelude.Text)
 privateLinkConfig_vpcEndpointId = Lens.lens (\PrivateLinkConfig' {vpcEndpointId} -> vpcEndpointId) (\s@PrivateLinkConfig' {} a -> s {vpcEndpointId = a} :: PrivateLinkConfig)
 
+-- | The Amazon Resource Names (ARNs) of the security groups that are
+-- configured for the EC2 resource that hosts an agent activated in a VPC
+-- or an agent that has access to a VPC endpoint.
+privateLinkConfig_securityGroupArns :: Lens.Lens' PrivateLinkConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+privateLinkConfig_securityGroupArns = Lens.lens (\PrivateLinkConfig' {securityGroupArns} -> securityGroupArns) (\s@PrivateLinkConfig' {} a -> s {securityGroupArns = a} :: PrivateLinkConfig) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON PrivateLinkConfig where
   parseJSON =
     Core.withObject
       "PrivateLinkConfig"
       ( \x ->
           PrivateLinkConfig'
-            Prelude.<$> (x Core..:? "SecurityGroupArns")
-            Prelude.<*> (x Core..:? "SubnetArns")
+            Prelude.<$> (x Core..:? "SubnetArns")
             Prelude.<*> (x Core..:? "PrivateLinkEndpoint")
             Prelude.<*> (x Core..:? "VpcEndpointId")
+            Prelude.<*> (x Core..:? "SecurityGroupArns")
       )
 
 instance Prelude.Hashable PrivateLinkConfig where
   hashWithSalt _salt PrivateLinkConfig' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupArns
-      `Prelude.hashWithSalt` subnetArns
+    _salt `Prelude.hashWithSalt` subnetArns
       `Prelude.hashWithSalt` privateLinkEndpoint
       `Prelude.hashWithSalt` vpcEndpointId
+      `Prelude.hashWithSalt` securityGroupArns
 
 instance Prelude.NFData PrivateLinkConfig where
   rnf PrivateLinkConfig' {..} =
-    Prelude.rnf securityGroupArns
-      `Prelude.seq` Prelude.rnf subnetArns
+    Prelude.rnf subnetArns
       `Prelude.seq` Prelude.rnf privateLinkEndpoint
       `Prelude.seq` Prelude.rnf vpcEndpointId
+      `Prelude.seq` Prelude.rnf securityGroupArns

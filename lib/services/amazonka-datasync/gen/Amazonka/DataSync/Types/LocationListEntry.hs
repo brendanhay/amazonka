@@ -30,7 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLocationListEntry' smart constructor.
 data LocationListEntry = LocationListEntry'
-  { -- | Represents a list of URLs of a location. @LocationUri@ returns an array
+  { -- | The Amazon Resource Name (ARN) of the location. For Network File System
+    -- (NFS) or Amazon EFS, the location is the export path. For Amazon S3, the
+    -- location is the prefix path that you want to mount and use as the root
+    -- of the location.
+    locationArn :: Prelude.Maybe Prelude.Text,
+    -- | Represents a list of URLs of a location. @LocationUri@ returns an array
     -- that contains a list of locations when the
     -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_ListLocations.html ListLocations>
     -- operation is called.
@@ -49,12 +54,7 @@ data LocationListEntry = LocationListEntry'
     -- the *nix convention. For NFS and Amazon EFS, it\'s the export path to
     -- mount the location. For Amazon S3, it\'s the prefix path that you mount
     -- to and treat as the root of the location.
-    locationUri :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the location. For Network File System
-    -- (NFS) or Amazon EFS, the location is the export path. For Amazon S3, the
-    -- location is the prefix path that you want to mount and use as the root
-    -- of the location.
-    locationArn :: Prelude.Maybe Prelude.Text
+    locationUri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,6 +65,11 @@ data LocationListEntry = LocationListEntry'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'locationArn', 'locationListEntry_locationArn' - The Amazon Resource Name (ARN) of the location. For Network File System
+-- (NFS) or Amazon EFS, the location is the export path. For Amazon S3, the
+-- location is the prefix path that you want to mount and use as the root
+-- of the location.
 --
 -- 'locationUri', 'locationListEntry_locationUri' - Represents a list of URLs of a location. @LocationUri@ returns an array
 -- that contains a list of locations when the
@@ -85,18 +90,20 @@ data LocationListEntry = LocationListEntry'
 -- the *nix convention. For NFS and Amazon EFS, it\'s the export path to
 -- mount the location. For Amazon S3, it\'s the prefix path that you mount
 -- to and treat as the root of the location.
---
--- 'locationArn', 'locationListEntry_locationArn' - The Amazon Resource Name (ARN) of the location. For Network File System
--- (NFS) or Amazon EFS, the location is the export path. For Amazon S3, the
--- location is the prefix path that you want to mount and use as the root
--- of the location.
 newLocationListEntry ::
   LocationListEntry
 newLocationListEntry =
   LocationListEntry'
-    { locationUri = Prelude.Nothing,
-      locationArn = Prelude.Nothing
+    { locationArn = Prelude.Nothing,
+      locationUri = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the location. For Network File System
+-- (NFS) or Amazon EFS, the location is the export path. For Amazon S3, the
+-- location is the prefix path that you want to mount and use as the root
+-- of the location.
+locationListEntry_locationArn :: Lens.Lens' LocationListEntry (Prelude.Maybe Prelude.Text)
+locationListEntry_locationArn = Lens.lens (\LocationListEntry' {locationArn} -> locationArn) (\s@LocationListEntry' {} a -> s {locationArn = a} :: LocationListEntry)
 
 -- | Represents a list of URLs of a location. @LocationUri@ returns an array
 -- that contains a list of locations when the
@@ -120,29 +127,22 @@ newLocationListEntry =
 locationListEntry_locationUri :: Lens.Lens' LocationListEntry (Prelude.Maybe Prelude.Text)
 locationListEntry_locationUri = Lens.lens (\LocationListEntry' {locationUri} -> locationUri) (\s@LocationListEntry' {} a -> s {locationUri = a} :: LocationListEntry)
 
--- | The Amazon Resource Name (ARN) of the location. For Network File System
--- (NFS) or Amazon EFS, the location is the export path. For Amazon S3, the
--- location is the prefix path that you want to mount and use as the root
--- of the location.
-locationListEntry_locationArn :: Lens.Lens' LocationListEntry (Prelude.Maybe Prelude.Text)
-locationListEntry_locationArn = Lens.lens (\LocationListEntry' {locationArn} -> locationArn) (\s@LocationListEntry' {} a -> s {locationArn = a} :: LocationListEntry)
-
 instance Core.FromJSON LocationListEntry where
   parseJSON =
     Core.withObject
       "LocationListEntry"
       ( \x ->
           LocationListEntry'
-            Prelude.<$> (x Core..:? "LocationUri")
-            Prelude.<*> (x Core..:? "LocationArn")
+            Prelude.<$> (x Core..:? "LocationArn")
+            Prelude.<*> (x Core..:? "LocationUri")
       )
 
 instance Prelude.Hashable LocationListEntry where
   hashWithSalt _salt LocationListEntry' {..} =
-    _salt `Prelude.hashWithSalt` locationUri
-      `Prelude.hashWithSalt` locationArn
+    _salt `Prelude.hashWithSalt` locationArn
+      `Prelude.hashWithSalt` locationUri
 
 instance Prelude.NFData LocationListEntry where
   rnf LocationListEntry' {..} =
-    Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf locationArn
+    Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf locationUri

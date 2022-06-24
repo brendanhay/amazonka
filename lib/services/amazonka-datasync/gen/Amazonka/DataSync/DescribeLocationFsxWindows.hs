@@ -35,12 +35,12 @@ module Amazonka.DataSync.DescribeLocationFsxWindows
     newDescribeLocationFsxWindowsResponse,
 
     -- * Response Lenses
-    describeLocationFsxWindowsResponse_creationTime,
-    describeLocationFsxWindowsResponse_securityGroupArns,
-    describeLocationFsxWindowsResponse_domain,
-    describeLocationFsxWindowsResponse_locationUri,
     describeLocationFsxWindowsResponse_user,
+    describeLocationFsxWindowsResponse_domain,
     describeLocationFsxWindowsResponse_locationArn,
+    describeLocationFsxWindowsResponse_locationUri,
+    describeLocationFsxWindowsResponse_securityGroupArns,
+    describeLocationFsxWindowsResponse_creationTime,
     describeLocationFsxWindowsResponse_httpStatus,
   )
 where
@@ -94,12 +94,12 @@ instance Core.AWSRequest DescribeLocationFsxWindows where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationFsxWindowsResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "SecurityGroupArns")
+            Prelude.<$> (x Core..?> "User")
             Prelude.<*> (x Core..?> "Domain")
-            Prelude.<*> (x Core..?> "LocationUri")
-            Prelude.<*> (x Core..?> "User")
             Prelude.<*> (x Core..?> "LocationArn")
+            Prelude.<*> (x Core..?> "LocationUri")
+            Prelude.<*> (x Core..?> "SecurityGroupArns")
+            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,22 +141,22 @@ instance Core.ToQuery DescribeLocationFsxWindows where
 
 -- | /See:/ 'newDescribeLocationFsxWindowsResponse' smart constructor.
 data DescribeLocationFsxWindowsResponse = DescribeLocationFsxWindowsResponse'
-  { -- | The time that the FSx for Windows File Server location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Names (ARNs) of the security groups that are
-    -- configured for the FSx for Windows File Server file system.
-    securityGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+  { -- | The user who has the permissions to access files and folders in the FSx
+    -- for Windows File Server file system.
+    user :: Prelude.Maybe Prelude.Text,
     -- | The name of the Windows domain that the FSx for Windows File Server
     -- belongs to.
     domain :: Prelude.Maybe Prelude.Text,
-    -- | The URL of the FSx for Windows File Server location that was described.
-    locationUri :: Prelude.Maybe Prelude.Text,
-    -- | The user who has the permissions to access files and folders in the FSx
-    -- for Windows File Server file system.
-    user :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the FSx for Windows File Server
     -- location that was described.
     locationArn :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the FSx for Windows File Server location that was described.
+    locationUri :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Names (ARNs) of the security groups that are
+    -- configured for the FSx for Windows File Server file system.
+    securityGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The time that the FSx for Windows File Server location was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,21 +170,21 @@ data DescribeLocationFsxWindowsResponse = DescribeLocationFsxWindowsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'describeLocationFsxWindowsResponse_creationTime' - The time that the FSx for Windows File Server location was created.
---
--- 'securityGroupArns', 'describeLocationFsxWindowsResponse_securityGroupArns' - The Amazon Resource Names (ARNs) of the security groups that are
--- configured for the FSx for Windows File Server file system.
+-- 'user', 'describeLocationFsxWindowsResponse_user' - The user who has the permissions to access files and folders in the FSx
+-- for Windows File Server file system.
 --
 -- 'domain', 'describeLocationFsxWindowsResponse_domain' - The name of the Windows domain that the FSx for Windows File Server
 -- belongs to.
 --
--- 'locationUri', 'describeLocationFsxWindowsResponse_locationUri' - The URL of the FSx for Windows File Server location that was described.
---
--- 'user', 'describeLocationFsxWindowsResponse_user' - The user who has the permissions to access files and folders in the FSx
--- for Windows File Server file system.
---
 -- 'locationArn', 'describeLocationFsxWindowsResponse_locationArn' - The Amazon Resource Name (ARN) of the FSx for Windows File Server
 -- location that was described.
+--
+-- 'locationUri', 'describeLocationFsxWindowsResponse_locationUri' - The URL of the FSx for Windows File Server location that was described.
+--
+-- 'securityGroupArns', 'describeLocationFsxWindowsResponse_securityGroupArns' - The Amazon Resource Names (ARNs) of the security groups that are
+-- configured for the FSx for Windows File Server file system.
+--
+-- 'creationTime', 'describeLocationFsxWindowsResponse_creationTime' - The time that the FSx for Windows File Server location was created.
 --
 -- 'httpStatus', 'describeLocationFsxWindowsResponse_httpStatus' - The response's http status code.
 newDescribeLocationFsxWindowsResponse ::
@@ -193,43 +193,43 @@ newDescribeLocationFsxWindowsResponse ::
   DescribeLocationFsxWindowsResponse
 newDescribeLocationFsxWindowsResponse pHttpStatus_ =
   DescribeLocationFsxWindowsResponse'
-    { creationTime =
+    { user =
         Prelude.Nothing,
-      securityGroupArns = Prelude.Nothing,
       domain = Prelude.Nothing,
-      locationUri = Prelude.Nothing,
-      user = Prelude.Nothing,
       locationArn = Prelude.Nothing,
+      locationUri = Prelude.Nothing,
+      securityGroupArns = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The time that the FSx for Windows File Server location was created.
-describeLocationFsxWindowsResponse_creationTime :: Lens.Lens' DescribeLocationFsxWindowsResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationFsxWindowsResponse_creationTime = Lens.lens (\DescribeLocationFsxWindowsResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxWindowsResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxWindowsResponse) Prelude.. Lens.mapping Core._Time
-
--- | The Amazon Resource Names (ARNs) of the security groups that are
--- configured for the FSx for Windows File Server file system.
-describeLocationFsxWindowsResponse_securityGroupArns :: Lens.Lens' DescribeLocationFsxWindowsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeLocationFsxWindowsResponse_securityGroupArns = Lens.lens (\DescribeLocationFsxWindowsResponse' {securityGroupArns} -> securityGroupArns) (\s@DescribeLocationFsxWindowsResponse' {} a -> s {securityGroupArns = a} :: DescribeLocationFsxWindowsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the Windows domain that the FSx for Windows File Server
--- belongs to.
-describeLocationFsxWindowsResponse_domain :: Lens.Lens' DescribeLocationFsxWindowsResponse (Prelude.Maybe Prelude.Text)
-describeLocationFsxWindowsResponse_domain = Lens.lens (\DescribeLocationFsxWindowsResponse' {domain} -> domain) (\s@DescribeLocationFsxWindowsResponse' {} a -> s {domain = a} :: DescribeLocationFsxWindowsResponse)
-
--- | The URL of the FSx for Windows File Server location that was described.
-describeLocationFsxWindowsResponse_locationUri :: Lens.Lens' DescribeLocationFsxWindowsResponse (Prelude.Maybe Prelude.Text)
-describeLocationFsxWindowsResponse_locationUri = Lens.lens (\DescribeLocationFsxWindowsResponse' {locationUri} -> locationUri) (\s@DescribeLocationFsxWindowsResponse' {} a -> s {locationUri = a} :: DescribeLocationFsxWindowsResponse)
 
 -- | The user who has the permissions to access files and folders in the FSx
 -- for Windows File Server file system.
 describeLocationFsxWindowsResponse_user :: Lens.Lens' DescribeLocationFsxWindowsResponse (Prelude.Maybe Prelude.Text)
 describeLocationFsxWindowsResponse_user = Lens.lens (\DescribeLocationFsxWindowsResponse' {user} -> user) (\s@DescribeLocationFsxWindowsResponse' {} a -> s {user = a} :: DescribeLocationFsxWindowsResponse)
 
+-- | The name of the Windows domain that the FSx for Windows File Server
+-- belongs to.
+describeLocationFsxWindowsResponse_domain :: Lens.Lens' DescribeLocationFsxWindowsResponse (Prelude.Maybe Prelude.Text)
+describeLocationFsxWindowsResponse_domain = Lens.lens (\DescribeLocationFsxWindowsResponse' {domain} -> domain) (\s@DescribeLocationFsxWindowsResponse' {} a -> s {domain = a} :: DescribeLocationFsxWindowsResponse)
+
 -- | The Amazon Resource Name (ARN) of the FSx for Windows File Server
 -- location that was described.
 describeLocationFsxWindowsResponse_locationArn :: Lens.Lens' DescribeLocationFsxWindowsResponse (Prelude.Maybe Prelude.Text)
 describeLocationFsxWindowsResponse_locationArn = Lens.lens (\DescribeLocationFsxWindowsResponse' {locationArn} -> locationArn) (\s@DescribeLocationFsxWindowsResponse' {} a -> s {locationArn = a} :: DescribeLocationFsxWindowsResponse)
+
+-- | The URL of the FSx for Windows File Server location that was described.
+describeLocationFsxWindowsResponse_locationUri :: Lens.Lens' DescribeLocationFsxWindowsResponse (Prelude.Maybe Prelude.Text)
+describeLocationFsxWindowsResponse_locationUri = Lens.lens (\DescribeLocationFsxWindowsResponse' {locationUri} -> locationUri) (\s@DescribeLocationFsxWindowsResponse' {} a -> s {locationUri = a} :: DescribeLocationFsxWindowsResponse)
+
+-- | The Amazon Resource Names (ARNs) of the security groups that are
+-- configured for the FSx for Windows File Server file system.
+describeLocationFsxWindowsResponse_securityGroupArns :: Lens.Lens' DescribeLocationFsxWindowsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeLocationFsxWindowsResponse_securityGroupArns = Lens.lens (\DescribeLocationFsxWindowsResponse' {securityGroupArns} -> securityGroupArns) (\s@DescribeLocationFsxWindowsResponse' {} a -> s {securityGroupArns = a} :: DescribeLocationFsxWindowsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time that the FSx for Windows File Server location was created.
+describeLocationFsxWindowsResponse_creationTime :: Lens.Lens' DescribeLocationFsxWindowsResponse (Prelude.Maybe Prelude.UTCTime)
+describeLocationFsxWindowsResponse_creationTime = Lens.lens (\DescribeLocationFsxWindowsResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxWindowsResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxWindowsResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 describeLocationFsxWindowsResponse_httpStatus :: Lens.Lens' DescribeLocationFsxWindowsResponse Prelude.Int
@@ -240,10 +240,10 @@ instance
     DescribeLocationFsxWindowsResponse
   where
   rnf DescribeLocationFsxWindowsResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf securityGroupArns
+    Prelude.rnf user
       `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf user
       `Prelude.seq` Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf securityGroupArns
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf httpStatus

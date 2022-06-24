@@ -34,14 +34,14 @@ data Parameter = Parameter'
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types SSM parameter types>
     -- in the template.
     resolvedValue :: Prelude.Maybe Prelude.Text,
-    -- | The key associated with the parameter. If you don\'t specify a key and
-    -- value for a particular parameter, CloudFormation uses the default value
-    -- that is specified in your template.
-    parameterKey :: Prelude.Maybe Prelude.Text,
     -- | During a stack update, use the existing parameter value that the stack
     -- is using for a given parameter key. If you specify @true@, do not
     -- specify a parameter value.
-    usePreviousValue :: Prelude.Maybe Prelude.Bool
+    usePreviousValue :: Prelude.Maybe Prelude.Bool,
+    -- | The key associated with the parameter. If you don\'t specify a key and
+    -- value for a particular parameter, CloudFormation uses the default value
+    -- that is specified in your template.
+    parameterKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,21 +60,21 @@ data Parameter = Parameter'
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types SSM parameter types>
 -- in the template.
 --
--- 'parameterKey', 'parameter_parameterKey' - The key associated with the parameter. If you don\'t specify a key and
--- value for a particular parameter, CloudFormation uses the default value
--- that is specified in your template.
---
 -- 'usePreviousValue', 'parameter_usePreviousValue' - During a stack update, use the existing parameter value that the stack
 -- is using for a given parameter key. If you specify @true@, do not
 -- specify a parameter value.
+--
+-- 'parameterKey', 'parameter_parameterKey' - The key associated with the parameter. If you don\'t specify a key and
+-- value for a particular parameter, CloudFormation uses the default value
+-- that is specified in your template.
 newParameter ::
   Parameter
 newParameter =
   Parameter'
     { parameterValue = Prelude.Nothing,
       resolvedValue = Prelude.Nothing,
-      parameterKey = Prelude.Nothing,
-      usePreviousValue = Prelude.Nothing
+      usePreviousValue = Prelude.Nothing,
+      parameterKey = Prelude.Nothing
     }
 
 -- | The input value associated with the parameter.
@@ -88,45 +88,45 @@ parameter_parameterValue = Lens.lens (\Parameter' {parameterValue} -> parameterV
 parameter_resolvedValue :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_resolvedValue = Lens.lens (\Parameter' {resolvedValue} -> resolvedValue) (\s@Parameter' {} a -> s {resolvedValue = a} :: Parameter)
 
--- | The key associated with the parameter. If you don\'t specify a key and
--- value for a particular parameter, CloudFormation uses the default value
--- that is specified in your template.
-parameter_parameterKey :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_parameterKey = Lens.lens (\Parameter' {parameterKey} -> parameterKey) (\s@Parameter' {} a -> s {parameterKey = a} :: Parameter)
-
 -- | During a stack update, use the existing parameter value that the stack
 -- is using for a given parameter key. If you specify @true@, do not
 -- specify a parameter value.
 parameter_usePreviousValue :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Bool)
 parameter_usePreviousValue = Lens.lens (\Parameter' {usePreviousValue} -> usePreviousValue) (\s@Parameter' {} a -> s {usePreviousValue = a} :: Parameter)
 
+-- | The key associated with the parameter. If you don\'t specify a key and
+-- value for a particular parameter, CloudFormation uses the default value
+-- that is specified in your template.
+parameter_parameterKey :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_parameterKey = Lens.lens (\Parameter' {parameterKey} -> parameterKey) (\s@Parameter' {} a -> s {parameterKey = a} :: Parameter)
+
 instance Core.FromXML Parameter where
   parseXML x =
     Parameter'
       Prelude.<$> (x Core..@? "ParameterValue")
       Prelude.<*> (x Core..@? "ResolvedValue")
-      Prelude.<*> (x Core..@? "ParameterKey")
       Prelude.<*> (x Core..@? "UsePreviousValue")
+      Prelude.<*> (x Core..@? "ParameterKey")
 
 instance Prelude.Hashable Parameter where
   hashWithSalt _salt Parameter' {..} =
     _salt `Prelude.hashWithSalt` parameterValue
       `Prelude.hashWithSalt` resolvedValue
-      `Prelude.hashWithSalt` parameterKey
       `Prelude.hashWithSalt` usePreviousValue
+      `Prelude.hashWithSalt` parameterKey
 
 instance Prelude.NFData Parameter where
   rnf Parameter' {..} =
     Prelude.rnf parameterValue
       `Prelude.seq` Prelude.rnf resolvedValue
-      `Prelude.seq` Prelude.rnf parameterKey
       `Prelude.seq` Prelude.rnf usePreviousValue
+      `Prelude.seq` Prelude.rnf parameterKey
 
 instance Core.ToQuery Parameter where
   toQuery Parameter' {..} =
     Prelude.mconcat
       [ "ParameterValue" Core.=: parameterValue,
         "ResolvedValue" Core.=: resolvedValue,
-        "ParameterKey" Core.=: parameterKey,
-        "UsePreviousValue" Core.=: usePreviousValue
+        "UsePreviousValue" Core.=: usePreviousValue,
+        "ParameterKey" Core.=: parameterKey
       ]

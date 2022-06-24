@@ -43,10 +43,10 @@ module Amazonka.CloudFormation.DeregisterType
     newDeregisterType,
 
     -- * Request Lenses
-    deregisterType_versionId,
-    deregisterType_typeName,
-    deregisterType_arn,
     deregisterType_type,
+    deregisterType_arn,
+    deregisterType_typeName,
+    deregisterType_versionId,
 
     -- * Destructuring the Response
     DeregisterTypeResponse (..),
@@ -66,22 +66,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeregisterType' smart constructor.
 data DeregisterType = DeregisterType'
-  { -- | The ID of a specific version of the extension. The version ID is the
-    -- value at the end of the Amazon Resource Name (ARN) assigned to the
-    -- extension version when it is registered.
-    versionId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the extension.
+  { -- | The kind of extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    typeName :: Prelude.Maybe Prelude.Text,
+    type' :: Prelude.Maybe RegistryType,
     -- | The Amazon Resource Name (ARN) of the extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The kind of extension.
+    -- | The name of the extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    type' :: Prelude.Maybe RegistryType
+    typeName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a specific version of the extension. The version ID is the
+    -- value at the end of the Amazon Resource Name (ARN) assigned to the
+    -- extension version when it is registered.
+    versionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,11 +93,7 @@ data DeregisterType = DeregisterType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionId', 'deregisterType_versionId' - The ID of a specific version of the extension. The version ID is the
--- value at the end of the Amazon Resource Name (ARN) assigned to the
--- extension version when it is registered.
---
--- 'typeName', 'deregisterType_typeName' - The name of the extension.
+-- 'type'', 'deregisterType_type' - The kind of extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
 --
@@ -105,30 +101,28 @@ data DeregisterType = DeregisterType'
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
 --
--- 'type'', 'deregisterType_type' - The kind of extension.
+-- 'typeName', 'deregisterType_typeName' - The name of the extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
+--
+-- 'versionId', 'deregisterType_versionId' - The ID of a specific version of the extension. The version ID is the
+-- value at the end of the Amazon Resource Name (ARN) assigned to the
+-- extension version when it is registered.
 newDeregisterType ::
   DeregisterType
 newDeregisterType =
   DeregisterType'
-    { versionId = Prelude.Nothing,
-      typeName = Prelude.Nothing,
+    { type' = Prelude.Nothing,
       arn = Prelude.Nothing,
-      type' = Prelude.Nothing
+      typeName = Prelude.Nothing,
+      versionId = Prelude.Nothing
     }
 
--- | The ID of a specific version of the extension. The version ID is the
--- value at the end of the Amazon Resource Name (ARN) assigned to the
--- extension version when it is registered.
-deregisterType_versionId :: Lens.Lens' DeregisterType (Prelude.Maybe Prelude.Text)
-deregisterType_versionId = Lens.lens (\DeregisterType' {versionId} -> versionId) (\s@DeregisterType' {} a -> s {versionId = a} :: DeregisterType)
-
--- | The name of the extension.
+-- | The kind of extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-deregisterType_typeName :: Lens.Lens' DeregisterType (Prelude.Maybe Prelude.Text)
-deregisterType_typeName = Lens.lens (\DeregisterType' {typeName} -> typeName) (\s@DeregisterType' {} a -> s {typeName = a} :: DeregisterType)
+deregisterType_type :: Lens.Lens' DeregisterType (Prelude.Maybe RegistryType)
+deregisterType_type = Lens.lens (\DeregisterType' {type'} -> type') (\s@DeregisterType' {} a -> s {type' = a} :: DeregisterType)
 
 -- | The Amazon Resource Name (ARN) of the extension.
 --
@@ -136,11 +130,17 @@ deregisterType_typeName = Lens.lens (\DeregisterType' {typeName} -> typeName) (\
 deregisterType_arn :: Lens.Lens' DeregisterType (Prelude.Maybe Prelude.Text)
 deregisterType_arn = Lens.lens (\DeregisterType' {arn} -> arn) (\s@DeregisterType' {} a -> s {arn = a} :: DeregisterType)
 
--- | The kind of extension.
+-- | The name of the extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-deregisterType_type :: Lens.Lens' DeregisterType (Prelude.Maybe RegistryType)
-deregisterType_type = Lens.lens (\DeregisterType' {type'} -> type') (\s@DeregisterType' {} a -> s {type' = a} :: DeregisterType)
+deregisterType_typeName :: Lens.Lens' DeregisterType (Prelude.Maybe Prelude.Text)
+deregisterType_typeName = Lens.lens (\DeregisterType' {typeName} -> typeName) (\s@DeregisterType' {} a -> s {typeName = a} :: DeregisterType)
+
+-- | The ID of a specific version of the extension. The version ID is the
+-- value at the end of the Amazon Resource Name (ARN) assigned to the
+-- extension version when it is registered.
+deregisterType_versionId :: Lens.Lens' DeregisterType (Prelude.Maybe Prelude.Text)
+deregisterType_versionId = Lens.lens (\DeregisterType' {versionId} -> versionId) (\s@DeregisterType' {} a -> s {versionId = a} :: DeregisterType)
 
 instance Core.AWSRequest DeregisterType where
   type
@@ -157,17 +157,17 @@ instance Core.AWSRequest DeregisterType where
 
 instance Prelude.Hashable DeregisterType where
   hashWithSalt _salt DeregisterType' {..} =
-    _salt `Prelude.hashWithSalt` versionId
-      `Prelude.hashWithSalt` typeName
+    _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData DeregisterType where
   rnf DeregisterType' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf typeName
+    Prelude.rnf type'
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf versionId
 
 instance Core.ToHeaders DeregisterType where
   toHeaders = Prelude.const Prelude.mempty
@@ -182,10 +182,10 @@ instance Core.ToQuery DeregisterType where
           Core.=: ("DeregisterType" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "VersionId" Core.=: versionId,
-        "TypeName" Core.=: typeName,
+        "Type" Core.=: type',
         "Arn" Core.=: arn,
-        "Type" Core.=: type'
+        "TypeName" Core.=: typeName,
+        "VersionId" Core.=: versionId
       ]
 
 -- | /See:/ 'newDeregisterTypeResponse' smart constructor.

@@ -33,7 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRequiredActivatedType' smart constructor.
 data RequiredActivatedType = RequiredActivatedType'
-  { -- | The type name of the public extension.
+  { -- | The publisher ID of the extension publisher.
+    publisherId :: Prelude.Maybe Prelude.Text,
+    -- | The type name of the public extension.
     --
     -- If you specified a @TypeNameAlias@ when enabling the extension in this
     -- account and region, CloudFormation treats that alias as the extension\'s
@@ -50,9 +52,7 @@ data RequiredActivatedType = RequiredActivatedType'
     typeNameAlias :: Prelude.Maybe Prelude.Text,
     -- | A list of the major versions of the extension type that the macro
     -- supports.
-    supportedMajorVersions :: Prelude.Maybe [Prelude.Natural],
-    -- | The publisher ID of the extension publisher.
-    publisherId :: Prelude.Maybe Prelude.Text
+    supportedMajorVersions :: Prelude.Maybe [Prelude.Natural]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,6 +63,8 @@ data RequiredActivatedType = RequiredActivatedType'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'publisherId', 'requiredActivatedType_publisherId' - The publisher ID of the extension publisher.
 --
 -- 'originalTypeName', 'requiredActivatedType_originalTypeName' - The type name of the public extension.
 --
@@ -81,18 +83,20 @@ data RequiredActivatedType = RequiredActivatedType'
 --
 -- 'supportedMajorVersions', 'requiredActivatedType_supportedMajorVersions' - A list of the major versions of the extension type that the macro
 -- supports.
---
--- 'publisherId', 'requiredActivatedType_publisherId' - The publisher ID of the extension publisher.
 newRequiredActivatedType ::
   RequiredActivatedType
 newRequiredActivatedType =
   RequiredActivatedType'
-    { originalTypeName =
+    { publisherId =
         Prelude.Nothing,
+      originalTypeName = Prelude.Nothing,
       typeNameAlias = Prelude.Nothing,
-      supportedMajorVersions = Prelude.Nothing,
-      publisherId = Prelude.Nothing
+      supportedMajorVersions = Prelude.Nothing
     }
+
+-- | The publisher ID of the extension publisher.
+requiredActivatedType_publisherId :: Lens.Lens' RequiredActivatedType (Prelude.Maybe Prelude.Text)
+requiredActivatedType_publisherId = Lens.lens (\RequiredActivatedType' {publisherId} -> publisherId) (\s@RequiredActivatedType' {} a -> s {publisherId = a} :: RequiredActivatedType)
 
 -- | The type name of the public extension.
 --
@@ -118,31 +122,27 @@ requiredActivatedType_typeNameAlias = Lens.lens (\RequiredActivatedType' {typeNa
 requiredActivatedType_supportedMajorVersions :: Lens.Lens' RequiredActivatedType (Prelude.Maybe [Prelude.Natural])
 requiredActivatedType_supportedMajorVersions = Lens.lens (\RequiredActivatedType' {supportedMajorVersions} -> supportedMajorVersions) (\s@RequiredActivatedType' {} a -> s {supportedMajorVersions = a} :: RequiredActivatedType) Prelude.. Lens.mapping Lens.coerced
 
--- | The publisher ID of the extension publisher.
-requiredActivatedType_publisherId :: Lens.Lens' RequiredActivatedType (Prelude.Maybe Prelude.Text)
-requiredActivatedType_publisherId = Lens.lens (\RequiredActivatedType' {publisherId} -> publisherId) (\s@RequiredActivatedType' {} a -> s {publisherId = a} :: RequiredActivatedType)
-
 instance Core.FromXML RequiredActivatedType where
   parseXML x =
     RequiredActivatedType'
-      Prelude.<$> (x Core..@? "OriginalTypeName")
+      Prelude.<$> (x Core..@? "PublisherId")
+      Prelude.<*> (x Core..@? "OriginalTypeName")
       Prelude.<*> (x Core..@? "TypeNameAlias")
       Prelude.<*> ( x Core..@? "SupportedMajorVersions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PublisherId")
 
 instance Prelude.Hashable RequiredActivatedType where
   hashWithSalt _salt RequiredActivatedType' {..} =
-    _salt `Prelude.hashWithSalt` originalTypeName
+    _salt `Prelude.hashWithSalt` publisherId
+      `Prelude.hashWithSalt` originalTypeName
       `Prelude.hashWithSalt` typeNameAlias
       `Prelude.hashWithSalt` supportedMajorVersions
-      `Prelude.hashWithSalt` publisherId
 
 instance Prelude.NFData RequiredActivatedType where
   rnf RequiredActivatedType' {..} =
-    Prelude.rnf originalTypeName
+    Prelude.rnf publisherId
+      `Prelude.seq` Prelude.rnf originalTypeName
       `Prelude.seq` Prelude.rnf typeNameAlias
       `Prelude.seq` Prelude.rnf supportedMajorVersions
-      `Prelude.seq` Prelude.rnf publisherId

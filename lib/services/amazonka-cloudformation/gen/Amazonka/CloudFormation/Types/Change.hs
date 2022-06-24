@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChange' smart constructor.
 data Change = Change'
-  { -- | A @ResourceChange@ structure that describes the resource and action that
-    -- CloudFormation will perform.
-    resourceChange :: Prelude.Maybe ResourceChange,
-    -- | The type of entity that CloudFormation changes. Currently, the only
+  { -- | The type of entity that CloudFormation changes. Currently, the only
     -- entity type is @Resource@.
-    type' :: Prelude.Maybe ChangeType
+    type' :: Prelude.Maybe ChangeType,
+    -- | A @ResourceChange@ structure that describes the resource and action that
+    -- CloudFormation will perform.
+    resourceChange :: Prelude.Maybe ResourceChange
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,41 +47,41 @@ data Change = Change'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceChange', 'change_resourceChange' - A @ResourceChange@ structure that describes the resource and action that
--- CloudFormation will perform.
---
 -- 'type'', 'change_type' - The type of entity that CloudFormation changes. Currently, the only
 -- entity type is @Resource@.
+--
+-- 'resourceChange', 'change_resourceChange' - A @ResourceChange@ structure that describes the resource and action that
+-- CloudFormation will perform.
 newChange ::
   Change
 newChange =
   Change'
-    { resourceChange = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      resourceChange = Prelude.Nothing
     }
-
--- | A @ResourceChange@ structure that describes the resource and action that
--- CloudFormation will perform.
-change_resourceChange :: Lens.Lens' Change (Prelude.Maybe ResourceChange)
-change_resourceChange = Lens.lens (\Change' {resourceChange} -> resourceChange) (\s@Change' {} a -> s {resourceChange = a} :: Change)
 
 -- | The type of entity that CloudFormation changes. Currently, the only
 -- entity type is @Resource@.
 change_type :: Lens.Lens' Change (Prelude.Maybe ChangeType)
 change_type = Lens.lens (\Change' {type'} -> type') (\s@Change' {} a -> s {type' = a} :: Change)
 
+-- | A @ResourceChange@ structure that describes the resource and action that
+-- CloudFormation will perform.
+change_resourceChange :: Lens.Lens' Change (Prelude.Maybe ResourceChange)
+change_resourceChange = Lens.lens (\Change' {resourceChange} -> resourceChange) (\s@Change' {} a -> s {resourceChange = a} :: Change)
+
 instance Core.FromXML Change where
   parseXML x =
     Change'
-      Prelude.<$> (x Core..@? "ResourceChange")
-      Prelude.<*> (x Core..@? "Type")
+      Prelude.<$> (x Core..@? "Type")
+      Prelude.<*> (x Core..@? "ResourceChange")
 
 instance Prelude.Hashable Change where
   hashWithSalt _salt Change' {..} =
-    _salt `Prelude.hashWithSalt` resourceChange
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` resourceChange
 
 instance Prelude.NFData Change where
   rnf Change' {..} =
-    Prelude.rnf resourceChange
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf resourceChange

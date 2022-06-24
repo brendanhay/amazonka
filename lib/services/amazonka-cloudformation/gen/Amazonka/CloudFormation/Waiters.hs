@@ -25,6 +25,60 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+newStackUpdateComplete :: Core.Wait DescribeStacks
+newStackUpdateComplete =
+  Core.Wait
+    { Core._waitName = "StackUpdateComplete",
+      Core._waitAttempts = 120,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "UPDATE_COMPLETE"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
+                )
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "UPDATE_FAILED"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
+                )
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "UPDATE_ROLLBACK_FAILED"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
+                )
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "UPDATE_ROLLBACK_COMPLETE"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
+                )
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationError"
+            Core.AcceptFailure
+        ]
+    }
+
+-- | Polls 'Amazonka.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newStackImportComplete :: Core.Wait DescribeStacks
 newStackImportComplete =
   Core.Wait
@@ -226,6 +280,19 @@ newStackRollbackComplete =
         ]
     }
 
+-- | Polls 'Amazonka.CloudFormation.DescribeStacks' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newStackExists :: Core.Wait DescribeStacks
+newStackExists =
+  Core.Wait
+    { Core._waitName = "StackExists",
+      Core._waitAttempts = 20,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError "ValidationError" Core.AcceptRetry
+        ]
+    }
+
 -- | Polls 'Amazonka.CloudFormation.DescribeTypeRegistration' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newTypeRegistrationComplete :: Core.Wait DescribeTypeRegistration
 newTypeRegistrationComplete =
@@ -252,70 +319,30 @@ newTypeRegistrationComplete =
         ]
     }
 
--- | Polls 'Amazonka.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
-newStackUpdateComplete :: Core.Wait DescribeStacks
-newStackUpdateComplete =
+-- | Polls 'Amazonka.CloudFormation.DescribeChangeSet' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+newChangeSetCreateComplete :: Core.Wait DescribeChangeSet
+newChangeSetCreateComplete =
   Core.Wait
-    { Core._waitName = "StackUpdateComplete",
+    { Core._waitName =
+        "ChangeSetCreateComplete",
       Core._waitAttempts = 120,
       Core._waitDelay = 30,
       Core._waitAcceptors =
         [ Core.matchAll
-            "UPDATE_COMPLETE"
+            "CREATE_COMPLETE"
             Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    (describeStacksResponse_stacks Prelude.. Lens._Just)
-                )
-                Prelude.. stack_stackStatus
+            ( describeChangeSetResponse_status
                 Prelude.. Lens.to Core.toTextCI
             ),
-          Core.matchAny
-            "UPDATE_FAILED"
+          Core.matchAll
+            "FAILED"
             Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    (describeStacksResponse_stacks Prelude.. Lens._Just)
-                )
-                Prelude.. stack_stackStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "UPDATE_ROLLBACK_FAILED"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    (describeStacksResponse_stacks Prelude.. Lens._Just)
-                )
-                Prelude.. stack_stackStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "UPDATE_ROLLBACK_COMPLETE"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    (describeStacksResponse_stacks Prelude.. Lens._Just)
-                )
-                Prelude.. stack_stackStatus
+            ( describeChangeSetResponse_status
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
             "ValidationError"
             Core.AcceptFailure
-        ]
-    }
-
--- | Polls 'Amazonka.CloudFormation.DescribeStacks' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newStackExists :: Core.Wait DescribeStacks
-newStackExists =
-  Core.Wait
-    { Core._waitName = "StackExists",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
-        [ Core.matchStatus 200 Core.AcceptSuccess,
-          Core.matchError "ValidationError" Core.AcceptRetry
         ]
     }
 
@@ -398,32 +425,5 @@ newStackDeleteComplete =
                 Prelude.. stack_stackStatus
                 Prelude.. Lens.to Core.toTextCI
             )
-        ]
-    }
-
--- | Polls 'Amazonka.CloudFormation.DescribeChangeSet' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
-newChangeSetCreateComplete :: Core.Wait DescribeChangeSet
-newChangeSetCreateComplete =
-  Core.Wait
-    { Core._waitName =
-        "ChangeSetCreateComplete",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "CREATE_COMPLETE"
-            Core.AcceptSuccess
-            ( describeChangeSetResponse_status
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "FAILED"
-            Core.AcceptFailure
-            ( describeChangeSetResponse_status
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "ValidationError"
-            Core.AcceptFailure
         ]
     }

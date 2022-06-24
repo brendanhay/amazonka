@@ -32,8 +32,8 @@ module Amazonka.CloudFormation.ImportStacksToStackSet
     newImportStacksToStackSet,
 
     -- * Request Lenses
-    importStacksToStackSet_callAs,
     importStacksToStackSet_operationPreferences,
+    importStacksToStackSet_callAs,
     importStacksToStackSet_operationId,
     importStacksToStackSet_stackSetName,
     importStacksToStackSet_stackIds,
@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportStacksToStackSet' smart constructor.
 data ImportStacksToStackSet = ImportStacksToStackSet'
-  { -- | By default, @SELF@ is specified. Use @SELF@ for stack sets with
+  { operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
+    -- | By default, @SELF@ is specified. Use @SELF@ for stack sets with
     -- self-managed permissions.
     --
     -- -   If you are signed in to the management account, specify @SELF@.
     --
     -- -   For service managed stack sets, specify @DELEGATED_ADMIN@.
     callAs :: Prelude.Maybe CallAs,
-    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
     -- | A unique, user defined, identifier for the stack set operation.
     operationId :: Prelude.Maybe Prelude.Text,
     -- | The name of the stack set. The name must be unique in the Region where
@@ -84,14 +84,14 @@ data ImportStacksToStackSet = ImportStacksToStackSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'operationPreferences', 'importStacksToStackSet_operationPreferences' - Undocumented member.
+--
 -- 'callAs', 'importStacksToStackSet_callAs' - By default, @SELF@ is specified. Use @SELF@ for stack sets with
 -- self-managed permissions.
 --
 -- -   If you are signed in to the management account, specify @SELF@.
 --
 -- -   For service managed stack sets, specify @DELEGATED_ADMIN@.
---
--- 'operationPreferences', 'importStacksToStackSet_operationPreferences' - Undocumented member.
 --
 -- 'operationId', 'importStacksToStackSet_operationId' - A unique, user defined, identifier for the stack set operation.
 --
@@ -106,12 +106,17 @@ newImportStacksToStackSet ::
   ImportStacksToStackSet
 newImportStacksToStackSet pStackSetName_ =
   ImportStacksToStackSet'
-    { callAs = Prelude.Nothing,
-      operationPreferences = Prelude.Nothing,
+    { operationPreferences =
+        Prelude.Nothing,
+      callAs = Prelude.Nothing,
       operationId = Prelude.Nothing,
       stackSetName = pStackSetName_,
       stackIds = Prelude.mempty
     }
+
+-- | Undocumented member.
+importStacksToStackSet_operationPreferences :: Lens.Lens' ImportStacksToStackSet (Prelude.Maybe StackSetOperationPreferences)
+importStacksToStackSet_operationPreferences = Lens.lens (\ImportStacksToStackSet' {operationPreferences} -> operationPreferences) (\s@ImportStacksToStackSet' {} a -> s {operationPreferences = a} :: ImportStacksToStackSet)
 
 -- | By default, @SELF@ is specified. Use @SELF@ for stack sets with
 -- self-managed permissions.
@@ -121,10 +126,6 @@ newImportStacksToStackSet pStackSetName_ =
 -- -   For service managed stack sets, specify @DELEGATED_ADMIN@.
 importStacksToStackSet_callAs :: Lens.Lens' ImportStacksToStackSet (Prelude.Maybe CallAs)
 importStacksToStackSet_callAs = Lens.lens (\ImportStacksToStackSet' {callAs} -> callAs) (\s@ImportStacksToStackSet' {} a -> s {callAs = a} :: ImportStacksToStackSet)
-
--- | Undocumented member.
-importStacksToStackSet_operationPreferences :: Lens.Lens' ImportStacksToStackSet (Prelude.Maybe StackSetOperationPreferences)
-importStacksToStackSet_operationPreferences = Lens.lens (\ImportStacksToStackSet' {operationPreferences} -> operationPreferences) (\s@ImportStacksToStackSet' {} a -> s {operationPreferences = a} :: ImportStacksToStackSet)
 
 -- | A unique, user defined, identifier for the stack set operation.
 importStacksToStackSet_operationId :: Lens.Lens' ImportStacksToStackSet (Prelude.Maybe Prelude.Text)
@@ -156,16 +157,16 @@ instance Core.AWSRequest ImportStacksToStackSet where
 
 instance Prelude.Hashable ImportStacksToStackSet where
   hashWithSalt _salt ImportStacksToStackSet' {..} =
-    _salt `Prelude.hashWithSalt` callAs
-      `Prelude.hashWithSalt` operationPreferences
+    _salt `Prelude.hashWithSalt` operationPreferences
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` operationId
       `Prelude.hashWithSalt` stackSetName
       `Prelude.hashWithSalt` stackIds
 
 instance Prelude.NFData ImportStacksToStackSet where
   rnf ImportStacksToStackSet' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf operationPreferences
+    Prelude.rnf operationPreferences
+      `Prelude.seq` Prelude.rnf callAs
       `Prelude.seq` Prelude.rnf operationId
       `Prelude.seq` Prelude.rnf stackSetName
       `Prelude.seq` Prelude.rnf stackIds
@@ -183,8 +184,8 @@ instance Core.ToQuery ImportStacksToStackSet where
           Core.=: ("ImportStacksToStackSet" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "CallAs" Core.=: callAs,
         "OperationPreferences" Core.=: operationPreferences,
+        "CallAs" Core.=: callAs,
         "OperationId" Core.=: operationId,
         "StackSetName" Core.=: stackSetName,
         "StackIds"

@@ -27,19 +27,19 @@ module Amazonka.CloudFormation.CreateStackSet
     newCreateStackSet,
 
     -- * Request Lenses
-    createStackSet_administrationRoleARN,
-    createStackSet_callAs,
-    createStackSet_autoDeployment,
-    createStackSet_permissionModel,
-    createStackSet_parameters,
-    createStackSet_templateBody,
-    createStackSet_templateURL,
+    createStackSet_tags,
     createStackSet_stackId,
     createStackSet_clientRequestToken,
+    createStackSet_callAs,
+    createStackSet_templateBody,
     createStackSet_description,
+    createStackSet_autoDeployment,
     createStackSet_capabilities,
-    createStackSet_tags,
     createStackSet_executionRoleName,
+    createStackSet_administrationRoleARN,
+    createStackSet_permissionModel,
+    createStackSet_templateURL,
+    createStackSet_parameters,
     createStackSet_stackSetName,
 
     -- * Destructuring the Response
@@ -61,15 +61,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStackSet' smart constructor.
 data CreateStackSet = CreateStackSet'
-  { -- | The Amazon Resource Number (ARN) of the IAM role to use to create this
-    -- stack set.
+  { -- | The key-value pairs to associate with this stack set and the stacks
+    -- created from it. CloudFormation also propagates these tags to supported
+    -- resources that are created in the stacks. A maximum number of 50 tags
+    -- can be specified.
     --
-    -- Specify an IAM role only if you are using customized administrator roles
-    -- to control which users or groups can manage specific stack sets within
-    -- the same administrator account. For more information, see
-    -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations>
-    -- in the /CloudFormation User Guide/.
-    administrationRoleARN :: Prelude.Maybe Prelude.Text,
+    -- If you specify tags as part of a @CreateStackSet@ action, CloudFormation
+    -- checks to see if you have the required IAM permission to tag resources.
+    -- If you don\'t, the entire @CreateStackSet@ action fails with an
+    -- @access denied@ error, and the stack set is not created.
+    tags :: Prelude.Maybe [Tag],
+    -- | The stack ID you are importing into a new stack set. Specify the Amazon
+    -- Resource Number (ARN) of the stack.
+    stackId :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for this @CreateStackSet@ request. Specify this
+    -- token if you plan to retry requests so that CloudFormation knows that
+    -- you\'re not attempting to create another stack set with the same name.
+    -- You might retry @CreateStackSet@ requests to ensure that CloudFormation
+    -- successfully received them.
+    --
+    -- If you don\'t specify an operation ID, the SDK generates one
+    -- automatically.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the organization\'s management account or as a
     -- delegated administrator in a member account.
@@ -92,25 +105,6 @@ data CreateStackSet = CreateStackSet'
     -- management account, including stack sets that are created by delegated
     -- administrators.
     callAs :: Prelude.Maybe CallAs,
-    -- | Describes whether StackSets automatically deploys to Organizations
-    -- accounts that are added to the target organization or organizational
-    -- unit (OU). Specify only if @PermissionModel@ is @SERVICE_MANAGED@.
-    autoDeployment :: Prelude.Maybe AutoDeployment,
-    -- | Describes how the IAM roles required for stack set operations are
-    -- created. By default, @SELF-MANAGED@ is specified.
-    --
-    -- -   With @self-managed@ permissions, you must create the administrator
-    --     and execution roles required to deploy to target accounts. For more
-    --     information, see
-    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html Grant Self-Managed Stack Set Permissions>.
-    --
-    -- -   With @service-managed@ permissions, StackSets automatically creates
-    --     the IAM roles required to deploy to accounts managed by
-    --     Organizations. For more information, see
-    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
-    permissionModel :: Prelude.Maybe PermissionModels,
-    -- | The input parameters for the stack set template.
-    parameters :: Prelude.Maybe [Parameter],
     -- | The structure that contains the template body, with a minimum length of
     -- 1 byte and a maximum length of 51,200 bytes. For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
@@ -119,31 +113,13 @@ data CreateStackSet = CreateStackSet'
     -- Conditional: You must specify either the TemplateBody or the TemplateURL
     -- parameter, but not both.
     templateBody :: Prelude.Maybe Prelude.Text,
-    -- | The location of the file that contains the template body. The URL must
-    -- point to a template (maximum size: 460,800 bytes) that\'s located in an
-    -- Amazon S3 bucket or a Systems Manager document. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
-    -- in the CloudFormation User Guide.
-    --
-    -- Conditional: You must specify either the TemplateBody or the TemplateURL
-    -- parameter, but not both.
-    templateURL :: Prelude.Maybe Prelude.Text,
-    -- | The stack ID you are importing into a new stack set. Specify the Amazon
-    -- Resource Number (ARN) of the stack.
-    stackId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for this @CreateStackSet@ request. Specify this
-    -- token if you plan to retry requests so that CloudFormation knows that
-    -- you\'re not attempting to create another stack set with the same name.
-    -- You might retry @CreateStackSet@ requests to ensure that CloudFormation
-    -- successfully received them.
-    --
-    -- If you don\'t specify an operation ID, the SDK generates one
-    -- automatically.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | A description of the stack set. You can use the description to identify
     -- the stack set\'s purpose or other important information.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Describes whether StackSets automatically deploys to Organizations
+    -- accounts that are added to the target organization or organizational
+    -- unit (OU). Specify only if @PermissionModel@ is @SERVICE_MANAGED@.
+    autoDeployment :: Prelude.Maybe AutoDeployment,
     -- | In some cases, you must explicitly acknowledge that your stack set
     -- template contains certain capabilities in order for CloudFormation to
     -- create the stack set and related stack instances.
@@ -207,16 +183,6 @@ data CreateStackSet = CreateStackSet'
     --     permissions, if you reference a macro in your template the stack set
     --     operation will fail.
     capabilities :: Prelude.Maybe [Capability],
-    -- | The key-value pairs to associate with this stack set and the stacks
-    -- created from it. CloudFormation also propagates these tags to supported
-    -- resources that are created in the stacks. A maximum number of 50 tags
-    -- can be specified.
-    --
-    -- If you specify tags as part of a @CreateStackSet@ action, CloudFormation
-    -- checks to see if you have the required IAM permission to tag resources.
-    -- If you don\'t, the entire @CreateStackSet@ action fails with an
-    -- @access denied@ error, and the stack set is not created.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the IAM execution role to use to create the stack set. If
     -- you do not specify an execution role, CloudFormation uses the
     -- @AWSCloudFormationStackSetExecutionRole@ role for the stack set
@@ -226,6 +192,40 @@ data CreateStackSet = CreateStackSet'
     -- control which stack resources users and groups can include in their
     -- stack sets.
     executionRoleName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Number (ARN) of the IAM role to use to create this
+    -- stack set.
+    --
+    -- Specify an IAM role only if you are using customized administrator roles
+    -- to control which users or groups can manage specific stack sets within
+    -- the same administrator account. For more information, see
+    -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations>
+    -- in the /CloudFormation User Guide/.
+    administrationRoleARN :: Prelude.Maybe Prelude.Text,
+    -- | Describes how the IAM roles required for stack set operations are
+    -- created. By default, @SELF-MANAGED@ is specified.
+    --
+    -- -   With @self-managed@ permissions, you must create the administrator
+    --     and execution roles required to deploy to target accounts. For more
+    --     information, see
+    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html Grant Self-Managed Stack Set Permissions>.
+    --
+    -- -   With @service-managed@ permissions, StackSets automatically creates
+    --     the IAM roles required to deploy to accounts managed by
+    --     Organizations. For more information, see
+    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
+    permissionModel :: Prelude.Maybe PermissionModels,
+    -- | The location of the file that contains the template body. The URL must
+    -- point to a template (maximum size: 460,800 bytes) that\'s located in an
+    -- Amazon S3 bucket or a Systems Manager document. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+    -- in the CloudFormation User Guide.
+    --
+    -- Conditional: You must specify either the TemplateBody or the TemplateURL
+    -- parameter, but not both.
+    templateURL :: Prelude.Maybe Prelude.Text,
+    -- | The input parameters for the stack set template.
+    parameters :: Prelude.Maybe [Parameter],
     -- | The name to associate with the stack set. The name must be unique in the
     -- Region where you create your stack set.
     --
@@ -244,14 +244,27 @@ data CreateStackSet = CreateStackSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'administrationRoleARN', 'createStackSet_administrationRoleARN' - The Amazon Resource Number (ARN) of the IAM role to use to create this
--- stack set.
+-- 'tags', 'createStackSet_tags' - The key-value pairs to associate with this stack set and the stacks
+-- created from it. CloudFormation also propagates these tags to supported
+-- resources that are created in the stacks. A maximum number of 50 tags
+-- can be specified.
 --
--- Specify an IAM role only if you are using customized administrator roles
--- to control which users or groups can manage specific stack sets within
--- the same administrator account. For more information, see
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations>
--- in the /CloudFormation User Guide/.
+-- If you specify tags as part of a @CreateStackSet@ action, CloudFormation
+-- checks to see if you have the required IAM permission to tag resources.
+-- If you don\'t, the entire @CreateStackSet@ action fails with an
+-- @access denied@ error, and the stack set is not created.
+--
+-- 'stackId', 'createStackSet_stackId' - The stack ID you are importing into a new stack set. Specify the Amazon
+-- Resource Number (ARN) of the stack.
+--
+-- 'clientRequestToken', 'createStackSet_clientRequestToken' - A unique identifier for this @CreateStackSet@ request. Specify this
+-- token if you plan to retry requests so that CloudFormation knows that
+-- you\'re not attempting to create another stack set with the same name.
+-- You might retry @CreateStackSet@ requests to ensure that CloudFormation
+-- successfully received them.
+--
+-- If you don\'t specify an operation ID, the SDK generates one
+-- automatically.
 --
 -- 'callAs', 'createStackSet_callAs' - [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the organization\'s management account or as a
@@ -275,25 +288,6 @@ data CreateStackSet = CreateStackSet'
 -- management account, including stack sets that are created by delegated
 -- administrators.
 --
--- 'autoDeployment', 'createStackSet_autoDeployment' - Describes whether StackSets automatically deploys to Organizations
--- accounts that are added to the target organization or organizational
--- unit (OU). Specify only if @PermissionModel@ is @SERVICE_MANAGED@.
---
--- 'permissionModel', 'createStackSet_permissionModel' - Describes how the IAM roles required for stack set operations are
--- created. By default, @SELF-MANAGED@ is specified.
---
--- -   With @self-managed@ permissions, you must create the administrator
---     and execution roles required to deploy to target accounts. For more
---     information, see
---     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html Grant Self-Managed Stack Set Permissions>.
---
--- -   With @service-managed@ permissions, StackSets automatically creates
---     the IAM roles required to deploy to accounts managed by
---     Organizations. For more information, see
---     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
---
--- 'parameters', 'createStackSet_parameters' - The input parameters for the stack set template.
---
 -- 'templateBody', 'createStackSet_templateBody' - The structure that contains the template body, with a minimum length of
 -- 1 byte and a maximum length of 51,200 bytes. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
@@ -302,30 +296,12 @@ data CreateStackSet = CreateStackSet'
 -- Conditional: You must specify either the TemplateBody or the TemplateURL
 -- parameter, but not both.
 --
--- 'templateURL', 'createStackSet_templateURL' - The location of the file that contains the template body. The URL must
--- point to a template (maximum size: 460,800 bytes) that\'s located in an
--- Amazon S3 bucket or a Systems Manager document. For more information,
--- see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the CloudFormation User Guide.
---
--- Conditional: You must specify either the TemplateBody or the TemplateURL
--- parameter, but not both.
---
--- 'stackId', 'createStackSet_stackId' - The stack ID you are importing into a new stack set. Specify the Amazon
--- Resource Number (ARN) of the stack.
---
--- 'clientRequestToken', 'createStackSet_clientRequestToken' - A unique identifier for this @CreateStackSet@ request. Specify this
--- token if you plan to retry requests so that CloudFormation knows that
--- you\'re not attempting to create another stack set with the same name.
--- You might retry @CreateStackSet@ requests to ensure that CloudFormation
--- successfully received them.
---
--- If you don\'t specify an operation ID, the SDK generates one
--- automatically.
---
 -- 'description', 'createStackSet_description' - A description of the stack set. You can use the description to identify
 -- the stack set\'s purpose or other important information.
+--
+-- 'autoDeployment', 'createStackSet_autoDeployment' - Describes whether StackSets automatically deploys to Organizations
+-- accounts that are added to the target organization or organizational
+-- unit (OU). Specify only if @PermissionModel@ is @SERVICE_MANAGED@.
 --
 -- 'capabilities', 'createStackSet_capabilities' - In some cases, you must explicitly acknowledge that your stack set
 -- template contains certain capabilities in order for CloudFormation to
@@ -390,16 +366,6 @@ data CreateStackSet = CreateStackSet'
 --     permissions, if you reference a macro in your template the stack set
 --     operation will fail.
 --
--- 'tags', 'createStackSet_tags' - The key-value pairs to associate with this stack set and the stacks
--- created from it. CloudFormation also propagates these tags to supported
--- resources that are created in the stacks. A maximum number of 50 tags
--- can be specified.
---
--- If you specify tags as part of a @CreateStackSet@ action, CloudFormation
--- checks to see if you have the required IAM permission to tag resources.
--- If you don\'t, the entire @CreateStackSet@ action fails with an
--- @access denied@ error, and the stack set is not created.
---
 -- 'executionRoleName', 'createStackSet_executionRoleName' - The name of the IAM execution role to use to create the stack set. If
 -- you do not specify an execution role, CloudFormation uses the
 -- @AWSCloudFormationStackSetExecutionRole@ role for the stack set
@@ -408,6 +374,40 @@ data CreateStackSet = CreateStackSet'
 -- Specify an IAM role only if you are using customized execution roles to
 -- control which stack resources users and groups can include in their
 -- stack sets.
+--
+-- 'administrationRoleARN', 'createStackSet_administrationRoleARN' - The Amazon Resource Number (ARN) of the IAM role to use to create this
+-- stack set.
+--
+-- Specify an IAM role only if you are using customized administrator roles
+-- to control which users or groups can manage specific stack sets within
+-- the same administrator account. For more information, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations>
+-- in the /CloudFormation User Guide/.
+--
+-- 'permissionModel', 'createStackSet_permissionModel' - Describes how the IAM roles required for stack set operations are
+-- created. By default, @SELF-MANAGED@ is specified.
+--
+-- -   With @self-managed@ permissions, you must create the administrator
+--     and execution roles required to deploy to target accounts. For more
+--     information, see
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html Grant Self-Managed Stack Set Permissions>.
+--
+-- -   With @service-managed@ permissions, StackSets automatically creates
+--     the IAM roles required to deploy to accounts managed by
+--     Organizations. For more information, see
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
+--
+-- 'templateURL', 'createStackSet_templateURL' - The location of the file that contains the template body. The URL must
+-- point to a template (maximum size: 460,800 bytes) that\'s located in an
+-- Amazon S3 bucket or a Systems Manager document. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the CloudFormation User Guide.
+--
+-- Conditional: You must specify either the TemplateBody or the TemplateURL
+-- parameter, but not both.
+--
+-- 'parameters', 'createStackSet_parameters' - The input parameters for the stack set template.
 --
 -- 'stackSetName', 'createStackSet_stackSetName' - The name to associate with the stack set. The name must be unique in the
 -- Region where you create your stack set.
@@ -421,33 +421,49 @@ newCreateStackSet ::
   CreateStackSet
 newCreateStackSet pStackSetName_ =
   CreateStackSet'
-    { administrationRoleARN =
-        Prelude.Nothing,
-      callAs = Prelude.Nothing,
-      autoDeployment = Prelude.Nothing,
-      permissionModel = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      templateBody = Prelude.Nothing,
-      templateURL = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       stackId = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
+      callAs = Prelude.Nothing,
+      templateBody = Prelude.Nothing,
       description = Prelude.Nothing,
+      autoDeployment = Prelude.Nothing,
       capabilities = Prelude.Nothing,
-      tags = Prelude.Nothing,
       executionRoleName = Prelude.Nothing,
+      administrationRoleARN = Prelude.Nothing,
+      permissionModel = Prelude.Nothing,
+      templateURL = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       stackSetName = pStackSetName_
     }
 
--- | The Amazon Resource Number (ARN) of the IAM role to use to create this
--- stack set.
+-- | The key-value pairs to associate with this stack set and the stacks
+-- created from it. CloudFormation also propagates these tags to supported
+-- resources that are created in the stacks. A maximum number of 50 tags
+-- can be specified.
 --
--- Specify an IAM role only if you are using customized administrator roles
--- to control which users or groups can manage specific stack sets within
--- the same administrator account. For more information, see
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations>
--- in the /CloudFormation User Guide/.
-createStackSet_administrationRoleARN :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
-createStackSet_administrationRoleARN = Lens.lens (\CreateStackSet' {administrationRoleARN} -> administrationRoleARN) (\s@CreateStackSet' {} a -> s {administrationRoleARN = a} :: CreateStackSet)
+-- If you specify tags as part of a @CreateStackSet@ action, CloudFormation
+-- checks to see if you have the required IAM permission to tag resources.
+-- If you don\'t, the entire @CreateStackSet@ action fails with an
+-- @access denied@ error, and the stack set is not created.
+createStackSet_tags :: Lens.Lens' CreateStackSet (Prelude.Maybe [Tag])
+createStackSet_tags = Lens.lens (\CreateStackSet' {tags} -> tags) (\s@CreateStackSet' {} a -> s {tags = a} :: CreateStackSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | The stack ID you are importing into a new stack set. Specify the Amazon
+-- Resource Number (ARN) of the stack.
+createStackSet_stackId :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
+createStackSet_stackId = Lens.lens (\CreateStackSet' {stackId} -> stackId) (\s@CreateStackSet' {} a -> s {stackId = a} :: CreateStackSet)
+
+-- | A unique identifier for this @CreateStackSet@ request. Specify this
+-- token if you plan to retry requests so that CloudFormation knows that
+-- you\'re not attempting to create another stack set with the same name.
+-- You might retry @CreateStackSet@ requests to ensure that CloudFormation
+-- successfully received them.
+--
+-- If you don\'t specify an operation ID, the SDK generates one
+-- automatically.
+createStackSet_clientRequestToken :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
+createStackSet_clientRequestToken = Lens.lens (\CreateStackSet' {clientRequestToken} -> clientRequestToken) (\s@CreateStackSet' {} a -> s {clientRequestToken = a} :: CreateStackSet)
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the organization\'s management account or as a
@@ -473,31 +489,6 @@ createStackSet_administrationRoleARN = Lens.lens (\CreateStackSet' {administrati
 createStackSet_callAs :: Lens.Lens' CreateStackSet (Prelude.Maybe CallAs)
 createStackSet_callAs = Lens.lens (\CreateStackSet' {callAs} -> callAs) (\s@CreateStackSet' {} a -> s {callAs = a} :: CreateStackSet)
 
--- | Describes whether StackSets automatically deploys to Organizations
--- accounts that are added to the target organization or organizational
--- unit (OU). Specify only if @PermissionModel@ is @SERVICE_MANAGED@.
-createStackSet_autoDeployment :: Lens.Lens' CreateStackSet (Prelude.Maybe AutoDeployment)
-createStackSet_autoDeployment = Lens.lens (\CreateStackSet' {autoDeployment} -> autoDeployment) (\s@CreateStackSet' {} a -> s {autoDeployment = a} :: CreateStackSet)
-
--- | Describes how the IAM roles required for stack set operations are
--- created. By default, @SELF-MANAGED@ is specified.
---
--- -   With @self-managed@ permissions, you must create the administrator
---     and execution roles required to deploy to target accounts. For more
---     information, see
---     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html Grant Self-Managed Stack Set Permissions>.
---
--- -   With @service-managed@ permissions, StackSets automatically creates
---     the IAM roles required to deploy to accounts managed by
---     Organizations. For more information, see
---     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
-createStackSet_permissionModel :: Lens.Lens' CreateStackSet (Prelude.Maybe PermissionModels)
-createStackSet_permissionModel = Lens.lens (\CreateStackSet' {permissionModel} -> permissionModel) (\s@CreateStackSet' {} a -> s {permissionModel = a} :: CreateStackSet)
-
--- | The input parameters for the stack set template.
-createStackSet_parameters :: Lens.Lens' CreateStackSet (Prelude.Maybe [Parameter])
-createStackSet_parameters = Lens.lens (\CreateStackSet' {parameters} -> parameters) (\s@CreateStackSet' {} a -> s {parameters = a} :: CreateStackSet) Prelude.. Lens.mapping Lens.coerced
-
 -- | The structure that contains the template body, with a minimum length of
 -- 1 byte and a maximum length of 51,200 bytes. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
@@ -508,38 +499,16 @@ createStackSet_parameters = Lens.lens (\CreateStackSet' {parameters} -> paramete
 createStackSet_templateBody :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
 createStackSet_templateBody = Lens.lens (\CreateStackSet' {templateBody} -> templateBody) (\s@CreateStackSet' {} a -> s {templateBody = a} :: CreateStackSet)
 
--- | The location of the file that contains the template body. The URL must
--- point to a template (maximum size: 460,800 bytes) that\'s located in an
--- Amazon S3 bucket or a Systems Manager document. For more information,
--- see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the CloudFormation User Guide.
---
--- Conditional: You must specify either the TemplateBody or the TemplateURL
--- parameter, but not both.
-createStackSet_templateURL :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
-createStackSet_templateURL = Lens.lens (\CreateStackSet' {templateURL} -> templateURL) (\s@CreateStackSet' {} a -> s {templateURL = a} :: CreateStackSet)
-
--- | The stack ID you are importing into a new stack set. Specify the Amazon
--- Resource Number (ARN) of the stack.
-createStackSet_stackId :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
-createStackSet_stackId = Lens.lens (\CreateStackSet' {stackId} -> stackId) (\s@CreateStackSet' {} a -> s {stackId = a} :: CreateStackSet)
-
--- | A unique identifier for this @CreateStackSet@ request. Specify this
--- token if you plan to retry requests so that CloudFormation knows that
--- you\'re not attempting to create another stack set with the same name.
--- You might retry @CreateStackSet@ requests to ensure that CloudFormation
--- successfully received them.
---
--- If you don\'t specify an operation ID, the SDK generates one
--- automatically.
-createStackSet_clientRequestToken :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
-createStackSet_clientRequestToken = Lens.lens (\CreateStackSet' {clientRequestToken} -> clientRequestToken) (\s@CreateStackSet' {} a -> s {clientRequestToken = a} :: CreateStackSet)
-
 -- | A description of the stack set. You can use the description to identify
 -- the stack set\'s purpose or other important information.
 createStackSet_description :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
 createStackSet_description = Lens.lens (\CreateStackSet' {description} -> description) (\s@CreateStackSet' {} a -> s {description = a} :: CreateStackSet)
+
+-- | Describes whether StackSets automatically deploys to Organizations
+-- accounts that are added to the target organization or organizational
+-- unit (OU). Specify only if @PermissionModel@ is @SERVICE_MANAGED@.
+createStackSet_autoDeployment :: Lens.Lens' CreateStackSet (Prelude.Maybe AutoDeployment)
+createStackSet_autoDeployment = Lens.lens (\CreateStackSet' {autoDeployment} -> autoDeployment) (\s@CreateStackSet' {} a -> s {autoDeployment = a} :: CreateStackSet)
 
 -- | In some cases, you must explicitly acknowledge that your stack set
 -- template contains certain capabilities in order for CloudFormation to
@@ -606,18 +575,6 @@ createStackSet_description = Lens.lens (\CreateStackSet' {description} -> descri
 createStackSet_capabilities :: Lens.Lens' CreateStackSet (Prelude.Maybe [Capability])
 createStackSet_capabilities = Lens.lens (\CreateStackSet' {capabilities} -> capabilities) (\s@CreateStackSet' {} a -> s {capabilities = a} :: CreateStackSet) Prelude.. Lens.mapping Lens.coerced
 
--- | The key-value pairs to associate with this stack set and the stacks
--- created from it. CloudFormation also propagates these tags to supported
--- resources that are created in the stacks. A maximum number of 50 tags
--- can be specified.
---
--- If you specify tags as part of a @CreateStackSet@ action, CloudFormation
--- checks to see if you have the required IAM permission to tag resources.
--- If you don\'t, the entire @CreateStackSet@ action fails with an
--- @access denied@ error, and the stack set is not created.
-createStackSet_tags :: Lens.Lens' CreateStackSet (Prelude.Maybe [Tag])
-createStackSet_tags = Lens.lens (\CreateStackSet' {tags} -> tags) (\s@CreateStackSet' {} a -> s {tags = a} :: CreateStackSet) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the IAM execution role to use to create the stack set. If
 -- you do not specify an execution role, CloudFormation uses the
 -- @AWSCloudFormationStackSetExecutionRole@ role for the stack set
@@ -628,6 +585,48 @@ createStackSet_tags = Lens.lens (\CreateStackSet' {tags} -> tags) (\s@CreateStac
 -- stack sets.
 createStackSet_executionRoleName :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
 createStackSet_executionRoleName = Lens.lens (\CreateStackSet' {executionRoleName} -> executionRoleName) (\s@CreateStackSet' {} a -> s {executionRoleName = a} :: CreateStackSet)
+
+-- | The Amazon Resource Number (ARN) of the IAM role to use to create this
+-- stack set.
+--
+-- Specify an IAM role only if you are using customized administrator roles
+-- to control which users or groups can manage specific stack sets within
+-- the same administrator account. For more information, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations>
+-- in the /CloudFormation User Guide/.
+createStackSet_administrationRoleARN :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
+createStackSet_administrationRoleARN = Lens.lens (\CreateStackSet' {administrationRoleARN} -> administrationRoleARN) (\s@CreateStackSet' {} a -> s {administrationRoleARN = a} :: CreateStackSet)
+
+-- | Describes how the IAM roles required for stack set operations are
+-- created. By default, @SELF-MANAGED@ is specified.
+--
+-- -   With @self-managed@ permissions, you must create the administrator
+--     and execution roles required to deploy to target accounts. For more
+--     information, see
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html Grant Self-Managed Stack Set Permissions>.
+--
+-- -   With @service-managed@ permissions, StackSets automatically creates
+--     the IAM roles required to deploy to accounts managed by
+--     Organizations. For more information, see
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
+createStackSet_permissionModel :: Lens.Lens' CreateStackSet (Prelude.Maybe PermissionModels)
+createStackSet_permissionModel = Lens.lens (\CreateStackSet' {permissionModel} -> permissionModel) (\s@CreateStackSet' {} a -> s {permissionModel = a} :: CreateStackSet)
+
+-- | The location of the file that contains the template body. The URL must
+-- point to a template (maximum size: 460,800 bytes) that\'s located in an
+-- Amazon S3 bucket or a Systems Manager document. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the CloudFormation User Guide.
+--
+-- Conditional: You must specify either the TemplateBody or the TemplateURL
+-- parameter, but not both.
+createStackSet_templateURL :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
+createStackSet_templateURL = Lens.lens (\CreateStackSet' {templateURL} -> templateURL) (\s@CreateStackSet' {} a -> s {templateURL = a} :: CreateStackSet)
+
+-- | The input parameters for the stack set template.
+createStackSet_parameters :: Lens.Lens' CreateStackSet (Prelude.Maybe [Parameter])
+createStackSet_parameters = Lens.lens (\CreateStackSet' {parameters} -> parameters) (\s@CreateStackSet' {} a -> s {parameters = a} :: CreateStackSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name to associate with the stack set. The name must be unique in the
 -- Region where you create your stack set.
@@ -654,36 +653,36 @@ instance Core.AWSRequest CreateStackSet where
 
 instance Prelude.Hashable CreateStackSet where
   hashWithSalt _salt CreateStackSet' {..} =
-    _salt `Prelude.hashWithSalt` administrationRoleARN
-      `Prelude.hashWithSalt` callAs
-      `Prelude.hashWithSalt` autoDeployment
-      `Prelude.hashWithSalt` permissionModel
-      `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` templateBody
-      `Prelude.hashWithSalt` templateURL
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` stackId
       `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` callAs
+      `Prelude.hashWithSalt` templateBody
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` autoDeployment
       `Prelude.hashWithSalt` capabilities
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` executionRoleName
+      `Prelude.hashWithSalt` administrationRoleARN
+      `Prelude.hashWithSalt` permissionModel
+      `Prelude.hashWithSalt` templateURL
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` stackSetName
 
 instance Prelude.NFData CreateStackSet where
   rnf CreateStackSet' {..} =
-    Prelude.rnf administrationRoleARN
-      `Prelude.seq` Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf autoDeployment
-      `Prelude.seq` Prelude.rnf permissionModel
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf templateURL
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf callAs
+      `Prelude.seq` Prelude.rnf templateBody
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf autoDeployment
       `Prelude.seq` Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf executionRoleName
+      `Prelude.seq` Prelude.rnf administrationRoleARN
+      `Prelude.seq` Prelude.rnf permissionModel
+      `Prelude.seq` Prelude.rnf templateURL
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf stackSetName
 
 instance Core.ToHeaders CreateStackSet where
@@ -699,26 +698,26 @@ instance Core.ToQuery CreateStackSet where
           Core.=: ("CreateStackSet" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "AdministrationRoleARN"
-          Core.=: administrationRoleARN,
-        "CallAs" Core.=: callAs,
-        "AutoDeployment" Core.=: autoDeployment,
-        "PermissionModel" Core.=: permissionModel,
-        "Parameters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> parameters),
-        "TemplateBody" Core.=: templateBody,
-        "TemplateURL" Core.=: templateURL,
-        "StackId" Core.=: stackId,
-        "ClientRequestToken" Core.=: clientRequestToken,
-        "Description" Core.=: description,
-        "Capabilities"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> capabilities),
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> tags),
+        "StackId" Core.=: stackId,
+        "ClientRequestToken" Core.=: clientRequestToken,
+        "CallAs" Core.=: callAs,
+        "TemplateBody" Core.=: templateBody,
+        "Description" Core.=: description,
+        "AutoDeployment" Core.=: autoDeployment,
+        "Capabilities"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> capabilities),
         "ExecutionRoleName" Core.=: executionRoleName,
+        "AdministrationRoleARN"
+          Core.=: administrationRoleARN,
+        "PermissionModel" Core.=: permissionModel,
+        "TemplateURL" Core.=: templateURL,
+        "Parameters"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> parameters),
         "StackSetName" Core.=: stackSetName
       ]
 

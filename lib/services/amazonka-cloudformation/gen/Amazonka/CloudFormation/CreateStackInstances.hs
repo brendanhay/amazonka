@@ -31,12 +31,12 @@ module Amazonka.CloudFormation.CreateStackInstances
     newCreateStackInstances,
 
     -- * Request Lenses
-    createStackInstances_accounts,
-    createStackInstances_callAs,
     createStackInstances_operationPreferences,
-    createStackInstances_operationId,
-    createStackInstances_deploymentTargets,
+    createStackInstances_callAs,
     createStackInstances_parameterOverrides,
+    createStackInstances_operationId,
+    createStackInstances_accounts,
+    createStackInstances_deploymentTargets,
     createStackInstances_stackSetName,
     createStackInstances_regions,
 
@@ -59,12 +59,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStackInstances' smart constructor.
 data CreateStackInstances = CreateStackInstances'
-  { -- | [Self-managed permissions] The names of one or more Amazon Web Services
-    -- accounts that you want to create stack instances in the specified
-    -- Region(s) for.
-    --
-    -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-    accounts :: Prelude.Maybe [Prelude.Text],
+  { -- | Preferences for how CloudFormation performs this stack set operation.
+    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
     -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the organization\'s management account or as a
     -- delegated administrator in a member account.
@@ -82,26 +78,6 @@ data CreateStackInstances = CreateStackInstances'
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /CloudFormation User Guide/.
     callAs :: Prelude.Maybe CallAs,
-    -- | Preferences for how CloudFormation performs this stack set operation.
-    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
-    -- | The unique identifier for this stack set operation.
-    --
-    -- The operation ID also functions as an idempotency token, to ensure that
-    -- CloudFormation performs the stack set operation only once, even if you
-    -- retry the request multiple times. You might retry stack set operation
-    -- requests to ensure that CloudFormation successfully received them.
-    --
-    -- If you don\'t specify an operation ID, the SDK generates one
-    -- automatically.
-    --
-    -- Repeating this stack set operation with a new operation ID retries all
-    -- stack instances whose status is @OUTDATED@.
-    operationId :: Prelude.Maybe Prelude.Text,
-    -- | [Service-managed permissions] The Organizations accounts for which to
-    -- create stack instances in the specified Regions.
-    --
-    -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-    deploymentTargets :: Prelude.Maybe DeploymentTargets,
     -- | A list of stack set parameters whose values you want to override in the
     -- selected stack instances.
     --
@@ -132,6 +108,30 @@ data CreateStackInstances = CreateStackInstances'
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet>
     -- to update the stack set template.
     parameterOverrides :: Prelude.Maybe [Parameter],
+    -- | The unique identifier for this stack set operation.
+    --
+    -- The operation ID also functions as an idempotency token, to ensure that
+    -- CloudFormation performs the stack set operation only once, even if you
+    -- retry the request multiple times. You might retry stack set operation
+    -- requests to ensure that CloudFormation successfully received them.
+    --
+    -- If you don\'t specify an operation ID, the SDK generates one
+    -- automatically.
+    --
+    -- Repeating this stack set operation with a new operation ID retries all
+    -- stack instances whose status is @OUTDATED@.
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | [Self-managed permissions] The names of one or more Amazon Web Services
+    -- accounts that you want to create stack instances in the specified
+    -- Region(s) for.
+    --
+    -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+    accounts :: Prelude.Maybe [Prelude.Text],
+    -- | [Service-managed permissions] The Organizations accounts for which to
+    -- create stack instances in the specified Regions.
+    --
+    -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+    deploymentTargets :: Prelude.Maybe DeploymentTargets,
     -- | The name or unique ID of the stack set that you want to create stack
     -- instances from.
     stackSetName :: Prelude.Text,
@@ -149,11 +149,7 @@ data CreateStackInstances = CreateStackInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accounts', 'createStackInstances_accounts' - [Self-managed permissions] The names of one or more Amazon Web Services
--- accounts that you want to create stack instances in the specified
--- Region(s) for.
---
--- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+-- 'operationPreferences', 'createStackInstances_operationPreferences' - Preferences for how CloudFormation performs this stack set operation.
 --
 -- 'callAs', 'createStackInstances_callAs' - [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the organization\'s management account or as a
@@ -171,26 +167,6 @@ data CreateStackInstances = CreateStackInstances'
 --     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /CloudFormation User Guide/.
---
--- 'operationPreferences', 'createStackInstances_operationPreferences' - Preferences for how CloudFormation performs this stack set operation.
---
--- 'operationId', 'createStackInstances_operationId' - The unique identifier for this stack set operation.
---
--- The operation ID also functions as an idempotency token, to ensure that
--- CloudFormation performs the stack set operation only once, even if you
--- retry the request multiple times. You might retry stack set operation
--- requests to ensure that CloudFormation successfully received them.
---
--- If you don\'t specify an operation ID, the SDK generates one
--- automatically.
---
--- Repeating this stack set operation with a new operation ID retries all
--- stack instances whose status is @OUTDATED@.
---
--- 'deploymentTargets', 'createStackInstances_deploymentTargets' - [Service-managed permissions] The Organizations accounts for which to
--- create stack instances in the specified Regions.
---
--- You can specify @Accounts@ or @DeploymentTargets@, but not both.
 --
 -- 'parameterOverrides', 'createStackInstances_parameterOverrides' - A list of stack set parameters whose values you want to override in the
 -- selected stack instances.
@@ -222,6 +198,30 @@ data CreateStackInstances = CreateStackInstances'
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet>
 -- to update the stack set template.
 --
+-- 'operationId', 'createStackInstances_operationId' - The unique identifier for this stack set operation.
+--
+-- The operation ID also functions as an idempotency token, to ensure that
+-- CloudFormation performs the stack set operation only once, even if you
+-- retry the request multiple times. You might retry stack set operation
+-- requests to ensure that CloudFormation successfully received them.
+--
+-- If you don\'t specify an operation ID, the SDK generates one
+-- automatically.
+--
+-- Repeating this stack set operation with a new operation ID retries all
+-- stack instances whose status is @OUTDATED@.
+--
+-- 'accounts', 'createStackInstances_accounts' - [Self-managed permissions] The names of one or more Amazon Web Services
+-- accounts that you want to create stack instances in the specified
+-- Region(s) for.
+--
+-- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+--
+-- 'deploymentTargets', 'createStackInstances_deploymentTargets' - [Service-managed permissions] The Organizations accounts for which to
+-- create stack instances in the specified Regions.
+--
+-- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+--
 -- 'stackSetName', 'createStackInstances_stackSetName' - The name or unique ID of the stack set that you want to create stack
 -- instances from.
 --
@@ -233,23 +233,20 @@ newCreateStackInstances ::
   CreateStackInstances
 newCreateStackInstances pStackSetName_ =
   CreateStackInstances'
-    { accounts = Prelude.Nothing,
+    { operationPreferences =
+        Prelude.Nothing,
       callAs = Prelude.Nothing,
-      operationPreferences = Prelude.Nothing,
-      operationId = Prelude.Nothing,
-      deploymentTargets = Prelude.Nothing,
       parameterOverrides = Prelude.Nothing,
+      operationId = Prelude.Nothing,
+      accounts = Prelude.Nothing,
+      deploymentTargets = Prelude.Nothing,
       stackSetName = pStackSetName_,
       regions = Prelude.mempty
     }
 
--- | [Self-managed permissions] The names of one or more Amazon Web Services
--- accounts that you want to create stack instances in the specified
--- Region(s) for.
---
--- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-createStackInstances_accounts :: Lens.Lens' CreateStackInstances (Prelude.Maybe [Prelude.Text])
-createStackInstances_accounts = Lens.lens (\CreateStackInstances' {accounts} -> accounts) (\s@CreateStackInstances' {} a -> s {accounts = a} :: CreateStackInstances) Prelude.. Lens.mapping Lens.coerced
+-- | Preferences for how CloudFormation performs this stack set operation.
+createStackInstances_operationPreferences :: Lens.Lens' CreateStackInstances (Prelude.Maybe StackSetOperationPreferences)
+createStackInstances_operationPreferences = Lens.lens (\CreateStackInstances' {operationPreferences} -> operationPreferences) (\s@CreateStackInstances' {} a -> s {operationPreferences = a} :: CreateStackInstances)
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the organization\'s management account or as a
@@ -269,32 +266,6 @@ createStackInstances_accounts = Lens.lens (\CreateStackInstances' {accounts} -> 
 --     in the /CloudFormation User Guide/.
 createStackInstances_callAs :: Lens.Lens' CreateStackInstances (Prelude.Maybe CallAs)
 createStackInstances_callAs = Lens.lens (\CreateStackInstances' {callAs} -> callAs) (\s@CreateStackInstances' {} a -> s {callAs = a} :: CreateStackInstances)
-
--- | Preferences for how CloudFormation performs this stack set operation.
-createStackInstances_operationPreferences :: Lens.Lens' CreateStackInstances (Prelude.Maybe StackSetOperationPreferences)
-createStackInstances_operationPreferences = Lens.lens (\CreateStackInstances' {operationPreferences} -> operationPreferences) (\s@CreateStackInstances' {} a -> s {operationPreferences = a} :: CreateStackInstances)
-
--- | The unique identifier for this stack set operation.
---
--- The operation ID also functions as an idempotency token, to ensure that
--- CloudFormation performs the stack set operation only once, even if you
--- retry the request multiple times. You might retry stack set operation
--- requests to ensure that CloudFormation successfully received them.
---
--- If you don\'t specify an operation ID, the SDK generates one
--- automatically.
---
--- Repeating this stack set operation with a new operation ID retries all
--- stack instances whose status is @OUTDATED@.
-createStackInstances_operationId :: Lens.Lens' CreateStackInstances (Prelude.Maybe Prelude.Text)
-createStackInstances_operationId = Lens.lens (\CreateStackInstances' {operationId} -> operationId) (\s@CreateStackInstances' {} a -> s {operationId = a} :: CreateStackInstances)
-
--- | [Service-managed permissions] The Organizations accounts for which to
--- create stack instances in the specified Regions.
---
--- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-createStackInstances_deploymentTargets :: Lens.Lens' CreateStackInstances (Prelude.Maybe DeploymentTargets)
-createStackInstances_deploymentTargets = Lens.lens (\CreateStackInstances' {deploymentTargets} -> deploymentTargets) (\s@CreateStackInstances' {} a -> s {deploymentTargets = a} :: CreateStackInstances)
 
 -- | A list of stack set parameters whose values you want to override in the
 -- selected stack instances.
@@ -328,6 +299,36 @@ createStackInstances_deploymentTargets = Lens.lens (\CreateStackInstances' {depl
 createStackInstances_parameterOverrides :: Lens.Lens' CreateStackInstances (Prelude.Maybe [Parameter])
 createStackInstances_parameterOverrides = Lens.lens (\CreateStackInstances' {parameterOverrides} -> parameterOverrides) (\s@CreateStackInstances' {} a -> s {parameterOverrides = a} :: CreateStackInstances) Prelude.. Lens.mapping Lens.coerced
 
+-- | The unique identifier for this stack set operation.
+--
+-- The operation ID also functions as an idempotency token, to ensure that
+-- CloudFormation performs the stack set operation only once, even if you
+-- retry the request multiple times. You might retry stack set operation
+-- requests to ensure that CloudFormation successfully received them.
+--
+-- If you don\'t specify an operation ID, the SDK generates one
+-- automatically.
+--
+-- Repeating this stack set operation with a new operation ID retries all
+-- stack instances whose status is @OUTDATED@.
+createStackInstances_operationId :: Lens.Lens' CreateStackInstances (Prelude.Maybe Prelude.Text)
+createStackInstances_operationId = Lens.lens (\CreateStackInstances' {operationId} -> operationId) (\s@CreateStackInstances' {} a -> s {operationId = a} :: CreateStackInstances)
+
+-- | [Self-managed permissions] The names of one or more Amazon Web Services
+-- accounts that you want to create stack instances in the specified
+-- Region(s) for.
+--
+-- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+createStackInstances_accounts :: Lens.Lens' CreateStackInstances (Prelude.Maybe [Prelude.Text])
+createStackInstances_accounts = Lens.lens (\CreateStackInstances' {accounts} -> accounts) (\s@CreateStackInstances' {} a -> s {accounts = a} :: CreateStackInstances) Prelude.. Lens.mapping Lens.coerced
+
+-- | [Service-managed permissions] The Organizations accounts for which to
+-- create stack instances in the specified Regions.
+--
+-- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+createStackInstances_deploymentTargets :: Lens.Lens' CreateStackInstances (Prelude.Maybe DeploymentTargets)
+createStackInstances_deploymentTargets = Lens.lens (\CreateStackInstances' {deploymentTargets} -> deploymentTargets) (\s@CreateStackInstances' {} a -> s {deploymentTargets = a} :: CreateStackInstances)
+
 -- | The name or unique ID of the stack set that you want to create stack
 -- instances from.
 createStackInstances_stackSetName :: Lens.Lens' CreateStackInstances Prelude.Text
@@ -354,23 +355,23 @@ instance Core.AWSRequest CreateStackInstances where
 
 instance Prelude.Hashable CreateStackInstances where
   hashWithSalt _salt CreateStackInstances' {..} =
-    _salt `Prelude.hashWithSalt` accounts
+    _salt `Prelude.hashWithSalt` operationPreferences
       `Prelude.hashWithSalt` callAs
-      `Prelude.hashWithSalt` operationPreferences
-      `Prelude.hashWithSalt` operationId
-      `Prelude.hashWithSalt` deploymentTargets
       `Prelude.hashWithSalt` parameterOverrides
+      `Prelude.hashWithSalt` operationId
+      `Prelude.hashWithSalt` accounts
+      `Prelude.hashWithSalt` deploymentTargets
       `Prelude.hashWithSalt` stackSetName
       `Prelude.hashWithSalt` regions
 
 instance Prelude.NFData CreateStackInstances where
   rnf CreateStackInstances' {..} =
-    Prelude.rnf accounts
+    Prelude.rnf operationPreferences
       `Prelude.seq` Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf operationPreferences
-      `Prelude.seq` Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf deploymentTargets
       `Prelude.seq` Prelude.rnf parameterOverrides
+      `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf accounts
+      `Prelude.seq` Prelude.rnf deploymentTargets
       `Prelude.seq` Prelude.rnf stackSetName
       `Prelude.seq` Prelude.rnf regions
 
@@ -387,18 +388,18 @@ instance Core.ToQuery CreateStackInstances where
           Core.=: ("CreateStackInstances" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "Accounts"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> accounts),
-        "CallAs" Core.=: callAs,
         "OperationPreferences" Core.=: operationPreferences,
-        "OperationId" Core.=: operationId,
-        "DeploymentTargets" Core.=: deploymentTargets,
+        "CallAs" Core.=: callAs,
         "ParameterOverrides"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> parameterOverrides
             ),
+        "OperationId" Core.=: operationId,
+        "Accounts"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> accounts),
+        "DeploymentTargets" Core.=: deploymentTargets,
         "StackSetName" Core.=: stackSetName,
         "Regions" Core.=: Core.toQueryList "member" regions
       ]

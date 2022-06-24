@@ -34,9 +34,9 @@ module Amazonka.CloudFormation.DeactivateType
     newDeactivateType,
 
     -- * Request Lenses
-    deactivateType_typeName,
-    deactivateType_arn,
     deactivateType_type,
+    deactivateType_arn,
+    deactivateType_typeName,
 
     -- * Destructuring the Response
     DeactivateTypeResponse (..),
@@ -56,21 +56,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeactivateType' smart constructor.
 data DeactivateType = DeactivateType'
-  { -- | The type name of the extension, in this account and region. If you
-    -- specified a type name alias when enabling the extension, use the type
-    -- name alias.
+  { -- | The extension type.
     --
     -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
-    typeName :: Prelude.Maybe Prelude.Text,
+    type' :: Prelude.Maybe ThirdPartyType,
     -- | The Amazon Resource Name (ARN) for the extension, in this account and
     -- region.
     --
     -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The extension type.
+    -- | The type name of the extension, in this account and region. If you
+    -- specified a type name alias when enabling the extension, use the type
+    -- name alias.
     --
     -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
-    type' :: Prelude.Maybe ThirdPartyType
+    typeName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,9 +82,7 @@ data DeactivateType = DeactivateType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'typeName', 'deactivateType_typeName' - The type name of the extension, in this account and region. If you
--- specified a type name alias when enabling the extension, use the type
--- name alias.
+-- 'type'', 'deactivateType_type' - The extension type.
 --
 -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
 --
@@ -93,25 +91,25 @@ data DeactivateType = DeactivateType'
 --
 -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
 --
--- 'type'', 'deactivateType_type' - The extension type.
+-- 'typeName', 'deactivateType_typeName' - The type name of the extension, in this account and region. If you
+-- specified a type name alias when enabling the extension, use the type
+-- name alias.
 --
 -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
 newDeactivateType ::
   DeactivateType
 newDeactivateType =
   DeactivateType'
-    { typeName = Prelude.Nothing,
+    { type' = Prelude.Nothing,
       arn = Prelude.Nothing,
-      type' = Prelude.Nothing
+      typeName = Prelude.Nothing
     }
 
--- | The type name of the extension, in this account and region. If you
--- specified a type name alias when enabling the extension, use the type
--- name alias.
+-- | The extension type.
 --
 -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
-deactivateType_typeName :: Lens.Lens' DeactivateType (Prelude.Maybe Prelude.Text)
-deactivateType_typeName = Lens.lens (\DeactivateType' {typeName} -> typeName) (\s@DeactivateType' {} a -> s {typeName = a} :: DeactivateType)
+deactivateType_type :: Lens.Lens' DeactivateType (Prelude.Maybe ThirdPartyType)
+deactivateType_type = Lens.lens (\DeactivateType' {type'} -> type') (\s@DeactivateType' {} a -> s {type' = a} :: DeactivateType)
 
 -- | The Amazon Resource Name (ARN) for the extension, in this account and
 -- region.
@@ -120,11 +118,13 @@ deactivateType_typeName = Lens.lens (\DeactivateType' {typeName} -> typeName) (\
 deactivateType_arn :: Lens.Lens' DeactivateType (Prelude.Maybe Prelude.Text)
 deactivateType_arn = Lens.lens (\DeactivateType' {arn} -> arn) (\s@DeactivateType' {} a -> s {arn = a} :: DeactivateType)
 
--- | The extension type.
+-- | The type name of the extension, in this account and region. If you
+-- specified a type name alias when enabling the extension, use the type
+-- name alias.
 --
 -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
-deactivateType_type :: Lens.Lens' DeactivateType (Prelude.Maybe ThirdPartyType)
-deactivateType_type = Lens.lens (\DeactivateType' {type'} -> type') (\s@DeactivateType' {} a -> s {type' = a} :: DeactivateType)
+deactivateType_typeName :: Lens.Lens' DeactivateType (Prelude.Maybe Prelude.Text)
+deactivateType_typeName = Lens.lens (\DeactivateType' {typeName} -> typeName) (\s@DeactivateType' {} a -> s {typeName = a} :: DeactivateType)
 
 instance Core.AWSRequest DeactivateType where
   type
@@ -141,15 +141,15 @@ instance Core.AWSRequest DeactivateType where
 
 instance Prelude.Hashable DeactivateType where
   hashWithSalt _salt DeactivateType' {..} =
-    _salt `Prelude.hashWithSalt` typeName
+    _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` typeName
 
 instance Prelude.NFData DeactivateType where
   rnf DeactivateType' {..} =
-    Prelude.rnf typeName
+    Prelude.rnf type'
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf typeName
 
 instance Core.ToHeaders DeactivateType where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,9 +164,9 @@ instance Core.ToQuery DeactivateType where
           Core.=: ("DeactivateType" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "TypeName" Core.=: typeName,
+        "Type" Core.=: type',
         "Arn" Core.=: arn,
-        "Type" Core.=: type'
+        "TypeName" Core.=: typeName
       ]
 
 -- | /See:/ 'newDeactivateTypeResponse' smart constructor.

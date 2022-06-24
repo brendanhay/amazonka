@@ -42,10 +42,10 @@ module Amazonka.CloudFormation.DescribeTypeRegistration
     newDescribeTypeRegistrationResponse,
 
     -- * Response Lenses
-    describeTypeRegistrationResponse_typeVersionArn,
-    describeTypeRegistrationResponse_progressStatus,
     describeTypeRegistrationResponse_typeArn,
+    describeTypeRegistrationResponse_progressStatus,
     describeTypeRegistrationResponse_description,
+    describeTypeRegistrationResponse_typeVersionArn,
     describeTypeRegistrationResponse_httpStatus,
   )
 where
@@ -106,10 +106,10 @@ instance Core.AWSRequest DescribeTypeRegistration where
       "DescribeTypeRegistrationResult"
       ( \s h x ->
           DescribeTypeRegistrationResponse'
-            Prelude.<$> (x Core..@? "TypeVersionArn")
+            Prelude.<$> (x Core..@? "TypeArn")
             Prelude.<*> (x Core..@? "ProgressStatus")
-            Prelude.<*> (x Core..@? "TypeArn")
             Prelude.<*> (x Core..@? "Description")
+            Prelude.<*> (x Core..@? "TypeVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,21 +139,21 @@ instance Core.ToQuery DescribeTypeRegistration where
 
 -- | /See:/ 'newDescribeTypeRegistrationResponse' smart constructor.
 data DescribeTypeRegistrationResponse = DescribeTypeRegistrationResponse'
-  { -- | The Amazon Resource Name (ARN) of this specific version of the extension
+  { -- | The Amazon Resource Name (ARN) of the extension being registered.
+    --
+    -- For registration requests with a @ProgressStatus@ of other than
+    -- @COMPLETE@, this will be @null@.
+    typeArn :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the extension registration request.
+    progressStatus :: Prelude.Maybe RegistrationStatus,
+    -- | The description of the extension registration request.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of this specific version of the extension
     -- being registered.
     --
     -- For registration requests with a @ProgressStatus@ of other than
     -- @COMPLETE@, this will be @null@.
     typeVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the extension registration request.
-    progressStatus :: Prelude.Maybe RegistrationStatus,
-    -- | The Amazon Resource Name (ARN) of the extension being registered.
-    --
-    -- For registration requests with a @ProgressStatus@ of other than
-    -- @COMPLETE@, this will be @null@.
-    typeArn :: Prelude.Maybe Prelude.Text,
-    -- | The description of the extension registration request.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,20 +167,20 @@ data DescribeTypeRegistrationResponse = DescribeTypeRegistrationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'typeVersionArn', 'describeTypeRegistrationResponse_typeVersionArn' - The Amazon Resource Name (ARN) of this specific version of the extension
--- being registered.
+-- 'typeArn', 'describeTypeRegistrationResponse_typeArn' - The Amazon Resource Name (ARN) of the extension being registered.
 --
 -- For registration requests with a @ProgressStatus@ of other than
 -- @COMPLETE@, this will be @null@.
 --
 -- 'progressStatus', 'describeTypeRegistrationResponse_progressStatus' - The current status of the extension registration request.
 --
--- 'typeArn', 'describeTypeRegistrationResponse_typeArn' - The Amazon Resource Name (ARN) of the extension being registered.
+-- 'description', 'describeTypeRegistrationResponse_description' - The description of the extension registration request.
+--
+-- 'typeVersionArn', 'describeTypeRegistrationResponse_typeVersionArn' - The Amazon Resource Name (ARN) of this specific version of the extension
+-- being registered.
 --
 -- For registration requests with a @ProgressStatus@ of other than
 -- @COMPLETE@, this will be @null@.
---
--- 'description', 'describeTypeRegistrationResponse_description' - The description of the extension registration request.
 --
 -- 'httpStatus', 'describeTypeRegistrationResponse_httpStatus' - The response's http status code.
 newDescribeTypeRegistrationResponse ::
@@ -189,25 +189,13 @@ newDescribeTypeRegistrationResponse ::
   DescribeTypeRegistrationResponse
 newDescribeTypeRegistrationResponse pHttpStatus_ =
   DescribeTypeRegistrationResponse'
-    { typeVersionArn =
+    { typeArn =
         Prelude.Nothing,
       progressStatus = Prelude.Nothing,
-      typeArn = Prelude.Nothing,
       description = Prelude.Nothing,
+      typeVersionArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of this specific version of the extension
--- being registered.
---
--- For registration requests with a @ProgressStatus@ of other than
--- @COMPLETE@, this will be @null@.
-describeTypeRegistrationResponse_typeVersionArn :: Lens.Lens' DescribeTypeRegistrationResponse (Prelude.Maybe Prelude.Text)
-describeTypeRegistrationResponse_typeVersionArn = Lens.lens (\DescribeTypeRegistrationResponse' {typeVersionArn} -> typeVersionArn) (\s@DescribeTypeRegistrationResponse' {} a -> s {typeVersionArn = a} :: DescribeTypeRegistrationResponse)
-
--- | The current status of the extension registration request.
-describeTypeRegistrationResponse_progressStatus :: Lens.Lens' DescribeTypeRegistrationResponse (Prelude.Maybe RegistrationStatus)
-describeTypeRegistrationResponse_progressStatus = Lens.lens (\DescribeTypeRegistrationResponse' {progressStatus} -> progressStatus) (\s@DescribeTypeRegistrationResponse' {} a -> s {progressStatus = a} :: DescribeTypeRegistrationResponse)
 
 -- | The Amazon Resource Name (ARN) of the extension being registered.
 --
@@ -216,9 +204,21 @@ describeTypeRegistrationResponse_progressStatus = Lens.lens (\DescribeTypeRegist
 describeTypeRegistrationResponse_typeArn :: Lens.Lens' DescribeTypeRegistrationResponse (Prelude.Maybe Prelude.Text)
 describeTypeRegistrationResponse_typeArn = Lens.lens (\DescribeTypeRegistrationResponse' {typeArn} -> typeArn) (\s@DescribeTypeRegistrationResponse' {} a -> s {typeArn = a} :: DescribeTypeRegistrationResponse)
 
+-- | The current status of the extension registration request.
+describeTypeRegistrationResponse_progressStatus :: Lens.Lens' DescribeTypeRegistrationResponse (Prelude.Maybe RegistrationStatus)
+describeTypeRegistrationResponse_progressStatus = Lens.lens (\DescribeTypeRegistrationResponse' {progressStatus} -> progressStatus) (\s@DescribeTypeRegistrationResponse' {} a -> s {progressStatus = a} :: DescribeTypeRegistrationResponse)
+
 -- | The description of the extension registration request.
 describeTypeRegistrationResponse_description :: Lens.Lens' DescribeTypeRegistrationResponse (Prelude.Maybe Prelude.Text)
 describeTypeRegistrationResponse_description = Lens.lens (\DescribeTypeRegistrationResponse' {description} -> description) (\s@DescribeTypeRegistrationResponse' {} a -> s {description = a} :: DescribeTypeRegistrationResponse)
+
+-- | The Amazon Resource Name (ARN) of this specific version of the extension
+-- being registered.
+--
+-- For registration requests with a @ProgressStatus@ of other than
+-- @COMPLETE@, this will be @null@.
+describeTypeRegistrationResponse_typeVersionArn :: Lens.Lens' DescribeTypeRegistrationResponse (Prelude.Maybe Prelude.Text)
+describeTypeRegistrationResponse_typeVersionArn = Lens.lens (\DescribeTypeRegistrationResponse' {typeVersionArn} -> typeVersionArn) (\s@DescribeTypeRegistrationResponse' {} a -> s {typeVersionArn = a} :: DescribeTypeRegistrationResponse)
 
 -- | The response's http status code.
 describeTypeRegistrationResponse_httpStatus :: Lens.Lens' DescribeTypeRegistrationResponse Prelude.Int
@@ -229,8 +229,8 @@ instance
     DescribeTypeRegistrationResponse
   where
   rnf DescribeTypeRegistrationResponse' {..} =
-    Prelude.rnf typeVersionArn
+    Prelude.rnf typeArn
       `Prelude.seq` Prelude.rnf progressStatus
-      `Prelude.seq` Prelude.rnf typeArn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf typeVersionArn
       `Prelude.seq` Prelude.rnf httpStatus

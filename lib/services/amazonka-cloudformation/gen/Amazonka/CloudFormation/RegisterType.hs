@@ -58,9 +58,9 @@ module Amazonka.CloudFormation.RegisterType
     newRegisterType,
 
     -- * Request Lenses
-    registerType_executionRoleArn,
     registerType_type,
     registerType_clientRequestToken,
+    registerType_executionRoleArn,
     registerType_loggingConfig,
     registerType_typeName,
     registerType_schemaHandlerPackage,
@@ -84,7 +84,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterType' smart constructor.
 data RegisterType = RegisterType'
-  { -- | The Amazon Resource Name (ARN) of the IAM role for CloudFormation to
+  { -- | The kind of extension.
+    type' :: Prelude.Maybe RegistryType,
+    -- | A unique identifier that acts as an idempotency key for this
+    -- registration request. Specifying a client request token prevents
+    -- CloudFormation from generating more than one version of an extension
+    -- from the same registeration request, even if the request is submitted
+    -- multiple times.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role for CloudFormation to
     -- assume when invoking the extension.
     --
     -- For CloudFormation to assume the specified execution role, the role must
@@ -104,14 +112,6 @@ data RegisterType = RegisterType'
     -- it then passes to the resource type handler, thereby supplying your
     -- resource type with the appropriate credentials.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The kind of extension.
-    type' :: Prelude.Maybe RegistryType,
-    -- | A unique identifier that acts as an idempotency key for this
-    -- registration request. Specifying a client request token prevents
-    -- CloudFormation from generating more than one version of an extension
-    -- from the same registeration request, even if the request is submitted
-    -- multiple times.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies logging configuration information for an extension.
     loggingConfig :: Prelude.Maybe LoggingConfig,
     -- | The name of the extension being registered.
@@ -163,6 +163,14 @@ data RegisterType = RegisterType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'type'', 'registerType_type' - The kind of extension.
+--
+-- 'clientRequestToken', 'registerType_clientRequestToken' - A unique identifier that acts as an idempotency key for this
+-- registration request. Specifying a client request token prevents
+-- CloudFormation from generating more than one version of an extension
+-- from the same registeration request, even if the request is submitted
+-- multiple times.
+--
 -- 'executionRoleArn', 'registerType_executionRoleArn' - The Amazon Resource Name (ARN) of the IAM role for CloudFormation to
 -- assume when invoking the extension.
 --
@@ -182,14 +190,6 @@ data RegisterType = RegisterType'
 -- assumes this execution role to create a temporary session token, which
 -- it then passes to the resource type handler, thereby supplying your
 -- resource type with the appropriate credentials.
---
--- 'type'', 'registerType_type' - The kind of extension.
---
--- 'clientRequestToken', 'registerType_clientRequestToken' - A unique identifier that acts as an idempotency key for this
--- registration request. Specifying a client request token prevents
--- CloudFormation from generating more than one version of an extension
--- from the same registeration request, even if the request is submitted
--- multiple times.
 --
 -- 'loggingConfig', 'registerType_loggingConfig' - Specifies logging configuration information for an extension.
 --
@@ -238,13 +238,25 @@ newRegisterType ::
   RegisterType
 newRegisterType pTypeName_ pSchemaHandlerPackage_ =
   RegisterType'
-    { executionRoleArn = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { type' = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
+      executionRoleArn = Prelude.Nothing,
       loggingConfig = Prelude.Nothing,
       typeName = pTypeName_,
       schemaHandlerPackage = pSchemaHandlerPackage_
     }
+
+-- | The kind of extension.
+registerType_type :: Lens.Lens' RegisterType (Prelude.Maybe RegistryType)
+registerType_type = Lens.lens (\RegisterType' {type'} -> type') (\s@RegisterType' {} a -> s {type' = a} :: RegisterType)
+
+-- | A unique identifier that acts as an idempotency key for this
+-- registration request. Specifying a client request token prevents
+-- CloudFormation from generating more than one version of an extension
+-- from the same registeration request, even if the request is submitted
+-- multiple times.
+registerType_clientRequestToken :: Lens.Lens' RegisterType (Prelude.Maybe Prelude.Text)
+registerType_clientRequestToken = Lens.lens (\RegisterType' {clientRequestToken} -> clientRequestToken) (\s@RegisterType' {} a -> s {clientRequestToken = a} :: RegisterType)
 
 -- | The Amazon Resource Name (ARN) of the IAM role for CloudFormation to
 -- assume when invoking the extension.
@@ -267,18 +279,6 @@ newRegisterType pTypeName_ pSchemaHandlerPackage_ =
 -- resource type with the appropriate credentials.
 registerType_executionRoleArn :: Lens.Lens' RegisterType (Prelude.Maybe Prelude.Text)
 registerType_executionRoleArn = Lens.lens (\RegisterType' {executionRoleArn} -> executionRoleArn) (\s@RegisterType' {} a -> s {executionRoleArn = a} :: RegisterType)
-
--- | The kind of extension.
-registerType_type :: Lens.Lens' RegisterType (Prelude.Maybe RegistryType)
-registerType_type = Lens.lens (\RegisterType' {type'} -> type') (\s@RegisterType' {} a -> s {type' = a} :: RegisterType)
-
--- | A unique identifier that acts as an idempotency key for this
--- registration request. Specifying a client request token prevents
--- CloudFormation from generating more than one version of an extension
--- from the same registeration request, even if the request is submitted
--- multiple times.
-registerType_clientRequestToken :: Lens.Lens' RegisterType (Prelude.Maybe Prelude.Text)
-registerType_clientRequestToken = Lens.lens (\RegisterType' {clientRequestToken} -> clientRequestToken) (\s@RegisterType' {} a -> s {clientRequestToken = a} :: RegisterType)
 
 -- | Specifies logging configuration information for an extension.
 registerType_loggingConfig :: Lens.Lens' RegisterType (Prelude.Maybe LoggingConfig)
@@ -340,18 +340,18 @@ instance Core.AWSRequest RegisterType where
 
 instance Prelude.Hashable RegisterType where
   hashWithSalt _salt RegisterType' {..} =
-    _salt `Prelude.hashWithSalt` executionRoleArn
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` loggingConfig
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` schemaHandlerPackage
 
 instance Prelude.NFData RegisterType where
   rnf RegisterType' {..} =
-    Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
       `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf loggingConfig
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf schemaHandlerPackage
@@ -369,9 +369,9 @@ instance Core.ToQuery RegisterType where
           Core.=: ("RegisterType" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "ExecutionRoleArn" Core.=: executionRoleArn,
         "Type" Core.=: type',
         "ClientRequestToken" Core.=: clientRequestToken,
+        "ExecutionRoleArn" Core.=: executionRoleArn,
         "LoggingConfig" Core.=: loggingConfig,
         "TypeName" Core.=: typeName,
         "SchemaHandlerPackage" Core.=: schemaHandlerPackage

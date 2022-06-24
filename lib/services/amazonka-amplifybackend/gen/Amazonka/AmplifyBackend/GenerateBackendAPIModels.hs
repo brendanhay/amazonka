@@ -36,10 +36,10 @@ module Amazonka.AmplifyBackend.GenerateBackendAPIModels
     newGenerateBackendAPIModelsResponse,
 
     -- * Response Lenses
-    generateBackendAPIModelsResponse_status,
     generateBackendAPIModelsResponse_jobId,
-    generateBackendAPIModelsResponse_operation,
+    generateBackendAPIModelsResponse_status,
     generateBackendAPIModelsResponse_error,
+    generateBackendAPIModelsResponse_operation,
     generateBackendAPIModelsResponse_appId,
     generateBackendAPIModelsResponse_backendEnvironmentName,
     generateBackendAPIModelsResponse_httpStatus,
@@ -118,10 +118,10 @@ instance Core.AWSRequest GenerateBackendAPIModels where
     Response.receiveJSON
       ( \s h x ->
           GenerateBackendAPIModelsResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "operation")
+            Prelude.<$> (x Core..?> "jobId")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "error")
+            Prelude.<*> (x Core..?> "operation")
             Prelude.<*> (x Core..?> "appId")
             Prelude.<*> (x Core..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -172,14 +172,14 @@ instance Core.ToQuery GenerateBackendAPIModels where
 
 -- | /See:/ 'newGenerateBackendAPIModelsResponse' smart constructor.
 data GenerateBackendAPIModelsResponse = GenerateBackendAPIModelsResponse'
-  { -- | The current status of the request.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The ID for the job.
+  { -- | The ID for the job.
     jobId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the operation.
-    operation :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the request.
+    status :: Prelude.Maybe Prelude.Text,
     -- | If the request fails, this error is returned.
     error :: Prelude.Maybe Prelude.Text,
+    -- | The name of the operation.
+    operation :: Prelude.Maybe Prelude.Text,
     -- | The app ID.
     appId :: Prelude.Maybe Prelude.Text,
     -- | The name of the backend environment.
@@ -197,13 +197,13 @@ data GenerateBackendAPIModelsResponse = GenerateBackendAPIModelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'generateBackendAPIModelsResponse_status' - The current status of the request.
---
 -- 'jobId', 'generateBackendAPIModelsResponse_jobId' - The ID for the job.
 --
--- 'operation', 'generateBackendAPIModelsResponse_operation' - The name of the operation.
+-- 'status', 'generateBackendAPIModelsResponse_status' - The current status of the request.
 --
 -- 'error', 'generateBackendAPIModelsResponse_error' - If the request fails, this error is returned.
+--
+-- 'operation', 'generateBackendAPIModelsResponse_operation' - The name of the operation.
 --
 -- 'appId', 'generateBackendAPIModelsResponse_appId' - The app ID.
 --
@@ -216,31 +216,31 @@ newGenerateBackendAPIModelsResponse ::
   GenerateBackendAPIModelsResponse
 newGenerateBackendAPIModelsResponse pHttpStatus_ =
   GenerateBackendAPIModelsResponse'
-    { status =
+    { jobId =
         Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      operation = Prelude.Nothing,
+      status = Prelude.Nothing,
       error = Prelude.Nothing,
+      operation = Prelude.Nothing,
       appId = Prelude.Nothing,
       backendEnvironmentName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The current status of the request.
-generateBackendAPIModelsResponse_status :: Lens.Lens' GenerateBackendAPIModelsResponse (Prelude.Maybe Prelude.Text)
-generateBackendAPIModelsResponse_status = Lens.lens (\GenerateBackendAPIModelsResponse' {status} -> status) (\s@GenerateBackendAPIModelsResponse' {} a -> s {status = a} :: GenerateBackendAPIModelsResponse)
-
 -- | The ID for the job.
 generateBackendAPIModelsResponse_jobId :: Lens.Lens' GenerateBackendAPIModelsResponse (Prelude.Maybe Prelude.Text)
 generateBackendAPIModelsResponse_jobId = Lens.lens (\GenerateBackendAPIModelsResponse' {jobId} -> jobId) (\s@GenerateBackendAPIModelsResponse' {} a -> s {jobId = a} :: GenerateBackendAPIModelsResponse)
 
--- | The name of the operation.
-generateBackendAPIModelsResponse_operation :: Lens.Lens' GenerateBackendAPIModelsResponse (Prelude.Maybe Prelude.Text)
-generateBackendAPIModelsResponse_operation = Lens.lens (\GenerateBackendAPIModelsResponse' {operation} -> operation) (\s@GenerateBackendAPIModelsResponse' {} a -> s {operation = a} :: GenerateBackendAPIModelsResponse)
+-- | The current status of the request.
+generateBackendAPIModelsResponse_status :: Lens.Lens' GenerateBackendAPIModelsResponse (Prelude.Maybe Prelude.Text)
+generateBackendAPIModelsResponse_status = Lens.lens (\GenerateBackendAPIModelsResponse' {status} -> status) (\s@GenerateBackendAPIModelsResponse' {} a -> s {status = a} :: GenerateBackendAPIModelsResponse)
 
 -- | If the request fails, this error is returned.
 generateBackendAPIModelsResponse_error :: Lens.Lens' GenerateBackendAPIModelsResponse (Prelude.Maybe Prelude.Text)
 generateBackendAPIModelsResponse_error = Lens.lens (\GenerateBackendAPIModelsResponse' {error} -> error) (\s@GenerateBackendAPIModelsResponse' {} a -> s {error = a} :: GenerateBackendAPIModelsResponse)
+
+-- | The name of the operation.
+generateBackendAPIModelsResponse_operation :: Lens.Lens' GenerateBackendAPIModelsResponse (Prelude.Maybe Prelude.Text)
+generateBackendAPIModelsResponse_operation = Lens.lens (\GenerateBackendAPIModelsResponse' {operation} -> operation) (\s@GenerateBackendAPIModelsResponse' {} a -> s {operation = a} :: GenerateBackendAPIModelsResponse)
 
 -- | The app ID.
 generateBackendAPIModelsResponse_appId :: Lens.Lens' GenerateBackendAPIModelsResponse (Prelude.Maybe Prelude.Text)
@@ -259,10 +259,10 @@ instance
     GenerateBackendAPIModelsResponse
   where
   rnf GenerateBackendAPIModelsResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf operation
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf operation
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf backendEnvironmentName
       `Prelude.seq` Prelude.rnf httpStatus

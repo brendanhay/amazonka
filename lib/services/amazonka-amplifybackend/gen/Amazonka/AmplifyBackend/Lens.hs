@@ -18,81 +18,13 @@ module Amazonka.AmplifyBackend.Lens
     cloneBackend_appId,
     cloneBackend_backendEnvironmentName,
     cloneBackend_targetEnvironmentName,
-    cloneBackendResponse_status,
     cloneBackendResponse_jobId,
-    cloneBackendResponse_operation,
+    cloneBackendResponse_status,
     cloneBackendResponse_error,
+    cloneBackendResponse_operation,
     cloneBackendResponse_appId,
     cloneBackendResponse_backendEnvironmentName,
     cloneBackendResponse_httpStatus,
-
-    -- ** DeleteToken
-    deleteToken_sessionId,
-    deleteToken_appId,
-    deleteTokenResponse_isSuccess,
-    deleteTokenResponse_httpStatus,
-
-    -- ** CreateBackendConfig
-    createBackendConfig_backendManagerAppId,
-    createBackendConfig_appId,
-    createBackendConfigResponse_status,
-    createBackendConfigResponse_jobId,
-    createBackendConfigResponse_appId,
-    createBackendConfigResponse_backendEnvironmentName,
-    createBackendConfigResponse_httpStatus,
-
-    -- ** ListBackendJobs
-    listBackendJobs_status,
-    listBackendJobs_jobId,
-    listBackendJobs_operation,
-    listBackendJobs_nextToken,
-    listBackendJobs_maxResults,
-    listBackendJobs_appId,
-    listBackendJobs_backendEnvironmentName,
-    listBackendJobsResponse_nextToken,
-    listBackendJobsResponse_jobs,
-    listBackendJobsResponse_httpStatus,
-
-    -- ** GetBackend
-    getBackend_backendEnvironmentName,
-    getBackend_appId,
-    getBackendResponse_error,
-    getBackendResponse_appName,
-    getBackendResponse_amplifyMetaConfig,
-    getBackendResponse_appId,
-    getBackendResponse_amplifyFeatureFlags,
-    getBackendResponse_backendEnvironmentList,
-    getBackendResponse_backendEnvironmentName,
-    getBackendResponse_httpStatus,
-
-    -- ** GetBackendAuth
-    getBackendAuth_appId,
-    getBackendAuth_backendEnvironmentName,
-    getBackendAuth_resourceName,
-    getBackendAuthResponse_resourceName,
-    getBackendAuthResponse_error,
-    getBackendAuthResponse_appId,
-    getBackendAuthResponse_resourceConfig,
-    getBackendAuthResponse_backendEnvironmentName,
-    getBackendAuthResponse_httpStatus,
-
-    -- ** CreateBackendAuth
-    createBackendAuth_appId,
-    createBackendAuth_resourceName,
-    createBackendAuth_backendEnvironmentName,
-    createBackendAuth_resourceConfig,
-    createBackendAuthResponse_status,
-    createBackendAuthResponse_jobId,
-    createBackendAuthResponse_operation,
-    createBackendAuthResponse_error,
-    createBackendAuthResponse_appId,
-    createBackendAuthResponse_backendEnvironmentName,
-    createBackendAuthResponse_httpStatus,
-
-    -- ** RemoveBackendConfig
-    removeBackendConfig_appId,
-    removeBackendConfigResponse_error,
-    removeBackendConfigResponse_httpStatus,
 
     -- ** CreateBackend
     createBackend_resourceName,
@@ -100,42 +32,122 @@ module Amazonka.AmplifyBackend.Lens
     createBackend_appId,
     createBackend_backendEnvironmentName,
     createBackend_appName,
-    createBackendResponse_status,
     createBackendResponse_jobId,
-    createBackendResponse_operation,
+    createBackendResponse_status,
     createBackendResponse_error,
+    createBackendResponse_operation,
     createBackendResponse_appId,
     createBackendResponse_backendEnvironmentName,
     createBackendResponse_httpStatus,
+
+    -- ** CreateBackendAPI
+    createBackendAPI_appId,
+    createBackendAPI_resourceName,
+    createBackendAPI_backendEnvironmentName,
+    createBackendAPI_resourceConfig,
+    createBackendAPIResponse_jobId,
+    createBackendAPIResponse_status,
+    createBackendAPIResponse_error,
+    createBackendAPIResponse_operation,
+    createBackendAPIResponse_appId,
+    createBackendAPIResponse_backendEnvironmentName,
+    createBackendAPIResponse_httpStatus,
+
+    -- ** CreateBackendAuth
+    createBackendAuth_appId,
+    createBackendAuth_resourceName,
+    createBackendAuth_backendEnvironmentName,
+    createBackendAuth_resourceConfig,
+    createBackendAuthResponse_jobId,
+    createBackendAuthResponse_status,
+    createBackendAuthResponse_error,
+    createBackendAuthResponse_operation,
+    createBackendAuthResponse_appId,
+    createBackendAuthResponse_backendEnvironmentName,
+    createBackendAuthResponse_httpStatus,
+
+    -- ** CreateBackendConfig
+    createBackendConfig_backendManagerAppId,
+    createBackendConfig_appId,
+    createBackendConfigResponse_jobId,
+    createBackendConfigResponse_status,
+    createBackendConfigResponse_appId,
+    createBackendConfigResponse_backendEnvironmentName,
+    createBackendConfigResponse_httpStatus,
+
+    -- ** CreateToken
+    createToken_appId,
+    createTokenResponse_challengeCode,
+    createTokenResponse_ttl,
+    createTokenResponse_sessionId,
+    createTokenResponse_appId,
+    createTokenResponse_httpStatus,
+
+    -- ** DeleteBackend
+    deleteBackend_appId,
+    deleteBackend_backendEnvironmentName,
+    deleteBackendResponse_jobId,
+    deleteBackendResponse_status,
+    deleteBackendResponse_error,
+    deleteBackendResponse_operation,
+    deleteBackendResponse_appId,
+    deleteBackendResponse_backendEnvironmentName,
+    deleteBackendResponse_httpStatus,
+
+    -- ** DeleteBackendAPI
+    deleteBackendAPI_resourceConfig,
+    deleteBackendAPI_appId,
+    deleteBackendAPI_backendEnvironmentName,
+    deleteBackendAPI_resourceName,
+    deleteBackendAPIResponse_jobId,
+    deleteBackendAPIResponse_status,
+    deleteBackendAPIResponse_error,
+    deleteBackendAPIResponse_operation,
+    deleteBackendAPIResponse_appId,
+    deleteBackendAPIResponse_backendEnvironmentName,
+    deleteBackendAPIResponse_httpStatus,
+
+    -- ** DeleteBackendAuth
+    deleteBackendAuth_appId,
+    deleteBackendAuth_backendEnvironmentName,
+    deleteBackendAuth_resourceName,
+    deleteBackendAuthResponse_jobId,
+    deleteBackendAuthResponse_status,
+    deleteBackendAuthResponse_error,
+    deleteBackendAuthResponse_operation,
+    deleteBackendAuthResponse_appId,
+    deleteBackendAuthResponse_backendEnvironmentName,
+    deleteBackendAuthResponse_httpStatus,
+
+    -- ** DeleteToken
+    deleteToken_sessionId,
+    deleteToken_appId,
+    deleteTokenResponse_isSuccess,
+    deleteTokenResponse_httpStatus,
 
     -- ** GenerateBackendAPIModels
     generateBackendAPIModels_appId,
     generateBackendAPIModels_backendEnvironmentName,
     generateBackendAPIModels_resourceName,
-    generateBackendAPIModelsResponse_status,
     generateBackendAPIModelsResponse_jobId,
-    generateBackendAPIModelsResponse_operation,
+    generateBackendAPIModelsResponse_status,
     generateBackendAPIModelsResponse_error,
+    generateBackendAPIModelsResponse_operation,
     generateBackendAPIModelsResponse_appId,
     generateBackendAPIModelsResponse_backendEnvironmentName,
     generateBackendAPIModelsResponse_httpStatus,
 
-    -- ** UpdateBackendConfig
-    updateBackendConfig_loginAuthConfig,
-    updateBackendConfig_appId,
-    updateBackendConfigResponse_error,
-    updateBackendConfigResponse_appId,
-    updateBackendConfigResponse_backendManagerAppId,
-    updateBackendConfigResponse_loginAuthConfig,
-    updateBackendConfigResponse_httpStatus,
-
-    -- ** CreateToken
-    createToken_appId,
-    createTokenResponse_ttl,
-    createTokenResponse_appId,
-    createTokenResponse_sessionId,
-    createTokenResponse_challengeCode,
-    createTokenResponse_httpStatus,
+    -- ** GetBackend
+    getBackend_backendEnvironmentName,
+    getBackend_appId,
+    getBackendResponse_appName,
+    getBackendResponse_amplifyFeatureFlags,
+    getBackendResponse_backendEnvironmentList,
+    getBackendResponse_amplifyMetaConfig,
+    getBackendResponse_error,
+    getBackendResponse_appId,
+    getBackendResponse_backendEnvironmentName,
+    getBackendResponse_httpStatus,
 
     -- ** GetBackendAPI
     getBackendAPI_resourceConfig,
@@ -143,143 +155,53 @@ module Amazonka.AmplifyBackend.Lens
     getBackendAPI_backendEnvironmentName,
     getBackendAPI_resourceName,
     getBackendAPIResponse_resourceName,
+    getBackendAPIResponse_resourceConfig,
     getBackendAPIResponse_error,
     getBackendAPIResponse_appId,
-    getBackendAPIResponse_resourceConfig,
     getBackendAPIResponse_backendEnvironmentName,
     getBackendAPIResponse_httpStatus,
-
-    -- ** UpdateBackendJob
-    updateBackendJob_status,
-    updateBackendJob_operation,
-    updateBackendJob_appId,
-    updateBackendJob_backendEnvironmentName,
-    updateBackendJob_jobId,
-    updateBackendJobResponse_status,
-    updateBackendJobResponse_jobId,
-    updateBackendJobResponse_operation,
-    updateBackendJobResponse_error,
-    updateBackendJobResponse_updateTime,
-    updateBackendJobResponse_appId,
-    updateBackendJobResponse_backendEnvironmentName,
-    updateBackendJobResponse_createTime,
-    updateBackendJobResponse_httpStatus,
-
-    -- ** UpdateBackendAPI
-    updateBackendAPI_resourceConfig,
-    updateBackendAPI_appId,
-    updateBackendAPI_backendEnvironmentName,
-    updateBackendAPI_resourceName,
-    updateBackendAPIResponse_status,
-    updateBackendAPIResponse_jobId,
-    updateBackendAPIResponse_operation,
-    updateBackendAPIResponse_error,
-    updateBackendAPIResponse_appId,
-    updateBackendAPIResponse_backendEnvironmentName,
-    updateBackendAPIResponse_httpStatus,
-
-    -- ** DeleteBackendAPI
-    deleteBackendAPI_resourceConfig,
-    deleteBackendAPI_appId,
-    deleteBackendAPI_backendEnvironmentName,
-    deleteBackendAPI_resourceName,
-    deleteBackendAPIResponse_status,
-    deleteBackendAPIResponse_jobId,
-    deleteBackendAPIResponse_operation,
-    deleteBackendAPIResponse_error,
-    deleteBackendAPIResponse_appId,
-    deleteBackendAPIResponse_backendEnvironmentName,
-    deleteBackendAPIResponse_httpStatus,
-
-    -- ** GetBackendJob
-    getBackendJob_appId,
-    getBackendJob_backendEnvironmentName,
-    getBackendJob_jobId,
-    getBackendJobResponse_status,
-    getBackendJobResponse_jobId,
-    getBackendJobResponse_operation,
-    getBackendJobResponse_error,
-    getBackendJobResponse_updateTime,
-    getBackendJobResponse_appId,
-    getBackendJobResponse_backendEnvironmentName,
-    getBackendJobResponse_createTime,
-    getBackendJobResponse_httpStatus,
-
-    -- ** DeleteBackend
-    deleteBackend_appId,
-    deleteBackend_backendEnvironmentName,
-    deleteBackendResponse_status,
-    deleteBackendResponse_jobId,
-    deleteBackendResponse_operation,
-    deleteBackendResponse_error,
-    deleteBackendResponse_appId,
-    deleteBackendResponse_backendEnvironmentName,
-    deleteBackendResponse_httpStatus,
-
-    -- ** DeleteBackendAuth
-    deleteBackendAuth_appId,
-    deleteBackendAuth_backendEnvironmentName,
-    deleteBackendAuth_resourceName,
-    deleteBackendAuthResponse_status,
-    deleteBackendAuthResponse_jobId,
-    deleteBackendAuthResponse_operation,
-    deleteBackendAuthResponse_error,
-    deleteBackendAuthResponse_appId,
-    deleteBackendAuthResponse_backendEnvironmentName,
-    deleteBackendAuthResponse_httpStatus,
-
-    -- ** UpdateBackendAuth
-    updateBackendAuth_appId,
-    updateBackendAuth_backendEnvironmentName,
-    updateBackendAuth_resourceName,
-    updateBackendAuth_resourceConfig,
-    updateBackendAuthResponse_status,
-    updateBackendAuthResponse_jobId,
-    updateBackendAuthResponse_operation,
-    updateBackendAuthResponse_error,
-    updateBackendAuthResponse_appId,
-    updateBackendAuthResponse_backendEnvironmentName,
-    updateBackendAuthResponse_httpStatus,
-
-    -- ** GetToken
-    getToken_sessionId,
-    getToken_appId,
-    getTokenResponse_ttl,
-    getTokenResponse_appId,
-    getTokenResponse_sessionId,
-    getTokenResponse_challengeCode,
-    getTokenResponse_httpStatus,
-
-    -- ** RemoveAllBackends
-    removeAllBackends_cleanAmplifyApp,
-    removeAllBackends_appId,
-    removeAllBackendsResponse_status,
-    removeAllBackendsResponse_jobId,
-    removeAllBackendsResponse_operation,
-    removeAllBackendsResponse_error,
-    removeAllBackendsResponse_appId,
-    removeAllBackendsResponse_httpStatus,
-
-    -- ** CreateBackendAPI
-    createBackendAPI_appId,
-    createBackendAPI_resourceName,
-    createBackendAPI_backendEnvironmentName,
-    createBackendAPI_resourceConfig,
-    createBackendAPIResponse_status,
-    createBackendAPIResponse_jobId,
-    createBackendAPIResponse_operation,
-    createBackendAPIResponse_error,
-    createBackendAPIResponse_appId,
-    createBackendAPIResponse_backendEnvironmentName,
-    createBackendAPIResponse_httpStatus,
 
     -- ** GetBackendAPIModels
     getBackendAPIModels_appId,
     getBackendAPIModels_backendEnvironmentName,
     getBackendAPIModels_resourceName,
-    getBackendAPIModelsResponse_status,
     getBackendAPIModelsResponse_models,
+    getBackendAPIModelsResponse_status,
     getBackendAPIModelsResponse_httpStatus,
+
+    -- ** GetBackendAuth
+    getBackendAuth_appId,
+    getBackendAuth_backendEnvironmentName,
+    getBackendAuth_resourceName,
+    getBackendAuthResponse_resourceName,
+    getBackendAuthResponse_resourceConfig,
+    getBackendAuthResponse_error,
+    getBackendAuthResponse_appId,
+    getBackendAuthResponse_backendEnvironmentName,
+    getBackendAuthResponse_httpStatus,
+
+    -- ** GetBackendJob
+    getBackendJob_appId,
+    getBackendJob_backendEnvironmentName,
+    getBackendJob_jobId,
+    getBackendJobResponse_jobId,
+    getBackendJobResponse_status,
+    getBackendJobResponse_updateTime,
+    getBackendJobResponse_createTime,
+    getBackendJobResponse_error,
+    getBackendJobResponse_operation,
+    getBackendJobResponse_appId,
+    getBackendJobResponse_backendEnvironmentName,
+    getBackendJobResponse_httpStatus,
+
+    -- ** GetToken
+    getToken_sessionId,
+    getToken_appId,
+    getTokenResponse_challengeCode,
+    getTokenResponse_ttl,
+    getTokenResponse_sessionId,
+    getTokenResponse_appId,
+    getTokenResponse_httpStatus,
 
     -- ** ImportBackendAuth
     importBackendAuth_identityPoolId,
@@ -288,25 +210,103 @@ module Amazonka.AmplifyBackend.Lens
     importBackendAuth_userPoolId,
     importBackendAuth_nativeClientId,
     importBackendAuth_webClientId,
-    importBackendAuthResponse_status,
     importBackendAuthResponse_jobId,
-    importBackendAuthResponse_operation,
+    importBackendAuthResponse_status,
     importBackendAuthResponse_error,
+    importBackendAuthResponse_operation,
     importBackendAuthResponse_appId,
     importBackendAuthResponse_backendEnvironmentName,
     importBackendAuthResponse_httpStatus,
 
+    -- ** ListBackendJobs
+    listBackendJobs_nextToken,
+    listBackendJobs_jobId,
+    listBackendJobs_status,
+    listBackendJobs_maxResults,
+    listBackendJobs_operation,
+    listBackendJobs_appId,
+    listBackendJobs_backendEnvironmentName,
+    listBackendJobsResponse_nextToken,
+    listBackendJobsResponse_jobs,
+    listBackendJobsResponse_httpStatus,
+
+    -- ** RemoveAllBackends
+    removeAllBackends_cleanAmplifyApp,
+    removeAllBackends_appId,
+    removeAllBackendsResponse_jobId,
+    removeAllBackendsResponse_status,
+    removeAllBackendsResponse_error,
+    removeAllBackendsResponse_operation,
+    removeAllBackendsResponse_appId,
+    removeAllBackendsResponse_httpStatus,
+
+    -- ** RemoveBackendConfig
+    removeBackendConfig_appId,
+    removeBackendConfigResponse_error,
+    removeBackendConfigResponse_httpStatus,
+
+    -- ** UpdateBackendAPI
+    updateBackendAPI_resourceConfig,
+    updateBackendAPI_appId,
+    updateBackendAPI_backendEnvironmentName,
+    updateBackendAPI_resourceName,
+    updateBackendAPIResponse_jobId,
+    updateBackendAPIResponse_status,
+    updateBackendAPIResponse_error,
+    updateBackendAPIResponse_operation,
+    updateBackendAPIResponse_appId,
+    updateBackendAPIResponse_backendEnvironmentName,
+    updateBackendAPIResponse_httpStatus,
+
+    -- ** UpdateBackendAuth
+    updateBackendAuth_appId,
+    updateBackendAuth_backendEnvironmentName,
+    updateBackendAuth_resourceName,
+    updateBackendAuth_resourceConfig,
+    updateBackendAuthResponse_jobId,
+    updateBackendAuthResponse_status,
+    updateBackendAuthResponse_error,
+    updateBackendAuthResponse_operation,
+    updateBackendAuthResponse_appId,
+    updateBackendAuthResponse_backendEnvironmentName,
+    updateBackendAuthResponse_httpStatus,
+
+    -- ** UpdateBackendConfig
+    updateBackendConfig_loginAuthConfig,
+    updateBackendConfig_appId,
+    updateBackendConfigResponse_backendManagerAppId,
+    updateBackendConfigResponse_loginAuthConfig,
+    updateBackendConfigResponse_error,
+    updateBackendConfigResponse_appId,
+    updateBackendConfigResponse_httpStatus,
+
+    -- ** UpdateBackendJob
+    updateBackendJob_status,
+    updateBackendJob_operation,
+    updateBackendJob_appId,
+    updateBackendJob_backendEnvironmentName,
+    updateBackendJob_jobId,
+    updateBackendJobResponse_jobId,
+    updateBackendJobResponse_status,
+    updateBackendJobResponse_updateTime,
+    updateBackendJobResponse_createTime,
+    updateBackendJobResponse_error,
+    updateBackendJobResponse_operation,
+    updateBackendJobResponse_appId,
+    updateBackendJobResponse_backendEnvironmentName,
+    updateBackendJobResponse_httpStatus,
+
     -- * Types
 
     -- ** BackendAPIAppSyncAuthSettings
-    backendAPIAppSyncAuthSettings_openIDProviderName,
-    backendAPIAppSyncAuthSettings_openIDClientId,
-    backendAPIAppSyncAuthSettings_openIDIssueURL,
-    backendAPIAppSyncAuthSettings_cognitoUserPoolId,
+    backendAPIAppSyncAuthSettings_expirationTime,
     backendAPIAppSyncAuthSettings_openIDAuthTTL,
     backendAPIAppSyncAuthSettings_description,
-    backendAPIAppSyncAuthSettings_expirationTime,
+    backendAPIAppSyncAuthSettings_openIDIssueURL,
+    backendAPIAppSyncAuthSettings_openIDClientId,
     backendAPIAppSyncAuthSettings_openIDIatTTL,
+    backendAPIAppSyncAuthSettings_openIDProviderName,
+    backendAPIAppSyncAuthSettings_cognitoUserPoolId,
 
     -- ** BackendAPIAuthType
     backendAPIAuthType_settings,
@@ -316,30 +316,30 @@ module Amazonka.AmplifyBackend.Lens
     backendAPIConflictResolution_resolutionStrategy,
 
     -- ** BackendAPIResourceConfig
-    backendAPIResourceConfig_apiName,
-    backendAPIResourceConfig_service,
-    backendAPIResourceConfig_transformSchema,
     backendAPIResourceConfig_additionalAuthTypes,
     backendAPIResourceConfig_conflictResolution,
+    backendAPIResourceConfig_service,
+    backendAPIResourceConfig_transformSchema,
     backendAPIResourceConfig_defaultAuthType,
+    backendAPIResourceConfig_apiName,
 
     -- ** BackendAuthAppleProviderConfig
     backendAuthAppleProviderConfig_clientId,
     backendAuthAppleProviderConfig_privateKey,
-    backendAuthAppleProviderConfig_keyId,
     backendAuthAppleProviderConfig_teamId,
+    backendAuthAppleProviderConfig_keyId,
 
     -- ** BackendAuthSocialProviderConfig
-    backendAuthSocialProviderConfig_clientId,
     backendAuthSocialProviderConfig_clientSecret,
+    backendAuthSocialProviderConfig_clientId,
 
     -- ** BackendJobRespObj
-    backendJobRespObj_status,
     backendJobRespObj_jobId,
-    backendJobRespObj_operation,
-    backendJobRespObj_error,
+    backendJobRespObj_status,
     backendJobRespObj_updateTime,
     backendJobRespObj_createTime,
+    backendJobRespObj_error,
+    backendJobRespObj_operation,
     backendJobRespObj_appId,
     backendJobRespObj_backendEnvironmentName,
 
@@ -357,8 +357,8 @@ module Amazonka.AmplifyBackend.Lens
     createBackendAuthMFAConfig_mfaMode,
 
     -- ** CreateBackendAuthOAuthConfig
-    createBackendAuthOAuthConfig_socialProviderSettings,
     createBackendAuthOAuthConfig_domainPrefix,
+    createBackendAuthOAuthConfig_socialProviderSettings,
     createBackendAuthOAuthConfig_redirectSignOutURIs,
     createBackendAuthOAuthConfig_redirectSignInURIs,
     createBackendAuthOAuthConfig_oAuthGrantType,
@@ -375,10 +375,10 @@ module Amazonka.AmplifyBackend.Lens
     createBackendAuthResourceConfig_service,
 
     -- ** CreateBackendAuthUserPoolConfig
-    createBackendAuthUserPoolConfig_passwordPolicy,
-    createBackendAuthUserPoolConfig_mfa,
-    createBackendAuthUserPoolConfig_forgotPassword,
     createBackendAuthUserPoolConfig_oAuth,
+    createBackendAuthUserPoolConfig_passwordPolicy,
+    createBackendAuthUserPoolConfig_forgotPassword,
+    createBackendAuthUserPoolConfig_mfa,
     createBackendAuthUserPoolConfig_requiredSignUpAttributes,
     createBackendAuthUserPoolConfig_signInMethod,
     createBackendAuthUserPoolConfig_userPoolName,
@@ -388,16 +388,16 @@ module Amazonka.AmplifyBackend.Lens
     emailSettings_emailMessage,
 
     -- ** LoginAuthConfigReqObj
-    loginAuthConfigReqObj_awsUserPoolsWebClientId,
     loginAuthConfigReqObj_awsCognitoIdentityPoolId,
-    loginAuthConfigReqObj_awsUserPoolsId,
     loginAuthConfigReqObj_awsCognitoRegion,
+    loginAuthConfigReqObj_awsUserPoolsId,
+    loginAuthConfigReqObj_awsUserPoolsWebClientId,
 
     -- ** ResourceConfig
 
     -- ** Settings
-    settings_smsMessage,
     settings_mfaTypes,
+    settings_smsMessage,
 
     -- ** SmsSettings
     smsSettings_smsMessage,
@@ -410,8 +410,8 @@ module Amazonka.AmplifyBackend.Lens
 
     -- ** UpdateBackendAuthForgotPasswordConfig
     updateBackendAuthForgotPasswordConfig_emailSettings,
-    updateBackendAuthForgotPasswordConfig_smsSettings,
     updateBackendAuthForgotPasswordConfig_deliveryMethod,
+    updateBackendAuthForgotPasswordConfig_smsSettings,
 
     -- ** UpdateBackendAuthIdentityPoolConfig
     updateBackendAuthIdentityPoolConfig_unauthenticatedLogin,
@@ -421,12 +421,12 @@ module Amazonka.AmplifyBackend.Lens
     updateBackendAuthMFAConfig_mfaMode,
 
     -- ** UpdateBackendAuthOAuthConfig
-    updateBackendAuthOAuthConfig_socialProviderSettings,
     updateBackendAuthOAuthConfig_domainPrefix,
-    updateBackendAuthOAuthConfig_oAuthScopes,
-    updateBackendAuthOAuthConfig_oAuthGrantType,
     updateBackendAuthOAuthConfig_redirectSignOutURIs,
     updateBackendAuthOAuthConfig_redirectSignInURIs,
+    updateBackendAuthOAuthConfig_oAuthScopes,
+    updateBackendAuthOAuthConfig_socialProviderSettings,
+    updateBackendAuthOAuthConfig_oAuthGrantType,
 
     -- ** UpdateBackendAuthPasswordPolicyConfig
     updateBackendAuthPasswordPolicyConfig_additionalConstraints,
@@ -439,10 +439,10 @@ module Amazonka.AmplifyBackend.Lens
     updateBackendAuthResourceConfig_service,
 
     -- ** UpdateBackendAuthUserPoolConfig
-    updateBackendAuthUserPoolConfig_passwordPolicy,
-    updateBackendAuthUserPoolConfig_mfa,
-    updateBackendAuthUserPoolConfig_forgotPassword,
     updateBackendAuthUserPoolConfig_oAuth,
+    updateBackendAuthUserPoolConfig_passwordPolicy,
+    updateBackendAuthUserPoolConfig_forgotPassword,
+    updateBackendAuthUserPoolConfig_mfa,
   )
 where
 

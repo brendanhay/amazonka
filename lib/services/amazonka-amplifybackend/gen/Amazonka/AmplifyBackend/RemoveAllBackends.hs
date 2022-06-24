@@ -35,10 +35,10 @@ module Amazonka.AmplifyBackend.RemoveAllBackends
     newRemoveAllBackendsResponse,
 
     -- * Response Lenses
-    removeAllBackendsResponse_status,
     removeAllBackendsResponse_jobId,
-    removeAllBackendsResponse_operation,
+    removeAllBackendsResponse_status,
     removeAllBackendsResponse_error,
+    removeAllBackendsResponse_operation,
     removeAllBackendsResponse_appId,
     removeAllBackendsResponse_httpStatus,
   )
@@ -101,10 +101,10 @@ instance Core.AWSRequest RemoveAllBackends where
     Response.receiveJSON
       ( \s h x ->
           RemoveAllBackendsResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "operation")
+            Prelude.<$> (x Core..?> "jobId")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "error")
+            Prelude.<*> (x Core..?> "operation")
             Prelude.<*> (x Core..?> "appId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -149,14 +149,14 @@ instance Core.ToQuery RemoveAllBackends where
 
 -- | /See:/ 'newRemoveAllBackendsResponse' smart constructor.
 data RemoveAllBackendsResponse = RemoveAllBackendsResponse'
-  { -- | The current status of the request.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The ID for the job.
+  { -- | The ID for the job.
     jobId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the operation.
-    operation :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the request.
+    status :: Prelude.Maybe Prelude.Text,
     -- | If the request fails, this error is returned.
     error :: Prelude.Maybe Prelude.Text,
+    -- | The name of the operation.
+    operation :: Prelude.Maybe Prelude.Text,
     -- | The app ID.
     appId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -172,13 +172,13 @@ data RemoveAllBackendsResponse = RemoveAllBackendsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'removeAllBackendsResponse_status' - The current status of the request.
---
 -- 'jobId', 'removeAllBackendsResponse_jobId' - The ID for the job.
 --
--- 'operation', 'removeAllBackendsResponse_operation' - The name of the operation.
+-- 'status', 'removeAllBackendsResponse_status' - The current status of the request.
 --
 -- 'error', 'removeAllBackendsResponse_error' - If the request fails, this error is returned.
+--
+-- 'operation', 'removeAllBackendsResponse_operation' - The name of the operation.
 --
 -- 'appId', 'removeAllBackendsResponse_appId' - The app ID.
 --
@@ -189,30 +189,29 @@ newRemoveAllBackendsResponse ::
   RemoveAllBackendsResponse
 newRemoveAllBackendsResponse pHttpStatus_ =
   RemoveAllBackendsResponse'
-    { status =
-        Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      operation = Prelude.Nothing,
+    { jobId = Prelude.Nothing,
+      status = Prelude.Nothing,
       error = Prelude.Nothing,
+      operation = Prelude.Nothing,
       appId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current status of the request.
-removeAllBackendsResponse_status :: Lens.Lens' RemoveAllBackendsResponse (Prelude.Maybe Prelude.Text)
-removeAllBackendsResponse_status = Lens.lens (\RemoveAllBackendsResponse' {status} -> status) (\s@RemoveAllBackendsResponse' {} a -> s {status = a} :: RemoveAllBackendsResponse)
 
 -- | The ID for the job.
 removeAllBackendsResponse_jobId :: Lens.Lens' RemoveAllBackendsResponse (Prelude.Maybe Prelude.Text)
 removeAllBackendsResponse_jobId = Lens.lens (\RemoveAllBackendsResponse' {jobId} -> jobId) (\s@RemoveAllBackendsResponse' {} a -> s {jobId = a} :: RemoveAllBackendsResponse)
 
--- | The name of the operation.
-removeAllBackendsResponse_operation :: Lens.Lens' RemoveAllBackendsResponse (Prelude.Maybe Prelude.Text)
-removeAllBackendsResponse_operation = Lens.lens (\RemoveAllBackendsResponse' {operation} -> operation) (\s@RemoveAllBackendsResponse' {} a -> s {operation = a} :: RemoveAllBackendsResponse)
+-- | The current status of the request.
+removeAllBackendsResponse_status :: Lens.Lens' RemoveAllBackendsResponse (Prelude.Maybe Prelude.Text)
+removeAllBackendsResponse_status = Lens.lens (\RemoveAllBackendsResponse' {status} -> status) (\s@RemoveAllBackendsResponse' {} a -> s {status = a} :: RemoveAllBackendsResponse)
 
 -- | If the request fails, this error is returned.
 removeAllBackendsResponse_error :: Lens.Lens' RemoveAllBackendsResponse (Prelude.Maybe Prelude.Text)
 removeAllBackendsResponse_error = Lens.lens (\RemoveAllBackendsResponse' {error} -> error) (\s@RemoveAllBackendsResponse' {} a -> s {error = a} :: RemoveAllBackendsResponse)
+
+-- | The name of the operation.
+removeAllBackendsResponse_operation :: Lens.Lens' RemoveAllBackendsResponse (Prelude.Maybe Prelude.Text)
+removeAllBackendsResponse_operation = Lens.lens (\RemoveAllBackendsResponse' {operation} -> operation) (\s@RemoveAllBackendsResponse' {} a -> s {operation = a} :: RemoveAllBackendsResponse)
 
 -- | The app ID.
 removeAllBackendsResponse_appId :: Lens.Lens' RemoveAllBackendsResponse (Prelude.Maybe Prelude.Text)
@@ -224,9 +223,9 @@ removeAllBackendsResponse_httpStatus = Lens.lens (\RemoveAllBackendsResponse' {h
 
 instance Prelude.NFData RemoveAllBackendsResponse where
   rnf RemoveAllBackendsResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf operation
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf operation
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -35,10 +35,10 @@ module Amazonka.AmplifyBackend.UpdateBackendConfig
     newUpdateBackendConfigResponse,
 
     -- * Response Lenses
-    updateBackendConfigResponse_error,
-    updateBackendConfigResponse_appId,
     updateBackendConfigResponse_backendManagerAppId,
     updateBackendConfigResponse_loginAuthConfig,
+    updateBackendConfigResponse_error,
+    updateBackendConfigResponse_appId,
     updateBackendConfigResponse_httpStatus,
   )
 where
@@ -100,10 +100,10 @@ instance Core.AWSRequest UpdateBackendConfig where
     Response.receiveJSON
       ( \s h x ->
           UpdateBackendConfigResponse'
-            Prelude.<$> (x Core..?> "error")
-            Prelude.<*> (x Core..?> "appId")
-            Prelude.<*> (x Core..?> "backendManagerAppId")
+            Prelude.<$> (x Core..?> "backendManagerAppId")
             Prelude.<*> (x Core..?> "loginAuthConfig")
+            Prelude.<*> (x Core..?> "error")
+            Prelude.<*> (x Core..?> "appId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,15 +147,15 @@ instance Core.ToQuery UpdateBackendConfig where
 
 -- | /See:/ 'newUpdateBackendConfigResponse' smart constructor.
 data UpdateBackendConfigResponse = UpdateBackendConfigResponse'
-  { -- | If the request fails, this error is returned.
-    error :: Prelude.Maybe Prelude.Text,
-    -- | The app ID.
-    appId :: Prelude.Maybe Prelude.Text,
-    -- | The app ID for the backend manager.
+  { -- | The app ID for the backend manager.
     backendManagerAppId :: Prelude.Maybe Prelude.Text,
     -- | Describes the Amazon Cognito configurations for the Admin UI auth
     -- resource to log in with.
     loginAuthConfig :: Prelude.Maybe LoginAuthConfigReqObj,
+    -- | If the request fails, this error is returned.
+    error :: Prelude.Maybe Prelude.Text,
+    -- | The app ID.
+    appId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,14 +169,14 @@ data UpdateBackendConfigResponse = UpdateBackendConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'error', 'updateBackendConfigResponse_error' - If the request fails, this error is returned.
---
--- 'appId', 'updateBackendConfigResponse_appId' - The app ID.
---
 -- 'backendManagerAppId', 'updateBackendConfigResponse_backendManagerAppId' - The app ID for the backend manager.
 --
 -- 'loginAuthConfig', 'updateBackendConfigResponse_loginAuthConfig' - Describes the Amazon Cognito configurations for the Admin UI auth
 -- resource to log in with.
+--
+-- 'error', 'updateBackendConfigResponse_error' - If the request fails, this error is returned.
+--
+-- 'appId', 'updateBackendConfigResponse_appId' - The app ID.
 --
 -- 'httpStatus', 'updateBackendConfigResponse_httpStatus' - The response's http status code.
 newUpdateBackendConfigResponse ::
@@ -185,21 +185,13 @@ newUpdateBackendConfigResponse ::
   UpdateBackendConfigResponse
 newUpdateBackendConfigResponse pHttpStatus_ =
   UpdateBackendConfigResponse'
-    { error =
+    { backendManagerAppId =
         Prelude.Nothing,
-      appId = Prelude.Nothing,
-      backendManagerAppId = Prelude.Nothing,
       loginAuthConfig = Prelude.Nothing,
+      error = Prelude.Nothing,
+      appId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If the request fails, this error is returned.
-updateBackendConfigResponse_error :: Lens.Lens' UpdateBackendConfigResponse (Prelude.Maybe Prelude.Text)
-updateBackendConfigResponse_error = Lens.lens (\UpdateBackendConfigResponse' {error} -> error) (\s@UpdateBackendConfigResponse' {} a -> s {error = a} :: UpdateBackendConfigResponse)
-
--- | The app ID.
-updateBackendConfigResponse_appId :: Lens.Lens' UpdateBackendConfigResponse (Prelude.Maybe Prelude.Text)
-updateBackendConfigResponse_appId = Lens.lens (\UpdateBackendConfigResponse' {appId} -> appId) (\s@UpdateBackendConfigResponse' {} a -> s {appId = a} :: UpdateBackendConfigResponse)
 
 -- | The app ID for the backend manager.
 updateBackendConfigResponse_backendManagerAppId :: Lens.Lens' UpdateBackendConfigResponse (Prelude.Maybe Prelude.Text)
@@ -210,14 +202,22 @@ updateBackendConfigResponse_backendManagerAppId = Lens.lens (\UpdateBackendConfi
 updateBackendConfigResponse_loginAuthConfig :: Lens.Lens' UpdateBackendConfigResponse (Prelude.Maybe LoginAuthConfigReqObj)
 updateBackendConfigResponse_loginAuthConfig = Lens.lens (\UpdateBackendConfigResponse' {loginAuthConfig} -> loginAuthConfig) (\s@UpdateBackendConfigResponse' {} a -> s {loginAuthConfig = a} :: UpdateBackendConfigResponse)
 
+-- | If the request fails, this error is returned.
+updateBackendConfigResponse_error :: Lens.Lens' UpdateBackendConfigResponse (Prelude.Maybe Prelude.Text)
+updateBackendConfigResponse_error = Lens.lens (\UpdateBackendConfigResponse' {error} -> error) (\s@UpdateBackendConfigResponse' {} a -> s {error = a} :: UpdateBackendConfigResponse)
+
+-- | The app ID.
+updateBackendConfigResponse_appId :: Lens.Lens' UpdateBackendConfigResponse (Prelude.Maybe Prelude.Text)
+updateBackendConfigResponse_appId = Lens.lens (\UpdateBackendConfigResponse' {appId} -> appId) (\s@UpdateBackendConfigResponse' {} a -> s {appId = a} :: UpdateBackendConfigResponse)
+
 -- | The response's http status code.
 updateBackendConfigResponse_httpStatus :: Lens.Lens' UpdateBackendConfigResponse Prelude.Int
 updateBackendConfigResponse_httpStatus = Lens.lens (\UpdateBackendConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateBackendConfigResponse' {} a -> s {httpStatus = a} :: UpdateBackendConfigResponse)
 
 instance Prelude.NFData UpdateBackendConfigResponse where
   rnf UpdateBackendConfigResponse' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf backendManagerAppId
+    Prelude.rnf backendManagerAppId
       `Prelude.seq` Prelude.rnf loginAuthConfig
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf httpStatus

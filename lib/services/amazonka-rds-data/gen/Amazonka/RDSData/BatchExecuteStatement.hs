@@ -36,8 +36,8 @@ module Amazonka.RDSData.BatchExecuteStatement
     newBatchExecuteStatement,
 
     -- * Request Lenses
-    batchExecuteStatement_database,
     batchExecuteStatement_parameterSets,
+    batchExecuteStatement_database,
     batchExecuteStatement_transactionId,
     batchExecuteStatement_schema,
     batchExecuteStatement_resourceArn,
@@ -66,9 +66,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newBatchExecuteStatement' smart constructor.
 data BatchExecuteStatement = BatchExecuteStatement'
-  { -- | The name of the database.
-    database :: Prelude.Maybe Prelude.Text,
-    -- | The parameter set for the batch operation.
+  { -- | The parameter set for the batch operation.
     --
     -- The SQL statement is executed as many times as the number of parameter
     -- sets provided. To execute a SQL statement with no parameters, use one of
@@ -81,6 +79,8 @@ data BatchExecuteStatement = BatchExecuteStatement'
     --
     -- Array parameters are not supported.
     parameterSets :: Prelude.Maybe [[SqlParameter]],
+    -- | The name of the database.
+    database :: Prelude.Maybe Prelude.Text,
     -- | The identifier of a transaction that was started by using the
     -- @BeginTransaction@ operation. Specify the transaction ID of the
     -- transaction that you want to include the SQL statement in.
@@ -107,8 +107,6 @@ data BatchExecuteStatement = BatchExecuteStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'database', 'batchExecuteStatement_database' - The name of the database.
---
 -- 'parameterSets', 'batchExecuteStatement_parameterSets' - The parameter set for the batch operation.
 --
 -- The SQL statement is executed as many times as the number of parameter
@@ -121,6 +119,8 @@ data BatchExecuteStatement = BatchExecuteStatement'
 --     @BatchExecuteStatement@ operation.
 --
 -- Array parameters are not supported.
+--
+-- 'database', 'batchExecuteStatement_database' - The name of the database.
 --
 -- 'transactionId', 'batchExecuteStatement_transactionId' - The identifier of a transaction that was started by using the
 -- @BeginTransaction@ operation. Specify the transaction ID of the
@@ -149,18 +149,15 @@ newBatchExecuteStatement
   pSecretArn_
   pSql_ =
     BatchExecuteStatement'
-      { database = Prelude.Nothing,
-        parameterSets = Prelude.Nothing,
+      { parameterSets =
+          Prelude.Nothing,
+        database = Prelude.Nothing,
         transactionId = Prelude.Nothing,
         schema = Prelude.Nothing,
         resourceArn = pResourceArn_,
         secretArn = pSecretArn_,
         sql = pSql_
       }
-
--- | The name of the database.
-batchExecuteStatement_database :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
-batchExecuteStatement_database = Lens.lens (\BatchExecuteStatement' {database} -> database) (\s@BatchExecuteStatement' {} a -> s {database = a} :: BatchExecuteStatement)
 
 -- | The parameter set for the batch operation.
 --
@@ -176,6 +173,10 @@ batchExecuteStatement_database = Lens.lens (\BatchExecuteStatement' {database} -
 -- Array parameters are not supported.
 batchExecuteStatement_parameterSets :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe [[SqlParameter]])
 batchExecuteStatement_parameterSets = Lens.lens (\BatchExecuteStatement' {parameterSets} -> parameterSets) (\s@BatchExecuteStatement' {} a -> s {parameterSets = a} :: BatchExecuteStatement) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the database.
+batchExecuteStatement_database :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
+batchExecuteStatement_database = Lens.lens (\BatchExecuteStatement' {database} -> database) (\s@BatchExecuteStatement' {} a -> s {database = a} :: BatchExecuteStatement)
 
 -- | The identifier of a transaction that was started by using the
 -- @BeginTransaction@ operation. Specify the transaction ID of the
@@ -217,8 +218,8 @@ instance Core.AWSRequest BatchExecuteStatement where
 
 instance Prelude.Hashable BatchExecuteStatement where
   hashWithSalt _salt BatchExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` database
-      `Prelude.hashWithSalt` parameterSets
+    _salt `Prelude.hashWithSalt` parameterSets
+      `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` resourceArn
@@ -227,8 +228,8 @@ instance Prelude.Hashable BatchExecuteStatement where
 
 instance Prelude.NFData BatchExecuteStatement where
   rnf BatchExecuteStatement' {..} =
-    Prelude.rnf database
-      `Prelude.seq` Prelude.rnf parameterSets
+    Prelude.rnf parameterSets
+      `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf resourceArn
@@ -250,8 +251,8 @@ instance Core.ToJSON BatchExecuteStatement where
   toJSON BatchExecuteStatement' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("database" Core..=) Prelude.<$> database,
-            ("parameterSets" Core..=) Prelude.<$> parameterSets,
+          [ ("parameterSets" Core..=) Prelude.<$> parameterSets,
+            ("database" Core..=) Prelude.<$> database,
             ("transactionId" Core..=) Prelude.<$> transactionId,
             ("schema" Core..=) Prelude.<$> schema,
             Prelude.Just ("resourceArn" Core..= resourceArn),

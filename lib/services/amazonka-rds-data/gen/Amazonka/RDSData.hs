@@ -27,23 +27,23 @@ module Amazonka.RDSData
     -- * Errors
     -- $errors
 
-    -- ** StatementTimeoutException
-    _StatementTimeoutException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
-
     -- ** NotFoundException
     _NotFoundException,
-
-    -- ** ServiceUnavailableError
-    _ServiceUnavailableError,
 
     -- ** InternalServerErrorException
     _InternalServerErrorException,
 
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** ServiceUnavailableError
+    _ServiceUnavailableError,
+
     -- ** BadRequestException
     _BadRequestException,
+
+    -- ** StatementTimeoutException
+    _StatementTimeoutException,
 
     -- * Waiters
     -- $waiters
@@ -51,11 +51,11 @@ module Amazonka.RDSData
     -- * Operations
     -- $operations
 
-    -- ** RollbackTransaction
-    RollbackTransaction (RollbackTransaction'),
-    newRollbackTransaction,
-    RollbackTransactionResponse (RollbackTransactionResponse'),
-    newRollbackTransactionResponse,
+    -- ** BatchExecuteStatement
+    BatchExecuteStatement (BatchExecuteStatement'),
+    newBatchExecuteStatement,
+    BatchExecuteStatementResponse (BatchExecuteStatementResponse'),
+    newBatchExecuteStatementResponse,
 
     -- ** BeginTransaction
     BeginTransaction (BeginTransaction'),
@@ -63,11 +63,11 @@ module Amazonka.RDSData
     BeginTransactionResponse (BeginTransactionResponse'),
     newBeginTransactionResponse,
 
-    -- ** BatchExecuteStatement
-    BatchExecuteStatement (BatchExecuteStatement'),
-    newBatchExecuteStatement,
-    BatchExecuteStatementResponse (BatchExecuteStatementResponse'),
-    newBatchExecuteStatementResponse,
+    -- ** CommitTransaction
+    CommitTransaction (CommitTransaction'),
+    newCommitTransaction,
+    CommitTransactionResponse (CommitTransactionResponse'),
+    newCommitTransactionResponse,
 
     -- ** ExecuteStatement
     ExecuteStatement (ExecuteStatement'),
@@ -75,11 +75,11 @@ module Amazonka.RDSData
     ExecuteStatementResponse (ExecuteStatementResponse'),
     newExecuteStatementResponse,
 
-    -- ** CommitTransaction
-    CommitTransaction (CommitTransaction'),
-    newCommitTransaction,
-    CommitTransactionResponse (CommitTransactionResponse'),
-    newCommitTransactionResponse,
+    -- ** RollbackTransaction
+    RollbackTransaction (RollbackTransaction'),
+    newRollbackTransaction,
+    RollbackTransactionResponse (RollbackTransactionResponse'),
+    newRollbackTransactionResponse,
 
     -- * Types
 

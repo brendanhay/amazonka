@@ -36,9 +36,9 @@ module Amazonka.GlobalAccelerator.DenyCustomRoutingTraffic
     newDenyCustomRoutingTraffic,
 
     -- * Request Lenses
-    denyCustomRoutingTraffic_destinationAddresses,
     denyCustomRoutingTraffic_destinationPorts,
     denyCustomRoutingTraffic_denyAllTrafficToEndpoint,
+    denyCustomRoutingTraffic_destinationAddresses,
     denyCustomRoutingTraffic_endpointGroupArn,
     denyCustomRoutingTraffic_endpointId,
 
@@ -57,12 +57,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDenyCustomRoutingTraffic' smart constructor.
 data DenyCustomRoutingTraffic = DenyCustomRoutingTraffic'
-  { -- | A list of specific Amazon EC2 instance IP addresses (destination
-    -- addresses) in a subnet that you want to prevent from receiving traffic.
-    -- The IP addresses must be a subset of the IP addresses allowed for the
-    -- VPC subnet associated with the endpoint group.
-    destinationAddresses :: Prelude.Maybe [Prelude.Text],
-    -- | A list of specific Amazon EC2 instance ports (destination ports) in a
+  { -- | A list of specific Amazon EC2 instance ports (destination ports) in a
     -- subnet endpoint that you want to prevent from receiving traffic.
     destinationPorts :: Prelude.Maybe [Prelude.Natural],
     -- | Indicates whether all destination IP addresses and ports for a specified
@@ -81,6 +76,11 @@ data DenyCustomRoutingTraffic = DenyCustomRoutingTraffic'
     --
     -- The default value is FALSE.
     denyAllTrafficToEndpoint :: Prelude.Maybe Prelude.Bool,
+    -- | A list of specific Amazon EC2 instance IP addresses (destination
+    -- addresses) in a subnet that you want to prevent from receiving traffic.
+    -- The IP addresses must be a subset of the IP addresses allowed for the
+    -- VPC subnet associated with the endpoint group.
+    destinationAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the endpoint group.
     endpointGroupArn :: Prelude.Text,
     -- | An ID for the endpoint. For custom routing accelerators, this is the
@@ -96,11 +96,6 @@ data DenyCustomRoutingTraffic = DenyCustomRoutingTraffic'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'destinationAddresses', 'denyCustomRoutingTraffic_destinationAddresses' - A list of specific Amazon EC2 instance IP addresses (destination
--- addresses) in a subnet that you want to prevent from receiving traffic.
--- The IP addresses must be a subset of the IP addresses allowed for the
--- VPC subnet associated with the endpoint group.
 --
 -- 'destinationPorts', 'denyCustomRoutingTraffic_destinationPorts' - A list of specific Amazon EC2 instance ports (destination ports) in a
 -- subnet endpoint that you want to prevent from receiving traffic.
@@ -121,6 +116,11 @@ data DenyCustomRoutingTraffic = DenyCustomRoutingTraffic'
 --
 -- The default value is FALSE.
 --
+-- 'destinationAddresses', 'denyCustomRoutingTraffic_destinationAddresses' - A list of specific Amazon EC2 instance IP addresses (destination
+-- addresses) in a subnet that you want to prevent from receiving traffic.
+-- The IP addresses must be a subset of the IP addresses allowed for the
+-- VPC subnet associated with the endpoint group.
+--
 -- 'endpointGroupArn', 'denyCustomRoutingTraffic_endpointGroupArn' - The Amazon Resource Name (ARN) of the endpoint group.
 --
 -- 'endpointId', 'denyCustomRoutingTraffic_endpointId' - An ID for the endpoint. For custom routing accelerators, this is the
@@ -135,20 +135,13 @@ newDenyCustomRoutingTraffic
   pEndpointGroupArn_
   pEndpointId_ =
     DenyCustomRoutingTraffic'
-      { destinationAddresses =
+      { destinationPorts =
           Prelude.Nothing,
-        destinationPorts = Prelude.Nothing,
         denyAllTrafficToEndpoint = Prelude.Nothing,
+        destinationAddresses = Prelude.Nothing,
         endpointGroupArn = pEndpointGroupArn_,
         endpointId = pEndpointId_
       }
-
--- | A list of specific Amazon EC2 instance IP addresses (destination
--- addresses) in a subnet that you want to prevent from receiving traffic.
--- The IP addresses must be a subset of the IP addresses allowed for the
--- VPC subnet associated with the endpoint group.
-denyCustomRoutingTraffic_destinationAddresses :: Lens.Lens' DenyCustomRoutingTraffic (Prelude.Maybe [Prelude.Text])
-denyCustomRoutingTraffic_destinationAddresses = Lens.lens (\DenyCustomRoutingTraffic' {destinationAddresses} -> destinationAddresses) (\s@DenyCustomRoutingTraffic' {} a -> s {destinationAddresses = a} :: DenyCustomRoutingTraffic) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of specific Amazon EC2 instance ports (destination ports) in a
 -- subnet endpoint that you want to prevent from receiving traffic.
@@ -173,6 +166,13 @@ denyCustomRoutingTraffic_destinationPorts = Lens.lens (\DenyCustomRoutingTraffic
 denyCustomRoutingTraffic_denyAllTrafficToEndpoint :: Lens.Lens' DenyCustomRoutingTraffic (Prelude.Maybe Prelude.Bool)
 denyCustomRoutingTraffic_denyAllTrafficToEndpoint = Lens.lens (\DenyCustomRoutingTraffic' {denyAllTrafficToEndpoint} -> denyAllTrafficToEndpoint) (\s@DenyCustomRoutingTraffic' {} a -> s {denyAllTrafficToEndpoint = a} :: DenyCustomRoutingTraffic)
 
+-- | A list of specific Amazon EC2 instance IP addresses (destination
+-- addresses) in a subnet that you want to prevent from receiving traffic.
+-- The IP addresses must be a subset of the IP addresses allowed for the
+-- VPC subnet associated with the endpoint group.
+denyCustomRoutingTraffic_destinationAddresses :: Lens.Lens' DenyCustomRoutingTraffic (Prelude.Maybe [Prelude.Text])
+denyCustomRoutingTraffic_destinationAddresses = Lens.lens (\DenyCustomRoutingTraffic' {destinationAddresses} -> destinationAddresses) (\s@DenyCustomRoutingTraffic' {} a -> s {destinationAddresses = a} :: DenyCustomRoutingTraffic) Prelude.. Lens.mapping Lens.coerced
+
 -- | The Amazon Resource Name (ARN) of the endpoint group.
 denyCustomRoutingTraffic_endpointGroupArn :: Lens.Lens' DenyCustomRoutingTraffic Prelude.Text
 denyCustomRoutingTraffic_endpointGroupArn = Lens.lens (\DenyCustomRoutingTraffic' {endpointGroupArn} -> endpointGroupArn) (\s@DenyCustomRoutingTraffic' {} a -> s {endpointGroupArn = a} :: DenyCustomRoutingTraffic)
@@ -193,17 +193,17 @@ instance Core.AWSRequest DenyCustomRoutingTraffic where
 
 instance Prelude.Hashable DenyCustomRoutingTraffic where
   hashWithSalt _salt DenyCustomRoutingTraffic' {..} =
-    _salt `Prelude.hashWithSalt` destinationAddresses
-      `Prelude.hashWithSalt` destinationPorts
+    _salt `Prelude.hashWithSalt` destinationPorts
       `Prelude.hashWithSalt` denyAllTrafficToEndpoint
+      `Prelude.hashWithSalt` destinationAddresses
       `Prelude.hashWithSalt` endpointGroupArn
       `Prelude.hashWithSalt` endpointId
 
 instance Prelude.NFData DenyCustomRoutingTraffic where
   rnf DenyCustomRoutingTraffic' {..} =
-    Prelude.rnf destinationAddresses
-      `Prelude.seq` Prelude.rnf destinationPorts
+    Prelude.rnf destinationPorts
       `Prelude.seq` Prelude.rnf denyAllTrafficToEndpoint
+      `Prelude.seq` Prelude.rnf destinationAddresses
       `Prelude.seq` Prelude.rnf endpointGroupArn
       `Prelude.seq` Prelude.rnf endpointId
 
@@ -226,12 +226,12 @@ instance Core.ToJSON DenyCustomRoutingTraffic where
   toJSON DenyCustomRoutingTraffic' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DestinationAddresses" Core..=)
-              Prelude.<$> destinationAddresses,
-            ("DestinationPorts" Core..=)
+          [ ("DestinationPorts" Core..=)
               Prelude.<$> destinationPorts,
             ("DenyAllTrafficToEndpoint" Core..=)
               Prelude.<$> denyAllTrafficToEndpoint,
+            ("DestinationAddresses" Core..=)
+              Prelude.<$> destinationAddresses,
             Prelude.Just
               ("EndpointGroupArn" Core..= endpointGroupArn),
             Prelude.Just ("EndpointId" Core..= endpointId)

@@ -29,7 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEndpointDescription' smart constructor.
 data EndpointDescription = EndpointDescription'
-  { -- | Returns a null result.
+  { -- | An ID for the endpoint. If the endpoint is a Network Load Balancer or
+    -- Application Load Balancer, this is the Amazon Resource Name (ARN) of the
+    -- resource. If the endpoint is an Elastic IP address, this is the Elastic
+    -- IP address allocation ID. For Amazon EC2 instances, this is the EC2
+    -- instance ID.
+    --
+    -- An Application Load Balancer can be either internal or internet-facing.
+    endpointId :: Prelude.Maybe Prelude.Text,
+    -- | Returns a null result.
     healthReason :: Prelude.Maybe Prelude.Text,
     -- | The weight associated with the endpoint. When you add weights to
     -- endpoints, you configure AWS Global Accelerator to route traffic based
@@ -54,15 +62,7 @@ data EndpointDescription = EndpointDescription'
     -- in the /AWS Global Accelerator Developer Guide/.
     clientIPPreservationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The health status of the endpoint.
-    healthState :: Prelude.Maybe HealthState,
-    -- | An ID for the endpoint. If the endpoint is a Network Load Balancer or
-    -- Application Load Balancer, this is the Amazon Resource Name (ARN) of the
-    -- resource. If the endpoint is an Elastic IP address, this is the Elastic
-    -- IP address allocation ID. For Amazon EC2 instances, this is the EC2
-    -- instance ID.
-    --
-    -- An Application Load Balancer can be either internal or internet-facing.
-    endpointId :: Prelude.Maybe Prelude.Text
+    healthState :: Prelude.Maybe HealthState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,6 +73,14 @@ data EndpointDescription = EndpointDescription'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'endpointId', 'endpointDescription_endpointId' - An ID for the endpoint. If the endpoint is a Network Load Balancer or
+-- Application Load Balancer, this is the Amazon Resource Name (ARN) of the
+-- resource. If the endpoint is an Elastic IP address, this is the Elastic
+-- IP address allocation ID. For Amazon EC2 instances, this is the EC2
+-- instance ID.
+--
+-- An Application Load Balancer can be either internal or internet-facing.
 --
 -- 'healthReason', 'endpointDescription_healthReason' - Returns a null result.
 --
@@ -99,25 +107,26 @@ data EndpointDescription = EndpointDescription'
 -- in the /AWS Global Accelerator Developer Guide/.
 --
 -- 'healthState', 'endpointDescription_healthState' - The health status of the endpoint.
---
--- 'endpointId', 'endpointDescription_endpointId' - An ID for the endpoint. If the endpoint is a Network Load Balancer or
+newEndpointDescription ::
+  EndpointDescription
+newEndpointDescription =
+  EndpointDescription'
+    { endpointId = Prelude.Nothing,
+      healthReason = Prelude.Nothing,
+      weight = Prelude.Nothing,
+      clientIPPreservationEnabled = Prelude.Nothing,
+      healthState = Prelude.Nothing
+    }
+
+-- | An ID for the endpoint. If the endpoint is a Network Load Balancer or
 -- Application Load Balancer, this is the Amazon Resource Name (ARN) of the
 -- resource. If the endpoint is an Elastic IP address, this is the Elastic
 -- IP address allocation ID. For Amazon EC2 instances, this is the EC2
 -- instance ID.
 --
 -- An Application Load Balancer can be either internal or internet-facing.
-newEndpointDescription ::
-  EndpointDescription
-newEndpointDescription =
-  EndpointDescription'
-    { healthReason =
-        Prelude.Nothing,
-      weight = Prelude.Nothing,
-      clientIPPreservationEnabled = Prelude.Nothing,
-      healthState = Prelude.Nothing,
-      endpointId = Prelude.Nothing
-    }
+endpointDescription_endpointId :: Lens.Lens' EndpointDescription (Prelude.Maybe Prelude.Text)
+endpointDescription_endpointId = Lens.lens (\EndpointDescription' {endpointId} -> endpointId) (\s@EndpointDescription' {} a -> s {endpointId = a} :: EndpointDescription)
 
 -- | Returns a null result.
 endpointDescription_healthReason :: Lens.Lens' EndpointDescription (Prelude.Maybe Prelude.Text)
@@ -153,41 +162,31 @@ endpointDescription_clientIPPreservationEnabled = Lens.lens (\EndpointDescriptio
 endpointDescription_healthState :: Lens.Lens' EndpointDescription (Prelude.Maybe HealthState)
 endpointDescription_healthState = Lens.lens (\EndpointDescription' {healthState} -> healthState) (\s@EndpointDescription' {} a -> s {healthState = a} :: EndpointDescription)
 
--- | An ID for the endpoint. If the endpoint is a Network Load Balancer or
--- Application Load Balancer, this is the Amazon Resource Name (ARN) of the
--- resource. If the endpoint is an Elastic IP address, this is the Elastic
--- IP address allocation ID. For Amazon EC2 instances, this is the EC2
--- instance ID.
---
--- An Application Load Balancer can be either internal or internet-facing.
-endpointDescription_endpointId :: Lens.Lens' EndpointDescription (Prelude.Maybe Prelude.Text)
-endpointDescription_endpointId = Lens.lens (\EndpointDescription' {endpointId} -> endpointId) (\s@EndpointDescription' {} a -> s {endpointId = a} :: EndpointDescription)
-
 instance Core.FromJSON EndpointDescription where
   parseJSON =
     Core.withObject
       "EndpointDescription"
       ( \x ->
           EndpointDescription'
-            Prelude.<$> (x Core..:? "HealthReason")
+            Prelude.<$> (x Core..:? "EndpointId")
+            Prelude.<*> (x Core..:? "HealthReason")
             Prelude.<*> (x Core..:? "Weight")
             Prelude.<*> (x Core..:? "ClientIPPreservationEnabled")
             Prelude.<*> (x Core..:? "HealthState")
-            Prelude.<*> (x Core..:? "EndpointId")
       )
 
 instance Prelude.Hashable EndpointDescription where
   hashWithSalt _salt EndpointDescription' {..} =
-    _salt `Prelude.hashWithSalt` healthReason
+    _salt `Prelude.hashWithSalt` endpointId
+      `Prelude.hashWithSalt` healthReason
       `Prelude.hashWithSalt` weight
       `Prelude.hashWithSalt` clientIPPreservationEnabled
       `Prelude.hashWithSalt` healthState
-      `Prelude.hashWithSalt` endpointId
 
 instance Prelude.NFData EndpointDescription where
   rnf EndpointDescription' {..} =
-    Prelude.rnf healthReason
+    Prelude.rnf endpointId
+      `Prelude.seq` Prelude.rnf healthReason
       `Prelude.seq` Prelude.rnf weight
       `Prelude.seq` Prelude.rnf clientIPPreservationEnabled
       `Prelude.seq` Prelude.rnf healthState
-      `Prelude.seq` Prelude.rnf endpointId

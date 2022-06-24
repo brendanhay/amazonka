@@ -27,9 +27,9 @@ module Amazonka.GlobalAccelerator.UpdateCustomRoutingAcceleratorAttributes
     newUpdateCustomRoutingAcceleratorAttributes,
 
     -- * Request Lenses
-    updateCustomRoutingAcceleratorAttributes_flowLogsS3Prefix,
     updateCustomRoutingAcceleratorAttributes_flowLogsEnabled,
     updateCustomRoutingAcceleratorAttributes_flowLogsS3Bucket,
+    updateCustomRoutingAcceleratorAttributes_flowLogsS3Prefix,
     updateCustomRoutingAcceleratorAttributes_acceleratorArn,
 
     -- * Destructuring the Response
@@ -51,17 +51,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateCustomRoutingAcceleratorAttributes' smart constructor.
 data UpdateCustomRoutingAcceleratorAttributes = UpdateCustomRoutingAcceleratorAttributes'
-  { -- | Update the prefix for the location in the Amazon S3 bucket for the flow
-    -- logs. Attribute is required if @FlowLogsEnabled@ is @true@.
-    --
-    -- If you don’t specify a prefix, the flow logs are stored in the root of
-    -- the bucket. If you specify slash (\/) for the S3 bucket prefix, the log
-    -- file bucket folder structure will include a double slash (\/\/), like
-    -- the following:
-    --
-    -- DOC-EXAMPLE-BUCKET\/\/AWSLogs\/aws_account_id
-    flowLogsS3Prefix :: Prelude.Maybe Prelude.Text,
-    -- | Update whether flow logs are enabled. The default value is false. If the
+  { -- | Update whether flow logs are enabled. The default value is false. If the
     -- value is true, @FlowLogsS3Bucket@ and @FlowLogsS3Prefix@ must be
     -- specified.
     --
@@ -74,6 +64,16 @@ data UpdateCustomRoutingAcceleratorAttributes = UpdateCustomRoutingAcceleratorAt
     -- a bucket policy that grants AWS Global Accelerator permission to write
     -- to the bucket.
     flowLogsS3Bucket :: Prelude.Maybe Prelude.Text,
+    -- | Update the prefix for the location in the Amazon S3 bucket for the flow
+    -- logs. Attribute is required if @FlowLogsEnabled@ is @true@.
+    --
+    -- If you don’t specify a prefix, the flow logs are stored in the root of
+    -- the bucket. If you specify slash (\/) for the S3 bucket prefix, the log
+    -- file bucket folder structure will include a double slash (\/\/), like
+    -- the following:
+    --
+    -- DOC-EXAMPLE-BUCKET\/\/AWSLogs\/aws_account_id
+    flowLogsS3Prefix :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the custom routing accelerator to
     -- update attributes for.
     acceleratorArn :: Prelude.Text
@@ -88,16 +88,6 @@ data UpdateCustomRoutingAcceleratorAttributes = UpdateCustomRoutingAcceleratorAt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'flowLogsS3Prefix', 'updateCustomRoutingAcceleratorAttributes_flowLogsS3Prefix' - Update the prefix for the location in the Amazon S3 bucket for the flow
--- logs. Attribute is required if @FlowLogsEnabled@ is @true@.
---
--- If you don’t specify a prefix, the flow logs are stored in the root of
--- the bucket. If you specify slash (\/) for the S3 bucket prefix, the log
--- file bucket folder structure will include a double slash (\/\/), like
--- the following:
---
--- DOC-EXAMPLE-BUCKET\/\/AWSLogs\/aws_account_id
---
 -- 'flowLogsEnabled', 'updateCustomRoutingAcceleratorAttributes_flowLogsEnabled' - Update whether flow logs are enabled. The default value is false. If the
 -- value is true, @FlowLogsS3Bucket@ and @FlowLogsS3Prefix@ must be
 -- specified.
@@ -111,6 +101,16 @@ data UpdateCustomRoutingAcceleratorAttributes = UpdateCustomRoutingAcceleratorAt
 -- a bucket policy that grants AWS Global Accelerator permission to write
 -- to the bucket.
 --
+-- 'flowLogsS3Prefix', 'updateCustomRoutingAcceleratorAttributes_flowLogsS3Prefix' - Update the prefix for the location in the Amazon S3 bucket for the flow
+-- logs. Attribute is required if @FlowLogsEnabled@ is @true@.
+--
+-- If you don’t specify a prefix, the flow logs are stored in the root of
+-- the bucket. If you specify slash (\/) for the S3 bucket prefix, the log
+-- file bucket folder structure will include a double slash (\/\/), like
+-- the following:
+--
+-- DOC-EXAMPLE-BUCKET\/\/AWSLogs\/aws_account_id
+--
 -- 'acceleratorArn', 'updateCustomRoutingAcceleratorAttributes_acceleratorArn' - The Amazon Resource Name (ARN) of the custom routing accelerator to
 -- update attributes for.
 newUpdateCustomRoutingAcceleratorAttributes ::
@@ -120,25 +120,14 @@ newUpdateCustomRoutingAcceleratorAttributes ::
 newUpdateCustomRoutingAcceleratorAttributes
   pAcceleratorArn_ =
     UpdateCustomRoutingAcceleratorAttributes'
-      { flowLogsS3Prefix =
+      { flowLogsEnabled =
           Prelude.Nothing,
-        flowLogsEnabled = Prelude.Nothing,
         flowLogsS3Bucket =
+          Prelude.Nothing,
+        flowLogsS3Prefix =
           Prelude.Nothing,
         acceleratorArn = pAcceleratorArn_
       }
-
--- | Update the prefix for the location in the Amazon S3 bucket for the flow
--- logs. Attribute is required if @FlowLogsEnabled@ is @true@.
---
--- If you don’t specify a prefix, the flow logs are stored in the root of
--- the bucket. If you specify slash (\/) for the S3 bucket prefix, the log
--- file bucket folder structure will include a double slash (\/\/), like
--- the following:
---
--- DOC-EXAMPLE-BUCKET\/\/AWSLogs\/aws_account_id
-updateCustomRoutingAcceleratorAttributes_flowLogsS3Prefix :: Lens.Lens' UpdateCustomRoutingAcceleratorAttributes (Prelude.Maybe Prelude.Text)
-updateCustomRoutingAcceleratorAttributes_flowLogsS3Prefix = Lens.lens (\UpdateCustomRoutingAcceleratorAttributes' {flowLogsS3Prefix} -> flowLogsS3Prefix) (\s@UpdateCustomRoutingAcceleratorAttributes' {} a -> s {flowLogsS3Prefix = a} :: UpdateCustomRoutingAcceleratorAttributes)
 
 -- | Update whether flow logs are enabled. The default value is false. If the
 -- value is true, @FlowLogsS3Bucket@ and @FlowLogsS3Prefix@ must be
@@ -156,6 +145,18 @@ updateCustomRoutingAcceleratorAttributes_flowLogsEnabled = Lens.lens (\UpdateCus
 -- to the bucket.
 updateCustomRoutingAcceleratorAttributes_flowLogsS3Bucket :: Lens.Lens' UpdateCustomRoutingAcceleratorAttributes (Prelude.Maybe Prelude.Text)
 updateCustomRoutingAcceleratorAttributes_flowLogsS3Bucket = Lens.lens (\UpdateCustomRoutingAcceleratorAttributes' {flowLogsS3Bucket} -> flowLogsS3Bucket) (\s@UpdateCustomRoutingAcceleratorAttributes' {} a -> s {flowLogsS3Bucket = a} :: UpdateCustomRoutingAcceleratorAttributes)
+
+-- | Update the prefix for the location in the Amazon S3 bucket for the flow
+-- logs. Attribute is required if @FlowLogsEnabled@ is @true@.
+--
+-- If you don’t specify a prefix, the flow logs are stored in the root of
+-- the bucket. If you specify slash (\/) for the S3 bucket prefix, the log
+-- file bucket folder structure will include a double slash (\/\/), like
+-- the following:
+--
+-- DOC-EXAMPLE-BUCKET\/\/AWSLogs\/aws_account_id
+updateCustomRoutingAcceleratorAttributes_flowLogsS3Prefix :: Lens.Lens' UpdateCustomRoutingAcceleratorAttributes (Prelude.Maybe Prelude.Text)
+updateCustomRoutingAcceleratorAttributes_flowLogsS3Prefix = Lens.lens (\UpdateCustomRoutingAcceleratorAttributes' {flowLogsS3Prefix} -> flowLogsS3Prefix) (\s@UpdateCustomRoutingAcceleratorAttributes' {} a -> s {flowLogsS3Prefix = a} :: UpdateCustomRoutingAcceleratorAttributes)
 
 -- | The Amazon Resource Name (ARN) of the custom routing accelerator to
 -- update attributes for.
@@ -186,9 +187,9 @@ instance
   hashWithSalt
     _salt
     UpdateCustomRoutingAcceleratorAttributes' {..} =
-      _salt `Prelude.hashWithSalt` flowLogsS3Prefix
-        `Prelude.hashWithSalt` flowLogsEnabled
+      _salt `Prelude.hashWithSalt` flowLogsEnabled
         `Prelude.hashWithSalt` flowLogsS3Bucket
+        `Prelude.hashWithSalt` flowLogsS3Prefix
         `Prelude.hashWithSalt` acceleratorArn
 
 instance
@@ -196,9 +197,9 @@ instance
     UpdateCustomRoutingAcceleratorAttributes
   where
   rnf UpdateCustomRoutingAcceleratorAttributes' {..} =
-    Prelude.rnf flowLogsS3Prefix
-      `Prelude.seq` Prelude.rnf flowLogsEnabled
+    Prelude.rnf flowLogsEnabled
       `Prelude.seq` Prelude.rnf flowLogsS3Bucket
+      `Prelude.seq` Prelude.rnf flowLogsS3Prefix
       `Prelude.seq` Prelude.rnf acceleratorArn
 
 instance
@@ -226,12 +227,12 @@ instance
   toJSON UpdateCustomRoutingAcceleratorAttributes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FlowLogsS3Prefix" Core..=)
-              Prelude.<$> flowLogsS3Prefix,
-            ("FlowLogsEnabled" Core..=)
+          [ ("FlowLogsEnabled" Core..=)
               Prelude.<$> flowLogsEnabled,
             ("FlowLogsS3Bucket" Core..=)
               Prelude.<$> flowLogsS3Bucket,
+            ("FlowLogsS3Prefix" Core..=)
+              Prelude.<$> flowLogsS3Prefix,
             Prelude.Just
               ("AcceleratorArn" Core..= acceleratorArn)
           ]

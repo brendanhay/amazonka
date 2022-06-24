@@ -30,13 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListener' smart constructor.
 data Listener = Listener'
-  { -- | The list of port ranges for the connections from clients to the
-    -- accelerator.
-    portRanges :: Prelude.Maybe (Prelude.NonEmpty PortRange),
-    -- | The Amazon Resource Name (ARN) of the listener.
+  { -- | The Amazon Resource Name (ARN) of the listener.
     listenerArn :: Prelude.Maybe Prelude.Text,
-    -- | The protocol for the connections from clients to the accelerator.
-    protocol :: Prelude.Maybe Protocol,
     -- | Client affinity lets you direct all requests from a user to the same
     -- endpoint, if you have stateful applications, regardless of the port and
     -- protocol of the client request. Client affinity gives you control over
@@ -59,7 +54,12 @@ data Listener = Listener'
     -- value.
     --
     -- The default value is @NONE@.
-    clientAffinity :: Prelude.Maybe ClientAffinity
+    clientAffinity :: Prelude.Maybe ClientAffinity,
+    -- | The protocol for the connections from clients to the accelerator.
+    protocol :: Prelude.Maybe Protocol,
+    -- | The list of port ranges for the connections from clients to the
+    -- accelerator.
+    portRanges :: Prelude.Maybe (Prelude.NonEmpty PortRange)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,12 +71,7 @@ data Listener = Listener'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'portRanges', 'listener_portRanges' - The list of port ranges for the connections from clients to the
--- accelerator.
---
 -- 'listenerArn', 'listener_listenerArn' - The Amazon Resource Name (ARN) of the listener.
---
--- 'protocol', 'listener_protocol' - The protocol for the connections from clients to the accelerator.
 --
 -- 'clientAffinity', 'listener_clientAffinity' - Client affinity lets you direct all requests from a user to the same
 -- endpoint, if you have stateful applications, regardless of the port and
@@ -100,28 +95,24 @@ data Listener = Listener'
 -- value.
 --
 -- The default value is @NONE@.
+--
+-- 'protocol', 'listener_protocol' - The protocol for the connections from clients to the accelerator.
+--
+-- 'portRanges', 'listener_portRanges' - The list of port ranges for the connections from clients to the
+-- accelerator.
 newListener ::
   Listener
 newListener =
   Listener'
-    { portRanges = Prelude.Nothing,
-      listenerArn = Prelude.Nothing,
+    { listenerArn = Prelude.Nothing,
+      clientAffinity = Prelude.Nothing,
       protocol = Prelude.Nothing,
-      clientAffinity = Prelude.Nothing
+      portRanges = Prelude.Nothing
     }
-
--- | The list of port ranges for the connections from clients to the
--- accelerator.
-listener_portRanges :: Lens.Lens' Listener (Prelude.Maybe (Prelude.NonEmpty PortRange))
-listener_portRanges = Lens.lens (\Listener' {portRanges} -> portRanges) (\s@Listener' {} a -> s {portRanges = a} :: Listener) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the listener.
 listener_listenerArn :: Lens.Lens' Listener (Prelude.Maybe Prelude.Text)
 listener_listenerArn = Lens.lens (\Listener' {listenerArn} -> listenerArn) (\s@Listener' {} a -> s {listenerArn = a} :: Listener)
-
--- | The protocol for the connections from clients to the accelerator.
-listener_protocol :: Lens.Lens' Listener (Prelude.Maybe Protocol)
-listener_protocol = Lens.lens (\Listener' {protocol} -> protocol) (\s@Listener' {} a -> s {protocol = a} :: Listener)
 
 -- | Client affinity lets you direct all requests from a user to the same
 -- endpoint, if you have stateful applications, regardless of the port and
@@ -148,28 +139,37 @@ listener_protocol = Lens.lens (\Listener' {protocol} -> protocol) (\s@Listener' 
 listener_clientAffinity :: Lens.Lens' Listener (Prelude.Maybe ClientAffinity)
 listener_clientAffinity = Lens.lens (\Listener' {clientAffinity} -> clientAffinity) (\s@Listener' {} a -> s {clientAffinity = a} :: Listener)
 
+-- | The protocol for the connections from clients to the accelerator.
+listener_protocol :: Lens.Lens' Listener (Prelude.Maybe Protocol)
+listener_protocol = Lens.lens (\Listener' {protocol} -> protocol) (\s@Listener' {} a -> s {protocol = a} :: Listener)
+
+-- | The list of port ranges for the connections from clients to the
+-- accelerator.
+listener_portRanges :: Lens.Lens' Listener (Prelude.Maybe (Prelude.NonEmpty PortRange))
+listener_portRanges = Lens.lens (\Listener' {portRanges} -> portRanges) (\s@Listener' {} a -> s {portRanges = a} :: Listener) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON Listener where
   parseJSON =
     Core.withObject
       "Listener"
       ( \x ->
           Listener'
-            Prelude.<$> (x Core..:? "PortRanges")
-            Prelude.<*> (x Core..:? "ListenerArn")
-            Prelude.<*> (x Core..:? "Protocol")
+            Prelude.<$> (x Core..:? "ListenerArn")
             Prelude.<*> (x Core..:? "ClientAffinity")
+            Prelude.<*> (x Core..:? "Protocol")
+            Prelude.<*> (x Core..:? "PortRanges")
       )
 
 instance Prelude.Hashable Listener where
   hashWithSalt _salt Listener' {..} =
-    _salt `Prelude.hashWithSalt` portRanges
-      `Prelude.hashWithSalt` listenerArn
-      `Prelude.hashWithSalt` protocol
+    _salt `Prelude.hashWithSalt` listenerArn
       `Prelude.hashWithSalt` clientAffinity
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` portRanges
 
 instance Prelude.NFData Listener where
   rnf Listener' {..} =
-    Prelude.rnf portRanges
-      `Prelude.seq` Prelude.rnf listenerArn
-      `Prelude.seq` Prelude.rnf protocol
+    Prelude.rnf listenerArn
       `Prelude.seq` Prelude.rnf clientAffinity
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf portRanges

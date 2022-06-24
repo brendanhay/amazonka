@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomRoutingDestinationDescription' smart constructor.
 data CustomRoutingDestinationDescription = CustomRoutingDestinationDescription'
-  { -- | The first port, inclusive, in the range of ports for the endpoint group
+  { -- | The last port, inclusive, in the range of ports for the endpoint group
     -- that is associated with a custom routing accelerator.
-    fromPort :: Prelude.Maybe Prelude.Natural,
+    toPort :: Prelude.Maybe Prelude.Natural,
     -- | The protocol for the endpoint group that is associated with a custom
     -- routing accelerator. The protocol can be either TCP or UDP.
     protocols :: Prelude.Maybe [Protocol],
-    -- | The last port, inclusive, in the range of ports for the endpoint group
+    -- | The first port, inclusive, in the range of ports for the endpoint group
     -- that is associated with a custom routing accelerator.
-    toPort :: Prelude.Maybe Prelude.Natural
+    fromPort :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,38 +50,38 @@ data CustomRoutingDestinationDescription = CustomRoutingDestinationDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fromPort', 'customRoutingDestinationDescription_fromPort' - The first port, inclusive, in the range of ports for the endpoint group
+-- 'toPort', 'customRoutingDestinationDescription_toPort' - The last port, inclusive, in the range of ports for the endpoint group
 -- that is associated with a custom routing accelerator.
 --
 -- 'protocols', 'customRoutingDestinationDescription_protocols' - The protocol for the endpoint group that is associated with a custom
 -- routing accelerator. The protocol can be either TCP or UDP.
 --
--- 'toPort', 'customRoutingDestinationDescription_toPort' - The last port, inclusive, in the range of ports for the endpoint group
+-- 'fromPort', 'customRoutingDestinationDescription_fromPort' - The first port, inclusive, in the range of ports for the endpoint group
 -- that is associated with a custom routing accelerator.
 newCustomRoutingDestinationDescription ::
   CustomRoutingDestinationDescription
 newCustomRoutingDestinationDescription =
   CustomRoutingDestinationDescription'
-    { fromPort =
+    { toPort =
         Prelude.Nothing,
       protocols = Prelude.Nothing,
-      toPort = Prelude.Nothing
+      fromPort = Prelude.Nothing
     }
 
--- | The first port, inclusive, in the range of ports for the endpoint group
+-- | The last port, inclusive, in the range of ports for the endpoint group
 -- that is associated with a custom routing accelerator.
-customRoutingDestinationDescription_fromPort :: Lens.Lens' CustomRoutingDestinationDescription (Prelude.Maybe Prelude.Natural)
-customRoutingDestinationDescription_fromPort = Lens.lens (\CustomRoutingDestinationDescription' {fromPort} -> fromPort) (\s@CustomRoutingDestinationDescription' {} a -> s {fromPort = a} :: CustomRoutingDestinationDescription)
+customRoutingDestinationDescription_toPort :: Lens.Lens' CustomRoutingDestinationDescription (Prelude.Maybe Prelude.Natural)
+customRoutingDestinationDescription_toPort = Lens.lens (\CustomRoutingDestinationDescription' {toPort} -> toPort) (\s@CustomRoutingDestinationDescription' {} a -> s {toPort = a} :: CustomRoutingDestinationDescription)
 
 -- | The protocol for the endpoint group that is associated with a custom
 -- routing accelerator. The protocol can be either TCP or UDP.
 customRoutingDestinationDescription_protocols :: Lens.Lens' CustomRoutingDestinationDescription (Prelude.Maybe [Protocol])
 customRoutingDestinationDescription_protocols = Lens.lens (\CustomRoutingDestinationDescription' {protocols} -> protocols) (\s@CustomRoutingDestinationDescription' {} a -> s {protocols = a} :: CustomRoutingDestinationDescription) Prelude.. Lens.mapping Lens.coerced
 
--- | The last port, inclusive, in the range of ports for the endpoint group
+-- | The first port, inclusive, in the range of ports for the endpoint group
 -- that is associated with a custom routing accelerator.
-customRoutingDestinationDescription_toPort :: Lens.Lens' CustomRoutingDestinationDescription (Prelude.Maybe Prelude.Natural)
-customRoutingDestinationDescription_toPort = Lens.lens (\CustomRoutingDestinationDescription' {toPort} -> toPort) (\s@CustomRoutingDestinationDescription' {} a -> s {toPort = a} :: CustomRoutingDestinationDescription)
+customRoutingDestinationDescription_fromPort :: Lens.Lens' CustomRoutingDestinationDescription (Prelude.Maybe Prelude.Natural)
+customRoutingDestinationDescription_fromPort = Lens.lens (\CustomRoutingDestinationDescription' {fromPort} -> fromPort) (\s@CustomRoutingDestinationDescription' {} a -> s {fromPort = a} :: CustomRoutingDestinationDescription)
 
 instance
   Core.FromJSON
@@ -92,9 +92,9 @@ instance
       "CustomRoutingDestinationDescription"
       ( \x ->
           CustomRoutingDestinationDescription'
-            Prelude.<$> (x Core..:? "FromPort")
+            Prelude.<$> (x Core..:? "ToPort")
             Prelude.<*> (x Core..:? "Protocols" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ToPort")
+            Prelude.<*> (x Core..:? "FromPort")
       )
 
 instance
@@ -104,15 +104,15 @@ instance
   hashWithSalt
     _salt
     CustomRoutingDestinationDescription' {..} =
-      _salt `Prelude.hashWithSalt` fromPort
+      _salt `Prelude.hashWithSalt` toPort
         `Prelude.hashWithSalt` protocols
-        `Prelude.hashWithSalt` toPort
+        `Prelude.hashWithSalt` fromPort
 
 instance
   Prelude.NFData
     CustomRoutingDestinationDescription
   where
   rnf CustomRoutingDestinationDescription' {..} =
-    Prelude.rnf fromPort
+    Prelude.rnf toPort
       `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf fromPort

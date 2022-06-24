@@ -31,9 +31,9 @@ module Amazonka.GlobalAccelerator.UpdateAccelerator
     newUpdateAccelerator,
 
     -- * Request Lenses
+    updateAccelerator_name,
     updateAccelerator_enabled,
     updateAccelerator_ipAddressType,
-    updateAccelerator_name,
     updateAccelerator_acceleratorArn,
 
     -- * Destructuring the Response
@@ -55,7 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAccelerator' smart constructor.
 data UpdateAccelerator = UpdateAccelerator'
-  { -- | Indicates whether an accelerator is enabled. The value is true or false.
+  { -- | The name of the accelerator. The name can have a maximum of 32
+    -- characters, must contain only alphanumeric characters or hyphens (-),
+    -- and must not begin or end with a hyphen.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether an accelerator is enabled. The value is true or false.
     -- The default value is true.
     --
     -- If the value is set to true, the accelerator cannot be deleted. If set
@@ -63,10 +67,6 @@ data UpdateAccelerator = UpdateAccelerator'
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The IP address type, which must be IPv4.
     ipAddressType :: Prelude.Maybe IpAddressType,
-    -- | The name of the accelerator. The name can have a maximum of 32
-    -- characters, must contain only alphanumeric characters or hyphens (-),
-    -- and must not begin or end with a hyphen.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the accelerator to update.
     acceleratorArn :: Prelude.Text
   }
@@ -80,6 +80,10 @@ data UpdateAccelerator = UpdateAccelerator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'updateAccelerator_name' - The name of the accelerator. The name can have a maximum of 32
+-- characters, must contain only alphanumeric characters or hyphens (-),
+-- and must not begin or end with a hyphen.
+--
 -- 'enabled', 'updateAccelerator_enabled' - Indicates whether an accelerator is enabled. The value is true or false.
 -- The default value is true.
 --
@@ -88,10 +92,6 @@ data UpdateAccelerator = UpdateAccelerator'
 --
 -- 'ipAddressType', 'updateAccelerator_ipAddressType' - The IP address type, which must be IPv4.
 --
--- 'name', 'updateAccelerator_name' - The name of the accelerator. The name can have a maximum of 32
--- characters, must contain only alphanumeric characters or hyphens (-),
--- and must not begin or end with a hyphen.
---
 -- 'acceleratorArn', 'updateAccelerator_acceleratorArn' - The Amazon Resource Name (ARN) of the accelerator to update.
 newUpdateAccelerator ::
   -- | 'acceleratorArn'
@@ -99,11 +99,17 @@ newUpdateAccelerator ::
   UpdateAccelerator
 newUpdateAccelerator pAcceleratorArn_ =
   UpdateAccelerator'
-    { enabled = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      enabled = Prelude.Nothing,
       ipAddressType = Prelude.Nothing,
-      name = Prelude.Nothing,
       acceleratorArn = pAcceleratorArn_
     }
+
+-- | The name of the accelerator. The name can have a maximum of 32
+-- characters, must contain only alphanumeric characters or hyphens (-),
+-- and must not begin or end with a hyphen.
+updateAccelerator_name :: Lens.Lens' UpdateAccelerator (Prelude.Maybe Prelude.Text)
+updateAccelerator_name = Lens.lens (\UpdateAccelerator' {name} -> name) (\s@UpdateAccelerator' {} a -> s {name = a} :: UpdateAccelerator)
 
 -- | Indicates whether an accelerator is enabled. The value is true or false.
 -- The default value is true.
@@ -116,12 +122,6 @@ updateAccelerator_enabled = Lens.lens (\UpdateAccelerator' {enabled} -> enabled)
 -- | The IP address type, which must be IPv4.
 updateAccelerator_ipAddressType :: Lens.Lens' UpdateAccelerator (Prelude.Maybe IpAddressType)
 updateAccelerator_ipAddressType = Lens.lens (\UpdateAccelerator' {ipAddressType} -> ipAddressType) (\s@UpdateAccelerator' {} a -> s {ipAddressType = a} :: UpdateAccelerator)
-
--- | The name of the accelerator. The name can have a maximum of 32
--- characters, must contain only alphanumeric characters or hyphens (-),
--- and must not begin or end with a hyphen.
-updateAccelerator_name :: Lens.Lens' UpdateAccelerator (Prelude.Maybe Prelude.Text)
-updateAccelerator_name = Lens.lens (\UpdateAccelerator' {name} -> name) (\s@UpdateAccelerator' {} a -> s {name = a} :: UpdateAccelerator)
 
 -- | The Amazon Resource Name (ARN) of the accelerator to update.
 updateAccelerator_acceleratorArn :: Lens.Lens' UpdateAccelerator Prelude.Text
@@ -142,16 +142,16 @@ instance Core.AWSRequest UpdateAccelerator where
 
 instance Prelude.Hashable UpdateAccelerator where
   hashWithSalt _salt UpdateAccelerator' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` ipAddressType
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` acceleratorArn
 
 instance Prelude.NFData UpdateAccelerator where
   rnf UpdateAccelerator' {..} =
-    Prelude.rnf enabled
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf ipAddressType
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf acceleratorArn
 
 instance Core.ToHeaders UpdateAccelerator where
@@ -173,9 +173,9 @@ instance Core.ToJSON UpdateAccelerator where
   toJSON UpdateAccelerator' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Enabled" Core..=) Prelude.<$> enabled,
             ("IpAddressType" Core..=) Prelude.<$> ipAddressType,
-            ("Name" Core..=) Prelude.<$> name,
             Prelude.Just
               ("AcceleratorArn" Core..= acceleratorArn)
           ]

@@ -29,14 +29,14 @@ module Amazonka.GlobalAccelerator.CreateEndpointGroup
     newCreateEndpointGroup,
 
     -- * Request Lenses
-    createEndpointGroup_thresholdCount,
+    createEndpointGroup_healthCheckProtocol,
+    createEndpointGroup_portOverrides,
     createEndpointGroup_healthCheckPath,
     createEndpointGroup_healthCheckIntervalSeconds,
-    createEndpointGroup_healthCheckProtocol,
-    createEndpointGroup_trafficDialPercentage,
     createEndpointGroup_endpointConfigurations,
+    createEndpointGroup_trafficDialPercentage,
+    createEndpointGroup_thresholdCount,
     createEndpointGroup_healthCheckPort,
-    createEndpointGroup_portOverrides,
     createEndpointGroup_listenerArn,
     createEndpointGroup_endpointGroupRegion,
     createEndpointGroup_idempotencyToken,
@@ -60,37 +60,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEndpointGroup' smart constructor.
 data CreateEndpointGroup = CreateEndpointGroup'
-  { -- | The number of consecutive health checks required to set the state of a
-    -- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
-    -- healthy. The default value is 3.
-    thresholdCount :: Prelude.Maybe Prelude.Natural,
-    -- | If the protocol is HTTP\/S, then this specifies the path that is the
-    -- destination for health check targets. The default value is slash (\/).
-    healthCheckPath :: Prelude.Maybe Prelude.Text,
-    -- | The time—10 seconds or 30 seconds—between each health check for an
-    -- endpoint. The default value is 30.
-    healthCheckIntervalSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The protocol that AWS Global Accelerator uses to check the health of
+  { -- | The protocol that AWS Global Accelerator uses to check the health of
     -- endpoints that are part of this endpoint group. The default value is
     -- TCP.
     healthCheckProtocol :: Prelude.Maybe HealthCheckProtocol,
-    -- | The percentage of traffic to send to an AWS Region. Additional traffic
-    -- is distributed to other endpoint groups for this listener.
-    --
-    -- Use this action to increase (dial up) or decrease (dial down) traffic to
-    -- a specific Region. The percentage is applied to the traffic that would
-    -- otherwise have been routed to the Region based on optimal routing.
-    --
-    -- The default value is 100.
-    trafficDialPercentage :: Prelude.Maybe Prelude.Double,
-    -- | The list of endpoint objects.
-    endpointConfigurations :: Prelude.Maybe [EndpointConfiguration],
-    -- | The port that AWS Global Accelerator uses to check the health of
-    -- endpoints that are part of this endpoint group. The default port is the
-    -- listener port that this endpoint group is associated with. If listener
-    -- port is a list of ports, Global Accelerator uses the first port in the
-    -- list.
-    healthCheckPort :: Prelude.Maybe Prelude.Natural,
     -- | Override specific listener ports used to route traffic to endpoints that
     -- are part of this endpoint group. For example, you can create a port
     -- override in which the listener receives user traffic on ports 80 and
@@ -101,6 +74,33 @@ data CreateEndpointGroup = CreateEndpointGroup'
     -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Port overrides>
     -- in the /AWS Global Accelerator Developer Guide/.
     portOverrides :: Prelude.Maybe [PortOverride],
+    -- | If the protocol is HTTP\/S, then this specifies the path that is the
+    -- destination for health check targets. The default value is slash (\/).
+    healthCheckPath :: Prelude.Maybe Prelude.Text,
+    -- | The time—10 seconds or 30 seconds—between each health check for an
+    -- endpoint. The default value is 30.
+    healthCheckIntervalSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The list of endpoint objects.
+    endpointConfigurations :: Prelude.Maybe [EndpointConfiguration],
+    -- | The percentage of traffic to send to an AWS Region. Additional traffic
+    -- is distributed to other endpoint groups for this listener.
+    --
+    -- Use this action to increase (dial up) or decrease (dial down) traffic to
+    -- a specific Region. The percentage is applied to the traffic that would
+    -- otherwise have been routed to the Region based on optimal routing.
+    --
+    -- The default value is 100.
+    trafficDialPercentage :: Prelude.Maybe Prelude.Double,
+    -- | The number of consecutive health checks required to set the state of a
+    -- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
+    -- healthy. The default value is 3.
+    thresholdCount :: Prelude.Maybe Prelude.Natural,
+    -- | The port that AWS Global Accelerator uses to check the health of
+    -- endpoints that are part of this endpoint group. The default port is the
+    -- listener port that this endpoint group is associated with. If listener
+    -- port is a list of ports, Global Accelerator uses the first port in the
+    -- list.
+    healthCheckPort :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the listener.
     listenerArn :: Prelude.Text,
     -- | The AWS Region where the endpoint group is located. A listener can have
@@ -120,36 +120,9 @@ data CreateEndpointGroup = CreateEndpointGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thresholdCount', 'createEndpointGroup_thresholdCount' - The number of consecutive health checks required to set the state of a
--- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
--- healthy. The default value is 3.
---
--- 'healthCheckPath', 'createEndpointGroup_healthCheckPath' - If the protocol is HTTP\/S, then this specifies the path that is the
--- destination for health check targets. The default value is slash (\/).
---
--- 'healthCheckIntervalSeconds', 'createEndpointGroup_healthCheckIntervalSeconds' - The time—10 seconds or 30 seconds—between each health check for an
--- endpoint. The default value is 30.
---
 -- 'healthCheckProtocol', 'createEndpointGroup_healthCheckProtocol' - The protocol that AWS Global Accelerator uses to check the health of
 -- endpoints that are part of this endpoint group. The default value is
 -- TCP.
---
--- 'trafficDialPercentage', 'createEndpointGroup_trafficDialPercentage' - The percentage of traffic to send to an AWS Region. Additional traffic
--- is distributed to other endpoint groups for this listener.
---
--- Use this action to increase (dial up) or decrease (dial down) traffic to
--- a specific Region. The percentage is applied to the traffic that would
--- otherwise have been routed to the Region based on optimal routing.
---
--- The default value is 100.
---
--- 'endpointConfigurations', 'createEndpointGroup_endpointConfigurations' - The list of endpoint objects.
---
--- 'healthCheckPort', 'createEndpointGroup_healthCheckPort' - The port that AWS Global Accelerator uses to check the health of
--- endpoints that are part of this endpoint group. The default port is the
--- listener port that this endpoint group is associated with. If listener
--- port is a list of ports, Global Accelerator uses the first port in the
--- list.
 --
 -- 'portOverrides', 'createEndpointGroup_portOverrides' - Override specific listener ports used to route traffic to endpoints that
 -- are part of this endpoint group. For example, you can create a port
@@ -160,6 +133,33 @@ data CreateEndpointGroup = CreateEndpointGroup'
 -- For more information, see
 -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Port overrides>
 -- in the /AWS Global Accelerator Developer Guide/.
+--
+-- 'healthCheckPath', 'createEndpointGroup_healthCheckPath' - If the protocol is HTTP\/S, then this specifies the path that is the
+-- destination for health check targets. The default value is slash (\/).
+--
+-- 'healthCheckIntervalSeconds', 'createEndpointGroup_healthCheckIntervalSeconds' - The time—10 seconds or 30 seconds—between each health check for an
+-- endpoint. The default value is 30.
+--
+-- 'endpointConfigurations', 'createEndpointGroup_endpointConfigurations' - The list of endpoint objects.
+--
+-- 'trafficDialPercentage', 'createEndpointGroup_trafficDialPercentage' - The percentage of traffic to send to an AWS Region. Additional traffic
+-- is distributed to other endpoint groups for this listener.
+--
+-- Use this action to increase (dial up) or decrease (dial down) traffic to
+-- a specific Region. The percentage is applied to the traffic that would
+-- otherwise have been routed to the Region based on optimal routing.
+--
+-- The default value is 100.
+--
+-- 'thresholdCount', 'createEndpointGroup_thresholdCount' - The number of consecutive health checks required to set the state of a
+-- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
+-- healthy. The default value is 3.
+--
+-- 'healthCheckPort', 'createEndpointGroup_healthCheckPort' - The port that AWS Global Accelerator uses to check the health of
+-- endpoints that are part of this endpoint group. The default port is the
+-- listener port that this endpoint group is associated with. If listener
+-- port is a list of ports, Global Accelerator uses the first port in the
+-- list.
 --
 -- 'listenerArn', 'createEndpointGroup_listenerArn' - The Amazon Resource Name (ARN) of the listener.
 --
@@ -181,64 +181,25 @@ newCreateEndpointGroup
   pEndpointGroupRegion_
   pIdempotencyToken_ =
     CreateEndpointGroup'
-      { thresholdCount =
+      { healthCheckProtocol =
           Prelude.Nothing,
+        portOverrides = Prelude.Nothing,
         healthCheckPath = Prelude.Nothing,
         healthCheckIntervalSeconds = Prelude.Nothing,
-        healthCheckProtocol = Prelude.Nothing,
-        trafficDialPercentage = Prelude.Nothing,
         endpointConfigurations = Prelude.Nothing,
+        trafficDialPercentage = Prelude.Nothing,
+        thresholdCount = Prelude.Nothing,
         healthCheckPort = Prelude.Nothing,
-        portOverrides = Prelude.Nothing,
         listenerArn = pListenerArn_,
         endpointGroupRegion = pEndpointGroupRegion_,
         idempotencyToken = pIdempotencyToken_
       }
-
--- | The number of consecutive health checks required to set the state of a
--- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
--- healthy. The default value is 3.
-createEndpointGroup_thresholdCount :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe Prelude.Natural)
-createEndpointGroup_thresholdCount = Lens.lens (\CreateEndpointGroup' {thresholdCount} -> thresholdCount) (\s@CreateEndpointGroup' {} a -> s {thresholdCount = a} :: CreateEndpointGroup)
-
--- | If the protocol is HTTP\/S, then this specifies the path that is the
--- destination for health check targets. The default value is slash (\/).
-createEndpointGroup_healthCheckPath :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe Prelude.Text)
-createEndpointGroup_healthCheckPath = Lens.lens (\CreateEndpointGroup' {healthCheckPath} -> healthCheckPath) (\s@CreateEndpointGroup' {} a -> s {healthCheckPath = a} :: CreateEndpointGroup)
-
--- | The time—10 seconds or 30 seconds—between each health check for an
--- endpoint. The default value is 30.
-createEndpointGroup_healthCheckIntervalSeconds :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe Prelude.Natural)
-createEndpointGroup_healthCheckIntervalSeconds = Lens.lens (\CreateEndpointGroup' {healthCheckIntervalSeconds} -> healthCheckIntervalSeconds) (\s@CreateEndpointGroup' {} a -> s {healthCheckIntervalSeconds = a} :: CreateEndpointGroup)
 
 -- | The protocol that AWS Global Accelerator uses to check the health of
 -- endpoints that are part of this endpoint group. The default value is
 -- TCP.
 createEndpointGroup_healthCheckProtocol :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe HealthCheckProtocol)
 createEndpointGroup_healthCheckProtocol = Lens.lens (\CreateEndpointGroup' {healthCheckProtocol} -> healthCheckProtocol) (\s@CreateEndpointGroup' {} a -> s {healthCheckProtocol = a} :: CreateEndpointGroup)
-
--- | The percentage of traffic to send to an AWS Region. Additional traffic
--- is distributed to other endpoint groups for this listener.
---
--- Use this action to increase (dial up) or decrease (dial down) traffic to
--- a specific Region. The percentage is applied to the traffic that would
--- otherwise have been routed to the Region based on optimal routing.
---
--- The default value is 100.
-createEndpointGroup_trafficDialPercentage :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe Prelude.Double)
-createEndpointGroup_trafficDialPercentage = Lens.lens (\CreateEndpointGroup' {trafficDialPercentage} -> trafficDialPercentage) (\s@CreateEndpointGroup' {} a -> s {trafficDialPercentage = a} :: CreateEndpointGroup)
-
--- | The list of endpoint objects.
-createEndpointGroup_endpointConfigurations :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe [EndpointConfiguration])
-createEndpointGroup_endpointConfigurations = Lens.lens (\CreateEndpointGroup' {endpointConfigurations} -> endpointConfigurations) (\s@CreateEndpointGroup' {} a -> s {endpointConfigurations = a} :: CreateEndpointGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The port that AWS Global Accelerator uses to check the health of
--- endpoints that are part of this endpoint group. The default port is the
--- listener port that this endpoint group is associated with. If listener
--- port is a list of ports, Global Accelerator uses the first port in the
--- list.
-createEndpointGroup_healthCheckPort :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe Prelude.Natural)
-createEndpointGroup_healthCheckPort = Lens.lens (\CreateEndpointGroup' {healthCheckPort} -> healthCheckPort) (\s@CreateEndpointGroup' {} a -> s {healthCheckPort = a} :: CreateEndpointGroup)
 
 -- | Override specific listener ports used to route traffic to endpoints that
 -- are part of this endpoint group. For example, you can create a port
@@ -251,6 +212,45 @@ createEndpointGroup_healthCheckPort = Lens.lens (\CreateEndpointGroup' {healthCh
 -- in the /AWS Global Accelerator Developer Guide/.
 createEndpointGroup_portOverrides :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe [PortOverride])
 createEndpointGroup_portOverrides = Lens.lens (\CreateEndpointGroup' {portOverrides} -> portOverrides) (\s@CreateEndpointGroup' {} a -> s {portOverrides = a} :: CreateEndpointGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | If the protocol is HTTP\/S, then this specifies the path that is the
+-- destination for health check targets. The default value is slash (\/).
+createEndpointGroup_healthCheckPath :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe Prelude.Text)
+createEndpointGroup_healthCheckPath = Lens.lens (\CreateEndpointGroup' {healthCheckPath} -> healthCheckPath) (\s@CreateEndpointGroup' {} a -> s {healthCheckPath = a} :: CreateEndpointGroup)
+
+-- | The time—10 seconds or 30 seconds—between each health check for an
+-- endpoint. The default value is 30.
+createEndpointGroup_healthCheckIntervalSeconds :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe Prelude.Natural)
+createEndpointGroup_healthCheckIntervalSeconds = Lens.lens (\CreateEndpointGroup' {healthCheckIntervalSeconds} -> healthCheckIntervalSeconds) (\s@CreateEndpointGroup' {} a -> s {healthCheckIntervalSeconds = a} :: CreateEndpointGroup)
+
+-- | The list of endpoint objects.
+createEndpointGroup_endpointConfigurations :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe [EndpointConfiguration])
+createEndpointGroup_endpointConfigurations = Lens.lens (\CreateEndpointGroup' {endpointConfigurations} -> endpointConfigurations) (\s@CreateEndpointGroup' {} a -> s {endpointConfigurations = a} :: CreateEndpointGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The percentage of traffic to send to an AWS Region. Additional traffic
+-- is distributed to other endpoint groups for this listener.
+--
+-- Use this action to increase (dial up) or decrease (dial down) traffic to
+-- a specific Region. The percentage is applied to the traffic that would
+-- otherwise have been routed to the Region based on optimal routing.
+--
+-- The default value is 100.
+createEndpointGroup_trafficDialPercentage :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe Prelude.Double)
+createEndpointGroup_trafficDialPercentage = Lens.lens (\CreateEndpointGroup' {trafficDialPercentage} -> trafficDialPercentage) (\s@CreateEndpointGroup' {} a -> s {trafficDialPercentage = a} :: CreateEndpointGroup)
+
+-- | The number of consecutive health checks required to set the state of a
+-- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
+-- healthy. The default value is 3.
+createEndpointGroup_thresholdCount :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe Prelude.Natural)
+createEndpointGroup_thresholdCount = Lens.lens (\CreateEndpointGroup' {thresholdCount} -> thresholdCount) (\s@CreateEndpointGroup' {} a -> s {thresholdCount = a} :: CreateEndpointGroup)
+
+-- | The port that AWS Global Accelerator uses to check the health of
+-- endpoints that are part of this endpoint group. The default port is the
+-- listener port that this endpoint group is associated with. If listener
+-- port is a list of ports, Global Accelerator uses the first port in the
+-- list.
+createEndpointGroup_healthCheckPort :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe Prelude.Natural)
+createEndpointGroup_healthCheckPort = Lens.lens (\CreateEndpointGroup' {healthCheckPort} -> healthCheckPort) (\s@CreateEndpointGroup' {} a -> s {healthCheckPort = a} :: CreateEndpointGroup)
 
 -- | The Amazon Resource Name (ARN) of the listener.
 createEndpointGroup_listenerArn :: Lens.Lens' CreateEndpointGroup Prelude.Text
@@ -281,28 +281,28 @@ instance Core.AWSRequest CreateEndpointGroup where
 
 instance Prelude.Hashable CreateEndpointGroup where
   hashWithSalt _salt CreateEndpointGroup' {..} =
-    _salt `Prelude.hashWithSalt` thresholdCount
+    _salt `Prelude.hashWithSalt` healthCheckProtocol
+      `Prelude.hashWithSalt` portOverrides
       `Prelude.hashWithSalt` healthCheckPath
       `Prelude.hashWithSalt` healthCheckIntervalSeconds
-      `Prelude.hashWithSalt` healthCheckProtocol
-      `Prelude.hashWithSalt` trafficDialPercentage
       `Prelude.hashWithSalt` endpointConfigurations
+      `Prelude.hashWithSalt` trafficDialPercentage
+      `Prelude.hashWithSalt` thresholdCount
       `Prelude.hashWithSalt` healthCheckPort
-      `Prelude.hashWithSalt` portOverrides
       `Prelude.hashWithSalt` listenerArn
       `Prelude.hashWithSalt` endpointGroupRegion
       `Prelude.hashWithSalt` idempotencyToken
 
 instance Prelude.NFData CreateEndpointGroup where
   rnf CreateEndpointGroup' {..} =
-    Prelude.rnf thresholdCount
+    Prelude.rnf healthCheckProtocol
+      `Prelude.seq` Prelude.rnf portOverrides
       `Prelude.seq` Prelude.rnf healthCheckPath
       `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
-      `Prelude.seq` Prelude.rnf healthCheckProtocol
-      `Prelude.seq` Prelude.rnf trafficDialPercentage
       `Prelude.seq` Prelude.rnf endpointConfigurations
+      `Prelude.seq` Prelude.rnf trafficDialPercentage
+      `Prelude.seq` Prelude.rnf thresholdCount
       `Prelude.seq` Prelude.rnf healthCheckPort
-      `Prelude.seq` Prelude.rnf portOverrides
       `Prelude.seq` Prelude.rnf listenerArn
       `Prelude.seq` Prelude.rnf endpointGroupRegion
       `Prelude.seq` Prelude.rnf idempotencyToken
@@ -326,21 +326,21 @@ instance Core.ToJSON CreateEndpointGroup where
   toJSON CreateEndpointGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ThresholdCount" Core..=)
-              Prelude.<$> thresholdCount,
+          [ ("HealthCheckProtocol" Core..=)
+              Prelude.<$> healthCheckProtocol,
+            ("PortOverrides" Core..=) Prelude.<$> portOverrides,
             ("HealthCheckPath" Core..=)
               Prelude.<$> healthCheckPath,
             ("HealthCheckIntervalSeconds" Core..=)
               Prelude.<$> healthCheckIntervalSeconds,
-            ("HealthCheckProtocol" Core..=)
-              Prelude.<$> healthCheckProtocol,
-            ("TrafficDialPercentage" Core..=)
-              Prelude.<$> trafficDialPercentage,
             ("EndpointConfigurations" Core..=)
               Prelude.<$> endpointConfigurations,
+            ("TrafficDialPercentage" Core..=)
+              Prelude.<$> trafficDialPercentage,
+            ("ThresholdCount" Core..=)
+              Prelude.<$> thresholdCount,
             ("HealthCheckPort" Core..=)
               Prelude.<$> healthCheckPort,
-            ("PortOverrides" Core..=) Prelude.<$> portOverrides,
             Prelude.Just ("ListenerArn" Core..= listenerArn),
             Prelude.Just
               ("EndpointGroupRegion" Core..= endpointGroupRegion),

@@ -92,9 +92,9 @@ module Amazonka.Route53.ListHostedZonesByName
 
     -- * Response Lenses
     listHostedZonesByNameResponse_hostedZoneId,
+    listHostedZonesByNameResponse_nextDNSName,
     listHostedZonesByNameResponse_nextHostedZoneId,
     listHostedZonesByNameResponse_dNSName,
-    listHostedZonesByNameResponse_nextDNSName,
     listHostedZonesByNameResponse_httpStatus,
     listHostedZonesByNameResponse_hostedZones,
     listHostedZonesByNameResponse_isTruncated,
@@ -226,9 +226,9 @@ instance Core.AWSRequest ListHostedZonesByName where
       ( \s h x ->
           ListHostedZonesByNameResponse'
             Prelude.<$> (x Core..@? "HostedZoneId")
+            Prelude.<*> (x Core..@? "NextDNSName")
             Prelude.<*> (x Core..@? "NextHostedZoneId")
             Prelude.<*> (x Core..@? "DNSName")
-            Prelude.<*> (x Core..@? "NextDNSName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Core..@? "HostedZones" Core..!@ Prelude.mempty
                             Prelude.>>= Core.parseXMLList "HostedZone"
@@ -271,6 +271,14 @@ data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
   { -- | The ID that Amazon Route 53 assigned to the hosted zone when you created
     -- it.
     hostedZoneId :: Prelude.Maybe ResourceId,
+    -- | If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the
+    -- first hosted zone in the next group of @maxitems@ hosted zones. Call
+    -- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
+    -- @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters,
+    -- respectively.
+    --
+    -- This element is present only if @IsTruncated@ is @true@.
+    nextDNSName :: Prelude.Maybe Prelude.Text,
     -- | If @IsTruncated@ is @true@, the value of @NextHostedZoneId@ identifies
     -- the first hosted zone in the next group of @maxitems@ hosted zones. Call
     -- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
@@ -283,14 +291,6 @@ data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
     -- @DNSName@ is the value that you specified for the @dnsname@ parameter in
     -- the request that produced the current response.
     dNSName :: Prelude.Maybe Prelude.Text,
-    -- | If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the
-    -- first hosted zone in the next group of @maxitems@ hosted zones. Call
-    -- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
-    -- @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters,
-    -- respectively.
-    --
-    -- This element is present only if @IsTruncated@ is @true@.
-    nextDNSName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A complex type that contains general information about the hosted zone.
@@ -318,6 +318,14 @@ data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
 -- 'hostedZoneId', 'listHostedZonesByNameResponse_hostedZoneId' - The ID that Amazon Route 53 assigned to the hosted zone when you created
 -- it.
 --
+-- 'nextDNSName', 'listHostedZonesByNameResponse_nextDNSName' - If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the
+-- first hosted zone in the next group of @maxitems@ hosted zones. Call
+-- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
+-- @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters,
+-- respectively.
+--
+-- This element is present only if @IsTruncated@ is @true@.
+--
 -- 'nextHostedZoneId', 'listHostedZonesByNameResponse_nextHostedZoneId' - If @IsTruncated@ is @true@, the value of @NextHostedZoneId@ identifies
 -- the first hosted zone in the next group of @maxitems@ hosted zones. Call
 -- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
@@ -329,14 +337,6 @@ data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
 -- 'dNSName', 'listHostedZonesByNameResponse_dNSName' - For the second and subsequent calls to @ListHostedZonesByName@,
 -- @DNSName@ is the value that you specified for the @dnsname@ parameter in
 -- the request that produced the current response.
---
--- 'nextDNSName', 'listHostedZonesByNameResponse_nextDNSName' - If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the
--- first hosted zone in the next group of @maxitems@ hosted zones. Call
--- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
--- @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters,
--- respectively.
---
--- This element is present only if @IsTruncated@ is @true@.
 --
 -- 'httpStatus', 'listHostedZonesByNameResponse_httpStatus' - The response's http status code.
 --
@@ -365,9 +365,9 @@ newListHostedZonesByNameResponse
     ListHostedZonesByNameResponse'
       { hostedZoneId =
           Prelude.Nothing,
+        nextDNSName = Prelude.Nothing,
         nextHostedZoneId = Prelude.Nothing,
         dNSName = Prelude.Nothing,
-        nextDNSName = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         hostedZones = Prelude.mempty,
         isTruncated = pIsTruncated_,
@@ -378,6 +378,16 @@ newListHostedZonesByNameResponse
 -- it.
 listHostedZonesByNameResponse_hostedZoneId :: Lens.Lens' ListHostedZonesByNameResponse (Prelude.Maybe ResourceId)
 listHostedZonesByNameResponse_hostedZoneId = Lens.lens (\ListHostedZonesByNameResponse' {hostedZoneId} -> hostedZoneId) (\s@ListHostedZonesByNameResponse' {} a -> s {hostedZoneId = a} :: ListHostedZonesByNameResponse)
+
+-- | If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the
+-- first hosted zone in the next group of @maxitems@ hosted zones. Call
+-- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
+-- @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters,
+-- respectively.
+--
+-- This element is present only if @IsTruncated@ is @true@.
+listHostedZonesByNameResponse_nextDNSName :: Lens.Lens' ListHostedZonesByNameResponse (Prelude.Maybe Prelude.Text)
+listHostedZonesByNameResponse_nextDNSName = Lens.lens (\ListHostedZonesByNameResponse' {nextDNSName} -> nextDNSName) (\s@ListHostedZonesByNameResponse' {} a -> s {nextDNSName = a} :: ListHostedZonesByNameResponse)
 
 -- | If @IsTruncated@ is @true@, the value of @NextHostedZoneId@ identifies
 -- the first hosted zone in the next group of @maxitems@ hosted zones. Call
@@ -394,16 +404,6 @@ listHostedZonesByNameResponse_nextHostedZoneId = Lens.lens (\ListHostedZonesByNa
 -- the request that produced the current response.
 listHostedZonesByNameResponse_dNSName :: Lens.Lens' ListHostedZonesByNameResponse (Prelude.Maybe Prelude.Text)
 listHostedZonesByNameResponse_dNSName = Lens.lens (\ListHostedZonesByNameResponse' {dNSName} -> dNSName) (\s@ListHostedZonesByNameResponse' {} a -> s {dNSName = a} :: ListHostedZonesByNameResponse)
-
--- | If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the
--- first hosted zone in the next group of @maxitems@ hosted zones. Call
--- @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and
--- @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters,
--- respectively.
---
--- This element is present only if @IsTruncated@ is @true@.
-listHostedZonesByNameResponse_nextDNSName :: Lens.Lens' ListHostedZonesByNameResponse (Prelude.Maybe Prelude.Text)
-listHostedZonesByNameResponse_nextDNSName = Lens.lens (\ListHostedZonesByNameResponse' {nextDNSName} -> nextDNSName) (\s@ListHostedZonesByNameResponse' {} a -> s {nextDNSName = a} :: ListHostedZonesByNameResponse)
 
 -- | The response's http status code.
 listHostedZonesByNameResponse_httpStatus :: Lens.Lens' ListHostedZonesByNameResponse Prelude.Int
@@ -429,9 +429,9 @@ listHostedZonesByNameResponse_maxItems = Lens.lens (\ListHostedZonesByNameRespon
 instance Prelude.NFData ListHostedZonesByNameResponse where
   rnf ListHostedZonesByNameResponse' {..} =
     Prelude.rnf hostedZoneId
+      `Prelude.seq` Prelude.rnf nextDNSName
       `Prelude.seq` Prelude.rnf nextHostedZoneId
       `Prelude.seq` Prelude.rnf dNSName
-      `Prelude.seq` Prelude.rnf nextDNSName
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf hostedZones
       `Prelude.seq` Prelude.rnf isTruncated

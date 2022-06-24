@@ -31,8 +31,8 @@ module Amazonka.Route53.ListTrafficPolicyVersions
     newListTrafficPolicyVersions,
 
     -- * Request Lenses
-    listTrafficPolicyVersions_maxItems,
     listTrafficPolicyVersions_trafficPolicyVersionMarker,
+    listTrafficPolicyVersions_maxItems,
     listTrafficPolicyVersions_id,
 
     -- * Destructuring the Response
@@ -60,14 +60,7 @@ import Amazonka.Route53.Types
 --
 -- /See:/ 'newListTrafficPolicyVersions' smart constructor.
 data ListTrafficPolicyVersions = ListTrafficPolicyVersions'
-  { -- | The maximum number of traffic policy versions that you want Amazon Route
-    -- 53 to include in the response body for this request. If the specified
-    -- traffic policy has more than @MaxItems@ versions, the value of
-    -- @IsTruncated@ in the response is @true@, and the value of the
-    -- @TrafficPolicyVersionMarker@ element is the ID of the first version that
-    -- Route 53 will return if you submit another request.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | For your first request to @ListTrafficPolicyVersions@, don\'t include
+  { -- | For your first request to @ListTrafficPolicyVersions@, don\'t include
     -- the @TrafficPolicyVersionMarker@ parameter.
     --
     -- If you have more traffic policy versions than the value of @MaxItems@,
@@ -77,6 +70,13 @@ data ListTrafficPolicyVersions = ListTrafficPolicyVersions'
     -- @TrafficPolicyVersionMarker@, specify the value of
     -- @TrafficPolicyVersionMarker@ in the previous response.
     trafficPolicyVersionMarker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of traffic policy versions that you want Amazon Route
+    -- 53 to include in the response body for this request. If the specified
+    -- traffic policy has more than @MaxItems@ versions, the value of
+    -- @IsTruncated@ in the response is @true@, and the value of the
+    -- @TrafficPolicyVersionMarker@ element is the ID of the first version that
+    -- Route 53 will return if you submit another request.
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | Specify the value of @Id@ of the traffic policy for which you want to
     -- list all versions.
     id :: Prelude.Text
@@ -91,13 +91,6 @@ data ListTrafficPolicyVersions = ListTrafficPolicyVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listTrafficPolicyVersions_maxItems' - The maximum number of traffic policy versions that you want Amazon Route
--- 53 to include in the response body for this request. If the specified
--- traffic policy has more than @MaxItems@ versions, the value of
--- @IsTruncated@ in the response is @true@, and the value of the
--- @TrafficPolicyVersionMarker@ element is the ID of the first version that
--- Route 53 will return if you submit another request.
---
 -- 'trafficPolicyVersionMarker', 'listTrafficPolicyVersions_trafficPolicyVersionMarker' - For your first request to @ListTrafficPolicyVersions@, don\'t include
 -- the @TrafficPolicyVersionMarker@ parameter.
 --
@@ -108,6 +101,13 @@ data ListTrafficPolicyVersions = ListTrafficPolicyVersions'
 -- @TrafficPolicyVersionMarker@, specify the value of
 -- @TrafficPolicyVersionMarker@ in the previous response.
 --
+-- 'maxItems', 'listTrafficPolicyVersions_maxItems' - The maximum number of traffic policy versions that you want Amazon Route
+-- 53 to include in the response body for this request. If the specified
+-- traffic policy has more than @MaxItems@ versions, the value of
+-- @IsTruncated@ in the response is @true@, and the value of the
+-- @TrafficPolicyVersionMarker@ element is the ID of the first version that
+-- Route 53 will return if you submit another request.
+--
 -- 'id', 'listTrafficPolicyVersions_id' - Specify the value of @Id@ of the traffic policy for which you want to
 -- list all versions.
 newListTrafficPolicyVersions ::
@@ -116,20 +116,11 @@ newListTrafficPolicyVersions ::
   ListTrafficPolicyVersions
 newListTrafficPolicyVersions pId_ =
   ListTrafficPolicyVersions'
-    { maxItems =
+    { trafficPolicyVersionMarker =
         Prelude.Nothing,
-      trafficPolicyVersionMarker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       id = pId_
     }
-
--- | The maximum number of traffic policy versions that you want Amazon Route
--- 53 to include in the response body for this request. If the specified
--- traffic policy has more than @MaxItems@ versions, the value of
--- @IsTruncated@ in the response is @true@, and the value of the
--- @TrafficPolicyVersionMarker@ element is the ID of the first version that
--- Route 53 will return if you submit another request.
-listTrafficPolicyVersions_maxItems :: Lens.Lens' ListTrafficPolicyVersions (Prelude.Maybe Prelude.Text)
-listTrafficPolicyVersions_maxItems = Lens.lens (\ListTrafficPolicyVersions' {maxItems} -> maxItems) (\s@ListTrafficPolicyVersions' {} a -> s {maxItems = a} :: ListTrafficPolicyVersions)
 
 -- | For your first request to @ListTrafficPolicyVersions@, don\'t include
 -- the @TrafficPolicyVersionMarker@ parameter.
@@ -142,6 +133,15 @@ listTrafficPolicyVersions_maxItems = Lens.lens (\ListTrafficPolicyVersions' {max
 -- @TrafficPolicyVersionMarker@ in the previous response.
 listTrafficPolicyVersions_trafficPolicyVersionMarker :: Lens.Lens' ListTrafficPolicyVersions (Prelude.Maybe Prelude.Text)
 listTrafficPolicyVersions_trafficPolicyVersionMarker = Lens.lens (\ListTrafficPolicyVersions' {trafficPolicyVersionMarker} -> trafficPolicyVersionMarker) (\s@ListTrafficPolicyVersions' {} a -> s {trafficPolicyVersionMarker = a} :: ListTrafficPolicyVersions)
+
+-- | The maximum number of traffic policy versions that you want Amazon Route
+-- 53 to include in the response body for this request. If the specified
+-- traffic policy has more than @MaxItems@ versions, the value of
+-- @IsTruncated@ in the response is @true@, and the value of the
+-- @TrafficPolicyVersionMarker@ element is the ID of the first version that
+-- Route 53 will return if you submit another request.
+listTrafficPolicyVersions_maxItems :: Lens.Lens' ListTrafficPolicyVersions (Prelude.Maybe Prelude.Text)
+listTrafficPolicyVersions_maxItems = Lens.lens (\ListTrafficPolicyVersions' {maxItems} -> maxItems) (\s@ListTrafficPolicyVersions' {} a -> s {maxItems = a} :: ListTrafficPolicyVersions)
 
 -- | Specify the value of @Id@ of the traffic policy for which you want to
 -- list all versions.
@@ -168,14 +168,15 @@ instance Core.AWSRequest ListTrafficPolicyVersions where
 
 instance Prelude.Hashable ListTrafficPolicyVersions where
   hashWithSalt _salt ListTrafficPolicyVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxItems
+    _salt
       `Prelude.hashWithSalt` trafficPolicyVersionMarker
+      `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ListTrafficPolicyVersions where
   rnf ListTrafficPolicyVersions' {..} =
-    Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf trafficPolicyVersionMarker
+    Prelude.rnf trafficPolicyVersionMarker
+      `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders ListTrafficPolicyVersions where
@@ -192,9 +193,9 @@ instance Core.ToPath ListTrafficPolicyVersions where
 instance Core.ToQuery ListTrafficPolicyVersions where
   toQuery ListTrafficPolicyVersions' {..} =
     Prelude.mconcat
-      [ "maxitems" Core.=: maxItems,
-        "trafficpolicyversion"
-          Core.=: trafficPolicyVersionMarker
+      [ "trafficpolicyversion"
+          Core.=: trafficPolicyVersionMarker,
+        "maxitems" Core.=: maxItems
       ]
 
 -- | A complex type that contains the response information for the request.

@@ -33,8 +33,8 @@ module Amazonka.Route53.TestDNSAnswer
 
     -- * Request Lenses
     testDNSAnswer_resolverIP,
-    testDNSAnswer_eDNS0ClientSubnetIP,
     testDNSAnswer_eDNS0ClientSubnetMask,
+    testDNSAnswer_eDNS0ClientSubnetIP,
     testDNSAnswer_hostedZoneId,
     testDNSAnswer_recordName,
     testDNSAnswer_recordType,
@@ -73,10 +73,6 @@ data TestDNSAnswer = TestDNSAnswer'
     -- @TestDnsAnswer@ uses the IP address of a DNS resolver in the Amazon Web
     -- Services US East (N. Virginia) Region (@us-east-1@).
     resolverIP :: Prelude.Maybe Prelude.Text,
-    -- | If the resolver that you specified for resolverip supports EDNS0,
-    -- specify the IPv4 or IPv6 address of a client in the applicable location,
-    -- for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@.
-    eDNS0ClientSubnetIP :: Prelude.Maybe Prelude.Text,
     -- | If you specify an IP address for @edns0clientsubnetip@, you can
     -- optionally specify the number of bits of the IP address that you want
     -- the checking tool to include in the DNS query. For example, if you
@@ -92,6 +88,10 @@ data TestDNSAnswer = TestDNSAnswer'
     --
     -- -   __IPv6__: Specify a value between 0 and 128
     eDNS0ClientSubnetMask :: Prelude.Maybe Prelude.Text,
+    -- | If the resolver that you specified for resolverip supports EDNS0,
+    -- specify the IPv4 or IPv6 address of a client in the applicable location,
+    -- for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@.
+    eDNS0ClientSubnetIP :: Prelude.Maybe Prelude.Text,
     -- | The ID of the hosted zone that you want Amazon Route 53 to simulate a
     -- query for.
     hostedZoneId :: ResourceId,
@@ -116,10 +116,6 @@ data TestDNSAnswer = TestDNSAnswer'
 -- @TestDnsAnswer@ uses the IP address of a DNS resolver in the Amazon Web
 -- Services US East (N. Virginia) Region (@us-east-1@).
 --
--- 'eDNS0ClientSubnetIP', 'testDNSAnswer_eDNS0ClientSubnetIP' - If the resolver that you specified for resolverip supports EDNS0,
--- specify the IPv4 or IPv6 address of a client in the applicable location,
--- for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@.
---
 -- 'eDNS0ClientSubnetMask', 'testDNSAnswer_eDNS0ClientSubnetMask' - If you specify an IP address for @edns0clientsubnetip@, you can
 -- optionally specify the number of bits of the IP address that you want
 -- the checking tool to include in the DNS query. For example, if you
@@ -134,6 +130,10 @@ data TestDNSAnswer = TestDNSAnswer'
 -- -   __IPv4__: Specify a value between 0 and 32
 --
 -- -   __IPv6__: Specify a value between 0 and 128
+--
+-- 'eDNS0ClientSubnetIP', 'testDNSAnswer_eDNS0ClientSubnetIP' - If the resolver that you specified for resolverip supports EDNS0,
+-- specify the IPv4 or IPv6 address of a client in the applicable location,
+-- for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@.
 --
 -- 'hostedZoneId', 'testDNSAnswer_hostedZoneId' - The ID of the hosted zone that you want Amazon Route 53 to simulate a
 -- query for.
@@ -156,8 +156,8 @@ newTestDNSAnswer
   pRecordType_ =
     TestDNSAnswer'
       { resolverIP = Prelude.Nothing,
-        eDNS0ClientSubnetIP = Prelude.Nothing,
         eDNS0ClientSubnetMask = Prelude.Nothing,
+        eDNS0ClientSubnetIP = Prelude.Nothing,
         hostedZoneId = pHostedZoneId_,
         recordName = pRecordName_,
         recordType = pRecordType_
@@ -169,12 +169,6 @@ newTestDNSAnswer
 -- Services US East (N. Virginia) Region (@us-east-1@).
 testDNSAnswer_resolverIP :: Lens.Lens' TestDNSAnswer (Prelude.Maybe Prelude.Text)
 testDNSAnswer_resolverIP = Lens.lens (\TestDNSAnswer' {resolverIP} -> resolverIP) (\s@TestDNSAnswer' {} a -> s {resolverIP = a} :: TestDNSAnswer)
-
--- | If the resolver that you specified for resolverip supports EDNS0,
--- specify the IPv4 or IPv6 address of a client in the applicable location,
--- for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@.
-testDNSAnswer_eDNS0ClientSubnetIP :: Lens.Lens' TestDNSAnswer (Prelude.Maybe Prelude.Text)
-testDNSAnswer_eDNS0ClientSubnetIP = Lens.lens (\TestDNSAnswer' {eDNS0ClientSubnetIP} -> eDNS0ClientSubnetIP) (\s@TestDNSAnswer' {} a -> s {eDNS0ClientSubnetIP = a} :: TestDNSAnswer)
 
 -- | If you specify an IP address for @edns0clientsubnetip@, you can
 -- optionally specify the number of bits of the IP address that you want
@@ -192,6 +186,12 @@ testDNSAnswer_eDNS0ClientSubnetIP = Lens.lens (\TestDNSAnswer' {eDNS0ClientSubne
 -- -   __IPv6__: Specify a value between 0 and 128
 testDNSAnswer_eDNS0ClientSubnetMask :: Lens.Lens' TestDNSAnswer (Prelude.Maybe Prelude.Text)
 testDNSAnswer_eDNS0ClientSubnetMask = Lens.lens (\TestDNSAnswer' {eDNS0ClientSubnetMask} -> eDNS0ClientSubnetMask) (\s@TestDNSAnswer' {} a -> s {eDNS0ClientSubnetMask = a} :: TestDNSAnswer)
+
+-- | If the resolver that you specified for resolverip supports EDNS0,
+-- specify the IPv4 or IPv6 address of a client in the applicable location,
+-- for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@.
+testDNSAnswer_eDNS0ClientSubnetIP :: Lens.Lens' TestDNSAnswer (Prelude.Maybe Prelude.Text)
+testDNSAnswer_eDNS0ClientSubnetIP = Lens.lens (\TestDNSAnswer' {eDNS0ClientSubnetIP} -> eDNS0ClientSubnetIP) (\s@TestDNSAnswer' {} a -> s {eDNS0ClientSubnetIP = a} :: TestDNSAnswer)
 
 -- | The ID of the hosted zone that you want Amazon Route 53 to simulate a
 -- query for.
@@ -230,8 +230,8 @@ instance Core.AWSRequest TestDNSAnswer where
 instance Prelude.Hashable TestDNSAnswer where
   hashWithSalt _salt TestDNSAnswer' {..} =
     _salt `Prelude.hashWithSalt` resolverIP
-      `Prelude.hashWithSalt` eDNS0ClientSubnetIP
       `Prelude.hashWithSalt` eDNS0ClientSubnetMask
+      `Prelude.hashWithSalt` eDNS0ClientSubnetIP
       `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` recordName
       `Prelude.hashWithSalt` recordType
@@ -239,8 +239,8 @@ instance Prelude.Hashable TestDNSAnswer where
 instance Prelude.NFData TestDNSAnswer where
   rnf TestDNSAnswer' {..} =
     Prelude.rnf resolverIP
-      `Prelude.seq` Prelude.rnf eDNS0ClientSubnetIP
       `Prelude.seq` Prelude.rnf eDNS0ClientSubnetMask
+      `Prelude.seq` Prelude.rnf eDNS0ClientSubnetIP
       `Prelude.seq` Prelude.rnf hostedZoneId
       `Prelude.seq` Prelude.rnf recordName
       `Prelude.seq` Prelude.rnf recordType
@@ -255,9 +255,9 @@ instance Core.ToQuery TestDNSAnswer where
   toQuery TestDNSAnswer' {..} =
     Prelude.mconcat
       [ "resolverip" Core.=: resolverIP,
-        "edns0clientsubnetip" Core.=: eDNS0ClientSubnetIP,
         "edns0clientsubnetmask"
           Core.=: eDNS0ClientSubnetMask,
+        "edns0clientsubnetip" Core.=: eDNS0ClientSubnetIP,
         "hostedzoneid" Core.=: hostedZoneId,
         "recordname" Core.=: recordName,
         "recordtype" Core.=: recordType

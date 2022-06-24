@@ -27,37 +27,31 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestStartDeviceAuthorization $
---             newStartDeviceAuthorization
---
---         , requestCreateToken $
+--         [ requestCreateToken $
 --             newCreateToken
 --
 --         , requestRegisterClient $
 --             newRegisterClient
 --
+--         , requestStartDeviceAuthorization $
+--             newStartDeviceAuthorization
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseStartDeviceAuthorization $
---             newStartDeviceAuthorizationResponse
---
---         , responseCreateToken $
+--         [ responseCreateToken $
 --             newCreateTokenResponse
 --
 --         , responseRegisterClient $
 --             newRegisterClientResponse
 --
+--         , responseStartDeviceAuthorization $
+--             newStartDeviceAuthorizationResponse
+--
 --           ]
 --     ]
 
 -- Requests
-
-requestStartDeviceAuthorization :: StartDeviceAuthorization -> TestTree
-requestStartDeviceAuthorization =
-  req
-    "StartDeviceAuthorization"
-    "fixture/StartDeviceAuthorization.yaml"
 
 requestCreateToken :: CreateToken -> TestTree
 requestCreateToken =
@@ -71,15 +65,13 @@ requestRegisterClient =
     "RegisterClient"
     "fixture/RegisterClient.yaml"
 
--- Responses
+requestStartDeviceAuthorization :: StartDeviceAuthorization -> TestTree
+requestStartDeviceAuthorization =
+  req
+    "StartDeviceAuthorization"
+    "fixture/StartDeviceAuthorization.yaml"
 
-responseStartDeviceAuthorization :: StartDeviceAuthorizationResponse -> TestTree
-responseStartDeviceAuthorization =
-  res
-    "StartDeviceAuthorizationResponse"
-    "fixture/StartDeviceAuthorizationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartDeviceAuthorization)
+-- Responses
 
 responseCreateToken :: CreateTokenResponse -> TestTree
 responseCreateToken =
@@ -96,3 +88,11 @@ responseRegisterClient =
     "fixture/RegisterClientResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RegisterClient)
+
+responseStartDeviceAuthorization :: StartDeviceAuthorizationResponse -> TestTree
+responseStartDeviceAuthorization =
+  res
+    "StartDeviceAuthorizationResponse"
+    "fixture/StartDeviceAuthorizationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartDeviceAuthorization)

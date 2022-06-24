@@ -36,8 +36,8 @@ module Amazonka.XRay.GetGroups
     newGetGroupsResponse,
 
     -- * Response Lenses
-    getGroupsResponse_groups,
     getGroupsResponse_nextToken,
+    getGroupsResponse_groups,
     getGroupsResponse_httpStatus,
   )
 where
@@ -100,8 +100,8 @@ instance Core.AWSRequest GetGroups where
     Response.receiveJSON
       ( \s h x ->
           GetGroupsResponse'
-            Prelude.<$> (x Core..?> "Groups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Groups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,10 +130,10 @@ instance Core.ToQuery GetGroups where
 
 -- | /See:/ 'newGetGroupsResponse' smart constructor.
 data GetGroupsResponse = GetGroupsResponse'
-  { -- | The collection of all active groups.
-    groups :: Prelude.Maybe [GroupSummary],
-    -- | Pagination token.
+  { -- | Pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The collection of all active groups.
+    groups :: Prelude.Maybe [GroupSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -147,9 +147,9 @@ data GetGroupsResponse = GetGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groups', 'getGroupsResponse_groups' - The collection of all active groups.
---
 -- 'nextToken', 'getGroupsResponse_nextToken' - Pagination token.
+--
+-- 'groups', 'getGroupsResponse_groups' - The collection of all active groups.
 --
 -- 'httpStatus', 'getGroupsResponse_httpStatus' - The response's http status code.
 newGetGroupsResponse ::
@@ -158,18 +158,18 @@ newGetGroupsResponse ::
   GetGroupsResponse
 newGetGroupsResponse pHttpStatus_ =
   GetGroupsResponse'
-    { groups = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      groups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The collection of all active groups.
-getGroupsResponse_groups :: Lens.Lens' GetGroupsResponse (Prelude.Maybe [GroupSummary])
-getGroupsResponse_groups = Lens.lens (\GetGroupsResponse' {groups} -> groups) (\s@GetGroupsResponse' {} a -> s {groups = a} :: GetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Pagination token.
 getGroupsResponse_nextToken :: Lens.Lens' GetGroupsResponse (Prelude.Maybe Prelude.Text)
 getGroupsResponse_nextToken = Lens.lens (\GetGroupsResponse' {nextToken} -> nextToken) (\s@GetGroupsResponse' {} a -> s {nextToken = a} :: GetGroupsResponse)
+
+-- | The collection of all active groups.
+getGroupsResponse_groups :: Lens.Lens' GetGroupsResponse (Prelude.Maybe [GroupSummary])
+getGroupsResponse_groups = Lens.lens (\GetGroupsResponse' {groups} -> groups) (\s@GetGroupsResponse' {} a -> s {groups = a} :: GetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getGroupsResponse_httpStatus :: Lens.Lens' GetGroupsResponse Prelude.Int
@@ -177,6 +177,6 @@ getGroupsResponse_httpStatus = Lens.lens (\GetGroupsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetGroupsResponse where
   rnf GetGroupsResponse' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf httpStatus

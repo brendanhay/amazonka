@@ -31,10 +31,10 @@ import Amazonka.XRay.Types.RootCauseException
 data FaultRootCauseEntity = FaultRootCauseEntity'
   { -- | The types and messages of the exceptions.
     exceptions :: Prelude.Maybe [RootCauseException],
-    -- | A flag that denotes a remote subsegment.
-    remote :: Prelude.Maybe Prelude.Bool,
     -- | The name of the entity.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A flag that denotes a remote subsegment.
+    remote :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,29 @@ data FaultRootCauseEntity = FaultRootCauseEntity'
 --
 -- 'exceptions', 'faultRootCauseEntity_exceptions' - The types and messages of the exceptions.
 --
--- 'remote', 'faultRootCauseEntity_remote' - A flag that denotes a remote subsegment.
---
 -- 'name', 'faultRootCauseEntity_name' - The name of the entity.
+--
+-- 'remote', 'faultRootCauseEntity_remote' - A flag that denotes a remote subsegment.
 newFaultRootCauseEntity ::
   FaultRootCauseEntity
 newFaultRootCauseEntity =
   FaultRootCauseEntity'
     { exceptions = Prelude.Nothing,
-      remote = Prelude.Nothing,
-      name = Prelude.Nothing
+      name = Prelude.Nothing,
+      remote = Prelude.Nothing
     }
 
 -- | The types and messages of the exceptions.
 faultRootCauseEntity_exceptions :: Lens.Lens' FaultRootCauseEntity (Prelude.Maybe [RootCauseException])
 faultRootCauseEntity_exceptions = Lens.lens (\FaultRootCauseEntity' {exceptions} -> exceptions) (\s@FaultRootCauseEntity' {} a -> s {exceptions = a} :: FaultRootCauseEntity) Prelude.. Lens.mapping Lens.coerced
 
--- | A flag that denotes a remote subsegment.
-faultRootCauseEntity_remote :: Lens.Lens' FaultRootCauseEntity (Prelude.Maybe Prelude.Bool)
-faultRootCauseEntity_remote = Lens.lens (\FaultRootCauseEntity' {remote} -> remote) (\s@FaultRootCauseEntity' {} a -> s {remote = a} :: FaultRootCauseEntity)
-
 -- | The name of the entity.
 faultRootCauseEntity_name :: Lens.Lens' FaultRootCauseEntity (Prelude.Maybe Prelude.Text)
 faultRootCauseEntity_name = Lens.lens (\FaultRootCauseEntity' {name} -> name) (\s@FaultRootCauseEntity' {} a -> s {name = a} :: FaultRootCauseEntity)
+
+-- | A flag that denotes a remote subsegment.
+faultRootCauseEntity_remote :: Lens.Lens' FaultRootCauseEntity (Prelude.Maybe Prelude.Bool)
+faultRootCauseEntity_remote = Lens.lens (\FaultRootCauseEntity' {remote} -> remote) (\s@FaultRootCauseEntity' {} a -> s {remote = a} :: FaultRootCauseEntity)
 
 instance Core.FromJSON FaultRootCauseEntity where
   parseJSON =
@@ -79,18 +79,18 @@ instance Core.FromJSON FaultRootCauseEntity where
       ( \x ->
           FaultRootCauseEntity'
             Prelude.<$> (x Core..:? "Exceptions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Remote")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Remote")
       )
 
 instance Prelude.Hashable FaultRootCauseEntity where
   hashWithSalt _salt FaultRootCauseEntity' {..} =
     _salt `Prelude.hashWithSalt` exceptions
-      `Prelude.hashWithSalt` remote
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` remote
 
 instance Prelude.NFData FaultRootCauseEntity where
   rnf FaultRootCauseEntity' {..} =
     Prelude.rnf exceptions
-      `Prelude.seq` Prelude.rnf remote
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf remote

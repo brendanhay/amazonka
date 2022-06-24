@@ -27,8 +27,8 @@ module Amazonka.XRay.GetGroup
     newGetGroup,
 
     -- * Request Lenses
-    getGroup_groupARN,
     getGroup_groupName,
+    getGroup_groupARN,
 
     -- * Destructuring the Response
     GetGroupResponse (..),
@@ -49,10 +49,10 @@ import Amazonka.XRay.Types
 
 -- | /See:/ 'newGetGroup' smart constructor.
 data GetGroup = GetGroup'
-  { -- | The ARN of the group that was generated on creation.
-    groupARN :: Prelude.Maybe Prelude.Text,
-    -- | The case-sensitive name of the group.
-    groupName :: Prelude.Maybe Prelude.Text
+  { -- | The case-sensitive name of the group.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the group that was generated on creation.
+    groupARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,24 +64,24 @@ data GetGroup = GetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupARN', 'getGroup_groupARN' - The ARN of the group that was generated on creation.
---
 -- 'groupName', 'getGroup_groupName' - The case-sensitive name of the group.
+--
+-- 'groupARN', 'getGroup_groupARN' - The ARN of the group that was generated on creation.
 newGetGroup ::
   GetGroup
 newGetGroup =
   GetGroup'
-    { groupARN = Prelude.Nothing,
-      groupName = Prelude.Nothing
+    { groupName = Prelude.Nothing,
+      groupARN = Prelude.Nothing
     }
-
--- | The ARN of the group that was generated on creation.
-getGroup_groupARN :: Lens.Lens' GetGroup (Prelude.Maybe Prelude.Text)
-getGroup_groupARN = Lens.lens (\GetGroup' {groupARN} -> groupARN) (\s@GetGroup' {} a -> s {groupARN = a} :: GetGroup)
 
 -- | The case-sensitive name of the group.
 getGroup_groupName :: Lens.Lens' GetGroup (Prelude.Maybe Prelude.Text)
 getGroup_groupName = Lens.lens (\GetGroup' {groupName} -> groupName) (\s@GetGroup' {} a -> s {groupName = a} :: GetGroup)
+
+-- | The ARN of the group that was generated on creation.
+getGroup_groupARN :: Lens.Lens' GetGroup (Prelude.Maybe Prelude.Text)
+getGroup_groupARN = Lens.lens (\GetGroup' {groupARN} -> groupARN) (\s@GetGroup' {} a -> s {groupARN = a} :: GetGroup)
 
 instance Core.AWSRequest GetGroup where
   type AWSResponse GetGroup = GetGroupResponse
@@ -96,13 +96,13 @@ instance Core.AWSRequest GetGroup where
 
 instance Prelude.Hashable GetGroup where
   hashWithSalt _salt GetGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupARN
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupARN
 
 instance Prelude.NFData GetGroup where
   rnf GetGroup' {..} =
-    Prelude.rnf groupARN
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupARN
 
 instance Core.ToHeaders GetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -111,8 +111,8 @@ instance Core.ToJSON GetGroup where
   toJSON GetGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GroupARN" Core..=) Prelude.<$> groupARN,
-            ("GroupName" Core..=) Prelude.<$> groupName
+          [ ("GroupName" Core..=) Prelude.<$> groupName,
+            ("GroupARN" Core..=) Prelude.<$> groupARN
           ]
       )
 

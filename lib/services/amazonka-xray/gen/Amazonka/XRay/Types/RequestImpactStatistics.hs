@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 data RequestImpactStatistics = RequestImpactStatistics'
   { -- | The number of successful requests.
     okCount :: Prelude.Maybe Prelude.Integer,
-    -- | The number of requests that have resulted in a fault,
-    faultCount :: Prelude.Maybe Prelude.Integer,
     -- | The total number of requests to the service.
-    totalCount :: Prelude.Maybe Prelude.Integer
+    totalCount :: Prelude.Maybe Prelude.Integer,
+    -- | The number of requests that have resulted in a fault,
+    faultCount :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data RequestImpactStatistics = RequestImpactStatistics'
 --
 -- 'okCount', 'requestImpactStatistics_okCount' - The number of successful requests.
 --
--- 'faultCount', 'requestImpactStatistics_faultCount' - The number of requests that have resulted in a fault,
---
 -- 'totalCount', 'requestImpactStatistics_totalCount' - The total number of requests to the service.
+--
+-- 'faultCount', 'requestImpactStatistics_faultCount' - The number of requests that have resulted in a fault,
 newRequestImpactStatistics ::
   RequestImpactStatistics
 newRequestImpactStatistics =
   RequestImpactStatistics'
     { okCount = Prelude.Nothing,
-      faultCount = Prelude.Nothing,
-      totalCount = Prelude.Nothing
+      totalCount = Prelude.Nothing,
+      faultCount = Prelude.Nothing
     }
 
 -- | The number of successful requests.
 requestImpactStatistics_okCount :: Lens.Lens' RequestImpactStatistics (Prelude.Maybe Prelude.Integer)
 requestImpactStatistics_okCount = Lens.lens (\RequestImpactStatistics' {okCount} -> okCount) (\s@RequestImpactStatistics' {} a -> s {okCount = a} :: RequestImpactStatistics)
 
--- | The number of requests that have resulted in a fault,
-requestImpactStatistics_faultCount :: Lens.Lens' RequestImpactStatistics (Prelude.Maybe Prelude.Integer)
-requestImpactStatistics_faultCount = Lens.lens (\RequestImpactStatistics' {faultCount} -> faultCount) (\s@RequestImpactStatistics' {} a -> s {faultCount = a} :: RequestImpactStatistics)
-
 -- | The total number of requests to the service.
 requestImpactStatistics_totalCount :: Lens.Lens' RequestImpactStatistics (Prelude.Maybe Prelude.Integer)
 requestImpactStatistics_totalCount = Lens.lens (\RequestImpactStatistics' {totalCount} -> totalCount) (\s@RequestImpactStatistics' {} a -> s {totalCount = a} :: RequestImpactStatistics)
+
+-- | The number of requests that have resulted in a fault,
+requestImpactStatistics_faultCount :: Lens.Lens' RequestImpactStatistics (Prelude.Maybe Prelude.Integer)
+requestImpactStatistics_faultCount = Lens.lens (\RequestImpactStatistics' {faultCount} -> faultCount) (\s@RequestImpactStatistics' {} a -> s {faultCount = a} :: RequestImpactStatistics)
 
 instance Core.FromJSON RequestImpactStatistics where
   parseJSON =
@@ -77,18 +77,18 @@ instance Core.FromJSON RequestImpactStatistics where
       ( \x ->
           RequestImpactStatistics'
             Prelude.<$> (x Core..:? "OkCount")
-            Prelude.<*> (x Core..:? "FaultCount")
             Prelude.<*> (x Core..:? "TotalCount")
+            Prelude.<*> (x Core..:? "FaultCount")
       )
 
 instance Prelude.Hashable RequestImpactStatistics where
   hashWithSalt _salt RequestImpactStatistics' {..} =
     _salt `Prelude.hashWithSalt` okCount
-      `Prelude.hashWithSalt` faultCount
       `Prelude.hashWithSalt` totalCount
+      `Prelude.hashWithSalt` faultCount
 
 instance Prelude.NFData RequestImpactStatistics where
   rnf RequestImpactStatistics' {..} =
     Prelude.rnf okCount
-      `Prelude.seq` Prelude.rnf faultCount
       `Prelude.seq` Prelude.rnf totalCount
+      `Prelude.seq` Prelude.rnf faultCount

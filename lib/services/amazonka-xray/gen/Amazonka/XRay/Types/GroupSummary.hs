@@ -28,9 +28,7 @@ import Amazonka.XRay.Types.InsightsConfiguration
 --
 -- /See:/ 'newGroupSummary' smart constructor.
 data GroupSummary = GroupSummary'
-  { -- | The filter expression defining the parameters to include traces.
-    filterExpression :: Prelude.Maybe Prelude.Text,
-    -- | The structure containing configurations related to insights.
+  { -- | The structure containing configurations related to insights.
     --
     -- -   The InsightsEnabled boolean can be set to true to enable insights
     --     for the group or false to disable insights for the group.
@@ -39,10 +37,12 @@ data GroupSummary = GroupSummary'
     --     insights notifications. Notifications can only be enabled on a group
     --     with InsightsEnabled set to true.
     insightsConfiguration :: Prelude.Maybe InsightsConfiguration,
-    -- | The ARN of the group generated based on the GroupName.
-    groupARN :: Prelude.Maybe Prelude.Text,
+    -- | The filter expression defining the parameters to include traces.
+    filterExpression :: Prelude.Maybe Prelude.Text,
     -- | The unique case-sensitive name of the group.
-    groupName :: Prelude.Maybe Prelude.Text
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the group generated based on the GroupName.
+    groupARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,8 +54,6 @@ data GroupSummary = GroupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filterExpression', 'groupSummary_filterExpression' - The filter expression defining the parameters to include traces.
---
 -- 'insightsConfiguration', 'groupSummary_insightsConfiguration' - The structure containing configurations related to insights.
 --
 -- -   The InsightsEnabled boolean can be set to true to enable insights
@@ -65,22 +63,21 @@ data GroupSummary = GroupSummary'
 --     insights notifications. Notifications can only be enabled on a group
 --     with InsightsEnabled set to true.
 --
--- 'groupARN', 'groupSummary_groupARN' - The ARN of the group generated based on the GroupName.
+-- 'filterExpression', 'groupSummary_filterExpression' - The filter expression defining the parameters to include traces.
 --
 -- 'groupName', 'groupSummary_groupName' - The unique case-sensitive name of the group.
+--
+-- 'groupARN', 'groupSummary_groupARN' - The ARN of the group generated based on the GroupName.
 newGroupSummary ::
   GroupSummary
 newGroupSummary =
   GroupSummary'
-    { filterExpression = Prelude.Nothing,
-      insightsConfiguration = Prelude.Nothing,
-      groupARN = Prelude.Nothing,
-      groupName = Prelude.Nothing
+    { insightsConfiguration =
+        Prelude.Nothing,
+      filterExpression = Prelude.Nothing,
+      groupName = Prelude.Nothing,
+      groupARN = Prelude.Nothing
     }
-
--- | The filter expression defining the parameters to include traces.
-groupSummary_filterExpression :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
-groupSummary_filterExpression = Lens.lens (\GroupSummary' {filterExpression} -> filterExpression) (\s@GroupSummary' {} a -> s {filterExpression = a} :: GroupSummary)
 
 -- | The structure containing configurations related to insights.
 --
@@ -93,13 +90,17 @@ groupSummary_filterExpression = Lens.lens (\GroupSummary' {filterExpression} -> 
 groupSummary_insightsConfiguration :: Lens.Lens' GroupSummary (Prelude.Maybe InsightsConfiguration)
 groupSummary_insightsConfiguration = Lens.lens (\GroupSummary' {insightsConfiguration} -> insightsConfiguration) (\s@GroupSummary' {} a -> s {insightsConfiguration = a} :: GroupSummary)
 
--- | The ARN of the group generated based on the GroupName.
-groupSummary_groupARN :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
-groupSummary_groupARN = Lens.lens (\GroupSummary' {groupARN} -> groupARN) (\s@GroupSummary' {} a -> s {groupARN = a} :: GroupSummary)
+-- | The filter expression defining the parameters to include traces.
+groupSummary_filterExpression :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
+groupSummary_filterExpression = Lens.lens (\GroupSummary' {filterExpression} -> filterExpression) (\s@GroupSummary' {} a -> s {filterExpression = a} :: GroupSummary)
 
 -- | The unique case-sensitive name of the group.
 groupSummary_groupName :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
 groupSummary_groupName = Lens.lens (\GroupSummary' {groupName} -> groupName) (\s@GroupSummary' {} a -> s {groupName = a} :: GroupSummary)
+
+-- | The ARN of the group generated based on the GroupName.
+groupSummary_groupARN :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
+groupSummary_groupARN = Lens.lens (\GroupSummary' {groupARN} -> groupARN) (\s@GroupSummary' {} a -> s {groupARN = a} :: GroupSummary)
 
 instance Core.FromJSON GroupSummary where
   parseJSON =
@@ -107,22 +108,22 @@ instance Core.FromJSON GroupSummary where
       "GroupSummary"
       ( \x ->
           GroupSummary'
-            Prelude.<$> (x Core..:? "FilterExpression")
-            Prelude.<*> (x Core..:? "InsightsConfiguration")
-            Prelude.<*> (x Core..:? "GroupARN")
+            Prelude.<$> (x Core..:? "InsightsConfiguration")
+            Prelude.<*> (x Core..:? "FilterExpression")
             Prelude.<*> (x Core..:? "GroupName")
+            Prelude.<*> (x Core..:? "GroupARN")
       )
 
 instance Prelude.Hashable GroupSummary where
   hashWithSalt _salt GroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` filterExpression
-      `Prelude.hashWithSalt` insightsConfiguration
-      `Prelude.hashWithSalt` groupARN
+    _salt `Prelude.hashWithSalt` insightsConfiguration
+      `Prelude.hashWithSalt` filterExpression
       `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupARN
 
 instance Prelude.NFData GroupSummary where
   rnf GroupSummary' {..} =
-    Prelude.rnf filterExpression
-      `Prelude.seq` Prelude.rnf insightsConfiguration
-      `Prelude.seq` Prelude.rnf groupARN
+    Prelude.rnf insightsConfiguration
+      `Prelude.seq` Prelude.rnf filterExpression
       `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupARN

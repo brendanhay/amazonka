@@ -21,14 +21,8 @@ module Amazonka.XRay
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
     -- ** RuleLimitExceededException
     _RuleLimitExceededException,
-
-    -- ** ThrottledException
-    _ThrottledException,
 
     -- ** TooManyTagsException
     _TooManyTagsException,
@@ -36,47 +30,17 @@ module Amazonka.XRay
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ThrottledException
+    _ThrottledException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** PutEncryptionConfig
-    PutEncryptionConfig (PutEncryptionConfig'),
-    newPutEncryptionConfig,
-    PutEncryptionConfigResponse (PutEncryptionConfigResponse'),
-    newPutEncryptionConfigResponse,
-
-    -- ** GetServiceGraph (Paginated)
-    GetServiceGraph (GetServiceGraph'),
-    newGetServiceGraph,
-    GetServiceGraphResponse (GetServiceGraphResponse'),
-    newGetServiceGraphResponse,
-
-    -- ** GetSamplingTargets
-    GetSamplingTargets (GetSamplingTargets'),
-    newGetSamplingTargets,
-    GetSamplingTargetsResponse (GetSamplingTargetsResponse'),
-    newGetSamplingTargetsResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** GetTraceSummaries (Paginated)
-    GetTraceSummaries (GetTraceSummaries'),
-    newGetTraceSummaries,
-    GetTraceSummariesResponse (GetTraceSummariesResponse'),
-    newGetTraceSummariesResponse,
-
-    -- ** PutTraceSegments
-    PutTraceSegments (PutTraceSegments'),
-    newPutTraceSegments,
-    PutTraceSegmentsResponse (PutTraceSegmentsResponse'),
-    newPutTraceSegmentsResponse,
 
     -- ** BatchGetTraces (Paginated)
     BatchGetTraces (BatchGetTraces'),
@@ -84,95 +48,17 @@ module Amazonka.XRay
     BatchGetTracesResponse (BatchGetTracesResponse'),
     newBatchGetTracesResponse,
 
-    -- ** GetInsight
-    GetInsight (GetInsight'),
-    newGetInsight,
-    GetInsightResponse (GetInsightResponse'),
-    newGetInsightResponse,
-
-    -- ** GetTimeSeriesServiceStatistics (Paginated)
-    GetTimeSeriesServiceStatistics (GetTimeSeriesServiceStatistics'),
-    newGetTimeSeriesServiceStatistics,
-    GetTimeSeriesServiceStatisticsResponse (GetTimeSeriesServiceStatisticsResponse'),
-    newGetTimeSeriesServiceStatisticsResponse,
-
-    -- ** GetEncryptionConfig
-    GetEncryptionConfig (GetEncryptionConfig'),
-    newGetEncryptionConfig,
-    GetEncryptionConfigResponse (GetEncryptionConfigResponse'),
-    newGetEncryptionConfigResponse,
-
-    -- ** GetInsightImpactGraph
-    GetInsightImpactGraph (GetInsightImpactGraph'),
-    newGetInsightImpactGraph,
-    GetInsightImpactGraphResponse (GetInsightImpactGraphResponse'),
-    newGetInsightImpactGraphResponse,
-
-    -- ** UpdateSamplingRule
-    UpdateSamplingRule (UpdateSamplingRule'),
-    newUpdateSamplingRule,
-    UpdateSamplingRuleResponse (UpdateSamplingRuleResponse'),
-    newUpdateSamplingRuleResponse,
-
-    -- ** DeleteSamplingRule
-    DeleteSamplingRule (DeleteSamplingRule'),
-    newDeleteSamplingRule,
-    DeleteSamplingRuleResponse (DeleteSamplingRuleResponse'),
-    newDeleteSamplingRuleResponse,
-
-    -- ** GetInsightEvents
-    GetInsightEvents (GetInsightEvents'),
-    newGetInsightEvents,
-    GetInsightEventsResponse (GetInsightEventsResponse'),
-    newGetInsightEventsResponse,
-
-    -- ** GetGroups (Paginated)
-    GetGroups (GetGroups'),
-    newGetGroups,
-    GetGroupsResponse (GetGroupsResponse'),
-    newGetGroupsResponse,
-
-    -- ** GetInsightSummaries
-    GetInsightSummaries (GetInsightSummaries'),
-    newGetInsightSummaries,
-    GetInsightSummariesResponse (GetInsightSummariesResponse'),
-    newGetInsightSummariesResponse,
-
-    -- ** PutTelemetryRecords
-    PutTelemetryRecords (PutTelemetryRecords'),
-    newPutTelemetryRecords,
-    PutTelemetryRecordsResponse (PutTelemetryRecordsResponse'),
-    newPutTelemetryRecordsResponse,
-
-    -- ** GetSamplingRules (Paginated)
-    GetSamplingRules (GetSamplingRules'),
-    newGetSamplingRules,
-    GetSamplingRulesResponse (GetSamplingRulesResponse'),
-    newGetSamplingRulesResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** GetTraceGraph (Paginated)
-    GetTraceGraph (GetTraceGraph'),
-    newGetTraceGraph,
-    GetTraceGraphResponse (GetTraceGraphResponse'),
-    newGetTraceGraphResponse,
-
     -- ** CreateGroup
     CreateGroup (CreateGroup'),
     newCreateGroup,
     CreateGroupResponse (CreateGroupResponse'),
     newCreateGroupResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** CreateSamplingRule
+    CreateSamplingRule (CreateSamplingRule'),
+    newCreateSamplingRule,
+    CreateSamplingRuleResponse (CreateSamplingRuleResponse'),
+    newCreateSamplingRuleResponse,
 
     -- ** DeleteGroup
     DeleteGroup (DeleteGroup'),
@@ -180,11 +66,17 @@ module Amazonka.XRay
     DeleteGroupResponse (DeleteGroupResponse'),
     newDeleteGroupResponse,
 
-    -- ** UpdateGroup
-    UpdateGroup (UpdateGroup'),
-    newUpdateGroup,
-    UpdateGroupResponse (UpdateGroupResponse'),
-    newUpdateGroupResponse,
+    -- ** DeleteSamplingRule
+    DeleteSamplingRule (DeleteSamplingRule'),
+    newDeleteSamplingRule,
+    DeleteSamplingRuleResponse (DeleteSamplingRuleResponse'),
+    newDeleteSamplingRuleResponse,
+
+    -- ** GetEncryptionConfig
+    GetEncryptionConfig (GetEncryptionConfig'),
+    newGetEncryptionConfig,
+    GetEncryptionConfigResponse (GetEncryptionConfigResponse'),
+    newGetEncryptionConfigResponse,
 
     -- ** GetGroup
     GetGroup (GetGroup'),
@@ -192,17 +84,125 @@ module Amazonka.XRay
     GetGroupResponse (GetGroupResponse'),
     newGetGroupResponse,
 
+    -- ** GetGroups (Paginated)
+    GetGroups (GetGroups'),
+    newGetGroups,
+    GetGroupsResponse (GetGroupsResponse'),
+    newGetGroupsResponse,
+
+    -- ** GetInsight
+    GetInsight (GetInsight'),
+    newGetInsight,
+    GetInsightResponse (GetInsightResponse'),
+    newGetInsightResponse,
+
+    -- ** GetInsightEvents
+    GetInsightEvents (GetInsightEvents'),
+    newGetInsightEvents,
+    GetInsightEventsResponse (GetInsightEventsResponse'),
+    newGetInsightEventsResponse,
+
+    -- ** GetInsightImpactGraph
+    GetInsightImpactGraph (GetInsightImpactGraph'),
+    newGetInsightImpactGraph,
+    GetInsightImpactGraphResponse (GetInsightImpactGraphResponse'),
+    newGetInsightImpactGraphResponse,
+
+    -- ** GetInsightSummaries
+    GetInsightSummaries (GetInsightSummaries'),
+    newGetInsightSummaries,
+    GetInsightSummariesResponse (GetInsightSummariesResponse'),
+    newGetInsightSummariesResponse,
+
+    -- ** GetSamplingRules (Paginated)
+    GetSamplingRules (GetSamplingRules'),
+    newGetSamplingRules,
+    GetSamplingRulesResponse (GetSamplingRulesResponse'),
+    newGetSamplingRulesResponse,
+
     -- ** GetSamplingStatisticSummaries (Paginated)
     GetSamplingStatisticSummaries (GetSamplingStatisticSummaries'),
     newGetSamplingStatisticSummaries,
     GetSamplingStatisticSummariesResponse (GetSamplingStatisticSummariesResponse'),
     newGetSamplingStatisticSummariesResponse,
 
-    -- ** CreateSamplingRule
-    CreateSamplingRule (CreateSamplingRule'),
-    newCreateSamplingRule,
-    CreateSamplingRuleResponse (CreateSamplingRuleResponse'),
-    newCreateSamplingRuleResponse,
+    -- ** GetSamplingTargets
+    GetSamplingTargets (GetSamplingTargets'),
+    newGetSamplingTargets,
+    GetSamplingTargetsResponse (GetSamplingTargetsResponse'),
+    newGetSamplingTargetsResponse,
+
+    -- ** GetServiceGraph (Paginated)
+    GetServiceGraph (GetServiceGraph'),
+    newGetServiceGraph,
+    GetServiceGraphResponse (GetServiceGraphResponse'),
+    newGetServiceGraphResponse,
+
+    -- ** GetTimeSeriesServiceStatistics (Paginated)
+    GetTimeSeriesServiceStatistics (GetTimeSeriesServiceStatistics'),
+    newGetTimeSeriesServiceStatistics,
+    GetTimeSeriesServiceStatisticsResponse (GetTimeSeriesServiceStatisticsResponse'),
+    newGetTimeSeriesServiceStatisticsResponse,
+
+    -- ** GetTraceGraph (Paginated)
+    GetTraceGraph (GetTraceGraph'),
+    newGetTraceGraph,
+    GetTraceGraphResponse (GetTraceGraphResponse'),
+    newGetTraceGraphResponse,
+
+    -- ** GetTraceSummaries (Paginated)
+    GetTraceSummaries (GetTraceSummaries'),
+    newGetTraceSummaries,
+    GetTraceSummariesResponse (GetTraceSummariesResponse'),
+    newGetTraceSummariesResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** PutEncryptionConfig
+    PutEncryptionConfig (PutEncryptionConfig'),
+    newPutEncryptionConfig,
+    PutEncryptionConfigResponse (PutEncryptionConfigResponse'),
+    newPutEncryptionConfigResponse,
+
+    -- ** PutTelemetryRecords
+    PutTelemetryRecords (PutTelemetryRecords'),
+    newPutTelemetryRecords,
+    PutTelemetryRecordsResponse (PutTelemetryRecordsResponse'),
+    newPutTelemetryRecordsResponse,
+
+    -- ** PutTraceSegments
+    PutTraceSegments (PutTraceSegments'),
+    newPutTraceSegments,
+    PutTraceSegmentsResponse (PutTraceSegmentsResponse'),
+    newPutTraceSegmentsResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateGroup
+    UpdateGroup (UpdateGroup'),
+    newUpdateGroup,
+    UpdateGroupResponse (UpdateGroupResponse'),
+    newUpdateGroupResponse,
+
+    -- ** UpdateSamplingRule
+    UpdateSamplingRule (UpdateSamplingRule'),
+    newUpdateSamplingRule,
+    UpdateSamplingRuleResponse (UpdateSamplingRuleResponse'),
+    newUpdateSamplingRuleResponse,
 
     -- * Types
 

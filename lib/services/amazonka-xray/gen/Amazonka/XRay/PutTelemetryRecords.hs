@@ -27,8 +27,8 @@ module Amazonka.XRay.PutTelemetryRecords
     newPutTelemetryRecords,
 
     -- * Request Lenses
-    putTelemetryRecords_hostname,
     putTelemetryRecords_eC2InstanceId,
+    putTelemetryRecords_hostname,
     putTelemetryRecords_resourceARN,
     putTelemetryRecords_telemetryRecords,
 
@@ -50,8 +50,8 @@ import Amazonka.XRay.Types
 
 -- | /See:/ 'newPutTelemetryRecords' smart constructor.
 data PutTelemetryRecords = PutTelemetryRecords'
-  { hostname :: Prelude.Maybe Prelude.Text,
-    eC2InstanceId :: Prelude.Maybe Prelude.Text,
+  { eC2InstanceId :: Prelude.Maybe Prelude.Text,
+    hostname :: Prelude.Maybe Prelude.Text,
     resourceARN :: Prelude.Maybe Prelude.Text,
     telemetryRecords :: [TelemetryRecord]
   }
@@ -65,9 +65,9 @@ data PutTelemetryRecords = PutTelemetryRecords'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostname', 'putTelemetryRecords_hostname' -
---
 -- 'eC2InstanceId', 'putTelemetryRecords_eC2InstanceId' -
+--
+-- 'hostname', 'putTelemetryRecords_hostname' -
 --
 -- 'resourceARN', 'putTelemetryRecords_resourceARN' -
 --
@@ -76,19 +76,20 @@ newPutTelemetryRecords ::
   PutTelemetryRecords
 newPutTelemetryRecords =
   PutTelemetryRecords'
-    { hostname = Prelude.Nothing,
-      eC2InstanceId = Prelude.Nothing,
+    { eC2InstanceId =
+        Prelude.Nothing,
+      hostname = Prelude.Nothing,
       resourceARN = Prelude.Nothing,
       telemetryRecords = Prelude.mempty
     }
 
 -- |
-putTelemetryRecords_hostname :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
-putTelemetryRecords_hostname = Lens.lens (\PutTelemetryRecords' {hostname} -> hostname) (\s@PutTelemetryRecords' {} a -> s {hostname = a} :: PutTelemetryRecords)
-
--- |
 putTelemetryRecords_eC2InstanceId :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
 putTelemetryRecords_eC2InstanceId = Lens.lens (\PutTelemetryRecords' {eC2InstanceId} -> eC2InstanceId) (\s@PutTelemetryRecords' {} a -> s {eC2InstanceId = a} :: PutTelemetryRecords)
+
+-- |
+putTelemetryRecords_hostname :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
+putTelemetryRecords_hostname = Lens.lens (\PutTelemetryRecords' {hostname} -> hostname) (\s@PutTelemetryRecords' {} a -> s {hostname = a} :: PutTelemetryRecords)
 
 -- |
 putTelemetryRecords_resourceARN :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
@@ -112,15 +113,15 @@ instance Core.AWSRequest PutTelemetryRecords where
 
 instance Prelude.Hashable PutTelemetryRecords where
   hashWithSalt _salt PutTelemetryRecords' {..} =
-    _salt `Prelude.hashWithSalt` hostname
-      `Prelude.hashWithSalt` eC2InstanceId
+    _salt `Prelude.hashWithSalt` eC2InstanceId
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` telemetryRecords
 
 instance Prelude.NFData PutTelemetryRecords where
   rnf PutTelemetryRecords' {..} =
-    Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf eC2InstanceId
+    Prelude.rnf eC2InstanceId
+      `Prelude.seq` Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf resourceARN
       `Prelude.seq` Prelude.rnf telemetryRecords
 
@@ -131,8 +132,8 @@ instance Core.ToJSON PutTelemetryRecords where
   toJSON PutTelemetryRecords' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Hostname" Core..=) Prelude.<$> hostname,
-            ("EC2InstanceId" Core..=) Prelude.<$> eC2InstanceId,
+          [ ("EC2InstanceId" Core..=) Prelude.<$> eC2InstanceId,
+            ("Hostname" Core..=) Prelude.<$> hostname,
             ("ResourceARN" Core..=) Prelude.<$> resourceARN,
             Prelude.Just
               ("TelemetryRecords" Core..= telemetryRecords)

@@ -28,11 +28,11 @@ import Amazonka.XRay.Types.ResponseTimeRootCauseService
 --
 -- /See:/ 'newResponseTimeRootCause' smart constructor.
 data ResponseTimeRootCause = ResponseTimeRootCause'
-  { -- | A flag that denotes that the root cause impacts the trace client.
-    clientImpacting :: Prelude.Maybe Prelude.Bool,
-    -- | A list of corresponding services. A service identifies a segment and
+  { -- | A list of corresponding services. A service identifies a segment and
     -- contains a name, account ID, type, and inferred flag.
-    services :: Prelude.Maybe [ResponseTimeRootCauseService]
+    services :: Prelude.Maybe [ResponseTimeRootCauseService],
+    -- | A flag that denotes that the root cause impacts the trace client.
+    clientImpacting :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,26 @@ data ResponseTimeRootCause = ResponseTimeRootCause'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientImpacting', 'responseTimeRootCause_clientImpacting' - A flag that denotes that the root cause impacts the trace client.
---
 -- 'services', 'responseTimeRootCause_services' - A list of corresponding services. A service identifies a segment and
 -- contains a name, account ID, type, and inferred flag.
+--
+-- 'clientImpacting', 'responseTimeRootCause_clientImpacting' - A flag that denotes that the root cause impacts the trace client.
 newResponseTimeRootCause ::
   ResponseTimeRootCause
 newResponseTimeRootCause =
   ResponseTimeRootCause'
-    { clientImpacting =
-        Prelude.Nothing,
-      services = Prelude.Nothing
+    { services = Prelude.Nothing,
+      clientImpacting = Prelude.Nothing
     }
-
--- | A flag that denotes that the root cause impacts the trace client.
-responseTimeRootCause_clientImpacting :: Lens.Lens' ResponseTimeRootCause (Prelude.Maybe Prelude.Bool)
-responseTimeRootCause_clientImpacting = Lens.lens (\ResponseTimeRootCause' {clientImpacting} -> clientImpacting) (\s@ResponseTimeRootCause' {} a -> s {clientImpacting = a} :: ResponseTimeRootCause)
 
 -- | A list of corresponding services. A service identifies a segment and
 -- contains a name, account ID, type, and inferred flag.
 responseTimeRootCause_services :: Lens.Lens' ResponseTimeRootCause (Prelude.Maybe [ResponseTimeRootCauseService])
 responseTimeRootCause_services = Lens.lens (\ResponseTimeRootCause' {services} -> services) (\s@ResponseTimeRootCause' {} a -> s {services = a} :: ResponseTimeRootCause) Prelude.. Lens.mapping Lens.coerced
+
+-- | A flag that denotes that the root cause impacts the trace client.
+responseTimeRootCause_clientImpacting :: Lens.Lens' ResponseTimeRootCause (Prelude.Maybe Prelude.Bool)
+responseTimeRootCause_clientImpacting = Lens.lens (\ResponseTimeRootCause' {clientImpacting} -> clientImpacting) (\s@ResponseTimeRootCause' {} a -> s {clientImpacting = a} :: ResponseTimeRootCause)
 
 instance Core.FromJSON ResponseTimeRootCause where
   parseJSON =
@@ -72,16 +71,16 @@ instance Core.FromJSON ResponseTimeRootCause where
       "ResponseTimeRootCause"
       ( \x ->
           ResponseTimeRootCause'
-            Prelude.<$> (x Core..:? "ClientImpacting")
-            Prelude.<*> (x Core..:? "Services" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Services" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ClientImpacting")
       )
 
 instance Prelude.Hashable ResponseTimeRootCause where
   hashWithSalt _salt ResponseTimeRootCause' {..} =
-    _salt `Prelude.hashWithSalt` clientImpacting
-      `Prelude.hashWithSalt` services
+    _salt `Prelude.hashWithSalt` services
+      `Prelude.hashWithSalt` clientImpacting
 
 instance Prelude.NFData ResponseTimeRootCause where
   rnf ResponseTimeRootCause' {..} =
-    Prelude.rnf clientImpacting
-      `Prelude.seq` Prelude.rnf services
+    Prelude.rnf services
+      `Prelude.seq` Prelude.rnf clientImpacting

@@ -34,8 +34,8 @@ module Amazonka.Wisdom.GetRecommendations
     newGetRecommendations,
 
     -- * Request Lenses
-    getRecommendations_waitTimeSeconds,
     getRecommendations_maxResults,
+    getRecommendations_waitTimeSeconds,
     getRecommendations_assistantId,
     getRecommendations_sessionId,
 
@@ -58,14 +58,14 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newGetRecommendations' smart constructor.
 data GetRecommendations = GetRecommendations'
-  { -- | The duration (in seconds) for which the call waits for a recommendation
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The duration (in seconds) for which the call waits for a recommendation
     -- to be made available before returning. If a recommendation is available,
     -- the call returns sooner than @WaitTimeSeconds@. If no messages are
     -- available and the wait time expires, the call returns successfully with
     -- an empty list.
     waitTimeSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Wisdom assistant. Can be either the ID or the ARN.
     -- URLs cannot contain the ARN.
     assistantId :: Prelude.Text,
@@ -83,13 +83,13 @@ data GetRecommendations = GetRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getRecommendations_maxResults' - The maximum number of results to return per page.
+--
 -- 'waitTimeSeconds', 'getRecommendations_waitTimeSeconds' - The duration (in seconds) for which the call waits for a recommendation
 -- to be made available before returning. If a recommendation is available,
 -- the call returns sooner than @WaitTimeSeconds@. If no messages are
 -- available and the wait time expires, the call returns successfully with
 -- an empty list.
---
--- 'maxResults', 'getRecommendations_maxResults' - The maximum number of results to return per page.
 --
 -- 'assistantId', 'getRecommendations_assistantId' - The identifier of the Wisdom assistant. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -104,12 +104,15 @@ newGetRecommendations ::
   GetRecommendations
 newGetRecommendations pAssistantId_ pSessionId_ =
   GetRecommendations'
-    { waitTimeSeconds =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      waitTimeSeconds = Prelude.Nothing,
       assistantId = pAssistantId_,
       sessionId = pSessionId_
     }
+
+-- | The maximum number of results to return per page.
+getRecommendations_maxResults :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Natural)
+getRecommendations_maxResults = Lens.lens (\GetRecommendations' {maxResults} -> maxResults) (\s@GetRecommendations' {} a -> s {maxResults = a} :: GetRecommendations)
 
 -- | The duration (in seconds) for which the call waits for a recommendation
 -- to be made available before returning. If a recommendation is available,
@@ -118,10 +121,6 @@ newGetRecommendations pAssistantId_ pSessionId_ =
 -- an empty list.
 getRecommendations_waitTimeSeconds :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Natural)
 getRecommendations_waitTimeSeconds = Lens.lens (\GetRecommendations' {waitTimeSeconds} -> waitTimeSeconds) (\s@GetRecommendations' {} a -> s {waitTimeSeconds = a} :: GetRecommendations)
-
--- | The maximum number of results to return per page.
-getRecommendations_maxResults :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Natural)
-getRecommendations_maxResults = Lens.lens (\GetRecommendations' {maxResults} -> maxResults) (\s@GetRecommendations' {} a -> s {maxResults = a} :: GetRecommendations)
 
 -- | The identifier of the Wisdom assistant. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -150,15 +149,15 @@ instance Core.AWSRequest GetRecommendations where
 
 instance Prelude.Hashable GetRecommendations where
   hashWithSalt _salt GetRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` waitTimeSeconds
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` waitTimeSeconds
       `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` sessionId
 
 instance Prelude.NFData GetRecommendations where
   rnf GetRecommendations' {..} =
-    Prelude.rnf waitTimeSeconds
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf waitTimeSeconds
       `Prelude.seq` Prelude.rnf assistantId
       `Prelude.seq` Prelude.rnf sessionId
 
@@ -186,8 +185,8 @@ instance Core.ToPath GetRecommendations where
 instance Core.ToQuery GetRecommendations where
   toQuery GetRecommendations' {..} =
     Prelude.mconcat
-      [ "waitTimeSeconds" Core.=: waitTimeSeconds,
-        "maxResults" Core.=: maxResults
+      [ "maxResults" Core.=: maxResults,
+        "waitTimeSeconds" Core.=: waitTimeSeconds
       ]
 
 -- | /See:/ 'newGetRecommendationsResponse' smart constructor.

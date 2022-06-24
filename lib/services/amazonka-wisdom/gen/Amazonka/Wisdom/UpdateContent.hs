@@ -27,12 +27,12 @@ module Amazonka.Wisdom.UpdateContent
     newUpdateContent,
 
     -- * Request Lenses
-    updateContent_overrideLinkOutUri,
-    updateContent_removeOverrideLinkOutUri,
+    updateContent_uploadId,
     updateContent_metadata,
     updateContent_title,
     updateContent_revisionId,
-    updateContent_uploadId,
+    updateContent_overrideLinkOutUri,
+    updateContent_removeOverrideLinkOutUri,
     updateContent_contentId,
     updateContent_knowledgeBaseId,
 
@@ -55,13 +55,9 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newUpdateContent' smart constructor.
 data UpdateContent = UpdateContent'
-  { -- | The URI for the article. If the knowledge base has a templateUri,
-    -- setting this argument overrides it for this piece of content. To remove
-    -- an existing @overrideLinkOurUri@, exclude this argument and set
-    -- @removeOverrideLinkOutUri@ to true.
-    overrideLinkOutUri :: Prelude.Maybe Prelude.Text,
-    -- | Unset the existing @overrideLinkOutUri@ if it exists.
-    removeOverrideLinkOutUri :: Prelude.Maybe Prelude.Bool,
+  { -- | A pointer to the uploaded asset. This value is returned by
+    -- <https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html StartContentUpload>.
+    uploadId :: Prelude.Maybe Prelude.Text,
     -- | A key\/value map to store attributes without affecting tagging or
     -- recommendations. For example, when synchronizing data between an
     -- external system and Wisdom, you can store an external version identifier
@@ -75,9 +71,13 @@ data UpdateContent = UpdateContent'
     -- ensure content was not modified since it was last read. If it has been
     -- modified, this API throws a @PreconditionFailedException@.
     revisionId :: Prelude.Maybe Prelude.Text,
-    -- | A pointer to the uploaded asset. This value is returned by
-    -- <https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html StartContentUpload>.
-    uploadId :: Prelude.Maybe Prelude.Text,
+    -- | The URI for the article. If the knowledge base has a templateUri,
+    -- setting this argument overrides it for this piece of content. To remove
+    -- an existing @overrideLinkOurUri@, exclude this argument and set
+    -- @removeOverrideLinkOutUri@ to true.
+    overrideLinkOutUri :: Prelude.Maybe Prelude.Text,
+    -- | Unset the existing @overrideLinkOutUri@ if it exists.
+    removeOverrideLinkOutUri :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the content. Can be either the ID or the ARN. URLs
     -- cannot contain the ARN.
     contentId :: Prelude.Text,
@@ -95,12 +95,8 @@ data UpdateContent = UpdateContent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'overrideLinkOutUri', 'updateContent_overrideLinkOutUri' - The URI for the article. If the knowledge base has a templateUri,
--- setting this argument overrides it for this piece of content. To remove
--- an existing @overrideLinkOurUri@, exclude this argument and set
--- @removeOverrideLinkOutUri@ to true.
---
--- 'removeOverrideLinkOutUri', 'updateContent_removeOverrideLinkOutUri' - Unset the existing @overrideLinkOutUri@ if it exists.
+-- 'uploadId', 'updateContent_uploadId' - A pointer to the uploaded asset. This value is returned by
+-- <https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html StartContentUpload>.
 --
 -- 'metadata', 'updateContent_metadata' - A key\/value map to store attributes without affecting tagging or
 -- recommendations. For example, when synchronizing data between an
@@ -115,8 +111,12 @@ data UpdateContent = UpdateContent'
 -- ensure content was not modified since it was last read. If it has been
 -- modified, this API throws a @PreconditionFailedException@.
 --
--- 'uploadId', 'updateContent_uploadId' - A pointer to the uploaded asset. This value is returned by
--- <https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html StartContentUpload>.
+-- 'overrideLinkOutUri', 'updateContent_overrideLinkOutUri' - The URI for the article. If the knowledge base has a templateUri,
+-- setting this argument overrides it for this piece of content. To remove
+-- an existing @overrideLinkOurUri@, exclude this argument and set
+-- @removeOverrideLinkOutUri@ to true.
+--
+-- 'removeOverrideLinkOutUri', 'updateContent_removeOverrideLinkOutUri' - Unset the existing @overrideLinkOutUri@ if it exists.
 --
 -- 'contentId', 'updateContent_contentId' - The identifier of the content. Can be either the ID or the ARN. URLs
 -- cannot contain the ARN.
@@ -131,27 +131,20 @@ newUpdateContent ::
   UpdateContent
 newUpdateContent pContentId_ pKnowledgeBaseId_ =
   UpdateContent'
-    { overrideLinkOutUri =
-        Prelude.Nothing,
-      removeOverrideLinkOutUri = Prelude.Nothing,
+    { uploadId = Prelude.Nothing,
       metadata = Prelude.Nothing,
       title = Prelude.Nothing,
       revisionId = Prelude.Nothing,
-      uploadId = Prelude.Nothing,
+      overrideLinkOutUri = Prelude.Nothing,
+      removeOverrideLinkOutUri = Prelude.Nothing,
       contentId = pContentId_,
       knowledgeBaseId = pKnowledgeBaseId_
     }
 
--- | The URI for the article. If the knowledge base has a templateUri,
--- setting this argument overrides it for this piece of content. To remove
--- an existing @overrideLinkOurUri@, exclude this argument and set
--- @removeOverrideLinkOutUri@ to true.
-updateContent_overrideLinkOutUri :: Lens.Lens' UpdateContent (Prelude.Maybe Prelude.Text)
-updateContent_overrideLinkOutUri = Lens.lens (\UpdateContent' {overrideLinkOutUri} -> overrideLinkOutUri) (\s@UpdateContent' {} a -> s {overrideLinkOutUri = a} :: UpdateContent)
-
--- | Unset the existing @overrideLinkOutUri@ if it exists.
-updateContent_removeOverrideLinkOutUri :: Lens.Lens' UpdateContent (Prelude.Maybe Prelude.Bool)
-updateContent_removeOverrideLinkOutUri = Lens.lens (\UpdateContent' {removeOverrideLinkOutUri} -> removeOverrideLinkOutUri) (\s@UpdateContent' {} a -> s {removeOverrideLinkOutUri = a} :: UpdateContent)
+-- | A pointer to the uploaded asset. This value is returned by
+-- <https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html StartContentUpload>.
+updateContent_uploadId :: Lens.Lens' UpdateContent (Prelude.Maybe Prelude.Text)
+updateContent_uploadId = Lens.lens (\UpdateContent' {uploadId} -> uploadId) (\s@UpdateContent' {} a -> s {uploadId = a} :: UpdateContent)
 
 -- | A key\/value map to store attributes without affecting tagging or
 -- recommendations. For example, when synchronizing data between an
@@ -172,10 +165,16 @@ updateContent_title = Lens.lens (\UpdateContent' {title} -> title) (\s@UpdateCon
 updateContent_revisionId :: Lens.Lens' UpdateContent (Prelude.Maybe Prelude.Text)
 updateContent_revisionId = Lens.lens (\UpdateContent' {revisionId} -> revisionId) (\s@UpdateContent' {} a -> s {revisionId = a} :: UpdateContent)
 
--- | A pointer to the uploaded asset. This value is returned by
--- <https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html StartContentUpload>.
-updateContent_uploadId :: Lens.Lens' UpdateContent (Prelude.Maybe Prelude.Text)
-updateContent_uploadId = Lens.lens (\UpdateContent' {uploadId} -> uploadId) (\s@UpdateContent' {} a -> s {uploadId = a} :: UpdateContent)
+-- | The URI for the article. If the knowledge base has a templateUri,
+-- setting this argument overrides it for this piece of content. To remove
+-- an existing @overrideLinkOurUri@, exclude this argument and set
+-- @removeOverrideLinkOutUri@ to true.
+updateContent_overrideLinkOutUri :: Lens.Lens' UpdateContent (Prelude.Maybe Prelude.Text)
+updateContent_overrideLinkOutUri = Lens.lens (\UpdateContent' {overrideLinkOutUri} -> overrideLinkOutUri) (\s@UpdateContent' {} a -> s {overrideLinkOutUri = a} :: UpdateContent)
+
+-- | Unset the existing @overrideLinkOutUri@ if it exists.
+updateContent_removeOverrideLinkOutUri :: Lens.Lens' UpdateContent (Prelude.Maybe Prelude.Bool)
+updateContent_removeOverrideLinkOutUri = Lens.lens (\UpdateContent' {removeOverrideLinkOutUri} -> removeOverrideLinkOutUri) (\s@UpdateContent' {} a -> s {removeOverrideLinkOutUri = a} :: UpdateContent)
 
 -- | The identifier of the content. Can be either the ID or the ARN. URLs
 -- cannot contain the ARN.
@@ -202,23 +201,23 @@ instance Core.AWSRequest UpdateContent where
 
 instance Prelude.Hashable UpdateContent where
   hashWithSalt _salt UpdateContent' {..} =
-    _salt `Prelude.hashWithSalt` overrideLinkOutUri
-      `Prelude.hashWithSalt` removeOverrideLinkOutUri
+    _salt `Prelude.hashWithSalt` uploadId
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` revisionId
-      `Prelude.hashWithSalt` uploadId
+      `Prelude.hashWithSalt` overrideLinkOutUri
+      `Prelude.hashWithSalt` removeOverrideLinkOutUri
       `Prelude.hashWithSalt` contentId
       `Prelude.hashWithSalt` knowledgeBaseId
 
 instance Prelude.NFData UpdateContent where
   rnf UpdateContent' {..} =
-    Prelude.rnf overrideLinkOutUri
-      `Prelude.seq` Prelude.rnf removeOverrideLinkOutUri
+    Prelude.rnf uploadId
       `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf overrideLinkOutUri
+      `Prelude.seq` Prelude.rnf removeOverrideLinkOutUri
       `Prelude.seq` Prelude.rnf contentId
       `Prelude.seq` Prelude.rnf knowledgeBaseId
 
@@ -237,14 +236,14 @@ instance Core.ToJSON UpdateContent where
   toJSON UpdateContent' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("overrideLinkOutUri" Core..=)
-              Prelude.<$> overrideLinkOutUri,
-            ("removeOverrideLinkOutUri" Core..=)
-              Prelude.<$> removeOverrideLinkOutUri,
+          [ ("uploadId" Core..=) Prelude.<$> uploadId,
             ("metadata" Core..=) Prelude.<$> metadata,
             ("title" Core..=) Prelude.<$> title,
             ("revisionId" Core..=) Prelude.<$> revisionId,
-            ("uploadId" Core..=) Prelude.<$> uploadId
+            ("overrideLinkOutUri" Core..=)
+              Prelude.<$> overrideLinkOutUri,
+            ("removeOverrideLinkOutUri" Core..=)
+              Prelude.<$> removeOverrideLinkOutUri
           ]
       )
 

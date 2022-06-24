@@ -28,10 +28,10 @@ import Amazonka.Wisdom.Types.ContentStatus
 --
 -- /See:/ 'newContentData' smart constructor.
 data ContentData = ContentData'
-  { -- | The URI of the content.
-    linkOutUri :: Prelude.Maybe Prelude.Text,
-    -- | The tags used to organize, track, or control access for this resource.
+  { -- | The tags used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The URI of the content.
+    linkOutUri :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the content.
     contentArn :: Prelude.Text,
     -- | The identifier of the content.
@@ -70,9 +70,9 @@ data ContentData = ContentData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'linkOutUri', 'contentData_linkOutUri' - The URI of the content.
---
 -- 'tags', 'contentData_tags' - The tags used to organize, track, or control access for this resource.
+--
+-- 'linkOutUri', 'contentData_linkOutUri' - The URI of the content.
 --
 -- 'contentArn', 'contentData_contentArn' - The Amazon Resource Name (ARN) of the content.
 --
@@ -137,8 +137,8 @@ newContentData
   pUrl_
   pUrlExpiry_ =
     ContentData'
-      { linkOutUri = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        linkOutUri = Prelude.Nothing,
         contentArn = pContentArn_,
         contentId = pContentId_,
         contentType = pContentType_,
@@ -153,13 +153,13 @@ newContentData
         urlExpiry = Core._Time Lens.# pUrlExpiry_
       }
 
--- | The URI of the content.
-contentData_linkOutUri :: Lens.Lens' ContentData (Prelude.Maybe Prelude.Text)
-contentData_linkOutUri = Lens.lens (\ContentData' {linkOutUri} -> linkOutUri) (\s@ContentData' {} a -> s {linkOutUri = a} :: ContentData)
-
 -- | The tags used to organize, track, or control access for this resource.
 contentData_tags :: Lens.Lens' ContentData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 contentData_tags = Lens.lens (\ContentData' {tags} -> tags) (\s@ContentData' {} a -> s {tags = a} :: ContentData) Prelude.. Lens.mapping Lens.coerced
+
+-- | The URI of the content.
+contentData_linkOutUri :: Lens.Lens' ContentData (Prelude.Maybe Prelude.Text)
+contentData_linkOutUri = Lens.lens (\ContentData' {linkOutUri} -> linkOutUri) (\s@ContentData' {} a -> s {linkOutUri = a} :: ContentData)
 
 -- | The Amazon Resource Name (ARN) of the content.
 contentData_contentArn :: Lens.Lens' ContentData Prelude.Text
@@ -218,8 +218,8 @@ instance Core.FromJSON ContentData where
       "ContentData"
       ( \x ->
           ContentData'
-            Prelude.<$> (x Core..:? "linkOutUri")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "linkOutUri")
             Prelude.<*> (x Core..: "contentArn")
             Prelude.<*> (x Core..: "contentId")
             Prelude.<*> (x Core..: "contentType")
@@ -236,8 +236,8 @@ instance Core.FromJSON ContentData where
 
 instance Prelude.Hashable ContentData where
   hashWithSalt _salt ContentData' {..} =
-    _salt `Prelude.hashWithSalt` linkOutUri
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` linkOutUri
       `Prelude.hashWithSalt` contentArn
       `Prelude.hashWithSalt` contentId
       `Prelude.hashWithSalt` contentType
@@ -253,8 +253,8 @@ instance Prelude.Hashable ContentData where
 
 instance Prelude.NFData ContentData where
   rnf ContentData' {..} =
-    Prelude.rnf linkOutUri
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf linkOutUri
       `Prelude.seq` Prelude.rnf contentArn
       `Prelude.seq` Prelude.rnf contentId
       `Prelude.seq` Prelude.rnf contentType

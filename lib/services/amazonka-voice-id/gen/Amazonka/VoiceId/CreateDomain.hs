@@ -28,9 +28,9 @@ module Amazonka.VoiceId.CreateDomain
     newCreateDomain,
 
     -- * Request Lenses
+    createDomain_tags,
     createDomain_clientToken,
     createDomain_description,
-    createDomain_tags,
     createDomain_name,
     createDomain_serverSideEncryptionConfiguration,
 
@@ -53,13 +53,13 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newCreateDomain' smart constructor.
 data CreateDomain = CreateDomain'
-  { -- | The idempotency token for creating a new domain. If not provided, Amazon
+  { -- | A list of tags you want added to the domain.
+    tags :: Prelude.Maybe [Tag],
+    -- | The idempotency token for creating a new domain. If not provided, Amazon
     -- Web Services SDK populates this field.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A brief description of this domain.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | A list of tags you want added to the domain.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the domain.
     name :: Core.Sensitive Prelude.Text,
     -- | The configuration, containing the KMS Key Identifier, to be used by
@@ -78,12 +78,12 @@ data CreateDomain = CreateDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createDomain_tags' - A list of tags you want added to the domain.
+--
 -- 'clientToken', 'createDomain_clientToken' - The idempotency token for creating a new domain. If not provided, Amazon
 -- Web Services SDK populates this field.
 --
 -- 'description', 'createDomain_description' - A brief description of this domain.
---
--- 'tags', 'createDomain_tags' - A list of tags you want added to the domain.
 --
 -- 'name', 'createDomain_name' - The name of the domain.
 --
@@ -101,13 +101,17 @@ newCreateDomain
   pName_
   pServerSideEncryptionConfiguration_ =
     CreateDomain'
-      { clientToken = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
         name = Core._Sensitive Lens.# pName_,
         serverSideEncryptionConfiguration =
           pServerSideEncryptionConfiguration_
       }
+
+-- | A list of tags you want added to the domain.
+createDomain_tags :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
+createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The idempotency token for creating a new domain. If not provided, Amazon
 -- Web Services SDK populates this field.
@@ -117,10 +121,6 @@ createDomain_clientToken = Lens.lens (\CreateDomain' {clientToken} -> clientToke
 -- | A brief description of this domain.
 createDomain_description :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
 createDomain_description = Lens.lens (\CreateDomain' {description} -> description) (\s@CreateDomain' {} a -> s {description = a} :: CreateDomain) Prelude.. Lens.mapping Core._Sensitive
-
--- | A list of tags you want added to the domain.
-createDomain_tags :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
-createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the domain.
 createDomain_name :: Lens.Lens' CreateDomain Prelude.Text
@@ -146,17 +146,17 @@ instance Core.AWSRequest CreateDomain where
 
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration
 
 instance Prelude.NFData CreateDomain where
   rnf CreateDomain' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
 
@@ -177,9 +177,9 @@ instance Core.ToJSON CreateDomain where
   toJSON CreateDomain' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ClientToken" Core..=) Prelude.<$> clientToken,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ( "ServerSideEncryptionConfiguration"

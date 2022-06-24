@@ -32,14 +32,14 @@ data Speaker = Speaker'
     status :: Prelude.Maybe SpeakerStatus,
     -- | The client-provided identifier for the speaker.
     customerSpeakerId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | A timestamp showing when the speaker is created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The service-generated identifier for the speaker.
+    generatedSpeakerId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the domain that contains the speaker.
     domainId :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp showing when the speaker is created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | A timestamp showing the speaker\'s last update.
-    updatedAt :: Prelude.Maybe Core.POSIX,
-    -- | The service-generated identifier for the speaker.
-    generatedSpeakerId :: Prelude.Maybe Prelude.Text
+    updatedAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -55,23 +55,23 @@ data Speaker = Speaker'
 --
 -- 'customerSpeakerId', 'speaker_customerSpeakerId' - The client-provided identifier for the speaker.
 --
--- 'createdAt', 'speaker_createdAt' - A timestamp showing when the speaker is created.
+-- 'generatedSpeakerId', 'speaker_generatedSpeakerId' - The service-generated identifier for the speaker.
 --
 -- 'domainId', 'speaker_domainId' - The identifier of the domain that contains the speaker.
 --
--- 'updatedAt', 'speaker_updatedAt' - A timestamp showing the speaker\'s last update.
+-- 'createdAt', 'speaker_createdAt' - A timestamp showing when the speaker is created.
 --
--- 'generatedSpeakerId', 'speaker_generatedSpeakerId' - The service-generated identifier for the speaker.
+-- 'updatedAt', 'speaker_updatedAt' - A timestamp showing the speaker\'s last update.
 newSpeaker ::
   Speaker
 newSpeaker =
   Speaker'
     { status = Prelude.Nothing,
       customerSpeakerId = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      generatedSpeakerId = Prelude.Nothing,
       domainId = Prelude.Nothing,
-      updatedAt = Prelude.Nothing,
-      generatedSpeakerId = Prelude.Nothing
+      createdAt = Prelude.Nothing,
+      updatedAt = Prelude.Nothing
     }
 
 -- | The current status of the speaker.
@@ -82,21 +82,21 @@ speaker_status = Lens.lens (\Speaker' {status} -> status) (\s@Speaker' {} a -> s
 speaker_customerSpeakerId :: Lens.Lens' Speaker (Prelude.Maybe Prelude.Text)
 speaker_customerSpeakerId = Lens.lens (\Speaker' {customerSpeakerId} -> customerSpeakerId) (\s@Speaker' {} a -> s {customerSpeakerId = a} :: Speaker) Prelude.. Lens.mapping Core._Sensitive
 
--- | A timestamp showing when the speaker is created.
-speaker_createdAt :: Lens.Lens' Speaker (Prelude.Maybe Prelude.UTCTime)
-speaker_createdAt = Lens.lens (\Speaker' {createdAt} -> createdAt) (\s@Speaker' {} a -> s {createdAt = a} :: Speaker) Prelude.. Lens.mapping Core._Time
+-- | The service-generated identifier for the speaker.
+speaker_generatedSpeakerId :: Lens.Lens' Speaker (Prelude.Maybe Prelude.Text)
+speaker_generatedSpeakerId = Lens.lens (\Speaker' {generatedSpeakerId} -> generatedSpeakerId) (\s@Speaker' {} a -> s {generatedSpeakerId = a} :: Speaker)
 
 -- | The identifier of the domain that contains the speaker.
 speaker_domainId :: Lens.Lens' Speaker (Prelude.Maybe Prelude.Text)
 speaker_domainId = Lens.lens (\Speaker' {domainId} -> domainId) (\s@Speaker' {} a -> s {domainId = a} :: Speaker)
 
+-- | A timestamp showing when the speaker is created.
+speaker_createdAt :: Lens.Lens' Speaker (Prelude.Maybe Prelude.UTCTime)
+speaker_createdAt = Lens.lens (\Speaker' {createdAt} -> createdAt) (\s@Speaker' {} a -> s {createdAt = a} :: Speaker) Prelude.. Lens.mapping Core._Time
+
 -- | A timestamp showing the speaker\'s last update.
 speaker_updatedAt :: Lens.Lens' Speaker (Prelude.Maybe Prelude.UTCTime)
 speaker_updatedAt = Lens.lens (\Speaker' {updatedAt} -> updatedAt) (\s@Speaker' {} a -> s {updatedAt = a} :: Speaker) Prelude.. Lens.mapping Core._Time
-
--- | The service-generated identifier for the speaker.
-speaker_generatedSpeakerId :: Lens.Lens' Speaker (Prelude.Maybe Prelude.Text)
-speaker_generatedSpeakerId = Lens.lens (\Speaker' {generatedSpeakerId} -> generatedSpeakerId) (\s@Speaker' {} a -> s {generatedSpeakerId = a} :: Speaker)
 
 instance Core.FromJSON Speaker where
   parseJSON =
@@ -106,26 +106,26 @@ instance Core.FromJSON Speaker where
           Speaker'
             Prelude.<$> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "CustomerSpeakerId")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "DomainId")
-            Prelude.<*> (x Core..:? "UpdatedAt")
             Prelude.<*> (x Core..:? "GeneratedSpeakerId")
+            Prelude.<*> (x Core..:? "DomainId")
+            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable Speaker where
   hashWithSalt _salt Speaker' {..} =
     _salt `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` customerSpeakerId
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` domainId
-      `Prelude.hashWithSalt` updatedAt
       `Prelude.hashWithSalt` generatedSpeakerId
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` updatedAt
 
 instance Prelude.NFData Speaker where
   rnf Speaker' {..} =
     Prelude.rnf status
       `Prelude.seq` Prelude.rnf customerSpeakerId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf generatedSpeakerId
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf updatedAt

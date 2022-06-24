@@ -30,27 +30,27 @@ import Amazonka.VoiceId.Types.JobProgress
 --
 -- /See:/ 'newFraudsterRegistrationJobSummary' smart constructor.
 data FraudsterRegistrationJobSummary = FraudsterRegistrationJobSummary'
-  { -- | Contains details that are populated when an entire batch job fails. In
+  { -- | The current status of the fraudster registration job.
+    jobStatus :: Prelude.Maybe FraudsterRegistrationJobStatus,
+    -- | The client-provied name for the fraudster registration job.
+    jobName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | A timestamp showing when the fraudster registration job ended.
+    endedAt :: Prelude.Maybe Core.POSIX,
+    -- | The service-generated identifier for the fraudster registration job.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | Contains details that are populated when an entire batch job fails. In
     -- cases of individual registration job failures, the batch job as a whole
     -- doesn\'t fail; it is completed with a @JobStatus@ of
     -- @COMPLETED_WITH_ERRORS@. You can use the job output file to identify the
     -- individual registration requests that failed.
     failureDetails :: Prelude.Maybe FailureDetails,
-    -- | The service-generated identifier for the fraudster registration job.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp showing when the fraudster registration job is created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The client-provied name for the fraudster registration job.
-    jobName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | A timestamp showing when the fraudster registration job ended.
-    endedAt :: Prelude.Maybe Core.POSIX,
+    -- | The identifier of the domain containing the fraudster registration job.
+    domainId :: Prelude.Maybe Prelude.Text,
     -- | Shows the completed percentage of registration requests listed in the
     -- input file.
     jobProgress :: Prelude.Maybe JobProgress,
-    -- | The identifier of the domain containing the fraudster registration job.
-    domainId :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the fraudster registration job.
-    jobStatus :: Prelude.Maybe FraudsterRegistrationJobStatus
+    -- | A timestamp showing when the fraudster registration job is created.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -62,56 +62,44 @@ data FraudsterRegistrationJobSummary = FraudsterRegistrationJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobStatus', 'fraudsterRegistrationJobSummary_jobStatus' - The current status of the fraudster registration job.
+--
+-- 'jobName', 'fraudsterRegistrationJobSummary_jobName' - The client-provied name for the fraudster registration job.
+--
+-- 'endedAt', 'fraudsterRegistrationJobSummary_endedAt' - A timestamp showing when the fraudster registration job ended.
+--
+-- 'jobId', 'fraudsterRegistrationJobSummary_jobId' - The service-generated identifier for the fraudster registration job.
+--
 -- 'failureDetails', 'fraudsterRegistrationJobSummary_failureDetails' - Contains details that are populated when an entire batch job fails. In
 -- cases of individual registration job failures, the batch job as a whole
 -- doesn\'t fail; it is completed with a @JobStatus@ of
 -- @COMPLETED_WITH_ERRORS@. You can use the job output file to identify the
 -- individual registration requests that failed.
 --
--- 'jobId', 'fraudsterRegistrationJobSummary_jobId' - The service-generated identifier for the fraudster registration job.
---
--- 'createdAt', 'fraudsterRegistrationJobSummary_createdAt' - A timestamp showing when the fraudster registration job is created.
---
--- 'jobName', 'fraudsterRegistrationJobSummary_jobName' - The client-provied name for the fraudster registration job.
---
--- 'endedAt', 'fraudsterRegistrationJobSummary_endedAt' - A timestamp showing when the fraudster registration job ended.
+-- 'domainId', 'fraudsterRegistrationJobSummary_domainId' - The identifier of the domain containing the fraudster registration job.
 --
 -- 'jobProgress', 'fraudsterRegistrationJobSummary_jobProgress' - Shows the completed percentage of registration requests listed in the
 -- input file.
 --
--- 'domainId', 'fraudsterRegistrationJobSummary_domainId' - The identifier of the domain containing the fraudster registration job.
---
--- 'jobStatus', 'fraudsterRegistrationJobSummary_jobStatus' - The current status of the fraudster registration job.
+-- 'createdAt', 'fraudsterRegistrationJobSummary_createdAt' - A timestamp showing when the fraudster registration job is created.
 newFraudsterRegistrationJobSummary ::
   FraudsterRegistrationJobSummary
 newFraudsterRegistrationJobSummary =
   FraudsterRegistrationJobSummary'
-    { failureDetails =
+    { jobStatus =
         Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
       jobName = Prelude.Nothing,
       endedAt = Prelude.Nothing,
-      jobProgress = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      failureDetails = Prelude.Nothing,
       domainId = Prelude.Nothing,
-      jobStatus = Prelude.Nothing
+      jobProgress = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
 
--- | Contains details that are populated when an entire batch job fails. In
--- cases of individual registration job failures, the batch job as a whole
--- doesn\'t fail; it is completed with a @JobStatus@ of
--- @COMPLETED_WITH_ERRORS@. You can use the job output file to identify the
--- individual registration requests that failed.
-fraudsterRegistrationJobSummary_failureDetails :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe FailureDetails)
-fraudsterRegistrationJobSummary_failureDetails = Lens.lens (\FraudsterRegistrationJobSummary' {failureDetails} -> failureDetails) (\s@FraudsterRegistrationJobSummary' {} a -> s {failureDetails = a} :: FraudsterRegistrationJobSummary)
-
--- | The service-generated identifier for the fraudster registration job.
-fraudsterRegistrationJobSummary_jobId :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.Text)
-fraudsterRegistrationJobSummary_jobId = Lens.lens (\FraudsterRegistrationJobSummary' {jobId} -> jobId) (\s@FraudsterRegistrationJobSummary' {} a -> s {jobId = a} :: FraudsterRegistrationJobSummary)
-
--- | A timestamp showing when the fraudster registration job is created.
-fraudsterRegistrationJobSummary_createdAt :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.UTCTime)
-fraudsterRegistrationJobSummary_createdAt = Lens.lens (\FraudsterRegistrationJobSummary' {createdAt} -> createdAt) (\s@FraudsterRegistrationJobSummary' {} a -> s {createdAt = a} :: FraudsterRegistrationJobSummary) Prelude.. Lens.mapping Core._Time
+-- | The current status of the fraudster registration job.
+fraudsterRegistrationJobSummary_jobStatus :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe FraudsterRegistrationJobStatus)
+fraudsterRegistrationJobSummary_jobStatus = Lens.lens (\FraudsterRegistrationJobSummary' {jobStatus} -> jobStatus) (\s@FraudsterRegistrationJobSummary' {} a -> s {jobStatus = a} :: FraudsterRegistrationJobSummary)
 
 -- | The client-provied name for the fraudster registration job.
 fraudsterRegistrationJobSummary_jobName :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.Text)
@@ -121,18 +109,30 @@ fraudsterRegistrationJobSummary_jobName = Lens.lens (\FraudsterRegistrationJobSu
 fraudsterRegistrationJobSummary_endedAt :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.UTCTime)
 fraudsterRegistrationJobSummary_endedAt = Lens.lens (\FraudsterRegistrationJobSummary' {endedAt} -> endedAt) (\s@FraudsterRegistrationJobSummary' {} a -> s {endedAt = a} :: FraudsterRegistrationJobSummary) Prelude.. Lens.mapping Core._Time
 
--- | Shows the completed percentage of registration requests listed in the
--- input file.
-fraudsterRegistrationJobSummary_jobProgress :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe JobProgress)
-fraudsterRegistrationJobSummary_jobProgress = Lens.lens (\FraudsterRegistrationJobSummary' {jobProgress} -> jobProgress) (\s@FraudsterRegistrationJobSummary' {} a -> s {jobProgress = a} :: FraudsterRegistrationJobSummary)
+-- | The service-generated identifier for the fraudster registration job.
+fraudsterRegistrationJobSummary_jobId :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.Text)
+fraudsterRegistrationJobSummary_jobId = Lens.lens (\FraudsterRegistrationJobSummary' {jobId} -> jobId) (\s@FraudsterRegistrationJobSummary' {} a -> s {jobId = a} :: FraudsterRegistrationJobSummary)
+
+-- | Contains details that are populated when an entire batch job fails. In
+-- cases of individual registration job failures, the batch job as a whole
+-- doesn\'t fail; it is completed with a @JobStatus@ of
+-- @COMPLETED_WITH_ERRORS@. You can use the job output file to identify the
+-- individual registration requests that failed.
+fraudsterRegistrationJobSummary_failureDetails :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe FailureDetails)
+fraudsterRegistrationJobSummary_failureDetails = Lens.lens (\FraudsterRegistrationJobSummary' {failureDetails} -> failureDetails) (\s@FraudsterRegistrationJobSummary' {} a -> s {failureDetails = a} :: FraudsterRegistrationJobSummary)
 
 -- | The identifier of the domain containing the fraudster registration job.
 fraudsterRegistrationJobSummary_domainId :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.Text)
 fraudsterRegistrationJobSummary_domainId = Lens.lens (\FraudsterRegistrationJobSummary' {domainId} -> domainId) (\s@FraudsterRegistrationJobSummary' {} a -> s {domainId = a} :: FraudsterRegistrationJobSummary)
 
--- | The current status of the fraudster registration job.
-fraudsterRegistrationJobSummary_jobStatus :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe FraudsterRegistrationJobStatus)
-fraudsterRegistrationJobSummary_jobStatus = Lens.lens (\FraudsterRegistrationJobSummary' {jobStatus} -> jobStatus) (\s@FraudsterRegistrationJobSummary' {} a -> s {jobStatus = a} :: FraudsterRegistrationJobSummary)
+-- | Shows the completed percentage of registration requests listed in the
+-- input file.
+fraudsterRegistrationJobSummary_jobProgress :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe JobProgress)
+fraudsterRegistrationJobSummary_jobProgress = Lens.lens (\FraudsterRegistrationJobSummary' {jobProgress} -> jobProgress) (\s@FraudsterRegistrationJobSummary' {} a -> s {jobProgress = a} :: FraudsterRegistrationJobSummary)
+
+-- | A timestamp showing when the fraudster registration job is created.
+fraudsterRegistrationJobSummary_createdAt :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.UTCTime)
+fraudsterRegistrationJobSummary_createdAt = Lens.lens (\FraudsterRegistrationJobSummary' {createdAt} -> createdAt) (\s@FraudsterRegistrationJobSummary' {} a -> s {createdAt = a} :: FraudsterRegistrationJobSummary) Prelude.. Lens.mapping Core._Time
 
 instance
   Core.FromJSON
@@ -143,14 +143,14 @@ instance
       "FraudsterRegistrationJobSummary"
       ( \x ->
           FraudsterRegistrationJobSummary'
-            Prelude.<$> (x Core..:? "FailureDetails")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Core..:? "JobStatus")
             Prelude.<*> (x Core..:? "JobName")
             Prelude.<*> (x Core..:? "EndedAt")
-            Prelude.<*> (x Core..:? "JobProgress")
+            Prelude.<*> (x Core..:? "JobId")
+            Prelude.<*> (x Core..:? "FailureDetails")
             Prelude.<*> (x Core..:? "DomainId")
-            Prelude.<*> (x Core..:? "JobStatus")
+            Prelude.<*> (x Core..:? "JobProgress")
+            Prelude.<*> (x Core..:? "CreatedAt")
       )
 
 instance
@@ -160,25 +160,25 @@ instance
   hashWithSalt
     _salt
     FraudsterRegistrationJobSummary' {..} =
-      _salt `Prelude.hashWithSalt` failureDetails
-        `Prelude.hashWithSalt` jobId
-        `Prelude.hashWithSalt` createdAt
+      _salt `Prelude.hashWithSalt` jobStatus
         `Prelude.hashWithSalt` jobName
         `Prelude.hashWithSalt` endedAt
-        `Prelude.hashWithSalt` jobProgress
+        `Prelude.hashWithSalt` jobId
+        `Prelude.hashWithSalt` failureDetails
         `Prelude.hashWithSalt` domainId
-        `Prelude.hashWithSalt` jobStatus
+        `Prelude.hashWithSalt` jobProgress
+        `Prelude.hashWithSalt` createdAt
 
 instance
   Prelude.NFData
     FraudsterRegistrationJobSummary
   where
   rnf FraudsterRegistrationJobSummary' {..} =
-    Prelude.rnf failureDetails
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf endedAt
-      `Prelude.seq` Prelude.rnf jobProgress
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf failureDetails
       `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobProgress
+      `Prelude.seq` Prelude.rnf createdAt

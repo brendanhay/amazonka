@@ -14,19 +14,6 @@
 module Amazonka.KinesisVideoArchivedMedia.Lens
   ( -- * Operations
 
-    -- ** GetHLSStreamingSessionURL
-    getHLSStreamingSessionURL_displayFragmentTimestamp,
-    getHLSStreamingSessionURL_hLSFragmentSelector,
-    getHLSStreamingSessionURL_expires,
-    getHLSStreamingSessionURL_streamARN,
-    getHLSStreamingSessionURL_playbackMode,
-    getHLSStreamingSessionURL_containerFormat,
-    getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults,
-    getHLSStreamingSessionURL_discontinuityMode,
-    getHLSStreamingSessionURL_streamName,
-    getHLSStreamingSessionURLResponse_hLSStreamingSessionURL,
-    getHLSStreamingSessionURLResponse_httpStatus,
-
     -- ** GetClip
     getClip_streamARN,
     getClip_streamName,
@@ -34,6 +21,31 @@ module Amazonka.KinesisVideoArchivedMedia.Lens
     getClipResponse_contentType,
     getClipResponse_httpStatus,
     getClipResponse_payload,
+
+    -- ** GetDASHStreamingSessionURL
+    getDASHStreamingSessionURL_dASHFragmentSelector,
+    getDASHStreamingSessionURL_maxManifestFragmentResults,
+    getDASHStreamingSessionURL_displayFragmentTimestamp,
+    getDASHStreamingSessionURL_displayFragmentNumber,
+    getDASHStreamingSessionURL_expires,
+    getDASHStreamingSessionURL_streamARN,
+    getDASHStreamingSessionURL_streamName,
+    getDASHStreamingSessionURL_playbackMode,
+    getDASHStreamingSessionURLResponse_dASHStreamingSessionURL,
+    getDASHStreamingSessionURLResponse_httpStatus,
+
+    -- ** GetHLSStreamingSessionURL
+    getHLSStreamingSessionURL_hLSFragmentSelector,
+    getHLSStreamingSessionURL_displayFragmentTimestamp,
+    getHLSStreamingSessionURL_expires,
+    getHLSStreamingSessionURL_streamARN,
+    getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults,
+    getHLSStreamingSessionURL_streamName,
+    getHLSStreamingSessionURL_containerFormat,
+    getHLSStreamingSessionURL_discontinuityMode,
+    getHLSStreamingSessionURL_playbackMode,
+    getHLSStreamingSessionURLResponse_hLSStreamingSessionURL,
+    getHLSStreamingSessionURLResponse_httpStatus,
 
     -- ** GetMediaForFragmentList
     getMediaForFragmentList_streamARN,
@@ -44,26 +56,14 @@ module Amazonka.KinesisVideoArchivedMedia.Lens
     getMediaForFragmentListResponse_payload,
 
     -- ** ListFragments
+    listFragments_nextToken,
+    listFragments_maxResults,
     listFragments_fragmentSelector,
     listFragments_streamARN,
-    listFragments_nextToken,
     listFragments_streamName,
-    listFragments_maxResults,
     listFragmentsResponse_nextToken,
     listFragmentsResponse_fragments,
     listFragmentsResponse_httpStatus,
-
-    -- ** GetDASHStreamingSessionURL
-    getDASHStreamingSessionURL_displayFragmentTimestamp,
-    getDASHStreamingSessionURL_expires,
-    getDASHStreamingSessionURL_dASHFragmentSelector,
-    getDASHStreamingSessionURL_maxManifestFragmentResults,
-    getDASHStreamingSessionURL_streamARN,
-    getDASHStreamingSessionURL_playbackMode,
-    getDASHStreamingSessionURL_streamName,
-    getDASHStreamingSessionURL_displayFragmentNumber,
-    getDASHStreamingSessionURLResponse_dASHStreamingSessionURL,
-    getDASHStreamingSessionURLResponse_httpStatus,
 
     -- * Types
 
@@ -86,9 +86,9 @@ module Amazonka.KinesisVideoArchivedMedia.Lens
     -- ** Fragment
     fragment_fragmentLengthInMilliseconds,
     fragment_serverTimestamp,
-    fragment_fragmentSizeInBytes,
-    fragment_fragmentNumber,
     fragment_producerTimestamp,
+    fragment_fragmentNumber,
+    fragment_fragmentSizeInBytes,
 
     -- ** FragmentSelector
     fragmentSelector_fragmentSelectorType,

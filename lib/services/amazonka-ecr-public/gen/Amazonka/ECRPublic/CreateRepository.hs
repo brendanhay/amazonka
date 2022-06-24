@@ -29,8 +29,8 @@ module Amazonka.ECRPublic.CreateRepository
     newCreateRepository,
 
     -- * Request Lenses
-    createRepository_catalogData,
     createRepository_tags,
+    createRepository_catalogData,
     createRepository_repositoryName,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.ECRPublic.CreateRepository
     newCreateRepositoryResponse,
 
     -- * Response Lenses
-    createRepositoryResponse_repository,
     createRepositoryResponse_catalogData,
+    createRepositoryResponse_repository,
     createRepositoryResponse_httpStatus,
   )
 where
@@ -53,14 +53,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRepository' smart constructor.
 data CreateRepository = CreateRepository'
-  { -- | The details about the repository that are publicly visible in the Amazon
-    -- ECR Public Gallery.
-    catalogData :: Prelude.Maybe RepositoryCatalogDataInput,
-    -- | The metadata that you apply to the repository to help you categorize and
+  { -- | The metadata that you apply to the repository to help you categorize and
     -- organize them. Each tag consists of a key and an optional value, both of
     -- which you define. Tag keys can have a maximum character length of 128
     -- characters, and tag values can have a maximum length of 256 characters.
     tags :: Prelude.Maybe [Tag],
+    -- | The details about the repository that are publicly visible in the Amazon
+    -- ECR Public Gallery.
+    catalogData :: Prelude.Maybe RepositoryCatalogDataInput,
     -- | The name to use for the repository. This appears publicly in the Amazon
     -- ECR Public Gallery. The repository name may be specified on its own
     -- (such as @nginx-web-app@) or it can be prepended with a namespace to
@@ -78,13 +78,13 @@ data CreateRepository = CreateRepository'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogData', 'createRepository_catalogData' - The details about the repository that are publicly visible in the Amazon
--- ECR Public Gallery.
---
 -- 'tags', 'createRepository_tags' - The metadata that you apply to the repository to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
 -- which you define. Tag keys can have a maximum character length of 128
 -- characters, and tag values can have a maximum length of 256 characters.
+--
+-- 'catalogData', 'createRepository_catalogData' - The details about the repository that are publicly visible in the Amazon
+-- ECR Public Gallery.
 --
 -- 'repositoryName', 'createRepository_repositoryName' - The name to use for the repository. This appears publicly in the Amazon
 -- ECR Public Gallery. The repository name may be specified on its own
@@ -97,15 +97,10 @@ newCreateRepository ::
   CreateRepository
 newCreateRepository pRepositoryName_ =
   CreateRepository'
-    { catalogData = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      catalogData = Prelude.Nothing,
       repositoryName = pRepositoryName_
     }
-
--- | The details about the repository that are publicly visible in the Amazon
--- ECR Public Gallery.
-createRepository_catalogData :: Lens.Lens' CreateRepository (Prelude.Maybe RepositoryCatalogDataInput)
-createRepository_catalogData = Lens.lens (\CreateRepository' {catalogData} -> catalogData) (\s@CreateRepository' {} a -> s {catalogData = a} :: CreateRepository)
 
 -- | The metadata that you apply to the repository to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
@@ -113,6 +108,11 @@ createRepository_catalogData = Lens.lens (\CreateRepository' {catalogData} -> ca
 -- characters, and tag values can have a maximum length of 256 characters.
 createRepository_tags :: Lens.Lens' CreateRepository (Prelude.Maybe [Tag])
 createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@CreateRepository' {} a -> s {tags = a} :: CreateRepository) Prelude.. Lens.mapping Lens.coerced
+
+-- | The details about the repository that are publicly visible in the Amazon
+-- ECR Public Gallery.
+createRepository_catalogData :: Lens.Lens' CreateRepository (Prelude.Maybe RepositoryCatalogDataInput)
+createRepository_catalogData = Lens.lens (\CreateRepository' {catalogData} -> catalogData) (\s@CreateRepository' {} a -> s {catalogData = a} :: CreateRepository)
 
 -- | The name to use for the repository. This appears publicly in the Amazon
 -- ECR Public Gallery. The repository name may be specified on its own
@@ -131,21 +131,21 @@ instance Core.AWSRequest CreateRepository where
     Response.receiveJSON
       ( \s h x ->
           CreateRepositoryResponse'
-            Prelude.<$> (x Core..?> "repository")
-            Prelude.<*> (x Core..?> "catalogData")
+            Prelude.<$> (x Core..?> "catalogData")
+            Prelude.<*> (x Core..?> "repository")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateRepository where
   hashWithSalt _salt CreateRepository' {..} =
-    _salt `Prelude.hashWithSalt` catalogData
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` catalogData
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData CreateRepository where
   rnf CreateRepository' {..} =
-    Prelude.rnf catalogData
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf catalogData
       `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders CreateRepository where
@@ -167,8 +167,8 @@ instance Core.ToJSON CreateRepository where
   toJSON CreateRepository' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("catalogData" Core..=) Prelude.<$> catalogData,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("catalogData" Core..=) Prelude.<$> catalogData,
             Prelude.Just
               ("repositoryName" Core..= repositoryName)
           ]
@@ -182,9 +182,9 @@ instance Core.ToQuery CreateRepository where
 
 -- | /See:/ 'newCreateRepositoryResponse' smart constructor.
 data CreateRepositoryResponse = CreateRepositoryResponse'
-  { -- | The repository that was created.
+  { catalogData :: Prelude.Maybe RepositoryCatalogData,
+    -- | The repository that was created.
     repository :: Prelude.Maybe Repository,
-    catalogData :: Prelude.Maybe RepositoryCatalogData,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,9 +198,9 @@ data CreateRepositoryResponse = CreateRepositoryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'repository', 'createRepositoryResponse_repository' - The repository that was created.
---
 -- 'catalogData', 'createRepositoryResponse_catalogData' - Undocumented member.
+--
+-- 'repository', 'createRepositoryResponse_repository' - The repository that was created.
 --
 -- 'httpStatus', 'createRepositoryResponse_httpStatus' - The response's http status code.
 newCreateRepositoryResponse ::
@@ -209,19 +209,19 @@ newCreateRepositoryResponse ::
   CreateRepositoryResponse
 newCreateRepositoryResponse pHttpStatus_ =
   CreateRepositoryResponse'
-    { repository =
+    { catalogData =
         Prelude.Nothing,
-      catalogData = Prelude.Nothing,
+      repository = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The repository that was created.
-createRepositoryResponse_repository :: Lens.Lens' CreateRepositoryResponse (Prelude.Maybe Repository)
-createRepositoryResponse_repository = Lens.lens (\CreateRepositoryResponse' {repository} -> repository) (\s@CreateRepositoryResponse' {} a -> s {repository = a} :: CreateRepositoryResponse)
 
 -- | Undocumented member.
 createRepositoryResponse_catalogData :: Lens.Lens' CreateRepositoryResponse (Prelude.Maybe RepositoryCatalogData)
 createRepositoryResponse_catalogData = Lens.lens (\CreateRepositoryResponse' {catalogData} -> catalogData) (\s@CreateRepositoryResponse' {} a -> s {catalogData = a} :: CreateRepositoryResponse)
+
+-- | The repository that was created.
+createRepositoryResponse_repository :: Lens.Lens' CreateRepositoryResponse (Prelude.Maybe Repository)
+createRepositoryResponse_repository = Lens.lens (\CreateRepositoryResponse' {repository} -> repository) (\s@CreateRepositoryResponse' {} a -> s {repository = a} :: CreateRepositoryResponse)
 
 -- | The response's http status code.
 createRepositoryResponse_httpStatus :: Lens.Lens' CreateRepositoryResponse Prelude.Int
@@ -229,6 +229,6 @@ createRepositoryResponse_httpStatus = Lens.lens (\CreateRepositoryResponse' {htt
 
 instance Prelude.NFData CreateRepositoryResponse where
   rnf CreateRepositoryResponse' {..} =
-    Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf catalogData
+    Prelude.rnf catalogData
+      `Prelude.seq` Prelude.rnf repository
       `Prelude.seq` Prelude.rnf httpStatus

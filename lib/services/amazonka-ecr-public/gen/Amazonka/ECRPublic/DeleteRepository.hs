@@ -30,8 +30,8 @@ module Amazonka.ECRPublic.DeleteRepository
     newDeleteRepository,
 
     -- * Request Lenses
-    deleteRepository_force,
     deleteRepository_registryId,
+    deleteRepository_force,
     deleteRepository_repositoryName,
 
     -- * Destructuring the Response
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRepository' smart constructor.
 data DeleteRepository = DeleteRepository'
-  { -- | If a repository contains images, forces the deletion.
-    force :: Prelude.Maybe Prelude.Bool,
-    -- | The AWS account ID associated with the public registry that contains the
+  { -- | The AWS account ID associated with the public registry that contains the
     -- repository to delete. If you do not specify a registry, the default
     -- public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
+    -- | If a repository contains images, forces the deletion.
+    force :: Prelude.Maybe Prelude.Bool,
     -- | The name of the repository to delete.
     repositoryName :: Prelude.Text
   }
@@ -72,11 +72,11 @@ data DeleteRepository = DeleteRepository'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'force', 'deleteRepository_force' - If a repository contains images, forces the deletion.
---
 -- 'registryId', 'deleteRepository_registryId' - The AWS account ID associated with the public registry that contains the
 -- repository to delete. If you do not specify a registry, the default
 -- public registry is assumed.
+--
+-- 'force', 'deleteRepository_force' - If a repository contains images, forces the deletion.
 --
 -- 'repositoryName', 'deleteRepository_repositoryName' - The name of the repository to delete.
 newDeleteRepository ::
@@ -85,20 +85,20 @@ newDeleteRepository ::
   DeleteRepository
 newDeleteRepository pRepositoryName_ =
   DeleteRepository'
-    { force = Prelude.Nothing,
-      registryId = Prelude.Nothing,
+    { registryId = Prelude.Nothing,
+      force = Prelude.Nothing,
       repositoryName = pRepositoryName_
     }
-
--- | If a repository contains images, forces the deletion.
-deleteRepository_force :: Lens.Lens' DeleteRepository (Prelude.Maybe Prelude.Bool)
-deleteRepository_force = Lens.lens (\DeleteRepository' {force} -> force) (\s@DeleteRepository' {} a -> s {force = a} :: DeleteRepository)
 
 -- | The AWS account ID associated with the public registry that contains the
 -- repository to delete. If you do not specify a registry, the default
 -- public registry is assumed.
 deleteRepository_registryId :: Lens.Lens' DeleteRepository (Prelude.Maybe Prelude.Text)
 deleteRepository_registryId = Lens.lens (\DeleteRepository' {registryId} -> registryId) (\s@DeleteRepository' {} a -> s {registryId = a} :: DeleteRepository)
+
+-- | If a repository contains images, forces the deletion.
+deleteRepository_force :: Lens.Lens' DeleteRepository (Prelude.Maybe Prelude.Bool)
+deleteRepository_force = Lens.lens (\DeleteRepository' {force} -> force) (\s@DeleteRepository' {} a -> s {force = a} :: DeleteRepository)
 
 -- | The name of the repository to delete.
 deleteRepository_repositoryName :: Lens.Lens' DeleteRepository Prelude.Text
@@ -119,14 +119,14 @@ instance Core.AWSRequest DeleteRepository where
 
 instance Prelude.Hashable DeleteRepository where
   hashWithSalt _salt DeleteRepository' {..} =
-    _salt `Prelude.hashWithSalt` force
-      `Prelude.hashWithSalt` registryId
+    _salt `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData DeleteRepository where
   rnf DeleteRepository' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf registryId
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders DeleteRepository where
@@ -148,8 +148,8 @@ instance Core.ToJSON DeleteRepository where
   toJSON DeleteRepository' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("force" Core..=) Prelude.<$> force,
-            ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("registryId" Core..=) Prelude.<$> registryId,
+            ("force" Core..=) Prelude.<$> force,
             Prelude.Just
               ("repositoryName" Core..= repositoryName)
           ]

@@ -29,10 +29,10 @@ import Amazonka.SageMaker.Types.MetricSetSource
 --
 -- /See:/ 'newMetricDatum' smart constructor.
 data MetricDatum = MetricDatum'
-  { -- | The dataset split from which the AutoML job produced the metric.
-    set :: Prelude.Maybe MetricSetSource,
-    -- | The name of the metric.
+  { -- | The name of the metric.
     metricName :: Prelude.Maybe AutoMLMetricEnum,
+    -- | The dataset split from which the AutoML job produced the metric.
+    set :: Prelude.Maybe MetricSetSource,
     -- | The value of the metric.
     value :: Prelude.Maybe Prelude.Double
   }
@@ -46,27 +46,27 @@ data MetricDatum = MetricDatum'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'set', 'metricDatum_set' - The dataset split from which the AutoML job produced the metric.
---
 -- 'metricName', 'metricDatum_metricName' - The name of the metric.
+--
+-- 'set', 'metricDatum_set' - The dataset split from which the AutoML job produced the metric.
 --
 -- 'value', 'metricDatum_value' - The value of the metric.
 newMetricDatum ::
   MetricDatum
 newMetricDatum =
   MetricDatum'
-    { set = Prelude.Nothing,
-      metricName = Prelude.Nothing,
+    { metricName = Prelude.Nothing,
+      set = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | The dataset split from which the AutoML job produced the metric.
-metricDatum_set :: Lens.Lens' MetricDatum (Prelude.Maybe MetricSetSource)
-metricDatum_set = Lens.lens (\MetricDatum' {set} -> set) (\s@MetricDatum' {} a -> s {set = a} :: MetricDatum)
 
 -- | The name of the metric.
 metricDatum_metricName :: Lens.Lens' MetricDatum (Prelude.Maybe AutoMLMetricEnum)
 metricDatum_metricName = Lens.lens (\MetricDatum' {metricName} -> metricName) (\s@MetricDatum' {} a -> s {metricName = a} :: MetricDatum)
+
+-- | The dataset split from which the AutoML job produced the metric.
+metricDatum_set :: Lens.Lens' MetricDatum (Prelude.Maybe MetricSetSource)
+metricDatum_set = Lens.lens (\MetricDatum' {set} -> set) (\s@MetricDatum' {} a -> s {set = a} :: MetricDatum)
 
 -- | The value of the metric.
 metricDatum_value :: Lens.Lens' MetricDatum (Prelude.Maybe Prelude.Double)
@@ -78,19 +78,19 @@ instance Core.FromJSON MetricDatum where
       "MetricDatum"
       ( \x ->
           MetricDatum'
-            Prelude.<$> (x Core..:? "Set")
-            Prelude.<*> (x Core..:? "MetricName")
+            Prelude.<$> (x Core..:? "MetricName")
+            Prelude.<*> (x Core..:? "Set")
             Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable MetricDatum where
   hashWithSalt _salt MetricDatum' {..} =
-    _salt `Prelude.hashWithSalt` set
-      `Prelude.hashWithSalt` metricName
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` set
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData MetricDatum where
   rnf MetricDatum' {..} =
-    Prelude.rnf set
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf set
       `Prelude.seq` Prelude.rnf value

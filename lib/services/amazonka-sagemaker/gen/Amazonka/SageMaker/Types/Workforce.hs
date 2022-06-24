@@ -36,16 +36,7 @@ import Amazonka.SageMaker.Types.SourceIpConfig
 --
 -- /See:/ 'newWorkforce' smart constructor.
 data Workforce = Workforce'
-  { -- | The subdomain for your OIDC Identity Provider.
-    subDomain :: Prelude.Maybe Prelude.Text,
-    -- | The date that the workforce is created.
-    createDate :: Prelude.Maybe Core.POSIX,
-    -- | A list of one to ten IP address ranges
-    -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
-    -- to be added to the workforce allow list. By default, a workforce isn\'t
-    -- restricted to specific IP addresses.
-    sourceIpConfig :: Prelude.Maybe SourceIpConfig,
-    -- | The configuration of an Amazon Cognito workforce. A single Cognito
+  { -- | The configuration of an Amazon Cognito workforce. A single Cognito
     -- workforce is created using and corresponds to a single
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool>.
     cognitoConfig :: Prelude.Maybe CognitoConfig,
@@ -54,6 +45,15 @@ data Workforce = Workforce'
     -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
     -- to a private workforce\'s allow list.
     lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    -- | The subdomain for your OIDC Identity Provider.
+    subDomain :: Prelude.Maybe Prelude.Text,
+    -- | A list of one to ten IP address ranges
+    -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
+    -- to be added to the workforce allow list. By default, a workforce isn\'t
+    -- restricted to specific IP addresses.
+    sourceIpConfig :: Prelude.Maybe SourceIpConfig,
+    -- | The date that the workforce is created.
+    createDate :: Prelude.Maybe Core.POSIX,
     -- | The configuration of an OIDC Identity Provider (IdP) private workforce.
     oidcConfig :: Prelude.Maybe OidcConfigForResponse,
     -- | The name of the private workforce.
@@ -71,15 +71,6 @@ data Workforce = Workforce'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subDomain', 'workforce_subDomain' - The subdomain for your OIDC Identity Provider.
---
--- 'createDate', 'workforce_createDate' - The date that the workforce is created.
---
--- 'sourceIpConfig', 'workforce_sourceIpConfig' - A list of one to ten IP address ranges
--- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
--- to be added to the workforce allow list. By default, a workforce isn\'t
--- restricted to specific IP addresses.
---
 -- 'cognitoConfig', 'workforce_cognitoConfig' - The configuration of an Amazon Cognito workforce. A single Cognito
 -- workforce is created using and corresponds to a single
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool>.
@@ -88,6 +79,15 @@ data Workforce = Workforce'
 -- address ranges
 -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
 -- to a private workforce\'s allow list.
+--
+-- 'subDomain', 'workforce_subDomain' - The subdomain for your OIDC Identity Provider.
+--
+-- 'sourceIpConfig', 'workforce_sourceIpConfig' - A list of one to ten IP address ranges
+-- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
+-- to be added to the workforce allow list. By default, a workforce isn\'t
+-- restricted to specific IP addresses.
+--
+-- 'createDate', 'workforce_createDate' - The date that the workforce is created.
 --
 -- 'oidcConfig', 'workforce_oidcConfig' - The configuration of an OIDC Identity Provider (IdP) private workforce.
 --
@@ -102,30 +102,15 @@ newWorkforce ::
   Workforce
 newWorkforce pWorkforceName_ pWorkforceArn_ =
   Workforce'
-    { subDomain = Prelude.Nothing,
-      createDate = Prelude.Nothing,
-      sourceIpConfig = Prelude.Nothing,
-      cognitoConfig = Prelude.Nothing,
+    { cognitoConfig = Prelude.Nothing,
       lastUpdatedDate = Prelude.Nothing,
+      subDomain = Prelude.Nothing,
+      sourceIpConfig = Prelude.Nothing,
+      createDate = Prelude.Nothing,
       oidcConfig = Prelude.Nothing,
       workforceName = pWorkforceName_,
       workforceArn = pWorkforceArn_
     }
-
--- | The subdomain for your OIDC Identity Provider.
-workforce_subDomain :: Lens.Lens' Workforce (Prelude.Maybe Prelude.Text)
-workforce_subDomain = Lens.lens (\Workforce' {subDomain} -> subDomain) (\s@Workforce' {} a -> s {subDomain = a} :: Workforce)
-
--- | The date that the workforce is created.
-workforce_createDate :: Lens.Lens' Workforce (Prelude.Maybe Prelude.UTCTime)
-workforce_createDate = Lens.lens (\Workforce' {createDate} -> createDate) (\s@Workforce' {} a -> s {createDate = a} :: Workforce) Prelude.. Lens.mapping Core._Time
-
--- | A list of one to ten IP address ranges
--- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
--- to be added to the workforce allow list. By default, a workforce isn\'t
--- restricted to specific IP addresses.
-workforce_sourceIpConfig :: Lens.Lens' Workforce (Prelude.Maybe SourceIpConfig)
-workforce_sourceIpConfig = Lens.lens (\Workforce' {sourceIpConfig} -> sourceIpConfig) (\s@Workforce' {} a -> s {sourceIpConfig = a} :: Workforce)
 
 -- | The configuration of an Amazon Cognito workforce. A single Cognito
 -- workforce is created using and corresponds to a single
@@ -139,6 +124,21 @@ workforce_cognitoConfig = Lens.lens (\Workforce' {cognitoConfig} -> cognitoConfi
 -- to a private workforce\'s allow list.
 workforce_lastUpdatedDate :: Lens.Lens' Workforce (Prelude.Maybe Prelude.UTCTime)
 workforce_lastUpdatedDate = Lens.lens (\Workforce' {lastUpdatedDate} -> lastUpdatedDate) (\s@Workforce' {} a -> s {lastUpdatedDate = a} :: Workforce) Prelude.. Lens.mapping Core._Time
+
+-- | The subdomain for your OIDC Identity Provider.
+workforce_subDomain :: Lens.Lens' Workforce (Prelude.Maybe Prelude.Text)
+workforce_subDomain = Lens.lens (\Workforce' {subDomain} -> subDomain) (\s@Workforce' {} a -> s {subDomain = a} :: Workforce)
+
+-- | A list of one to ten IP address ranges
+-- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
+-- to be added to the workforce allow list. By default, a workforce isn\'t
+-- restricted to specific IP addresses.
+workforce_sourceIpConfig :: Lens.Lens' Workforce (Prelude.Maybe SourceIpConfig)
+workforce_sourceIpConfig = Lens.lens (\Workforce' {sourceIpConfig} -> sourceIpConfig) (\s@Workforce' {} a -> s {sourceIpConfig = a} :: Workforce)
+
+-- | The date that the workforce is created.
+workforce_createDate :: Lens.Lens' Workforce (Prelude.Maybe Prelude.UTCTime)
+workforce_createDate = Lens.lens (\Workforce' {createDate} -> createDate) (\s@Workforce' {} a -> s {createDate = a} :: Workforce) Prelude.. Lens.mapping Core._Time
 
 -- | The configuration of an OIDC Identity Provider (IdP) private workforce.
 workforce_oidcConfig :: Lens.Lens' Workforce (Prelude.Maybe OidcConfigForResponse)
@@ -158,11 +158,11 @@ instance Core.FromJSON Workforce where
       "Workforce"
       ( \x ->
           Workforce'
-            Prelude.<$> (x Core..:? "SubDomain")
-            Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "SourceIpConfig")
-            Prelude.<*> (x Core..:? "CognitoConfig")
+            Prelude.<$> (x Core..:? "CognitoConfig")
             Prelude.<*> (x Core..:? "LastUpdatedDate")
+            Prelude.<*> (x Core..:? "SubDomain")
+            Prelude.<*> (x Core..:? "SourceIpConfig")
+            Prelude.<*> (x Core..:? "CreateDate")
             Prelude.<*> (x Core..:? "OidcConfig")
             Prelude.<*> (x Core..: "WorkforceName")
             Prelude.<*> (x Core..: "WorkforceArn")
@@ -170,22 +170,22 @@ instance Core.FromJSON Workforce where
 
 instance Prelude.Hashable Workforce where
   hashWithSalt _salt Workforce' {..} =
-    _salt `Prelude.hashWithSalt` subDomain
-      `Prelude.hashWithSalt` createDate
-      `Prelude.hashWithSalt` sourceIpConfig
-      `Prelude.hashWithSalt` cognitoConfig
+    _salt `Prelude.hashWithSalt` cognitoConfig
       `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` subDomain
+      `Prelude.hashWithSalt` sourceIpConfig
+      `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` oidcConfig
       `Prelude.hashWithSalt` workforceName
       `Prelude.hashWithSalt` workforceArn
 
 instance Prelude.NFData Workforce where
   rnf Workforce' {..} =
-    Prelude.rnf subDomain
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf sourceIpConfig
-      `Prelude.seq` Prelude.rnf cognitoConfig
+    Prelude.rnf cognitoConfig
       `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf subDomain
+      `Prelude.seq` Prelude.rnf sourceIpConfig
+      `Prelude.seq` Prelude.rnf createDate
       `Prelude.seq` Prelude.rnf oidcConfig
       `Prelude.seq` Prelude.rnf workforceName
       `Prelude.seq` Prelude.rnf workforceArn

@@ -29,20 +29,20 @@ module Amazonka.SageMaker.ListMonitoringExecutions
     newListMonitoringExecutions,
 
     -- * Request Lenses
+    listMonitoringExecutions_sortOrder,
+    listMonitoringExecutions_nextToken,
+    listMonitoringExecutions_lastModifiedTimeAfter,
     listMonitoringExecutions_endpointName,
     listMonitoringExecutions_lastModifiedTimeBefore,
     listMonitoringExecutions_scheduledTimeAfter,
-    listMonitoringExecutions_creationTimeAfter,
-    listMonitoringExecutions_nextToken,
-    listMonitoringExecutions_sortOrder,
-    listMonitoringExecutions_lastModifiedTimeAfter,
     listMonitoringExecutions_creationTimeBefore,
-    listMonitoringExecutions_scheduledTimeBefore,
-    listMonitoringExecutions_statusEquals,
     listMonitoringExecutions_monitoringTypeEquals,
+    listMonitoringExecutions_sortBy,
     listMonitoringExecutions_monitoringScheduleName,
     listMonitoringExecutions_maxResults,
-    listMonitoringExecutions_sortBy,
+    listMonitoringExecutions_scheduledTimeBefore,
+    listMonitoringExecutions_statusEquals,
+    listMonitoringExecutions_creationTimeAfter,
     listMonitoringExecutions_monitoringJobDefinitionName,
 
     -- * Destructuring the Response
@@ -65,39 +65,39 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListMonitoringExecutions' smart constructor.
 data ListMonitoringExecutions = ListMonitoringExecutions'
-  { -- | Name of a specific endpoint to fetch jobs for.
+  { -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
+    -- default is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | The token returned if the response is truncated. To retrieve the next
+    -- set of job executions, use it in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A filter that returns only jobs modified before a specified time.
+    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    -- | Name of a specific endpoint to fetch jobs for.
     endpointName :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only jobs modified after a specified time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | Filter for jobs scheduled after a specified time.
     scheduledTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | A filter that returns only jobs created after a specified time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | The token returned if the response is truncated. To retrieve the next
-    -- set of job executions, use it in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
-    -- default is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | A filter that returns only jobs modified before a specified time.
-    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only jobs created before a specified time.
     creationTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | Filter for jobs scheduled before a specified time.
-    scheduledTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | A filter that retrieves only jobs with a specific status.
-    statusEquals :: Prelude.Maybe ExecutionStatus,
     -- | A filter that returns only the monitoring job runs of the specified
     -- monitoring type.
     monitoringTypeEquals :: Prelude.Maybe MonitoringType,
+    -- | Whether to sort results by @Status@, @CreationTime@, @ScheduledTime@
+    -- field. The default is @CreationTime@.
+    sortBy :: Prelude.Maybe MonitoringExecutionSortKey,
     -- | Name of a specific schedule to fetch jobs for.
     monitoringScheduleName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of jobs to return in the response. The default value
     -- is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Whether to sort results by @Status@, @CreationTime@, @ScheduledTime@
-    -- field. The default is @CreationTime@.
-    sortBy :: Prelude.Maybe MonitoringExecutionSortKey,
+    -- | Filter for jobs scheduled before a specified time.
+    scheduledTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | A filter that retrieves only jobs with a specific status.
+    statusEquals :: Prelude.Maybe ExecutionStatus,
+    -- | A filter that returns only jobs created after a specified time.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | Gets a list of the monitoring job runs of the specified monitoring job
     -- definitions.
     monitoringJobDefinitionName :: Prelude.Maybe Prelude.Text
@@ -112,38 +112,38 @@ data ListMonitoringExecutions = ListMonitoringExecutions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sortOrder', 'listMonitoringExecutions_sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The
+-- default is @Descending@.
+--
+-- 'nextToken', 'listMonitoringExecutions_nextToken' - The token returned if the response is truncated. To retrieve the next
+-- set of job executions, use it in the next request.
+--
+-- 'lastModifiedTimeAfter', 'listMonitoringExecutions_lastModifiedTimeAfter' - A filter that returns only jobs modified before a specified time.
+--
 -- 'endpointName', 'listMonitoringExecutions_endpointName' - Name of a specific endpoint to fetch jobs for.
 --
 -- 'lastModifiedTimeBefore', 'listMonitoringExecutions_lastModifiedTimeBefore' - A filter that returns only jobs modified after a specified time.
 --
 -- 'scheduledTimeAfter', 'listMonitoringExecutions_scheduledTimeAfter' - Filter for jobs scheduled after a specified time.
 --
--- 'creationTimeAfter', 'listMonitoringExecutions_creationTimeAfter' - A filter that returns only jobs created after a specified time.
---
--- 'nextToken', 'listMonitoringExecutions_nextToken' - The token returned if the response is truncated. To retrieve the next
--- set of job executions, use it in the next request.
---
--- 'sortOrder', 'listMonitoringExecutions_sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The
--- default is @Descending@.
---
--- 'lastModifiedTimeAfter', 'listMonitoringExecutions_lastModifiedTimeAfter' - A filter that returns only jobs modified before a specified time.
---
 -- 'creationTimeBefore', 'listMonitoringExecutions_creationTimeBefore' - A filter that returns only jobs created before a specified time.
---
--- 'scheduledTimeBefore', 'listMonitoringExecutions_scheduledTimeBefore' - Filter for jobs scheduled before a specified time.
---
--- 'statusEquals', 'listMonitoringExecutions_statusEquals' - A filter that retrieves only jobs with a specific status.
 --
 -- 'monitoringTypeEquals', 'listMonitoringExecutions_monitoringTypeEquals' - A filter that returns only the monitoring job runs of the specified
 -- monitoring type.
+--
+-- 'sortBy', 'listMonitoringExecutions_sortBy' - Whether to sort results by @Status@, @CreationTime@, @ScheduledTime@
+-- field. The default is @CreationTime@.
 --
 -- 'monitoringScheduleName', 'listMonitoringExecutions_monitoringScheduleName' - Name of a specific schedule to fetch jobs for.
 --
 -- 'maxResults', 'listMonitoringExecutions_maxResults' - The maximum number of jobs to return in the response. The default value
 -- is 10.
 --
--- 'sortBy', 'listMonitoringExecutions_sortBy' - Whether to sort results by @Status@, @CreationTime@, @ScheduledTime@
--- field. The default is @CreationTime@.
+-- 'scheduledTimeBefore', 'listMonitoringExecutions_scheduledTimeBefore' - Filter for jobs scheduled before a specified time.
+--
+-- 'statusEquals', 'listMonitoringExecutions_statusEquals' - A filter that retrieves only jobs with a specific status.
+--
+-- 'creationTimeAfter', 'listMonitoringExecutions_creationTimeAfter' - A filter that returns only jobs created after a specified time.
 --
 -- 'monitoringJobDefinitionName', 'listMonitoringExecutions_monitoringJobDefinitionName' - Gets a list of the monitoring job runs of the specified monitoring job
 -- definitions.
@@ -151,23 +151,37 @@ newListMonitoringExecutions ::
   ListMonitoringExecutions
 newListMonitoringExecutions =
   ListMonitoringExecutions'
-    { endpointName =
+    { sortOrder =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      lastModifiedTimeAfter = Prelude.Nothing,
+      endpointName = Prelude.Nothing,
       lastModifiedTimeBefore = Prelude.Nothing,
       scheduledTimeAfter = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
-      lastModifiedTimeAfter = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      scheduledTimeBefore = Prelude.Nothing,
-      statusEquals = Prelude.Nothing,
       monitoringTypeEquals = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       monitoringScheduleName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+      scheduledTimeBefore = Prelude.Nothing,
+      statusEquals = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
       monitoringJobDefinitionName = Prelude.Nothing
     }
+
+-- | Whether to sort the results in @Ascending@ or @Descending@ order. The
+-- default is @Descending@.
+listMonitoringExecutions_sortOrder :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe SortOrder)
+listMonitoringExecutions_sortOrder = Lens.lens (\ListMonitoringExecutions' {sortOrder} -> sortOrder) (\s@ListMonitoringExecutions' {} a -> s {sortOrder = a} :: ListMonitoringExecutions)
+
+-- | The token returned if the response is truncated. To retrieve the next
+-- set of job executions, use it in the next request.
+listMonitoringExecutions_nextToken :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.Text)
+listMonitoringExecutions_nextToken = Lens.lens (\ListMonitoringExecutions' {nextToken} -> nextToken) (\s@ListMonitoringExecutions' {} a -> s {nextToken = a} :: ListMonitoringExecutions)
+
+-- | A filter that returns only jobs modified before a specified time.
+listMonitoringExecutions_lastModifiedTimeAfter :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
+listMonitoringExecutions_lastModifiedTimeAfter = Lens.lens (\ListMonitoringExecutions' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListMonitoringExecutions' {} a -> s {lastModifiedTimeAfter = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
 
 -- | Name of a specific endpoint to fetch jobs for.
 listMonitoringExecutions_endpointName :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.Text)
@@ -181,40 +195,19 @@ listMonitoringExecutions_lastModifiedTimeBefore = Lens.lens (\ListMonitoringExec
 listMonitoringExecutions_scheduledTimeAfter :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
 listMonitoringExecutions_scheduledTimeAfter = Lens.lens (\ListMonitoringExecutions' {scheduledTimeAfter} -> scheduledTimeAfter) (\s@ListMonitoringExecutions' {} a -> s {scheduledTimeAfter = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
 
--- | A filter that returns only jobs created after a specified time.
-listMonitoringExecutions_creationTimeAfter :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
-listMonitoringExecutions_creationTimeAfter = Lens.lens (\ListMonitoringExecutions' {creationTimeAfter} -> creationTimeAfter) (\s@ListMonitoringExecutions' {} a -> s {creationTimeAfter = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
-
--- | The token returned if the response is truncated. To retrieve the next
--- set of job executions, use it in the next request.
-listMonitoringExecutions_nextToken :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.Text)
-listMonitoringExecutions_nextToken = Lens.lens (\ListMonitoringExecutions' {nextToken} -> nextToken) (\s@ListMonitoringExecutions' {} a -> s {nextToken = a} :: ListMonitoringExecutions)
-
--- | Whether to sort the results in @Ascending@ or @Descending@ order. The
--- default is @Descending@.
-listMonitoringExecutions_sortOrder :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe SortOrder)
-listMonitoringExecutions_sortOrder = Lens.lens (\ListMonitoringExecutions' {sortOrder} -> sortOrder) (\s@ListMonitoringExecutions' {} a -> s {sortOrder = a} :: ListMonitoringExecutions)
-
--- | A filter that returns only jobs modified before a specified time.
-listMonitoringExecutions_lastModifiedTimeAfter :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
-listMonitoringExecutions_lastModifiedTimeAfter = Lens.lens (\ListMonitoringExecutions' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListMonitoringExecutions' {} a -> s {lastModifiedTimeAfter = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
-
 -- | A filter that returns only jobs created before a specified time.
 listMonitoringExecutions_creationTimeBefore :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
 listMonitoringExecutions_creationTimeBefore = Lens.lens (\ListMonitoringExecutions' {creationTimeBefore} -> creationTimeBefore) (\s@ListMonitoringExecutions' {} a -> s {creationTimeBefore = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
-
--- | Filter for jobs scheduled before a specified time.
-listMonitoringExecutions_scheduledTimeBefore :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
-listMonitoringExecutions_scheduledTimeBefore = Lens.lens (\ListMonitoringExecutions' {scheduledTimeBefore} -> scheduledTimeBefore) (\s@ListMonitoringExecutions' {} a -> s {scheduledTimeBefore = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
-
--- | A filter that retrieves only jobs with a specific status.
-listMonitoringExecutions_statusEquals :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe ExecutionStatus)
-listMonitoringExecutions_statusEquals = Lens.lens (\ListMonitoringExecutions' {statusEquals} -> statusEquals) (\s@ListMonitoringExecutions' {} a -> s {statusEquals = a} :: ListMonitoringExecutions)
 
 -- | A filter that returns only the monitoring job runs of the specified
 -- monitoring type.
 listMonitoringExecutions_monitoringTypeEquals :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe MonitoringType)
 listMonitoringExecutions_monitoringTypeEquals = Lens.lens (\ListMonitoringExecutions' {monitoringTypeEquals} -> monitoringTypeEquals) (\s@ListMonitoringExecutions' {} a -> s {monitoringTypeEquals = a} :: ListMonitoringExecutions)
+
+-- | Whether to sort results by @Status@, @CreationTime@, @ScheduledTime@
+-- field. The default is @CreationTime@.
+listMonitoringExecutions_sortBy :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe MonitoringExecutionSortKey)
+listMonitoringExecutions_sortBy = Lens.lens (\ListMonitoringExecutions' {sortBy} -> sortBy) (\s@ListMonitoringExecutions' {} a -> s {sortBy = a} :: ListMonitoringExecutions)
 
 -- | Name of a specific schedule to fetch jobs for.
 listMonitoringExecutions_monitoringScheduleName :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.Text)
@@ -225,10 +218,17 @@ listMonitoringExecutions_monitoringScheduleName = Lens.lens (\ListMonitoringExec
 listMonitoringExecutions_maxResults :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.Natural)
 listMonitoringExecutions_maxResults = Lens.lens (\ListMonitoringExecutions' {maxResults} -> maxResults) (\s@ListMonitoringExecutions' {} a -> s {maxResults = a} :: ListMonitoringExecutions)
 
--- | Whether to sort results by @Status@, @CreationTime@, @ScheduledTime@
--- field. The default is @CreationTime@.
-listMonitoringExecutions_sortBy :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe MonitoringExecutionSortKey)
-listMonitoringExecutions_sortBy = Lens.lens (\ListMonitoringExecutions' {sortBy} -> sortBy) (\s@ListMonitoringExecutions' {} a -> s {sortBy = a} :: ListMonitoringExecutions)
+-- | Filter for jobs scheduled before a specified time.
+listMonitoringExecutions_scheduledTimeBefore :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
+listMonitoringExecutions_scheduledTimeBefore = Lens.lens (\ListMonitoringExecutions' {scheduledTimeBefore} -> scheduledTimeBefore) (\s@ListMonitoringExecutions' {} a -> s {scheduledTimeBefore = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
+
+-- | A filter that retrieves only jobs with a specific status.
+listMonitoringExecutions_statusEquals :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe ExecutionStatus)
+listMonitoringExecutions_statusEquals = Lens.lens (\ListMonitoringExecutions' {statusEquals} -> statusEquals) (\s@ListMonitoringExecutions' {} a -> s {statusEquals = a} :: ListMonitoringExecutions)
+
+-- | A filter that returns only jobs created after a specified time.
+listMonitoringExecutions_creationTimeAfter :: Lens.Lens' ListMonitoringExecutions (Prelude.Maybe Prelude.UTCTime)
+listMonitoringExecutions_creationTimeAfter = Lens.lens (\ListMonitoringExecutions' {creationTimeAfter} -> creationTimeAfter) (\s@ListMonitoringExecutions' {} a -> s {creationTimeAfter = a} :: ListMonitoringExecutions) Prelude.. Lens.mapping Core._Time
 
 -- | Gets a list of the monitoring job runs of the specified monitoring job
 -- definitions.
@@ -274,38 +274,38 @@ instance Core.AWSRequest ListMonitoringExecutions where
 
 instance Prelude.Hashable ListMonitoringExecutions where
   hashWithSalt _salt ListMonitoringExecutions' {..} =
-    _salt `Prelude.hashWithSalt` endpointName
+    _salt `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` lastModifiedTimeBefore
       `Prelude.hashWithSalt` scheduledTimeAfter
-      `Prelude.hashWithSalt` creationTimeAfter
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` scheduledTimeBefore
-      `Prelude.hashWithSalt` statusEquals
       `Prelude.hashWithSalt` monitoringTypeEquals
+      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` monitoringScheduleName
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` scheduledTimeBefore
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` monitoringJobDefinitionName
 
 instance Prelude.NFData ListMonitoringExecutions where
   rnf ListMonitoringExecutions' {..} =
-    Prelude.rnf endpointName
+    Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
       `Prelude.seq` Prelude.rnf scheduledTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf scheduledTimeBefore
-      `Prelude.seq` Prelude.rnf statusEquals
       `Prelude.seq` Prelude.rnf monitoringTypeEquals
+      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf monitoringScheduleName
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf scheduledTimeBefore
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf monitoringJobDefinitionName
 
 instance Core.ToHeaders ListMonitoringExecutions where
@@ -327,28 +327,28 @@ instance Core.ToJSON ListMonitoringExecutions where
   toJSON ListMonitoringExecutions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EndpointName" Core..=) Prelude.<$> endpointName,
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("LastModifiedTimeAfter" Core..=)
+              Prelude.<$> lastModifiedTimeAfter,
+            ("EndpointName" Core..=) Prelude.<$> endpointName,
             ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
             ("ScheduledTimeAfter" Core..=)
               Prelude.<$> scheduledTimeAfter,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("LastModifiedTimeAfter" Core..=)
-              Prelude.<$> lastModifiedTimeAfter,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,
-            ("ScheduledTimeBefore" Core..=)
-              Prelude.<$> scheduledTimeBefore,
-            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
             ("MonitoringTypeEquals" Core..=)
               Prelude.<$> monitoringTypeEquals,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("MonitoringScheduleName" Core..=)
               Prelude.<$> monitoringScheduleName,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("ScheduledTimeBefore" Core..=)
+              Prelude.<$> scheduledTimeBefore,
+            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter,
             ("MonitoringJobDefinitionName" Core..=)
               Prelude.<$> monitoringJobDefinitionName
           ]

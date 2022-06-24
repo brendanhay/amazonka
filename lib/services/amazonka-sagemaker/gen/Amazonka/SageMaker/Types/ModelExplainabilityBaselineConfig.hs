@@ -28,9 +28,9 @@ import Amazonka.SageMaker.Types.MonitoringConstraintsResource
 --
 -- /See:/ 'newModelExplainabilityBaselineConfig' smart constructor.
 data ModelExplainabilityBaselineConfig = ModelExplainabilityBaselineConfig'
-  { constraintsResource :: Prelude.Maybe MonitoringConstraintsResource,
-    -- | The name of the baseline model explainability job.
-    baseliningJobName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the baseline model explainability job.
+    baseliningJobName :: Prelude.Maybe Prelude.Text,
+    constraintsResource :: Prelude.Maybe MonitoringConstraintsResource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data ModelExplainabilityBaselineConfig = ModelExplainabilityBaselineConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'constraintsResource', 'modelExplainabilityBaselineConfig_constraintsResource' - Undocumented member.
---
 -- 'baseliningJobName', 'modelExplainabilityBaselineConfig_baseliningJobName' - The name of the baseline model explainability job.
+--
+-- 'constraintsResource', 'modelExplainabilityBaselineConfig_constraintsResource' - Undocumented member.
 newModelExplainabilityBaselineConfig ::
   ModelExplainabilityBaselineConfig
 newModelExplainabilityBaselineConfig =
   ModelExplainabilityBaselineConfig'
-    { constraintsResource =
+    { baseliningJobName =
         Prelude.Nothing,
-      baseliningJobName = Prelude.Nothing
+      constraintsResource = Prelude.Nothing
     }
-
--- | Undocumented member.
-modelExplainabilityBaselineConfig_constraintsResource :: Lens.Lens' ModelExplainabilityBaselineConfig (Prelude.Maybe MonitoringConstraintsResource)
-modelExplainabilityBaselineConfig_constraintsResource = Lens.lens (\ModelExplainabilityBaselineConfig' {constraintsResource} -> constraintsResource) (\s@ModelExplainabilityBaselineConfig' {} a -> s {constraintsResource = a} :: ModelExplainabilityBaselineConfig)
 
 -- | The name of the baseline model explainability job.
 modelExplainabilityBaselineConfig_baseliningJobName :: Lens.Lens' ModelExplainabilityBaselineConfig (Prelude.Maybe Prelude.Text)
 modelExplainabilityBaselineConfig_baseliningJobName = Lens.lens (\ModelExplainabilityBaselineConfig' {baseliningJobName} -> baseliningJobName) (\s@ModelExplainabilityBaselineConfig' {} a -> s {baseliningJobName = a} :: ModelExplainabilityBaselineConfig)
+
+-- | Undocumented member.
+modelExplainabilityBaselineConfig_constraintsResource :: Lens.Lens' ModelExplainabilityBaselineConfig (Prelude.Maybe MonitoringConstraintsResource)
+modelExplainabilityBaselineConfig_constraintsResource = Lens.lens (\ModelExplainabilityBaselineConfig' {constraintsResource} -> constraintsResource) (\s@ModelExplainabilityBaselineConfig' {} a -> s {constraintsResource = a} :: ModelExplainabilityBaselineConfig)
 
 instance
   Core.FromJSON
@@ -71,8 +71,8 @@ instance
       "ModelExplainabilityBaselineConfig"
       ( \x ->
           ModelExplainabilityBaselineConfig'
-            Prelude.<$> (x Core..:? "ConstraintsResource")
-            Prelude.<*> (x Core..:? "BaseliningJobName")
+            Prelude.<$> (x Core..:? "BaseliningJobName")
+            Prelude.<*> (x Core..:? "ConstraintsResource")
       )
 
 instance
@@ -82,16 +82,16 @@ instance
   hashWithSalt
     _salt
     ModelExplainabilityBaselineConfig' {..} =
-      _salt `Prelude.hashWithSalt` constraintsResource
-        `Prelude.hashWithSalt` baseliningJobName
+      _salt `Prelude.hashWithSalt` baseliningJobName
+        `Prelude.hashWithSalt` constraintsResource
 
 instance
   Prelude.NFData
     ModelExplainabilityBaselineConfig
   where
   rnf ModelExplainabilityBaselineConfig' {..} =
-    Prelude.rnf constraintsResource
-      `Prelude.seq` Prelude.rnf baseliningJobName
+    Prelude.rnf baseliningJobName
+      `Prelude.seq` Prelude.rnf constraintsResource
 
 instance
   Core.ToJSON
@@ -100,9 +100,9 @@ instance
   toJSON ModelExplainabilityBaselineConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConstraintsResource" Core..=)
-              Prelude.<$> constraintsResource,
-            ("BaseliningJobName" Core..=)
-              Prelude.<$> baseliningJobName
+          [ ("BaseliningJobName" Core..=)
+              Prelude.<$> baseliningJobName,
+            ("ConstraintsResource" Core..=)
+              Prelude.<$> constraintsResource
           ]
       )

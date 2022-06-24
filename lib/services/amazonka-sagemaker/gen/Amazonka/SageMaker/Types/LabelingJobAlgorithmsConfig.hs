@@ -30,13 +30,13 @@ import Amazonka.SageMaker.Types.LabelingJobResourceConfig
 --
 -- /See:/ 'newLabelingJobAlgorithmsConfig' smart constructor.
 data LabelingJobAlgorithmsConfig = LabelingJobAlgorithmsConfig'
-  { -- | Provides configuration information for a labeling job.
-    labelingJobResourceConfig :: Prelude.Maybe LabelingJobResourceConfig,
-    -- | At the end of an auto-label job Ground Truth sends the Amazon Resource
+  { -- | At the end of an auto-label job Ground Truth sends the Amazon Resource
     -- Name (ARN) of the final model used for auto-labeling. You can use this
     -- model as the starting point for subsequent similar jobs by providing the
     -- ARN of the model here.
     initialActiveLearningModelArn :: Prelude.Maybe Prelude.Text,
+    -- | Provides configuration information for a labeling job.
+    labelingJobResourceConfig :: Prelude.Maybe LabelingJobResourceConfig,
     -- | Specifies the Amazon Resource Name (ARN) of the algorithm used for
     -- auto-labeling. You must select one of the following ARNs:
     --
@@ -67,12 +67,12 @@ data LabelingJobAlgorithmsConfig = LabelingJobAlgorithmsConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'labelingJobResourceConfig', 'labelingJobAlgorithmsConfig_labelingJobResourceConfig' - Provides configuration information for a labeling job.
---
 -- 'initialActiveLearningModelArn', 'labelingJobAlgorithmsConfig_initialActiveLearningModelArn' - At the end of an auto-label job Ground Truth sends the Amazon Resource
 -- Name (ARN) of the final model used for auto-labeling. You can use this
 -- model as the starting point for subsequent similar jobs by providing the
 -- ARN of the model here.
+--
+-- 'labelingJobResourceConfig', 'labelingJobAlgorithmsConfig_labelingJobResourceConfig' - Provides configuration information for a labeling job.
 --
 -- 'labelingJobAlgorithmSpecificationArn', 'labelingJobAlgorithmsConfig_labelingJobAlgorithmSpecificationArn' - Specifies the Amazon Resource Name (ARN) of the algorithm used for
 -- auto-labeling. You must select one of the following ARNs:
@@ -99,17 +99,12 @@ newLabelingJobAlgorithmsConfig ::
 newLabelingJobAlgorithmsConfig
   pLabelingJobAlgorithmSpecificationArn_ =
     LabelingJobAlgorithmsConfig'
-      { labelingJobResourceConfig =
+      { initialActiveLearningModelArn =
           Prelude.Nothing,
-        initialActiveLearningModelArn =
-          Prelude.Nothing,
+        labelingJobResourceConfig = Prelude.Nothing,
         labelingJobAlgorithmSpecificationArn =
           pLabelingJobAlgorithmSpecificationArn_
       }
-
--- | Provides configuration information for a labeling job.
-labelingJobAlgorithmsConfig_labelingJobResourceConfig :: Lens.Lens' LabelingJobAlgorithmsConfig (Prelude.Maybe LabelingJobResourceConfig)
-labelingJobAlgorithmsConfig_labelingJobResourceConfig = Lens.lens (\LabelingJobAlgorithmsConfig' {labelingJobResourceConfig} -> labelingJobResourceConfig) (\s@LabelingJobAlgorithmsConfig' {} a -> s {labelingJobResourceConfig = a} :: LabelingJobAlgorithmsConfig)
 
 -- | At the end of an auto-label job Ground Truth sends the Amazon Resource
 -- Name (ARN) of the final model used for auto-labeling. You can use this
@@ -117,6 +112,10 @@ labelingJobAlgorithmsConfig_labelingJobResourceConfig = Lens.lens (\LabelingJobA
 -- ARN of the model here.
 labelingJobAlgorithmsConfig_initialActiveLearningModelArn :: Lens.Lens' LabelingJobAlgorithmsConfig (Prelude.Maybe Prelude.Text)
 labelingJobAlgorithmsConfig_initialActiveLearningModelArn = Lens.lens (\LabelingJobAlgorithmsConfig' {initialActiveLearningModelArn} -> initialActiveLearningModelArn) (\s@LabelingJobAlgorithmsConfig' {} a -> s {initialActiveLearningModelArn = a} :: LabelingJobAlgorithmsConfig)
+
+-- | Provides configuration information for a labeling job.
+labelingJobAlgorithmsConfig_labelingJobResourceConfig :: Lens.Lens' LabelingJobAlgorithmsConfig (Prelude.Maybe LabelingJobResourceConfig)
+labelingJobAlgorithmsConfig_labelingJobResourceConfig = Lens.lens (\LabelingJobAlgorithmsConfig' {labelingJobResourceConfig} -> labelingJobResourceConfig) (\s@LabelingJobAlgorithmsConfig' {} a -> s {labelingJobResourceConfig = a} :: LabelingJobAlgorithmsConfig)
 
 -- | Specifies the Amazon Resource Name (ARN) of the algorithm used for
 -- auto-labeling. You must select one of the following ARNs:
@@ -145,32 +144,32 @@ instance Core.FromJSON LabelingJobAlgorithmsConfig where
       "LabelingJobAlgorithmsConfig"
       ( \x ->
           LabelingJobAlgorithmsConfig'
-            Prelude.<$> (x Core..:? "LabelingJobResourceConfig")
-            Prelude.<*> (x Core..:? "InitialActiveLearningModelArn")
+            Prelude.<$> (x Core..:? "InitialActiveLearningModelArn")
+            Prelude.<*> (x Core..:? "LabelingJobResourceConfig")
             Prelude.<*> (x Core..: "LabelingJobAlgorithmSpecificationArn")
       )
 
 instance Prelude.Hashable LabelingJobAlgorithmsConfig where
   hashWithSalt _salt LabelingJobAlgorithmsConfig' {..} =
     _salt
-      `Prelude.hashWithSalt` labelingJobResourceConfig
       `Prelude.hashWithSalt` initialActiveLearningModelArn
+      `Prelude.hashWithSalt` labelingJobResourceConfig
       `Prelude.hashWithSalt` labelingJobAlgorithmSpecificationArn
 
 instance Prelude.NFData LabelingJobAlgorithmsConfig where
   rnf LabelingJobAlgorithmsConfig' {..} =
-    Prelude.rnf labelingJobResourceConfig
-      `Prelude.seq` Prelude.rnf initialActiveLearningModelArn
+    Prelude.rnf initialActiveLearningModelArn
+      `Prelude.seq` Prelude.rnf labelingJobResourceConfig
       `Prelude.seq` Prelude.rnf labelingJobAlgorithmSpecificationArn
 
 instance Core.ToJSON LabelingJobAlgorithmsConfig where
   toJSON LabelingJobAlgorithmsConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LabelingJobResourceConfig" Core..=)
-              Prelude.<$> labelingJobResourceConfig,
-            ("InitialActiveLearningModelArn" Core..=)
+          [ ("InitialActiveLearningModelArn" Core..=)
               Prelude.<$> initialActiveLearningModelArn,
+            ("LabelingJobResourceConfig" Core..=)
+              Prelude.<$> labelingJobResourceConfig,
             Prelude.Just
               ( "LabelingJobAlgorithmSpecificationArn"
                   Core..= labelingJobAlgorithmSpecificationArn

@@ -30,15 +30,15 @@ import Amazonka.SageMaker.Types.TransformJobStatus
 --
 -- /See:/ 'newTransformJobSummary' smart constructor.
 data TransformJobSummary = TransformJobSummary'
-  { -- | If the transform job failed, the reason it failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
-    -- | Indicates when the transform job was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | Indicates when the transform job ends on compute instances. For
+  { -- | Indicates when the transform job ends on compute instances. For
     -- successful jobs and stopped jobs, this is the exact time recorded after
     -- the results are uploaded. For failed jobs, this is when Amazon SageMaker
     -- detected that the job failed.
     transformEndTime :: Prelude.Maybe Core.POSIX,
+    -- | Indicates when the transform job was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | If the transform job failed, the reason it failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the transform job.
     transformJobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the transform job.
@@ -58,14 +58,14 @@ data TransformJobSummary = TransformJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureReason', 'transformJobSummary_failureReason' - If the transform job failed, the reason it failed.
---
--- 'lastModifiedTime', 'transformJobSummary_lastModifiedTime' - Indicates when the transform job was last modified.
---
 -- 'transformEndTime', 'transformJobSummary_transformEndTime' - Indicates when the transform job ends on compute instances. For
 -- successful jobs and stopped jobs, this is the exact time recorded after
 -- the results are uploaded. For failed jobs, this is when Amazon SageMaker
 -- detected that the job failed.
+--
+-- 'lastModifiedTime', 'transformJobSummary_lastModifiedTime' - Indicates when the transform job was last modified.
+--
+-- 'failureReason', 'transformJobSummary_failureReason' - If the transform job failed, the reason it failed.
 --
 -- 'transformJobName', 'transformJobSummary_transformJobName' - The name of the transform job.
 --
@@ -90,23 +90,15 @@ newTransformJobSummary
   pCreationTime_
   pTransformJobStatus_ =
     TransformJobSummary'
-      { failureReason =
+      { transformEndTime =
           Prelude.Nothing,
         lastModifiedTime = Prelude.Nothing,
-        transformEndTime = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
         transformJobName = pTransformJobName_,
         transformJobArn = pTransformJobArn_,
         creationTime = Core._Time Lens.# pCreationTime_,
         transformJobStatus = pTransformJobStatus_
       }
-
--- | If the transform job failed, the reason it failed.
-transformJobSummary_failureReason :: Lens.Lens' TransformJobSummary (Prelude.Maybe Prelude.Text)
-transformJobSummary_failureReason = Lens.lens (\TransformJobSummary' {failureReason} -> failureReason) (\s@TransformJobSummary' {} a -> s {failureReason = a} :: TransformJobSummary)
-
--- | Indicates when the transform job was last modified.
-transformJobSummary_lastModifiedTime :: Lens.Lens' TransformJobSummary (Prelude.Maybe Prelude.UTCTime)
-transformJobSummary_lastModifiedTime = Lens.lens (\TransformJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@TransformJobSummary' {} a -> s {lastModifiedTime = a} :: TransformJobSummary) Prelude.. Lens.mapping Core._Time
 
 -- | Indicates when the transform job ends on compute instances. For
 -- successful jobs and stopped jobs, this is the exact time recorded after
@@ -114,6 +106,14 @@ transformJobSummary_lastModifiedTime = Lens.lens (\TransformJobSummary' {lastMod
 -- detected that the job failed.
 transformJobSummary_transformEndTime :: Lens.Lens' TransformJobSummary (Prelude.Maybe Prelude.UTCTime)
 transformJobSummary_transformEndTime = Lens.lens (\TransformJobSummary' {transformEndTime} -> transformEndTime) (\s@TransformJobSummary' {} a -> s {transformEndTime = a} :: TransformJobSummary) Prelude.. Lens.mapping Core._Time
+
+-- | Indicates when the transform job was last modified.
+transformJobSummary_lastModifiedTime :: Lens.Lens' TransformJobSummary (Prelude.Maybe Prelude.UTCTime)
+transformJobSummary_lastModifiedTime = Lens.lens (\TransformJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@TransformJobSummary' {} a -> s {lastModifiedTime = a} :: TransformJobSummary) Prelude.. Lens.mapping Core._Time
+
+-- | If the transform job failed, the reason it failed.
+transformJobSummary_failureReason :: Lens.Lens' TransformJobSummary (Prelude.Maybe Prelude.Text)
+transformJobSummary_failureReason = Lens.lens (\TransformJobSummary' {failureReason} -> failureReason) (\s@TransformJobSummary' {} a -> s {failureReason = a} :: TransformJobSummary)
 
 -- | The name of the transform job.
 transformJobSummary_transformJobName :: Lens.Lens' TransformJobSummary Prelude.Text
@@ -137,9 +137,9 @@ instance Core.FromJSON TransformJobSummary where
       "TransformJobSummary"
       ( \x ->
           TransformJobSummary'
-            Prelude.<$> (x Core..:? "FailureReason")
+            Prelude.<$> (x Core..:? "TransformEndTime")
             Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "TransformEndTime")
+            Prelude.<*> (x Core..:? "FailureReason")
             Prelude.<*> (x Core..: "TransformJobName")
             Prelude.<*> (x Core..: "TransformJobArn")
             Prelude.<*> (x Core..: "CreationTime")
@@ -148,9 +148,9 @@ instance Core.FromJSON TransformJobSummary where
 
 instance Prelude.Hashable TransformJobSummary where
   hashWithSalt _salt TransformJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt `Prelude.hashWithSalt` transformEndTime
       `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` transformEndTime
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` transformJobName
       `Prelude.hashWithSalt` transformJobArn
       `Prelude.hashWithSalt` creationTime
@@ -158,9 +158,9 @@ instance Prelude.Hashable TransformJobSummary where
 
 instance Prelude.NFData TransformJobSummary where
   rnf TransformJobSummary' {..} =
-    Prelude.rnf failureReason
+    Prelude.rnf transformEndTime
       `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf transformEndTime
+      `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf transformJobName
       `Prelude.seq` Prelude.rnf transformJobArn
       `Prelude.seq` Prelude.rnf creationTime

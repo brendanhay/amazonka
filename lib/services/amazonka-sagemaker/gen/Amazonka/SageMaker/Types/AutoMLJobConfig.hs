@@ -29,12 +29,12 @@ import Amazonka.SageMaker.Types.AutoMLSecurityConfig
 --
 -- /See:/ 'newAutoMLJobConfig' smart constructor.
 data AutoMLJobConfig = AutoMLJobConfig'
-  { -- | The security configuration for traffic encryption or Amazon VPC
-    -- settings.
-    securityConfig :: Prelude.Maybe AutoMLSecurityConfig,
-    -- | How long an AutoML job is allowed to run, or how many candidates a job
+  { -- | How long an AutoML job is allowed to run, or how many candidates a job
     -- is allowed to generate.
-    completionCriteria :: Prelude.Maybe AutoMLJobCompletionCriteria
+    completionCriteria :: Prelude.Maybe AutoMLJobCompletionCriteria,
+    -- | The security configuration for traffic encryption or Amazon VPC
+    -- settings.
+    securityConfig :: Prelude.Maybe AutoMLSecurityConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,28 +46,29 @@ data AutoMLJobConfig = AutoMLJobConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityConfig', 'autoMLJobConfig_securityConfig' - The security configuration for traffic encryption or Amazon VPC
--- settings.
---
 -- 'completionCriteria', 'autoMLJobConfig_completionCriteria' - How long an AutoML job is allowed to run, or how many candidates a job
 -- is allowed to generate.
+--
+-- 'securityConfig', 'autoMLJobConfig_securityConfig' - The security configuration for traffic encryption or Amazon VPC
+-- settings.
 newAutoMLJobConfig ::
   AutoMLJobConfig
 newAutoMLJobConfig =
   AutoMLJobConfig'
-    { securityConfig = Prelude.Nothing,
-      completionCriteria = Prelude.Nothing
+    { completionCriteria =
+        Prelude.Nothing,
+      securityConfig = Prelude.Nothing
     }
-
--- | The security configuration for traffic encryption or Amazon VPC
--- settings.
-autoMLJobConfig_securityConfig :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLSecurityConfig)
-autoMLJobConfig_securityConfig = Lens.lens (\AutoMLJobConfig' {securityConfig} -> securityConfig) (\s@AutoMLJobConfig' {} a -> s {securityConfig = a} :: AutoMLJobConfig)
 
 -- | How long an AutoML job is allowed to run, or how many candidates a job
 -- is allowed to generate.
 autoMLJobConfig_completionCriteria :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLJobCompletionCriteria)
 autoMLJobConfig_completionCriteria = Lens.lens (\AutoMLJobConfig' {completionCriteria} -> completionCriteria) (\s@AutoMLJobConfig' {} a -> s {completionCriteria = a} :: AutoMLJobConfig)
+
+-- | The security configuration for traffic encryption or Amazon VPC
+-- settings.
+autoMLJobConfig_securityConfig :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLSecurityConfig)
+autoMLJobConfig_securityConfig = Lens.lens (\AutoMLJobConfig' {securityConfig} -> securityConfig) (\s@AutoMLJobConfig' {} a -> s {securityConfig = a} :: AutoMLJobConfig)
 
 instance Core.FromJSON AutoMLJobConfig where
   parseJSON =
@@ -75,27 +76,27 @@ instance Core.FromJSON AutoMLJobConfig where
       "AutoMLJobConfig"
       ( \x ->
           AutoMLJobConfig'
-            Prelude.<$> (x Core..:? "SecurityConfig")
-            Prelude.<*> (x Core..:? "CompletionCriteria")
+            Prelude.<$> (x Core..:? "CompletionCriteria")
+            Prelude.<*> (x Core..:? "SecurityConfig")
       )
 
 instance Prelude.Hashable AutoMLJobConfig where
   hashWithSalt _salt AutoMLJobConfig' {..} =
-    _salt `Prelude.hashWithSalt` securityConfig
-      `Prelude.hashWithSalt` completionCriteria
+    _salt `Prelude.hashWithSalt` completionCriteria
+      `Prelude.hashWithSalt` securityConfig
 
 instance Prelude.NFData AutoMLJobConfig where
   rnf AutoMLJobConfig' {..} =
-    Prelude.rnf securityConfig
-      `Prelude.seq` Prelude.rnf completionCriteria
+    Prelude.rnf completionCriteria
+      `Prelude.seq` Prelude.rnf securityConfig
 
 instance Core.ToJSON AutoMLJobConfig where
   toJSON AutoMLJobConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SecurityConfig" Core..=)
-              Prelude.<$> securityConfig,
-            ("CompletionCriteria" Core..=)
-              Prelude.<$> completionCriteria
+          [ ("CompletionCriteria" Core..=)
+              Prelude.<$> completionCriteria,
+            ("SecurityConfig" Core..=)
+              Prelude.<$> securityConfig
           ]
       )

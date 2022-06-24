@@ -29,10 +29,10 @@ import Amazonka.SageMaker.Types.ScheduleStatus
 --
 -- /See:/ 'newMonitoringScheduleSummary' smart constructor.
 data MonitoringScheduleSummary = MonitoringScheduleSummary'
-  { -- | The type of the monitoring job definition that the schedule is for.
-    monitoringType :: Prelude.Maybe MonitoringType,
-    -- | The name of the endpoint using the monitoring schedule.
+  { -- | The name of the endpoint using the monitoring schedule.
     endpointName :: Prelude.Maybe Prelude.Text,
+    -- | The type of the monitoring job definition that the schedule is for.
+    monitoringType :: Prelude.Maybe MonitoringType,
     -- | The name of the monitoring job definition that the schedule is for.
     monitoringJobDefinitionName :: Prelude.Maybe Prelude.Text,
     -- | The name of the monitoring schedule.
@@ -56,9 +56,9 @@ data MonitoringScheduleSummary = MonitoringScheduleSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'monitoringType', 'monitoringScheduleSummary_monitoringType' - The type of the monitoring job definition that the schedule is for.
---
 -- 'endpointName', 'monitoringScheduleSummary_endpointName' - The name of the endpoint using the monitoring schedule.
+--
+-- 'monitoringType', 'monitoringScheduleSummary_monitoringType' - The type of the monitoring job definition that the schedule is for.
 --
 -- 'monitoringJobDefinitionName', 'monitoringScheduleSummary_monitoringJobDefinitionName' - The name of the monitoring job definition that the schedule is for.
 --
@@ -90,9 +90,9 @@ newMonitoringScheduleSummary
   pLastModifiedTime_
   pMonitoringScheduleStatus_ =
     MonitoringScheduleSummary'
-      { monitoringType =
+      { endpointName =
           Prelude.Nothing,
-        endpointName = Prelude.Nothing,
+        monitoringType = Prelude.Nothing,
         monitoringJobDefinitionName = Prelude.Nothing,
         monitoringScheduleName =
           pMonitoringScheduleName_,
@@ -104,13 +104,13 @@ newMonitoringScheduleSummary
           pMonitoringScheduleStatus_
       }
 
--- | The type of the monitoring job definition that the schedule is for.
-monitoringScheduleSummary_monitoringType :: Lens.Lens' MonitoringScheduleSummary (Prelude.Maybe MonitoringType)
-monitoringScheduleSummary_monitoringType = Lens.lens (\MonitoringScheduleSummary' {monitoringType} -> monitoringType) (\s@MonitoringScheduleSummary' {} a -> s {monitoringType = a} :: MonitoringScheduleSummary)
-
 -- | The name of the endpoint using the monitoring schedule.
 monitoringScheduleSummary_endpointName :: Lens.Lens' MonitoringScheduleSummary (Prelude.Maybe Prelude.Text)
 monitoringScheduleSummary_endpointName = Lens.lens (\MonitoringScheduleSummary' {endpointName} -> endpointName) (\s@MonitoringScheduleSummary' {} a -> s {endpointName = a} :: MonitoringScheduleSummary)
+
+-- | The type of the monitoring job definition that the schedule is for.
+monitoringScheduleSummary_monitoringType :: Lens.Lens' MonitoringScheduleSummary (Prelude.Maybe MonitoringType)
+monitoringScheduleSummary_monitoringType = Lens.lens (\MonitoringScheduleSummary' {monitoringType} -> monitoringType) (\s@MonitoringScheduleSummary' {} a -> s {monitoringType = a} :: MonitoringScheduleSummary)
 
 -- | The name of the monitoring job definition that the schedule is for.
 monitoringScheduleSummary_monitoringJobDefinitionName :: Lens.Lens' MonitoringScheduleSummary (Prelude.Maybe Prelude.Text)
@@ -142,8 +142,8 @@ instance Core.FromJSON MonitoringScheduleSummary where
       "MonitoringScheduleSummary"
       ( \x ->
           MonitoringScheduleSummary'
-            Prelude.<$> (x Core..:? "MonitoringType")
-            Prelude.<*> (x Core..:? "EndpointName")
+            Prelude.<$> (x Core..:? "EndpointName")
+            Prelude.<*> (x Core..:? "MonitoringType")
             Prelude.<*> (x Core..:? "MonitoringJobDefinitionName")
             Prelude.<*> (x Core..: "MonitoringScheduleName")
             Prelude.<*> (x Core..: "MonitoringScheduleArn")
@@ -154,8 +154,8 @@ instance Core.FromJSON MonitoringScheduleSummary where
 
 instance Prelude.Hashable MonitoringScheduleSummary where
   hashWithSalt _salt MonitoringScheduleSummary' {..} =
-    _salt `Prelude.hashWithSalt` monitoringType
-      `Prelude.hashWithSalt` endpointName
+    _salt `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` monitoringType
       `Prelude.hashWithSalt` monitoringJobDefinitionName
       `Prelude.hashWithSalt` monitoringScheduleName
       `Prelude.hashWithSalt` monitoringScheduleArn
@@ -165,8 +165,8 @@ instance Prelude.Hashable MonitoringScheduleSummary where
 
 instance Prelude.NFData MonitoringScheduleSummary where
   rnf MonitoringScheduleSummary' {..} =
-    Prelude.rnf monitoringType
-      `Prelude.seq` Prelude.rnf endpointName
+    Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf monitoringType
       `Prelude.seq` Prelude.rnf monitoringJobDefinitionName
       `Prelude.seq` Prelude.rnf monitoringScheduleName
       `Prelude.seq` Prelude.rnf monitoringScheduleArn

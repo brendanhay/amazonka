@@ -33,16 +33,16 @@ module Amazonka.SageMaker.ListCompilationJobs
     newListCompilationJobs,
 
     -- * Request Lenses
+    listCompilationJobs_sortOrder,
+    listCompilationJobs_nextToken,
+    listCompilationJobs_lastModifiedTimeAfter,
     listCompilationJobs_nameContains,
     listCompilationJobs_lastModifiedTimeBefore,
-    listCompilationJobs_creationTimeAfter,
-    listCompilationJobs_nextToken,
-    listCompilationJobs_sortOrder,
-    listCompilationJobs_lastModifiedTimeAfter,
     listCompilationJobs_creationTimeBefore,
-    listCompilationJobs_statusEquals,
-    listCompilationJobs_maxResults,
     listCompilationJobs_sortBy,
+    listCompilationJobs_maxResults,
+    listCompilationJobs_statusEquals,
+    listCompilationJobs_creationTimeAfter,
 
     -- * Destructuring the Response
     ListCompilationJobsResponse (..),
@@ -64,34 +64,34 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListCompilationJobs' smart constructor.
 data ListCompilationJobs = ListCompilationJobs'
-  { -- | A filter that returns the model compilation jobs whose name contains a
+  { -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | If the result of the previous @ListCompilationJobs@ request was
+    -- truncated, the response includes a @NextToken@. To retrieve the next set
+    -- of model compilation jobs, use the token in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A filter that returns the model compilation jobs that were modified
+    -- after a specified time.
+    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    -- | A filter that returns the model compilation jobs whose name contains a
     -- specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns the model compilation jobs that were modified
     -- before a specified time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | A filter that returns the model compilation jobs that were created after
-    -- a specified time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | If the result of the previous @ListCompilationJobs@ request was
-    -- truncated, the response includes a @NextToken@. To retrieve the next set
-    -- of model compilation jobs, use the token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | A filter that returns the model compilation jobs that were modified
-    -- after a specified time.
-    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns the model compilation jobs that were created
     -- before a specified time.
     creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | The field by which to sort results. The default is @CreationTime@.
+    sortBy :: Prelude.Maybe ListCompilationJobsSortBy,
+    -- | The maximum number of model compilation jobs to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that retrieves model compilation jobs with a specific
     -- DescribeCompilationJobResponse$CompilationJobStatus status.
     statusEquals :: Prelude.Maybe CompilationJobStatus,
-    -- | The maximum number of model compilation jobs to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The field by which to sort results. The default is @CreationTime@.
-    sortBy :: Prelude.Maybe ListCompilationJobsSortBy
+    -- | A filter that returns the model compilation jobs that were created after
+    -- a specified time.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,49 +103,63 @@ data ListCompilationJobs = ListCompilationJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sortOrder', 'listCompilationJobs_sortOrder' - The sort order for results. The default is @Ascending@.
+--
+-- 'nextToken', 'listCompilationJobs_nextToken' - If the result of the previous @ListCompilationJobs@ request was
+-- truncated, the response includes a @NextToken@. To retrieve the next set
+-- of model compilation jobs, use the token in the next request.
+--
+-- 'lastModifiedTimeAfter', 'listCompilationJobs_lastModifiedTimeAfter' - A filter that returns the model compilation jobs that were modified
+-- after a specified time.
+--
 -- 'nameContains', 'listCompilationJobs_nameContains' - A filter that returns the model compilation jobs whose name contains a
 -- specified string.
 --
 -- 'lastModifiedTimeBefore', 'listCompilationJobs_lastModifiedTimeBefore' - A filter that returns the model compilation jobs that were modified
 -- before a specified time.
 --
--- 'creationTimeAfter', 'listCompilationJobs_creationTimeAfter' - A filter that returns the model compilation jobs that were created after
--- a specified time.
---
--- 'nextToken', 'listCompilationJobs_nextToken' - If the result of the previous @ListCompilationJobs@ request was
--- truncated, the response includes a @NextToken@. To retrieve the next set
--- of model compilation jobs, use the token in the next request.
---
--- 'sortOrder', 'listCompilationJobs_sortOrder' - The sort order for results. The default is @Ascending@.
---
--- 'lastModifiedTimeAfter', 'listCompilationJobs_lastModifiedTimeAfter' - A filter that returns the model compilation jobs that were modified
--- after a specified time.
---
 -- 'creationTimeBefore', 'listCompilationJobs_creationTimeBefore' - A filter that returns the model compilation jobs that were created
 -- before a specified time.
+--
+-- 'sortBy', 'listCompilationJobs_sortBy' - The field by which to sort results. The default is @CreationTime@.
+--
+-- 'maxResults', 'listCompilationJobs_maxResults' - The maximum number of model compilation jobs to return in the response.
 --
 -- 'statusEquals', 'listCompilationJobs_statusEquals' - A filter that retrieves model compilation jobs with a specific
 -- DescribeCompilationJobResponse$CompilationJobStatus status.
 --
--- 'maxResults', 'listCompilationJobs_maxResults' - The maximum number of model compilation jobs to return in the response.
---
--- 'sortBy', 'listCompilationJobs_sortBy' - The field by which to sort results. The default is @CreationTime@.
+-- 'creationTimeAfter', 'listCompilationJobs_creationTimeAfter' - A filter that returns the model compilation jobs that were created after
+-- a specified time.
 newListCompilationJobs ::
   ListCompilationJobs
 newListCompilationJobs =
   ListCompilationJobs'
-    { nameContains =
-        Prelude.Nothing,
-      lastModifiedTimeBefore = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing,
+    { sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       lastModifiedTimeAfter = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      lastModifiedTimeBefore = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      statusEquals = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing
+      statusEquals = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing
     }
+
+-- | The sort order for results. The default is @Ascending@.
+listCompilationJobs_sortOrder :: Lens.Lens' ListCompilationJobs (Prelude.Maybe SortOrder)
+listCompilationJobs_sortOrder = Lens.lens (\ListCompilationJobs' {sortOrder} -> sortOrder) (\s@ListCompilationJobs' {} a -> s {sortOrder = a} :: ListCompilationJobs)
+
+-- | If the result of the previous @ListCompilationJobs@ request was
+-- truncated, the response includes a @NextToken@. To retrieve the next set
+-- of model compilation jobs, use the token in the next request.
+listCompilationJobs_nextToken :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.Text)
+listCompilationJobs_nextToken = Lens.lens (\ListCompilationJobs' {nextToken} -> nextToken) (\s@ListCompilationJobs' {} a -> s {nextToken = a} :: ListCompilationJobs)
+
+-- | A filter that returns the model compilation jobs that were modified
+-- after a specified time.
+listCompilationJobs_lastModifiedTimeAfter :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.UTCTime)
+listCompilationJobs_lastModifiedTimeAfter = Lens.lens (\ListCompilationJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListCompilationJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListCompilationJobs) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns the model compilation jobs whose name contains a
 -- specified string.
@@ -157,43 +171,28 @@ listCompilationJobs_nameContains = Lens.lens (\ListCompilationJobs' {nameContain
 listCompilationJobs_lastModifiedTimeBefore :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.UTCTime)
 listCompilationJobs_lastModifiedTimeBefore = Lens.lens (\ListCompilationJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListCompilationJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListCompilationJobs) Prelude.. Lens.mapping Core._Time
 
--- | A filter that returns the model compilation jobs that were created after
--- a specified time.
-listCompilationJobs_creationTimeAfter :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.UTCTime)
-listCompilationJobs_creationTimeAfter = Lens.lens (\ListCompilationJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListCompilationJobs' {} a -> s {creationTimeAfter = a} :: ListCompilationJobs) Prelude.. Lens.mapping Core._Time
-
--- | If the result of the previous @ListCompilationJobs@ request was
--- truncated, the response includes a @NextToken@. To retrieve the next set
--- of model compilation jobs, use the token in the next request.
-listCompilationJobs_nextToken :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.Text)
-listCompilationJobs_nextToken = Lens.lens (\ListCompilationJobs' {nextToken} -> nextToken) (\s@ListCompilationJobs' {} a -> s {nextToken = a} :: ListCompilationJobs)
-
--- | The sort order for results. The default is @Ascending@.
-listCompilationJobs_sortOrder :: Lens.Lens' ListCompilationJobs (Prelude.Maybe SortOrder)
-listCompilationJobs_sortOrder = Lens.lens (\ListCompilationJobs' {sortOrder} -> sortOrder) (\s@ListCompilationJobs' {} a -> s {sortOrder = a} :: ListCompilationJobs)
-
--- | A filter that returns the model compilation jobs that were modified
--- after a specified time.
-listCompilationJobs_lastModifiedTimeAfter :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.UTCTime)
-listCompilationJobs_lastModifiedTimeAfter = Lens.lens (\ListCompilationJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListCompilationJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListCompilationJobs) Prelude.. Lens.mapping Core._Time
-
 -- | A filter that returns the model compilation jobs that were created
 -- before a specified time.
 listCompilationJobs_creationTimeBefore :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.UTCTime)
 listCompilationJobs_creationTimeBefore = Lens.lens (\ListCompilationJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListCompilationJobs' {} a -> s {creationTimeBefore = a} :: ListCompilationJobs) Prelude.. Lens.mapping Core._Time
+
+-- | The field by which to sort results. The default is @CreationTime@.
+listCompilationJobs_sortBy :: Lens.Lens' ListCompilationJobs (Prelude.Maybe ListCompilationJobsSortBy)
+listCompilationJobs_sortBy = Lens.lens (\ListCompilationJobs' {sortBy} -> sortBy) (\s@ListCompilationJobs' {} a -> s {sortBy = a} :: ListCompilationJobs)
+
+-- | The maximum number of model compilation jobs to return in the response.
+listCompilationJobs_maxResults :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.Natural)
+listCompilationJobs_maxResults = Lens.lens (\ListCompilationJobs' {maxResults} -> maxResults) (\s@ListCompilationJobs' {} a -> s {maxResults = a} :: ListCompilationJobs)
 
 -- | A filter that retrieves model compilation jobs with a specific
 -- DescribeCompilationJobResponse$CompilationJobStatus status.
 listCompilationJobs_statusEquals :: Lens.Lens' ListCompilationJobs (Prelude.Maybe CompilationJobStatus)
 listCompilationJobs_statusEquals = Lens.lens (\ListCompilationJobs' {statusEquals} -> statusEquals) (\s@ListCompilationJobs' {} a -> s {statusEquals = a} :: ListCompilationJobs)
 
--- | The maximum number of model compilation jobs to return in the response.
-listCompilationJobs_maxResults :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.Natural)
-listCompilationJobs_maxResults = Lens.lens (\ListCompilationJobs' {maxResults} -> maxResults) (\s@ListCompilationJobs' {} a -> s {maxResults = a} :: ListCompilationJobs)
-
--- | The field by which to sort results. The default is @CreationTime@.
-listCompilationJobs_sortBy :: Lens.Lens' ListCompilationJobs (Prelude.Maybe ListCompilationJobsSortBy)
-listCompilationJobs_sortBy = Lens.lens (\ListCompilationJobs' {sortBy} -> sortBy) (\s@ListCompilationJobs' {} a -> s {sortBy = a} :: ListCompilationJobs)
+-- | A filter that returns the model compilation jobs that were created after
+-- a specified time.
+listCompilationJobs_creationTimeAfter :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.UTCTime)
+listCompilationJobs_creationTimeAfter = Lens.lens (\ListCompilationJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListCompilationJobs' {} a -> s {creationTimeAfter = a} :: ListCompilationJobs) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListCompilationJobs where
   page rq rs
@@ -234,29 +233,29 @@ instance Core.AWSRequest ListCompilationJobs where
 
 instance Prelude.Hashable ListCompilationJobs where
   hashWithSalt _salt ListCompilationJobs' {..} =
-    _salt `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` lastModifiedTimeBefore
-      `Prelude.hashWithSalt` creationTimeAfter
+    _salt `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
       `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` statusEquals
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` creationTimeAfter
 
 instance Prelude.NFData ListCompilationJobs where
   rnf ListCompilationJobs' {..} =
-    Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf creationTimeAfter
+    Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf statusEquals
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Core.ToHeaders ListCompilationJobs where
   toHeaders =
@@ -277,20 +276,20 @@ instance Core.ToJSON ListCompilationJobs where
   toJSON ListCompilationJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Core..=)
-              Prelude.<$> lastModifiedTimeBefore,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter,
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("LastModifiedTimeAfter" Core..=)
               Prelude.<$> lastModifiedTimeAfter,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("LastModifiedTimeBefore" Core..=)
+              Prelude.<$> lastModifiedTimeBefore,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,
-            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SortBy" Core..=) Prelude.<$> sortBy
+            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter
           ]
       )
 

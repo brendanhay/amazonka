@@ -30,12 +30,17 @@ import Amazonka.SageMaker.Types.UiConfig
 --
 -- /See:/ 'newHumanTaskConfig' smart constructor.
 data HumanTaskConfig = HumanTaskConfig'
-  { -- | Keywords used to describe the task so that workers on Amazon Mechanical
-    -- Turk can discover the task.
-    taskKeywords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+  { -- | Defines the maximum number of data objects that can be labeled by human
+    -- workers at the same time. Also referred to as batch size. Each object
+    -- may have more than one worker at one time. The default value is 1000
+    -- objects.
+    maxConcurrentTaskCount :: Prelude.Maybe Prelude.Natural,
     -- | The price that you pay for each task performed by an Amazon Mechanical
     -- Turk worker.
     publicWorkforceTaskPrice :: Prelude.Maybe PublicWorkforceTaskPrice,
+    -- | Keywords used to describe the task so that workers on Amazon Mechanical
+    -- Turk can discover the task.
+    taskKeywords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The length of time that a task remains available for labeling by human
     -- workers. The default and maximum values for this parameter depend on the
     -- type of workforce you use.
@@ -48,11 +53,6 @@ data HumanTaskConfig = HumanTaskConfig'
     --     If you want to change this limit, contact Amazon Web Services
     --     Support.
     taskAvailabilityLifetimeInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | Defines the maximum number of data objects that can be labeled by human
-    -- workers at the same time. Also referred to as batch size. Each object
-    -- may have more than one worker at one time. The default value is 1000
-    -- objects.
-    maxConcurrentTaskCount :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the work team assigned to complete the
     -- tasks.
     workteamArn :: Prelude.Text,
@@ -747,11 +747,16 @@ data HumanTaskConfig = HumanTaskConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskKeywords', 'humanTaskConfig_taskKeywords' - Keywords used to describe the task so that workers on Amazon Mechanical
--- Turk can discover the task.
+-- 'maxConcurrentTaskCount', 'humanTaskConfig_maxConcurrentTaskCount' - Defines the maximum number of data objects that can be labeled by human
+-- workers at the same time. Also referred to as batch size. Each object
+-- may have more than one worker at one time. The default value is 1000
+-- objects.
 --
 -- 'publicWorkforceTaskPrice', 'humanTaskConfig_publicWorkforceTaskPrice' - The price that you pay for each task performed by an Amazon Mechanical
 -- Turk worker.
+--
+-- 'taskKeywords', 'humanTaskConfig_taskKeywords' - Keywords used to describe the task so that workers on Amazon Mechanical
+-- Turk can discover the task.
 --
 -- 'taskAvailabilityLifetimeInSeconds', 'humanTaskConfig_taskAvailabilityLifetimeInSeconds' - The length of time that a task remains available for labeling by human
 -- workers. The default and maximum values for this parameter depend on the
@@ -764,11 +769,6 @@ data HumanTaskConfig = HumanTaskConfig'
 --     days (864,000 seconds). For most users, the maximum is also 10 days.
 --     If you want to change this limit, contact Amazon Web Services
 --     Support.
---
--- 'maxConcurrentTaskCount', 'humanTaskConfig_maxConcurrentTaskCount' - Defines the maximum number of data objects that can be labeled by human
--- workers at the same time. Also referred to as batch size. Each object
--- may have more than one worker at one time. The default value is 1000
--- objects.
 --
 -- 'workteamArn', 'humanTaskConfig_workteamArn' - The Amazon Resource Name (ARN) of the work team assigned to complete the
 -- tasks.
@@ -1480,10 +1480,11 @@ newHumanTaskConfig
   pTaskTimeLimitInSeconds_
   pAnnotationConsolidationConfig_ =
     HumanTaskConfig'
-      { taskKeywords = Prelude.Nothing,
+      { maxConcurrentTaskCount =
+          Prelude.Nothing,
         publicWorkforceTaskPrice = Prelude.Nothing,
+        taskKeywords = Prelude.Nothing,
         taskAvailabilityLifetimeInSeconds = Prelude.Nothing,
-        maxConcurrentTaskCount = Prelude.Nothing,
         workteamArn = pWorkteamArn_,
         uiConfig = pUiConfig_,
         preHumanTaskLambdaArn = pPreHumanTaskLambdaArn_,
@@ -1496,15 +1497,22 @@ newHumanTaskConfig
           pAnnotationConsolidationConfig_
       }
 
--- | Keywords used to describe the task so that workers on Amazon Mechanical
--- Turk can discover the task.
-humanTaskConfig_taskKeywords :: Lens.Lens' HumanTaskConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-humanTaskConfig_taskKeywords = Lens.lens (\HumanTaskConfig' {taskKeywords} -> taskKeywords) (\s@HumanTaskConfig' {} a -> s {taskKeywords = a} :: HumanTaskConfig) Prelude.. Lens.mapping Lens.coerced
+-- | Defines the maximum number of data objects that can be labeled by human
+-- workers at the same time. Also referred to as batch size. Each object
+-- may have more than one worker at one time. The default value is 1000
+-- objects.
+humanTaskConfig_maxConcurrentTaskCount :: Lens.Lens' HumanTaskConfig (Prelude.Maybe Prelude.Natural)
+humanTaskConfig_maxConcurrentTaskCount = Lens.lens (\HumanTaskConfig' {maxConcurrentTaskCount} -> maxConcurrentTaskCount) (\s@HumanTaskConfig' {} a -> s {maxConcurrentTaskCount = a} :: HumanTaskConfig)
 
 -- | The price that you pay for each task performed by an Amazon Mechanical
 -- Turk worker.
 humanTaskConfig_publicWorkforceTaskPrice :: Lens.Lens' HumanTaskConfig (Prelude.Maybe PublicWorkforceTaskPrice)
 humanTaskConfig_publicWorkforceTaskPrice = Lens.lens (\HumanTaskConfig' {publicWorkforceTaskPrice} -> publicWorkforceTaskPrice) (\s@HumanTaskConfig' {} a -> s {publicWorkforceTaskPrice = a} :: HumanTaskConfig)
+
+-- | Keywords used to describe the task so that workers on Amazon Mechanical
+-- Turk can discover the task.
+humanTaskConfig_taskKeywords :: Lens.Lens' HumanTaskConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+humanTaskConfig_taskKeywords = Lens.lens (\HumanTaskConfig' {taskKeywords} -> taskKeywords) (\s@HumanTaskConfig' {} a -> s {taskKeywords = a} :: HumanTaskConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The length of time that a task remains available for labeling by human
 -- workers. The default and maximum values for this parameter depend on the
@@ -1519,13 +1527,6 @@ humanTaskConfig_publicWorkforceTaskPrice = Lens.lens (\HumanTaskConfig' {publicW
 --     Support.
 humanTaskConfig_taskAvailabilityLifetimeInSeconds :: Lens.Lens' HumanTaskConfig (Prelude.Maybe Prelude.Natural)
 humanTaskConfig_taskAvailabilityLifetimeInSeconds = Lens.lens (\HumanTaskConfig' {taskAvailabilityLifetimeInSeconds} -> taskAvailabilityLifetimeInSeconds) (\s@HumanTaskConfig' {} a -> s {taskAvailabilityLifetimeInSeconds = a} :: HumanTaskConfig)
-
--- | Defines the maximum number of data objects that can be labeled by human
--- workers at the same time. Also referred to as batch size. Each object
--- may have more than one worker at one time. The default value is 1000
--- objects.
-humanTaskConfig_maxConcurrentTaskCount :: Lens.Lens' HumanTaskConfig (Prelude.Maybe Prelude.Natural)
-humanTaskConfig_maxConcurrentTaskCount = Lens.lens (\HumanTaskConfig' {maxConcurrentTaskCount} -> maxConcurrentTaskCount) (\s@HumanTaskConfig' {} a -> s {maxConcurrentTaskCount = a} :: HumanTaskConfig)
 
 -- | The Amazon Resource Name (ARN) of the work team assigned to complete the
 -- tasks.
@@ -2232,10 +2233,10 @@ instance Core.FromJSON HumanTaskConfig where
       "HumanTaskConfig"
       ( \x ->
           HumanTaskConfig'
-            Prelude.<$> (x Core..:? "TaskKeywords")
+            Prelude.<$> (x Core..:? "MaxConcurrentTaskCount")
             Prelude.<*> (x Core..:? "PublicWorkforceTaskPrice")
+            Prelude.<*> (x Core..:? "TaskKeywords")
             Prelude.<*> (x Core..:? "TaskAvailabilityLifetimeInSeconds")
-            Prelude.<*> (x Core..:? "MaxConcurrentTaskCount")
             Prelude.<*> (x Core..: "WorkteamArn")
             Prelude.<*> (x Core..: "UiConfig")
             Prelude.<*> (x Core..: "PreHumanTaskLambdaArn")
@@ -2248,10 +2249,10 @@ instance Core.FromJSON HumanTaskConfig where
 
 instance Prelude.Hashable HumanTaskConfig where
   hashWithSalt _salt HumanTaskConfig' {..} =
-    _salt `Prelude.hashWithSalt` taskKeywords
+    _salt `Prelude.hashWithSalt` maxConcurrentTaskCount
       `Prelude.hashWithSalt` publicWorkforceTaskPrice
+      `Prelude.hashWithSalt` taskKeywords
       `Prelude.hashWithSalt` taskAvailabilityLifetimeInSeconds
-      `Prelude.hashWithSalt` maxConcurrentTaskCount
       `Prelude.hashWithSalt` workteamArn
       `Prelude.hashWithSalt` uiConfig
       `Prelude.hashWithSalt` preHumanTaskLambdaArn
@@ -2263,10 +2264,10 @@ instance Prelude.Hashable HumanTaskConfig where
 
 instance Prelude.NFData HumanTaskConfig where
   rnf HumanTaskConfig' {..} =
-    Prelude.rnf taskKeywords
+    Prelude.rnf maxConcurrentTaskCount
       `Prelude.seq` Prelude.rnf publicWorkforceTaskPrice
+      `Prelude.seq` Prelude.rnf taskKeywords
       `Prelude.seq` Prelude.rnf taskAvailabilityLifetimeInSeconds
-      `Prelude.seq` Prelude.rnf maxConcurrentTaskCount
       `Prelude.seq` Prelude.rnf workteamArn
       `Prelude.seq` Prelude.rnf uiConfig
       `Prelude.seq` Prelude.rnf preHumanTaskLambdaArn
@@ -2280,13 +2281,13 @@ instance Core.ToJSON HumanTaskConfig where
   toJSON HumanTaskConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TaskKeywords" Core..=) Prelude.<$> taskKeywords,
+          [ ("MaxConcurrentTaskCount" Core..=)
+              Prelude.<$> maxConcurrentTaskCount,
             ("PublicWorkforceTaskPrice" Core..=)
               Prelude.<$> publicWorkforceTaskPrice,
+            ("TaskKeywords" Core..=) Prelude.<$> taskKeywords,
             ("TaskAvailabilityLifetimeInSeconds" Core..=)
               Prelude.<$> taskAvailabilityLifetimeInSeconds,
-            ("MaxConcurrentTaskCount" Core..=)
-              Prelude.<$> maxConcurrentTaskCount,
             Prelude.Just ("WorkteamArn" Core..= workteamArn),
             Prelude.Just ("UiConfig" Core..= uiConfig),
             Prelude.Just

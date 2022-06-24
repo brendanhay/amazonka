@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUSD' smart constructor.
 data USD = USD'
-  { -- | The fractional portion, in cents, of the amount.
-    cents :: Prelude.Maybe Prelude.Natural,
+  { -- | Fractions of a cent, in tenths.
+    tenthFractionsOfACent :: Prelude.Maybe Prelude.Natural,
     -- | The whole number of dollars in the amount.
     dollars :: Prelude.Maybe Prelude.Natural,
-    -- | Fractions of a cent, in tenths.
-    tenthFractionsOfACent :: Prelude.Maybe Prelude.Natural
+    -- | The fractional portion, in cents, of the amount.
+    cents :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,31 +44,31 @@ data USD = USD'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cents', 'usd_cents' - The fractional portion, in cents, of the amount.
+-- 'tenthFractionsOfACent', 'usd_tenthFractionsOfACent' - Fractions of a cent, in tenths.
 --
 -- 'dollars', 'usd_dollars' - The whole number of dollars in the amount.
 --
--- 'tenthFractionsOfACent', 'usd_tenthFractionsOfACent' - Fractions of a cent, in tenths.
+-- 'cents', 'usd_cents' - The fractional portion, in cents, of the amount.
 newUSD ::
   USD
 newUSD =
   USD'
-    { cents = Prelude.Nothing,
+    { tenthFractionsOfACent = Prelude.Nothing,
       dollars = Prelude.Nothing,
-      tenthFractionsOfACent = Prelude.Nothing
+      cents = Prelude.Nothing
     }
 
--- | The fractional portion, in cents, of the amount.
-usd_cents :: Lens.Lens' USD (Prelude.Maybe Prelude.Natural)
-usd_cents = Lens.lens (\USD' {cents} -> cents) (\s@USD' {} a -> s {cents = a} :: USD)
+-- | Fractions of a cent, in tenths.
+usd_tenthFractionsOfACent :: Lens.Lens' USD (Prelude.Maybe Prelude.Natural)
+usd_tenthFractionsOfACent = Lens.lens (\USD' {tenthFractionsOfACent} -> tenthFractionsOfACent) (\s@USD' {} a -> s {tenthFractionsOfACent = a} :: USD)
 
 -- | The whole number of dollars in the amount.
 usd_dollars :: Lens.Lens' USD (Prelude.Maybe Prelude.Natural)
 usd_dollars = Lens.lens (\USD' {dollars} -> dollars) (\s@USD' {} a -> s {dollars = a} :: USD)
 
--- | Fractions of a cent, in tenths.
-usd_tenthFractionsOfACent :: Lens.Lens' USD (Prelude.Maybe Prelude.Natural)
-usd_tenthFractionsOfACent = Lens.lens (\USD' {tenthFractionsOfACent} -> tenthFractionsOfACent) (\s@USD' {} a -> s {tenthFractionsOfACent = a} :: USD)
+-- | The fractional portion, in cents, of the amount.
+usd_cents :: Lens.Lens' USD (Prelude.Maybe Prelude.Natural)
+usd_cents = Lens.lens (\USD' {cents} -> cents) (\s@USD' {} a -> s {cents = a} :: USD)
 
 instance Core.FromJSON USD where
   parseJSON =
@@ -76,30 +76,30 @@ instance Core.FromJSON USD where
       "USD"
       ( \x ->
           USD'
-            Prelude.<$> (x Core..:? "Cents")
+            Prelude.<$> (x Core..:? "TenthFractionsOfACent")
             Prelude.<*> (x Core..:? "Dollars")
-            Prelude.<*> (x Core..:? "TenthFractionsOfACent")
+            Prelude.<*> (x Core..:? "Cents")
       )
 
 instance Prelude.Hashable USD where
   hashWithSalt _salt USD' {..} =
-    _salt `Prelude.hashWithSalt` cents
+    _salt `Prelude.hashWithSalt` tenthFractionsOfACent
       `Prelude.hashWithSalt` dollars
-      `Prelude.hashWithSalt` tenthFractionsOfACent
+      `Prelude.hashWithSalt` cents
 
 instance Prelude.NFData USD where
   rnf USD' {..} =
-    Prelude.rnf cents
+    Prelude.rnf tenthFractionsOfACent
       `Prelude.seq` Prelude.rnf dollars
-      `Prelude.seq` Prelude.rnf tenthFractionsOfACent
+      `Prelude.seq` Prelude.rnf cents
 
 instance Core.ToJSON USD where
   toJSON USD' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Cents" Core..=) Prelude.<$> cents,
+          [ ("TenthFractionsOfACent" Core..=)
+              Prelude.<$> tenthFractionsOfACent,
             ("Dollars" Core..=) Prelude.<$> dollars,
-            ("TenthFractionsOfACent" Core..=)
-              Prelude.<$> tenthFractionsOfACent
+            ("Cents" Core..=) Prelude.<$> cents
           ]
       )

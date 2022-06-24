@@ -29,14 +29,14 @@ module Amazonka.SageMaker.ListModelBiasJobDefinitions
     newListModelBiasJobDefinitions,
 
     -- * Request Lenses
-    listModelBiasJobDefinitions_nameContains,
-    listModelBiasJobDefinitions_endpointName,
-    listModelBiasJobDefinitions_creationTimeAfter,
-    listModelBiasJobDefinitions_nextToken,
     listModelBiasJobDefinitions_sortOrder,
+    listModelBiasJobDefinitions_nextToken,
+    listModelBiasJobDefinitions_endpointName,
+    listModelBiasJobDefinitions_nameContains,
     listModelBiasJobDefinitions_creationTimeBefore,
-    listModelBiasJobDefinitions_maxResults,
     listModelBiasJobDefinitions_sortBy,
+    listModelBiasJobDefinitions_maxResults,
+    listModelBiasJobDefinitions_creationTimeAfter,
 
     -- * Destructuring the Response
     ListModelBiasJobDefinitionsResponse (..),
@@ -58,28 +58,28 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListModelBiasJobDefinitions' smart constructor.
 data ListModelBiasJobDefinitions = ListModelBiasJobDefinitions'
-  { -- | Filter for model bias jobs whose name contains a specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | Name of the endpoint to monitor for model bias.
-    endpointName :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only model bias jobs created after a specified
-    -- time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
+  { -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
+    -- default is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | The token returned if the response is truncated. To retrieve the next
     -- set of job executions, use it in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
-    -- default is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
+    -- | Name of the endpoint to monitor for model bias.
+    endpointName :: Prelude.Maybe Prelude.Text,
+    -- | Filter for model bias jobs whose name contains a specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only model bias jobs created before a specified
     -- time.
     creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | Whether to sort results by the @Name@ or @CreationTime@ field. The
+    -- default is @CreationTime@.
+    sortBy :: Prelude.Maybe MonitoringJobDefinitionSortKey,
     -- | The maximum number of model bias jobs to return in the response. The
     -- default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Whether to sort results by the @Name@ or @CreationTime@ field. The
-    -- default is @CreationTime@.
-    sortBy :: Prelude.Maybe MonitoringJobDefinitionSortKey
+    -- | A filter that returns only model bias jobs created after a specified
+    -- time.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,79 +91,79 @@ data ListModelBiasJobDefinitions = ListModelBiasJobDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nameContains', 'listModelBiasJobDefinitions_nameContains' - Filter for model bias jobs whose name contains a specified string.
---
--- 'endpointName', 'listModelBiasJobDefinitions_endpointName' - Name of the endpoint to monitor for model bias.
---
--- 'creationTimeAfter', 'listModelBiasJobDefinitions_creationTimeAfter' - A filter that returns only model bias jobs created after a specified
--- time.
+-- 'sortOrder', 'listModelBiasJobDefinitions_sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The
+-- default is @Descending@.
 --
 -- 'nextToken', 'listModelBiasJobDefinitions_nextToken' - The token returned if the response is truncated. To retrieve the next
 -- set of job executions, use it in the next request.
 --
--- 'sortOrder', 'listModelBiasJobDefinitions_sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The
--- default is @Descending@.
+-- 'endpointName', 'listModelBiasJobDefinitions_endpointName' - Name of the endpoint to monitor for model bias.
+--
+-- 'nameContains', 'listModelBiasJobDefinitions_nameContains' - Filter for model bias jobs whose name contains a specified string.
 --
 -- 'creationTimeBefore', 'listModelBiasJobDefinitions_creationTimeBefore' - A filter that returns only model bias jobs created before a specified
 -- time.
 --
+-- 'sortBy', 'listModelBiasJobDefinitions_sortBy' - Whether to sort results by the @Name@ or @CreationTime@ field. The
+-- default is @CreationTime@.
+--
 -- 'maxResults', 'listModelBiasJobDefinitions_maxResults' - The maximum number of model bias jobs to return in the response. The
 -- default value is 10.
 --
--- 'sortBy', 'listModelBiasJobDefinitions_sortBy' - Whether to sort results by the @Name@ or @CreationTime@ field. The
--- default is @CreationTime@.
+-- 'creationTimeAfter', 'listModelBiasJobDefinitions_creationTimeAfter' - A filter that returns only model bias jobs created after a specified
+-- time.
 newListModelBiasJobDefinitions ::
   ListModelBiasJobDefinitions
 newListModelBiasJobDefinitions =
   ListModelBiasJobDefinitions'
-    { nameContains =
+    { sortOrder =
         Prelude.Nothing,
-      endpointName = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
+      endpointName = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing
+      creationTimeAfter = Prelude.Nothing
     }
-
--- | Filter for model bias jobs whose name contains a specified string.
-listModelBiasJobDefinitions_nameContains :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe Prelude.Text)
-listModelBiasJobDefinitions_nameContains = Lens.lens (\ListModelBiasJobDefinitions' {nameContains} -> nameContains) (\s@ListModelBiasJobDefinitions' {} a -> s {nameContains = a} :: ListModelBiasJobDefinitions)
-
--- | Name of the endpoint to monitor for model bias.
-listModelBiasJobDefinitions_endpointName :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe Prelude.Text)
-listModelBiasJobDefinitions_endpointName = Lens.lens (\ListModelBiasJobDefinitions' {endpointName} -> endpointName) (\s@ListModelBiasJobDefinitions' {} a -> s {endpointName = a} :: ListModelBiasJobDefinitions)
-
--- | A filter that returns only model bias jobs created after a specified
--- time.
-listModelBiasJobDefinitions_creationTimeAfter :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe Prelude.UTCTime)
-listModelBiasJobDefinitions_creationTimeAfter = Lens.lens (\ListModelBiasJobDefinitions' {creationTimeAfter} -> creationTimeAfter) (\s@ListModelBiasJobDefinitions' {} a -> s {creationTimeAfter = a} :: ListModelBiasJobDefinitions) Prelude.. Lens.mapping Core._Time
-
--- | The token returned if the response is truncated. To retrieve the next
--- set of job executions, use it in the next request.
-listModelBiasJobDefinitions_nextToken :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe Prelude.Text)
-listModelBiasJobDefinitions_nextToken = Lens.lens (\ListModelBiasJobDefinitions' {nextToken} -> nextToken) (\s@ListModelBiasJobDefinitions' {} a -> s {nextToken = a} :: ListModelBiasJobDefinitions)
 
 -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
 -- default is @Descending@.
 listModelBiasJobDefinitions_sortOrder :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe SortOrder)
 listModelBiasJobDefinitions_sortOrder = Lens.lens (\ListModelBiasJobDefinitions' {sortOrder} -> sortOrder) (\s@ListModelBiasJobDefinitions' {} a -> s {sortOrder = a} :: ListModelBiasJobDefinitions)
 
+-- | The token returned if the response is truncated. To retrieve the next
+-- set of job executions, use it in the next request.
+listModelBiasJobDefinitions_nextToken :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe Prelude.Text)
+listModelBiasJobDefinitions_nextToken = Lens.lens (\ListModelBiasJobDefinitions' {nextToken} -> nextToken) (\s@ListModelBiasJobDefinitions' {} a -> s {nextToken = a} :: ListModelBiasJobDefinitions)
+
+-- | Name of the endpoint to monitor for model bias.
+listModelBiasJobDefinitions_endpointName :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe Prelude.Text)
+listModelBiasJobDefinitions_endpointName = Lens.lens (\ListModelBiasJobDefinitions' {endpointName} -> endpointName) (\s@ListModelBiasJobDefinitions' {} a -> s {endpointName = a} :: ListModelBiasJobDefinitions)
+
+-- | Filter for model bias jobs whose name contains a specified string.
+listModelBiasJobDefinitions_nameContains :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe Prelude.Text)
+listModelBiasJobDefinitions_nameContains = Lens.lens (\ListModelBiasJobDefinitions' {nameContains} -> nameContains) (\s@ListModelBiasJobDefinitions' {} a -> s {nameContains = a} :: ListModelBiasJobDefinitions)
+
 -- | A filter that returns only model bias jobs created before a specified
 -- time.
 listModelBiasJobDefinitions_creationTimeBefore :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe Prelude.UTCTime)
 listModelBiasJobDefinitions_creationTimeBefore = Lens.lens (\ListModelBiasJobDefinitions' {creationTimeBefore} -> creationTimeBefore) (\s@ListModelBiasJobDefinitions' {} a -> s {creationTimeBefore = a} :: ListModelBiasJobDefinitions) Prelude.. Lens.mapping Core._Time
+
+-- | Whether to sort results by the @Name@ or @CreationTime@ field. The
+-- default is @CreationTime@.
+listModelBiasJobDefinitions_sortBy :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe MonitoringJobDefinitionSortKey)
+listModelBiasJobDefinitions_sortBy = Lens.lens (\ListModelBiasJobDefinitions' {sortBy} -> sortBy) (\s@ListModelBiasJobDefinitions' {} a -> s {sortBy = a} :: ListModelBiasJobDefinitions)
 
 -- | The maximum number of model bias jobs to return in the response. The
 -- default value is 10.
 listModelBiasJobDefinitions_maxResults :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe Prelude.Natural)
 listModelBiasJobDefinitions_maxResults = Lens.lens (\ListModelBiasJobDefinitions' {maxResults} -> maxResults) (\s@ListModelBiasJobDefinitions' {} a -> s {maxResults = a} :: ListModelBiasJobDefinitions)
 
--- | Whether to sort results by the @Name@ or @CreationTime@ field. The
--- default is @CreationTime@.
-listModelBiasJobDefinitions_sortBy :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe MonitoringJobDefinitionSortKey)
-listModelBiasJobDefinitions_sortBy = Lens.lens (\ListModelBiasJobDefinitions' {sortBy} -> sortBy) (\s@ListModelBiasJobDefinitions' {} a -> s {sortBy = a} :: ListModelBiasJobDefinitions)
+-- | A filter that returns only model bias jobs created after a specified
+-- time.
+listModelBiasJobDefinitions_creationTimeAfter :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe Prelude.UTCTime)
+listModelBiasJobDefinitions_creationTimeAfter = Lens.lens (\ListModelBiasJobDefinitions' {creationTimeAfter} -> creationTimeAfter) (\s@ListModelBiasJobDefinitions' {} a -> s {creationTimeAfter = a} :: ListModelBiasJobDefinitions) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListModelBiasJobDefinitions where
   page rq rs
@@ -204,25 +204,25 @@ instance Core.AWSRequest ListModelBiasJobDefinitions where
 
 instance Prelude.Hashable ListModelBiasJobDefinitions where
   hashWithSalt _salt ListModelBiasJobDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` endpointName
-      `Prelude.hashWithSalt` creationTimeAfter
+    _salt `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` nameContains
       `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeAfter
 
 instance Prelude.NFData ListModelBiasJobDefinitions where
   rnf ListModelBiasJobDefinitions' {..} =
-    Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf creationTimeAfter
+    Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf nameContains
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Core.ToHeaders ListModelBiasJobDefinitions where
   toHeaders =
@@ -243,16 +243,16 @@ instance Core.ToJSON ListModelBiasJobDefinitions where
   toJSON ListModelBiasJobDefinitions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("EndpointName" Core..=) Prelude.<$> endpointName,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter,
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("EndpointName" Core..=) Prelude.<$> endpointName,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SortBy" Core..=) Prelude.<$> sortBy
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter
           ]
       )
 

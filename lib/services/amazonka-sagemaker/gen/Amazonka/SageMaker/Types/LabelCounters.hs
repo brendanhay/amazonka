@@ -31,10 +31,10 @@ data LabelCounters = LabelCounters'
     machineLabeled :: Prelude.Maybe Prelude.Natural,
     -- | The total number of objects labeled.
     totalLabeled :: Prelude.Maybe Prelude.Natural,
-    -- | The total number of objects that could not be labeled due to an error.
-    failedNonRetryableError :: Prelude.Maybe Prelude.Natural,
     -- | The total number of objects not yet labeled.
     unlabeled :: Prelude.Maybe Prelude.Natural,
+    -- | The total number of objects that could not be labeled due to an error.
+    failedNonRetryableError :: Prelude.Maybe Prelude.Natural,
     -- | The total number of objects labeled by a human worker.
     humanLabeled :: Prelude.Maybe Prelude.Natural
   }
@@ -52,9 +52,9 @@ data LabelCounters = LabelCounters'
 --
 -- 'totalLabeled', 'labelCounters_totalLabeled' - The total number of objects labeled.
 --
--- 'failedNonRetryableError', 'labelCounters_failedNonRetryableError' - The total number of objects that could not be labeled due to an error.
---
 -- 'unlabeled', 'labelCounters_unlabeled' - The total number of objects not yet labeled.
+--
+-- 'failedNonRetryableError', 'labelCounters_failedNonRetryableError' - The total number of objects that could not be labeled due to an error.
 --
 -- 'humanLabeled', 'labelCounters_humanLabeled' - The total number of objects labeled by a human worker.
 newLabelCounters ::
@@ -63,8 +63,8 @@ newLabelCounters =
   LabelCounters'
     { machineLabeled = Prelude.Nothing,
       totalLabeled = Prelude.Nothing,
-      failedNonRetryableError = Prelude.Nothing,
       unlabeled = Prelude.Nothing,
+      failedNonRetryableError = Prelude.Nothing,
       humanLabeled = Prelude.Nothing
     }
 
@@ -76,13 +76,13 @@ labelCounters_machineLabeled = Lens.lens (\LabelCounters' {machineLabeled} -> ma
 labelCounters_totalLabeled :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
 labelCounters_totalLabeled = Lens.lens (\LabelCounters' {totalLabeled} -> totalLabeled) (\s@LabelCounters' {} a -> s {totalLabeled = a} :: LabelCounters)
 
--- | The total number of objects that could not be labeled due to an error.
-labelCounters_failedNonRetryableError :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
-labelCounters_failedNonRetryableError = Lens.lens (\LabelCounters' {failedNonRetryableError} -> failedNonRetryableError) (\s@LabelCounters' {} a -> s {failedNonRetryableError = a} :: LabelCounters)
-
 -- | The total number of objects not yet labeled.
 labelCounters_unlabeled :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
 labelCounters_unlabeled = Lens.lens (\LabelCounters' {unlabeled} -> unlabeled) (\s@LabelCounters' {} a -> s {unlabeled = a} :: LabelCounters)
+
+-- | The total number of objects that could not be labeled due to an error.
+labelCounters_failedNonRetryableError :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
+labelCounters_failedNonRetryableError = Lens.lens (\LabelCounters' {failedNonRetryableError} -> failedNonRetryableError) (\s@LabelCounters' {} a -> s {failedNonRetryableError = a} :: LabelCounters)
 
 -- | The total number of objects labeled by a human worker.
 labelCounters_humanLabeled :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
@@ -96,8 +96,8 @@ instance Core.FromJSON LabelCounters where
           LabelCounters'
             Prelude.<$> (x Core..:? "MachineLabeled")
             Prelude.<*> (x Core..:? "TotalLabeled")
-            Prelude.<*> (x Core..:? "FailedNonRetryableError")
             Prelude.<*> (x Core..:? "Unlabeled")
+            Prelude.<*> (x Core..:? "FailedNonRetryableError")
             Prelude.<*> (x Core..:? "HumanLabeled")
       )
 
@@ -105,14 +105,14 @@ instance Prelude.Hashable LabelCounters where
   hashWithSalt _salt LabelCounters' {..} =
     _salt `Prelude.hashWithSalt` machineLabeled
       `Prelude.hashWithSalt` totalLabeled
-      `Prelude.hashWithSalt` failedNonRetryableError
       `Prelude.hashWithSalt` unlabeled
+      `Prelude.hashWithSalt` failedNonRetryableError
       `Prelude.hashWithSalt` humanLabeled
 
 instance Prelude.NFData LabelCounters where
   rnf LabelCounters' {..} =
     Prelude.rnf machineLabeled
       `Prelude.seq` Prelude.rnf totalLabeled
-      `Prelude.seq` Prelude.rnf failedNonRetryableError
       `Prelude.seq` Prelude.rnf unlabeled
+      `Prelude.seq` Prelude.rnf failedNonRetryableError
       `Prelude.seq` Prelude.rnf humanLabeled

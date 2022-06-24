@@ -28,10 +28,10 @@ import Amazonka.SageMaker.Types.OutputParameter
 --
 -- /See:/ 'newCallbackStepMetadata' smart constructor.
 data CallbackStepMetadata = CallbackStepMetadata'
-  { -- | The pipeline generated token from the Amazon SQS queue.
-    callbackToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of the output parameters of the callback step.
+  { -- | A list of the output parameters of the callback step.
     outputParameters :: Prelude.Maybe [OutputParameter],
+    -- | The pipeline generated token from the Amazon SQS queue.
+    callbackToken :: Prelude.Maybe Prelude.Text,
     -- | The URL of the Amazon Simple Queue Service (Amazon SQS) queue used by
     -- the callback step.
     sqsQueueUrl :: Prelude.Maybe Prelude.Text
@@ -46,9 +46,9 @@ data CallbackStepMetadata = CallbackStepMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'callbackToken', 'callbackStepMetadata_callbackToken' - The pipeline generated token from the Amazon SQS queue.
---
 -- 'outputParameters', 'callbackStepMetadata_outputParameters' - A list of the output parameters of the callback step.
+--
+-- 'callbackToken', 'callbackStepMetadata_callbackToken' - The pipeline generated token from the Amazon SQS queue.
 --
 -- 'sqsQueueUrl', 'callbackStepMetadata_sqsQueueUrl' - The URL of the Amazon Simple Queue Service (Amazon SQS) queue used by
 -- the callback step.
@@ -56,19 +56,19 @@ newCallbackStepMetadata ::
   CallbackStepMetadata
 newCallbackStepMetadata =
   CallbackStepMetadata'
-    { callbackToken =
+    { outputParameters =
         Prelude.Nothing,
-      outputParameters = Prelude.Nothing,
+      callbackToken = Prelude.Nothing,
       sqsQueueUrl = Prelude.Nothing
     }
-
--- | The pipeline generated token from the Amazon SQS queue.
-callbackStepMetadata_callbackToken :: Lens.Lens' CallbackStepMetadata (Prelude.Maybe Prelude.Text)
-callbackStepMetadata_callbackToken = Lens.lens (\CallbackStepMetadata' {callbackToken} -> callbackToken) (\s@CallbackStepMetadata' {} a -> s {callbackToken = a} :: CallbackStepMetadata)
 
 -- | A list of the output parameters of the callback step.
 callbackStepMetadata_outputParameters :: Lens.Lens' CallbackStepMetadata (Prelude.Maybe [OutputParameter])
 callbackStepMetadata_outputParameters = Lens.lens (\CallbackStepMetadata' {outputParameters} -> outputParameters) (\s@CallbackStepMetadata' {} a -> s {outputParameters = a} :: CallbackStepMetadata) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pipeline generated token from the Amazon SQS queue.
+callbackStepMetadata_callbackToken :: Lens.Lens' CallbackStepMetadata (Prelude.Maybe Prelude.Text)
+callbackStepMetadata_callbackToken = Lens.lens (\CallbackStepMetadata' {callbackToken} -> callbackToken) (\s@CallbackStepMetadata' {} a -> s {callbackToken = a} :: CallbackStepMetadata)
 
 -- | The URL of the Amazon Simple Queue Service (Amazon SQS) queue used by
 -- the callback step.
@@ -81,21 +81,21 @@ instance Core.FromJSON CallbackStepMetadata where
       "CallbackStepMetadata"
       ( \x ->
           CallbackStepMetadata'
-            Prelude.<$> (x Core..:? "CallbackToken")
-            Prelude.<*> ( x Core..:? "OutputParameters"
+            Prelude.<$> ( x Core..:? "OutputParameters"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "CallbackToken")
             Prelude.<*> (x Core..:? "SqsQueueUrl")
       )
 
 instance Prelude.Hashable CallbackStepMetadata where
   hashWithSalt _salt CallbackStepMetadata' {..} =
-    _salt `Prelude.hashWithSalt` callbackToken
-      `Prelude.hashWithSalt` outputParameters
+    _salt `Prelude.hashWithSalt` outputParameters
+      `Prelude.hashWithSalt` callbackToken
       `Prelude.hashWithSalt` sqsQueueUrl
 
 instance Prelude.NFData CallbackStepMetadata where
   rnf CallbackStepMetadata' {..} =
-    Prelude.rnf callbackToken
-      `Prelude.seq` Prelude.rnf outputParameters
+    Prelude.rnf outputParameters
+      `Prelude.seq` Prelude.rnf callbackToken
       `Prelude.seq` Prelude.rnf sqsQueueUrl

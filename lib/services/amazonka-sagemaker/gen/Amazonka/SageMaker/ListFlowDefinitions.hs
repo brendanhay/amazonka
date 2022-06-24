@@ -29,11 +29,11 @@ module Amazonka.SageMaker.ListFlowDefinitions
     newListFlowDefinitions,
 
     -- * Request Lenses
-    listFlowDefinitions_creationTimeAfter,
-    listFlowDefinitions_nextToken,
     listFlowDefinitions_sortOrder,
+    listFlowDefinitions_nextToken,
     listFlowDefinitions_creationTimeBefore,
     listFlowDefinitions_maxResults,
+    listFlowDefinitions_creationTimeAfter,
 
     -- * Destructuring the Response
     ListFlowDefinitionsResponse (..),
@@ -55,14 +55,11 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListFlowDefinitions' smart constructor.
 data ListFlowDefinitions = ListFlowDefinitions'
-  { -- | A filter that returns only flow definitions with a creation time greater
-    -- than or equal to the specified timestamp.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | A token to resume pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional value that specifies whether you want the results sorted in
+  { -- | An optional value that specifies whether you want the results sorted in
     -- @Ascending@ or @Descending@ order.
     sortOrder :: Prelude.Maybe SortOrder,
+    -- | A token to resume pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only flow definitions that were created before the
     -- specified timestamp.
     creationTimeBefore :: Prelude.Maybe Core.POSIX,
@@ -70,7 +67,10 @@ data ListFlowDefinitions = ListFlowDefinitions'
     -- items is more than the value specified in @MaxResults@, then a
     -- @NextToken@ will be provided in the output that you can use to resume
     -- pagination.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A filter that returns only flow definitions with a creation time greater
+    -- than or equal to the specified timestamp.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,13 +82,10 @@ data ListFlowDefinitions = ListFlowDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTimeAfter', 'listFlowDefinitions_creationTimeAfter' - A filter that returns only flow definitions with a creation time greater
--- than or equal to the specified timestamp.
---
--- 'nextToken', 'listFlowDefinitions_nextToken' - A token to resume pagination.
---
 -- 'sortOrder', 'listFlowDefinitions_sortOrder' - An optional value that specifies whether you want the results sorted in
 -- @Ascending@ or @Descending@ order.
+--
+-- 'nextToken', 'listFlowDefinitions_nextToken' - A token to resume pagination.
 --
 -- 'creationTimeBefore', 'listFlowDefinitions_creationTimeBefore' - A filter that returns only flow definitions that were created before the
 -- specified timestamp.
@@ -97,31 +94,28 @@ data ListFlowDefinitions = ListFlowDefinitions'
 -- items is more than the value specified in @MaxResults@, then a
 -- @NextToken@ will be provided in the output that you can use to resume
 -- pagination.
+--
+-- 'creationTimeAfter', 'listFlowDefinitions_creationTimeAfter' - A filter that returns only flow definitions with a creation time greater
+-- than or equal to the specified timestamp.
 newListFlowDefinitions ::
   ListFlowDefinitions
 newListFlowDefinitions =
   ListFlowDefinitions'
-    { creationTimeAfter =
-        Prelude.Nothing,
+    { sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing
     }
-
--- | A filter that returns only flow definitions with a creation time greater
--- than or equal to the specified timestamp.
-listFlowDefinitions_creationTimeAfter :: Lens.Lens' ListFlowDefinitions (Prelude.Maybe Prelude.UTCTime)
-listFlowDefinitions_creationTimeAfter = Lens.lens (\ListFlowDefinitions' {creationTimeAfter} -> creationTimeAfter) (\s@ListFlowDefinitions' {} a -> s {creationTimeAfter = a} :: ListFlowDefinitions) Prelude.. Lens.mapping Core._Time
-
--- | A token to resume pagination.
-listFlowDefinitions_nextToken :: Lens.Lens' ListFlowDefinitions (Prelude.Maybe Prelude.Text)
-listFlowDefinitions_nextToken = Lens.lens (\ListFlowDefinitions' {nextToken} -> nextToken) (\s@ListFlowDefinitions' {} a -> s {nextToken = a} :: ListFlowDefinitions)
 
 -- | An optional value that specifies whether you want the results sorted in
 -- @Ascending@ or @Descending@ order.
 listFlowDefinitions_sortOrder :: Lens.Lens' ListFlowDefinitions (Prelude.Maybe SortOrder)
 listFlowDefinitions_sortOrder = Lens.lens (\ListFlowDefinitions' {sortOrder} -> sortOrder) (\s@ListFlowDefinitions' {} a -> s {sortOrder = a} :: ListFlowDefinitions)
+
+-- | A token to resume pagination.
+listFlowDefinitions_nextToken :: Lens.Lens' ListFlowDefinitions (Prelude.Maybe Prelude.Text)
+listFlowDefinitions_nextToken = Lens.lens (\ListFlowDefinitions' {nextToken} -> nextToken) (\s@ListFlowDefinitions' {} a -> s {nextToken = a} :: ListFlowDefinitions)
 
 -- | A filter that returns only flow definitions that were created before the
 -- specified timestamp.
@@ -134,6 +128,11 @@ listFlowDefinitions_creationTimeBefore = Lens.lens (\ListFlowDefinitions' {creat
 -- pagination.
 listFlowDefinitions_maxResults :: Lens.Lens' ListFlowDefinitions (Prelude.Maybe Prelude.Natural)
 listFlowDefinitions_maxResults = Lens.lens (\ListFlowDefinitions' {maxResults} -> maxResults) (\s@ListFlowDefinitions' {} a -> s {maxResults = a} :: ListFlowDefinitions)
+
+-- | A filter that returns only flow definitions with a creation time greater
+-- than or equal to the specified timestamp.
+listFlowDefinitions_creationTimeAfter :: Lens.Lens' ListFlowDefinitions (Prelude.Maybe Prelude.UTCTime)
+listFlowDefinitions_creationTimeAfter = Lens.lens (\ListFlowDefinitions' {creationTimeAfter} -> creationTimeAfter) (\s@ListFlowDefinitions' {} a -> s {creationTimeAfter = a} :: ListFlowDefinitions) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListFlowDefinitions where
   page rq rs
@@ -174,19 +173,19 @@ instance Core.AWSRequest ListFlowDefinitions where
 
 instance Prelude.Hashable ListFlowDefinitions where
   hashWithSalt _salt ListFlowDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeAfter
 
 instance Prelude.NFData ListFlowDefinitions where
   rnf ListFlowDefinitions' {..} =
-    Prelude.rnf creationTimeAfter
+    Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf creationTimeBefore
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Core.ToHeaders ListFlowDefinitions where
   toHeaders =
@@ -207,13 +206,13 @@ instance Core.ToJSON ListFlowDefinitions where
   toJSON ListFlowDefinitions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter,
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter
           ]
       )
 

@@ -34,18 +34,15 @@ import Amazonka.SageMaker.Types.Tag
 --
 -- /See:/ 'newMonitoringSchedule' smart constructor.
 data MonitoringSchedule = MonitoringSchedule'
-  { -- | The time that the monitoring schedule was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The type of the monitoring job definition to schedule.
-    monitoringType :: Prelude.Maybe MonitoringType,
-    -- | If the monitoring schedule failed, the reason it failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
+  { -- | A list of the tags associated with the monitoring schedlue. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference Guide/.
+    tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the monitoring schedule.
     monitoringScheduleArn :: Prelude.Maybe Prelude.Text,
     -- | The endpoint that hosts the model being monitored.
     endpointName :: Prelude.Maybe Prelude.Text,
-    -- | The last time the monitoring schedule was changed.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The status of the monitoring schedule. This can be one of the following
     -- values.
     --
@@ -57,15 +54,18 @@ data MonitoringSchedule = MonitoringSchedule'
     --
     -- -   @STOPPED@ - The schedule was stopped.
     monitoringScheduleStatus :: Prelude.Maybe ScheduleStatus,
-    lastMonitoringExecutionSummary :: Prelude.Maybe MonitoringExecutionSummary,
     monitoringScheduleConfig :: Prelude.Maybe MonitoringScheduleConfig,
     -- | The name of the monitoring schedule.
     monitoringScheduleName :: Prelude.Maybe Prelude.Text,
-    -- | A list of the tags associated with the monitoring schedlue. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
-    -- in the /Amazon Web Services General Reference Guide/.
-    tags :: Prelude.Maybe [Tag]
+    -- | The last time the monitoring schedule was changed.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The type of the monitoring job definition to schedule.
+    monitoringType :: Prelude.Maybe MonitoringType,
+    -- | The time that the monitoring schedule was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    lastMonitoringExecutionSummary :: Prelude.Maybe MonitoringExecutionSummary,
+    -- | If the monitoring schedule failed, the reason it failed.
+    failureReason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,17 +77,14 @@ data MonitoringSchedule = MonitoringSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'monitoringSchedule_creationTime' - The time that the monitoring schedule was created.
---
--- 'monitoringType', 'monitoringSchedule_monitoringType' - The type of the monitoring job definition to schedule.
---
--- 'failureReason', 'monitoringSchedule_failureReason' - If the monitoring schedule failed, the reason it failed.
+-- 'tags', 'monitoringSchedule_tags' - A list of the tags associated with the monitoring schedlue. For more
+-- information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 --
 -- 'monitoringScheduleArn', 'monitoringSchedule_monitoringScheduleArn' - The Amazon Resource Name (ARN) of the monitoring schedule.
 --
 -- 'endpointName', 'monitoringSchedule_endpointName' - The endpoint that hosts the model being monitored.
---
--- 'lastModifiedTime', 'monitoringSchedule_lastModifiedTime' - The last time the monitoring schedule was changed.
 --
 -- 'monitoringScheduleStatus', 'monitoringSchedule_monitoringScheduleStatus' - The status of the monitoring schedule. This can be one of the following
 -- values.
@@ -100,44 +97,42 @@ data MonitoringSchedule = MonitoringSchedule'
 --
 -- -   @STOPPED@ - The schedule was stopped.
 --
--- 'lastMonitoringExecutionSummary', 'monitoringSchedule_lastMonitoringExecutionSummary' - Undocumented member.
---
 -- 'monitoringScheduleConfig', 'monitoringSchedule_monitoringScheduleConfig' - Undocumented member.
 --
 -- 'monitoringScheduleName', 'monitoringSchedule_monitoringScheduleName' - The name of the monitoring schedule.
 --
--- 'tags', 'monitoringSchedule_tags' - A list of the tags associated with the monitoring schedlue. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
--- in the /Amazon Web Services General Reference Guide/.
+-- 'lastModifiedTime', 'monitoringSchedule_lastModifiedTime' - The last time the monitoring schedule was changed.
+--
+-- 'monitoringType', 'monitoringSchedule_monitoringType' - The type of the monitoring job definition to schedule.
+--
+-- 'creationTime', 'monitoringSchedule_creationTime' - The time that the monitoring schedule was created.
+--
+-- 'lastMonitoringExecutionSummary', 'monitoringSchedule_lastMonitoringExecutionSummary' - Undocumented member.
+--
+-- 'failureReason', 'monitoringSchedule_failureReason' - If the monitoring schedule failed, the reason it failed.
 newMonitoringSchedule ::
   MonitoringSchedule
 newMonitoringSchedule =
   MonitoringSchedule'
-    { creationTime = Prelude.Nothing,
-      monitoringType = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       monitoringScheduleArn = Prelude.Nothing,
       endpointName = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       monitoringScheduleStatus = Prelude.Nothing,
-      lastMonitoringExecutionSummary = Prelude.Nothing,
       monitoringScheduleConfig = Prelude.Nothing,
       monitoringScheduleName = Prelude.Nothing,
-      tags = Prelude.Nothing
+      lastModifiedTime = Prelude.Nothing,
+      monitoringType = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      lastMonitoringExecutionSummary = Prelude.Nothing,
+      failureReason = Prelude.Nothing
     }
 
--- | The time that the monitoring schedule was created.
-monitoringSchedule_creationTime :: Lens.Lens' MonitoringSchedule (Prelude.Maybe Prelude.UTCTime)
-monitoringSchedule_creationTime = Lens.lens (\MonitoringSchedule' {creationTime} -> creationTime) (\s@MonitoringSchedule' {} a -> s {creationTime = a} :: MonitoringSchedule) Prelude.. Lens.mapping Core._Time
-
--- | The type of the monitoring job definition to schedule.
-monitoringSchedule_monitoringType :: Lens.Lens' MonitoringSchedule (Prelude.Maybe MonitoringType)
-monitoringSchedule_monitoringType = Lens.lens (\MonitoringSchedule' {monitoringType} -> monitoringType) (\s@MonitoringSchedule' {} a -> s {monitoringType = a} :: MonitoringSchedule)
-
--- | If the monitoring schedule failed, the reason it failed.
-monitoringSchedule_failureReason :: Lens.Lens' MonitoringSchedule (Prelude.Maybe Prelude.Text)
-monitoringSchedule_failureReason = Lens.lens (\MonitoringSchedule' {failureReason} -> failureReason) (\s@MonitoringSchedule' {} a -> s {failureReason = a} :: MonitoringSchedule)
+-- | A list of the tags associated with the monitoring schedlue. For more
+-- information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
+monitoringSchedule_tags :: Lens.Lens' MonitoringSchedule (Prelude.Maybe [Tag])
+monitoringSchedule_tags = Lens.lens (\MonitoringSchedule' {tags} -> tags) (\s@MonitoringSchedule' {} a -> s {tags = a} :: MonitoringSchedule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the monitoring schedule.
 monitoringSchedule_monitoringScheduleArn :: Lens.Lens' MonitoringSchedule (Prelude.Maybe Prelude.Text)
@@ -146,10 +141,6 @@ monitoringSchedule_monitoringScheduleArn = Lens.lens (\MonitoringSchedule' {moni
 -- | The endpoint that hosts the model being monitored.
 monitoringSchedule_endpointName :: Lens.Lens' MonitoringSchedule (Prelude.Maybe Prelude.Text)
 monitoringSchedule_endpointName = Lens.lens (\MonitoringSchedule' {endpointName} -> endpointName) (\s@MonitoringSchedule' {} a -> s {endpointName = a} :: MonitoringSchedule)
-
--- | The last time the monitoring schedule was changed.
-monitoringSchedule_lastModifiedTime :: Lens.Lens' MonitoringSchedule (Prelude.Maybe Prelude.UTCTime)
-monitoringSchedule_lastModifiedTime = Lens.lens (\MonitoringSchedule' {lastModifiedTime} -> lastModifiedTime) (\s@MonitoringSchedule' {} a -> s {lastModifiedTime = a} :: MonitoringSchedule) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the monitoring schedule. This can be one of the following
 -- values.
@@ -165,10 +156,6 @@ monitoringSchedule_monitoringScheduleStatus :: Lens.Lens' MonitoringSchedule (Pr
 monitoringSchedule_monitoringScheduleStatus = Lens.lens (\MonitoringSchedule' {monitoringScheduleStatus} -> monitoringScheduleStatus) (\s@MonitoringSchedule' {} a -> s {monitoringScheduleStatus = a} :: MonitoringSchedule)
 
 -- | Undocumented member.
-monitoringSchedule_lastMonitoringExecutionSummary :: Lens.Lens' MonitoringSchedule (Prelude.Maybe MonitoringExecutionSummary)
-monitoringSchedule_lastMonitoringExecutionSummary = Lens.lens (\MonitoringSchedule' {lastMonitoringExecutionSummary} -> lastMonitoringExecutionSummary) (\s@MonitoringSchedule' {} a -> s {lastMonitoringExecutionSummary = a} :: MonitoringSchedule)
-
--- | Undocumented member.
 monitoringSchedule_monitoringScheduleConfig :: Lens.Lens' MonitoringSchedule (Prelude.Maybe MonitoringScheduleConfig)
 monitoringSchedule_monitoringScheduleConfig = Lens.lens (\MonitoringSchedule' {monitoringScheduleConfig} -> monitoringScheduleConfig) (\s@MonitoringSchedule' {} a -> s {monitoringScheduleConfig = a} :: MonitoringSchedule)
 
@@ -176,12 +163,25 @@ monitoringSchedule_monitoringScheduleConfig = Lens.lens (\MonitoringSchedule' {m
 monitoringSchedule_monitoringScheduleName :: Lens.Lens' MonitoringSchedule (Prelude.Maybe Prelude.Text)
 monitoringSchedule_monitoringScheduleName = Lens.lens (\MonitoringSchedule' {monitoringScheduleName} -> monitoringScheduleName) (\s@MonitoringSchedule' {} a -> s {monitoringScheduleName = a} :: MonitoringSchedule)
 
--- | A list of the tags associated with the monitoring schedlue. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
--- in the /Amazon Web Services General Reference Guide/.
-monitoringSchedule_tags :: Lens.Lens' MonitoringSchedule (Prelude.Maybe [Tag])
-monitoringSchedule_tags = Lens.lens (\MonitoringSchedule' {tags} -> tags) (\s@MonitoringSchedule' {} a -> s {tags = a} :: MonitoringSchedule) Prelude.. Lens.mapping Lens.coerced
+-- | The last time the monitoring schedule was changed.
+monitoringSchedule_lastModifiedTime :: Lens.Lens' MonitoringSchedule (Prelude.Maybe Prelude.UTCTime)
+monitoringSchedule_lastModifiedTime = Lens.lens (\MonitoringSchedule' {lastModifiedTime} -> lastModifiedTime) (\s@MonitoringSchedule' {} a -> s {lastModifiedTime = a} :: MonitoringSchedule) Prelude.. Lens.mapping Core._Time
+
+-- | The type of the monitoring job definition to schedule.
+monitoringSchedule_monitoringType :: Lens.Lens' MonitoringSchedule (Prelude.Maybe MonitoringType)
+monitoringSchedule_monitoringType = Lens.lens (\MonitoringSchedule' {monitoringType} -> monitoringType) (\s@MonitoringSchedule' {} a -> s {monitoringType = a} :: MonitoringSchedule)
+
+-- | The time that the monitoring schedule was created.
+monitoringSchedule_creationTime :: Lens.Lens' MonitoringSchedule (Prelude.Maybe Prelude.UTCTime)
+monitoringSchedule_creationTime = Lens.lens (\MonitoringSchedule' {creationTime} -> creationTime) (\s@MonitoringSchedule' {} a -> s {creationTime = a} :: MonitoringSchedule) Prelude.. Lens.mapping Core._Time
+
+-- | Undocumented member.
+monitoringSchedule_lastMonitoringExecutionSummary :: Lens.Lens' MonitoringSchedule (Prelude.Maybe MonitoringExecutionSummary)
+monitoringSchedule_lastMonitoringExecutionSummary = Lens.lens (\MonitoringSchedule' {lastMonitoringExecutionSummary} -> lastMonitoringExecutionSummary) (\s@MonitoringSchedule' {} a -> s {lastMonitoringExecutionSummary = a} :: MonitoringSchedule)
+
+-- | If the monitoring schedule failed, the reason it failed.
+monitoringSchedule_failureReason :: Lens.Lens' MonitoringSchedule (Prelude.Maybe Prelude.Text)
+monitoringSchedule_failureReason = Lens.lens (\MonitoringSchedule' {failureReason} -> failureReason) (\s@MonitoringSchedule' {} a -> s {failureReason = a} :: MonitoringSchedule)
 
 instance Core.FromJSON MonitoringSchedule where
   parseJSON =
@@ -189,43 +189,43 @@ instance Core.FromJSON MonitoringSchedule where
       "MonitoringSchedule"
       ( \x ->
           MonitoringSchedule'
-            Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "MonitoringType")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "MonitoringScheduleArn")
             Prelude.<*> (x Core..:? "EndpointName")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "MonitoringScheduleStatus")
-            Prelude.<*> (x Core..:? "LastMonitoringExecutionSummary")
             Prelude.<*> (x Core..:? "MonitoringScheduleConfig")
             Prelude.<*> (x Core..:? "MonitoringScheduleName")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "MonitoringType")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "LastMonitoringExecutionSummary")
+            Prelude.<*> (x Core..:? "FailureReason")
       )
 
 instance Prelude.Hashable MonitoringSchedule where
   hashWithSalt _salt MonitoringSchedule' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` monitoringType
-      `Prelude.hashWithSalt` failureReason
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` monitoringScheduleArn
       `Prelude.hashWithSalt` endpointName
-      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` monitoringScheduleStatus
-      `Prelude.hashWithSalt` lastMonitoringExecutionSummary
       `Prelude.hashWithSalt` monitoringScheduleConfig
       `Prelude.hashWithSalt` monitoringScheduleName
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` monitoringType
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastMonitoringExecutionSummary
+      `Prelude.hashWithSalt` failureReason
 
 instance Prelude.NFData MonitoringSchedule where
   rnf MonitoringSchedule' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf monitoringType
-      `Prelude.seq` Prelude.rnf failureReason
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf monitoringScheduleArn
       `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf monitoringScheduleStatus
-      `Prelude.seq` Prelude.rnf lastMonitoringExecutionSummary
       `Prelude.seq` Prelude.rnf monitoringScheduleConfig
       `Prelude.seq` Prelude.rnf monitoringScheduleName
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf monitoringType
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastMonitoringExecutionSummary
+      `Prelude.seq` Prelude.rnf failureReason

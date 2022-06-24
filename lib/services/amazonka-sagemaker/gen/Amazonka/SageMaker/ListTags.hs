@@ -38,8 +38,8 @@ module Amazonka.SageMaker.ListTags
     newListTagsResponse,
 
     -- * Response Lenses
-    listTagsResponse_nextToken,
     listTagsResponse_tags,
+    listTagsResponse_nextToken,
     listTagsResponse_httpStatus,
   )
 where
@@ -133,8 +133,8 @@ instance Core.AWSRequest ListTags where
     Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,12 +181,12 @@ instance Core.ToQuery ListTags where
 
 -- | /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { -- | If response is truncated, Amazon SageMaker includes a token in the
+  { -- | An array of @Tag@ objects, each with a tag key and a value.
+    tags :: Prelude.Maybe [Tag],
+    -- | If response is truncated, Amazon SageMaker includes a token in the
     -- response. You can use this token in your subsequent request to fetch
     -- next set of tokens.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of @Tag@ objects, each with a tag key and a value.
-    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,11 +200,11 @@ data ListTagsResponse = ListTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'listTagsResponse_tags' - An array of @Tag@ objects, each with a tag key and a value.
+--
 -- 'nextToken', 'listTagsResponse_nextToken' - If response is truncated, Amazon SageMaker includes a token in the
 -- response. You can use this token in your subsequent request to fetch
 -- next set of tokens.
---
--- 'tags', 'listTagsResponse_tags' - An array of @Tag@ objects, each with a tag key and a value.
 --
 -- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
 newListTagsResponse ::
@@ -213,10 +213,14 @@ newListTagsResponse ::
   ListTagsResponse
 newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    { nextToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of @Tag@ objects, each with a tag key and a value.
+listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe [Tag])
+listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If response is truncated, Amazon SageMaker includes a token in the
 -- response. You can use this token in your subsequent request to fetch
@@ -224,16 +228,12 @@ newListTagsResponse pHttpStatus_ =
 listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Prelude.Maybe Prelude.Text)
 listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextToken) (\s@ListTagsResponse' {} a -> s {nextToken = a} :: ListTagsResponse)
 
--- | An array of @Tag@ objects, each with a tag key and a value.
-listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe [Tag])
-listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
 listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> httpStatus) (\s@ListTagsResponse' {} a -> s {httpStatus = a} :: ListTagsResponse)
 
 instance Prelude.NFData ListTagsResponse where
   rnf ListTagsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

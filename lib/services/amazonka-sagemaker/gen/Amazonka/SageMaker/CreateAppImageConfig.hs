@@ -29,8 +29,8 @@ module Amazonka.SageMaker.CreateAppImageConfig
     newCreateAppImageConfig,
 
     -- * Request Lenses
-    createAppImageConfig_kernelGatewayImageConfig,
     createAppImageConfig_tags,
+    createAppImageConfig_kernelGatewayImageConfig,
     createAppImageConfig_appImageConfigName,
 
     -- * Destructuring the Response
@@ -52,10 +52,10 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateAppImageConfig' smart constructor.
 data CreateAppImageConfig = CreateAppImageConfig'
-  { -- | The KernelGatewayImageConfig.
-    kernelGatewayImageConfig :: Prelude.Maybe KernelGatewayImageConfig,
-    -- | A list of tags to apply to the AppImageConfig.
+  { -- | A list of tags to apply to the AppImageConfig.
     tags :: Prelude.Maybe [Tag],
+    -- | The KernelGatewayImageConfig.
+    kernelGatewayImageConfig :: Prelude.Maybe KernelGatewayImageConfig,
     -- | The name of the AppImageConfig. Must be unique to your account.
     appImageConfigName :: Prelude.Text
   }
@@ -69,9 +69,9 @@ data CreateAppImageConfig = CreateAppImageConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kernelGatewayImageConfig', 'createAppImageConfig_kernelGatewayImageConfig' - The KernelGatewayImageConfig.
---
 -- 'tags', 'createAppImageConfig_tags' - A list of tags to apply to the AppImageConfig.
+--
+-- 'kernelGatewayImageConfig', 'createAppImageConfig_kernelGatewayImageConfig' - The KernelGatewayImageConfig.
 --
 -- 'appImageConfigName', 'createAppImageConfig_appImageConfigName' - The name of the AppImageConfig. Must be unique to your account.
 newCreateAppImageConfig ::
@@ -80,19 +80,18 @@ newCreateAppImageConfig ::
   CreateAppImageConfig
 newCreateAppImageConfig pAppImageConfigName_ =
   CreateAppImageConfig'
-    { kernelGatewayImageConfig =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      kernelGatewayImageConfig = Prelude.Nothing,
       appImageConfigName = pAppImageConfigName_
     }
-
--- | The KernelGatewayImageConfig.
-createAppImageConfig_kernelGatewayImageConfig :: Lens.Lens' CreateAppImageConfig (Prelude.Maybe KernelGatewayImageConfig)
-createAppImageConfig_kernelGatewayImageConfig = Lens.lens (\CreateAppImageConfig' {kernelGatewayImageConfig} -> kernelGatewayImageConfig) (\s@CreateAppImageConfig' {} a -> s {kernelGatewayImageConfig = a} :: CreateAppImageConfig)
 
 -- | A list of tags to apply to the AppImageConfig.
 createAppImageConfig_tags :: Lens.Lens' CreateAppImageConfig (Prelude.Maybe [Tag])
 createAppImageConfig_tags = Lens.lens (\CreateAppImageConfig' {tags} -> tags) (\s@CreateAppImageConfig' {} a -> s {tags = a} :: CreateAppImageConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | The KernelGatewayImageConfig.
+createAppImageConfig_kernelGatewayImageConfig :: Lens.Lens' CreateAppImageConfig (Prelude.Maybe KernelGatewayImageConfig)
+createAppImageConfig_kernelGatewayImageConfig = Lens.lens (\CreateAppImageConfig' {kernelGatewayImageConfig} -> kernelGatewayImageConfig) (\s@CreateAppImageConfig' {} a -> s {kernelGatewayImageConfig = a} :: CreateAppImageConfig)
 
 -- | The name of the AppImageConfig. Must be unique to your account.
 createAppImageConfig_appImageConfigName :: Lens.Lens' CreateAppImageConfig Prelude.Text
@@ -113,15 +112,14 @@ instance Core.AWSRequest CreateAppImageConfig where
 
 instance Prelude.Hashable CreateAppImageConfig where
   hashWithSalt _salt CreateAppImageConfig' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` kernelGatewayImageConfig
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appImageConfigName
 
 instance Prelude.NFData CreateAppImageConfig where
   rnf CreateAppImageConfig' {..} =
-    Prelude.rnf kernelGatewayImageConfig
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf kernelGatewayImageConfig
       `Prelude.seq` Prelude.rnf appImageConfigName
 
 instance Core.ToHeaders CreateAppImageConfig where
@@ -143,9 +141,9 @@ instance Core.ToJSON CreateAppImageConfig where
   toJSON CreateAppImageConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KernelGatewayImageConfig" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("KernelGatewayImageConfig" Core..=)
               Prelude.<$> kernelGatewayImageConfig,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("AppImageConfigName" Core..= appImageConfigName)
           ]

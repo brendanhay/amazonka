@@ -31,9 +31,8 @@ import Amazonka.SageMaker.Types.LabelingJobStatus
 --
 -- /See:/ 'newLabelingJobSummary' smart constructor.
 data LabelingJobSummary = LabelingJobSummary'
-  { -- | If the @LabelingJobStatus@ field is @Failed@, this field contains a
-    -- description of the error.
-    failureReason :: Prelude.Maybe Prelude.Text,
+  { -- | The location of the output produced by the labeling job.
+    labelingJobOutput :: Prelude.Maybe LabelingJobOutput,
     -- | The Amazon Resource Name (ARN) of the Lambda function used to
     -- consolidate the annotations from individual workers into a label for a
     -- data object. For more information, see
@@ -41,8 +40,9 @@ data LabelingJobSummary = LabelingJobSummary'
     annotationConsolidationLambdaArn :: Prelude.Maybe Prelude.Text,
     -- | Input configuration for the labeling job.
     inputConfig :: Prelude.Maybe LabelingJobInputConfig,
-    -- | The location of the output produced by the labeling job.
-    labelingJobOutput :: Prelude.Maybe LabelingJobOutput,
+    -- | If the @LabelingJobStatus@ field is @Failed@, this field contains a
+    -- description of the error.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the labeling job.
     labelingJobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) assigned to the labeling job when it was
@@ -72,8 +72,7 @@ data LabelingJobSummary = LabelingJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureReason', 'labelingJobSummary_failureReason' - If the @LabelingJobStatus@ field is @Failed@, this field contains a
--- description of the error.
+-- 'labelingJobOutput', 'labelingJobSummary_labelingJobOutput' - The location of the output produced by the labeling job.
 --
 -- 'annotationConsolidationLambdaArn', 'labelingJobSummary_annotationConsolidationLambdaArn' - The Amazon Resource Name (ARN) of the Lambda function used to
 -- consolidate the annotations from individual workers into a label for a
@@ -82,7 +81,8 @@ data LabelingJobSummary = LabelingJobSummary'
 --
 -- 'inputConfig', 'labelingJobSummary_inputConfig' - Input configuration for the labeling job.
 --
--- 'labelingJobOutput', 'labelingJobSummary_labelingJobOutput' - The location of the output produced by the labeling job.
+-- 'failureReason', 'labelingJobSummary_failureReason' - If the @LabelingJobStatus@ field is @Failed@, this field contains a
+-- description of the error.
 --
 -- 'labelingJobName', 'labelingJobSummary_labelingJobName' - The name of the labeling job.
 --
@@ -129,11 +129,11 @@ newLabelingJobSummary
   pWorkteamArn_
   pPreHumanTaskLambdaArn_ =
     LabelingJobSummary'
-      { failureReason =
+      { labelingJobOutput =
           Prelude.Nothing,
         annotationConsolidationLambdaArn = Prelude.Nothing,
         inputConfig = Prelude.Nothing,
-        labelingJobOutput = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
         labelingJobName = pLabelingJobName_,
         labelingJobArn = pLabelingJobArn_,
         creationTime = Core._Time Lens.# pCreationTime_,
@@ -145,10 +145,9 @@ newLabelingJobSummary
         preHumanTaskLambdaArn = pPreHumanTaskLambdaArn_
       }
 
--- | If the @LabelingJobStatus@ field is @Failed@, this field contains a
--- description of the error.
-labelingJobSummary_failureReason :: Lens.Lens' LabelingJobSummary (Prelude.Maybe Prelude.Text)
-labelingJobSummary_failureReason = Lens.lens (\LabelingJobSummary' {failureReason} -> failureReason) (\s@LabelingJobSummary' {} a -> s {failureReason = a} :: LabelingJobSummary)
+-- | The location of the output produced by the labeling job.
+labelingJobSummary_labelingJobOutput :: Lens.Lens' LabelingJobSummary (Prelude.Maybe LabelingJobOutput)
+labelingJobSummary_labelingJobOutput = Lens.lens (\LabelingJobSummary' {labelingJobOutput} -> labelingJobOutput) (\s@LabelingJobSummary' {} a -> s {labelingJobOutput = a} :: LabelingJobSummary)
 
 -- | The Amazon Resource Name (ARN) of the Lambda function used to
 -- consolidate the annotations from individual workers into a label for a
@@ -161,9 +160,10 @@ labelingJobSummary_annotationConsolidationLambdaArn = Lens.lens (\LabelingJobSum
 labelingJobSummary_inputConfig :: Lens.Lens' LabelingJobSummary (Prelude.Maybe LabelingJobInputConfig)
 labelingJobSummary_inputConfig = Lens.lens (\LabelingJobSummary' {inputConfig} -> inputConfig) (\s@LabelingJobSummary' {} a -> s {inputConfig = a} :: LabelingJobSummary)
 
--- | The location of the output produced by the labeling job.
-labelingJobSummary_labelingJobOutput :: Lens.Lens' LabelingJobSummary (Prelude.Maybe LabelingJobOutput)
-labelingJobSummary_labelingJobOutput = Lens.lens (\LabelingJobSummary' {labelingJobOutput} -> labelingJobOutput) (\s@LabelingJobSummary' {} a -> s {labelingJobOutput = a} :: LabelingJobSummary)
+-- | If the @LabelingJobStatus@ field is @Failed@, this field contains a
+-- description of the error.
+labelingJobSummary_failureReason :: Lens.Lens' LabelingJobSummary (Prelude.Maybe Prelude.Text)
+labelingJobSummary_failureReason = Lens.lens (\LabelingJobSummary' {failureReason} -> failureReason) (\s@LabelingJobSummary' {} a -> s {failureReason = a} :: LabelingJobSummary)
 
 -- | The name of the labeling job.
 labelingJobSummary_labelingJobName :: Lens.Lens' LabelingJobSummary Prelude.Text
@@ -205,10 +205,10 @@ instance Core.FromJSON LabelingJobSummary where
       "LabelingJobSummary"
       ( \x ->
           LabelingJobSummary'
-            Prelude.<$> (x Core..:? "FailureReason")
+            Prelude.<$> (x Core..:? "LabelingJobOutput")
             Prelude.<*> (x Core..:? "AnnotationConsolidationLambdaArn")
             Prelude.<*> (x Core..:? "InputConfig")
-            Prelude.<*> (x Core..:? "LabelingJobOutput")
+            Prelude.<*> (x Core..:? "FailureReason")
             Prelude.<*> (x Core..: "LabelingJobName")
             Prelude.<*> (x Core..: "LabelingJobArn")
             Prelude.<*> (x Core..: "CreationTime")
@@ -221,10 +221,10 @@ instance Core.FromJSON LabelingJobSummary where
 
 instance Prelude.Hashable LabelingJobSummary where
   hashWithSalt _salt LabelingJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt `Prelude.hashWithSalt` labelingJobOutput
       `Prelude.hashWithSalt` annotationConsolidationLambdaArn
       `Prelude.hashWithSalt` inputConfig
-      `Prelude.hashWithSalt` labelingJobOutput
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` labelingJobName
       `Prelude.hashWithSalt` labelingJobArn
       `Prelude.hashWithSalt` creationTime
@@ -236,10 +236,10 @@ instance Prelude.Hashable LabelingJobSummary where
 
 instance Prelude.NFData LabelingJobSummary where
   rnf LabelingJobSummary' {..} =
-    Prelude.rnf failureReason
+    Prelude.rnf labelingJobOutput
       `Prelude.seq` Prelude.rnf annotationConsolidationLambdaArn
       `Prelude.seq` Prelude.rnf inputConfig
-      `Prelude.seq` Prelude.rnf labelingJobOutput
+      `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf labelingJobName
       `Prelude.seq` Prelude.rnf labelingJobArn
       `Prelude.seq` Prelude.rnf creationTime

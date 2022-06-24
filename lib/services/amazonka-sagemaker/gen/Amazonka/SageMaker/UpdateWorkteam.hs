@@ -29,8 +29,8 @@ module Amazonka.SageMaker.UpdateWorkteam
 
     -- * Request Lenses
     updateWorkteam_notificationConfiguration,
-    updateWorkteam_memberDefinitions,
     updateWorkteam_description,
+    updateWorkteam_memberDefinitions,
     updateWorkteam_workteamName,
 
     -- * Destructuring the Response
@@ -54,6 +54,8 @@ import Amazonka.SageMaker.Types
 data UpdateWorkteam = UpdateWorkteam'
   { -- | Configures SNS topic notifications for available or expiring work items
     notificationConfiguration :: Prelude.Maybe NotificationConfiguration,
+    -- | An updated description for the work team.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of @MemberDefinition@ objects that contains objects that identify
     -- the workers that make up the work team.
     --
@@ -80,8 +82,6 @@ data UpdateWorkteam = UpdateWorkteam'
     -- you do not include these user groups, they will no longer be associated
     -- with the work team you update.
     memberDefinitions :: Prelude.Maybe (Prelude.NonEmpty MemberDefinition),
-    -- | An updated description for the work team.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the work team to update.
     workteamName :: Prelude.Text
   }
@@ -96,6 +96,8 @@ data UpdateWorkteam = UpdateWorkteam'
 -- for backwards compatibility:
 --
 -- 'notificationConfiguration', 'updateWorkteam_notificationConfiguration' - Configures SNS topic notifications for available or expiring work items
+--
+-- 'description', 'updateWorkteam_description' - An updated description for the work team.
 --
 -- 'memberDefinitions', 'updateWorkteam_memberDefinitions' - A list of @MemberDefinition@ objects that contains objects that identify
 -- the workers that make up the work team.
@@ -123,8 +125,6 @@ data UpdateWorkteam = UpdateWorkteam'
 -- you do not include these user groups, they will no longer be associated
 -- with the work team you update.
 --
--- 'description', 'updateWorkteam_description' - An updated description for the work team.
---
 -- 'workteamName', 'updateWorkteam_workteamName' - The name of the work team to update.
 newUpdateWorkteam ::
   -- | 'workteamName'
@@ -134,14 +134,18 @@ newUpdateWorkteam pWorkteamName_ =
   UpdateWorkteam'
     { notificationConfiguration =
         Prelude.Nothing,
-      memberDefinitions = Prelude.Nothing,
       description = Prelude.Nothing,
+      memberDefinitions = Prelude.Nothing,
       workteamName = pWorkteamName_
     }
 
 -- | Configures SNS topic notifications for available or expiring work items
 updateWorkteam_notificationConfiguration :: Lens.Lens' UpdateWorkteam (Prelude.Maybe NotificationConfiguration)
 updateWorkteam_notificationConfiguration = Lens.lens (\UpdateWorkteam' {notificationConfiguration} -> notificationConfiguration) (\s@UpdateWorkteam' {} a -> s {notificationConfiguration = a} :: UpdateWorkteam)
+
+-- | An updated description for the work team.
+updateWorkteam_description :: Lens.Lens' UpdateWorkteam (Prelude.Maybe Prelude.Text)
+updateWorkteam_description = Lens.lens (\UpdateWorkteam' {description} -> description) (\s@UpdateWorkteam' {} a -> s {description = a} :: UpdateWorkteam)
 
 -- | A list of @MemberDefinition@ objects that contains objects that identify
 -- the workers that make up the work team.
@@ -171,10 +175,6 @@ updateWorkteam_notificationConfiguration = Lens.lens (\UpdateWorkteam' {notifica
 updateWorkteam_memberDefinitions :: Lens.Lens' UpdateWorkteam (Prelude.Maybe (Prelude.NonEmpty MemberDefinition))
 updateWorkteam_memberDefinitions = Lens.lens (\UpdateWorkteam' {memberDefinitions} -> memberDefinitions) (\s@UpdateWorkteam' {} a -> s {memberDefinitions = a} :: UpdateWorkteam) Prelude.. Lens.mapping Lens.coerced
 
--- | An updated description for the work team.
-updateWorkteam_description :: Lens.Lens' UpdateWorkteam (Prelude.Maybe Prelude.Text)
-updateWorkteam_description = Lens.lens (\UpdateWorkteam' {description} -> description) (\s@UpdateWorkteam' {} a -> s {description = a} :: UpdateWorkteam)
-
 -- | The name of the work team to update.
 updateWorkteam_workteamName :: Lens.Lens' UpdateWorkteam Prelude.Text
 updateWorkteam_workteamName = Lens.lens (\UpdateWorkteam' {workteamName} -> workteamName) (\s@UpdateWorkteam' {} a -> s {workteamName = a} :: UpdateWorkteam)
@@ -196,15 +196,15 @@ instance Prelude.Hashable UpdateWorkteam where
   hashWithSalt _salt UpdateWorkteam' {..} =
     _salt
       `Prelude.hashWithSalt` notificationConfiguration
-      `Prelude.hashWithSalt` memberDefinitions
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` memberDefinitions
       `Prelude.hashWithSalt` workteamName
 
 instance Prelude.NFData UpdateWorkteam where
   rnf UpdateWorkteam' {..} =
     Prelude.rnf notificationConfiguration
-      `Prelude.seq` Prelude.rnf memberDefinitions
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf memberDefinitions
       `Prelude.seq` Prelude.rnf workteamName
 
 instance Core.ToHeaders UpdateWorkteam where
@@ -226,9 +226,9 @@ instance Core.ToJSON UpdateWorkteam where
       ( Prelude.catMaybes
           [ ("NotificationConfiguration" Core..=)
               Prelude.<$> notificationConfiguration,
+            ("Description" Core..=) Prelude.<$> description,
             ("MemberDefinitions" Core..=)
               Prelude.<$> memberDefinitions,
-            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("WorkteamName" Core..= workteamName)
           ]
       )

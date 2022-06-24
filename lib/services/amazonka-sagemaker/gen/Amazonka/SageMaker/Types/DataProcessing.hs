@@ -45,6 +45,15 @@ data DataProcessing = DataProcessing'
     --
     -- Examples: @\"$\"@, @\"$[0,5:]\"@, @\"$[\'id\',\'SageMakerOutput\']\"@
     outputFilter :: Prelude.Maybe Prelude.Text,
+    -- | A
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath>
+    -- expression used to select a portion of the input data to pass to the
+    -- algorithm. Use the @InputFilter@ parameter to exclude fields, such as an
+    -- ID column, from the input. If you want Amazon SageMaker to pass the
+    -- entire input dataset to the algorithm, accept the default value @$@.
+    --
+    -- Examples: @\"$\"@, @\"$[1:]\"@, @\"$.features\"@
+    inputFilter :: Prelude.Maybe Prelude.Text,
     -- | Specifies the source of the data to join with the transformed data. The
     -- valid values are @None@ and @Input@. The default value is @None@, which
     -- specifies not to join the input with the transformed data. If you want
@@ -68,16 +77,7 @@ data DataProcessing = DataProcessing'
     --
     -- For information on how joining in applied, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow Workflow for Associating Inferences with Input Records>.
-    joinSource :: Prelude.Maybe JoinSource,
-    -- | A
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath>
-    -- expression used to select a portion of the input data to pass to the
-    -- algorithm. Use the @InputFilter@ parameter to exclude fields, such as an
-    -- ID column, from the input. If you want Amazon SageMaker to pass the
-    -- entire input dataset to the algorithm, accept the default value @$@.
-    --
-    -- Examples: @\"$\"@, @\"$[1:]\"@, @\"$.features\"@
-    inputFilter :: Prelude.Maybe Prelude.Text
+    joinSource :: Prelude.Maybe JoinSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,6 +98,15 @@ data DataProcessing = DataProcessing'
 -- size of the joined dataset, you get an error.
 --
 -- Examples: @\"$\"@, @\"$[0,5:]\"@, @\"$[\'id\',\'SageMakerOutput\']\"@
+--
+-- 'inputFilter', 'dataProcessing_inputFilter' - A
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath>
+-- expression used to select a portion of the input data to pass to the
+-- algorithm. Use the @InputFilter@ parameter to exclude fields, such as an
+-- ID column, from the input. If you want Amazon SageMaker to pass the
+-- entire input dataset to the algorithm, accept the default value @$@.
+--
+-- Examples: @\"$\"@, @\"$[1:]\"@, @\"$.features\"@
 --
 -- 'joinSource', 'dataProcessing_joinSource' - Specifies the source of the data to join with the transformed data. The
 -- valid values are @None@ and @Input@. The default value is @None@, which
@@ -122,22 +131,13 @@ data DataProcessing = DataProcessing'
 --
 -- For information on how joining in applied, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow Workflow for Associating Inferences with Input Records>.
---
--- 'inputFilter', 'dataProcessing_inputFilter' - A
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath>
--- expression used to select a portion of the input data to pass to the
--- algorithm. Use the @InputFilter@ parameter to exclude fields, such as an
--- ID column, from the input. If you want Amazon SageMaker to pass the
--- entire input dataset to the algorithm, accept the default value @$@.
---
--- Examples: @\"$\"@, @\"$[1:]\"@, @\"$.features\"@
 newDataProcessing ::
   DataProcessing
 newDataProcessing =
   DataProcessing'
     { outputFilter = Prelude.Nothing,
-      joinSource = Prelude.Nothing,
-      inputFilter = Prelude.Nothing
+      inputFilter = Prelude.Nothing,
+      joinSource = Prelude.Nothing
     }
 
 -- | A
@@ -151,6 +151,17 @@ newDataProcessing =
 -- Examples: @\"$\"@, @\"$[0,5:]\"@, @\"$[\'id\',\'SageMakerOutput\']\"@
 dataProcessing_outputFilter :: Lens.Lens' DataProcessing (Prelude.Maybe Prelude.Text)
 dataProcessing_outputFilter = Lens.lens (\DataProcessing' {outputFilter} -> outputFilter) (\s@DataProcessing' {} a -> s {outputFilter = a} :: DataProcessing)
+
+-- | A
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath>
+-- expression used to select a portion of the input data to pass to the
+-- algorithm. Use the @InputFilter@ parameter to exclude fields, such as an
+-- ID column, from the input. If you want Amazon SageMaker to pass the
+-- entire input dataset to the algorithm, accept the default value @$@.
+--
+-- Examples: @\"$\"@, @\"$[1:]\"@, @\"$.features\"@
+dataProcessing_inputFilter :: Lens.Lens' DataProcessing (Prelude.Maybe Prelude.Text)
+dataProcessing_inputFilter = Lens.lens (\DataProcessing' {inputFilter} -> inputFilter) (\s@DataProcessing' {} a -> s {inputFilter = a} :: DataProcessing)
 
 -- | Specifies the source of the data to join with the transformed data. The
 -- valid values are @None@ and @Input@. The default value is @None@, which
@@ -178,17 +189,6 @@ dataProcessing_outputFilter = Lens.lens (\DataProcessing' {outputFilter} -> outp
 dataProcessing_joinSource :: Lens.Lens' DataProcessing (Prelude.Maybe JoinSource)
 dataProcessing_joinSource = Lens.lens (\DataProcessing' {joinSource} -> joinSource) (\s@DataProcessing' {} a -> s {joinSource = a} :: DataProcessing)
 
--- | A
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators JSONPath>
--- expression used to select a portion of the input data to pass to the
--- algorithm. Use the @InputFilter@ parameter to exclude fields, such as an
--- ID column, from the input. If you want Amazon SageMaker to pass the
--- entire input dataset to the algorithm, accept the default value @$@.
---
--- Examples: @\"$\"@, @\"$[1:]\"@, @\"$.features\"@
-dataProcessing_inputFilter :: Lens.Lens' DataProcessing (Prelude.Maybe Prelude.Text)
-dataProcessing_inputFilter = Lens.lens (\DataProcessing' {inputFilter} -> inputFilter) (\s@DataProcessing' {} a -> s {inputFilter = a} :: DataProcessing)
-
 instance Core.FromJSON DataProcessing where
   parseJSON =
     Core.withObject
@@ -196,28 +196,28 @@ instance Core.FromJSON DataProcessing where
       ( \x ->
           DataProcessing'
             Prelude.<$> (x Core..:? "OutputFilter")
-            Prelude.<*> (x Core..:? "JoinSource")
             Prelude.<*> (x Core..:? "InputFilter")
+            Prelude.<*> (x Core..:? "JoinSource")
       )
 
 instance Prelude.Hashable DataProcessing where
   hashWithSalt _salt DataProcessing' {..} =
     _salt `Prelude.hashWithSalt` outputFilter
-      `Prelude.hashWithSalt` joinSource
       `Prelude.hashWithSalt` inputFilter
+      `Prelude.hashWithSalt` joinSource
 
 instance Prelude.NFData DataProcessing where
   rnf DataProcessing' {..} =
     Prelude.rnf outputFilter
-      `Prelude.seq` Prelude.rnf joinSource
       `Prelude.seq` Prelude.rnf inputFilter
+      `Prelude.seq` Prelude.rnf joinSource
 
 instance Core.ToJSON DataProcessing where
   toJSON DataProcessing' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("OutputFilter" Core..=) Prelude.<$> outputFilter,
-            ("JoinSource" Core..=) Prelude.<$> joinSource,
-            ("InputFilter" Core..=) Prelude.<$> inputFilter
+            ("InputFilter" Core..=) Prelude.<$> inputFilter,
+            ("JoinSource" Core..=) Prelude.<$> joinSource
           ]
       )

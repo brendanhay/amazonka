@@ -37,12 +37,12 @@ module Amazonka.SageMaker.DescribeNotebookInstanceLifecycleConfig
     newDescribeNotebookInstanceLifecycleConfigResponse,
 
     -- * Response Lenses
-    describeNotebookInstanceLifecycleConfigResponse_creationTime,
+    describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigName,
     describeNotebookInstanceLifecycleConfigResponse_onCreate,
     describeNotebookInstanceLifecycleConfigResponse_lastModifiedTime,
+    describeNotebookInstanceLifecycleConfigResponse_creationTime,
     describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigArn,
     describeNotebookInstanceLifecycleConfigResponse_onStart,
-    describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigName,
     describeNotebookInstanceLifecycleConfigResponse_httpStatus,
   )
 where
@@ -98,12 +98,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeNotebookInstanceLifecycleConfigResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<$> (x Core..?> "NotebookInstanceLifecycleConfigName")
               Prelude.<*> (x Core..?> "OnCreate" Core..!@ Prelude.mempty)
               Prelude.<*> (x Core..?> "LastModifiedTime")
+              Prelude.<*> (x Core..?> "CreationTime")
               Prelude.<*> (x Core..?> "NotebookInstanceLifecycleConfigArn")
               Prelude.<*> (x Core..?> "OnStart" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "NotebookInstanceLifecycleConfigName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,21 +170,21 @@ instance
 
 -- | /See:/ 'newDescribeNotebookInstanceLifecycleConfigResponse' smart constructor.
 data DescribeNotebookInstanceLifecycleConfigResponse = DescribeNotebookInstanceLifecycleConfigResponse'
-  { -- | A timestamp that tells when the lifecycle configuration was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The name of the lifecycle configuration.
+    notebookInstanceLifecycleConfigName :: Prelude.Maybe Prelude.Text,
     -- | The shell script that runs only once, when you create a notebook
     -- instance.
     onCreate :: Prelude.Maybe [NotebookInstanceLifecycleHook],
     -- | A timestamp that tells when the lifecycle configuration was last
     -- modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | A timestamp that tells when the lifecycle configuration was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
     notebookInstanceLifecycleConfigArn :: Prelude.Maybe Prelude.Text,
     -- | The shell script that runs every time you start a notebook instance,
     -- including when you create the notebook instance.
     onStart :: Prelude.Maybe [NotebookInstanceLifecycleHook],
-    -- | The name of the lifecycle configuration.
-    notebookInstanceLifecycleConfigName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,7 +198,7 @@ data DescribeNotebookInstanceLifecycleConfigResponse = DescribeNotebookInstanceL
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'describeNotebookInstanceLifecycleConfigResponse_creationTime' - A timestamp that tells when the lifecycle configuration was created.
+-- 'notebookInstanceLifecycleConfigName', 'describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.
 --
 -- 'onCreate', 'describeNotebookInstanceLifecycleConfigResponse_onCreate' - The shell script that runs only once, when you create a notebook
 -- instance.
@@ -206,12 +206,12 @@ data DescribeNotebookInstanceLifecycleConfigResponse = DescribeNotebookInstanceL
 -- 'lastModifiedTime', 'describeNotebookInstanceLifecycleConfigResponse_lastModifiedTime' - A timestamp that tells when the lifecycle configuration was last
 -- modified.
 --
+-- 'creationTime', 'describeNotebookInstanceLifecycleConfigResponse_creationTime' - A timestamp that tells when the lifecycle configuration was created.
+--
 -- 'notebookInstanceLifecycleConfigArn', 'describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigArn' - The Amazon Resource Name (ARN) of the lifecycle configuration.
 --
 -- 'onStart', 'describeNotebookInstanceLifecycleConfigResponse_onStart' - The shell script that runs every time you start a notebook instance,
 -- including when you create the notebook instance.
---
--- 'notebookInstanceLifecycleConfigName', 'describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.
 --
 -- 'httpStatus', 'describeNotebookInstanceLifecycleConfigResponse_httpStatus' - The response's http status code.
 newDescribeNotebookInstanceLifecycleConfigResponse ::
@@ -221,22 +221,22 @@ newDescribeNotebookInstanceLifecycleConfigResponse ::
 newDescribeNotebookInstanceLifecycleConfigResponse
   pHttpStatus_ =
     DescribeNotebookInstanceLifecycleConfigResponse'
-      { creationTime =
+      { notebookInstanceLifecycleConfigName =
           Prelude.Nothing,
         onCreate = Prelude.Nothing,
         lastModifiedTime =
           Prelude.Nothing,
+        creationTime =
+          Prelude.Nothing,
         notebookInstanceLifecycleConfigArn =
           Prelude.Nothing,
         onStart = Prelude.Nothing,
-        notebookInstanceLifecycleConfigName =
-          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | A timestamp that tells when the lifecycle configuration was created.
-describeNotebookInstanceLifecycleConfigResponse_creationTime :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Prelude.Maybe Prelude.UTCTime)
-describeNotebookInstanceLifecycleConfigResponse_creationTime = Lens.lens (\DescribeNotebookInstanceLifecycleConfigResponse' {creationTime} -> creationTime) (\s@DescribeNotebookInstanceLifecycleConfigResponse' {} a -> s {creationTime = a} :: DescribeNotebookInstanceLifecycleConfigResponse) Prelude.. Lens.mapping Core._Time
+-- | The name of the lifecycle configuration.
+describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigName :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Prelude.Maybe Prelude.Text)
+describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigName = Lens.lens (\DescribeNotebookInstanceLifecycleConfigResponse' {notebookInstanceLifecycleConfigName} -> notebookInstanceLifecycleConfigName) (\s@DescribeNotebookInstanceLifecycleConfigResponse' {} a -> s {notebookInstanceLifecycleConfigName = a} :: DescribeNotebookInstanceLifecycleConfigResponse)
 
 -- | The shell script that runs only once, when you create a notebook
 -- instance.
@@ -248,6 +248,10 @@ describeNotebookInstanceLifecycleConfigResponse_onCreate = Lens.lens (\DescribeN
 describeNotebookInstanceLifecycleConfigResponse_lastModifiedTime :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Prelude.Maybe Prelude.UTCTime)
 describeNotebookInstanceLifecycleConfigResponse_lastModifiedTime = Lens.lens (\DescribeNotebookInstanceLifecycleConfigResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeNotebookInstanceLifecycleConfigResponse' {} a -> s {lastModifiedTime = a} :: DescribeNotebookInstanceLifecycleConfigResponse) Prelude.. Lens.mapping Core._Time
 
+-- | A timestamp that tells when the lifecycle configuration was created.
+describeNotebookInstanceLifecycleConfigResponse_creationTime :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Prelude.Maybe Prelude.UTCTime)
+describeNotebookInstanceLifecycleConfigResponse_creationTime = Lens.lens (\DescribeNotebookInstanceLifecycleConfigResponse' {creationTime} -> creationTime) (\s@DescribeNotebookInstanceLifecycleConfigResponse' {} a -> s {creationTime = a} :: DescribeNotebookInstanceLifecycleConfigResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
 describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigArn :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Prelude.Maybe Prelude.Text)
 describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigArn = Lens.lens (\DescribeNotebookInstanceLifecycleConfigResponse' {notebookInstanceLifecycleConfigArn} -> notebookInstanceLifecycleConfigArn) (\s@DescribeNotebookInstanceLifecycleConfigResponse' {} a -> s {notebookInstanceLifecycleConfigArn = a} :: DescribeNotebookInstanceLifecycleConfigResponse)
@@ -256,10 +260,6 @@ describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigA
 -- including when you create the notebook instance.
 describeNotebookInstanceLifecycleConfigResponse_onStart :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Prelude.Maybe [NotebookInstanceLifecycleHook])
 describeNotebookInstanceLifecycleConfigResponse_onStart = Lens.lens (\DescribeNotebookInstanceLifecycleConfigResponse' {onStart} -> onStart) (\s@DescribeNotebookInstanceLifecycleConfigResponse' {} a -> s {onStart = a} :: DescribeNotebookInstanceLifecycleConfigResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the lifecycle configuration.
-describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigName :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Prelude.Maybe Prelude.Text)
-describeNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigName = Lens.lens (\DescribeNotebookInstanceLifecycleConfigResponse' {notebookInstanceLifecycleConfigName} -> notebookInstanceLifecycleConfigName) (\s@DescribeNotebookInstanceLifecycleConfigResponse' {} a -> s {notebookInstanceLifecycleConfigName = a} :: DescribeNotebookInstanceLifecycleConfigResponse)
 
 -- | The response's http status code.
 describeNotebookInstanceLifecycleConfigResponse_httpStatus :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse Prelude.Int
@@ -271,10 +271,10 @@ instance
   where
   rnf
     DescribeNotebookInstanceLifecycleConfigResponse' {..} =
-      Prelude.rnf creationTime
+      Prelude.rnf notebookInstanceLifecycleConfigName
         `Prelude.seq` Prelude.rnf onCreate
         `Prelude.seq` Prelude.rnf lastModifiedTime
+        `Prelude.seq` Prelude.rnf creationTime
         `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigArn
         `Prelude.seq` Prelude.rnf onStart
-        `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigName
         `Prelude.seq` Prelude.rnf httpStatus

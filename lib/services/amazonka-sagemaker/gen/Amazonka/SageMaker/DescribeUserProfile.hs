@@ -35,17 +35,17 @@ module Amazonka.SageMaker.DescribeUserProfile
     newDescribeUserProfileResponse,
 
     -- * Response Lenses
-    describeUserProfileResponse_creationTime,
-    describeUserProfileResponse_userSettings,
-    describeUserProfileResponse_status,
-    describeUserProfileResponse_failureReason,
-    describeUserProfileResponse_singleSignOnUserValue,
-    describeUserProfileResponse_userProfileName,
-    describeUserProfileResponse_lastModifiedTime,
-    describeUserProfileResponse_homeEfsFileSystemUid,
     describeUserProfileResponse_userProfileArn,
-    describeUserProfileResponse_singleSignOnUserIdentifier,
+    describeUserProfileResponse_singleSignOnUserValue,
+    describeUserProfileResponse_status,
+    describeUserProfileResponse_lastModifiedTime,
+    describeUserProfileResponse_userSettings,
+    describeUserProfileResponse_homeEfsFileSystemUid,
+    describeUserProfileResponse_userProfileName,
+    describeUserProfileResponse_creationTime,
     describeUserProfileResponse_domainId,
+    describeUserProfileResponse_failureReason,
+    describeUserProfileResponse_singleSignOnUserIdentifier,
     describeUserProfileResponse_httpStatus,
   )
 where
@@ -106,17 +106,17 @@ instance Core.AWSRequest DescribeUserProfile where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserProfileResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "UserSettings")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<$> (x Core..?> "UserProfileArn")
             Prelude.<*> (x Core..?> "SingleSignOnUserValue")
-            Prelude.<*> (x Core..?> "UserProfileName")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "UserSettings")
             Prelude.<*> (x Core..?> "HomeEfsFileSystemUid")
-            Prelude.<*> (x Core..?> "UserProfileArn")
-            Prelude.<*> (x Core..?> "SingleSignOnUserIdentifier")
+            Prelude.<*> (x Core..?> "UserProfileName")
+            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "DomainId")
+            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<*> (x Core..?> "SingleSignOnUserIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,29 +163,29 @@ instance Core.ToQuery DescribeUserProfile where
 
 -- | /See:/ 'newDescribeUserProfileResponse' smart constructor.
 data DescribeUserProfileResponse = DescribeUserProfileResponse'
-  { -- | The creation time.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | A collection of settings.
-    userSettings :: Prelude.Maybe UserSettings,
-    -- | The status.
-    status :: Prelude.Maybe UserProfileStatus,
-    -- | The failure reason.
-    failureReason :: Prelude.Maybe Prelude.Text,
+  { -- | The user profile Amazon Resource Name (ARN).
+    userProfileArn :: Prelude.Maybe Prelude.Text,
     -- | The SSO user value.
     singleSignOnUserValue :: Prelude.Maybe Prelude.Text,
-    -- | The user profile name.
-    userProfileName :: Prelude.Maybe Prelude.Text,
+    -- | The status.
+    status :: Prelude.Maybe UserProfileStatus,
     -- | The last modified time.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | A collection of settings.
+    userSettings :: Prelude.Maybe UserSettings,
     -- | The ID of the user\'s profile in the Amazon Elastic File System (EFS)
     -- volume.
     homeEfsFileSystemUid :: Prelude.Maybe Prelude.Text,
-    -- | The user profile Amazon Resource Name (ARN).
-    userProfileArn :: Prelude.Maybe Prelude.Text,
-    -- | The SSO user identifier.
-    singleSignOnUserIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The user profile name.
+    userProfileName :: Prelude.Maybe Prelude.Text,
+    -- | The creation time.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the domain that contains the profile.
     domainId :: Prelude.Maybe Prelude.Text,
+    -- | The failure reason.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The SSO user identifier.
+    singleSignOnUserIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,28 +199,28 @@ data DescribeUserProfileResponse = DescribeUserProfileResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'describeUserProfileResponse_creationTime' - The creation time.
---
--- 'userSettings', 'describeUserProfileResponse_userSettings' - A collection of settings.
---
--- 'status', 'describeUserProfileResponse_status' - The status.
---
--- 'failureReason', 'describeUserProfileResponse_failureReason' - The failure reason.
+-- 'userProfileArn', 'describeUserProfileResponse_userProfileArn' - The user profile Amazon Resource Name (ARN).
 --
 -- 'singleSignOnUserValue', 'describeUserProfileResponse_singleSignOnUserValue' - The SSO user value.
 --
--- 'userProfileName', 'describeUserProfileResponse_userProfileName' - The user profile name.
+-- 'status', 'describeUserProfileResponse_status' - The status.
 --
 -- 'lastModifiedTime', 'describeUserProfileResponse_lastModifiedTime' - The last modified time.
+--
+-- 'userSettings', 'describeUserProfileResponse_userSettings' - A collection of settings.
 --
 -- 'homeEfsFileSystemUid', 'describeUserProfileResponse_homeEfsFileSystemUid' - The ID of the user\'s profile in the Amazon Elastic File System (EFS)
 -- volume.
 --
--- 'userProfileArn', 'describeUserProfileResponse_userProfileArn' - The user profile Amazon Resource Name (ARN).
+-- 'userProfileName', 'describeUserProfileResponse_userProfileName' - The user profile name.
 --
--- 'singleSignOnUserIdentifier', 'describeUserProfileResponse_singleSignOnUserIdentifier' - The SSO user identifier.
+-- 'creationTime', 'describeUserProfileResponse_creationTime' - The creation time.
 --
 -- 'domainId', 'describeUserProfileResponse_domainId' - The ID of the domain that contains the profile.
+--
+-- 'failureReason', 'describeUserProfileResponse_failureReason' - The failure reason.
+--
+-- 'singleSignOnUserIdentifier', 'describeUserProfileResponse_singleSignOnUserIdentifier' - The SSO user identifier.
 --
 -- 'httpStatus', 'describeUserProfileResponse_httpStatus' - The response's http status code.
 newDescribeUserProfileResponse ::
@@ -229,65 +229,65 @@ newDescribeUserProfileResponse ::
   DescribeUserProfileResponse
 newDescribeUserProfileResponse pHttpStatus_ =
   DescribeUserProfileResponse'
-    { creationTime =
+    { userProfileArn =
         Prelude.Nothing,
-      userSettings = Prelude.Nothing,
-      status = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
       singleSignOnUserValue = Prelude.Nothing,
-      userProfileName = Prelude.Nothing,
+      status = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      userSettings = Prelude.Nothing,
       homeEfsFileSystemUid = Prelude.Nothing,
-      userProfileArn = Prelude.Nothing,
-      singleSignOnUserIdentifier = Prelude.Nothing,
+      userProfileName = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       domainId = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      singleSignOnUserIdentifier = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The creation time.
-describeUserProfileResponse_creationTime :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.UTCTime)
-describeUserProfileResponse_creationTime = Lens.lens (\DescribeUserProfileResponse' {creationTime} -> creationTime) (\s@DescribeUserProfileResponse' {} a -> s {creationTime = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Core._Time
-
--- | A collection of settings.
-describeUserProfileResponse_userSettings :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe UserSettings)
-describeUserProfileResponse_userSettings = Lens.lens (\DescribeUserProfileResponse' {userSettings} -> userSettings) (\s@DescribeUserProfileResponse' {} a -> s {userSettings = a} :: DescribeUserProfileResponse)
-
--- | The status.
-describeUserProfileResponse_status :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe UserProfileStatus)
-describeUserProfileResponse_status = Lens.lens (\DescribeUserProfileResponse' {status} -> status) (\s@DescribeUserProfileResponse' {} a -> s {status = a} :: DescribeUserProfileResponse)
-
--- | The failure reason.
-describeUserProfileResponse_failureReason :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
-describeUserProfileResponse_failureReason = Lens.lens (\DescribeUserProfileResponse' {failureReason} -> failureReason) (\s@DescribeUserProfileResponse' {} a -> s {failureReason = a} :: DescribeUserProfileResponse)
+-- | The user profile Amazon Resource Name (ARN).
+describeUserProfileResponse_userProfileArn :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
+describeUserProfileResponse_userProfileArn = Lens.lens (\DescribeUserProfileResponse' {userProfileArn} -> userProfileArn) (\s@DescribeUserProfileResponse' {} a -> s {userProfileArn = a} :: DescribeUserProfileResponse)
 
 -- | The SSO user value.
 describeUserProfileResponse_singleSignOnUserValue :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
 describeUserProfileResponse_singleSignOnUserValue = Lens.lens (\DescribeUserProfileResponse' {singleSignOnUserValue} -> singleSignOnUserValue) (\s@DescribeUserProfileResponse' {} a -> s {singleSignOnUserValue = a} :: DescribeUserProfileResponse)
 
--- | The user profile name.
-describeUserProfileResponse_userProfileName :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
-describeUserProfileResponse_userProfileName = Lens.lens (\DescribeUserProfileResponse' {userProfileName} -> userProfileName) (\s@DescribeUserProfileResponse' {} a -> s {userProfileName = a} :: DescribeUserProfileResponse)
+-- | The status.
+describeUserProfileResponse_status :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe UserProfileStatus)
+describeUserProfileResponse_status = Lens.lens (\DescribeUserProfileResponse' {status} -> status) (\s@DescribeUserProfileResponse' {} a -> s {status = a} :: DescribeUserProfileResponse)
 
 -- | The last modified time.
 describeUserProfileResponse_lastModifiedTime :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.UTCTime)
 describeUserProfileResponse_lastModifiedTime = Lens.lens (\DescribeUserProfileResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeUserProfileResponse' {} a -> s {lastModifiedTime = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Core._Time
+
+-- | A collection of settings.
+describeUserProfileResponse_userSettings :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe UserSettings)
+describeUserProfileResponse_userSettings = Lens.lens (\DescribeUserProfileResponse' {userSettings} -> userSettings) (\s@DescribeUserProfileResponse' {} a -> s {userSettings = a} :: DescribeUserProfileResponse)
 
 -- | The ID of the user\'s profile in the Amazon Elastic File System (EFS)
 -- volume.
 describeUserProfileResponse_homeEfsFileSystemUid :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
 describeUserProfileResponse_homeEfsFileSystemUid = Lens.lens (\DescribeUserProfileResponse' {homeEfsFileSystemUid} -> homeEfsFileSystemUid) (\s@DescribeUserProfileResponse' {} a -> s {homeEfsFileSystemUid = a} :: DescribeUserProfileResponse)
 
--- | The user profile Amazon Resource Name (ARN).
-describeUserProfileResponse_userProfileArn :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
-describeUserProfileResponse_userProfileArn = Lens.lens (\DescribeUserProfileResponse' {userProfileArn} -> userProfileArn) (\s@DescribeUserProfileResponse' {} a -> s {userProfileArn = a} :: DescribeUserProfileResponse)
+-- | The user profile name.
+describeUserProfileResponse_userProfileName :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
+describeUserProfileResponse_userProfileName = Lens.lens (\DescribeUserProfileResponse' {userProfileName} -> userProfileName) (\s@DescribeUserProfileResponse' {} a -> s {userProfileName = a} :: DescribeUserProfileResponse)
 
--- | The SSO user identifier.
-describeUserProfileResponse_singleSignOnUserIdentifier :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
-describeUserProfileResponse_singleSignOnUserIdentifier = Lens.lens (\DescribeUserProfileResponse' {singleSignOnUserIdentifier} -> singleSignOnUserIdentifier) (\s@DescribeUserProfileResponse' {} a -> s {singleSignOnUserIdentifier = a} :: DescribeUserProfileResponse)
+-- | The creation time.
+describeUserProfileResponse_creationTime :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.UTCTime)
+describeUserProfileResponse_creationTime = Lens.lens (\DescribeUserProfileResponse' {creationTime} -> creationTime) (\s@DescribeUserProfileResponse' {} a -> s {creationTime = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the domain that contains the profile.
 describeUserProfileResponse_domainId :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
 describeUserProfileResponse_domainId = Lens.lens (\DescribeUserProfileResponse' {domainId} -> domainId) (\s@DescribeUserProfileResponse' {} a -> s {domainId = a} :: DescribeUserProfileResponse)
+
+-- | The failure reason.
+describeUserProfileResponse_failureReason :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
+describeUserProfileResponse_failureReason = Lens.lens (\DescribeUserProfileResponse' {failureReason} -> failureReason) (\s@DescribeUserProfileResponse' {} a -> s {failureReason = a} :: DescribeUserProfileResponse)
+
+-- | The SSO user identifier.
+describeUserProfileResponse_singleSignOnUserIdentifier :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
+describeUserProfileResponse_singleSignOnUserIdentifier = Lens.lens (\DescribeUserProfileResponse' {singleSignOnUserIdentifier} -> singleSignOnUserIdentifier) (\s@DescribeUserProfileResponse' {} a -> s {singleSignOnUserIdentifier = a} :: DescribeUserProfileResponse)
 
 -- | The response's http status code.
 describeUserProfileResponse_httpStatus :: Lens.Lens' DescribeUserProfileResponse Prelude.Int
@@ -295,15 +295,15 @@ describeUserProfileResponse_httpStatus = Lens.lens (\DescribeUserProfileResponse
 
 instance Prelude.NFData DescribeUserProfileResponse where
   rnf DescribeUserProfileResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf userSettings
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf failureReason
+    Prelude.rnf userProfileArn
       `Prelude.seq` Prelude.rnf singleSignOnUserValue
-      `Prelude.seq` Prelude.rnf userProfileName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf userSettings
       `Prelude.seq` Prelude.rnf homeEfsFileSystemUid
-      `Prelude.seq` Prelude.rnf userProfileArn
-      `Prelude.seq` Prelude.rnf singleSignOnUserIdentifier
+      `Prelude.seq` Prelude.rnf userProfileName
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf singleSignOnUserIdentifier
       `Prelude.seq` Prelude.rnf httpStatus

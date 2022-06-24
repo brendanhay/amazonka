@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 data FileSystemConfig = FileSystemConfig'
   { -- | The default POSIX group ID (GID). If not specified, defaults to @100@.
     defaultGid :: Prelude.Maybe Prelude.Natural,
+    -- | The default POSIX user ID (UID). If not specified, defaults to @1000@.
+    defaultUid :: Prelude.Maybe Prelude.Natural,
     -- | The path within the image to mount the user\'s EFS home directory. The
     -- directory should be empty. If not specified, defaults to
     -- /\/home\/sagemaker-user/.
-    mountPath :: Prelude.Maybe Prelude.Text,
-    -- | The default POSIX user ID (UID). If not specified, defaults to @1000@.
-    defaultUid :: Prelude.Maybe Prelude.Natural
+    mountPath :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,33 +49,33 @@ data FileSystemConfig = FileSystemConfig'
 --
 -- 'defaultGid', 'fileSystemConfig_defaultGid' - The default POSIX group ID (GID). If not specified, defaults to @100@.
 --
+-- 'defaultUid', 'fileSystemConfig_defaultUid' - The default POSIX user ID (UID). If not specified, defaults to @1000@.
+--
 -- 'mountPath', 'fileSystemConfig_mountPath' - The path within the image to mount the user\'s EFS home directory. The
 -- directory should be empty. If not specified, defaults to
 -- /\/home\/sagemaker-user/.
---
--- 'defaultUid', 'fileSystemConfig_defaultUid' - The default POSIX user ID (UID). If not specified, defaults to @1000@.
 newFileSystemConfig ::
   FileSystemConfig
 newFileSystemConfig =
   FileSystemConfig'
     { defaultGid = Prelude.Nothing,
-      mountPath = Prelude.Nothing,
-      defaultUid = Prelude.Nothing
+      defaultUid = Prelude.Nothing,
+      mountPath = Prelude.Nothing
     }
 
 -- | The default POSIX group ID (GID). If not specified, defaults to @100@.
 fileSystemConfig_defaultGid :: Lens.Lens' FileSystemConfig (Prelude.Maybe Prelude.Natural)
 fileSystemConfig_defaultGid = Lens.lens (\FileSystemConfig' {defaultGid} -> defaultGid) (\s@FileSystemConfig' {} a -> s {defaultGid = a} :: FileSystemConfig)
 
+-- | The default POSIX user ID (UID). If not specified, defaults to @1000@.
+fileSystemConfig_defaultUid :: Lens.Lens' FileSystemConfig (Prelude.Maybe Prelude.Natural)
+fileSystemConfig_defaultUid = Lens.lens (\FileSystemConfig' {defaultUid} -> defaultUid) (\s@FileSystemConfig' {} a -> s {defaultUid = a} :: FileSystemConfig)
+
 -- | The path within the image to mount the user\'s EFS home directory. The
 -- directory should be empty. If not specified, defaults to
 -- /\/home\/sagemaker-user/.
 fileSystemConfig_mountPath :: Lens.Lens' FileSystemConfig (Prelude.Maybe Prelude.Text)
 fileSystemConfig_mountPath = Lens.lens (\FileSystemConfig' {mountPath} -> mountPath) (\s@FileSystemConfig' {} a -> s {mountPath = a} :: FileSystemConfig)
-
--- | The default POSIX user ID (UID). If not specified, defaults to @1000@.
-fileSystemConfig_defaultUid :: Lens.Lens' FileSystemConfig (Prelude.Maybe Prelude.Natural)
-fileSystemConfig_defaultUid = Lens.lens (\FileSystemConfig' {defaultUid} -> defaultUid) (\s@FileSystemConfig' {} a -> s {defaultUid = a} :: FileSystemConfig)
 
 instance Core.FromJSON FileSystemConfig where
   parseJSON =
@@ -84,28 +84,28 @@ instance Core.FromJSON FileSystemConfig where
       ( \x ->
           FileSystemConfig'
             Prelude.<$> (x Core..:? "DefaultGid")
-            Prelude.<*> (x Core..:? "MountPath")
             Prelude.<*> (x Core..:? "DefaultUid")
+            Prelude.<*> (x Core..:? "MountPath")
       )
 
 instance Prelude.Hashable FileSystemConfig where
   hashWithSalt _salt FileSystemConfig' {..} =
     _salt `Prelude.hashWithSalt` defaultGid
-      `Prelude.hashWithSalt` mountPath
       `Prelude.hashWithSalt` defaultUid
+      `Prelude.hashWithSalt` mountPath
 
 instance Prelude.NFData FileSystemConfig where
   rnf FileSystemConfig' {..} =
     Prelude.rnf defaultGid
-      `Prelude.seq` Prelude.rnf mountPath
       `Prelude.seq` Prelude.rnf defaultUid
+      `Prelude.seq` Prelude.rnf mountPath
 
 instance Core.ToJSON FileSystemConfig where
   toJSON FileSystemConfig' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("DefaultGid" Core..=) Prelude.<$> defaultGid,
-            ("MountPath" Core..=) Prelude.<$> mountPath,
-            ("DefaultUid" Core..=) Prelude.<$> defaultUid
+            ("DefaultUid" Core..=) Prelude.<$> defaultUid,
+            ("MountPath" Core..=) Prelude.<$> mountPath
           ]
       )

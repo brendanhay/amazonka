@@ -29,11 +29,11 @@ module Amazonka.SageMaker.ListDevices
     newListDevices,
 
     -- * Request Lenses
-    listDevices_latestHeartbeatAfter,
-    listDevices_modelName,
     listDevices_nextToken,
-    listDevices_maxResults,
+    listDevices_latestHeartbeatAfter,
     listDevices_deviceFleetName,
+    listDevices_maxResults,
+    listDevices_modelName,
 
     -- * Destructuring the Response
     ListDevicesResponse (..),
@@ -55,18 +55,18 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListDevices' smart constructor.
 data ListDevices = ListDevices'
-  { -- | Select fleets where the job was updated after X
-    latestHeartbeatAfter :: Prelude.Maybe Core.POSIX,
-    -- | A filter that searches devices that contains this name in any of their
-    -- models.
-    modelName :: Prelude.Maybe Prelude.Text,
-    -- | The response from the last list when returning a list large enough to
+  { -- | The response from the last list when returning a list large enough to
     -- need tokening.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Select fleets where the job was updated after X
+    latestHeartbeatAfter :: Prelude.Maybe Core.POSIX,
+    -- | Filter for fleets containing this name in their device fleet name.
+    deviceFleetName :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results to select.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Filter for fleets containing this name in their device fleet name.
-    deviceFleetName :: Prelude.Maybe Prelude.Text
+    -- | A filter that searches devices that contains this name in any of their
+    -- models.
+    modelName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,50 +78,49 @@ data ListDevices = ListDevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'latestHeartbeatAfter', 'listDevices_latestHeartbeatAfter' - Select fleets where the job was updated after X
---
--- 'modelName', 'listDevices_modelName' - A filter that searches devices that contains this name in any of their
--- models.
---
 -- 'nextToken', 'listDevices_nextToken' - The response from the last list when returning a list large enough to
 -- need tokening.
 --
--- 'maxResults', 'listDevices_maxResults' - Maximum number of results to select.
+-- 'latestHeartbeatAfter', 'listDevices_latestHeartbeatAfter' - Select fleets where the job was updated after X
 --
 -- 'deviceFleetName', 'listDevices_deviceFleetName' - Filter for fleets containing this name in their device fleet name.
+--
+-- 'maxResults', 'listDevices_maxResults' - Maximum number of results to select.
+--
+-- 'modelName', 'listDevices_modelName' - A filter that searches devices that contains this name in any of their
+-- models.
 newListDevices ::
   ListDevices
 newListDevices =
   ListDevices'
-    { latestHeartbeatAfter =
-        Prelude.Nothing,
-      modelName = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      latestHeartbeatAfter = Prelude.Nothing,
+      deviceFleetName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      deviceFleetName = Prelude.Nothing
+      modelName = Prelude.Nothing
     }
-
--- | Select fleets where the job was updated after X
-listDevices_latestHeartbeatAfter :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.UTCTime)
-listDevices_latestHeartbeatAfter = Lens.lens (\ListDevices' {latestHeartbeatAfter} -> latestHeartbeatAfter) (\s@ListDevices' {} a -> s {latestHeartbeatAfter = a} :: ListDevices) Prelude.. Lens.mapping Core._Time
-
--- | A filter that searches devices that contains this name in any of their
--- models.
-listDevices_modelName :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
-listDevices_modelName = Lens.lens (\ListDevices' {modelName} -> modelName) (\s@ListDevices' {} a -> s {modelName = a} :: ListDevices)
 
 -- | The response from the last list when returning a list large enough to
 -- need tokening.
 listDevices_nextToken :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
 listDevices_nextToken = Lens.lens (\ListDevices' {nextToken} -> nextToken) (\s@ListDevices' {} a -> s {nextToken = a} :: ListDevices)
 
--- | Maximum number of results to select.
-listDevices_maxResults :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Int)
-listDevices_maxResults = Lens.lens (\ListDevices' {maxResults} -> maxResults) (\s@ListDevices' {} a -> s {maxResults = a} :: ListDevices)
+-- | Select fleets where the job was updated after X
+listDevices_latestHeartbeatAfter :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.UTCTime)
+listDevices_latestHeartbeatAfter = Lens.lens (\ListDevices' {latestHeartbeatAfter} -> latestHeartbeatAfter) (\s@ListDevices' {} a -> s {latestHeartbeatAfter = a} :: ListDevices) Prelude.. Lens.mapping Core._Time
 
 -- | Filter for fleets containing this name in their device fleet name.
 listDevices_deviceFleetName :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
 listDevices_deviceFleetName = Lens.lens (\ListDevices' {deviceFleetName} -> deviceFleetName) (\s@ListDevices' {} a -> s {deviceFleetName = a} :: ListDevices)
+
+-- | Maximum number of results to select.
+listDevices_maxResults :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Int)
+listDevices_maxResults = Lens.lens (\ListDevices' {maxResults} -> maxResults) (\s@ListDevices' {} a -> s {maxResults = a} :: ListDevices)
+
+-- | A filter that searches devices that contains this name in any of their
+-- models.
+listDevices_modelName :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
+listDevices_modelName = Lens.lens (\ListDevices' {modelName} -> modelName) (\s@ListDevices' {} a -> s {modelName = a} :: ListDevices)
 
 instance Core.AWSPager ListDevices where
   page rq rs
@@ -156,19 +155,19 @@ instance Core.AWSRequest ListDevices where
 
 instance Prelude.Hashable ListDevices where
   hashWithSalt _salt ListDevices' {..} =
-    _salt `Prelude.hashWithSalt` latestHeartbeatAfter
-      `Prelude.hashWithSalt` modelName
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` latestHeartbeatAfter
       `Prelude.hashWithSalt` deviceFleetName
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` modelName
 
 instance Prelude.NFData ListDevices where
   rnf ListDevices' {..} =
-    Prelude.rnf latestHeartbeatAfter
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf latestHeartbeatAfter
       `Prelude.seq` Prelude.rnf deviceFleetName
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf modelName
 
 instance Core.ToHeaders ListDevices where
   toHeaders =
@@ -187,13 +186,13 @@ instance Core.ToJSON ListDevices where
   toJSON ListDevices' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LatestHeartbeatAfter" Core..=)
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("LatestHeartbeatAfter" Core..=)
               Prelude.<$> latestHeartbeatAfter,
-            ("ModelName" Core..=) Prelude.<$> modelName,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("DeviceFleetName" Core..=)
-              Prelude.<$> deviceFleetName
+              Prelude.<$> deviceFleetName,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ModelName" Core..=) Prelude.<$> modelName
           ]
       )
 

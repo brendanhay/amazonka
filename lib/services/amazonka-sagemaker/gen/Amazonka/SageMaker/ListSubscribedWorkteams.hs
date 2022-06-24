@@ -31,8 +31,8 @@ module Amazonka.SageMaker.ListSubscribedWorkteams
     newListSubscribedWorkteams,
 
     -- * Request Lenses
-    listSubscribedWorkteams_nameContains,
     listSubscribedWorkteams_nextToken,
+    listSubscribedWorkteams_nameContains,
     listSubscribedWorkteams_maxResults,
 
     -- * Destructuring the Response
@@ -55,13 +55,13 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListSubscribedWorkteams' smart constructor.
 data ListSubscribedWorkteams = ListSubscribedWorkteams'
-  { -- | A string in the work team name. This filter returns only work teams
-    -- whose name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | If the result of the previous @ListSubscribedWorkteams@ request was
+  { -- | If the result of the previous @ListSubscribedWorkteams@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of labeling jobs, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A string in the work team name. This filter returns only work teams
+    -- whose name contains the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of work teams to return in each page of the response.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -75,34 +75,34 @@ data ListSubscribedWorkteams = ListSubscribedWorkteams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nameContains', 'listSubscribedWorkteams_nameContains' - A string in the work team name. This filter returns only work teams
--- whose name contains the specified string.
---
 -- 'nextToken', 'listSubscribedWorkteams_nextToken' - If the result of the previous @ListSubscribedWorkteams@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of labeling jobs, use the token in the next request.
+--
+-- 'nameContains', 'listSubscribedWorkteams_nameContains' - A string in the work team name. This filter returns only work teams
+-- whose name contains the specified string.
 --
 -- 'maxResults', 'listSubscribedWorkteams_maxResults' - The maximum number of work teams to return in each page of the response.
 newListSubscribedWorkteams ::
   ListSubscribedWorkteams
 newListSubscribedWorkteams =
   ListSubscribedWorkteams'
-    { nameContains =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | A string in the work team name. This filter returns only work teams
--- whose name contains the specified string.
-listSubscribedWorkteams_nameContains :: Lens.Lens' ListSubscribedWorkteams (Prelude.Maybe Prelude.Text)
-listSubscribedWorkteams_nameContains = Lens.lens (\ListSubscribedWorkteams' {nameContains} -> nameContains) (\s@ListSubscribedWorkteams' {} a -> s {nameContains = a} :: ListSubscribedWorkteams)
 
 -- | If the result of the previous @ListSubscribedWorkteams@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of labeling jobs, use the token in the next request.
 listSubscribedWorkteams_nextToken :: Lens.Lens' ListSubscribedWorkteams (Prelude.Maybe Prelude.Text)
 listSubscribedWorkteams_nextToken = Lens.lens (\ListSubscribedWorkteams' {nextToken} -> nextToken) (\s@ListSubscribedWorkteams' {} a -> s {nextToken = a} :: ListSubscribedWorkteams)
+
+-- | A string in the work team name. This filter returns only work teams
+-- whose name contains the specified string.
+listSubscribedWorkteams_nameContains :: Lens.Lens' ListSubscribedWorkteams (Prelude.Maybe Prelude.Text)
+listSubscribedWorkteams_nameContains = Lens.lens (\ListSubscribedWorkteams' {nameContains} -> nameContains) (\s@ListSubscribedWorkteams' {} a -> s {nameContains = a} :: ListSubscribedWorkteams)
 
 -- | The maximum number of work teams to return in each page of the response.
 listSubscribedWorkteams_maxResults :: Lens.Lens' ListSubscribedWorkteams (Prelude.Maybe Prelude.Natural)
@@ -147,14 +147,14 @@ instance Core.AWSRequest ListSubscribedWorkteams where
 
 instance Prelude.Hashable ListSubscribedWorkteams where
   hashWithSalt _salt ListSubscribedWorkteams' {..} =
-    _salt `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` nameContains
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListSubscribedWorkteams where
   rnf ListSubscribedWorkteams' {..} =
-    Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf nameContains
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSubscribedWorkteams where
@@ -176,8 +176,8 @@ instance Core.ToJSON ListSubscribedWorkteams where
   toJSON ListSubscribedWorkteams' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

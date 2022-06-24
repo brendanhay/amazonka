@@ -38,8 +38,8 @@ module Amazonka.SageMaker.ListPipelineParametersForExecution
     newListPipelineParametersForExecutionResponse,
 
     -- * Response Lenses
-    listPipelineParametersForExecutionResponse_pipelineParameters,
     listPipelineParametersForExecutionResponse_nextToken,
+    listPipelineParametersForExecutionResponse_pipelineParameters,
     listPipelineParametersForExecutionResponse_httpStatus,
   )
 where
@@ -144,10 +144,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListPipelineParametersForExecutionResponse'
-            Prelude.<$> ( x Core..?> "PipelineParameters"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "PipelineParameters"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,12 +219,12 @@ instance
 
 -- | /See:/ 'newListPipelineParametersForExecutionResponse' smart constructor.
 data ListPipelineParametersForExecutionResponse = ListPipelineParametersForExecutionResponse'
-  { -- | Contains a list of pipeline parameters. This list can be empty.
-    pipelineParameters :: Prelude.Maybe [Parameter],
-    -- | If the result of the previous @ListPipelineParametersForExecution@
+  { -- | If the result of the previous @ListPipelineParametersForExecution@
     -- request was truncated, the response includes a @NextToken@. To retrieve
     -- the next set of parameters, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Contains a list of pipeline parameters. This list can be empty.
+    pipelineParameters :: Prelude.Maybe [Parameter],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,11 +238,11 @@ data ListPipelineParametersForExecutionResponse = ListPipelineParametersForExecu
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineParameters', 'listPipelineParametersForExecutionResponse_pipelineParameters' - Contains a list of pipeline parameters. This list can be empty.
---
 -- 'nextToken', 'listPipelineParametersForExecutionResponse_nextToken' - If the result of the previous @ListPipelineParametersForExecution@
 -- request was truncated, the response includes a @NextToken@. To retrieve
 -- the next set of parameters, use the token in the next request.
+--
+-- 'pipelineParameters', 'listPipelineParametersForExecutionResponse_pipelineParameters' - Contains a list of pipeline parameters. This list can be empty.
 --
 -- 'httpStatus', 'listPipelineParametersForExecutionResponse_httpStatus' - The response's http status code.
 newListPipelineParametersForExecutionResponse ::
@@ -252,21 +252,22 @@ newListPipelineParametersForExecutionResponse ::
 newListPipelineParametersForExecutionResponse
   pHttpStatus_ =
     ListPipelineParametersForExecutionResponse'
-      { pipelineParameters =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        pipelineParameters =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Contains a list of pipeline parameters. This list can be empty.
-listPipelineParametersForExecutionResponse_pipelineParameters :: Lens.Lens' ListPipelineParametersForExecutionResponse (Prelude.Maybe [Parameter])
-listPipelineParametersForExecutionResponse_pipelineParameters = Lens.lens (\ListPipelineParametersForExecutionResponse' {pipelineParameters} -> pipelineParameters) (\s@ListPipelineParametersForExecutionResponse' {} a -> s {pipelineParameters = a} :: ListPipelineParametersForExecutionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the result of the previous @ListPipelineParametersForExecution@
 -- request was truncated, the response includes a @NextToken@. To retrieve
 -- the next set of parameters, use the token in the next request.
 listPipelineParametersForExecutionResponse_nextToken :: Lens.Lens' ListPipelineParametersForExecutionResponse (Prelude.Maybe Prelude.Text)
 listPipelineParametersForExecutionResponse_nextToken = Lens.lens (\ListPipelineParametersForExecutionResponse' {nextToken} -> nextToken) (\s@ListPipelineParametersForExecutionResponse' {} a -> s {nextToken = a} :: ListPipelineParametersForExecutionResponse)
+
+-- | Contains a list of pipeline parameters. This list can be empty.
+listPipelineParametersForExecutionResponse_pipelineParameters :: Lens.Lens' ListPipelineParametersForExecutionResponse (Prelude.Maybe [Parameter])
+listPipelineParametersForExecutionResponse_pipelineParameters = Lens.lens (\ListPipelineParametersForExecutionResponse' {pipelineParameters} -> pipelineParameters) (\s@ListPipelineParametersForExecutionResponse' {} a -> s {pipelineParameters = a} :: ListPipelineParametersForExecutionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPipelineParametersForExecutionResponse_httpStatus :: Lens.Lens' ListPipelineParametersForExecutionResponse Prelude.Int
@@ -277,6 +278,6 @@ instance
     ListPipelineParametersForExecutionResponse
   where
   rnf ListPipelineParametersForExecutionResponse' {..} =
-    Prelude.rnf pipelineParameters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pipelineParameters
       `Prelude.seq` Prelude.rnf httpStatus

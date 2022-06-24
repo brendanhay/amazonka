@@ -29,18 +29,18 @@ import Amazonka.SageMaker.Types.AppType
 --
 -- /See:/ 'newAppDetails' smart constructor.
 data AppDetails = AppDetails'
-  { -- | The creation time.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The name of the app.
+    appName :: Prelude.Maybe Prelude.Text,
+    -- | The type of app.
+    appType :: Prelude.Maybe AppType,
     -- | The status.
     status :: Prelude.Maybe AppStatus,
     -- | The user profile name.
     userProfileName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the app.
-    appName :: Prelude.Maybe Prelude.Text,
+    -- | The creation time.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The domain ID.
-    domainId :: Prelude.Maybe Prelude.Text,
-    -- | The type of app.
-    appType :: Prelude.Maybe AppType
+    domainId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,32 +52,36 @@ data AppDetails = AppDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'appDetails_creationTime' - The creation time.
+-- 'appName', 'appDetails_appName' - The name of the app.
+--
+-- 'appType', 'appDetails_appType' - The type of app.
 --
 -- 'status', 'appDetails_status' - The status.
 --
 -- 'userProfileName', 'appDetails_userProfileName' - The user profile name.
 --
--- 'appName', 'appDetails_appName' - The name of the app.
+-- 'creationTime', 'appDetails_creationTime' - The creation time.
 --
 -- 'domainId', 'appDetails_domainId' - The domain ID.
---
--- 'appType', 'appDetails_appType' - The type of app.
 newAppDetails ::
   AppDetails
 newAppDetails =
   AppDetails'
-    { creationTime = Prelude.Nothing,
+    { appName = Prelude.Nothing,
+      appType = Prelude.Nothing,
       status = Prelude.Nothing,
       userProfileName = Prelude.Nothing,
-      appName = Prelude.Nothing,
-      domainId = Prelude.Nothing,
-      appType = Prelude.Nothing
+      creationTime = Prelude.Nothing,
+      domainId = Prelude.Nothing
     }
 
--- | The creation time.
-appDetails_creationTime :: Lens.Lens' AppDetails (Prelude.Maybe Prelude.UTCTime)
-appDetails_creationTime = Lens.lens (\AppDetails' {creationTime} -> creationTime) (\s@AppDetails' {} a -> s {creationTime = a} :: AppDetails) Prelude.. Lens.mapping Core._Time
+-- | The name of the app.
+appDetails_appName :: Lens.Lens' AppDetails (Prelude.Maybe Prelude.Text)
+appDetails_appName = Lens.lens (\AppDetails' {appName} -> appName) (\s@AppDetails' {} a -> s {appName = a} :: AppDetails)
+
+-- | The type of app.
+appDetails_appType :: Lens.Lens' AppDetails (Prelude.Maybe AppType)
+appDetails_appType = Lens.lens (\AppDetails' {appType} -> appType) (\s@AppDetails' {} a -> s {appType = a} :: AppDetails)
 
 -- | The status.
 appDetails_status :: Lens.Lens' AppDetails (Prelude.Maybe AppStatus)
@@ -87,17 +91,13 @@ appDetails_status = Lens.lens (\AppDetails' {status} -> status) (\s@AppDetails' 
 appDetails_userProfileName :: Lens.Lens' AppDetails (Prelude.Maybe Prelude.Text)
 appDetails_userProfileName = Lens.lens (\AppDetails' {userProfileName} -> userProfileName) (\s@AppDetails' {} a -> s {userProfileName = a} :: AppDetails)
 
--- | The name of the app.
-appDetails_appName :: Lens.Lens' AppDetails (Prelude.Maybe Prelude.Text)
-appDetails_appName = Lens.lens (\AppDetails' {appName} -> appName) (\s@AppDetails' {} a -> s {appName = a} :: AppDetails)
+-- | The creation time.
+appDetails_creationTime :: Lens.Lens' AppDetails (Prelude.Maybe Prelude.UTCTime)
+appDetails_creationTime = Lens.lens (\AppDetails' {creationTime} -> creationTime) (\s@AppDetails' {} a -> s {creationTime = a} :: AppDetails) Prelude.. Lens.mapping Core._Time
 
 -- | The domain ID.
 appDetails_domainId :: Lens.Lens' AppDetails (Prelude.Maybe Prelude.Text)
 appDetails_domainId = Lens.lens (\AppDetails' {domainId} -> domainId) (\s@AppDetails' {} a -> s {domainId = a} :: AppDetails)
-
--- | The type of app.
-appDetails_appType :: Lens.Lens' AppDetails (Prelude.Maybe AppType)
-appDetails_appType = Lens.lens (\AppDetails' {appType} -> appType) (\s@AppDetails' {} a -> s {appType = a} :: AppDetails)
 
 instance Core.FromJSON AppDetails where
   parseJSON =
@@ -105,28 +105,28 @@ instance Core.FromJSON AppDetails where
       "AppDetails"
       ( \x ->
           AppDetails'
-            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "AppName")
+            Prelude.<*> (x Core..:? "AppType")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "UserProfileName")
-            Prelude.<*> (x Core..:? "AppName")
+            Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "DomainId")
-            Prelude.<*> (x Core..:? "AppType")
       )
 
 instance Prelude.Hashable AppDetails where
   hashWithSalt _salt AppDetails' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt `Prelude.hashWithSalt` appName
+      `Prelude.hashWithSalt` appType
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` userProfileName
-      `Prelude.hashWithSalt` appName
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` domainId
-      `Prelude.hashWithSalt` appType
 
 instance Prelude.NFData AppDetails where
   rnf AppDetails' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf appName
+      `Prelude.seq` Prelude.rnf appType
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf userProfileName
-      `Prelude.seq` Prelude.rnf appName
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf appType

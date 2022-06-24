@@ -31,8 +31,8 @@ module Amazonka.SageMaker.CreateApp
     newCreateApp,
 
     -- * Request Lenses
-    createApp_resourceSpec,
     createApp_tags,
+    createApp_resourceSpec,
     createApp_domainId,
     createApp_userProfileName,
     createApp_appType,
@@ -57,12 +57,12 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateApp' smart constructor.
 data CreateApp = CreateApp'
-  { -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker
-    -- image created on the instance.
-    resourceSpec :: Prelude.Maybe ResourceSpec,
-    -- | Each tag consists of a key and an optional value. Tag keys must be
+  { -- | Each tag consists of a key and an optional value. Tag keys must be
     -- unique per resource.
     tags :: Prelude.Maybe [Tag],
+    -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker
+    -- image created on the instance.
+    resourceSpec :: Prelude.Maybe ResourceSpec,
     -- | The domain ID.
     domainId :: Prelude.Text,
     -- | The user profile name.
@@ -83,11 +83,11 @@ data CreateApp = CreateApp'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceSpec', 'createApp_resourceSpec' - The instance type and the Amazon Resource Name (ARN) of the SageMaker
--- image created on the instance.
---
 -- 'tags', 'createApp_tags' - Each tag consists of a key and an optional value. Tag keys must be
 -- unique per resource.
+--
+-- 'resourceSpec', 'createApp_resourceSpec' - The instance type and the Amazon Resource Name (ARN) of the SageMaker
+-- image created on the instance.
 --
 -- 'domainId', 'createApp_domainId' - The domain ID.
 --
@@ -113,23 +113,23 @@ newCreateApp
   pAppType_
   pAppName_ =
     CreateApp'
-      { resourceSpec = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        resourceSpec = Prelude.Nothing,
         domainId = pDomainId_,
         userProfileName = pUserProfileName_,
         appType = pAppType_,
         appName = pAppName_
       }
 
--- | The instance type and the Amazon Resource Name (ARN) of the SageMaker
--- image created on the instance.
-createApp_resourceSpec :: Lens.Lens' CreateApp (Prelude.Maybe ResourceSpec)
-createApp_resourceSpec = Lens.lens (\CreateApp' {resourceSpec} -> resourceSpec) (\s@CreateApp' {} a -> s {resourceSpec = a} :: CreateApp)
-
 -- | Each tag consists of a key and an optional value. Tag keys must be
 -- unique per resource.
 createApp_tags :: Lens.Lens' CreateApp (Prelude.Maybe [Tag])
 createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s {tags = a} :: CreateApp) Prelude.. Lens.mapping Lens.coerced
+
+-- | The instance type and the Amazon Resource Name (ARN) of the SageMaker
+-- image created on the instance.
+createApp_resourceSpec :: Lens.Lens' CreateApp (Prelude.Maybe ResourceSpec)
+createApp_resourceSpec = Lens.lens (\CreateApp' {resourceSpec} -> resourceSpec) (\s@CreateApp' {} a -> s {resourceSpec = a} :: CreateApp)
 
 -- | The domain ID.
 createApp_domainId :: Lens.Lens' CreateApp Prelude.Text
@@ -161,8 +161,8 @@ instance Core.AWSRequest CreateApp where
 
 instance Prelude.Hashable CreateApp where
   hashWithSalt _salt CreateApp' {..} =
-    _salt `Prelude.hashWithSalt` resourceSpec
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceSpec
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` userProfileName
       `Prelude.hashWithSalt` appType
@@ -170,8 +170,8 @@ instance Prelude.Hashable CreateApp where
 
 instance Prelude.NFData CreateApp where
   rnf CreateApp' {..} =
-    Prelude.rnf resourceSpec
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceSpec
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf userProfileName
       `Prelude.seq` Prelude.rnf appType
@@ -194,8 +194,8 @@ instance Core.ToJSON CreateApp where
   toJSON CreateApp' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceSpec" Core..=) Prelude.<$> resourceSpec,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ResourceSpec" Core..=) Prelude.<$> resourceSpec,
             Prelude.Just ("DomainId" Core..= domainId),
             Prelude.Just
               ("UserProfileName" Core..= userProfileName),

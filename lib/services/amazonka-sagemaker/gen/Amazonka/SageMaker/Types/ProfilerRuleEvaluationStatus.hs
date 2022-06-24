@@ -28,16 +28,16 @@ import Amazonka.SageMaker.Types.RuleEvaluationStatus
 --
 -- /See:/ 'newProfilerRuleEvaluationStatus' smart constructor.
 data ProfilerRuleEvaluationStatus = ProfilerRuleEvaluationStatus'
-  { -- | Timestamp when the rule evaluation status was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | Details from the rule evaluation.
+  { -- | Details from the rule evaluation.
     statusDetails :: Prelude.Maybe Prelude.Text,
-    -- | Status of the rule evaluation.
-    ruleEvaluationStatus :: Prelude.Maybe RuleEvaluationStatus,
+    -- | Timestamp when the rule evaluation status was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the rule evaluation job.
     ruleEvaluationJobArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the rule configuration.
-    ruleConfigurationName :: Prelude.Maybe Prelude.Text
+    ruleConfigurationName :: Prelude.Maybe Prelude.Text,
+    -- | Status of the rule evaluation.
+    ruleEvaluationStatus :: Prelude.Maybe RuleEvaluationStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,38 +49,34 @@ data ProfilerRuleEvaluationStatus = ProfilerRuleEvaluationStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedTime', 'profilerRuleEvaluationStatus_lastModifiedTime' - Timestamp when the rule evaluation status was last modified.
---
 -- 'statusDetails', 'profilerRuleEvaluationStatus_statusDetails' - Details from the rule evaluation.
 --
--- 'ruleEvaluationStatus', 'profilerRuleEvaluationStatus_ruleEvaluationStatus' - Status of the rule evaluation.
+-- 'lastModifiedTime', 'profilerRuleEvaluationStatus_lastModifiedTime' - Timestamp when the rule evaluation status was last modified.
 --
 -- 'ruleEvaluationJobArn', 'profilerRuleEvaluationStatus_ruleEvaluationJobArn' - The Amazon Resource Name (ARN) of the rule evaluation job.
 --
 -- 'ruleConfigurationName', 'profilerRuleEvaluationStatus_ruleConfigurationName' - The name of the rule configuration.
+--
+-- 'ruleEvaluationStatus', 'profilerRuleEvaluationStatus_ruleEvaluationStatus' - Status of the rule evaluation.
 newProfilerRuleEvaluationStatus ::
   ProfilerRuleEvaluationStatus
 newProfilerRuleEvaluationStatus =
   ProfilerRuleEvaluationStatus'
-    { lastModifiedTime =
+    { statusDetails =
         Prelude.Nothing,
-      statusDetails = Prelude.Nothing,
-      ruleEvaluationStatus = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
       ruleEvaluationJobArn = Prelude.Nothing,
-      ruleConfigurationName = Prelude.Nothing
+      ruleConfigurationName = Prelude.Nothing,
+      ruleEvaluationStatus = Prelude.Nothing
     }
-
--- | Timestamp when the rule evaluation status was last modified.
-profilerRuleEvaluationStatus_lastModifiedTime :: Lens.Lens' ProfilerRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
-profilerRuleEvaluationStatus_lastModifiedTime = Lens.lens (\ProfilerRuleEvaluationStatus' {lastModifiedTime} -> lastModifiedTime) (\s@ProfilerRuleEvaluationStatus' {} a -> s {lastModifiedTime = a} :: ProfilerRuleEvaluationStatus) Prelude.. Lens.mapping Core._Time
 
 -- | Details from the rule evaluation.
 profilerRuleEvaluationStatus_statusDetails :: Lens.Lens' ProfilerRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
 profilerRuleEvaluationStatus_statusDetails = Lens.lens (\ProfilerRuleEvaluationStatus' {statusDetails} -> statusDetails) (\s@ProfilerRuleEvaluationStatus' {} a -> s {statusDetails = a} :: ProfilerRuleEvaluationStatus)
 
--- | Status of the rule evaluation.
-profilerRuleEvaluationStatus_ruleEvaluationStatus :: Lens.Lens' ProfilerRuleEvaluationStatus (Prelude.Maybe RuleEvaluationStatus)
-profilerRuleEvaluationStatus_ruleEvaluationStatus = Lens.lens (\ProfilerRuleEvaluationStatus' {ruleEvaluationStatus} -> ruleEvaluationStatus) (\s@ProfilerRuleEvaluationStatus' {} a -> s {ruleEvaluationStatus = a} :: ProfilerRuleEvaluationStatus)
+-- | Timestamp when the rule evaluation status was last modified.
+profilerRuleEvaluationStatus_lastModifiedTime :: Lens.Lens' ProfilerRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
+profilerRuleEvaluationStatus_lastModifiedTime = Lens.lens (\ProfilerRuleEvaluationStatus' {lastModifiedTime} -> lastModifiedTime) (\s@ProfilerRuleEvaluationStatus' {} a -> s {lastModifiedTime = a} :: ProfilerRuleEvaluationStatus) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the rule evaluation job.
 profilerRuleEvaluationStatus_ruleEvaluationJobArn :: Lens.Lens' ProfilerRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
@@ -90,17 +86,21 @@ profilerRuleEvaluationStatus_ruleEvaluationJobArn = Lens.lens (\ProfilerRuleEval
 profilerRuleEvaluationStatus_ruleConfigurationName :: Lens.Lens' ProfilerRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
 profilerRuleEvaluationStatus_ruleConfigurationName = Lens.lens (\ProfilerRuleEvaluationStatus' {ruleConfigurationName} -> ruleConfigurationName) (\s@ProfilerRuleEvaluationStatus' {} a -> s {ruleConfigurationName = a} :: ProfilerRuleEvaluationStatus)
 
+-- | Status of the rule evaluation.
+profilerRuleEvaluationStatus_ruleEvaluationStatus :: Lens.Lens' ProfilerRuleEvaluationStatus (Prelude.Maybe RuleEvaluationStatus)
+profilerRuleEvaluationStatus_ruleEvaluationStatus = Lens.lens (\ProfilerRuleEvaluationStatus' {ruleEvaluationStatus} -> ruleEvaluationStatus) (\s@ProfilerRuleEvaluationStatus' {} a -> s {ruleEvaluationStatus = a} :: ProfilerRuleEvaluationStatus)
+
 instance Core.FromJSON ProfilerRuleEvaluationStatus where
   parseJSON =
     Core.withObject
       "ProfilerRuleEvaluationStatus"
       ( \x ->
           ProfilerRuleEvaluationStatus'
-            Prelude.<$> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "StatusDetails")
-            Prelude.<*> (x Core..:? "RuleEvaluationStatus")
+            Prelude.<$> (x Core..:? "StatusDetails")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "RuleEvaluationJobArn")
             Prelude.<*> (x Core..:? "RuleConfigurationName")
+            Prelude.<*> (x Core..:? "RuleEvaluationStatus")
       )
 
 instance
@@ -108,16 +108,16 @@ instance
     ProfilerRuleEvaluationStatus
   where
   hashWithSalt _salt ProfilerRuleEvaluationStatus' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` statusDetails
-      `Prelude.hashWithSalt` ruleEvaluationStatus
+    _salt `Prelude.hashWithSalt` statusDetails
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` ruleEvaluationJobArn
       `Prelude.hashWithSalt` ruleConfigurationName
+      `Prelude.hashWithSalt` ruleEvaluationStatus
 
 instance Prelude.NFData ProfilerRuleEvaluationStatus where
   rnf ProfilerRuleEvaluationStatus' {..} =
-    Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf ruleEvaluationStatus
+    Prelude.rnf statusDetails
+      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf ruleEvaluationJobArn
       `Prelude.seq` Prelude.rnf ruleConfigurationName
+      `Prelude.seq` Prelude.rnf ruleEvaluationStatus

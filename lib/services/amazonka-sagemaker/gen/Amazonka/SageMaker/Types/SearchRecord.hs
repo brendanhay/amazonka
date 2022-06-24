@@ -38,22 +38,22 @@ import Amazonka.SageMaker.Types.TrialComponent
 --
 -- /See:/ 'newSearchRecord' smart constructor.
 data SearchRecord = SearchRecord'
-  { -- | The properties of a training job.
+  { modelPackageGroup :: Prelude.Maybe ModelPackageGroup,
+    -- | The properties of a training job.
     trainingJob :: Prelude.Maybe TrainingJob,
-    -- | The properties of a trial.
-    trial :: Prelude.Maybe Trial,
-    modelPackageGroup :: Prelude.Maybe ModelPackageGroup,
-    -- | The properties of a trial component.
-    trialComponent :: Prelude.Maybe TrialComponent,
     -- | The properties of a project.
     project :: Prelude.Maybe Project,
-    pipelineExecution :: Prelude.Maybe PipelineExecution,
-    featureGroup :: Prelude.Maybe FeatureGroup,
+    -- | The properties of a trial component.
+    trialComponent :: Prelude.Maybe TrialComponent,
     -- | The properties of an experiment.
     experiment :: Prelude.Maybe Experiment,
-    pipeline :: Prelude.Maybe Pipeline,
+    endpoint :: Prelude.Maybe Endpoint,
+    -- | The properties of a trial.
+    trial :: Prelude.Maybe Trial,
     modelPackage :: Prelude.Maybe ModelPackage,
-    endpoint :: Prelude.Maybe Endpoint
+    pipeline :: Prelude.Maybe Pipeline,
+    featureGroup :: Prelude.Maybe FeatureGroup,
+    pipelineExecution :: Prelude.Maybe PipelineExecution
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,87 +65,87 @@ data SearchRecord = SearchRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trainingJob', 'searchRecord_trainingJob' - The properties of a training job.
---
--- 'trial', 'searchRecord_trial' - The properties of a trial.
---
 -- 'modelPackageGroup', 'searchRecord_modelPackageGroup' - Undocumented member.
 --
--- 'trialComponent', 'searchRecord_trialComponent' - The properties of a trial component.
+-- 'trainingJob', 'searchRecord_trainingJob' - The properties of a training job.
 --
 -- 'project', 'searchRecord_project' - The properties of a project.
 --
--- 'pipelineExecution', 'searchRecord_pipelineExecution' - Undocumented member.
---
--- 'featureGroup', 'searchRecord_featureGroup' - Undocumented member.
+-- 'trialComponent', 'searchRecord_trialComponent' - The properties of a trial component.
 --
 -- 'experiment', 'searchRecord_experiment' - The properties of an experiment.
 --
--- 'pipeline', 'searchRecord_pipeline' - Undocumented member.
+-- 'endpoint', 'searchRecord_endpoint' - Undocumented member.
+--
+-- 'trial', 'searchRecord_trial' - The properties of a trial.
 --
 -- 'modelPackage', 'searchRecord_modelPackage' - Undocumented member.
 --
--- 'endpoint', 'searchRecord_endpoint' - Undocumented member.
+-- 'pipeline', 'searchRecord_pipeline' - Undocumented member.
+--
+-- 'featureGroup', 'searchRecord_featureGroup' - Undocumented member.
+--
+-- 'pipelineExecution', 'searchRecord_pipelineExecution' - Undocumented member.
 newSearchRecord ::
   SearchRecord
 newSearchRecord =
   SearchRecord'
-    { trainingJob = Prelude.Nothing,
-      trial = Prelude.Nothing,
-      modelPackageGroup = Prelude.Nothing,
-      trialComponent = Prelude.Nothing,
+    { modelPackageGroup = Prelude.Nothing,
+      trainingJob = Prelude.Nothing,
       project = Prelude.Nothing,
-      pipelineExecution = Prelude.Nothing,
-      featureGroup = Prelude.Nothing,
+      trialComponent = Prelude.Nothing,
       experiment = Prelude.Nothing,
-      pipeline = Prelude.Nothing,
+      endpoint = Prelude.Nothing,
+      trial = Prelude.Nothing,
       modelPackage = Prelude.Nothing,
-      endpoint = Prelude.Nothing
+      pipeline = Prelude.Nothing,
+      featureGroup = Prelude.Nothing,
+      pipelineExecution = Prelude.Nothing
     }
-
--- | The properties of a training job.
-searchRecord_trainingJob :: Lens.Lens' SearchRecord (Prelude.Maybe TrainingJob)
-searchRecord_trainingJob = Lens.lens (\SearchRecord' {trainingJob} -> trainingJob) (\s@SearchRecord' {} a -> s {trainingJob = a} :: SearchRecord)
-
--- | The properties of a trial.
-searchRecord_trial :: Lens.Lens' SearchRecord (Prelude.Maybe Trial)
-searchRecord_trial = Lens.lens (\SearchRecord' {trial} -> trial) (\s@SearchRecord' {} a -> s {trial = a} :: SearchRecord)
 
 -- | Undocumented member.
 searchRecord_modelPackageGroup :: Lens.Lens' SearchRecord (Prelude.Maybe ModelPackageGroup)
 searchRecord_modelPackageGroup = Lens.lens (\SearchRecord' {modelPackageGroup} -> modelPackageGroup) (\s@SearchRecord' {} a -> s {modelPackageGroup = a} :: SearchRecord)
 
--- | The properties of a trial component.
-searchRecord_trialComponent :: Lens.Lens' SearchRecord (Prelude.Maybe TrialComponent)
-searchRecord_trialComponent = Lens.lens (\SearchRecord' {trialComponent} -> trialComponent) (\s@SearchRecord' {} a -> s {trialComponent = a} :: SearchRecord)
+-- | The properties of a training job.
+searchRecord_trainingJob :: Lens.Lens' SearchRecord (Prelude.Maybe TrainingJob)
+searchRecord_trainingJob = Lens.lens (\SearchRecord' {trainingJob} -> trainingJob) (\s@SearchRecord' {} a -> s {trainingJob = a} :: SearchRecord)
 
 -- | The properties of a project.
 searchRecord_project :: Lens.Lens' SearchRecord (Prelude.Maybe Project)
 searchRecord_project = Lens.lens (\SearchRecord' {project} -> project) (\s@SearchRecord' {} a -> s {project = a} :: SearchRecord)
 
--- | Undocumented member.
-searchRecord_pipelineExecution :: Lens.Lens' SearchRecord (Prelude.Maybe PipelineExecution)
-searchRecord_pipelineExecution = Lens.lens (\SearchRecord' {pipelineExecution} -> pipelineExecution) (\s@SearchRecord' {} a -> s {pipelineExecution = a} :: SearchRecord)
-
--- | Undocumented member.
-searchRecord_featureGroup :: Lens.Lens' SearchRecord (Prelude.Maybe FeatureGroup)
-searchRecord_featureGroup = Lens.lens (\SearchRecord' {featureGroup} -> featureGroup) (\s@SearchRecord' {} a -> s {featureGroup = a} :: SearchRecord)
+-- | The properties of a trial component.
+searchRecord_trialComponent :: Lens.Lens' SearchRecord (Prelude.Maybe TrialComponent)
+searchRecord_trialComponent = Lens.lens (\SearchRecord' {trialComponent} -> trialComponent) (\s@SearchRecord' {} a -> s {trialComponent = a} :: SearchRecord)
 
 -- | The properties of an experiment.
 searchRecord_experiment :: Lens.Lens' SearchRecord (Prelude.Maybe Experiment)
 searchRecord_experiment = Lens.lens (\SearchRecord' {experiment} -> experiment) (\s@SearchRecord' {} a -> s {experiment = a} :: SearchRecord)
 
 -- | Undocumented member.
-searchRecord_pipeline :: Lens.Lens' SearchRecord (Prelude.Maybe Pipeline)
-searchRecord_pipeline = Lens.lens (\SearchRecord' {pipeline} -> pipeline) (\s@SearchRecord' {} a -> s {pipeline = a} :: SearchRecord)
+searchRecord_endpoint :: Lens.Lens' SearchRecord (Prelude.Maybe Endpoint)
+searchRecord_endpoint = Lens.lens (\SearchRecord' {endpoint} -> endpoint) (\s@SearchRecord' {} a -> s {endpoint = a} :: SearchRecord)
+
+-- | The properties of a trial.
+searchRecord_trial :: Lens.Lens' SearchRecord (Prelude.Maybe Trial)
+searchRecord_trial = Lens.lens (\SearchRecord' {trial} -> trial) (\s@SearchRecord' {} a -> s {trial = a} :: SearchRecord)
 
 -- | Undocumented member.
 searchRecord_modelPackage :: Lens.Lens' SearchRecord (Prelude.Maybe ModelPackage)
 searchRecord_modelPackage = Lens.lens (\SearchRecord' {modelPackage} -> modelPackage) (\s@SearchRecord' {} a -> s {modelPackage = a} :: SearchRecord)
 
 -- | Undocumented member.
-searchRecord_endpoint :: Lens.Lens' SearchRecord (Prelude.Maybe Endpoint)
-searchRecord_endpoint = Lens.lens (\SearchRecord' {endpoint} -> endpoint) (\s@SearchRecord' {} a -> s {endpoint = a} :: SearchRecord)
+searchRecord_pipeline :: Lens.Lens' SearchRecord (Prelude.Maybe Pipeline)
+searchRecord_pipeline = Lens.lens (\SearchRecord' {pipeline} -> pipeline) (\s@SearchRecord' {} a -> s {pipeline = a} :: SearchRecord)
+
+-- | Undocumented member.
+searchRecord_featureGroup :: Lens.Lens' SearchRecord (Prelude.Maybe FeatureGroup)
+searchRecord_featureGroup = Lens.lens (\SearchRecord' {featureGroup} -> featureGroup) (\s@SearchRecord' {} a -> s {featureGroup = a} :: SearchRecord)
+
+-- | Undocumented member.
+searchRecord_pipelineExecution :: Lens.Lens' SearchRecord (Prelude.Maybe PipelineExecution)
+searchRecord_pipelineExecution = Lens.lens (\SearchRecord' {pipelineExecution} -> pipelineExecution) (\s@SearchRecord' {} a -> s {pipelineExecution = a} :: SearchRecord)
 
 instance Core.FromJSON SearchRecord where
   parseJSON =
@@ -153,43 +153,43 @@ instance Core.FromJSON SearchRecord where
       "SearchRecord"
       ( \x ->
           SearchRecord'
-            Prelude.<$> (x Core..:? "TrainingJob")
-            Prelude.<*> (x Core..:? "Trial")
-            Prelude.<*> (x Core..:? "ModelPackageGroup")
-            Prelude.<*> (x Core..:? "TrialComponent")
+            Prelude.<$> (x Core..:? "ModelPackageGroup")
+            Prelude.<*> (x Core..:? "TrainingJob")
             Prelude.<*> (x Core..:? "Project")
-            Prelude.<*> (x Core..:? "PipelineExecution")
-            Prelude.<*> (x Core..:? "FeatureGroup")
+            Prelude.<*> (x Core..:? "TrialComponent")
             Prelude.<*> (x Core..:? "Experiment")
-            Prelude.<*> (x Core..:? "Pipeline")
-            Prelude.<*> (x Core..:? "ModelPackage")
             Prelude.<*> (x Core..:? "Endpoint")
+            Prelude.<*> (x Core..:? "Trial")
+            Prelude.<*> (x Core..:? "ModelPackage")
+            Prelude.<*> (x Core..:? "Pipeline")
+            Prelude.<*> (x Core..:? "FeatureGroup")
+            Prelude.<*> (x Core..:? "PipelineExecution")
       )
 
 instance Prelude.Hashable SearchRecord where
   hashWithSalt _salt SearchRecord' {..} =
-    _salt `Prelude.hashWithSalt` trainingJob
-      `Prelude.hashWithSalt` trial
-      `Prelude.hashWithSalt` modelPackageGroup
-      `Prelude.hashWithSalt` trialComponent
+    _salt `Prelude.hashWithSalt` modelPackageGroup
+      `Prelude.hashWithSalt` trainingJob
       `Prelude.hashWithSalt` project
-      `Prelude.hashWithSalt` pipelineExecution
-      `Prelude.hashWithSalt` featureGroup
+      `Prelude.hashWithSalt` trialComponent
       `Prelude.hashWithSalt` experiment
-      `Prelude.hashWithSalt` pipeline
-      `Prelude.hashWithSalt` modelPackage
       `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` trial
+      `Prelude.hashWithSalt` modelPackage
+      `Prelude.hashWithSalt` pipeline
+      `Prelude.hashWithSalt` featureGroup
+      `Prelude.hashWithSalt` pipelineExecution
 
 instance Prelude.NFData SearchRecord where
   rnf SearchRecord' {..} =
-    Prelude.rnf trainingJob
-      `Prelude.seq` Prelude.rnf trial
-      `Prelude.seq` Prelude.rnf modelPackageGroup
-      `Prelude.seq` Prelude.rnf trialComponent
+    Prelude.rnf modelPackageGroup
+      `Prelude.seq` Prelude.rnf trainingJob
       `Prelude.seq` Prelude.rnf project
-      `Prelude.seq` Prelude.rnf pipelineExecution
-      `Prelude.seq` Prelude.rnf featureGroup
+      `Prelude.seq` Prelude.rnf trialComponent
       `Prelude.seq` Prelude.rnf experiment
-      `Prelude.seq` Prelude.rnf pipeline
-      `Prelude.seq` Prelude.rnf modelPackage
       `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf trial
+      `Prelude.seq` Prelude.rnf modelPackage
+      `Prelude.seq` Prelude.rnf pipeline
+      `Prelude.seq` Prelude.rnf featureGroup
+      `Prelude.seq` Prelude.rnf pipelineExecution

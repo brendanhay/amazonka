@@ -35,8 +35,8 @@ module Amazonka.SageMaker.DescribeProject
 
     -- * Response Lenses
     describeProjectResponse_serviceCatalogProvisionedProductDetails,
-    describeProjectResponse_createdBy,
     describeProjectResponse_projectDescription,
+    describeProjectResponse_createdBy,
     describeProjectResponse_httpStatus,
     describeProjectResponse_projectArn,
     describeProjectResponse_projectName,
@@ -93,8 +93,8 @@ instance Core.AWSRequest DescribeProject where
             Prelude.<$> ( x
                             Core..?> "ServiceCatalogProvisionedProductDetails"
                         )
-            Prelude.<*> (x Core..?> "CreatedBy")
             Prelude.<*> (x Core..?> "ProjectDescription")
+            Prelude.<*> (x Core..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ProjectArn")
             Prelude.<*> (x Core..:> "ProjectName")
@@ -141,9 +141,9 @@ instance Core.ToQuery DescribeProject where
 data DescribeProjectResponse = DescribeProjectResponse'
   { -- | Information about a provisioned service catalog product.
     serviceCatalogProvisionedProductDetails :: Prelude.Maybe ServiceCatalogProvisionedProductDetails,
-    createdBy :: Prelude.Maybe UserContext,
     -- | The description of the project.
     projectDescription :: Prelude.Maybe Prelude.Text,
+    createdBy :: Prelude.Maybe UserContext,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the project.
@@ -173,9 +173,9 @@ data DescribeProjectResponse = DescribeProjectResponse'
 --
 -- 'serviceCatalogProvisionedProductDetails', 'describeProjectResponse_serviceCatalogProvisionedProductDetails' - Information about a provisioned service catalog product.
 --
--- 'createdBy', 'describeProjectResponse_createdBy' - Undocumented member.
---
 -- 'projectDescription', 'describeProjectResponse_projectDescription' - The description of the project.
+--
+-- 'createdBy', 'describeProjectResponse_createdBy' - Undocumented member.
 --
 -- 'httpStatus', 'describeProjectResponse_httpStatus' - The response's http status code.
 --
@@ -219,8 +219,8 @@ newDescribeProjectResponse
     DescribeProjectResponse'
       { serviceCatalogProvisionedProductDetails =
           Prelude.Nothing,
-        createdBy = Prelude.Nothing,
         projectDescription = Prelude.Nothing,
+        createdBy = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         projectArn = pProjectArn_,
         projectName = pProjectName_,
@@ -235,13 +235,13 @@ newDescribeProjectResponse
 describeProjectResponse_serviceCatalogProvisionedProductDetails :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe ServiceCatalogProvisionedProductDetails)
 describeProjectResponse_serviceCatalogProvisionedProductDetails = Lens.lens (\DescribeProjectResponse' {serviceCatalogProvisionedProductDetails} -> serviceCatalogProvisionedProductDetails) (\s@DescribeProjectResponse' {} a -> s {serviceCatalogProvisionedProductDetails = a} :: DescribeProjectResponse)
 
--- | Undocumented member.
-describeProjectResponse_createdBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe UserContext)
-describeProjectResponse_createdBy = Lens.lens (\DescribeProjectResponse' {createdBy} -> createdBy) (\s@DescribeProjectResponse' {} a -> s {createdBy = a} :: DescribeProjectResponse)
-
 -- | The description of the project.
 describeProjectResponse_projectDescription :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
 describeProjectResponse_projectDescription = Lens.lens (\DescribeProjectResponse' {projectDescription} -> projectDescription) (\s@DescribeProjectResponse' {} a -> s {projectDescription = a} :: DescribeProjectResponse)
+
+-- | Undocumented member.
+describeProjectResponse_createdBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe UserContext)
+describeProjectResponse_createdBy = Lens.lens (\DescribeProjectResponse' {createdBy} -> createdBy) (\s@DescribeProjectResponse' {} a -> s {createdBy = a} :: DescribeProjectResponse)
 
 -- | The response's http status code.
 describeProjectResponse_httpStatus :: Lens.Lens' DescribeProjectResponse Prelude.Int
@@ -276,8 +276,8 @@ describeProjectResponse_creationTime = Lens.lens (\DescribeProjectResponse' {cre
 instance Prelude.NFData DescribeProjectResponse where
   rnf DescribeProjectResponse' {..} =
     Prelude.rnf serviceCatalogProvisionedProductDetails
-      `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf projectDescription
+      `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf projectArn
       `Prelude.seq` Prelude.rnf projectName

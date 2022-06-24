@@ -30,18 +30,18 @@ import Amazonka.SageMaker.Types.ExperimentSource
 --
 -- /See:/ 'newExperimentSummary' smart constructor.
 data ExperimentSummary = ExperimentSummary'
-  { -- | When the experiment was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The name of the experiment as displayed. If @DisplayName@ isn\'t
+    -- specified, @ExperimentName@ is displayed.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | When the experiment was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the experiment.
-    experimentName :: Prelude.Maybe Prelude.Text,
     experimentSource :: Prelude.Maybe ExperimentSource,
     -- | The Amazon Resource Name (ARN) of the experiment.
     experimentArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the experiment as displayed. If @DisplayName@ isn\'t
-    -- specified, @ExperimentName@ is displayed.
-    displayName :: Prelude.Maybe Prelude.Text
+    -- | When the experiment was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the experiment.
+    experimentName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,41 +53,38 @@ data ExperimentSummary = ExperimentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'experimentSummary_creationTime' - When the experiment was created.
+-- 'displayName', 'experimentSummary_displayName' - The name of the experiment as displayed. If @DisplayName@ isn\'t
+-- specified, @ExperimentName@ is displayed.
 --
 -- 'lastModifiedTime', 'experimentSummary_lastModifiedTime' - When the experiment was last modified.
---
--- 'experimentName', 'experimentSummary_experimentName' - The name of the experiment.
 --
 -- 'experimentSource', 'experimentSummary_experimentSource' - Undocumented member.
 --
 -- 'experimentArn', 'experimentSummary_experimentArn' - The Amazon Resource Name (ARN) of the experiment.
 --
--- 'displayName', 'experimentSummary_displayName' - The name of the experiment as displayed. If @DisplayName@ isn\'t
--- specified, @ExperimentName@ is displayed.
+-- 'creationTime', 'experimentSummary_creationTime' - When the experiment was created.
+--
+-- 'experimentName', 'experimentSummary_experimentName' - The name of the experiment.
 newExperimentSummary ::
   ExperimentSummary
 newExperimentSummary =
   ExperimentSummary'
-    { creationTime = Prelude.Nothing,
+    { displayName = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      experimentName = Prelude.Nothing,
       experimentSource = Prelude.Nothing,
       experimentArn = Prelude.Nothing,
-      displayName = Prelude.Nothing
+      creationTime = Prelude.Nothing,
+      experimentName = Prelude.Nothing
     }
 
--- | When the experiment was created.
-experimentSummary_creationTime :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.UTCTime)
-experimentSummary_creationTime = Lens.lens (\ExperimentSummary' {creationTime} -> creationTime) (\s@ExperimentSummary' {} a -> s {creationTime = a} :: ExperimentSummary) Prelude.. Lens.mapping Core._Time
+-- | The name of the experiment as displayed. If @DisplayName@ isn\'t
+-- specified, @ExperimentName@ is displayed.
+experimentSummary_displayName :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.Text)
+experimentSummary_displayName = Lens.lens (\ExperimentSummary' {displayName} -> displayName) (\s@ExperimentSummary' {} a -> s {displayName = a} :: ExperimentSummary)
 
 -- | When the experiment was last modified.
 experimentSummary_lastModifiedTime :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.UTCTime)
 experimentSummary_lastModifiedTime = Lens.lens (\ExperimentSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ExperimentSummary' {} a -> s {lastModifiedTime = a} :: ExperimentSummary) Prelude.. Lens.mapping Core._Time
-
--- | The name of the experiment.
-experimentSummary_experimentName :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.Text)
-experimentSummary_experimentName = Lens.lens (\ExperimentSummary' {experimentName} -> experimentName) (\s@ExperimentSummary' {} a -> s {experimentName = a} :: ExperimentSummary)
 
 -- | Undocumented member.
 experimentSummary_experimentSource :: Lens.Lens' ExperimentSummary (Prelude.Maybe ExperimentSource)
@@ -97,10 +94,13 @@ experimentSummary_experimentSource = Lens.lens (\ExperimentSummary' {experimentS
 experimentSummary_experimentArn :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.Text)
 experimentSummary_experimentArn = Lens.lens (\ExperimentSummary' {experimentArn} -> experimentArn) (\s@ExperimentSummary' {} a -> s {experimentArn = a} :: ExperimentSummary)
 
--- | The name of the experiment as displayed. If @DisplayName@ isn\'t
--- specified, @ExperimentName@ is displayed.
-experimentSummary_displayName :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.Text)
-experimentSummary_displayName = Lens.lens (\ExperimentSummary' {displayName} -> displayName) (\s@ExperimentSummary' {} a -> s {displayName = a} :: ExperimentSummary)
+-- | When the experiment was created.
+experimentSummary_creationTime :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.UTCTime)
+experimentSummary_creationTime = Lens.lens (\ExperimentSummary' {creationTime} -> creationTime) (\s@ExperimentSummary' {} a -> s {creationTime = a} :: ExperimentSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the experiment.
+experimentSummary_experimentName :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.Text)
+experimentSummary_experimentName = Lens.lens (\ExperimentSummary' {experimentName} -> experimentName) (\s@ExperimentSummary' {} a -> s {experimentName = a} :: ExperimentSummary)
 
 instance Core.FromJSON ExperimentSummary where
   parseJSON =
@@ -108,28 +108,28 @@ instance Core.FromJSON ExperimentSummary where
       "ExperimentSummary"
       ( \x ->
           ExperimentSummary'
-            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "DisplayName")
             Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "ExperimentName")
             Prelude.<*> (x Core..:? "ExperimentSource")
             Prelude.<*> (x Core..:? "ExperimentArn")
-            Prelude.<*> (x Core..:? "DisplayName")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "ExperimentName")
       )
 
 instance Prelude.Hashable ExperimentSummary where
   hashWithSalt _salt ExperimentSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` experimentName
       `Prelude.hashWithSalt` experimentSource
       `Prelude.hashWithSalt` experimentArn
-      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` experimentName
 
 instance Prelude.NFData ExperimentSummary where
   rnf ExperimentSummary' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf experimentName
       `Prelude.seq` Prelude.rnf experimentSource
       `Prelude.seq` Prelude.rnf experimentArn
-      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf experimentName

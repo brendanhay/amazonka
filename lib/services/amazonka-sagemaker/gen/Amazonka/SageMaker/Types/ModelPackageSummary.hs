@@ -29,7 +29,12 @@ import Amazonka.SageMaker.Types.ModelPackageStatus
 --
 -- /See:/ 'newModelPackageSummary' smart constructor.
 data ModelPackageSummary = ModelPackageSummary'
-  { -- | The approval status of the model. This can be one of the following
+  { -- | If the model package is a versioned model, the version of the model.
+    modelPackageVersion :: Prelude.Maybe Prelude.Natural,
+    -- | If the model package is a versioned model, the model group that the
+    -- versioned model belongs to.
+    modelPackageGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The approval status of the model. This can be one of the following
     -- values.
     --
     -- -   @APPROVED@ - The model is approved
@@ -41,11 +46,6 @@ data ModelPackageSummary = ModelPackageSummary'
     modelApprovalStatus :: Prelude.Maybe ModelApprovalStatus,
     -- | A brief description of the model package.
     modelPackageDescription :: Prelude.Maybe Prelude.Text,
-    -- | If the model package is a versioned model, the version of the model.
-    modelPackageVersion :: Prelude.Maybe Prelude.Natural,
-    -- | If the model package is a versioned model, the model group that the
-    -- versioned model belongs to.
-    modelPackageGroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the model package.
     modelPackageName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the model package.
@@ -65,6 +65,11 @@ data ModelPackageSummary = ModelPackageSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'modelPackageVersion', 'modelPackageSummary_modelPackageVersion' - If the model package is a versioned model, the version of the model.
+--
+-- 'modelPackageGroupName', 'modelPackageSummary_modelPackageGroupName' - If the model package is a versioned model, the model group that the
+-- versioned model belongs to.
+--
 -- 'modelApprovalStatus', 'modelPackageSummary_modelApprovalStatus' - The approval status of the model. This can be one of the following
 -- values.
 --
@@ -76,11 +81,6 @@ data ModelPackageSummary = ModelPackageSummary'
 --     approval.
 --
 -- 'modelPackageDescription', 'modelPackageSummary_modelPackageDescription' - A brief description of the model package.
---
--- 'modelPackageVersion', 'modelPackageSummary_modelPackageVersion' - If the model package is a versioned model, the version of the model.
---
--- 'modelPackageGroupName', 'modelPackageSummary_modelPackageGroupName' - If the model package is a versioned model, the model group that the
--- versioned model belongs to.
 --
 -- 'modelPackageName', 'modelPackageSummary_modelPackageName' - The name of the model package.
 --
@@ -105,16 +105,25 @@ newModelPackageSummary
   pCreationTime_
   pModelPackageStatus_ =
     ModelPackageSummary'
-      { modelApprovalStatus =
+      { modelPackageVersion =
           Prelude.Nothing,
-        modelPackageDescription = Prelude.Nothing,
-        modelPackageVersion = Prelude.Nothing,
         modelPackageGroupName = Prelude.Nothing,
+        modelApprovalStatus = Prelude.Nothing,
+        modelPackageDescription = Prelude.Nothing,
         modelPackageName = pModelPackageName_,
         modelPackageArn = pModelPackageArn_,
         creationTime = Core._Time Lens.# pCreationTime_,
         modelPackageStatus = pModelPackageStatus_
       }
+
+-- | If the model package is a versioned model, the version of the model.
+modelPackageSummary_modelPackageVersion :: Lens.Lens' ModelPackageSummary (Prelude.Maybe Prelude.Natural)
+modelPackageSummary_modelPackageVersion = Lens.lens (\ModelPackageSummary' {modelPackageVersion} -> modelPackageVersion) (\s@ModelPackageSummary' {} a -> s {modelPackageVersion = a} :: ModelPackageSummary)
+
+-- | If the model package is a versioned model, the model group that the
+-- versioned model belongs to.
+modelPackageSummary_modelPackageGroupName :: Lens.Lens' ModelPackageSummary (Prelude.Maybe Prelude.Text)
+modelPackageSummary_modelPackageGroupName = Lens.lens (\ModelPackageSummary' {modelPackageGroupName} -> modelPackageGroupName) (\s@ModelPackageSummary' {} a -> s {modelPackageGroupName = a} :: ModelPackageSummary)
 
 -- | The approval status of the model. This can be one of the following
 -- values.
@@ -131,15 +140,6 @@ modelPackageSummary_modelApprovalStatus = Lens.lens (\ModelPackageSummary' {mode
 -- | A brief description of the model package.
 modelPackageSummary_modelPackageDescription :: Lens.Lens' ModelPackageSummary (Prelude.Maybe Prelude.Text)
 modelPackageSummary_modelPackageDescription = Lens.lens (\ModelPackageSummary' {modelPackageDescription} -> modelPackageDescription) (\s@ModelPackageSummary' {} a -> s {modelPackageDescription = a} :: ModelPackageSummary)
-
--- | If the model package is a versioned model, the version of the model.
-modelPackageSummary_modelPackageVersion :: Lens.Lens' ModelPackageSummary (Prelude.Maybe Prelude.Natural)
-modelPackageSummary_modelPackageVersion = Lens.lens (\ModelPackageSummary' {modelPackageVersion} -> modelPackageVersion) (\s@ModelPackageSummary' {} a -> s {modelPackageVersion = a} :: ModelPackageSummary)
-
--- | If the model package is a versioned model, the model group that the
--- versioned model belongs to.
-modelPackageSummary_modelPackageGroupName :: Lens.Lens' ModelPackageSummary (Prelude.Maybe Prelude.Text)
-modelPackageSummary_modelPackageGroupName = Lens.lens (\ModelPackageSummary' {modelPackageGroupName} -> modelPackageGroupName) (\s@ModelPackageSummary' {} a -> s {modelPackageGroupName = a} :: ModelPackageSummary)
 
 -- | The name of the model package.
 modelPackageSummary_modelPackageName :: Lens.Lens' ModelPackageSummary Prelude.Text
@@ -163,10 +163,10 @@ instance Core.FromJSON ModelPackageSummary where
       "ModelPackageSummary"
       ( \x ->
           ModelPackageSummary'
-            Prelude.<$> (x Core..:? "ModelApprovalStatus")
-            Prelude.<*> (x Core..:? "ModelPackageDescription")
-            Prelude.<*> (x Core..:? "ModelPackageVersion")
+            Prelude.<$> (x Core..:? "ModelPackageVersion")
             Prelude.<*> (x Core..:? "ModelPackageGroupName")
+            Prelude.<*> (x Core..:? "ModelApprovalStatus")
+            Prelude.<*> (x Core..:? "ModelPackageDescription")
             Prelude.<*> (x Core..: "ModelPackageName")
             Prelude.<*> (x Core..: "ModelPackageArn")
             Prelude.<*> (x Core..: "CreationTime")
@@ -175,10 +175,10 @@ instance Core.FromJSON ModelPackageSummary where
 
 instance Prelude.Hashable ModelPackageSummary where
   hashWithSalt _salt ModelPackageSummary' {..} =
-    _salt `Prelude.hashWithSalt` modelApprovalStatus
-      `Prelude.hashWithSalt` modelPackageDescription
-      `Prelude.hashWithSalt` modelPackageVersion
+    _salt `Prelude.hashWithSalt` modelPackageVersion
       `Prelude.hashWithSalt` modelPackageGroupName
+      `Prelude.hashWithSalt` modelApprovalStatus
+      `Prelude.hashWithSalt` modelPackageDescription
       `Prelude.hashWithSalt` modelPackageName
       `Prelude.hashWithSalt` modelPackageArn
       `Prelude.hashWithSalt` creationTime
@@ -186,10 +186,10 @@ instance Prelude.Hashable ModelPackageSummary where
 
 instance Prelude.NFData ModelPackageSummary where
   rnf ModelPackageSummary' {..} =
-    Prelude.rnf modelApprovalStatus
-      `Prelude.seq` Prelude.rnf modelPackageDescription
-      `Prelude.seq` Prelude.rnf modelPackageVersion
+    Prelude.rnf modelPackageVersion
       `Prelude.seq` Prelude.rnf modelPackageGroupName
+      `Prelude.seq` Prelude.rnf modelApprovalStatus
+      `Prelude.seq` Prelude.rnf modelPackageDescription
       `Prelude.seq` Prelude.rnf modelPackageName
       `Prelude.seq` Prelude.rnf modelPackageArn
       `Prelude.seq` Prelude.rnf creationTime

@@ -28,6 +28,211 @@ import Amazonka.SageMaker.DescribeTransformJob
 import Amazonka.SageMaker.Lens
 import Amazonka.SageMaker.Types
 
+-- | Polls 'Amazonka.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+newEndpointInService :: Core.Wait DescribeEndpoint
+newEndpointInService =
+  Core.Wait
+    { Core._waitName = "EndpointInService",
+      Core._waitAttempts = 120,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "InService"
+            Core.AcceptSuccess
+            ( describeEndpointResponse_endpointStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeEndpointResponse_endpointStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationException"
+            Core.AcceptFailure
+        ]
+    }
+
+-- | Polls 'Amazonka.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newNotebookInstanceStopped :: Core.Wait DescribeNotebookInstance
+newNotebookInstanceStopped =
+  Core.Wait
+    { Core._waitName =
+        "NotebookInstanceStopped",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "Stopped"
+            Core.AcceptSuccess
+            ( describeNotebookInstanceResponse_notebookInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeNotebookInstanceResponse_notebookInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newEndpointDeleted :: Core.Wait DescribeEndpoint
+newEndpointDeleted =
+  Core.Wait
+    { Core._waitName = "EndpointDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchError
+            "ValidationException"
+            Core.AcceptSuccess,
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeEndpointResponse_endpointStatus
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newImageCreated :: Core.Wait DescribeImage
+newImageCreated =
+  Core.Wait
+    { Core._waitName = "ImageCreated",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "CREATED"
+            Core.AcceptSuccess
+            ( describeImageResponse_imageStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "CREATE_FAILED"
+            Core.AcceptFailure
+            ( describeImageResponse_imageStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationException"
+            Core.AcceptFailure
+        ]
+    }
+
+-- | Polls 'Amazonka.SageMaker.DescribeImageVersion' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newImageVersionDeleted :: Core.Wait DescribeImageVersion
+newImageVersionDeleted =
+  Core.Wait
+    { Core._waitName = "ImageVersionDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess,
+          Core.matchAll
+            "DELETE_FAILED"
+            Core.AcceptFailure
+            ( describeImageVersionResponse_imageVersionStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationException"
+            Core.AcceptFailure
+        ]
+    }
+
+-- | Polls 'Amazonka.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newNotebookInstanceDeleted :: Core.Wait DescribeNotebookInstance
+newNotebookInstanceDeleted =
+  Core.Wait
+    { Core._waitName =
+        "NotebookInstanceDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchError
+            "ValidationException"
+            Core.AcceptSuccess,
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeNotebookInstanceResponse_notebookInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.SageMaker.DescribeTrainingJob' every 120 seconds until a successful state is reached. An error is returned after 180 failed checks.
+newTrainingJobCompletedOrStopped :: Core.Wait DescribeTrainingJob
+newTrainingJobCompletedOrStopped =
+  Core.Wait
+    { Core._waitName =
+        "TrainingJobCompletedOrStopped",
+      Core._waitAttempts = 180,
+      Core._waitDelay = 120,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "Completed"
+            Core.AcceptSuccess
+            ( describeTrainingJobResponse_trainingJobStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Stopped"
+            Core.AcceptSuccess
+            ( describeTrainingJobResponse_trainingJobStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeTrainingJobResponse_trainingJobStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationException"
+            Core.AcceptFailure
+        ]
+    }
+
+-- | Polls 'Amazonka.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newNotebookInstanceInService :: Core.Wait DescribeNotebookInstance
+newNotebookInstanceInService =
+  Core.Wait
+    { Core._waitName =
+        "NotebookInstanceInService",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "InService"
+            Core.AcceptSuccess
+            ( describeNotebookInstanceResponse_notebookInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeNotebookInstanceResponse_notebookInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
 -- | Polls 'Amazonka.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newImageUpdated :: Core.Wait DescribeImage
 newImageUpdated =
@@ -80,117 +285,25 @@ newImageDeleted =
         ]
     }
 
--- | Polls 'Amazonka.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newNotebookInstanceDeleted :: Core.Wait DescribeNotebookInstance
-newNotebookInstanceDeleted =
-  Core.Wait
-    { Core._waitName =
-        "NotebookInstanceDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchError
-            "ValidationException"
-            Core.AcceptSuccess,
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
 -- | Polls 'Amazonka.SageMaker.DescribeImageVersion' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newImageVersionDeleted :: Core.Wait DescribeImageVersion
-newImageVersionDeleted =
+newImageVersionCreated :: Core.Wait DescribeImageVersion
+newImageVersionCreated =
   Core.Wait
-    { Core._waitName = "ImageVersionDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
-        [ Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess,
-          Core.matchAll
-            "DELETE_FAILED"
-            Core.AcceptFailure
-            ( describeImageVersionResponse_imageVersionStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "ValidationException"
-            Core.AcceptFailure
-        ]
-    }
-
--- | Polls 'Amazonka.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newEndpointDeleted :: Core.Wait DescribeEndpoint
-newEndpointDeleted =
-  Core.Wait
-    { Core._waitName = "EndpointDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchError
-            "ValidationException"
-            Core.AcceptSuccess,
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeEndpointResponse_endpointStatus
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
-newEndpointInService :: Core.Wait DescribeEndpoint
-newEndpointInService =
-  Core.Wait
-    { Core._waitName = "EndpointInService",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "InService"
-            Core.AcceptSuccess
-            ( describeEndpointResponse_endpointStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeEndpointResponse_endpointStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "ValidationException"
-            Core.AcceptFailure
-        ]
-    }
-
--- | Polls 'Amazonka.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newImageCreated :: Core.Wait DescribeImage
-newImageCreated =
-  Core.Wait
-    { Core._waitName = "ImageCreated",
+    { Core._waitName = "ImageVersionCreated",
       Core._waitAttempts = 60,
       Core._waitDelay = 60,
       Core._waitAcceptors =
         [ Core.matchAll
             "CREATED"
             Core.AcceptSuccess
-            ( describeImageResponse_imageStatus
+            ( describeImageVersionResponse_imageVersionStatus
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "CREATE_FAILED"
             Core.AcceptFailure
-            ( describeImageResponse_imageStatus
+            ( describeImageVersionResponse_imageVersionStatus
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
@@ -233,32 +346,6 @@ newTransformJobCompletedOrStopped =
         ]
     }
 
--- | Polls 'Amazonka.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newNotebookInstanceInService :: Core.Wait DescribeNotebookInstance
-newNotebookInstanceInService =
-  Core.Wait
-    { Core._waitName =
-        "NotebookInstanceInService",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "InService"
-            Core.AcceptSuccess
-            ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
 -- | Polls 'Amazonka.SageMaker.DescribeProcessingJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newProcessingJobCompletedOrStopped :: Core.Wait DescribeProcessingJob
 newProcessingJobCompletedOrStopped =
@@ -289,92 +376,5 @@ newProcessingJobCompletedOrStopped =
           Core.matchError
             "ValidationException"
             Core.AcceptFailure
-        ]
-    }
-
--- | Polls 'Amazonka.SageMaker.DescribeImageVersion' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newImageVersionCreated :: Core.Wait DescribeImageVersion
-newImageVersionCreated =
-  Core.Wait
-    { Core._waitName = "ImageVersionCreated",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "CREATED"
-            Core.AcceptSuccess
-            ( describeImageVersionResponse_imageVersionStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "CREATE_FAILED"
-            Core.AcceptFailure
-            ( describeImageVersionResponse_imageVersionStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "ValidationException"
-            Core.AcceptFailure
-        ]
-    }
-
--- | Polls 'Amazonka.SageMaker.DescribeTrainingJob' every 120 seconds until a successful state is reached. An error is returned after 180 failed checks.
-newTrainingJobCompletedOrStopped :: Core.Wait DescribeTrainingJob
-newTrainingJobCompletedOrStopped =
-  Core.Wait
-    { Core._waitName =
-        "TrainingJobCompletedOrStopped",
-      Core._waitAttempts = 180,
-      Core._waitDelay = 120,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "Completed"
-            Core.AcceptSuccess
-            ( describeTrainingJobResponse_trainingJobStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "Stopped"
-            Core.AcceptSuccess
-            ( describeTrainingJobResponse_trainingJobStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeTrainingJobResponse_trainingJobStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "ValidationException"
-            Core.AcceptFailure
-        ]
-    }
-
--- | Polls 'Amazonka.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newNotebookInstanceStopped :: Core.Wait DescribeNotebookInstance
-newNotebookInstanceStopped =
-  Core.Wait
-    { Core._waitName =
-        "NotebookInstanceStopped",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "Stopped"
-            Core.AcceptSuccess
-            ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
         ]
     }

@@ -28,10 +28,10 @@ import Amazonka.SageMaker.Types.PublicWorkforceTaskPrice
 --
 -- /See:/ 'newHumanLoopConfig' smart constructor.
 data HumanLoopConfig = HumanLoopConfig'
-  { -- | Keywords used to describe the task so that workers can discover the
+  { publicWorkforceTaskPrice :: Prelude.Maybe PublicWorkforceTaskPrice,
+    -- | Keywords used to describe the task so that workers can discover the
     -- task.
     taskKeywords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    publicWorkforceTaskPrice :: Prelude.Maybe PublicWorkforceTaskPrice,
     -- | The amount of time that a worker has to complete a task. The default
     -- value is 3,600 seconds (1 hour).
     taskTimeLimitInSeconds :: Prelude.Maybe Prelude.Natural,
@@ -75,10 +75,10 @@ data HumanLoopConfig = HumanLoopConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'publicWorkforceTaskPrice', 'humanLoopConfig_publicWorkforceTaskPrice' - Undocumented member.
+--
 -- 'taskKeywords', 'humanLoopConfig_taskKeywords' - Keywords used to describe the task so that workers can discover the
 -- task.
---
--- 'publicWorkforceTaskPrice', 'humanLoopConfig_publicWorkforceTaskPrice' - Undocumented member.
 --
 -- 'taskTimeLimitInSeconds', 'humanLoopConfig_taskTimeLimitInSeconds' - The amount of time that a worker has to complete a task. The default
 -- value is 3,600 seconds (1 hour).
@@ -130,8 +130,9 @@ newHumanLoopConfig
   pTaskDescription_
   pTaskCount_ =
     HumanLoopConfig'
-      { taskKeywords = Prelude.Nothing,
-        publicWorkforceTaskPrice = Prelude.Nothing,
+      { publicWorkforceTaskPrice =
+          Prelude.Nothing,
+        taskKeywords = Prelude.Nothing,
         taskTimeLimitInSeconds = Prelude.Nothing,
         taskAvailabilityLifetimeInSeconds = Prelude.Nothing,
         workteamArn = pWorkteamArn_,
@@ -141,14 +142,14 @@ newHumanLoopConfig
         taskCount = pTaskCount_
       }
 
+-- | Undocumented member.
+humanLoopConfig_publicWorkforceTaskPrice :: Lens.Lens' HumanLoopConfig (Prelude.Maybe PublicWorkforceTaskPrice)
+humanLoopConfig_publicWorkforceTaskPrice = Lens.lens (\HumanLoopConfig' {publicWorkforceTaskPrice} -> publicWorkforceTaskPrice) (\s@HumanLoopConfig' {} a -> s {publicWorkforceTaskPrice = a} :: HumanLoopConfig)
+
 -- | Keywords used to describe the task so that workers can discover the
 -- task.
 humanLoopConfig_taskKeywords :: Lens.Lens' HumanLoopConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 humanLoopConfig_taskKeywords = Lens.lens (\HumanLoopConfig' {taskKeywords} -> taskKeywords) (\s@HumanLoopConfig' {} a -> s {taskKeywords = a} :: HumanLoopConfig) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-humanLoopConfig_publicWorkforceTaskPrice :: Lens.Lens' HumanLoopConfig (Prelude.Maybe PublicWorkforceTaskPrice)
-humanLoopConfig_publicWorkforceTaskPrice = Lens.lens (\HumanLoopConfig' {publicWorkforceTaskPrice} -> publicWorkforceTaskPrice) (\s@HumanLoopConfig' {} a -> s {publicWorkforceTaskPrice = a} :: HumanLoopConfig)
 
 -- | The amount of time that a worker has to complete a task. The default
 -- value is 3,600 seconds (1 hour).
@@ -202,8 +203,8 @@ instance Core.FromJSON HumanLoopConfig where
       "HumanLoopConfig"
       ( \x ->
           HumanLoopConfig'
-            Prelude.<$> (x Core..:? "TaskKeywords")
-            Prelude.<*> (x Core..:? "PublicWorkforceTaskPrice")
+            Prelude.<$> (x Core..:? "PublicWorkforceTaskPrice")
+            Prelude.<*> (x Core..:? "TaskKeywords")
             Prelude.<*> (x Core..:? "TaskTimeLimitInSeconds")
             Prelude.<*> (x Core..:? "TaskAvailabilityLifetimeInSeconds")
             Prelude.<*> (x Core..: "WorkteamArn")
@@ -215,8 +216,9 @@ instance Core.FromJSON HumanLoopConfig where
 
 instance Prelude.Hashable HumanLoopConfig where
   hashWithSalt _salt HumanLoopConfig' {..} =
-    _salt `Prelude.hashWithSalt` taskKeywords
+    _salt
       `Prelude.hashWithSalt` publicWorkforceTaskPrice
+      `Prelude.hashWithSalt` taskKeywords
       `Prelude.hashWithSalt` taskTimeLimitInSeconds
       `Prelude.hashWithSalt` taskAvailabilityLifetimeInSeconds
       `Prelude.hashWithSalt` workteamArn
@@ -227,8 +229,8 @@ instance Prelude.Hashable HumanLoopConfig where
 
 instance Prelude.NFData HumanLoopConfig where
   rnf HumanLoopConfig' {..} =
-    Prelude.rnf taskKeywords
-      `Prelude.seq` Prelude.rnf publicWorkforceTaskPrice
+    Prelude.rnf publicWorkforceTaskPrice
+      `Prelude.seq` Prelude.rnf taskKeywords
       `Prelude.seq` Prelude.rnf taskTimeLimitInSeconds
       `Prelude.seq` Prelude.rnf taskAvailabilityLifetimeInSeconds
       `Prelude.seq` Prelude.rnf workteamArn
@@ -241,9 +243,9 @@ instance Core.ToJSON HumanLoopConfig where
   toJSON HumanLoopConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TaskKeywords" Core..=) Prelude.<$> taskKeywords,
-            ("PublicWorkforceTaskPrice" Core..=)
+          [ ("PublicWorkforceTaskPrice" Core..=)
               Prelude.<$> publicWorkforceTaskPrice,
+            ("TaskKeywords" Core..=) Prelude.<$> taskKeywords,
             ("TaskTimeLimitInSeconds" Core..=)
               Prelude.<$> taskTimeLimitInSeconds,
             ("TaskAvailabilityLifetimeInSeconds" Core..=)

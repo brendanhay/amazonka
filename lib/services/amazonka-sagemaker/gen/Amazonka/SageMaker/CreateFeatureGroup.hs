@@ -38,11 +38,11 @@ module Amazonka.SageMaker.CreateFeatureGroup
     newCreateFeatureGroup,
 
     -- * Request Lenses
-    createFeatureGroup_offlineStoreConfig,
-    createFeatureGroup_onlineStoreConfig,
-    createFeatureGroup_description,
     createFeatureGroup_tags,
     createFeatureGroup_roleArn,
+    createFeatureGroup_description,
+    createFeatureGroup_onlineStoreConfig,
+    createFeatureGroup_offlineStoreConfig,
     createFeatureGroup_featureGroupName,
     createFeatureGroup_recordIdentifierFeatureName,
     createFeatureGroup_eventTimeFeatureName,
@@ -67,7 +67,21 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateFeatureGroup' smart constructor.
 data CreateFeatureGroup = CreateFeatureGroup'
-  { -- | Use this to configure an @OfflineFeatureStore@. This parameter allows
+  { -- | Tags used to identify @Features@ in each @FeatureGroup@.
+    tags :: Prelude.Maybe [Tag],
+    -- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
+    -- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | A free-form description of a @FeatureGroup@.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | You can turn the @OnlineStore@ on or off by specifying @True@ for the
+    -- @EnableOnlineStore@ flag in @OnlineStoreConfig@; the default value is
+    -- @False@.
+    --
+    -- You can also include an Amazon Web Services KMS key ID (@KMSKeyId@) for
+    -- at-rest encryption of the @OnlineStore@.
+    onlineStoreConfig :: Prelude.Maybe OnlineStoreConfig,
+    -- | Use this to configure an @OfflineFeatureStore@. This parameter allows
     -- you to specify:
     --
     -- -   The Amazon Simple Storage Service (Amazon S3) location of an
@@ -86,20 +100,6 @@ data CreateFeatureGroup = CreateFeatureGroup'
     --
     -- To learn more about this parameter, see OfflineStoreConfig.
     offlineStoreConfig :: Prelude.Maybe OfflineStoreConfig,
-    -- | You can turn the @OnlineStore@ on or off by specifying @True@ for the
-    -- @EnableOnlineStore@ flag in @OnlineStoreConfig@; the default value is
-    -- @False@.
-    --
-    -- You can also include an Amazon Web Services KMS key ID (@KMSKeyId@) for
-    -- at-rest encryption of the @OnlineStore@.
-    onlineStoreConfig :: Prelude.Maybe OnlineStoreConfig,
-    -- | A free-form description of a @FeatureGroup@.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Tags used to identify @Features@ in each @FeatureGroup@.
-    tags :: Prelude.Maybe [Tag],
-    -- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
-    -- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
-    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the @FeatureGroup@. The name must be unique within an Amazon
     -- Web Services Region in an Amazon Web Services account. The name:
     --
@@ -165,6 +165,20 @@ data CreateFeatureGroup = CreateFeatureGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createFeatureGroup_tags' - Tags used to identify @Features@ in each @FeatureGroup@.
+--
+-- 'roleArn', 'createFeatureGroup_roleArn' - The Amazon Resource Name (ARN) of the IAM execution role used to persist
+-- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
+--
+-- 'description', 'createFeatureGroup_description' - A free-form description of a @FeatureGroup@.
+--
+-- 'onlineStoreConfig', 'createFeatureGroup_onlineStoreConfig' - You can turn the @OnlineStore@ on or off by specifying @True@ for the
+-- @EnableOnlineStore@ flag in @OnlineStoreConfig@; the default value is
+-- @False@.
+--
+-- You can also include an Amazon Web Services KMS key ID (@KMSKeyId@) for
+-- at-rest encryption of the @OnlineStore@.
+--
 -- 'offlineStoreConfig', 'createFeatureGroup_offlineStoreConfig' - Use this to configure an @OfflineFeatureStore@. This parameter allows
 -- you to specify:
 --
@@ -183,20 +197,6 @@ data CreateFeatureGroup = CreateFeatureGroup'
 --     to 99 percent.
 --
 -- To learn more about this parameter, see OfflineStoreConfig.
---
--- 'onlineStoreConfig', 'createFeatureGroup_onlineStoreConfig' - You can turn the @OnlineStore@ on or off by specifying @True@ for the
--- @EnableOnlineStore@ flag in @OnlineStoreConfig@; the default value is
--- @False@.
---
--- You can also include an Amazon Web Services KMS key ID (@KMSKeyId@) for
--- at-rest encryption of the @OnlineStore@.
---
--- 'description', 'createFeatureGroup_description' - A free-form description of a @FeatureGroup@.
---
--- 'tags', 'createFeatureGroup_tags' - Tags used to identify @Features@ in each @FeatureGroup@.
---
--- 'roleArn', 'createFeatureGroup_roleArn' - The Amazon Resource Name (ARN) of the IAM execution role used to persist
--- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
 --
 -- 'featureGroupName', 'createFeatureGroup_featureGroupName' - The name of the @FeatureGroup@. The name must be unique within an Amazon
 -- Web Services Region in an Amazon Web Services account. The name:
@@ -267,12 +267,11 @@ newCreateFeatureGroup
   pEventTimeFeatureName_
   pFeatureDefinitions_ =
     CreateFeatureGroup'
-      { offlineStoreConfig =
-          Prelude.Nothing,
-        onlineStoreConfig = Prelude.Nothing,
-        description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         roleArn = Prelude.Nothing,
+        description = Prelude.Nothing,
+        onlineStoreConfig = Prelude.Nothing,
+        offlineStoreConfig = Prelude.Nothing,
         featureGroupName = pFeatureGroupName_,
         recordIdentifierFeatureName =
           pRecordIdentifierFeatureName_,
@@ -280,6 +279,28 @@ newCreateFeatureGroup
         featureDefinitions =
           Lens.coerced Lens.# pFeatureDefinitions_
       }
+
+-- | Tags used to identify @Features@ in each @FeatureGroup@.
+createFeatureGroup_tags :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe [Tag])
+createFeatureGroup_tags = Lens.lens (\CreateFeatureGroup' {tags} -> tags) (\s@CreateFeatureGroup' {} a -> s {tags = a} :: CreateFeatureGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
+-- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
+createFeatureGroup_roleArn :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe Prelude.Text)
+createFeatureGroup_roleArn = Lens.lens (\CreateFeatureGroup' {roleArn} -> roleArn) (\s@CreateFeatureGroup' {} a -> s {roleArn = a} :: CreateFeatureGroup)
+
+-- | A free-form description of a @FeatureGroup@.
+createFeatureGroup_description :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe Prelude.Text)
+createFeatureGroup_description = Lens.lens (\CreateFeatureGroup' {description} -> description) (\s@CreateFeatureGroup' {} a -> s {description = a} :: CreateFeatureGroup)
+
+-- | You can turn the @OnlineStore@ on or off by specifying @True@ for the
+-- @EnableOnlineStore@ flag in @OnlineStoreConfig@; the default value is
+-- @False@.
+--
+-- You can also include an Amazon Web Services KMS key ID (@KMSKeyId@) for
+-- at-rest encryption of the @OnlineStore@.
+createFeatureGroup_onlineStoreConfig :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe OnlineStoreConfig)
+createFeatureGroup_onlineStoreConfig = Lens.lens (\CreateFeatureGroup' {onlineStoreConfig} -> onlineStoreConfig) (\s@CreateFeatureGroup' {} a -> s {onlineStoreConfig = a} :: CreateFeatureGroup)
 
 -- | Use this to configure an @OfflineFeatureStore@. This parameter allows
 -- you to specify:
@@ -301,28 +322,6 @@ newCreateFeatureGroup
 -- To learn more about this parameter, see OfflineStoreConfig.
 createFeatureGroup_offlineStoreConfig :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe OfflineStoreConfig)
 createFeatureGroup_offlineStoreConfig = Lens.lens (\CreateFeatureGroup' {offlineStoreConfig} -> offlineStoreConfig) (\s@CreateFeatureGroup' {} a -> s {offlineStoreConfig = a} :: CreateFeatureGroup)
-
--- | You can turn the @OnlineStore@ on or off by specifying @True@ for the
--- @EnableOnlineStore@ flag in @OnlineStoreConfig@; the default value is
--- @False@.
---
--- You can also include an Amazon Web Services KMS key ID (@KMSKeyId@) for
--- at-rest encryption of the @OnlineStore@.
-createFeatureGroup_onlineStoreConfig :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe OnlineStoreConfig)
-createFeatureGroup_onlineStoreConfig = Lens.lens (\CreateFeatureGroup' {onlineStoreConfig} -> onlineStoreConfig) (\s@CreateFeatureGroup' {} a -> s {onlineStoreConfig = a} :: CreateFeatureGroup)
-
--- | A free-form description of a @FeatureGroup@.
-createFeatureGroup_description :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe Prelude.Text)
-createFeatureGroup_description = Lens.lens (\CreateFeatureGroup' {description} -> description) (\s@CreateFeatureGroup' {} a -> s {description = a} :: CreateFeatureGroup)
-
--- | Tags used to identify @Features@ in each @FeatureGroup@.
-createFeatureGroup_tags :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe [Tag])
-createFeatureGroup_tags = Lens.lens (\CreateFeatureGroup' {tags} -> tags) (\s@CreateFeatureGroup' {} a -> s {tags = a} :: CreateFeatureGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
--- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
-createFeatureGroup_roleArn :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe Prelude.Text)
-createFeatureGroup_roleArn = Lens.lens (\CreateFeatureGroup' {roleArn} -> roleArn) (\s@CreateFeatureGroup' {} a -> s {roleArn = a} :: CreateFeatureGroup)
 
 -- | The name of the @FeatureGroup@. The name must be unique within an Amazon
 -- Web Services Region in an Amazon Web Services account. The name:
@@ -401,11 +400,11 @@ instance Core.AWSRequest CreateFeatureGroup where
 
 instance Prelude.Hashable CreateFeatureGroup where
   hashWithSalt _salt CreateFeatureGroup' {..} =
-    _salt `Prelude.hashWithSalt` offlineStoreConfig
-      `Prelude.hashWithSalt` onlineStoreConfig
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` onlineStoreConfig
+      `Prelude.hashWithSalt` offlineStoreConfig
       `Prelude.hashWithSalt` featureGroupName
       `Prelude.hashWithSalt` recordIdentifierFeatureName
       `Prelude.hashWithSalt` eventTimeFeatureName
@@ -413,11 +412,11 @@ instance Prelude.Hashable CreateFeatureGroup where
 
 instance Prelude.NFData CreateFeatureGroup where
   rnf CreateFeatureGroup' {..} =
-    Prelude.rnf offlineStoreConfig
-      `Prelude.seq` Prelude.rnf onlineStoreConfig
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf onlineStoreConfig
+      `Prelude.seq` Prelude.rnf offlineStoreConfig
       `Prelude.seq` Prelude.rnf featureGroupName
       `Prelude.seq` Prelude.rnf recordIdentifierFeatureName
       `Prelude.seq` Prelude.rnf eventTimeFeatureName
@@ -442,13 +441,13 @@ instance Core.ToJSON CreateFeatureGroup where
   toJSON CreateFeatureGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OfflineStoreConfig" Core..=)
-              Prelude.<$> offlineStoreConfig,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("Description" Core..=) Prelude.<$> description,
             ("OnlineStoreConfig" Core..=)
               Prelude.<$> onlineStoreConfig,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("OfflineStoreConfig" Core..=)
+              Prelude.<$> offlineStoreConfig,
             Prelude.Just
               ("FeatureGroupName" Core..= featureGroupName),
             Prelude.Just

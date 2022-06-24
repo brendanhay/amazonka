@@ -31,17 +31,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newObjectiveStatusCounters' smart constructor.
 data ObjectiveStatusCounters = ObjectiveStatusCounters'
-  { -- | The number of training jobs that are in progress and pending evaluation
-    -- of their final objective metric.
-    pending :: Prelude.Maybe Prelude.Natural,
+  { -- | The number of training jobs whose final objective metric was not
+    -- evaluated and used in the hyperparameter tuning process. This typically
+    -- occurs when the training job failed or did not emit an objective metric.
+    failed :: Prelude.Maybe Prelude.Natural,
     -- | The number of training jobs whose final objective metric was evaluated
     -- by the hyperparameter tuning job and used in the hyperparameter tuning
     -- process.
     succeeded :: Prelude.Maybe Prelude.Natural,
-    -- | The number of training jobs whose final objective metric was not
-    -- evaluated and used in the hyperparameter tuning process. This typically
-    -- occurs when the training job failed or did not emit an objective metric.
-    failed :: Prelude.Maybe Prelude.Natural
+    -- | The number of training jobs that are in progress and pending evaluation
+    -- of their final objective metric.
+    pending :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,35 +53,24 @@ data ObjectiveStatusCounters = ObjectiveStatusCounters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pending', 'objectiveStatusCounters_pending' - The number of training jobs that are in progress and pending evaluation
--- of their final objective metric.
+-- 'failed', 'objectiveStatusCounters_failed' - The number of training jobs whose final objective metric was not
+-- evaluated and used in the hyperparameter tuning process. This typically
+-- occurs when the training job failed or did not emit an objective metric.
 --
 -- 'succeeded', 'objectiveStatusCounters_succeeded' - The number of training jobs whose final objective metric was evaluated
 -- by the hyperparameter tuning job and used in the hyperparameter tuning
 -- process.
 --
--- 'failed', 'objectiveStatusCounters_failed' - The number of training jobs whose final objective metric was not
--- evaluated and used in the hyperparameter tuning process. This typically
--- occurs when the training job failed or did not emit an objective metric.
+-- 'pending', 'objectiveStatusCounters_pending' - The number of training jobs that are in progress and pending evaluation
+-- of their final objective metric.
 newObjectiveStatusCounters ::
   ObjectiveStatusCounters
 newObjectiveStatusCounters =
   ObjectiveStatusCounters'
-    { pending = Prelude.Nothing,
+    { failed = Prelude.Nothing,
       succeeded = Prelude.Nothing,
-      failed = Prelude.Nothing
+      pending = Prelude.Nothing
     }
-
--- | The number of training jobs that are in progress and pending evaluation
--- of their final objective metric.
-objectiveStatusCounters_pending :: Lens.Lens' ObjectiveStatusCounters (Prelude.Maybe Prelude.Natural)
-objectiveStatusCounters_pending = Lens.lens (\ObjectiveStatusCounters' {pending} -> pending) (\s@ObjectiveStatusCounters' {} a -> s {pending = a} :: ObjectiveStatusCounters)
-
--- | The number of training jobs whose final objective metric was evaluated
--- by the hyperparameter tuning job and used in the hyperparameter tuning
--- process.
-objectiveStatusCounters_succeeded :: Lens.Lens' ObjectiveStatusCounters (Prelude.Maybe Prelude.Natural)
-objectiveStatusCounters_succeeded = Lens.lens (\ObjectiveStatusCounters' {succeeded} -> succeeded) (\s@ObjectiveStatusCounters' {} a -> s {succeeded = a} :: ObjectiveStatusCounters)
 
 -- | The number of training jobs whose final objective metric was not
 -- evaluated and used in the hyperparameter tuning process. This typically
@@ -89,25 +78,36 @@ objectiveStatusCounters_succeeded = Lens.lens (\ObjectiveStatusCounters' {succee
 objectiveStatusCounters_failed :: Lens.Lens' ObjectiveStatusCounters (Prelude.Maybe Prelude.Natural)
 objectiveStatusCounters_failed = Lens.lens (\ObjectiveStatusCounters' {failed} -> failed) (\s@ObjectiveStatusCounters' {} a -> s {failed = a} :: ObjectiveStatusCounters)
 
+-- | The number of training jobs whose final objective metric was evaluated
+-- by the hyperparameter tuning job and used in the hyperparameter tuning
+-- process.
+objectiveStatusCounters_succeeded :: Lens.Lens' ObjectiveStatusCounters (Prelude.Maybe Prelude.Natural)
+objectiveStatusCounters_succeeded = Lens.lens (\ObjectiveStatusCounters' {succeeded} -> succeeded) (\s@ObjectiveStatusCounters' {} a -> s {succeeded = a} :: ObjectiveStatusCounters)
+
+-- | The number of training jobs that are in progress and pending evaluation
+-- of their final objective metric.
+objectiveStatusCounters_pending :: Lens.Lens' ObjectiveStatusCounters (Prelude.Maybe Prelude.Natural)
+objectiveStatusCounters_pending = Lens.lens (\ObjectiveStatusCounters' {pending} -> pending) (\s@ObjectiveStatusCounters' {} a -> s {pending = a} :: ObjectiveStatusCounters)
+
 instance Core.FromJSON ObjectiveStatusCounters where
   parseJSON =
     Core.withObject
       "ObjectiveStatusCounters"
       ( \x ->
           ObjectiveStatusCounters'
-            Prelude.<$> (x Core..:? "Pending")
+            Prelude.<$> (x Core..:? "Failed")
             Prelude.<*> (x Core..:? "Succeeded")
-            Prelude.<*> (x Core..:? "Failed")
+            Prelude.<*> (x Core..:? "Pending")
       )
 
 instance Prelude.Hashable ObjectiveStatusCounters where
   hashWithSalt _salt ObjectiveStatusCounters' {..} =
-    _salt `Prelude.hashWithSalt` pending
+    _salt `Prelude.hashWithSalt` failed
       `Prelude.hashWithSalt` succeeded
-      `Prelude.hashWithSalt` failed
+      `Prelude.hashWithSalt` pending
 
 instance Prelude.NFData ObjectiveStatusCounters where
   rnf ObjectiveStatusCounters' {..} =
-    Prelude.rnf pending
+    Prelude.rnf failed
       `Prelude.seq` Prelude.rnf succeeded
-      `Prelude.seq` Prelude.rnf failed
+      `Prelude.seq` Prelude.rnf pending

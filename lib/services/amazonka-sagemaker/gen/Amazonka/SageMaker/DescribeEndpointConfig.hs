@@ -36,8 +36,8 @@ module Amazonka.SageMaker.DescribeEndpointConfig
 
     -- * Response Lenses
     describeEndpointConfigResponse_asyncInferenceConfig,
-    describeEndpointConfigResponse_kmsKeyId,
     describeEndpointConfigResponse_dataCaptureConfig,
+    describeEndpointConfigResponse_kmsKeyId,
     describeEndpointConfigResponse_httpStatus,
     describeEndpointConfigResponse_endpointConfigName,
     describeEndpointConfigResponse_endpointConfigArn,
@@ -93,8 +93,8 @@ instance Core.AWSRequest DescribeEndpointConfig where
       ( \s h x ->
           DescribeEndpointConfigResponse'
             Prelude.<$> (x Core..?> "AsyncInferenceConfig")
-            Prelude.<*> (x Core..?> "KmsKeyId")
             Prelude.<*> (x Core..?> "DataCaptureConfig")
+            Prelude.<*> (x Core..?> "KmsKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "EndpointConfigName")
             Prelude.<*> (x Core..:> "EndpointConfigArn")
@@ -146,10 +146,10 @@ data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
     -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
     -- API.
     asyncInferenceConfig :: Prelude.Maybe AsyncInferenceConfig,
+    dataCaptureConfig :: Prelude.Maybe DataCaptureConfig,
     -- | Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
     -- when storing it on the ML storage volume attached to the instance.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    dataCaptureConfig :: Prelude.Maybe DataCaptureConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Name of the Amazon SageMaker endpoint configuration.
@@ -176,10 +176,10 @@ data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
 -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
 -- API.
 --
+-- 'dataCaptureConfig', 'describeEndpointConfigResponse_dataCaptureConfig' - Undocumented member.
+--
 -- 'kmsKeyId', 'describeEndpointConfigResponse_kmsKeyId' - Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
 -- when storing it on the ML storage volume attached to the instance.
---
--- 'dataCaptureConfig', 'describeEndpointConfigResponse_dataCaptureConfig' - Undocumented member.
 --
 -- 'httpStatus', 'describeEndpointConfigResponse_httpStatus' - The response's http status code.
 --
@@ -212,8 +212,8 @@ newDescribeEndpointConfigResponse
     DescribeEndpointConfigResponse'
       { asyncInferenceConfig =
           Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
         dataCaptureConfig = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         endpointConfigName = pEndpointConfigName_,
         endpointConfigArn = pEndpointConfigArn_,
@@ -229,14 +229,14 @@ newDescribeEndpointConfigResponse
 describeEndpointConfigResponse_asyncInferenceConfig :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe AsyncInferenceConfig)
 describeEndpointConfigResponse_asyncInferenceConfig = Lens.lens (\DescribeEndpointConfigResponse' {asyncInferenceConfig} -> asyncInferenceConfig) (\s@DescribeEndpointConfigResponse' {} a -> s {asyncInferenceConfig = a} :: DescribeEndpointConfigResponse)
 
+-- | Undocumented member.
+describeEndpointConfigResponse_dataCaptureConfig :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe DataCaptureConfig)
+describeEndpointConfigResponse_dataCaptureConfig = Lens.lens (\DescribeEndpointConfigResponse' {dataCaptureConfig} -> dataCaptureConfig) (\s@DescribeEndpointConfigResponse' {} a -> s {dataCaptureConfig = a} :: DescribeEndpointConfigResponse)
+
 -- | Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
 -- when storing it on the ML storage volume attached to the instance.
 describeEndpointConfigResponse_kmsKeyId :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe Prelude.Text)
 describeEndpointConfigResponse_kmsKeyId = Lens.lens (\DescribeEndpointConfigResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeEndpointConfigResponse' {} a -> s {kmsKeyId = a} :: DescribeEndpointConfigResponse)
-
--- | Undocumented member.
-describeEndpointConfigResponse_dataCaptureConfig :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe DataCaptureConfig)
-describeEndpointConfigResponse_dataCaptureConfig = Lens.lens (\DescribeEndpointConfigResponse' {dataCaptureConfig} -> dataCaptureConfig) (\s@DescribeEndpointConfigResponse' {} a -> s {dataCaptureConfig = a} :: DescribeEndpointConfigResponse)
 
 -- | The response's http status code.
 describeEndpointConfigResponse_httpStatus :: Lens.Lens' DescribeEndpointConfigResponse Prelude.Int
@@ -265,8 +265,8 @@ instance
   where
   rnf DescribeEndpointConfigResponse' {..} =
     Prelude.rnf asyncInferenceConfig
-      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf dataCaptureConfig
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf endpointConfigName
       `Prelude.seq` Prelude.rnf endpointConfigArn

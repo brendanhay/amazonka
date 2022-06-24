@@ -29,11 +29,11 @@ import Amazonka.SageMaker.Types.AthenaResultFormat
 --
 -- /See:/ 'newAthenaDatasetDefinition' smart constructor.
 data AthenaDatasetDefinition = AthenaDatasetDefinition'
-  { -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+  { workGroup :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
     -- key that Amazon SageMaker uses to encrypt data generated from an Athena
     -- query execution.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    workGroup :: Prelude.Maybe Prelude.Text,
     outputCompression :: Prelude.Maybe AthenaResultCompressionType,
     catalog :: Prelude.Text,
     database :: Prelude.Text,
@@ -52,11 +52,11 @@ data AthenaDatasetDefinition = AthenaDatasetDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'workGroup', 'athenaDatasetDefinition_workGroup' - Undocumented member.
+--
 -- 'kmsKeyId', 'athenaDatasetDefinition_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
 -- key that Amazon SageMaker uses to encrypt data generated from an Athena
 -- query execution.
---
--- 'workGroup', 'athenaDatasetDefinition_workGroup' - Undocumented member.
 --
 -- 'outputCompression', 'athenaDatasetDefinition_outputCompression' - Undocumented member.
 --
@@ -88,9 +88,9 @@ newAthenaDatasetDefinition
   pOutputS3Uri_
   pOutputFormat_ =
     AthenaDatasetDefinition'
-      { kmsKeyId =
+      { workGroup =
           Prelude.Nothing,
-        workGroup = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         outputCompression = Prelude.Nothing,
         catalog = pCatalog_,
         database = pDatabase_,
@@ -99,15 +99,15 @@ newAthenaDatasetDefinition
         outputFormat = pOutputFormat_
       }
 
+-- | Undocumented member.
+athenaDatasetDefinition_workGroup :: Lens.Lens' AthenaDatasetDefinition (Prelude.Maybe Prelude.Text)
+athenaDatasetDefinition_workGroup = Lens.lens (\AthenaDatasetDefinition' {workGroup} -> workGroup) (\s@AthenaDatasetDefinition' {} a -> s {workGroup = a} :: AthenaDatasetDefinition)
+
 -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
 -- key that Amazon SageMaker uses to encrypt data generated from an Athena
 -- query execution.
 athenaDatasetDefinition_kmsKeyId :: Lens.Lens' AthenaDatasetDefinition (Prelude.Maybe Prelude.Text)
 athenaDatasetDefinition_kmsKeyId = Lens.lens (\AthenaDatasetDefinition' {kmsKeyId} -> kmsKeyId) (\s@AthenaDatasetDefinition' {} a -> s {kmsKeyId = a} :: AthenaDatasetDefinition)
-
--- | Undocumented member.
-athenaDatasetDefinition_workGroup :: Lens.Lens' AthenaDatasetDefinition (Prelude.Maybe Prelude.Text)
-athenaDatasetDefinition_workGroup = Lens.lens (\AthenaDatasetDefinition' {workGroup} -> workGroup) (\s@AthenaDatasetDefinition' {} a -> s {workGroup = a} :: AthenaDatasetDefinition)
 
 -- | Undocumented member.
 athenaDatasetDefinition_outputCompression :: Lens.Lens' AthenaDatasetDefinition (Prelude.Maybe AthenaResultCompressionType)
@@ -139,8 +139,8 @@ instance Core.FromJSON AthenaDatasetDefinition where
       "AthenaDatasetDefinition"
       ( \x ->
           AthenaDatasetDefinition'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "WorkGroup")
+            Prelude.<$> (x Core..:? "WorkGroup")
+            Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..:? "OutputCompression")
             Prelude.<*> (x Core..: "Catalog")
             Prelude.<*> (x Core..: "Database")
@@ -151,8 +151,8 @@ instance Core.FromJSON AthenaDatasetDefinition where
 
 instance Prelude.Hashable AthenaDatasetDefinition where
   hashWithSalt _salt AthenaDatasetDefinition' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` workGroup
+    _salt `Prelude.hashWithSalt` workGroup
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` outputCompression
       `Prelude.hashWithSalt` catalog
       `Prelude.hashWithSalt` database
@@ -162,8 +162,8 @@ instance Prelude.Hashable AthenaDatasetDefinition where
 
 instance Prelude.NFData AthenaDatasetDefinition where
   rnf AthenaDatasetDefinition' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf workGroup
+    Prelude.rnf workGroup
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf outputCompression
       `Prelude.seq` Prelude.rnf catalog
       `Prelude.seq` Prelude.rnf database
@@ -175,8 +175,8 @@ instance Core.ToJSON AthenaDatasetDefinition where
   toJSON AthenaDatasetDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("WorkGroup" Core..=) Prelude.<$> workGroup,
+          [ ("WorkGroup" Core..=) Prelude.<$> workGroup,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("OutputCompression" Core..=)
               Prelude.<$> outputCompression,
             Prelude.Just ("Catalog" Core..= catalog),

@@ -29,13 +29,13 @@ module Amazonka.SageMaker.ListLabelingJobsForWorkteam
     newListLabelingJobsForWorkteam,
 
     -- * Request Lenses
+    listLabelingJobsForWorkteam_sortOrder,
+    listLabelingJobsForWorkteam_nextToken,
+    listLabelingJobsForWorkteam_creationTimeBefore,
+    listLabelingJobsForWorkteam_sortBy,
+    listLabelingJobsForWorkteam_maxResults,
     listLabelingJobsForWorkteam_jobReferenceCodeContains,
     listLabelingJobsForWorkteam_creationTimeAfter,
-    listLabelingJobsForWorkteam_nextToken,
-    listLabelingJobsForWorkteam_sortOrder,
-    listLabelingJobsForWorkteam_creationTimeBefore,
-    listLabelingJobsForWorkteam_maxResults,
-    listLabelingJobsForWorkteam_sortBy,
     listLabelingJobsForWorkteam_workteamArn,
 
     -- * Destructuring the Response
@@ -58,26 +58,26 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListLabelingJobsForWorkteam' smart constructor.
 data ListLabelingJobsForWorkteam = ListLabelingJobsForWorkteam'
-  { -- | A filter the limits jobs to only the ones whose job reference code
+  { -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | If the result of the previous @ListLabelingJobsForWorkteam@ request was
+    -- truncated, the response includes a @NextToken@. To retrieve the next set
+    -- of labeling jobs, use the token in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A filter that returns only labeling jobs created before the specified
+    -- time (timestamp).
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | The field to sort results by. The default is @CreationTime@.
+    sortBy :: Prelude.Maybe ListLabelingJobsForWorkteamSortByOptions,
+    -- | The maximum number of labeling jobs to return in each page of the
+    -- response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A filter the limits jobs to only the ones whose job reference code
     -- contains the specified string.
     jobReferenceCodeContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only labeling jobs created after the specified
     -- time (timestamp).
     creationTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | If the result of the previous @ListLabelingJobsForWorkteam@ request was
-    -- truncated, the response includes a @NextToken@. To retrieve the next set
-    -- of labeling jobs, use the token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | A filter that returns only labeling jobs created before the specified
-    -- time (timestamp).
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The maximum number of labeling jobs to return in each page of the
-    -- response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The field to sort results by. The default is @CreationTime@.
-    sortBy :: Prelude.Maybe ListLabelingJobsForWorkteamSortByOptions,
     -- | The Amazon Resource Name (ARN) of the work team for which you want to
     -- see labeling jobs for.
     workteamArn :: Prelude.Text
@@ -92,25 +92,25 @@ data ListLabelingJobsForWorkteam = ListLabelingJobsForWorkteam'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobReferenceCodeContains', 'listLabelingJobsForWorkteam_jobReferenceCodeContains' - A filter the limits jobs to only the ones whose job reference code
--- contains the specified string.
---
--- 'creationTimeAfter', 'listLabelingJobsForWorkteam_creationTimeAfter' - A filter that returns only labeling jobs created after the specified
--- time (timestamp).
+-- 'sortOrder', 'listLabelingJobsForWorkteam_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'nextToken', 'listLabelingJobsForWorkteam_nextToken' - If the result of the previous @ListLabelingJobsForWorkteam@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of labeling jobs, use the token in the next request.
 --
--- 'sortOrder', 'listLabelingJobsForWorkteam_sortOrder' - The sort order for results. The default is @Ascending@.
---
 -- 'creationTimeBefore', 'listLabelingJobsForWorkteam_creationTimeBefore' - A filter that returns only labeling jobs created before the specified
 -- time (timestamp).
+--
+-- 'sortBy', 'listLabelingJobsForWorkteam_sortBy' - The field to sort results by. The default is @CreationTime@.
 --
 -- 'maxResults', 'listLabelingJobsForWorkteam_maxResults' - The maximum number of labeling jobs to return in each page of the
 -- response.
 --
--- 'sortBy', 'listLabelingJobsForWorkteam_sortBy' - The field to sort results by. The default is @CreationTime@.
+-- 'jobReferenceCodeContains', 'listLabelingJobsForWorkteam_jobReferenceCodeContains' - A filter the limits jobs to only the ones whose job reference code
+-- contains the specified string.
+--
+-- 'creationTimeAfter', 'listLabelingJobsForWorkteam_creationTimeAfter' - A filter that returns only labeling jobs created after the specified
+-- time (timestamp).
 --
 -- 'workteamArn', 'listLabelingJobsForWorkteam_workteamArn' - The Amazon Resource Name (ARN) of the work team for which you want to
 -- see labeling jobs for.
@@ -120,16 +120,40 @@ newListLabelingJobsForWorkteam ::
   ListLabelingJobsForWorkteam
 newListLabelingJobsForWorkteam pWorkteamArn_ =
   ListLabelingJobsForWorkteam'
-    { jobReferenceCodeContains =
+    { sortOrder =
         Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      jobReferenceCodeContains = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
       workteamArn = pWorkteamArn_
     }
+
+-- | The sort order for results. The default is @Ascending@.
+listLabelingJobsForWorkteam_sortOrder :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe SortOrder)
+listLabelingJobsForWorkteam_sortOrder = Lens.lens (\ListLabelingJobsForWorkteam' {sortOrder} -> sortOrder) (\s@ListLabelingJobsForWorkteam' {} a -> s {sortOrder = a} :: ListLabelingJobsForWorkteam)
+
+-- | If the result of the previous @ListLabelingJobsForWorkteam@ request was
+-- truncated, the response includes a @NextToken@. To retrieve the next set
+-- of labeling jobs, use the token in the next request.
+listLabelingJobsForWorkteam_nextToken :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe Prelude.Text)
+listLabelingJobsForWorkteam_nextToken = Lens.lens (\ListLabelingJobsForWorkteam' {nextToken} -> nextToken) (\s@ListLabelingJobsForWorkteam' {} a -> s {nextToken = a} :: ListLabelingJobsForWorkteam)
+
+-- | A filter that returns only labeling jobs created before the specified
+-- time (timestamp).
+listLabelingJobsForWorkteam_creationTimeBefore :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe Prelude.UTCTime)
+listLabelingJobsForWorkteam_creationTimeBefore = Lens.lens (\ListLabelingJobsForWorkteam' {creationTimeBefore} -> creationTimeBefore) (\s@ListLabelingJobsForWorkteam' {} a -> s {creationTimeBefore = a} :: ListLabelingJobsForWorkteam) Prelude.. Lens.mapping Core._Time
+
+-- | The field to sort results by. The default is @CreationTime@.
+listLabelingJobsForWorkteam_sortBy :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe ListLabelingJobsForWorkteamSortByOptions)
+listLabelingJobsForWorkteam_sortBy = Lens.lens (\ListLabelingJobsForWorkteam' {sortBy} -> sortBy) (\s@ListLabelingJobsForWorkteam' {} a -> s {sortBy = a} :: ListLabelingJobsForWorkteam)
+
+-- | The maximum number of labeling jobs to return in each page of the
+-- response.
+listLabelingJobsForWorkteam_maxResults :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe Prelude.Natural)
+listLabelingJobsForWorkteam_maxResults = Lens.lens (\ListLabelingJobsForWorkteam' {maxResults} -> maxResults) (\s@ListLabelingJobsForWorkteam' {} a -> s {maxResults = a} :: ListLabelingJobsForWorkteam)
 
 -- | A filter the limits jobs to only the ones whose job reference code
 -- contains the specified string.
@@ -140,30 +164,6 @@ listLabelingJobsForWorkteam_jobReferenceCodeContains = Lens.lens (\ListLabelingJ
 -- time (timestamp).
 listLabelingJobsForWorkteam_creationTimeAfter :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe Prelude.UTCTime)
 listLabelingJobsForWorkteam_creationTimeAfter = Lens.lens (\ListLabelingJobsForWorkteam' {creationTimeAfter} -> creationTimeAfter) (\s@ListLabelingJobsForWorkteam' {} a -> s {creationTimeAfter = a} :: ListLabelingJobsForWorkteam) Prelude.. Lens.mapping Core._Time
-
--- | If the result of the previous @ListLabelingJobsForWorkteam@ request was
--- truncated, the response includes a @NextToken@. To retrieve the next set
--- of labeling jobs, use the token in the next request.
-listLabelingJobsForWorkteam_nextToken :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe Prelude.Text)
-listLabelingJobsForWorkteam_nextToken = Lens.lens (\ListLabelingJobsForWorkteam' {nextToken} -> nextToken) (\s@ListLabelingJobsForWorkteam' {} a -> s {nextToken = a} :: ListLabelingJobsForWorkteam)
-
--- | The sort order for results. The default is @Ascending@.
-listLabelingJobsForWorkteam_sortOrder :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe SortOrder)
-listLabelingJobsForWorkteam_sortOrder = Lens.lens (\ListLabelingJobsForWorkteam' {sortOrder} -> sortOrder) (\s@ListLabelingJobsForWorkteam' {} a -> s {sortOrder = a} :: ListLabelingJobsForWorkteam)
-
--- | A filter that returns only labeling jobs created before the specified
--- time (timestamp).
-listLabelingJobsForWorkteam_creationTimeBefore :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe Prelude.UTCTime)
-listLabelingJobsForWorkteam_creationTimeBefore = Lens.lens (\ListLabelingJobsForWorkteam' {creationTimeBefore} -> creationTimeBefore) (\s@ListLabelingJobsForWorkteam' {} a -> s {creationTimeBefore = a} :: ListLabelingJobsForWorkteam) Prelude.. Lens.mapping Core._Time
-
--- | The maximum number of labeling jobs to return in each page of the
--- response.
-listLabelingJobsForWorkteam_maxResults :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe Prelude.Natural)
-listLabelingJobsForWorkteam_maxResults = Lens.lens (\ListLabelingJobsForWorkteam' {maxResults} -> maxResults) (\s@ListLabelingJobsForWorkteam' {} a -> s {maxResults = a} :: ListLabelingJobsForWorkteam)
-
--- | The field to sort results by. The default is @CreationTime@.
-listLabelingJobsForWorkteam_sortBy :: Lens.Lens' ListLabelingJobsForWorkteam (Prelude.Maybe ListLabelingJobsForWorkteamSortByOptions)
-listLabelingJobsForWorkteam_sortBy = Lens.lens (\ListLabelingJobsForWorkteam' {sortBy} -> sortBy) (\s@ListLabelingJobsForWorkteam' {} a -> s {sortBy = a} :: ListLabelingJobsForWorkteam)
 
 -- | The Amazon Resource Name (ARN) of the work team for which you want to
 -- see labeling jobs for.
@@ -209,25 +209,24 @@ instance Core.AWSRequest ListLabelingJobsForWorkteam where
 
 instance Prelude.Hashable ListLabelingJobsForWorkteam where
   hashWithSalt _salt ListLabelingJobsForWorkteam' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` creationTimeBefore
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` jobReferenceCodeContains
       `Prelude.hashWithSalt` creationTimeAfter
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` workteamArn
 
 instance Prelude.NFData ListLabelingJobsForWorkteam where
   rnf ListLabelingJobsForWorkteam' {..} =
-    Prelude.rnf jobReferenceCodeContains
-      `Prelude.seq` Prelude.rnf creationTimeAfter
+    Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf jobReferenceCodeContains
+      `Prelude.seq` Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf workteamArn
 
 instance Core.ToHeaders ListLabelingJobsForWorkteam where
@@ -249,16 +248,16 @@ instance Core.ToJSON ListLabelingJobsForWorkteam where
   toJSON ListLabelingJobsForWorkteam' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("JobReferenceCodeContains" Core..=)
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("CreationTimeBefore" Core..=)
+              Prelude.<$> creationTimeBefore,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("JobReferenceCodeContains" Core..=)
               Prelude.<$> jobReferenceCodeContains,
             ("CreationTimeAfter" Core..=)
               Prelude.<$> creationTimeAfter,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("CreationTimeBefore" Core..=)
-              Prelude.<$> creationTimeBefore,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
             Prelude.Just ("WorkteamArn" Core..= workteamArn)
           ]
       )

@@ -29,16 +29,16 @@ module Amazonka.SageMaker.ListProcessingJobs
     newListProcessingJobs,
 
     -- * Request Lenses
+    listProcessingJobs_sortOrder,
+    listProcessingJobs_nextToken,
+    listProcessingJobs_lastModifiedTimeAfter,
     listProcessingJobs_nameContains,
     listProcessingJobs_lastModifiedTimeBefore,
-    listProcessingJobs_creationTimeAfter,
-    listProcessingJobs_nextToken,
-    listProcessingJobs_sortOrder,
-    listProcessingJobs_lastModifiedTimeAfter,
     listProcessingJobs_creationTimeBefore,
-    listProcessingJobs_statusEquals,
-    listProcessingJobs_maxResults,
     listProcessingJobs_sortBy,
+    listProcessingJobs_maxResults,
+    listProcessingJobs_statusEquals,
+    listProcessingJobs_creationTimeAfter,
 
     -- * Destructuring the Response
     ListProcessingJobsResponse (..),
@@ -60,7 +60,16 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListProcessingJobs' smart constructor.
 data ListProcessingJobs = ListProcessingJobs'
-  { -- | A string in the processing job name. This filter returns only processing
+  { -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | If the result of the previous @ListProcessingJobs@ request was
+    -- truncated, the response includes a @NextToken@. To retrieve the next set
+    -- of processing jobs, use the token in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A filter that returns only processing jobs modified after the specified
+    -- time.
+    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+    -- | A string in the processing job name. This filter returns only processing
     -- jobs whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only processing jobs modified before the specified
@@ -68,25 +77,16 @@ data ListProcessingJobs = ListProcessingJobs'
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only processing jobs created after the specified
     -- time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | If the result of the previous @ListProcessingJobs@ request was
-    -- truncated, the response includes a @NextToken@. To retrieve the next set
-    -- of processing jobs, use the token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | A filter that returns only processing jobs modified after the specified
-    -- time.
-    lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | A filter that returns only processing jobs created after the specified
-    -- time.
     creationTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | A filter that retrieves only processing jobs with a specific status.
-    statusEquals :: Prelude.Maybe ProcessingJobStatus,
+    -- | The field to sort results by. The default is @CreationTime@.
+    sortBy :: Prelude.Maybe SortBy,
     -- | The maximum number of processing jobs to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The field to sort results by. The default is @CreationTime@.
-    sortBy :: Prelude.Maybe SortBy
+    -- | A filter that retrieves only processing jobs with a specific status.
+    statusEquals :: Prelude.Maybe ProcessingJobStatus,
+    -- | A filter that returns only processing jobs created after the specified
+    -- time.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,47 +98,62 @@ data ListProcessingJobs = ListProcessingJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sortOrder', 'listProcessingJobs_sortOrder' - The sort order for results. The default is @Ascending@.
+--
+-- 'nextToken', 'listProcessingJobs_nextToken' - If the result of the previous @ListProcessingJobs@ request was
+-- truncated, the response includes a @NextToken@. To retrieve the next set
+-- of processing jobs, use the token in the next request.
+--
+-- 'lastModifiedTimeAfter', 'listProcessingJobs_lastModifiedTimeAfter' - A filter that returns only processing jobs modified after the specified
+-- time.
+--
 -- 'nameContains', 'listProcessingJobs_nameContains' - A string in the processing job name. This filter returns only processing
 -- jobs whose name contains the specified string.
 --
 -- 'lastModifiedTimeBefore', 'listProcessingJobs_lastModifiedTimeBefore' - A filter that returns only processing jobs modified before the specified
 -- time.
 --
--- 'creationTimeAfter', 'listProcessingJobs_creationTimeAfter' - A filter that returns only processing jobs created after the specified
--- time.
---
--- 'nextToken', 'listProcessingJobs_nextToken' - If the result of the previous @ListProcessingJobs@ request was
--- truncated, the response includes a @NextToken@. To retrieve the next set
--- of processing jobs, use the token in the next request.
---
--- 'sortOrder', 'listProcessingJobs_sortOrder' - The sort order for results. The default is @Ascending@.
---
--- 'lastModifiedTimeAfter', 'listProcessingJobs_lastModifiedTimeAfter' - A filter that returns only processing jobs modified after the specified
--- time.
---
 -- 'creationTimeBefore', 'listProcessingJobs_creationTimeBefore' - A filter that returns only processing jobs created after the specified
 -- time.
 --
--- 'statusEquals', 'listProcessingJobs_statusEquals' - A filter that retrieves only processing jobs with a specific status.
+-- 'sortBy', 'listProcessingJobs_sortBy' - The field to sort results by. The default is @CreationTime@.
 --
 -- 'maxResults', 'listProcessingJobs_maxResults' - The maximum number of processing jobs to return in the response.
 --
--- 'sortBy', 'listProcessingJobs_sortBy' - The field to sort results by. The default is @CreationTime@.
+-- 'statusEquals', 'listProcessingJobs_statusEquals' - A filter that retrieves only processing jobs with a specific status.
+--
+-- 'creationTimeAfter', 'listProcessingJobs_creationTimeAfter' - A filter that returns only processing jobs created after the specified
+-- time.
 newListProcessingJobs ::
   ListProcessingJobs
 newListProcessingJobs =
   ListProcessingJobs'
-    { nameContains = Prelude.Nothing,
-      lastModifiedTimeBefore = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing,
+    { sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       lastModifiedTimeAfter = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      lastModifiedTimeBefore = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      statusEquals = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing
+      statusEquals = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing
     }
+
+-- | The sort order for results. The default is @Ascending@.
+listProcessingJobs_sortOrder :: Lens.Lens' ListProcessingJobs (Prelude.Maybe SortOrder)
+listProcessingJobs_sortOrder = Lens.lens (\ListProcessingJobs' {sortOrder} -> sortOrder) (\s@ListProcessingJobs' {} a -> s {sortOrder = a} :: ListProcessingJobs)
+
+-- | If the result of the previous @ListProcessingJobs@ request was
+-- truncated, the response includes a @NextToken@. To retrieve the next set
+-- of processing jobs, use the token in the next request.
+listProcessingJobs_nextToken :: Lens.Lens' ListProcessingJobs (Prelude.Maybe Prelude.Text)
+listProcessingJobs_nextToken = Lens.lens (\ListProcessingJobs' {nextToken} -> nextToken) (\s@ListProcessingJobs' {} a -> s {nextToken = a} :: ListProcessingJobs)
+
+-- | A filter that returns only processing jobs modified after the specified
+-- time.
+listProcessingJobs_lastModifiedTimeAfter :: Lens.Lens' ListProcessingJobs (Prelude.Maybe Prelude.UTCTime)
+listProcessingJobs_lastModifiedTimeAfter = Lens.lens (\ListProcessingJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListProcessingJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListProcessingJobs) Prelude.. Lens.mapping Core._Time
 
 -- | A string in the processing job name. This filter returns only processing
 -- jobs whose name contains the specified string.
@@ -152,40 +167,25 @@ listProcessingJobs_lastModifiedTimeBefore = Lens.lens (\ListProcessingJobs' {las
 
 -- | A filter that returns only processing jobs created after the specified
 -- time.
-listProcessingJobs_creationTimeAfter :: Lens.Lens' ListProcessingJobs (Prelude.Maybe Prelude.UTCTime)
-listProcessingJobs_creationTimeAfter = Lens.lens (\ListProcessingJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListProcessingJobs' {} a -> s {creationTimeAfter = a} :: ListProcessingJobs) Prelude.. Lens.mapping Core._Time
-
--- | If the result of the previous @ListProcessingJobs@ request was
--- truncated, the response includes a @NextToken@. To retrieve the next set
--- of processing jobs, use the token in the next request.
-listProcessingJobs_nextToken :: Lens.Lens' ListProcessingJobs (Prelude.Maybe Prelude.Text)
-listProcessingJobs_nextToken = Lens.lens (\ListProcessingJobs' {nextToken} -> nextToken) (\s@ListProcessingJobs' {} a -> s {nextToken = a} :: ListProcessingJobs)
-
--- | The sort order for results. The default is @Ascending@.
-listProcessingJobs_sortOrder :: Lens.Lens' ListProcessingJobs (Prelude.Maybe SortOrder)
-listProcessingJobs_sortOrder = Lens.lens (\ListProcessingJobs' {sortOrder} -> sortOrder) (\s@ListProcessingJobs' {} a -> s {sortOrder = a} :: ListProcessingJobs)
-
--- | A filter that returns only processing jobs modified after the specified
--- time.
-listProcessingJobs_lastModifiedTimeAfter :: Lens.Lens' ListProcessingJobs (Prelude.Maybe Prelude.UTCTime)
-listProcessingJobs_lastModifiedTimeAfter = Lens.lens (\ListProcessingJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListProcessingJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListProcessingJobs) Prelude.. Lens.mapping Core._Time
-
--- | A filter that returns only processing jobs created after the specified
--- time.
 listProcessingJobs_creationTimeBefore :: Lens.Lens' ListProcessingJobs (Prelude.Maybe Prelude.UTCTime)
 listProcessingJobs_creationTimeBefore = Lens.lens (\ListProcessingJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListProcessingJobs' {} a -> s {creationTimeBefore = a} :: ListProcessingJobs) Prelude.. Lens.mapping Core._Time
 
--- | A filter that retrieves only processing jobs with a specific status.
-listProcessingJobs_statusEquals :: Lens.Lens' ListProcessingJobs (Prelude.Maybe ProcessingJobStatus)
-listProcessingJobs_statusEquals = Lens.lens (\ListProcessingJobs' {statusEquals} -> statusEquals) (\s@ListProcessingJobs' {} a -> s {statusEquals = a} :: ListProcessingJobs)
+-- | The field to sort results by. The default is @CreationTime@.
+listProcessingJobs_sortBy :: Lens.Lens' ListProcessingJobs (Prelude.Maybe SortBy)
+listProcessingJobs_sortBy = Lens.lens (\ListProcessingJobs' {sortBy} -> sortBy) (\s@ListProcessingJobs' {} a -> s {sortBy = a} :: ListProcessingJobs)
 
 -- | The maximum number of processing jobs to return in the response.
 listProcessingJobs_maxResults :: Lens.Lens' ListProcessingJobs (Prelude.Maybe Prelude.Natural)
 listProcessingJobs_maxResults = Lens.lens (\ListProcessingJobs' {maxResults} -> maxResults) (\s@ListProcessingJobs' {} a -> s {maxResults = a} :: ListProcessingJobs)
 
--- | The field to sort results by. The default is @CreationTime@.
-listProcessingJobs_sortBy :: Lens.Lens' ListProcessingJobs (Prelude.Maybe SortBy)
-listProcessingJobs_sortBy = Lens.lens (\ListProcessingJobs' {sortBy} -> sortBy) (\s@ListProcessingJobs' {} a -> s {sortBy = a} :: ListProcessingJobs)
+-- | A filter that retrieves only processing jobs with a specific status.
+listProcessingJobs_statusEquals :: Lens.Lens' ListProcessingJobs (Prelude.Maybe ProcessingJobStatus)
+listProcessingJobs_statusEquals = Lens.lens (\ListProcessingJobs' {statusEquals} -> statusEquals) (\s@ListProcessingJobs' {} a -> s {statusEquals = a} :: ListProcessingJobs)
+
+-- | A filter that returns only processing jobs created after the specified
+-- time.
+listProcessingJobs_creationTimeAfter :: Lens.Lens' ListProcessingJobs (Prelude.Maybe Prelude.UTCTime)
+listProcessingJobs_creationTimeAfter = Lens.lens (\ListProcessingJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListProcessingJobs' {} a -> s {creationTimeAfter = a} :: ListProcessingJobs) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListProcessingJobs where
   page rq rs
@@ -226,29 +226,29 @@ instance Core.AWSRequest ListProcessingJobs where
 
 instance Prelude.Hashable ListProcessingJobs where
   hashWithSalt _salt ListProcessingJobs' {..} =
-    _salt `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` lastModifiedTimeBefore
-      `Prelude.hashWithSalt` creationTimeAfter
+    _salt `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
       `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` statusEquals
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` statusEquals
+      `Prelude.hashWithSalt` creationTimeAfter
 
 instance Prelude.NFData ListProcessingJobs where
   rnf ListProcessingJobs' {..} =
-    Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf creationTimeAfter
+    Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf statusEquals
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf statusEquals
+      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Core.ToHeaders ListProcessingJobs where
   toHeaders =
@@ -269,20 +269,20 @@ instance Core.ToJSON ListProcessingJobs where
   toJSON ListProcessingJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Core..=)
-              Prelude.<$> lastModifiedTimeBefore,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter,
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("LastModifiedTimeAfter" Core..=)
               Prelude.<$> lastModifiedTimeAfter,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("LastModifiedTimeBefore" Core..=)
+              Prelude.<$> lastModifiedTimeBefore,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,
-            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SortBy" Core..=) Prelude.<$> sortBy
+            ("StatusEquals" Core..=) Prelude.<$> statusEquals,
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter
           ]
       )
 

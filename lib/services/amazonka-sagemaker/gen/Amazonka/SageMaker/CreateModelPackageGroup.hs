@@ -27,8 +27,8 @@ module Amazonka.SageMaker.CreateModelPackageGroup
     newCreateModelPackageGroup,
 
     -- * Request Lenses
-    createModelPackageGroup_modelPackageGroupDescription,
     createModelPackageGroup_tags,
+    createModelPackageGroup_modelPackageGroupDescription,
     createModelPackageGroup_modelPackageGroupName,
 
     -- * Destructuring the Response
@@ -50,13 +50,13 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateModelPackageGroup' smart constructor.
 data CreateModelPackageGroup = CreateModelPackageGroup'
-  { -- | A description for the model group.
-    modelPackageGroupDescription :: Prelude.Maybe Prelude.Text,
-    -- | A list of key value pairs associated with the model group. For more
+  { -- | A list of key value pairs associated with the model group. For more
     -- information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
     -- in the /Amazon Web Services General Reference Guide/.
     tags :: Prelude.Maybe [Tag],
+    -- | A description for the model group.
+    modelPackageGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the model group.
     modelPackageGroupName :: Prelude.Text
   }
@@ -70,12 +70,12 @@ data CreateModelPackageGroup = CreateModelPackageGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelPackageGroupDescription', 'createModelPackageGroup_modelPackageGroupDescription' - A description for the model group.
---
 -- 'tags', 'createModelPackageGroup_tags' - A list of key value pairs associated with the model group. For more
 -- information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
 -- in the /Amazon Web Services General Reference Guide/.
+--
+-- 'modelPackageGroupDescription', 'createModelPackageGroup_modelPackageGroupDescription' - A description for the model group.
 --
 -- 'modelPackageGroupName', 'createModelPackageGroup_modelPackageGroupName' - The name of the model group.
 newCreateModelPackageGroup ::
@@ -84,15 +84,10 @@ newCreateModelPackageGroup ::
   CreateModelPackageGroup
 newCreateModelPackageGroup pModelPackageGroupName_ =
   CreateModelPackageGroup'
-    { modelPackageGroupDescription =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      modelPackageGroupDescription = Prelude.Nothing,
       modelPackageGroupName = pModelPackageGroupName_
     }
-
--- | A description for the model group.
-createModelPackageGroup_modelPackageGroupDescription :: Lens.Lens' CreateModelPackageGroup (Prelude.Maybe Prelude.Text)
-createModelPackageGroup_modelPackageGroupDescription = Lens.lens (\CreateModelPackageGroup' {modelPackageGroupDescription} -> modelPackageGroupDescription) (\s@CreateModelPackageGroup' {} a -> s {modelPackageGroupDescription = a} :: CreateModelPackageGroup)
 
 -- | A list of key value pairs associated with the model group. For more
 -- information, see
@@ -100,6 +95,10 @@ createModelPackageGroup_modelPackageGroupDescription = Lens.lens (\CreateModelPa
 -- in the /Amazon Web Services General Reference Guide/.
 createModelPackageGroup_tags :: Lens.Lens' CreateModelPackageGroup (Prelude.Maybe [Tag])
 createModelPackageGroup_tags = Lens.lens (\CreateModelPackageGroup' {tags} -> tags) (\s@CreateModelPackageGroup' {} a -> s {tags = a} :: CreateModelPackageGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description for the model group.
+createModelPackageGroup_modelPackageGroupDescription :: Lens.Lens' CreateModelPackageGroup (Prelude.Maybe Prelude.Text)
+createModelPackageGroup_modelPackageGroupDescription = Lens.lens (\CreateModelPackageGroup' {modelPackageGroupDescription} -> modelPackageGroupDescription) (\s@CreateModelPackageGroup' {} a -> s {modelPackageGroupDescription = a} :: CreateModelPackageGroup)
 
 -- | The name of the model group.
 createModelPackageGroup_modelPackageGroupName :: Lens.Lens' CreateModelPackageGroup Prelude.Text
@@ -120,15 +119,14 @@ instance Core.AWSRequest CreateModelPackageGroup where
 
 instance Prelude.Hashable CreateModelPackageGroup where
   hashWithSalt _salt CreateModelPackageGroup' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` modelPackageGroupDescription
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` modelPackageGroupName
 
 instance Prelude.NFData CreateModelPackageGroup where
   rnf CreateModelPackageGroup' {..} =
-    Prelude.rnf modelPackageGroupDescription
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf modelPackageGroupDescription
       `Prelude.seq` Prelude.rnf modelPackageGroupName
 
 instance Core.ToHeaders CreateModelPackageGroup where
@@ -150,9 +148,9 @@ instance Core.ToJSON CreateModelPackageGroup where
   toJSON CreateModelPackageGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ModelPackageGroupDescription" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ModelPackageGroupDescription" Core..=)
               Prelude.<$> modelPackageGroupDescription,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ( "ModelPackageGroupName"
                   Core..= modelPackageGroupName

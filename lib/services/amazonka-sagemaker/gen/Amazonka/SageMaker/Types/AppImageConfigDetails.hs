@@ -28,17 +28,17 @@ import Amazonka.SageMaker.Types.KernelGatewayImageConfig
 --
 -- /See:/ 'newAppImageConfigDetails' smart constructor.
 data AppImageConfigDetails = AppImageConfigDetails'
-  { -- | When the AppImageConfig was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The Amazon Resource Name (ARN) of the AppImageConfig.
+    appImageConfigArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the AppImageConfig. Must be unique to your account.
     appImageConfigName :: Prelude.Maybe Prelude.Text,
-    -- | When the AppImageConfig was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The configuration for the file system and kernels in the SageMaker
     -- image.
     kernelGatewayImageConfig :: Prelude.Maybe KernelGatewayImageConfig,
-    -- | The Amazon Resource Name (ARN) of the AppImageConfig.
-    appImageConfigArn :: Prelude.Maybe Prelude.Text
+    -- | When the AppImageConfig was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | When the AppImageConfig was created.
+    creationTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,48 +50,48 @@ data AppImageConfigDetails = AppImageConfigDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'appImageConfigDetails_creationTime' - When the AppImageConfig was created.
+-- 'appImageConfigArn', 'appImageConfigDetails_appImageConfigArn' - The Amazon Resource Name (ARN) of the AppImageConfig.
 --
 -- 'appImageConfigName', 'appImageConfigDetails_appImageConfigName' - The name of the AppImageConfig. Must be unique to your account.
---
--- 'lastModifiedTime', 'appImageConfigDetails_lastModifiedTime' - When the AppImageConfig was last modified.
 --
 -- 'kernelGatewayImageConfig', 'appImageConfigDetails_kernelGatewayImageConfig' - The configuration for the file system and kernels in the SageMaker
 -- image.
 --
--- 'appImageConfigArn', 'appImageConfigDetails_appImageConfigArn' - The Amazon Resource Name (ARN) of the AppImageConfig.
+-- 'lastModifiedTime', 'appImageConfigDetails_lastModifiedTime' - When the AppImageConfig was last modified.
+--
+-- 'creationTime', 'appImageConfigDetails_creationTime' - When the AppImageConfig was created.
 newAppImageConfigDetails ::
   AppImageConfigDetails
 newAppImageConfigDetails =
   AppImageConfigDetails'
-    { creationTime =
+    { appImageConfigArn =
         Prelude.Nothing,
       appImageConfigName = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       kernelGatewayImageConfig = Prelude.Nothing,
-      appImageConfigArn = Prelude.Nothing
+      lastModifiedTime = Prelude.Nothing,
+      creationTime = Prelude.Nothing
     }
 
--- | When the AppImageConfig was created.
-appImageConfigDetails_creationTime :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe Prelude.UTCTime)
-appImageConfigDetails_creationTime = Lens.lens (\AppImageConfigDetails' {creationTime} -> creationTime) (\s@AppImageConfigDetails' {} a -> s {creationTime = a} :: AppImageConfigDetails) Prelude.. Lens.mapping Core._Time
+-- | The Amazon Resource Name (ARN) of the AppImageConfig.
+appImageConfigDetails_appImageConfigArn :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe Prelude.Text)
+appImageConfigDetails_appImageConfigArn = Lens.lens (\AppImageConfigDetails' {appImageConfigArn} -> appImageConfigArn) (\s@AppImageConfigDetails' {} a -> s {appImageConfigArn = a} :: AppImageConfigDetails)
 
 -- | The name of the AppImageConfig. Must be unique to your account.
 appImageConfigDetails_appImageConfigName :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe Prelude.Text)
 appImageConfigDetails_appImageConfigName = Lens.lens (\AppImageConfigDetails' {appImageConfigName} -> appImageConfigName) (\s@AppImageConfigDetails' {} a -> s {appImageConfigName = a} :: AppImageConfigDetails)
-
--- | When the AppImageConfig was last modified.
-appImageConfigDetails_lastModifiedTime :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe Prelude.UTCTime)
-appImageConfigDetails_lastModifiedTime = Lens.lens (\AppImageConfigDetails' {lastModifiedTime} -> lastModifiedTime) (\s@AppImageConfigDetails' {} a -> s {lastModifiedTime = a} :: AppImageConfigDetails) Prelude.. Lens.mapping Core._Time
 
 -- | The configuration for the file system and kernels in the SageMaker
 -- image.
 appImageConfigDetails_kernelGatewayImageConfig :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe KernelGatewayImageConfig)
 appImageConfigDetails_kernelGatewayImageConfig = Lens.lens (\AppImageConfigDetails' {kernelGatewayImageConfig} -> kernelGatewayImageConfig) (\s@AppImageConfigDetails' {} a -> s {kernelGatewayImageConfig = a} :: AppImageConfigDetails)
 
--- | The Amazon Resource Name (ARN) of the AppImageConfig.
-appImageConfigDetails_appImageConfigArn :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe Prelude.Text)
-appImageConfigDetails_appImageConfigArn = Lens.lens (\AppImageConfigDetails' {appImageConfigArn} -> appImageConfigArn) (\s@AppImageConfigDetails' {} a -> s {appImageConfigArn = a} :: AppImageConfigDetails)
+-- | When the AppImageConfig was last modified.
+appImageConfigDetails_lastModifiedTime :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe Prelude.UTCTime)
+appImageConfigDetails_lastModifiedTime = Lens.lens (\AppImageConfigDetails' {lastModifiedTime} -> lastModifiedTime) (\s@AppImageConfigDetails' {} a -> s {lastModifiedTime = a} :: AppImageConfigDetails) Prelude.. Lens.mapping Core._Time
+
+-- | When the AppImageConfig was created.
+appImageConfigDetails_creationTime :: Lens.Lens' AppImageConfigDetails (Prelude.Maybe Prelude.UTCTime)
+appImageConfigDetails_creationTime = Lens.lens (\AppImageConfigDetails' {creationTime} -> creationTime) (\s@AppImageConfigDetails' {} a -> s {creationTime = a} :: AppImageConfigDetails) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON AppImageConfigDetails where
   parseJSON =
@@ -99,25 +99,25 @@ instance Core.FromJSON AppImageConfigDetails where
       "AppImageConfigDetails"
       ( \x ->
           AppImageConfigDetails'
-            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "AppImageConfigArn")
             Prelude.<*> (x Core..:? "AppImageConfigName")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "KernelGatewayImageConfig")
-            Prelude.<*> (x Core..:? "AppImageConfigArn")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "CreationTime")
       )
 
 instance Prelude.Hashable AppImageConfigDetails where
   hashWithSalt _salt AppImageConfigDetails' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt `Prelude.hashWithSalt` appImageConfigArn
       `Prelude.hashWithSalt` appImageConfigName
-      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` kernelGatewayImageConfig
-      `Prelude.hashWithSalt` appImageConfigArn
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData AppImageConfigDetails where
   rnf AppImageConfigDetails' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf appImageConfigArn
       `Prelude.seq` Prelude.rnf appImageConfigName
-      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf kernelGatewayImageConfig
-      `Prelude.seq` Prelude.rnf appImageConfigArn
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime

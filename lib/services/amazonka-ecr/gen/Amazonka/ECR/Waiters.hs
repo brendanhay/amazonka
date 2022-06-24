@@ -23,32 +23,6 @@ import Amazonka.ECR.Types
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Amazonka.ECR.GetLifecyclePolicyPreview' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newLifecyclePolicyPreviewComplete :: Core.Wait GetLifecyclePolicyPreview
-newLifecyclePolicyPreviewComplete =
-  Core.Wait
-    { Core._waitName =
-        "LifecyclePolicyPreviewComplete",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "COMPLETE"
-            Core.AcceptSuccess
-            ( getLifecyclePolicyPreviewResponse_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "FAILED"
-            Core.AcceptFailure
-            ( getLifecyclePolicyPreviewResponse_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
 -- | Polls 'Amazonka.ECR.DescribeImageScanFindings' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newImageScanComplete :: Core.Wait DescribeImageScanFindings
 newImageScanComplete =
@@ -72,6 +46,32 @@ newImageScanComplete =
             ( describeImageScanFindingsResponse_imageScanStatus
                 Prelude.. Lens._Just
                 Prelude.. imageScanStatus_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.ECR.GetLifecyclePolicyPreview' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newLifecyclePolicyPreviewComplete :: Core.Wait GetLifecyclePolicyPreview
+newLifecyclePolicyPreviewComplete =
+  Core.Wait
+    { Core._waitName =
+        "LifecyclePolicyPreviewComplete",
+      Core._waitAttempts = 20,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "COMPLETE"
+            Core.AcceptSuccess
+            ( getLifecyclePolicyPreviewResponse_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "FAILED"
+            Core.AcceptFailure
+            ( getLifecyclePolicyPreviewResponse_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )

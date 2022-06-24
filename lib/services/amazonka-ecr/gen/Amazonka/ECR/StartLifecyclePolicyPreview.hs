@@ -38,10 +38,10 @@ module Amazonka.ECR.StartLifecyclePolicyPreview
     newStartLifecyclePolicyPreviewResponse,
 
     -- * Response Lenses
+    startLifecyclePolicyPreviewResponse_repositoryName,
     startLifecyclePolicyPreviewResponse_status,
     startLifecyclePolicyPreviewResponse_registryId,
     startLifecyclePolicyPreviewResponse_lifecyclePolicyText,
-    startLifecyclePolicyPreviewResponse_repositoryName,
     startLifecyclePolicyPreviewResponse_httpStatus,
   )
 where
@@ -119,10 +119,10 @@ instance Core.AWSRequest StartLifecyclePolicyPreview where
     Response.receiveJSON
       ( \s h x ->
           StartLifecyclePolicyPreviewResponse'
-            Prelude.<$> (x Core..?> "status")
+            Prelude.<$> (x Core..?> "repositoryName")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "registryId")
             Prelude.<*> (x Core..?> "lifecyclePolicyText")
-            Prelude.<*> (x Core..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,14 +173,14 @@ instance Core.ToQuery StartLifecyclePolicyPreview where
 
 -- | /See:/ 'newStartLifecyclePolicyPreviewResponse' smart constructor.
 data StartLifecyclePolicyPreviewResponse = StartLifecyclePolicyPreviewResponse'
-  { -- | The status of the lifecycle policy preview request.
+  { -- | The repository name associated with the request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the lifecycle policy preview request.
     status :: Prelude.Maybe LifecyclePolicyPreviewStatus,
     -- | The registry ID associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The JSON repository policy text.
     lifecyclePolicyText :: Prelude.Maybe Prelude.Text,
-    -- | The repository name associated with the request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,13 +194,13 @@ data StartLifecyclePolicyPreviewResponse = StartLifecyclePolicyPreviewResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'repositoryName', 'startLifecyclePolicyPreviewResponse_repositoryName' - The repository name associated with the request.
+--
 -- 'status', 'startLifecyclePolicyPreviewResponse_status' - The status of the lifecycle policy preview request.
 --
 -- 'registryId', 'startLifecyclePolicyPreviewResponse_registryId' - The registry ID associated with the request.
 --
 -- 'lifecyclePolicyText', 'startLifecyclePolicyPreviewResponse_lifecyclePolicyText' - The JSON repository policy text.
---
--- 'repositoryName', 'startLifecyclePolicyPreviewResponse_repositoryName' - The repository name associated with the request.
 --
 -- 'httpStatus', 'startLifecyclePolicyPreviewResponse_httpStatus' - The response's http status code.
 newStartLifecyclePolicyPreviewResponse ::
@@ -209,13 +209,17 @@ newStartLifecyclePolicyPreviewResponse ::
   StartLifecyclePolicyPreviewResponse
 newStartLifecyclePolicyPreviewResponse pHttpStatus_ =
   StartLifecyclePolicyPreviewResponse'
-    { status =
+    { repositoryName =
         Prelude.Nothing,
+      status = Prelude.Nothing,
       registryId = Prelude.Nothing,
       lifecyclePolicyText = Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The repository name associated with the request.
+startLifecyclePolicyPreviewResponse_repositoryName :: Lens.Lens' StartLifecyclePolicyPreviewResponse (Prelude.Maybe Prelude.Text)
+startLifecyclePolicyPreviewResponse_repositoryName = Lens.lens (\StartLifecyclePolicyPreviewResponse' {repositoryName} -> repositoryName) (\s@StartLifecyclePolicyPreviewResponse' {} a -> s {repositoryName = a} :: StartLifecyclePolicyPreviewResponse)
 
 -- | The status of the lifecycle policy preview request.
 startLifecyclePolicyPreviewResponse_status :: Lens.Lens' StartLifecyclePolicyPreviewResponse (Prelude.Maybe LifecyclePolicyPreviewStatus)
@@ -229,10 +233,6 @@ startLifecyclePolicyPreviewResponse_registryId = Lens.lens (\StartLifecyclePolic
 startLifecyclePolicyPreviewResponse_lifecyclePolicyText :: Lens.Lens' StartLifecyclePolicyPreviewResponse (Prelude.Maybe Prelude.Text)
 startLifecyclePolicyPreviewResponse_lifecyclePolicyText = Lens.lens (\StartLifecyclePolicyPreviewResponse' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@StartLifecyclePolicyPreviewResponse' {} a -> s {lifecyclePolicyText = a} :: StartLifecyclePolicyPreviewResponse)
 
--- | The repository name associated with the request.
-startLifecyclePolicyPreviewResponse_repositoryName :: Lens.Lens' StartLifecyclePolicyPreviewResponse (Prelude.Maybe Prelude.Text)
-startLifecyclePolicyPreviewResponse_repositoryName = Lens.lens (\StartLifecyclePolicyPreviewResponse' {repositoryName} -> repositoryName) (\s@StartLifecyclePolicyPreviewResponse' {} a -> s {repositoryName = a} :: StartLifecyclePolicyPreviewResponse)
-
 -- | The response's http status code.
 startLifecyclePolicyPreviewResponse_httpStatus :: Lens.Lens' StartLifecyclePolicyPreviewResponse Prelude.Int
 startLifecyclePolicyPreviewResponse_httpStatus = Lens.lens (\StartLifecyclePolicyPreviewResponse' {httpStatus} -> httpStatus) (\s@StartLifecyclePolicyPreviewResponse' {} a -> s {httpStatus = a} :: StartLifecyclePolicyPreviewResponse)
@@ -242,8 +242,8 @@ instance
     StartLifecyclePolicyPreviewResponse
   where
   rnf StartLifecyclePolicyPreviewResponse' {..} =
-    Prelude.rnf status
+    Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf lifecyclePolicyText
-      `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,15 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImageDetail' smart constructor.
 data ImageDetail = ImageDetail'
-  { -- | The Amazon Web Services account ID associated with the registry to which
-    -- this image belongs.
-    registryId :: Prelude.Maybe Prelude.Text,
-    -- | The list of tags associated with this image.
-    imageTags :: Prelude.Maybe [Prelude.Text],
-    -- | The current state of the scan.
-    imageScanStatus :: Prelude.Maybe ImageScanStatus,
-    -- | The media type of the image manifest.
-    imageManifestMediaType :: Prelude.Maybe Prelude.Text,
+  { -- | The artifact media type of the image.
+    artifactMediaType :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, expressed in standard JavaScript date format, at
+    -- which the current image was pushed to the repository.
+    imagePushedAt :: Prelude.Maybe Core.POSIX,
+    -- | The name of the repository to which this image belongs.
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The size, in bytes, of the image in the repository.
     --
     -- If the image is a manifest list, this will be the max size of all
@@ -50,17 +48,19 @@ data ImageDetail = ImageDetail'
     -- return a larger image size than the image sizes returned by
     -- DescribeImages.
     imageSizeInBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The list of tags associated with this image.
+    imageTags :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Web Services account ID associated with the registry to which
+    -- this image belongs.
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | The media type of the image manifest.
+    imageManifestMediaType :: Prelude.Maybe Prelude.Text,
     -- | The @sha256@ digest of the image manifest.
     imageDigest :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the scan.
+    imageScanStatus :: Prelude.Maybe ImageScanStatus,
     -- | A summary of the last completed image scan.
-    imageScanFindingsSummary :: Prelude.Maybe ImageScanFindingsSummary,
-    -- | The artifact media type of the image.
-    artifactMediaType :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, expressed in standard JavaScript date format, at
-    -- which the current image was pushed to the repository.
-    imagePushedAt :: Prelude.Maybe Core.POSIX,
-    -- | The name of the repository to which this image belongs.
-    repositoryName :: Prelude.Maybe Prelude.Text
+    imageScanFindingsSummary :: Prelude.Maybe ImageScanFindingsSummary
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,14 +72,12 @@ data ImageDetail = ImageDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'imageDetail_registryId' - The Amazon Web Services account ID associated with the registry to which
--- this image belongs.
+-- 'artifactMediaType', 'imageDetail_artifactMediaType' - The artifact media type of the image.
 --
--- 'imageTags', 'imageDetail_imageTags' - The list of tags associated with this image.
+-- 'imagePushedAt', 'imageDetail_imagePushedAt' - The date and time, expressed in standard JavaScript date format, at
+-- which the current image was pushed to the repository.
 --
--- 'imageScanStatus', 'imageDetail_imageScanStatus' - The current state of the scan.
---
--- 'imageManifestMediaType', 'imageDetail_imageManifestMediaType' - The media type of the image manifest.
+-- 'repositoryName', 'imageDetail_repositoryName' - The name of the repository to which this image belongs.
 --
 -- 'imageSizeInBytes', 'imageDetail_imageSizeInBytes' - The size, in bytes, of the image in the repository.
 --
@@ -92,69 +90,33 @@ data ImageDetail = ImageDetail'
 -- return a larger image size than the image sizes returned by
 -- DescribeImages.
 --
+-- 'imageTags', 'imageDetail_imageTags' - The list of tags associated with this image.
+--
+-- 'registryId', 'imageDetail_registryId' - The Amazon Web Services account ID associated with the registry to which
+-- this image belongs.
+--
+-- 'imageManifestMediaType', 'imageDetail_imageManifestMediaType' - The media type of the image manifest.
+--
 -- 'imageDigest', 'imageDetail_imageDigest' - The @sha256@ digest of the image manifest.
 --
+-- 'imageScanStatus', 'imageDetail_imageScanStatus' - The current state of the scan.
+--
 -- 'imageScanFindingsSummary', 'imageDetail_imageScanFindingsSummary' - A summary of the last completed image scan.
---
--- 'artifactMediaType', 'imageDetail_artifactMediaType' - The artifact media type of the image.
---
--- 'imagePushedAt', 'imageDetail_imagePushedAt' - The date and time, expressed in standard JavaScript date format, at
--- which the current image was pushed to the repository.
---
--- 'repositoryName', 'imageDetail_repositoryName' - The name of the repository to which this image belongs.
 newImageDetail ::
   ImageDetail
 newImageDetail =
   ImageDetail'
-    { registryId = Prelude.Nothing,
-      imageTags = Prelude.Nothing,
-      imageScanStatus = Prelude.Nothing,
-      imageManifestMediaType = Prelude.Nothing,
-      imageSizeInBytes = Prelude.Nothing,
-      imageDigest = Prelude.Nothing,
-      imageScanFindingsSummary = Prelude.Nothing,
-      artifactMediaType = Prelude.Nothing,
+    { artifactMediaType = Prelude.Nothing,
       imagePushedAt = Prelude.Nothing,
-      repositoryName = Prelude.Nothing
+      repositoryName = Prelude.Nothing,
+      imageSizeInBytes = Prelude.Nothing,
+      imageTags = Prelude.Nothing,
+      registryId = Prelude.Nothing,
+      imageManifestMediaType = Prelude.Nothing,
+      imageDigest = Prelude.Nothing,
+      imageScanStatus = Prelude.Nothing,
+      imageScanFindingsSummary = Prelude.Nothing
     }
-
--- | The Amazon Web Services account ID associated with the registry to which
--- this image belongs.
-imageDetail_registryId :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
-imageDetail_registryId = Lens.lens (\ImageDetail' {registryId} -> registryId) (\s@ImageDetail' {} a -> s {registryId = a} :: ImageDetail)
-
--- | The list of tags associated with this image.
-imageDetail_imageTags :: Lens.Lens' ImageDetail (Prelude.Maybe [Prelude.Text])
-imageDetail_imageTags = Lens.lens (\ImageDetail' {imageTags} -> imageTags) (\s@ImageDetail' {} a -> s {imageTags = a} :: ImageDetail) Prelude.. Lens.mapping Lens.coerced
-
--- | The current state of the scan.
-imageDetail_imageScanStatus :: Lens.Lens' ImageDetail (Prelude.Maybe ImageScanStatus)
-imageDetail_imageScanStatus = Lens.lens (\ImageDetail' {imageScanStatus} -> imageScanStatus) (\s@ImageDetail' {} a -> s {imageScanStatus = a} :: ImageDetail)
-
--- | The media type of the image manifest.
-imageDetail_imageManifestMediaType :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
-imageDetail_imageManifestMediaType = Lens.lens (\ImageDetail' {imageManifestMediaType} -> imageManifestMediaType) (\s@ImageDetail' {} a -> s {imageManifestMediaType = a} :: ImageDetail)
-
--- | The size, in bytes, of the image in the repository.
---
--- If the image is a manifest list, this will be the max size of all
--- manifests in the list.
---
--- Beginning with Docker version 1.9, the Docker client compresses image
--- layers before pushing them to a V2 Docker registry. The output of the
--- @docker images@ command shows the uncompressed image size, so it may
--- return a larger image size than the image sizes returned by
--- DescribeImages.
-imageDetail_imageSizeInBytes :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Integer)
-imageDetail_imageSizeInBytes = Lens.lens (\ImageDetail' {imageSizeInBytes} -> imageSizeInBytes) (\s@ImageDetail' {} a -> s {imageSizeInBytes = a} :: ImageDetail)
-
--- | The @sha256@ digest of the image manifest.
-imageDetail_imageDigest :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
-imageDetail_imageDigest = Lens.lens (\ImageDetail' {imageDigest} -> imageDigest) (\s@ImageDetail' {} a -> s {imageDigest = a} :: ImageDetail)
-
--- | A summary of the last completed image scan.
-imageDetail_imageScanFindingsSummary :: Lens.Lens' ImageDetail (Prelude.Maybe ImageScanFindingsSummary)
-imageDetail_imageScanFindingsSummary = Lens.lens (\ImageDetail' {imageScanFindingsSummary} -> imageScanFindingsSummary) (\s@ImageDetail' {} a -> s {imageScanFindingsSummary = a} :: ImageDetail)
 
 -- | The artifact media type of the image.
 imageDetail_artifactMediaType :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
@@ -169,46 +131,84 @@ imageDetail_imagePushedAt = Lens.lens (\ImageDetail' {imagePushedAt} -> imagePus
 imageDetail_repositoryName :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
 imageDetail_repositoryName = Lens.lens (\ImageDetail' {repositoryName} -> repositoryName) (\s@ImageDetail' {} a -> s {repositoryName = a} :: ImageDetail)
 
+-- | The size, in bytes, of the image in the repository.
+--
+-- If the image is a manifest list, this will be the max size of all
+-- manifests in the list.
+--
+-- Beginning with Docker version 1.9, the Docker client compresses image
+-- layers before pushing them to a V2 Docker registry. The output of the
+-- @docker images@ command shows the uncompressed image size, so it may
+-- return a larger image size than the image sizes returned by
+-- DescribeImages.
+imageDetail_imageSizeInBytes :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Integer)
+imageDetail_imageSizeInBytes = Lens.lens (\ImageDetail' {imageSizeInBytes} -> imageSizeInBytes) (\s@ImageDetail' {} a -> s {imageSizeInBytes = a} :: ImageDetail)
+
+-- | The list of tags associated with this image.
+imageDetail_imageTags :: Lens.Lens' ImageDetail (Prelude.Maybe [Prelude.Text])
+imageDetail_imageTags = Lens.lens (\ImageDetail' {imageTags} -> imageTags) (\s@ImageDetail' {} a -> s {imageTags = a} :: ImageDetail) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Web Services account ID associated with the registry to which
+-- this image belongs.
+imageDetail_registryId :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
+imageDetail_registryId = Lens.lens (\ImageDetail' {registryId} -> registryId) (\s@ImageDetail' {} a -> s {registryId = a} :: ImageDetail)
+
+-- | The media type of the image manifest.
+imageDetail_imageManifestMediaType :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
+imageDetail_imageManifestMediaType = Lens.lens (\ImageDetail' {imageManifestMediaType} -> imageManifestMediaType) (\s@ImageDetail' {} a -> s {imageManifestMediaType = a} :: ImageDetail)
+
+-- | The @sha256@ digest of the image manifest.
+imageDetail_imageDigest :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
+imageDetail_imageDigest = Lens.lens (\ImageDetail' {imageDigest} -> imageDigest) (\s@ImageDetail' {} a -> s {imageDigest = a} :: ImageDetail)
+
+-- | The current state of the scan.
+imageDetail_imageScanStatus :: Lens.Lens' ImageDetail (Prelude.Maybe ImageScanStatus)
+imageDetail_imageScanStatus = Lens.lens (\ImageDetail' {imageScanStatus} -> imageScanStatus) (\s@ImageDetail' {} a -> s {imageScanStatus = a} :: ImageDetail)
+
+-- | A summary of the last completed image scan.
+imageDetail_imageScanFindingsSummary :: Lens.Lens' ImageDetail (Prelude.Maybe ImageScanFindingsSummary)
+imageDetail_imageScanFindingsSummary = Lens.lens (\ImageDetail' {imageScanFindingsSummary} -> imageScanFindingsSummary) (\s@ImageDetail' {} a -> s {imageScanFindingsSummary = a} :: ImageDetail)
+
 instance Core.FromJSON ImageDetail where
   parseJSON =
     Core.withObject
       "ImageDetail"
       ( \x ->
           ImageDetail'
-            Prelude.<$> (x Core..:? "registryId")
-            Prelude.<*> (x Core..:? "imageTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "imageScanStatus")
-            Prelude.<*> (x Core..:? "imageManifestMediaType")
-            Prelude.<*> (x Core..:? "imageSizeInBytes")
-            Prelude.<*> (x Core..:? "imageDigest")
-            Prelude.<*> (x Core..:? "imageScanFindingsSummary")
-            Prelude.<*> (x Core..:? "artifactMediaType")
+            Prelude.<$> (x Core..:? "artifactMediaType")
             Prelude.<*> (x Core..:? "imagePushedAt")
             Prelude.<*> (x Core..:? "repositoryName")
+            Prelude.<*> (x Core..:? "imageSizeInBytes")
+            Prelude.<*> (x Core..:? "imageTags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "registryId")
+            Prelude.<*> (x Core..:? "imageManifestMediaType")
+            Prelude.<*> (x Core..:? "imageDigest")
+            Prelude.<*> (x Core..:? "imageScanStatus")
+            Prelude.<*> (x Core..:? "imageScanFindingsSummary")
       )
 
 instance Prelude.Hashable ImageDetail where
   hashWithSalt _salt ImageDetail' {..} =
-    _salt `Prelude.hashWithSalt` registryId
-      `Prelude.hashWithSalt` imageTags
-      `Prelude.hashWithSalt` imageScanStatus
-      `Prelude.hashWithSalt` imageManifestMediaType
-      `Prelude.hashWithSalt` imageSizeInBytes
-      `Prelude.hashWithSalt` imageDigest
-      `Prelude.hashWithSalt` imageScanFindingsSummary
-      `Prelude.hashWithSalt` artifactMediaType
+    _salt `Prelude.hashWithSalt` artifactMediaType
       `Prelude.hashWithSalt` imagePushedAt
       `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` imageSizeInBytes
+      `Prelude.hashWithSalt` imageTags
+      `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` imageManifestMediaType
+      `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` imageScanStatus
+      `Prelude.hashWithSalt` imageScanFindingsSummary
 
 instance Prelude.NFData ImageDetail where
   rnf ImageDetail' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf imageTags
-      `Prelude.seq` Prelude.rnf imageScanStatus
-      `Prelude.seq` Prelude.rnf imageManifestMediaType
-      `Prelude.seq` Prelude.rnf imageSizeInBytes
-      `Prelude.seq` Prelude.rnf imageDigest
-      `Prelude.seq` Prelude.rnf imageScanFindingsSummary
-      `Prelude.seq` Prelude.rnf artifactMediaType
+    Prelude.rnf artifactMediaType
       `Prelude.seq` Prelude.rnf imagePushedAt
       `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf imageSizeInBytes
+      `Prelude.seq` Prelude.rnf imageTags
+      `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf imageManifestMediaType
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf imageScanStatus
+      `Prelude.seq` Prelude.rnf imageScanFindingsSummary

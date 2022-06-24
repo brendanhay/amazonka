@@ -14,278 +14,128 @@
 module Amazonka.ECR.Lens
   ( -- * Operations
 
-    -- ** GetRepositoryPolicy
-    getRepositoryPolicy_registryId,
-    getRepositoryPolicy_repositoryName,
-    getRepositoryPolicyResponse_registryId,
-    getRepositoryPolicyResponse_repositoryName,
-    getRepositoryPolicyResponse_policyText,
-    getRepositoryPolicyResponse_httpStatus,
-
-    -- ** PutImageScanningConfiguration
-    putImageScanningConfiguration_registryId,
-    putImageScanningConfiguration_repositoryName,
-    putImageScanningConfiguration_imageScanningConfiguration,
-    putImageScanningConfigurationResponse_registryId,
-    putImageScanningConfigurationResponse_imageScanningConfiguration,
-    putImageScanningConfigurationResponse_repositoryName,
-    putImageScanningConfigurationResponse_httpStatus,
-
-    -- ** PutLifecyclePolicy
-    putLifecyclePolicy_registryId,
-    putLifecyclePolicy_repositoryName,
-    putLifecyclePolicy_lifecyclePolicyText,
-    putLifecyclePolicyResponse_registryId,
-    putLifecyclePolicyResponse_lifecyclePolicyText,
-    putLifecyclePolicyResponse_repositoryName,
-    putLifecyclePolicyResponse_httpStatus,
-
-    -- ** DeleteLifecyclePolicy
-    deleteLifecyclePolicy_registryId,
-    deleteLifecyclePolicy_repositoryName,
-    deleteLifecyclePolicyResponse_registryId,
-    deleteLifecyclePolicyResponse_lastEvaluatedAt,
-    deleteLifecyclePolicyResponse_lifecyclePolicyText,
-    deleteLifecyclePolicyResponse_repositoryName,
-    deleteLifecyclePolicyResponse_httpStatus,
-
-    -- ** PutImageTagMutability
-    putImageTagMutability_registryId,
-    putImageTagMutability_repositoryName,
-    putImageTagMutability_imageTagMutability,
-    putImageTagMutabilityResponse_registryId,
-    putImageTagMutabilityResponse_repositoryName,
-    putImageTagMutabilityResponse_imageTagMutability,
-    putImageTagMutabilityResponse_httpStatus,
+    -- ** BatchCheckLayerAvailability
+    batchCheckLayerAvailability_registryId,
+    batchCheckLayerAvailability_repositoryName,
+    batchCheckLayerAvailability_layerDigests,
+    batchCheckLayerAvailabilityResponse_layers,
+    batchCheckLayerAvailabilityResponse_failures,
+    batchCheckLayerAvailabilityResponse_httpStatus,
 
     -- ** BatchDeleteImage
     batchDeleteImage_registryId,
     batchDeleteImage_repositoryName,
     batchDeleteImage_imageIds,
-    batchDeleteImageResponse_failures,
     batchDeleteImageResponse_imageIds,
+    batchDeleteImageResponse_failures,
     batchDeleteImageResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** GetLifecyclePolicyPreview
-    getLifecyclePolicyPreview_registryId,
-    getLifecyclePolicyPreview_imageIds,
-    getLifecyclePolicyPreview_nextToken,
-    getLifecyclePolicyPreview_filter,
-    getLifecyclePolicyPreview_maxResults,
-    getLifecyclePolicyPreview_repositoryName,
-    getLifecyclePolicyPreviewResponse_summary,
-    getLifecyclePolicyPreviewResponse_status,
-    getLifecyclePolicyPreviewResponse_registryId,
-    getLifecyclePolicyPreviewResponse_lifecyclePolicyText,
-    getLifecyclePolicyPreviewResponse_nextToken,
-    getLifecyclePolicyPreviewResponse_repositoryName,
-    getLifecyclePolicyPreviewResponse_previewResults,
-    getLifecyclePolicyPreviewResponse_httpStatus,
-
-    -- ** BatchCheckLayerAvailability
-    batchCheckLayerAvailability_registryId,
-    batchCheckLayerAvailability_repositoryName,
-    batchCheckLayerAvailability_layerDigests,
-    batchCheckLayerAvailabilityResponse_failures,
-    batchCheckLayerAvailabilityResponse_layers,
-    batchCheckLayerAvailabilityResponse_httpStatus,
-
-    -- ** DescribeRegistry
-    describeRegistryResponse_replicationConfiguration,
-    describeRegistryResponse_registryId,
-    describeRegistryResponse_httpStatus,
-
-    -- ** DeleteRepositoryPolicy
-    deleteRepositoryPolicy_registryId,
-    deleteRepositoryPolicy_repositoryName,
-    deleteRepositoryPolicyResponse_registryId,
-    deleteRepositoryPolicyResponse_repositoryName,
-    deleteRepositoryPolicyResponse_policyText,
-    deleteRepositoryPolicyResponse_httpStatus,
-
-    -- ** CreateRepository
-    createRepository_registryId,
-    createRepository_imageScanningConfiguration,
-    createRepository_encryptionConfiguration,
-    createRepository_imageTagMutability,
-    createRepository_tags,
-    createRepository_repositoryName,
-    createRepositoryResponse_repository,
-    createRepositoryResponse_httpStatus,
+    -- ** BatchGetImage
+    batchGetImage_acceptedMediaTypes,
+    batchGetImage_registryId,
+    batchGetImage_repositoryName,
+    batchGetImage_imageIds,
+    batchGetImageResponse_failures,
+    batchGetImageResponse_images,
+    batchGetImageResponse_httpStatus,
 
     -- ** CompleteLayerUpload
     completeLayerUpload_registryId,
     completeLayerUpload_repositoryName,
     completeLayerUpload_uploadId,
     completeLayerUpload_layerDigests,
-    completeLayerUploadResponse_registryId,
-    completeLayerUploadResponse_layerDigest,
-    completeLayerUploadResponse_repositoryName,
     completeLayerUploadResponse_uploadId,
+    completeLayerUploadResponse_repositoryName,
+    completeLayerUploadResponse_layerDigest,
+    completeLayerUploadResponse_registryId,
     completeLayerUploadResponse_httpStatus,
 
-    -- ** DescribeRepositories
-    describeRepositories_registryId,
-    describeRepositories_repositoryNames,
-    describeRepositories_nextToken,
-    describeRepositories_maxResults,
-    describeRepositoriesResponse_repositories,
-    describeRepositoriesResponse_nextToken,
-    describeRepositoriesResponse_httpStatus,
+    -- ** CreateRepository
+    createRepository_tags,
+    createRepository_imageTagMutability,
+    createRepository_encryptionConfiguration,
+    createRepository_registryId,
+    createRepository_imageScanningConfiguration,
+    createRepository_repositoryName,
+    createRepositoryResponse_repository,
+    createRepositoryResponse_httpStatus,
 
-    -- ** StartLifecyclePolicyPreview
-    startLifecyclePolicyPreview_registryId,
-    startLifecyclePolicyPreview_lifecyclePolicyText,
-    startLifecyclePolicyPreview_repositoryName,
-    startLifecyclePolicyPreviewResponse_status,
-    startLifecyclePolicyPreviewResponse_registryId,
-    startLifecyclePolicyPreviewResponse_lifecyclePolicyText,
-    startLifecyclePolicyPreviewResponse_repositoryName,
-    startLifecyclePolicyPreviewResponse_httpStatus,
+    -- ** DeleteLifecyclePolicy
+    deleteLifecyclePolicy_registryId,
+    deleteLifecyclePolicy_repositoryName,
+    deleteLifecyclePolicyResponse_lastEvaluatedAt,
+    deleteLifecyclePolicyResponse_repositoryName,
+    deleteLifecyclePolicyResponse_registryId,
+    deleteLifecyclePolicyResponse_lifecyclePolicyText,
+    deleteLifecyclePolicyResponse_httpStatus,
 
     -- ** DeleteRegistryPolicy
-    deleteRegistryPolicyResponse_registryId,
     deleteRegistryPolicyResponse_policyText,
+    deleteRegistryPolicyResponse_registryId,
     deleteRegistryPolicyResponse_httpStatus,
 
-    -- ** PutRegistryPolicy
-    putRegistryPolicy_policyText,
-    putRegistryPolicyResponse_registryId,
-    putRegistryPolicyResponse_policyText,
-    putRegistryPolicyResponse_httpStatus,
+    -- ** DeleteRepository
+    deleteRepository_registryId,
+    deleteRepository_force,
+    deleteRepository_repositoryName,
+    deleteRepositoryResponse_repository,
+    deleteRepositoryResponse_httpStatus,
 
-    -- ** UploadLayerPart
-    uploadLayerPart_registryId,
-    uploadLayerPart_repositoryName,
-    uploadLayerPart_uploadId,
-    uploadLayerPart_partFirstByte,
-    uploadLayerPart_partLastByte,
-    uploadLayerPart_layerPartBlob,
-    uploadLayerPartResponse_registryId,
-    uploadLayerPartResponse_lastByteReceived,
-    uploadLayerPartResponse_repositoryName,
-    uploadLayerPartResponse_uploadId,
-    uploadLayerPartResponse_httpStatus,
+    -- ** DeleteRepositoryPolicy
+    deleteRepositoryPolicy_registryId,
+    deleteRepositoryPolicy_repositoryName,
+    deleteRepositoryPolicyResponse_policyText,
+    deleteRepositoryPolicyResponse_repositoryName,
+    deleteRepositoryPolicyResponse_registryId,
+    deleteRepositoryPolicyResponse_httpStatus,
 
     -- ** DescribeImageReplicationStatus
     describeImageReplicationStatus_registryId,
     describeImageReplicationStatus_repositoryName,
     describeImageReplicationStatus_imageId,
-    describeImageReplicationStatusResponse_imageId,
-    describeImageReplicationStatusResponse_repositoryName,
     describeImageReplicationStatusResponse_replicationStatuses,
+    describeImageReplicationStatusResponse_repositoryName,
+    describeImageReplicationStatusResponse_imageId,
     describeImageReplicationStatusResponse_httpStatus,
 
-    -- ** BatchGetImage
-    batchGetImage_registryId,
-    batchGetImage_acceptedMediaTypes,
-    batchGetImage_repositoryName,
-    batchGetImage_imageIds,
-    batchGetImageResponse_images,
-    batchGetImageResponse_failures,
-    batchGetImageResponse_httpStatus,
-
-    -- ** PutReplicationConfiguration
-    putReplicationConfiguration_replicationConfiguration,
-    putReplicationConfigurationResponse_replicationConfiguration,
-    putReplicationConfigurationResponse_httpStatus,
-
-    -- ** StartImageScan
-    startImageScan_registryId,
-    startImageScan_repositoryName,
-    startImageScan_imageId,
-    startImageScanResponse_registryId,
-    startImageScanResponse_imageScanStatus,
-    startImageScanResponse_imageId,
-    startImageScanResponse_repositoryName,
-    startImageScanResponse_httpStatus,
-
-    -- ** GetLifecyclePolicy
-    getLifecyclePolicy_registryId,
-    getLifecyclePolicy_repositoryName,
-    getLifecyclePolicyResponse_registryId,
-    getLifecyclePolicyResponse_lastEvaluatedAt,
-    getLifecyclePolicyResponse_lifecyclePolicyText,
-    getLifecyclePolicyResponse_repositoryName,
-    getLifecyclePolicyResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** SetRepositoryPolicy
-    setRepositoryPolicy_force,
-    setRepositoryPolicy_registryId,
-    setRepositoryPolicy_repositoryName,
-    setRepositoryPolicy_policyText,
-    setRepositoryPolicyResponse_registryId,
-    setRepositoryPolicyResponse_repositoryName,
-    setRepositoryPolicyResponse_policyText,
-    setRepositoryPolicyResponse_httpStatus,
-
     -- ** DescribeImageScanFindings
-    describeImageScanFindings_registryId,
     describeImageScanFindings_nextToken,
     describeImageScanFindings_maxResults,
+    describeImageScanFindings_registryId,
     describeImageScanFindings_repositoryName,
     describeImageScanFindings_imageId,
-    describeImageScanFindingsResponse_registryId,
-    describeImageScanFindingsResponse_imageScanFindings,
-    describeImageScanFindingsResponse_imageScanStatus,
     describeImageScanFindingsResponse_nextToken,
-    describeImageScanFindingsResponse_imageId,
     describeImageScanFindingsResponse_repositoryName,
+    describeImageScanFindingsResponse_registryId,
+    describeImageScanFindingsResponse_imageScanStatus,
+    describeImageScanFindingsResponse_imageScanFindings,
+    describeImageScanFindingsResponse_imageId,
     describeImageScanFindingsResponse_httpStatus,
 
-    -- ** InitiateLayerUpload
-    initiateLayerUpload_registryId,
-    initiateLayerUpload_repositoryName,
-    initiateLayerUploadResponse_partSize,
-    initiateLayerUploadResponse_uploadId,
-    initiateLayerUploadResponse_httpStatus,
+    -- ** DescribeImages
+    describeImages_nextToken,
+    describeImages_imageIds,
+    describeImages_filter,
+    describeImages_maxResults,
+    describeImages_registryId,
+    describeImages_repositoryName,
+    describeImagesResponse_nextToken,
+    describeImagesResponse_imageDetails,
+    describeImagesResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
+    -- ** DescribeRegistry
+    describeRegistryResponse_replicationConfiguration,
+    describeRegistryResponse_registryId,
+    describeRegistryResponse_httpStatus,
 
-    -- ** DeleteRepository
-    deleteRepository_force,
-    deleteRepository_registryId,
-    deleteRepository_repositoryName,
-    deleteRepositoryResponse_repository,
-    deleteRepositoryResponse_httpStatus,
-
-    -- ** GetRegistryPolicy
-    getRegistryPolicyResponse_registryId,
-    getRegistryPolicyResponse_policyText,
-    getRegistryPolicyResponse_httpStatus,
-
-    -- ** PutImage
-    putImage_registryId,
-    putImage_imageManifestMediaType,
-    putImage_imageDigest,
-    putImage_imageTag,
-    putImage_repositoryName,
-    putImage_imageManifest,
-    putImageResponse_image,
-    putImageResponse_httpStatus,
-
-    -- ** ListImages
-    listImages_registryId,
-    listImages_nextToken,
-    listImages_filter,
-    listImages_maxResults,
-    listImages_repositoryName,
-    listImagesResponse_imageIds,
-    listImagesResponse_nextToken,
-    listImagesResponse_httpStatus,
+    -- ** DescribeRepositories
+    describeRepositories_nextToken,
+    describeRepositories_maxResults,
+    describeRepositories_registryId,
+    describeRepositories_repositoryNames,
+    describeRepositoriesResponse_nextToken,
+    describeRepositoriesResponse_repositories,
+    describeRepositoriesResponse_httpStatus,
 
     -- ** GetAuthorizationToken
     getAuthorizationToken_registryIds,
@@ -296,20 +146,170 @@ module Amazonka.ECR.Lens
     getDownloadUrlForLayer_registryId,
     getDownloadUrlForLayer_repositoryName,
     getDownloadUrlForLayer_layerDigest,
-    getDownloadUrlForLayerResponse_layerDigest,
     getDownloadUrlForLayerResponse_downloadUrl,
+    getDownloadUrlForLayerResponse_layerDigest,
     getDownloadUrlForLayerResponse_httpStatus,
 
-    -- ** DescribeImages
-    describeImages_registryId,
-    describeImages_imageIds,
-    describeImages_nextToken,
-    describeImages_filter,
-    describeImages_maxResults,
-    describeImages_repositoryName,
-    describeImagesResponse_imageDetails,
-    describeImagesResponse_nextToken,
-    describeImagesResponse_httpStatus,
+    -- ** GetLifecyclePolicy
+    getLifecyclePolicy_registryId,
+    getLifecyclePolicy_repositoryName,
+    getLifecyclePolicyResponse_lastEvaluatedAt,
+    getLifecyclePolicyResponse_repositoryName,
+    getLifecyclePolicyResponse_registryId,
+    getLifecyclePolicyResponse_lifecyclePolicyText,
+    getLifecyclePolicyResponse_httpStatus,
+
+    -- ** GetLifecyclePolicyPreview
+    getLifecyclePolicyPreview_nextToken,
+    getLifecyclePolicyPreview_imageIds,
+    getLifecyclePolicyPreview_filter,
+    getLifecyclePolicyPreview_maxResults,
+    getLifecyclePolicyPreview_registryId,
+    getLifecyclePolicyPreview_repositoryName,
+    getLifecyclePolicyPreviewResponse_nextToken,
+    getLifecyclePolicyPreviewResponse_repositoryName,
+    getLifecyclePolicyPreviewResponse_summary,
+    getLifecyclePolicyPreviewResponse_status,
+    getLifecyclePolicyPreviewResponse_registryId,
+    getLifecyclePolicyPreviewResponse_previewResults,
+    getLifecyclePolicyPreviewResponse_lifecyclePolicyText,
+    getLifecyclePolicyPreviewResponse_httpStatus,
+
+    -- ** GetRegistryPolicy
+    getRegistryPolicyResponse_policyText,
+    getRegistryPolicyResponse_registryId,
+    getRegistryPolicyResponse_httpStatus,
+
+    -- ** GetRepositoryPolicy
+    getRepositoryPolicy_registryId,
+    getRepositoryPolicy_repositoryName,
+    getRepositoryPolicyResponse_policyText,
+    getRepositoryPolicyResponse_repositoryName,
+    getRepositoryPolicyResponse_registryId,
+    getRepositoryPolicyResponse_httpStatus,
+
+    -- ** InitiateLayerUpload
+    initiateLayerUpload_registryId,
+    initiateLayerUpload_repositoryName,
+    initiateLayerUploadResponse_uploadId,
+    initiateLayerUploadResponse_partSize,
+    initiateLayerUploadResponse_httpStatus,
+
+    -- ** ListImages
+    listImages_nextToken,
+    listImages_filter,
+    listImages_maxResults,
+    listImages_registryId,
+    listImages_repositoryName,
+    listImagesResponse_nextToken,
+    listImagesResponse_imageIds,
+    listImagesResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** PutImage
+    putImage_imageTag,
+    putImage_registryId,
+    putImage_imageManifestMediaType,
+    putImage_imageDigest,
+    putImage_repositoryName,
+    putImage_imageManifest,
+    putImageResponse_image,
+    putImageResponse_httpStatus,
+
+    -- ** PutImageScanningConfiguration
+    putImageScanningConfiguration_registryId,
+    putImageScanningConfiguration_repositoryName,
+    putImageScanningConfiguration_imageScanningConfiguration,
+    putImageScanningConfigurationResponse_repositoryName,
+    putImageScanningConfigurationResponse_registryId,
+    putImageScanningConfigurationResponse_imageScanningConfiguration,
+    putImageScanningConfigurationResponse_httpStatus,
+
+    -- ** PutImageTagMutability
+    putImageTagMutability_registryId,
+    putImageTagMutability_repositoryName,
+    putImageTagMutability_imageTagMutability,
+    putImageTagMutabilityResponse_repositoryName,
+    putImageTagMutabilityResponse_imageTagMutability,
+    putImageTagMutabilityResponse_registryId,
+    putImageTagMutabilityResponse_httpStatus,
+
+    -- ** PutLifecyclePolicy
+    putLifecyclePolicy_registryId,
+    putLifecyclePolicy_repositoryName,
+    putLifecyclePolicy_lifecyclePolicyText,
+    putLifecyclePolicyResponse_repositoryName,
+    putLifecyclePolicyResponse_registryId,
+    putLifecyclePolicyResponse_lifecyclePolicyText,
+    putLifecyclePolicyResponse_httpStatus,
+
+    -- ** PutRegistryPolicy
+    putRegistryPolicy_policyText,
+    putRegistryPolicyResponse_policyText,
+    putRegistryPolicyResponse_registryId,
+    putRegistryPolicyResponse_httpStatus,
+
+    -- ** PutReplicationConfiguration
+    putReplicationConfiguration_replicationConfiguration,
+    putReplicationConfigurationResponse_replicationConfiguration,
+    putReplicationConfigurationResponse_httpStatus,
+
+    -- ** SetRepositoryPolicy
+    setRepositoryPolicy_registryId,
+    setRepositoryPolicy_force,
+    setRepositoryPolicy_repositoryName,
+    setRepositoryPolicy_policyText,
+    setRepositoryPolicyResponse_policyText,
+    setRepositoryPolicyResponse_repositoryName,
+    setRepositoryPolicyResponse_registryId,
+    setRepositoryPolicyResponse_httpStatus,
+
+    -- ** StartImageScan
+    startImageScan_registryId,
+    startImageScan_repositoryName,
+    startImageScan_imageId,
+    startImageScanResponse_repositoryName,
+    startImageScanResponse_registryId,
+    startImageScanResponse_imageScanStatus,
+    startImageScanResponse_imageId,
+    startImageScanResponse_httpStatus,
+
+    -- ** StartLifecyclePolicyPreview
+    startLifecyclePolicyPreview_registryId,
+    startLifecyclePolicyPreview_lifecyclePolicyText,
+    startLifecyclePolicyPreview_repositoryName,
+    startLifecyclePolicyPreviewResponse_repositoryName,
+    startLifecyclePolicyPreviewResponse_status,
+    startLifecyclePolicyPreviewResponse_registryId,
+    startLifecyclePolicyPreviewResponse_lifecyclePolicyText,
+    startLifecyclePolicyPreviewResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** UploadLayerPart
+    uploadLayerPart_registryId,
+    uploadLayerPart_repositoryName,
+    uploadLayerPart_uploadId,
+    uploadLayerPart_partFirstByte,
+    uploadLayerPart_partLastByte,
+    uploadLayerPart_layerPartBlob,
+    uploadLayerPartResponse_uploadId,
+    uploadLayerPartResponse_repositoryName,
+    uploadLayerPartResponse_registryId,
+    uploadLayerPartResponse_lastByteReceived,
+    uploadLayerPartResponse_httpStatus,
 
     -- * Types
 
@@ -319,8 +319,8 @@ module Amazonka.ECR.Lens
 
     -- ** AuthorizationData
     authorizationData_expiresAt,
-    authorizationData_proxyEndpoint,
     authorizationData_authorizationToken,
+    authorizationData_proxyEndpoint,
 
     -- ** DescribeImagesFilter
     describeImagesFilter_tagStatus,
@@ -330,56 +330,56 @@ module Amazonka.ECR.Lens
     encryptionConfiguration_encryptionType,
 
     -- ** Image
+    image_repositoryName,
     image_registryId,
     image_imageManifestMediaType,
-    image_imageId,
-    image_repositoryName,
     image_imageManifest,
+    image_imageId,
 
     -- ** ImageDetail
-    imageDetail_registryId,
-    imageDetail_imageTags,
-    imageDetail_imageScanStatus,
-    imageDetail_imageManifestMediaType,
-    imageDetail_imageSizeInBytes,
-    imageDetail_imageDigest,
-    imageDetail_imageScanFindingsSummary,
     imageDetail_artifactMediaType,
     imageDetail_imagePushedAt,
     imageDetail_repositoryName,
+    imageDetail_imageSizeInBytes,
+    imageDetail_imageTags,
+    imageDetail_registryId,
+    imageDetail_imageManifestMediaType,
+    imageDetail_imageDigest,
+    imageDetail_imageScanStatus,
+    imageDetail_imageScanFindingsSummary,
 
     -- ** ImageFailure
-    imageFailure_failureReason,
     imageFailure_failureCode,
     imageFailure_imageId,
+    imageFailure_failureReason,
 
     -- ** ImageIdentifier
-    imageIdentifier_imageDigest,
     imageIdentifier_imageTag,
+    imageIdentifier_imageDigest,
 
     -- ** ImageReplicationStatus
-    imageReplicationStatus_status,
     imageReplicationStatus_failureCode,
-    imageReplicationStatus_registryId,
+    imageReplicationStatus_status,
     imageReplicationStatus_region,
+    imageReplicationStatus_registryId,
 
     -- ** ImageScanFinding
     imageScanFinding_severity,
-    imageScanFinding_uri,
     imageScanFinding_name,
-    imageScanFinding_attributes,
     imageScanFinding_description,
+    imageScanFinding_uri,
+    imageScanFinding_attributes,
 
     -- ** ImageScanFindings
-    imageScanFindings_imageScanCompletedAt,
     imageScanFindings_findings,
-    imageScanFindings_findingSeverityCounts,
     imageScanFindings_vulnerabilitySourceUpdatedAt,
+    imageScanFindings_findingSeverityCounts,
+    imageScanFindings_imageScanCompletedAt,
 
     -- ** ImageScanFindingsSummary
-    imageScanFindingsSummary_imageScanCompletedAt,
-    imageScanFindingsSummary_findingSeverityCounts,
     imageScanFindingsSummary_vulnerabilitySourceUpdatedAt,
+    imageScanFindingsSummary_findingSeverityCounts,
+    imageScanFindingsSummary_imageScanCompletedAt,
 
     -- ** ImageScanStatus
     imageScanStatus_status,
@@ -389,25 +389,25 @@ module Amazonka.ECR.Lens
     imageScanningConfiguration_scanOnPush,
 
     -- ** Layer
-    layer_mediaType,
-    layer_layerDigest,
     layer_layerSize,
     layer_layerAvailability,
+    layer_mediaType,
+    layer_layerDigest,
 
     -- ** LayerFailure
-    layerFailure_failureReason,
     layerFailure_failureCode,
     layerFailure_layerDigest,
+    layerFailure_failureReason,
 
     -- ** LifecyclePolicyPreviewFilter
     lifecyclePolicyPreviewFilter_tagStatus,
 
     -- ** LifecyclePolicyPreviewResult
+    lifecyclePolicyPreviewResult_appliedRulePriority,
+    lifecyclePolicyPreviewResult_imagePushedAt,
     lifecyclePolicyPreviewResult_imageTags,
     lifecyclePolicyPreviewResult_action,
     lifecyclePolicyPreviewResult_imageDigest,
-    lifecyclePolicyPreviewResult_imagePushedAt,
-    lifecyclePolicyPreviewResult_appliedRulePriority,
 
     -- ** LifecyclePolicyPreviewSummary
     lifecyclePolicyPreviewSummary_expiringImageTotalCount,
@@ -431,21 +431,21 @@ module Amazonka.ECR.Lens
 
     -- ** Repository
     repository_repositoryArn,
-    repository_createdAt,
-    repository_registryId,
-    repository_imageScanningConfiguration,
     repository_repositoryUri,
-    repository_encryptionConfiguration,
     repository_repositoryName,
     repository_imageTagMutability,
+    repository_encryptionConfiguration,
+    repository_registryId,
+    repository_imageScanningConfiguration,
+    repository_createdAt,
 
     -- ** RepositoryFilter
     repositoryFilter_filter,
     repositoryFilter_filterType,
 
     -- ** Tag
-    tag_value,
     tag_key,
+    tag_value,
   )
 where
 

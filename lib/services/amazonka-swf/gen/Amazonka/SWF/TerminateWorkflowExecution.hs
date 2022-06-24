@@ -62,10 +62,10 @@ module Amazonka.SWF.TerminateWorkflowExecution
     newTerminateWorkflowExecution,
 
     -- * Request Lenses
-    terminateWorkflowExecution_reason,
-    terminateWorkflowExecution_runId,
-    terminateWorkflowExecution_childPolicy,
     terminateWorkflowExecution_details,
+    terminateWorkflowExecution_reason,
+    terminateWorkflowExecution_childPolicy,
+    terminateWorkflowExecution_runId,
     terminateWorkflowExecution_domain,
     terminateWorkflowExecution_workflowId,
 
@@ -84,10 +84,10 @@ import Amazonka.SWF.Types
 
 -- | /See:/ 'newTerminateWorkflowExecution' smart constructor.
 data TerminateWorkflowExecution = TerminateWorkflowExecution'
-  { -- | A descriptive reason for terminating the workflow execution.
+  { -- | Details for terminating the workflow execution.
+    details :: Prelude.Maybe Prelude.Text,
+    -- | A descriptive reason for terminating the workflow execution.
     reason :: Prelude.Maybe Prelude.Text,
-    -- | The runId of the workflow execution to terminate.
-    runId :: Prelude.Maybe Prelude.Text,
     -- | If set, specifies the policy to use for the child workflow executions of
     -- the workflow execution being terminated. This policy overrides the child
     -- policy specified for the workflow execution at registration time or when
@@ -110,8 +110,8 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution'
     -- parameter is set nor a default child policy was specified at
     -- registration time then a fault is returned.
     childPolicy :: Prelude.Maybe ChildPolicy,
-    -- | Details for terminating the workflow execution.
-    details :: Prelude.Maybe Prelude.Text,
+    -- | The runId of the workflow execution to terminate.
+    runId :: Prelude.Maybe Prelude.Text,
     -- | The domain of the workflow execution to terminate.
     domain :: Prelude.Text,
     -- | The workflowId of the workflow execution to terminate.
@@ -127,9 +127,9 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reason', 'terminateWorkflowExecution_reason' - A descriptive reason for terminating the workflow execution.
+-- 'details', 'terminateWorkflowExecution_details' - Details for terminating the workflow execution.
 --
--- 'runId', 'terminateWorkflowExecution_runId' - The runId of the workflow execution to terminate.
+-- 'reason', 'terminateWorkflowExecution_reason' - A descriptive reason for terminating the workflow execution.
 --
 -- 'childPolicy', 'terminateWorkflowExecution_childPolicy' - If set, specifies the policy to use for the child workflow executions of
 -- the workflow execution being terminated. This policy overrides the child
@@ -153,7 +153,7 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution'
 -- parameter is set nor a default child policy was specified at
 -- registration time then a fault is returned.
 --
--- 'details', 'terminateWorkflowExecution_details' - Details for terminating the workflow execution.
+-- 'runId', 'terminateWorkflowExecution_runId' - The runId of the workflow execution to terminate.
 --
 -- 'domain', 'terminateWorkflowExecution_domain' - The domain of the workflow execution to terminate.
 --
@@ -166,22 +166,22 @@ newTerminateWorkflowExecution ::
   TerminateWorkflowExecution
 newTerminateWorkflowExecution pDomain_ pWorkflowId_ =
   TerminateWorkflowExecution'
-    { reason =
+    { details =
         Prelude.Nothing,
-      runId = Prelude.Nothing,
+      reason = Prelude.Nothing,
       childPolicy = Prelude.Nothing,
-      details = Prelude.Nothing,
+      runId = Prelude.Nothing,
       domain = pDomain_,
       workflowId = pWorkflowId_
     }
 
+-- | Details for terminating the workflow execution.
+terminateWorkflowExecution_details :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe Prelude.Text)
+terminateWorkflowExecution_details = Lens.lens (\TerminateWorkflowExecution' {details} -> details) (\s@TerminateWorkflowExecution' {} a -> s {details = a} :: TerminateWorkflowExecution)
+
 -- | A descriptive reason for terminating the workflow execution.
 terminateWorkflowExecution_reason :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe Prelude.Text)
 terminateWorkflowExecution_reason = Lens.lens (\TerminateWorkflowExecution' {reason} -> reason) (\s@TerminateWorkflowExecution' {} a -> s {reason = a} :: TerminateWorkflowExecution)
-
--- | The runId of the workflow execution to terminate.
-terminateWorkflowExecution_runId :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe Prelude.Text)
-terminateWorkflowExecution_runId = Lens.lens (\TerminateWorkflowExecution' {runId} -> runId) (\s@TerminateWorkflowExecution' {} a -> s {runId = a} :: TerminateWorkflowExecution)
 
 -- | If set, specifies the policy to use for the child workflow executions of
 -- the workflow execution being terminated. This policy overrides the child
@@ -207,9 +207,9 @@ terminateWorkflowExecution_runId = Lens.lens (\TerminateWorkflowExecution' {runI
 terminateWorkflowExecution_childPolicy :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe ChildPolicy)
 terminateWorkflowExecution_childPolicy = Lens.lens (\TerminateWorkflowExecution' {childPolicy} -> childPolicy) (\s@TerminateWorkflowExecution' {} a -> s {childPolicy = a} :: TerminateWorkflowExecution)
 
--- | Details for terminating the workflow execution.
-terminateWorkflowExecution_details :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe Prelude.Text)
-terminateWorkflowExecution_details = Lens.lens (\TerminateWorkflowExecution' {details} -> details) (\s@TerminateWorkflowExecution' {} a -> s {details = a} :: TerminateWorkflowExecution)
+-- | The runId of the workflow execution to terminate.
+terminateWorkflowExecution_runId :: Lens.Lens' TerminateWorkflowExecution (Prelude.Maybe Prelude.Text)
+terminateWorkflowExecution_runId = Lens.lens (\TerminateWorkflowExecution' {runId} -> runId) (\s@TerminateWorkflowExecution' {} a -> s {runId = a} :: TerminateWorkflowExecution)
 
 -- | The domain of the workflow execution to terminate.
 terminateWorkflowExecution_domain :: Lens.Lens' TerminateWorkflowExecution Prelude.Text
@@ -230,19 +230,19 @@ instance Core.AWSRequest TerminateWorkflowExecution where
 
 instance Prelude.Hashable TerminateWorkflowExecution where
   hashWithSalt _salt TerminateWorkflowExecution' {..} =
-    _salt `Prelude.hashWithSalt` reason
-      `Prelude.hashWithSalt` runId
+    _salt `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` childPolicy
-      `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` runId
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` workflowId
 
 instance Prelude.NFData TerminateWorkflowExecution where
   rnf TerminateWorkflowExecution' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf runId
+    Prelude.rnf details
+      `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf childPolicy
-      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf runId
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf workflowId
 
@@ -265,10 +265,10 @@ instance Core.ToJSON TerminateWorkflowExecution where
   toJSON TerminateWorkflowExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("reason" Core..=) Prelude.<$> reason,
-            ("runId" Core..=) Prelude.<$> runId,
+          [ ("details" Core..=) Prelude.<$> details,
+            ("reason" Core..=) Prelude.<$> reason,
             ("childPolicy" Core..=) Prelude.<$> childPolicy,
-            ("details" Core..=) Prelude.<$> details,
+            ("runId" Core..=) Prelude.<$> runId,
             Prelude.Just ("domain" Core..= domain),
             Prelude.Just ("workflowId" Core..= workflowId)
           ]

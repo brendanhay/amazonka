@@ -70,11 +70,11 @@ module Amazonka.SWF.PollForActivityTask
     newPollForActivityTaskResponse,
 
     -- * Response Lenses
+    pollForActivityTaskResponse_workflowExecution,
+    pollForActivityTaskResponse_taskToken,
+    pollForActivityTaskResponse_input,
     pollForActivityTaskResponse_activityType,
     pollForActivityTaskResponse_activityId,
-    pollForActivityTaskResponse_input,
-    pollForActivityTaskResponse_taskToken,
-    pollForActivityTaskResponse_workflowExecution,
     pollForActivityTaskResponse_httpStatus,
     pollForActivityTaskResponse_startedEventId,
   )
@@ -169,11 +169,11 @@ instance Core.AWSRequest PollForActivityTask where
     Response.receiveJSON
       ( \s h x ->
           PollForActivityTaskResponse'
-            Prelude.<$> (x Core..?> "activityType")
-            Prelude.<*> (x Core..?> "activityId")
-            Prelude.<*> (x Core..?> "input")
+            Prelude.<$> (x Core..?> "workflowExecution")
             Prelude.<*> (x Core..?> "taskToken")
-            Prelude.<*> (x Core..?> "workflowExecution")
+            Prelude.<*> (x Core..?> "input")
+            Prelude.<*> (x Core..?> "activityType")
+            Prelude.<*> (x Core..?> "activityId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "startedEventId")
       )
@@ -225,20 +225,20 @@ instance Core.ToQuery PollForActivityTask where
 --
 -- /See:/ 'newPollForActivityTaskResponse' smart constructor.
 data PollForActivityTaskResponse = PollForActivityTaskResponse'
-  { -- | The type of this activity task.
-    activityType :: Prelude.Maybe ActivityType,
-    -- | The unique ID of the task.
-    activityId :: Prelude.Maybe Prelude.Text,
-    -- | The inputs provided when the activity task was scheduled. The form of
-    -- the input is user defined and should be meaningful to the activity
-    -- implementation.
-    input :: Prelude.Maybe Prelude.Text,
+  { -- | The workflow execution that started this activity task.
+    workflowExecution :: Prelude.Maybe WorkflowExecution,
     -- | The opaque string used as a handle on the task. This token is used by
     -- workers to communicate progress and response information back to the
     -- system about the task.
     taskToken :: Prelude.Maybe Prelude.Text,
-    -- | The workflow execution that started this activity task.
-    workflowExecution :: Prelude.Maybe WorkflowExecution,
+    -- | The inputs provided when the activity task was scheduled. The form of
+    -- the input is user defined and should be meaningful to the activity
+    -- implementation.
+    input :: Prelude.Maybe Prelude.Text,
+    -- | The type of this activity task.
+    activityType :: Prelude.Maybe ActivityType,
+    -- | The unique ID of the task.
+    activityId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ID of the @ActivityTaskStarted@ event recorded in the history.
@@ -254,19 +254,19 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'activityType', 'pollForActivityTaskResponse_activityType' - The type of this activity task.
---
--- 'activityId', 'pollForActivityTaskResponse_activityId' - The unique ID of the task.
---
--- 'input', 'pollForActivityTaskResponse_input' - The inputs provided when the activity task was scheduled. The form of
--- the input is user defined and should be meaningful to the activity
--- implementation.
+-- 'workflowExecution', 'pollForActivityTaskResponse_workflowExecution' - The workflow execution that started this activity task.
 --
 -- 'taskToken', 'pollForActivityTaskResponse_taskToken' - The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the
 -- system about the task.
 --
--- 'workflowExecution', 'pollForActivityTaskResponse_workflowExecution' - The workflow execution that started this activity task.
+-- 'input', 'pollForActivityTaskResponse_input' - The inputs provided when the activity task was scheduled. The form of
+-- the input is user defined and should be meaningful to the activity
+-- implementation.
+--
+-- 'activityType', 'pollForActivityTaskResponse_activityType' - The type of this activity task.
+--
+-- 'activityId', 'pollForActivityTaskResponse_activityId' - The unique ID of the task.
 --
 -- 'httpStatus', 'pollForActivityTaskResponse_httpStatus' - The response's http status code.
 --
@@ -281,15 +281,31 @@ newPollForActivityTaskResponse
   pHttpStatus_
   pStartedEventId_ =
     PollForActivityTaskResponse'
-      { activityType =
+      { workflowExecution =
           Prelude.Nothing,
-        activityId = Prelude.Nothing,
-        input = Prelude.Nothing,
         taskToken = Prelude.Nothing,
-        workflowExecution = Prelude.Nothing,
+        input = Prelude.Nothing,
+        activityType = Prelude.Nothing,
+        activityId = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         startedEventId = pStartedEventId_
       }
+
+-- | The workflow execution that started this activity task.
+pollForActivityTaskResponse_workflowExecution :: Lens.Lens' PollForActivityTaskResponse (Prelude.Maybe WorkflowExecution)
+pollForActivityTaskResponse_workflowExecution = Lens.lens (\PollForActivityTaskResponse' {workflowExecution} -> workflowExecution) (\s@PollForActivityTaskResponse' {} a -> s {workflowExecution = a} :: PollForActivityTaskResponse)
+
+-- | The opaque string used as a handle on the task. This token is used by
+-- workers to communicate progress and response information back to the
+-- system about the task.
+pollForActivityTaskResponse_taskToken :: Lens.Lens' PollForActivityTaskResponse (Prelude.Maybe Prelude.Text)
+pollForActivityTaskResponse_taskToken = Lens.lens (\PollForActivityTaskResponse' {taskToken} -> taskToken) (\s@PollForActivityTaskResponse' {} a -> s {taskToken = a} :: PollForActivityTaskResponse)
+
+-- | The inputs provided when the activity task was scheduled. The form of
+-- the input is user defined and should be meaningful to the activity
+-- implementation.
+pollForActivityTaskResponse_input :: Lens.Lens' PollForActivityTaskResponse (Prelude.Maybe Prelude.Text)
+pollForActivityTaskResponse_input = Lens.lens (\PollForActivityTaskResponse' {input} -> input) (\s@PollForActivityTaskResponse' {} a -> s {input = a} :: PollForActivityTaskResponse)
 
 -- | The type of this activity task.
 pollForActivityTaskResponse_activityType :: Lens.Lens' PollForActivityTaskResponse (Prelude.Maybe ActivityType)
@@ -298,22 +314,6 @@ pollForActivityTaskResponse_activityType = Lens.lens (\PollForActivityTaskRespon
 -- | The unique ID of the task.
 pollForActivityTaskResponse_activityId :: Lens.Lens' PollForActivityTaskResponse (Prelude.Maybe Prelude.Text)
 pollForActivityTaskResponse_activityId = Lens.lens (\PollForActivityTaskResponse' {activityId} -> activityId) (\s@PollForActivityTaskResponse' {} a -> s {activityId = a} :: PollForActivityTaskResponse)
-
--- | The inputs provided when the activity task was scheduled. The form of
--- the input is user defined and should be meaningful to the activity
--- implementation.
-pollForActivityTaskResponse_input :: Lens.Lens' PollForActivityTaskResponse (Prelude.Maybe Prelude.Text)
-pollForActivityTaskResponse_input = Lens.lens (\PollForActivityTaskResponse' {input} -> input) (\s@PollForActivityTaskResponse' {} a -> s {input = a} :: PollForActivityTaskResponse)
-
--- | The opaque string used as a handle on the task. This token is used by
--- workers to communicate progress and response information back to the
--- system about the task.
-pollForActivityTaskResponse_taskToken :: Lens.Lens' PollForActivityTaskResponse (Prelude.Maybe Prelude.Text)
-pollForActivityTaskResponse_taskToken = Lens.lens (\PollForActivityTaskResponse' {taskToken} -> taskToken) (\s@PollForActivityTaskResponse' {} a -> s {taskToken = a} :: PollForActivityTaskResponse)
-
--- | The workflow execution that started this activity task.
-pollForActivityTaskResponse_workflowExecution :: Lens.Lens' PollForActivityTaskResponse (Prelude.Maybe WorkflowExecution)
-pollForActivityTaskResponse_workflowExecution = Lens.lens (\PollForActivityTaskResponse' {workflowExecution} -> workflowExecution) (\s@PollForActivityTaskResponse' {} a -> s {workflowExecution = a} :: PollForActivityTaskResponse)
 
 -- | The response's http status code.
 pollForActivityTaskResponse_httpStatus :: Lens.Lens' PollForActivityTaskResponse Prelude.Int
@@ -325,10 +325,10 @@ pollForActivityTaskResponse_startedEventId = Lens.lens (\PollForActivityTaskResp
 
 instance Prelude.NFData PollForActivityTaskResponse where
   rnf PollForActivityTaskResponse' {..} =
-    Prelude.rnf activityType
-      `Prelude.seq` Prelude.rnf activityId
-      `Prelude.seq` Prelude.rnf input
+    Prelude.rnf workflowExecution
       `Prelude.seq` Prelude.rnf taskToken
-      `Prelude.seq` Prelude.rnf workflowExecution
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf activityType
+      `Prelude.seq` Prelude.rnf activityId
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf startedEventId

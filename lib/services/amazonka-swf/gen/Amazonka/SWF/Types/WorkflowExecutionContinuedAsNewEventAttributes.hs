@@ -30,25 +30,25 @@ import Amazonka.SWF.Types.WorkflowType
 --
 -- /See:/ 'newWorkflowExecutionContinuedAsNewEventAttributes' smart constructor.
 data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinuedAsNewEventAttributes'
-  { -- | The list of tags associated with the new workflow execution.
+  { -- | The IAM role to attach to the new (continued) workflow execution.
+    lambdaRole :: Prelude.Maybe Prelude.Text,
+    -- | The list of tags associated with the new workflow execution.
     tagList :: Prelude.Maybe [Prelude.Text],
+    -- | The priority of the task to use for the decisions of the new (continued)
+    -- workflow execution.
+    taskPriority :: Prelude.Maybe Prelude.Text,
+    -- | The input provided to the new workflow execution.
+    input :: Prelude.Maybe Prelude.Text,
     -- | The maximum duration of decision tasks for the new workflow execution.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
     taskStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role to attach to the new (continued) workflow execution.
-    lambdaRole :: Prelude.Maybe Prelude.Text,
-    -- | The input provided to the new workflow execution.
-    input :: Prelude.Maybe Prelude.Text,
     -- | The total duration allowed for the new workflow execution.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
     executionStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
-    -- | The priority of the task to use for the decisions of the new (continued)
-    -- workflow execution.
-    taskPriority :: Prelude.Maybe Prelude.Text,
     -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
     -- decision task that resulted in the @ContinueAsNewWorkflowExecution@
     -- decision that started this execution. This information can be useful for
@@ -89,24 +89,24 @@ data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinued
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lambdaRole', 'workflowExecutionContinuedAsNewEventAttributes_lambdaRole' - The IAM role to attach to the new (continued) workflow execution.
+--
 -- 'tagList', 'workflowExecutionContinuedAsNewEventAttributes_tagList' - The list of tags associated with the new workflow execution.
+--
+-- 'taskPriority', 'workflowExecutionContinuedAsNewEventAttributes_taskPriority' - The priority of the task to use for the decisions of the new (continued)
+-- workflow execution.
+--
+-- 'input', 'workflowExecutionContinuedAsNewEventAttributes_input' - The input provided to the new workflow execution.
 --
 -- 'taskStartToCloseTimeout', 'workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout' - The maximum duration of decision tasks for the new workflow execution.
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
 --
--- 'lambdaRole', 'workflowExecutionContinuedAsNewEventAttributes_lambdaRole' - The IAM role to attach to the new (continued) workflow execution.
---
--- 'input', 'workflowExecutionContinuedAsNewEventAttributes_input' - The input provided to the new workflow execution.
---
 -- 'executionStartToCloseTimeout', 'workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout' - The total duration allowed for the new workflow execution.
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
---
--- 'taskPriority', 'workflowExecutionContinuedAsNewEventAttributes_taskPriority' - The priority of the task to use for the decisions of the new (continued)
--- workflow execution.
 --
 -- 'decisionTaskCompletedEventId', 'workflowExecutionContinuedAsNewEventAttributes_decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @ContinueAsNewWorkflowExecution@
@@ -155,16 +155,15 @@ newWorkflowExecutionContinuedAsNewEventAttributes
   pChildPolicy_
   pWorkflowType_ =
     WorkflowExecutionContinuedAsNewEventAttributes'
-      { tagList =
+      { lambdaRole =
           Prelude.Nothing,
-        taskStartToCloseTimeout =
-          Prelude.Nothing,
-        lambdaRole =
+        tagList = Prelude.Nothing,
+        taskPriority =
           Prelude.Nothing,
         input = Prelude.Nothing,
-        executionStartToCloseTimeout =
+        taskStartToCloseTimeout =
           Prelude.Nothing,
-        taskPriority =
+        executionStartToCloseTimeout =
           Prelude.Nothing,
         decisionTaskCompletedEventId =
           pDecisionTaskCompletedEventId_,
@@ -176,9 +175,22 @@ newWorkflowExecutionContinuedAsNewEventAttributes
           pWorkflowType_
       }
 
+-- | The IAM role to attach to the new (continued) workflow execution.
+workflowExecutionContinuedAsNewEventAttributes_lambdaRole :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe Prelude.Text)
+workflowExecutionContinuedAsNewEventAttributes_lambdaRole = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {lambdaRole} -> lambdaRole) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {lambdaRole = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
+
 -- | The list of tags associated with the new workflow execution.
 workflowExecutionContinuedAsNewEventAttributes_tagList :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe [Prelude.Text])
 workflowExecutionContinuedAsNewEventAttributes_tagList = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {tagList} -> tagList) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {tagList = a} :: WorkflowExecutionContinuedAsNewEventAttributes) Prelude.. Lens.mapping Lens.coerced
+
+-- | The priority of the task to use for the decisions of the new (continued)
+-- workflow execution.
+workflowExecutionContinuedAsNewEventAttributes_taskPriority :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe Prelude.Text)
+workflowExecutionContinuedAsNewEventAttributes_taskPriority = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {taskPriority} -> taskPriority) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {taskPriority = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
+
+-- | The input provided to the new workflow execution.
+workflowExecutionContinuedAsNewEventAttributes_input :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe Prelude.Text)
+workflowExecutionContinuedAsNewEventAttributes_input = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {input} -> input) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {input = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 
 -- | The maximum duration of decision tasks for the new workflow execution.
 --
@@ -187,25 +199,12 @@ workflowExecutionContinuedAsNewEventAttributes_tagList = Lens.lens (\WorkflowExe
 workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionContinuedAsNewEventAttributes_taskStartToCloseTimeout = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {taskStartToCloseTimeout} -> taskStartToCloseTimeout) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {taskStartToCloseTimeout = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 
--- | The IAM role to attach to the new (continued) workflow execution.
-workflowExecutionContinuedAsNewEventAttributes_lambdaRole :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe Prelude.Text)
-workflowExecutionContinuedAsNewEventAttributes_lambdaRole = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {lambdaRole} -> lambdaRole) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {lambdaRole = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
-
--- | The input provided to the new workflow execution.
-workflowExecutionContinuedAsNewEventAttributes_input :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe Prelude.Text)
-workflowExecutionContinuedAsNewEventAttributes_input = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {input} -> input) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {input = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
-
 -- | The total duration allowed for the new workflow execution.
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
 workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionContinuedAsNewEventAttributes_executionStartToCloseTimeout = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {executionStartToCloseTimeout} -> executionStartToCloseTimeout) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {executionStartToCloseTimeout = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
-
--- | The priority of the task to use for the decisions of the new (continued)
--- workflow execution.
-workflowExecutionContinuedAsNewEventAttributes_taskPriority :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Prelude.Maybe Prelude.Text)
-workflowExecutionContinuedAsNewEventAttributes_taskPriority = Lens.lens (\WorkflowExecutionContinuedAsNewEventAttributes' {taskPriority} -> taskPriority) (\s@WorkflowExecutionContinuedAsNewEventAttributes' {} a -> s {taskPriority = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @ContinueAsNewWorkflowExecution@
@@ -255,12 +254,12 @@ instance
       "WorkflowExecutionContinuedAsNewEventAttributes"
       ( \x ->
           WorkflowExecutionContinuedAsNewEventAttributes'
-            Prelude.<$> (x Core..:? "tagList" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "taskStartToCloseTimeout")
-              Prelude.<*> (x Core..:? "lambdaRole")
-              Prelude.<*> (x Core..:? "input")
-              Prelude.<*> (x Core..:? "executionStartToCloseTimeout")
+            Prelude.<$> (x Core..:? "lambdaRole")
+              Prelude.<*> (x Core..:? "tagList" Core..!= Prelude.mempty)
               Prelude.<*> (x Core..:? "taskPriority")
+              Prelude.<*> (x Core..:? "input")
+              Prelude.<*> (x Core..:? "taskStartToCloseTimeout")
+              Prelude.<*> (x Core..:? "executionStartToCloseTimeout")
               Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
               Prelude.<*> (x Core..: "newExecutionRunId")
               Prelude.<*> (x Core..: "taskList")
@@ -275,12 +274,12 @@ instance
   hashWithSalt
     _salt
     WorkflowExecutionContinuedAsNewEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` tagList
-        `Prelude.hashWithSalt` taskStartToCloseTimeout
-        `Prelude.hashWithSalt` lambdaRole
-        `Prelude.hashWithSalt` input
-        `Prelude.hashWithSalt` executionStartToCloseTimeout
+      _salt `Prelude.hashWithSalt` lambdaRole
+        `Prelude.hashWithSalt` tagList
         `Prelude.hashWithSalt` taskPriority
+        `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` taskStartToCloseTimeout
+        `Prelude.hashWithSalt` executionStartToCloseTimeout
         `Prelude.hashWithSalt` decisionTaskCompletedEventId
         `Prelude.hashWithSalt` newExecutionRunId'
         `Prelude.hashWithSalt` taskList
@@ -293,12 +292,12 @@ instance
   where
   rnf
     WorkflowExecutionContinuedAsNewEventAttributes' {..} =
-      Prelude.rnf tagList
-        `Prelude.seq` Prelude.rnf taskStartToCloseTimeout
-        `Prelude.seq` Prelude.rnf lambdaRole
-        `Prelude.seq` Prelude.rnf input
-        `Prelude.seq` Prelude.rnf executionStartToCloseTimeout
+      Prelude.rnf lambdaRole
+        `Prelude.seq` Prelude.rnf tagList
         `Prelude.seq` Prelude.rnf taskPriority
+        `Prelude.seq` Prelude.rnf input
+        `Prelude.seq` Prelude.rnf taskStartToCloseTimeout
+        `Prelude.seq` Prelude.rnf executionStartToCloseTimeout
         `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId
         `Prelude.seq` Prelude.rnf newExecutionRunId'
         `Prelude.seq` Prelude.rnf taskList

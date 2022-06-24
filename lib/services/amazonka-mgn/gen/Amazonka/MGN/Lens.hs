@@ -14,77 +14,21 @@
 module Amazonka.MGN.Lens
   ( -- * Operations
 
-    -- ** UpdateLaunchConfiguration
-    updateLaunchConfiguration_targetInstanceTypeRightSizingMethod,
-    updateLaunchConfiguration_launchDisposition,
-    updateLaunchConfiguration_copyTags,
-    updateLaunchConfiguration_name,
-    updateLaunchConfiguration_licensing,
-    updateLaunchConfiguration_copyPrivateIp,
-    updateLaunchConfiguration_sourceServerID,
-    launchConfiguration_ec2LaunchTemplateID,
-    launchConfiguration_targetInstanceTypeRightSizingMethod,
-    launchConfiguration_launchDisposition,
-    launchConfiguration_copyTags,
-    launchConfiguration_name,
-    launchConfiguration_sourceServerID,
-    launchConfiguration_licensing,
-    launchConfiguration_copyPrivateIp,
-
-    -- ** DescribeReplicationConfigurationTemplates
-    describeReplicationConfigurationTemplates_nextToken,
-    describeReplicationConfigurationTemplates_maxResults,
-    describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs,
-    describeReplicationConfigurationTemplatesResponse_items,
-    describeReplicationConfigurationTemplatesResponse_nextToken,
-    describeReplicationConfigurationTemplatesResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** InitializeService
-    initializeServiceResponse_httpStatus,
-
-    -- ** UpdateReplicationConfigurationTemplate
-    updateReplicationConfigurationTemplate_createPublicIP,
-    updateReplicationConfigurationTemplate_stagingAreaTags,
-    updateReplicationConfigurationTemplate_arn,
-    updateReplicationConfigurationTemplate_stagingAreaSubnetId,
-    updateReplicationConfigurationTemplate_replicationServerInstanceType,
-    updateReplicationConfigurationTemplate_ebsEncryption,
-    updateReplicationConfigurationTemplate_associateDefaultSecurityGroup,
-    updateReplicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
-    updateReplicationConfigurationTemplate_ebsEncryptionKeyArn,
-    updateReplicationConfigurationTemplate_defaultLargeStagingDiskType,
-    updateReplicationConfigurationTemplate_bandwidthThrottling,
-    updateReplicationConfigurationTemplate_dataPlaneRouting,
-    updateReplicationConfigurationTemplate_useDedicatedReplicationServer,
-    updateReplicationConfigurationTemplate_replicationConfigurationTemplateID,
-    replicationConfigurationTemplate_createPublicIP,
-    replicationConfigurationTemplate_stagingAreaTags,
-    replicationConfigurationTemplate_arn,
-    replicationConfigurationTemplate_stagingAreaSubnetId,
-    replicationConfigurationTemplate_replicationServerInstanceType,
-    replicationConfigurationTemplate_ebsEncryption,
-    replicationConfigurationTemplate_associateDefaultSecurityGroup,
-    replicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
-    replicationConfigurationTemplate_ebsEncryptionKeyArn,
-    replicationConfigurationTemplate_defaultLargeStagingDiskType,
-    replicationConfigurationTemplate_bandwidthThrottling,
-    replicationConfigurationTemplate_dataPlaneRouting,
-    replicationConfigurationTemplate_useDedicatedReplicationServer,
-    replicationConfigurationTemplate_tags,
-    replicationConfigurationTemplate_replicationConfigurationTemplateID,
-
-    -- ** DeleteReplicationConfigurationTemplate
-    deleteReplicationConfigurationTemplate_replicationConfigurationTemplateID,
-    deleteReplicationConfigurationTemplateResponse_httpStatus,
+    -- ** ChangeServerLifeCycleState
+    changeServerLifeCycleState_lifeCycle,
+    changeServerLifeCycleState_sourceServerID,
+    sourceServer_tags,
+    sourceServer_lifeCycle,
+    sourceServer_launchedInstance,
+    sourceServer_arn,
+    sourceServer_dataReplicationInfo,
+    sourceServer_isArchived,
+    sourceServer_sourceServerID,
+    sourceServer_sourceProperties,
 
     -- ** CreateReplicationConfigurationTemplate
-    createReplicationConfigurationTemplate_ebsEncryptionKeyArn,
     createReplicationConfigurationTemplate_tags,
+    createReplicationConfigurationTemplate_ebsEncryptionKeyArn,
     createReplicationConfigurationTemplate_associateDefaultSecurityGroup,
     createReplicationConfigurationTemplate_bandwidthThrottling,
     createReplicationConfigurationTemplate_createPublicIP,
@@ -96,21 +40,33 @@ module Amazonka.MGN.Lens
     createReplicationConfigurationTemplate_stagingAreaSubnetId,
     createReplicationConfigurationTemplate_stagingAreaTags,
     createReplicationConfigurationTemplate_useDedicatedReplicationServer,
-    replicationConfigurationTemplate_createPublicIP,
+    replicationConfigurationTemplate_tags,
+    replicationConfigurationTemplate_bandwidthThrottling,
+    replicationConfigurationTemplate_replicationServerInstanceType,
     replicationConfigurationTemplate_stagingAreaTags,
+    replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_defaultLargeStagingDiskType,
     replicationConfigurationTemplate_arn,
     replicationConfigurationTemplate_stagingAreaSubnetId,
-    replicationConfigurationTemplate_replicationServerInstanceType,
+    replicationConfigurationTemplate_createPublicIP,
+    replicationConfigurationTemplate_dataPlaneRouting,
     replicationConfigurationTemplate_ebsEncryption,
-    replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_useDedicatedReplicationServer,
     replicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
     replicationConfigurationTemplate_ebsEncryptionKeyArn,
-    replicationConfigurationTemplate_defaultLargeStagingDiskType,
-    replicationConfigurationTemplate_bandwidthThrottling,
-    replicationConfigurationTemplate_dataPlaneRouting,
-    replicationConfigurationTemplate_useDedicatedReplicationServer,
-    replicationConfigurationTemplate_tags,
     replicationConfigurationTemplate_replicationConfigurationTemplateID,
+
+    -- ** DeleteJob
+    deleteJob_jobID,
+    deleteJobResponse_httpStatus,
+
+    -- ** DeleteReplicationConfigurationTemplate
+    deleteReplicationConfigurationTemplate_replicationConfigurationTemplateID,
+    deleteReplicationConfigurationTemplateResponse_httpStatus,
+
+    -- ** DeleteSourceServer
+    deleteSourceServer_sourceServerID,
+    deleteSourceServerResponse_httpStatus,
 
     -- ** DescribeJobLogItems
     describeJobLogItems_nextToken,
@@ -120,22 +76,21 @@ module Amazonka.MGN.Lens
     describeJobLogItemsResponse_nextToken,
     describeJobLogItemsResponse_httpStatus,
 
-    -- ** DisconnectFromService
-    disconnectFromService_sourceServerID,
-    sourceServer_sourceProperties,
-    sourceServer_arn,
-    sourceServer_launchedInstance,
-    sourceServer_lifeCycle,
-    sourceServer_isArchived,
-    sourceServer_dataReplicationInfo,
-    sourceServer_sourceServerID,
-    sourceServer_tags,
+    -- ** DescribeJobs
+    describeJobs_nextToken,
+    describeJobs_maxResults,
+    describeJobs_filters,
+    describeJobsResponse_items,
+    describeJobsResponse_nextToken,
+    describeJobsResponse_httpStatus,
 
-    -- ** StartTest
-    startTest_tags,
-    startTest_sourceServerIDs,
-    startTestResponse_job,
-    startTestResponse_httpStatus,
+    -- ** DescribeReplicationConfigurationTemplates
+    describeReplicationConfigurationTemplates_nextToken,
+    describeReplicationConfigurationTemplates_maxResults,
+    describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs,
+    describeReplicationConfigurationTemplatesResponse_items,
+    describeReplicationConfigurationTemplatesResponse_nextToken,
+    describeReplicationConfigurationTemplatesResponse_httpStatus,
 
     -- ** DescribeSourceServers
     describeSourceServers_nextToken,
@@ -145,39 +100,86 @@ module Amazonka.MGN.Lens
     describeSourceServersResponse_nextToken,
     describeSourceServersResponse_httpStatus,
 
-    -- ** DeleteJob
-    deleteJob_jobID,
-    deleteJobResponse_httpStatus,
+    -- ** DisconnectFromService
+    disconnectFromService_sourceServerID,
+    sourceServer_tags,
+    sourceServer_lifeCycle,
+    sourceServer_launchedInstance,
+    sourceServer_arn,
+    sourceServer_dataReplicationInfo,
+    sourceServer_isArchived,
+    sourceServer_sourceServerID,
+    sourceServer_sourceProperties,
 
     -- ** FinalizeCutover
     finalizeCutover_sourceServerID,
-    sourceServer_sourceProperties,
-    sourceServer_arn,
-    sourceServer_launchedInstance,
-    sourceServer_lifeCycle,
-    sourceServer_isArchived,
-    sourceServer_dataReplicationInfo,
-    sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_lifeCycle,
+    sourceServer_launchedInstance,
+    sourceServer_arn,
+    sourceServer_dataReplicationInfo,
+    sourceServer_isArchived,
+    sourceServer_sourceServerID,
+    sourceServer_sourceProperties,
 
-    -- ** DescribeJobs
-    describeJobs_nextToken,
-    describeJobs_maxResults,
-    describeJobs_filters,
-    describeJobsResponse_items,
-    describeJobsResponse_nextToken,
-    describeJobsResponse_httpStatus,
+    -- ** GetLaunchConfiguration
+    getLaunchConfiguration_sourceServerID,
+    launchConfiguration_name,
+    launchConfiguration_targetInstanceTypeRightSizingMethod,
+    launchConfiguration_copyTags,
+    launchConfiguration_launchDisposition,
+    launchConfiguration_ec2LaunchTemplateID,
+    launchConfiguration_sourceServerID,
+    launchConfiguration_licensing,
+    launchConfiguration_copyPrivateIp,
+
+    -- ** GetReplicationConfiguration
+    getReplicationConfiguration_sourceServerID,
+    replicationConfiguration_bandwidthThrottling,
+    replicationConfiguration_name,
+    replicationConfiguration_replicationServerInstanceType,
+    replicationConfiguration_stagingAreaTags,
+    replicationConfiguration_associateDefaultSecurityGroup,
+    replicationConfiguration_defaultLargeStagingDiskType,
+    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_createPublicIP,
+    replicationConfiguration_dataPlaneRouting,
+    replicationConfiguration_ebsEncryption,
+    replicationConfiguration_replicatedDisks,
+    replicationConfiguration_sourceServerID,
+    replicationConfiguration_useDedicatedReplicationServer,
+    replicationConfiguration_replicationServersSecurityGroupsIDs,
+    replicationConfiguration_ebsEncryptionKeyArn,
+
+    -- ** InitializeService
+    initializeServiceResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** MarkAsArchived
     markAsArchived_sourceServerID,
-    sourceServer_sourceProperties,
-    sourceServer_arn,
-    sourceServer_launchedInstance,
-    sourceServer_lifeCycle,
-    sourceServer_isArchived,
-    sourceServer_dataReplicationInfo,
-    sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_lifeCycle,
+    sourceServer_launchedInstance,
+    sourceServer_arn,
+    sourceServer_dataReplicationInfo,
+    sourceServer_isArchived,
+    sourceServer_sourceServerID,
+    sourceServer_sourceProperties,
+
+    -- ** RetryDataReplication
+    retryDataReplication_sourceServerID,
+    sourceServer_tags,
+    sourceServer_lifeCycle,
+    sourceServer_launchedInstance,
+    sourceServer_arn,
+    sourceServer_dataReplicationInfo,
+    sourceServer_isArchived,
+    sourceServer_sourceServerID,
+    sourceServer_sourceProperties,
 
     -- ** StartCutover
     startCutover_tags,
@@ -185,46 +187,15 @@ module Amazonka.MGN.Lens
     startCutoverResponse_job,
     startCutoverResponse_httpStatus,
 
-    -- ** RetryDataReplication
-    retryDataReplication_sourceServerID,
-    sourceServer_sourceProperties,
-    sourceServer_arn,
-    sourceServer_launchedInstance,
-    sourceServer_lifeCycle,
-    sourceServer_isArchived,
-    sourceServer_dataReplicationInfo,
-    sourceServer_sourceServerID,
-    sourceServer_tags,
+    -- ** StartTest
+    startTest_tags,
+    startTest_sourceServerIDs,
+    startTestResponse_job,
+    startTestResponse_httpStatus,
 
-    -- ** GetReplicationConfiguration
-    getReplicationConfiguration_sourceServerID,
-    replicationConfiguration_createPublicIP,
-    replicationConfiguration_stagingAreaTags,
-    replicationConfiguration_stagingAreaSubnetId,
-    replicationConfiguration_replicationServerInstanceType,
-    replicationConfiguration_ebsEncryption,
-    replicationConfiguration_associateDefaultSecurityGroup,
-    replicationConfiguration_replicationServersSecurityGroupsIDs,
-    replicationConfiguration_ebsEncryptionKeyArn,
-    replicationConfiguration_name,
-    replicationConfiguration_defaultLargeStagingDiskType,
-    replicationConfiguration_bandwidthThrottling,
-    replicationConfiguration_dataPlaneRouting,
-    replicationConfiguration_sourceServerID,
-    replicationConfiguration_replicatedDisks,
-    replicationConfiguration_useDedicatedReplicationServer,
-
-    -- ** ChangeServerLifeCycleState
-    changeServerLifeCycleState_lifeCycle,
-    changeServerLifeCycleState_sourceServerID,
-    sourceServer_sourceProperties,
-    sourceServer_arn,
-    sourceServer_launchedInstance,
-    sourceServer_lifeCycle,
-    sourceServer_isArchived,
-    sourceServer_dataReplicationInfo,
-    sourceServer_sourceServerID,
-    sourceServer_tags,
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
 
     -- ** TerminateTargetInstances
     terminateTargetInstances_tags,
@@ -232,66 +203,95 @@ module Amazonka.MGN.Lens
     terminateTargetInstancesResponse_job,
     terminateTargetInstancesResponse_httpStatus,
 
-    -- ** UpdateReplicationConfiguration
-    updateReplicationConfiguration_createPublicIP,
-    updateReplicationConfiguration_stagingAreaTags,
-    updateReplicationConfiguration_stagingAreaSubnetId,
-    updateReplicationConfiguration_replicationServerInstanceType,
-    updateReplicationConfiguration_ebsEncryption,
-    updateReplicationConfiguration_associateDefaultSecurityGroup,
-    updateReplicationConfiguration_replicationServersSecurityGroupsIDs,
-    updateReplicationConfiguration_ebsEncryptionKeyArn,
-    updateReplicationConfiguration_name,
-    updateReplicationConfiguration_defaultLargeStagingDiskType,
-    updateReplicationConfiguration_bandwidthThrottling,
-    updateReplicationConfiguration_dataPlaneRouting,
-    updateReplicationConfiguration_replicatedDisks,
-    updateReplicationConfiguration_useDedicatedReplicationServer,
-    updateReplicationConfiguration_sourceServerID,
-    replicationConfiguration_createPublicIP,
-    replicationConfiguration_stagingAreaTags,
-    replicationConfiguration_stagingAreaSubnetId,
-    replicationConfiguration_replicationServerInstanceType,
-    replicationConfiguration_ebsEncryption,
-    replicationConfiguration_associateDefaultSecurityGroup,
-    replicationConfiguration_replicationServersSecurityGroupsIDs,
-    replicationConfiguration_ebsEncryptionKeyArn,
-    replicationConfiguration_name,
-    replicationConfiguration_defaultLargeStagingDiskType,
-    replicationConfiguration_bandwidthThrottling,
-    replicationConfiguration_dataPlaneRouting,
-    replicationConfiguration_sourceServerID,
-    replicationConfiguration_replicatedDisks,
-    replicationConfiguration_useDedicatedReplicationServer,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-
-    -- ** GetLaunchConfiguration
-    getLaunchConfiguration_sourceServerID,
-    launchConfiguration_ec2LaunchTemplateID,
-    launchConfiguration_targetInstanceTypeRightSizingMethod,
-    launchConfiguration_launchDisposition,
-    launchConfiguration_copyTags,
-    launchConfiguration_name,
-    launchConfiguration_sourceServerID,
-    launchConfiguration_licensing,
-    launchConfiguration_copyPrivateIp,
-
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
 
-    -- ** DeleteSourceServer
-    deleteSourceServer_sourceServerID,
-    deleteSourceServerResponse_httpStatus,
+    -- ** UpdateLaunchConfiguration
+    updateLaunchConfiguration_name,
+    updateLaunchConfiguration_targetInstanceTypeRightSizingMethod,
+    updateLaunchConfiguration_copyTags,
+    updateLaunchConfiguration_launchDisposition,
+    updateLaunchConfiguration_licensing,
+    updateLaunchConfiguration_copyPrivateIp,
+    updateLaunchConfiguration_sourceServerID,
+    launchConfiguration_name,
+    launchConfiguration_targetInstanceTypeRightSizingMethod,
+    launchConfiguration_copyTags,
+    launchConfiguration_launchDisposition,
+    launchConfiguration_ec2LaunchTemplateID,
+    launchConfiguration_sourceServerID,
+    launchConfiguration_licensing,
+    launchConfiguration_copyPrivateIp,
+
+    -- ** UpdateReplicationConfiguration
+    updateReplicationConfiguration_bandwidthThrottling,
+    updateReplicationConfiguration_name,
+    updateReplicationConfiguration_replicationServerInstanceType,
+    updateReplicationConfiguration_stagingAreaTags,
+    updateReplicationConfiguration_associateDefaultSecurityGroup,
+    updateReplicationConfiguration_defaultLargeStagingDiskType,
+    updateReplicationConfiguration_stagingAreaSubnetId,
+    updateReplicationConfiguration_createPublicIP,
+    updateReplicationConfiguration_dataPlaneRouting,
+    updateReplicationConfiguration_ebsEncryption,
+    updateReplicationConfiguration_replicatedDisks,
+    updateReplicationConfiguration_useDedicatedReplicationServer,
+    updateReplicationConfiguration_replicationServersSecurityGroupsIDs,
+    updateReplicationConfiguration_ebsEncryptionKeyArn,
+    updateReplicationConfiguration_sourceServerID,
+    replicationConfiguration_bandwidthThrottling,
+    replicationConfiguration_name,
+    replicationConfiguration_replicationServerInstanceType,
+    replicationConfiguration_stagingAreaTags,
+    replicationConfiguration_associateDefaultSecurityGroup,
+    replicationConfiguration_defaultLargeStagingDiskType,
+    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_createPublicIP,
+    replicationConfiguration_dataPlaneRouting,
+    replicationConfiguration_ebsEncryption,
+    replicationConfiguration_replicatedDisks,
+    replicationConfiguration_sourceServerID,
+    replicationConfiguration_useDedicatedReplicationServer,
+    replicationConfiguration_replicationServersSecurityGroupsIDs,
+    replicationConfiguration_ebsEncryptionKeyArn,
+
+    -- ** UpdateReplicationConfigurationTemplate
+    updateReplicationConfigurationTemplate_bandwidthThrottling,
+    updateReplicationConfigurationTemplate_replicationServerInstanceType,
+    updateReplicationConfigurationTemplate_stagingAreaTags,
+    updateReplicationConfigurationTemplate_associateDefaultSecurityGroup,
+    updateReplicationConfigurationTemplate_defaultLargeStagingDiskType,
+    updateReplicationConfigurationTemplate_arn,
+    updateReplicationConfigurationTemplate_stagingAreaSubnetId,
+    updateReplicationConfigurationTemplate_createPublicIP,
+    updateReplicationConfigurationTemplate_dataPlaneRouting,
+    updateReplicationConfigurationTemplate_ebsEncryption,
+    updateReplicationConfigurationTemplate_useDedicatedReplicationServer,
+    updateReplicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
+    updateReplicationConfigurationTemplate_ebsEncryptionKeyArn,
+    updateReplicationConfigurationTemplate_replicationConfigurationTemplateID,
+    replicationConfigurationTemplate_tags,
+    replicationConfigurationTemplate_bandwidthThrottling,
+    replicationConfigurationTemplate_replicationServerInstanceType,
+    replicationConfigurationTemplate_stagingAreaTags,
+    replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_defaultLargeStagingDiskType,
+    replicationConfigurationTemplate_arn,
+    replicationConfigurationTemplate_stagingAreaSubnetId,
+    replicationConfigurationTemplate_createPublicIP,
+    replicationConfigurationTemplate_dataPlaneRouting,
+    replicationConfigurationTemplate_ebsEncryption,
+    replicationConfigurationTemplate_useDedicatedReplicationServer,
+    replicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
+    replicationConfigurationTemplate_ebsEncryptionKeyArn,
+    replicationConfigurationTemplate_replicationConfigurationTemplateID,
 
     -- * Types
 
     -- ** CPU
-    cpu_modelName,
     cpu_cores,
+    cpu_modelName,
 
     -- ** ChangeServerLifeCycleStateSourceServerLifecycle
     changeServerLifeCycleStateSourceServerLifecycle_state,
@@ -301,57 +301,57 @@ module Amazonka.MGN.Lens
     dataReplicationError_error,
 
     -- ** DataReplicationInfo
-    dataReplicationInfo_dataReplicationInitiation,
     dataReplicationInfo_dataReplicationError,
     dataReplicationInfo_lagDuration,
-    dataReplicationInfo_dataReplicationState,
+    dataReplicationInfo_dataReplicationInitiation,
     dataReplicationInfo_replicatedDisks,
+    dataReplicationInfo_dataReplicationState,
     dataReplicationInfo_etaDateTime,
 
     -- ** DataReplicationInfoReplicatedDisk
-    dataReplicationInfoReplicatedDisk_replicatedStorageBytes,
+    dataReplicationInfoReplicatedDisk_rescannedStorageBytes,
     dataReplicationInfoReplicatedDisk_backloggedStorageBytes,
     dataReplicationInfoReplicatedDisk_deviceName,
-    dataReplicationInfoReplicatedDisk_rescannedStorageBytes,
     dataReplicationInfoReplicatedDisk_totalStorageBytes,
+    dataReplicationInfoReplicatedDisk_replicatedStorageBytes,
 
     -- ** DataReplicationInitiation
-    dataReplicationInitiation_steps,
     dataReplicationInitiation_nextAttemptDateTime,
     dataReplicationInitiation_startDateTime,
+    dataReplicationInitiation_steps,
 
     -- ** DataReplicationInitiationStep
-    dataReplicationInitiationStep_status,
     dataReplicationInitiationStep_name,
+    dataReplicationInitiationStep_status,
 
     -- ** DescribeJobsRequestFilters
-    describeJobsRequestFilters_fromDate,
     describeJobsRequestFilters_toDate,
+    describeJobsRequestFilters_fromDate,
     describeJobsRequestFilters_jobIDs,
 
     -- ** DescribeSourceServersRequestFilters
-    describeSourceServersRequestFilters_sourceServerIDs,
     describeSourceServersRequestFilters_isArchived,
+    describeSourceServersRequestFilters_sourceServerIDs,
 
     -- ** Disk
-    disk_deviceName,
     disk_bytes,
+    disk_deviceName,
 
     -- ** IdentificationHints
-    identificationHints_hostname,
-    identificationHints_fqdn,
     identificationHints_awsInstanceID,
+    identificationHints_fqdn,
+    identificationHints_hostname,
     identificationHints_vmWareUuid,
 
     -- ** Job
+    job_tags,
     job_initiatedBy,
+    job_type,
+    job_creationDateTime,
+    job_arn,
     job_status,
     job_participatingServers,
-    job_arn,
-    job_creationDateTime,
-    job_type,
     job_endDateTime,
-    job_tags,
     job_jobID,
 
     -- ** JobLog
@@ -360,24 +360,24 @@ module Amazonka.MGN.Lens
     jobLog_logDateTime,
 
     -- ** JobLogEventData
-    jobLogEventData_rawError,
     jobLogEventData_targetInstanceID,
-    jobLogEventData_sourceServerID,
+    jobLogEventData_rawError,
     jobLogEventData_conversionServerID,
+    jobLogEventData_sourceServerID,
 
     -- ** LaunchConfiguration
-    launchConfiguration_ec2LaunchTemplateID,
-    launchConfiguration_targetInstanceTypeRightSizingMethod,
-    launchConfiguration_launchDisposition,
-    launchConfiguration_copyTags,
     launchConfiguration_name,
+    launchConfiguration_targetInstanceTypeRightSizingMethod,
+    launchConfiguration_copyTags,
+    launchConfiguration_launchDisposition,
+    launchConfiguration_ec2LaunchTemplateID,
     launchConfiguration_sourceServerID,
     launchConfiguration_licensing,
     launchConfiguration_copyPrivateIp,
 
     -- ** LaunchedInstance
-    launchedInstance_jobID,
     launchedInstance_ec2InstanceID,
+    launchedInstance_jobID,
     launchedInstance_firstBoot,
 
     -- ** Licensing
@@ -385,39 +385,39 @@ module Amazonka.MGN.Lens
 
     -- ** LifeCycle
     lifeCycle_lastTest,
+    lifeCycle_addedToServiceDateTime,
     lifeCycle_state,
     lifeCycle_elapsedReplicationDuration,
     lifeCycle_lastSeenByServiceDateTime,
-    lifeCycle_addedToServiceDateTime,
-    lifeCycle_lastCutover,
     lifeCycle_firstByteDateTime,
+    lifeCycle_lastCutover,
 
     -- ** LifeCycleLastCutover
-    lifeCycleLastCutover_initiated,
     lifeCycleLastCutover_reverted,
     lifeCycleLastCutover_finalized,
+    lifeCycleLastCutover_initiated,
 
     -- ** LifeCycleLastCutoverFinalized
     lifeCycleLastCutoverFinalized_apiCallDateTime,
 
     -- ** LifeCycleLastCutoverInitiated
-    lifeCycleLastCutoverInitiated_jobID,
     lifeCycleLastCutoverInitiated_apiCallDateTime,
+    lifeCycleLastCutoverInitiated_jobID,
 
     -- ** LifeCycleLastCutoverReverted
     lifeCycleLastCutoverReverted_apiCallDateTime,
 
     -- ** LifeCycleLastTest
-    lifeCycleLastTest_initiated,
     lifeCycleLastTest_reverted,
     lifeCycleLastTest_finalized,
+    lifeCycleLastTest_initiated,
 
     -- ** LifeCycleLastTestFinalized
     lifeCycleLastTestFinalized_apiCallDateTime,
 
     -- ** LifeCycleLastTestInitiated
-    lifeCycleLastTestInitiated_jobID,
     lifeCycleLastTestInitiated_apiCallDateTime,
+    lifeCycleLastTestInitiated_jobID,
 
     -- ** LifeCycleLastTestReverted
     lifeCycleLastTestReverted_apiCallDateTime,
@@ -435,64 +435,64 @@ module Amazonka.MGN.Lens
     participatingServer_sourceServerID,
 
     -- ** ReplicationConfiguration
-    replicationConfiguration_createPublicIP,
-    replicationConfiguration_stagingAreaTags,
-    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_bandwidthThrottling,
+    replicationConfiguration_name,
     replicationConfiguration_replicationServerInstanceType,
-    replicationConfiguration_ebsEncryption,
+    replicationConfiguration_stagingAreaTags,
     replicationConfiguration_associateDefaultSecurityGroup,
+    replicationConfiguration_defaultLargeStagingDiskType,
+    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_createPublicIP,
+    replicationConfiguration_dataPlaneRouting,
+    replicationConfiguration_ebsEncryption,
+    replicationConfiguration_replicatedDisks,
+    replicationConfiguration_sourceServerID,
+    replicationConfiguration_useDedicatedReplicationServer,
     replicationConfiguration_replicationServersSecurityGroupsIDs,
     replicationConfiguration_ebsEncryptionKeyArn,
-    replicationConfiguration_name,
-    replicationConfiguration_defaultLargeStagingDiskType,
-    replicationConfiguration_bandwidthThrottling,
-    replicationConfiguration_dataPlaneRouting,
-    replicationConfiguration_sourceServerID,
-    replicationConfiguration_replicatedDisks,
-    replicationConfiguration_useDedicatedReplicationServer,
 
     -- ** ReplicationConfigurationReplicatedDisk
-    replicationConfigurationReplicatedDisk_stagingDiskType,
-    replicationConfigurationReplicatedDisk_iops,
     replicationConfigurationReplicatedDisk_isBootDisk,
     replicationConfigurationReplicatedDisk_deviceName,
+    replicationConfigurationReplicatedDisk_stagingDiskType,
+    replicationConfigurationReplicatedDisk_iops,
 
     -- ** ReplicationConfigurationTemplate
-    replicationConfigurationTemplate_createPublicIP,
+    replicationConfigurationTemplate_tags,
+    replicationConfigurationTemplate_bandwidthThrottling,
+    replicationConfigurationTemplate_replicationServerInstanceType,
     replicationConfigurationTemplate_stagingAreaTags,
+    replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_defaultLargeStagingDiskType,
     replicationConfigurationTemplate_arn,
     replicationConfigurationTemplate_stagingAreaSubnetId,
-    replicationConfigurationTemplate_replicationServerInstanceType,
+    replicationConfigurationTemplate_createPublicIP,
+    replicationConfigurationTemplate_dataPlaneRouting,
     replicationConfigurationTemplate_ebsEncryption,
-    replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_useDedicatedReplicationServer,
     replicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
     replicationConfigurationTemplate_ebsEncryptionKeyArn,
-    replicationConfigurationTemplate_defaultLargeStagingDiskType,
-    replicationConfigurationTemplate_bandwidthThrottling,
-    replicationConfigurationTemplate_dataPlaneRouting,
-    replicationConfigurationTemplate_useDedicatedReplicationServer,
-    replicationConfigurationTemplate_tags,
     replicationConfigurationTemplate_replicationConfigurationTemplateID,
 
     -- ** SourceProperties
-    sourceProperties_identificationHints,
-    sourceProperties_networkInterfaces,
-    sourceProperties_lastUpdatedDateTime,
-    sourceProperties_recommendedInstanceType,
     sourceProperties_os,
-    sourceProperties_ramBytes,
     sourceProperties_cpus,
+    sourceProperties_ramBytes,
     sourceProperties_disks,
+    sourceProperties_identificationHints,
+    sourceProperties_recommendedInstanceType,
+    sourceProperties_lastUpdatedDateTime,
+    sourceProperties_networkInterfaces,
 
     -- ** SourceServer
-    sourceServer_sourceProperties,
-    sourceServer_arn,
-    sourceServer_launchedInstance,
-    sourceServer_lifeCycle,
-    sourceServer_isArchived,
-    sourceServer_dataReplicationInfo,
-    sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_lifeCycle,
+    sourceServer_launchedInstance,
+    sourceServer_arn,
+    sourceServer_dataReplicationInfo,
+    sourceServer_isArchived,
+    sourceServer_sourceServerID,
+    sourceServer_sourceProperties,
   )
 where
 

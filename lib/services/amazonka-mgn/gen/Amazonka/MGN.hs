@@ -19,20 +19,11 @@ module Amazonka.MGN
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** UninitializedAccountException
     _UninitializedAccountException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** InternalServerException
     _InternalServerException,
@@ -40,47 +31,26 @@ module Amazonka.MGN
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** UpdateLaunchConfiguration
-    UpdateLaunchConfiguration (UpdateLaunchConfiguration'),
-    newUpdateLaunchConfiguration,
-    LaunchConfiguration (LaunchConfiguration'),
-    newLaunchConfiguration,
-
-    -- ** DescribeReplicationConfigurationTemplates (Paginated)
-    DescribeReplicationConfigurationTemplates (DescribeReplicationConfigurationTemplates'),
-    newDescribeReplicationConfigurationTemplates,
-    DescribeReplicationConfigurationTemplatesResponse (DescribeReplicationConfigurationTemplatesResponse'),
-    newDescribeReplicationConfigurationTemplatesResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** InitializeService
-    InitializeService (InitializeService'),
-    newInitializeService,
-    InitializeServiceResponse (InitializeServiceResponse'),
-    newInitializeServiceResponse,
-
-    -- ** UpdateReplicationConfigurationTemplate
-    UpdateReplicationConfigurationTemplate (UpdateReplicationConfigurationTemplate'),
-    newUpdateReplicationConfigurationTemplate,
-    ReplicationConfigurationTemplate (ReplicationConfigurationTemplate'),
-    newReplicationConfigurationTemplate,
-
-    -- ** DeleteReplicationConfigurationTemplate
-    DeleteReplicationConfigurationTemplate (DeleteReplicationConfigurationTemplate'),
-    newDeleteReplicationConfigurationTemplate,
-    DeleteReplicationConfigurationTemplateResponse (DeleteReplicationConfigurationTemplateResponse'),
-    newDeleteReplicationConfigurationTemplateResponse,
+    -- ** ChangeServerLifeCycleState
+    ChangeServerLifeCycleState (ChangeServerLifeCycleState'),
+    newChangeServerLifeCycleState,
+    SourceServer (SourceServer'),
+    newSourceServer,
 
     -- ** CreateReplicationConfigurationTemplate
     CreateReplicationConfigurationTemplate (CreateReplicationConfigurationTemplate'),
@@ -88,41 +58,29 @@ module Amazonka.MGN
     ReplicationConfigurationTemplate (ReplicationConfigurationTemplate'),
     newReplicationConfigurationTemplate,
 
-    -- ** DescribeJobLogItems (Paginated)
-    DescribeJobLogItems (DescribeJobLogItems'),
-    newDescribeJobLogItems,
-    DescribeJobLogItemsResponse (DescribeJobLogItemsResponse'),
-    newDescribeJobLogItemsResponse,
-
-    -- ** DisconnectFromService
-    DisconnectFromService (DisconnectFromService'),
-    newDisconnectFromService,
-    SourceServer (SourceServer'),
-    newSourceServer,
-
-    -- ** StartTest
-    StartTest (StartTest'),
-    newStartTest,
-    StartTestResponse (StartTestResponse'),
-    newStartTestResponse,
-
-    -- ** DescribeSourceServers (Paginated)
-    DescribeSourceServers (DescribeSourceServers'),
-    newDescribeSourceServers,
-    DescribeSourceServersResponse (DescribeSourceServersResponse'),
-    newDescribeSourceServersResponse,
-
     -- ** DeleteJob
     DeleteJob (DeleteJob'),
     newDeleteJob,
     DeleteJobResponse (DeleteJobResponse'),
     newDeleteJobResponse,
 
-    -- ** FinalizeCutover
-    FinalizeCutover (FinalizeCutover'),
-    newFinalizeCutover,
-    SourceServer (SourceServer'),
-    newSourceServer,
+    -- ** DeleteReplicationConfigurationTemplate
+    DeleteReplicationConfigurationTemplate (DeleteReplicationConfigurationTemplate'),
+    newDeleteReplicationConfigurationTemplate,
+    DeleteReplicationConfigurationTemplateResponse (DeleteReplicationConfigurationTemplateResponse'),
+    newDeleteReplicationConfigurationTemplateResponse,
+
+    -- ** DeleteSourceServer
+    DeleteSourceServer (DeleteSourceServer'),
+    newDeleteSourceServer,
+    DeleteSourceServerResponse (DeleteSourceServerResponse'),
+    newDeleteSourceServerResponse,
+
+    -- ** DescribeJobLogItems (Paginated)
+    DescribeJobLogItems (DescribeJobLogItems'),
+    newDescribeJobLogItems,
+    DescribeJobLogItemsResponse (DescribeJobLogItemsResponse'),
+    newDescribeJobLogItemsResponse,
 
     -- ** DescribeJobs (Paginated)
     DescribeJobs (DescribeJobs'),
@@ -130,9 +88,63 @@ module Amazonka.MGN
     DescribeJobsResponse (DescribeJobsResponse'),
     newDescribeJobsResponse,
 
+    -- ** DescribeReplicationConfigurationTemplates (Paginated)
+    DescribeReplicationConfigurationTemplates (DescribeReplicationConfigurationTemplates'),
+    newDescribeReplicationConfigurationTemplates,
+    DescribeReplicationConfigurationTemplatesResponse (DescribeReplicationConfigurationTemplatesResponse'),
+    newDescribeReplicationConfigurationTemplatesResponse,
+
+    -- ** DescribeSourceServers (Paginated)
+    DescribeSourceServers (DescribeSourceServers'),
+    newDescribeSourceServers,
+    DescribeSourceServersResponse (DescribeSourceServersResponse'),
+    newDescribeSourceServersResponse,
+
+    -- ** DisconnectFromService
+    DisconnectFromService (DisconnectFromService'),
+    newDisconnectFromService,
+    SourceServer (SourceServer'),
+    newSourceServer,
+
+    -- ** FinalizeCutover
+    FinalizeCutover (FinalizeCutover'),
+    newFinalizeCutover,
+    SourceServer (SourceServer'),
+    newSourceServer,
+
+    -- ** GetLaunchConfiguration
+    GetLaunchConfiguration (GetLaunchConfiguration'),
+    newGetLaunchConfiguration,
+    LaunchConfiguration (LaunchConfiguration'),
+    newLaunchConfiguration,
+
+    -- ** GetReplicationConfiguration
+    GetReplicationConfiguration (GetReplicationConfiguration'),
+    newGetReplicationConfiguration,
+    ReplicationConfiguration (ReplicationConfiguration'),
+    newReplicationConfiguration,
+
+    -- ** InitializeService
+    InitializeService (InitializeService'),
+    newInitializeService,
+    InitializeServiceResponse (InitializeServiceResponse'),
+    newInitializeServiceResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** MarkAsArchived
     MarkAsArchived (MarkAsArchived'),
     newMarkAsArchived,
+    SourceServer (SourceServer'),
+    newSourceServer,
+
+    -- ** RetryDataReplication
+    RetryDataReplication (RetryDataReplication'),
+    newRetryDataReplication,
     SourceServer (SourceServer'),
     newSourceServer,
 
@@ -142,35 +154,11 @@ module Amazonka.MGN
     StartCutoverResponse (StartCutoverResponse'),
     newStartCutoverResponse,
 
-    -- ** RetryDataReplication
-    RetryDataReplication (RetryDataReplication'),
-    newRetryDataReplication,
-    SourceServer (SourceServer'),
-    newSourceServer,
-
-    -- ** GetReplicationConfiguration
-    GetReplicationConfiguration (GetReplicationConfiguration'),
-    newGetReplicationConfiguration,
-    ReplicationConfiguration (ReplicationConfiguration'),
-    newReplicationConfiguration,
-
-    -- ** ChangeServerLifeCycleState
-    ChangeServerLifeCycleState (ChangeServerLifeCycleState'),
-    newChangeServerLifeCycleState,
-    SourceServer (SourceServer'),
-    newSourceServer,
-
-    -- ** TerminateTargetInstances
-    TerminateTargetInstances (TerminateTargetInstances'),
-    newTerminateTargetInstances,
-    TerminateTargetInstancesResponse (TerminateTargetInstancesResponse'),
-    newTerminateTargetInstancesResponse,
-
-    -- ** UpdateReplicationConfiguration
-    UpdateReplicationConfiguration (UpdateReplicationConfiguration'),
-    newUpdateReplicationConfiguration,
-    ReplicationConfiguration (ReplicationConfiguration'),
-    newReplicationConfiguration,
+    -- ** StartTest
+    StartTest (StartTest'),
+    newStartTest,
+    StartTestResponse (StartTestResponse'),
+    newStartTestResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -178,11 +166,11 @@ module Amazonka.MGN
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** GetLaunchConfiguration
-    GetLaunchConfiguration (GetLaunchConfiguration'),
-    newGetLaunchConfiguration,
-    LaunchConfiguration (LaunchConfiguration'),
-    newLaunchConfiguration,
+    -- ** TerminateTargetInstances
+    TerminateTargetInstances (TerminateTargetInstances'),
+    newTerminateTargetInstances,
+    TerminateTargetInstancesResponse (TerminateTargetInstancesResponse'),
+    newTerminateTargetInstancesResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -190,11 +178,23 @@ module Amazonka.MGN
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** DeleteSourceServer
-    DeleteSourceServer (DeleteSourceServer'),
-    newDeleteSourceServer,
-    DeleteSourceServerResponse (DeleteSourceServerResponse'),
-    newDeleteSourceServerResponse,
+    -- ** UpdateLaunchConfiguration
+    UpdateLaunchConfiguration (UpdateLaunchConfiguration'),
+    newUpdateLaunchConfiguration,
+    LaunchConfiguration (LaunchConfiguration'),
+    newLaunchConfiguration,
+
+    -- ** UpdateReplicationConfiguration
+    UpdateReplicationConfiguration (UpdateReplicationConfiguration'),
+    newUpdateReplicationConfiguration,
+    ReplicationConfiguration (ReplicationConfiguration'),
+    newReplicationConfiguration,
+
+    -- ** UpdateReplicationConfigurationTemplate
+    UpdateReplicationConfigurationTemplate (UpdateReplicationConfigurationTemplate'),
+    newUpdateReplicationConfigurationTemplate,
+    ReplicationConfigurationTemplate (ReplicationConfigurationTemplate'),
+    newReplicationConfigurationTemplate,
 
     -- * Types
 

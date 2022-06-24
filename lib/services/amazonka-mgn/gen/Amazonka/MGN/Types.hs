@@ -17,13 +17,13 @@ module Amazonka.MGN.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
-    _AccessDeniedException,
-    _ConflictException,
     _UninitializedAccountException,
-    _ThrottlingException,
+    _AccessDeniedException,
     _InternalServerException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ThrottlingException,
+    _ValidationException,
 
     -- * ChangeServerLifeCycleStateSourceServerLifecycleState
     ChangeServerLifeCycleStateSourceServerLifecycleState (..),
@@ -82,8 +82,8 @@ module Amazonka.MGN.Types
     -- * CPU
     CPU (..),
     newCPU,
-    cpu_modelName,
     cpu_cores,
+    cpu_modelName,
 
     -- * ChangeServerLifeCycleStateSourceServerLifecycle
     ChangeServerLifeCycleStateSourceServerLifecycle (..),
@@ -99,73 +99,73 @@ module Amazonka.MGN.Types
     -- * DataReplicationInfo
     DataReplicationInfo (..),
     newDataReplicationInfo,
-    dataReplicationInfo_dataReplicationInitiation,
     dataReplicationInfo_dataReplicationError,
     dataReplicationInfo_lagDuration,
-    dataReplicationInfo_dataReplicationState,
+    dataReplicationInfo_dataReplicationInitiation,
     dataReplicationInfo_replicatedDisks,
+    dataReplicationInfo_dataReplicationState,
     dataReplicationInfo_etaDateTime,
 
     -- * DataReplicationInfoReplicatedDisk
     DataReplicationInfoReplicatedDisk (..),
     newDataReplicationInfoReplicatedDisk,
-    dataReplicationInfoReplicatedDisk_replicatedStorageBytes,
+    dataReplicationInfoReplicatedDisk_rescannedStorageBytes,
     dataReplicationInfoReplicatedDisk_backloggedStorageBytes,
     dataReplicationInfoReplicatedDisk_deviceName,
-    dataReplicationInfoReplicatedDisk_rescannedStorageBytes,
     dataReplicationInfoReplicatedDisk_totalStorageBytes,
+    dataReplicationInfoReplicatedDisk_replicatedStorageBytes,
 
     -- * DataReplicationInitiation
     DataReplicationInitiation (..),
     newDataReplicationInitiation,
-    dataReplicationInitiation_steps,
     dataReplicationInitiation_nextAttemptDateTime,
     dataReplicationInitiation_startDateTime,
+    dataReplicationInitiation_steps,
 
     -- * DataReplicationInitiationStep
     DataReplicationInitiationStep (..),
     newDataReplicationInitiationStep,
-    dataReplicationInitiationStep_status,
     dataReplicationInitiationStep_name,
+    dataReplicationInitiationStep_status,
 
     -- * DescribeJobsRequestFilters
     DescribeJobsRequestFilters (..),
     newDescribeJobsRequestFilters,
-    describeJobsRequestFilters_fromDate,
     describeJobsRequestFilters_toDate,
+    describeJobsRequestFilters_fromDate,
     describeJobsRequestFilters_jobIDs,
 
     -- * DescribeSourceServersRequestFilters
     DescribeSourceServersRequestFilters (..),
     newDescribeSourceServersRequestFilters,
-    describeSourceServersRequestFilters_sourceServerIDs,
     describeSourceServersRequestFilters_isArchived,
+    describeSourceServersRequestFilters_sourceServerIDs,
 
     -- * Disk
     Disk (..),
     newDisk,
-    disk_deviceName,
     disk_bytes,
+    disk_deviceName,
 
     -- * IdentificationHints
     IdentificationHints (..),
     newIdentificationHints,
-    identificationHints_hostname,
-    identificationHints_fqdn,
     identificationHints_awsInstanceID,
+    identificationHints_fqdn,
+    identificationHints_hostname,
     identificationHints_vmWareUuid,
 
     -- * Job
     Job (..),
     newJob,
+    job_tags,
     job_initiatedBy,
+    job_type,
+    job_creationDateTime,
+    job_arn,
     job_status,
     job_participatingServers,
-    job_arn,
-    job_creationDateTime,
-    job_type,
     job_endDateTime,
-    job_tags,
     job_jobID,
 
     -- * JobLog
@@ -178,19 +178,19 @@ module Amazonka.MGN.Types
     -- * JobLogEventData
     JobLogEventData (..),
     newJobLogEventData,
-    jobLogEventData_rawError,
     jobLogEventData_targetInstanceID,
-    jobLogEventData_sourceServerID,
+    jobLogEventData_rawError,
     jobLogEventData_conversionServerID,
+    jobLogEventData_sourceServerID,
 
     -- * LaunchConfiguration
     LaunchConfiguration (..),
     newLaunchConfiguration,
-    launchConfiguration_ec2LaunchTemplateID,
-    launchConfiguration_targetInstanceTypeRightSizingMethod,
-    launchConfiguration_launchDisposition,
-    launchConfiguration_copyTags,
     launchConfiguration_name,
+    launchConfiguration_targetInstanceTypeRightSizingMethod,
+    launchConfiguration_copyTags,
+    launchConfiguration_launchDisposition,
+    launchConfiguration_ec2LaunchTemplateID,
     launchConfiguration_sourceServerID,
     launchConfiguration_licensing,
     launchConfiguration_copyPrivateIp,
@@ -198,8 +198,8 @@ module Amazonka.MGN.Types
     -- * LaunchedInstance
     LaunchedInstance (..),
     newLaunchedInstance,
-    launchedInstance_jobID,
     launchedInstance_ec2InstanceID,
+    launchedInstance_jobID,
     launchedInstance_firstBoot,
 
     -- * Licensing
@@ -211,19 +211,19 @@ module Amazonka.MGN.Types
     LifeCycle (..),
     newLifeCycle,
     lifeCycle_lastTest,
+    lifeCycle_addedToServiceDateTime,
     lifeCycle_state,
     lifeCycle_elapsedReplicationDuration,
     lifeCycle_lastSeenByServiceDateTime,
-    lifeCycle_addedToServiceDateTime,
-    lifeCycle_lastCutover,
     lifeCycle_firstByteDateTime,
+    lifeCycle_lastCutover,
 
     -- * LifeCycleLastCutover
     LifeCycleLastCutover (..),
     newLifeCycleLastCutover,
-    lifeCycleLastCutover_initiated,
     lifeCycleLastCutover_reverted,
     lifeCycleLastCutover_finalized,
+    lifeCycleLastCutover_initiated,
 
     -- * LifeCycleLastCutoverFinalized
     LifeCycleLastCutoverFinalized (..),
@@ -233,8 +233,8 @@ module Amazonka.MGN.Types
     -- * LifeCycleLastCutoverInitiated
     LifeCycleLastCutoverInitiated (..),
     newLifeCycleLastCutoverInitiated,
-    lifeCycleLastCutoverInitiated_jobID,
     lifeCycleLastCutoverInitiated_apiCallDateTime,
+    lifeCycleLastCutoverInitiated_jobID,
 
     -- * LifeCycleLastCutoverReverted
     LifeCycleLastCutoverReverted (..),
@@ -244,9 +244,9 @@ module Amazonka.MGN.Types
     -- * LifeCycleLastTest
     LifeCycleLastTest (..),
     newLifeCycleLastTest,
-    lifeCycleLastTest_initiated,
     lifeCycleLastTest_reverted,
     lifeCycleLastTest_finalized,
+    lifeCycleLastTest_initiated,
 
     -- * LifeCycleLastTestFinalized
     LifeCycleLastTestFinalized (..),
@@ -256,8 +256,8 @@ module Amazonka.MGN.Types
     -- * LifeCycleLastTestInitiated
     LifeCycleLastTestInitiated (..),
     newLifeCycleLastTestInitiated,
-    lifeCycleLastTestInitiated_jobID,
     lifeCycleLastTestInitiated_apiCallDateTime,
+    lifeCycleLastTestInitiated_jobID,
 
     -- * LifeCycleLastTestReverted
     LifeCycleLastTestReverted (..),
@@ -285,72 +285,72 @@ module Amazonka.MGN.Types
     -- * ReplicationConfiguration
     ReplicationConfiguration (..),
     newReplicationConfiguration,
-    replicationConfiguration_createPublicIP,
-    replicationConfiguration_stagingAreaTags,
-    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_bandwidthThrottling,
+    replicationConfiguration_name,
     replicationConfiguration_replicationServerInstanceType,
-    replicationConfiguration_ebsEncryption,
+    replicationConfiguration_stagingAreaTags,
     replicationConfiguration_associateDefaultSecurityGroup,
+    replicationConfiguration_defaultLargeStagingDiskType,
+    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_createPublicIP,
+    replicationConfiguration_dataPlaneRouting,
+    replicationConfiguration_ebsEncryption,
+    replicationConfiguration_replicatedDisks,
+    replicationConfiguration_sourceServerID,
+    replicationConfiguration_useDedicatedReplicationServer,
     replicationConfiguration_replicationServersSecurityGroupsIDs,
     replicationConfiguration_ebsEncryptionKeyArn,
-    replicationConfiguration_name,
-    replicationConfiguration_defaultLargeStagingDiskType,
-    replicationConfiguration_bandwidthThrottling,
-    replicationConfiguration_dataPlaneRouting,
-    replicationConfiguration_sourceServerID,
-    replicationConfiguration_replicatedDisks,
-    replicationConfiguration_useDedicatedReplicationServer,
 
     -- * ReplicationConfigurationReplicatedDisk
     ReplicationConfigurationReplicatedDisk (..),
     newReplicationConfigurationReplicatedDisk,
-    replicationConfigurationReplicatedDisk_stagingDiskType,
-    replicationConfigurationReplicatedDisk_iops,
     replicationConfigurationReplicatedDisk_isBootDisk,
     replicationConfigurationReplicatedDisk_deviceName,
+    replicationConfigurationReplicatedDisk_stagingDiskType,
+    replicationConfigurationReplicatedDisk_iops,
 
     -- * ReplicationConfigurationTemplate
     ReplicationConfigurationTemplate (..),
     newReplicationConfigurationTemplate,
-    replicationConfigurationTemplate_createPublicIP,
+    replicationConfigurationTemplate_tags,
+    replicationConfigurationTemplate_bandwidthThrottling,
+    replicationConfigurationTemplate_replicationServerInstanceType,
     replicationConfigurationTemplate_stagingAreaTags,
+    replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_defaultLargeStagingDiskType,
     replicationConfigurationTemplate_arn,
     replicationConfigurationTemplate_stagingAreaSubnetId,
-    replicationConfigurationTemplate_replicationServerInstanceType,
+    replicationConfigurationTemplate_createPublicIP,
+    replicationConfigurationTemplate_dataPlaneRouting,
     replicationConfigurationTemplate_ebsEncryption,
-    replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_useDedicatedReplicationServer,
     replicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
     replicationConfigurationTemplate_ebsEncryptionKeyArn,
-    replicationConfigurationTemplate_defaultLargeStagingDiskType,
-    replicationConfigurationTemplate_bandwidthThrottling,
-    replicationConfigurationTemplate_dataPlaneRouting,
-    replicationConfigurationTemplate_useDedicatedReplicationServer,
-    replicationConfigurationTemplate_tags,
     replicationConfigurationTemplate_replicationConfigurationTemplateID,
 
     -- * SourceProperties
     SourceProperties (..),
     newSourceProperties,
-    sourceProperties_identificationHints,
-    sourceProperties_networkInterfaces,
-    sourceProperties_lastUpdatedDateTime,
-    sourceProperties_recommendedInstanceType,
     sourceProperties_os,
-    sourceProperties_ramBytes,
     sourceProperties_cpus,
+    sourceProperties_ramBytes,
     sourceProperties_disks,
+    sourceProperties_identificationHints,
+    sourceProperties_recommendedInstanceType,
+    sourceProperties_lastUpdatedDateTime,
+    sourceProperties_networkInterfaces,
 
     -- * SourceServer
     SourceServer (..),
     newSourceServer,
-    sourceServer_sourceProperties,
-    sourceServer_arn,
-    sourceServer_launchedInstance,
-    sourceServer_lifeCycle,
-    sourceServer_isArchived,
-    sourceServer_dataReplicationInfo,
-    sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_lifeCycle,
+    sourceServer_launchedInstance,
+    sourceServer_arn,
+    sourceServer_dataReplicationInfo,
+    sourceServer_isArchived,
+    sourceServer_sourceServerID,
+    sourceServer_sourceProperties,
   )
 where
 
@@ -436,35 +436,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -473,38 +446,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Validate exception.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
-
--- | Operating denied due to a file permission or access check error.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "AccessDeniedException"
-    Prelude.. Core.hasStatus 403
-
--- | The request could not be completed due to a conflict with the current
--- state of the target resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
 
 -- | Unitialized account exception.
 _UninitializedAccountException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -514,13 +489,13 @@ _UninitializedAccountException =
     "UninitializedAccountException"
     Prelude.. Core.hasStatus 400
 
--- | Reached throttling quota exception.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
+-- | Operating denied due to a file permission or access check error.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
   Core._MatchServiceError
     defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
+    "AccessDeniedException"
+    Prelude.. Core.hasStatus 403
 
 -- | The server encountered an unexpected condition that prevented it from
 -- fulfilling the request.
@@ -538,3 +513,28 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The request could not be completed due to a conflict with the current
+-- state of the target resource.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | Reached throttling quota exception.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- | Validate exception.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

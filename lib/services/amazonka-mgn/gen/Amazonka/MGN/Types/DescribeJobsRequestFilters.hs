@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDescribeJobsRequestFilters' smart constructor.
 data DescribeJobsRequestFilters = DescribeJobsRequestFilters'
-  { -- | Request to describe Job log filters by date.
-    fromDate :: Prelude.Maybe Prelude.Text,
-    -- | Request to describe Job log by last date.
+  { -- | Request to describe Job log by last date.
     toDate :: Prelude.Maybe Prelude.Text,
+    -- | Request to describe Job log filters by date.
+    fromDate :: Prelude.Maybe Prelude.Text,
     -- | Request to describe Job log filters by job ID.
     jobIDs :: Prelude.Maybe [Prelude.Text]
   }
@@ -44,28 +44,28 @@ data DescribeJobsRequestFilters = DescribeJobsRequestFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fromDate', 'describeJobsRequestFilters_fromDate' - Request to describe Job log filters by date.
---
 -- 'toDate', 'describeJobsRequestFilters_toDate' - Request to describe Job log by last date.
+--
+-- 'fromDate', 'describeJobsRequestFilters_fromDate' - Request to describe Job log filters by date.
 --
 -- 'jobIDs', 'describeJobsRequestFilters_jobIDs' - Request to describe Job log filters by job ID.
 newDescribeJobsRequestFilters ::
   DescribeJobsRequestFilters
 newDescribeJobsRequestFilters =
   DescribeJobsRequestFilters'
-    { fromDate =
+    { toDate =
         Prelude.Nothing,
-      toDate = Prelude.Nothing,
+      fromDate = Prelude.Nothing,
       jobIDs = Prelude.Nothing
     }
-
--- | Request to describe Job log filters by date.
-describeJobsRequestFilters_fromDate :: Lens.Lens' DescribeJobsRequestFilters (Prelude.Maybe Prelude.Text)
-describeJobsRequestFilters_fromDate = Lens.lens (\DescribeJobsRequestFilters' {fromDate} -> fromDate) (\s@DescribeJobsRequestFilters' {} a -> s {fromDate = a} :: DescribeJobsRequestFilters)
 
 -- | Request to describe Job log by last date.
 describeJobsRequestFilters_toDate :: Lens.Lens' DescribeJobsRequestFilters (Prelude.Maybe Prelude.Text)
 describeJobsRequestFilters_toDate = Lens.lens (\DescribeJobsRequestFilters' {toDate} -> toDate) (\s@DescribeJobsRequestFilters' {} a -> s {toDate = a} :: DescribeJobsRequestFilters)
+
+-- | Request to describe Job log filters by date.
+describeJobsRequestFilters_fromDate :: Lens.Lens' DescribeJobsRequestFilters (Prelude.Maybe Prelude.Text)
+describeJobsRequestFilters_fromDate = Lens.lens (\DescribeJobsRequestFilters' {fromDate} -> fromDate) (\s@DescribeJobsRequestFilters' {} a -> s {fromDate = a} :: DescribeJobsRequestFilters)
 
 -- | Request to describe Job log filters by job ID.
 describeJobsRequestFilters_jobIDs :: Lens.Lens' DescribeJobsRequestFilters (Prelude.Maybe [Prelude.Text])
@@ -73,22 +73,22 @@ describeJobsRequestFilters_jobIDs = Lens.lens (\DescribeJobsRequestFilters' {job
 
 instance Prelude.Hashable DescribeJobsRequestFilters where
   hashWithSalt _salt DescribeJobsRequestFilters' {..} =
-    _salt `Prelude.hashWithSalt` fromDate
-      `Prelude.hashWithSalt` toDate
+    _salt `Prelude.hashWithSalt` toDate
+      `Prelude.hashWithSalt` fromDate
       `Prelude.hashWithSalt` jobIDs
 
 instance Prelude.NFData DescribeJobsRequestFilters where
   rnf DescribeJobsRequestFilters' {..} =
-    Prelude.rnf fromDate
-      `Prelude.seq` Prelude.rnf toDate
+    Prelude.rnf toDate
+      `Prelude.seq` Prelude.rnf fromDate
       `Prelude.seq` Prelude.rnf jobIDs
 
 instance Core.ToJSON DescribeJobsRequestFilters where
   toJSON DescribeJobsRequestFilters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("fromDate" Core..=) Prelude.<$> fromDate,
-            ("toDate" Core..=) Prelude.<$> toDate,
+          [ ("toDate" Core..=) Prelude.<$> toDate,
+            ("fromDate" Core..=) Prelude.<$> fromDate,
             ("jobIDs" Core..=) Prelude.<$> jobIDs
           ]
       )

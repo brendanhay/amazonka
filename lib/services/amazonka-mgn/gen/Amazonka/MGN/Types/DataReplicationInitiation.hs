@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataReplicationInitiation' smart constructor.
 data DataReplicationInitiation = DataReplicationInitiation'
-  { -- | Request to query data initiation steps.
-    steps :: Prelude.Maybe [DataReplicationInitiationStep],
-    -- | Request to query next data initiation date and time.
+  { -- | Request to query next data initiation date and time.
     nextAttemptDateTime :: Prelude.Maybe Prelude.Text,
     -- | Request to query data initiation start date and time.
-    startDateTime :: Prelude.Maybe Prelude.Text
+    startDateTime :: Prelude.Maybe Prelude.Text,
+    -- | Request to query data initiation steps.
+    steps :: Prelude.Maybe [DataReplicationInitiationStep]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,23 +45,20 @@ data DataReplicationInitiation = DataReplicationInitiation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'steps', 'dataReplicationInitiation_steps' - Request to query data initiation steps.
---
 -- 'nextAttemptDateTime', 'dataReplicationInitiation_nextAttemptDateTime' - Request to query next data initiation date and time.
 --
 -- 'startDateTime', 'dataReplicationInitiation_startDateTime' - Request to query data initiation start date and time.
+--
+-- 'steps', 'dataReplicationInitiation_steps' - Request to query data initiation steps.
 newDataReplicationInitiation ::
   DataReplicationInitiation
 newDataReplicationInitiation =
   DataReplicationInitiation'
-    { steps = Prelude.Nothing,
-      nextAttemptDateTime = Prelude.Nothing,
-      startDateTime = Prelude.Nothing
+    { nextAttemptDateTime =
+        Prelude.Nothing,
+      startDateTime = Prelude.Nothing,
+      steps = Prelude.Nothing
     }
-
--- | Request to query data initiation steps.
-dataReplicationInitiation_steps :: Lens.Lens' DataReplicationInitiation (Prelude.Maybe [DataReplicationInitiationStep])
-dataReplicationInitiation_steps = Lens.lens (\DataReplicationInitiation' {steps} -> steps) (\s@DataReplicationInitiation' {} a -> s {steps = a} :: DataReplicationInitiation) Prelude.. Lens.mapping Lens.coerced
 
 -- | Request to query next data initiation date and time.
 dataReplicationInitiation_nextAttemptDateTime :: Lens.Lens' DataReplicationInitiation (Prelude.Maybe Prelude.Text)
@@ -71,25 +68,29 @@ dataReplicationInitiation_nextAttemptDateTime = Lens.lens (\DataReplicationIniti
 dataReplicationInitiation_startDateTime :: Lens.Lens' DataReplicationInitiation (Prelude.Maybe Prelude.Text)
 dataReplicationInitiation_startDateTime = Lens.lens (\DataReplicationInitiation' {startDateTime} -> startDateTime) (\s@DataReplicationInitiation' {} a -> s {startDateTime = a} :: DataReplicationInitiation)
 
+-- | Request to query data initiation steps.
+dataReplicationInitiation_steps :: Lens.Lens' DataReplicationInitiation (Prelude.Maybe [DataReplicationInitiationStep])
+dataReplicationInitiation_steps = Lens.lens (\DataReplicationInitiation' {steps} -> steps) (\s@DataReplicationInitiation' {} a -> s {steps = a} :: DataReplicationInitiation) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON DataReplicationInitiation where
   parseJSON =
     Core.withObject
       "DataReplicationInitiation"
       ( \x ->
           DataReplicationInitiation'
-            Prelude.<$> (x Core..:? "steps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "nextAttemptDateTime")
+            Prelude.<$> (x Core..:? "nextAttemptDateTime")
             Prelude.<*> (x Core..:? "startDateTime")
+            Prelude.<*> (x Core..:? "steps" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DataReplicationInitiation where
   hashWithSalt _salt DataReplicationInitiation' {..} =
-    _salt `Prelude.hashWithSalt` steps
-      `Prelude.hashWithSalt` nextAttemptDateTime
+    _salt `Prelude.hashWithSalt` nextAttemptDateTime
       `Prelude.hashWithSalt` startDateTime
+      `Prelude.hashWithSalt` steps
 
 instance Prelude.NFData DataReplicationInitiation where
   rnf DataReplicationInitiation' {..} =
-    Prelude.rnf steps
-      `Prelude.seq` Prelude.rnf nextAttemptDateTime
+    Prelude.rnf nextAttemptDateTime
       `Prelude.seq` Prelude.rnf startDateTime
+      `Prelude.seq` Prelude.rnf steps

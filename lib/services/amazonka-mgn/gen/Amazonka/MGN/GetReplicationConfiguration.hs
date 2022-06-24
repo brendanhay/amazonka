@@ -34,21 +34,21 @@ module Amazonka.MGN.GetReplicationConfiguration
     newReplicationConfiguration,
 
     -- * Response Lenses
-    replicationConfiguration_createPublicIP,
-    replicationConfiguration_stagingAreaTags,
-    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_bandwidthThrottling,
+    replicationConfiguration_name,
     replicationConfiguration_replicationServerInstanceType,
-    replicationConfiguration_ebsEncryption,
+    replicationConfiguration_stagingAreaTags,
     replicationConfiguration_associateDefaultSecurityGroup,
+    replicationConfiguration_defaultLargeStagingDiskType,
+    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_createPublicIP,
+    replicationConfiguration_dataPlaneRouting,
+    replicationConfiguration_ebsEncryption,
+    replicationConfiguration_replicatedDisks,
+    replicationConfiguration_sourceServerID,
+    replicationConfiguration_useDedicatedReplicationServer,
     replicationConfiguration_replicationServersSecurityGroupsIDs,
     replicationConfiguration_ebsEncryptionKeyArn,
-    replicationConfiguration_name,
-    replicationConfiguration_defaultLargeStagingDiskType,
-    replicationConfiguration_bandwidthThrottling,
-    replicationConfiguration_dataPlaneRouting,
-    replicationConfiguration_sourceServerID,
-    replicationConfiguration_replicatedDisks,
-    replicationConfiguration_useDedicatedReplicationServer,
   )
 where
 

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDescribeSourceServersRequestFilters' smart constructor.
 data DescribeSourceServersRequestFilters = DescribeSourceServersRequestFilters'
-  { -- | Request to filter Source Servers list by Source Server ID.
-    sourceServerIDs :: Prelude.Maybe [Prelude.Text],
-    -- | Request to filter Source Servers list by archived.
-    isArchived :: Prelude.Maybe Prelude.Bool
+  { -- | Request to filter Source Servers list by archived.
+    isArchived :: Prelude.Maybe Prelude.Bool,
+    -- | Request to filter Source Servers list by Source Server ID.
+    sourceServerIDs :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data DescribeSourceServersRequestFilters = DescribeSourceServersRequestFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceServerIDs', 'describeSourceServersRequestFilters_sourceServerIDs' - Request to filter Source Servers list by Source Server ID.
---
 -- 'isArchived', 'describeSourceServersRequestFilters_isArchived' - Request to filter Source Servers list by archived.
+--
+-- 'sourceServerIDs', 'describeSourceServersRequestFilters_sourceServerIDs' - Request to filter Source Servers list by Source Server ID.
 newDescribeSourceServersRequestFilters ::
   DescribeSourceServersRequestFilters
 newDescribeSourceServersRequestFilters =
   DescribeSourceServersRequestFilters'
-    { sourceServerIDs =
+    { isArchived =
         Prelude.Nothing,
-      isArchived = Prelude.Nothing
+      sourceServerIDs = Prelude.Nothing
     }
-
--- | Request to filter Source Servers list by Source Server ID.
-describeSourceServersRequestFilters_sourceServerIDs :: Lens.Lens' DescribeSourceServersRequestFilters (Prelude.Maybe [Prelude.Text])
-describeSourceServersRequestFilters_sourceServerIDs = Lens.lens (\DescribeSourceServersRequestFilters' {sourceServerIDs} -> sourceServerIDs) (\s@DescribeSourceServersRequestFilters' {} a -> s {sourceServerIDs = a} :: DescribeSourceServersRequestFilters) Prelude.. Lens.mapping Lens.coerced
 
 -- | Request to filter Source Servers list by archived.
 describeSourceServersRequestFilters_isArchived :: Lens.Lens' DescribeSourceServersRequestFilters (Prelude.Maybe Prelude.Bool)
 describeSourceServersRequestFilters_isArchived = Lens.lens (\DescribeSourceServersRequestFilters' {isArchived} -> isArchived) (\s@DescribeSourceServersRequestFilters' {} a -> s {isArchived = a} :: DescribeSourceServersRequestFilters)
+
+-- | Request to filter Source Servers list by Source Server ID.
+describeSourceServersRequestFilters_sourceServerIDs :: Lens.Lens' DescribeSourceServersRequestFilters (Prelude.Maybe [Prelude.Text])
+describeSourceServersRequestFilters_sourceServerIDs = Lens.lens (\DescribeSourceServersRequestFilters' {sourceServerIDs} -> sourceServerIDs) (\s@DescribeSourceServersRequestFilters' {} a -> s {sourceServerIDs = a} :: DescribeSourceServersRequestFilters) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable
@@ -69,16 +69,16 @@ instance
   hashWithSalt
     _salt
     DescribeSourceServersRequestFilters' {..} =
-      _salt `Prelude.hashWithSalt` sourceServerIDs
-        `Prelude.hashWithSalt` isArchived
+      _salt `Prelude.hashWithSalt` isArchived
+        `Prelude.hashWithSalt` sourceServerIDs
 
 instance
   Prelude.NFData
     DescribeSourceServersRequestFilters
   where
   rnf DescribeSourceServersRequestFilters' {..} =
-    Prelude.rnf sourceServerIDs
-      `Prelude.seq` Prelude.rnf isArchived
+    Prelude.rnf isArchived
+      `Prelude.seq` Prelude.rnf sourceServerIDs
 
 instance
   Core.ToJSON
@@ -87,8 +87,8 @@ instance
   toJSON DescribeSourceServersRequestFilters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sourceServerIDs" Core..=)
-              Prelude.<$> sourceServerIDs,
-            ("isArchived" Core..=) Prelude.<$> isArchived
+          [ ("isArchived" Core..=) Prelude.<$> isArchived,
+            ("sourceServerIDs" Core..=)
+              Prelude.<$> sourceServerIDs
           ]
       )

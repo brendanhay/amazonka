@@ -38,10 +38,10 @@ module Amazonka.IAM.GetSAMLProvider
     newGetSAMLProviderResponse,
 
     -- * Response Lenses
-    getSAMLProviderResponse_createDate,
-    getSAMLProviderResponse_validUntil,
     getSAMLProviderResponse_tags,
     getSAMLProviderResponse_sAMLMetadataDocument,
+    getSAMLProviderResponse_createDate,
+    getSAMLProviderResponse_validUntil,
     getSAMLProviderResponse_httpStatus,
   )
 where
@@ -108,12 +108,12 @@ instance Core.AWSRequest GetSAMLProvider where
       "GetSAMLProviderResult"
       ( \s h x ->
           GetSAMLProviderResponse'
-            Prelude.<$> (x Core..@? "CreateDate")
-            Prelude.<*> (x Core..@? "ValidUntil")
-            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
             Prelude.<*> (x Core..@? "SAMLMetadataDocument")
+            Prelude.<*> (x Core..@? "CreateDate")
+            Prelude.<*> (x Core..@? "ValidUntil")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,11 +145,7 @@ instance Core.ToQuery GetSAMLProvider where
 --
 -- /See:/ 'newGetSAMLProviderResponse' smart constructor.
 data GetSAMLProviderResponse = GetSAMLProviderResponse'
-  { -- | The date and time when the SAML provider was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
-    -- | The expiration date and time for the SAML provider.
-    validUntil :: Prelude.Maybe Core.ISO8601,
-    -- | A list of tags that are attached to the specified IAM SAML provider. The
+  { -- | A list of tags that are attached to the specified IAM SAML provider. The
     -- returned list of tags is sorted by tag key. For more information about
     -- tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
@@ -158,6 +154,10 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
     -- | The XML metadata document that includes information about an identity
     -- provider.
     sAMLMetadataDocument :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when the SAML provider was created.
+    createDate :: Prelude.Maybe Core.ISO8601,
+    -- | The expiration date and time for the SAML provider.
+    validUntil :: Prelude.Maybe Core.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,10 +171,6 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createDate', 'getSAMLProviderResponse_createDate' - The date and time when the SAML provider was created.
---
--- 'validUntil', 'getSAMLProviderResponse_validUntil' - The expiration date and time for the SAML provider.
---
 -- 'tags', 'getSAMLProviderResponse_tags' - A list of tags that are attached to the specified IAM SAML provider. The
 -- returned list of tags is sorted by tag key. For more information about
 -- tagging, see
@@ -184,6 +180,10 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
 -- 'sAMLMetadataDocument', 'getSAMLProviderResponse_sAMLMetadataDocument' - The XML metadata document that includes information about an identity
 -- provider.
 --
+-- 'createDate', 'getSAMLProviderResponse_createDate' - The date and time when the SAML provider was created.
+--
+-- 'validUntil', 'getSAMLProviderResponse_validUntil' - The expiration date and time for the SAML provider.
+--
 -- 'httpStatus', 'getSAMLProviderResponse_httpStatus' - The response's http status code.
 newGetSAMLProviderResponse ::
   -- | 'httpStatus'
@@ -191,21 +191,12 @@ newGetSAMLProviderResponse ::
   GetSAMLProviderResponse
 newGetSAMLProviderResponse pHttpStatus_ =
   GetSAMLProviderResponse'
-    { createDate =
-        Prelude.Nothing,
-      validUntil = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       sAMLMetadataDocument = Prelude.Nothing,
+      createDate = Prelude.Nothing,
+      validUntil = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The date and time when the SAML provider was created.
-getSAMLProviderResponse_createDate :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe Prelude.UTCTime)
-getSAMLProviderResponse_createDate = Lens.lens (\GetSAMLProviderResponse' {createDate} -> createDate) (\s@GetSAMLProviderResponse' {} a -> s {createDate = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Core._Time
-
--- | The expiration date and time for the SAML provider.
-getSAMLProviderResponse_validUntil :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe Prelude.UTCTime)
-getSAMLProviderResponse_validUntil = Lens.lens (\GetSAMLProviderResponse' {validUntil} -> validUntil) (\s@GetSAMLProviderResponse' {} a -> s {validUntil = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Core._Time
 
 -- | A list of tags that are attached to the specified IAM SAML provider. The
 -- returned list of tags is sorted by tag key. For more information about
@@ -220,14 +211,22 @@ getSAMLProviderResponse_tags = Lens.lens (\GetSAMLProviderResponse' {tags} -> ta
 getSAMLProviderResponse_sAMLMetadataDocument :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe Prelude.Text)
 getSAMLProviderResponse_sAMLMetadataDocument = Lens.lens (\GetSAMLProviderResponse' {sAMLMetadataDocument} -> sAMLMetadataDocument) (\s@GetSAMLProviderResponse' {} a -> s {sAMLMetadataDocument = a} :: GetSAMLProviderResponse)
 
+-- | The date and time when the SAML provider was created.
+getSAMLProviderResponse_createDate :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe Prelude.UTCTime)
+getSAMLProviderResponse_createDate = Lens.lens (\GetSAMLProviderResponse' {createDate} -> createDate) (\s@GetSAMLProviderResponse' {} a -> s {createDate = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The expiration date and time for the SAML provider.
+getSAMLProviderResponse_validUntil :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe Prelude.UTCTime)
+getSAMLProviderResponse_validUntil = Lens.lens (\GetSAMLProviderResponse' {validUntil} -> validUntil) (\s@GetSAMLProviderResponse' {} a -> s {validUntil = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The response's http status code.
 getSAMLProviderResponse_httpStatus :: Lens.Lens' GetSAMLProviderResponse Prelude.Int
 getSAMLProviderResponse_httpStatus = Lens.lens (\GetSAMLProviderResponse' {httpStatus} -> httpStatus) (\s@GetSAMLProviderResponse' {} a -> s {httpStatus = a} :: GetSAMLProviderResponse)
 
 instance Prelude.NFData GetSAMLProviderResponse where
   rnf GetSAMLProviderResponse' {..} =
-    Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf validUntil
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sAMLMetadataDocument
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf validUntil
       `Prelude.seq` Prelude.rnf httpStatus

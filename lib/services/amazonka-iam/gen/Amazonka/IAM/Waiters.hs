@@ -25,32 +25,6 @@ import Amazonka.IAM.Types
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Amazonka.IAM.GetInstanceProfile' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newInstanceProfileExists :: Core.Wait GetInstanceProfile
-newInstanceProfileExists =
-  Core.Wait
-    { Core._waitName = "InstanceProfileExists",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 1,
-      Core._waitAcceptors =
-        [ Core.matchStatus 200 Core.AcceptSuccess,
-          Core.matchStatus 404 Core.AcceptRetry
-        ]
-    }
-
--- | Polls 'Amazonka.IAM.GetUser' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newUserExists :: Core.Wait GetUser
-newUserExists =
-  Core.Wait
-    { Core._waitName = "UserExists",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 1,
-      Core._waitAcceptors =
-        [ Core.matchStatus 200 Core.AcceptSuccess,
-          Core.matchError "NoSuchEntity" Core.AcceptRetry
-        ]
-    }
-
 -- | Polls 'Amazonka.IAM.GetRole' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newRoleExists :: Core.Wait GetRole
 newRoleExists =
@@ -74,5 +48,31 @@ newPolicyExists =
       Core._waitAcceptors =
         [ Core.matchStatus 200 Core.AcceptSuccess,
           Core.matchError "NoSuchEntity" Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Amazonka.IAM.GetUser' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newUserExists :: Core.Wait GetUser
+newUserExists =
+  Core.Wait
+    { Core._waitName = "UserExists",
+      Core._waitAttempts = 20,
+      Core._waitDelay = 1,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError "NoSuchEntity" Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Amazonka.IAM.GetInstanceProfile' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newInstanceProfileExists :: Core.Wait GetInstanceProfile
+newInstanceProfileExists =
+  Core.Wait
+    { Core._waitName = "InstanceProfileExists",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 1,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchStatus 404 Core.AcceptRetry
         ]
     }

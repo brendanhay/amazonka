@@ -52,12 +52,12 @@ module Amazonka.IAM.GetAccountAuthorizationDetails
     newGetAccountAuthorizationDetailsResponse,
 
     -- * Response Lenses
-    getAccountAuthorizationDetailsResponse_roleDetailList,
-    getAccountAuthorizationDetailsResponse_groupDetailList,
-    getAccountAuthorizationDetailsResponse_userDetailList,
     getAccountAuthorizationDetailsResponse_marker,
     getAccountAuthorizationDetailsResponse_isTruncated,
     getAccountAuthorizationDetailsResponse_policies,
+    getAccountAuthorizationDetailsResponse_roleDetailList,
+    getAccountAuthorizationDetailsResponse_userDetailList,
+    getAccountAuthorizationDetailsResponse_groupDetailList,
     getAccountAuthorizationDetailsResponse_httpStatus,
   )
 where
@@ -201,18 +201,18 @@ instance
       "GetAccountAuthorizationDetailsResult"
       ( \s h x ->
           GetAccountAuthorizationDetailsResponse'
-            Prelude.<$> ( x Core..@? "RoleDetailList" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<*> ( x Core..@? "Policies" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "GroupDetailList" Core..!@ Prelude.mempty
+            Prelude.<*> ( x Core..@? "RoleDetailList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
             Prelude.<*> ( x Core..@? "UserDetailList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> ( x Core..@? "Policies" Core..!@ Prelude.mempty
+            Prelude.<*> ( x Core..@? "GroupDetailList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -268,13 +268,7 @@ instance Core.ToQuery GetAccountAuthorizationDetails where
 --
 -- /See:/ 'newGetAccountAuthorizationDetailsResponse' smart constructor.
 data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'
-  { -- | A list containing information about IAM roles.
-    roleDetailList :: Prelude.Maybe [RoleDetail],
-    -- | A list containing information about IAM groups.
-    groupDetailList :: Prelude.Maybe [GroupDetail],
-    -- | A list containing information about IAM users.
-    userDetailList :: Prelude.Maybe [UserDetail],
-    -- | When @IsTruncated@ is @true@, this element is present and contains the
+  { -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
     marker :: Prelude.Maybe Prelude.Text,
@@ -288,6 +282,12 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
     isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | A list containing information about managed policies.
     policies :: Prelude.Maybe [ManagedPolicyDetail],
+    -- | A list containing information about IAM roles.
+    roleDetailList :: Prelude.Maybe [RoleDetail],
+    -- | A list containing information about IAM users.
+    userDetailList :: Prelude.Maybe [UserDetail],
+    -- | A list containing information about IAM groups.
+    groupDetailList :: Prelude.Maybe [GroupDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -300,12 +300,6 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'roleDetailList', 'getAccountAuthorizationDetailsResponse_roleDetailList' - A list containing information about IAM roles.
---
--- 'groupDetailList', 'getAccountAuthorizationDetailsResponse_groupDetailList' - A list containing information about IAM groups.
---
--- 'userDetailList', 'getAccountAuthorizationDetailsResponse_userDetailList' - A list containing information about IAM users.
 --
 -- 'marker', 'getAccountAuthorizationDetailsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -321,6 +315,12 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
 --
 -- 'policies', 'getAccountAuthorizationDetailsResponse_policies' - A list containing information about managed policies.
 --
+-- 'roleDetailList', 'getAccountAuthorizationDetailsResponse_roleDetailList' - A list containing information about IAM roles.
+--
+-- 'userDetailList', 'getAccountAuthorizationDetailsResponse_userDetailList' - A list containing information about IAM users.
+--
+-- 'groupDetailList', 'getAccountAuthorizationDetailsResponse_groupDetailList' - A list containing information about IAM groups.
+--
 -- 'httpStatus', 'getAccountAuthorizationDetailsResponse_httpStatus' - The response's http status code.
 newGetAccountAuthorizationDetailsResponse ::
   -- | 'httpStatus'
@@ -329,27 +329,15 @@ newGetAccountAuthorizationDetailsResponse ::
 newGetAccountAuthorizationDetailsResponse
   pHttpStatus_ =
     GetAccountAuthorizationDetailsResponse'
-      { roleDetailList =
+      { marker =
           Prelude.Nothing,
-        groupDetailList = Prelude.Nothing,
-        userDetailList = Prelude.Nothing,
-        marker = Prelude.Nothing,
         isTruncated = Prelude.Nothing,
         policies = Prelude.Nothing,
+        roleDetailList = Prelude.Nothing,
+        userDetailList = Prelude.Nothing,
+        groupDetailList = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | A list containing information about IAM roles.
-getAccountAuthorizationDetailsResponse_roleDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Prelude.Maybe [RoleDetail])
-getAccountAuthorizationDetailsResponse_roleDetailList = Lens.lens (\GetAccountAuthorizationDetailsResponse' {roleDetailList} -> roleDetailList) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {roleDetailList = a} :: GetAccountAuthorizationDetailsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A list containing information about IAM groups.
-getAccountAuthorizationDetailsResponse_groupDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Prelude.Maybe [GroupDetail])
-getAccountAuthorizationDetailsResponse_groupDetailList = Lens.lens (\GetAccountAuthorizationDetailsResponse' {groupDetailList} -> groupDetailList) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {groupDetailList = a} :: GetAccountAuthorizationDetailsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A list containing information about IAM users.
-getAccountAuthorizationDetailsResponse_userDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Prelude.Maybe [UserDetail])
-getAccountAuthorizationDetailsResponse_userDetailList = Lens.lens (\GetAccountAuthorizationDetailsResponse' {userDetailList} -> userDetailList) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {userDetailList = a} :: GetAccountAuthorizationDetailsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -371,6 +359,18 @@ getAccountAuthorizationDetailsResponse_isTruncated = Lens.lens (\GetAccountAutho
 getAccountAuthorizationDetailsResponse_policies :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Prelude.Maybe [ManagedPolicyDetail])
 getAccountAuthorizationDetailsResponse_policies = Lens.lens (\GetAccountAuthorizationDetailsResponse' {policies} -> policies) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {policies = a} :: GetAccountAuthorizationDetailsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list containing information about IAM roles.
+getAccountAuthorizationDetailsResponse_roleDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Prelude.Maybe [RoleDetail])
+getAccountAuthorizationDetailsResponse_roleDetailList = Lens.lens (\GetAccountAuthorizationDetailsResponse' {roleDetailList} -> roleDetailList) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {roleDetailList = a} :: GetAccountAuthorizationDetailsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list containing information about IAM users.
+getAccountAuthorizationDetailsResponse_userDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Prelude.Maybe [UserDetail])
+getAccountAuthorizationDetailsResponse_userDetailList = Lens.lens (\GetAccountAuthorizationDetailsResponse' {userDetailList} -> userDetailList) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {userDetailList = a} :: GetAccountAuthorizationDetailsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list containing information about IAM groups.
+getAccountAuthorizationDetailsResponse_groupDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Prelude.Maybe [GroupDetail])
+getAccountAuthorizationDetailsResponse_groupDetailList = Lens.lens (\GetAccountAuthorizationDetailsResponse' {groupDetailList} -> groupDetailList) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {groupDetailList = a} :: GetAccountAuthorizationDetailsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 getAccountAuthorizationDetailsResponse_httpStatus :: Lens.Lens' GetAccountAuthorizationDetailsResponse Prelude.Int
 getAccountAuthorizationDetailsResponse_httpStatus = Lens.lens (\GetAccountAuthorizationDetailsResponse' {httpStatus} -> httpStatus) (\s@GetAccountAuthorizationDetailsResponse' {} a -> s {httpStatus = a} :: GetAccountAuthorizationDetailsResponse)
@@ -380,10 +380,10 @@ instance
     GetAccountAuthorizationDetailsResponse
   where
   rnf GetAccountAuthorizationDetailsResponse' {..} =
-    Prelude.rnf roleDetailList
-      `Prelude.seq` Prelude.rnf groupDetailList
-      `Prelude.seq` Prelude.rnf userDetailList
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf isTruncated
       `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf roleDetailList
+      `Prelude.seq` Prelude.rnf userDetailList
+      `Prelude.seq` Prelude.rnf groupDetailList
       `Prelude.seq` Prelude.rnf httpStatus

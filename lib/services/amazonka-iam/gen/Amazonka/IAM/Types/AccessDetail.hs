@@ -33,7 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccessDetail' smart constructor.
 data AccessDetail = AccessDetail'
-  { -- | The path of the Organizations entity (root, organizational unit, or
+  { -- | The number of accounts with authenticated principals (root users, IAM
+    -- users, and IAM roles) that attempted to access the service in the
+    -- reporting period.
+    totalAuthenticatedEntities :: Prelude.Maybe Prelude.Int,
+    -- | The path of the Organizations entity (root, organizational unit, or
     -- account) from which an authenticated principal last attempted to access
     -- the service. Amazon Web Services does not report unauthenticated
     -- requests.
@@ -58,10 +62,6 @@ data AccessDetail = AccessDetail'
     -- attempted to access the service within the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
     lastAuthenticatedTime :: Prelude.Maybe Core.ISO8601,
-    -- | The number of accounts with authenticated principals (root users, IAM
-    -- users, and IAM roles) that attempted to access the service in the
-    -- reporting period.
-    totalAuthenticatedEntities :: Prelude.Maybe Prelude.Int,
     -- | The name of the service in which access was attempted.
     serviceName :: Prelude.Text,
     -- | The namespace of the service in which access was attempted.
@@ -85,6 +85,10 @@ data AccessDetail = AccessDetail'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'totalAuthenticatedEntities', 'accessDetail_totalAuthenticatedEntities' - The number of accounts with authenticated principals (root users, IAM
+-- users, and IAM roles) that attempted to access the service in the
+-- reporting period.
 --
 -- 'entityPath', 'accessDetail_entityPath' - The path of the Organizations entity (root, organizational unit, or
 -- account) from which an authenticated principal last attempted to access
@@ -111,10 +115,6 @@ data AccessDetail = AccessDetail'
 -- attempted to access the service within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
 --
--- 'totalAuthenticatedEntities', 'accessDetail_totalAuthenticatedEntities' - The number of accounts with authenticated principals (root users, IAM
--- users, and IAM roles) that attempted to access the service in the
--- reporting period.
---
 -- 'serviceName', 'accessDetail_serviceName' - The name of the service in which access was attempted.
 --
 -- 'serviceNamespace', 'accessDetail_serviceNamespace' - The namespace of the service in which access was attempted.
@@ -135,13 +135,20 @@ newAccessDetail ::
   AccessDetail
 newAccessDetail pServiceName_ pServiceNamespace_ =
   AccessDetail'
-    { entityPath = Prelude.Nothing,
+    { totalAuthenticatedEntities =
+        Prelude.Nothing,
+      entityPath = Prelude.Nothing,
       region = Prelude.Nothing,
       lastAuthenticatedTime = Prelude.Nothing,
-      totalAuthenticatedEntities = Prelude.Nothing,
       serviceName = pServiceName_,
       serviceNamespace = pServiceNamespace_
     }
+
+-- | The number of accounts with authenticated principals (root users, IAM
+-- users, and IAM roles) that attempted to access the service in the
+-- reporting period.
+accessDetail_totalAuthenticatedEntities :: Lens.Lens' AccessDetail (Prelude.Maybe Prelude.Int)
+accessDetail_totalAuthenticatedEntities = Lens.lens (\AccessDetail' {totalAuthenticatedEntities} -> totalAuthenticatedEntities) (\s@AccessDetail' {} a -> s {totalAuthenticatedEntities = a} :: AccessDetail)
 
 -- | The path of the Organizations entity (root, organizational unit, or
 -- account) from which an authenticated principal last attempted to access
@@ -174,12 +181,6 @@ accessDetail_region = Lens.lens (\AccessDetail' {region} -> region) (\s@AccessDe
 accessDetail_lastAuthenticatedTime :: Lens.Lens' AccessDetail (Prelude.Maybe Prelude.UTCTime)
 accessDetail_lastAuthenticatedTime = Lens.lens (\AccessDetail' {lastAuthenticatedTime} -> lastAuthenticatedTime) (\s@AccessDetail' {} a -> s {lastAuthenticatedTime = a} :: AccessDetail) Prelude.. Lens.mapping Core._Time
 
--- | The number of accounts with authenticated principals (root users, IAM
--- users, and IAM roles) that attempted to access the service in the
--- reporting period.
-accessDetail_totalAuthenticatedEntities :: Lens.Lens' AccessDetail (Prelude.Maybe Prelude.Int)
-accessDetail_totalAuthenticatedEntities = Lens.lens (\AccessDetail' {totalAuthenticatedEntities} -> totalAuthenticatedEntities) (\s@AccessDetail' {} a -> s {totalAuthenticatedEntities = a} :: AccessDetail)
-
 -- | The name of the service in which access was attempted.
 accessDetail_serviceName :: Lens.Lens' AccessDetail Prelude.Text
 accessDetail_serviceName = Lens.lens (\AccessDetail' {serviceName} -> serviceName) (\s@AccessDetail' {} a -> s {serviceName = a} :: AccessDetail)
@@ -200,27 +201,28 @@ accessDetail_serviceNamespace = Lens.lens (\AccessDetail' {serviceNamespace} -> 
 instance Core.FromXML AccessDetail where
   parseXML x =
     AccessDetail'
-      Prelude.<$> (x Core..@? "EntityPath")
+      Prelude.<$> (x Core..@? "TotalAuthenticatedEntities")
+      Prelude.<*> (x Core..@? "EntityPath")
       Prelude.<*> (x Core..@? "Region")
       Prelude.<*> (x Core..@? "LastAuthenticatedTime")
-      Prelude.<*> (x Core..@? "TotalAuthenticatedEntities")
       Prelude.<*> (x Core..@ "ServiceName")
       Prelude.<*> (x Core..@ "ServiceNamespace")
 
 instance Prelude.Hashable AccessDetail where
   hashWithSalt _salt AccessDetail' {..} =
-    _salt `Prelude.hashWithSalt` entityPath
+    _salt
+      `Prelude.hashWithSalt` totalAuthenticatedEntities
+      `Prelude.hashWithSalt` entityPath
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` lastAuthenticatedTime
-      `Prelude.hashWithSalt` totalAuthenticatedEntities
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` serviceNamespace
 
 instance Prelude.NFData AccessDetail where
   rnf AccessDetail' {..} =
-    Prelude.rnf entityPath
+    Prelude.rnf totalAuthenticatedEntities
+      `Prelude.seq` Prelude.rnf entityPath
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf lastAuthenticatedTime
-      `Prelude.seq` Prelude.rnf totalAuthenticatedEntities
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf serviceNamespace

@@ -45,9 +45,9 @@ module Amazonka.IAM.ListServerCertificates
     newListServerCertificates,
 
     -- * Request Lenses
-    listServerCertificates_pathPrefix,
     listServerCertificates_marker,
     listServerCertificates_maxItems,
+    listServerCertificates_pathPrefix,
 
     -- * Destructuring the Response
     ListServerCertificatesResponse (..),
@@ -70,20 +70,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListServerCertificates' smart constructor.
 data ListServerCertificates = ListServerCertificates'
-  { -- | The path prefix for filtering the results. For example:
-    -- @\/company\/servercerts@ would get all server certificates for which the
-    -- path starts with @\/company\/servercerts@.
-    --
-    -- This parameter is optional. If it is not included, it defaults to a
-    -- slash (\/), listing all server certificates. This parameter allows
-    -- (through its <http://wikipedia.org/wiki/regex regex pattern>) a string
-    -- of characters consisting of either a forward slash (\/) by itself or a
-    -- string that must begin and end with forward slashes. In addition, it can
-    -- contain any ASCII character from the ! (@\\u0021@) through the DEL
-    -- character (@\\u007F@), including most punctuation characters, digits,
-    -- and upper and lowercased letters.
-    pathPrefix :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter only when paginating results and only after you
+  { -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
@@ -97,7 +84,20 @@ data ListServerCertificates = ListServerCertificates'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The path prefix for filtering the results. For example:
+    -- @\/company\/servercerts@ would get all server certificates for which the
+    -- path starts with @\/company\/servercerts@.
+    --
+    -- This parameter is optional. If it is not included, it defaults to a
+    -- slash (\/), listing all server certificates. This parameter allows
+    -- (through its <http://wikipedia.org/wiki/regex regex pattern>) a string
+    -- of characters consisting of either a forward slash (\/) by itself or a
+    -- string that must begin and end with forward slashes. In addition, it can
+    -- contain any ASCII character from the ! (@\\u0021@) through the DEL
+    -- character (@\\u007F@), including most punctuation characters, digits,
+    -- and upper and lowercased letters.
+    pathPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -108,19 +108,6 @@ data ListServerCertificates = ListServerCertificates'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'pathPrefix', 'listServerCertificates_pathPrefix' - The path prefix for filtering the results. For example:
--- @\/company\/servercerts@ would get all server certificates for which the
--- path starts with @\/company\/servercerts@.
---
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/), listing all server certificates. This parameter allows
--- (through its <http://wikipedia.org/wiki/regex regex pattern>) a string
--- of characters consisting of either a forward slash (\/) by itself or a
--- string that must begin and end with forward slashes. In addition, it can
--- contain any ASCII character from the ! (@\\u0021@) through the DEL
--- character (@\\u007F@), including most punctuation characters, digits,
--- and upper and lowercased letters.
 --
 -- 'marker', 'listServerCertificates_marker' - Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -136,17 +123,8 @@ data ListServerCertificates = ListServerCertificates'
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-newListServerCertificates ::
-  ListServerCertificates
-newListServerCertificates =
-  ListServerCertificates'
-    { pathPrefix =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing
-    }
-
--- | The path prefix for filtering the results. For example:
+--
+-- 'pathPrefix', 'listServerCertificates_pathPrefix' - The path prefix for filtering the results. For example:
 -- @\/company\/servercerts@ would get all server certificates for which the
 -- path starts with @\/company\/servercerts@.
 --
@@ -158,8 +136,14 @@ newListServerCertificates =
 -- contain any ASCII character from the ! (@\\u0021@) through the DEL
 -- character (@\\u007F@), including most punctuation characters, digits,
 -- and upper and lowercased letters.
-listServerCertificates_pathPrefix :: Lens.Lens' ListServerCertificates (Prelude.Maybe Prelude.Text)
-listServerCertificates_pathPrefix = Lens.lens (\ListServerCertificates' {pathPrefix} -> pathPrefix) (\s@ListServerCertificates' {} a -> s {pathPrefix = a} :: ListServerCertificates)
+newListServerCertificates ::
+  ListServerCertificates
+newListServerCertificates =
+  ListServerCertificates'
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      pathPrefix = Prelude.Nothing
+    }
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -179,6 +163,21 @@ listServerCertificates_marker = Lens.lens (\ListServerCertificates' {marker} -> 
 -- subsequent call that tells the service where to continue from.
 listServerCertificates_maxItems :: Lens.Lens' ListServerCertificates (Prelude.Maybe Prelude.Natural)
 listServerCertificates_maxItems = Lens.lens (\ListServerCertificates' {maxItems} -> maxItems) (\s@ListServerCertificates' {} a -> s {maxItems = a} :: ListServerCertificates)
+
+-- | The path prefix for filtering the results. For example:
+-- @\/company\/servercerts@ would get all server certificates for which the
+-- path starts with @\/company\/servercerts@.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/), listing all server certificates. This parameter allows
+-- (through its <http://wikipedia.org/wiki/regex regex pattern>) a string
+-- of characters consisting of either a forward slash (\/) by itself or a
+-- string that must begin and end with forward slashes. In addition, it can
+-- contain any ASCII character from the ! (@\\u0021@) through the DEL
+-- character (@\\u007F@), including most punctuation characters, digits,
+-- and upper and lowercased letters.
+listServerCertificates_pathPrefix :: Lens.Lens' ListServerCertificates (Prelude.Maybe Prelude.Text)
+listServerCertificates_pathPrefix = Lens.lens (\ListServerCertificates' {pathPrefix} -> pathPrefix) (\s@ListServerCertificates' {} a -> s {pathPrefix = a} :: ListServerCertificates)
 
 instance Core.AWSPager ListServerCertificates where
   page rq rs
@@ -223,15 +222,15 @@ instance Core.AWSRequest ListServerCertificates where
 
 instance Prelude.Hashable ListServerCertificates where
   hashWithSalt _salt ListServerCertificates' {..} =
-    _salt `Prelude.hashWithSalt` pathPrefix
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` pathPrefix
 
 instance Prelude.NFData ListServerCertificates where
   rnf ListServerCertificates' {..} =
-    Prelude.rnf pathPrefix
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf pathPrefix
 
 instance Core.ToHeaders ListServerCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -246,9 +245,9 @@ instance Core.ToQuery ListServerCertificates where
           Core.=: ("ListServerCertificates" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "PathPrefix" Core.=: pathPrefix,
         "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+        "MaxItems" Core.=: maxItems,
+        "PathPrefix" Core.=: pathPrefix
       ]
 
 -- | Contains the response to a successful ListServerCertificates request.

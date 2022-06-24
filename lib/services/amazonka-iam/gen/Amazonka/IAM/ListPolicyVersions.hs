@@ -44,9 +44,9 @@ module Amazonka.IAM.ListPolicyVersions
     newListPolicyVersionsResponse,
 
     -- * Response Lenses
-    listPolicyVersionsResponse_versions,
     listPolicyVersionsResponse_marker,
     listPolicyVersionsResponse_isTruncated,
+    listPolicyVersionsResponse_versions,
     listPolicyVersionsResponse_httpStatus,
   )
 where
@@ -185,11 +185,11 @@ instance Core.AWSRequest ListPolicyVersions where
       "ListPolicyVersionsResult"
       ( \s h x ->
           ListPolicyVersionsResponse'
-            Prelude.<$> ( x Core..@? "Versions" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<*> ( x Core..@? "Versions" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -227,13 +227,7 @@ instance Core.ToQuery ListPolicyVersions where
 --
 -- /See:/ 'newListPolicyVersionsResponse' smart constructor.
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
-  { -- | A list of policy versions.
-    --
-    -- For more information about managed policy versions, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
-    -- in the /IAM User Guide/.
-    versions :: Prelude.Maybe [PolicyVersion],
-    -- | When @IsTruncated@ is @true@, this element is present and contains the
+  { -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
     marker :: Prelude.Maybe Prelude.Text,
@@ -245,6 +239,12 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | A list of policy versions.
+    --
+    -- For more information about managed policy versions, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
+    -- in the /IAM User Guide/.
+    versions :: Prelude.Maybe [PolicyVersion],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -258,12 +258,6 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versions', 'listPolicyVersionsResponse_versions' - A list of policy versions.
---
--- For more information about managed policy versions, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
--- in the /IAM User Guide/.
---
 -- 'marker', 'listPolicyVersionsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
@@ -276,6 +270,12 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
 --
+-- 'versions', 'listPolicyVersionsResponse_versions' - A list of policy versions.
+--
+-- For more information about managed policy versions, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
+-- in the /IAM User Guide/.
+--
 -- 'httpStatus', 'listPolicyVersionsResponse_httpStatus' - The response's http status code.
 newListPolicyVersionsResponse ::
   -- | 'httpStatus'
@@ -283,20 +283,12 @@ newListPolicyVersionsResponse ::
   ListPolicyVersionsResponse
 newListPolicyVersionsResponse pHttpStatus_ =
   ListPolicyVersionsResponse'
-    { versions =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
       isTruncated = Prelude.Nothing,
+      versions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of policy versions.
---
--- For more information about managed policy versions, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
--- in the /IAM User Guide/.
-listPolicyVersionsResponse_versions :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe [PolicyVersion])
-listPolicyVersionsResponse_versions = Lens.lens (\ListPolicyVersionsResponse' {versions} -> versions) (\s@ListPolicyVersionsResponse' {} a -> s {versions = a} :: ListPolicyVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -314,13 +306,21 @@ listPolicyVersionsResponse_marker = Lens.lens (\ListPolicyVersionsResponse' {mar
 listPolicyVersionsResponse_isTruncated :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe Prelude.Bool)
 listPolicyVersionsResponse_isTruncated = Lens.lens (\ListPolicyVersionsResponse' {isTruncated} -> isTruncated) (\s@ListPolicyVersionsResponse' {} a -> s {isTruncated = a} :: ListPolicyVersionsResponse)
 
+-- | A list of policy versions.
+--
+-- For more information about managed policy versions, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
+-- in the /IAM User Guide/.
+listPolicyVersionsResponse_versions :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe [PolicyVersion])
+listPolicyVersionsResponse_versions = Lens.lens (\ListPolicyVersionsResponse' {versions} -> versions) (\s@ListPolicyVersionsResponse' {} a -> s {versions = a} :: ListPolicyVersionsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listPolicyVersionsResponse_httpStatus :: Lens.Lens' ListPolicyVersionsResponse Prelude.Int
 listPolicyVersionsResponse_httpStatus = Lens.lens (\ListPolicyVersionsResponse' {httpStatus} -> httpStatus) (\s@ListPolicyVersionsResponse' {} a -> s {httpStatus = a} :: ListPolicyVersionsResponse)
 
 instance Prelude.NFData ListPolicyVersionsResponse where
   rnf ListPolicyVersionsResponse' {..} =
-    Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf httpStatus

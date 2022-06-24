@@ -53,15 +53,15 @@ module Amazonka.IAM.SimulateCustomPolicy
     newSimulateCustomPolicy,
 
     -- * Request Lenses
+    simulateCustomPolicy_permissionsBoundaryPolicyInputList,
+    simulateCustomPolicy_marker,
+    simulateCustomPolicy_contextEntries,
+    simulateCustomPolicy_maxItems,
+    simulateCustomPolicy_resourceOwner,
     simulateCustomPolicy_resourcePolicy,
     simulateCustomPolicy_callerArn,
     simulateCustomPolicy_resourceHandlingOption,
     simulateCustomPolicy_resourceArns,
-    simulateCustomPolicy_permissionsBoundaryPolicyInputList,
-    simulateCustomPolicy_marker,
-    simulateCustomPolicy_maxItems,
-    simulateCustomPolicy_contextEntries,
-    simulateCustomPolicy_resourceOwner,
     simulateCustomPolicy_policyInputList,
     simulateCustomPolicy_actionNames,
 
@@ -85,7 +85,68 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSimulateCustomPolicy' smart constructor.
 data SimulateCustomPolicy = SimulateCustomPolicy'
-  { -- | A resource-based policy to include in the simulation provided as a
+  { -- | The IAM permissions boundary policy to simulate. The permissions
+    -- boundary sets the maximum permissions that an IAM entity can have. You
+    -- can input only one permissions boundary when you pass a policy to this
+    -- operation. For more information about permissions boundaries, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+    -- in the /IAM User Guide/. The policy input is specified as a string that
+    -- contains the complete, valid JSON text of a permissions boundary policy.
+    --
+    -- The maximum length of the policy document that you can pass in this
+    -- operation, including whitespace, is listed below. To view the maximum
+    -- character counts of a managed policy with no whitespaces, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length IAM and STS character quotas>.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+    -- this parameter is a string of characters consisting of the following:
+    --
+    -- -   Any printable ASCII character ranging from the space character
+    --     (@\\u0020@) through the end of the ASCII character range
+    --
+    -- -   The printable characters in the Basic Latin and Latin-1 Supplement
+    --     character set (through @\\u00FF@)
+    --
+    -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+    --     carriage return (@\\u000D@)
+    permissionsBoundaryPolicyInputList :: Prelude.Maybe [Prelude.Text],
+    -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | A list of context keys and corresponding values for the simulation to
+    -- use. Whenever a context key is evaluated in one of the simulated IAM
+    -- permissions policies, the corresponding value is supplied.
+    contextEntries :: Prelude.Maybe [ContextEntry],
+    -- | Use this only when paginating results to indicate the maximum number of
+    -- items you want in the response. If additional items exist beyond the
+    -- maximum you specify, the @IsTruncated@ response element is @true@.
+    --
+    -- If you do not include this parameter, the number of items defaults to
+    -- 100. Note that IAM might return fewer results, even when there are more
+    -- results available. In that case, the @IsTruncated@ response element
+    -- returns @true@, and @Marker@ contains a value to include in the
+    -- subsequent call that tells the service where to continue from.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | An ARN representing the Amazon Web Services account ID that specifies
+    -- the owner of any simulated resource that does not identify its owner in
+    -- the resource ARN. Examples of resource ARNs include an S3 bucket or
+    -- object. If @ResourceOwner@ is specified, it is also used as the account
+    -- owner of any @ResourcePolicy@ included in the simulation. If the
+    -- @ResourceOwner@ parameter is not specified, then the owner of the
+    -- resources and the resource policy defaults to the account of the
+    -- identity provided in @CallerArn@. This parameter is required only if you
+    -- specify a resource-based policy and account that owns the resource is
+    -- different from the account that owns the simulated calling user
+    -- @CallerArn@.
+    --
+    -- The ARN for an account uses the following syntax:
+    -- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
+    -- account with the 112233445566 ID, use the following ARN:
+    -- @arn:aws:iam::112233445566-ID:root@.
+    resourceOwner :: Prelude.Maybe Prelude.Text,
+    -- | A resource-based policy to include in the simulation provided as a
     -- string. Each resource in the simulation is treated as if it had this
     -- policy attached. You can include only one resource-based policy in a
     -- simulation.
@@ -178,67 +239,6 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
     resourceArns :: Prelude.Maybe [Prelude.Text],
-    -- | The IAM permissions boundary policy to simulate. The permissions
-    -- boundary sets the maximum permissions that an IAM entity can have. You
-    -- can input only one permissions boundary when you pass a policy to this
-    -- operation. For more information about permissions boundaries, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
-    -- in the /IAM User Guide/. The policy input is specified as a string that
-    -- contains the complete, valid JSON text of a permissions boundary policy.
-    --
-    -- The maximum length of the policy document that you can pass in this
-    -- operation, including whitespace, is listed below. To view the maximum
-    -- character counts of a managed policy with no whitespaces, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length IAM and STS character quotas>.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
-    -- this parameter is a string of characters consisting of the following:
-    --
-    -- -   Any printable ASCII character ranging from the space character
-    --     (@\\u0020@) through the end of the ASCII character range
-    --
-    -- -   The printable characters in the Basic Latin and Latin-1 Supplement
-    --     character set (through @\\u00FF@)
-    --
-    -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
-    --     carriage return (@\\u000D@)
-    permissionsBoundaryPolicyInputList :: Prelude.Maybe [Prelude.Text],
-    -- | Use this parameter only when paginating results and only after you
-    -- receive a response indicating that the results are truncated. Set it to
-    -- the value of the @Marker@ element in the response that you received to
-    -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | Use this only when paginating results to indicate the maximum number of
-    -- items you want in the response. If additional items exist beyond the
-    -- maximum you specify, the @IsTruncated@ response element is @true@.
-    --
-    -- If you do not include this parameter, the number of items defaults to
-    -- 100. Note that IAM might return fewer results, even when there are more
-    -- results available. In that case, the @IsTruncated@ response element
-    -- returns @true@, and @Marker@ contains a value to include in the
-    -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | A list of context keys and corresponding values for the simulation to
-    -- use. Whenever a context key is evaluated in one of the simulated IAM
-    -- permissions policies, the corresponding value is supplied.
-    contextEntries :: Prelude.Maybe [ContextEntry],
-    -- | An ARN representing the Amazon Web Services account ID that specifies
-    -- the owner of any simulated resource that does not identify its owner in
-    -- the resource ARN. Examples of resource ARNs include an S3 bucket or
-    -- object. If @ResourceOwner@ is specified, it is also used as the account
-    -- owner of any @ResourcePolicy@ included in the simulation. If the
-    -- @ResourceOwner@ parameter is not specified, then the owner of the
-    -- resources and the resource policy defaults to the account of the
-    -- identity provided in @CallerArn@. This parameter is required only if you
-    -- specify a resource-based policy and account that owns the resource is
-    -- different from the account that owns the simulated calling user
-    -- @CallerArn@.
-    --
-    -- The ARN for an account uses the following syntax:
-    -- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
-    -- account with the 112233445566 ID, use the following ARN:
-    -- @arn:aws:iam::112233445566-ID:root@.
-    resourceOwner :: Prelude.Maybe Prelude.Text,
     -- | A list of policy documents to include in the simulation. Each document
     -- is specified as a string containing the complete, valid JSON text of an
     -- IAM policy. Do not include any resource-based policies in this
@@ -283,6 +283,67 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'permissionsBoundaryPolicyInputList', 'simulateCustomPolicy_permissionsBoundaryPolicyInputList' - The IAM permissions boundary policy to simulate. The permissions
+-- boundary sets the maximum permissions that an IAM entity can have. You
+-- can input only one permissions boundary when you pass a policy to this
+-- operation. For more information about permissions boundaries, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+-- in the /IAM User Guide/. The policy input is specified as a string that
+-- contains the complete, valid JSON text of a permissions boundary policy.
+--
+-- The maximum length of the policy document that you can pass in this
+-- operation, including whitespace, is listed below. To view the maximum
+-- character counts of a managed policy with no whitespaces, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length IAM and STS character quotas>.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+-- this parameter is a string of characters consisting of the following:
+--
+-- -   Any printable ASCII character ranging from the space character
+--     (@\\u0020@) through the end of the ASCII character range
+--
+-- -   The printable characters in the Basic Latin and Latin-1 Supplement
+--     character set (through @\\u00FF@)
+--
+-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+--     carriage return (@\\u000D@)
+--
+-- 'marker', 'simulateCustomPolicy_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+--
+-- 'contextEntries', 'simulateCustomPolicy_contextEntries' - A list of context keys and corresponding values for the simulation to
+-- use. Whenever a context key is evaluated in one of the simulated IAM
+-- permissions policies, the corresponding value is supplied.
+--
+-- 'maxItems', 'simulateCustomPolicy_maxItems' - Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
+--
+-- 'resourceOwner', 'simulateCustomPolicy_resourceOwner' - An ARN representing the Amazon Web Services account ID that specifies
+-- the owner of any simulated resource that does not identify its owner in
+-- the resource ARN. Examples of resource ARNs include an S3 bucket or
+-- object. If @ResourceOwner@ is specified, it is also used as the account
+-- owner of any @ResourcePolicy@ included in the simulation. If the
+-- @ResourceOwner@ parameter is not specified, then the owner of the
+-- resources and the resource policy defaults to the account of the
+-- identity provided in @CallerArn@. This parameter is required only if you
+-- specify a resource-based policy and account that owns the resource is
+-- different from the account that owns the simulated calling user
+-- @CallerArn@.
+--
+-- The ARN for an account uses the following syntax:
+-- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
+-- account with the 112233445566 ID, use the following ARN:
+-- @arn:aws:iam::112233445566-ID:root@.
 --
 -- 'resourcePolicy', 'simulateCustomPolicy_resourcePolicy' - A resource-based policy to include in the simulation provided as a
 -- string. Each resource in the simulation is treated as if it had this
@@ -377,67 +438,6 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
 --
--- 'permissionsBoundaryPolicyInputList', 'simulateCustomPolicy_permissionsBoundaryPolicyInputList' - The IAM permissions boundary policy to simulate. The permissions
--- boundary sets the maximum permissions that an IAM entity can have. You
--- can input only one permissions boundary when you pass a policy to this
--- operation. For more information about permissions boundaries, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
--- in the /IAM User Guide/. The policy input is specified as a string that
--- contains the complete, valid JSON text of a permissions boundary policy.
---
--- The maximum length of the policy document that you can pass in this
--- operation, including whitespace, is listed below. To view the maximum
--- character counts of a managed policy with no whitespaces, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length IAM and STS character quotas>.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
--- this parameter is a string of characters consisting of the following:
---
--- -   Any printable ASCII character ranging from the space character
---     (@\\u0020@) through the end of the ASCII character range
---
--- -   The printable characters in the Basic Latin and Latin-1 Supplement
---     character set (through @\\u00FF@)
---
--- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
---     carriage return (@\\u000D@)
---
--- 'marker', 'simulateCustomPolicy_marker' - Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
---
--- 'maxItems', 'simulateCustomPolicy_maxItems' - Use this only when paginating results to indicate the maximum number of
--- items you want in the response. If additional items exist beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
---
--- If you do not include this parameter, the number of items defaults to
--- 100. Note that IAM might return fewer results, even when there are more
--- results available. In that case, the @IsTruncated@ response element
--- returns @true@, and @Marker@ contains a value to include in the
--- subsequent call that tells the service where to continue from.
---
--- 'contextEntries', 'simulateCustomPolicy_contextEntries' - A list of context keys and corresponding values for the simulation to
--- use. Whenever a context key is evaluated in one of the simulated IAM
--- permissions policies, the corresponding value is supplied.
---
--- 'resourceOwner', 'simulateCustomPolicy_resourceOwner' - An ARN representing the Amazon Web Services account ID that specifies
--- the owner of any simulated resource that does not identify its owner in
--- the resource ARN. Examples of resource ARNs include an S3 bucket or
--- object. If @ResourceOwner@ is specified, it is also used as the account
--- owner of any @ResourcePolicy@ included in the simulation. If the
--- @ResourceOwner@ parameter is not specified, then the owner of the
--- resources and the resource policy defaults to the account of the
--- identity provided in @CallerArn@. This parameter is required only if you
--- specify a resource-based policy and account that owns the resource is
--- different from the account that owns the simulated calling user
--- @CallerArn@.
---
--- The ARN for an account uses the following syntax:
--- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
--- account with the 112233445566 ID, use the following ARN:
--- @arn:aws:iam::112233445566-ID:root@.
---
 -- 'policyInputList', 'simulateCustomPolicy_policyInputList' - A list of policy documents to include in the simulation. Each document
 -- is specified as a string containing the complete, valid JSON text of an
 -- IAM policy. Do not include any resource-based policies in this
@@ -475,19 +475,90 @@ newSimulateCustomPolicy ::
   SimulateCustomPolicy
 newSimulateCustomPolicy =
   SimulateCustomPolicy'
-    { resourcePolicy =
+    { permissionsBoundaryPolicyInputList =
         Prelude.Nothing,
+      marker = Prelude.Nothing,
+      contextEntries = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      resourceOwner = Prelude.Nothing,
+      resourcePolicy = Prelude.Nothing,
       callerArn = Prelude.Nothing,
       resourceHandlingOption = Prelude.Nothing,
       resourceArns = Prelude.Nothing,
-      permissionsBoundaryPolicyInputList = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      contextEntries = Prelude.Nothing,
-      resourceOwner = Prelude.Nothing,
       policyInputList = Prelude.mempty,
       actionNames = Prelude.mempty
     }
+
+-- | The IAM permissions boundary policy to simulate. The permissions
+-- boundary sets the maximum permissions that an IAM entity can have. You
+-- can input only one permissions boundary when you pass a policy to this
+-- operation. For more information about permissions boundaries, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+-- in the /IAM User Guide/. The policy input is specified as a string that
+-- contains the complete, valid JSON text of a permissions boundary policy.
+--
+-- The maximum length of the policy document that you can pass in this
+-- operation, including whitespace, is listed below. To view the maximum
+-- character counts of a managed policy with no whitespaces, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length IAM and STS character quotas>.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+-- this parameter is a string of characters consisting of the following:
+--
+-- -   Any printable ASCII character ranging from the space character
+--     (@\\u0020@) through the end of the ASCII character range
+--
+-- -   The printable characters in the Basic Latin and Latin-1 Supplement
+--     character set (through @\\u00FF@)
+--
+-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+--     carriage return (@\\u000D@)
+simulateCustomPolicy_permissionsBoundaryPolicyInputList :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [Prelude.Text])
+simulateCustomPolicy_permissionsBoundaryPolicyInputList = Lens.lens (\SimulateCustomPolicy' {permissionsBoundaryPolicyInputList} -> permissionsBoundaryPolicyInputList) (\s@SimulateCustomPolicy' {} a -> s {permissionsBoundaryPolicyInputList = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Lens.coerced
+
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+simulateCustomPolicy_marker :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
+simulateCustomPolicy_marker = Lens.lens (\SimulateCustomPolicy' {marker} -> marker) (\s@SimulateCustomPolicy' {} a -> s {marker = a} :: SimulateCustomPolicy)
+
+-- | A list of context keys and corresponding values for the simulation to
+-- use. Whenever a context key is evaluated in one of the simulated IAM
+-- permissions policies, the corresponding value is supplied.
+simulateCustomPolicy_contextEntries :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [ContextEntry])
+simulateCustomPolicy_contextEntries = Lens.lens (\SimulateCustomPolicy' {contextEntries} -> contextEntries) (\s@SimulateCustomPolicy' {} a -> s {contextEntries = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Lens.coerced
+
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
+simulateCustomPolicy_maxItems :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Natural)
+simulateCustomPolicy_maxItems = Lens.lens (\SimulateCustomPolicy' {maxItems} -> maxItems) (\s@SimulateCustomPolicy' {} a -> s {maxItems = a} :: SimulateCustomPolicy)
+
+-- | An ARN representing the Amazon Web Services account ID that specifies
+-- the owner of any simulated resource that does not identify its owner in
+-- the resource ARN. Examples of resource ARNs include an S3 bucket or
+-- object. If @ResourceOwner@ is specified, it is also used as the account
+-- owner of any @ResourcePolicy@ included in the simulation. If the
+-- @ResourceOwner@ parameter is not specified, then the owner of the
+-- resources and the resource policy defaults to the account of the
+-- identity provided in @CallerArn@. This parameter is required only if you
+-- specify a resource-based policy and account that owns the resource is
+-- different from the account that owns the simulated calling user
+-- @CallerArn@.
+--
+-- The ARN for an account uses the following syntax:
+-- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
+-- account with the 112233445566 ID, use the following ARN:
+-- @arn:aws:iam::112233445566-ID:root@.
+simulateCustomPolicy_resourceOwner :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
+simulateCustomPolicy_resourceOwner = Lens.lens (\SimulateCustomPolicy' {resourceOwner} -> resourceOwner) (\s@SimulateCustomPolicy' {} a -> s {resourceOwner = a} :: SimulateCustomPolicy)
 
 -- | A resource-based policy to include in the simulation provided as a
 -- string. Each resource in the simulation is treated as if it had this
@@ -590,77 +661,6 @@ simulateCustomPolicy_resourceHandlingOption = Lens.lens (\SimulateCustomPolicy' 
 simulateCustomPolicy_resourceArns :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [Prelude.Text])
 simulateCustomPolicy_resourceArns = Lens.lens (\SimulateCustomPolicy' {resourceArns} -> resourceArns) (\s@SimulateCustomPolicy' {} a -> s {resourceArns = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Lens.coerced
 
--- | The IAM permissions boundary policy to simulate. The permissions
--- boundary sets the maximum permissions that an IAM entity can have. You
--- can input only one permissions boundary when you pass a policy to this
--- operation. For more information about permissions boundaries, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
--- in the /IAM User Guide/. The policy input is specified as a string that
--- contains the complete, valid JSON text of a permissions boundary policy.
---
--- The maximum length of the policy document that you can pass in this
--- operation, including whitespace, is listed below. To view the maximum
--- character counts of a managed policy with no whitespaces, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length IAM and STS character quotas>.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
--- this parameter is a string of characters consisting of the following:
---
--- -   Any printable ASCII character ranging from the space character
---     (@\\u0020@) through the end of the ASCII character range
---
--- -   The printable characters in the Basic Latin and Latin-1 Supplement
---     character set (through @\\u00FF@)
---
--- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
---     carriage return (@\\u000D@)
-simulateCustomPolicy_permissionsBoundaryPolicyInputList :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [Prelude.Text])
-simulateCustomPolicy_permissionsBoundaryPolicyInputList = Lens.lens (\SimulateCustomPolicy' {permissionsBoundaryPolicyInputList} -> permissionsBoundaryPolicyInputList) (\s@SimulateCustomPolicy' {} a -> s {permissionsBoundaryPolicyInputList = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Lens.coerced
-
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
-simulateCustomPolicy_marker :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
-simulateCustomPolicy_marker = Lens.lens (\SimulateCustomPolicy' {marker} -> marker) (\s@SimulateCustomPolicy' {} a -> s {marker = a} :: SimulateCustomPolicy)
-
--- | Use this only when paginating results to indicate the maximum number of
--- items you want in the response. If additional items exist beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
---
--- If you do not include this parameter, the number of items defaults to
--- 100. Note that IAM might return fewer results, even when there are more
--- results available. In that case, the @IsTruncated@ response element
--- returns @true@, and @Marker@ contains a value to include in the
--- subsequent call that tells the service where to continue from.
-simulateCustomPolicy_maxItems :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Natural)
-simulateCustomPolicy_maxItems = Lens.lens (\SimulateCustomPolicy' {maxItems} -> maxItems) (\s@SimulateCustomPolicy' {} a -> s {maxItems = a} :: SimulateCustomPolicy)
-
--- | A list of context keys and corresponding values for the simulation to
--- use. Whenever a context key is evaluated in one of the simulated IAM
--- permissions policies, the corresponding value is supplied.
-simulateCustomPolicy_contextEntries :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [ContextEntry])
-simulateCustomPolicy_contextEntries = Lens.lens (\SimulateCustomPolicy' {contextEntries} -> contextEntries) (\s@SimulateCustomPolicy' {} a -> s {contextEntries = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Lens.coerced
-
--- | An ARN representing the Amazon Web Services account ID that specifies
--- the owner of any simulated resource that does not identify its owner in
--- the resource ARN. Examples of resource ARNs include an S3 bucket or
--- object. If @ResourceOwner@ is specified, it is also used as the account
--- owner of any @ResourcePolicy@ included in the simulation. If the
--- @ResourceOwner@ parameter is not specified, then the owner of the
--- resources and the resource policy defaults to the account of the
--- identity provided in @CallerArn@. This parameter is required only if you
--- specify a resource-based policy and account that owns the resource is
--- different from the account that owns the simulated calling user
--- @CallerArn@.
---
--- The ARN for an account uses the following syntax:
--- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
--- account with the 112233445566 ID, use the following ARN:
--- @arn:aws:iam::112233445566-ID:root@.
-simulateCustomPolicy_resourceOwner :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
-simulateCustomPolicy_resourceOwner = Lens.lens (\SimulateCustomPolicy' {resourceOwner} -> resourceOwner) (\s@SimulateCustomPolicy' {} a -> s {resourceOwner = a} :: SimulateCustomPolicy)
-
 -- | A list of policy documents to include in the simulation. Each document
 -- is specified as a string containing the complete, valid JSON text of an
 -- IAM policy. Do not include any resource-based policies in this
@@ -731,29 +731,30 @@ instance Core.AWSRequest SimulateCustomPolicy where
 
 instance Prelude.Hashable SimulateCustomPolicy where
   hashWithSalt _salt SimulateCustomPolicy' {..} =
-    _salt `Prelude.hashWithSalt` resourcePolicy
+    _salt
+      `Prelude.hashWithSalt` permissionsBoundaryPolicyInputList
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` contextEntries
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` resourceOwner
+      `Prelude.hashWithSalt` resourcePolicy
       `Prelude.hashWithSalt` callerArn
       `Prelude.hashWithSalt` resourceHandlingOption
       `Prelude.hashWithSalt` resourceArns
-      `Prelude.hashWithSalt` permissionsBoundaryPolicyInputList
-      `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` maxItems
-      `Prelude.hashWithSalt` contextEntries
-      `Prelude.hashWithSalt` resourceOwner
       `Prelude.hashWithSalt` policyInputList
       `Prelude.hashWithSalt` actionNames
 
 instance Prelude.NFData SimulateCustomPolicy where
   rnf SimulateCustomPolicy' {..} =
-    Prelude.rnf resourcePolicy
+    Prelude.rnf permissionsBoundaryPolicyInputList
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf contextEntries
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf resourceOwner
+      `Prelude.seq` Prelude.rnf resourcePolicy
       `Prelude.seq` Prelude.rnf callerArn
       `Prelude.seq` Prelude.rnf resourceHandlingOption
       `Prelude.seq` Prelude.rnf resourceArns
-      `Prelude.seq` Prelude.rnf permissionsBoundaryPolicyInputList
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf contextEntries
-      `Prelude.seq` Prelude.rnf resourceOwner
       `Prelude.seq` Prelude.rnf policyInputList
       `Prelude.seq` Prelude.rnf actionNames
 
@@ -770,6 +771,19 @@ instance Core.ToQuery SimulateCustomPolicy where
           Core.=: ("SimulateCustomPolicy" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "PermissionsBoundaryPolicyInputList"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> permissionsBoundaryPolicyInputList
+            ),
+        "Marker" Core.=: marker,
+        "ContextEntries"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> contextEntries
+            ),
+        "MaxItems" Core.=: maxItems,
+        "ResourceOwner" Core.=: resourceOwner,
         "ResourcePolicy" Core.=: resourcePolicy,
         "CallerArn" Core.=: callerArn,
         "ResourceHandlingOption"
@@ -777,19 +791,6 @@ instance Core.ToQuery SimulateCustomPolicy where
         "ResourceArns"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> resourceArns),
-        "PermissionsBoundaryPolicyInputList"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> permissionsBoundaryPolicyInputList
-            ),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "ContextEntries"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> contextEntries
-            ),
-        "ResourceOwner" Core.=: resourceOwner,
         "PolicyInputList"
           Core.=: Core.toQueryList "member" policyInputList,
         "ActionNames"

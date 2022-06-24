@@ -35,39 +35,39 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserDetail' smart constructor.
 data UserDetail = UserDetail'
-  { -- | A list of IAM groups that the user is in.
-    groupList :: Prelude.Maybe [Prelude.Text],
+  { -- | A list of tags that are associated with the user. For more information
+    -- about tagging, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+    -- in the /IAM User Guide/.
+    tags :: Prelude.Maybe [Tag],
+    -- | The friendly name identifying the user.
+    userName :: Prelude.Maybe Prelude.Text,
     arn :: Prelude.Maybe Prelude.Text,
     -- | The path to the user. For more information about paths, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
     path :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in
-    -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
-    -- user was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
-    -- | The friendly name identifying the user.
-    userName :: Prelude.Maybe Prelude.Text,
-    -- | The stable and unique string identifying the user. For more information
-    -- about IDs, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
-    -- in the /IAM User Guide/.
-    userId :: Prelude.Maybe Prelude.Text,
+    -- | A list of IAM groups that the user is in.
+    groupList :: Prelude.Maybe [Prelude.Text],
+    -- | A list of the managed policies attached to the user.
+    attachedManagedPolicies :: Prelude.Maybe [AttachedPolicy],
     -- | The ARN of the policy used to set the permissions boundary for the user.
     --
     -- For more information about permissions boundaries, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
     -- in the /IAM User Guide/.
     permissionsBoundary :: Prelude.Maybe AttachedPermissionsBoundary,
-    -- | A list of the inline policies embedded in the user.
-    userPolicyList :: Prelude.Maybe [PolicyDetail],
-    -- | A list of tags that are associated with the user. For more information
-    -- about tagging, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+    -- | The stable and unique string identifying the user. For more information
+    -- about IDs, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    tags :: Prelude.Maybe [Tag],
-    -- | A list of the managed policies attached to the user.
-    attachedManagedPolicies :: Prelude.Maybe [AttachedPolicy]
+    userId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in
+    -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+    -- user was created.
+    createDate :: Prelude.Maybe Core.ISO8601,
+    -- | A list of the inline policies embedded in the user.
+    userPolicyList :: Prelude.Maybe [PolicyDetail]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,7 +79,12 @@ data UserDetail = UserDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupList', 'userDetail_groupList' - A list of IAM groups that the user is in.
+-- 'tags', 'userDetail_tags' - A list of tags that are associated with the user. For more information
+-- about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- 'userName', 'userDetail_userName' - The friendly name identifying the user.
 --
 -- 'arn', 'userDetail_arn' - Undocumented member.
 --
@@ -87,16 +92,9 @@ data UserDetail = UserDetail'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
 --
--- 'createDate', 'userDetail_createDate' - The date and time, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- user was created.
+-- 'groupList', 'userDetail_groupList' - A list of IAM groups that the user is in.
 --
--- 'userName', 'userDetail_userName' - The friendly name identifying the user.
---
--- 'userId', 'userDetail_userId' - The stable and unique string identifying the user. For more information
--- about IDs, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
--- in the /IAM User Guide/.
+-- 'attachedManagedPolicies', 'userDetail_attachedManagedPolicies' - A list of the managed policies attached to the user.
 --
 -- 'permissionsBoundary', 'userDetail_permissionsBoundary' - The ARN of the policy used to set the permissions boundary for the user.
 --
@@ -104,33 +102,42 @@ data UserDetail = UserDetail'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
 -- in the /IAM User Guide/.
 --
--- 'userPolicyList', 'userDetail_userPolicyList' - A list of the inline policies embedded in the user.
---
--- 'tags', 'userDetail_tags' - A list of tags that are associated with the user. For more information
--- about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- 'userId', 'userDetail_userId' - The stable and unique string identifying the user. For more information
+-- about IDs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
 --
--- 'attachedManagedPolicies', 'userDetail_attachedManagedPolicies' - A list of the managed policies attached to the user.
+-- 'createDate', 'userDetail_createDate' - The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+-- user was created.
+--
+-- 'userPolicyList', 'userDetail_userPolicyList' - A list of the inline policies embedded in the user.
 newUserDetail ::
   UserDetail
 newUserDetail =
   UserDetail'
-    { groupList = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      userName = Prelude.Nothing,
       arn = Prelude.Nothing,
       path = Prelude.Nothing,
-      createDate = Prelude.Nothing,
-      userName = Prelude.Nothing,
-      userId = Prelude.Nothing,
+      groupList = Prelude.Nothing,
+      attachedManagedPolicies = Prelude.Nothing,
       permissionsBoundary = Prelude.Nothing,
-      userPolicyList = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      attachedManagedPolicies = Prelude.Nothing
+      userId = Prelude.Nothing,
+      createDate = Prelude.Nothing,
+      userPolicyList = Prelude.Nothing
     }
 
--- | A list of IAM groups that the user is in.
-userDetail_groupList :: Lens.Lens' UserDetail (Prelude.Maybe [Prelude.Text])
-userDetail_groupList = Lens.lens (\UserDetail' {groupList} -> groupList) (\s@UserDetail' {} a -> s {groupList = a} :: UserDetail) Prelude.. Lens.mapping Lens.coerced
+-- | A list of tags that are associated with the user. For more information
+-- about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+userDetail_tags :: Lens.Lens' UserDetail (Prelude.Maybe [Tag])
+userDetail_tags = Lens.lens (\UserDetail' {tags} -> tags) (\s@UserDetail' {} a -> s {tags = a} :: UserDetail) Prelude.. Lens.mapping Lens.coerced
+
+-- | The friendly name identifying the user.
+userDetail_userName :: Lens.Lens' UserDetail (Prelude.Maybe Prelude.Text)
+userDetail_userName = Lens.lens (\UserDetail' {userName} -> userName) (\s@UserDetail' {} a -> s {userName = a} :: UserDetail)
 
 -- | Undocumented member.
 userDetail_arn :: Lens.Lens' UserDetail (Prelude.Maybe Prelude.Text)
@@ -142,22 +149,13 @@ userDetail_arn = Lens.lens (\UserDetail' {arn} -> arn) (\s@UserDetail' {} a -> s
 userDetail_path :: Lens.Lens' UserDetail (Prelude.Maybe Prelude.Text)
 userDetail_path = Lens.lens (\UserDetail' {path} -> path) (\s@UserDetail' {} a -> s {path = a} :: UserDetail)
 
--- | The date and time, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- user was created.
-userDetail_createDate :: Lens.Lens' UserDetail (Prelude.Maybe Prelude.UTCTime)
-userDetail_createDate = Lens.lens (\UserDetail' {createDate} -> createDate) (\s@UserDetail' {} a -> s {createDate = a} :: UserDetail) Prelude.. Lens.mapping Core._Time
+-- | A list of IAM groups that the user is in.
+userDetail_groupList :: Lens.Lens' UserDetail (Prelude.Maybe [Prelude.Text])
+userDetail_groupList = Lens.lens (\UserDetail' {groupList} -> groupList) (\s@UserDetail' {} a -> s {groupList = a} :: UserDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | The friendly name identifying the user.
-userDetail_userName :: Lens.Lens' UserDetail (Prelude.Maybe Prelude.Text)
-userDetail_userName = Lens.lens (\UserDetail' {userName} -> userName) (\s@UserDetail' {} a -> s {userName = a} :: UserDetail)
-
--- | The stable and unique string identifying the user. For more information
--- about IDs, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
--- in the /IAM User Guide/.
-userDetail_userId :: Lens.Lens' UserDetail (Prelude.Maybe Prelude.Text)
-userDetail_userId = Lens.lens (\UserDetail' {userId} -> userId) (\s@UserDetail' {} a -> s {userId = a} :: UserDetail)
+-- | A list of the managed policies attached to the user.
+userDetail_attachedManagedPolicies :: Lens.Lens' UserDetail (Prelude.Maybe [AttachedPolicy])
+userDetail_attachedManagedPolicies = Lens.lens (\UserDetail' {attachedManagedPolicies} -> attachedManagedPolicies) (\s@UserDetail' {} a -> s {attachedManagedPolicies = a} :: UserDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the policy used to set the permissions boundary for the user.
 --
@@ -167,66 +165,68 @@ userDetail_userId = Lens.lens (\UserDetail' {userId} -> userId) (\s@UserDetail' 
 userDetail_permissionsBoundary :: Lens.Lens' UserDetail (Prelude.Maybe AttachedPermissionsBoundary)
 userDetail_permissionsBoundary = Lens.lens (\UserDetail' {permissionsBoundary} -> permissionsBoundary) (\s@UserDetail' {} a -> s {permissionsBoundary = a} :: UserDetail)
 
+-- | The stable and unique string identifying the user. For more information
+-- about IDs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
+-- in the /IAM User Guide/.
+userDetail_userId :: Lens.Lens' UserDetail (Prelude.Maybe Prelude.Text)
+userDetail_userId = Lens.lens (\UserDetail' {userId} -> userId) (\s@UserDetail' {} a -> s {userId = a} :: UserDetail)
+
+-- | The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+-- user was created.
+userDetail_createDate :: Lens.Lens' UserDetail (Prelude.Maybe Prelude.UTCTime)
+userDetail_createDate = Lens.lens (\UserDetail' {createDate} -> createDate) (\s@UserDetail' {} a -> s {createDate = a} :: UserDetail) Prelude.. Lens.mapping Core._Time
+
 -- | A list of the inline policies embedded in the user.
 userDetail_userPolicyList :: Lens.Lens' UserDetail (Prelude.Maybe [PolicyDetail])
 userDetail_userPolicyList = Lens.lens (\UserDetail' {userPolicyList} -> userPolicyList) (\s@UserDetail' {} a -> s {userPolicyList = a} :: UserDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of tags that are associated with the user. For more information
--- about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
-userDetail_tags :: Lens.Lens' UserDetail (Prelude.Maybe [Tag])
-userDetail_tags = Lens.lens (\UserDetail' {tags} -> tags) (\s@UserDetail' {} a -> s {tags = a} :: UserDetail) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of the managed policies attached to the user.
-userDetail_attachedManagedPolicies :: Lens.Lens' UserDetail (Prelude.Maybe [AttachedPolicy])
-userDetail_attachedManagedPolicies = Lens.lens (\UserDetail' {attachedManagedPolicies} -> attachedManagedPolicies) (\s@UserDetail' {} a -> s {attachedManagedPolicies = a} :: UserDetail) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromXML UserDetail where
   parseXML x =
     UserDetail'
-      Prelude.<$> ( x Core..@? "GroupList" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "UserName")
       Prelude.<*> (x Core..@? "Arn")
       Prelude.<*> (x Core..@? "Path")
-      Prelude.<*> (x Core..@? "CreateDate")
-      Prelude.<*> (x Core..@? "UserName")
-      Prelude.<*> (x Core..@? "UserId")
-      Prelude.<*> (x Core..@? "PermissionsBoundary")
-      Prelude.<*> ( x Core..@? "UserPolicyList" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x Core..@? "GroupList" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> ( x Core..@? "AttachedManagedPolicies"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "PermissionsBoundary")
+      Prelude.<*> (x Core..@? "UserId")
+      Prelude.<*> (x Core..@? "CreateDate")
+      Prelude.<*> ( x Core..@? "UserPolicyList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
 instance Prelude.Hashable UserDetail where
   hashWithSalt _salt UserDetail' {..} =
-    _salt `Prelude.hashWithSalt` groupList
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` createDate
-      `Prelude.hashWithSalt` userName
-      `Prelude.hashWithSalt` userId
-      `Prelude.hashWithSalt` permissionsBoundary
-      `Prelude.hashWithSalt` userPolicyList
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` groupList
       `Prelude.hashWithSalt` attachedManagedPolicies
+      `Prelude.hashWithSalt` permissionsBoundary
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` userPolicyList
 
 instance Prelude.NFData UserDetail where
   rnf UserDetail' {..} =
-    Prelude.rnf groupList
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf permissionsBoundary
-      `Prelude.seq` Prelude.rnf userPolicyList
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf groupList
       `Prelude.seq` Prelude.rnf attachedManagedPolicies
+      `Prelude.seq` Prelude.rnf permissionsBoundary
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf userPolicyList

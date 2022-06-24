@@ -44,8 +44,8 @@ module Amazonka.IAM.ListAccessKeys
     newListAccessKeys,
 
     -- * Request Lenses
-    listAccessKeys_userName,
     listAccessKeys_marker,
+    listAccessKeys_userName,
     listAccessKeys_maxItems,
 
     -- * Destructuring the Response
@@ -69,18 +69,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAccessKeys' smart constructor.
 data ListAccessKeys = ListAccessKeys'
-  { -- | The name of the user.
+  { -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The name of the user.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
     userName :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter only when paginating results and only after you
-    -- receive a response indicating that the results are truncated. Set it to
-    -- the value of the @Marker@ element in the response that you received to
-    -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -102,17 +102,17 @@ data ListAccessKeys = ListAccessKeys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listAccessKeys_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+--
 -- 'userName', 'listAccessKeys_userName' - The name of the user.
 --
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
---
--- 'marker', 'listAccessKeys_marker' - Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
 --
 -- 'maxItems', 'listAccessKeys_maxItems' - Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -127,10 +127,17 @@ newListAccessKeys ::
   ListAccessKeys
 newListAccessKeys =
   ListAccessKeys'
-    { userName = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      userName = Prelude.Nothing,
       maxItems = Prelude.Nothing
     }
+
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+listAccessKeys_marker :: Lens.Lens' ListAccessKeys (Prelude.Maybe Prelude.Text)
+listAccessKeys_marker = Lens.lens (\ListAccessKeys' {marker} -> marker) (\s@ListAccessKeys' {} a -> s {marker = a} :: ListAccessKeys)
 
 -- | The name of the user.
 --
@@ -140,13 +147,6 @@ newListAccessKeys =
 -- spaces. You can also include any of the following characters: _+=,.\@-
 listAccessKeys_userName :: Lens.Lens' ListAccessKeys (Prelude.Maybe Prelude.Text)
 listAccessKeys_userName = Lens.lens (\ListAccessKeys' {userName} -> userName) (\s@ListAccessKeys' {} a -> s {userName = a} :: ListAccessKeys)
-
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
-listAccessKeys_marker :: Lens.Lens' ListAccessKeys (Prelude.Maybe Prelude.Text)
-listAccessKeys_marker = Lens.lens (\ListAccessKeys' {marker} -> marker) (\s@ListAccessKeys' {} a -> s {marker = a} :: ListAccessKeys)
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -201,14 +201,14 @@ instance Core.AWSRequest ListAccessKeys where
 
 instance Prelude.Hashable ListAccessKeys where
   hashWithSalt _salt ListAccessKeys' {..} =
-    _salt `Prelude.hashWithSalt` userName
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListAccessKeys where
   rnf ListAccessKeys' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListAccessKeys where
@@ -224,8 +224,8 @@ instance Core.ToQuery ListAccessKeys where
           Core.=: ("ListAccessKeys" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
         "Marker" Core.=: marker,
+        "UserName" Core.=: userName,
         "MaxItems" Core.=: maxItems
       ]
 

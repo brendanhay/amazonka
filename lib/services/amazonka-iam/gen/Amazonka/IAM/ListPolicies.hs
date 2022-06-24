@@ -49,12 +49,12 @@ module Amazonka.IAM.ListPolicies
     newListPolicies,
 
     -- * Request Lenses
-    listPolicies_pathPrefix,
-    listPolicies_onlyAttached,
     listPolicies_marker,
-    listPolicies_scope,
     listPolicies_maxItems,
+    listPolicies_scope,
     listPolicies_policyUsageFilter,
+    listPolicies_onlyAttached,
+    listPolicies_pathPrefix,
 
     -- * Destructuring the Response
     ListPoliciesResponse (..),
@@ -77,37 +77,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPolicies' smart constructor.
 data ListPolicies = ListPolicies'
-  { -- | The path prefix for filtering the results. This parameter is optional.
-    -- If it is not included, it defaults to a slash (\/), listing all
-    -- policies. This parameter allows (through its
-    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- consisting of either a forward slash (\/) by itself or a string that
-    -- must begin and end with forward slashes. In addition, it can contain any
-    -- ASCII character from the ! (@\\u0021@) through the DEL character
-    -- (@\\u007F@), including most punctuation characters, digits, and upper
-    -- and lowercased letters.
-    pathPrefix :: Prelude.Maybe Prelude.Text,
-    -- | A flag to filter the results to only the attached policies.
-    --
-    -- When @OnlyAttached@ is @true@, the returned list contains only the
-    -- policies that are attached to an IAM user, group, or role. When
-    -- @OnlyAttached@ is @false@, or when the parameter is not included, all
-    -- policies are returned.
-    onlyAttached :: Prelude.Maybe Prelude.Bool,
-    -- | Use this parameter only when paginating results and only after you
+  { -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The scope to use for filtering the results.
-    --
-    -- To list only Amazon Web Services managed policies, set @Scope@ to @AWS@.
-    -- To list only the customer managed policies in your Amazon Web Services
-    -- account, set @Scope@ to @Local@.
-    --
-    -- This parameter is optional. If it is not included, or if it is set to
-    -- @All@, all policies are returned.
-    scope :: Prelude.Maybe PolicyScopeType,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -118,6 +92,15 @@ data ListPolicies = ListPolicies'
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
     maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The scope to use for filtering the results.
+    --
+    -- To list only Amazon Web Services managed policies, set @Scope@ to @AWS@.
+    -- To list only the customer managed policies in your Amazon Web Services
+    -- account, set @Scope@ to @Local@.
+    --
+    -- This parameter is optional. If it is not included, or if it is set to
+    -- @All@, all policies are returned.
+    scope :: Prelude.Maybe PolicyScopeType,
     -- | The policy usage method to use for filtering the results.
     --
     -- To list only permissions policies,
@@ -127,7 +110,24 @@ data ListPolicies = ListPolicies'
     --
     -- This parameter is optional. If it is not included, all policies are
     -- returned.
-    policyUsageFilter :: Prelude.Maybe PolicyUsageType
+    policyUsageFilter :: Prelude.Maybe PolicyUsageType,
+    -- | A flag to filter the results to only the attached policies.
+    --
+    -- When @OnlyAttached@ is @true@, the returned list contains only the
+    -- policies that are attached to an IAM user, group, or role. When
+    -- @OnlyAttached@ is @false@, or when the parameter is not included, all
+    -- policies are returned.
+    onlyAttached :: Prelude.Maybe Prelude.Bool,
+    -- | The path prefix for filtering the results. This parameter is optional.
+    -- If it is not included, it defaults to a slash (\/), listing all
+    -- policies. This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of either a forward slash (\/) by itself or a string that
+    -- must begin and end with forward slashes. In addition, it can contain any
+    -- ASCII character from the ! (@\\u0021@) through the DEL character
+    -- (@\\u007F@), including most punctuation characters, digits, and upper
+    -- and lowercased letters.
+    pathPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -139,36 +139,10 @@ data ListPolicies = ListPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pathPrefix', 'listPolicies_pathPrefix' - The path prefix for filtering the results. This parameter is optional.
--- If it is not included, it defaults to a slash (\/), listing all
--- policies. This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of either a forward slash (\/) by itself or a string that
--- must begin and end with forward slashes. In addition, it can contain any
--- ASCII character from the ! (@\\u0021@) through the DEL character
--- (@\\u007F@), including most punctuation characters, digits, and upper
--- and lowercased letters.
---
--- 'onlyAttached', 'listPolicies_onlyAttached' - A flag to filter the results to only the attached policies.
---
--- When @OnlyAttached@ is @true@, the returned list contains only the
--- policies that are attached to an IAM user, group, or role. When
--- @OnlyAttached@ is @false@, or when the parameter is not included, all
--- policies are returned.
---
 -- 'marker', 'listPolicies_marker' - Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
---
--- 'scope', 'listPolicies_scope' - The scope to use for filtering the results.
---
--- To list only Amazon Web Services managed policies, set @Scope@ to @AWS@.
--- To list only the customer managed policies in your Amazon Web Services
--- account, set @Scope@ to @Local@.
---
--- This parameter is optional. If it is not included, or if it is set to
--- @All@, all policies are returned.
 --
 -- 'maxItems', 'listPolicies_maxItems' - Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -180,6 +154,15 @@ data ListPolicies = ListPolicies'
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
 --
+-- 'scope', 'listPolicies_scope' - The scope to use for filtering the results.
+--
+-- To list only Amazon Web Services managed policies, set @Scope@ to @AWS@.
+-- To list only the customer managed policies in your Amazon Web Services
+-- account, set @Scope@ to @Local@.
+--
+-- This parameter is optional. If it is not included, or if it is set to
+-- @All@, all policies are returned.
+--
 -- 'policyUsageFilter', 'listPolicies_policyUsageFilter' - The policy usage method to use for filtering the results.
 --
 -- To list only permissions policies,
@@ -189,19 +172,15 @@ data ListPolicies = ListPolicies'
 --
 -- This parameter is optional. If it is not included, all policies are
 -- returned.
-newListPolicies ::
-  ListPolicies
-newListPolicies =
-  ListPolicies'
-    { pathPrefix = Prelude.Nothing,
-      onlyAttached = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      scope = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      policyUsageFilter = Prelude.Nothing
-    }
-
--- | The path prefix for filtering the results. This parameter is optional.
+--
+-- 'onlyAttached', 'listPolicies_onlyAttached' - A flag to filter the results to only the attached policies.
+--
+-- When @OnlyAttached@ is @true@, the returned list contains only the
+-- policies that are attached to an IAM user, group, or role. When
+-- @OnlyAttached@ is @false@, or when the parameter is not included, all
+-- policies are returned.
+--
+-- 'pathPrefix', 'listPolicies_pathPrefix' - The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
 -- policies. This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
@@ -210,17 +189,17 @@ newListPolicies =
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-listPolicies_pathPrefix :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Text)
-listPolicies_pathPrefix = Lens.lens (\ListPolicies' {pathPrefix} -> pathPrefix) (\s@ListPolicies' {} a -> s {pathPrefix = a} :: ListPolicies)
-
--- | A flag to filter the results to only the attached policies.
---
--- When @OnlyAttached@ is @true@, the returned list contains only the
--- policies that are attached to an IAM user, group, or role. When
--- @OnlyAttached@ is @false@, or when the parameter is not included, all
--- policies are returned.
-listPolicies_onlyAttached :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Bool)
-listPolicies_onlyAttached = Lens.lens (\ListPolicies' {onlyAttached} -> onlyAttached) (\s@ListPolicies' {} a -> s {onlyAttached = a} :: ListPolicies)
+newListPolicies ::
+  ListPolicies
+newListPolicies =
+  ListPolicies'
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      scope = Prelude.Nothing,
+      policyUsageFilter = Prelude.Nothing,
+      onlyAttached = Prelude.Nothing,
+      pathPrefix = Prelude.Nothing
+    }
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -228,17 +207,6 @@ listPolicies_onlyAttached = Lens.lens (\ListPolicies' {onlyAttached} -> onlyAtta
 -- indicate where the next call should start.
 listPolicies_marker :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Text)
 listPolicies_marker = Lens.lens (\ListPolicies' {marker} -> marker) (\s@ListPolicies' {} a -> s {marker = a} :: ListPolicies)
-
--- | The scope to use for filtering the results.
---
--- To list only Amazon Web Services managed policies, set @Scope@ to @AWS@.
--- To list only the customer managed policies in your Amazon Web Services
--- account, set @Scope@ to @Local@.
---
--- This parameter is optional. If it is not included, or if it is set to
--- @All@, all policies are returned.
-listPolicies_scope :: Lens.Lens' ListPolicies (Prelude.Maybe PolicyScopeType)
-listPolicies_scope = Lens.lens (\ListPolicies' {scope} -> scope) (\s@ListPolicies' {} a -> s {scope = a} :: ListPolicies)
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -252,6 +220,17 @@ listPolicies_scope = Lens.lens (\ListPolicies' {scope} -> scope) (\s@ListPolicie
 listPolicies_maxItems :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Natural)
 listPolicies_maxItems = Lens.lens (\ListPolicies' {maxItems} -> maxItems) (\s@ListPolicies' {} a -> s {maxItems = a} :: ListPolicies)
 
+-- | The scope to use for filtering the results.
+--
+-- To list only Amazon Web Services managed policies, set @Scope@ to @AWS@.
+-- To list only the customer managed policies in your Amazon Web Services
+-- account, set @Scope@ to @Local@.
+--
+-- This parameter is optional. If it is not included, or if it is set to
+-- @All@, all policies are returned.
+listPolicies_scope :: Lens.Lens' ListPolicies (Prelude.Maybe PolicyScopeType)
+listPolicies_scope = Lens.lens (\ListPolicies' {scope} -> scope) (\s@ListPolicies' {} a -> s {scope = a} :: ListPolicies)
+
 -- | The policy usage method to use for filtering the results.
 --
 -- To list only permissions policies,
@@ -263,6 +242,27 @@ listPolicies_maxItems = Lens.lens (\ListPolicies' {maxItems} -> maxItems) (\s@Li
 -- returned.
 listPolicies_policyUsageFilter :: Lens.Lens' ListPolicies (Prelude.Maybe PolicyUsageType)
 listPolicies_policyUsageFilter = Lens.lens (\ListPolicies' {policyUsageFilter} -> policyUsageFilter) (\s@ListPolicies' {} a -> s {policyUsageFilter = a} :: ListPolicies)
+
+-- | A flag to filter the results to only the attached policies.
+--
+-- When @OnlyAttached@ is @true@, the returned list contains only the
+-- policies that are attached to an IAM user, group, or role. When
+-- @OnlyAttached@ is @false@, or when the parameter is not included, all
+-- policies are returned.
+listPolicies_onlyAttached :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Bool)
+listPolicies_onlyAttached = Lens.lens (\ListPolicies' {onlyAttached} -> onlyAttached) (\s@ListPolicies' {} a -> s {onlyAttached = a} :: ListPolicies)
+
+-- | The path prefix for filtering the results. This parameter is optional.
+-- If it is not included, it defaults to a slash (\/), listing all
+-- policies. This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+listPolicies_pathPrefix :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Text)
+listPolicies_pathPrefix = Lens.lens (\ListPolicies' {pathPrefix} -> pathPrefix) (\s@ListPolicies' {} a -> s {pathPrefix = a} :: ListPolicies)
 
 instance Core.AWSPager ListPolicies where
   page rq rs
@@ -302,21 +302,21 @@ instance Core.AWSRequest ListPolicies where
 
 instance Prelude.Hashable ListPolicies where
   hashWithSalt _salt ListPolicies' {..} =
-    _salt `Prelude.hashWithSalt` pathPrefix
-      `Prelude.hashWithSalt` onlyAttached
-      `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` scope
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` policyUsageFilter
+      `Prelude.hashWithSalt` onlyAttached
+      `Prelude.hashWithSalt` pathPrefix
 
 instance Prelude.NFData ListPolicies where
   rnf ListPolicies' {..} =
-    Prelude.rnf pathPrefix
-      `Prelude.seq` Prelude.rnf onlyAttached
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf policyUsageFilter
+      `Prelude.seq` Prelude.rnf onlyAttached
+      `Prelude.seq` Prelude.rnf pathPrefix
 
 instance Core.ToHeaders ListPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -331,12 +331,12 @@ instance Core.ToQuery ListPolicies where
           Core.=: ("ListPolicies" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "PathPrefix" Core.=: pathPrefix,
-        "OnlyAttached" Core.=: onlyAttached,
         "Marker" Core.=: marker,
-        "Scope" Core.=: scope,
         "MaxItems" Core.=: maxItems,
-        "PolicyUsageFilter" Core.=: policyUsageFilter
+        "Scope" Core.=: scope,
+        "PolicyUsageFilter" Core.=: policyUsageFilter,
+        "OnlyAttached" Core.=: onlyAttached,
+        "PathPrefix" Core.=: pathPrefix
       ]
 
 -- | Contains the response to a successful ListPolicies request.

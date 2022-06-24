@@ -41,9 +41,9 @@ module Amazonka.IAM.ListVirtualMFADevices
     newListVirtualMFADevices,
 
     -- * Request Lenses
-    listVirtualMFADevices_assignmentStatus,
     listVirtualMFADevices_marker,
     listVirtualMFADevices_maxItems,
+    listVirtualMFADevices_assignmentStatus,
 
     -- * Destructuring the Response
     ListVirtualMFADevicesResponse (..),
@@ -66,11 +66,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListVirtualMFADevices' smart constructor.
 data ListVirtualMFADevices = ListVirtualMFADevices'
-  { -- | The status (@Unassigned@ or @Assigned@) of the devices to list. If you
-    -- do not specify an @AssignmentStatus@, the operation defaults to @Any@,
-    -- which lists both assigned and unassigned virtual MFA devices.,
-    assignmentStatus :: Prelude.Maybe AssignmentStatusType,
-    -- | Use this parameter only when paginating results and only after you
+  { -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
@@ -84,7 +80,11 @@ data ListVirtualMFADevices = ListVirtualMFADevices'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The status (@Unassigned@ or @Assigned@) of the devices to list. If you
+    -- do not specify an @AssignmentStatus@, the operation defaults to @Any@,
+    -- which lists both assigned and unassigned virtual MFA devices.,
+    assignmentStatus :: Prelude.Maybe AssignmentStatusType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,10 +95,6 @@ data ListVirtualMFADevices = ListVirtualMFADevices'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'assignmentStatus', 'listVirtualMFADevices_assignmentStatus' - The status (@Unassigned@ or @Assigned@) of the devices to list. If you
--- do not specify an @AssignmentStatus@, the operation defaults to @Any@,
--- which lists both assigned and unassigned virtual MFA devices.,
 --
 -- 'marker', 'listVirtualMFADevices_marker' - Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -114,21 +110,18 @@ data ListVirtualMFADevices = ListVirtualMFADevices'
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
+--
+-- 'assignmentStatus', 'listVirtualMFADevices_assignmentStatus' - The status (@Unassigned@ or @Assigned@) of the devices to list. If you
+-- do not specify an @AssignmentStatus@, the operation defaults to @Any@,
+-- which lists both assigned and unassigned virtual MFA devices.,
 newListVirtualMFADevices ::
   ListVirtualMFADevices
 newListVirtualMFADevices =
   ListVirtualMFADevices'
-    { assignmentStatus =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      assignmentStatus = Prelude.Nothing
     }
-
--- | The status (@Unassigned@ or @Assigned@) of the devices to list. If you
--- do not specify an @AssignmentStatus@, the operation defaults to @Any@,
--- which lists both assigned and unassigned virtual MFA devices.,
-listVirtualMFADevices_assignmentStatus :: Lens.Lens' ListVirtualMFADevices (Prelude.Maybe AssignmentStatusType)
-listVirtualMFADevices_assignmentStatus = Lens.lens (\ListVirtualMFADevices' {assignmentStatus} -> assignmentStatus) (\s@ListVirtualMFADevices' {} a -> s {assignmentStatus = a} :: ListVirtualMFADevices)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -148,6 +141,12 @@ listVirtualMFADevices_marker = Lens.lens (\ListVirtualMFADevices' {marker} -> ma
 -- subsequent call that tells the service where to continue from.
 listVirtualMFADevices_maxItems :: Lens.Lens' ListVirtualMFADevices (Prelude.Maybe Prelude.Natural)
 listVirtualMFADevices_maxItems = Lens.lens (\ListVirtualMFADevices' {maxItems} -> maxItems) (\s@ListVirtualMFADevices' {} a -> s {maxItems = a} :: ListVirtualMFADevices)
+
+-- | The status (@Unassigned@ or @Assigned@) of the devices to list. If you
+-- do not specify an @AssignmentStatus@, the operation defaults to @Any@,
+-- which lists both assigned and unassigned virtual MFA devices.,
+listVirtualMFADevices_assignmentStatus :: Lens.Lens' ListVirtualMFADevices (Prelude.Maybe AssignmentStatusType)
+listVirtualMFADevices_assignmentStatus = Lens.lens (\ListVirtualMFADevices' {assignmentStatus} -> assignmentStatus) (\s@ListVirtualMFADevices' {} a -> s {assignmentStatus = a} :: ListVirtualMFADevices)
 
 instance Core.AWSPager ListVirtualMFADevices where
   page rq rs
@@ -192,15 +191,15 @@ instance Core.AWSRequest ListVirtualMFADevices where
 
 instance Prelude.Hashable ListVirtualMFADevices where
   hashWithSalt _salt ListVirtualMFADevices' {..} =
-    _salt `Prelude.hashWithSalt` assignmentStatus
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` assignmentStatus
 
 instance Prelude.NFData ListVirtualMFADevices where
   rnf ListVirtualMFADevices' {..} =
-    Prelude.rnf assignmentStatus
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf assignmentStatus
 
 instance Core.ToHeaders ListVirtualMFADevices where
   toHeaders = Prelude.const Prelude.mempty
@@ -215,9 +214,9 @@ instance Core.ToQuery ListVirtualMFADevices where
           Core.=: ("ListVirtualMFADevices" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "AssignmentStatus" Core.=: assignmentStatus,
         "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+        "MaxItems" Core.=: maxItems,
+        "AssignmentStatus" Core.=: assignmentStatus
       ]
 
 -- | Contains the response to a successful ListVirtualMFADevices request.

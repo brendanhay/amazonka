@@ -41,9 +41,9 @@ module Amazonka.IAM.ListAttachedGroupPolicies
     newListAttachedGroupPolicies,
 
     -- * Request Lenses
-    listAttachedGroupPolicies_pathPrefix,
     listAttachedGroupPolicies_marker,
     listAttachedGroupPolicies_maxItems,
+    listAttachedGroupPolicies_pathPrefix,
     listAttachedGroupPolicies_groupName,
 
     -- * Destructuring the Response
@@ -51,9 +51,9 @@ module Amazonka.IAM.ListAttachedGroupPolicies
     newListAttachedGroupPoliciesResponse,
 
     -- * Response Lenses
-    listAttachedGroupPoliciesResponse_attachedPolicies,
     listAttachedGroupPoliciesResponse_marker,
     listAttachedGroupPoliciesResponse_isTruncated,
+    listAttachedGroupPoliciesResponse_attachedPolicies,
     listAttachedGroupPoliciesResponse_httpStatus,
   )
 where
@@ -67,19 +67,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAttachedGroupPolicies' smart constructor.
 data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
-  { -- | The path prefix for filtering the results. This parameter is optional.
-    -- If it is not included, it defaults to a slash (\/), listing all
-    -- policies.
-    --
-    -- This parameter allows (through its
-    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- consisting of either a forward slash (\/) by itself or a string that
-    -- must begin and end with forward slashes. In addition, it can contain any
-    -- ASCII character from the ! (@\\u0021@) through the DEL character
-    -- (@\\u007F@), including most punctuation characters, digits, and upper
-    -- and lowercased letters.
-    pathPrefix :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter only when paginating results and only after you
+  { -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
@@ -94,6 +82,18 @@ data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
     maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The path prefix for filtering the results. This parameter is optional.
+    -- If it is not included, it defaults to a slash (\/), listing all
+    -- policies.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of either a forward slash (\/) by itself or a string that
+    -- must begin and end with forward slashes. In addition, it can contain any
+    -- ASCII character from the ! (@\\u0021@) through the DEL character
+    -- (@\\u007F@), including most punctuation characters, digits, and upper
+    -- and lowercased letters.
+    pathPrefix :: Prelude.Maybe Prelude.Text,
     -- | The name (friendly name, not ARN) of the group to list attached policies
     -- for.
     --
@@ -113,18 +113,6 @@ data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pathPrefix', 'listAttachedGroupPolicies_pathPrefix' - The path prefix for filtering the results. This parameter is optional.
--- If it is not included, it defaults to a slash (\/), listing all
--- policies.
---
--- This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of either a forward slash (\/) by itself or a string that
--- must begin and end with forward slashes. In addition, it can contain any
--- ASCII character from the ! (@\\u0021@) through the DEL character
--- (@\\u007F@), including most punctuation characters, digits, and upper
--- and lowercased letters.
---
 -- 'marker', 'listAttachedGroupPolicies_marker' - Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
@@ -140,6 +128,18 @@ data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
 --
+-- 'pathPrefix', 'listAttachedGroupPolicies_pathPrefix' - The path prefix for filtering the results. This parameter is optional.
+-- If it is not included, it defaults to a slash (\/), listing all
+-- policies.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+--
 -- 'groupName', 'listAttachedGroupPolicies_groupName' - The name (friendly name, not ARN) of the group to list attached policies
 -- for.
 --
@@ -153,26 +153,12 @@ newListAttachedGroupPolicies ::
   ListAttachedGroupPolicies
 newListAttachedGroupPolicies pGroupName_ =
   ListAttachedGroupPolicies'
-    { pathPrefix =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
       maxItems = Prelude.Nothing,
+      pathPrefix = Prelude.Nothing,
       groupName = pGroupName_
     }
-
--- | The path prefix for filtering the results. This parameter is optional.
--- If it is not included, it defaults to a slash (\/), listing all
--- policies.
---
--- This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of either a forward slash (\/) by itself or a string that
--- must begin and end with forward slashes. In addition, it can contain any
--- ASCII character from the ! (@\\u0021@) through the DEL character
--- (@\\u007F@), including most punctuation characters, digits, and upper
--- and lowercased letters.
-listAttachedGroupPolicies_pathPrefix :: Lens.Lens' ListAttachedGroupPolicies (Prelude.Maybe Prelude.Text)
-listAttachedGroupPolicies_pathPrefix = Lens.lens (\ListAttachedGroupPolicies' {pathPrefix} -> pathPrefix) (\s@ListAttachedGroupPolicies' {} a -> s {pathPrefix = a} :: ListAttachedGroupPolicies)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -192,6 +178,20 @@ listAttachedGroupPolicies_marker = Lens.lens (\ListAttachedGroupPolicies' {marke
 -- subsequent call that tells the service where to continue from.
 listAttachedGroupPolicies_maxItems :: Lens.Lens' ListAttachedGroupPolicies (Prelude.Maybe Prelude.Natural)
 listAttachedGroupPolicies_maxItems = Lens.lens (\ListAttachedGroupPolicies' {maxItems} -> maxItems) (\s@ListAttachedGroupPolicies' {} a -> s {maxItems = a} :: ListAttachedGroupPolicies)
+
+-- | The path prefix for filtering the results. This parameter is optional.
+-- If it is not included, it defaults to a slash (\/), listing all
+-- policies.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+listAttachedGroupPolicies_pathPrefix :: Lens.Lens' ListAttachedGroupPolicies (Prelude.Maybe Prelude.Text)
+listAttachedGroupPolicies_pathPrefix = Lens.lens (\ListAttachedGroupPolicies' {pathPrefix} -> pathPrefix) (\s@ListAttachedGroupPolicies' {} a -> s {pathPrefix = a} :: ListAttachedGroupPolicies)
 
 -- | The name (friendly name, not ARN) of the group to list attached policies
 -- for.
@@ -235,27 +235,27 @@ instance Core.AWSRequest ListAttachedGroupPolicies where
       "ListAttachedGroupPoliciesResult"
       ( \s h x ->
           ListAttachedGroupPoliciesResponse'
-            Prelude.<$> ( x Core..@? "AttachedPolicies"
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<*> ( x Core..@? "AttachedPolicies"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAttachedGroupPolicies where
   hashWithSalt _salt ListAttachedGroupPolicies' {..} =
-    _salt `Prelude.hashWithSalt` pathPrefix
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` pathPrefix
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData ListAttachedGroupPolicies where
   rnf ListAttachedGroupPolicies' {..} =
-    Prelude.rnf pathPrefix
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf pathPrefix
       `Prelude.seq` Prelude.rnf groupName
 
 instance Core.ToHeaders ListAttachedGroupPolicies where
@@ -271,9 +271,9 @@ instance Core.ToQuery ListAttachedGroupPolicies where
           Core.=: ("ListAttachedGroupPolicies" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "PathPrefix" Core.=: pathPrefix,
         "Marker" Core.=: marker,
         "MaxItems" Core.=: maxItems,
+        "PathPrefix" Core.=: pathPrefix,
         "GroupName" Core.=: groupName
       ]
 
@@ -281,9 +281,7 @@ instance Core.ToQuery ListAttachedGroupPolicies where
 --
 -- /See:/ 'newListAttachedGroupPoliciesResponse' smart constructor.
 data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
-  { -- | A list of the attached policies.
-    attachedPolicies :: Prelude.Maybe [AttachedPolicy],
-    -- | When @IsTruncated@ is @true@, this element is present and contains the
+  { -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
     marker :: Prelude.Maybe Prelude.Text,
@@ -295,6 +293,8 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | A list of the attached policies.
+    attachedPolicies :: Prelude.Maybe [AttachedPolicy],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -308,8 +308,6 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attachedPolicies', 'listAttachedGroupPoliciesResponse_attachedPolicies' - A list of the attached policies.
---
 -- 'marker', 'listAttachedGroupPoliciesResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
@@ -322,6 +320,8 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
 --
+-- 'attachedPolicies', 'listAttachedGroupPoliciesResponse_attachedPolicies' - A list of the attached policies.
+--
 -- 'httpStatus', 'listAttachedGroupPoliciesResponse_httpStatus' - The response's http status code.
 newListAttachedGroupPoliciesResponse ::
   -- | 'httpStatus'
@@ -329,16 +329,12 @@ newListAttachedGroupPoliciesResponse ::
   ListAttachedGroupPoliciesResponse
 newListAttachedGroupPoliciesResponse pHttpStatus_ =
   ListAttachedGroupPoliciesResponse'
-    { attachedPolicies =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
       isTruncated = Prelude.Nothing,
+      attachedPolicies = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of the attached policies.
-listAttachedGroupPoliciesResponse_attachedPolicies :: Lens.Lens' ListAttachedGroupPoliciesResponse (Prelude.Maybe [AttachedPolicy])
-listAttachedGroupPoliciesResponse_attachedPolicies = Lens.lens (\ListAttachedGroupPoliciesResponse' {attachedPolicies} -> attachedPolicies) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {attachedPolicies = a} :: ListAttachedGroupPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -356,6 +352,10 @@ listAttachedGroupPoliciesResponse_marker = Lens.lens (\ListAttachedGroupPolicies
 listAttachedGroupPoliciesResponse_isTruncated :: Lens.Lens' ListAttachedGroupPoliciesResponse (Prelude.Maybe Prelude.Bool)
 listAttachedGroupPoliciesResponse_isTruncated = Lens.lens (\ListAttachedGroupPoliciesResponse' {isTruncated} -> isTruncated) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {isTruncated = a} :: ListAttachedGroupPoliciesResponse)
 
+-- | A list of the attached policies.
+listAttachedGroupPoliciesResponse_attachedPolicies :: Lens.Lens' ListAttachedGroupPoliciesResponse (Prelude.Maybe [AttachedPolicy])
+listAttachedGroupPoliciesResponse_attachedPolicies = Lens.lens (\ListAttachedGroupPoliciesResponse' {attachedPolicies} -> attachedPolicies) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {attachedPolicies = a} :: ListAttachedGroupPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listAttachedGroupPoliciesResponse_httpStatus :: Lens.Lens' ListAttachedGroupPoliciesResponse Prelude.Int
 listAttachedGroupPoliciesResponse_httpStatus = Lens.lens (\ListAttachedGroupPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListAttachedGroupPoliciesResponse' {} a -> s {httpStatus = a} :: ListAttachedGroupPoliciesResponse)
@@ -365,7 +365,7 @@ instance
     ListAttachedGroupPoliciesResponse
   where
   rnf ListAttachedGroupPoliciesResponse' {..} =
-    Prelude.rnf attachedPolicies
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf attachedPolicies
       `Prelude.seq` Prelude.rnf httpStatus

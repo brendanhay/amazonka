@@ -59,9 +59,9 @@ module Amazonka.IAM.UploadServerCertificate
     newUploadServerCertificate,
 
     -- * Request Lenses
+    uploadServerCertificate_tags,
     uploadServerCertificate_path,
     uploadServerCertificate_certificateChain,
-    uploadServerCertificate_tags,
     uploadServerCertificate_serverCertificateName,
     uploadServerCertificate_certificateBody,
     uploadServerCertificate_privateKey,
@@ -71,8 +71,8 @@ module Amazonka.IAM.UploadServerCertificate
     newUploadServerCertificateResponse,
 
     -- * Response Lenses
-    uploadServerCertificateResponse_serverCertificateMetadata,
     uploadServerCertificateResponse_tags,
+    uploadServerCertificateResponse_serverCertificateMetadata,
     uploadServerCertificateResponse_httpStatus,
   )
 where
@@ -86,7 +86,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUploadServerCertificate' smart constructor.
 data UploadServerCertificate = UploadServerCertificate'
-  { -- | The path for the server certificate. For more information about paths,
+  { -- | A list of tags that you want to attach to the new IAM server certificate
+    -- resource. Each tag consists of a key name and an associated value. For
+    -- more information about tagging, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+    -- in the /IAM User Guide/.
+    --
+    -- If any one of the tags is invalid or if you exceed the allowed maximum
+    -- number of tags, then the entire request fails and the resource is not
+    -- created.
+    tags :: Prelude.Maybe [Tag],
+    -- | The path for the server certificate. For more information about paths,
     -- see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
@@ -120,16 +130,6 @@ data UploadServerCertificate = UploadServerCertificate'
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
     certificateChain :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags that you want to attach to the new IAM server certificate
-    -- resource. Each tag consists of a key name and an associated value. For
-    -- more information about tagging, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
-    -- in the /IAM User Guide/.
-    --
-    -- If any one of the tags is invalid or if you exceed the allowed maximum
-    -- number of tags, then the entire request fails and the resource is not
-    -- created.
-    tags :: Prelude.Maybe [Tag],
     -- | The name for the server certificate. Do not include the path in this
     -- value. The name of the certificate cannot contain any spaces.
     --
@@ -177,6 +177,16 @@ data UploadServerCertificate = UploadServerCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'uploadServerCertificate_tags' - A list of tags that you want to attach to the new IAM server certificate
+-- resource. Each tag consists of a key name and an associated value. For
+-- more information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
+--
 -- 'path', 'uploadServerCertificate_path' - The path for the server certificate. For more information about paths,
 -- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -210,16 +220,6 @@ data UploadServerCertificate = UploadServerCertificate'
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
---
--- 'tags', 'uploadServerCertificate_tags' - A list of tags that you want to attach to the new IAM server certificate
--- resource. Each tag consists of a key name and an associated value. For
--- more information about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
---
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
 --
 -- 'serverCertificateName', 'uploadServerCertificate_serverCertificateName' - The name for the server certificate. Do not include the path in this
 -- value. The name of the certificate cannot contain any spaces.
@@ -269,13 +269,25 @@ newUploadServerCertificate
   pCertificateBody_
   pPrivateKey_ =
     UploadServerCertificate'
-      { path = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        path = Prelude.Nothing,
         certificateChain = Prelude.Nothing,
-        tags = Prelude.Nothing,
         serverCertificateName = pServerCertificateName_,
         certificateBody = pCertificateBody_,
         privateKey = Core._Sensitive Lens.# pPrivateKey_
       }
+
+-- | A list of tags that you want to attach to the new IAM server certificate
+-- resource. Each tag consists of a key name and an associated value. For
+-- more information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
+uploadServerCertificate_tags :: Lens.Lens' UploadServerCertificate (Prelude.Maybe [Tag])
+uploadServerCertificate_tags = Lens.lens (\UploadServerCertificate' {tags} -> tags) (\s@UploadServerCertificate' {} a -> s {tags = a} :: UploadServerCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The path for the server certificate. For more information about paths,
 -- see
@@ -314,18 +326,6 @@ uploadServerCertificate_path = Lens.lens (\UploadServerCertificate' {path} -> pa
 --     carriage return (@\\u000D@)
 uploadServerCertificate_certificateChain :: Lens.Lens' UploadServerCertificate (Prelude.Maybe Prelude.Text)
 uploadServerCertificate_certificateChain = Lens.lens (\UploadServerCertificate' {certificateChain} -> certificateChain) (\s@UploadServerCertificate' {} a -> s {certificateChain = a} :: UploadServerCertificate)
-
--- | A list of tags that you want to attach to the new IAM server certificate
--- resource. Each tag consists of a key name and an associated value. For
--- more information about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
---
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
-uploadServerCertificate_tags :: Lens.Lens' UploadServerCertificate (Prelude.Maybe [Tag])
-uploadServerCertificate_tags = Lens.lens (\UploadServerCertificate' {tags} -> tags) (\s@UploadServerCertificate' {} a -> s {tags = a} :: UploadServerCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the server certificate. Do not include the path in this
 -- value. The name of the certificate cannot contain any spaces.
@@ -379,27 +379,27 @@ instance Core.AWSRequest UploadServerCertificate where
       "UploadServerCertificateResult"
       ( \s h x ->
           UploadServerCertificateResponse'
-            Prelude.<$> (x Core..@? "ServerCertificateMetadata")
-            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "ServerCertificateMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UploadServerCertificate where
   hashWithSalt _salt UploadServerCertificate' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` certificateChain
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverCertificateName
       `Prelude.hashWithSalt` certificateBody
       `Prelude.hashWithSalt` privateKey
 
 instance Prelude.NFData UploadServerCertificate where
   rnf UploadServerCertificate' {..} =
-    Prelude.rnf path
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf certificateChain
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serverCertificateName
       `Prelude.seq` Prelude.rnf certificateBody
       `Prelude.seq` Prelude.rnf privateKey
@@ -417,11 +417,11 @@ instance Core.ToQuery UploadServerCertificate where
           Core.=: ("UploadServerCertificate" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Path" Core.=: path,
-        "CertificateChain" Core.=: certificateChain,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> tags),
+        "Path" Core.=: path,
+        "CertificateChain" Core.=: certificateChain,
         "ServerCertificateName"
           Core.=: serverCertificateName,
         "CertificateBody" Core.=: certificateBody,
@@ -432,15 +432,15 @@ instance Core.ToQuery UploadServerCertificate where
 --
 -- /See:/ 'newUploadServerCertificateResponse' smart constructor.
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
-  { -- | The meta information of the uploaded server certificate without its
-    -- certificate body, certificate chain, and private key.
-    serverCertificateMetadata :: Prelude.Maybe ServerCertificateMetadata,
-    -- | A list of tags that are attached to the new IAM server certificate. The
+  { -- | A list of tags that are attached to the new IAM server certificate. The
     -- returned list of tags is sorted by tag key. For more information about
     -- tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
     tags :: Prelude.Maybe [Tag],
+    -- | The meta information of the uploaded server certificate without its
+    -- certificate body, certificate chain, and private key.
+    serverCertificateMetadata :: Prelude.Maybe ServerCertificateMetadata,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -454,14 +454,14 @@ data UploadServerCertificateResponse = UploadServerCertificateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverCertificateMetadata', 'uploadServerCertificateResponse_serverCertificateMetadata' - The meta information of the uploaded server certificate without its
--- certificate body, certificate chain, and private key.
---
 -- 'tags', 'uploadServerCertificateResponse_tags' - A list of tags that are attached to the new IAM server certificate. The
 -- returned list of tags is sorted by tag key. For more information about
 -- tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
+--
+-- 'serverCertificateMetadata', 'uploadServerCertificateResponse_serverCertificateMetadata' - The meta information of the uploaded server certificate without its
+-- certificate body, certificate chain, and private key.
 --
 -- 'httpStatus', 'uploadServerCertificateResponse_httpStatus' - The response's http status code.
 newUploadServerCertificateResponse ::
@@ -470,16 +470,12 @@ newUploadServerCertificateResponse ::
   UploadServerCertificateResponse
 newUploadServerCertificateResponse pHttpStatus_ =
   UploadServerCertificateResponse'
-    { serverCertificateMetadata =
+    { tags =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
+      serverCertificateMetadata =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The meta information of the uploaded server certificate without its
--- certificate body, certificate chain, and private key.
-uploadServerCertificateResponse_serverCertificateMetadata :: Lens.Lens' UploadServerCertificateResponse (Prelude.Maybe ServerCertificateMetadata)
-uploadServerCertificateResponse_serverCertificateMetadata = Lens.lens (\UploadServerCertificateResponse' {serverCertificateMetadata} -> serverCertificateMetadata) (\s@UploadServerCertificateResponse' {} a -> s {serverCertificateMetadata = a} :: UploadServerCertificateResponse)
 
 -- | A list of tags that are attached to the new IAM server certificate. The
 -- returned list of tags is sorted by tag key. For more information about
@@ -488,6 +484,11 @@ uploadServerCertificateResponse_serverCertificateMetadata = Lens.lens (\UploadSe
 -- in the /IAM User Guide/.
 uploadServerCertificateResponse_tags :: Lens.Lens' UploadServerCertificateResponse (Prelude.Maybe [Tag])
 uploadServerCertificateResponse_tags = Lens.lens (\UploadServerCertificateResponse' {tags} -> tags) (\s@UploadServerCertificateResponse' {} a -> s {tags = a} :: UploadServerCertificateResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The meta information of the uploaded server certificate without its
+-- certificate body, certificate chain, and private key.
+uploadServerCertificateResponse_serverCertificateMetadata :: Lens.Lens' UploadServerCertificateResponse (Prelude.Maybe ServerCertificateMetadata)
+uploadServerCertificateResponse_serverCertificateMetadata = Lens.lens (\UploadServerCertificateResponse' {serverCertificateMetadata} -> serverCertificateMetadata) (\s@UploadServerCertificateResponse' {} a -> s {serverCertificateMetadata = a} :: UploadServerCertificateResponse)
 
 -- | The response's http status code.
 uploadServerCertificateResponse_httpStatus :: Lens.Lens' UploadServerCertificateResponse Prelude.Int
@@ -498,6 +499,6 @@ instance
     UploadServerCertificateResponse
   where
   rnf UploadServerCertificateResponse' {..} =
-    Prelude.rnf serverCertificateMetadata
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf serverCertificateMetadata
       `Prelude.seq` Prelude.rnf httpStatus

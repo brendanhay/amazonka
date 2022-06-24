@@ -34,10 +34,10 @@ module Amazonka.APIGateway.GetSdkType
     newSdkType,
 
     -- * Response Lenses
+    sdkType_description,
+    sdkType_id,
     sdkType_friendlyName,
     sdkType_configurationProperties,
-    sdkType_id,
-    sdkType_description,
   )
 where
 

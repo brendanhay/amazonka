@@ -28,9 +28,9 @@ module Amazonka.APIGateway.PutGatewayResponse
     newPutGatewayResponse,
 
     -- * Request Lenses
+    putGatewayResponse_responseParameters,
     putGatewayResponse_responseTemplates,
     putGatewayResponse_statusCode,
-    putGatewayResponse_responseParameters,
     putGatewayResponse_restApiId,
     putGatewayResponse_responseType,
 
@@ -39,11 +39,11 @@ module Amazonka.APIGateway.PutGatewayResponse
     newGatewayResponse,
 
     -- * Response Lenses
-    gatewayResponse_defaultResponse,
-    gatewayResponse_responseTemplates,
     gatewayResponse_responseType,
-    gatewayResponse_statusCode,
+    gatewayResponse_defaultResponse,
     gatewayResponse_responseParameters,
+    gatewayResponse_responseTemplates,
+    gatewayResponse_statusCode,
   )
 where
 
@@ -59,14 +59,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPutGatewayResponse' smart constructor.
 data PutGatewayResponse = PutGatewayResponse'
-  { -- | Response templates of the GatewayResponse as a string-to-string map of
+  { -- | Response parameters (paths, query strings and headers) of the
+    -- GatewayResponse as a string-to-string map of key-value pairs.
+    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Response templates of the GatewayResponse as a string-to-string map of
     -- key-value pairs.
     responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The HTTP status code of the GatewayResponse.
     statusCode :: Prelude.Maybe Prelude.Text,
-    -- | Response parameters (paths, query strings and headers) of the
-    -- GatewayResponse as a string-to-string map of key-value pairs.
-    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | [Required]
@@ -84,13 +84,13 @@ data PutGatewayResponse = PutGatewayResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'responseParameters', 'putGatewayResponse_responseParameters' - Response parameters (paths, query strings and headers) of the
+-- GatewayResponse as a string-to-string map of key-value pairs.
+--
 -- 'responseTemplates', 'putGatewayResponse_responseTemplates' - Response templates of the GatewayResponse as a string-to-string map of
 -- key-value pairs.
 --
 -- 'statusCode', 'putGatewayResponse_statusCode' - The HTTP status code of the GatewayResponse.
---
--- 'responseParameters', 'putGatewayResponse_responseParameters' - Response parameters (paths, query strings and headers) of the
--- GatewayResponse as a string-to-string map of key-value pairs.
 --
 -- 'restApiId', 'putGatewayResponse_restApiId' - [Required] The string identifier of the associated RestApi.
 --
@@ -105,13 +105,18 @@ newPutGatewayResponse ::
   PutGatewayResponse
 newPutGatewayResponse pRestApiId_ pResponseType_ =
   PutGatewayResponse'
-    { responseTemplates =
+    { responseParameters =
         Prelude.Nothing,
+      responseTemplates = Prelude.Nothing,
       statusCode = Prelude.Nothing,
-      responseParameters = Prelude.Nothing,
       restApiId = pRestApiId_,
       responseType = pResponseType_
     }
+
+-- | Response parameters (paths, query strings and headers) of the
+-- GatewayResponse as a string-to-string map of key-value pairs.
+putGatewayResponse_responseParameters :: Lens.Lens' PutGatewayResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putGatewayResponse_responseParameters = Lens.lens (\PutGatewayResponse' {responseParameters} -> responseParameters) (\s@PutGatewayResponse' {} a -> s {responseParameters = a} :: PutGatewayResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Response templates of the GatewayResponse as a string-to-string map of
 -- key-value pairs.
@@ -121,11 +126,6 @@ putGatewayResponse_responseTemplates = Lens.lens (\PutGatewayResponse' {response
 -- | The HTTP status code of the GatewayResponse.
 putGatewayResponse_statusCode :: Lens.Lens' PutGatewayResponse (Prelude.Maybe Prelude.Text)
 putGatewayResponse_statusCode = Lens.lens (\PutGatewayResponse' {statusCode} -> statusCode) (\s@PutGatewayResponse' {} a -> s {statusCode = a} :: PutGatewayResponse)
-
--- | Response parameters (paths, query strings and headers) of the
--- GatewayResponse as a string-to-string map of key-value pairs.
-putGatewayResponse_responseParameters :: Lens.Lens' PutGatewayResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putGatewayResponse_responseParameters = Lens.lens (\PutGatewayResponse' {responseParameters} -> responseParameters) (\s@PutGatewayResponse' {} a -> s {responseParameters = a} :: PutGatewayResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 putGatewayResponse_restApiId :: Lens.Lens' PutGatewayResponse Prelude.Text
@@ -146,17 +146,17 @@ instance Core.AWSRequest PutGatewayResponse where
 
 instance Prelude.Hashable PutGatewayResponse where
   hashWithSalt _salt PutGatewayResponse' {..} =
-    _salt `Prelude.hashWithSalt` responseTemplates
+    _salt `Prelude.hashWithSalt` responseParameters
+      `Prelude.hashWithSalt` responseTemplates
       `Prelude.hashWithSalt` statusCode
-      `Prelude.hashWithSalt` responseParameters
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` responseType
 
 instance Prelude.NFData PutGatewayResponse where
   rnf PutGatewayResponse' {..} =
-    Prelude.rnf responseTemplates
+    Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf responseTemplates
       `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf responseParameters
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf responseType
 
@@ -173,11 +173,11 @@ instance Core.ToJSON PutGatewayResponse where
   toJSON PutGatewayResponse' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("responseTemplates" Core..=)
+          [ ("responseParameters" Core..=)
+              Prelude.<$> responseParameters,
+            ("responseTemplates" Core..=)
               Prelude.<$> responseTemplates,
-            ("statusCode" Core..=) Prelude.<$> statusCode,
-            ("responseParameters" Core..=)
-              Prelude.<$> responseParameters
+            ("statusCode" Core..=) Prelude.<$> statusCode
           ]
       )
 

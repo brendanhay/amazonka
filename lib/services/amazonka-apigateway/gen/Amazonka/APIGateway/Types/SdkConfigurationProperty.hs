@@ -27,18 +27,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSdkConfigurationProperty' smart constructor.
 data SdkConfigurationProperty = SdkConfigurationProperty'
-  { -- | The user-friendly name of an SdkType configuration property.
-    friendlyName :: Prelude.Maybe Prelude.Text,
+  { -- | The name of a an SdkType configuration property.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A boolean flag of an SdkType configuration property to indicate if the
     -- associated SDK configuration property is required (@true@) or not
     -- (@false@).
     required :: Prelude.Maybe Prelude.Bool,
-    -- | The name of a an SdkType configuration property.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The default value of an SdkType configuration property.
     defaultValue :: Prelude.Maybe Prelude.Text,
     -- | The description of an SdkType configuration property.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The user-friendly name of an SdkType configuration property.
+    friendlyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,42 +50,37 @@ data SdkConfigurationProperty = SdkConfigurationProperty'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'friendlyName', 'sdkConfigurationProperty_friendlyName' - The user-friendly name of an SdkType configuration property.
+-- 'name', 'sdkConfigurationProperty_name' - The name of a an SdkType configuration property.
 --
 -- 'required', 'sdkConfigurationProperty_required' - A boolean flag of an SdkType configuration property to indicate if the
 -- associated SDK configuration property is required (@true@) or not
 -- (@false@).
 --
--- 'name', 'sdkConfigurationProperty_name' - The name of a an SdkType configuration property.
---
 -- 'defaultValue', 'sdkConfigurationProperty_defaultValue' - The default value of an SdkType configuration property.
 --
 -- 'description', 'sdkConfigurationProperty_description' - The description of an SdkType configuration property.
+--
+-- 'friendlyName', 'sdkConfigurationProperty_friendlyName' - The user-friendly name of an SdkType configuration property.
 newSdkConfigurationProperty ::
   SdkConfigurationProperty
 newSdkConfigurationProperty =
   SdkConfigurationProperty'
-    { friendlyName =
-        Prelude.Nothing,
+    { name = Prelude.Nothing,
       required = Prelude.Nothing,
-      name = Prelude.Nothing,
       defaultValue = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      friendlyName = Prelude.Nothing
     }
 
--- | The user-friendly name of an SdkType configuration property.
-sdkConfigurationProperty_friendlyName :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Text)
-sdkConfigurationProperty_friendlyName = Lens.lens (\SdkConfigurationProperty' {friendlyName} -> friendlyName) (\s@SdkConfigurationProperty' {} a -> s {friendlyName = a} :: SdkConfigurationProperty)
+-- | The name of a an SdkType configuration property.
+sdkConfigurationProperty_name :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Text)
+sdkConfigurationProperty_name = Lens.lens (\SdkConfigurationProperty' {name} -> name) (\s@SdkConfigurationProperty' {} a -> s {name = a} :: SdkConfigurationProperty)
 
 -- | A boolean flag of an SdkType configuration property to indicate if the
 -- associated SDK configuration property is required (@true@) or not
 -- (@false@).
 sdkConfigurationProperty_required :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Bool)
 sdkConfigurationProperty_required = Lens.lens (\SdkConfigurationProperty' {required} -> required) (\s@SdkConfigurationProperty' {} a -> s {required = a} :: SdkConfigurationProperty)
-
--- | The name of a an SdkType configuration property.
-sdkConfigurationProperty_name :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Text)
-sdkConfigurationProperty_name = Lens.lens (\SdkConfigurationProperty' {name} -> name) (\s@SdkConfigurationProperty' {} a -> s {name = a} :: SdkConfigurationProperty)
 
 -- | The default value of an SdkType configuration property.
 sdkConfigurationProperty_defaultValue :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Text)
@@ -95,31 +90,35 @@ sdkConfigurationProperty_defaultValue = Lens.lens (\SdkConfigurationProperty' {d
 sdkConfigurationProperty_description :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Text)
 sdkConfigurationProperty_description = Lens.lens (\SdkConfigurationProperty' {description} -> description) (\s@SdkConfigurationProperty' {} a -> s {description = a} :: SdkConfigurationProperty)
 
+-- | The user-friendly name of an SdkType configuration property.
+sdkConfigurationProperty_friendlyName :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Text)
+sdkConfigurationProperty_friendlyName = Lens.lens (\SdkConfigurationProperty' {friendlyName} -> friendlyName) (\s@SdkConfigurationProperty' {} a -> s {friendlyName = a} :: SdkConfigurationProperty)
+
 instance Core.FromJSON SdkConfigurationProperty where
   parseJSON =
     Core.withObject
       "SdkConfigurationProperty"
       ( \x ->
           SdkConfigurationProperty'
-            Prelude.<$> (x Core..:? "friendlyName")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "required")
-            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "defaultValue")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "friendlyName")
       )
 
 instance Prelude.Hashable SdkConfigurationProperty where
   hashWithSalt _salt SdkConfigurationProperty' {..} =
-    _salt `Prelude.hashWithSalt` friendlyName
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` required
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` friendlyName
 
 instance Prelude.NFData SdkConfigurationProperty where
   rnf SdkConfigurationProperty' {..} =
-    Prelude.rnf friendlyName
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf required
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf friendlyName

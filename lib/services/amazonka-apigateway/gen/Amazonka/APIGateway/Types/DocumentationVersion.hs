@@ -34,12 +34,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDocumentationVersion' smart constructor.
 data DocumentationVersion = DocumentationVersion'
-  { -- | The date when the API documentation snapshot is created.
+  { -- | The description of the API documentation snapshot.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The date when the API documentation snapshot is created.
     createdDate :: Prelude.Maybe Core.POSIX,
     -- | The version identifier of the API documentation snapshot.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The description of the API documentation snapshot.
-    description :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,20 +51,24 @@ data DocumentationVersion = DocumentationVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'documentationVersion_description' - The description of the API documentation snapshot.
+--
 -- 'createdDate', 'documentationVersion_createdDate' - The date when the API documentation snapshot is created.
 --
 -- 'version', 'documentationVersion_version' - The version identifier of the API documentation snapshot.
---
--- 'description', 'documentationVersion_description' - The description of the API documentation snapshot.
 newDocumentationVersion ::
   DocumentationVersion
 newDocumentationVersion =
   DocumentationVersion'
-    { createdDate =
+    { description =
         Prelude.Nothing,
-      version = Prelude.Nothing,
-      description = Prelude.Nothing
+      createdDate = Prelude.Nothing,
+      version = Prelude.Nothing
     }
+
+-- | The description of the API documentation snapshot.
+documentationVersion_description :: Lens.Lens' DocumentationVersion (Prelude.Maybe Prelude.Text)
+documentationVersion_description = Lens.lens (\DocumentationVersion' {description} -> description) (\s@DocumentationVersion' {} a -> s {description = a} :: DocumentationVersion)
 
 -- | The date when the API documentation snapshot is created.
 documentationVersion_createdDate :: Lens.Lens' DocumentationVersion (Prelude.Maybe Prelude.UTCTime)
@@ -74,29 +78,25 @@ documentationVersion_createdDate = Lens.lens (\DocumentationVersion' {createdDat
 documentationVersion_version :: Lens.Lens' DocumentationVersion (Prelude.Maybe Prelude.Text)
 documentationVersion_version = Lens.lens (\DocumentationVersion' {version} -> version) (\s@DocumentationVersion' {} a -> s {version = a} :: DocumentationVersion)
 
--- | The description of the API documentation snapshot.
-documentationVersion_description :: Lens.Lens' DocumentationVersion (Prelude.Maybe Prelude.Text)
-documentationVersion_description = Lens.lens (\DocumentationVersion' {description} -> description) (\s@DocumentationVersion' {} a -> s {description = a} :: DocumentationVersion)
-
 instance Core.FromJSON DocumentationVersion where
   parseJSON =
     Core.withObject
       "DocumentationVersion"
       ( \x ->
           DocumentationVersion'
-            Prelude.<$> (x Core..:? "createdDate")
+            Prelude.<$> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "createdDate")
             Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "description")
       )
 
 instance Prelude.Hashable DocumentationVersion where
   hashWithSalt _salt DocumentationVersion' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` version
-      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData DocumentationVersion where
   rnf DocumentationVersion' {..} =
-    Prelude.rnf createdDate
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf description

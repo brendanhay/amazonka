@@ -30,8 +30,8 @@ module Amazonka.APIGateway.PutRestApi
     newPutRestApi,
 
     -- * Request Lenses
-    putRestApi_mode,
     putRestApi_failOnWarnings,
+    putRestApi_mode,
     putRestApi_parameters,
     putRestApi_restApiId,
     putRestApi_body,
@@ -41,19 +41,19 @@ module Amazonka.APIGateway.PutRestApi
     newRestApi,
 
     -- * Response Lenses
-    restApi_minimumCompressionSize,
-    restApi_disableExecuteApiEndpoint,
+    restApi_tags,
+    restApi_policy,
+    restApi_name,
+    restApi_description,
+    restApi_id,
     restApi_binaryMediaTypes,
     restApi_warnings,
-    restApi_createdDate,
-    restApi_name,
-    restApi_version,
-    restApi_apiKeySource,
-    restApi_id,
-    restApi_policy,
+    restApi_disableExecuteApiEndpoint,
     restApi_endpointConfiguration,
-    restApi_description,
-    restApi_tags,
+    restApi_createdDate,
+    restApi_apiKeySource,
+    restApi_minimumCompressionSize,
+    restApi_version,
   )
 where
 
@@ -69,13 +69,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPutRestApi' smart constructor.
 data PutRestApi = PutRestApi'
-  { -- | The @mode@ query parameter to specify the update mode. Valid values are
-    -- \"merge\" and \"overwrite\". By default, the update mode is \"merge\".
-    mode :: Prelude.Maybe PutMode,
-    -- | A query parameter to indicate whether to rollback the API update
+  { -- | A query parameter to indicate whether to rollback the API update
     -- (@true@) or not (@false@) when a warning is encountered. The default
     -- value is @false@.
     failOnWarnings :: Prelude.Maybe Prelude.Bool,
+    -- | The @mode@ query parameter to specify the update mode. Valid values are
+    -- \"merge\" and \"overwrite\". By default, the update mode is \"merge\".
+    mode :: Prelude.Maybe PutMode,
     -- | Custom header parameters as part of the request. For example, to exclude
     -- DocumentationParts from an imported API, set @ignore=documentation@ as a
     -- @parameters@ value, as in the AWS CLI command of
@@ -98,12 +98,12 @@ data PutRestApi = PutRestApi'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mode', 'putRestApi_mode' - The @mode@ query parameter to specify the update mode. Valid values are
--- \"merge\" and \"overwrite\". By default, the update mode is \"merge\".
---
 -- 'failOnWarnings', 'putRestApi_failOnWarnings' - A query parameter to indicate whether to rollback the API update
 -- (@true@) or not (@false@) when a warning is encountered. The default
 -- value is @false@.
+--
+-- 'mode', 'putRestApi_mode' - The @mode@ query parameter to specify the update mode. Valid values are
+-- \"merge\" and \"overwrite\". By default, the update mode is \"merge\".
 --
 -- 'parameters', 'putRestApi_parameters' - Custom header parameters as part of the request. For example, to exclude
 -- DocumentationParts from an imported API, set @ignore=documentation@ as a
@@ -123,23 +123,23 @@ newPutRestApi ::
   PutRestApi
 newPutRestApi pRestApiId_ pBody_ =
   PutRestApi'
-    { mode = Prelude.Nothing,
-      failOnWarnings = Prelude.Nothing,
+    { failOnWarnings = Prelude.Nothing,
+      mode = Prelude.Nothing,
       parameters = Prelude.Nothing,
       restApiId = pRestApiId_,
       body = pBody_
     }
-
--- | The @mode@ query parameter to specify the update mode. Valid values are
--- \"merge\" and \"overwrite\". By default, the update mode is \"merge\".
-putRestApi_mode :: Lens.Lens' PutRestApi (Prelude.Maybe PutMode)
-putRestApi_mode = Lens.lens (\PutRestApi' {mode} -> mode) (\s@PutRestApi' {} a -> s {mode = a} :: PutRestApi)
 
 -- | A query parameter to indicate whether to rollback the API update
 -- (@true@) or not (@false@) when a warning is encountered. The default
 -- value is @false@.
 putRestApi_failOnWarnings :: Lens.Lens' PutRestApi (Prelude.Maybe Prelude.Bool)
 putRestApi_failOnWarnings = Lens.lens (\PutRestApi' {failOnWarnings} -> failOnWarnings) (\s@PutRestApi' {} a -> s {failOnWarnings = a} :: PutRestApi)
+
+-- | The @mode@ query parameter to specify the update mode. Valid values are
+-- \"merge\" and \"overwrite\". By default, the update mode is \"merge\".
+putRestApi_mode :: Lens.Lens' PutRestApi (Prelude.Maybe PutMode)
+putRestApi_mode = Lens.lens (\PutRestApi' {mode} -> mode) (\s@PutRestApi' {} a -> s {mode = a} :: PutRestApi)
 
 -- | Custom header parameters as part of the request. For example, to exclude
 -- DocumentationParts from an imported API, set @ignore=documentation@ as a
@@ -167,16 +167,16 @@ instance Core.AWSRequest PutRestApi where
 
 instance Prelude.Hashable PutRestApi where
   hashWithSalt _salt PutRestApi' {..} =
-    _salt `Prelude.hashWithSalt` mode
-      `Prelude.hashWithSalt` failOnWarnings
+    _salt `Prelude.hashWithSalt` failOnWarnings
+      `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` body
 
 instance Prelude.NFData PutRestApi where
   rnf PutRestApi' {..} =
-    Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf failOnWarnings
+    Prelude.rnf failOnWarnings
+      `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf body
@@ -200,8 +200,8 @@ instance Core.ToPath PutRestApi where
 instance Core.ToQuery PutRestApi where
   toQuery PutRestApi' {..} =
     Prelude.mconcat
-      [ "mode" Core.=: mode,
-        "failonwarnings" Core.=: failOnWarnings,
+      [ "failonwarnings" Core.=: failOnWarnings,
+        "mode" Core.=: mode,
         "parameters"
           Core.=: Core.toQuery
             ( Core.toQueryMap "entry" "key" "value"

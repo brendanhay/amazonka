@@ -30,7 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPatchOperation' smart constructor.
 data PatchOperation = PatchOperation'
-  { -- | An update operation to be performed with this PATCH request. The valid
+  { -- | The @copy@ update operation\'s source as identified by a @JSON-Pointer@
+    -- value referencing the location within the targeted resource to copy the
+    -- value from. For example, to promote a canary deployment, you copy the
+    -- canary deployment ID to the affiliated deployment ID by calling a PATCH
+    -- request on a Stage resource with @\"op\":\"copy\"@,
+    -- @\"from\":\"\/canarySettings\/deploymentId\"@ and
+    -- @\"path\":\"\/deploymentId\"@.
+    from :: Prelude.Maybe Prelude.Text,
+    -- | An update operation to be performed with this PATCH request. The valid
     -- value can be @add@, @remove@, @replace@ or @copy@. Not all valid
     -- operations are supported for a given resource. Support of the operations
     -- depends on specific operational contexts. Attempts to apply an
@@ -53,15 +61,7 @@ data PatchOperation = PatchOperation'
     -- a JSON value, enclose the JSON object with a pair of single quotes in a
     -- Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see
     -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The @copy@ update operation\'s source as identified by a @JSON-Pointer@
-    -- value referencing the location within the targeted resource to copy the
-    -- value from. For example, to promote a canary deployment, you copy the
-    -- canary deployment ID to the affiliated deployment ID by calling a PATCH
-    -- request on a Stage resource with @\"op\":\"copy\"@,
-    -- @\"from\":\"\/canarySettings\/deploymentId\"@ and
-    -- @\"path\":\"\/deploymentId\"@.
-    from :: Prelude.Maybe Prelude.Text
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,6 +72,14 @@ data PatchOperation = PatchOperation'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'from', 'patchOperation_from' - The @copy@ update operation\'s source as identified by a @JSON-Pointer@
+-- value referencing the location within the targeted resource to copy the
+-- value from. For example, to promote a canary deployment, you copy the
+-- canary deployment ID to the affiliated deployment ID by calling a PATCH
+-- request on a Stage resource with @\"op\":\"copy\"@,
+-- @\"from\":\"\/canarySettings\/deploymentId\"@ and
+-- @\"path\":\"\/deploymentId\"@.
 --
 -- 'op', 'patchOperation_op' - An update operation to be performed with this PATCH request. The valid
 -- value can be @add@, @remove@, @replace@ or @copy@. Not all valid
@@ -96,23 +104,25 @@ data PatchOperation = PatchOperation'
 -- a JSON value, enclose the JSON object with a pair of single quotes in a
 -- Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>.
---
--- 'from', 'patchOperation_from' - The @copy@ update operation\'s source as identified by a @JSON-Pointer@
+newPatchOperation ::
+  PatchOperation
+newPatchOperation =
+  PatchOperation'
+    { from = Prelude.Nothing,
+      op = Prelude.Nothing,
+      path = Prelude.Nothing,
+      value = Prelude.Nothing
+    }
+
+-- | The @copy@ update operation\'s source as identified by a @JSON-Pointer@
 -- value referencing the location within the targeted resource to copy the
 -- value from. For example, to promote a canary deployment, you copy the
 -- canary deployment ID to the affiliated deployment ID by calling a PATCH
 -- request on a Stage resource with @\"op\":\"copy\"@,
 -- @\"from\":\"\/canarySettings\/deploymentId\"@ and
 -- @\"path\":\"\/deploymentId\"@.
-newPatchOperation ::
-  PatchOperation
-newPatchOperation =
-  PatchOperation'
-    { op = Prelude.Nothing,
-      path = Prelude.Nothing,
-      value = Prelude.Nothing,
-      from = Prelude.Nothing
-    }
+patchOperation_from :: Lens.Lens' PatchOperation (Prelude.Maybe Prelude.Text)
+patchOperation_from = Lens.lens (\PatchOperation' {from} -> from) (\s@PatchOperation' {} a -> s {from = a} :: PatchOperation)
 
 -- | An update operation to be performed with this PATCH request. The valid
 -- value can be @add@, @remove@, @replace@ or @copy@. Not all valid
@@ -144,37 +154,27 @@ patchOperation_path = Lens.lens (\PatchOperation' {path} -> path) (\s@PatchOpera
 patchOperation_value :: Lens.Lens' PatchOperation (Prelude.Maybe Prelude.Text)
 patchOperation_value = Lens.lens (\PatchOperation' {value} -> value) (\s@PatchOperation' {} a -> s {value = a} :: PatchOperation)
 
--- | The @copy@ update operation\'s source as identified by a @JSON-Pointer@
--- value referencing the location within the targeted resource to copy the
--- value from. For example, to promote a canary deployment, you copy the
--- canary deployment ID to the affiliated deployment ID by calling a PATCH
--- request on a Stage resource with @\"op\":\"copy\"@,
--- @\"from\":\"\/canarySettings\/deploymentId\"@ and
--- @\"path\":\"\/deploymentId\"@.
-patchOperation_from :: Lens.Lens' PatchOperation (Prelude.Maybe Prelude.Text)
-patchOperation_from = Lens.lens (\PatchOperation' {from} -> from) (\s@PatchOperation' {} a -> s {from = a} :: PatchOperation)
-
 instance Prelude.Hashable PatchOperation where
   hashWithSalt _salt PatchOperation' {..} =
-    _salt `Prelude.hashWithSalt` op
+    _salt `Prelude.hashWithSalt` from
+      `Prelude.hashWithSalt` op
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` from
 
 instance Prelude.NFData PatchOperation where
   rnf PatchOperation' {..} =
-    Prelude.rnf op
+    Prelude.rnf from
+      `Prelude.seq` Prelude.rnf op
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf from
 
 instance Core.ToJSON PatchOperation where
   toJSON PatchOperation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("op" Core..=) Prelude.<$> op,
+          [ ("from" Core..=) Prelude.<$> from,
+            ("op" Core..=) Prelude.<$> op,
             ("path" Core..=) Prelude.<$> path,
-            ("value" Core..=) Prelude.<$> value,
-            ("from" Core..=) Prelude.<$> from
+            ("value" Core..=) Prelude.<$> value
           ]
       )

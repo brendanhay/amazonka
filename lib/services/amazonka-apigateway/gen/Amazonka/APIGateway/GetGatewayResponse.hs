@@ -36,11 +36,11 @@ module Amazonka.APIGateway.GetGatewayResponse
     newGatewayResponse,
 
     -- * Response Lenses
-    gatewayResponse_defaultResponse,
-    gatewayResponse_responseTemplates,
     gatewayResponse_responseType,
-    gatewayResponse_statusCode,
+    gatewayResponse_defaultResponse,
     gatewayResponse_responseParameters,
+    gatewayResponse_responseTemplates,
+    gatewayResponse_statusCode,
   )
 where
 

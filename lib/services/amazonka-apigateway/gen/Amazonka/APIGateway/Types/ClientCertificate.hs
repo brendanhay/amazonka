@@ -34,20 +34,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClientCertificate' smart constructor.
 data ClientCertificate = ClientCertificate'
-  { -- | The PEM-encoded public key of the client certificate, which can be used
+  { -- | The collection of tags. Each tag element is associated with a given
+    -- resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The PEM-encoded public key of the client certificate, which can be used
     -- to configure certificate authentication in the integration endpoint .
     pemEncodedCertificate :: Prelude.Maybe Prelude.Text,
+    -- | The description of the client certificate.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the client certificate.
     clientCertificateId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the client certificate was created.
     createdDate :: Prelude.Maybe Core.POSIX,
     -- | The timestamp when the client certificate will expire.
-    expirationDate :: Prelude.Maybe Core.POSIX,
-    -- | The description of the client certificate.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The collection of tags. Each tag element is associated with a given
-    -- resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    expirationDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,36 +59,44 @@ data ClientCertificate = ClientCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'clientCertificate_tags' - The collection of tags. Each tag element is associated with a given
+-- resource.
+--
 -- 'pemEncodedCertificate', 'clientCertificate_pemEncodedCertificate' - The PEM-encoded public key of the client certificate, which can be used
 -- to configure certificate authentication in the integration endpoint .
+--
+-- 'description', 'clientCertificate_description' - The description of the client certificate.
 --
 -- 'clientCertificateId', 'clientCertificate_clientCertificateId' - The identifier of the client certificate.
 --
 -- 'createdDate', 'clientCertificate_createdDate' - The timestamp when the client certificate was created.
 --
 -- 'expirationDate', 'clientCertificate_expirationDate' - The timestamp when the client certificate will expire.
---
--- 'description', 'clientCertificate_description' - The description of the client certificate.
---
--- 'tags', 'clientCertificate_tags' - The collection of tags. Each tag element is associated with a given
--- resource.
 newClientCertificate ::
   ClientCertificate
 newClientCertificate =
   ClientCertificate'
-    { pemEncodedCertificate =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      pemEncodedCertificate = Prelude.Nothing,
+      description = Prelude.Nothing,
       clientCertificateId = Prelude.Nothing,
       createdDate = Prelude.Nothing,
-      expirationDate = Prelude.Nothing,
-      description = Prelude.Nothing,
-      tags = Prelude.Nothing
+      expirationDate = Prelude.Nothing
     }
+
+-- | The collection of tags. Each tag element is associated with a given
+-- resource.
+clientCertificate_tags :: Lens.Lens' ClientCertificate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+clientCertificate_tags = Lens.lens (\ClientCertificate' {tags} -> tags) (\s@ClientCertificate' {} a -> s {tags = a} :: ClientCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The PEM-encoded public key of the client certificate, which can be used
 -- to configure certificate authentication in the integration endpoint .
 clientCertificate_pemEncodedCertificate :: Lens.Lens' ClientCertificate (Prelude.Maybe Prelude.Text)
 clientCertificate_pemEncodedCertificate = Lens.lens (\ClientCertificate' {pemEncodedCertificate} -> pemEncodedCertificate) (\s@ClientCertificate' {} a -> s {pemEncodedCertificate = a} :: ClientCertificate)
+
+-- | The description of the client certificate.
+clientCertificate_description :: Lens.Lens' ClientCertificate (Prelude.Maybe Prelude.Text)
+clientCertificate_description = Lens.lens (\ClientCertificate' {description} -> description) (\s@ClientCertificate' {} a -> s {description = a} :: ClientCertificate)
 
 -- | The identifier of the client certificate.
 clientCertificate_clientCertificateId :: Lens.Lens' ClientCertificate (Prelude.Maybe Prelude.Text)
@@ -102,43 +110,34 @@ clientCertificate_createdDate = Lens.lens (\ClientCertificate' {createdDate} -> 
 clientCertificate_expirationDate :: Lens.Lens' ClientCertificate (Prelude.Maybe Prelude.UTCTime)
 clientCertificate_expirationDate = Lens.lens (\ClientCertificate' {expirationDate} -> expirationDate) (\s@ClientCertificate' {} a -> s {expirationDate = a} :: ClientCertificate) Prelude.. Lens.mapping Core._Time
 
--- | The description of the client certificate.
-clientCertificate_description :: Lens.Lens' ClientCertificate (Prelude.Maybe Prelude.Text)
-clientCertificate_description = Lens.lens (\ClientCertificate' {description} -> description) (\s@ClientCertificate' {} a -> s {description = a} :: ClientCertificate)
-
--- | The collection of tags. Each tag element is associated with a given
--- resource.
-clientCertificate_tags :: Lens.Lens' ClientCertificate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-clientCertificate_tags = Lens.lens (\ClientCertificate' {tags} -> tags) (\s@ClientCertificate' {} a -> s {tags = a} :: ClientCertificate) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON ClientCertificate where
   parseJSON =
     Core.withObject
       "ClientCertificate"
       ( \x ->
           ClientCertificate'
-            Prelude.<$> (x Core..:? "pemEncodedCertificate")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "pemEncodedCertificate")
+            Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "clientCertificateId")
             Prelude.<*> (x Core..:? "createdDate")
             Prelude.<*> (x Core..:? "expirationDate")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ClientCertificate where
   hashWithSalt _salt ClientCertificate' {..} =
-    _salt `Prelude.hashWithSalt` pemEncodedCertificate
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` pemEncodedCertificate
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` clientCertificateId
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` expirationDate
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ClientCertificate where
   rnf ClientCertificate' {..} =
-    Prelude.rnf pemEncodedCertificate
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf pemEncodedCertificate
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf clientCertificateId
       `Prelude.seq` Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags

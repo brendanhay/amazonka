@@ -36,10 +36,10 @@ module Amazonka.APIGateway.UpdateModel
     newModel,
 
     -- * Response Lenses
-    model_schema,
     model_name,
-    model_id,
     model_description,
+    model_id,
+    model_schema,
     model_contentType,
   )
 where

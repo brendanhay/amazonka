@@ -58,7 +58,7 @@ newtype CacheClusterSize = CacheClusterSize'
     )
 
 pattern CacheClusterSize_ :: CacheClusterSize
-pattern CacheClusterSize_ = CacheClusterSize' "28.4"
+pattern CacheClusterSize_ = CacheClusterSize' "1.6"
 
 {-# COMPLETE
   CacheClusterSize_,

@@ -27,10 +27,10 @@ module Amazonka.APIGateway.PutIntegrationResponse
     newPutIntegrationResponse,
 
     -- * Request Lenses
-    putIntegrationResponse_contentHandling,
+    putIntegrationResponse_responseParameters,
     putIntegrationResponse_responseTemplates,
     putIntegrationResponse_selectionPattern,
-    putIntegrationResponse_responseParameters,
+    putIntegrationResponse_contentHandling,
     putIntegrationResponse_restApiId,
     putIntegrationResponse_resourceId,
     putIntegrationResponse_httpMethod,
@@ -41,11 +41,11 @@ module Amazonka.APIGateway.PutIntegrationResponse
     newIntegrationResponse,
 
     -- * Response Lenses
-    integrationResponse_contentHandling,
+    integrationResponse_responseParameters,
     integrationResponse_responseTemplates,
     integrationResponse_selectionPattern,
+    integrationResponse_contentHandling,
     integrationResponse_statusCode,
-    integrationResponse_responseParameters,
   )
 where
 
@@ -60,7 +60,23 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPutIntegrationResponse' smart constructor.
 data PutIntegrationResponse = PutIntegrationResponse'
-  { -- | Specifies how to handle response payload content type conversions.
+  { -- | A key-value map specifying response parameters that are passed to the
+    -- method response from the back end. The key is a method response header
+    -- parameter name and the mapped value is an integration response header
+    -- value, a static value enclosed within a pair of single quotes, or a JSON
+    -- expression from the integration response body. The mapping key must
+    -- match the pattern of @method.response.header.{name}@, where @name@ is a
+    -- valid and unique header name. The mapped non-static value must match the
+    -- pattern of @integration.response.header.{name}@ or
+    -- @integration.response.body.{JSON-expression}@, where @name@ must be a
+    -- valid and unique response header name and @JSON-expression@ a valid JSON
+    -- expression without the @$@ prefix.
+    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies a put integration response\'s templates.
+    responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies the selection pattern of a put integration response.
+    selectionPattern :: Prelude.Maybe Prelude.Text,
+    -- | Specifies how to handle response payload content type conversions.
     -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
     -- following behaviors:
     --
@@ -74,22 +90,6 @@ data PutIntegrationResponse = PutIntegrationResponse'
     -- through from the integration response to the method response without
     -- modification.
     contentHandling :: Prelude.Maybe ContentHandlingStrategy,
-    -- | Specifies a put integration response\'s templates.
-    responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies the selection pattern of a put integration response.
-    selectionPattern :: Prelude.Maybe Prelude.Text,
-    -- | A key-value map specifying response parameters that are passed to the
-    -- method response from the back end. The key is a method response header
-    -- parameter name and the mapped value is an integration response header
-    -- value, a static value enclosed within a pair of single quotes, or a JSON
-    -- expression from the integration response body. The mapping key must
-    -- match the pattern of @method.response.header.{name}@, where @name@ is a
-    -- valid and unique header name. The mapped non-static value must match the
-    -- pattern of @integration.response.header.{name}@ or
-    -- @integration.response.body.{JSON-expression}@, where @name@ must be a
-    -- valid and unique response header name and @JSON-expression@ a valid JSON
-    -- expression without the @$@ prefix.
-    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | [Required] Specifies a put integration response request\'s resource
@@ -111,6 +111,22 @@ data PutIntegrationResponse = PutIntegrationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'responseParameters', 'putIntegrationResponse_responseParameters' - A key-value map specifying response parameters that are passed to the
+-- method response from the back end. The key is a method response header
+-- parameter name and the mapped value is an integration response header
+-- value, a static value enclosed within a pair of single quotes, or a JSON
+-- expression from the integration response body. The mapping key must
+-- match the pattern of @method.response.header.{name}@, where @name@ is a
+-- valid and unique header name. The mapped non-static value must match the
+-- pattern of @integration.response.header.{name}@ or
+-- @integration.response.body.{JSON-expression}@, where @name@ must be a
+-- valid and unique response header name and @JSON-expression@ a valid JSON
+-- expression without the @$@ prefix.
+--
+-- 'responseTemplates', 'putIntegrationResponse_responseTemplates' - Specifies a put integration response\'s templates.
+--
+-- 'selectionPattern', 'putIntegrationResponse_selectionPattern' - Specifies the selection pattern of a put integration response.
+--
 -- 'contentHandling', 'putIntegrationResponse_contentHandling' - Specifies how to handle response payload content type conversions.
 -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
 -- following behaviors:
@@ -124,22 +140,6 @@ data PutIntegrationResponse = PutIntegrationResponse'
 -- If this property is not defined, the response payload will be passed
 -- through from the integration response to the method response without
 -- modification.
---
--- 'responseTemplates', 'putIntegrationResponse_responseTemplates' - Specifies a put integration response\'s templates.
---
--- 'selectionPattern', 'putIntegrationResponse_selectionPattern' - Specifies the selection pattern of a put integration response.
---
--- 'responseParameters', 'putIntegrationResponse_responseParameters' - A key-value map specifying response parameters that are passed to the
--- method response from the back end. The key is a method response header
--- parameter name and the mapped value is an integration response header
--- value, a static value enclosed within a pair of single quotes, or a JSON
--- expression from the integration response body. The mapping key must
--- match the pattern of @method.response.header.{name}@, where @name@ is a
--- valid and unique header name. The mapped non-static value must match the
--- pattern of @integration.response.header.{name}@ or
--- @integration.response.body.{JSON-expression}@, where @name@ must be a
--- valid and unique response header name and @JSON-expression@ a valid JSON
--- expression without the @$@ prefix.
 --
 -- 'restApiId', 'putIntegrationResponse_restApiId' - [Required] The string identifier of the associated RestApi.
 --
@@ -166,16 +166,38 @@ newPutIntegrationResponse
   pHttpMethod_
   pStatusCode_ =
     PutIntegrationResponse'
-      { contentHandling =
+      { responseParameters =
           Prelude.Nothing,
         responseTemplates = Prelude.Nothing,
         selectionPattern = Prelude.Nothing,
-        responseParameters = Prelude.Nothing,
+        contentHandling = Prelude.Nothing,
         restApiId = pRestApiId_,
         resourceId = pResourceId_,
         httpMethod = pHttpMethod_,
         statusCode = pStatusCode_
       }
+
+-- | A key-value map specifying response parameters that are passed to the
+-- method response from the back end. The key is a method response header
+-- parameter name and the mapped value is an integration response header
+-- value, a static value enclosed within a pair of single quotes, or a JSON
+-- expression from the integration response body. The mapping key must
+-- match the pattern of @method.response.header.{name}@, where @name@ is a
+-- valid and unique header name. The mapped non-static value must match the
+-- pattern of @integration.response.header.{name}@ or
+-- @integration.response.body.{JSON-expression}@, where @name@ must be a
+-- valid and unique response header name and @JSON-expression@ a valid JSON
+-- expression without the @$@ prefix.
+putIntegrationResponse_responseParameters :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putIntegrationResponse_responseParameters = Lens.lens (\PutIntegrationResponse' {responseParameters} -> responseParameters) (\s@PutIntegrationResponse' {} a -> s {responseParameters = a} :: PutIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies a put integration response\'s templates.
+putIntegrationResponse_responseTemplates :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putIntegrationResponse_responseTemplates = Lens.lens (\PutIntegrationResponse' {responseTemplates} -> responseTemplates) (\s@PutIntegrationResponse' {} a -> s {responseTemplates = a} :: PutIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the selection pattern of a put integration response.
+putIntegrationResponse_selectionPattern :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe Prelude.Text)
+putIntegrationResponse_selectionPattern = Lens.lens (\PutIntegrationResponse' {selectionPattern} -> selectionPattern) (\s@PutIntegrationResponse' {} a -> s {selectionPattern = a} :: PutIntegrationResponse)
 
 -- | Specifies how to handle response payload content type conversions.
 -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
@@ -192,28 +214,6 @@ newPutIntegrationResponse
 -- modification.
 putIntegrationResponse_contentHandling :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe ContentHandlingStrategy)
 putIntegrationResponse_contentHandling = Lens.lens (\PutIntegrationResponse' {contentHandling} -> contentHandling) (\s@PutIntegrationResponse' {} a -> s {contentHandling = a} :: PutIntegrationResponse)
-
--- | Specifies a put integration response\'s templates.
-putIntegrationResponse_responseTemplates :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putIntegrationResponse_responseTemplates = Lens.lens (\PutIntegrationResponse' {responseTemplates} -> responseTemplates) (\s@PutIntegrationResponse' {} a -> s {responseTemplates = a} :: PutIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies the selection pattern of a put integration response.
-putIntegrationResponse_selectionPattern :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe Prelude.Text)
-putIntegrationResponse_selectionPattern = Lens.lens (\PutIntegrationResponse' {selectionPattern} -> selectionPattern) (\s@PutIntegrationResponse' {} a -> s {selectionPattern = a} :: PutIntegrationResponse)
-
--- | A key-value map specifying response parameters that are passed to the
--- method response from the back end. The key is a method response header
--- parameter name and the mapped value is an integration response header
--- value, a static value enclosed within a pair of single quotes, or a JSON
--- expression from the integration response body. The mapping key must
--- match the pattern of @method.response.header.{name}@, where @name@ is a
--- valid and unique header name. The mapped non-static value must match the
--- pattern of @integration.response.header.{name}@ or
--- @integration.response.body.{JSON-expression}@, where @name@ must be a
--- valid and unique response header name and @JSON-expression@ a valid JSON
--- expression without the @$@ prefix.
-putIntegrationResponse_responseParameters :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putIntegrationResponse_responseParameters = Lens.lens (\PutIntegrationResponse' {responseParameters} -> responseParameters) (\s@PutIntegrationResponse' {} a -> s {responseParameters = a} :: PutIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 putIntegrationResponse_restApiId :: Lens.Lens' PutIntegrationResponse Prelude.Text
@@ -244,10 +244,10 @@ instance Core.AWSRequest PutIntegrationResponse where
 
 instance Prelude.Hashable PutIntegrationResponse where
   hashWithSalt _salt PutIntegrationResponse' {..} =
-    _salt `Prelude.hashWithSalt` contentHandling
+    _salt `Prelude.hashWithSalt` responseParameters
       `Prelude.hashWithSalt` responseTemplates
       `Prelude.hashWithSalt` selectionPattern
-      `Prelude.hashWithSalt` responseParameters
+      `Prelude.hashWithSalt` contentHandling
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` httpMethod
@@ -255,10 +255,10 @@ instance Prelude.Hashable PutIntegrationResponse where
 
 instance Prelude.NFData PutIntegrationResponse where
   rnf PutIntegrationResponse' {..} =
-    Prelude.rnf contentHandling
+    Prelude.rnf responseParameters
       `Prelude.seq` Prelude.rnf responseTemplates
       `Prelude.seq` Prelude.rnf selectionPattern
-      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf contentHandling
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf httpMethod
@@ -277,14 +277,14 @@ instance Core.ToJSON PutIntegrationResponse where
   toJSON PutIntegrationResponse' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("contentHandling" Core..=)
-              Prelude.<$> contentHandling,
+          [ ("responseParameters" Core..=)
+              Prelude.<$> responseParameters,
             ("responseTemplates" Core..=)
               Prelude.<$> responseTemplates,
             ("selectionPattern" Core..=)
               Prelude.<$> selectionPattern,
-            ("responseParameters" Core..=)
-              Prelude.<$> responseParameters
+            ("contentHandling" Core..=)
+              Prelude.<$> contentHandling
           ]
       )
 

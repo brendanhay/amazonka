@@ -30,8 +30,8 @@ module Amazonka.APIGateway.GetUsagePlanKeys
     newGetUsagePlanKeys,
 
     -- * Request Lenses
-    getUsagePlanKeys_nameQuery,
     getUsagePlanKeys_limit,
+    getUsagePlanKeys_nameQuery,
     getUsagePlanKeys_position,
     getUsagePlanKeys_usagePlanId,
 
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetUsagePlanKeys' smart constructor.
 data GetUsagePlanKeys = GetUsagePlanKeys'
-  { -- | A query parameter specifying the name of the to-be-returned usage plan
-    -- keys.
-    nameQuery :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
+  { -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
+    -- | A query parameter specifying the name of the to-be-returned usage plan
+    -- keys.
+    nameQuery :: Prelude.Maybe Prelude.Text,
     -- | The current pagination position in the paged result set.
     position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The Id of the UsagePlan resource representing the usage plan
@@ -81,11 +81,11 @@ data GetUsagePlanKeys = GetUsagePlanKeys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nameQuery', 'getUsagePlanKeys_nameQuery' - A query parameter specifying the name of the to-be-returned usage plan
--- keys.
---
 -- 'limit', 'getUsagePlanKeys_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'nameQuery', 'getUsagePlanKeys_nameQuery' - A query parameter specifying the name of the to-be-returned usage plan
+-- keys.
 --
 -- 'position', 'getUsagePlanKeys_position' - The current pagination position in the paged result set.
 --
@@ -98,21 +98,21 @@ newGetUsagePlanKeys ::
   GetUsagePlanKeys
 newGetUsagePlanKeys pUsagePlanId_ =
   GetUsagePlanKeys'
-    { nameQuery = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nameQuery = Prelude.Nothing,
       position = Prelude.Nothing,
       usagePlanId = pUsagePlanId_
     }
-
--- | A query parameter specifying the name of the to-be-returned usage plan
--- keys.
-getUsagePlanKeys_nameQuery :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Text)
-getUsagePlanKeys_nameQuery = Lens.lens (\GetUsagePlanKeys' {nameQuery} -> nameQuery) (\s@GetUsagePlanKeys' {} a -> s {nameQuery = a} :: GetUsagePlanKeys)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getUsagePlanKeys_limit :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Int)
 getUsagePlanKeys_limit = Lens.lens (\GetUsagePlanKeys' {limit} -> limit) (\s@GetUsagePlanKeys' {} a -> s {limit = a} :: GetUsagePlanKeys)
+
+-- | A query parameter specifying the name of the to-be-returned usage plan
+-- keys.
+getUsagePlanKeys_nameQuery :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Text)
+getUsagePlanKeys_nameQuery = Lens.lens (\GetUsagePlanKeys' {nameQuery} -> nameQuery) (\s@GetUsagePlanKeys' {} a -> s {nameQuery = a} :: GetUsagePlanKeys)
 
 -- | The current pagination position in the paged result set.
 getUsagePlanKeys_position :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Text)
@@ -161,15 +161,15 @@ instance Core.AWSRequest GetUsagePlanKeys where
 
 instance Prelude.Hashable GetUsagePlanKeys where
   hashWithSalt _salt GetUsagePlanKeys' {..} =
-    _salt `Prelude.hashWithSalt` nameQuery
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nameQuery
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` usagePlanId
 
 instance Prelude.NFData GetUsagePlanKeys where
   rnf GetUsagePlanKeys' {..} =
-    Prelude.rnf nameQuery
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nameQuery
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf usagePlanId
 
@@ -190,8 +190,8 @@ instance Core.ToPath GetUsagePlanKeys where
 instance Core.ToQuery GetUsagePlanKeys where
   toQuery GetUsagePlanKeys' {..} =
     Prelude.mconcat
-      [ "name" Core.=: nameQuery,
-        "limit" Core.=: limit,
+      [ "limit" Core.=: limit,
+        "name" Core.=: nameQuery,
         "position" Core.=: position
       ]
 

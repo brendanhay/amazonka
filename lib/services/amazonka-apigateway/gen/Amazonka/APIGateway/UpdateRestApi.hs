@@ -35,19 +35,19 @@ module Amazonka.APIGateway.UpdateRestApi
     newRestApi,
 
     -- * Response Lenses
-    restApi_minimumCompressionSize,
-    restApi_disableExecuteApiEndpoint,
+    restApi_tags,
+    restApi_policy,
+    restApi_name,
+    restApi_description,
+    restApi_id,
     restApi_binaryMediaTypes,
     restApi_warnings,
-    restApi_createdDate,
-    restApi_name,
-    restApi_version,
-    restApi_apiKeySource,
-    restApi_id,
-    restApi_policy,
+    restApi_disableExecuteApiEndpoint,
     restApi_endpointConfiguration,
-    restApi_description,
-    restApi_tags,
+    restApi_createdDate,
+    restApi_apiKeySource,
+    restApi_minimumCompressionSize,
+    restApi_version,
   )
 where
 

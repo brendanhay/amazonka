@@ -37,16 +37,16 @@ module Amazonka.APIGateway.GetAuthorizer
     newAuthorizer,
 
     -- * Response Lenses
-    authorizer_authorizerUri,
-    authorizer_identityValidationExpression,
-    authorizer_providerARNs,
     authorizer_name,
-    authorizer_id,
-    authorizer_authorizerResultTtlInSeconds,
-    authorizer_authType,
     authorizer_type,
-    authorizer_identitySource,
     authorizer_authorizerCredentials,
+    authorizer_identitySource,
+    authorizer_authorizerResultTtlInSeconds,
+    authorizer_id,
+    authorizer_identityValidationExpression,
+    authorizer_authorizerUri,
+    authorizer_providerARNs,
+    authorizer_authType,
   )
 where
 

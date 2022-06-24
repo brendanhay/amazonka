@@ -36,10 +36,10 @@ module Amazonka.APIGateway.CreateUsagePlanKey
     newUsagePlanKey,
 
     -- * Response Lenses
-    usagePlanKey_value,
     usagePlanKey_name,
-    usagePlanKey_id,
     usagePlanKey_type,
+    usagePlanKey_id,
+    usagePlanKey_value,
   )
 where
 

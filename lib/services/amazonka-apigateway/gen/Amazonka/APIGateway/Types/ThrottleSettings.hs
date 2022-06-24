@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThrottleSettings' smart constructor.
 data ThrottleSettings = ThrottleSettings'
-  { -- | The API request burst limit, the maximum rate limit over a time ranging
+  { -- | The API request steady-state rate limit.
+    rateLimit :: Prelude.Maybe Prelude.Double,
+    -- | The API request burst limit, the maximum rate limit over a time ranging
     -- from one to a few seconds, depending upon whether the underlying token
     -- bucket is at its full capacity.
-    burstLimit :: Prelude.Maybe Prelude.Int,
-    -- | The API request steady-state rate limit.
-    rateLimit :: Prelude.Maybe Prelude.Double
+    burstLimit :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,18 +44,22 @@ data ThrottleSettings = ThrottleSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rateLimit', 'throttleSettings_rateLimit' - The API request steady-state rate limit.
+--
 -- 'burstLimit', 'throttleSettings_burstLimit' - The API request burst limit, the maximum rate limit over a time ranging
 -- from one to a few seconds, depending upon whether the underlying token
 -- bucket is at its full capacity.
---
--- 'rateLimit', 'throttleSettings_rateLimit' - The API request steady-state rate limit.
 newThrottleSettings ::
   ThrottleSettings
 newThrottleSettings =
   ThrottleSettings'
-    { burstLimit = Prelude.Nothing,
-      rateLimit = Prelude.Nothing
+    { rateLimit = Prelude.Nothing,
+      burstLimit = Prelude.Nothing
     }
+
+-- | The API request steady-state rate limit.
+throttleSettings_rateLimit :: Lens.Lens' ThrottleSettings (Prelude.Maybe Prelude.Double)
+throttleSettings_rateLimit = Lens.lens (\ThrottleSettings' {rateLimit} -> rateLimit) (\s@ThrottleSettings' {} a -> s {rateLimit = a} :: ThrottleSettings)
 
 -- | The API request burst limit, the maximum rate limit over a time ranging
 -- from one to a few seconds, depending upon whether the underlying token
@@ -63,35 +67,31 @@ newThrottleSettings =
 throttleSettings_burstLimit :: Lens.Lens' ThrottleSettings (Prelude.Maybe Prelude.Int)
 throttleSettings_burstLimit = Lens.lens (\ThrottleSettings' {burstLimit} -> burstLimit) (\s@ThrottleSettings' {} a -> s {burstLimit = a} :: ThrottleSettings)
 
--- | The API request steady-state rate limit.
-throttleSettings_rateLimit :: Lens.Lens' ThrottleSettings (Prelude.Maybe Prelude.Double)
-throttleSettings_rateLimit = Lens.lens (\ThrottleSettings' {rateLimit} -> rateLimit) (\s@ThrottleSettings' {} a -> s {rateLimit = a} :: ThrottleSettings)
-
 instance Core.FromJSON ThrottleSettings where
   parseJSON =
     Core.withObject
       "ThrottleSettings"
       ( \x ->
           ThrottleSettings'
-            Prelude.<$> (x Core..:? "burstLimit")
-            Prelude.<*> (x Core..:? "rateLimit")
+            Prelude.<$> (x Core..:? "rateLimit")
+            Prelude.<*> (x Core..:? "burstLimit")
       )
 
 instance Prelude.Hashable ThrottleSettings where
   hashWithSalt _salt ThrottleSettings' {..} =
-    _salt `Prelude.hashWithSalt` burstLimit
-      `Prelude.hashWithSalt` rateLimit
+    _salt `Prelude.hashWithSalt` rateLimit
+      `Prelude.hashWithSalt` burstLimit
 
 instance Prelude.NFData ThrottleSettings where
   rnf ThrottleSettings' {..} =
-    Prelude.rnf burstLimit
-      `Prelude.seq` Prelude.rnf rateLimit
+    Prelude.rnf rateLimit
+      `Prelude.seq` Prelude.rnf burstLimit
 
 instance Core.ToJSON ThrottleSettings where
   toJSON ThrottleSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("burstLimit" Core..=) Prelude.<$> burstLimit,
-            ("rateLimit" Core..=) Prelude.<$> rateLimit
+          [ ("rateLimit" Core..=) Prelude.<$> rateLimit,
+            ("burstLimit" Core..=) Prelude.<$> burstLimit
           ]
       )

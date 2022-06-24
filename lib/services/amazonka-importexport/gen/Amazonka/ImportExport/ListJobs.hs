@@ -33,8 +33,8 @@ module Amazonka.ImportExport.ListJobs
     newListJobs,
 
     -- * Request Lenses
-    listJobs_aPIVersion,
     listJobs_marker,
+    listJobs_aPIVersion,
     listJobs_maxJobs,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.ImportExport.ListJobs
     newListJobsResponse,
 
     -- * Response Lenses
-    listJobsResponse_jobs,
     listJobsResponse_isTruncated,
+    listJobsResponse_jobs,
     listJobsResponse_httpStatus,
   )
 where
@@ -59,8 +59,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { aPIVersion :: Prelude.Maybe Prelude.Text,
-    marker :: Prelude.Maybe Prelude.Text,
+  { marker :: Prelude.Maybe Prelude.Text,
+    aPIVersion :: Prelude.Maybe Prelude.Text,
     maxJobs :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,27 +73,27 @@ data ListJobs = ListJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aPIVersion', 'listJobs_aPIVersion' - Undocumented member.
---
 -- 'marker', 'listJobs_marker' - Undocumented member.
+--
+-- 'aPIVersion', 'listJobs_aPIVersion' - Undocumented member.
 --
 -- 'maxJobs', 'listJobs_maxJobs' - Undocumented member.
 newListJobs ::
   ListJobs
 newListJobs =
   ListJobs'
-    { aPIVersion = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      aPIVersion = Prelude.Nothing,
       maxJobs = Prelude.Nothing
     }
 
 -- | Undocumented member.
-listJobs_aPIVersion :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_aPIVersion = Lens.lens (\ListJobs' {aPIVersion} -> aPIVersion) (\s@ListJobs' {} a -> s {aPIVersion = a} :: ListJobs)
-
--- | Undocumented member.
 listJobs_marker :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_marker = Lens.lens (\ListJobs' {marker} -> marker) (\s@ListJobs' {} a -> s {marker = a} :: ListJobs)
+
+-- | Undocumented member.
+listJobs_aPIVersion :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_aPIVersion = Lens.lens (\ListJobs' {aPIVersion} -> aPIVersion) (\s@ListJobs' {} a -> s {aPIVersion = a} :: ListJobs)
 
 -- | Undocumented member.
 listJobs_maxJobs :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Int)
@@ -130,23 +130,23 @@ instance Core.AWSRequest ListJobs where
       "ListJobsResult"
       ( \s h x ->
           ListJobsResponse'
-            Prelude.<$> ( x Core..@? "Jobs" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "IsTruncated")
+            Prelude.<*> ( x Core..@? "Jobs" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListJobs where
   hashWithSalt _salt ListJobs' {..} =
-    _salt `Prelude.hashWithSalt` aPIVersion
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` aPIVersion
       `Prelude.hashWithSalt` maxJobs
 
 instance Prelude.NFData ListJobs where
   rnf ListJobs' {..} =
-    Prelude.rnf aPIVersion
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf aPIVersion
       `Prelude.seq` Prelude.rnf maxJobs
 
 instance Core.ToHeaders ListJobs where
@@ -162,8 +162,8 @@ instance Core.ToQuery ListJobs where
         "Action" Core.=: ("ListJobs" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-06-01" :: Prelude.ByteString),
-        "APIVersion" Core.=: aPIVersion,
         "Marker" Core.=: marker,
+        "APIVersion" Core.=: aPIVersion,
         "MaxJobs" Core.=: maxJobs
       ]
 
@@ -171,8 +171,8 @@ instance Core.ToQuery ListJobs where
 --
 -- /See:/ 'newListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { jobs :: Prelude.Maybe [Job],
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+  { isTruncated :: Prelude.Maybe Prelude.Bool,
+    jobs :: Prelude.Maybe [Job],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,9 +186,9 @@ data ListJobsResponse = ListJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobs', 'listJobsResponse_jobs' - Undocumented member.
---
 -- 'isTruncated', 'listJobsResponse_isTruncated' - Undocumented member.
+--
+-- 'jobs', 'listJobsResponse_jobs' - Undocumented member.
 --
 -- 'httpStatus', 'listJobsResponse_httpStatus' - The response's http status code.
 newListJobsResponse ::
@@ -197,18 +197,18 @@ newListJobsResponse ::
   ListJobsResponse
 newListJobsResponse pHttpStatus_ =
   ListJobsResponse'
-    { jobs = Prelude.Nothing,
-      isTruncated = Prelude.Nothing,
+    { isTruncated = Prelude.Nothing,
+      jobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listJobsResponse_jobs :: Lens.Lens' ListJobsResponse (Prelude.Maybe [Job])
-listJobsResponse_jobs = Lens.lens (\ListJobsResponse' {jobs} -> jobs) (\s@ListJobsResponse' {} a -> s {jobs = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 listJobsResponse_isTruncated :: Lens.Lens' ListJobsResponse (Prelude.Maybe Prelude.Bool)
 listJobsResponse_isTruncated = Lens.lens (\ListJobsResponse' {isTruncated} -> isTruncated) (\s@ListJobsResponse' {} a -> s {isTruncated = a} :: ListJobsResponse)
+
+-- | Undocumented member.
+listJobsResponse_jobs :: Lens.Lens' ListJobsResponse (Prelude.Maybe [Job])
+listJobsResponse_jobs = Lens.lens (\ListJobsResponse' {jobs} -> jobs) (\s@ListJobsResponse' {} a -> s {jobs = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Prelude.Int
@@ -216,6 +216,6 @@ listJobsResponse_httpStatus = Lens.lens (\ListJobsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListJobsResponse where
   rnf ListJobsResponse' {..} =
-    Prelude.rnf jobs
-      `Prelude.seq` Prelude.rnf isTruncated
+    Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf jobs
       `Prelude.seq` Prelude.rnf httpStatus

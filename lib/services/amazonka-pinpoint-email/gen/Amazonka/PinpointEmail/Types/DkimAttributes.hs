@@ -29,7 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDkimAttributes' smart constructor.
 data DkimAttributes = DkimAttributes'
-  { -- | Describes whether or not Amazon Pinpoint has successfully located the
+  { -- | A set of unique strings that you use to create a set of CNAME records
+    -- that you add to the DNS configuration for your domain. When Amazon
+    -- Pinpoint detects these records in the DNS configuration for your domain,
+    -- the DKIM authentication process is complete. Amazon Pinpoint usually
+    -- detects these records within about 72 hours of adding them to the DNS
+    -- configuration for your domain.
+    tokens :: Prelude.Maybe [Prelude.Text],
+    -- | Describes whether or not Amazon Pinpoint has successfully located the
     -- DKIM records in the DNS records for the domain. The status can be one of
     -- the following:
     --
@@ -51,13 +58,6 @@ data DkimAttributes = DkimAttributes'
     -- -   @NOT_STARTED@ – Amazon Pinpoint hasn\'t yet started searching for
     --     the DKIM records in the DKIM records for the domain.
     status :: Prelude.Maybe DkimStatus,
-    -- | A set of unique strings that you use to create a set of CNAME records
-    -- that you add to the DNS configuration for your domain. When Amazon
-    -- Pinpoint detects these records in the DNS configuration for your domain,
-    -- the DKIM authentication process is complete. Amazon Pinpoint usually
-    -- detects these records within about 72 hours of adding them to the DNS
-    -- configuration for your domain.
-    tokens :: Prelude.Maybe [Prelude.Text],
     -- | If the value is @true@, then the messages that Amazon Pinpoint sends
     -- from the identity are DKIM-signed. If the value is @false@, then the
     -- messages that Amazon Pinpoint sends from the identity aren\'t
@@ -73,6 +73,13 @@ data DkimAttributes = DkimAttributes'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tokens', 'dkimAttributes_tokens' - A set of unique strings that you use to create a set of CNAME records
+-- that you add to the DNS configuration for your domain. When Amazon
+-- Pinpoint detects these records in the DNS configuration for your domain,
+-- the DKIM authentication process is complete. Amazon Pinpoint usually
+-- detects these records within about 72 hours of adding them to the DNS
+-- configuration for your domain.
 --
 -- 'status', 'dkimAttributes_status' - Describes whether or not Amazon Pinpoint has successfully located the
 -- DKIM records in the DNS records for the domain. The status can be one of
@@ -96,13 +103,6 @@ data DkimAttributes = DkimAttributes'
 -- -   @NOT_STARTED@ – Amazon Pinpoint hasn\'t yet started searching for
 --     the DKIM records in the DKIM records for the domain.
 --
--- 'tokens', 'dkimAttributes_tokens' - A set of unique strings that you use to create a set of CNAME records
--- that you add to the DNS configuration for your domain. When Amazon
--- Pinpoint detects these records in the DNS configuration for your domain,
--- the DKIM authentication process is complete. Amazon Pinpoint usually
--- detects these records within about 72 hours of adding them to the DNS
--- configuration for your domain.
---
 -- 'signingEnabled', 'dkimAttributes_signingEnabled' - If the value is @true@, then the messages that Amazon Pinpoint sends
 -- from the identity are DKIM-signed. If the value is @false@, then the
 -- messages that Amazon Pinpoint sends from the identity aren\'t
@@ -111,10 +111,19 @@ newDkimAttributes ::
   DkimAttributes
 newDkimAttributes =
   DkimAttributes'
-    { status = Prelude.Nothing,
-      tokens = Prelude.Nothing,
+    { tokens = Prelude.Nothing,
+      status = Prelude.Nothing,
       signingEnabled = Prelude.Nothing
     }
+
+-- | A set of unique strings that you use to create a set of CNAME records
+-- that you add to the DNS configuration for your domain. When Amazon
+-- Pinpoint detects these records in the DNS configuration for your domain,
+-- the DKIM authentication process is complete. Amazon Pinpoint usually
+-- detects these records within about 72 hours of adding them to the DNS
+-- configuration for your domain.
+dkimAttributes_tokens :: Lens.Lens' DkimAttributes (Prelude.Maybe [Prelude.Text])
+dkimAttributes_tokens = Lens.lens (\DkimAttributes' {tokens} -> tokens) (\s@DkimAttributes' {} a -> s {tokens = a} :: DkimAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | Describes whether or not Amazon Pinpoint has successfully located the
 -- DKIM records in the DNS records for the domain. The status can be one of
@@ -140,15 +149,6 @@ newDkimAttributes =
 dkimAttributes_status :: Lens.Lens' DkimAttributes (Prelude.Maybe DkimStatus)
 dkimAttributes_status = Lens.lens (\DkimAttributes' {status} -> status) (\s@DkimAttributes' {} a -> s {status = a} :: DkimAttributes)
 
--- | A set of unique strings that you use to create a set of CNAME records
--- that you add to the DNS configuration for your domain. When Amazon
--- Pinpoint detects these records in the DNS configuration for your domain,
--- the DKIM authentication process is complete. Amazon Pinpoint usually
--- detects these records within about 72 hours of adding them to the DNS
--- configuration for your domain.
-dkimAttributes_tokens :: Lens.Lens' DkimAttributes (Prelude.Maybe [Prelude.Text])
-dkimAttributes_tokens = Lens.lens (\DkimAttributes' {tokens} -> tokens) (\s@DkimAttributes' {} a -> s {tokens = a} :: DkimAttributes) Prelude.. Lens.mapping Lens.coerced
-
 -- | If the value is @true@, then the messages that Amazon Pinpoint sends
 -- from the identity are DKIM-signed. If the value is @false@, then the
 -- messages that Amazon Pinpoint sends from the identity aren\'t
@@ -162,19 +162,19 @@ instance Core.FromJSON DkimAttributes where
       "DkimAttributes"
       ( \x ->
           DkimAttributes'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Tokens" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Tokens" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "SigningEnabled")
       )
 
 instance Prelude.Hashable DkimAttributes where
   hashWithSalt _salt DkimAttributes' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` tokens
+    _salt `Prelude.hashWithSalt` tokens
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` signingEnabled
 
 instance Prelude.NFData DkimAttributes where
   rnf DkimAttributes' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tokens
+    Prelude.rnf tokens
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf signingEnabled

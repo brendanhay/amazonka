@@ -44,8 +44,8 @@ module Amazonka.PinpointEmail.ListConfigurationSets
     newListConfigurationSetsResponse,
 
     -- * Response Lenses
-    listConfigurationSetsResponse_configurationSets,
     listConfigurationSetsResponse_nextToken,
+    listConfigurationSetsResponse_configurationSets,
     listConfigurationSetsResponse_httpStatus,
   )
 where
@@ -139,10 +139,10 @@ instance Core.AWSRequest ListConfigurationSets where
     Response.receiveJSON
       ( \s h x ->
           ListConfigurationSetsResponse'
-            Prelude.<$> ( x Core..?> "ConfigurationSets"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ConfigurationSets"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,14 +182,14 @@ instance Core.ToQuery ListConfigurationSets where
 --
 -- /See:/ 'newListConfigurationSetsResponse' smart constructor.
 data ListConfigurationSetsResponse = ListConfigurationSetsResponse'
-  { -- | An array that contains all of the configuration sets in your Amazon
-    -- Pinpoint account in the current AWS Region.
-    configurationSets :: Prelude.Maybe [Prelude.Text],
-    -- | A token that indicates that there are additional configuration sets to
+  { -- | A token that indicates that there are additional configuration sets to
     -- list. To view additional configuration sets, issue another request to
     -- @ListConfigurationSets@, and pass this token in the @NextToken@
     -- parameter.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array that contains all of the configuration sets in your Amazon
+    -- Pinpoint account in the current AWS Region.
+    configurationSets :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,13 +203,13 @@ data ListConfigurationSetsResponse = ListConfigurationSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configurationSets', 'listConfigurationSetsResponse_configurationSets' - An array that contains all of the configuration sets in your Amazon
--- Pinpoint account in the current AWS Region.
---
 -- 'nextToken', 'listConfigurationSetsResponse_nextToken' - A token that indicates that there are additional configuration sets to
 -- list. To view additional configuration sets, issue another request to
 -- @ListConfigurationSets@, and pass this token in the @NextToken@
 -- parameter.
+--
+-- 'configurationSets', 'listConfigurationSetsResponse_configurationSets' - An array that contains all of the configuration sets in your Amazon
+-- Pinpoint account in the current AWS Region.
 --
 -- 'httpStatus', 'listConfigurationSetsResponse_httpStatus' - The response's http status code.
 newListConfigurationSetsResponse ::
@@ -218,16 +218,11 @@ newListConfigurationSetsResponse ::
   ListConfigurationSetsResponse
 newListConfigurationSetsResponse pHttpStatus_ =
   ListConfigurationSetsResponse'
-    { configurationSets =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      configurationSets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array that contains all of the configuration sets in your Amazon
--- Pinpoint account in the current AWS Region.
-listConfigurationSetsResponse_configurationSets :: Lens.Lens' ListConfigurationSetsResponse (Prelude.Maybe [Prelude.Text])
-listConfigurationSetsResponse_configurationSets = Lens.lens (\ListConfigurationSetsResponse' {configurationSets} -> configurationSets) (\s@ListConfigurationSetsResponse' {} a -> s {configurationSets = a} :: ListConfigurationSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates that there are additional configuration sets to
 -- list. To view additional configuration sets, issue another request to
@@ -236,12 +231,17 @@ listConfigurationSetsResponse_configurationSets = Lens.lens (\ListConfigurationS
 listConfigurationSetsResponse_nextToken :: Lens.Lens' ListConfigurationSetsResponse (Prelude.Maybe Prelude.Text)
 listConfigurationSetsResponse_nextToken = Lens.lens (\ListConfigurationSetsResponse' {nextToken} -> nextToken) (\s@ListConfigurationSetsResponse' {} a -> s {nextToken = a} :: ListConfigurationSetsResponse)
 
+-- | An array that contains all of the configuration sets in your Amazon
+-- Pinpoint account in the current AWS Region.
+listConfigurationSetsResponse_configurationSets :: Lens.Lens' ListConfigurationSetsResponse (Prelude.Maybe [Prelude.Text])
+listConfigurationSetsResponse_configurationSets = Lens.lens (\ListConfigurationSetsResponse' {configurationSets} -> configurationSets) (\s@ListConfigurationSetsResponse' {} a -> s {configurationSets = a} :: ListConfigurationSetsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listConfigurationSetsResponse_httpStatus :: Lens.Lens' ListConfigurationSetsResponse Prelude.Int
 listConfigurationSetsResponse_httpStatus = Lens.lens (\ListConfigurationSetsResponse' {httpStatus} -> httpStatus) (\s@ListConfigurationSetsResponse' {} a -> s {httpStatus = a} :: ListConfigurationSetsResponse)
 
 instance Prelude.NFData ListConfigurationSetsResponse where
   rnf ListConfigurationSetsResponse' {..} =
-    Prelude.rnf configurationSets
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf configurationSets
       `Prelude.seq` Prelude.rnf httpStatus

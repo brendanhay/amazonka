@@ -30,15 +30,15 @@ data PlacementStatistics = PlacementStatistics'
   { -- | The percentage of emails that didn\'t arrive in recipients\' inboxes at
     -- all during the predictive inbox placement test.
     missingPercentage :: Prelude.Maybe Prelude.Double,
-    -- | The percentage of emails that arrived in recipients\' spam or junk mail
-    -- folders during the predictive inbox placement test.
-    spamPercentage :: Prelude.Maybe Prelude.Double,
-    -- | The percentage of emails that were authenticated by using Sender Policy
-    -- Framework (SPF) during the predictive inbox placement test.
-    spfPercentage :: Prelude.Maybe Prelude.Double,
     -- | The percentage of emails that were authenticated by using DomainKeys
     -- Identified Mail (DKIM) during the predictive inbox placement test.
     dkimPercentage :: Prelude.Maybe Prelude.Double,
+    -- | The percentage of emails that were authenticated by using Sender Policy
+    -- Framework (SPF) during the predictive inbox placement test.
+    spfPercentage :: Prelude.Maybe Prelude.Double,
+    -- | The percentage of emails that arrived in recipients\' spam or junk mail
+    -- folders during the predictive inbox placement test.
+    spamPercentage :: Prelude.Maybe Prelude.Double,
     -- | The percentage of emails that arrived in recipients\' inboxes during the
     -- predictive inbox placement test.
     inboxPercentage :: Prelude.Maybe Prelude.Double
@@ -56,14 +56,14 @@ data PlacementStatistics = PlacementStatistics'
 -- 'missingPercentage', 'placementStatistics_missingPercentage' - The percentage of emails that didn\'t arrive in recipients\' inboxes at
 -- all during the predictive inbox placement test.
 --
--- 'spamPercentage', 'placementStatistics_spamPercentage' - The percentage of emails that arrived in recipients\' spam or junk mail
--- folders during the predictive inbox placement test.
+-- 'dkimPercentage', 'placementStatistics_dkimPercentage' - The percentage of emails that were authenticated by using DomainKeys
+-- Identified Mail (DKIM) during the predictive inbox placement test.
 --
 -- 'spfPercentage', 'placementStatistics_spfPercentage' - The percentage of emails that were authenticated by using Sender Policy
 -- Framework (SPF) during the predictive inbox placement test.
 --
--- 'dkimPercentage', 'placementStatistics_dkimPercentage' - The percentage of emails that were authenticated by using DomainKeys
--- Identified Mail (DKIM) during the predictive inbox placement test.
+-- 'spamPercentage', 'placementStatistics_spamPercentage' - The percentage of emails that arrived in recipients\' spam or junk mail
+-- folders during the predictive inbox placement test.
 --
 -- 'inboxPercentage', 'placementStatistics_inboxPercentage' - The percentage of emails that arrived in recipients\' inboxes during the
 -- predictive inbox placement test.
@@ -73,9 +73,9 @@ newPlacementStatistics =
   PlacementStatistics'
     { missingPercentage =
         Prelude.Nothing,
-      spamPercentage = Prelude.Nothing,
-      spfPercentage = Prelude.Nothing,
       dkimPercentage = Prelude.Nothing,
+      spfPercentage = Prelude.Nothing,
+      spamPercentage = Prelude.Nothing,
       inboxPercentage = Prelude.Nothing
     }
 
@@ -84,20 +84,20 @@ newPlacementStatistics =
 placementStatistics_missingPercentage :: Lens.Lens' PlacementStatistics (Prelude.Maybe Prelude.Double)
 placementStatistics_missingPercentage = Lens.lens (\PlacementStatistics' {missingPercentage} -> missingPercentage) (\s@PlacementStatistics' {} a -> s {missingPercentage = a} :: PlacementStatistics)
 
--- | The percentage of emails that arrived in recipients\' spam or junk mail
--- folders during the predictive inbox placement test.
-placementStatistics_spamPercentage :: Lens.Lens' PlacementStatistics (Prelude.Maybe Prelude.Double)
-placementStatistics_spamPercentage = Lens.lens (\PlacementStatistics' {spamPercentage} -> spamPercentage) (\s@PlacementStatistics' {} a -> s {spamPercentage = a} :: PlacementStatistics)
+-- | The percentage of emails that were authenticated by using DomainKeys
+-- Identified Mail (DKIM) during the predictive inbox placement test.
+placementStatistics_dkimPercentage :: Lens.Lens' PlacementStatistics (Prelude.Maybe Prelude.Double)
+placementStatistics_dkimPercentage = Lens.lens (\PlacementStatistics' {dkimPercentage} -> dkimPercentage) (\s@PlacementStatistics' {} a -> s {dkimPercentage = a} :: PlacementStatistics)
 
 -- | The percentage of emails that were authenticated by using Sender Policy
 -- Framework (SPF) during the predictive inbox placement test.
 placementStatistics_spfPercentage :: Lens.Lens' PlacementStatistics (Prelude.Maybe Prelude.Double)
 placementStatistics_spfPercentage = Lens.lens (\PlacementStatistics' {spfPercentage} -> spfPercentage) (\s@PlacementStatistics' {} a -> s {spfPercentage = a} :: PlacementStatistics)
 
--- | The percentage of emails that were authenticated by using DomainKeys
--- Identified Mail (DKIM) during the predictive inbox placement test.
-placementStatistics_dkimPercentage :: Lens.Lens' PlacementStatistics (Prelude.Maybe Prelude.Double)
-placementStatistics_dkimPercentage = Lens.lens (\PlacementStatistics' {dkimPercentage} -> dkimPercentage) (\s@PlacementStatistics' {} a -> s {dkimPercentage = a} :: PlacementStatistics)
+-- | The percentage of emails that arrived in recipients\' spam or junk mail
+-- folders during the predictive inbox placement test.
+placementStatistics_spamPercentage :: Lens.Lens' PlacementStatistics (Prelude.Maybe Prelude.Double)
+placementStatistics_spamPercentage = Lens.lens (\PlacementStatistics' {spamPercentage} -> spamPercentage) (\s@PlacementStatistics' {} a -> s {spamPercentage = a} :: PlacementStatistics)
 
 -- | The percentage of emails that arrived in recipients\' inboxes during the
 -- predictive inbox placement test.
@@ -111,24 +111,24 @@ instance Core.FromJSON PlacementStatistics where
       ( \x ->
           PlacementStatistics'
             Prelude.<$> (x Core..:? "MissingPercentage")
-            Prelude.<*> (x Core..:? "SpamPercentage")
-            Prelude.<*> (x Core..:? "SpfPercentage")
             Prelude.<*> (x Core..:? "DkimPercentage")
+            Prelude.<*> (x Core..:? "SpfPercentage")
+            Prelude.<*> (x Core..:? "SpamPercentage")
             Prelude.<*> (x Core..:? "InboxPercentage")
       )
 
 instance Prelude.Hashable PlacementStatistics where
   hashWithSalt _salt PlacementStatistics' {..} =
     _salt `Prelude.hashWithSalt` missingPercentage
-      `Prelude.hashWithSalt` spamPercentage
-      `Prelude.hashWithSalt` spfPercentage
       `Prelude.hashWithSalt` dkimPercentage
+      `Prelude.hashWithSalt` spfPercentage
+      `Prelude.hashWithSalt` spamPercentage
       `Prelude.hashWithSalt` inboxPercentage
 
 instance Prelude.NFData PlacementStatistics where
   rnf PlacementStatistics' {..} =
     Prelude.rnf missingPercentage
-      `Prelude.seq` Prelude.rnf spamPercentage
-      `Prelude.seq` Prelude.rnf spfPercentage
       `Prelude.seq` Prelude.rnf dkimPercentage
+      `Prelude.seq` Prelude.rnf spfPercentage
+      `Prelude.seq` Prelude.rnf spamPercentage
       `Prelude.seq` Prelude.rnf inboxPercentage

@@ -31,17 +31,17 @@ data ApplicationInfo = ApplicationInfo'
   { -- | True if the user has authenticated with GitHub for the specified
     -- application. Otherwise, false.
     linkedToGitHub :: Prelude.Maybe Prelude.Bool,
+    -- | The name for a connection to a GitHub account.
+    gitHubAccountName :: Prelude.Maybe Prelude.Text,
     -- | The destination platform type for deployment of the application
     -- (@Lambda@ or @Server@).
     computePlatform :: Prelude.Maybe ComputePlatform,
+    -- | The time at which the application was created.
+    createTime :: Prelude.Maybe Core.POSIX,
     -- | The application ID.
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | The application name.
-    applicationName :: Prelude.Maybe Prelude.Text,
-    -- | The name for a connection to a GitHub account.
-    gitHubAccountName :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the application was created.
-    createTime :: Prelude.Maybe Core.POSIX
+    applicationName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,26 +56,26 @@ data ApplicationInfo = ApplicationInfo'
 -- 'linkedToGitHub', 'applicationInfo_linkedToGitHub' - True if the user has authenticated with GitHub for the specified
 -- application. Otherwise, false.
 --
+-- 'gitHubAccountName', 'applicationInfo_gitHubAccountName' - The name for a connection to a GitHub account.
+--
 -- 'computePlatform', 'applicationInfo_computePlatform' - The destination platform type for deployment of the application
 -- (@Lambda@ or @Server@).
+--
+-- 'createTime', 'applicationInfo_createTime' - The time at which the application was created.
 --
 -- 'applicationId', 'applicationInfo_applicationId' - The application ID.
 --
 -- 'applicationName', 'applicationInfo_applicationName' - The application name.
---
--- 'gitHubAccountName', 'applicationInfo_gitHubAccountName' - The name for a connection to a GitHub account.
---
--- 'createTime', 'applicationInfo_createTime' - The time at which the application was created.
 newApplicationInfo ::
   ApplicationInfo
 newApplicationInfo =
   ApplicationInfo'
     { linkedToGitHub = Prelude.Nothing,
-      computePlatform = Prelude.Nothing,
-      applicationId = Prelude.Nothing,
-      applicationName = Prelude.Nothing,
       gitHubAccountName = Prelude.Nothing,
-      createTime = Prelude.Nothing
+      computePlatform = Prelude.Nothing,
+      createTime = Prelude.Nothing,
+      applicationId = Prelude.Nothing,
+      applicationName = Prelude.Nothing
     }
 
 -- | True if the user has authenticated with GitHub for the specified
@@ -83,10 +83,18 @@ newApplicationInfo =
 applicationInfo_linkedToGitHub :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Bool)
 applicationInfo_linkedToGitHub = Lens.lens (\ApplicationInfo' {linkedToGitHub} -> linkedToGitHub) (\s@ApplicationInfo' {} a -> s {linkedToGitHub = a} :: ApplicationInfo)
 
+-- | The name for a connection to a GitHub account.
+applicationInfo_gitHubAccountName :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Text)
+applicationInfo_gitHubAccountName = Lens.lens (\ApplicationInfo' {gitHubAccountName} -> gitHubAccountName) (\s@ApplicationInfo' {} a -> s {gitHubAccountName = a} :: ApplicationInfo)
+
 -- | The destination platform type for deployment of the application
 -- (@Lambda@ or @Server@).
 applicationInfo_computePlatform :: Lens.Lens' ApplicationInfo (Prelude.Maybe ComputePlatform)
 applicationInfo_computePlatform = Lens.lens (\ApplicationInfo' {computePlatform} -> computePlatform) (\s@ApplicationInfo' {} a -> s {computePlatform = a} :: ApplicationInfo)
+
+-- | The time at which the application was created.
+applicationInfo_createTime :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.UTCTime)
+applicationInfo_createTime = Lens.lens (\ApplicationInfo' {createTime} -> createTime) (\s@ApplicationInfo' {} a -> s {createTime = a} :: ApplicationInfo) Prelude.. Lens.mapping Core._Time
 
 -- | The application ID.
 applicationInfo_applicationId :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Text)
@@ -96,14 +104,6 @@ applicationInfo_applicationId = Lens.lens (\ApplicationInfo' {applicationId} -> 
 applicationInfo_applicationName :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Text)
 applicationInfo_applicationName = Lens.lens (\ApplicationInfo' {applicationName} -> applicationName) (\s@ApplicationInfo' {} a -> s {applicationName = a} :: ApplicationInfo)
 
--- | The name for a connection to a GitHub account.
-applicationInfo_gitHubAccountName :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.Text)
-applicationInfo_gitHubAccountName = Lens.lens (\ApplicationInfo' {gitHubAccountName} -> gitHubAccountName) (\s@ApplicationInfo' {} a -> s {gitHubAccountName = a} :: ApplicationInfo)
-
--- | The time at which the application was created.
-applicationInfo_createTime :: Lens.Lens' ApplicationInfo (Prelude.Maybe Prelude.UTCTime)
-applicationInfo_createTime = Lens.lens (\ApplicationInfo' {createTime} -> createTime) (\s@ApplicationInfo' {} a -> s {createTime = a} :: ApplicationInfo) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON ApplicationInfo where
   parseJSON =
     Core.withObject
@@ -111,27 +111,27 @@ instance Core.FromJSON ApplicationInfo where
       ( \x ->
           ApplicationInfo'
             Prelude.<$> (x Core..:? "linkedToGitHub")
+            Prelude.<*> (x Core..:? "gitHubAccountName")
             Prelude.<*> (x Core..:? "computePlatform")
+            Prelude.<*> (x Core..:? "createTime")
             Prelude.<*> (x Core..:? "applicationId")
             Prelude.<*> (x Core..:? "applicationName")
-            Prelude.<*> (x Core..:? "gitHubAccountName")
-            Prelude.<*> (x Core..:? "createTime")
       )
 
 instance Prelude.Hashable ApplicationInfo where
   hashWithSalt _salt ApplicationInfo' {..} =
     _salt `Prelude.hashWithSalt` linkedToGitHub
+      `Prelude.hashWithSalt` gitHubAccountName
       `Prelude.hashWithSalt` computePlatform
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` applicationName
-      `Prelude.hashWithSalt` gitHubAccountName
-      `Prelude.hashWithSalt` createTime
 
 instance Prelude.NFData ApplicationInfo where
   rnf ApplicationInfo' {..} =
     Prelude.rnf linkedToGitHub
+      `Prelude.seq` Prelude.rnf gitHubAccountName
       `Prelude.seq` Prelude.rnf computePlatform
+      `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf gitHubAccountName
-      `Prelude.seq` Prelude.rnf createTime

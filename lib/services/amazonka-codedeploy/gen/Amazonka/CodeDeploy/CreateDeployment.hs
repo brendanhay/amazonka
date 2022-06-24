@@ -27,15 +27,15 @@ module Amazonka.CodeDeploy.CreateDeployment
     newCreateDeployment,
 
     -- * Request Lenses
-    createDeployment_deploymentConfigName,
+    createDeployment_deploymentGroupName,
     createDeployment_fileExistsBehavior,
-    createDeployment_targetInstances,
     createDeployment_revision,
     createDeployment_description,
-    createDeployment_autoRollbackConfiguration,
     createDeployment_updateOutdatedInstancesOnly,
-    createDeployment_deploymentGroupName,
+    createDeployment_autoRollbackConfiguration,
+    createDeployment_targetInstances,
     createDeployment_ignoreApplicationStopFailures,
+    createDeployment_deploymentConfigName,
     createDeployment_applicationName,
 
     -- * Destructuring the Response
@@ -59,14 +59,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-  { -- | The name of a deployment configuration associated with the IAM user or
-    -- AWS account.
-    --
-    -- If not specified, the value configured in the deployment group is used
-    -- as the default. If the deployment group does not have a deployment
-    -- configuration associated with it, @CodeDeployDefault@.@OneAtATime@ is
-    -- used by default.
-    deploymentConfigName :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the deployment group.
+    deploymentGroupName :: Prelude.Maybe Prelude.Text,
     -- | Information about how AWS CodeDeploy handles files that already exist in
     -- a deployment target location but weren\'t part of the previous
     -- successful deployment.
@@ -83,21 +77,19 @@ data CreateDeployment = CreateDeployment'
     -- -   RETAIN: The version of the file already on the instance is kept and
     --     used as part of the new deployment.
     fileExistsBehavior :: Prelude.Maybe FileExistsBehavior,
-    -- | Information about the instances that belong to the replacement
-    -- environment in a blue\/green deployment.
-    targetInstances :: Prelude.Maybe TargetInstances,
     -- | The type and location of the revision to deploy.
     revision :: Prelude.Maybe RevisionLocation,
     -- | A comment about the deployment.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Configuration information for an automatic rollback that is added when a
-    -- deployment is created.
-    autoRollbackConfiguration :: Prelude.Maybe AutoRollbackConfiguration,
     -- | Indicates whether to deploy to all instances or only to instances that
     -- are not running the latest application revision.
     updateOutdatedInstancesOnly :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the deployment group.
-    deploymentGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Configuration information for an automatic rollback that is added when a
+    -- deployment is created.
+    autoRollbackConfiguration :: Prelude.Maybe AutoRollbackConfiguration,
+    -- | Information about the instances that belong to the replacement
+    -- environment in a blue\/green deployment.
+    targetInstances :: Prelude.Maybe TargetInstances,
     -- | If true, then if an @ApplicationStop@, @BeforeBlockTraffic@, or
     -- @AfterBlockTraffic@ deployment lifecycle event to an instance fails,
     -- then the deployment continues to the next deployment lifecycle event.
@@ -125,6 +117,14 @@ data CreateDeployment = CreateDeployment'
     -- @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@
     -- failures should be ignored.
     ignoreApplicationStopFailures :: Prelude.Maybe Prelude.Bool,
+    -- | The name of a deployment configuration associated with the IAM user or
+    -- AWS account.
+    --
+    -- If not specified, the value configured in the deployment group is used
+    -- as the default. If the deployment group does not have a deployment
+    -- configuration associated with it, @CodeDeployDefault@.@OneAtATime@ is
+    -- used by default.
+    deploymentConfigName :: Prelude.Maybe Prelude.Text,
     -- | The name of an AWS CodeDeploy application associated with the IAM user
     -- or AWS account.
     applicationName :: Prelude.Text
@@ -139,13 +139,7 @@ data CreateDeployment = CreateDeployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentConfigName', 'createDeployment_deploymentConfigName' - The name of a deployment configuration associated with the IAM user or
--- AWS account.
---
--- If not specified, the value configured in the deployment group is used
--- as the default. If the deployment group does not have a deployment
--- configuration associated with it, @CodeDeployDefault@.@OneAtATime@ is
--- used by default.
+-- 'deploymentGroupName', 'createDeployment_deploymentGroupName' - The name of the deployment group.
 --
 -- 'fileExistsBehavior', 'createDeployment_fileExistsBehavior' - Information about how AWS CodeDeploy handles files that already exist in
 -- a deployment target location but weren\'t part of the previous
@@ -163,20 +157,18 @@ data CreateDeployment = CreateDeployment'
 -- -   RETAIN: The version of the file already on the instance is kept and
 --     used as part of the new deployment.
 --
--- 'targetInstances', 'createDeployment_targetInstances' - Information about the instances that belong to the replacement
--- environment in a blue\/green deployment.
---
 -- 'revision', 'createDeployment_revision' - The type and location of the revision to deploy.
 --
 -- 'description', 'createDeployment_description' - A comment about the deployment.
 --
--- 'autoRollbackConfiguration', 'createDeployment_autoRollbackConfiguration' - Configuration information for an automatic rollback that is added when a
--- deployment is created.
---
 -- 'updateOutdatedInstancesOnly', 'createDeployment_updateOutdatedInstancesOnly' - Indicates whether to deploy to all instances or only to instances that
 -- are not running the latest application revision.
 --
--- 'deploymentGroupName', 'createDeployment_deploymentGroupName' - The name of the deployment group.
+-- 'autoRollbackConfiguration', 'createDeployment_autoRollbackConfiguration' - Configuration information for an automatic rollback that is added when a
+-- deployment is created.
+--
+-- 'targetInstances', 'createDeployment_targetInstances' - Information about the instances that belong to the replacement
+-- environment in a blue\/green deployment.
 --
 -- 'ignoreApplicationStopFailures', 'createDeployment_ignoreApplicationStopFailures' - If true, then if an @ApplicationStop@, @BeforeBlockTraffic@, or
 -- @AfterBlockTraffic@ deployment lifecycle event to an instance fails,
@@ -205,6 +197,14 @@ data CreateDeployment = CreateDeployment'
 -- @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@
 -- failures should be ignored.
 --
+-- 'deploymentConfigName', 'createDeployment_deploymentConfigName' - The name of a deployment configuration associated with the IAM user or
+-- AWS account.
+--
+-- If not specified, the value configured in the deployment group is used
+-- as the default. If the deployment group does not have a deployment
+-- configuration associated with it, @CodeDeployDefault@.@OneAtATime@ is
+-- used by default.
+--
 -- 'applicationName', 'createDeployment_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
 -- or AWS account.
 newCreateDeployment ::
@@ -213,28 +213,22 @@ newCreateDeployment ::
   CreateDeployment
 newCreateDeployment pApplicationName_ =
   CreateDeployment'
-    { deploymentConfigName =
+    { deploymentGroupName =
         Prelude.Nothing,
       fileExistsBehavior = Prelude.Nothing,
-      targetInstances = Prelude.Nothing,
       revision = Prelude.Nothing,
       description = Prelude.Nothing,
-      autoRollbackConfiguration = Prelude.Nothing,
       updateOutdatedInstancesOnly = Prelude.Nothing,
-      deploymentGroupName = Prelude.Nothing,
+      autoRollbackConfiguration = Prelude.Nothing,
+      targetInstances = Prelude.Nothing,
       ignoreApplicationStopFailures = Prelude.Nothing,
+      deploymentConfigName = Prelude.Nothing,
       applicationName = pApplicationName_
     }
 
--- | The name of a deployment configuration associated with the IAM user or
--- AWS account.
---
--- If not specified, the value configured in the deployment group is used
--- as the default. If the deployment group does not have a deployment
--- configuration associated with it, @CodeDeployDefault@.@OneAtATime@ is
--- used by default.
-createDeployment_deploymentConfigName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
-createDeployment_deploymentConfigName = Lens.lens (\CreateDeployment' {deploymentConfigName} -> deploymentConfigName) (\s@CreateDeployment' {} a -> s {deploymentConfigName = a} :: CreateDeployment)
+-- | The name of the deployment group.
+createDeployment_deploymentGroupName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_deploymentGroupName = Lens.lens (\CreateDeployment' {deploymentGroupName} -> deploymentGroupName) (\s@CreateDeployment' {} a -> s {deploymentGroupName = a} :: CreateDeployment)
 
 -- | Information about how AWS CodeDeploy handles files that already exist in
 -- a deployment target location but weren\'t part of the previous
@@ -254,11 +248,6 @@ createDeployment_deploymentConfigName = Lens.lens (\CreateDeployment' {deploymen
 createDeployment_fileExistsBehavior :: Lens.Lens' CreateDeployment (Prelude.Maybe FileExistsBehavior)
 createDeployment_fileExistsBehavior = Lens.lens (\CreateDeployment' {fileExistsBehavior} -> fileExistsBehavior) (\s@CreateDeployment' {} a -> s {fileExistsBehavior = a} :: CreateDeployment)
 
--- | Information about the instances that belong to the replacement
--- environment in a blue\/green deployment.
-createDeployment_targetInstances :: Lens.Lens' CreateDeployment (Prelude.Maybe TargetInstances)
-createDeployment_targetInstances = Lens.lens (\CreateDeployment' {targetInstances} -> targetInstances) (\s@CreateDeployment' {} a -> s {targetInstances = a} :: CreateDeployment)
-
 -- | The type and location of the revision to deploy.
 createDeployment_revision :: Lens.Lens' CreateDeployment (Prelude.Maybe RevisionLocation)
 createDeployment_revision = Lens.lens (\CreateDeployment' {revision} -> revision) (\s@CreateDeployment' {} a -> s {revision = a} :: CreateDeployment)
@@ -267,19 +256,20 @@ createDeployment_revision = Lens.lens (\CreateDeployment' {revision} -> revision
 createDeployment_description :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_description = Lens.lens (\CreateDeployment' {description} -> description) (\s@CreateDeployment' {} a -> s {description = a} :: CreateDeployment)
 
--- | Configuration information for an automatic rollback that is added when a
--- deployment is created.
-createDeployment_autoRollbackConfiguration :: Lens.Lens' CreateDeployment (Prelude.Maybe AutoRollbackConfiguration)
-createDeployment_autoRollbackConfiguration = Lens.lens (\CreateDeployment' {autoRollbackConfiguration} -> autoRollbackConfiguration) (\s@CreateDeployment' {} a -> s {autoRollbackConfiguration = a} :: CreateDeployment)
-
 -- | Indicates whether to deploy to all instances or only to instances that
 -- are not running the latest application revision.
 createDeployment_updateOutdatedInstancesOnly :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Bool)
 createDeployment_updateOutdatedInstancesOnly = Lens.lens (\CreateDeployment' {updateOutdatedInstancesOnly} -> updateOutdatedInstancesOnly) (\s@CreateDeployment' {} a -> s {updateOutdatedInstancesOnly = a} :: CreateDeployment)
 
--- | The name of the deployment group.
-createDeployment_deploymentGroupName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
-createDeployment_deploymentGroupName = Lens.lens (\CreateDeployment' {deploymentGroupName} -> deploymentGroupName) (\s@CreateDeployment' {} a -> s {deploymentGroupName = a} :: CreateDeployment)
+-- | Configuration information for an automatic rollback that is added when a
+-- deployment is created.
+createDeployment_autoRollbackConfiguration :: Lens.Lens' CreateDeployment (Prelude.Maybe AutoRollbackConfiguration)
+createDeployment_autoRollbackConfiguration = Lens.lens (\CreateDeployment' {autoRollbackConfiguration} -> autoRollbackConfiguration) (\s@CreateDeployment' {} a -> s {autoRollbackConfiguration = a} :: CreateDeployment)
+
+-- | Information about the instances that belong to the replacement
+-- environment in a blue\/green deployment.
+createDeployment_targetInstances :: Lens.Lens' CreateDeployment (Prelude.Maybe TargetInstances)
+createDeployment_targetInstances = Lens.lens (\CreateDeployment' {targetInstances} -> targetInstances) (\s@CreateDeployment' {} a -> s {targetInstances = a} :: CreateDeployment)
 
 -- | If true, then if an @ApplicationStop@, @BeforeBlockTraffic@, or
 -- @AfterBlockTraffic@ deployment lifecycle event to an instance fails,
@@ -310,6 +300,16 @@ createDeployment_deploymentGroupName = Lens.lens (\CreateDeployment' {deployment
 createDeployment_ignoreApplicationStopFailures :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Bool)
 createDeployment_ignoreApplicationStopFailures = Lens.lens (\CreateDeployment' {ignoreApplicationStopFailures} -> ignoreApplicationStopFailures) (\s@CreateDeployment' {} a -> s {ignoreApplicationStopFailures = a} :: CreateDeployment)
 
+-- | The name of a deployment configuration associated with the IAM user or
+-- AWS account.
+--
+-- If not specified, the value configured in the deployment group is used
+-- as the default. If the deployment group does not have a deployment
+-- configuration associated with it, @CodeDeployDefault@.@OneAtATime@ is
+-- used by default.
+createDeployment_deploymentConfigName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_deploymentConfigName = Lens.lens (\CreateDeployment' {deploymentConfigName} -> deploymentConfigName) (\s@CreateDeployment' {} a -> s {deploymentConfigName = a} :: CreateDeployment)
+
 -- | The name of an AWS CodeDeploy application associated with the IAM user
 -- or AWS account.
 createDeployment_applicationName :: Lens.Lens' CreateDeployment Prelude.Text
@@ -330,28 +330,28 @@ instance Core.AWSRequest CreateDeployment where
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =
-    _salt `Prelude.hashWithSalt` deploymentConfigName
+    _salt `Prelude.hashWithSalt` deploymentGroupName
       `Prelude.hashWithSalt` fileExistsBehavior
-      `Prelude.hashWithSalt` targetInstances
       `Prelude.hashWithSalt` revision
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` autoRollbackConfiguration
       `Prelude.hashWithSalt` updateOutdatedInstancesOnly
-      `Prelude.hashWithSalt` deploymentGroupName
+      `Prelude.hashWithSalt` autoRollbackConfiguration
+      `Prelude.hashWithSalt` targetInstances
       `Prelude.hashWithSalt` ignoreApplicationStopFailures
+      `Prelude.hashWithSalt` deploymentConfigName
       `Prelude.hashWithSalt` applicationName
 
 instance Prelude.NFData CreateDeployment where
   rnf CreateDeployment' {..} =
-    Prelude.rnf deploymentConfigName
+    Prelude.rnf deploymentGroupName
       `Prelude.seq` Prelude.rnf fileExistsBehavior
-      `Prelude.seq` Prelude.rnf targetInstances
       `Prelude.seq` Prelude.rnf revision
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf autoRollbackConfiguration
       `Prelude.seq` Prelude.rnf updateOutdatedInstancesOnly
-      `Prelude.seq` Prelude.rnf deploymentGroupName
+      `Prelude.seq` Prelude.rnf autoRollbackConfiguration
+      `Prelude.seq` Prelude.rnf targetInstances
       `Prelude.seq` Prelude.rnf ignoreApplicationStopFailures
+      `Prelude.seq` Prelude.rnf deploymentConfigName
       `Prelude.seq` Prelude.rnf applicationName
 
 instance Core.ToHeaders CreateDeployment where
@@ -373,22 +373,22 @@ instance Core.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("deploymentConfigName" Core..=)
-              Prelude.<$> deploymentConfigName,
+          [ ("deploymentGroupName" Core..=)
+              Prelude.<$> deploymentGroupName,
             ("fileExistsBehavior" Core..=)
               Prelude.<$> fileExistsBehavior,
-            ("targetInstances" Core..=)
-              Prelude.<$> targetInstances,
             ("revision" Core..=) Prelude.<$> revision,
             ("description" Core..=) Prelude.<$> description,
-            ("autoRollbackConfiguration" Core..=)
-              Prelude.<$> autoRollbackConfiguration,
             ("updateOutdatedInstancesOnly" Core..=)
               Prelude.<$> updateOutdatedInstancesOnly,
-            ("deploymentGroupName" Core..=)
-              Prelude.<$> deploymentGroupName,
+            ("autoRollbackConfiguration" Core..=)
+              Prelude.<$> autoRollbackConfiguration,
+            ("targetInstances" Core..=)
+              Prelude.<$> targetInstances,
             ("ignoreApplicationStopFailures" Core..=)
               Prelude.<$> ignoreApplicationStopFailures,
+            ("deploymentConfigName" Core..=)
+              Prelude.<$> deploymentConfigName,
             Prelude.Just
               ("applicationName" Core..= applicationName)
           ]

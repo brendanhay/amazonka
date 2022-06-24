@@ -27,21 +27,21 @@ module Amazonka.CodeDeploy.CreateDeploymentGroup
     newCreateDeploymentGroup,
 
     -- * Request Lenses
-    createDeploymentGroup_ec2TagSet,
-    createDeploymentGroup_deploymentConfigName,
-    createDeploymentGroup_onPremisesTagSet,
-    createDeploymentGroup_ec2TagFilters,
-    createDeploymentGroup_ecsServices,
-    createDeploymentGroup_blueGreenDeploymentConfiguration,
+    createDeploymentGroup_tags,
     createDeploymentGroup_loadBalancerInfo,
+    createDeploymentGroup_autoScalingGroups,
+    createDeploymentGroup_triggerConfigurations,
+    createDeploymentGroup_ec2TagFilters,
+    createDeploymentGroup_autoRollbackConfiguration,
+    createDeploymentGroup_deploymentStyle,
+    createDeploymentGroup_blueGreenDeploymentConfiguration,
+    createDeploymentGroup_alarmConfiguration,
+    createDeploymentGroup_ecsServices,
+    createDeploymentGroup_onPremisesTagSet,
     createDeploymentGroup_outdatedInstancesStrategy,
     createDeploymentGroup_onPremisesInstanceTagFilters,
-    createDeploymentGroup_alarmConfiguration,
-    createDeploymentGroup_triggerConfigurations,
-    createDeploymentGroup_autoScalingGroups,
-    createDeploymentGroup_deploymentStyle,
-    createDeploymentGroup_autoRollbackConfiguration,
-    createDeploymentGroup_tags,
+    createDeploymentGroup_ec2TagSet,
+    createDeploymentGroup_deploymentConfigName,
     createDeploymentGroup_applicationName,
     createDeploymentGroup_deploymentGroupName,
     createDeploymentGroup_serviceRoleArn,
@@ -67,7 +67,61 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateDeploymentGroup' smart constructor.
 data CreateDeploymentGroup = CreateDeploymentGroup'
-  { -- | Information about groups of tags applied to EC2 instances. The
+  { -- | The metadata that you apply to CodeDeploy deployment groups to help you
+    -- organize and categorize them. Each tag consists of a key and an optional
+    -- value, both of which you define.
+    tags :: Prelude.Maybe [Tag],
+    -- | Information about the load balancer used in a deployment.
+    loadBalancerInfo :: Prelude.Maybe LoadBalancerInfo,
+    -- | A list of associated Amazon EC2 Auto Scaling groups.
+    autoScalingGroups :: Prelude.Maybe [Prelude.Text],
+    -- | Information about triggers to create when the deployment group is
+    -- created. For examples, see
+    -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html Create a Trigger for an AWS CodeDeploy Event>
+    -- in the /AWS CodeDeploy User Guide/.
+    triggerConfigurations :: Prelude.Maybe [TriggerConfig],
+    -- | The Amazon EC2 tags on which to filter. The deployment group includes
+    -- EC2 instances with any of the specified tags. Cannot be used in the same
+    -- call as ec2TagSet.
+    ec2TagFilters :: Prelude.Maybe [EC2TagFilter],
+    -- | Configuration information for an automatic rollback that is added when a
+    -- deployment group is created.
+    autoRollbackConfiguration :: Prelude.Maybe AutoRollbackConfiguration,
+    -- | Information about the type of deployment, in-place or blue\/green, that
+    -- you want to run and whether to route deployment traffic behind a load
+    -- balancer.
+    deploymentStyle :: Prelude.Maybe DeploymentStyle,
+    -- | Information about blue\/green deployment options for a deployment group.
+    blueGreenDeploymentConfiguration :: Prelude.Maybe BlueGreenDeploymentConfiguration,
+    -- | Information to add about Amazon CloudWatch alarms when the deployment
+    -- group is created.
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
+    -- | The target Amazon ECS services in the deployment group. This applies
+    -- only to deployment groups that use the Amazon ECS compute platform. A
+    -- target Amazon ECS service is specified as an Amazon ECS cluster and
+    -- service name pair using the format @\<clustername>:\<servicename>@.
+    ecsServices :: Prelude.Maybe [ECSService],
+    -- | Information about groups of tags applied to on-premises instances. The
+    -- deployment group includes only on-premises instances identified by all
+    -- of the tag groups. Cannot be used in the same call as
+    -- @onPremisesInstanceTagFilters@.
+    onPremisesTagSet :: Prelude.Maybe OnPremisesTagSet,
+    -- | Indicates what happens when new EC2 instances are launched
+    -- mid-deployment and do not receive the deployed application revision.
+    --
+    -- If this option is set to @UPDATE@ or is unspecified, CodeDeploy
+    -- initiates one or more \'auto-update outdated instances\' deployments to
+    -- apply the deployed application revision to the new EC2 instances.
+    --
+    -- If this option is set to @IGNORE@, CodeDeploy does not initiate a
+    -- deployment to update the new EC2 instances. This may result in instances
+    -- having different revisions.
+    outdatedInstancesStrategy :: Prelude.Maybe OutdatedInstancesStrategy,
+    -- | The on-premises instance tags on which to filter. The deployment group
+    -- includes on-premises instances with any of the specified tags. Cannot be
+    -- used in the same call as @OnPremisesTagSet@.
+    onPremisesInstanceTagFilters :: Prelude.Maybe [TagFilter],
+    -- | Information about groups of tags applied to EC2 instances. The
     -- deployment group includes only EC2 instances identified by all the tag
     -- groups. Cannot be used in the same call as @ec2TagFilters@.
     ec2TagSet :: Prelude.Maybe EC2TagSet,
@@ -85,60 +139,6 @@ data CreateDeploymentGroup = CreateDeploymentGroup'
     -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html Working with Deployment Configurations in CodeDeploy>
     -- in the /AWS CodeDeploy User Guide/.
     deploymentConfigName :: Prelude.Maybe Prelude.Text,
-    -- | Information about groups of tags applied to on-premises instances. The
-    -- deployment group includes only on-premises instances identified by all
-    -- of the tag groups. Cannot be used in the same call as
-    -- @onPremisesInstanceTagFilters@.
-    onPremisesTagSet :: Prelude.Maybe OnPremisesTagSet,
-    -- | The Amazon EC2 tags on which to filter. The deployment group includes
-    -- EC2 instances with any of the specified tags. Cannot be used in the same
-    -- call as ec2TagSet.
-    ec2TagFilters :: Prelude.Maybe [EC2TagFilter],
-    -- | The target Amazon ECS services in the deployment group. This applies
-    -- only to deployment groups that use the Amazon ECS compute platform. A
-    -- target Amazon ECS service is specified as an Amazon ECS cluster and
-    -- service name pair using the format @\<clustername>:\<servicename>@.
-    ecsServices :: Prelude.Maybe [ECSService],
-    -- | Information about blue\/green deployment options for a deployment group.
-    blueGreenDeploymentConfiguration :: Prelude.Maybe BlueGreenDeploymentConfiguration,
-    -- | Information about the load balancer used in a deployment.
-    loadBalancerInfo :: Prelude.Maybe LoadBalancerInfo,
-    -- | Indicates what happens when new EC2 instances are launched
-    -- mid-deployment and do not receive the deployed application revision.
-    --
-    -- If this option is set to @UPDATE@ or is unspecified, CodeDeploy
-    -- initiates one or more \'auto-update outdated instances\' deployments to
-    -- apply the deployed application revision to the new EC2 instances.
-    --
-    -- If this option is set to @IGNORE@, CodeDeploy does not initiate a
-    -- deployment to update the new EC2 instances. This may result in instances
-    -- having different revisions.
-    outdatedInstancesStrategy :: Prelude.Maybe OutdatedInstancesStrategy,
-    -- | The on-premises instance tags on which to filter. The deployment group
-    -- includes on-premises instances with any of the specified tags. Cannot be
-    -- used in the same call as @OnPremisesTagSet@.
-    onPremisesInstanceTagFilters :: Prelude.Maybe [TagFilter],
-    -- | Information to add about Amazon CloudWatch alarms when the deployment
-    -- group is created.
-    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
-    -- | Information about triggers to create when the deployment group is
-    -- created. For examples, see
-    -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html Create a Trigger for an AWS CodeDeploy Event>
-    -- in the /AWS CodeDeploy User Guide/.
-    triggerConfigurations :: Prelude.Maybe [TriggerConfig],
-    -- | A list of associated Amazon EC2 Auto Scaling groups.
-    autoScalingGroups :: Prelude.Maybe [Prelude.Text],
-    -- | Information about the type of deployment, in-place or blue\/green, that
-    -- you want to run and whether to route deployment traffic behind a load
-    -- balancer.
-    deploymentStyle :: Prelude.Maybe DeploymentStyle,
-    -- | Configuration information for an automatic rollback that is added when a
-    -- deployment group is created.
-    autoRollbackConfiguration :: Prelude.Maybe AutoRollbackConfiguration,
-    -- | The metadata that you apply to CodeDeploy deployment groups to help you
-    -- organize and categorize them. Each tag consists of a key and an optional
-    -- value, both of which you define.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of an AWS CodeDeploy application associated with the IAM user
     -- or AWS account.
     applicationName :: Prelude.Text,
@@ -158,6 +158,60 @@ data CreateDeploymentGroup = CreateDeploymentGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createDeploymentGroup_tags' - The metadata that you apply to CodeDeploy deployment groups to help you
+-- organize and categorize them. Each tag consists of a key and an optional
+-- value, both of which you define.
+--
+-- 'loadBalancerInfo', 'createDeploymentGroup_loadBalancerInfo' - Information about the load balancer used in a deployment.
+--
+-- 'autoScalingGroups', 'createDeploymentGroup_autoScalingGroups' - A list of associated Amazon EC2 Auto Scaling groups.
+--
+-- 'triggerConfigurations', 'createDeploymentGroup_triggerConfigurations' - Information about triggers to create when the deployment group is
+-- created. For examples, see
+-- <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html Create a Trigger for an AWS CodeDeploy Event>
+-- in the /AWS CodeDeploy User Guide/.
+--
+-- 'ec2TagFilters', 'createDeploymentGroup_ec2TagFilters' - The Amazon EC2 tags on which to filter. The deployment group includes
+-- EC2 instances with any of the specified tags. Cannot be used in the same
+-- call as ec2TagSet.
+--
+-- 'autoRollbackConfiguration', 'createDeploymentGroup_autoRollbackConfiguration' - Configuration information for an automatic rollback that is added when a
+-- deployment group is created.
+--
+-- 'deploymentStyle', 'createDeploymentGroup_deploymentStyle' - Information about the type of deployment, in-place or blue\/green, that
+-- you want to run and whether to route deployment traffic behind a load
+-- balancer.
+--
+-- 'blueGreenDeploymentConfiguration', 'createDeploymentGroup_blueGreenDeploymentConfiguration' - Information about blue\/green deployment options for a deployment group.
+--
+-- 'alarmConfiguration', 'createDeploymentGroup_alarmConfiguration' - Information to add about Amazon CloudWatch alarms when the deployment
+-- group is created.
+--
+-- 'ecsServices', 'createDeploymentGroup_ecsServices' - The target Amazon ECS services in the deployment group. This applies
+-- only to deployment groups that use the Amazon ECS compute platform. A
+-- target Amazon ECS service is specified as an Amazon ECS cluster and
+-- service name pair using the format @\<clustername>:\<servicename>@.
+--
+-- 'onPremisesTagSet', 'createDeploymentGroup_onPremisesTagSet' - Information about groups of tags applied to on-premises instances. The
+-- deployment group includes only on-premises instances identified by all
+-- of the tag groups. Cannot be used in the same call as
+-- @onPremisesInstanceTagFilters@.
+--
+-- 'outdatedInstancesStrategy', 'createDeploymentGroup_outdatedInstancesStrategy' - Indicates what happens when new EC2 instances are launched
+-- mid-deployment and do not receive the deployed application revision.
+--
+-- If this option is set to @UPDATE@ or is unspecified, CodeDeploy
+-- initiates one or more \'auto-update outdated instances\' deployments to
+-- apply the deployed application revision to the new EC2 instances.
+--
+-- If this option is set to @IGNORE@, CodeDeploy does not initiate a
+-- deployment to update the new EC2 instances. This may result in instances
+-- having different revisions.
+--
+-- 'onPremisesInstanceTagFilters', 'createDeploymentGroup_onPremisesInstanceTagFilters' - The on-premises instance tags on which to filter. The deployment group
+-- includes on-premises instances with any of the specified tags. Cannot be
+-- used in the same call as @OnPremisesTagSet@.
+--
 -- 'ec2TagSet', 'createDeploymentGroup_ec2TagSet' - Information about groups of tags applied to EC2 instances. The
 -- deployment group includes only EC2 instances identified by all the tag
 -- groups. Cannot be used in the same call as @ec2TagFilters@.
@@ -175,60 +229,6 @@ data CreateDeploymentGroup = CreateDeploymentGroup'
 -- AWS CodeDeploy, see
 -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html Working with Deployment Configurations in CodeDeploy>
 -- in the /AWS CodeDeploy User Guide/.
---
--- 'onPremisesTagSet', 'createDeploymentGroup_onPremisesTagSet' - Information about groups of tags applied to on-premises instances. The
--- deployment group includes only on-premises instances identified by all
--- of the tag groups. Cannot be used in the same call as
--- @onPremisesInstanceTagFilters@.
---
--- 'ec2TagFilters', 'createDeploymentGroup_ec2TagFilters' - The Amazon EC2 tags on which to filter. The deployment group includes
--- EC2 instances with any of the specified tags. Cannot be used in the same
--- call as ec2TagSet.
---
--- 'ecsServices', 'createDeploymentGroup_ecsServices' - The target Amazon ECS services in the deployment group. This applies
--- only to deployment groups that use the Amazon ECS compute platform. A
--- target Amazon ECS service is specified as an Amazon ECS cluster and
--- service name pair using the format @\<clustername>:\<servicename>@.
---
--- 'blueGreenDeploymentConfiguration', 'createDeploymentGroup_blueGreenDeploymentConfiguration' - Information about blue\/green deployment options for a deployment group.
---
--- 'loadBalancerInfo', 'createDeploymentGroup_loadBalancerInfo' - Information about the load balancer used in a deployment.
---
--- 'outdatedInstancesStrategy', 'createDeploymentGroup_outdatedInstancesStrategy' - Indicates what happens when new EC2 instances are launched
--- mid-deployment and do not receive the deployed application revision.
---
--- If this option is set to @UPDATE@ or is unspecified, CodeDeploy
--- initiates one or more \'auto-update outdated instances\' deployments to
--- apply the deployed application revision to the new EC2 instances.
---
--- If this option is set to @IGNORE@, CodeDeploy does not initiate a
--- deployment to update the new EC2 instances. This may result in instances
--- having different revisions.
---
--- 'onPremisesInstanceTagFilters', 'createDeploymentGroup_onPremisesInstanceTagFilters' - The on-premises instance tags on which to filter. The deployment group
--- includes on-premises instances with any of the specified tags. Cannot be
--- used in the same call as @OnPremisesTagSet@.
---
--- 'alarmConfiguration', 'createDeploymentGroup_alarmConfiguration' - Information to add about Amazon CloudWatch alarms when the deployment
--- group is created.
---
--- 'triggerConfigurations', 'createDeploymentGroup_triggerConfigurations' - Information about triggers to create when the deployment group is
--- created. For examples, see
--- <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html Create a Trigger for an AWS CodeDeploy Event>
--- in the /AWS CodeDeploy User Guide/.
---
--- 'autoScalingGroups', 'createDeploymentGroup_autoScalingGroups' - A list of associated Amazon EC2 Auto Scaling groups.
---
--- 'deploymentStyle', 'createDeploymentGroup_deploymentStyle' - Information about the type of deployment, in-place or blue\/green, that
--- you want to run and whether to route deployment traffic behind a load
--- balancer.
---
--- 'autoRollbackConfiguration', 'createDeploymentGroup_autoRollbackConfiguration' - Configuration information for an automatic rollback that is added when a
--- deployment group is created.
---
--- 'tags', 'createDeploymentGroup_tags' - The metadata that you apply to CodeDeploy deployment groups to help you
--- organize and categorize them. Each tag consists of a key and an optional
--- value, both of which you define.
 --
 -- 'applicationName', 'createDeploymentGroup_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
 -- or AWS account.
@@ -250,25 +250,105 @@ newCreateDeploymentGroup
   pDeploymentGroupName_
   pServiceRoleArn_ =
     CreateDeploymentGroup'
-      { ec2TagSet = Prelude.Nothing,
-        deploymentConfigName = Prelude.Nothing,
-        onPremisesTagSet = Prelude.Nothing,
-        ec2TagFilters = Prelude.Nothing,
-        ecsServices = Prelude.Nothing,
-        blueGreenDeploymentConfiguration = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         loadBalancerInfo = Prelude.Nothing,
+        autoScalingGroups = Prelude.Nothing,
+        triggerConfigurations = Prelude.Nothing,
+        ec2TagFilters = Prelude.Nothing,
+        autoRollbackConfiguration = Prelude.Nothing,
+        deploymentStyle = Prelude.Nothing,
+        blueGreenDeploymentConfiguration = Prelude.Nothing,
+        alarmConfiguration = Prelude.Nothing,
+        ecsServices = Prelude.Nothing,
+        onPremisesTagSet = Prelude.Nothing,
         outdatedInstancesStrategy = Prelude.Nothing,
         onPremisesInstanceTagFilters = Prelude.Nothing,
-        alarmConfiguration = Prelude.Nothing,
-        triggerConfigurations = Prelude.Nothing,
-        autoScalingGroups = Prelude.Nothing,
-        deploymentStyle = Prelude.Nothing,
-        autoRollbackConfiguration = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        ec2TagSet = Prelude.Nothing,
+        deploymentConfigName = Prelude.Nothing,
         applicationName = pApplicationName_,
         deploymentGroupName = pDeploymentGroupName_,
         serviceRoleArn = pServiceRoleArn_
       }
+
+-- | The metadata that you apply to CodeDeploy deployment groups to help you
+-- organize and categorize them. Each tag consists of a key and an optional
+-- value, both of which you define.
+createDeploymentGroup_tags :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe [Tag])
+createDeploymentGroup_tags = Lens.lens (\CreateDeploymentGroup' {tags} -> tags) (\s@CreateDeploymentGroup' {} a -> s {tags = a} :: CreateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the load balancer used in a deployment.
+createDeploymentGroup_loadBalancerInfo :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe LoadBalancerInfo)
+createDeploymentGroup_loadBalancerInfo = Lens.lens (\CreateDeploymentGroup' {loadBalancerInfo} -> loadBalancerInfo) (\s@CreateDeploymentGroup' {} a -> s {loadBalancerInfo = a} :: CreateDeploymentGroup)
+
+-- | A list of associated Amazon EC2 Auto Scaling groups.
+createDeploymentGroup_autoScalingGroups :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe [Prelude.Text])
+createDeploymentGroup_autoScalingGroups = Lens.lens (\CreateDeploymentGroup' {autoScalingGroups} -> autoScalingGroups) (\s@CreateDeploymentGroup' {} a -> s {autoScalingGroups = a} :: CreateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about triggers to create when the deployment group is
+-- created. For examples, see
+-- <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html Create a Trigger for an AWS CodeDeploy Event>
+-- in the /AWS CodeDeploy User Guide/.
+createDeploymentGroup_triggerConfigurations :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe [TriggerConfig])
+createDeploymentGroup_triggerConfigurations = Lens.lens (\CreateDeploymentGroup' {triggerConfigurations} -> triggerConfigurations) (\s@CreateDeploymentGroup' {} a -> s {triggerConfigurations = a} :: CreateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon EC2 tags on which to filter. The deployment group includes
+-- EC2 instances with any of the specified tags. Cannot be used in the same
+-- call as ec2TagSet.
+createDeploymentGroup_ec2TagFilters :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe [EC2TagFilter])
+createDeploymentGroup_ec2TagFilters = Lens.lens (\CreateDeploymentGroup' {ec2TagFilters} -> ec2TagFilters) (\s@CreateDeploymentGroup' {} a -> s {ec2TagFilters = a} :: CreateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | Configuration information for an automatic rollback that is added when a
+-- deployment group is created.
+createDeploymentGroup_autoRollbackConfiguration :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe AutoRollbackConfiguration)
+createDeploymentGroup_autoRollbackConfiguration = Lens.lens (\CreateDeploymentGroup' {autoRollbackConfiguration} -> autoRollbackConfiguration) (\s@CreateDeploymentGroup' {} a -> s {autoRollbackConfiguration = a} :: CreateDeploymentGroup)
+
+-- | Information about the type of deployment, in-place or blue\/green, that
+-- you want to run and whether to route deployment traffic behind a load
+-- balancer.
+createDeploymentGroup_deploymentStyle :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe DeploymentStyle)
+createDeploymentGroup_deploymentStyle = Lens.lens (\CreateDeploymentGroup' {deploymentStyle} -> deploymentStyle) (\s@CreateDeploymentGroup' {} a -> s {deploymentStyle = a} :: CreateDeploymentGroup)
+
+-- | Information about blue\/green deployment options for a deployment group.
+createDeploymentGroup_blueGreenDeploymentConfiguration :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe BlueGreenDeploymentConfiguration)
+createDeploymentGroup_blueGreenDeploymentConfiguration = Lens.lens (\CreateDeploymentGroup' {blueGreenDeploymentConfiguration} -> blueGreenDeploymentConfiguration) (\s@CreateDeploymentGroup' {} a -> s {blueGreenDeploymentConfiguration = a} :: CreateDeploymentGroup)
+
+-- | Information to add about Amazon CloudWatch alarms when the deployment
+-- group is created.
+createDeploymentGroup_alarmConfiguration :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe AlarmConfiguration)
+createDeploymentGroup_alarmConfiguration = Lens.lens (\CreateDeploymentGroup' {alarmConfiguration} -> alarmConfiguration) (\s@CreateDeploymentGroup' {} a -> s {alarmConfiguration = a} :: CreateDeploymentGroup)
+
+-- | The target Amazon ECS services in the deployment group. This applies
+-- only to deployment groups that use the Amazon ECS compute platform. A
+-- target Amazon ECS service is specified as an Amazon ECS cluster and
+-- service name pair using the format @\<clustername>:\<servicename>@.
+createDeploymentGroup_ecsServices :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe [ECSService])
+createDeploymentGroup_ecsServices = Lens.lens (\CreateDeploymentGroup' {ecsServices} -> ecsServices) (\s@CreateDeploymentGroup' {} a -> s {ecsServices = a} :: CreateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about groups of tags applied to on-premises instances. The
+-- deployment group includes only on-premises instances identified by all
+-- of the tag groups. Cannot be used in the same call as
+-- @onPremisesInstanceTagFilters@.
+createDeploymentGroup_onPremisesTagSet :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe OnPremisesTagSet)
+createDeploymentGroup_onPremisesTagSet = Lens.lens (\CreateDeploymentGroup' {onPremisesTagSet} -> onPremisesTagSet) (\s@CreateDeploymentGroup' {} a -> s {onPremisesTagSet = a} :: CreateDeploymentGroup)
+
+-- | Indicates what happens when new EC2 instances are launched
+-- mid-deployment and do not receive the deployed application revision.
+--
+-- If this option is set to @UPDATE@ or is unspecified, CodeDeploy
+-- initiates one or more \'auto-update outdated instances\' deployments to
+-- apply the deployed application revision to the new EC2 instances.
+--
+-- If this option is set to @IGNORE@, CodeDeploy does not initiate a
+-- deployment to update the new EC2 instances. This may result in instances
+-- having different revisions.
+createDeploymentGroup_outdatedInstancesStrategy :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe OutdatedInstancesStrategy)
+createDeploymentGroup_outdatedInstancesStrategy = Lens.lens (\CreateDeploymentGroup' {outdatedInstancesStrategy} -> outdatedInstancesStrategy) (\s@CreateDeploymentGroup' {} a -> s {outdatedInstancesStrategy = a} :: CreateDeploymentGroup)
+
+-- | The on-premises instance tags on which to filter. The deployment group
+-- includes on-premises instances with any of the specified tags. Cannot be
+-- used in the same call as @OnPremisesTagSet@.
+createDeploymentGroup_onPremisesInstanceTagFilters :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe [TagFilter])
+createDeploymentGroup_onPremisesInstanceTagFilters = Lens.lens (\CreateDeploymentGroup' {onPremisesInstanceTagFilters} -> onPremisesInstanceTagFilters) (\s@CreateDeploymentGroup' {} a -> s {onPremisesInstanceTagFilters = a} :: CreateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about groups of tags applied to EC2 instances. The
 -- deployment group includes only EC2 instances identified by all the tag
@@ -291,86 +371,6 @@ createDeploymentGroup_ec2TagSet = Lens.lens (\CreateDeploymentGroup' {ec2TagSet}
 -- in the /AWS CodeDeploy User Guide/.
 createDeploymentGroup_deploymentConfigName :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe Prelude.Text)
 createDeploymentGroup_deploymentConfigName = Lens.lens (\CreateDeploymentGroup' {deploymentConfigName} -> deploymentConfigName) (\s@CreateDeploymentGroup' {} a -> s {deploymentConfigName = a} :: CreateDeploymentGroup)
-
--- | Information about groups of tags applied to on-premises instances. The
--- deployment group includes only on-premises instances identified by all
--- of the tag groups. Cannot be used in the same call as
--- @onPremisesInstanceTagFilters@.
-createDeploymentGroup_onPremisesTagSet :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe OnPremisesTagSet)
-createDeploymentGroup_onPremisesTagSet = Lens.lens (\CreateDeploymentGroup' {onPremisesTagSet} -> onPremisesTagSet) (\s@CreateDeploymentGroup' {} a -> s {onPremisesTagSet = a} :: CreateDeploymentGroup)
-
--- | The Amazon EC2 tags on which to filter. The deployment group includes
--- EC2 instances with any of the specified tags. Cannot be used in the same
--- call as ec2TagSet.
-createDeploymentGroup_ec2TagFilters :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe [EC2TagFilter])
-createDeploymentGroup_ec2TagFilters = Lens.lens (\CreateDeploymentGroup' {ec2TagFilters} -> ec2TagFilters) (\s@CreateDeploymentGroup' {} a -> s {ec2TagFilters = a} :: CreateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The target Amazon ECS services in the deployment group. This applies
--- only to deployment groups that use the Amazon ECS compute platform. A
--- target Amazon ECS service is specified as an Amazon ECS cluster and
--- service name pair using the format @\<clustername>:\<servicename>@.
-createDeploymentGroup_ecsServices :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe [ECSService])
-createDeploymentGroup_ecsServices = Lens.lens (\CreateDeploymentGroup' {ecsServices} -> ecsServices) (\s@CreateDeploymentGroup' {} a -> s {ecsServices = a} :: CreateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | Information about blue\/green deployment options for a deployment group.
-createDeploymentGroup_blueGreenDeploymentConfiguration :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe BlueGreenDeploymentConfiguration)
-createDeploymentGroup_blueGreenDeploymentConfiguration = Lens.lens (\CreateDeploymentGroup' {blueGreenDeploymentConfiguration} -> blueGreenDeploymentConfiguration) (\s@CreateDeploymentGroup' {} a -> s {blueGreenDeploymentConfiguration = a} :: CreateDeploymentGroup)
-
--- | Information about the load balancer used in a deployment.
-createDeploymentGroup_loadBalancerInfo :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe LoadBalancerInfo)
-createDeploymentGroup_loadBalancerInfo = Lens.lens (\CreateDeploymentGroup' {loadBalancerInfo} -> loadBalancerInfo) (\s@CreateDeploymentGroup' {} a -> s {loadBalancerInfo = a} :: CreateDeploymentGroup)
-
--- | Indicates what happens when new EC2 instances are launched
--- mid-deployment and do not receive the deployed application revision.
---
--- If this option is set to @UPDATE@ or is unspecified, CodeDeploy
--- initiates one or more \'auto-update outdated instances\' deployments to
--- apply the deployed application revision to the new EC2 instances.
---
--- If this option is set to @IGNORE@, CodeDeploy does not initiate a
--- deployment to update the new EC2 instances. This may result in instances
--- having different revisions.
-createDeploymentGroup_outdatedInstancesStrategy :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe OutdatedInstancesStrategy)
-createDeploymentGroup_outdatedInstancesStrategy = Lens.lens (\CreateDeploymentGroup' {outdatedInstancesStrategy} -> outdatedInstancesStrategy) (\s@CreateDeploymentGroup' {} a -> s {outdatedInstancesStrategy = a} :: CreateDeploymentGroup)
-
--- | The on-premises instance tags on which to filter. The deployment group
--- includes on-premises instances with any of the specified tags. Cannot be
--- used in the same call as @OnPremisesTagSet@.
-createDeploymentGroup_onPremisesInstanceTagFilters :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe [TagFilter])
-createDeploymentGroup_onPremisesInstanceTagFilters = Lens.lens (\CreateDeploymentGroup' {onPremisesInstanceTagFilters} -> onPremisesInstanceTagFilters) (\s@CreateDeploymentGroup' {} a -> s {onPremisesInstanceTagFilters = a} :: CreateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | Information to add about Amazon CloudWatch alarms when the deployment
--- group is created.
-createDeploymentGroup_alarmConfiguration :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe AlarmConfiguration)
-createDeploymentGroup_alarmConfiguration = Lens.lens (\CreateDeploymentGroup' {alarmConfiguration} -> alarmConfiguration) (\s@CreateDeploymentGroup' {} a -> s {alarmConfiguration = a} :: CreateDeploymentGroup)
-
--- | Information about triggers to create when the deployment group is
--- created. For examples, see
--- <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html Create a Trigger for an AWS CodeDeploy Event>
--- in the /AWS CodeDeploy User Guide/.
-createDeploymentGroup_triggerConfigurations :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe [TriggerConfig])
-createDeploymentGroup_triggerConfigurations = Lens.lens (\CreateDeploymentGroup' {triggerConfigurations} -> triggerConfigurations) (\s@CreateDeploymentGroup' {} a -> s {triggerConfigurations = a} :: CreateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of associated Amazon EC2 Auto Scaling groups.
-createDeploymentGroup_autoScalingGroups :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe [Prelude.Text])
-createDeploymentGroup_autoScalingGroups = Lens.lens (\CreateDeploymentGroup' {autoScalingGroups} -> autoScalingGroups) (\s@CreateDeploymentGroup' {} a -> s {autoScalingGroups = a} :: CreateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | Information about the type of deployment, in-place or blue\/green, that
--- you want to run and whether to route deployment traffic behind a load
--- balancer.
-createDeploymentGroup_deploymentStyle :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe DeploymentStyle)
-createDeploymentGroup_deploymentStyle = Lens.lens (\CreateDeploymentGroup' {deploymentStyle} -> deploymentStyle) (\s@CreateDeploymentGroup' {} a -> s {deploymentStyle = a} :: CreateDeploymentGroup)
-
--- | Configuration information for an automatic rollback that is added when a
--- deployment group is created.
-createDeploymentGroup_autoRollbackConfiguration :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe AutoRollbackConfiguration)
-createDeploymentGroup_autoRollbackConfiguration = Lens.lens (\CreateDeploymentGroup' {autoRollbackConfiguration} -> autoRollbackConfiguration) (\s@CreateDeploymentGroup' {} a -> s {autoRollbackConfiguration = a} :: CreateDeploymentGroup)
-
--- | The metadata that you apply to CodeDeploy deployment groups to help you
--- organize and categorize them. Each tag consists of a key and an optional
--- value, both of which you define.
-createDeploymentGroup_tags :: Lens.Lens' CreateDeploymentGroup (Prelude.Maybe [Tag])
-createDeploymentGroup_tags = Lens.lens (\CreateDeploymentGroup' {tags} -> tags) (\s@CreateDeploymentGroup' {} a -> s {tags = a} :: CreateDeploymentGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user
 -- or AWS account.
@@ -401,42 +401,42 @@ instance Core.AWSRequest CreateDeploymentGroup where
 
 instance Prelude.Hashable CreateDeploymentGroup where
   hashWithSalt _salt CreateDeploymentGroup' {..} =
-    _salt `Prelude.hashWithSalt` ec2TagSet
-      `Prelude.hashWithSalt` deploymentConfigName
-      `Prelude.hashWithSalt` onPremisesTagSet
-      `Prelude.hashWithSalt` ec2TagFilters
-      `Prelude.hashWithSalt` ecsServices
-      `Prelude.hashWithSalt` blueGreenDeploymentConfiguration
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` loadBalancerInfo
+      `Prelude.hashWithSalt` autoScalingGroups
+      `Prelude.hashWithSalt` triggerConfigurations
+      `Prelude.hashWithSalt` ec2TagFilters
+      `Prelude.hashWithSalt` autoRollbackConfiguration
+      `Prelude.hashWithSalt` deploymentStyle
+      `Prelude.hashWithSalt` blueGreenDeploymentConfiguration
+      `Prelude.hashWithSalt` alarmConfiguration
+      `Prelude.hashWithSalt` ecsServices
+      `Prelude.hashWithSalt` onPremisesTagSet
       `Prelude.hashWithSalt` outdatedInstancesStrategy
       `Prelude.hashWithSalt` onPremisesInstanceTagFilters
-      `Prelude.hashWithSalt` alarmConfiguration
-      `Prelude.hashWithSalt` triggerConfigurations
-      `Prelude.hashWithSalt` autoScalingGroups
-      `Prelude.hashWithSalt` deploymentStyle
-      `Prelude.hashWithSalt` autoRollbackConfiguration
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ec2TagSet
+      `Prelude.hashWithSalt` deploymentConfigName
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` deploymentGroupName
       `Prelude.hashWithSalt` serviceRoleArn
 
 instance Prelude.NFData CreateDeploymentGroup where
   rnf CreateDeploymentGroup' {..} =
-    Prelude.rnf ec2TagSet
-      `Prelude.seq` Prelude.rnf deploymentConfigName
-      `Prelude.seq` Prelude.rnf onPremisesTagSet
-      `Prelude.seq` Prelude.rnf ec2TagFilters
-      `Prelude.seq` Prelude.rnf ecsServices
-      `Prelude.seq` Prelude.rnf blueGreenDeploymentConfiguration
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf loadBalancerInfo
+      `Prelude.seq` Prelude.rnf autoScalingGroups
+      `Prelude.seq` Prelude.rnf triggerConfigurations
+      `Prelude.seq` Prelude.rnf ec2TagFilters
+      `Prelude.seq` Prelude.rnf autoRollbackConfiguration
+      `Prelude.seq` Prelude.rnf deploymentStyle
+      `Prelude.seq` Prelude.rnf blueGreenDeploymentConfiguration
+      `Prelude.seq` Prelude.rnf alarmConfiguration
+      `Prelude.seq` Prelude.rnf ecsServices
+      `Prelude.seq` Prelude.rnf onPremisesTagSet
       `Prelude.seq` Prelude.rnf outdatedInstancesStrategy
       `Prelude.seq` Prelude.rnf onPremisesInstanceTagFilters
-      `Prelude.seq` Prelude.rnf alarmConfiguration
-      `Prelude.seq` Prelude.rnf triggerConfigurations
-      `Prelude.seq` Prelude.rnf autoScalingGroups
-      `Prelude.seq` Prelude.rnf deploymentStyle
-      `Prelude.seq` Prelude.rnf autoRollbackConfiguration
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ec2TagSet
+      `Prelude.seq` Prelude.rnf deploymentConfigName
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf deploymentGroupName
       `Prelude.seq` Prelude.rnf serviceRoleArn
@@ -460,32 +460,32 @@ instance Core.ToJSON CreateDeploymentGroup where
   toJSON CreateDeploymentGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ec2TagSet" Core..=) Prelude.<$> ec2TagSet,
-            ("deploymentConfigName" Core..=)
-              Prelude.<$> deploymentConfigName,
-            ("onPremisesTagSet" Core..=)
-              Prelude.<$> onPremisesTagSet,
-            ("ec2TagFilters" Core..=) Prelude.<$> ec2TagFilters,
-            ("ecsServices" Core..=) Prelude.<$> ecsServices,
-            ("blueGreenDeploymentConfiguration" Core..=)
-              Prelude.<$> blueGreenDeploymentConfiguration,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("loadBalancerInfo" Core..=)
               Prelude.<$> loadBalancerInfo,
+            ("autoScalingGroups" Core..=)
+              Prelude.<$> autoScalingGroups,
+            ("triggerConfigurations" Core..=)
+              Prelude.<$> triggerConfigurations,
+            ("ec2TagFilters" Core..=) Prelude.<$> ec2TagFilters,
+            ("autoRollbackConfiguration" Core..=)
+              Prelude.<$> autoRollbackConfiguration,
+            ("deploymentStyle" Core..=)
+              Prelude.<$> deploymentStyle,
+            ("blueGreenDeploymentConfiguration" Core..=)
+              Prelude.<$> blueGreenDeploymentConfiguration,
+            ("alarmConfiguration" Core..=)
+              Prelude.<$> alarmConfiguration,
+            ("ecsServices" Core..=) Prelude.<$> ecsServices,
+            ("onPremisesTagSet" Core..=)
+              Prelude.<$> onPremisesTagSet,
             ("outdatedInstancesStrategy" Core..=)
               Prelude.<$> outdatedInstancesStrategy,
             ("onPremisesInstanceTagFilters" Core..=)
               Prelude.<$> onPremisesInstanceTagFilters,
-            ("alarmConfiguration" Core..=)
-              Prelude.<$> alarmConfiguration,
-            ("triggerConfigurations" Core..=)
-              Prelude.<$> triggerConfigurations,
-            ("autoScalingGroups" Core..=)
-              Prelude.<$> autoScalingGroups,
-            ("deploymentStyle" Core..=)
-              Prelude.<$> deploymentStyle,
-            ("autoRollbackConfiguration" Core..=)
-              Prelude.<$> autoRollbackConfiguration,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("ec2TagSet" Core..=) Prelude.<$> ec2TagSet,
+            ("deploymentConfigName" Core..=)
+              Prelude.<$> deploymentConfigName,
             Prelude.Just
               ("applicationName" Core..= applicationName),
             Prelude.Just

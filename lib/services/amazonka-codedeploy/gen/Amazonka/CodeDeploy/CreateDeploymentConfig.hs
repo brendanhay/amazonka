@@ -28,8 +28,8 @@ module Amazonka.CodeDeploy.CreateDeploymentConfig
 
     -- * Request Lenses
     createDeploymentConfig_computePlatform,
-    createDeploymentConfig_minimumHealthyHosts,
     createDeploymentConfig_trafficRoutingConfig,
+    createDeploymentConfig_minimumHealthyHosts,
     createDeploymentConfig_deploymentConfigName,
 
     -- * Destructuring the Response
@@ -56,6 +56,8 @@ data CreateDeploymentConfig = CreateDeploymentConfig'
   { -- | The destination platform type for the deployment (@Lambda@, @Server@, or
     -- @ECS@).
     computePlatform :: Prelude.Maybe ComputePlatform,
+    -- | The configuration that specifies how the deployment traffic is routed.
+    trafficRoutingConfig :: Prelude.Maybe TrafficRoutingConfig,
     -- | The minimum number of healthy instances that should be available at any
     -- time during the deployment. There are two parameters expected in the
     -- input: type and value.
@@ -76,8 +78,6 @@ data CreateDeploymentConfig = CreateDeploymentConfig'
     -- For example, to set a minimum of 95% healthy instance, specify a type of
     -- FLEET_PERCENT and a value of 95.
     minimumHealthyHosts :: Prelude.Maybe MinimumHealthyHosts,
-    -- | The configuration that specifies how the deployment traffic is routed.
-    trafficRoutingConfig :: Prelude.Maybe TrafficRoutingConfig,
     -- | The name of the deployment configuration to create.
     deploymentConfigName :: Prelude.Text
   }
@@ -93,6 +93,8 @@ data CreateDeploymentConfig = CreateDeploymentConfig'
 --
 -- 'computePlatform', 'createDeploymentConfig_computePlatform' - The destination platform type for the deployment (@Lambda@, @Server@, or
 -- @ECS@).
+--
+-- 'trafficRoutingConfig', 'createDeploymentConfig_trafficRoutingConfig' - The configuration that specifies how the deployment traffic is routed.
 --
 -- 'minimumHealthyHosts', 'createDeploymentConfig_minimumHealthyHosts' - The minimum number of healthy instances that should be available at any
 -- time during the deployment. There are two parameters expected in the
@@ -114,8 +116,6 @@ data CreateDeploymentConfig = CreateDeploymentConfig'
 -- For example, to set a minimum of 95% healthy instance, specify a type of
 -- FLEET_PERCENT and a value of 95.
 --
--- 'trafficRoutingConfig', 'createDeploymentConfig_trafficRoutingConfig' - The configuration that specifies how the deployment traffic is routed.
---
 -- 'deploymentConfigName', 'createDeploymentConfig_deploymentConfigName' - The name of the deployment configuration to create.
 newCreateDeploymentConfig ::
   -- | 'deploymentConfigName'
@@ -125,8 +125,8 @@ newCreateDeploymentConfig pDeploymentConfigName_ =
   CreateDeploymentConfig'
     { computePlatform =
         Prelude.Nothing,
-      minimumHealthyHosts = Prelude.Nothing,
       trafficRoutingConfig = Prelude.Nothing,
+      minimumHealthyHosts = Prelude.Nothing,
       deploymentConfigName = pDeploymentConfigName_
     }
 
@@ -134,6 +134,10 @@ newCreateDeploymentConfig pDeploymentConfigName_ =
 -- @ECS@).
 createDeploymentConfig_computePlatform :: Lens.Lens' CreateDeploymentConfig (Prelude.Maybe ComputePlatform)
 createDeploymentConfig_computePlatform = Lens.lens (\CreateDeploymentConfig' {computePlatform} -> computePlatform) (\s@CreateDeploymentConfig' {} a -> s {computePlatform = a} :: CreateDeploymentConfig)
+
+-- | The configuration that specifies how the deployment traffic is routed.
+createDeploymentConfig_trafficRoutingConfig :: Lens.Lens' CreateDeploymentConfig (Prelude.Maybe TrafficRoutingConfig)
+createDeploymentConfig_trafficRoutingConfig = Lens.lens (\CreateDeploymentConfig' {trafficRoutingConfig} -> trafficRoutingConfig) (\s@CreateDeploymentConfig' {} a -> s {trafficRoutingConfig = a} :: CreateDeploymentConfig)
 
 -- | The minimum number of healthy instances that should be available at any
 -- time during the deployment. There are two parameters expected in the
@@ -157,10 +161,6 @@ createDeploymentConfig_computePlatform = Lens.lens (\CreateDeploymentConfig' {co
 createDeploymentConfig_minimumHealthyHosts :: Lens.Lens' CreateDeploymentConfig (Prelude.Maybe MinimumHealthyHosts)
 createDeploymentConfig_minimumHealthyHosts = Lens.lens (\CreateDeploymentConfig' {minimumHealthyHosts} -> minimumHealthyHosts) (\s@CreateDeploymentConfig' {} a -> s {minimumHealthyHosts = a} :: CreateDeploymentConfig)
 
--- | The configuration that specifies how the deployment traffic is routed.
-createDeploymentConfig_trafficRoutingConfig :: Lens.Lens' CreateDeploymentConfig (Prelude.Maybe TrafficRoutingConfig)
-createDeploymentConfig_trafficRoutingConfig = Lens.lens (\CreateDeploymentConfig' {trafficRoutingConfig} -> trafficRoutingConfig) (\s@CreateDeploymentConfig' {} a -> s {trafficRoutingConfig = a} :: CreateDeploymentConfig)
-
 -- | The name of the deployment configuration to create.
 createDeploymentConfig_deploymentConfigName :: Lens.Lens' CreateDeploymentConfig Prelude.Text
 createDeploymentConfig_deploymentConfigName = Lens.lens (\CreateDeploymentConfig' {deploymentConfigName} -> deploymentConfigName) (\s@CreateDeploymentConfig' {} a -> s {deploymentConfigName = a} :: CreateDeploymentConfig)
@@ -181,15 +181,15 @@ instance Core.AWSRequest CreateDeploymentConfig where
 instance Prelude.Hashable CreateDeploymentConfig where
   hashWithSalt _salt CreateDeploymentConfig' {..} =
     _salt `Prelude.hashWithSalt` computePlatform
-      `Prelude.hashWithSalt` minimumHealthyHosts
       `Prelude.hashWithSalt` trafficRoutingConfig
+      `Prelude.hashWithSalt` minimumHealthyHosts
       `Prelude.hashWithSalt` deploymentConfigName
 
 instance Prelude.NFData CreateDeploymentConfig where
   rnf CreateDeploymentConfig' {..} =
     Prelude.rnf computePlatform
-      `Prelude.seq` Prelude.rnf minimumHealthyHosts
       `Prelude.seq` Prelude.rnf trafficRoutingConfig
+      `Prelude.seq` Prelude.rnf minimumHealthyHosts
       `Prelude.seq` Prelude.rnf deploymentConfigName
 
 instance Core.ToHeaders CreateDeploymentConfig where
@@ -213,10 +213,10 @@ instance Core.ToJSON CreateDeploymentConfig where
       ( Prelude.catMaybes
           [ ("computePlatform" Core..=)
               Prelude.<$> computePlatform,
-            ("minimumHealthyHosts" Core..=)
-              Prelude.<$> minimumHealthyHosts,
             ("trafficRoutingConfig" Core..=)
               Prelude.<$> trafficRoutingConfig,
+            ("minimumHealthyHosts" Core..=)
+              Prelude.<$> minimumHealthyHosts,
             Prelude.Just
               ( "deploymentConfigName"
                   Core..= deploymentConfigName

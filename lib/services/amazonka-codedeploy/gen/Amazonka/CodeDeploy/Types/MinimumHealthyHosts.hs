@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMinimumHealthyHosts' smart constructor.
 data MinimumHealthyHosts = MinimumHealthyHosts'
-  { -- | The minimum healthy instance value.
-    value :: Prelude.Maybe Prelude.Int,
-    -- | The minimum healthy instance type:
+  { -- | The minimum healthy instance type:
     --
     -- -   @HOST_COUNT@: The minimum number of healthy instances as an absolute
     --     value.
@@ -59,7 +57,9 @@ data MinimumHealthyHosts = MinimumHealthyHosts'
     -- For more information, see
     -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html AWS CodeDeploy Instance Health>
     -- in the /AWS CodeDeploy User Guide/.
-    type' :: Prelude.Maybe MinimumHealthyHostsType
+    type' :: Prelude.Maybe MinimumHealthyHostsType,
+    -- | The minimum healthy instance value.
+    value :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,8 +70,6 @@ data MinimumHealthyHosts = MinimumHealthyHosts'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'value', 'minimumHealthyHosts_value' - The minimum healthy instance value.
 --
 -- 'type'', 'minimumHealthyHosts_type' - The minimum healthy instance type:
 --
@@ -102,17 +100,15 @@ data MinimumHealthyHosts = MinimumHealthyHosts'
 -- For more information, see
 -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html AWS CodeDeploy Instance Health>
 -- in the /AWS CodeDeploy User Guide/.
+--
+-- 'value', 'minimumHealthyHosts_value' - The minimum healthy instance value.
 newMinimumHealthyHosts ::
   MinimumHealthyHosts
 newMinimumHealthyHosts =
   MinimumHealthyHosts'
-    { value = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The minimum healthy instance value.
-minimumHealthyHosts_value :: Lens.Lens' MinimumHealthyHosts (Prelude.Maybe Prelude.Int)
-minimumHealthyHosts_value = Lens.lens (\MinimumHealthyHosts' {value} -> value) (\s@MinimumHealthyHosts' {} a -> s {value = a} :: MinimumHealthyHosts)
 
 -- | The minimum healthy instance type:
 --
@@ -146,29 +142,33 @@ minimumHealthyHosts_value = Lens.lens (\MinimumHealthyHosts' {value} -> value) (
 minimumHealthyHosts_type :: Lens.Lens' MinimumHealthyHosts (Prelude.Maybe MinimumHealthyHostsType)
 minimumHealthyHosts_type = Lens.lens (\MinimumHealthyHosts' {type'} -> type') (\s@MinimumHealthyHosts' {} a -> s {type' = a} :: MinimumHealthyHosts)
 
+-- | The minimum healthy instance value.
+minimumHealthyHosts_value :: Lens.Lens' MinimumHealthyHosts (Prelude.Maybe Prelude.Int)
+minimumHealthyHosts_value = Lens.lens (\MinimumHealthyHosts' {value} -> value) (\s@MinimumHealthyHosts' {} a -> s {value = a} :: MinimumHealthyHosts)
+
 instance Core.FromJSON MinimumHealthyHosts where
   parseJSON =
     Core.withObject
       "MinimumHealthyHosts"
       ( \x ->
           MinimumHealthyHosts'
-            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "type") Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable MinimumHealthyHosts where
   hashWithSalt _salt MinimumHealthyHosts' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData MinimumHealthyHosts where
   rnf MinimumHealthyHosts' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON MinimumHealthyHosts where
   toJSON MinimumHealthyHosts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            ("type" Core..=) Prelude.<$> type'
+          [ ("type" Core..=) Prelude.<$> type',
+            ("value" Core..=) Prelude.<$> value
           ]
       )

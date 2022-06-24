@@ -30,15 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBlueInstanceTerminationOption' smart constructor.
 data BlueInstanceTerminationOption = BlueInstanceTerminationOption'
-  { -- | The action to take on instances in the original environment after a
-    -- successful blue\/green deployment.
-    --
-    -- -   @TERMINATE@: Instances are terminated after a specified wait time.
-    --
-    -- -   @KEEP_ALIVE@: Instances are left running after they are deregistered
-    --     from the load balancer and removed from the deployment group.
-    action :: Prelude.Maybe InstanceAction,
-    -- | For an Amazon EC2 deployment, the number of minutes to wait after a
+  { -- | For an Amazon EC2 deployment, the number of minutes to wait after a
     -- successful blue\/green deployment before terminating instances from the
     -- original environment.
     --
@@ -48,7 +40,15 @@ data BlueInstanceTerminationOption = BlueInstanceTerminationOption'
     -- (green) task set.
     --
     -- The maximum setting is 2880 minutes (2 days).
-    terminationWaitTimeInMinutes :: Prelude.Maybe Prelude.Int
+    terminationWaitTimeInMinutes :: Prelude.Maybe Prelude.Int,
+    -- | The action to take on instances in the original environment after a
+    -- successful blue\/green deployment.
+    --
+    -- -   @TERMINATE@: Instances are terminated after a specified wait time.
+    --
+    -- -   @KEEP_ALIVE@: Instances are left running after they are deregistered
+    --     from the load balancer and removed from the deployment group.
+    action :: Prelude.Maybe InstanceAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,14 +60,6 @@ data BlueInstanceTerminationOption = BlueInstanceTerminationOption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'action', 'blueInstanceTerminationOption_action' - The action to take on instances in the original environment after a
--- successful blue\/green deployment.
---
--- -   @TERMINATE@: Instances are terminated after a specified wait time.
---
--- -   @KEEP_ALIVE@: Instances are left running after they are deregistered
---     from the load balancer and removed from the deployment group.
---
 -- 'terminationWaitTimeInMinutes', 'blueInstanceTerminationOption_terminationWaitTimeInMinutes' - For an Amazon EC2 deployment, the number of minutes to wait after a
 -- successful blue\/green deployment before terminating instances from the
 -- original environment.
@@ -78,25 +70,22 @@ data BlueInstanceTerminationOption = BlueInstanceTerminationOption'
 -- (green) task set.
 --
 -- The maximum setting is 2880 minutes (2 days).
-newBlueInstanceTerminationOption ::
-  BlueInstanceTerminationOption
-newBlueInstanceTerminationOption =
-  BlueInstanceTerminationOption'
-    { action =
-        Prelude.Nothing,
-      terminationWaitTimeInMinutes =
-        Prelude.Nothing
-    }
-
--- | The action to take on instances in the original environment after a
+--
+-- 'action', 'blueInstanceTerminationOption_action' - The action to take on instances in the original environment after a
 -- successful blue\/green deployment.
 --
 -- -   @TERMINATE@: Instances are terminated after a specified wait time.
 --
 -- -   @KEEP_ALIVE@: Instances are left running after they are deregistered
 --     from the load balancer and removed from the deployment group.
-blueInstanceTerminationOption_action :: Lens.Lens' BlueInstanceTerminationOption (Prelude.Maybe InstanceAction)
-blueInstanceTerminationOption_action = Lens.lens (\BlueInstanceTerminationOption' {action} -> action) (\s@BlueInstanceTerminationOption' {} a -> s {action = a} :: BlueInstanceTerminationOption)
+newBlueInstanceTerminationOption ::
+  BlueInstanceTerminationOption
+newBlueInstanceTerminationOption =
+  BlueInstanceTerminationOption'
+    { terminationWaitTimeInMinutes =
+        Prelude.Nothing,
+      action = Prelude.Nothing
+    }
 
 -- | For an Amazon EC2 deployment, the number of minutes to wait after a
 -- successful blue\/green deployment before terminating instances from the
@@ -111,14 +100,24 @@ blueInstanceTerminationOption_action = Lens.lens (\BlueInstanceTerminationOption
 blueInstanceTerminationOption_terminationWaitTimeInMinutes :: Lens.Lens' BlueInstanceTerminationOption (Prelude.Maybe Prelude.Int)
 blueInstanceTerminationOption_terminationWaitTimeInMinutes = Lens.lens (\BlueInstanceTerminationOption' {terminationWaitTimeInMinutes} -> terminationWaitTimeInMinutes) (\s@BlueInstanceTerminationOption' {} a -> s {terminationWaitTimeInMinutes = a} :: BlueInstanceTerminationOption)
 
+-- | The action to take on instances in the original environment after a
+-- successful blue\/green deployment.
+--
+-- -   @TERMINATE@: Instances are terminated after a specified wait time.
+--
+-- -   @KEEP_ALIVE@: Instances are left running after they are deregistered
+--     from the load balancer and removed from the deployment group.
+blueInstanceTerminationOption_action :: Lens.Lens' BlueInstanceTerminationOption (Prelude.Maybe InstanceAction)
+blueInstanceTerminationOption_action = Lens.lens (\BlueInstanceTerminationOption' {action} -> action) (\s@BlueInstanceTerminationOption' {} a -> s {action = a} :: BlueInstanceTerminationOption)
+
 instance Core.FromJSON BlueInstanceTerminationOption where
   parseJSON =
     Core.withObject
       "BlueInstanceTerminationOption"
       ( \x ->
           BlueInstanceTerminationOption'
-            Prelude.<$> (x Core..:? "action")
-            Prelude.<*> (x Core..:? "terminationWaitTimeInMinutes")
+            Prelude.<$> (x Core..:? "terminationWaitTimeInMinutes")
+            Prelude.<*> (x Core..:? "action")
       )
 
 instance
@@ -126,20 +125,21 @@ instance
     BlueInstanceTerminationOption
   where
   hashWithSalt _salt BlueInstanceTerminationOption' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
       `Prelude.hashWithSalt` terminationWaitTimeInMinutes
+      `Prelude.hashWithSalt` action
 
 instance Prelude.NFData BlueInstanceTerminationOption where
   rnf BlueInstanceTerminationOption' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf terminationWaitTimeInMinutes
+    Prelude.rnf terminationWaitTimeInMinutes
+      `Prelude.seq` Prelude.rnf action
 
 instance Core.ToJSON BlueInstanceTerminationOption where
   toJSON BlueInstanceTerminationOption' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("action" Core..=) Prelude.<$> action,
-            ("terminationWaitTimeInMinutes" Core..=)
-              Prelude.<$> terminationWaitTimeInMinutes
+          [ ("terminationWaitTimeInMinutes" Core..=)
+              Prelude.<$> terminationWaitTimeInMinutes,
+            ("action" Core..=) Prelude.<$> action
           ]
       )

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoScalingGroup' smart constructor.
 data AutoScalingGroup = AutoScalingGroup'
-  { -- | An Auto Scaling lifecycle event hook name.
-    hook :: Prelude.Maybe Prelude.Text,
-    -- | The Auto Scaling group name.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The Auto Scaling group name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | An Auto Scaling lifecycle event hook name.
+    hook :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data AutoScalingGroup = AutoScalingGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hook', 'autoScalingGroup_hook' - An Auto Scaling lifecycle event hook name.
---
 -- 'name', 'autoScalingGroup_name' - The Auto Scaling group name.
+--
+-- 'hook', 'autoScalingGroup_hook' - An Auto Scaling lifecycle event hook name.
 newAutoScalingGroup ::
   AutoScalingGroup
 newAutoScalingGroup =
   AutoScalingGroup'
-    { hook = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      hook = Prelude.Nothing
     }
-
--- | An Auto Scaling lifecycle event hook name.
-autoScalingGroup_hook :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Text)
-autoScalingGroup_hook = Lens.lens (\AutoScalingGroup' {hook} -> hook) (\s@AutoScalingGroup' {} a -> s {hook = a} :: AutoScalingGroup)
 
 -- | The Auto Scaling group name.
 autoScalingGroup_name :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Text)
 autoScalingGroup_name = Lens.lens (\AutoScalingGroup' {name} -> name) (\s@AutoScalingGroup' {} a -> s {name = a} :: AutoScalingGroup)
+
+-- | An Auto Scaling lifecycle event hook name.
+autoScalingGroup_hook :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Text)
+autoScalingGroup_hook = Lens.lens (\AutoScalingGroup' {hook} -> hook) (\s@AutoScalingGroup' {} a -> s {hook = a} :: AutoScalingGroup)
 
 instance Core.FromJSON AutoScalingGroup where
   parseJSON =
@@ -67,14 +67,14 @@ instance Core.FromJSON AutoScalingGroup where
       "AutoScalingGroup"
       ( \x ->
           AutoScalingGroup'
-            Prelude.<$> (x Core..:? "hook") Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "hook")
       )
 
 instance Prelude.Hashable AutoScalingGroup where
   hashWithSalt _salt AutoScalingGroup' {..} =
-    _salt `Prelude.hashWithSalt` hook
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` hook
 
 instance Prelude.NFData AutoScalingGroup where
   rnf AutoScalingGroup' {..} =
-    Prelude.rnf hook `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf hook

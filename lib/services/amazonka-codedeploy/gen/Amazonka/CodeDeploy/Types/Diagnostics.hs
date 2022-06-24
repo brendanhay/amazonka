@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDiagnostics' smart constructor.
 data Diagnostics = Diagnostics'
-  { -- | The last portion of the diagnostic log.
+  { -- | The message associated with the error.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The last portion of the diagnostic log.
     --
     -- If available, AWS CodeDeploy returns up to the last 4 KB of the
     -- diagnostic log.
@@ -53,9 +55,7 @@ data Diagnostics = Diagnostics'
     --     reason.
     errorCode :: Prelude.Maybe LifecycleErrorCode,
     -- | The name of the script.
-    scriptName :: Prelude.Maybe Prelude.Text,
-    -- | The message associated with the error.
-    message :: Prelude.Maybe Prelude.Text
+    scriptName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,6 +66,8 @@ data Diagnostics = Diagnostics'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'message', 'diagnostics_message' - The message associated with the error.
 --
 -- 'logTail', 'diagnostics_logTail' - The last portion of the diagnostic log.
 --
@@ -91,17 +93,19 @@ data Diagnostics = Diagnostics'
 --     reason.
 --
 -- 'scriptName', 'diagnostics_scriptName' - The name of the script.
---
--- 'message', 'diagnostics_message' - The message associated with the error.
 newDiagnostics ::
   Diagnostics
 newDiagnostics =
   Diagnostics'
-    { logTail = Prelude.Nothing,
+    { message = Prelude.Nothing,
+      logTail = Prelude.Nothing,
       errorCode = Prelude.Nothing,
-      scriptName = Prelude.Nothing,
-      message = Prelude.Nothing
+      scriptName = Prelude.Nothing
     }
+
+-- | The message associated with the error.
+diagnostics_message :: Lens.Lens' Diagnostics (Prelude.Maybe Prelude.Text)
+diagnostics_message = Lens.lens (\Diagnostics' {message} -> message) (\s@Diagnostics' {} a -> s {message = a} :: Diagnostics)
 
 -- | The last portion of the diagnostic log.
 --
@@ -134,32 +138,28 @@ diagnostics_errorCode = Lens.lens (\Diagnostics' {errorCode} -> errorCode) (\s@D
 diagnostics_scriptName :: Lens.Lens' Diagnostics (Prelude.Maybe Prelude.Text)
 diagnostics_scriptName = Lens.lens (\Diagnostics' {scriptName} -> scriptName) (\s@Diagnostics' {} a -> s {scriptName = a} :: Diagnostics)
 
--- | The message associated with the error.
-diagnostics_message :: Lens.Lens' Diagnostics (Prelude.Maybe Prelude.Text)
-diagnostics_message = Lens.lens (\Diagnostics' {message} -> message) (\s@Diagnostics' {} a -> s {message = a} :: Diagnostics)
-
 instance Core.FromJSON Diagnostics where
   parseJSON =
     Core.withObject
       "Diagnostics"
       ( \x ->
           Diagnostics'
-            Prelude.<$> (x Core..:? "logTail")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "logTail")
             Prelude.<*> (x Core..:? "errorCode")
             Prelude.<*> (x Core..:? "scriptName")
-            Prelude.<*> (x Core..:? "message")
       )
 
 instance Prelude.Hashable Diagnostics where
   hashWithSalt _salt Diagnostics' {..} =
-    _salt `Prelude.hashWithSalt` logTail
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` logTail
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` scriptName
-      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData Diagnostics where
   rnf Diagnostics' {..} =
-    Prelude.rnf logTail
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf logTail
       `Prelude.seq` Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf scriptName
-      `Prelude.seq` Prelude.rnf message

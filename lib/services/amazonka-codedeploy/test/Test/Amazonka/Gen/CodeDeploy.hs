@@ -27,23 +27,62 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestRemoveTagsFromOnPremisesInstances $
---             newRemoveTagsFromOnPremisesInstances
+--         [ requestAddTagsToOnPremisesInstances $
+--             newAddTagsToOnPremisesInstances
+--
+--         , requestBatchGetApplicationRevisions $
+--             newBatchGetApplicationRevisions
+--
+--         , requestBatchGetApplications $
+--             newBatchGetApplications
 --
 --         , requestBatchGetDeploymentGroups $
 --             newBatchGetDeploymentGroups
 --
---         , requestDeleteDeploymentGroup $
---             newDeleteDeploymentGroup
+--         , requestBatchGetDeploymentTargets $
+--             newBatchGetDeploymentTargets
 --
---         , requestUpdateDeploymentGroup $
---             newUpdateDeploymentGroup
+--         , requestBatchGetDeployments $
+--             newBatchGetDeployments
 --
---         , requestListOnPremisesInstances $
---             newListOnPremisesInstances
+--         , requestBatchGetOnPremisesInstances $
+--             newBatchGetOnPremisesInstances
+--
+--         , requestContinueDeployment $
+--             newContinueDeployment
+--
+--         , requestCreateApplication $
+--             newCreateApplication
+--
+--         , requestCreateDeployment $
+--             newCreateDeployment
 --
 --         , requestCreateDeploymentConfig $
 --             newCreateDeploymentConfig
+--
+--         , requestCreateDeploymentGroup $
+--             newCreateDeploymentGroup
+--
+--         , requestDeleteApplication $
+--             newDeleteApplication
+--
+--         , requestDeleteDeploymentConfig $
+--             newDeleteDeploymentConfig
+--
+--         , requestDeleteDeploymentGroup $
+--             newDeleteDeploymentGroup
+--
+--         , requestDeleteGitHubAccountToken $
+--             newDeleteGitHubAccountToken
+--
+--         , requestDeleteResourcesByExternalId $
+--             newDeleteResourcesByExternalId
+--
+--         , requestDeregisterOnPremisesInstance $
+--             newDeregisterOnPremisesInstance
+--
+--         , requestGetApplication $
+--             newGetApplication
 --
 --         , requestGetApplicationRevision $
 --             newGetApplicationRevision
@@ -51,92 +90,17 @@ import Test.Tasty
 --         , requestGetDeployment $
 --             newGetDeployment
 --
---         , requestDeleteDeploymentConfig $
---             newDeleteDeploymentConfig
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
 --         , requestGetDeploymentConfig $
 --             newGetDeploymentConfig
---
---         , requestCreateDeployment $
---             newCreateDeployment
---
---         , requestBatchGetApplicationRevisions $
---             newBatchGetApplicationRevisions
---
---         , requestBatchGetDeployments $
---             newBatchGetDeployments
---
---         , requestGetOnPremisesInstance $
---             newGetOnPremisesInstance
---
---         , requestRegisterApplicationRevision $
---             newRegisterApplicationRevision
---
---         , requestContinueDeployment $
---             newContinueDeployment
---
---         , requestBatchGetApplications $
---             newBatchGetApplications
---
---         , requestDeleteApplication $
---             newDeleteApplication
---
---         , requestUpdateApplication $
---             newUpdateApplication
---
---         , requestDeleteGitHubAccountToken $
---             newDeleteGitHubAccountToken
---
---         , requestDeregisterOnPremisesInstance $
---             newDeregisterOnPremisesInstance
---
---         , requestPutLifecycleEventHookExecutionStatus $
---             newPutLifecycleEventHookExecutionStatus
---
---         , requestGetDeploymentTarget $
---             newGetDeploymentTarget
---
---         , requestCreateApplication $
---             newCreateApplication
---
---         , requestBatchGetDeploymentTargets $
---             newBatchGetDeploymentTargets
---
---         , requestStopDeployment $
---             newStopDeployment
---
---         , requestListGitHubAccountTokenNames $
---             newListGitHubAccountTokenNames
---
---         , requestGetApplication $
---             newGetApplication
---
---         , requestListDeploymentGroups $
---             newListDeploymentGroups
---
---         , requestBatchGetOnPremisesInstances $
---             newBatchGetOnPremisesInstances
---
---         , requestRegisterOnPremisesInstance $
---             newRegisterOnPremisesInstance
---
---         , requestCreateDeploymentGroup $
---             newCreateDeploymentGroup
---
---         , requestListDeploymentConfigs $
---             newListDeploymentConfigs
 --
 --         , requestGetDeploymentGroup $
 --             newGetDeploymentGroup
 --
---         , requestListDeployments $
---             newListDeployments
+--         , requestGetDeploymentTarget $
+--             newGetDeploymentTarget
 --
---         , requestTagResource $
---             newTagResource
+--         , requestGetOnPremisesInstance $
+--             newGetOnPremisesInstance
 --
 --         , requestListApplicationRevisions $
 --             newListApplicationRevisions
@@ -144,38 +108,113 @@ import Test.Tasty
 --         , requestListApplications $
 --             newListApplications
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestListDeploymentConfigs $
+--             newListDeploymentConfigs
 --
---         , requestDeleteResourcesByExternalId $
---             newDeleteResourcesByExternalId
---
---         , requestAddTagsToOnPremisesInstances $
---             newAddTagsToOnPremisesInstances
+--         , requestListDeploymentGroups $
+--             newListDeploymentGroups
 --
 --         , requestListDeploymentTargets $
 --             newListDeploymentTargets
 --
+--         , requestListDeployments $
+--             newListDeployments
+--
+--         , requestListGitHubAccountTokenNames $
+--             newListGitHubAccountTokenNames
+--
+--         , requestListOnPremisesInstances $
+--             newListOnPremisesInstances
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutLifecycleEventHookExecutionStatus $
+--             newPutLifecycleEventHookExecutionStatus
+--
+--         , requestRegisterApplicationRevision $
+--             newRegisterApplicationRevision
+--
+--         , requestRegisterOnPremisesInstance $
+--             newRegisterOnPremisesInstance
+--
+--         , requestRemoveTagsFromOnPremisesInstances $
+--             newRemoveTagsFromOnPremisesInstances
+--
+--         , requestStopDeployment $
+--             newStopDeployment
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateApplication $
+--             newUpdateApplication
+--
+--         , requestUpdateDeploymentGroup $
+--             newUpdateDeploymentGroup
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseRemoveTagsFromOnPremisesInstances $
---             newRemoveTagsFromOnPremisesInstancesResponse
+--         [ responseAddTagsToOnPremisesInstances $
+--             newAddTagsToOnPremisesInstancesResponse
+--
+--         , responseBatchGetApplicationRevisions $
+--             newBatchGetApplicationRevisionsResponse
+--
+--         , responseBatchGetApplications $
+--             newBatchGetApplicationsResponse
 --
 --         , responseBatchGetDeploymentGroups $
 --             newBatchGetDeploymentGroupsResponse
 --
---         , responseDeleteDeploymentGroup $
---             newDeleteDeploymentGroupResponse
+--         , responseBatchGetDeploymentTargets $
+--             newBatchGetDeploymentTargetsResponse
 --
---         , responseUpdateDeploymentGroup $
---             newUpdateDeploymentGroupResponse
+--         , responseBatchGetDeployments $
+--             newBatchGetDeploymentsResponse
 --
---         , responseListOnPremisesInstances $
---             newListOnPremisesInstancesResponse
+--         , responseBatchGetOnPremisesInstances $
+--             newBatchGetOnPremisesInstancesResponse
+--
+--         , responseContinueDeployment $
+--             newContinueDeploymentResponse
+--
+--         , responseCreateApplication $
+--             newCreateApplicationResponse
+--
+--         , responseCreateDeployment $
+--             newCreateDeploymentResponse
 --
 --         , responseCreateDeploymentConfig $
 --             newCreateDeploymentConfigResponse
+--
+--         , responseCreateDeploymentGroup $
+--             newCreateDeploymentGroupResponse
+--
+--         , responseDeleteApplication $
+--             newDeleteApplicationResponse
+--
+--         , responseDeleteDeploymentConfig $
+--             newDeleteDeploymentConfigResponse
+--
+--         , responseDeleteDeploymentGroup $
+--             newDeleteDeploymentGroupResponse
+--
+--         , responseDeleteGitHubAccountToken $
+--             newDeleteGitHubAccountTokenResponse
+--
+--         , responseDeleteResourcesByExternalId $
+--             newDeleteResourcesByExternalIdResponse
+--
+--         , responseDeregisterOnPremisesInstance $
+--             newDeregisterOnPremisesInstanceResponse
+--
+--         , responseGetApplication $
+--             newGetApplicationResponse
 --
 --         , responseGetApplicationRevision $
 --             newGetApplicationRevisionResponse
@@ -183,92 +222,17 @@ import Test.Tasty
 --         , responseGetDeployment $
 --             newGetDeploymentResponse
 --
---         , responseDeleteDeploymentConfig $
---             newDeleteDeploymentConfigResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
 --         , responseGetDeploymentConfig $
 --             newGetDeploymentConfigResponse
---
---         , responseCreateDeployment $
---             newCreateDeploymentResponse
---
---         , responseBatchGetApplicationRevisions $
---             newBatchGetApplicationRevisionsResponse
---
---         , responseBatchGetDeployments $
---             newBatchGetDeploymentsResponse
---
---         , responseGetOnPremisesInstance $
---             newGetOnPremisesInstanceResponse
---
---         , responseRegisterApplicationRevision $
---             newRegisterApplicationRevisionResponse
---
---         , responseContinueDeployment $
---             newContinueDeploymentResponse
---
---         , responseBatchGetApplications $
---             newBatchGetApplicationsResponse
---
---         , responseDeleteApplication $
---             newDeleteApplicationResponse
---
---         , responseUpdateApplication $
---             newUpdateApplicationResponse
---
---         , responseDeleteGitHubAccountToken $
---             newDeleteGitHubAccountTokenResponse
---
---         , responseDeregisterOnPremisesInstance $
---             newDeregisterOnPremisesInstanceResponse
---
---         , responsePutLifecycleEventHookExecutionStatus $
---             newPutLifecycleEventHookExecutionStatusResponse
---
---         , responseGetDeploymentTarget $
---             newGetDeploymentTargetResponse
---
---         , responseCreateApplication $
---             newCreateApplicationResponse
---
---         , responseBatchGetDeploymentTargets $
---             newBatchGetDeploymentTargetsResponse
---
---         , responseStopDeployment $
---             newStopDeploymentResponse
---
---         , responseListGitHubAccountTokenNames $
---             newListGitHubAccountTokenNamesResponse
---
---         , responseGetApplication $
---             newGetApplicationResponse
---
---         , responseListDeploymentGroups $
---             newListDeploymentGroupsResponse
---
---         , responseBatchGetOnPremisesInstances $
---             newBatchGetOnPremisesInstancesResponse
---
---         , responseRegisterOnPremisesInstance $
---             newRegisterOnPremisesInstanceResponse
---
---         , responseCreateDeploymentGroup $
---             newCreateDeploymentGroupResponse
---
---         , responseListDeploymentConfigs $
---             newListDeploymentConfigsResponse
 --
 --         , responseGetDeploymentGroup $
 --             newGetDeploymentGroupResponse
 --
---         , responseListDeployments $
---             newListDeploymentsResponse
+--         , responseGetDeploymentTarget $
+--             newGetDeploymentTargetResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseGetOnPremisesInstance $
+--             newGetOnPremisesInstanceResponse
 --
 --         , responseListApplicationRevisions $
 --             newListApplicationRevisionsResponse
@@ -276,28 +240,76 @@ import Test.Tasty
 --         , responseListApplications $
 --             newListApplicationsResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseListDeploymentConfigs $
+--             newListDeploymentConfigsResponse
 --
---         , responseDeleteResourcesByExternalId $
---             newDeleteResourcesByExternalIdResponse
---
---         , responseAddTagsToOnPremisesInstances $
---             newAddTagsToOnPremisesInstancesResponse
+--         , responseListDeploymentGroups $
+--             newListDeploymentGroupsResponse
 --
 --         , responseListDeploymentTargets $
 --             newListDeploymentTargetsResponse
+--
+--         , responseListDeployments $
+--             newListDeploymentsResponse
+--
+--         , responseListGitHubAccountTokenNames $
+--             newListGitHubAccountTokenNamesResponse
+--
+--         , responseListOnPremisesInstances $
+--             newListOnPremisesInstancesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutLifecycleEventHookExecutionStatus $
+--             newPutLifecycleEventHookExecutionStatusResponse
+--
+--         , responseRegisterApplicationRevision $
+--             newRegisterApplicationRevisionResponse
+--
+--         , responseRegisterOnPremisesInstance $
+--             newRegisterOnPremisesInstanceResponse
+--
+--         , responseRemoveTagsFromOnPremisesInstances $
+--             newRemoveTagsFromOnPremisesInstancesResponse
+--
+--         , responseStopDeployment $
+--             newStopDeploymentResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateApplication $
+--             newUpdateApplicationResponse
+--
+--         , responseUpdateDeploymentGroup $
+--             newUpdateDeploymentGroupResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestRemoveTagsFromOnPremisesInstances :: RemoveTagsFromOnPremisesInstances -> TestTree
-requestRemoveTagsFromOnPremisesInstances =
+requestAddTagsToOnPremisesInstances :: AddTagsToOnPremisesInstances -> TestTree
+requestAddTagsToOnPremisesInstances =
   req
-    "RemoveTagsFromOnPremisesInstances"
-    "fixture/RemoveTagsFromOnPremisesInstances.yaml"
+    "AddTagsToOnPremisesInstances"
+    "fixture/AddTagsToOnPremisesInstances.yaml"
+
+requestBatchGetApplicationRevisions :: BatchGetApplicationRevisions -> TestTree
+requestBatchGetApplicationRevisions =
+  req
+    "BatchGetApplicationRevisions"
+    "fixture/BatchGetApplicationRevisions.yaml"
+
+requestBatchGetApplications :: BatchGetApplications -> TestTree
+requestBatchGetApplications =
+  req
+    "BatchGetApplications"
+    "fixture/BatchGetApplications.yaml"
 
 requestBatchGetDeploymentGroups :: BatchGetDeploymentGroups -> TestTree
 requestBatchGetDeploymentGroups =
@@ -305,29 +317,95 @@ requestBatchGetDeploymentGroups =
     "BatchGetDeploymentGroups"
     "fixture/BatchGetDeploymentGroups.yaml"
 
-requestDeleteDeploymentGroup :: DeleteDeploymentGroup -> TestTree
-requestDeleteDeploymentGroup =
+requestBatchGetDeploymentTargets :: BatchGetDeploymentTargets -> TestTree
+requestBatchGetDeploymentTargets =
   req
-    "DeleteDeploymentGroup"
-    "fixture/DeleteDeploymentGroup.yaml"
+    "BatchGetDeploymentTargets"
+    "fixture/BatchGetDeploymentTargets.yaml"
 
-requestUpdateDeploymentGroup :: UpdateDeploymentGroup -> TestTree
-requestUpdateDeploymentGroup =
+requestBatchGetDeployments :: BatchGetDeployments -> TestTree
+requestBatchGetDeployments =
   req
-    "UpdateDeploymentGroup"
-    "fixture/UpdateDeploymentGroup.yaml"
+    "BatchGetDeployments"
+    "fixture/BatchGetDeployments.yaml"
 
-requestListOnPremisesInstances :: ListOnPremisesInstances -> TestTree
-requestListOnPremisesInstances =
+requestBatchGetOnPremisesInstances :: BatchGetOnPremisesInstances -> TestTree
+requestBatchGetOnPremisesInstances =
   req
-    "ListOnPremisesInstances"
-    "fixture/ListOnPremisesInstances.yaml"
+    "BatchGetOnPremisesInstances"
+    "fixture/BatchGetOnPremisesInstances.yaml"
+
+requestContinueDeployment :: ContinueDeployment -> TestTree
+requestContinueDeployment =
+  req
+    "ContinueDeployment"
+    "fixture/ContinueDeployment.yaml"
+
+requestCreateApplication :: CreateApplication -> TestTree
+requestCreateApplication =
+  req
+    "CreateApplication"
+    "fixture/CreateApplication.yaml"
+
+requestCreateDeployment :: CreateDeployment -> TestTree
+requestCreateDeployment =
+  req
+    "CreateDeployment"
+    "fixture/CreateDeployment.yaml"
 
 requestCreateDeploymentConfig :: CreateDeploymentConfig -> TestTree
 requestCreateDeploymentConfig =
   req
     "CreateDeploymentConfig"
     "fixture/CreateDeploymentConfig.yaml"
+
+requestCreateDeploymentGroup :: CreateDeploymentGroup -> TestTree
+requestCreateDeploymentGroup =
+  req
+    "CreateDeploymentGroup"
+    "fixture/CreateDeploymentGroup.yaml"
+
+requestDeleteApplication :: DeleteApplication -> TestTree
+requestDeleteApplication =
+  req
+    "DeleteApplication"
+    "fixture/DeleteApplication.yaml"
+
+requestDeleteDeploymentConfig :: DeleteDeploymentConfig -> TestTree
+requestDeleteDeploymentConfig =
+  req
+    "DeleteDeploymentConfig"
+    "fixture/DeleteDeploymentConfig.yaml"
+
+requestDeleteDeploymentGroup :: DeleteDeploymentGroup -> TestTree
+requestDeleteDeploymentGroup =
+  req
+    "DeleteDeploymentGroup"
+    "fixture/DeleteDeploymentGroup.yaml"
+
+requestDeleteGitHubAccountToken :: DeleteGitHubAccountToken -> TestTree
+requestDeleteGitHubAccountToken =
+  req
+    "DeleteGitHubAccountToken"
+    "fixture/DeleteGitHubAccountToken.yaml"
+
+requestDeleteResourcesByExternalId :: DeleteResourcesByExternalId -> TestTree
+requestDeleteResourcesByExternalId =
+  req
+    "DeleteResourcesByExternalId"
+    "fixture/DeleteResourcesByExternalId.yaml"
+
+requestDeregisterOnPremisesInstance :: DeregisterOnPremisesInstance -> TestTree
+requestDeregisterOnPremisesInstance =
+  req
+    "DeregisterOnPremisesInstance"
+    "fixture/DeregisterOnPremisesInstance.yaml"
+
+requestGetApplication :: GetApplication -> TestTree
+requestGetApplication =
+  req
+    "GetApplication"
+    "fixture/GetApplication.yaml"
 
 requestGetApplicationRevision :: GetApplicationRevision -> TestTree
 requestGetApplicationRevision =
@@ -341,161 +419,11 @@ requestGetDeployment =
     "GetDeployment"
     "fixture/GetDeployment.yaml"
 
-requestDeleteDeploymentConfig :: DeleteDeploymentConfig -> TestTree
-requestDeleteDeploymentConfig =
-  req
-    "DeleteDeploymentConfig"
-    "fixture/DeleteDeploymentConfig.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
 requestGetDeploymentConfig :: GetDeploymentConfig -> TestTree
 requestGetDeploymentConfig =
   req
     "GetDeploymentConfig"
     "fixture/GetDeploymentConfig.yaml"
-
-requestCreateDeployment :: CreateDeployment -> TestTree
-requestCreateDeployment =
-  req
-    "CreateDeployment"
-    "fixture/CreateDeployment.yaml"
-
-requestBatchGetApplicationRevisions :: BatchGetApplicationRevisions -> TestTree
-requestBatchGetApplicationRevisions =
-  req
-    "BatchGetApplicationRevisions"
-    "fixture/BatchGetApplicationRevisions.yaml"
-
-requestBatchGetDeployments :: BatchGetDeployments -> TestTree
-requestBatchGetDeployments =
-  req
-    "BatchGetDeployments"
-    "fixture/BatchGetDeployments.yaml"
-
-requestGetOnPremisesInstance :: GetOnPremisesInstance -> TestTree
-requestGetOnPremisesInstance =
-  req
-    "GetOnPremisesInstance"
-    "fixture/GetOnPremisesInstance.yaml"
-
-requestRegisterApplicationRevision :: RegisterApplicationRevision -> TestTree
-requestRegisterApplicationRevision =
-  req
-    "RegisterApplicationRevision"
-    "fixture/RegisterApplicationRevision.yaml"
-
-requestContinueDeployment :: ContinueDeployment -> TestTree
-requestContinueDeployment =
-  req
-    "ContinueDeployment"
-    "fixture/ContinueDeployment.yaml"
-
-requestBatchGetApplications :: BatchGetApplications -> TestTree
-requestBatchGetApplications =
-  req
-    "BatchGetApplications"
-    "fixture/BatchGetApplications.yaml"
-
-requestDeleteApplication :: DeleteApplication -> TestTree
-requestDeleteApplication =
-  req
-    "DeleteApplication"
-    "fixture/DeleteApplication.yaml"
-
-requestUpdateApplication :: UpdateApplication -> TestTree
-requestUpdateApplication =
-  req
-    "UpdateApplication"
-    "fixture/UpdateApplication.yaml"
-
-requestDeleteGitHubAccountToken :: DeleteGitHubAccountToken -> TestTree
-requestDeleteGitHubAccountToken =
-  req
-    "DeleteGitHubAccountToken"
-    "fixture/DeleteGitHubAccountToken.yaml"
-
-requestDeregisterOnPremisesInstance :: DeregisterOnPremisesInstance -> TestTree
-requestDeregisterOnPremisesInstance =
-  req
-    "DeregisterOnPremisesInstance"
-    "fixture/DeregisterOnPremisesInstance.yaml"
-
-requestPutLifecycleEventHookExecutionStatus :: PutLifecycleEventHookExecutionStatus -> TestTree
-requestPutLifecycleEventHookExecutionStatus =
-  req
-    "PutLifecycleEventHookExecutionStatus"
-    "fixture/PutLifecycleEventHookExecutionStatus.yaml"
-
-requestGetDeploymentTarget :: GetDeploymentTarget -> TestTree
-requestGetDeploymentTarget =
-  req
-    "GetDeploymentTarget"
-    "fixture/GetDeploymentTarget.yaml"
-
-requestCreateApplication :: CreateApplication -> TestTree
-requestCreateApplication =
-  req
-    "CreateApplication"
-    "fixture/CreateApplication.yaml"
-
-requestBatchGetDeploymentTargets :: BatchGetDeploymentTargets -> TestTree
-requestBatchGetDeploymentTargets =
-  req
-    "BatchGetDeploymentTargets"
-    "fixture/BatchGetDeploymentTargets.yaml"
-
-requestStopDeployment :: StopDeployment -> TestTree
-requestStopDeployment =
-  req
-    "StopDeployment"
-    "fixture/StopDeployment.yaml"
-
-requestListGitHubAccountTokenNames :: ListGitHubAccountTokenNames -> TestTree
-requestListGitHubAccountTokenNames =
-  req
-    "ListGitHubAccountTokenNames"
-    "fixture/ListGitHubAccountTokenNames.yaml"
-
-requestGetApplication :: GetApplication -> TestTree
-requestGetApplication =
-  req
-    "GetApplication"
-    "fixture/GetApplication.yaml"
-
-requestListDeploymentGroups :: ListDeploymentGroups -> TestTree
-requestListDeploymentGroups =
-  req
-    "ListDeploymentGroups"
-    "fixture/ListDeploymentGroups.yaml"
-
-requestBatchGetOnPremisesInstances :: BatchGetOnPremisesInstances -> TestTree
-requestBatchGetOnPremisesInstances =
-  req
-    "BatchGetOnPremisesInstances"
-    "fixture/BatchGetOnPremisesInstances.yaml"
-
-requestRegisterOnPremisesInstance :: RegisterOnPremisesInstance -> TestTree
-requestRegisterOnPremisesInstance =
-  req
-    "RegisterOnPremisesInstance"
-    "fixture/RegisterOnPremisesInstance.yaml"
-
-requestCreateDeploymentGroup :: CreateDeploymentGroup -> TestTree
-requestCreateDeploymentGroup =
-  req
-    "CreateDeploymentGroup"
-    "fixture/CreateDeploymentGroup.yaml"
-
-requestListDeploymentConfigs :: ListDeploymentConfigs -> TestTree
-requestListDeploymentConfigs =
-  req
-    "ListDeploymentConfigs"
-    "fixture/ListDeploymentConfigs.yaml"
 
 requestGetDeploymentGroup :: GetDeploymentGroup -> TestTree
 requestGetDeploymentGroup =
@@ -503,17 +431,17 @@ requestGetDeploymentGroup =
     "GetDeploymentGroup"
     "fixture/GetDeploymentGroup.yaml"
 
-requestListDeployments :: ListDeployments -> TestTree
-requestListDeployments =
+requestGetDeploymentTarget :: GetDeploymentTarget -> TestTree
+requestGetDeploymentTarget =
   req
-    "ListDeployments"
-    "fixture/ListDeployments.yaml"
+    "GetDeploymentTarget"
+    "fixture/GetDeploymentTarget.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestGetOnPremisesInstance :: GetOnPremisesInstance -> TestTree
+requestGetOnPremisesInstance =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "GetOnPremisesInstance"
+    "fixture/GetOnPremisesInstance.yaml"
 
 requestListApplicationRevisions :: ListApplicationRevisions -> TestTree
 requestListApplicationRevisions =
@@ -527,23 +455,17 @@ requestListApplications =
     "ListApplications"
     "fixture/ListApplications.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestListDeploymentConfigs :: ListDeploymentConfigs -> TestTree
+requestListDeploymentConfigs =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "ListDeploymentConfigs"
+    "fixture/ListDeploymentConfigs.yaml"
 
-requestDeleteResourcesByExternalId :: DeleteResourcesByExternalId -> TestTree
-requestDeleteResourcesByExternalId =
+requestListDeploymentGroups :: ListDeploymentGroups -> TestTree
+requestListDeploymentGroups =
   req
-    "DeleteResourcesByExternalId"
-    "fixture/DeleteResourcesByExternalId.yaml"
-
-requestAddTagsToOnPremisesInstances :: AddTagsToOnPremisesInstances -> TestTree
-requestAddTagsToOnPremisesInstances =
-  req
-    "AddTagsToOnPremisesInstances"
-    "fixture/AddTagsToOnPremisesInstances.yaml"
+    "ListDeploymentGroups"
+    "fixture/ListDeploymentGroups.yaml"
 
 requestListDeploymentTargets :: ListDeploymentTargets -> TestTree
 requestListDeploymentTargets =
@@ -551,15 +473,109 @@ requestListDeploymentTargets =
     "ListDeploymentTargets"
     "fixture/ListDeploymentTargets.yaml"
 
+requestListDeployments :: ListDeployments -> TestTree
+requestListDeployments =
+  req
+    "ListDeployments"
+    "fixture/ListDeployments.yaml"
+
+requestListGitHubAccountTokenNames :: ListGitHubAccountTokenNames -> TestTree
+requestListGitHubAccountTokenNames =
+  req
+    "ListGitHubAccountTokenNames"
+    "fixture/ListGitHubAccountTokenNames.yaml"
+
+requestListOnPremisesInstances :: ListOnPremisesInstances -> TestTree
+requestListOnPremisesInstances =
+  req
+    "ListOnPremisesInstances"
+    "fixture/ListOnPremisesInstances.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutLifecycleEventHookExecutionStatus :: PutLifecycleEventHookExecutionStatus -> TestTree
+requestPutLifecycleEventHookExecutionStatus =
+  req
+    "PutLifecycleEventHookExecutionStatus"
+    "fixture/PutLifecycleEventHookExecutionStatus.yaml"
+
+requestRegisterApplicationRevision :: RegisterApplicationRevision -> TestTree
+requestRegisterApplicationRevision =
+  req
+    "RegisterApplicationRevision"
+    "fixture/RegisterApplicationRevision.yaml"
+
+requestRegisterOnPremisesInstance :: RegisterOnPremisesInstance -> TestTree
+requestRegisterOnPremisesInstance =
+  req
+    "RegisterOnPremisesInstance"
+    "fixture/RegisterOnPremisesInstance.yaml"
+
+requestRemoveTagsFromOnPremisesInstances :: RemoveTagsFromOnPremisesInstances -> TestTree
+requestRemoveTagsFromOnPremisesInstances =
+  req
+    "RemoveTagsFromOnPremisesInstances"
+    "fixture/RemoveTagsFromOnPremisesInstances.yaml"
+
+requestStopDeployment :: StopDeployment -> TestTree
+requestStopDeployment =
+  req
+    "StopDeployment"
+    "fixture/StopDeployment.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateApplication :: UpdateApplication -> TestTree
+requestUpdateApplication =
+  req
+    "UpdateApplication"
+    "fixture/UpdateApplication.yaml"
+
+requestUpdateDeploymentGroup :: UpdateDeploymentGroup -> TestTree
+requestUpdateDeploymentGroup =
+  req
+    "UpdateDeploymentGroup"
+    "fixture/UpdateDeploymentGroup.yaml"
+
 -- Responses
 
-responseRemoveTagsFromOnPremisesInstances :: RemoveTagsFromOnPremisesInstancesResponse -> TestTree
-responseRemoveTagsFromOnPremisesInstances =
+responseAddTagsToOnPremisesInstances :: AddTagsToOnPremisesInstancesResponse -> TestTree
+responseAddTagsToOnPremisesInstances =
   res
-    "RemoveTagsFromOnPremisesInstancesResponse"
-    "fixture/RemoveTagsFromOnPremisesInstancesResponse.proto"
+    "AddTagsToOnPremisesInstancesResponse"
+    "fixture/AddTagsToOnPremisesInstancesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromOnPremisesInstances)
+    (Proxy.Proxy :: Proxy.Proxy AddTagsToOnPremisesInstances)
+
+responseBatchGetApplicationRevisions :: BatchGetApplicationRevisionsResponse -> TestTree
+responseBatchGetApplicationRevisions =
+  res
+    "BatchGetApplicationRevisionsResponse"
+    "fixture/BatchGetApplicationRevisionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetApplicationRevisions)
+
+responseBatchGetApplications :: BatchGetApplicationsResponse -> TestTree
+responseBatchGetApplications =
+  res
+    "BatchGetApplicationsResponse"
+    "fixture/BatchGetApplicationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetApplications)
 
 responseBatchGetDeploymentGroups :: BatchGetDeploymentGroupsResponse -> TestTree
 responseBatchGetDeploymentGroups =
@@ -569,29 +585,53 @@ responseBatchGetDeploymentGroups =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchGetDeploymentGroups)
 
-responseDeleteDeploymentGroup :: DeleteDeploymentGroupResponse -> TestTree
-responseDeleteDeploymentGroup =
+responseBatchGetDeploymentTargets :: BatchGetDeploymentTargetsResponse -> TestTree
+responseBatchGetDeploymentTargets =
   res
-    "DeleteDeploymentGroupResponse"
-    "fixture/DeleteDeploymentGroupResponse.proto"
+    "BatchGetDeploymentTargetsResponse"
+    "fixture/BatchGetDeploymentTargetsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDeploymentGroup)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetDeploymentTargets)
 
-responseUpdateDeploymentGroup :: UpdateDeploymentGroupResponse -> TestTree
-responseUpdateDeploymentGroup =
+responseBatchGetDeployments :: BatchGetDeploymentsResponse -> TestTree
+responseBatchGetDeployments =
   res
-    "UpdateDeploymentGroupResponse"
-    "fixture/UpdateDeploymentGroupResponse.proto"
+    "BatchGetDeploymentsResponse"
+    "fixture/BatchGetDeploymentsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDeploymentGroup)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetDeployments)
 
-responseListOnPremisesInstances :: ListOnPremisesInstancesResponse -> TestTree
-responseListOnPremisesInstances =
+responseBatchGetOnPremisesInstances :: BatchGetOnPremisesInstancesResponse -> TestTree
+responseBatchGetOnPremisesInstances =
   res
-    "ListOnPremisesInstancesResponse"
-    "fixture/ListOnPremisesInstancesResponse.proto"
+    "BatchGetOnPremisesInstancesResponse"
+    "fixture/BatchGetOnPremisesInstancesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListOnPremisesInstances)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetOnPremisesInstances)
+
+responseContinueDeployment :: ContinueDeploymentResponse -> TestTree
+responseContinueDeployment =
+  res
+    "ContinueDeploymentResponse"
+    "fixture/ContinueDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ContinueDeployment)
+
+responseCreateApplication :: CreateApplicationResponse -> TestTree
+responseCreateApplication =
+  res
+    "CreateApplicationResponse"
+    "fixture/CreateApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
+
+responseCreateDeployment :: CreateDeploymentResponse -> TestTree
+responseCreateDeployment =
+  res
+    "CreateDeploymentResponse"
+    "fixture/CreateDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
 
 responseCreateDeploymentConfig :: CreateDeploymentConfigResponse -> TestTree
 responseCreateDeploymentConfig =
@@ -600,6 +640,70 @@ responseCreateDeploymentConfig =
     "fixture/CreateDeploymentConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDeploymentConfig)
+
+responseCreateDeploymentGroup :: CreateDeploymentGroupResponse -> TestTree
+responseCreateDeploymentGroup =
+  res
+    "CreateDeploymentGroupResponse"
+    "fixture/CreateDeploymentGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDeploymentGroup)
+
+responseDeleteApplication :: DeleteApplicationResponse -> TestTree
+responseDeleteApplication =
+  res
+    "DeleteApplicationResponse"
+    "fixture/DeleteApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
+
+responseDeleteDeploymentConfig :: DeleteDeploymentConfigResponse -> TestTree
+responseDeleteDeploymentConfig =
+  res
+    "DeleteDeploymentConfigResponse"
+    "fixture/DeleteDeploymentConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeploymentConfig)
+
+responseDeleteDeploymentGroup :: DeleteDeploymentGroupResponse -> TestTree
+responseDeleteDeploymentGroup =
+  res
+    "DeleteDeploymentGroupResponse"
+    "fixture/DeleteDeploymentGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeploymentGroup)
+
+responseDeleteGitHubAccountToken :: DeleteGitHubAccountTokenResponse -> TestTree
+responseDeleteGitHubAccountToken =
+  res
+    "DeleteGitHubAccountTokenResponse"
+    "fixture/DeleteGitHubAccountTokenResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteGitHubAccountToken)
+
+responseDeleteResourcesByExternalId :: DeleteResourcesByExternalIdResponse -> TestTree
+responseDeleteResourcesByExternalId =
+  res
+    "DeleteResourcesByExternalIdResponse"
+    "fixture/DeleteResourcesByExternalIdResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcesByExternalId)
+
+responseDeregisterOnPremisesInstance :: DeregisterOnPremisesInstanceResponse -> TestTree
+responseDeregisterOnPremisesInstance =
+  res
+    "DeregisterOnPremisesInstanceResponse"
+    "fixture/DeregisterOnPremisesInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeregisterOnPremisesInstance)
+
+responseGetApplication :: GetApplicationResponse -> TestTree
+responseGetApplication =
+  res
+    "GetApplicationResponse"
+    "fixture/GetApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetApplication)
 
 responseGetApplicationRevision :: GetApplicationRevisionResponse -> TestTree
 responseGetApplicationRevision =
@@ -617,22 +721,6 @@ responseGetDeployment =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDeployment)
 
-responseDeleteDeploymentConfig :: DeleteDeploymentConfigResponse -> TestTree
-responseDeleteDeploymentConfig =
-  res
-    "DeleteDeploymentConfigResponse"
-    "fixture/DeleteDeploymentConfigResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDeploymentConfig)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
 responseGetDeploymentConfig :: GetDeploymentConfigResponse -> TestTree
 responseGetDeploymentConfig =
   res
@@ -640,190 +728,6 @@ responseGetDeploymentConfig =
     "fixture/GetDeploymentConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDeploymentConfig)
-
-responseCreateDeployment :: CreateDeploymentResponse -> TestTree
-responseCreateDeployment =
-  res
-    "CreateDeploymentResponse"
-    "fixture/CreateDeploymentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
-
-responseBatchGetApplicationRevisions :: BatchGetApplicationRevisionsResponse -> TestTree
-responseBatchGetApplicationRevisions =
-  res
-    "BatchGetApplicationRevisionsResponse"
-    "fixture/BatchGetApplicationRevisionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetApplicationRevisions)
-
-responseBatchGetDeployments :: BatchGetDeploymentsResponse -> TestTree
-responseBatchGetDeployments =
-  res
-    "BatchGetDeploymentsResponse"
-    "fixture/BatchGetDeploymentsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetDeployments)
-
-responseGetOnPremisesInstance :: GetOnPremisesInstanceResponse -> TestTree
-responseGetOnPremisesInstance =
-  res
-    "GetOnPremisesInstanceResponse"
-    "fixture/GetOnPremisesInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetOnPremisesInstance)
-
-responseRegisterApplicationRevision :: RegisterApplicationRevisionResponse -> TestTree
-responseRegisterApplicationRevision =
-  res
-    "RegisterApplicationRevisionResponse"
-    "fixture/RegisterApplicationRevisionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RegisterApplicationRevision)
-
-responseContinueDeployment :: ContinueDeploymentResponse -> TestTree
-responseContinueDeployment =
-  res
-    "ContinueDeploymentResponse"
-    "fixture/ContinueDeploymentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ContinueDeployment)
-
-responseBatchGetApplications :: BatchGetApplicationsResponse -> TestTree
-responseBatchGetApplications =
-  res
-    "BatchGetApplicationsResponse"
-    "fixture/BatchGetApplicationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetApplications)
-
-responseDeleteApplication :: DeleteApplicationResponse -> TestTree
-responseDeleteApplication =
-  res
-    "DeleteApplicationResponse"
-    "fixture/DeleteApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
-
-responseUpdateApplication :: UpdateApplicationResponse -> TestTree
-responseUpdateApplication =
-  res
-    "UpdateApplicationResponse"
-    "fixture/UpdateApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
-
-responseDeleteGitHubAccountToken :: DeleteGitHubAccountTokenResponse -> TestTree
-responseDeleteGitHubAccountToken =
-  res
-    "DeleteGitHubAccountTokenResponse"
-    "fixture/DeleteGitHubAccountTokenResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteGitHubAccountToken)
-
-responseDeregisterOnPremisesInstance :: DeregisterOnPremisesInstanceResponse -> TestTree
-responseDeregisterOnPremisesInstance =
-  res
-    "DeregisterOnPremisesInstanceResponse"
-    "fixture/DeregisterOnPremisesInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeregisterOnPremisesInstance)
-
-responsePutLifecycleEventHookExecutionStatus :: PutLifecycleEventHookExecutionStatusResponse -> TestTree
-responsePutLifecycleEventHookExecutionStatus =
-  res
-    "PutLifecycleEventHookExecutionStatusResponse"
-    "fixture/PutLifecycleEventHookExecutionStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutLifecycleEventHookExecutionStatus)
-
-responseGetDeploymentTarget :: GetDeploymentTargetResponse -> TestTree
-responseGetDeploymentTarget =
-  res
-    "GetDeploymentTargetResponse"
-    "fixture/GetDeploymentTargetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDeploymentTarget)
-
-responseCreateApplication :: CreateApplicationResponse -> TestTree
-responseCreateApplication =
-  res
-    "CreateApplicationResponse"
-    "fixture/CreateApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
-
-responseBatchGetDeploymentTargets :: BatchGetDeploymentTargetsResponse -> TestTree
-responseBatchGetDeploymentTargets =
-  res
-    "BatchGetDeploymentTargetsResponse"
-    "fixture/BatchGetDeploymentTargetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetDeploymentTargets)
-
-responseStopDeployment :: StopDeploymentResponse -> TestTree
-responseStopDeployment =
-  res
-    "StopDeploymentResponse"
-    "fixture/StopDeploymentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopDeployment)
-
-responseListGitHubAccountTokenNames :: ListGitHubAccountTokenNamesResponse -> TestTree
-responseListGitHubAccountTokenNames =
-  res
-    "ListGitHubAccountTokenNamesResponse"
-    "fixture/ListGitHubAccountTokenNamesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListGitHubAccountTokenNames)
-
-responseGetApplication :: GetApplicationResponse -> TestTree
-responseGetApplication =
-  res
-    "GetApplicationResponse"
-    "fixture/GetApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetApplication)
-
-responseListDeploymentGroups :: ListDeploymentGroupsResponse -> TestTree
-responseListDeploymentGroups =
-  res
-    "ListDeploymentGroupsResponse"
-    "fixture/ListDeploymentGroupsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDeploymentGroups)
-
-responseBatchGetOnPremisesInstances :: BatchGetOnPremisesInstancesResponse -> TestTree
-responseBatchGetOnPremisesInstances =
-  res
-    "BatchGetOnPremisesInstancesResponse"
-    "fixture/BatchGetOnPremisesInstancesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetOnPremisesInstances)
-
-responseRegisterOnPremisesInstance :: RegisterOnPremisesInstanceResponse -> TestTree
-responseRegisterOnPremisesInstance =
-  res
-    "RegisterOnPremisesInstanceResponse"
-    "fixture/RegisterOnPremisesInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RegisterOnPremisesInstance)
-
-responseCreateDeploymentGroup :: CreateDeploymentGroupResponse -> TestTree
-responseCreateDeploymentGroup =
-  res
-    "CreateDeploymentGroupResponse"
-    "fixture/CreateDeploymentGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDeploymentGroup)
-
-responseListDeploymentConfigs :: ListDeploymentConfigsResponse -> TestTree
-responseListDeploymentConfigs =
-  res
-    "ListDeploymentConfigsResponse"
-    "fixture/ListDeploymentConfigsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDeploymentConfigs)
 
 responseGetDeploymentGroup :: GetDeploymentGroupResponse -> TestTree
 responseGetDeploymentGroup =
@@ -833,21 +737,21 @@ responseGetDeploymentGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDeploymentGroup)
 
-responseListDeployments :: ListDeploymentsResponse -> TestTree
-responseListDeployments =
+responseGetDeploymentTarget :: GetDeploymentTargetResponse -> TestTree
+responseGetDeploymentTarget =
   res
-    "ListDeploymentsResponse"
-    "fixture/ListDeploymentsResponse.proto"
+    "GetDeploymentTargetResponse"
+    "fixture/GetDeploymentTargetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDeployments)
+    (Proxy.Proxy :: Proxy.Proxy GetDeploymentTarget)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseGetOnPremisesInstance :: GetOnPremisesInstanceResponse -> TestTree
+responseGetOnPremisesInstance =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "GetOnPremisesInstanceResponse"
+    "fixture/GetOnPremisesInstanceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy GetOnPremisesInstance)
 
 responseListApplicationRevisions :: ListApplicationRevisionsResponse -> TestTree
 responseListApplicationRevisions =
@@ -865,29 +769,21 @@ responseListApplications =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListApplications)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseListDeploymentConfigs :: ListDeploymentConfigsResponse -> TestTree
+responseListDeploymentConfigs =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "ListDeploymentConfigsResponse"
+    "fixture/ListDeploymentConfigsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy ListDeploymentConfigs)
 
-responseDeleteResourcesByExternalId :: DeleteResourcesByExternalIdResponse -> TestTree
-responseDeleteResourcesByExternalId =
+responseListDeploymentGroups :: ListDeploymentGroupsResponse -> TestTree
+responseListDeploymentGroups =
   res
-    "DeleteResourcesByExternalIdResponse"
-    "fixture/DeleteResourcesByExternalIdResponse.proto"
+    "ListDeploymentGroupsResponse"
+    "fixture/ListDeploymentGroupsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteResourcesByExternalId)
-
-responseAddTagsToOnPremisesInstances :: AddTagsToOnPremisesInstancesResponse -> TestTree
-responseAddTagsToOnPremisesInstances =
-  res
-    "AddTagsToOnPremisesInstancesResponse"
-    "fixture/AddTagsToOnPremisesInstancesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddTagsToOnPremisesInstances)
+    (Proxy.Proxy :: Proxy.Proxy ListDeploymentGroups)
 
 responseListDeploymentTargets :: ListDeploymentTargetsResponse -> TestTree
 responseListDeploymentTargets =
@@ -896,3 +792,107 @@ responseListDeploymentTargets =
     "fixture/ListDeploymentTargetsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDeploymentTargets)
+
+responseListDeployments :: ListDeploymentsResponse -> TestTree
+responseListDeployments =
+  res
+    "ListDeploymentsResponse"
+    "fixture/ListDeploymentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDeployments)
+
+responseListGitHubAccountTokenNames :: ListGitHubAccountTokenNamesResponse -> TestTree
+responseListGitHubAccountTokenNames =
+  res
+    "ListGitHubAccountTokenNamesResponse"
+    "fixture/ListGitHubAccountTokenNamesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListGitHubAccountTokenNames)
+
+responseListOnPremisesInstances :: ListOnPremisesInstancesResponse -> TestTree
+responseListOnPremisesInstances =
+  res
+    "ListOnPremisesInstancesResponse"
+    "fixture/ListOnPremisesInstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListOnPremisesInstances)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutLifecycleEventHookExecutionStatus :: PutLifecycleEventHookExecutionStatusResponse -> TestTree
+responsePutLifecycleEventHookExecutionStatus =
+  res
+    "PutLifecycleEventHookExecutionStatusResponse"
+    "fixture/PutLifecycleEventHookExecutionStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutLifecycleEventHookExecutionStatus)
+
+responseRegisterApplicationRevision :: RegisterApplicationRevisionResponse -> TestTree
+responseRegisterApplicationRevision =
+  res
+    "RegisterApplicationRevisionResponse"
+    "fixture/RegisterApplicationRevisionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterApplicationRevision)
+
+responseRegisterOnPremisesInstance :: RegisterOnPremisesInstanceResponse -> TestTree
+responseRegisterOnPremisesInstance =
+  res
+    "RegisterOnPremisesInstanceResponse"
+    "fixture/RegisterOnPremisesInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterOnPremisesInstance)
+
+responseRemoveTagsFromOnPremisesInstances :: RemoveTagsFromOnPremisesInstancesResponse -> TestTree
+responseRemoveTagsFromOnPremisesInstances =
+  res
+    "RemoveTagsFromOnPremisesInstancesResponse"
+    "fixture/RemoveTagsFromOnPremisesInstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromOnPremisesInstances)
+
+responseStopDeployment :: StopDeploymentResponse -> TestTree
+responseStopDeployment =
+  res
+    "StopDeploymentResponse"
+    "fixture/StopDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopDeployment)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateApplication :: UpdateApplicationResponse -> TestTree
+responseUpdateApplication =
+  res
+    "UpdateApplicationResponse"
+    "fixture/UpdateApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
+
+responseUpdateDeploymentGroup :: UpdateDeploymentGroupResponse -> TestTree
+responseUpdateDeploymentGroup =
+  res
+    "UpdateDeploymentGroupResponse"
+    "fixture/UpdateDeploymentGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDeploymentGroup)

@@ -35,7 +35,6 @@ data DeploymentTarget = DeploymentTarget'
   { -- | Information about the target for a deployment that uses the
     -- EC2\/On-premises compute platform.
     instanceTarget :: Prelude.Maybe InstanceTarget,
-    cloudFormationTarget :: Prelude.Maybe CloudFormationTarget,
     -- | Information about the target for a deployment that uses the Amazon ECS
     -- compute platform.
     ecsTarget :: Prelude.Maybe ECSTarget,
@@ -44,7 +43,8 @@ data DeploymentTarget = DeploymentTarget'
     deploymentTargetType :: Prelude.Maybe DeploymentTargetType,
     -- | Information about the target for a deployment that uses the AWS Lambda
     -- compute platform.
-    lambdaTarget :: Prelude.Maybe LambdaTarget
+    lambdaTarget :: Prelude.Maybe LambdaTarget,
+    cloudFormationTarget :: Prelude.Maybe CloudFormationTarget
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,8 +59,6 @@ data DeploymentTarget = DeploymentTarget'
 -- 'instanceTarget', 'deploymentTarget_instanceTarget' - Information about the target for a deployment that uses the
 -- EC2\/On-premises compute platform.
 --
--- 'cloudFormationTarget', 'deploymentTarget_cloudFormationTarget' - Undocumented member.
---
 -- 'ecsTarget', 'deploymentTarget_ecsTarget' - Information about the target for a deployment that uses the Amazon ECS
 -- compute platform.
 --
@@ -69,25 +67,23 @@ data DeploymentTarget = DeploymentTarget'
 --
 -- 'lambdaTarget', 'deploymentTarget_lambdaTarget' - Information about the target for a deployment that uses the AWS Lambda
 -- compute platform.
+--
+-- 'cloudFormationTarget', 'deploymentTarget_cloudFormationTarget' - Undocumented member.
 newDeploymentTarget ::
   DeploymentTarget
 newDeploymentTarget =
   DeploymentTarget'
     { instanceTarget = Prelude.Nothing,
-      cloudFormationTarget = Prelude.Nothing,
       ecsTarget = Prelude.Nothing,
       deploymentTargetType = Prelude.Nothing,
-      lambdaTarget = Prelude.Nothing
+      lambdaTarget = Prelude.Nothing,
+      cloudFormationTarget = Prelude.Nothing
     }
 
 -- | Information about the target for a deployment that uses the
 -- EC2\/On-premises compute platform.
 deploymentTarget_instanceTarget :: Lens.Lens' DeploymentTarget (Prelude.Maybe InstanceTarget)
 deploymentTarget_instanceTarget = Lens.lens (\DeploymentTarget' {instanceTarget} -> instanceTarget) (\s@DeploymentTarget' {} a -> s {instanceTarget = a} :: DeploymentTarget)
-
--- | Undocumented member.
-deploymentTarget_cloudFormationTarget :: Lens.Lens' DeploymentTarget (Prelude.Maybe CloudFormationTarget)
-deploymentTarget_cloudFormationTarget = Lens.lens (\DeploymentTarget' {cloudFormationTarget} -> cloudFormationTarget) (\s@DeploymentTarget' {} a -> s {cloudFormationTarget = a} :: DeploymentTarget)
 
 -- | Information about the target for a deployment that uses the Amazon ECS
 -- compute platform.
@@ -104,6 +100,10 @@ deploymentTarget_deploymentTargetType = Lens.lens (\DeploymentTarget' {deploymen
 deploymentTarget_lambdaTarget :: Lens.Lens' DeploymentTarget (Prelude.Maybe LambdaTarget)
 deploymentTarget_lambdaTarget = Lens.lens (\DeploymentTarget' {lambdaTarget} -> lambdaTarget) (\s@DeploymentTarget' {} a -> s {lambdaTarget = a} :: DeploymentTarget)
 
+-- | Undocumented member.
+deploymentTarget_cloudFormationTarget :: Lens.Lens' DeploymentTarget (Prelude.Maybe CloudFormationTarget)
+deploymentTarget_cloudFormationTarget = Lens.lens (\DeploymentTarget' {cloudFormationTarget} -> cloudFormationTarget) (\s@DeploymentTarget' {} a -> s {cloudFormationTarget = a} :: DeploymentTarget)
+
 instance Core.FromJSON DeploymentTarget where
   parseJSON =
     Core.withObject
@@ -111,24 +111,24 @@ instance Core.FromJSON DeploymentTarget where
       ( \x ->
           DeploymentTarget'
             Prelude.<$> (x Core..:? "instanceTarget")
-            Prelude.<*> (x Core..:? "cloudFormationTarget")
             Prelude.<*> (x Core..:? "ecsTarget")
             Prelude.<*> (x Core..:? "deploymentTargetType")
             Prelude.<*> (x Core..:? "lambdaTarget")
+            Prelude.<*> (x Core..:? "cloudFormationTarget")
       )
 
 instance Prelude.Hashable DeploymentTarget where
   hashWithSalt _salt DeploymentTarget' {..} =
     _salt `Prelude.hashWithSalt` instanceTarget
-      `Prelude.hashWithSalt` cloudFormationTarget
       `Prelude.hashWithSalt` ecsTarget
       `Prelude.hashWithSalt` deploymentTargetType
       `Prelude.hashWithSalt` lambdaTarget
+      `Prelude.hashWithSalt` cloudFormationTarget
 
 instance Prelude.NFData DeploymentTarget where
   rnf DeploymentTarget' {..} =
     Prelude.rnf instanceTarget
-      `Prelude.seq` Prelude.rnf cloudFormationTarget
       `Prelude.seq` Prelude.rnf ecsTarget
       `Prelude.seq` Prelude.rnf deploymentTargetType
       `Prelude.seq` Prelude.rnf lambdaTarget
+      `Prelude.seq` Prelude.rnf cloudFormationTarget

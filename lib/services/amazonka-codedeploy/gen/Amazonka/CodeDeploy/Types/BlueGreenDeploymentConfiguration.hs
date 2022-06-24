@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBlueGreenDeploymentConfiguration' smart constructor.
 data BlueGreenDeploymentConfiguration = BlueGreenDeploymentConfiguration'
-  { -- | Information about the action to take when newly provisioned instances
-    -- are ready to receive traffic in a blue\/green deployment.
-    deploymentReadyOption :: Prelude.Maybe DeploymentReadyOption,
-    -- | Information about how instances are provisioned for a replacement
+  { -- | Information about how instances are provisioned for a replacement
     -- environment in a blue\/green deployment.
     greenFleetProvisioningOption :: Prelude.Maybe GreenFleetProvisioningOption,
     -- | Information about whether to terminate instances in the original fleet
     -- during a blue\/green deployment.
-    terminateBlueInstancesOnDeploymentSuccess :: Prelude.Maybe BlueInstanceTerminationOption
+    terminateBlueInstancesOnDeploymentSuccess :: Prelude.Maybe BlueInstanceTerminationOption,
+    -- | Information about the action to take when newly provisioned instances
+    -- are ready to receive traffic in a blue\/green deployment.
+    deploymentReadyOption :: Prelude.Maybe DeploymentReadyOption
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,30 +50,24 @@ data BlueGreenDeploymentConfiguration = BlueGreenDeploymentConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentReadyOption', 'blueGreenDeploymentConfiguration_deploymentReadyOption' - Information about the action to take when newly provisioned instances
--- are ready to receive traffic in a blue\/green deployment.
---
 -- 'greenFleetProvisioningOption', 'blueGreenDeploymentConfiguration_greenFleetProvisioningOption' - Information about how instances are provisioned for a replacement
 -- environment in a blue\/green deployment.
 --
 -- 'terminateBlueInstancesOnDeploymentSuccess', 'blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess' - Information about whether to terminate instances in the original fleet
 -- during a blue\/green deployment.
+--
+-- 'deploymentReadyOption', 'blueGreenDeploymentConfiguration_deploymentReadyOption' - Information about the action to take when newly provisioned instances
+-- are ready to receive traffic in a blue\/green deployment.
 newBlueGreenDeploymentConfiguration ::
   BlueGreenDeploymentConfiguration
 newBlueGreenDeploymentConfiguration =
   BlueGreenDeploymentConfiguration'
-    { deploymentReadyOption =
-        Prelude.Nothing,
-      greenFleetProvisioningOption =
+    { greenFleetProvisioningOption =
         Prelude.Nothing,
       terminateBlueInstancesOnDeploymentSuccess =
-        Prelude.Nothing
+        Prelude.Nothing,
+      deploymentReadyOption = Prelude.Nothing
     }
-
--- | Information about the action to take when newly provisioned instances
--- are ready to receive traffic in a blue\/green deployment.
-blueGreenDeploymentConfiguration_deploymentReadyOption :: Lens.Lens' BlueGreenDeploymentConfiguration (Prelude.Maybe DeploymentReadyOption)
-blueGreenDeploymentConfiguration_deploymentReadyOption = Lens.lens (\BlueGreenDeploymentConfiguration' {deploymentReadyOption} -> deploymentReadyOption) (\s@BlueGreenDeploymentConfiguration' {} a -> s {deploymentReadyOption = a} :: BlueGreenDeploymentConfiguration)
 
 -- | Information about how instances are provisioned for a replacement
 -- environment in a blue\/green deployment.
@@ -85,6 +79,11 @@ blueGreenDeploymentConfiguration_greenFleetProvisioningOption = Lens.lens (\Blue
 blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess :: Lens.Lens' BlueGreenDeploymentConfiguration (Prelude.Maybe BlueInstanceTerminationOption)
 blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess = Lens.lens (\BlueGreenDeploymentConfiguration' {terminateBlueInstancesOnDeploymentSuccess} -> terminateBlueInstancesOnDeploymentSuccess) (\s@BlueGreenDeploymentConfiguration' {} a -> s {terminateBlueInstancesOnDeploymentSuccess = a} :: BlueGreenDeploymentConfiguration)
 
+-- | Information about the action to take when newly provisioned instances
+-- are ready to receive traffic in a blue\/green deployment.
+blueGreenDeploymentConfiguration_deploymentReadyOption :: Lens.Lens' BlueGreenDeploymentConfiguration (Prelude.Maybe DeploymentReadyOption)
+blueGreenDeploymentConfiguration_deploymentReadyOption = Lens.lens (\BlueGreenDeploymentConfiguration' {deploymentReadyOption} -> deploymentReadyOption) (\s@BlueGreenDeploymentConfiguration' {} a -> s {deploymentReadyOption = a} :: BlueGreenDeploymentConfiguration)
+
 instance
   Core.FromJSON
     BlueGreenDeploymentConfiguration
@@ -94,11 +93,11 @@ instance
       "BlueGreenDeploymentConfiguration"
       ( \x ->
           BlueGreenDeploymentConfiguration'
-            Prelude.<$> (x Core..:? "deploymentReadyOption")
-            Prelude.<*> (x Core..:? "greenFleetProvisioningOption")
+            Prelude.<$> (x Core..:? "greenFleetProvisioningOption")
             Prelude.<*> ( x
                             Core..:? "terminateBlueInstancesOnDeploymentSuccess"
                         )
+            Prelude.<*> (x Core..:? "deploymentReadyOption")
       )
 
 instance
@@ -108,28 +107,29 @@ instance
   hashWithSalt
     _salt
     BlueGreenDeploymentConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` deploymentReadyOption
+      _salt
         `Prelude.hashWithSalt` greenFleetProvisioningOption
         `Prelude.hashWithSalt` terminateBlueInstancesOnDeploymentSuccess
+        `Prelude.hashWithSalt` deploymentReadyOption
 
 instance
   Prelude.NFData
     BlueGreenDeploymentConfiguration
   where
   rnf BlueGreenDeploymentConfiguration' {..} =
-    Prelude.rnf deploymentReadyOption
-      `Prelude.seq` Prelude.rnf greenFleetProvisioningOption
+    Prelude.rnf greenFleetProvisioningOption
       `Prelude.seq` Prelude.rnf terminateBlueInstancesOnDeploymentSuccess
+      `Prelude.seq` Prelude.rnf deploymentReadyOption
 
 instance Core.ToJSON BlueGreenDeploymentConfiguration where
   toJSON BlueGreenDeploymentConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("deploymentReadyOption" Core..=)
-              Prelude.<$> deploymentReadyOption,
-            ("greenFleetProvisioningOption" Core..=)
+          [ ("greenFleetProvisioningOption" Core..=)
               Prelude.<$> greenFleetProvisioningOption,
             ("terminateBlueInstancesOnDeploymentSuccess" Core..=)
-              Prelude.<$> terminateBlueInstancesOnDeploymentSuccess
+              Prelude.<$> terminateBlueInstancesOnDeploymentSuccess,
+            ("deploymentReadyOption" Core..=)
+              Prelude.<$> deploymentReadyOption
           ]
       )

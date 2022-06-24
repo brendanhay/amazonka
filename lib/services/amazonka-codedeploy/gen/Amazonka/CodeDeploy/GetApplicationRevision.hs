@@ -35,9 +35,9 @@ module Amazonka.CodeDeploy.GetApplicationRevision
     newGetApplicationRevisionResponse,
 
     -- * Response Lenses
-    getApplicationRevisionResponse_applicationName,
-    getApplicationRevisionResponse_revisionInfo,
     getApplicationRevisionResponse_revision,
+    getApplicationRevisionResponse_revisionInfo,
+    getApplicationRevisionResponse_applicationName,
     getApplicationRevisionResponse_httpStatus,
   )
 where
@@ -106,9 +106,9 @@ instance Core.AWSRequest GetApplicationRevision where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationRevisionResponse'
-            Prelude.<$> (x Core..?> "applicationName")
+            Prelude.<$> (x Core..?> "revision")
             Prelude.<*> (x Core..?> "revisionInfo")
-            Prelude.<*> (x Core..?> "revision")
+            Prelude.<*> (x Core..?> "applicationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,12 +157,12 @@ instance Core.ToQuery GetApplicationRevision where
 --
 -- /See:/ 'newGetApplicationRevisionResponse' smart constructor.
 data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
-  { -- | The name of the application that corresponds to the revision.
-    applicationName :: Prelude.Maybe Prelude.Text,
+  { -- | Additional information about the revision, including type and location.
+    revision :: Prelude.Maybe RevisionLocation,
     -- | General information about the revision.
     revisionInfo :: Prelude.Maybe GenericRevisionInfo,
-    -- | Additional information about the revision, including type and location.
-    revision :: Prelude.Maybe RevisionLocation,
+    -- | The name of the application that corresponds to the revision.
+    applicationName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,11 +176,11 @@ data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationName', 'getApplicationRevisionResponse_applicationName' - The name of the application that corresponds to the revision.
+-- 'revision', 'getApplicationRevisionResponse_revision' - Additional information about the revision, including type and location.
 --
 -- 'revisionInfo', 'getApplicationRevisionResponse_revisionInfo' - General information about the revision.
 --
--- 'revision', 'getApplicationRevisionResponse_revision' - Additional information about the revision, including type and location.
+-- 'applicationName', 'getApplicationRevisionResponse_applicationName' - The name of the application that corresponds to the revision.
 --
 -- 'httpStatus', 'getApplicationRevisionResponse_httpStatus' - The response's http status code.
 newGetApplicationRevisionResponse ::
@@ -189,24 +189,24 @@ newGetApplicationRevisionResponse ::
   GetApplicationRevisionResponse
 newGetApplicationRevisionResponse pHttpStatus_ =
   GetApplicationRevisionResponse'
-    { applicationName =
+    { revision =
         Prelude.Nothing,
       revisionInfo = Prelude.Nothing,
-      revision = Prelude.Nothing,
+      applicationName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the application that corresponds to the revision.
-getApplicationRevisionResponse_applicationName :: Lens.Lens' GetApplicationRevisionResponse (Prelude.Maybe Prelude.Text)
-getApplicationRevisionResponse_applicationName = Lens.lens (\GetApplicationRevisionResponse' {applicationName} -> applicationName) (\s@GetApplicationRevisionResponse' {} a -> s {applicationName = a} :: GetApplicationRevisionResponse)
+-- | Additional information about the revision, including type and location.
+getApplicationRevisionResponse_revision :: Lens.Lens' GetApplicationRevisionResponse (Prelude.Maybe RevisionLocation)
+getApplicationRevisionResponse_revision = Lens.lens (\GetApplicationRevisionResponse' {revision} -> revision) (\s@GetApplicationRevisionResponse' {} a -> s {revision = a} :: GetApplicationRevisionResponse)
 
 -- | General information about the revision.
 getApplicationRevisionResponse_revisionInfo :: Lens.Lens' GetApplicationRevisionResponse (Prelude.Maybe GenericRevisionInfo)
 getApplicationRevisionResponse_revisionInfo = Lens.lens (\GetApplicationRevisionResponse' {revisionInfo} -> revisionInfo) (\s@GetApplicationRevisionResponse' {} a -> s {revisionInfo = a} :: GetApplicationRevisionResponse)
 
--- | Additional information about the revision, including type and location.
-getApplicationRevisionResponse_revision :: Lens.Lens' GetApplicationRevisionResponse (Prelude.Maybe RevisionLocation)
-getApplicationRevisionResponse_revision = Lens.lens (\GetApplicationRevisionResponse' {revision} -> revision) (\s@GetApplicationRevisionResponse' {} a -> s {revision = a} :: GetApplicationRevisionResponse)
+-- | The name of the application that corresponds to the revision.
+getApplicationRevisionResponse_applicationName :: Lens.Lens' GetApplicationRevisionResponse (Prelude.Maybe Prelude.Text)
+getApplicationRevisionResponse_applicationName = Lens.lens (\GetApplicationRevisionResponse' {applicationName} -> applicationName) (\s@GetApplicationRevisionResponse' {} a -> s {applicationName = a} :: GetApplicationRevisionResponse)
 
 -- | The response's http status code.
 getApplicationRevisionResponse_httpStatus :: Lens.Lens' GetApplicationRevisionResponse Prelude.Int
@@ -217,7 +217,7 @@ instance
     GetApplicationRevisionResponse
   where
   rnf GetApplicationRevisionResponse' {..} =
-    Prelude.rnf applicationName
+    Prelude.rnf revision
       `Prelude.seq` Prelude.rnf revisionInfo
-      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf httpStatus

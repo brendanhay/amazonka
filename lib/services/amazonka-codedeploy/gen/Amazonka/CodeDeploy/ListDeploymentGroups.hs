@@ -38,9 +38,9 @@ module Amazonka.CodeDeploy.ListDeploymentGroups
     newListDeploymentGroupsResponse,
 
     -- * Response Lenses
+    listDeploymentGroupsResponse_deploymentGroups,
     listDeploymentGroupsResponse_nextToken,
     listDeploymentGroupsResponse_applicationName,
-    listDeploymentGroupsResponse_deploymentGroups,
     listDeploymentGroupsResponse_httpStatus,
   )
 where
@@ -129,11 +129,11 @@ instance Core.AWSRequest ListDeploymentGroups where
     Response.receiveJSON
       ( \s h x ->
           ListDeploymentGroupsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "applicationName")
-            Prelude.<*> ( x Core..?> "deploymentGroups"
+            Prelude.<$> ( x Core..?> "deploymentGroups"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "applicationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,14 +182,14 @@ instance Core.ToQuery ListDeploymentGroups where
 --
 -- /See:/ 'newListDeploymentGroupsResponse' smart constructor.
 data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
-  { -- | If a large amount of information is returned, an identifier is also
+  { -- | A list of deployment group names.
+    deploymentGroups :: Prelude.Maybe [Prelude.Text],
+    -- | If a large amount of information is returned, an identifier is also
     -- returned. It can be used in a subsequent list deployment groups call to
     -- return the next set of deployment groups in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The application name.
     applicationName :: Prelude.Maybe Prelude.Text,
-    -- | A list of deployment group names.
-    deploymentGroups :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,13 +203,13 @@ data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deploymentGroups', 'listDeploymentGroupsResponse_deploymentGroups' - A list of deployment group names.
+--
 -- 'nextToken', 'listDeploymentGroupsResponse_nextToken' - If a large amount of information is returned, an identifier is also
 -- returned. It can be used in a subsequent list deployment groups call to
 -- return the next set of deployment groups in the list.
 --
 -- 'applicationName', 'listDeploymentGroupsResponse_applicationName' - The application name.
---
--- 'deploymentGroups', 'listDeploymentGroupsResponse_deploymentGroups' - A list of deployment group names.
 --
 -- 'httpStatus', 'listDeploymentGroupsResponse_httpStatus' - The response's http status code.
 newListDeploymentGroupsResponse ::
@@ -218,12 +218,16 @@ newListDeploymentGroupsResponse ::
   ListDeploymentGroupsResponse
 newListDeploymentGroupsResponse pHttpStatus_ =
   ListDeploymentGroupsResponse'
-    { nextToken =
+    { deploymentGroups =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       applicationName = Prelude.Nothing,
-      deploymentGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of deployment group names.
+listDeploymentGroupsResponse_deploymentGroups :: Lens.Lens' ListDeploymentGroupsResponse (Prelude.Maybe [Prelude.Text])
+listDeploymentGroupsResponse_deploymentGroups = Lens.lens (\ListDeploymentGroupsResponse' {deploymentGroups} -> deploymentGroups) (\s@ListDeploymentGroupsResponse' {} a -> s {deploymentGroups = a} :: ListDeploymentGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If a large amount of information is returned, an identifier is also
 -- returned. It can be used in a subsequent list deployment groups call to
@@ -235,17 +239,13 @@ listDeploymentGroupsResponse_nextToken = Lens.lens (\ListDeploymentGroupsRespons
 listDeploymentGroupsResponse_applicationName :: Lens.Lens' ListDeploymentGroupsResponse (Prelude.Maybe Prelude.Text)
 listDeploymentGroupsResponse_applicationName = Lens.lens (\ListDeploymentGroupsResponse' {applicationName} -> applicationName) (\s@ListDeploymentGroupsResponse' {} a -> s {applicationName = a} :: ListDeploymentGroupsResponse)
 
--- | A list of deployment group names.
-listDeploymentGroupsResponse_deploymentGroups :: Lens.Lens' ListDeploymentGroupsResponse (Prelude.Maybe [Prelude.Text])
-listDeploymentGroupsResponse_deploymentGroups = Lens.lens (\ListDeploymentGroupsResponse' {deploymentGroups} -> deploymentGroups) (\s@ListDeploymentGroupsResponse' {} a -> s {deploymentGroups = a} :: ListDeploymentGroupsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listDeploymentGroupsResponse_httpStatus :: Lens.Lens' ListDeploymentGroupsResponse Prelude.Int
 listDeploymentGroupsResponse_httpStatus = Lens.lens (\ListDeploymentGroupsResponse' {httpStatus} -> httpStatus) (\s@ListDeploymentGroupsResponse' {} a -> s {httpStatus = a} :: ListDeploymentGroupsResponse)
 
 instance Prelude.NFData ListDeploymentGroupsResponse where
   rnf ListDeploymentGroupsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf deploymentGroups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf deploymentGroups
       `Prelude.seq` Prelude.rnf httpStatus

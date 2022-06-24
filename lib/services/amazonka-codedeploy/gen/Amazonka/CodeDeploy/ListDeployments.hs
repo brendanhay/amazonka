@@ -30,12 +30,12 @@ module Amazonka.CodeDeploy.ListDeployments
     newListDeployments,
 
     -- * Request Lenses
-    listDeployments_createTimeRange,
     listDeployments_nextToken,
-    listDeployments_includeOnlyStatuses,
-    listDeployments_applicationName,
-    listDeployments_externalId,
     listDeployments_deploymentGroupName,
+    listDeployments_externalId,
+    listDeployments_includeOnlyStatuses,
+    listDeployments_createTimeRange,
+    listDeployments_applicationName,
 
     -- * Destructuring the Response
     ListDeploymentsResponse (..),
@@ -59,12 +59,18 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-  { -- | A time range (start and end) for returning a subset of the list of
-    -- deployments.
-    createTimeRange :: Prelude.Maybe TimeRange,
-    -- | An identifier returned from the previous list deployments call. It can
+  { -- | An identifier returned from the previous list deployments call. It can
     -- be used to return the next set of deployments in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of a deployment group for the specified application.
+    --
+    -- If @deploymentGroupName@ is specified, then @applicationName@ must be
+    -- specified. If it is not specified, then @applicationName@ must not be
+    -- specified.
+    deploymentGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of an external resource for returning deployments linked
+    -- to the external resource.
+    externalId :: Prelude.Maybe Prelude.Text,
     -- | A subset of deployments to list by status:
     --
     -- -   @Created@: Include created deployments in the resulting list.
@@ -80,22 +86,16 @@ data ListDeployments = ListDeployments'
     --
     -- -   @Stopped@: Include stopped deployments in the resulting list.
     includeOnlyStatuses :: Prelude.Maybe [DeploymentStatus],
+    -- | A time range (start and end) for returning a subset of the list of
+    -- deployments.
+    createTimeRange :: Prelude.Maybe TimeRange,
     -- | The name of an AWS CodeDeploy application associated with the IAM user
     -- or AWS account.
     --
     -- If @applicationName@ is specified, then @deploymentGroupName@ must be
     -- specified. If it is not specified, then @deploymentGroupName@ must not
     -- be specified.
-    applicationName :: Prelude.Maybe Prelude.Text,
-    -- | The unique ID of an external resource for returning deployments linked
-    -- to the external resource.
-    externalId :: Prelude.Maybe Prelude.Text,
-    -- | The name of a deployment group for the specified application.
-    --
-    -- If @deploymentGroupName@ is specified, then @applicationName@ must be
-    -- specified. If it is not specified, then @applicationName@ must not be
-    -- specified.
-    deploymentGroupName :: Prelude.Maybe Prelude.Text
+    applicationName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,11 +107,17 @@ data ListDeployments = ListDeployments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createTimeRange', 'listDeployments_createTimeRange' - A time range (start and end) for returning a subset of the list of
--- deployments.
---
 -- 'nextToken', 'listDeployments_nextToken' - An identifier returned from the previous list deployments call. It can
 -- be used to return the next set of deployments in the list.
+--
+-- 'deploymentGroupName', 'listDeployments_deploymentGroupName' - The name of a deployment group for the specified application.
+--
+-- If @deploymentGroupName@ is specified, then @applicationName@ must be
+-- specified. If it is not specified, then @applicationName@ must not be
+-- specified.
+--
+-- 'externalId', 'listDeployments_externalId' - The unique ID of an external resource for returning deployments linked
+-- to the external resource.
 --
 -- 'includeOnlyStatuses', 'listDeployments_includeOnlyStatuses' - A subset of deployments to list by status:
 --
@@ -128,42 +134,44 @@ data ListDeployments = ListDeployments'
 --
 -- -   @Stopped@: Include stopped deployments in the resulting list.
 --
+-- 'createTimeRange', 'listDeployments_createTimeRange' - A time range (start and end) for returning a subset of the list of
+-- deployments.
+--
 -- 'applicationName', 'listDeployments_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
 -- or AWS account.
 --
 -- If @applicationName@ is specified, then @deploymentGroupName@ must be
 -- specified. If it is not specified, then @deploymentGroupName@ must not
 -- be specified.
---
--- 'externalId', 'listDeployments_externalId' - The unique ID of an external resource for returning deployments linked
--- to the external resource.
---
--- 'deploymentGroupName', 'listDeployments_deploymentGroupName' - The name of a deployment group for the specified application.
---
--- If @deploymentGroupName@ is specified, then @applicationName@ must be
--- specified. If it is not specified, then @applicationName@ must not be
--- specified.
 newListDeployments ::
   ListDeployments
 newListDeployments =
   ListDeployments'
-    { createTimeRange = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      includeOnlyStatuses = Prelude.Nothing,
-      applicationName = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      deploymentGroupName = Prelude.Nothing,
       externalId = Prelude.Nothing,
-      deploymentGroupName = Prelude.Nothing
+      includeOnlyStatuses = Prelude.Nothing,
+      createTimeRange = Prelude.Nothing,
+      applicationName = Prelude.Nothing
     }
-
--- | A time range (start and end) for returning a subset of the list of
--- deployments.
-listDeployments_createTimeRange :: Lens.Lens' ListDeployments (Prelude.Maybe TimeRange)
-listDeployments_createTimeRange = Lens.lens (\ListDeployments' {createTimeRange} -> createTimeRange) (\s@ListDeployments' {} a -> s {createTimeRange = a} :: ListDeployments)
 
 -- | An identifier returned from the previous list deployments call. It can
 -- be used to return the next set of deployments in the list.
 listDeployments_nextToken :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
 listDeployments_nextToken = Lens.lens (\ListDeployments' {nextToken} -> nextToken) (\s@ListDeployments' {} a -> s {nextToken = a} :: ListDeployments)
+
+-- | The name of a deployment group for the specified application.
+--
+-- If @deploymentGroupName@ is specified, then @applicationName@ must be
+-- specified. If it is not specified, then @applicationName@ must not be
+-- specified.
+listDeployments_deploymentGroupName :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
+listDeployments_deploymentGroupName = Lens.lens (\ListDeployments' {deploymentGroupName} -> deploymentGroupName) (\s@ListDeployments' {} a -> s {deploymentGroupName = a} :: ListDeployments)
+
+-- | The unique ID of an external resource for returning deployments linked
+-- to the external resource.
+listDeployments_externalId :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
+listDeployments_externalId = Lens.lens (\ListDeployments' {externalId} -> externalId) (\s@ListDeployments' {} a -> s {externalId = a} :: ListDeployments)
 
 -- | A subset of deployments to list by status:
 --
@@ -182,6 +190,11 @@ listDeployments_nextToken = Lens.lens (\ListDeployments' {nextToken} -> nextToke
 listDeployments_includeOnlyStatuses :: Lens.Lens' ListDeployments (Prelude.Maybe [DeploymentStatus])
 listDeployments_includeOnlyStatuses = Lens.lens (\ListDeployments' {includeOnlyStatuses} -> includeOnlyStatuses) (\s@ListDeployments' {} a -> s {includeOnlyStatuses = a} :: ListDeployments) Prelude.. Lens.mapping Lens.coerced
 
+-- | A time range (start and end) for returning a subset of the list of
+-- deployments.
+listDeployments_createTimeRange :: Lens.Lens' ListDeployments (Prelude.Maybe TimeRange)
+listDeployments_createTimeRange = Lens.lens (\ListDeployments' {createTimeRange} -> createTimeRange) (\s@ListDeployments' {} a -> s {createTimeRange = a} :: ListDeployments)
+
 -- | The name of an AWS CodeDeploy application associated with the IAM user
 -- or AWS account.
 --
@@ -190,19 +203,6 @@ listDeployments_includeOnlyStatuses = Lens.lens (\ListDeployments' {includeOnlyS
 -- be specified.
 listDeployments_applicationName :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
 listDeployments_applicationName = Lens.lens (\ListDeployments' {applicationName} -> applicationName) (\s@ListDeployments' {} a -> s {applicationName = a} :: ListDeployments)
-
--- | The unique ID of an external resource for returning deployments linked
--- to the external resource.
-listDeployments_externalId :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
-listDeployments_externalId = Lens.lens (\ListDeployments' {externalId} -> externalId) (\s@ListDeployments' {} a -> s {externalId = a} :: ListDeployments)
-
--- | The name of a deployment group for the specified application.
---
--- If @deploymentGroupName@ is specified, then @applicationName@ must be
--- specified. If it is not specified, then @applicationName@ must not be
--- specified.
-listDeployments_deploymentGroupName :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
-listDeployments_deploymentGroupName = Lens.lens (\ListDeployments' {deploymentGroupName} -> deploymentGroupName) (\s@ListDeployments' {} a -> s {deploymentGroupName = a} :: ListDeployments)
 
 instance Core.AWSPager ListDeployments where
   page rq rs
@@ -242,21 +242,21 @@ instance Core.AWSRequest ListDeployments where
 
 instance Prelude.Hashable ListDeployments where
   hashWithSalt _salt ListDeployments' {..} =
-    _salt `Prelude.hashWithSalt` createTimeRange
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` includeOnlyStatuses
-      `Prelude.hashWithSalt` applicationName
-      `Prelude.hashWithSalt` externalId
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` deploymentGroupName
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` includeOnlyStatuses
+      `Prelude.hashWithSalt` createTimeRange
+      `Prelude.hashWithSalt` applicationName
 
 instance Prelude.NFData ListDeployments where
   rnf ListDeployments' {..} =
-    Prelude.rnf createTimeRange
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf includeOnlyStatuses
-      `Prelude.seq` Prelude.rnf applicationName
-      `Prelude.seq` Prelude.rnf externalId
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf deploymentGroupName
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf includeOnlyStatuses
+      `Prelude.seq` Prelude.rnf createTimeRange
+      `Prelude.seq` Prelude.rnf applicationName
 
 instance Core.ToHeaders ListDeployments where
   toHeaders =
@@ -277,16 +277,16 @@ instance Core.ToJSON ListDeployments where
   toJSON ListDeployments' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("createTimeRange" Core..=)
-              Prelude.<$> createTimeRange,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("deploymentGroupName" Core..=)
+              Prelude.<$> deploymentGroupName,
+            ("externalId" Core..=) Prelude.<$> externalId,
             ("includeOnlyStatuses" Core..=)
               Prelude.<$> includeOnlyStatuses,
+            ("createTimeRange" Core..=)
+              Prelude.<$> createTimeRange,
             ("applicationName" Core..=)
-              Prelude.<$> applicationName,
-            ("externalId" Core..=) Prelude.<$> externalId,
-            ("deploymentGroupName" Core..=)
-              Prelude.<$> deploymentGroupName
+              Prelude.<$> applicationName
           ]
       )
 

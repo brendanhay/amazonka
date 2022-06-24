@@ -37,12 +37,12 @@ module Amazonka.RobOMaker.CreateRobot
     newCreateRobotResponse,
 
     -- * Response Lenses
-    createRobotResponse_arn,
-    createRobotResponse_createdAt,
-    createRobotResponse_greengrassGroupId,
-    createRobotResponse_name,
-    createRobotResponse_architecture,
     createRobotResponse_tags,
+    createRobotResponse_name,
+    createRobotResponse_arn,
+    createRobotResponse_greengrassGroupId,
+    createRobotResponse_architecture,
+    createRobotResponse_createdAt,
     createRobotResponse_httpStatus,
   )
 where
@@ -127,12 +127,12 @@ instance Core.AWSRequest CreateRobot where
     Response.receiveJSON
       ( \s h x ->
           CreateRobotResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "greengrassGroupId")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "greengrassGroupId")
             Prelude.<*> (x Core..?> "architecture")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,19 +181,19 @@ instance Core.ToQuery CreateRobot where
 
 -- | /See:/ 'newCreateRobotResponse' smart constructor.
 data CreateRobotResponse = CreateRobotResponse'
-  { -- | The Amazon Resource Name (ARN) of the robot.
+  { -- | The list of all tags added to the robot.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the robot.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the robot.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the robot was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the Greengrass group associated with
     -- the robot.
     greengrassGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the robot.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The target architecture of the robot.
     architecture :: Prelude.Maybe Architecture,
-    -- | The list of all tags added to the robot.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The time, in milliseconds since the epoch, when the robot was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,18 +207,18 @@ data CreateRobotResponse = CreateRobotResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'createRobotResponse_arn' - The Amazon Resource Name (ARN) of the robot.
+-- 'tags', 'createRobotResponse_tags' - The list of all tags added to the robot.
 --
--- 'createdAt', 'createRobotResponse_createdAt' - The time, in milliseconds since the epoch, when the robot was created.
+-- 'name', 'createRobotResponse_name' - The name of the robot.
+--
+-- 'arn', 'createRobotResponse_arn' - The Amazon Resource Name (ARN) of the robot.
 --
 -- 'greengrassGroupId', 'createRobotResponse_greengrassGroupId' - The Amazon Resource Name (ARN) of the Greengrass group associated with
 -- the robot.
 --
--- 'name', 'createRobotResponse_name' - The name of the robot.
---
 -- 'architecture', 'createRobotResponse_architecture' - The target architecture of the robot.
 --
--- 'tags', 'createRobotResponse_tags' - The list of all tags added to the robot.
+-- 'createdAt', 'createRobotResponse_createdAt' - The time, in milliseconds since the epoch, when the robot was created.
 --
 -- 'httpStatus', 'createRobotResponse_httpStatus' - The response's http status code.
 newCreateRobotResponse ::
@@ -227,39 +227,39 @@ newCreateRobotResponse ::
   CreateRobotResponse
 newCreateRobotResponse pHttpStatus_ =
   CreateRobotResponse'
-    { arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      greengrassGroupId = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      greengrassGroupId = Prelude.Nothing,
       architecture = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of all tags added to the robot.
+createRobotResponse_tags :: Lens.Lens' CreateRobotResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createRobotResponse_tags = Lens.lens (\CreateRobotResponse' {tags} -> tags) (\s@CreateRobotResponse' {} a -> s {tags = a} :: CreateRobotResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the robot.
+createRobotResponse_name :: Lens.Lens' CreateRobotResponse (Prelude.Maybe Prelude.Text)
+createRobotResponse_name = Lens.lens (\CreateRobotResponse' {name} -> name) (\s@CreateRobotResponse' {} a -> s {name = a} :: CreateRobotResponse)
 
 -- | The Amazon Resource Name (ARN) of the robot.
 createRobotResponse_arn :: Lens.Lens' CreateRobotResponse (Prelude.Maybe Prelude.Text)
 createRobotResponse_arn = Lens.lens (\CreateRobotResponse' {arn} -> arn) (\s@CreateRobotResponse' {} a -> s {arn = a} :: CreateRobotResponse)
-
--- | The time, in milliseconds since the epoch, when the robot was created.
-createRobotResponse_createdAt :: Lens.Lens' CreateRobotResponse (Prelude.Maybe Prelude.UTCTime)
-createRobotResponse_createdAt = Lens.lens (\CreateRobotResponse' {createdAt} -> createdAt) (\s@CreateRobotResponse' {} a -> s {createdAt = a} :: CreateRobotResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the Greengrass group associated with
 -- the robot.
 createRobotResponse_greengrassGroupId :: Lens.Lens' CreateRobotResponse (Prelude.Maybe Prelude.Text)
 createRobotResponse_greengrassGroupId = Lens.lens (\CreateRobotResponse' {greengrassGroupId} -> greengrassGroupId) (\s@CreateRobotResponse' {} a -> s {greengrassGroupId = a} :: CreateRobotResponse)
 
--- | The name of the robot.
-createRobotResponse_name :: Lens.Lens' CreateRobotResponse (Prelude.Maybe Prelude.Text)
-createRobotResponse_name = Lens.lens (\CreateRobotResponse' {name} -> name) (\s@CreateRobotResponse' {} a -> s {name = a} :: CreateRobotResponse)
-
 -- | The target architecture of the robot.
 createRobotResponse_architecture :: Lens.Lens' CreateRobotResponse (Prelude.Maybe Architecture)
 createRobotResponse_architecture = Lens.lens (\CreateRobotResponse' {architecture} -> architecture) (\s@CreateRobotResponse' {} a -> s {architecture = a} :: CreateRobotResponse)
 
--- | The list of all tags added to the robot.
-createRobotResponse_tags :: Lens.Lens' CreateRobotResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRobotResponse_tags = Lens.lens (\CreateRobotResponse' {tags} -> tags) (\s@CreateRobotResponse' {} a -> s {tags = a} :: CreateRobotResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The time, in milliseconds since the epoch, when the robot was created.
+createRobotResponse_createdAt :: Lens.Lens' CreateRobotResponse (Prelude.Maybe Prelude.UTCTime)
+createRobotResponse_createdAt = Lens.lens (\CreateRobotResponse' {createdAt} -> createdAt) (\s@CreateRobotResponse' {} a -> s {createdAt = a} :: CreateRobotResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 createRobotResponse_httpStatus :: Lens.Lens' CreateRobotResponse Prelude.Int
@@ -267,10 +267,10 @@ createRobotResponse_httpStatus = Lens.lens (\CreateRobotResponse' {httpStatus} -
 
 instance Prelude.NFData CreateRobotResponse where
   rnf CreateRobotResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf greengrassGroupId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf greengrassGroupId
       `Prelude.seq` Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf httpStatus

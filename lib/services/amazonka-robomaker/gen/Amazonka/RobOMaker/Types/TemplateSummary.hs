@@ -27,7 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTemplateSummary' smart constructor.
 data TemplateSummary = TemplateSummary'
-  { -- | The time, in milliseconds since the epoch, when the template was last
+  { -- | The name of the template.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the template was last
     -- updated.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the template.
@@ -35,8 +37,6 @@ data TemplateSummary = TemplateSummary'
     -- | The time, in milliseconds since the epoch, when the template was
     -- created.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The name of the template.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The version of the template that you\'re using.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -50,6 +50,8 @@ data TemplateSummary = TemplateSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'templateSummary_name' - The name of the template.
+--
 -- 'lastUpdatedAt', 'templateSummary_lastUpdatedAt' - The time, in milliseconds since the epoch, when the template was last
 -- updated.
 --
@@ -58,19 +60,21 @@ data TemplateSummary = TemplateSummary'
 -- 'createdAt', 'templateSummary_createdAt' - The time, in milliseconds since the epoch, when the template was
 -- created.
 --
--- 'name', 'templateSummary_name' - The name of the template.
---
 -- 'version', 'templateSummary_version' - The version of the template that you\'re using.
 newTemplateSummary ::
   TemplateSummary
 newTemplateSummary =
   TemplateSummary'
-    { lastUpdatedAt = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
       arn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      name = Prelude.Nothing,
       version = Prelude.Nothing
     }
+
+-- | The name of the template.
+templateSummary_name :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
+templateSummary_name = Lens.lens (\TemplateSummary' {name} -> name) (\s@TemplateSummary' {} a -> s {name = a} :: TemplateSummary)
 
 -- | The time, in milliseconds since the epoch, when the template was last
 -- updated.
@@ -86,10 +90,6 @@ templateSummary_arn = Lens.lens (\TemplateSummary' {arn} -> arn) (\s@TemplateSum
 templateSummary_createdAt :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.UTCTime)
 templateSummary_createdAt = Lens.lens (\TemplateSummary' {createdAt} -> createdAt) (\s@TemplateSummary' {} a -> s {createdAt = a} :: TemplateSummary) Prelude.. Lens.mapping Core._Time
 
--- | The name of the template.
-templateSummary_name :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
-templateSummary_name = Lens.lens (\TemplateSummary' {name} -> name) (\s@TemplateSummary' {} a -> s {name = a} :: TemplateSummary)
-
 -- | The version of the template that you\'re using.
 templateSummary_version :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
 templateSummary_version = Lens.lens (\TemplateSummary' {version} -> version) (\s@TemplateSummary' {} a -> s {version = a} :: TemplateSummary)
@@ -100,25 +100,25 @@ instance Core.FromJSON TemplateSummary where
       "TemplateSummary"
       ( \x ->
           TemplateSummary'
-            Prelude.<$> (x Core..:? "lastUpdatedAt")
+            Prelude.<$> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "lastUpdatedAt")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "version")
       )
 
 instance Prelude.Hashable TemplateSummary where
   hashWithSalt _salt TemplateSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedAt
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData TemplateSummary where
   rnf TemplateSummary' {..} =
-    Prelude.rnf lastUpdatedAt
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf version

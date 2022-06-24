@@ -36,10 +36,10 @@ module Amazonka.RobOMaker.CreateFleet
     newCreateFleetResponse,
 
     -- * Response Lenses
+    createFleetResponse_tags,
+    createFleetResponse_name,
     createFleetResponse_arn,
     createFleetResponse_createdAt,
-    createFleetResponse_name,
-    createFleetResponse_tags,
     createFleetResponse_httpStatus,
   )
 where
@@ -96,10 +96,10 @@ instance Core.AWSRequest CreateFleet where
     Response.receiveJSON
       ( \s h x ->
           CreateFleetResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,14 +140,14 @@ instance Core.ToQuery CreateFleet where
 
 -- | /See:/ 'newCreateFleetResponse' smart constructor.
 data CreateFleetResponse = CreateFleetResponse'
-  { -- | The Amazon Resource Name (ARN) of the fleet.
+  { -- | The list of all tags added to the fleet.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the fleet.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the fleet.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the fleet was created.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The name of the fleet.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The list of all tags added to the fleet.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -161,13 +161,13 @@ data CreateFleetResponse = CreateFleetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'createFleetResponse_arn' - The Amazon Resource Name (ARN) of the fleet.
---
--- 'createdAt', 'createFleetResponse_createdAt' - The time, in milliseconds since the epoch, when the fleet was created.
+-- 'tags', 'createFleetResponse_tags' - The list of all tags added to the fleet.
 --
 -- 'name', 'createFleetResponse_name' - The name of the fleet.
 --
--- 'tags', 'createFleetResponse_tags' - The list of all tags added to the fleet.
+-- 'arn', 'createFleetResponse_arn' - The Amazon Resource Name (ARN) of the fleet.
+--
+-- 'createdAt', 'createFleetResponse_createdAt' - The time, in milliseconds since the epoch, when the fleet was created.
 --
 -- 'httpStatus', 'createFleetResponse_httpStatus' - The response's http status code.
 newCreateFleetResponse ::
@@ -176,12 +176,20 @@ newCreateFleetResponse ::
   CreateFleetResponse
 newCreateFleetResponse pHttpStatus_ =
   CreateFleetResponse'
-    { arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of all tags added to the fleet.
+createFleetResponse_tags :: Lens.Lens' CreateFleetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createFleetResponse_tags = Lens.lens (\CreateFleetResponse' {tags} -> tags) (\s@CreateFleetResponse' {} a -> s {tags = a} :: CreateFleetResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the fleet.
+createFleetResponse_name :: Lens.Lens' CreateFleetResponse (Prelude.Maybe Prelude.Text)
+createFleetResponse_name = Lens.lens (\CreateFleetResponse' {name} -> name) (\s@CreateFleetResponse' {} a -> s {name = a} :: CreateFleetResponse)
 
 -- | The Amazon Resource Name (ARN) of the fleet.
 createFleetResponse_arn :: Lens.Lens' CreateFleetResponse (Prelude.Maybe Prelude.Text)
@@ -191,22 +199,14 @@ createFleetResponse_arn = Lens.lens (\CreateFleetResponse' {arn} -> arn) (\s@Cre
 createFleetResponse_createdAt :: Lens.Lens' CreateFleetResponse (Prelude.Maybe Prelude.UTCTime)
 createFleetResponse_createdAt = Lens.lens (\CreateFleetResponse' {createdAt} -> createdAt) (\s@CreateFleetResponse' {} a -> s {createdAt = a} :: CreateFleetResponse) Prelude.. Lens.mapping Core._Time
 
--- | The name of the fleet.
-createFleetResponse_name :: Lens.Lens' CreateFleetResponse (Prelude.Maybe Prelude.Text)
-createFleetResponse_name = Lens.lens (\CreateFleetResponse' {name} -> name) (\s@CreateFleetResponse' {} a -> s {name = a} :: CreateFleetResponse)
-
--- | The list of all tags added to the fleet.
-createFleetResponse_tags :: Lens.Lens' CreateFleetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createFleetResponse_tags = Lens.lens (\CreateFleetResponse' {tags} -> tags) (\s@CreateFleetResponse' {} a -> s {tags = a} :: CreateFleetResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 createFleetResponse_httpStatus :: Lens.Lens' CreateFleetResponse Prelude.Int
 createFleetResponse_httpStatus = Lens.lens (\CreateFleetResponse' {httpStatus} -> httpStatus) (\s@CreateFleetResponse' {} a -> s {httpStatus = a} :: CreateFleetResponse)
 
 instance Prelude.NFData CreateFleetResponse where
   rnf CreateFleetResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf httpStatus

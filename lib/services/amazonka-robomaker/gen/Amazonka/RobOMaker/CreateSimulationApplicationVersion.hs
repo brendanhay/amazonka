@@ -27,8 +27,8 @@ module Amazonka.RobOMaker.CreateSimulationApplicationVersion
     newCreateSimulationApplicationVersion,
 
     -- * Request Lenses
-    createSimulationApplicationVersion_currentRevisionId,
     createSimulationApplicationVersion_s3Etags,
+    createSimulationApplicationVersion_currentRevisionId,
     createSimulationApplicationVersion_imageDigest,
     createSimulationApplicationVersion_application,
 
@@ -37,16 +37,16 @@ module Amazonka.RobOMaker.CreateSimulationApplicationVersion
     newCreateSimulationApplicationVersionResponse,
 
     -- * Response Lenses
+    createSimulationApplicationVersionResponse_name,
+    createSimulationApplicationVersionResponse_sources,
+    createSimulationApplicationVersionResponse_environment,
     createSimulationApplicationVersionResponse_renderingEngine,
     createSimulationApplicationVersionResponse_lastUpdatedAt,
     createSimulationApplicationVersionResponse_arn,
-    createSimulationApplicationVersionResponse_environment,
-    createSimulationApplicationVersionResponse_sources,
-    createSimulationApplicationVersionResponse_name,
-    createSimulationApplicationVersionResponse_version,
-    createSimulationApplicationVersionResponse_simulationSoftwareSuite,
     createSimulationApplicationVersionResponse_robotSoftwareSuite,
+    createSimulationApplicationVersionResponse_simulationSoftwareSuite,
     createSimulationApplicationVersionResponse_revisionId,
+    createSimulationApplicationVersionResponse_version,
     createSimulationApplicationVersionResponse_httpStatus,
   )
 where
@@ -60,13 +60,13 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newCreateSimulationApplicationVersion' smart constructor.
 data CreateSimulationApplicationVersion = CreateSimulationApplicationVersion'
-  { -- | The current revision id for the simulation application. If you provide a
+  { -- | The Amazon S3 eTag identifier for the zip file bundle that you use to
+    -- create the simulation application.
+    s3Etags :: Prelude.Maybe [Prelude.Text],
+    -- | The current revision id for the simulation application. If you provide a
     -- value and it matches the latest revision ID, a new version will be
     -- created.
     currentRevisionId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 eTag identifier for the zip file bundle that you use to
-    -- create the simulation application.
-    s3Etags :: Prelude.Maybe [Prelude.Text],
     -- | The SHA256 digest used to identify the Docker image URI used to created
     -- the simulation application.
     imageDigest :: Prelude.Maybe Prelude.Text,
@@ -83,12 +83,12 @@ data CreateSimulationApplicationVersion = CreateSimulationApplicationVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 's3Etags', 'createSimulationApplicationVersion_s3Etags' - The Amazon S3 eTag identifier for the zip file bundle that you use to
+-- create the simulation application.
+--
 -- 'currentRevisionId', 'createSimulationApplicationVersion_currentRevisionId' - The current revision id for the simulation application. If you provide a
 -- value and it matches the latest revision ID, a new version will be
 -- created.
---
--- 's3Etags', 'createSimulationApplicationVersion_s3Etags' - The Amazon S3 eTag identifier for the zip file bundle that you use to
--- create the simulation application.
 --
 -- 'imageDigest', 'createSimulationApplicationVersion_imageDigest' - The SHA256 digest used to identify the Docker image URI used to created
 -- the simulation application.
@@ -100,23 +100,23 @@ newCreateSimulationApplicationVersion ::
   CreateSimulationApplicationVersion
 newCreateSimulationApplicationVersion pApplication_ =
   CreateSimulationApplicationVersion'
-    { currentRevisionId =
+    { s3Etags =
         Prelude.Nothing,
-      s3Etags = Prelude.Nothing,
+      currentRevisionId = Prelude.Nothing,
       imageDigest = Prelude.Nothing,
       application = pApplication_
     }
+
+-- | The Amazon S3 eTag identifier for the zip file bundle that you use to
+-- create the simulation application.
+createSimulationApplicationVersion_s3Etags :: Lens.Lens' CreateSimulationApplicationVersion (Prelude.Maybe [Prelude.Text])
+createSimulationApplicationVersion_s3Etags = Lens.lens (\CreateSimulationApplicationVersion' {s3Etags} -> s3Etags) (\s@CreateSimulationApplicationVersion' {} a -> s {s3Etags = a} :: CreateSimulationApplicationVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The current revision id for the simulation application. If you provide a
 -- value and it matches the latest revision ID, a new version will be
 -- created.
 createSimulationApplicationVersion_currentRevisionId :: Lens.Lens' CreateSimulationApplicationVersion (Prelude.Maybe Prelude.Text)
 createSimulationApplicationVersion_currentRevisionId = Lens.lens (\CreateSimulationApplicationVersion' {currentRevisionId} -> currentRevisionId) (\s@CreateSimulationApplicationVersion' {} a -> s {currentRevisionId = a} :: CreateSimulationApplicationVersion)
-
--- | The Amazon S3 eTag identifier for the zip file bundle that you use to
--- create the simulation application.
-createSimulationApplicationVersion_s3Etags :: Lens.Lens' CreateSimulationApplicationVersion (Prelude.Maybe [Prelude.Text])
-createSimulationApplicationVersion_s3Etags = Lens.lens (\CreateSimulationApplicationVersion' {s3Etags} -> s3Etags) (\s@CreateSimulationApplicationVersion' {} a -> s {s3Etags = a} :: CreateSimulationApplicationVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The SHA256 digest used to identify the Docker image URI used to created
 -- the simulation application.
@@ -139,16 +139,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateSimulationApplicationVersionResponse'
-            Prelude.<$> (x Core..?> "renderingEngine")
+            Prelude.<$> (x Core..?> "name")
+              Prelude.<*> (x Core..?> "sources" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Core..?> "environment")
+              Prelude.<*> (x Core..?> "renderingEngine")
               Prelude.<*> (x Core..?> "lastUpdatedAt")
               Prelude.<*> (x Core..?> "arn")
-              Prelude.<*> (x Core..?> "environment")
-              Prelude.<*> (x Core..?> "sources" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "name")
-              Prelude.<*> (x Core..?> "version")
-              Prelude.<*> (x Core..?> "simulationSoftwareSuite")
               Prelude.<*> (x Core..?> "robotSoftwareSuite")
+              Prelude.<*> (x Core..?> "simulationSoftwareSuite")
               Prelude.<*> (x Core..?> "revisionId")
+              Prelude.<*> (x Core..?> "version")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,8 +159,8 @@ instance
   hashWithSalt
     _salt
     CreateSimulationApplicationVersion' {..} =
-      _salt `Prelude.hashWithSalt` currentRevisionId
-        `Prelude.hashWithSalt` s3Etags
+      _salt `Prelude.hashWithSalt` s3Etags
+        `Prelude.hashWithSalt` currentRevisionId
         `Prelude.hashWithSalt` imageDigest
         `Prelude.hashWithSalt` application
 
@@ -169,8 +169,8 @@ instance
     CreateSimulationApplicationVersion
   where
   rnf CreateSimulationApplicationVersion' {..} =
-    Prelude.rnf currentRevisionId
-      `Prelude.seq` Prelude.rnf s3Etags
+    Prelude.rnf s3Etags
+      `Prelude.seq` Prelude.rnf currentRevisionId
       `Prelude.seq` Prelude.rnf imageDigest
       `Prelude.seq` Prelude.rnf application
 
@@ -195,9 +195,9 @@ instance
   toJSON CreateSimulationApplicationVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("currentRevisionId" Core..=)
+          [ ("s3Etags" Core..=) Prelude.<$> s3Etags,
+            ("currentRevisionId" Core..=)
               Prelude.<$> currentRevisionId,
-            ("s3Etags" Core..=) Prelude.<$> s3Etags,
             ("imageDigest" Core..=) Prelude.<$> imageDigest,
             Prelude.Just ("application" Core..= application)
           ]
@@ -218,28 +218,28 @@ instance
 
 -- | /See:/ 'newCreateSimulationApplicationVersionResponse' smart constructor.
 data CreateSimulationApplicationVersionResponse = CreateSimulationApplicationVersionResponse'
-  { -- | The rendering engine for the simulation application.
+  { -- | The name of the simulation application.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The sources of the simulation application.
+    sources :: Prelude.Maybe [Source],
+    -- | The object that contains the Docker image URI used to create the
+    -- simulation application.
+    environment :: Prelude.Maybe Environment,
+    -- | The rendering engine for the simulation application.
     renderingEngine :: Prelude.Maybe RenderingEngine,
     -- | The time, in milliseconds since the epoch, when the simulation
     -- application was last updated.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the simulation application.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The object that contains the Docker image URI used to create the
-    -- simulation application.
-    environment :: Prelude.Maybe Environment,
-    -- | The sources of the simulation application.
-    sources :: Prelude.Maybe [Source],
-    -- | The name of the simulation application.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The version of the simulation application.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The simulation software suite used by the simulation application.
-    simulationSoftwareSuite :: Prelude.Maybe SimulationSoftwareSuite,
     -- | Information about the robot software suite (ROS distribution).
     robotSoftwareSuite :: Prelude.Maybe RobotSoftwareSuite,
+    -- | The simulation software suite used by the simulation application.
+    simulationSoftwareSuite :: Prelude.Maybe SimulationSoftwareSuite,
     -- | The revision ID of the simulation application.
     revisionId :: Prelude.Maybe Prelude.Text,
+    -- | The version of the simulation application.
+    version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -253,6 +253,13 @@ data CreateSimulationApplicationVersionResponse = CreateSimulationApplicationVer
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'createSimulationApplicationVersionResponse_name' - The name of the simulation application.
+--
+-- 'sources', 'createSimulationApplicationVersionResponse_sources' - The sources of the simulation application.
+--
+-- 'environment', 'createSimulationApplicationVersionResponse_environment' - The object that contains the Docker image URI used to create the
+-- simulation application.
+--
 -- 'renderingEngine', 'createSimulationApplicationVersionResponse_renderingEngine' - The rendering engine for the simulation application.
 --
 -- 'lastUpdatedAt', 'createSimulationApplicationVersionResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the simulation
@@ -260,20 +267,13 @@ data CreateSimulationApplicationVersionResponse = CreateSimulationApplicationVer
 --
 -- 'arn', 'createSimulationApplicationVersionResponse_arn' - The Amazon Resource Name (ARN) of the simulation application.
 --
--- 'environment', 'createSimulationApplicationVersionResponse_environment' - The object that contains the Docker image URI used to create the
--- simulation application.
---
--- 'sources', 'createSimulationApplicationVersionResponse_sources' - The sources of the simulation application.
---
--- 'name', 'createSimulationApplicationVersionResponse_name' - The name of the simulation application.
---
--- 'version', 'createSimulationApplicationVersionResponse_version' - The version of the simulation application.
+-- 'robotSoftwareSuite', 'createSimulationApplicationVersionResponse_robotSoftwareSuite' - Information about the robot software suite (ROS distribution).
 --
 -- 'simulationSoftwareSuite', 'createSimulationApplicationVersionResponse_simulationSoftwareSuite' - The simulation software suite used by the simulation application.
 --
--- 'robotSoftwareSuite', 'createSimulationApplicationVersionResponse_robotSoftwareSuite' - Information about the robot software suite (ROS distribution).
---
 -- 'revisionId', 'createSimulationApplicationVersionResponse_revisionId' - The revision ID of the simulation application.
+--
+-- 'version', 'createSimulationApplicationVersionResponse_version' - The version of the simulation application.
 --
 -- 'httpStatus', 'createSimulationApplicationVersionResponse_httpStatus' - The response's http status code.
 newCreateSimulationApplicationVersionResponse ::
@@ -283,21 +283,35 @@ newCreateSimulationApplicationVersionResponse ::
 newCreateSimulationApplicationVersionResponse
   pHttpStatus_ =
     CreateSimulationApplicationVersionResponse'
-      { renderingEngine =
+      { name =
+          Prelude.Nothing,
+        sources = Prelude.Nothing,
+        environment = Prelude.Nothing,
+        renderingEngine =
           Prelude.Nothing,
         lastUpdatedAt = Prelude.Nothing,
         arn = Prelude.Nothing,
-        environment = Prelude.Nothing,
-        sources = Prelude.Nothing,
-        name = Prelude.Nothing,
-        version = Prelude.Nothing,
-        simulationSoftwareSuite =
-          Prelude.Nothing,
         robotSoftwareSuite =
           Prelude.Nothing,
+        simulationSoftwareSuite =
+          Prelude.Nothing,
         revisionId = Prelude.Nothing,
+        version = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The name of the simulation application.
+createSimulationApplicationVersionResponse_name :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe Prelude.Text)
+createSimulationApplicationVersionResponse_name = Lens.lens (\CreateSimulationApplicationVersionResponse' {name} -> name) (\s@CreateSimulationApplicationVersionResponse' {} a -> s {name = a} :: CreateSimulationApplicationVersionResponse)
+
+-- | The sources of the simulation application.
+createSimulationApplicationVersionResponse_sources :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe [Source])
+createSimulationApplicationVersionResponse_sources = Lens.lens (\CreateSimulationApplicationVersionResponse' {sources} -> sources) (\s@CreateSimulationApplicationVersionResponse' {} a -> s {sources = a} :: CreateSimulationApplicationVersionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The object that contains the Docker image URI used to create the
+-- simulation application.
+createSimulationApplicationVersionResponse_environment :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe Environment)
+createSimulationApplicationVersionResponse_environment = Lens.lens (\CreateSimulationApplicationVersionResponse' {environment} -> environment) (\s@CreateSimulationApplicationVersionResponse' {} a -> s {environment = a} :: CreateSimulationApplicationVersionResponse)
 
 -- | The rendering engine for the simulation application.
 createSimulationApplicationVersionResponse_renderingEngine :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe RenderingEngine)
@@ -312,34 +326,21 @@ createSimulationApplicationVersionResponse_lastUpdatedAt = Lens.lens (\CreateSim
 createSimulationApplicationVersionResponse_arn :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe Prelude.Text)
 createSimulationApplicationVersionResponse_arn = Lens.lens (\CreateSimulationApplicationVersionResponse' {arn} -> arn) (\s@CreateSimulationApplicationVersionResponse' {} a -> s {arn = a} :: CreateSimulationApplicationVersionResponse)
 
--- | The object that contains the Docker image URI used to create the
--- simulation application.
-createSimulationApplicationVersionResponse_environment :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe Environment)
-createSimulationApplicationVersionResponse_environment = Lens.lens (\CreateSimulationApplicationVersionResponse' {environment} -> environment) (\s@CreateSimulationApplicationVersionResponse' {} a -> s {environment = a} :: CreateSimulationApplicationVersionResponse)
-
--- | The sources of the simulation application.
-createSimulationApplicationVersionResponse_sources :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe [Source])
-createSimulationApplicationVersionResponse_sources = Lens.lens (\CreateSimulationApplicationVersionResponse' {sources} -> sources) (\s@CreateSimulationApplicationVersionResponse' {} a -> s {sources = a} :: CreateSimulationApplicationVersionResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the simulation application.
-createSimulationApplicationVersionResponse_name :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe Prelude.Text)
-createSimulationApplicationVersionResponse_name = Lens.lens (\CreateSimulationApplicationVersionResponse' {name} -> name) (\s@CreateSimulationApplicationVersionResponse' {} a -> s {name = a} :: CreateSimulationApplicationVersionResponse)
-
--- | The version of the simulation application.
-createSimulationApplicationVersionResponse_version :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe Prelude.Text)
-createSimulationApplicationVersionResponse_version = Lens.lens (\CreateSimulationApplicationVersionResponse' {version} -> version) (\s@CreateSimulationApplicationVersionResponse' {} a -> s {version = a} :: CreateSimulationApplicationVersionResponse)
+-- | Information about the robot software suite (ROS distribution).
+createSimulationApplicationVersionResponse_robotSoftwareSuite :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe RobotSoftwareSuite)
+createSimulationApplicationVersionResponse_robotSoftwareSuite = Lens.lens (\CreateSimulationApplicationVersionResponse' {robotSoftwareSuite} -> robotSoftwareSuite) (\s@CreateSimulationApplicationVersionResponse' {} a -> s {robotSoftwareSuite = a} :: CreateSimulationApplicationVersionResponse)
 
 -- | The simulation software suite used by the simulation application.
 createSimulationApplicationVersionResponse_simulationSoftwareSuite :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe SimulationSoftwareSuite)
 createSimulationApplicationVersionResponse_simulationSoftwareSuite = Lens.lens (\CreateSimulationApplicationVersionResponse' {simulationSoftwareSuite} -> simulationSoftwareSuite) (\s@CreateSimulationApplicationVersionResponse' {} a -> s {simulationSoftwareSuite = a} :: CreateSimulationApplicationVersionResponse)
 
--- | Information about the robot software suite (ROS distribution).
-createSimulationApplicationVersionResponse_robotSoftwareSuite :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe RobotSoftwareSuite)
-createSimulationApplicationVersionResponse_robotSoftwareSuite = Lens.lens (\CreateSimulationApplicationVersionResponse' {robotSoftwareSuite} -> robotSoftwareSuite) (\s@CreateSimulationApplicationVersionResponse' {} a -> s {robotSoftwareSuite = a} :: CreateSimulationApplicationVersionResponse)
-
 -- | The revision ID of the simulation application.
 createSimulationApplicationVersionResponse_revisionId :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe Prelude.Text)
 createSimulationApplicationVersionResponse_revisionId = Lens.lens (\CreateSimulationApplicationVersionResponse' {revisionId} -> revisionId) (\s@CreateSimulationApplicationVersionResponse' {} a -> s {revisionId = a} :: CreateSimulationApplicationVersionResponse)
+
+-- | The version of the simulation application.
+createSimulationApplicationVersionResponse_version :: Lens.Lens' CreateSimulationApplicationVersionResponse (Prelude.Maybe Prelude.Text)
+createSimulationApplicationVersionResponse_version = Lens.lens (\CreateSimulationApplicationVersionResponse' {version} -> version) (\s@CreateSimulationApplicationVersionResponse' {} a -> s {version = a} :: CreateSimulationApplicationVersionResponse)
 
 -- | The response's http status code.
 createSimulationApplicationVersionResponse_httpStatus :: Lens.Lens' CreateSimulationApplicationVersionResponse Prelude.Int
@@ -350,14 +351,14 @@ instance
     CreateSimulationApplicationVersionResponse
   where
   rnf CreateSimulationApplicationVersionResponse' {..} =
-    Prelude.rnf renderingEngine
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf renderingEngine
       `Prelude.seq` Prelude.rnf lastUpdatedAt
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf simulationSoftwareSuite
       `Prelude.seq` Prelude.rnf robotSoftwareSuite
+      `Prelude.seq` Prelude.rnf simulationSoftwareSuite
       `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

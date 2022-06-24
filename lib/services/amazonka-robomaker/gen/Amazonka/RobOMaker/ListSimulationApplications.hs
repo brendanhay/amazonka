@@ -30,9 +30,9 @@ module Amazonka.RobOMaker.ListSimulationApplications
     newListSimulationApplications,
 
     -- * Request Lenses
-    listSimulationApplications_versionQualifier,
-    listSimulationApplications_filters,
     listSimulationApplications_nextToken,
+    listSimulationApplications_filters,
+    listSimulationApplications_versionQualifier,
     listSimulationApplications_maxResults,
 
     -- * Destructuring the Response
@@ -55,20 +55,20 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newListSimulationApplications' smart constructor.
 data ListSimulationApplications = ListSimulationApplications'
-  { -- | The version qualifier of the simulation application.
-    versionQualifier :: Prelude.Maybe Prelude.Text,
-    -- | Optional list of filters to limit results.
-    --
-    -- The filter name @name@ is supported. When filtering, you must use the
-    -- complete value of the filtered item. You can use up to three filters.
-    filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
-    -- | If the previous paginated request did not return all of the remaining
+  { -- | If the previous paginated request did not return all of the remaining
     -- results, the response object\'s @nextToken@ parameter value is set to a
     -- token. To retrieve the next set of results, call
     -- @ListSimulationApplications@ again and assign that token to the request
     -- object\'s @nextToken@ parameter. If there are no remaining results, the
     -- previous response object\'s NextToken parameter is set to null.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional list of filters to limit results.
+    --
+    -- The filter name @name@ is supported. When filtering, you must use the
+    -- complete value of the filtered item. You can use up to three filters.
+    filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
+    -- | The version qualifier of the simulation application.
+    versionQualifier :: Prelude.Maybe Prelude.Text,
     -- | When this parameter is used, @ListSimulationApplications@ only returns
     -- @maxResults@ results in a single page along with a @nextToken@ response
     -- element. The remaining results of the initial request can be seen by
@@ -88,19 +88,19 @@ data ListSimulationApplications = ListSimulationApplications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionQualifier', 'listSimulationApplications_versionQualifier' - The version qualifier of the simulation application.
---
--- 'filters', 'listSimulationApplications_filters' - Optional list of filters to limit results.
---
--- The filter name @name@ is supported. When filtering, you must use the
--- complete value of the filtered item. You can use up to three filters.
---
 -- 'nextToken', 'listSimulationApplications_nextToken' - If the previous paginated request did not return all of the remaining
 -- results, the response object\'s @nextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call
 -- @ListSimulationApplications@ again and assign that token to the request
 -- object\'s @nextToken@ parameter. If there are no remaining results, the
 -- previous response object\'s NextToken parameter is set to null.
+--
+-- 'filters', 'listSimulationApplications_filters' - Optional list of filters to limit results.
+--
+-- The filter name @name@ is supported. When filtering, you must use the
+-- complete value of the filtered item. You can use up to three filters.
+--
+-- 'versionQualifier', 'listSimulationApplications_versionQualifier' - The version qualifier of the simulation application.
 --
 -- 'maxResults', 'listSimulationApplications_maxResults' - When this parameter is used, @ListSimulationApplications@ only returns
 -- @maxResults@ results in a single page along with a @nextToken@ response
@@ -113,23 +113,12 @@ newListSimulationApplications ::
   ListSimulationApplications
 newListSimulationApplications =
   ListSimulationApplications'
-    { versionQualifier =
+    { nextToken =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      versionQualifier = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The version qualifier of the simulation application.
-listSimulationApplications_versionQualifier :: Lens.Lens' ListSimulationApplications (Prelude.Maybe Prelude.Text)
-listSimulationApplications_versionQualifier = Lens.lens (\ListSimulationApplications' {versionQualifier} -> versionQualifier) (\s@ListSimulationApplications' {} a -> s {versionQualifier = a} :: ListSimulationApplications)
-
--- | Optional list of filters to limit results.
---
--- The filter name @name@ is supported. When filtering, you must use the
--- complete value of the filtered item. You can use up to three filters.
-listSimulationApplications_filters :: Lens.Lens' ListSimulationApplications (Prelude.Maybe (Prelude.NonEmpty Filter))
-listSimulationApplications_filters = Lens.lens (\ListSimulationApplications' {filters} -> filters) (\s@ListSimulationApplications' {} a -> s {filters = a} :: ListSimulationApplications) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the previous paginated request did not return all of the remaining
 -- results, the response object\'s @nextToken@ parameter value is set to a
@@ -139,6 +128,17 @@ listSimulationApplications_filters = Lens.lens (\ListSimulationApplications' {fi
 -- previous response object\'s NextToken parameter is set to null.
 listSimulationApplications_nextToken :: Lens.Lens' ListSimulationApplications (Prelude.Maybe Prelude.Text)
 listSimulationApplications_nextToken = Lens.lens (\ListSimulationApplications' {nextToken} -> nextToken) (\s@ListSimulationApplications' {} a -> s {nextToken = a} :: ListSimulationApplications)
+
+-- | Optional list of filters to limit results.
+--
+-- The filter name @name@ is supported. When filtering, you must use the
+-- complete value of the filtered item. You can use up to three filters.
+listSimulationApplications_filters :: Lens.Lens' ListSimulationApplications (Prelude.Maybe (Prelude.NonEmpty Filter))
+listSimulationApplications_filters = Lens.lens (\ListSimulationApplications' {filters} -> filters) (\s@ListSimulationApplications' {} a -> s {filters = a} :: ListSimulationApplications) Prelude.. Lens.mapping Lens.coerced
+
+-- | The version qualifier of the simulation application.
+listSimulationApplications_versionQualifier :: Lens.Lens' ListSimulationApplications (Prelude.Maybe Prelude.Text)
+listSimulationApplications_versionQualifier = Lens.lens (\ListSimulationApplications' {versionQualifier} -> versionQualifier) (\s@ListSimulationApplications' {} a -> s {versionQualifier = a} :: ListSimulationApplications)
 
 -- | When this parameter is used, @ListSimulationApplications@ only returns
 -- @maxResults@ results in a single page along with a @nextToken@ response
@@ -190,16 +190,16 @@ instance Core.AWSRequest ListSimulationApplications where
 
 instance Prelude.Hashable ListSimulationApplications where
   hashWithSalt _salt ListSimulationApplications' {..} =
-    _salt `Prelude.hashWithSalt` versionQualifier
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` versionQualifier
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListSimulationApplications where
   rnf ListSimulationApplications' {..} =
-    Prelude.rnf versionQualifier
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versionQualifier
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSimulationApplications where
@@ -217,10 +217,10 @@ instance Core.ToJSON ListSimulationApplications where
   toJSON ListSimulationApplications' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("versionQualifier" Core..=)
-              Prelude.<$> versionQualifier,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("filters" Core..=) Prelude.<$> filters,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("versionQualifier" Core..=)
+              Prelude.<$> versionQualifier,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

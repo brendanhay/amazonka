@@ -34,14 +34,14 @@ module Amazonka.RobOMaker.DescribeFleet
     newDescribeFleetResponse,
 
     -- * Response Lenses
+    describeFleetResponse_tags,
+    describeFleetResponse_name,
+    describeFleetResponse_arn,
     describeFleetResponse_lastDeploymentJob,
     describeFleetResponse_lastDeploymentStatus,
-    describeFleetResponse_robots,
-    describeFleetResponse_arn,
-    describeFleetResponse_createdAt,
-    describeFleetResponse_name,
     describeFleetResponse_lastDeploymentTime,
-    describeFleetResponse_tags,
+    describeFleetResponse_robots,
+    describeFleetResponse_createdAt,
     describeFleetResponse_httpStatus,
   )
 where
@@ -89,14 +89,14 @@ instance Core.AWSRequest DescribeFleet where
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetResponse'
-            Prelude.<$> (x Core..?> "lastDeploymentJob")
-            Prelude.<*> (x Core..?> "lastDeploymentStatus")
-            Prelude.<*> (x Core..?> "robots" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "lastDeploymentJob")
+            Prelude.<*> (x Core..?> "lastDeploymentStatus")
             Prelude.<*> (x Core..?> "lastDeploymentTime")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "robots" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,22 +133,22 @@ instance Core.ToQuery DescribeFleet where
 
 -- | /See:/ 'newDescribeFleetResponse' smart constructor.
 data DescribeFleetResponse = DescribeFleetResponse'
-  { -- | The Amazon Resource Name (ARN) of the last deployment job.
+  { -- | The list of all tags added to the specified fleet.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the fleet.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the fleet.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the last deployment job.
     lastDeploymentJob :: Prelude.Maybe Prelude.Text,
     -- | The status of the last deployment.
     lastDeploymentStatus :: Prelude.Maybe DeploymentStatus,
-    -- | A list of robots.
-    robots :: Prelude.Maybe [Robot],
-    -- | The Amazon Resource Name (ARN) of the fleet.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the fleet was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The name of the fleet.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The time of the last deployment.
     lastDeploymentTime :: Prelude.Maybe Core.POSIX,
-    -- | The list of all tags added to the specified fleet.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of robots.
+    robots :: Prelude.Maybe [Robot],
+    -- | The time, in milliseconds since the epoch, when the fleet was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -162,21 +162,21 @@ data DescribeFleetResponse = DescribeFleetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'describeFleetResponse_tags' - The list of all tags added to the specified fleet.
+--
+-- 'name', 'describeFleetResponse_name' - The name of the fleet.
+--
+-- 'arn', 'describeFleetResponse_arn' - The Amazon Resource Name (ARN) of the fleet.
+--
 -- 'lastDeploymentJob', 'describeFleetResponse_lastDeploymentJob' - The Amazon Resource Name (ARN) of the last deployment job.
 --
 -- 'lastDeploymentStatus', 'describeFleetResponse_lastDeploymentStatus' - The status of the last deployment.
 --
--- 'robots', 'describeFleetResponse_robots' - A list of robots.
---
--- 'arn', 'describeFleetResponse_arn' - The Amazon Resource Name (ARN) of the fleet.
---
--- 'createdAt', 'describeFleetResponse_createdAt' - The time, in milliseconds since the epoch, when the fleet was created.
---
--- 'name', 'describeFleetResponse_name' - The name of the fleet.
---
 -- 'lastDeploymentTime', 'describeFleetResponse_lastDeploymentTime' - The time of the last deployment.
 --
--- 'tags', 'describeFleetResponse_tags' - The list of all tags added to the specified fleet.
+-- 'robots', 'describeFleetResponse_robots' - A list of robots.
+--
+-- 'createdAt', 'describeFleetResponse_createdAt' - The time, in milliseconds since the epoch, when the fleet was created.
 --
 -- 'httpStatus', 'describeFleetResponse_httpStatus' - The response's http status code.
 newDescribeFleetResponse ::
@@ -185,17 +185,28 @@ newDescribeFleetResponse ::
   DescribeFleetResponse
 newDescribeFleetResponse pHttpStatus_ =
   DescribeFleetResponse'
-    { lastDeploymentJob =
-        Prelude.Nothing,
-      lastDeploymentStatus = Prelude.Nothing,
-      robots = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      lastDeploymentJob = Prelude.Nothing,
+      lastDeploymentStatus = Prelude.Nothing,
       lastDeploymentTime = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      robots = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of all tags added to the specified fleet.
+describeFleetResponse_tags :: Lens.Lens' DescribeFleetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeFleetResponse_tags = Lens.lens (\DescribeFleetResponse' {tags} -> tags) (\s@DescribeFleetResponse' {} a -> s {tags = a} :: DescribeFleetResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the fleet.
+describeFleetResponse_name :: Lens.Lens' DescribeFleetResponse (Prelude.Maybe Prelude.Text)
+describeFleetResponse_name = Lens.lens (\DescribeFleetResponse' {name} -> name) (\s@DescribeFleetResponse' {} a -> s {name = a} :: DescribeFleetResponse)
+
+-- | The Amazon Resource Name (ARN) of the fleet.
+describeFleetResponse_arn :: Lens.Lens' DescribeFleetResponse (Prelude.Maybe Prelude.Text)
+describeFleetResponse_arn = Lens.lens (\DescribeFleetResponse' {arn} -> arn) (\s@DescribeFleetResponse' {} a -> s {arn = a} :: DescribeFleetResponse)
 
 -- | The Amazon Resource Name (ARN) of the last deployment job.
 describeFleetResponse_lastDeploymentJob :: Lens.Lens' DescribeFleetResponse (Prelude.Maybe Prelude.Text)
@@ -205,29 +216,17 @@ describeFleetResponse_lastDeploymentJob = Lens.lens (\DescribeFleetResponse' {la
 describeFleetResponse_lastDeploymentStatus :: Lens.Lens' DescribeFleetResponse (Prelude.Maybe DeploymentStatus)
 describeFleetResponse_lastDeploymentStatus = Lens.lens (\DescribeFleetResponse' {lastDeploymentStatus} -> lastDeploymentStatus) (\s@DescribeFleetResponse' {} a -> s {lastDeploymentStatus = a} :: DescribeFleetResponse)
 
--- | A list of robots.
-describeFleetResponse_robots :: Lens.Lens' DescribeFleetResponse (Prelude.Maybe [Robot])
-describeFleetResponse_robots = Lens.lens (\DescribeFleetResponse' {robots} -> robots) (\s@DescribeFleetResponse' {} a -> s {robots = a} :: DescribeFleetResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) of the fleet.
-describeFleetResponse_arn :: Lens.Lens' DescribeFleetResponse (Prelude.Maybe Prelude.Text)
-describeFleetResponse_arn = Lens.lens (\DescribeFleetResponse' {arn} -> arn) (\s@DescribeFleetResponse' {} a -> s {arn = a} :: DescribeFleetResponse)
-
--- | The time, in milliseconds since the epoch, when the fleet was created.
-describeFleetResponse_createdAt :: Lens.Lens' DescribeFleetResponse (Prelude.Maybe Prelude.UTCTime)
-describeFleetResponse_createdAt = Lens.lens (\DescribeFleetResponse' {createdAt} -> createdAt) (\s@DescribeFleetResponse' {} a -> s {createdAt = a} :: DescribeFleetResponse) Prelude.. Lens.mapping Core._Time
-
--- | The name of the fleet.
-describeFleetResponse_name :: Lens.Lens' DescribeFleetResponse (Prelude.Maybe Prelude.Text)
-describeFleetResponse_name = Lens.lens (\DescribeFleetResponse' {name} -> name) (\s@DescribeFleetResponse' {} a -> s {name = a} :: DescribeFleetResponse)
-
 -- | The time of the last deployment.
 describeFleetResponse_lastDeploymentTime :: Lens.Lens' DescribeFleetResponse (Prelude.Maybe Prelude.UTCTime)
 describeFleetResponse_lastDeploymentTime = Lens.lens (\DescribeFleetResponse' {lastDeploymentTime} -> lastDeploymentTime) (\s@DescribeFleetResponse' {} a -> s {lastDeploymentTime = a} :: DescribeFleetResponse) Prelude.. Lens.mapping Core._Time
 
--- | The list of all tags added to the specified fleet.
-describeFleetResponse_tags :: Lens.Lens' DescribeFleetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeFleetResponse_tags = Lens.lens (\DescribeFleetResponse' {tags} -> tags) (\s@DescribeFleetResponse' {} a -> s {tags = a} :: DescribeFleetResponse) Prelude.. Lens.mapping Lens.coerced
+-- | A list of robots.
+describeFleetResponse_robots :: Lens.Lens' DescribeFleetResponse (Prelude.Maybe [Robot])
+describeFleetResponse_robots = Lens.lens (\DescribeFleetResponse' {robots} -> robots) (\s@DescribeFleetResponse' {} a -> s {robots = a} :: DescribeFleetResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time, in milliseconds since the epoch, when the fleet was created.
+describeFleetResponse_createdAt :: Lens.Lens' DescribeFleetResponse (Prelude.Maybe Prelude.UTCTime)
+describeFleetResponse_createdAt = Lens.lens (\DescribeFleetResponse' {createdAt} -> createdAt) (\s@DescribeFleetResponse' {} a -> s {createdAt = a} :: DescribeFleetResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 describeFleetResponse_httpStatus :: Lens.Lens' DescribeFleetResponse Prelude.Int
@@ -235,12 +234,12 @@ describeFleetResponse_httpStatus = Lens.lens (\DescribeFleetResponse' {httpStatu
 
 instance Prelude.NFData DescribeFleetResponse where
   rnf DescribeFleetResponse' {..} =
-    Prelude.rnf lastDeploymentJob
-      `Prelude.seq` Prelude.rnf lastDeploymentStatus
-      `Prelude.seq` Prelude.rnf robots
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastDeploymentJob
+      `Prelude.seq` Prelude.rnf lastDeploymentStatus
       `Prelude.seq` Prelude.rnf lastDeploymentTime
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf robots
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf httpStatus

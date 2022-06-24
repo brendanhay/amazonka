@@ -28,7 +28,16 @@ import Amazonka.RobOMaker.Types.SimulationJobBatchStatus
 --
 -- /See:/ 'newSimulationJobBatchSummary' smart constructor.
 data SimulationJobBatchSummary = SimulationJobBatchSummary'
-  { -- | The status of the simulation job batch.
+  { -- | The number of failed simulation job requests.
+    failedRequestCount :: Prelude.Maybe Prelude.Int,
+    -- | The time, in milliseconds since the epoch, when the simulation job batch
+    -- was last updated.
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | The number of created simulation job requests.
+    createdRequestCount :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon Resource Name (ARN) of the batch.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the simulation job batch.
     --
     -- [Pending]
     --     The simulation job batch request is pending.
@@ -69,20 +78,11 @@ data SimulationJobBatchSummary = SimulationJobBatchSummary'
     -- [TimedOut]
     --     The simulation batch job timed out.
     status :: Prelude.Maybe SimulationJobBatchStatus,
-    -- | The number of created simulation job requests.
-    createdRequestCount :: Prelude.Maybe Prelude.Int,
-    -- | The time, in milliseconds since the epoch, when the simulation job batch
-    -- was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of the batch.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the simulation job batch
-    -- was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The number of pending simulation job requests.
     pendingRequestCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of failed simulation job requests.
-    failedRequestCount :: Prelude.Maybe Prelude.Int
+    -- | The time, in milliseconds since the epoch, when the simulation job batch
+    -- was created.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,6 +93,15 @@ data SimulationJobBatchSummary = SimulationJobBatchSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'failedRequestCount', 'simulationJobBatchSummary_failedRequestCount' - The number of failed simulation job requests.
+--
+-- 'lastUpdatedAt', 'simulationJobBatchSummary_lastUpdatedAt' - The time, in milliseconds since the epoch, when the simulation job batch
+-- was last updated.
+--
+-- 'createdRequestCount', 'simulationJobBatchSummary_createdRequestCount' - The number of created simulation job requests.
+--
+-- 'arn', 'simulationJobBatchSummary_arn' - The Amazon Resource Name (ARN) of the batch.
 --
 -- 'status', 'simulationJobBatchSummary_status' - The status of the simulation job batch.
 --
@@ -135,32 +144,40 @@ data SimulationJobBatchSummary = SimulationJobBatchSummary'
 -- [TimedOut]
 --     The simulation batch job timed out.
 --
--- 'createdRequestCount', 'simulationJobBatchSummary_createdRequestCount' - The number of created simulation job requests.
---
--- 'lastUpdatedAt', 'simulationJobBatchSummary_lastUpdatedAt' - The time, in milliseconds since the epoch, when the simulation job batch
--- was last updated.
---
--- 'arn', 'simulationJobBatchSummary_arn' - The Amazon Resource Name (ARN) of the batch.
+-- 'pendingRequestCount', 'simulationJobBatchSummary_pendingRequestCount' - The number of pending simulation job requests.
 --
 -- 'createdAt', 'simulationJobBatchSummary_createdAt' - The time, in milliseconds since the epoch, when the simulation job batch
 -- was created.
---
--- 'pendingRequestCount', 'simulationJobBatchSummary_pendingRequestCount' - The number of pending simulation job requests.
---
--- 'failedRequestCount', 'simulationJobBatchSummary_failedRequestCount' - The number of failed simulation job requests.
 newSimulationJobBatchSummary ::
   SimulationJobBatchSummary
 newSimulationJobBatchSummary =
   SimulationJobBatchSummary'
-    { status =
+    { failedRequestCount =
         Prelude.Nothing,
-      createdRequestCount = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
+      createdRequestCount = Prelude.Nothing,
       arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      status = Prelude.Nothing,
       pendingRequestCount = Prelude.Nothing,
-      failedRequestCount = Prelude.Nothing
+      createdAt = Prelude.Nothing
     }
+
+-- | The number of failed simulation job requests.
+simulationJobBatchSummary_failedRequestCount :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.Int)
+simulationJobBatchSummary_failedRequestCount = Lens.lens (\SimulationJobBatchSummary' {failedRequestCount} -> failedRequestCount) (\s@SimulationJobBatchSummary' {} a -> s {failedRequestCount = a} :: SimulationJobBatchSummary)
+
+-- | The time, in milliseconds since the epoch, when the simulation job batch
+-- was last updated.
+simulationJobBatchSummary_lastUpdatedAt :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.UTCTime)
+simulationJobBatchSummary_lastUpdatedAt = Lens.lens (\SimulationJobBatchSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@SimulationJobBatchSummary' {} a -> s {lastUpdatedAt = a} :: SimulationJobBatchSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The number of created simulation job requests.
+simulationJobBatchSummary_createdRequestCount :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.Int)
+simulationJobBatchSummary_createdRequestCount = Lens.lens (\SimulationJobBatchSummary' {createdRequestCount} -> createdRequestCount) (\s@SimulationJobBatchSummary' {} a -> s {createdRequestCount = a} :: SimulationJobBatchSummary)
+
+-- | The Amazon Resource Name (ARN) of the batch.
+simulationJobBatchSummary_arn :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.Text)
+simulationJobBatchSummary_arn = Lens.lens (\SimulationJobBatchSummary' {arn} -> arn) (\s@SimulationJobBatchSummary' {} a -> s {arn = a} :: SimulationJobBatchSummary)
 
 -- | The status of the simulation job batch.
 --
@@ -205,31 +222,14 @@ newSimulationJobBatchSummary =
 simulationJobBatchSummary_status :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe SimulationJobBatchStatus)
 simulationJobBatchSummary_status = Lens.lens (\SimulationJobBatchSummary' {status} -> status) (\s@SimulationJobBatchSummary' {} a -> s {status = a} :: SimulationJobBatchSummary)
 
--- | The number of created simulation job requests.
-simulationJobBatchSummary_createdRequestCount :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.Int)
-simulationJobBatchSummary_createdRequestCount = Lens.lens (\SimulationJobBatchSummary' {createdRequestCount} -> createdRequestCount) (\s@SimulationJobBatchSummary' {} a -> s {createdRequestCount = a} :: SimulationJobBatchSummary)
-
--- | The time, in milliseconds since the epoch, when the simulation job batch
--- was last updated.
-simulationJobBatchSummary_lastUpdatedAt :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.UTCTime)
-simulationJobBatchSummary_lastUpdatedAt = Lens.lens (\SimulationJobBatchSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@SimulationJobBatchSummary' {} a -> s {lastUpdatedAt = a} :: SimulationJobBatchSummary) Prelude.. Lens.mapping Core._Time
-
--- | The Amazon Resource Name (ARN) of the batch.
-simulationJobBatchSummary_arn :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.Text)
-simulationJobBatchSummary_arn = Lens.lens (\SimulationJobBatchSummary' {arn} -> arn) (\s@SimulationJobBatchSummary' {} a -> s {arn = a} :: SimulationJobBatchSummary)
+-- | The number of pending simulation job requests.
+simulationJobBatchSummary_pendingRequestCount :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.Int)
+simulationJobBatchSummary_pendingRequestCount = Lens.lens (\SimulationJobBatchSummary' {pendingRequestCount} -> pendingRequestCount) (\s@SimulationJobBatchSummary' {} a -> s {pendingRequestCount = a} :: SimulationJobBatchSummary)
 
 -- | The time, in milliseconds since the epoch, when the simulation job batch
 -- was created.
 simulationJobBatchSummary_createdAt :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.UTCTime)
 simulationJobBatchSummary_createdAt = Lens.lens (\SimulationJobBatchSummary' {createdAt} -> createdAt) (\s@SimulationJobBatchSummary' {} a -> s {createdAt = a} :: SimulationJobBatchSummary) Prelude.. Lens.mapping Core._Time
-
--- | The number of pending simulation job requests.
-simulationJobBatchSummary_pendingRequestCount :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.Int)
-simulationJobBatchSummary_pendingRequestCount = Lens.lens (\SimulationJobBatchSummary' {pendingRequestCount} -> pendingRequestCount) (\s@SimulationJobBatchSummary' {} a -> s {pendingRequestCount = a} :: SimulationJobBatchSummary)
-
--- | The number of failed simulation job requests.
-simulationJobBatchSummary_failedRequestCount :: Lens.Lens' SimulationJobBatchSummary (Prelude.Maybe Prelude.Int)
-simulationJobBatchSummary_failedRequestCount = Lens.lens (\SimulationJobBatchSummary' {failedRequestCount} -> failedRequestCount) (\s@SimulationJobBatchSummary' {} a -> s {failedRequestCount = a} :: SimulationJobBatchSummary)
 
 instance Core.FromJSON SimulationJobBatchSummary where
   parseJSON =
@@ -237,31 +237,31 @@ instance Core.FromJSON SimulationJobBatchSummary where
       "SimulationJobBatchSummary"
       ( \x ->
           SimulationJobBatchSummary'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "createdRequestCount")
+            Prelude.<$> (x Core..:? "failedRequestCount")
             Prelude.<*> (x Core..:? "lastUpdatedAt")
+            Prelude.<*> (x Core..:? "createdRequestCount")
             Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "pendingRequestCount")
-            Prelude.<*> (x Core..:? "failedRequestCount")
+            Prelude.<*> (x Core..:? "createdAt")
       )
 
 instance Prelude.Hashable SimulationJobBatchSummary where
   hashWithSalt _salt SimulationJobBatchSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` createdRequestCount
+    _salt `Prelude.hashWithSalt` failedRequestCount
       `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` createdRequestCount
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` pendingRequestCount
-      `Prelude.hashWithSalt` failedRequestCount
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData SimulationJobBatchSummary where
   rnf SimulationJobBatchSummary' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf createdRequestCount
+    Prelude.rnf failedRequestCount
       `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf createdRequestCount
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf pendingRequestCount
-      `Prelude.seq` Prelude.rnf failedRequestCount
+      `Prelude.seq` Prelude.rnf createdAt

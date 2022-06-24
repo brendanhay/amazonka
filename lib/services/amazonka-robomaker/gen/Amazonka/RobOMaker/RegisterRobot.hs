@@ -35,8 +35,8 @@ module Amazonka.RobOMaker.RegisterRobot
     newRegisterRobotResponse,
 
     -- * Response Lenses
-    registerRobotResponse_robot,
     registerRobotResponse_fleet,
+    registerRobotResponse_robot,
     registerRobotResponse_httpStatus,
   )
 where
@@ -94,8 +94,8 @@ instance Core.AWSRequest RegisterRobot where
     Response.receiveJSON
       ( \s h x ->
           RegisterRobotResponse'
-            Prelude.<$> (x Core..?> "robot")
-            Prelude.<*> (x Core..?> "fleet")
+            Prelude.<$> (x Core..?> "fleet")
+            Prelude.<*> (x Core..?> "robot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,10 +136,10 @@ instance Core.ToQuery RegisterRobot where
 
 -- | /See:/ 'newRegisterRobotResponse' smart constructor.
 data RegisterRobotResponse = RegisterRobotResponse'
-  { -- | Information about the robot registration.
-    robot :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the fleet that the robot will join.
+  { -- | The Amazon Resource Name (ARN) of the fleet that the robot will join.
     fleet :: Prelude.Maybe Prelude.Text,
+    -- | Information about the robot registration.
+    robot :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,9 +153,9 @@ data RegisterRobotResponse = RegisterRobotResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'robot', 'registerRobotResponse_robot' - Information about the robot registration.
---
 -- 'fleet', 'registerRobotResponse_fleet' - The Amazon Resource Name (ARN) of the fleet that the robot will join.
+--
+-- 'robot', 'registerRobotResponse_robot' - Information about the robot registration.
 --
 -- 'httpStatus', 'registerRobotResponse_httpStatus' - The response's http status code.
 newRegisterRobotResponse ::
@@ -164,18 +164,18 @@ newRegisterRobotResponse ::
   RegisterRobotResponse
 newRegisterRobotResponse pHttpStatus_ =
   RegisterRobotResponse'
-    { robot = Prelude.Nothing,
-      fleet = Prelude.Nothing,
+    { fleet = Prelude.Nothing,
+      robot = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the robot registration.
-registerRobotResponse_robot :: Lens.Lens' RegisterRobotResponse (Prelude.Maybe Prelude.Text)
-registerRobotResponse_robot = Lens.lens (\RegisterRobotResponse' {robot} -> robot) (\s@RegisterRobotResponse' {} a -> s {robot = a} :: RegisterRobotResponse)
 
 -- | The Amazon Resource Name (ARN) of the fleet that the robot will join.
 registerRobotResponse_fleet :: Lens.Lens' RegisterRobotResponse (Prelude.Maybe Prelude.Text)
 registerRobotResponse_fleet = Lens.lens (\RegisterRobotResponse' {fleet} -> fleet) (\s@RegisterRobotResponse' {} a -> s {fleet = a} :: RegisterRobotResponse)
+
+-- | Information about the robot registration.
+registerRobotResponse_robot :: Lens.Lens' RegisterRobotResponse (Prelude.Maybe Prelude.Text)
+registerRobotResponse_robot = Lens.lens (\RegisterRobotResponse' {robot} -> robot) (\s@RegisterRobotResponse' {} a -> s {robot = a} :: RegisterRobotResponse)
 
 -- | The response's http status code.
 registerRobotResponse_httpStatus :: Lens.Lens' RegisterRobotResponse Prelude.Int
@@ -183,6 +183,6 @@ registerRobotResponse_httpStatus = Lens.lens (\RegisterRobotResponse' {httpStatu
 
 instance Prelude.NFData RegisterRobotResponse where
   rnf RegisterRobotResponse' {..} =
-    Prelude.rnf robot
-      `Prelude.seq` Prelude.rnf fleet
+    Prelude.rnf fleet
+      `Prelude.seq` Prelude.rnf robot
       `Prelude.seq` Prelude.rnf httpStatus

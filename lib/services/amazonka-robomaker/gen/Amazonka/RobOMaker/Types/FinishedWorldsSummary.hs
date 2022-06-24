@@ -28,10 +28,10 @@ import Amazonka.RobOMaker.Types.FailureSummary
 --
 -- /See:/ 'newFinishedWorldsSummary' smart constructor.
 data FinishedWorldsSummary = FinishedWorldsSummary'
-  { -- | A list of worlds that succeeded.
-    succeededWorlds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Information about worlds that failed.
+  { -- | Information about worlds that failed.
     failureSummary :: Prelude.Maybe FailureSummary,
+    -- | A list of worlds that succeeded.
+    succeededWorlds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The total number of finished worlds.
     finishedCount :: Prelude.Maybe Prelude.Int
   }
@@ -45,28 +45,28 @@ data FinishedWorldsSummary = FinishedWorldsSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'succeededWorlds', 'finishedWorldsSummary_succeededWorlds' - A list of worlds that succeeded.
---
 -- 'failureSummary', 'finishedWorldsSummary_failureSummary' - Information about worlds that failed.
+--
+-- 'succeededWorlds', 'finishedWorldsSummary_succeededWorlds' - A list of worlds that succeeded.
 --
 -- 'finishedCount', 'finishedWorldsSummary_finishedCount' - The total number of finished worlds.
 newFinishedWorldsSummary ::
   FinishedWorldsSummary
 newFinishedWorldsSummary =
   FinishedWorldsSummary'
-    { succeededWorlds =
+    { failureSummary =
         Prelude.Nothing,
-      failureSummary = Prelude.Nothing,
+      succeededWorlds = Prelude.Nothing,
       finishedCount = Prelude.Nothing
     }
-
--- | A list of worlds that succeeded.
-finishedWorldsSummary_succeededWorlds :: Lens.Lens' FinishedWorldsSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-finishedWorldsSummary_succeededWorlds = Lens.lens (\FinishedWorldsSummary' {succeededWorlds} -> succeededWorlds) (\s@FinishedWorldsSummary' {} a -> s {succeededWorlds = a} :: FinishedWorldsSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about worlds that failed.
 finishedWorldsSummary_failureSummary :: Lens.Lens' FinishedWorldsSummary (Prelude.Maybe FailureSummary)
 finishedWorldsSummary_failureSummary = Lens.lens (\FinishedWorldsSummary' {failureSummary} -> failureSummary) (\s@FinishedWorldsSummary' {} a -> s {failureSummary = a} :: FinishedWorldsSummary)
+
+-- | A list of worlds that succeeded.
+finishedWorldsSummary_succeededWorlds :: Lens.Lens' FinishedWorldsSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+finishedWorldsSummary_succeededWorlds = Lens.lens (\FinishedWorldsSummary' {succeededWorlds} -> succeededWorlds) (\s@FinishedWorldsSummary' {} a -> s {succeededWorlds = a} :: FinishedWorldsSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of finished worlds.
 finishedWorldsSummary_finishedCount :: Lens.Lens' FinishedWorldsSummary (Prelude.Maybe Prelude.Int)
@@ -78,19 +78,19 @@ instance Core.FromJSON FinishedWorldsSummary where
       "FinishedWorldsSummary"
       ( \x ->
           FinishedWorldsSummary'
-            Prelude.<$> (x Core..:? "succeededWorlds")
-            Prelude.<*> (x Core..:? "failureSummary")
+            Prelude.<$> (x Core..:? "failureSummary")
+            Prelude.<*> (x Core..:? "succeededWorlds")
             Prelude.<*> (x Core..:? "finishedCount")
       )
 
 instance Prelude.Hashable FinishedWorldsSummary where
   hashWithSalt _salt FinishedWorldsSummary' {..} =
-    _salt `Prelude.hashWithSalt` succeededWorlds
-      `Prelude.hashWithSalt` failureSummary
+    _salt `Prelude.hashWithSalt` failureSummary
+      `Prelude.hashWithSalt` succeededWorlds
       `Prelude.hashWithSalt` finishedCount
 
 instance Prelude.NFData FinishedWorldsSummary where
   rnf FinishedWorldsSummary' {..} =
-    Prelude.rnf succeededWorlds
-      `Prelude.seq` Prelude.rnf failureSummary
+    Prelude.rnf failureSummary
+      `Prelude.seq` Prelude.rnf succeededWorlds
       `Prelude.seq` Prelude.rnf finishedCount

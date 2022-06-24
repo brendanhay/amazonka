@@ -30,8 +30,8 @@ module Amazonka.RobOMaker.ListRobots
     newListRobots,
 
     -- * Request Lenses
-    listRobots_filters,
     listRobots_nextToken,
+    listRobots_filters,
     listRobots_maxResults,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.RobOMaker.ListRobots
     newListRobotsResponse,
 
     -- * Response Lenses
-    listRobotsResponse_robots,
     listRobotsResponse_nextToken,
+    listRobotsResponse_robots,
     listRobotsResponse_httpStatus,
   )
 where
@@ -54,7 +54,14 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newListRobots' smart constructor.
 data ListRobots = ListRobots'
-  { -- | Optional filters to limit results.
+  { -- | If the previous paginated request did not return all of the remaining
+    -- results, the response object\'s @nextToken@ parameter value is set to a
+    -- token. To retrieve the next set of results, call @ListRobots@ again and
+    -- assign that token to the request object\'s @nextToken@ parameter. If
+    -- there are no remaining results, the previous response object\'s
+    -- NextToken parameter is set to null.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional filters to limit results.
     --
     -- The filter names @status@ and @fleetName@ are supported. When filtering,
     -- you must use the complete value of the filtered item. You can use up to
@@ -62,13 +69,6 @@ data ListRobots = ListRobots'
     -- you are looking for items with the status @Registered@ or the status
     -- @Available@.
     filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
-    -- | If the previous paginated request did not return all of the remaining
-    -- results, the response object\'s @nextToken@ parameter value is set to a
-    -- token. To retrieve the next set of results, call @ListRobots@ again and
-    -- assign that token to the request object\'s @nextToken@ parameter. If
-    -- there are no remaining results, the previous response object\'s
-    -- NextToken parameter is set to null.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | When this parameter is used, @ListRobots@ only returns @maxResults@
     -- results in a single page along with a @nextToken@ response element. The
     -- remaining results of the initial request can be seen by sending another
@@ -87,6 +87,13 @@ data ListRobots = ListRobots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listRobots_nextToken' - If the previous paginated request did not return all of the remaining
+-- results, the response object\'s @nextToken@ parameter value is set to a
+-- token. To retrieve the next set of results, call @ListRobots@ again and
+-- assign that token to the request object\'s @nextToken@ parameter. If
+-- there are no remaining results, the previous response object\'s
+-- NextToken parameter is set to null.
+--
 -- 'filters', 'listRobots_filters' - Optional filters to limit results.
 --
 -- The filter names @status@ and @fleetName@ are supported. When filtering,
@@ -94,13 +101,6 @@ data ListRobots = ListRobots'
 -- three filters, but they must be for the same named item. For example, if
 -- you are looking for items with the status @Registered@ or the status
 -- @Available@.
---
--- 'nextToken', 'listRobots_nextToken' - If the previous paginated request did not return all of the remaining
--- results, the response object\'s @nextToken@ parameter value is set to a
--- token. To retrieve the next set of results, call @ListRobots@ again and
--- assign that token to the request object\'s @nextToken@ parameter. If
--- there are no remaining results, the previous response object\'s
--- NextToken parameter is set to null.
 --
 -- 'maxResults', 'listRobots_maxResults' - When this parameter is used, @ListRobots@ only returns @maxResults@
 -- results in a single page along with a @nextToken@ response element. The
@@ -112,10 +112,19 @@ newListRobots ::
   ListRobots
 newListRobots =
   ListRobots'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | If the previous paginated request did not return all of the remaining
+-- results, the response object\'s @nextToken@ parameter value is set to a
+-- token. To retrieve the next set of results, call @ListRobots@ again and
+-- assign that token to the request object\'s @nextToken@ parameter. If
+-- there are no remaining results, the previous response object\'s
+-- NextToken parameter is set to null.
+listRobots_nextToken :: Lens.Lens' ListRobots (Prelude.Maybe Prelude.Text)
+listRobots_nextToken = Lens.lens (\ListRobots' {nextToken} -> nextToken) (\s@ListRobots' {} a -> s {nextToken = a} :: ListRobots)
 
 -- | Optional filters to limit results.
 --
@@ -126,15 +135,6 @@ newListRobots =
 -- @Available@.
 listRobots_filters :: Lens.Lens' ListRobots (Prelude.Maybe (Prelude.NonEmpty Filter))
 listRobots_filters = Lens.lens (\ListRobots' {filters} -> filters) (\s@ListRobots' {} a -> s {filters = a} :: ListRobots) Prelude.. Lens.mapping Lens.coerced
-
--- | If the previous paginated request did not return all of the remaining
--- results, the response object\'s @nextToken@ parameter value is set to a
--- token. To retrieve the next set of results, call @ListRobots@ again and
--- assign that token to the request object\'s @nextToken@ parameter. If
--- there are no remaining results, the previous response object\'s
--- NextToken parameter is set to null.
-listRobots_nextToken :: Lens.Lens' ListRobots (Prelude.Maybe Prelude.Text)
-listRobots_nextToken = Lens.lens (\ListRobots' {nextToken} -> nextToken) (\s@ListRobots' {} a -> s {nextToken = a} :: ListRobots)
 
 -- | When this parameter is used, @ListRobots@ only returns @maxResults@
 -- results in a single page along with a @nextToken@ response element. The
@@ -171,21 +171,21 @@ instance Core.AWSRequest ListRobots where
     Response.receiveJSON
       ( \s h x ->
           ListRobotsResponse'
-            Prelude.<$> (x Core..?> "robots" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "robots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListRobots where
   hashWithSalt _salt ListRobots' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListRobots where
   rnf ListRobots' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRobots where
@@ -203,8 +203,8 @@ instance Core.ToJSON ListRobots where
   toJSON ListRobots' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filters" Core..=) Prelude.<$> filters,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -217,15 +217,15 @@ instance Core.ToQuery ListRobots where
 
 -- | /See:/ 'newListRobotsResponse' smart constructor.
 data ListRobotsResponse = ListRobotsResponse'
-  { -- | A list of robots that meet the criteria of the request.
-    robots :: Prelude.Maybe [Robot],
-    -- | If the previous paginated request did not return all of the remaining
+  { -- | If the previous paginated request did not return all of the remaining
     -- results, the response object\'s @nextToken@ parameter value is set to a
     -- token. To retrieve the next set of results, call @ListRobots@ again and
     -- assign that token to the request object\'s @nextToken@ parameter. If
     -- there are no remaining results, the previous response object\'s
     -- NextToken parameter is set to null.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of robots that meet the criteria of the request.
+    robots :: Prelude.Maybe [Robot],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -239,14 +239,14 @@ data ListRobotsResponse = ListRobotsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'robots', 'listRobotsResponse_robots' - A list of robots that meet the criteria of the request.
---
 -- 'nextToken', 'listRobotsResponse_nextToken' - If the previous paginated request did not return all of the remaining
 -- results, the response object\'s @nextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call @ListRobots@ again and
 -- assign that token to the request object\'s @nextToken@ parameter. If
 -- there are no remaining results, the previous response object\'s
 -- NextToken parameter is set to null.
+--
+-- 'robots', 'listRobotsResponse_robots' - A list of robots that meet the criteria of the request.
 --
 -- 'httpStatus', 'listRobotsResponse_httpStatus' - The response's http status code.
 newListRobotsResponse ::
@@ -255,14 +255,10 @@ newListRobotsResponse ::
   ListRobotsResponse
 newListRobotsResponse pHttpStatus_ =
   ListRobotsResponse'
-    { robots = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      robots = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of robots that meet the criteria of the request.
-listRobotsResponse_robots :: Lens.Lens' ListRobotsResponse (Prelude.Maybe [Robot])
-listRobotsResponse_robots = Lens.lens (\ListRobotsResponse' {robots} -> robots) (\s@ListRobotsResponse' {} a -> s {robots = a} :: ListRobotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the previous paginated request did not return all of the remaining
 -- results, the response object\'s @nextToken@ parameter value is set to a
@@ -273,12 +269,16 @@ listRobotsResponse_robots = Lens.lens (\ListRobotsResponse' {robots} -> robots) 
 listRobotsResponse_nextToken :: Lens.Lens' ListRobotsResponse (Prelude.Maybe Prelude.Text)
 listRobotsResponse_nextToken = Lens.lens (\ListRobotsResponse' {nextToken} -> nextToken) (\s@ListRobotsResponse' {} a -> s {nextToken = a} :: ListRobotsResponse)
 
+-- | A list of robots that meet the criteria of the request.
+listRobotsResponse_robots :: Lens.Lens' ListRobotsResponse (Prelude.Maybe [Robot])
+listRobotsResponse_robots = Lens.lens (\ListRobotsResponse' {robots} -> robots) (\s@ListRobotsResponse' {} a -> s {robots = a} :: ListRobotsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listRobotsResponse_httpStatus :: Lens.Lens' ListRobotsResponse Prelude.Int
 listRobotsResponse_httpStatus = Lens.lens (\ListRobotsResponse' {httpStatus} -> httpStatus) (\s@ListRobotsResponse' {} a -> s {httpStatus = a} :: ListRobotsResponse)
 
 instance Prelude.NFData ListRobotsResponse where
   rnf ListRobotsResponse' {..} =
-    Prelude.rnf robots
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf robots
       `Prelude.seq` Prelude.rnf httpStatus

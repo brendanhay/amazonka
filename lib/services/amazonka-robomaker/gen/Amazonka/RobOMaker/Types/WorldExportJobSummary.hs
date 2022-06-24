@@ -28,7 +28,9 @@ import Amazonka.RobOMaker.Types.WorldExportJobStatus
 --
 -- /See:/ 'newWorldExportJobSummary' smart constructor.
 data WorldExportJobSummary = WorldExportJobSummary'
-  { -- | The status of the world export job.
+  { -- | The Amazon Resource Name (ARN) of the world export job.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the world export job.
     --
     -- [Pending]
     --     The world export job request is pending.
@@ -48,13 +50,11 @@ data WorldExportJobSummary = WorldExportJobSummary'
     -- [Canceling]
     --     The world export job is being cancelled.
     status :: Prelude.Maybe WorldExportJobStatus,
-    -- | The Amazon Resource Name (ARN) of the world export job.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | A list of worlds.
+    worlds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The time, in milliseconds since the epoch, when the world export job was
     -- created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | A list of worlds.
-    worlds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,6 +65,8 @@ data WorldExportJobSummary = WorldExportJobSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'arn', 'worldExportJobSummary_arn' - The Amazon Resource Name (ARN) of the world export job.
 --
 -- 'status', 'worldExportJobSummary_status' - The status of the world export job.
 --
@@ -86,21 +88,23 @@ data WorldExportJobSummary = WorldExportJobSummary'
 -- [Canceling]
 --     The world export job is being cancelled.
 --
--- 'arn', 'worldExportJobSummary_arn' - The Amazon Resource Name (ARN) of the world export job.
+-- 'worlds', 'worldExportJobSummary_worlds' - A list of worlds.
 --
 -- 'createdAt', 'worldExportJobSummary_createdAt' - The time, in milliseconds since the epoch, when the world export job was
 -- created.
---
--- 'worlds', 'worldExportJobSummary_worlds' - A list of worlds.
 newWorldExportJobSummary ::
   WorldExportJobSummary
 newWorldExportJobSummary =
   WorldExportJobSummary'
-    { status = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      worlds = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      worlds = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the world export job.
+worldExportJobSummary_arn :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe Prelude.Text)
+worldExportJobSummary_arn = Lens.lens (\WorldExportJobSummary' {arn} -> arn) (\s@WorldExportJobSummary' {} a -> s {arn = a} :: WorldExportJobSummary)
 
 -- | The status of the world export job.
 --
@@ -124,18 +128,14 @@ newWorldExportJobSummary =
 worldExportJobSummary_status :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe WorldExportJobStatus)
 worldExportJobSummary_status = Lens.lens (\WorldExportJobSummary' {status} -> status) (\s@WorldExportJobSummary' {} a -> s {status = a} :: WorldExportJobSummary)
 
--- | The Amazon Resource Name (ARN) of the world export job.
-worldExportJobSummary_arn :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe Prelude.Text)
-worldExportJobSummary_arn = Lens.lens (\WorldExportJobSummary' {arn} -> arn) (\s@WorldExportJobSummary' {} a -> s {arn = a} :: WorldExportJobSummary)
+-- | A list of worlds.
+worldExportJobSummary_worlds :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+worldExportJobSummary_worlds = Lens.lens (\WorldExportJobSummary' {worlds} -> worlds) (\s@WorldExportJobSummary' {} a -> s {worlds = a} :: WorldExportJobSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time, in milliseconds since the epoch, when the world export job was
 -- created.
 worldExportJobSummary_createdAt :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe Prelude.UTCTime)
 worldExportJobSummary_createdAt = Lens.lens (\WorldExportJobSummary' {createdAt} -> createdAt) (\s@WorldExportJobSummary' {} a -> s {createdAt = a} :: WorldExportJobSummary) Prelude.. Lens.mapping Core._Time
-
--- | A list of worlds.
-worldExportJobSummary_worlds :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-worldExportJobSummary_worlds = Lens.lens (\WorldExportJobSummary' {worlds} -> worlds) (\s@WorldExportJobSummary' {} a -> s {worlds = a} :: WorldExportJobSummary) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON WorldExportJobSummary where
   parseJSON =
@@ -143,22 +143,22 @@ instance Core.FromJSON WorldExportJobSummary where
       "WorldExportJobSummary"
       ( \x ->
           WorldExportJobSummary'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "worlds")
+            Prelude.<*> (x Core..:? "createdAt")
       )
 
 instance Prelude.Hashable WorldExportJobSummary where
   hashWithSalt _salt WorldExportJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdAt
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` worlds
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData WorldExportJobSummary where
   rnf WorldExportJobSummary' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf worlds
+      `Prelude.seq` Prelude.rnf createdAt

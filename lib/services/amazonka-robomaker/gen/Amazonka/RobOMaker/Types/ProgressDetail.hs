@@ -28,7 +28,13 @@ import Amazonka.RobOMaker.Types.RobotDeploymentStep
 --
 -- /See:/ 'newProgressDetail' smart constructor.
 data ProgressDetail = ProgressDetail'
-  { -- | The current progress status.
+  { -- | The Amazon Resource Name (ARN) of the deployment job.
+    targetResource :: Prelude.Maybe Prelude.Text,
+    -- | Estimated amount of time in seconds remaining in the step. This
+    -- currently only applies to the @Downloading\/Extracting@ step of the
+    -- deployment. It is empty for other steps.
+    estimatedTimeRemainingSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The current progress status.
     --
     -- [Validating]
     --     Validating the deployment.
@@ -48,12 +54,6 @@ data ProgressDetail = ProgressDetail'
     -- [Finished]
     --     Deployment is complete.
     currentProgress :: Prelude.Maybe RobotDeploymentStep,
-    -- | Estimated amount of time in seconds remaining in the step. This
-    -- currently only applies to the @Downloading\/Extracting@ step of the
-    -- deployment. It is empty for other steps.
-    estimatedTimeRemainingSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the deployment job.
-    targetResource :: Prelude.Maybe Prelude.Text,
     -- | Precentage of the step that is done. This currently only applies to the
     -- @Downloading\/Extracting@ step of the deployment. It is empty for other
     -- steps.
@@ -68,6 +68,12 @@ data ProgressDetail = ProgressDetail'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'targetResource', 'progressDetail_targetResource' - The Amazon Resource Name (ARN) of the deployment job.
+--
+-- 'estimatedTimeRemainingSeconds', 'progressDetail_estimatedTimeRemainingSeconds' - Estimated amount of time in seconds remaining in the step. This
+-- currently only applies to the @Downloading\/Extracting@ step of the
+-- deployment. It is empty for other steps.
 --
 -- 'currentProgress', 'progressDetail_currentProgress' - The current progress status.
 --
@@ -89,12 +95,6 @@ data ProgressDetail = ProgressDetail'
 -- [Finished]
 --     Deployment is complete.
 --
--- 'estimatedTimeRemainingSeconds', 'progressDetail_estimatedTimeRemainingSeconds' - Estimated amount of time in seconds remaining in the step. This
--- currently only applies to the @Downloading\/Extracting@ step of the
--- deployment. It is empty for other steps.
---
--- 'targetResource', 'progressDetail_targetResource' - The Amazon Resource Name (ARN) of the deployment job.
---
 -- 'percentDone', 'progressDetail_percentDone' - Precentage of the step that is done. This currently only applies to the
 -- @Downloading\/Extracting@ step of the deployment. It is empty for other
 -- steps.
@@ -102,11 +102,21 @@ newProgressDetail ::
   ProgressDetail
 newProgressDetail =
   ProgressDetail'
-    { currentProgress = Prelude.Nothing,
+    { targetResource = Prelude.Nothing,
       estimatedTimeRemainingSeconds = Prelude.Nothing,
-      targetResource = Prelude.Nothing,
+      currentProgress = Prelude.Nothing,
       percentDone = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the deployment job.
+progressDetail_targetResource :: Lens.Lens' ProgressDetail (Prelude.Maybe Prelude.Text)
+progressDetail_targetResource = Lens.lens (\ProgressDetail' {targetResource} -> targetResource) (\s@ProgressDetail' {} a -> s {targetResource = a} :: ProgressDetail)
+
+-- | Estimated amount of time in seconds remaining in the step. This
+-- currently only applies to the @Downloading\/Extracting@ step of the
+-- deployment. It is empty for other steps.
+progressDetail_estimatedTimeRemainingSeconds :: Lens.Lens' ProgressDetail (Prelude.Maybe Prelude.Int)
+progressDetail_estimatedTimeRemainingSeconds = Lens.lens (\ProgressDetail' {estimatedTimeRemainingSeconds} -> estimatedTimeRemainingSeconds) (\s@ProgressDetail' {} a -> s {estimatedTimeRemainingSeconds = a} :: ProgressDetail)
 
 -- | The current progress status.
 --
@@ -130,16 +140,6 @@ newProgressDetail =
 progressDetail_currentProgress :: Lens.Lens' ProgressDetail (Prelude.Maybe RobotDeploymentStep)
 progressDetail_currentProgress = Lens.lens (\ProgressDetail' {currentProgress} -> currentProgress) (\s@ProgressDetail' {} a -> s {currentProgress = a} :: ProgressDetail)
 
--- | Estimated amount of time in seconds remaining in the step. This
--- currently only applies to the @Downloading\/Extracting@ step of the
--- deployment. It is empty for other steps.
-progressDetail_estimatedTimeRemainingSeconds :: Lens.Lens' ProgressDetail (Prelude.Maybe Prelude.Int)
-progressDetail_estimatedTimeRemainingSeconds = Lens.lens (\ProgressDetail' {estimatedTimeRemainingSeconds} -> estimatedTimeRemainingSeconds) (\s@ProgressDetail' {} a -> s {estimatedTimeRemainingSeconds = a} :: ProgressDetail)
-
--- | The Amazon Resource Name (ARN) of the deployment job.
-progressDetail_targetResource :: Lens.Lens' ProgressDetail (Prelude.Maybe Prelude.Text)
-progressDetail_targetResource = Lens.lens (\ProgressDetail' {targetResource} -> targetResource) (\s@ProgressDetail' {} a -> s {targetResource = a} :: ProgressDetail)
-
 -- | Precentage of the step that is done. This currently only applies to the
 -- @Downloading\/Extracting@ step of the deployment. It is empty for other
 -- steps.
@@ -152,22 +152,22 @@ instance Core.FromJSON ProgressDetail where
       "ProgressDetail"
       ( \x ->
           ProgressDetail'
-            Prelude.<$> (x Core..:? "currentProgress")
+            Prelude.<$> (x Core..:? "targetResource")
             Prelude.<*> (x Core..:? "estimatedTimeRemainingSeconds")
-            Prelude.<*> (x Core..:? "targetResource")
+            Prelude.<*> (x Core..:? "currentProgress")
             Prelude.<*> (x Core..:? "percentDone")
       )
 
 instance Prelude.Hashable ProgressDetail where
   hashWithSalt _salt ProgressDetail' {..} =
-    _salt `Prelude.hashWithSalt` currentProgress
+    _salt `Prelude.hashWithSalt` targetResource
       `Prelude.hashWithSalt` estimatedTimeRemainingSeconds
-      `Prelude.hashWithSalt` targetResource
+      `Prelude.hashWithSalt` currentProgress
       `Prelude.hashWithSalt` percentDone
 
 instance Prelude.NFData ProgressDetail where
   rnf ProgressDetail' {..} =
-    Prelude.rnf currentProgress
+    Prelude.rnf targetResource
       `Prelude.seq` Prelude.rnf estimatedTimeRemainingSeconds
-      `Prelude.seq` Prelude.rnf targetResource
+      `Prelude.seq` Prelude.rnf currentProgress
       `Prelude.seq` Prelude.rnf percentDone

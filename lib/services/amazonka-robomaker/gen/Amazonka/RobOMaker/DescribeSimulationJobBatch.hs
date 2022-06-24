@@ -34,18 +34,18 @@ module Amazonka.RobOMaker.DescribeSimulationJobBatch
     newDescribeSimulationJobBatchResponse,
 
     -- * Response Lenses
-    describeSimulationJobBatchResponse_failureReason,
-    describeSimulationJobBatchResponse_status,
+    describeSimulationJobBatchResponse_tags,
+    describeSimulationJobBatchResponse_failureCode,
+    describeSimulationJobBatchResponse_clientRequestToken,
     describeSimulationJobBatchResponse_lastUpdatedAt,
     describeSimulationJobBatchResponse_arn,
-    describeSimulationJobBatchResponse_createdAt,
-    describeSimulationJobBatchResponse_failureCode,
+    describeSimulationJobBatchResponse_status,
     describeSimulationJobBatchResponse_failedRequests,
-    describeSimulationJobBatchResponse_batchPolicy,
-    describeSimulationJobBatchResponse_createdRequests,
     describeSimulationJobBatchResponse_pendingRequests,
-    describeSimulationJobBatchResponse_clientRequestToken,
-    describeSimulationJobBatchResponse_tags,
+    describeSimulationJobBatchResponse_createdRequests,
+    describeSimulationJobBatchResponse_batchPolicy,
+    describeSimulationJobBatchResponse_createdAt,
+    describeSimulationJobBatchResponse_failureReason,
     describeSimulationJobBatchResponse_httpStatus,
   )
 where
@@ -93,20 +93,20 @@ instance Core.AWSRequest DescribeSimulationJobBatch where
     Response.receiveJSON
       ( \s h x ->
           DescribeSimulationJobBatchResponse'
-            Prelude.<$> (x Core..?> "failureReason")
-            Prelude.<*> (x Core..?> "status")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "failureCode")
+            Prelude.<*> (x Core..?> "clientRequestToken")
             Prelude.<*> (x Core..?> "lastUpdatedAt")
             Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "failureCode")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "failedRequests" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "batchPolicy")
+            Prelude.<*> (x Core..?> "pendingRequests")
             Prelude.<*> ( x Core..?> "createdRequests"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "pendingRequests")
-            Prelude.<*> (x Core..?> "clientRequestToken")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "batchPolicy")
+            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<*> (x Core..?> "failureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,8 +144,19 @@ instance Core.ToQuery DescribeSimulationJobBatch where
 
 -- | /See:/ 'newDescribeSimulationJobBatchResponse' smart constructor.
 data DescribeSimulationJobBatchResponse = DescribeSimulationJobBatchResponse'
-  { -- | The reason the simulation job batch failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
+  { -- | A map that contains tag keys and tag values that are attached to the
+    -- simulation job batch.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The failure code of the simulation job batch.
+    failureCode :: Prelude.Maybe SimulationJobBatchErrorCode,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the simulation job batch
+    -- was last updated.
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the batch.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The status of the batch.
     --
     -- [Pending]
@@ -187,33 +198,22 @@ data DescribeSimulationJobBatchResponse = DescribeSimulationJobBatchResponse'
     -- [TimedOut]
     --     The simulation batch job timed out.
     status :: Prelude.Maybe SimulationJobBatchStatus,
-    -- | The time, in milliseconds since the epoch, when the simulation job batch
-    -- was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of the batch.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the simulation job batch
-    -- was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The failure code of the simulation job batch.
-    failureCode :: Prelude.Maybe SimulationJobBatchErrorCode,
     -- | A list of failed create simulation job requests. The request failed to
     -- be created into a simulation job. Failed requests do not have a
     -- simulation job ID.
     failedRequests :: Prelude.Maybe [FailedCreateSimulationJobRequest],
-    -- | The batch policy.
-    batchPolicy :: Prelude.Maybe BatchPolicy,
-    -- | A list of created simulation job summaries.
-    createdRequests :: Prelude.Maybe [SimulationJobSummary],
     -- | A list of pending simulation job requests. These requests have not yet
     -- been created into simulation jobs.
     pendingRequests :: Prelude.Maybe (Prelude.NonEmpty SimulationJobRequest),
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | A map that contains tag keys and tag values that are attached to the
-    -- simulation job batch.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of created simulation job summaries.
+    createdRequests :: Prelude.Maybe [SimulationJobSummary],
+    -- | The batch policy.
+    batchPolicy :: Prelude.Maybe BatchPolicy,
+    -- | The time, in milliseconds since the epoch, when the simulation job batch
+    -- was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The reason the simulation job batch failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -227,7 +227,18 @@ data DescribeSimulationJobBatchResponse = DescribeSimulationJobBatchResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureReason', 'describeSimulationJobBatchResponse_failureReason' - The reason the simulation job batch failed.
+-- 'tags', 'describeSimulationJobBatchResponse_tags' - A map that contains tag keys and tag values that are attached to the
+-- simulation job batch.
+--
+-- 'failureCode', 'describeSimulationJobBatchResponse_failureCode' - The failure code of the simulation job batch.
+--
+-- 'clientRequestToken', 'describeSimulationJobBatchResponse_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+--
+-- 'lastUpdatedAt', 'describeSimulationJobBatchResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the simulation job batch
+-- was last updated.
+--
+-- 'arn', 'describeSimulationJobBatchResponse_arn' - The Amazon Resource Name (ARN) of the batch.
 --
 -- 'status', 'describeSimulationJobBatchResponse_status' - The status of the batch.
 --
@@ -270,32 +281,21 @@ data DescribeSimulationJobBatchResponse = DescribeSimulationJobBatchResponse'
 -- [TimedOut]
 --     The simulation batch job timed out.
 --
--- 'lastUpdatedAt', 'describeSimulationJobBatchResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the simulation job batch
--- was last updated.
---
--- 'arn', 'describeSimulationJobBatchResponse_arn' - The Amazon Resource Name (ARN) of the batch.
---
--- 'createdAt', 'describeSimulationJobBatchResponse_createdAt' - The time, in milliseconds since the epoch, when the simulation job batch
--- was created.
---
--- 'failureCode', 'describeSimulationJobBatchResponse_failureCode' - The failure code of the simulation job batch.
---
 -- 'failedRequests', 'describeSimulationJobBatchResponse_failedRequests' - A list of failed create simulation job requests. The request failed to
 -- be created into a simulation job. Failed requests do not have a
 -- simulation job ID.
 --
--- 'batchPolicy', 'describeSimulationJobBatchResponse_batchPolicy' - The batch policy.
---
--- 'createdRequests', 'describeSimulationJobBatchResponse_createdRequests' - A list of created simulation job summaries.
---
 -- 'pendingRequests', 'describeSimulationJobBatchResponse_pendingRequests' - A list of pending simulation job requests. These requests have not yet
 -- been created into simulation jobs.
 --
--- 'clientRequestToken', 'describeSimulationJobBatchResponse_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- 'createdRequests', 'describeSimulationJobBatchResponse_createdRequests' - A list of created simulation job summaries.
 --
--- 'tags', 'describeSimulationJobBatchResponse_tags' - A map that contains tag keys and tag values that are attached to the
--- simulation job batch.
+-- 'batchPolicy', 'describeSimulationJobBatchResponse_batchPolicy' - The batch policy.
+--
+-- 'createdAt', 'describeSimulationJobBatchResponse_createdAt' - The time, in milliseconds since the epoch, when the simulation job batch
+-- was created.
+--
+-- 'failureReason', 'describeSimulationJobBatchResponse_failureReason' - The reason the simulation job batch failed.
 --
 -- 'httpStatus', 'describeSimulationJobBatchResponse_httpStatus' - The response's http status code.
 newDescribeSimulationJobBatchResponse ::
@@ -304,25 +304,44 @@ newDescribeSimulationJobBatchResponse ::
   DescribeSimulationJobBatchResponse
 newDescribeSimulationJobBatchResponse pHttpStatus_ =
   DescribeSimulationJobBatchResponse'
-    { failureReason =
+    { tags =
         Prelude.Nothing,
-      status = Prelude.Nothing,
+      failureCode = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
       arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      failureCode = Prelude.Nothing,
+      status = Prelude.Nothing,
       failedRequests = Prelude.Nothing,
-      batchPolicy = Prelude.Nothing,
-      createdRequests = Prelude.Nothing,
       pendingRequests = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      createdRequests = Prelude.Nothing,
+      batchPolicy = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The reason the simulation job batch failed.
-describeSimulationJobBatchResponse_failureReason :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe Prelude.Text)
-describeSimulationJobBatchResponse_failureReason = Lens.lens (\DescribeSimulationJobBatchResponse' {failureReason} -> failureReason) (\s@DescribeSimulationJobBatchResponse' {} a -> s {failureReason = a} :: DescribeSimulationJobBatchResponse)
+-- | A map that contains tag keys and tag values that are attached to the
+-- simulation job batch.
+describeSimulationJobBatchResponse_tags :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeSimulationJobBatchResponse_tags = Lens.lens (\DescribeSimulationJobBatchResponse' {tags} -> tags) (\s@DescribeSimulationJobBatchResponse' {} a -> s {tags = a} :: DescribeSimulationJobBatchResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The failure code of the simulation job batch.
+describeSimulationJobBatchResponse_failureCode :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe SimulationJobBatchErrorCode)
+describeSimulationJobBatchResponse_failureCode = Lens.lens (\DescribeSimulationJobBatchResponse' {failureCode} -> failureCode) (\s@DescribeSimulationJobBatchResponse' {} a -> s {failureCode = a} :: DescribeSimulationJobBatchResponse)
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+describeSimulationJobBatchResponse_clientRequestToken :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe Prelude.Text)
+describeSimulationJobBatchResponse_clientRequestToken = Lens.lens (\DescribeSimulationJobBatchResponse' {clientRequestToken} -> clientRequestToken) (\s@DescribeSimulationJobBatchResponse' {} a -> s {clientRequestToken = a} :: DescribeSimulationJobBatchResponse)
+
+-- | The time, in milliseconds since the epoch, when the simulation job batch
+-- was last updated.
+describeSimulationJobBatchResponse_lastUpdatedAt :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe Prelude.UTCTime)
+describeSimulationJobBatchResponse_lastUpdatedAt = Lens.lens (\DescribeSimulationJobBatchResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeSimulationJobBatchResponse' {} a -> s {lastUpdatedAt = a} :: DescribeSimulationJobBatchResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the batch.
+describeSimulationJobBatchResponse_arn :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe Prelude.Text)
+describeSimulationJobBatchResponse_arn = Lens.lens (\DescribeSimulationJobBatchResponse' {arn} -> arn) (\s@DescribeSimulationJobBatchResponse' {} a -> s {arn = a} :: DescribeSimulationJobBatchResponse)
 
 -- | The status of the batch.
 --
@@ -367,52 +386,33 @@ describeSimulationJobBatchResponse_failureReason = Lens.lens (\DescribeSimulatio
 describeSimulationJobBatchResponse_status :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe SimulationJobBatchStatus)
 describeSimulationJobBatchResponse_status = Lens.lens (\DescribeSimulationJobBatchResponse' {status} -> status) (\s@DescribeSimulationJobBatchResponse' {} a -> s {status = a} :: DescribeSimulationJobBatchResponse)
 
--- | The time, in milliseconds since the epoch, when the simulation job batch
--- was last updated.
-describeSimulationJobBatchResponse_lastUpdatedAt :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe Prelude.UTCTime)
-describeSimulationJobBatchResponse_lastUpdatedAt = Lens.lens (\DescribeSimulationJobBatchResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeSimulationJobBatchResponse' {} a -> s {lastUpdatedAt = a} :: DescribeSimulationJobBatchResponse) Prelude.. Lens.mapping Core._Time
-
--- | The Amazon Resource Name (ARN) of the batch.
-describeSimulationJobBatchResponse_arn :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe Prelude.Text)
-describeSimulationJobBatchResponse_arn = Lens.lens (\DescribeSimulationJobBatchResponse' {arn} -> arn) (\s@DescribeSimulationJobBatchResponse' {} a -> s {arn = a} :: DescribeSimulationJobBatchResponse)
-
--- | The time, in milliseconds since the epoch, when the simulation job batch
--- was created.
-describeSimulationJobBatchResponse_createdAt :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe Prelude.UTCTime)
-describeSimulationJobBatchResponse_createdAt = Lens.lens (\DescribeSimulationJobBatchResponse' {createdAt} -> createdAt) (\s@DescribeSimulationJobBatchResponse' {} a -> s {createdAt = a} :: DescribeSimulationJobBatchResponse) Prelude.. Lens.mapping Core._Time
-
--- | The failure code of the simulation job batch.
-describeSimulationJobBatchResponse_failureCode :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe SimulationJobBatchErrorCode)
-describeSimulationJobBatchResponse_failureCode = Lens.lens (\DescribeSimulationJobBatchResponse' {failureCode} -> failureCode) (\s@DescribeSimulationJobBatchResponse' {} a -> s {failureCode = a} :: DescribeSimulationJobBatchResponse)
-
 -- | A list of failed create simulation job requests. The request failed to
 -- be created into a simulation job. Failed requests do not have a
 -- simulation job ID.
 describeSimulationJobBatchResponse_failedRequests :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe [FailedCreateSimulationJobRequest])
 describeSimulationJobBatchResponse_failedRequests = Lens.lens (\DescribeSimulationJobBatchResponse' {failedRequests} -> failedRequests) (\s@DescribeSimulationJobBatchResponse' {} a -> s {failedRequests = a} :: DescribeSimulationJobBatchResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The batch policy.
-describeSimulationJobBatchResponse_batchPolicy :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe BatchPolicy)
-describeSimulationJobBatchResponse_batchPolicy = Lens.lens (\DescribeSimulationJobBatchResponse' {batchPolicy} -> batchPolicy) (\s@DescribeSimulationJobBatchResponse' {} a -> s {batchPolicy = a} :: DescribeSimulationJobBatchResponse)
-
--- | A list of created simulation job summaries.
-describeSimulationJobBatchResponse_createdRequests :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe [SimulationJobSummary])
-describeSimulationJobBatchResponse_createdRequests = Lens.lens (\DescribeSimulationJobBatchResponse' {createdRequests} -> createdRequests) (\s@DescribeSimulationJobBatchResponse' {} a -> s {createdRequests = a} :: DescribeSimulationJobBatchResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | A list of pending simulation job requests. These requests have not yet
 -- been created into simulation jobs.
 describeSimulationJobBatchResponse_pendingRequests :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe (Prelude.NonEmpty SimulationJobRequest))
 describeSimulationJobBatchResponse_pendingRequests = Lens.lens (\DescribeSimulationJobBatchResponse' {pendingRequests} -> pendingRequests) (\s@DescribeSimulationJobBatchResponse' {} a -> s {pendingRequests = a} :: DescribeSimulationJobBatchResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-describeSimulationJobBatchResponse_clientRequestToken :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe Prelude.Text)
-describeSimulationJobBatchResponse_clientRequestToken = Lens.lens (\DescribeSimulationJobBatchResponse' {clientRequestToken} -> clientRequestToken) (\s@DescribeSimulationJobBatchResponse' {} a -> s {clientRequestToken = a} :: DescribeSimulationJobBatchResponse)
+-- | A list of created simulation job summaries.
+describeSimulationJobBatchResponse_createdRequests :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe [SimulationJobSummary])
+describeSimulationJobBatchResponse_createdRequests = Lens.lens (\DescribeSimulationJobBatchResponse' {createdRequests} -> createdRequests) (\s@DescribeSimulationJobBatchResponse' {} a -> s {createdRequests = a} :: DescribeSimulationJobBatchResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A map that contains tag keys and tag values that are attached to the
--- simulation job batch.
-describeSimulationJobBatchResponse_tags :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeSimulationJobBatchResponse_tags = Lens.lens (\DescribeSimulationJobBatchResponse' {tags} -> tags) (\s@DescribeSimulationJobBatchResponse' {} a -> s {tags = a} :: DescribeSimulationJobBatchResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The batch policy.
+describeSimulationJobBatchResponse_batchPolicy :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe BatchPolicy)
+describeSimulationJobBatchResponse_batchPolicy = Lens.lens (\DescribeSimulationJobBatchResponse' {batchPolicy} -> batchPolicy) (\s@DescribeSimulationJobBatchResponse' {} a -> s {batchPolicy = a} :: DescribeSimulationJobBatchResponse)
+
+-- | The time, in milliseconds since the epoch, when the simulation job batch
+-- was created.
+describeSimulationJobBatchResponse_createdAt :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe Prelude.UTCTime)
+describeSimulationJobBatchResponse_createdAt = Lens.lens (\DescribeSimulationJobBatchResponse' {createdAt} -> createdAt) (\s@DescribeSimulationJobBatchResponse' {} a -> s {createdAt = a} :: DescribeSimulationJobBatchResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The reason the simulation job batch failed.
+describeSimulationJobBatchResponse_failureReason :: Lens.Lens' DescribeSimulationJobBatchResponse (Prelude.Maybe Prelude.Text)
+describeSimulationJobBatchResponse_failureReason = Lens.lens (\DescribeSimulationJobBatchResponse' {failureReason} -> failureReason) (\s@DescribeSimulationJobBatchResponse' {} a -> s {failureReason = a} :: DescribeSimulationJobBatchResponse)
 
 -- | The response's http status code.
 describeSimulationJobBatchResponse_httpStatus :: Lens.Lens' DescribeSimulationJobBatchResponse Prelude.Int
@@ -423,16 +423,16 @@ instance
     DescribeSimulationJobBatchResponse
   where
   rnf DescribeSimulationJobBatchResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf lastUpdatedAt
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf failedRequests
-      `Prelude.seq` Prelude.rnf batchPolicy
-      `Prelude.seq` Prelude.rnf createdRequests
       `Prelude.seq` Prelude.rnf pendingRequests
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf createdRequests
+      `Prelude.seq` Prelude.rnf batchPolicy
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf httpStatus

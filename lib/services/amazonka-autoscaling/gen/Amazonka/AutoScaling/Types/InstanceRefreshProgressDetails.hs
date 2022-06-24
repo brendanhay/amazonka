@@ -32,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newInstanceRefreshProgressDetails' smart constructor.
 data InstanceRefreshProgressDetails = InstanceRefreshProgressDetails'
   { -- | Indicates the progress of an instance refresh on instances that are in
-    -- the Auto Scaling group.
-    livePoolProgress :: Prelude.Maybe InstanceRefreshLivePoolProgress,
-    -- | Indicates the progress of an instance refresh on instances that are in
     -- the warm pool.
-    warmPoolProgress :: Prelude.Maybe InstanceRefreshWarmPoolProgress
+    warmPoolProgress :: Prelude.Maybe InstanceRefreshWarmPoolProgress,
+    -- | Indicates the progress of an instance refresh on instances that are in
+    -- the Auto Scaling group.
+    livePoolProgress :: Prelude.Maybe InstanceRefreshLivePoolProgress
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,35 +48,35 @@ data InstanceRefreshProgressDetails = InstanceRefreshProgressDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'livePoolProgress', 'instanceRefreshProgressDetails_livePoolProgress' - Indicates the progress of an instance refresh on instances that are in
--- the Auto Scaling group.
---
 -- 'warmPoolProgress', 'instanceRefreshProgressDetails_warmPoolProgress' - Indicates the progress of an instance refresh on instances that are in
 -- the warm pool.
+--
+-- 'livePoolProgress', 'instanceRefreshProgressDetails_livePoolProgress' - Indicates the progress of an instance refresh on instances that are in
+-- the Auto Scaling group.
 newInstanceRefreshProgressDetails ::
   InstanceRefreshProgressDetails
 newInstanceRefreshProgressDetails =
   InstanceRefreshProgressDetails'
-    { livePoolProgress =
+    { warmPoolProgress =
         Prelude.Nothing,
-      warmPoolProgress = Prelude.Nothing
+      livePoolProgress = Prelude.Nothing
     }
-
--- | Indicates the progress of an instance refresh on instances that are in
--- the Auto Scaling group.
-instanceRefreshProgressDetails_livePoolProgress :: Lens.Lens' InstanceRefreshProgressDetails (Prelude.Maybe InstanceRefreshLivePoolProgress)
-instanceRefreshProgressDetails_livePoolProgress = Lens.lens (\InstanceRefreshProgressDetails' {livePoolProgress} -> livePoolProgress) (\s@InstanceRefreshProgressDetails' {} a -> s {livePoolProgress = a} :: InstanceRefreshProgressDetails)
 
 -- | Indicates the progress of an instance refresh on instances that are in
 -- the warm pool.
 instanceRefreshProgressDetails_warmPoolProgress :: Lens.Lens' InstanceRefreshProgressDetails (Prelude.Maybe InstanceRefreshWarmPoolProgress)
 instanceRefreshProgressDetails_warmPoolProgress = Lens.lens (\InstanceRefreshProgressDetails' {warmPoolProgress} -> warmPoolProgress) (\s@InstanceRefreshProgressDetails' {} a -> s {warmPoolProgress = a} :: InstanceRefreshProgressDetails)
 
+-- | Indicates the progress of an instance refresh on instances that are in
+-- the Auto Scaling group.
+instanceRefreshProgressDetails_livePoolProgress :: Lens.Lens' InstanceRefreshProgressDetails (Prelude.Maybe InstanceRefreshLivePoolProgress)
+instanceRefreshProgressDetails_livePoolProgress = Lens.lens (\InstanceRefreshProgressDetails' {livePoolProgress} -> livePoolProgress) (\s@InstanceRefreshProgressDetails' {} a -> s {livePoolProgress = a} :: InstanceRefreshProgressDetails)
+
 instance Core.FromXML InstanceRefreshProgressDetails where
   parseXML x =
     InstanceRefreshProgressDetails'
-      Prelude.<$> (x Core..@? "LivePoolProgress")
-      Prelude.<*> (x Core..@? "WarmPoolProgress")
+      Prelude.<$> (x Core..@? "WarmPoolProgress")
+      Prelude.<*> (x Core..@? "LivePoolProgress")
 
 instance
   Prelude.Hashable
@@ -85,13 +85,13 @@ instance
   hashWithSalt
     _salt
     InstanceRefreshProgressDetails' {..} =
-      _salt `Prelude.hashWithSalt` livePoolProgress
-        `Prelude.hashWithSalt` warmPoolProgress
+      _salt `Prelude.hashWithSalt` warmPoolProgress
+        `Prelude.hashWithSalt` livePoolProgress
 
 instance
   Prelude.NFData
     InstanceRefreshProgressDetails
   where
   rnf InstanceRefreshProgressDetails' {..} =
-    Prelude.rnf livePoolProgress
-      `Prelude.seq` Prelude.rnf warmPoolProgress
+    Prelude.rnf warmPoolProgress
+      `Prelude.seq` Prelude.rnf livePoolProgress

@@ -67,8 +67,8 @@ module Amazonka.AutoScaling.DescribeLoadBalancers
     newDescribeLoadBalancersResponse,
 
     -- * Response Lenses
-    describeLoadBalancersResponse_loadBalancers,
     describeLoadBalancersResponse_nextToken,
+    describeLoadBalancersResponse_loadBalancers,
     describeLoadBalancersResponse_httpStatus,
   )
 where
@@ -165,10 +165,10 @@ instance Core.AWSRequest DescribeLoadBalancers where
       "DescribeLoadBalancersResult"
       ( \s h x ->
           DescribeLoadBalancersResponse'
-            Prelude.<$> ( x Core..@? "LoadBalancers" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "LoadBalancers" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,13 +204,13 @@ instance Core.ToQuery DescribeLoadBalancers where
 
 -- | /See:/ 'newDescribeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
-  { -- | The load balancers.
-    loadBalancers :: Prelude.Maybe [LoadBalancerState],
-    -- | A string that indicates that the response contains more items than can
+  { -- | A string that indicates that the response contains more items than can
     -- be returned in a single response. To receive additional items, specify
     -- this string for the @NextToken@ value when requesting the next set of
     -- items. This value is null when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The load balancers.
+    loadBalancers :: Prelude.Maybe [LoadBalancerState],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,12 +224,12 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loadBalancers', 'describeLoadBalancersResponse_loadBalancers' - The load balancers.
---
 -- 'nextToken', 'describeLoadBalancersResponse_nextToken' - A string that indicates that the response contains more items than can
 -- be returned in a single response. To receive additional items, specify
 -- this string for the @NextToken@ value when requesting the next set of
 -- items. This value is null when there are no more items to return.
+--
+-- 'loadBalancers', 'describeLoadBalancersResponse_loadBalancers' - The load balancers.
 --
 -- 'httpStatus', 'describeLoadBalancersResponse_httpStatus' - The response's http status code.
 newDescribeLoadBalancersResponse ::
@@ -238,15 +238,11 @@ newDescribeLoadBalancersResponse ::
   DescribeLoadBalancersResponse
 newDescribeLoadBalancersResponse pHttpStatus_ =
   DescribeLoadBalancersResponse'
-    { loadBalancers =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      loadBalancers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The load balancers.
-describeLoadBalancersResponse_loadBalancers :: Lens.Lens' DescribeLoadBalancersResponse (Prelude.Maybe [LoadBalancerState])
-describeLoadBalancersResponse_loadBalancers = Lens.lens (\DescribeLoadBalancersResponse' {loadBalancers} -> loadBalancers) (\s@DescribeLoadBalancersResponse' {} a -> s {loadBalancers = a} :: DescribeLoadBalancersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string that indicates that the response contains more items than can
 -- be returned in a single response. To receive additional items, specify
@@ -255,12 +251,16 @@ describeLoadBalancersResponse_loadBalancers = Lens.lens (\DescribeLoadBalancersR
 describeLoadBalancersResponse_nextToken :: Lens.Lens' DescribeLoadBalancersResponse (Prelude.Maybe Prelude.Text)
 describeLoadBalancersResponse_nextToken = Lens.lens (\DescribeLoadBalancersResponse' {nextToken} -> nextToken) (\s@DescribeLoadBalancersResponse' {} a -> s {nextToken = a} :: DescribeLoadBalancersResponse)
 
+-- | The load balancers.
+describeLoadBalancersResponse_loadBalancers :: Lens.Lens' DescribeLoadBalancersResponse (Prelude.Maybe [LoadBalancerState])
+describeLoadBalancersResponse_loadBalancers = Lens.lens (\DescribeLoadBalancersResponse' {loadBalancers} -> loadBalancers) (\s@DescribeLoadBalancersResponse' {} a -> s {loadBalancers = a} :: DescribeLoadBalancersResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeLoadBalancersResponse_httpStatus :: Lens.Lens' DescribeLoadBalancersResponse Prelude.Int
 describeLoadBalancersResponse_httpStatus = Lens.lens (\DescribeLoadBalancersResponse' {httpStatus} -> httpStatus) (\s@DescribeLoadBalancersResponse' {} a -> s {httpStatus = a} :: DescribeLoadBalancersResponse)
 
 instance Prelude.NFData DescribeLoadBalancersResponse where
   rnf DescribeLoadBalancersResponse' {..} =
-    Prelude.rnf loadBalancers
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf loadBalancers
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAlarm' smart constructor.
 data Alarm = Alarm'
-  { -- | The name of the alarm.
-    alarmName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the alarm.
-    alarmARN :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name (ARN) of the alarm.
+    alarmARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the alarm.
+    alarmName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,37 +42,37 @@ data Alarm = Alarm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'alarmName', 'alarm_alarmName' - The name of the alarm.
---
 -- 'alarmARN', 'alarm_alarmARN' - The Amazon Resource Name (ARN) of the alarm.
+--
+-- 'alarmName', 'alarm_alarmName' - The name of the alarm.
 newAlarm ::
   Alarm
 newAlarm =
   Alarm'
-    { alarmName = Prelude.Nothing,
-      alarmARN = Prelude.Nothing
+    { alarmARN = Prelude.Nothing,
+      alarmName = Prelude.Nothing
     }
-
--- | The name of the alarm.
-alarm_alarmName :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
-alarm_alarmName = Lens.lens (\Alarm' {alarmName} -> alarmName) (\s@Alarm' {} a -> s {alarmName = a} :: Alarm)
 
 -- | The Amazon Resource Name (ARN) of the alarm.
 alarm_alarmARN :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
 alarm_alarmARN = Lens.lens (\Alarm' {alarmARN} -> alarmARN) (\s@Alarm' {} a -> s {alarmARN = a} :: Alarm)
 
+-- | The name of the alarm.
+alarm_alarmName :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
+alarm_alarmName = Lens.lens (\Alarm' {alarmName} -> alarmName) (\s@Alarm' {} a -> s {alarmName = a} :: Alarm)
+
 instance Core.FromXML Alarm where
   parseXML x =
     Alarm'
-      Prelude.<$> (x Core..@? "AlarmName")
-      Prelude.<*> (x Core..@? "AlarmARN")
+      Prelude.<$> (x Core..@? "AlarmARN")
+      Prelude.<*> (x Core..@? "AlarmName")
 
 instance Prelude.Hashable Alarm where
   hashWithSalt _salt Alarm' {..} =
-    _salt `Prelude.hashWithSalt` alarmName
-      `Prelude.hashWithSalt` alarmARN
+    _salt `Prelude.hashWithSalt` alarmARN
+      `Prelude.hashWithSalt` alarmName
 
 instance Prelude.NFData Alarm where
   rnf Alarm' {..} =
-    Prelude.rnf alarmName
-      `Prelude.seq` Prelude.rnf alarmARN
+    Prelude.rnf alarmARN
+      `Prelude.seq` Prelude.rnf alarmName

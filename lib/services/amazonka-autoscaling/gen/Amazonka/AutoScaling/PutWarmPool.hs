@@ -42,9 +42,9 @@ module Amazonka.AutoScaling.PutWarmPool
     newPutWarmPool,
 
     -- * Request Lenses
+    putWarmPool_poolState,
     putWarmPool_minSize,
     putWarmPool_maxGroupPreparedCapacity,
-    putWarmPool_poolState,
     putWarmPool_autoScalingGroupName,
 
     -- * Destructuring the Response
@@ -65,7 +65,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutWarmPool' smart constructor.
 data PutWarmPool = PutWarmPool'
-  { -- | Specifies the minimum number of instances to maintain in the warm pool.
+  { -- | Sets the instance state to transition to after the lifecycle actions are
+    -- complete. Default is @Stopped@.
+    poolState :: Prelude.Maybe WarmPoolState,
+    -- | Specifies the minimum number of instances to maintain in the warm pool.
     -- This helps you to ensure that there is always a certain number of warmed
     -- instances available to handle traffic spikes. Defaults to 0 if not
     -- specified.
@@ -91,9 +94,6 @@ data PutWarmPool = PutWarmPool'
     -- you specify a value for @MinSize@. To remove a value that you previously
     -- set, include the property but specify -1 for the value.
     maxGroupPreparedCapacity :: Prelude.Maybe Prelude.Int,
-    -- | Sets the instance state to transition to after the lifecycle actions are
-    -- complete. Default is @Stopped@.
-    poolState :: Prelude.Maybe WarmPoolState,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
   }
@@ -106,6 +106,9 @@ data PutWarmPool = PutWarmPool'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'poolState', 'putWarmPool_poolState' - Sets the instance state to transition to after the lifecycle actions are
+-- complete. Default is @Stopped@.
 --
 -- 'minSize', 'putWarmPool_minSize' - Specifies the minimum number of instances to maintain in the warm pool.
 -- This helps you to ensure that there is always a certain number of warmed
@@ -133,9 +136,6 @@ data PutWarmPool = PutWarmPool'
 -- you specify a value for @MinSize@. To remove a value that you previously
 -- set, include the property but specify -1 for the value.
 --
--- 'poolState', 'putWarmPool_poolState' - Sets the instance state to transition to after the lifecycle actions are
--- complete. Default is @Stopped@.
---
 -- 'autoScalingGroupName', 'putWarmPool_autoScalingGroupName' - The name of the Auto Scaling group.
 newPutWarmPool ::
   -- | 'autoScalingGroupName'
@@ -143,11 +143,16 @@ newPutWarmPool ::
   PutWarmPool
 newPutWarmPool pAutoScalingGroupName_ =
   PutWarmPool'
-    { minSize = Prelude.Nothing,
+    { poolState = Prelude.Nothing,
+      minSize = Prelude.Nothing,
       maxGroupPreparedCapacity = Prelude.Nothing,
-      poolState = Prelude.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
+
+-- | Sets the instance state to transition to after the lifecycle actions are
+-- complete. Default is @Stopped@.
+putWarmPool_poolState :: Lens.Lens' PutWarmPool (Prelude.Maybe WarmPoolState)
+putWarmPool_poolState = Lens.lens (\PutWarmPool' {poolState} -> poolState) (\s@PutWarmPool' {} a -> s {poolState = a} :: PutWarmPool)
 
 -- | Specifies the minimum number of instances to maintain in the warm pool.
 -- This helps you to ensure that there is always a certain number of warmed
@@ -179,11 +184,6 @@ putWarmPool_minSize = Lens.lens (\PutWarmPool' {minSize} -> minSize) (\s@PutWarm
 putWarmPool_maxGroupPreparedCapacity :: Lens.Lens' PutWarmPool (Prelude.Maybe Prelude.Int)
 putWarmPool_maxGroupPreparedCapacity = Lens.lens (\PutWarmPool' {maxGroupPreparedCapacity} -> maxGroupPreparedCapacity) (\s@PutWarmPool' {} a -> s {maxGroupPreparedCapacity = a} :: PutWarmPool)
 
--- | Sets the instance state to transition to after the lifecycle actions are
--- complete. Default is @Stopped@.
-putWarmPool_poolState :: Lens.Lens' PutWarmPool (Prelude.Maybe WarmPoolState)
-putWarmPool_poolState = Lens.lens (\PutWarmPool' {poolState} -> poolState) (\s@PutWarmPool' {} a -> s {poolState = a} :: PutWarmPool)
-
 -- | The name of the Auto Scaling group.
 putWarmPool_autoScalingGroupName :: Lens.Lens' PutWarmPool Prelude.Text
 putWarmPool_autoScalingGroupName = Lens.lens (\PutWarmPool' {autoScalingGroupName} -> autoScalingGroupName) (\s@PutWarmPool' {} a -> s {autoScalingGroupName = a} :: PutWarmPool)
@@ -201,16 +201,16 @@ instance Core.AWSRequest PutWarmPool where
 
 instance Prelude.Hashable PutWarmPool where
   hashWithSalt _salt PutWarmPool' {..} =
-    _salt `Prelude.hashWithSalt` minSize
+    _salt `Prelude.hashWithSalt` poolState
+      `Prelude.hashWithSalt` minSize
       `Prelude.hashWithSalt` maxGroupPreparedCapacity
-      `Prelude.hashWithSalt` poolState
       `Prelude.hashWithSalt` autoScalingGroupName
 
 instance Prelude.NFData PutWarmPool where
   rnf PutWarmPool' {..} =
-    Prelude.rnf minSize
+    Prelude.rnf poolState
+      `Prelude.seq` Prelude.rnf minSize
       `Prelude.seq` Prelude.rnf maxGroupPreparedCapacity
-      `Prelude.seq` Prelude.rnf poolState
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
 instance Core.ToHeaders PutWarmPool where
@@ -226,10 +226,10 @@ instance Core.ToQuery PutWarmPool where
           Core.=: ("PutWarmPool" :: Prelude.ByteString),
         "Version"
           Core.=: ("2011-01-01" :: Prelude.ByteString),
+        "PoolState" Core.=: poolState,
         "MinSize" Core.=: minSize,
         "MaxGroupPreparedCapacity"
           Core.=: maxGroupPreparedCapacity,
-        "PoolState" Core.=: poolState,
         "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 

@@ -17,15 +17,15 @@ module Amazonka.AutoScaling.Types
     defaultService,
 
     -- * Errors
+    _ActiveInstanceRefreshNotFoundFault,
+    _InvalidNextToken,
+    _ResourceInUseFault,
+    _LimitExceededFault,
+    _ServiceLinkedRoleFailure,
+    _ScalingActivityInProgressFault,
     _InstanceRefreshInProgressFault,
     _AlreadyExistsFault,
-    _LimitExceededFault,
-    _ResourceInUseFault,
-    _InvalidNextToken,
-    _ScalingActivityInProgressFault,
     _ResourceContentionFault,
-    _ServiceLinkedRoleFailure,
-    _ActiveInstanceRefreshNotFoundFault,
 
     -- * InstanceMetadataEndpointState
     InstanceMetadataEndpointState (..),
@@ -76,12 +76,12 @@ module Amazonka.AutoScaling.Types
     Activity (..),
     newActivity,
     activity_progress,
-    activity_statusMessage,
+    activity_autoScalingGroupARN,
     activity_autoScalingGroupState,
     activity_endTime,
-    activity_details,
-    activity_autoScalingGroupARN,
     activity_description,
+    activity_details,
+    activity_statusMessage,
     activity_activityId,
     activity_autoScalingGroupName,
     activity_cause,
@@ -96,35 +96,35 @@ module Amazonka.AutoScaling.Types
     -- * Alarm
     Alarm (..),
     newAlarm,
-    alarm_alarmName,
     alarm_alarmARN,
+    alarm_alarmName,
 
     -- * AutoScalingGroup
     AutoScalingGroup (..),
     newAutoScalingGroup,
-    autoScalingGroup_status,
-    autoScalingGroup_context,
-    autoScalingGroup_terminationPolicies,
-    autoScalingGroup_healthCheckGracePeriod,
-    autoScalingGroup_serviceLinkedRoleARN,
-    autoScalingGroup_newInstancesProtectedFromScaleIn,
-    autoScalingGroup_vPCZoneIdentifier,
-    autoScalingGroup_targetGroupARNs,
-    autoScalingGroup_maxInstanceLifetime,
-    autoScalingGroup_mixedInstancesPolicy,
-    autoScalingGroup_enabledMetrics,
-    autoScalingGroup_launchConfigurationName,
-    autoScalingGroup_instances,
-    autoScalingGroup_launchTemplate,
-    autoScalingGroup_warmPoolConfiguration,
-    autoScalingGroup_capacityRebalance,
-    autoScalingGroup_autoScalingGroupARN,
-    autoScalingGroup_predictedCapacity,
-    autoScalingGroup_warmPoolSize,
-    autoScalingGroup_placementGroup,
-    autoScalingGroup_suspendedProcesses,
-    autoScalingGroup_loadBalancerNames,
     autoScalingGroup_tags,
+    autoScalingGroup_instances,
+    autoScalingGroup_warmPoolConfiguration,
+    autoScalingGroup_autoScalingGroupARN,
+    autoScalingGroup_loadBalancerNames,
+    autoScalingGroup_predictedCapacity,
+    autoScalingGroup_healthCheckGracePeriod,
+    autoScalingGroup_launchTemplate,
+    autoScalingGroup_warmPoolSize,
+    autoScalingGroup_serviceLinkedRoleARN,
+    autoScalingGroup_context,
+    autoScalingGroup_status,
+    autoScalingGroup_maxInstanceLifetime,
+    autoScalingGroup_vPCZoneIdentifier,
+    autoScalingGroup_launchConfigurationName,
+    autoScalingGroup_targetGroupARNs,
+    autoScalingGroup_mixedInstancesPolicy,
+    autoScalingGroup_placementGroup,
+    autoScalingGroup_newInstancesProtectedFromScaleIn,
+    autoScalingGroup_terminationPolicies,
+    autoScalingGroup_suspendedProcesses,
+    autoScalingGroup_enabledMetrics,
+    autoScalingGroup_capacityRebalance,
     autoScalingGroup_autoScalingGroupName,
     autoScalingGroup_minSize,
     autoScalingGroup_maxSize,
@@ -137,10 +137,10 @@ module Amazonka.AutoScaling.Types
     -- * AutoScalingInstanceDetails
     AutoScalingInstanceDetails (..),
     newAutoScalingInstanceDetails,
-    autoScalingInstanceDetails_weightedCapacity,
-    autoScalingInstanceDetails_instanceType,
-    autoScalingInstanceDetails_launchConfigurationName,
     autoScalingInstanceDetails_launchTemplate,
+    autoScalingInstanceDetails_launchConfigurationName,
+    autoScalingInstanceDetails_instanceType,
+    autoScalingInstanceDetails_weightedCapacity,
     autoScalingInstanceDetails_instanceId,
     autoScalingInstanceDetails_autoScalingGroupName,
     autoScalingInstanceDetails_availabilityZone,
@@ -151,9 +151,9 @@ module Amazonka.AutoScaling.Types
     -- * BlockDeviceMapping
     BlockDeviceMapping (..),
     newBlockDeviceMapping,
-    blockDeviceMapping_virtualName,
-    blockDeviceMapping_noDevice,
     blockDeviceMapping_ebs,
+    blockDeviceMapping_noDevice,
+    blockDeviceMapping_virtualName,
     blockDeviceMapping_deviceName,
 
     -- * CapacityForecast
@@ -174,19 +174,19 @@ module Amazonka.AutoScaling.Types
     -- * DesiredConfiguration
     DesiredConfiguration (..),
     newDesiredConfiguration,
-    desiredConfiguration_mixedInstancesPolicy,
     desiredConfiguration_launchTemplate,
+    desiredConfiguration_mixedInstancesPolicy,
 
     -- * Ebs
     Ebs (..),
     newEbs,
     ebs_deleteOnTermination,
-    ebs_throughput,
-    ebs_volumeSize,
-    ebs_iops,
-    ebs_encrypted,
-    ebs_volumeType,
     ebs_snapshotId,
+    ebs_volumeType,
+    ebs_volumeSize,
+    ebs_encrypted,
+    ebs_throughput,
+    ebs_iops,
 
     -- * EnabledMetric
     EnabledMetric (..),
@@ -197,8 +197,8 @@ module Amazonka.AutoScaling.Types
     -- * FailedScheduledUpdateGroupActionRequest
     FailedScheduledUpdateGroupActionRequest (..),
     newFailedScheduledUpdateGroupActionRequest,
-    failedScheduledUpdateGroupActionRequest_errorCode,
     failedScheduledUpdateGroupActionRequest_errorMessage,
+    failedScheduledUpdateGroupActionRequest_errorCode,
     failedScheduledUpdateGroupActionRequest_scheduledActionName,
 
     -- * Filter
@@ -210,10 +210,10 @@ module Amazonka.AutoScaling.Types
     -- * Instance
     Instance (..),
     newInstance,
-    instance_weightedCapacity,
-    instance_instanceType,
-    instance_launchConfigurationName,
     instance_launchTemplate,
+    instance_launchConfigurationName,
+    instance_instanceType,
+    instance_weightedCapacity,
     instance_instanceId,
     instance_availabilityZone,
     instance_lifecycleState,
@@ -223,9 +223,9 @@ module Amazonka.AutoScaling.Types
     -- * InstanceMetadataOptions
     InstanceMetadataOptions (..),
     newInstanceMetadataOptions,
-    instanceMetadataOptions_httpEndpoint,
     instanceMetadataOptions_httpPutResponseHopLimit,
     instanceMetadataOptions_httpTokens,
+    instanceMetadataOptions_httpEndpoint,
 
     -- * InstanceMonitoring
     InstanceMonitoring (..),
@@ -235,65 +235,65 @@ module Amazonka.AutoScaling.Types
     -- * InstanceRefresh
     InstanceRefresh (..),
     newInstanceRefresh,
-    instanceRefresh_status,
-    instanceRefresh_progressDetails,
-    instanceRefresh_startTime,
     instanceRefresh_preferences,
-    instanceRefresh_instancesToUpdate,
-    instanceRefresh_percentageComplete,
-    instanceRefresh_autoScalingGroupName,
-    instanceRefresh_endTime,
-    instanceRefresh_statusReason,
-    instanceRefresh_desiredConfiguration,
+    instanceRefresh_progressDetails,
     instanceRefresh_instanceRefreshId,
+    instanceRefresh_statusReason,
+    instanceRefresh_status,
+    instanceRefresh_endTime,
+    instanceRefresh_autoScalingGroupName,
+    instanceRefresh_desiredConfiguration,
+    instanceRefresh_percentageComplete,
+    instanceRefresh_startTime,
+    instanceRefresh_instancesToUpdate,
 
     -- * InstanceRefreshLivePoolProgress
     InstanceRefreshLivePoolProgress (..),
     newInstanceRefreshLivePoolProgress,
-    instanceRefreshLivePoolProgress_instancesToUpdate,
     instanceRefreshLivePoolProgress_percentageComplete,
+    instanceRefreshLivePoolProgress_instancesToUpdate,
 
     -- * InstanceRefreshProgressDetails
     InstanceRefreshProgressDetails (..),
     newInstanceRefreshProgressDetails,
-    instanceRefreshProgressDetails_livePoolProgress,
     instanceRefreshProgressDetails_warmPoolProgress,
+    instanceRefreshProgressDetails_livePoolProgress,
 
     -- * InstanceRefreshWarmPoolProgress
     InstanceRefreshWarmPoolProgress (..),
     newInstanceRefreshWarmPoolProgress,
-    instanceRefreshWarmPoolProgress_instancesToUpdate,
     instanceRefreshWarmPoolProgress_percentageComplete,
+    instanceRefreshWarmPoolProgress_instancesToUpdate,
 
     -- * InstancesDistribution
     InstancesDistribution (..),
     newInstancesDistribution,
-    instancesDistribution_spotAllocationStrategy,
+    instancesDistribution_onDemandBaseCapacity,
+    instancesDistribution_onDemandPercentageAboveBaseCapacity,
+    instancesDistribution_onDemandAllocationStrategy,
     instancesDistribution_spotInstancePools,
     instancesDistribution_spotMaxPrice,
-    instancesDistribution_onDemandBaseCapacity,
-    instancesDistribution_onDemandAllocationStrategy,
-    instancesDistribution_onDemandPercentageAboveBaseCapacity,
+    instancesDistribution_spotAllocationStrategy,
 
     -- * LaunchConfiguration
     LaunchConfiguration (..),
     newLaunchConfiguration,
-    launchConfiguration_associatePublicIpAddress,
-    launchConfiguration_securityGroups,
-    launchConfiguration_spotPrice,
-    launchConfiguration_instanceMonitoring,
-    launchConfiguration_keyName,
-    launchConfiguration_classicLinkVPCSecurityGroups,
-    launchConfiguration_ramdiskId,
-    launchConfiguration_kernelId,
     launchConfiguration_ebsOptimized,
-    launchConfiguration_userData,
-    launchConfiguration_classicLinkVPCId,
     launchConfiguration_iamInstanceProfile,
-    launchConfiguration_metadataOptions,
+    launchConfiguration_classicLinkVPCId,
+    launchConfiguration_userData,
+    launchConfiguration_associatePublicIpAddress,
+    launchConfiguration_blockDeviceMappings,
     launchConfiguration_launchConfigurationARN,
     launchConfiguration_placementTenancy,
-    launchConfiguration_blockDeviceMappings,
+    launchConfiguration_securityGroups,
+    launchConfiguration_ramdiskId,
+    launchConfiguration_instanceMonitoring,
+    launchConfiguration_keyName,
+    launchConfiguration_kernelId,
+    launchConfiguration_spotPrice,
+    launchConfiguration_classicLinkVPCSecurityGroups,
+    launchConfiguration_metadataOptions,
     launchConfiguration_launchConfigurationName,
     launchConfiguration_imageId,
     launchConfiguration_instanceType,
@@ -302,52 +302,52 @@ module Amazonka.AutoScaling.Types
     -- * LaunchTemplate
     LaunchTemplate (..),
     newLaunchTemplate,
-    launchTemplate_overrides,
     launchTemplate_launchTemplateSpecification,
+    launchTemplate_overrides,
 
     -- * LaunchTemplateOverrides
     LaunchTemplateOverrides (..),
     newLaunchTemplateOverrides,
-    launchTemplateOverrides_weightedCapacity,
-    launchTemplateOverrides_instanceType,
     launchTemplateOverrides_launchTemplateSpecification,
+    launchTemplateOverrides_instanceType,
+    launchTemplateOverrides_weightedCapacity,
 
     -- * LaunchTemplateSpecification
     LaunchTemplateSpecification (..),
     newLaunchTemplateSpecification,
-    launchTemplateSpecification_launchTemplateName,
     launchTemplateSpecification_launchTemplateId,
     launchTemplateSpecification_version,
+    launchTemplateSpecification_launchTemplateName,
 
     -- * LifecycleHook
     LifecycleHook (..),
     newLifecycleHook,
-    lifecycleHook_defaultResult,
     lifecycleHook_lifecycleHookName,
-    lifecycleHook_heartbeatTimeout,
-    lifecycleHook_autoScalingGroupName,
-    lifecycleHook_notificationMetadata,
-    lifecycleHook_globalTimeout,
-    lifecycleHook_notificationTargetARN,
-    lifecycleHook_lifecycleTransition,
     lifecycleHook_roleARN,
+    lifecycleHook_notificationMetadata,
+    lifecycleHook_defaultResult,
+    lifecycleHook_notificationTargetARN,
+    lifecycleHook_globalTimeout,
+    lifecycleHook_autoScalingGroupName,
+    lifecycleHook_lifecycleTransition,
+    lifecycleHook_heartbeatTimeout,
 
     -- * LifecycleHookSpecification
     LifecycleHookSpecification (..),
     newLifecycleHookSpecification,
-    lifecycleHookSpecification_defaultResult,
-    lifecycleHookSpecification_heartbeatTimeout,
-    lifecycleHookSpecification_notificationMetadata,
-    lifecycleHookSpecification_notificationTargetARN,
     lifecycleHookSpecification_roleARN,
+    lifecycleHookSpecification_notificationMetadata,
+    lifecycleHookSpecification_defaultResult,
+    lifecycleHookSpecification_notificationTargetARN,
+    lifecycleHookSpecification_heartbeatTimeout,
     lifecycleHookSpecification_lifecycleHookName,
     lifecycleHookSpecification_lifecycleTransition,
 
     -- * LoadBalancerState
     LoadBalancerState (..),
     newLoadBalancerState,
-    loadBalancerState_state,
     loadBalancerState_loadBalancerName,
+    loadBalancerState_state,
 
     -- * LoadBalancerTargetGroupState
     LoadBalancerTargetGroupState (..),
@@ -381,15 +381,15 @@ module Amazonka.AutoScaling.Types
     -- * MixedInstancesPolicy
     MixedInstancesPolicy (..),
     newMixedInstancesPolicy,
-    mixedInstancesPolicy_launchTemplate,
     mixedInstancesPolicy_instancesDistribution,
+    mixedInstancesPolicy_launchTemplate,
 
     -- * NotificationConfiguration
     NotificationConfiguration (..),
     newNotificationConfiguration,
+    notificationConfiguration_notificationType,
     notificationConfiguration_topicARN,
     notificationConfiguration_autoScalingGroupName,
-    notificationConfiguration_notificationType,
 
     -- * PredefinedMetricSpecification
     PredefinedMetricSpecification (..),
@@ -400,18 +400,18 @@ module Amazonka.AutoScaling.Types
     -- * PredictiveScalingConfiguration
     PredictiveScalingConfiguration (..),
     newPredictiveScalingConfiguration,
-    predictiveScalingConfiguration_schedulingBufferTime,
     predictiveScalingConfiguration_maxCapacityBuffer,
-    predictiveScalingConfiguration_mode,
     predictiveScalingConfiguration_maxCapacityBreachBehavior,
+    predictiveScalingConfiguration_mode,
+    predictiveScalingConfiguration_schedulingBufferTime,
     predictiveScalingConfiguration_metricSpecifications,
 
     -- * PredictiveScalingMetricSpecification
     PredictiveScalingMetricSpecification (..),
     newPredictiveScalingMetricSpecification,
+    predictiveScalingMetricSpecification_predefinedLoadMetricSpecification,
     predictiveScalingMetricSpecification_predefinedScalingMetricSpecification,
     predictiveScalingMetricSpecification_predefinedMetricPairSpecification,
-    predictiveScalingMetricSpecification_predefinedLoadMetricSpecification,
     predictiveScalingMetricSpecification_targetValue,
 
     -- * PredictiveScalingPredefinedLoadMetric
@@ -440,30 +440,30 @@ module Amazonka.AutoScaling.Types
     -- * RefreshPreferences
     RefreshPreferences (..),
     newRefreshPreferences,
-    refreshPreferences_minHealthyPercentage,
-    refreshPreferences_skipMatching,
     refreshPreferences_checkpointPercentages,
-    refreshPreferences_checkpointDelay,
+    refreshPreferences_skipMatching,
+    refreshPreferences_minHealthyPercentage,
     refreshPreferences_instanceWarmup,
+    refreshPreferences_checkpointDelay,
 
     -- * ScalingPolicy
     ScalingPolicy (..),
     newScalingPolicy,
-    scalingPolicy_minAdjustmentStep,
-    scalingPolicy_estimatedInstanceWarmup,
     scalingPolicy_policyName,
-    scalingPolicy_enabled,
-    scalingPolicy_policyType,
-    scalingPolicy_stepAdjustments,
-    scalingPolicy_targetTrackingConfiguration,
-    scalingPolicy_adjustmentType,
-    scalingPolicy_autoScalingGroupName,
-    scalingPolicy_predictiveScalingConfiguration,
-    scalingPolicy_scalingAdjustment,
-    scalingPolicy_cooldown,
-    scalingPolicy_policyARN,
     scalingPolicy_alarms,
     scalingPolicy_metricAggregationType,
+    scalingPolicy_policyType,
+    scalingPolicy_cooldown,
+    scalingPolicy_adjustmentType,
+    scalingPolicy_estimatedInstanceWarmup,
+    scalingPolicy_enabled,
+    scalingPolicy_autoScalingGroupName,
+    scalingPolicy_policyARN,
+    scalingPolicy_targetTrackingConfiguration,
+    scalingPolicy_minAdjustmentStep,
+    scalingPolicy_scalingAdjustment,
+    scalingPolicy_stepAdjustments,
+    scalingPolicy_predictiveScalingConfiguration,
     scalingPolicy_minAdjustmentMagnitude,
 
     -- * ScalingProcessQuery
@@ -475,42 +475,42 @@ module Amazonka.AutoScaling.Types
     -- * ScheduledUpdateGroupAction
     ScheduledUpdateGroupAction (..),
     newScheduledUpdateGroupAction,
-    scheduledUpdateGroupAction_scheduledActionARN,
-    scheduledUpdateGroupAction_startTime,
-    scheduledUpdateGroupAction_time,
-    scheduledUpdateGroupAction_scheduledActionName,
-    scheduledUpdateGroupAction_maxSize,
-    scheduledUpdateGroupAction_recurrence,
-    scheduledUpdateGroupAction_desiredCapacity,
-    scheduledUpdateGroupAction_minSize,
-    scheduledUpdateGroupAction_autoScalingGroupName,
-    scheduledUpdateGroupAction_endTime,
     scheduledUpdateGroupAction_timeZone,
+    scheduledUpdateGroupAction_time,
+    scheduledUpdateGroupAction_endTime,
+    scheduledUpdateGroupAction_scheduledActionARN,
+    scheduledUpdateGroupAction_autoScalingGroupName,
+    scheduledUpdateGroupAction_minSize,
+    scheduledUpdateGroupAction_recurrence,
+    scheduledUpdateGroupAction_maxSize,
+    scheduledUpdateGroupAction_scheduledActionName,
+    scheduledUpdateGroupAction_desiredCapacity,
+    scheduledUpdateGroupAction_startTime,
 
     -- * ScheduledUpdateGroupActionRequest
     ScheduledUpdateGroupActionRequest (..),
     newScheduledUpdateGroupActionRequest,
-    scheduledUpdateGroupActionRequest_startTime,
-    scheduledUpdateGroupActionRequest_maxSize,
-    scheduledUpdateGroupActionRequest_recurrence,
-    scheduledUpdateGroupActionRequest_desiredCapacity,
-    scheduledUpdateGroupActionRequest_minSize,
-    scheduledUpdateGroupActionRequest_endTime,
     scheduledUpdateGroupActionRequest_timeZone,
+    scheduledUpdateGroupActionRequest_endTime,
+    scheduledUpdateGroupActionRequest_minSize,
+    scheduledUpdateGroupActionRequest_recurrence,
+    scheduledUpdateGroupActionRequest_maxSize,
+    scheduledUpdateGroupActionRequest_desiredCapacity,
+    scheduledUpdateGroupActionRequest_startTime,
     scheduledUpdateGroupActionRequest_scheduledActionName,
 
     -- * StepAdjustment
     StepAdjustment (..),
     newStepAdjustment,
-    stepAdjustment_metricIntervalLowerBound,
     stepAdjustment_metricIntervalUpperBound,
+    stepAdjustment_metricIntervalLowerBound,
     stepAdjustment_scalingAdjustment,
 
     -- * SuspendedProcess
     SuspendedProcess (..),
     newSuspendedProcess,
-    suspendedProcess_processName,
     suspendedProcess_suspensionReason,
+    suspendedProcess_processName,
 
     -- * Tag
     Tag (..),
@@ -533,18 +533,18 @@ module Amazonka.AutoScaling.Types
     -- * TargetTrackingConfiguration
     TargetTrackingConfiguration (..),
     newTargetTrackingConfiguration,
-    targetTrackingConfiguration_predefinedMetricSpecification,
-    targetTrackingConfiguration_customizedMetricSpecification,
     targetTrackingConfiguration_disableScaleIn,
+    targetTrackingConfiguration_customizedMetricSpecification,
+    targetTrackingConfiguration_predefinedMetricSpecification,
     targetTrackingConfiguration_targetValue,
 
     -- * WarmPoolConfiguration
     WarmPoolConfiguration (..),
     newWarmPoolConfiguration,
+    warmPoolConfiguration_poolState,
     warmPoolConfiguration_status,
     warmPoolConfiguration_minSize,
     warmPoolConfiguration_maxGroupPreparedCapacity,
-    warmPoolConfiguration_poolState,
   )
 where
 
@@ -647,35 +647,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -684,13 +657,94 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The request failed because an active instance refresh for the specified
+-- Auto Scaling group was not found.
+_ActiveInstanceRefreshNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ActiveInstanceRefreshNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ActiveInstanceRefreshNotFound"
+    Prelude.. Core.hasStatus 400
+
+-- | The @NextToken@ value is not valid.
+_InvalidNextToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextToken =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextToken"
+    Prelude.. Core.hasStatus 400
+
+-- | The operation can\'t be performed because the resource is in use.
+_ResourceInUseFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseFault =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUse"
+    Prelude.. Core.hasStatus 400
+
+-- | You have already reached a limit for your Amazon EC2 Auto Scaling
+-- resources (for example, Auto Scaling groups, launch configurations, or
+-- lifecycle hooks). For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html DescribeAccountLimits>
+-- in the /Amazon EC2 Auto Scaling API Reference/.
+_LimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceeded"
+    Prelude.. Core.hasStatus 400
+
+-- | The service-linked role is not yet ready for use.
+_ServiceLinkedRoleFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceLinkedRoleFailure =
+  Core._MatchServiceError
+    defaultService
+    "ServiceLinkedRoleFailure"
+    Prelude.. Core.hasStatus 500
+
+-- | The operation can\'t be performed because there are scaling activities
+-- in progress.
+_ScalingActivityInProgressFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ScalingActivityInProgressFault =
+  Core._MatchServiceError
+    defaultService
+    "ScalingActivityInProgress"
+    Prelude.. Core.hasStatus 400
 
 -- | The request failed because an active instance refresh operation already
 -- exists for the specified Auto Scaling group.
@@ -710,43 +764,6 @@ _AlreadyExistsFault =
     "AlreadyExists"
     Prelude.. Core.hasStatus 400
 
--- | You have already reached a limit for your Amazon EC2 Auto Scaling
--- resources (for example, Auto Scaling groups, launch configurations, or
--- lifecycle hooks). For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html DescribeAccountLimits>
--- in the /Amazon EC2 Auto Scaling API Reference/.
-_LimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceeded"
-    Prelude.. Core.hasStatus 400
-
--- | The operation can\'t be performed because the resource is in use.
-_ResourceInUseFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseFault =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUse"
-    Prelude.. Core.hasStatus 400
-
--- | The @NextToken@ value is not valid.
-_InvalidNextToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextToken =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextToken"
-    Prelude.. Core.hasStatus 400
-
--- | The operation can\'t be performed because there are scaling activities
--- in progress.
-_ScalingActivityInProgressFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ScalingActivityInProgressFault =
-  Core._MatchServiceError
-    defaultService
-    "ScalingActivityInProgress"
-    Prelude.. Core.hasStatus 400
-
 -- | You already have a pending update to an Amazon EC2 Auto Scaling resource
 -- (for example, an Auto Scaling group, instance, or load balancer).
 _ResourceContentionFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -755,20 +772,3 @@ _ResourceContentionFault =
     defaultService
     "ResourceContention"
     Prelude.. Core.hasStatus 500
-
--- | The service-linked role is not yet ready for use.
-_ServiceLinkedRoleFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceLinkedRoleFailure =
-  Core._MatchServiceError
-    defaultService
-    "ServiceLinkedRoleFailure"
-    Prelude.. Core.hasStatus 500
-
--- | The request failed because an active instance refresh for the specified
--- Auto Scaling group was not found.
-_ActiveInstanceRefreshNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ActiveInstanceRefreshNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "ActiveInstanceRefreshNotFound"
-    Prelude.. Core.hasStatus 400

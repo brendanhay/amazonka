@@ -31,14 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceMetadataOptions' smart constructor.
 data InstanceMetadataOptions = InstanceMetadataOptions'
-  { -- | This parameter enables or disables the HTTP metadata endpoint on your
-    -- instances. If the parameter is not specified, the default state is
-    -- @enabled@.
-    --
-    -- If you specify a value of @disabled@, you will not be able to access
-    -- your instance metadata.
-    httpEndpoint :: Prelude.Maybe InstanceMetadataEndpointState,
-    -- | The desired HTTP PUT response hop limit for instance metadata requests.
+  { -- | The desired HTTP PUT response hop limit for instance metadata requests.
     -- The larger the number, the further instance metadata requests can
     -- travel.
     --
@@ -58,7 +51,14 @@ data InstanceMetadataOptions = InstanceMetadataOptions'
     -- instance metadata retrieval requests. In this state, retrieving the IAM
     -- role credentials always returns the version 2.0 credentials; the version
     -- 1.0 credentials are not available.
-    httpTokens :: Prelude.Maybe InstanceMetadataHttpTokensState
+    httpTokens :: Prelude.Maybe InstanceMetadataHttpTokensState,
+    -- | This parameter enables or disables the HTTP metadata endpoint on your
+    -- instances. If the parameter is not specified, the default state is
+    -- @enabled@.
+    --
+    -- If you specify a value of @disabled@, you will not be able to access
+    -- your instance metadata.
+    httpEndpoint :: Prelude.Maybe InstanceMetadataEndpointState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,13 +69,6 @@ data InstanceMetadataOptions = InstanceMetadataOptions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'httpEndpoint', 'instanceMetadataOptions_httpEndpoint' - This parameter enables or disables the HTTP metadata endpoint on your
--- instances. If the parameter is not specified, the default state is
--- @enabled@.
---
--- If you specify a value of @disabled@, you will not be able to access
--- your instance metadata.
 --
 -- 'httpPutResponseHopLimit', 'instanceMetadataOptions_httpPutResponseHopLimit' - The desired HTTP PUT response hop limit for instance metadata requests.
 -- The larger the number, the further instance metadata requests can
@@ -97,24 +90,22 @@ data InstanceMetadataOptions = InstanceMetadataOptions'
 -- instance metadata retrieval requests. In this state, retrieving the IAM
 -- role credentials always returns the version 2.0 credentials; the version
 -- 1.0 credentials are not available.
-newInstanceMetadataOptions ::
-  InstanceMetadataOptions
-newInstanceMetadataOptions =
-  InstanceMetadataOptions'
-    { httpEndpoint =
-        Prelude.Nothing,
-      httpPutResponseHopLimit = Prelude.Nothing,
-      httpTokens = Prelude.Nothing
-    }
-
--- | This parameter enables or disables the HTTP metadata endpoint on your
+--
+-- 'httpEndpoint', 'instanceMetadataOptions_httpEndpoint' - This parameter enables or disables the HTTP metadata endpoint on your
 -- instances. If the parameter is not specified, the default state is
 -- @enabled@.
 --
 -- If you specify a value of @disabled@, you will not be able to access
 -- your instance metadata.
-instanceMetadataOptions_httpEndpoint :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe InstanceMetadataEndpointState)
-instanceMetadataOptions_httpEndpoint = Lens.lens (\InstanceMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@InstanceMetadataOptions' {} a -> s {httpEndpoint = a} :: InstanceMetadataOptions)
+newInstanceMetadataOptions ::
+  InstanceMetadataOptions
+newInstanceMetadataOptions =
+  InstanceMetadataOptions'
+    { httpPutResponseHopLimit =
+        Prelude.Nothing,
+      httpTokens = Prelude.Nothing,
+      httpEndpoint = Prelude.Nothing
+    }
 
 -- | The desired HTTP PUT response hop limit for instance metadata requests.
 -- The larger the number, the further instance metadata requests can
@@ -141,30 +132,40 @@ instanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\InstanceMetadataOp
 instanceMetadataOptions_httpTokens :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe InstanceMetadataHttpTokensState)
 instanceMetadataOptions_httpTokens = Lens.lens (\InstanceMetadataOptions' {httpTokens} -> httpTokens) (\s@InstanceMetadataOptions' {} a -> s {httpTokens = a} :: InstanceMetadataOptions)
 
+-- | This parameter enables or disables the HTTP metadata endpoint on your
+-- instances. If the parameter is not specified, the default state is
+-- @enabled@.
+--
+-- If you specify a value of @disabled@, you will not be able to access
+-- your instance metadata.
+instanceMetadataOptions_httpEndpoint :: Lens.Lens' InstanceMetadataOptions (Prelude.Maybe InstanceMetadataEndpointState)
+instanceMetadataOptions_httpEndpoint = Lens.lens (\InstanceMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@InstanceMetadataOptions' {} a -> s {httpEndpoint = a} :: InstanceMetadataOptions)
+
 instance Core.FromXML InstanceMetadataOptions where
   parseXML x =
     InstanceMetadataOptions'
-      Prelude.<$> (x Core..@? "HttpEndpoint")
-      Prelude.<*> (x Core..@? "HttpPutResponseHopLimit")
+      Prelude.<$> (x Core..@? "HttpPutResponseHopLimit")
       Prelude.<*> (x Core..@? "HttpTokens")
+      Prelude.<*> (x Core..@? "HttpEndpoint")
 
 instance Prelude.Hashable InstanceMetadataOptions where
   hashWithSalt _salt InstanceMetadataOptions' {..} =
-    _salt `Prelude.hashWithSalt` httpEndpoint
+    _salt
       `Prelude.hashWithSalt` httpPutResponseHopLimit
       `Prelude.hashWithSalt` httpTokens
+      `Prelude.hashWithSalt` httpEndpoint
 
 instance Prelude.NFData InstanceMetadataOptions where
   rnf InstanceMetadataOptions' {..} =
-    Prelude.rnf httpEndpoint
-      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
+    Prelude.rnf httpPutResponseHopLimit
       `Prelude.seq` Prelude.rnf httpTokens
+      `Prelude.seq` Prelude.rnf httpEndpoint
 
 instance Core.ToQuery InstanceMetadataOptions where
   toQuery InstanceMetadataOptions' {..} =
     Prelude.mconcat
-      [ "HttpEndpoint" Core.=: httpEndpoint,
-        "HttpPutResponseHopLimit"
+      [ "HttpPutResponseHopLimit"
           Core.=: httpPutResponseHopLimit,
-        "HttpTokens" Core.=: httpTokens
+        "HttpTokens" Core.=: httpTokens,
+        "HttpEndpoint" Core.=: httpEndpoint
       ]

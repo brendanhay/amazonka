@@ -27,12 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
-    -- (Amazon SNS) topic.
-    topicARN :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Maybe Prelude.Text,
-    -- | One of the following event notification types:
+  { -- | One of the following event notification types:
     --
     -- -   @autoscaling:EC2_INSTANCE_LAUNCH@
     --
@@ -43,7 +38,12 @@ data NotificationConfiguration = NotificationConfiguration'
     -- -   @autoscaling:EC2_INSTANCE_TERMINATE_ERROR@
     --
     -- -   @autoscaling:TEST_NOTIFICATION@
-    notificationType :: Prelude.Maybe Prelude.Text
+    notificationType :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
+    -- (Amazon SNS) topic.
+    topicARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,11 +54,6 @@ data NotificationConfiguration = NotificationConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'topicARN', 'notificationConfiguration_topicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
--- (Amazon SNS) topic.
---
--- 'autoScalingGroupName', 'notificationConfiguration_autoScalingGroupName' - The name of the Auto Scaling group.
 --
 -- 'notificationType', 'notificationConfiguration_notificationType' - One of the following event notification types:
 --
@@ -71,24 +66,20 @@ data NotificationConfiguration = NotificationConfiguration'
 -- -   @autoscaling:EC2_INSTANCE_TERMINATE_ERROR@
 --
 -- -   @autoscaling:TEST_NOTIFICATION@
+--
+-- 'topicARN', 'notificationConfiguration_topicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
+-- (Amazon SNS) topic.
+--
+-- 'autoScalingGroupName', 'notificationConfiguration_autoScalingGroupName' - The name of the Auto Scaling group.
 newNotificationConfiguration ::
   NotificationConfiguration
 newNotificationConfiguration =
   NotificationConfiguration'
-    { topicARN =
+    { notificationType =
         Prelude.Nothing,
-      autoScalingGroupName = Prelude.Nothing,
-      notificationType = Prelude.Nothing
+      topicARN = Prelude.Nothing,
+      autoScalingGroupName = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
--- (Amazon SNS) topic.
-notificationConfiguration_topicARN :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
-notificationConfiguration_topicARN = Lens.lens (\NotificationConfiguration' {topicARN} -> topicARN) (\s@NotificationConfiguration' {} a -> s {topicARN = a} :: NotificationConfiguration)
-
--- | The name of the Auto Scaling group.
-notificationConfiguration_autoScalingGroupName :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
-notificationConfiguration_autoScalingGroupName = Lens.lens (\NotificationConfiguration' {autoScalingGroupName} -> autoScalingGroupName) (\s@NotificationConfiguration' {} a -> s {autoScalingGroupName = a} :: NotificationConfiguration)
 
 -- | One of the following event notification types:
 --
@@ -104,21 +95,30 @@ notificationConfiguration_autoScalingGroupName = Lens.lens (\NotificationConfigu
 notificationConfiguration_notificationType :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
 notificationConfiguration_notificationType = Lens.lens (\NotificationConfiguration' {notificationType} -> notificationType) (\s@NotificationConfiguration' {} a -> s {notificationType = a} :: NotificationConfiguration)
 
+-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
+-- (Amazon SNS) topic.
+notificationConfiguration_topicARN :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
+notificationConfiguration_topicARN = Lens.lens (\NotificationConfiguration' {topicARN} -> topicARN) (\s@NotificationConfiguration' {} a -> s {topicARN = a} :: NotificationConfiguration)
+
+-- | The name of the Auto Scaling group.
+notificationConfiguration_autoScalingGroupName :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
+notificationConfiguration_autoScalingGroupName = Lens.lens (\NotificationConfiguration' {autoScalingGroupName} -> autoScalingGroupName) (\s@NotificationConfiguration' {} a -> s {autoScalingGroupName = a} :: NotificationConfiguration)
+
 instance Core.FromXML NotificationConfiguration where
   parseXML x =
     NotificationConfiguration'
-      Prelude.<$> (x Core..@? "TopicARN")
+      Prelude.<$> (x Core..@? "NotificationType")
+      Prelude.<*> (x Core..@? "TopicARN")
       Prelude.<*> (x Core..@? "AutoScalingGroupName")
-      Prelude.<*> (x Core..@? "NotificationType")
 
 instance Prelude.Hashable NotificationConfiguration where
   hashWithSalt _salt NotificationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` topicARN
+    _salt `Prelude.hashWithSalt` notificationType
+      `Prelude.hashWithSalt` topicARN
       `Prelude.hashWithSalt` autoScalingGroupName
-      `Prelude.hashWithSalt` notificationType
 
 instance Prelude.NFData NotificationConfiguration where
   rnf NotificationConfiguration' {..} =
-    Prelude.rnf topicARN
+    Prelude.rnf notificationType
+      `Prelude.seq` Prelude.rnf topicARN
       `Prelude.seq` Prelude.rnf autoScalingGroupName
-      `Prelude.seq` Prelude.rnf notificationType

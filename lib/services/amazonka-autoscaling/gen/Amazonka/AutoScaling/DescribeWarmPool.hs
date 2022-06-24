@@ -40,9 +40,9 @@ module Amazonka.AutoScaling.DescribeWarmPool
     newDescribeWarmPoolResponse,
 
     -- * Response Lenses
-    describeWarmPoolResponse_nextToken,
     describeWarmPoolResponse_instances,
     describeWarmPoolResponse_warmPoolConfiguration,
+    describeWarmPoolResponse_nextToken,
     describeWarmPoolResponse_httpStatus,
   )
 where
@@ -117,11 +117,11 @@ instance Core.AWSRequest DescribeWarmPool where
       "DescribeWarmPoolResult"
       ( \s h x ->
           DescribeWarmPoolResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Instances" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "Instances" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
             Prelude.<*> (x Core..@? "WarmPoolConfiguration")
+            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,13 +157,13 @@ instance Core.ToQuery DescribeWarmPool where
 
 -- | /See:/ 'newDescribeWarmPoolResponse' smart constructor.
 data DescribeWarmPoolResponse = DescribeWarmPoolResponse'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The instances that are currently in the warm pool.
+  { -- | The instances that are currently in the warm pool.
     instances :: Prelude.Maybe [Instance],
     -- | The warm pool configuration details.
     warmPoolConfiguration :: Prelude.Maybe WarmPoolConfiguration,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,12 +177,12 @@ data DescribeWarmPoolResponse = DescribeWarmPoolResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeWarmPoolResponse_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'instances', 'describeWarmPoolResponse_instances' - The instances that are currently in the warm pool.
 --
 -- 'warmPoolConfiguration', 'describeWarmPoolResponse_warmPoolConfiguration' - The warm pool configuration details.
+--
+-- 'nextToken', 'describeWarmPoolResponse_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'httpStatus', 'describeWarmPoolResponse_httpStatus' - The response's http status code.
 newDescribeWarmPoolResponse ::
@@ -191,17 +191,12 @@ newDescribeWarmPoolResponse ::
   DescribeWarmPoolResponse
 newDescribeWarmPoolResponse pHttpStatus_ =
   DescribeWarmPoolResponse'
-    { nextToken =
+    { instances =
         Prelude.Nothing,
-      instances = Prelude.Nothing,
       warmPoolConfiguration = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeWarmPoolResponse_nextToken :: Lens.Lens' DescribeWarmPoolResponse (Prelude.Maybe Prelude.Text)
-describeWarmPoolResponse_nextToken = Lens.lens (\DescribeWarmPoolResponse' {nextToken} -> nextToken) (\s@DescribeWarmPoolResponse' {} a -> s {nextToken = a} :: DescribeWarmPoolResponse)
 
 -- | The instances that are currently in the warm pool.
 describeWarmPoolResponse_instances :: Lens.Lens' DescribeWarmPoolResponse (Prelude.Maybe [Instance])
@@ -211,13 +206,18 @@ describeWarmPoolResponse_instances = Lens.lens (\DescribeWarmPoolResponse' {inst
 describeWarmPoolResponse_warmPoolConfiguration :: Lens.Lens' DescribeWarmPoolResponse (Prelude.Maybe WarmPoolConfiguration)
 describeWarmPoolResponse_warmPoolConfiguration = Lens.lens (\DescribeWarmPoolResponse' {warmPoolConfiguration} -> warmPoolConfiguration) (\s@DescribeWarmPoolResponse' {} a -> s {warmPoolConfiguration = a} :: DescribeWarmPoolResponse)
 
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeWarmPoolResponse_nextToken :: Lens.Lens' DescribeWarmPoolResponse (Prelude.Maybe Prelude.Text)
+describeWarmPoolResponse_nextToken = Lens.lens (\DescribeWarmPoolResponse' {nextToken} -> nextToken) (\s@DescribeWarmPoolResponse' {} a -> s {nextToken = a} :: DescribeWarmPoolResponse)
+
 -- | The response's http status code.
 describeWarmPoolResponse_httpStatus :: Lens.Lens' DescribeWarmPoolResponse Prelude.Int
 describeWarmPoolResponse_httpStatus = Lens.lens (\DescribeWarmPoolResponse' {httpStatus} -> httpStatus) (\s@DescribeWarmPoolResponse' {} a -> s {httpStatus = a} :: DescribeWarmPoolResponse)
 
 instance Prelude.NFData DescribeWarmPoolResponse where
   rnf DescribeWarmPoolResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instances
+    Prelude.rnf instances
       `Prelude.seq` Prelude.rnf warmPoolConfiguration
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

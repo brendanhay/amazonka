@@ -14,312 +14,14 @@
 module Amazonka.AutoScaling.Lens
   ( -- * Operations
 
-    -- ** PutWarmPool
-    putWarmPool_minSize,
-    putWarmPool_maxGroupPreparedCapacity,
-    putWarmPool_poolState,
-    putWarmPool_autoScalingGroupName,
-    putWarmPoolResponse_httpStatus,
-
-    -- ** DescribeMetricCollectionTypes
-    describeMetricCollectionTypesResponse_metrics,
-    describeMetricCollectionTypesResponse_granularities,
-    describeMetricCollectionTypesResponse_httpStatus,
-
-    -- ** DescribeLoadBalancers
-    describeLoadBalancers_nextToken,
-    describeLoadBalancers_maxRecords,
-    describeLoadBalancers_autoScalingGroupName,
-    describeLoadBalancersResponse_loadBalancers,
-    describeLoadBalancersResponse_nextToken,
-    describeLoadBalancersResponse_httpStatus,
-
-    -- ** PutNotificationConfiguration
-    putNotificationConfiguration_autoScalingGroupName,
-    putNotificationConfiguration_topicARN,
-    putNotificationConfiguration_notificationTypes,
-
-    -- ** DescribeTags
-    describeTags_filters,
-    describeTags_nextToken,
-    describeTags_maxRecords,
-    describeTagsResponse_nextToken,
-    describeTagsResponse_tags,
-    describeTagsResponse_httpStatus,
-
-    -- ** DeleteNotificationConfiguration
-    deleteNotificationConfiguration_autoScalingGroupName,
-    deleteNotificationConfiguration_topicARN,
-
-    -- ** DeleteWarmPool
-    deleteWarmPool_forceDelete,
-    deleteWarmPool_autoScalingGroupName,
-    deleteWarmPoolResponse_httpStatus,
-
-    -- ** PutScalingPolicy
-    putScalingPolicy_minAdjustmentStep,
-    putScalingPolicy_estimatedInstanceWarmup,
-    putScalingPolicy_enabled,
-    putScalingPolicy_policyType,
-    putScalingPolicy_stepAdjustments,
-    putScalingPolicy_targetTrackingConfiguration,
-    putScalingPolicy_adjustmentType,
-    putScalingPolicy_predictiveScalingConfiguration,
-    putScalingPolicy_scalingAdjustment,
-    putScalingPolicy_cooldown,
-    putScalingPolicy_metricAggregationType,
-    putScalingPolicy_minAdjustmentMagnitude,
-    putScalingPolicy_autoScalingGroupName,
-    putScalingPolicy_policyName,
-    putScalingPolicyResponse_policyARN,
-    putScalingPolicyResponse_alarms,
-    putScalingPolicyResponse_httpStatus,
-
-    -- ** StartInstanceRefresh
-    startInstanceRefresh_preferences,
-    startInstanceRefresh_strategy,
-    startInstanceRefresh_desiredConfiguration,
-    startInstanceRefresh_autoScalingGroupName,
-    startInstanceRefreshResponse_instanceRefreshId,
-    startInstanceRefreshResponse_httpStatus,
+    -- ** AttachInstances
+    attachInstances_instanceIds,
+    attachInstances_autoScalingGroupName,
 
     -- ** AttachLoadBalancerTargetGroups
     attachLoadBalancerTargetGroups_autoScalingGroupName,
     attachLoadBalancerTargetGroups_targetGroupARNs,
     attachLoadBalancerTargetGroupsResponse_httpStatus,
-
-    -- ** DeleteLaunchConfiguration
-    deleteLaunchConfiguration_launchConfigurationName,
-
-    -- ** EnterStandby
-    enterStandby_instanceIds,
-    enterStandby_autoScalingGroupName,
-    enterStandby_shouldDecrementDesiredCapacity,
-    enterStandbyResponse_activities,
-    enterStandbyResponse_httpStatus,
-
-    -- ** SuspendProcesses
-    suspendProcesses_scalingProcesses,
-    suspendProcesses_autoScalingGroupName,
-
-    -- ** SetInstanceHealth
-    setInstanceHealth_shouldRespectGracePeriod,
-    setInstanceHealth_instanceId,
-    setInstanceHealth_healthStatus,
-
-    -- ** ExitStandby
-    exitStandby_instanceIds,
-    exitStandby_autoScalingGroupName,
-    exitStandbyResponse_activities,
-    exitStandbyResponse_httpStatus,
-
-    -- ** DescribeTerminationPolicyTypes
-    describeTerminationPolicyTypesResponse_terminationPolicyTypes,
-    describeTerminationPolicyTypesResponse_httpStatus,
-
-    -- ** CancelInstanceRefresh
-    cancelInstanceRefresh_autoScalingGroupName,
-    cancelInstanceRefreshResponse_instanceRefreshId,
-    cancelInstanceRefreshResponse_httpStatus,
-
-    -- ** DescribeAutoScalingInstances
-    describeAutoScalingInstances_nextToken,
-    describeAutoScalingInstances_instanceIds,
-    describeAutoScalingInstances_maxRecords,
-    describeAutoScalingInstancesResponse_nextToken,
-    describeAutoScalingInstancesResponse_autoScalingInstances,
-    describeAutoScalingInstancesResponse_httpStatus,
-
-    -- ** RecordLifecycleActionHeartbeat
-    recordLifecycleActionHeartbeat_instanceId,
-    recordLifecycleActionHeartbeat_lifecycleActionToken,
-    recordLifecycleActionHeartbeat_lifecycleHookName,
-    recordLifecycleActionHeartbeat_autoScalingGroupName,
-    recordLifecycleActionHeartbeatResponse_httpStatus,
-
-    -- ** DisableMetricsCollection
-    disableMetricsCollection_metrics,
-    disableMetricsCollection_autoScalingGroupName,
-
-    -- ** DetachInstances
-    detachInstances_instanceIds,
-    detachInstances_autoScalingGroupName,
-    detachInstances_shouldDecrementDesiredCapacity,
-    detachInstancesResponse_activities,
-    detachInstancesResponse_httpStatus,
-
-    -- ** EnableMetricsCollection
-    enableMetricsCollection_metrics,
-    enableMetricsCollection_autoScalingGroupName,
-    enableMetricsCollection_granularity,
-
-    -- ** DescribeScalingProcessTypes
-    describeScalingProcessTypesResponse_processes,
-    describeScalingProcessTypesResponse_httpStatus,
-
-    -- ** DescribeWarmPool
-    describeWarmPool_nextToken,
-    describeWarmPool_maxRecords,
-    describeWarmPool_autoScalingGroupName,
-    describeWarmPoolResponse_nextToken,
-    describeWarmPoolResponse_instances,
-    describeWarmPoolResponse_warmPoolConfiguration,
-    describeWarmPoolResponse_httpStatus,
-
-    -- ** DeleteTags
-    deleteTags_tags,
-
-    -- ** DetachLoadBalancerTargetGroups
-    detachLoadBalancerTargetGroups_autoScalingGroupName,
-    detachLoadBalancerTargetGroups_targetGroupARNs,
-    detachLoadBalancerTargetGroupsResponse_httpStatus,
-
-    -- ** DescribeLifecycleHooks
-    describeLifecycleHooks_lifecycleHookNames,
-    describeLifecycleHooks_autoScalingGroupName,
-    describeLifecycleHooksResponse_lifecycleHooks,
-    describeLifecycleHooksResponse_httpStatus,
-
-    -- ** DescribeAutoScalingGroups
-    describeAutoScalingGroups_filters,
-    describeAutoScalingGroups_autoScalingGroupNames,
-    describeAutoScalingGroups_nextToken,
-    describeAutoScalingGroups_maxRecords,
-    describeAutoScalingGroupsResponse_nextToken,
-    describeAutoScalingGroupsResponse_httpStatus,
-    describeAutoScalingGroupsResponse_autoScalingGroups,
-
-    -- ** DeleteScheduledAction
-    deleteScheduledAction_autoScalingGroupName,
-    deleteScheduledAction_scheduledActionName,
-
-    -- ** SetDesiredCapacity
-    setDesiredCapacity_honorCooldown,
-    setDesiredCapacity_autoScalingGroupName,
-    setDesiredCapacity_desiredCapacity,
-
-    -- ** DetachLoadBalancers
-    detachLoadBalancers_autoScalingGroupName,
-    detachLoadBalancers_loadBalancerNames,
-    detachLoadBalancersResponse_httpStatus,
-
-    -- ** DescribeAutoScalingNotificationTypes
-    describeAutoScalingNotificationTypesResponse_autoScalingNotificationTypes,
-    describeAutoScalingNotificationTypesResponse_httpStatus,
-
-    -- ** DescribeScheduledActions
-    describeScheduledActions_startTime,
-    describeScheduledActions_nextToken,
-    describeScheduledActions_autoScalingGroupName,
-    describeScheduledActions_maxRecords,
-    describeScheduledActions_endTime,
-    describeScheduledActions_scheduledActionNames,
-    describeScheduledActionsResponse_scheduledUpdateGroupActions,
-    describeScheduledActionsResponse_nextToken,
-    describeScheduledActionsResponse_httpStatus,
-
-    -- ** CreateOrUpdateTags
-    createOrUpdateTags_tags,
-
-    -- ** CompleteLifecycleAction
-    completeLifecycleAction_instanceId,
-    completeLifecycleAction_lifecycleActionToken,
-    completeLifecycleAction_lifecycleHookName,
-    completeLifecycleAction_autoScalingGroupName,
-    completeLifecycleAction_lifecycleActionResult,
-    completeLifecycleActionResponse_httpStatus,
-
-    -- ** DeletePolicy
-    deletePolicy_autoScalingGroupName,
-    deletePolicy_policyName,
-
-    -- ** AttachInstances
-    attachInstances_instanceIds,
-    attachInstances_autoScalingGroupName,
-
-    -- ** UpdateAutoScalingGroup
-    updateAutoScalingGroup_context,
-    updateAutoScalingGroup_terminationPolicies,
-    updateAutoScalingGroup_healthCheckGracePeriod,
-    updateAutoScalingGroup_serviceLinkedRoleARN,
-    updateAutoScalingGroup_newInstancesProtectedFromScaleIn,
-    updateAutoScalingGroup_vPCZoneIdentifier,
-    updateAutoScalingGroup_maxInstanceLifetime,
-    updateAutoScalingGroup_defaultCooldown,
-    updateAutoScalingGroup_maxSize,
-    updateAutoScalingGroup_availabilityZones,
-    updateAutoScalingGroup_desiredCapacity,
-    updateAutoScalingGroup_mixedInstancesPolicy,
-    updateAutoScalingGroup_minSize,
-    updateAutoScalingGroup_launchConfigurationName,
-    updateAutoScalingGroup_healthCheckType,
-    updateAutoScalingGroup_launchTemplate,
-    updateAutoScalingGroup_capacityRebalance,
-    updateAutoScalingGroup_placementGroup,
-    updateAutoScalingGroup_autoScalingGroupName,
-
-    -- ** DeleteAutoScalingGroup
-    deleteAutoScalingGroup_forceDelete,
-    deleteAutoScalingGroup_autoScalingGroupName,
-
-    -- ** PutLifecycleHook
-    putLifecycleHook_defaultResult,
-    putLifecycleHook_heartbeatTimeout,
-    putLifecycleHook_notificationMetadata,
-    putLifecycleHook_notificationTargetARN,
-    putLifecycleHook_lifecycleTransition,
-    putLifecycleHook_roleARN,
-    putLifecycleHook_lifecycleHookName,
-    putLifecycleHook_autoScalingGroupName,
-    putLifecycleHookResponse_httpStatus,
-
-    -- ** BatchPutScheduledUpdateGroupAction
-    batchPutScheduledUpdateGroupAction_autoScalingGroupName,
-    batchPutScheduledUpdateGroupAction_scheduledUpdateGroupActions,
-    batchPutScheduledUpdateGroupActionResponse_failedScheduledUpdateGroupActions,
-    batchPutScheduledUpdateGroupActionResponse_httpStatus,
-
-    -- ** DeleteLifecycleHook
-    deleteLifecycleHook_lifecycleHookName,
-    deleteLifecycleHook_autoScalingGroupName,
-    deleteLifecycleHookResponse_httpStatus,
-
-    -- ** ResumeProcesses
-    resumeProcesses_scalingProcesses,
-    resumeProcesses_autoScalingGroupName,
-
-    -- ** ExecutePolicy
-    executePolicy_honorCooldown,
-    executePolicy_metricValue,
-    executePolicy_autoScalingGroupName,
-    executePolicy_breachThreshold,
-    executePolicy_policyName,
-
-    -- ** GetPredictiveScalingForecast
-    getPredictiveScalingForecast_autoScalingGroupName,
-    getPredictiveScalingForecast_policyName,
-    getPredictiveScalingForecast_startTime,
-    getPredictiveScalingForecast_endTime,
-    getPredictiveScalingForecastResponse_httpStatus,
-    getPredictiveScalingForecastResponse_loadForecast,
-    getPredictiveScalingForecastResponse_capacityForecast,
-    getPredictiveScalingForecastResponse_updateTime,
-
-    -- ** DescribeInstanceRefreshes
-    describeInstanceRefreshes_nextToken,
-    describeInstanceRefreshes_maxRecords,
-    describeInstanceRefreshes_instanceRefreshIds,
-    describeInstanceRefreshes_autoScalingGroupName,
-    describeInstanceRefreshesResponse_nextToken,
-    describeInstanceRefreshesResponse_instanceRefreshes,
-    describeInstanceRefreshesResponse_httpStatus,
-
-    -- ** DescribeAccountLimits
-    describeAccountLimitsResponse_numberOfLaunchConfigurations,
-    describeAccountLimitsResponse_numberOfAutoScalingGroups,
-    describeAccountLimitsResponse_maxNumberOfAutoScalingGroups,
-    describeAccountLimitsResponse_maxNumberOfLaunchConfigurations,
-    describeAccountLimitsResponse_httpStatus,
 
     -- ** AttachLoadBalancers
     attachLoadBalancers_autoScalingGroupName,
@@ -332,31 +34,381 @@ module Amazonka.AutoScaling.Lens
     batchDeleteScheduledActionResponse_failedScheduledActions,
     batchDeleteScheduledActionResponse_httpStatus,
 
-    -- ** TerminateInstanceInAutoScalingGroup
-    terminateInstanceInAutoScalingGroup_instanceId,
-    terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity,
-    terminateInstanceInAutoScalingGroupResponse_activity,
-    terminateInstanceInAutoScalingGroupResponse_httpStatus,
+    -- ** BatchPutScheduledUpdateGroupAction
+    batchPutScheduledUpdateGroupAction_autoScalingGroupName,
+    batchPutScheduledUpdateGroupAction_scheduledUpdateGroupActions,
+    batchPutScheduledUpdateGroupActionResponse_failedScheduledUpdateGroupActions,
+    batchPutScheduledUpdateGroupActionResponse_httpStatus,
+
+    -- ** CancelInstanceRefresh
+    cancelInstanceRefresh_autoScalingGroupName,
+    cancelInstanceRefreshResponse_instanceRefreshId,
+    cancelInstanceRefreshResponse_httpStatus,
+
+    -- ** CompleteLifecycleAction
+    completeLifecycleAction_lifecycleActionToken,
+    completeLifecycleAction_instanceId,
+    completeLifecycleAction_lifecycleHookName,
+    completeLifecycleAction_autoScalingGroupName,
+    completeLifecycleAction_lifecycleActionResult,
+    completeLifecycleActionResponse_httpStatus,
+
+    -- ** CreateAutoScalingGroup
+    createAutoScalingGroup_tags,
+    createAutoScalingGroup_loadBalancerNames,
+    createAutoScalingGroup_availabilityZones,
+    createAutoScalingGroup_healthCheckGracePeriod,
+    createAutoScalingGroup_launchTemplate,
+    createAutoScalingGroup_lifecycleHookSpecificationList,
+    createAutoScalingGroup_serviceLinkedRoleARN,
+    createAutoScalingGroup_context,
+    createAutoScalingGroup_maxInstanceLifetime,
+    createAutoScalingGroup_vPCZoneIdentifier,
+    createAutoScalingGroup_launchConfigurationName,
+    createAutoScalingGroup_targetGroupARNs,
+    createAutoScalingGroup_instanceId,
+    createAutoScalingGroup_mixedInstancesPolicy,
+    createAutoScalingGroup_healthCheckType,
+    createAutoScalingGroup_placementGroup,
+    createAutoScalingGroup_newInstancesProtectedFromScaleIn,
+    createAutoScalingGroup_defaultCooldown,
+    createAutoScalingGroup_terminationPolicies,
+    createAutoScalingGroup_desiredCapacity,
+    createAutoScalingGroup_capacityRebalance,
+    createAutoScalingGroup_autoScalingGroupName,
+    createAutoScalingGroup_minSize,
+    createAutoScalingGroup_maxSize,
+
+    -- ** CreateLaunchConfiguration
+    createLaunchConfiguration_ebsOptimized,
+    createLaunchConfiguration_iamInstanceProfile,
+    createLaunchConfiguration_classicLinkVPCId,
+    createLaunchConfiguration_userData,
+    createLaunchConfiguration_associatePublicIpAddress,
+    createLaunchConfiguration_blockDeviceMappings,
+    createLaunchConfiguration_instanceType,
+    createLaunchConfiguration_instanceId,
+    createLaunchConfiguration_placementTenancy,
+    createLaunchConfiguration_securityGroups,
+    createLaunchConfiguration_ramdiskId,
+    createLaunchConfiguration_instanceMonitoring,
+    createLaunchConfiguration_keyName,
+    createLaunchConfiguration_kernelId,
+    createLaunchConfiguration_spotPrice,
+    createLaunchConfiguration_classicLinkVPCSecurityGroups,
+    createLaunchConfiguration_imageId,
+    createLaunchConfiguration_metadataOptions,
+    createLaunchConfiguration_launchConfigurationName,
+
+    -- ** CreateOrUpdateTags
+    createOrUpdateTags_tags,
+
+    -- ** DeleteAutoScalingGroup
+    deleteAutoScalingGroup_forceDelete,
+    deleteAutoScalingGroup_autoScalingGroupName,
+
+    -- ** DeleteLaunchConfiguration
+    deleteLaunchConfiguration_launchConfigurationName,
+
+    -- ** DeleteLifecycleHook
+    deleteLifecycleHook_lifecycleHookName,
+    deleteLifecycleHook_autoScalingGroupName,
+    deleteLifecycleHookResponse_httpStatus,
+
+    -- ** DeleteNotificationConfiguration
+    deleteNotificationConfiguration_autoScalingGroupName,
+    deleteNotificationConfiguration_topicARN,
+
+    -- ** DeletePolicy
+    deletePolicy_autoScalingGroupName,
+    deletePolicy_policyName,
+
+    -- ** DeleteScheduledAction
+    deleteScheduledAction_autoScalingGroupName,
+    deleteScheduledAction_scheduledActionName,
+
+    -- ** DeleteTags
+    deleteTags_tags,
+
+    -- ** DeleteWarmPool
+    deleteWarmPool_forceDelete,
+    deleteWarmPool_autoScalingGroupName,
+    deleteWarmPoolResponse_httpStatus,
+
+    -- ** DescribeAccountLimits
+    describeAccountLimitsResponse_numberOfAutoScalingGroups,
+    describeAccountLimitsResponse_maxNumberOfLaunchConfigurations,
+    describeAccountLimitsResponse_maxNumberOfAutoScalingGroups,
+    describeAccountLimitsResponse_numberOfLaunchConfigurations,
+    describeAccountLimitsResponse_httpStatus,
+
+    -- ** DescribeAdjustmentTypes
+    describeAdjustmentTypesResponse_adjustmentTypes,
+    describeAdjustmentTypesResponse_httpStatus,
+
+    -- ** DescribeAutoScalingGroups
+    describeAutoScalingGroups_nextToken,
+    describeAutoScalingGroups_filters,
+    describeAutoScalingGroups_autoScalingGroupNames,
+    describeAutoScalingGroups_maxRecords,
+    describeAutoScalingGroupsResponse_nextToken,
+    describeAutoScalingGroupsResponse_httpStatus,
+    describeAutoScalingGroupsResponse_autoScalingGroups,
+
+    -- ** DescribeAutoScalingInstances
+    describeAutoScalingInstances_nextToken,
+    describeAutoScalingInstances_maxRecords,
+    describeAutoScalingInstances_instanceIds,
+    describeAutoScalingInstancesResponse_nextToken,
+    describeAutoScalingInstancesResponse_autoScalingInstances,
+    describeAutoScalingInstancesResponse_httpStatus,
+
+    -- ** DescribeAutoScalingNotificationTypes
+    describeAutoScalingNotificationTypesResponse_autoScalingNotificationTypes,
+    describeAutoScalingNotificationTypesResponse_httpStatus,
+
+    -- ** DescribeInstanceRefreshes
+    describeInstanceRefreshes_nextToken,
+    describeInstanceRefreshes_instanceRefreshIds,
+    describeInstanceRefreshes_maxRecords,
+    describeInstanceRefreshes_autoScalingGroupName,
+    describeInstanceRefreshesResponse_nextToken,
+    describeInstanceRefreshesResponse_instanceRefreshes,
+    describeInstanceRefreshesResponse_httpStatus,
+
+    -- ** DescribeLaunchConfigurations
+    describeLaunchConfigurations_nextToken,
+    describeLaunchConfigurations_maxRecords,
+    describeLaunchConfigurations_launchConfigurationNames,
+    describeLaunchConfigurationsResponse_nextToken,
+    describeLaunchConfigurationsResponse_httpStatus,
+    describeLaunchConfigurationsResponse_launchConfigurations,
+
+    -- ** DescribeLifecycleHookTypes
+    describeLifecycleHookTypesResponse_lifecycleHookTypes,
+    describeLifecycleHookTypesResponse_httpStatus,
+
+    -- ** DescribeLifecycleHooks
+    describeLifecycleHooks_lifecycleHookNames,
+    describeLifecycleHooks_autoScalingGroupName,
+    describeLifecycleHooksResponse_lifecycleHooks,
+    describeLifecycleHooksResponse_httpStatus,
 
     -- ** DescribeLoadBalancerTargetGroups
     describeLoadBalancerTargetGroups_nextToken,
     describeLoadBalancerTargetGroups_maxRecords,
     describeLoadBalancerTargetGroups_autoScalingGroupName,
-    describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups,
     describeLoadBalancerTargetGroupsResponse_nextToken,
+    describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups,
     describeLoadBalancerTargetGroupsResponse_httpStatus,
 
+    -- ** DescribeLoadBalancers
+    describeLoadBalancers_nextToken,
+    describeLoadBalancers_maxRecords,
+    describeLoadBalancers_autoScalingGroupName,
+    describeLoadBalancersResponse_nextToken,
+    describeLoadBalancersResponse_loadBalancers,
+    describeLoadBalancersResponse_httpStatus,
+
+    -- ** DescribeMetricCollectionTypes
+    describeMetricCollectionTypesResponse_metrics,
+    describeMetricCollectionTypesResponse_granularities,
+    describeMetricCollectionTypesResponse_httpStatus,
+
+    -- ** DescribeNotificationConfigurations
+    describeNotificationConfigurations_nextToken,
+    describeNotificationConfigurations_autoScalingGroupNames,
+    describeNotificationConfigurations_maxRecords,
+    describeNotificationConfigurationsResponse_nextToken,
+    describeNotificationConfigurationsResponse_httpStatus,
+    describeNotificationConfigurationsResponse_notificationConfigurations,
+
+    -- ** DescribePolicies
+    describePolicies_nextToken,
+    describePolicies_policyTypes,
+    describePolicies_maxRecords,
+    describePolicies_policyNames,
+    describePolicies_autoScalingGroupName,
+    describePoliciesResponse_nextToken,
+    describePoliciesResponse_scalingPolicies,
+    describePoliciesResponse_httpStatus,
+
+    -- ** DescribeScalingActivities
+    describeScalingActivities_nextToken,
+    describeScalingActivities_includeDeletedGroups,
+    describeScalingActivities_maxRecords,
+    describeScalingActivities_autoScalingGroupName,
+    describeScalingActivities_activityIds,
+    describeScalingActivitiesResponse_nextToken,
+    describeScalingActivitiesResponse_httpStatus,
+    describeScalingActivitiesResponse_activities,
+
+    -- ** DescribeScalingProcessTypes
+    describeScalingProcessTypesResponse_processes,
+    describeScalingProcessTypesResponse_httpStatus,
+
+    -- ** DescribeScheduledActions
+    describeScheduledActions_nextToken,
+    describeScheduledActions_endTime,
+    describeScheduledActions_maxRecords,
+    describeScheduledActions_autoScalingGroupName,
+    describeScheduledActions_startTime,
+    describeScheduledActions_scheduledActionNames,
+    describeScheduledActionsResponse_nextToken,
+    describeScheduledActionsResponse_scheduledUpdateGroupActions,
+    describeScheduledActionsResponse_httpStatus,
+
+    -- ** DescribeTags
+    describeTags_nextToken,
+    describeTags_filters,
+    describeTags_maxRecords,
+    describeTagsResponse_tags,
+    describeTagsResponse_nextToken,
+    describeTagsResponse_httpStatus,
+
+    -- ** DescribeTerminationPolicyTypes
+    describeTerminationPolicyTypesResponse_terminationPolicyTypes,
+    describeTerminationPolicyTypesResponse_httpStatus,
+
+    -- ** DescribeWarmPool
+    describeWarmPool_nextToken,
+    describeWarmPool_maxRecords,
+    describeWarmPool_autoScalingGroupName,
+    describeWarmPoolResponse_instances,
+    describeWarmPoolResponse_warmPoolConfiguration,
+    describeWarmPoolResponse_nextToken,
+    describeWarmPoolResponse_httpStatus,
+
+    -- ** DetachInstances
+    detachInstances_instanceIds,
+    detachInstances_autoScalingGroupName,
+    detachInstances_shouldDecrementDesiredCapacity,
+    detachInstancesResponse_activities,
+    detachInstancesResponse_httpStatus,
+
+    -- ** DetachLoadBalancerTargetGroups
+    detachLoadBalancerTargetGroups_autoScalingGroupName,
+    detachLoadBalancerTargetGroups_targetGroupARNs,
+    detachLoadBalancerTargetGroupsResponse_httpStatus,
+
+    -- ** DetachLoadBalancers
+    detachLoadBalancers_autoScalingGroupName,
+    detachLoadBalancers_loadBalancerNames,
+    detachLoadBalancersResponse_httpStatus,
+
+    -- ** DisableMetricsCollection
+    disableMetricsCollection_metrics,
+    disableMetricsCollection_autoScalingGroupName,
+
+    -- ** EnableMetricsCollection
+    enableMetricsCollection_metrics,
+    enableMetricsCollection_autoScalingGroupName,
+    enableMetricsCollection_granularity,
+
+    -- ** EnterStandby
+    enterStandby_instanceIds,
+    enterStandby_autoScalingGroupName,
+    enterStandby_shouldDecrementDesiredCapacity,
+    enterStandbyResponse_activities,
+    enterStandbyResponse_httpStatus,
+
+    -- ** ExecutePolicy
+    executePolicy_honorCooldown,
+    executePolicy_breachThreshold,
+    executePolicy_metricValue,
+    executePolicy_autoScalingGroupName,
+    executePolicy_policyName,
+
+    -- ** ExitStandby
+    exitStandby_instanceIds,
+    exitStandby_autoScalingGroupName,
+    exitStandbyResponse_activities,
+    exitStandbyResponse_httpStatus,
+
+    -- ** GetPredictiveScalingForecast
+    getPredictiveScalingForecast_autoScalingGroupName,
+    getPredictiveScalingForecast_policyName,
+    getPredictiveScalingForecast_startTime,
+    getPredictiveScalingForecast_endTime,
+    getPredictiveScalingForecastResponse_httpStatus,
+    getPredictiveScalingForecastResponse_loadForecast,
+    getPredictiveScalingForecastResponse_capacityForecast,
+    getPredictiveScalingForecastResponse_updateTime,
+
+    -- ** PutLifecycleHook
+    putLifecycleHook_roleARN,
+    putLifecycleHook_notificationMetadata,
+    putLifecycleHook_defaultResult,
+    putLifecycleHook_notificationTargetARN,
+    putLifecycleHook_lifecycleTransition,
+    putLifecycleHook_heartbeatTimeout,
+    putLifecycleHook_lifecycleHookName,
+    putLifecycleHook_autoScalingGroupName,
+    putLifecycleHookResponse_httpStatus,
+
+    -- ** PutNotificationConfiguration
+    putNotificationConfiguration_autoScalingGroupName,
+    putNotificationConfiguration_topicARN,
+    putNotificationConfiguration_notificationTypes,
+
+    -- ** PutScalingPolicy
+    putScalingPolicy_metricAggregationType,
+    putScalingPolicy_policyType,
+    putScalingPolicy_cooldown,
+    putScalingPolicy_adjustmentType,
+    putScalingPolicy_estimatedInstanceWarmup,
+    putScalingPolicy_enabled,
+    putScalingPolicy_targetTrackingConfiguration,
+    putScalingPolicy_minAdjustmentStep,
+    putScalingPolicy_scalingAdjustment,
+    putScalingPolicy_stepAdjustments,
+    putScalingPolicy_predictiveScalingConfiguration,
+    putScalingPolicy_minAdjustmentMagnitude,
+    putScalingPolicy_autoScalingGroupName,
+    putScalingPolicy_policyName,
+    putScalingPolicyResponse_alarms,
+    putScalingPolicyResponse_policyARN,
+    putScalingPolicyResponse_httpStatus,
+
     -- ** PutScheduledUpdateGroupAction
-    putScheduledUpdateGroupAction_startTime,
-    putScheduledUpdateGroupAction_time,
-    putScheduledUpdateGroupAction_maxSize,
-    putScheduledUpdateGroupAction_recurrence,
-    putScheduledUpdateGroupAction_desiredCapacity,
-    putScheduledUpdateGroupAction_minSize,
-    putScheduledUpdateGroupAction_endTime,
     putScheduledUpdateGroupAction_timeZone,
+    putScheduledUpdateGroupAction_time,
+    putScheduledUpdateGroupAction_endTime,
+    putScheduledUpdateGroupAction_minSize,
+    putScheduledUpdateGroupAction_recurrence,
+    putScheduledUpdateGroupAction_maxSize,
+    putScheduledUpdateGroupAction_desiredCapacity,
+    putScheduledUpdateGroupAction_startTime,
     putScheduledUpdateGroupAction_autoScalingGroupName,
     putScheduledUpdateGroupAction_scheduledActionName,
+
+    -- ** PutWarmPool
+    putWarmPool_poolState,
+    putWarmPool_minSize,
+    putWarmPool_maxGroupPreparedCapacity,
+    putWarmPool_autoScalingGroupName,
+    putWarmPoolResponse_httpStatus,
+
+    -- ** RecordLifecycleActionHeartbeat
+    recordLifecycleActionHeartbeat_lifecycleActionToken,
+    recordLifecycleActionHeartbeat_instanceId,
+    recordLifecycleActionHeartbeat_lifecycleHookName,
+    recordLifecycleActionHeartbeat_autoScalingGroupName,
+    recordLifecycleActionHeartbeatResponse_httpStatus,
+
+    -- ** ResumeProcesses
+    resumeProcesses_scalingProcesses,
+    resumeProcesses_autoScalingGroupName,
+
+    -- ** SetDesiredCapacity
+    setDesiredCapacity_honorCooldown,
+    setDesiredCapacity_autoScalingGroupName,
+    setDesiredCapacity_desiredCapacity,
+
+    -- ** SetInstanceHealth
+    setInstanceHealth_shouldRespectGracePeriod,
+    setInstanceHealth_instanceId,
+    setInstanceHealth_healthStatus,
 
     -- ** SetInstanceProtection
     setInstanceProtection_instanceIds,
@@ -364,107 +416,55 @@ module Amazonka.AutoScaling.Lens
     setInstanceProtection_protectedFromScaleIn,
     setInstanceProtectionResponse_httpStatus,
 
-    -- ** DescribePolicies
-    describePolicies_policyNames,
-    describePolicies_nextToken,
-    describePolicies_autoScalingGroupName,
-    describePolicies_maxRecords,
-    describePolicies_policyTypes,
-    describePoliciesResponse_nextToken,
-    describePoliciesResponse_scalingPolicies,
-    describePoliciesResponse_httpStatus,
+    -- ** StartInstanceRefresh
+    startInstanceRefresh_preferences,
+    startInstanceRefresh_strategy,
+    startInstanceRefresh_desiredConfiguration,
+    startInstanceRefresh_autoScalingGroupName,
+    startInstanceRefreshResponse_instanceRefreshId,
+    startInstanceRefreshResponse_httpStatus,
 
-    -- ** DescribeLaunchConfigurations
-    describeLaunchConfigurations_launchConfigurationNames,
-    describeLaunchConfigurations_nextToken,
-    describeLaunchConfigurations_maxRecords,
-    describeLaunchConfigurationsResponse_nextToken,
-    describeLaunchConfigurationsResponse_httpStatus,
-    describeLaunchConfigurationsResponse_launchConfigurations,
+    -- ** SuspendProcesses
+    suspendProcesses_scalingProcesses,
+    suspendProcesses_autoScalingGroupName,
 
-    -- ** DescribeScalingActivities
-    describeScalingActivities_nextToken,
-    describeScalingActivities_autoScalingGroupName,
-    describeScalingActivities_maxRecords,
-    describeScalingActivities_includeDeletedGroups,
-    describeScalingActivities_activityIds,
-    describeScalingActivitiesResponse_nextToken,
-    describeScalingActivitiesResponse_httpStatus,
-    describeScalingActivitiesResponse_activities,
+    -- ** TerminateInstanceInAutoScalingGroup
+    terminateInstanceInAutoScalingGroup_instanceId,
+    terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity,
+    terminateInstanceInAutoScalingGroupResponse_activity,
+    terminateInstanceInAutoScalingGroupResponse_httpStatus,
 
-    -- ** DescribeNotificationConfigurations
-    describeNotificationConfigurations_autoScalingGroupNames,
-    describeNotificationConfigurations_nextToken,
-    describeNotificationConfigurations_maxRecords,
-    describeNotificationConfigurationsResponse_nextToken,
-    describeNotificationConfigurationsResponse_httpStatus,
-    describeNotificationConfigurationsResponse_notificationConfigurations,
-
-    -- ** DescribeLifecycleHookTypes
-    describeLifecycleHookTypesResponse_lifecycleHookTypes,
-    describeLifecycleHookTypesResponse_httpStatus,
-
-    -- ** DescribeAdjustmentTypes
-    describeAdjustmentTypesResponse_adjustmentTypes,
-    describeAdjustmentTypesResponse_httpStatus,
-
-    -- ** CreateAutoScalingGroup
-    createAutoScalingGroup_instanceId,
-    createAutoScalingGroup_context,
-    createAutoScalingGroup_terminationPolicies,
-    createAutoScalingGroup_healthCheckGracePeriod,
-    createAutoScalingGroup_serviceLinkedRoleARN,
-    createAutoScalingGroup_newInstancesProtectedFromScaleIn,
-    createAutoScalingGroup_vPCZoneIdentifier,
-    createAutoScalingGroup_targetGroupARNs,
-    createAutoScalingGroup_maxInstanceLifetime,
-    createAutoScalingGroup_defaultCooldown,
-    createAutoScalingGroup_availabilityZones,
-    createAutoScalingGroup_desiredCapacity,
-    createAutoScalingGroup_mixedInstancesPolicy,
-    createAutoScalingGroup_launchConfigurationName,
-    createAutoScalingGroup_lifecycleHookSpecificationList,
-    createAutoScalingGroup_healthCheckType,
-    createAutoScalingGroup_launchTemplate,
-    createAutoScalingGroup_capacityRebalance,
-    createAutoScalingGroup_placementGroup,
-    createAutoScalingGroup_loadBalancerNames,
-    createAutoScalingGroup_tags,
-    createAutoScalingGroup_autoScalingGroupName,
-    createAutoScalingGroup_minSize,
-    createAutoScalingGroup_maxSize,
-
-    -- ** CreateLaunchConfiguration
-    createLaunchConfiguration_instanceId,
-    createLaunchConfiguration_associatePublicIpAddress,
-    createLaunchConfiguration_securityGroups,
-    createLaunchConfiguration_spotPrice,
-    createLaunchConfiguration_instanceMonitoring,
-    createLaunchConfiguration_keyName,
-    createLaunchConfiguration_classicLinkVPCSecurityGroups,
-    createLaunchConfiguration_ramdiskId,
-    createLaunchConfiguration_kernelId,
-    createLaunchConfiguration_instanceType,
-    createLaunchConfiguration_ebsOptimized,
-    createLaunchConfiguration_userData,
-    createLaunchConfiguration_classicLinkVPCId,
-    createLaunchConfiguration_iamInstanceProfile,
-    createLaunchConfiguration_imageId,
-    createLaunchConfiguration_metadataOptions,
-    createLaunchConfiguration_placementTenancy,
-    createLaunchConfiguration_blockDeviceMappings,
-    createLaunchConfiguration_launchConfigurationName,
+    -- ** UpdateAutoScalingGroup
+    updateAutoScalingGroup_availabilityZones,
+    updateAutoScalingGroup_healthCheckGracePeriod,
+    updateAutoScalingGroup_launchTemplate,
+    updateAutoScalingGroup_serviceLinkedRoleARN,
+    updateAutoScalingGroup_context,
+    updateAutoScalingGroup_maxInstanceLifetime,
+    updateAutoScalingGroup_vPCZoneIdentifier,
+    updateAutoScalingGroup_launchConfigurationName,
+    updateAutoScalingGroup_mixedInstancesPolicy,
+    updateAutoScalingGroup_minSize,
+    updateAutoScalingGroup_healthCheckType,
+    updateAutoScalingGroup_placementGroup,
+    updateAutoScalingGroup_newInstancesProtectedFromScaleIn,
+    updateAutoScalingGroup_defaultCooldown,
+    updateAutoScalingGroup_terminationPolicies,
+    updateAutoScalingGroup_maxSize,
+    updateAutoScalingGroup_desiredCapacity,
+    updateAutoScalingGroup_capacityRebalance,
+    updateAutoScalingGroup_autoScalingGroupName,
 
     -- * Types
 
     -- ** Activity
     activity_progress,
-    activity_statusMessage,
+    activity_autoScalingGroupARN,
     activity_autoScalingGroupState,
     activity_endTime,
-    activity_details,
-    activity_autoScalingGroupARN,
     activity_description,
+    activity_details,
+    activity_statusMessage,
     activity_activityId,
     activity_autoScalingGroupName,
     activity_cause,
@@ -475,33 +475,33 @@ module Amazonka.AutoScaling.Lens
     adjustmentType_adjustmentType,
 
     -- ** Alarm
-    alarm_alarmName,
     alarm_alarmARN,
+    alarm_alarmName,
 
     -- ** AutoScalingGroup
-    autoScalingGroup_status,
-    autoScalingGroup_context,
-    autoScalingGroup_terminationPolicies,
-    autoScalingGroup_healthCheckGracePeriod,
-    autoScalingGroup_serviceLinkedRoleARN,
-    autoScalingGroup_newInstancesProtectedFromScaleIn,
-    autoScalingGroup_vPCZoneIdentifier,
-    autoScalingGroup_targetGroupARNs,
-    autoScalingGroup_maxInstanceLifetime,
-    autoScalingGroup_mixedInstancesPolicy,
-    autoScalingGroup_enabledMetrics,
-    autoScalingGroup_launchConfigurationName,
-    autoScalingGroup_instances,
-    autoScalingGroup_launchTemplate,
-    autoScalingGroup_warmPoolConfiguration,
-    autoScalingGroup_capacityRebalance,
-    autoScalingGroup_autoScalingGroupARN,
-    autoScalingGroup_predictedCapacity,
-    autoScalingGroup_warmPoolSize,
-    autoScalingGroup_placementGroup,
-    autoScalingGroup_suspendedProcesses,
-    autoScalingGroup_loadBalancerNames,
     autoScalingGroup_tags,
+    autoScalingGroup_instances,
+    autoScalingGroup_warmPoolConfiguration,
+    autoScalingGroup_autoScalingGroupARN,
+    autoScalingGroup_loadBalancerNames,
+    autoScalingGroup_predictedCapacity,
+    autoScalingGroup_healthCheckGracePeriod,
+    autoScalingGroup_launchTemplate,
+    autoScalingGroup_warmPoolSize,
+    autoScalingGroup_serviceLinkedRoleARN,
+    autoScalingGroup_context,
+    autoScalingGroup_status,
+    autoScalingGroup_maxInstanceLifetime,
+    autoScalingGroup_vPCZoneIdentifier,
+    autoScalingGroup_launchConfigurationName,
+    autoScalingGroup_targetGroupARNs,
+    autoScalingGroup_mixedInstancesPolicy,
+    autoScalingGroup_placementGroup,
+    autoScalingGroup_newInstancesProtectedFromScaleIn,
+    autoScalingGroup_terminationPolicies,
+    autoScalingGroup_suspendedProcesses,
+    autoScalingGroup_enabledMetrics,
+    autoScalingGroup_capacityRebalance,
     autoScalingGroup_autoScalingGroupName,
     autoScalingGroup_minSize,
     autoScalingGroup_maxSize,
@@ -512,10 +512,10 @@ module Amazonka.AutoScaling.Lens
     autoScalingGroup_createdTime,
 
     -- ** AutoScalingInstanceDetails
-    autoScalingInstanceDetails_weightedCapacity,
-    autoScalingInstanceDetails_instanceType,
-    autoScalingInstanceDetails_launchConfigurationName,
     autoScalingInstanceDetails_launchTemplate,
+    autoScalingInstanceDetails_launchConfigurationName,
+    autoScalingInstanceDetails_instanceType,
+    autoScalingInstanceDetails_weightedCapacity,
     autoScalingInstanceDetails_instanceId,
     autoScalingInstanceDetails_autoScalingGroupName,
     autoScalingInstanceDetails_availabilityZone,
@@ -524,9 +524,9 @@ module Amazonka.AutoScaling.Lens
     autoScalingInstanceDetails_protectedFromScaleIn,
 
     -- ** BlockDeviceMapping
-    blockDeviceMapping_virtualName,
-    blockDeviceMapping_noDevice,
     blockDeviceMapping_ebs,
+    blockDeviceMapping_noDevice,
+    blockDeviceMapping_virtualName,
     blockDeviceMapping_deviceName,
 
     -- ** CapacityForecast
@@ -541,25 +541,25 @@ module Amazonka.AutoScaling.Lens
     customizedMetricSpecification_statistic,
 
     -- ** DesiredConfiguration
-    desiredConfiguration_mixedInstancesPolicy,
     desiredConfiguration_launchTemplate,
+    desiredConfiguration_mixedInstancesPolicy,
 
     -- ** Ebs
     ebs_deleteOnTermination,
-    ebs_throughput,
-    ebs_volumeSize,
-    ebs_iops,
-    ebs_encrypted,
-    ebs_volumeType,
     ebs_snapshotId,
+    ebs_volumeType,
+    ebs_volumeSize,
+    ebs_encrypted,
+    ebs_throughput,
+    ebs_iops,
 
     -- ** EnabledMetric
     enabledMetric_granularity,
     enabledMetric_metric,
 
     -- ** FailedScheduledUpdateGroupActionRequest
-    failedScheduledUpdateGroupActionRequest_errorCode,
     failedScheduledUpdateGroupActionRequest_errorMessage,
+    failedScheduledUpdateGroupActionRequest_errorCode,
     failedScheduledUpdateGroupActionRequest_scheduledActionName,
 
     -- ** Filter
@@ -567,10 +567,10 @@ module Amazonka.AutoScaling.Lens
     filter_name,
 
     -- ** Instance
-    instance_weightedCapacity,
-    instance_instanceType,
-    instance_launchConfigurationName,
     instance_launchTemplate,
+    instance_launchConfigurationName,
+    instance_instanceType,
+    instance_weightedCapacity,
     instance_instanceId,
     instance_availabilityZone,
     instance_lifecycleState,
@@ -578,105 +578,105 @@ module Amazonka.AutoScaling.Lens
     instance_protectedFromScaleIn,
 
     -- ** InstanceMetadataOptions
-    instanceMetadataOptions_httpEndpoint,
     instanceMetadataOptions_httpPutResponseHopLimit,
     instanceMetadataOptions_httpTokens,
+    instanceMetadataOptions_httpEndpoint,
 
     -- ** InstanceMonitoring
     instanceMonitoring_enabled,
 
     -- ** InstanceRefresh
-    instanceRefresh_status,
-    instanceRefresh_progressDetails,
-    instanceRefresh_startTime,
     instanceRefresh_preferences,
-    instanceRefresh_instancesToUpdate,
-    instanceRefresh_percentageComplete,
-    instanceRefresh_autoScalingGroupName,
-    instanceRefresh_endTime,
-    instanceRefresh_statusReason,
-    instanceRefresh_desiredConfiguration,
+    instanceRefresh_progressDetails,
     instanceRefresh_instanceRefreshId,
+    instanceRefresh_statusReason,
+    instanceRefresh_status,
+    instanceRefresh_endTime,
+    instanceRefresh_autoScalingGroupName,
+    instanceRefresh_desiredConfiguration,
+    instanceRefresh_percentageComplete,
+    instanceRefresh_startTime,
+    instanceRefresh_instancesToUpdate,
 
     -- ** InstanceRefreshLivePoolProgress
-    instanceRefreshLivePoolProgress_instancesToUpdate,
     instanceRefreshLivePoolProgress_percentageComplete,
+    instanceRefreshLivePoolProgress_instancesToUpdate,
 
     -- ** InstanceRefreshProgressDetails
-    instanceRefreshProgressDetails_livePoolProgress,
     instanceRefreshProgressDetails_warmPoolProgress,
+    instanceRefreshProgressDetails_livePoolProgress,
 
     -- ** InstanceRefreshWarmPoolProgress
-    instanceRefreshWarmPoolProgress_instancesToUpdate,
     instanceRefreshWarmPoolProgress_percentageComplete,
+    instanceRefreshWarmPoolProgress_instancesToUpdate,
 
     -- ** InstancesDistribution
-    instancesDistribution_spotAllocationStrategy,
+    instancesDistribution_onDemandBaseCapacity,
+    instancesDistribution_onDemandPercentageAboveBaseCapacity,
+    instancesDistribution_onDemandAllocationStrategy,
     instancesDistribution_spotInstancePools,
     instancesDistribution_spotMaxPrice,
-    instancesDistribution_onDemandBaseCapacity,
-    instancesDistribution_onDemandAllocationStrategy,
-    instancesDistribution_onDemandPercentageAboveBaseCapacity,
+    instancesDistribution_spotAllocationStrategy,
 
     -- ** LaunchConfiguration
-    launchConfiguration_associatePublicIpAddress,
-    launchConfiguration_securityGroups,
-    launchConfiguration_spotPrice,
-    launchConfiguration_instanceMonitoring,
-    launchConfiguration_keyName,
-    launchConfiguration_classicLinkVPCSecurityGroups,
-    launchConfiguration_ramdiskId,
-    launchConfiguration_kernelId,
     launchConfiguration_ebsOptimized,
-    launchConfiguration_userData,
-    launchConfiguration_classicLinkVPCId,
     launchConfiguration_iamInstanceProfile,
-    launchConfiguration_metadataOptions,
+    launchConfiguration_classicLinkVPCId,
+    launchConfiguration_userData,
+    launchConfiguration_associatePublicIpAddress,
+    launchConfiguration_blockDeviceMappings,
     launchConfiguration_launchConfigurationARN,
     launchConfiguration_placementTenancy,
-    launchConfiguration_blockDeviceMappings,
+    launchConfiguration_securityGroups,
+    launchConfiguration_ramdiskId,
+    launchConfiguration_instanceMonitoring,
+    launchConfiguration_keyName,
+    launchConfiguration_kernelId,
+    launchConfiguration_spotPrice,
+    launchConfiguration_classicLinkVPCSecurityGroups,
+    launchConfiguration_metadataOptions,
     launchConfiguration_launchConfigurationName,
     launchConfiguration_imageId,
     launchConfiguration_instanceType,
     launchConfiguration_createdTime,
 
     -- ** LaunchTemplate
-    launchTemplate_overrides,
     launchTemplate_launchTemplateSpecification,
+    launchTemplate_overrides,
 
     -- ** LaunchTemplateOverrides
-    launchTemplateOverrides_weightedCapacity,
-    launchTemplateOverrides_instanceType,
     launchTemplateOverrides_launchTemplateSpecification,
+    launchTemplateOverrides_instanceType,
+    launchTemplateOverrides_weightedCapacity,
 
     -- ** LaunchTemplateSpecification
-    launchTemplateSpecification_launchTemplateName,
     launchTemplateSpecification_launchTemplateId,
     launchTemplateSpecification_version,
+    launchTemplateSpecification_launchTemplateName,
 
     -- ** LifecycleHook
-    lifecycleHook_defaultResult,
     lifecycleHook_lifecycleHookName,
-    lifecycleHook_heartbeatTimeout,
-    lifecycleHook_autoScalingGroupName,
-    lifecycleHook_notificationMetadata,
-    lifecycleHook_globalTimeout,
-    lifecycleHook_notificationTargetARN,
-    lifecycleHook_lifecycleTransition,
     lifecycleHook_roleARN,
+    lifecycleHook_notificationMetadata,
+    lifecycleHook_defaultResult,
+    lifecycleHook_notificationTargetARN,
+    lifecycleHook_globalTimeout,
+    lifecycleHook_autoScalingGroupName,
+    lifecycleHook_lifecycleTransition,
+    lifecycleHook_heartbeatTimeout,
 
     -- ** LifecycleHookSpecification
-    lifecycleHookSpecification_defaultResult,
-    lifecycleHookSpecification_heartbeatTimeout,
-    lifecycleHookSpecification_notificationMetadata,
-    lifecycleHookSpecification_notificationTargetARN,
     lifecycleHookSpecification_roleARN,
+    lifecycleHookSpecification_notificationMetadata,
+    lifecycleHookSpecification_defaultResult,
+    lifecycleHookSpecification_notificationTargetARN,
+    lifecycleHookSpecification_heartbeatTimeout,
     lifecycleHookSpecification_lifecycleHookName,
     lifecycleHookSpecification_lifecycleTransition,
 
     -- ** LoadBalancerState
-    loadBalancerState_state,
     loadBalancerState_loadBalancerName,
+    loadBalancerState_state,
 
     -- ** LoadBalancerTargetGroupState
     loadBalancerTargetGroupState_state,
@@ -698,29 +698,29 @@ module Amazonka.AutoScaling.Lens
     metricGranularityType_granularity,
 
     -- ** MixedInstancesPolicy
-    mixedInstancesPolicy_launchTemplate,
     mixedInstancesPolicy_instancesDistribution,
+    mixedInstancesPolicy_launchTemplate,
 
     -- ** NotificationConfiguration
+    notificationConfiguration_notificationType,
     notificationConfiguration_topicARN,
     notificationConfiguration_autoScalingGroupName,
-    notificationConfiguration_notificationType,
 
     -- ** PredefinedMetricSpecification
     predefinedMetricSpecification_resourceLabel,
     predefinedMetricSpecification_predefinedMetricType,
 
     -- ** PredictiveScalingConfiguration
-    predictiveScalingConfiguration_schedulingBufferTime,
     predictiveScalingConfiguration_maxCapacityBuffer,
-    predictiveScalingConfiguration_mode,
     predictiveScalingConfiguration_maxCapacityBreachBehavior,
+    predictiveScalingConfiguration_mode,
+    predictiveScalingConfiguration_schedulingBufferTime,
     predictiveScalingConfiguration_metricSpecifications,
 
     -- ** PredictiveScalingMetricSpecification
+    predictiveScalingMetricSpecification_predefinedLoadMetricSpecification,
     predictiveScalingMetricSpecification_predefinedScalingMetricSpecification,
     predictiveScalingMetricSpecification_predefinedMetricPairSpecification,
-    predictiveScalingMetricSpecification_predefinedLoadMetricSpecification,
     predictiveScalingMetricSpecification_targetValue,
 
     -- ** PredictiveScalingPredefinedLoadMetric
@@ -739,28 +739,28 @@ module Amazonka.AutoScaling.Lens
     processType_processName,
 
     -- ** RefreshPreferences
-    refreshPreferences_minHealthyPercentage,
-    refreshPreferences_skipMatching,
     refreshPreferences_checkpointPercentages,
-    refreshPreferences_checkpointDelay,
+    refreshPreferences_skipMatching,
+    refreshPreferences_minHealthyPercentage,
     refreshPreferences_instanceWarmup,
+    refreshPreferences_checkpointDelay,
 
     -- ** ScalingPolicy
-    scalingPolicy_minAdjustmentStep,
-    scalingPolicy_estimatedInstanceWarmup,
     scalingPolicy_policyName,
-    scalingPolicy_enabled,
-    scalingPolicy_policyType,
-    scalingPolicy_stepAdjustments,
-    scalingPolicy_targetTrackingConfiguration,
-    scalingPolicy_adjustmentType,
-    scalingPolicy_autoScalingGroupName,
-    scalingPolicy_predictiveScalingConfiguration,
-    scalingPolicy_scalingAdjustment,
-    scalingPolicy_cooldown,
-    scalingPolicy_policyARN,
     scalingPolicy_alarms,
     scalingPolicy_metricAggregationType,
+    scalingPolicy_policyType,
+    scalingPolicy_cooldown,
+    scalingPolicy_adjustmentType,
+    scalingPolicy_estimatedInstanceWarmup,
+    scalingPolicy_enabled,
+    scalingPolicy_autoScalingGroupName,
+    scalingPolicy_policyARN,
+    scalingPolicy_targetTrackingConfiguration,
+    scalingPolicy_minAdjustmentStep,
+    scalingPolicy_scalingAdjustment,
+    scalingPolicy_stepAdjustments,
+    scalingPolicy_predictiveScalingConfiguration,
     scalingPolicy_minAdjustmentMagnitude,
 
     -- ** ScalingProcessQuery
@@ -768,36 +768,36 @@ module Amazonka.AutoScaling.Lens
     scalingProcessQuery_autoScalingGroupName,
 
     -- ** ScheduledUpdateGroupAction
-    scheduledUpdateGroupAction_scheduledActionARN,
-    scheduledUpdateGroupAction_startTime,
-    scheduledUpdateGroupAction_time,
-    scheduledUpdateGroupAction_scheduledActionName,
-    scheduledUpdateGroupAction_maxSize,
-    scheduledUpdateGroupAction_recurrence,
-    scheduledUpdateGroupAction_desiredCapacity,
-    scheduledUpdateGroupAction_minSize,
-    scheduledUpdateGroupAction_autoScalingGroupName,
-    scheduledUpdateGroupAction_endTime,
     scheduledUpdateGroupAction_timeZone,
+    scheduledUpdateGroupAction_time,
+    scheduledUpdateGroupAction_endTime,
+    scheduledUpdateGroupAction_scheduledActionARN,
+    scheduledUpdateGroupAction_autoScalingGroupName,
+    scheduledUpdateGroupAction_minSize,
+    scheduledUpdateGroupAction_recurrence,
+    scheduledUpdateGroupAction_maxSize,
+    scheduledUpdateGroupAction_scheduledActionName,
+    scheduledUpdateGroupAction_desiredCapacity,
+    scheduledUpdateGroupAction_startTime,
 
     -- ** ScheduledUpdateGroupActionRequest
-    scheduledUpdateGroupActionRequest_startTime,
-    scheduledUpdateGroupActionRequest_maxSize,
-    scheduledUpdateGroupActionRequest_recurrence,
-    scheduledUpdateGroupActionRequest_desiredCapacity,
-    scheduledUpdateGroupActionRequest_minSize,
-    scheduledUpdateGroupActionRequest_endTime,
     scheduledUpdateGroupActionRequest_timeZone,
+    scheduledUpdateGroupActionRequest_endTime,
+    scheduledUpdateGroupActionRequest_minSize,
+    scheduledUpdateGroupActionRequest_recurrence,
+    scheduledUpdateGroupActionRequest_maxSize,
+    scheduledUpdateGroupActionRequest_desiredCapacity,
+    scheduledUpdateGroupActionRequest_startTime,
     scheduledUpdateGroupActionRequest_scheduledActionName,
 
     -- ** StepAdjustment
-    stepAdjustment_metricIntervalLowerBound,
     stepAdjustment_metricIntervalUpperBound,
+    stepAdjustment_metricIntervalLowerBound,
     stepAdjustment_scalingAdjustment,
 
     -- ** SuspendedProcess
-    suspendedProcess_processName,
     suspendedProcess_suspensionReason,
+    suspendedProcess_processName,
 
     -- ** Tag
     tag_key,
@@ -814,16 +814,16 @@ module Amazonka.AutoScaling.Lens
     tagDescription_value,
 
     -- ** TargetTrackingConfiguration
-    targetTrackingConfiguration_predefinedMetricSpecification,
-    targetTrackingConfiguration_customizedMetricSpecification,
     targetTrackingConfiguration_disableScaleIn,
+    targetTrackingConfiguration_customizedMetricSpecification,
+    targetTrackingConfiguration_predefinedMetricSpecification,
     targetTrackingConfiguration_targetValue,
 
     -- ** WarmPoolConfiguration
+    warmPoolConfiguration_poolState,
     warmPoolConfiguration_status,
     warmPoolConfiguration_minSize,
     warmPoolConfiguration_maxGroupPreparedCapacity,
-    warmPoolConfiguration_poolState,
   )
 where
 

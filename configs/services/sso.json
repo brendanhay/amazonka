@@ -1,6 +1,12 @@
 {
     "libraryName": "amazonka-sso",
     "typeOverrides": {
+        "AccessKeyType": {
+            "replacedBy": {
+                "name": "Core.AccessKey",
+                "underive": []
+            }
+        },
         "GetRoleCredentialsResponse": {
             "requiredFields": [
                 "roleCredentials"
@@ -11,6 +17,15 @@
                 "accessKeyId",
                 "secretAccessKey"
             ]
+        },
+        "SecretAccessKeyType": {
+            "replacedBy": {
+                "name": "Core.SecretKey",
+                "underive": [
+                    "read",
+                    "show"
+                ]
+            }
         }
     }
 }

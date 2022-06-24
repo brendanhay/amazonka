@@ -27,11 +27,11 @@ module Amazonka.MigrationHubConfig.DescribeHomeRegionControls
     newDescribeHomeRegionControls,
 
     -- * Request Lenses
-    describeHomeRegionControls_nextToken,
-    describeHomeRegionControls_homeRegion,
     describeHomeRegionControls_controlId,
-    describeHomeRegionControls_maxResults,
+    describeHomeRegionControls_nextToken,
     describeHomeRegionControls_target,
+    describeHomeRegionControls_maxResults,
+    describeHomeRegionControls_homeRegion,
 
     -- * Destructuring the Response
     DescribeHomeRegionControlsResponse (..),
@@ -53,21 +53,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeHomeRegionControls' smart constructor.
 data DescribeHomeRegionControls = DescribeHomeRegionControls'
-  { -- | If a @NextToken@ was returned by a previous call, more results are
+  { -- | The @ControlID@ is a unique identifier string of your
+    -- @HomeRegionControl@ object.
+    controlId :: Prelude.Maybe Prelude.Text,
+    -- | If a @NextToken@ was returned by a previous call, more results are
     -- available. To retrieve the next page of results, make the call again
     -- using the returned token in @NextToken@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the home region you\'d like to view.
-    homeRegion :: Prelude.Maybe Prelude.Text,
-    -- | The @ControlID@ is a unique identifier string of your
-    -- @HomeRegionControl@ object.
-    controlId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of filtering results to display per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The target parameter specifies the identifier to which the home region
     -- is applied, which is always of type @ACCOUNT@. It applies the home
     -- region to the current @ACCOUNT@.
-    target :: Prelude.Maybe Target
+    target :: Prelude.Maybe Target,
+    -- | The maximum number of filtering results to display per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the home region you\'d like to view.
+    homeRegion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,31 +79,36 @@ data DescribeHomeRegionControls = DescribeHomeRegionControls'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'controlId', 'describeHomeRegionControls_controlId' - The @ControlID@ is a unique identifier string of your
+-- @HomeRegionControl@ object.
+--
 -- 'nextToken', 'describeHomeRegionControls_nextToken' - If a @NextToken@ was returned by a previous call, more results are
 -- available. To retrieve the next page of results, make the call again
 -- using the returned token in @NextToken@.
 --
--- 'homeRegion', 'describeHomeRegionControls_homeRegion' - The name of the home region you\'d like to view.
---
--- 'controlId', 'describeHomeRegionControls_controlId' - The @ControlID@ is a unique identifier string of your
--- @HomeRegionControl@ object.
---
--- 'maxResults', 'describeHomeRegionControls_maxResults' - The maximum number of filtering results to display per page.
---
 -- 'target', 'describeHomeRegionControls_target' - The target parameter specifies the identifier to which the home region
 -- is applied, which is always of type @ACCOUNT@. It applies the home
 -- region to the current @ACCOUNT@.
+--
+-- 'maxResults', 'describeHomeRegionControls_maxResults' - The maximum number of filtering results to display per page.
+--
+-- 'homeRegion', 'describeHomeRegionControls_homeRegion' - The name of the home region you\'d like to view.
 newDescribeHomeRegionControls ::
   DescribeHomeRegionControls
 newDescribeHomeRegionControls =
   DescribeHomeRegionControls'
-    { nextToken =
+    { controlId =
         Prelude.Nothing,
-      homeRegion = Prelude.Nothing,
-      controlId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      target = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      target = Prelude.Nothing
+      homeRegion = Prelude.Nothing
     }
+
+-- | The @ControlID@ is a unique identifier string of your
+-- @HomeRegionControl@ object.
+describeHomeRegionControls_controlId :: Lens.Lens' DescribeHomeRegionControls (Prelude.Maybe Prelude.Text)
+describeHomeRegionControls_controlId = Lens.lens (\DescribeHomeRegionControls' {controlId} -> controlId) (\s@DescribeHomeRegionControls' {} a -> s {controlId = a} :: DescribeHomeRegionControls)
 
 -- | If a @NextToken@ was returned by a previous call, more results are
 -- available. To retrieve the next page of results, make the call again
@@ -111,24 +116,19 @@ newDescribeHomeRegionControls =
 describeHomeRegionControls_nextToken :: Lens.Lens' DescribeHomeRegionControls (Prelude.Maybe Prelude.Text)
 describeHomeRegionControls_nextToken = Lens.lens (\DescribeHomeRegionControls' {nextToken} -> nextToken) (\s@DescribeHomeRegionControls' {} a -> s {nextToken = a} :: DescribeHomeRegionControls)
 
--- | The name of the home region you\'d like to view.
-describeHomeRegionControls_homeRegion :: Lens.Lens' DescribeHomeRegionControls (Prelude.Maybe Prelude.Text)
-describeHomeRegionControls_homeRegion = Lens.lens (\DescribeHomeRegionControls' {homeRegion} -> homeRegion) (\s@DescribeHomeRegionControls' {} a -> s {homeRegion = a} :: DescribeHomeRegionControls)
-
--- | The @ControlID@ is a unique identifier string of your
--- @HomeRegionControl@ object.
-describeHomeRegionControls_controlId :: Lens.Lens' DescribeHomeRegionControls (Prelude.Maybe Prelude.Text)
-describeHomeRegionControls_controlId = Lens.lens (\DescribeHomeRegionControls' {controlId} -> controlId) (\s@DescribeHomeRegionControls' {} a -> s {controlId = a} :: DescribeHomeRegionControls)
-
--- | The maximum number of filtering results to display per page.
-describeHomeRegionControls_maxResults :: Lens.Lens' DescribeHomeRegionControls (Prelude.Maybe Prelude.Natural)
-describeHomeRegionControls_maxResults = Lens.lens (\DescribeHomeRegionControls' {maxResults} -> maxResults) (\s@DescribeHomeRegionControls' {} a -> s {maxResults = a} :: DescribeHomeRegionControls)
-
 -- | The target parameter specifies the identifier to which the home region
 -- is applied, which is always of type @ACCOUNT@. It applies the home
 -- region to the current @ACCOUNT@.
 describeHomeRegionControls_target :: Lens.Lens' DescribeHomeRegionControls (Prelude.Maybe Target)
 describeHomeRegionControls_target = Lens.lens (\DescribeHomeRegionControls' {target} -> target) (\s@DescribeHomeRegionControls' {} a -> s {target = a} :: DescribeHomeRegionControls)
+
+-- | The maximum number of filtering results to display per page.
+describeHomeRegionControls_maxResults :: Lens.Lens' DescribeHomeRegionControls (Prelude.Maybe Prelude.Natural)
+describeHomeRegionControls_maxResults = Lens.lens (\DescribeHomeRegionControls' {maxResults} -> maxResults) (\s@DescribeHomeRegionControls' {} a -> s {maxResults = a} :: DescribeHomeRegionControls)
+
+-- | The name of the home region you\'d like to view.
+describeHomeRegionControls_homeRegion :: Lens.Lens' DescribeHomeRegionControls (Prelude.Maybe Prelude.Text)
+describeHomeRegionControls_homeRegion = Lens.lens (\DescribeHomeRegionControls' {homeRegion} -> homeRegion) (\s@DescribeHomeRegionControls' {} a -> s {homeRegion = a} :: DescribeHomeRegionControls)
 
 instance Core.AWSRequest DescribeHomeRegionControls where
   type
@@ -148,19 +148,19 @@ instance Core.AWSRequest DescribeHomeRegionControls where
 
 instance Prelude.Hashable DescribeHomeRegionControls where
   hashWithSalt _salt DescribeHomeRegionControls' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` homeRegion
-      `Prelude.hashWithSalt` controlId
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` controlId
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` homeRegion
 
 instance Prelude.NFData DescribeHomeRegionControls where
   rnf DescribeHomeRegionControls' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf controlId
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf controlId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf homeRegion
 
 instance Core.ToHeaders DescribeHomeRegionControls where
   toHeaders =
@@ -181,11 +181,11 @@ instance Core.ToJSON DescribeHomeRegionControls where
   toJSON DescribeHomeRegionControls' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("HomeRegion" Core..=) Prelude.<$> homeRegion,
-            ("ControlId" Core..=) Prelude.<$> controlId,
+          [ ("ControlId" Core..=) Prelude.<$> controlId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Target" Core..=) Prelude.<$> target,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Target" Core..=) Prelude.<$> target
+            ("HomeRegion" Core..=) Prelude.<$> homeRegion
           ]
       )
 

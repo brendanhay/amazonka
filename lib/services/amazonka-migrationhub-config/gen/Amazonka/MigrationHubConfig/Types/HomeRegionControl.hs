@@ -30,20 +30,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHomeRegionControl' smart constructor.
 data HomeRegionControl = HomeRegionControl'
-  { -- | A timestamp representing the time when the customer called
-    -- @CreateHomeregionControl@ and set the home region for the account.
-    requestedTime :: Prelude.Maybe Core.POSIX,
-    -- | The AWS Region that\'s been set as home region. For example,
-    -- \"us-west-2\" or \"eu-central-1\" are valid home regions.
-    homeRegion :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier that\'s generated for each home region control.
+  { -- | A unique identifier that\'s generated for each home region control.
     -- It\'s always a string that begins with \"hrc-\" followed by 12 lowercase
     -- letters and numbers.
     controlId :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp representing the time when the customer called
+    -- @CreateHomeregionControl@ and set the home region for the account.
+    requestedTime :: Prelude.Maybe Core.POSIX,
     -- | The target parameter specifies the identifier to which the home region
     -- is applied, which is always an @ACCOUNT@. It applies the home region to
     -- the current @ACCOUNT@.
-    target :: Prelude.Maybe Target
+    target :: Prelude.Maybe Target,
+    -- | The AWS Region that\'s been set as home region. For example,
+    -- \"us-west-2\" or \"eu-central-1\" are valid home regions.
+    homeRegion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,38 +55,28 @@ data HomeRegionControl = HomeRegionControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestedTime', 'homeRegionControl_requestedTime' - A timestamp representing the time when the customer called
--- @CreateHomeregionControl@ and set the home region for the account.
---
--- 'homeRegion', 'homeRegionControl_homeRegion' - The AWS Region that\'s been set as home region. For example,
--- \"us-west-2\" or \"eu-central-1\" are valid home regions.
---
 -- 'controlId', 'homeRegionControl_controlId' - A unique identifier that\'s generated for each home region control.
 -- It\'s always a string that begins with \"hrc-\" followed by 12 lowercase
 -- letters and numbers.
 --
+-- 'requestedTime', 'homeRegionControl_requestedTime' - A timestamp representing the time when the customer called
+-- @CreateHomeregionControl@ and set the home region for the account.
+--
 -- 'target', 'homeRegionControl_target' - The target parameter specifies the identifier to which the home region
 -- is applied, which is always an @ACCOUNT@. It applies the home region to
 -- the current @ACCOUNT@.
+--
+-- 'homeRegion', 'homeRegionControl_homeRegion' - The AWS Region that\'s been set as home region. For example,
+-- \"us-west-2\" or \"eu-central-1\" are valid home regions.
 newHomeRegionControl ::
   HomeRegionControl
 newHomeRegionControl =
   HomeRegionControl'
-    { requestedTime = Prelude.Nothing,
-      homeRegion = Prelude.Nothing,
-      controlId = Prelude.Nothing,
-      target = Prelude.Nothing
+    { controlId = Prelude.Nothing,
+      requestedTime = Prelude.Nothing,
+      target = Prelude.Nothing,
+      homeRegion = Prelude.Nothing
     }
-
--- | A timestamp representing the time when the customer called
--- @CreateHomeregionControl@ and set the home region for the account.
-homeRegionControl_requestedTime :: Lens.Lens' HomeRegionControl (Prelude.Maybe Prelude.UTCTime)
-homeRegionControl_requestedTime = Lens.lens (\HomeRegionControl' {requestedTime} -> requestedTime) (\s@HomeRegionControl' {} a -> s {requestedTime = a} :: HomeRegionControl) Prelude.. Lens.mapping Core._Time
-
--- | The AWS Region that\'s been set as home region. For example,
--- \"us-west-2\" or \"eu-central-1\" are valid home regions.
-homeRegionControl_homeRegion :: Lens.Lens' HomeRegionControl (Prelude.Maybe Prelude.Text)
-homeRegionControl_homeRegion = Lens.lens (\HomeRegionControl' {homeRegion} -> homeRegion) (\s@HomeRegionControl' {} a -> s {homeRegion = a} :: HomeRegionControl)
 
 -- | A unique identifier that\'s generated for each home region control.
 -- It\'s always a string that begins with \"hrc-\" followed by 12 lowercase
@@ -94,11 +84,21 @@ homeRegionControl_homeRegion = Lens.lens (\HomeRegionControl' {homeRegion} -> ho
 homeRegionControl_controlId :: Lens.Lens' HomeRegionControl (Prelude.Maybe Prelude.Text)
 homeRegionControl_controlId = Lens.lens (\HomeRegionControl' {controlId} -> controlId) (\s@HomeRegionControl' {} a -> s {controlId = a} :: HomeRegionControl)
 
+-- | A timestamp representing the time when the customer called
+-- @CreateHomeregionControl@ and set the home region for the account.
+homeRegionControl_requestedTime :: Lens.Lens' HomeRegionControl (Prelude.Maybe Prelude.UTCTime)
+homeRegionControl_requestedTime = Lens.lens (\HomeRegionControl' {requestedTime} -> requestedTime) (\s@HomeRegionControl' {} a -> s {requestedTime = a} :: HomeRegionControl) Prelude.. Lens.mapping Core._Time
+
 -- | The target parameter specifies the identifier to which the home region
 -- is applied, which is always an @ACCOUNT@. It applies the home region to
 -- the current @ACCOUNT@.
 homeRegionControl_target :: Lens.Lens' HomeRegionControl (Prelude.Maybe Target)
 homeRegionControl_target = Lens.lens (\HomeRegionControl' {target} -> target) (\s@HomeRegionControl' {} a -> s {target = a} :: HomeRegionControl)
+
+-- | The AWS Region that\'s been set as home region. For example,
+-- \"us-west-2\" or \"eu-central-1\" are valid home regions.
+homeRegionControl_homeRegion :: Lens.Lens' HomeRegionControl (Prelude.Maybe Prelude.Text)
+homeRegionControl_homeRegion = Lens.lens (\HomeRegionControl' {homeRegion} -> homeRegion) (\s@HomeRegionControl' {} a -> s {homeRegion = a} :: HomeRegionControl)
 
 instance Core.FromJSON HomeRegionControl where
   parseJSON =
@@ -106,22 +106,22 @@ instance Core.FromJSON HomeRegionControl where
       "HomeRegionControl"
       ( \x ->
           HomeRegionControl'
-            Prelude.<$> (x Core..:? "RequestedTime")
-            Prelude.<*> (x Core..:? "HomeRegion")
-            Prelude.<*> (x Core..:? "ControlId")
+            Prelude.<$> (x Core..:? "ControlId")
+            Prelude.<*> (x Core..:? "RequestedTime")
             Prelude.<*> (x Core..:? "Target")
+            Prelude.<*> (x Core..:? "HomeRegion")
       )
 
 instance Prelude.Hashable HomeRegionControl where
   hashWithSalt _salt HomeRegionControl' {..} =
-    _salt `Prelude.hashWithSalt` requestedTime
-      `Prelude.hashWithSalt` homeRegion
-      `Prelude.hashWithSalt` controlId
+    _salt `Prelude.hashWithSalt` controlId
+      `Prelude.hashWithSalt` requestedTime
       `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` homeRegion
 
 instance Prelude.NFData HomeRegionControl where
   rnf HomeRegionControl' {..} =
-    Prelude.rnf requestedTime
-      `Prelude.seq` Prelude.rnf homeRegion
-      `Prelude.seq` Prelude.rnf controlId
+    Prelude.rnf controlId
+      `Prelude.seq` Prelude.rnf requestedTime
       `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf homeRegion

@@ -14,10 +14,6 @@
 module Amazonka.MigrationHubConfig.Lens
   ( -- * Operations
 
-    -- ** GetHomeRegion
-    getHomeRegionResponse_homeRegion,
-    getHomeRegionResponse_httpStatus,
-
     -- ** CreateHomeRegionControl
     createHomeRegionControl_dryRun,
     createHomeRegionControl_homeRegion,
@@ -26,22 +22,26 @@ module Amazonka.MigrationHubConfig.Lens
     createHomeRegionControlResponse_httpStatus,
 
     -- ** DescribeHomeRegionControls
-    describeHomeRegionControls_nextToken,
-    describeHomeRegionControls_homeRegion,
     describeHomeRegionControls_controlId,
-    describeHomeRegionControls_maxResults,
+    describeHomeRegionControls_nextToken,
     describeHomeRegionControls_target,
+    describeHomeRegionControls_maxResults,
+    describeHomeRegionControls_homeRegion,
     describeHomeRegionControlsResponse_nextToken,
     describeHomeRegionControlsResponse_homeRegionControls,
     describeHomeRegionControlsResponse_httpStatus,
 
+    -- ** GetHomeRegion
+    getHomeRegionResponse_homeRegion,
+    getHomeRegionResponse_httpStatus,
+
     -- * Types
 
     -- ** HomeRegionControl
-    homeRegionControl_requestedTime,
-    homeRegionControl_homeRegion,
     homeRegionControl_controlId,
+    homeRegionControl_requestedTime,
     homeRegionControl_target,
+    homeRegionControl_homeRegion,
 
     -- ** Target
     target_id,

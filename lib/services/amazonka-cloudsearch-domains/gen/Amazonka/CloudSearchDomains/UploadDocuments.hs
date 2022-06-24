@@ -60,8 +60,8 @@ module Amazonka.CloudSearchDomains.UploadDocuments
     newUploadDocumentsResponse,
 
     -- * Response Lenses
-    uploadDocumentsResponse_status,
     uploadDocumentsResponse_adds,
+    uploadDocumentsResponse_status,
     uploadDocumentsResponse_warnings,
     uploadDocumentsResponse_deletes,
     uploadDocumentsResponse_httpStatus,
@@ -138,8 +138,8 @@ instance Core.AWSRequest UploadDocuments where
     Response.receiveJSON
       ( \s h x ->
           UploadDocumentsResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "adds")
+            Prelude.<$> (x Core..?> "adds")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "deletes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -164,10 +164,10 @@ instance Core.ToQuery UploadDocuments where
 --
 -- /See:/ 'newUploadDocumentsResponse' smart constructor.
 data UploadDocumentsResponse = UploadDocumentsResponse'
-  { -- | The status of an @UploadDocumentsRequest@.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The number of documents that were added to the search domain.
+  { -- | The number of documents that were added to the search domain.
     adds :: Prelude.Maybe Prelude.Integer,
+    -- | The status of an @UploadDocumentsRequest@.
+    status :: Prelude.Maybe Prelude.Text,
     -- | Any warnings returned by the document service about the documents being
     -- uploaded.
     warnings :: Prelude.Maybe [DocumentServiceWarning],
@@ -186,9 +186,9 @@ data UploadDocumentsResponse = UploadDocumentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'uploadDocumentsResponse_status' - The status of an @UploadDocumentsRequest@.
---
 -- 'adds', 'uploadDocumentsResponse_adds' - The number of documents that were added to the search domain.
+--
+-- 'status', 'uploadDocumentsResponse_status' - The status of an @UploadDocumentsRequest@.
 --
 -- 'warnings', 'uploadDocumentsResponse_warnings' - Any warnings returned by the document service about the documents being
 -- uploaded.
@@ -202,20 +202,20 @@ newUploadDocumentsResponse ::
   UploadDocumentsResponse
 newUploadDocumentsResponse pHttpStatus_ =
   UploadDocumentsResponse'
-    { status = Prelude.Nothing,
-      adds = Prelude.Nothing,
+    { adds = Prelude.Nothing,
+      status = Prelude.Nothing,
       warnings = Prelude.Nothing,
       deletes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The status of an @UploadDocumentsRequest@.
-uploadDocumentsResponse_status :: Lens.Lens' UploadDocumentsResponse (Prelude.Maybe Prelude.Text)
-uploadDocumentsResponse_status = Lens.lens (\UploadDocumentsResponse' {status} -> status) (\s@UploadDocumentsResponse' {} a -> s {status = a} :: UploadDocumentsResponse)
-
 -- | The number of documents that were added to the search domain.
 uploadDocumentsResponse_adds :: Lens.Lens' UploadDocumentsResponse (Prelude.Maybe Prelude.Integer)
 uploadDocumentsResponse_adds = Lens.lens (\UploadDocumentsResponse' {adds} -> adds) (\s@UploadDocumentsResponse' {} a -> s {adds = a} :: UploadDocumentsResponse)
+
+-- | The status of an @UploadDocumentsRequest@.
+uploadDocumentsResponse_status :: Lens.Lens' UploadDocumentsResponse (Prelude.Maybe Prelude.Text)
+uploadDocumentsResponse_status = Lens.lens (\UploadDocumentsResponse' {status} -> status) (\s@UploadDocumentsResponse' {} a -> s {status = a} :: UploadDocumentsResponse)
 
 -- | Any warnings returned by the document service about the documents being
 -- uploaded.
@@ -232,8 +232,8 @@ uploadDocumentsResponse_httpStatus = Lens.lens (\UploadDocumentsResponse' {httpS
 
 instance Prelude.NFData UploadDocumentsResponse where
   rnf UploadDocumentsResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf adds
+    Prelude.rnf adds
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf warnings
       `Prelude.seq` Prelude.rnf deletes
       `Prelude.seq` Prelude.rnf httpStatus

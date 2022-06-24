@@ -14,6 +14,27 @@
 module Amazonka.CloudSearchDomains.Lens
   ( -- * Operations
 
+    -- ** Search
+    search_filterQuery,
+    search_queryParser,
+    search_start,
+    search_return,
+    search_cursor,
+    search_size,
+    search_stats,
+    search_facet,
+    search_sort,
+    search_queryOptions,
+    search_partial,
+    search_highlight,
+    search_expr,
+    search_query,
+    searchResponse_facets,
+    searchResponse_stats,
+    searchResponse_hits,
+    searchResponse_status,
+    searchResponse_httpStatus,
+
     -- ** Suggest
     suggest_size,
     suggest_query,
@@ -25,38 +46,17 @@ module Amazonka.CloudSearchDomains.Lens
     -- ** UploadDocuments
     uploadDocuments_contentType,
     uploadDocuments_documents,
-    uploadDocumentsResponse_status,
     uploadDocumentsResponse_adds,
+    uploadDocumentsResponse_status,
     uploadDocumentsResponse_warnings,
     uploadDocumentsResponse_deletes,
     uploadDocumentsResponse_httpStatus,
 
-    -- ** Search
-    search_expr,
-    search_cursor,
-    search_return,
-    search_queryOptions,
-    search_filterQuery,
-    search_size,
-    search_queryParser,
-    search_start,
-    search_highlight,
-    search_stats,
-    search_sort,
-    search_facet,
-    search_partial,
-    search_query,
-    searchResponse_status,
-    searchResponse_facets,
-    searchResponse_stats,
-    searchResponse_hits,
-    searchResponse_httpStatus,
-
     -- * Types
 
     -- ** Bucket
-    bucket_value,
     bucket_count,
+    bucket_value,
 
     -- ** BucketInfo
     bucketInfo_buckets,
@@ -65,39 +65,39 @@ module Amazonka.CloudSearchDomains.Lens
     documentServiceWarning_message,
 
     -- ** FieldStats
-    fieldStats_max,
-    fieldStats_mean,
-    fieldStats_count,
     fieldStats_missing,
-    fieldStats_stddev,
-    fieldStats_min,
+    fieldStats_max,
     fieldStats_sumOfSquares,
+    fieldStats_count,
+    fieldStats_min,
+    fieldStats_stddev,
     fieldStats_sum,
+    fieldStats_mean,
 
     -- ** Hit
     hit_exprs,
-    hit_id,
     hit_highlights,
     hit_fields,
+    hit_id,
 
     -- ** Hits
-    hits_cursor,
-    hits_hit,
     hits_start,
+    hits_hit,
+    hits_cursor,
     hits_found,
 
     -- ** SearchStatus
-    searchStatus_rid,
     searchStatus_timems,
+    searchStatus_rid,
 
     -- ** SuggestModel
     suggestModel_found,
-    suggestModel_suggestions,
     suggestModel_query,
+    suggestModel_suggestions,
 
     -- ** SuggestStatus
-    suggestStatus_rid,
     suggestStatus_timems,
+    suggestStatus_rid,
 
     -- ** SuggestionMatch
     suggestionMatch_suggestion,

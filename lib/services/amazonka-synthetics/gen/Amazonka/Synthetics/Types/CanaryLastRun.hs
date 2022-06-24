@@ -29,10 +29,10 @@ import Amazonka.Synthetics.Types.CanaryRun
 --
 -- /See:/ 'newCanaryLastRun' smart constructor.
 data CanaryLastRun = CanaryLastRun'
-  { -- | The name of the canary.
-    canaryName :: Prelude.Maybe Prelude.Text,
-    -- | The results from this canary\'s most recent run.
-    lastRun :: Prelude.Maybe CanaryRun
+  { -- | The results from this canary\'s most recent run.
+    lastRun :: Prelude.Maybe CanaryRun,
+    -- | The name of the canary.
+    canaryName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data CanaryLastRun = CanaryLastRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'canaryName', 'canaryLastRun_canaryName' - The name of the canary.
---
 -- 'lastRun', 'canaryLastRun_lastRun' - The results from this canary\'s most recent run.
+--
+-- 'canaryName', 'canaryLastRun_canaryName' - The name of the canary.
 newCanaryLastRun ::
   CanaryLastRun
 newCanaryLastRun =
   CanaryLastRun'
-    { canaryName = Prelude.Nothing,
-      lastRun = Prelude.Nothing
+    { lastRun = Prelude.Nothing,
+      canaryName = Prelude.Nothing
     }
-
--- | The name of the canary.
-canaryLastRun_canaryName :: Lens.Lens' CanaryLastRun (Prelude.Maybe Prelude.Text)
-canaryLastRun_canaryName = Lens.lens (\CanaryLastRun' {canaryName} -> canaryName) (\s@CanaryLastRun' {} a -> s {canaryName = a} :: CanaryLastRun)
 
 -- | The results from this canary\'s most recent run.
 canaryLastRun_lastRun :: Lens.Lens' CanaryLastRun (Prelude.Maybe CanaryRun)
 canaryLastRun_lastRun = Lens.lens (\CanaryLastRun' {lastRun} -> lastRun) (\s@CanaryLastRun' {} a -> s {lastRun = a} :: CanaryLastRun)
+
+-- | The name of the canary.
+canaryLastRun_canaryName :: Lens.Lens' CanaryLastRun (Prelude.Maybe Prelude.Text)
+canaryLastRun_canaryName = Lens.lens (\CanaryLastRun' {canaryName} -> canaryName) (\s@CanaryLastRun' {} a -> s {canaryName = a} :: CanaryLastRun)
 
 instance Core.FromJSON CanaryLastRun where
   parseJSON =
@@ -69,16 +69,16 @@ instance Core.FromJSON CanaryLastRun where
       "CanaryLastRun"
       ( \x ->
           CanaryLastRun'
-            Prelude.<$> (x Core..:? "CanaryName")
-            Prelude.<*> (x Core..:? "LastRun")
+            Prelude.<$> (x Core..:? "LastRun")
+            Prelude.<*> (x Core..:? "CanaryName")
       )
 
 instance Prelude.Hashable CanaryLastRun where
   hashWithSalt _salt CanaryLastRun' {..} =
-    _salt `Prelude.hashWithSalt` canaryName
-      `Prelude.hashWithSalt` lastRun
+    _salt `Prelude.hashWithSalt` lastRun
+      `Prelude.hashWithSalt` canaryName
 
 instance Prelude.NFData CanaryLastRun where
   rnf CanaryLastRun' {..} =
-    Prelude.rnf canaryName
-      `Prelude.seq` Prelude.rnf lastRun
+    Prelude.rnf lastRun
+      `Prelude.seq` Prelude.rnf canaryName

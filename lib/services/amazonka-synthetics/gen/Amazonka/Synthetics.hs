@@ -35,17 +35,17 @@ module Amazonka.Synthetics
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -53,11 +53,11 @@ module Amazonka.Synthetics
     -- * Operations
     -- $operations
 
-    -- ** UpdateCanary
-    UpdateCanary (UpdateCanary'),
-    newUpdateCanary,
-    UpdateCanaryResponse (UpdateCanaryResponse'),
-    newUpdateCanaryResponse,
+    -- ** CreateCanary
+    CreateCanary (CreateCanary'),
+    newCreateCanary,
+    CreateCanaryResponse (CreateCanaryResponse'),
+    newCreateCanaryResponse,
 
     -- ** DeleteCanary
     DeleteCanary (DeleteCanary'),
@@ -65,35 +65,11 @@ module Amazonka.Synthetics
     DeleteCanaryResponse (DeleteCanaryResponse'),
     newDeleteCanaryResponse,
 
-    -- ** CreateCanary
-    CreateCanary (CreateCanary'),
-    newCreateCanary,
-    CreateCanaryResponse (CreateCanaryResponse'),
-    newCreateCanaryResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** GetCanaryRuns
-    GetCanaryRuns (GetCanaryRuns'),
-    newGetCanaryRuns,
-    GetCanaryRunsResponse (GetCanaryRunsResponse'),
-    newGetCanaryRunsResponse,
-
-    -- ** GetCanary
-    GetCanary (GetCanary'),
-    newGetCanary,
-    GetCanaryResponse (GetCanaryResponse'),
-    newGetCanaryResponse,
-
-    -- ** DescribeRuntimeVersions
-    DescribeRuntimeVersions (DescribeRuntimeVersions'),
-    newDescribeRuntimeVersions,
-    DescribeRuntimeVersionsResponse (DescribeRuntimeVersionsResponse'),
-    newDescribeRuntimeVersionsResponse,
+    -- ** DescribeCanaries
+    DescribeCanaries (DescribeCanaries'),
+    newDescribeCanaries,
+    DescribeCanariesResponse (DescribeCanariesResponse'),
+    newDescribeCanariesResponse,
 
     -- ** DescribeCanariesLastRun
     DescribeCanariesLastRun (DescribeCanariesLastRun'),
@@ -101,17 +77,41 @@ module Amazonka.Synthetics
     DescribeCanariesLastRunResponse (DescribeCanariesLastRunResponse'),
     newDescribeCanariesLastRunResponse,
 
+    -- ** DescribeRuntimeVersions
+    DescribeRuntimeVersions (DescribeRuntimeVersions'),
+    newDescribeRuntimeVersions,
+    DescribeRuntimeVersionsResponse (DescribeRuntimeVersionsResponse'),
+    newDescribeRuntimeVersionsResponse,
+
+    -- ** GetCanary
+    GetCanary (GetCanary'),
+    newGetCanary,
+    GetCanaryResponse (GetCanaryResponse'),
+    newGetCanaryResponse,
+
+    -- ** GetCanaryRuns
+    GetCanaryRuns (GetCanaryRuns'),
+    newGetCanaryRuns,
+    GetCanaryRunsResponse (GetCanaryRunsResponse'),
+    newGetCanaryRunsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** StartCanary
     StartCanary (StartCanary'),
     newStartCanary,
     StartCanaryResponse (StartCanaryResponse'),
     newStartCanaryResponse,
 
-    -- ** DescribeCanaries
-    DescribeCanaries (DescribeCanaries'),
-    newDescribeCanaries,
-    DescribeCanariesResponse (DescribeCanariesResponse'),
-    newDescribeCanariesResponse,
+    -- ** StopCanary
+    StopCanary (StopCanary'),
+    newStopCanary,
+    StopCanaryResponse (StopCanaryResponse'),
+    newStopCanaryResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -125,11 +125,11 @@ module Amazonka.Synthetics
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** StopCanary
-    StopCanary (StopCanary'),
-    newStopCanary,
-    StopCanaryResponse (StopCanaryResponse'),
-    newStopCanaryResponse,
+    -- ** UpdateCanary
+    UpdateCanary (UpdateCanary'),
+    newUpdateCanary,
+    UpdateCanaryResponse (UpdateCanaryResponse'),
+    newUpdateCanaryResponse,
 
     -- * Types
 

@@ -31,11 +31,11 @@ import Amazonka.Synthetics.Types.CanaryStateReasonCode
 data CanaryStatus = CanaryStatus'
   { -- | The current state of the canary.
     state :: Prelude.Maybe CanaryState,
+    -- | If the canary cannot run or has failed, this field displays the reason.
+    stateReasonCode :: Prelude.Maybe CanaryStateReasonCode,
     -- | If the canary has insufficient permissions to run, this field provides
     -- more details.
-    stateReason :: Prelude.Maybe Prelude.Text,
-    -- | If the canary cannot run or has failed, this field displays the reason.
-    stateReasonCode :: Prelude.Maybe CanaryStateReasonCode
+    stateReason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,31 +49,31 @@ data CanaryStatus = CanaryStatus'
 --
 -- 'state', 'canaryStatus_state' - The current state of the canary.
 --
+-- 'stateReasonCode', 'canaryStatus_stateReasonCode' - If the canary cannot run or has failed, this field displays the reason.
+--
 -- 'stateReason', 'canaryStatus_stateReason' - If the canary has insufficient permissions to run, this field provides
 -- more details.
---
--- 'stateReasonCode', 'canaryStatus_stateReasonCode' - If the canary cannot run or has failed, this field displays the reason.
 newCanaryStatus ::
   CanaryStatus
 newCanaryStatus =
   CanaryStatus'
     { state = Prelude.Nothing,
-      stateReason = Prelude.Nothing,
-      stateReasonCode = Prelude.Nothing
+      stateReasonCode = Prelude.Nothing,
+      stateReason = Prelude.Nothing
     }
 
 -- | The current state of the canary.
 canaryStatus_state :: Lens.Lens' CanaryStatus (Prelude.Maybe CanaryState)
 canaryStatus_state = Lens.lens (\CanaryStatus' {state} -> state) (\s@CanaryStatus' {} a -> s {state = a} :: CanaryStatus)
 
+-- | If the canary cannot run or has failed, this field displays the reason.
+canaryStatus_stateReasonCode :: Lens.Lens' CanaryStatus (Prelude.Maybe CanaryStateReasonCode)
+canaryStatus_stateReasonCode = Lens.lens (\CanaryStatus' {stateReasonCode} -> stateReasonCode) (\s@CanaryStatus' {} a -> s {stateReasonCode = a} :: CanaryStatus)
+
 -- | If the canary has insufficient permissions to run, this field provides
 -- more details.
 canaryStatus_stateReason :: Lens.Lens' CanaryStatus (Prelude.Maybe Prelude.Text)
 canaryStatus_stateReason = Lens.lens (\CanaryStatus' {stateReason} -> stateReason) (\s@CanaryStatus' {} a -> s {stateReason = a} :: CanaryStatus)
-
--- | If the canary cannot run or has failed, this field displays the reason.
-canaryStatus_stateReasonCode :: Lens.Lens' CanaryStatus (Prelude.Maybe CanaryStateReasonCode)
-canaryStatus_stateReasonCode = Lens.lens (\CanaryStatus' {stateReasonCode} -> stateReasonCode) (\s@CanaryStatus' {} a -> s {stateReasonCode = a} :: CanaryStatus)
 
 instance Core.FromJSON CanaryStatus where
   parseJSON =
@@ -82,18 +82,18 @@ instance Core.FromJSON CanaryStatus where
       ( \x ->
           CanaryStatus'
             Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "StateReason")
             Prelude.<*> (x Core..:? "StateReasonCode")
+            Prelude.<*> (x Core..:? "StateReason")
       )
 
 instance Prelude.Hashable CanaryStatus where
   hashWithSalt _salt CanaryStatus' {..} =
     _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` stateReason
       `Prelude.hashWithSalt` stateReasonCode
+      `Prelude.hashWithSalt` stateReason
 
 instance Prelude.NFData CanaryStatus where
   rnf CanaryStatus' {..} =
     Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
       `Prelude.seq` Prelude.rnf stateReasonCode
+      `Prelude.seq` Prelude.rnf stateReason

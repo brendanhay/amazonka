@@ -37,8 +37,8 @@ module Amazonka.Synthetics.DescribeRuntimeVersions
     newDescribeRuntimeVersionsResponse,
 
     -- * Response Lenses
-    describeRuntimeVersionsResponse_runtimeVersions,
     describeRuntimeVersionsResponse_nextToken,
+    describeRuntimeVersionsResponse_runtimeVersions,
     describeRuntimeVersionsResponse_httpStatus,
   )
 where
@@ -108,10 +108,10 @@ instance Core.AWSRequest DescribeRuntimeVersions where
     Response.receiveJSON
       ( \s h x ->
           DescribeRuntimeVersionsResponse'
-            Prelude.<$> ( x Core..?> "RuntimeVersions"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "RuntimeVersions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,13 +153,13 @@ instance Core.ToQuery DescribeRuntimeVersions where
 
 -- | /See:/ 'newDescribeRuntimeVersionsResponse' smart constructor.
 data DescribeRuntimeVersionsResponse = DescribeRuntimeVersionsResponse'
-  { -- | An array of objects that display the details about each Synthetics
-    -- canary runtime version.
-    runtimeVersions :: Prelude.Maybe [RuntimeVersion],
-    -- | A token that indicates that there is more data available. You can use
+  { -- | A token that indicates that there is more data available. You can use
     -- this token in a subsequent @DescribeRuntimeVersions@ operation to
     -- retrieve the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that display the details about each Synthetics
+    -- canary runtime version.
+    runtimeVersions :: Prelude.Maybe [RuntimeVersion],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,12 +173,12 @@ data DescribeRuntimeVersionsResponse = DescribeRuntimeVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'runtimeVersions', 'describeRuntimeVersionsResponse_runtimeVersions' - An array of objects that display the details about each Synthetics
--- canary runtime version.
---
 -- 'nextToken', 'describeRuntimeVersionsResponse_nextToken' - A token that indicates that there is more data available. You can use
 -- this token in a subsequent @DescribeRuntimeVersions@ operation to
 -- retrieve the next set of results.
+--
+-- 'runtimeVersions', 'describeRuntimeVersionsResponse_runtimeVersions' - An array of objects that display the details about each Synthetics
+-- canary runtime version.
 --
 -- 'httpStatus', 'describeRuntimeVersionsResponse_httpStatus' - The response's http status code.
 newDescribeRuntimeVersionsResponse ::
@@ -187,22 +187,22 @@ newDescribeRuntimeVersionsResponse ::
   DescribeRuntimeVersionsResponse
 newDescribeRuntimeVersionsResponse pHttpStatus_ =
   DescribeRuntimeVersionsResponse'
-    { runtimeVersions =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      runtimeVersions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects that display the details about each Synthetics
--- canary runtime version.
-describeRuntimeVersionsResponse_runtimeVersions :: Lens.Lens' DescribeRuntimeVersionsResponse (Prelude.Maybe [RuntimeVersion])
-describeRuntimeVersionsResponse_runtimeVersions = Lens.lens (\DescribeRuntimeVersionsResponse' {runtimeVersions} -> runtimeVersions) (\s@DescribeRuntimeVersionsResponse' {} a -> s {runtimeVersions = a} :: DescribeRuntimeVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates that there is more data available. You can use
 -- this token in a subsequent @DescribeRuntimeVersions@ operation to
 -- retrieve the next set of results.
 describeRuntimeVersionsResponse_nextToken :: Lens.Lens' DescribeRuntimeVersionsResponse (Prelude.Maybe Prelude.Text)
 describeRuntimeVersionsResponse_nextToken = Lens.lens (\DescribeRuntimeVersionsResponse' {nextToken} -> nextToken) (\s@DescribeRuntimeVersionsResponse' {} a -> s {nextToken = a} :: DescribeRuntimeVersionsResponse)
+
+-- | An array of objects that display the details about each Synthetics
+-- canary runtime version.
+describeRuntimeVersionsResponse_runtimeVersions :: Lens.Lens' DescribeRuntimeVersionsResponse (Prelude.Maybe [RuntimeVersion])
+describeRuntimeVersionsResponse_runtimeVersions = Lens.lens (\DescribeRuntimeVersionsResponse' {runtimeVersions} -> runtimeVersions) (\s@DescribeRuntimeVersionsResponse' {} a -> s {runtimeVersions = a} :: DescribeRuntimeVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeRuntimeVersionsResponse_httpStatus :: Lens.Lens' DescribeRuntimeVersionsResponse Prelude.Int
@@ -213,6 +213,6 @@ instance
     DescribeRuntimeVersionsResponse
   where
   rnf DescribeRuntimeVersionsResponse' {..} =
-    Prelude.rnf runtimeVersions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf runtimeVersions
       `Prelude.seq` Prelude.rnf httpStatus

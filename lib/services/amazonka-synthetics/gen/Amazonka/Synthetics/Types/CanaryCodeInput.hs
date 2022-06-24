@@ -32,19 +32,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCanaryCodeInput' smart constructor.
 data CanaryCodeInput = CanaryCodeInput'
-  { -- | The S3 key of your script. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html Working with Amazon S3 Objects>.
-    s3Key :: Prelude.Maybe Prelude.Text,
+  { -- | If your canary script is located in S3, specify the bucket name here. Do
+    -- not include @s3:\/\/@ as the start of the bucket name.
+    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The S3 version ID of your script.
     s3Version :: Prelude.Maybe Prelude.Text,
+    -- | The S3 key of your script. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html Working with Amazon S3 Objects>.
+    s3Key :: Prelude.Maybe Prelude.Text,
     -- | If you input your canary script directly into the canary instead of
     -- referring to an S3 location, the value of this parameter is the
     -- base64-encoded contents of the .zip file that contains the script. It
     -- must be smaller than 256 Kb.
     zipFile :: Prelude.Maybe Core.Base64,
-    -- | If your canary script is located in S3, specify the bucket name here. Do
-    -- not include @s3:\/\/@ as the start of the bucket name.
-    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The entry point to use for the source code when running the canary. This
     -- value must end with the string @.handler@. The string is limited to 29
     -- characters or fewer.
@@ -60,10 +60,13 @@ data CanaryCodeInput = CanaryCodeInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Key', 'canaryCodeInput_s3Key' - The S3 key of your script. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html Working with Amazon S3 Objects>.
+-- 's3Bucket', 'canaryCodeInput_s3Bucket' - If your canary script is located in S3, specify the bucket name here. Do
+-- not include @s3:\/\/@ as the start of the bucket name.
 --
 -- 's3Version', 'canaryCodeInput_s3Version' - The S3 version ID of your script.
+--
+-- 's3Key', 'canaryCodeInput_s3Key' - The S3 key of your script. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html Working with Amazon S3 Objects>.
 --
 -- 'zipFile', 'canaryCodeInput_zipFile' - If you input your canary script directly into the canary instead of
 -- referring to an S3 location, the value of this parameter is the
@@ -74,9 +77,6 @@ data CanaryCodeInput = CanaryCodeInput'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 's3Bucket', 'canaryCodeInput_s3Bucket' - If your canary script is located in S3, specify the bucket name here. Do
--- not include @s3:\/\/@ as the start of the bucket name.
---
 -- 'handler', 'canaryCodeInput_handler' - The entry point to use for the source code when running the canary. This
 -- value must end with the string @.handler@. The string is limited to 29
 -- characters or fewer.
@@ -86,21 +86,26 @@ newCanaryCodeInput ::
   CanaryCodeInput
 newCanaryCodeInput pHandler_ =
   CanaryCodeInput'
-    { s3Key = Prelude.Nothing,
+    { s3Bucket = Prelude.Nothing,
       s3Version = Prelude.Nothing,
+      s3Key = Prelude.Nothing,
       zipFile = Prelude.Nothing,
-      s3Bucket = Prelude.Nothing,
       handler = pHandler_
     }
+
+-- | If your canary script is located in S3, specify the bucket name here. Do
+-- not include @s3:\/\/@ as the start of the bucket name.
+canaryCodeInput_s3Bucket :: Lens.Lens' CanaryCodeInput (Prelude.Maybe Prelude.Text)
+canaryCodeInput_s3Bucket = Lens.lens (\CanaryCodeInput' {s3Bucket} -> s3Bucket) (\s@CanaryCodeInput' {} a -> s {s3Bucket = a} :: CanaryCodeInput)
+
+-- | The S3 version ID of your script.
+canaryCodeInput_s3Version :: Lens.Lens' CanaryCodeInput (Prelude.Maybe Prelude.Text)
+canaryCodeInput_s3Version = Lens.lens (\CanaryCodeInput' {s3Version} -> s3Version) (\s@CanaryCodeInput' {} a -> s {s3Version = a} :: CanaryCodeInput)
 
 -- | The S3 key of your script. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html Working with Amazon S3 Objects>.
 canaryCodeInput_s3Key :: Lens.Lens' CanaryCodeInput (Prelude.Maybe Prelude.Text)
 canaryCodeInput_s3Key = Lens.lens (\CanaryCodeInput' {s3Key} -> s3Key) (\s@CanaryCodeInput' {} a -> s {s3Key = a} :: CanaryCodeInput)
-
--- | The S3 version ID of your script.
-canaryCodeInput_s3Version :: Lens.Lens' CanaryCodeInput (Prelude.Maybe Prelude.Text)
-canaryCodeInput_s3Version = Lens.lens (\CanaryCodeInput' {s3Version} -> s3Version) (\s@CanaryCodeInput' {} a -> s {s3Version = a} :: CanaryCodeInput)
 
 -- | If you input your canary script directly into the canary instead of
 -- referring to an S3 location, the value of this parameter is the
@@ -113,11 +118,6 @@ canaryCodeInput_s3Version = Lens.lens (\CanaryCodeInput' {s3Version} -> s3Versio
 canaryCodeInput_zipFile :: Lens.Lens' CanaryCodeInput (Prelude.Maybe Prelude.ByteString)
 canaryCodeInput_zipFile = Lens.lens (\CanaryCodeInput' {zipFile} -> zipFile) (\s@CanaryCodeInput' {} a -> s {zipFile = a} :: CanaryCodeInput) Prelude.. Lens.mapping Core._Base64
 
--- | If your canary script is located in S3, specify the bucket name here. Do
--- not include @s3:\/\/@ as the start of the bucket name.
-canaryCodeInput_s3Bucket :: Lens.Lens' CanaryCodeInput (Prelude.Maybe Prelude.Text)
-canaryCodeInput_s3Bucket = Lens.lens (\CanaryCodeInput' {s3Bucket} -> s3Bucket) (\s@CanaryCodeInput' {} a -> s {s3Bucket = a} :: CanaryCodeInput)
-
 -- | The entry point to use for the source code when running the canary. This
 -- value must end with the string @.handler@. The string is limited to 29
 -- characters or fewer.
@@ -126,28 +126,28 @@ canaryCodeInput_handler = Lens.lens (\CanaryCodeInput' {handler} -> handler) (\s
 
 instance Prelude.Hashable CanaryCodeInput where
   hashWithSalt _salt CanaryCodeInput' {..} =
-    _salt `Prelude.hashWithSalt` s3Key
+    _salt `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Version
+      `Prelude.hashWithSalt` s3Key
       `Prelude.hashWithSalt` zipFile
-      `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` handler
 
 instance Prelude.NFData CanaryCodeInput where
   rnf CanaryCodeInput' {..} =
-    Prelude.rnf s3Key
+    Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf s3Version
+      `Prelude.seq` Prelude.rnf s3Key
       `Prelude.seq` Prelude.rnf zipFile
-      `Prelude.seq` Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf handler
 
 instance Core.ToJSON CanaryCodeInput where
   toJSON CanaryCodeInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("S3Key" Core..=) Prelude.<$> s3Key,
+          [ ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
             ("S3Version" Core..=) Prelude.<$> s3Version,
+            ("S3Key" Core..=) Prelude.<$> s3Key,
             ("ZipFile" Core..=) Prelude.<$> zipFile,
-            ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
             Prelude.Just ("Handler" Core..= handler)
           ]
       )

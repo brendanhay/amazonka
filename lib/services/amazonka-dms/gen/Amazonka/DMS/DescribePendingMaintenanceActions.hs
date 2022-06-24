@@ -27,18 +27,18 @@ module Amazonka.DMS.DescribePendingMaintenanceActions
     newDescribePendingMaintenanceActions,
 
     -- * Request Lenses
-    describePendingMaintenanceActions_filters,
-    describePendingMaintenanceActions_marker,
-    describePendingMaintenanceActions_maxRecords,
     describePendingMaintenanceActions_replicationInstanceArn,
+    describePendingMaintenanceActions_marker,
+    describePendingMaintenanceActions_filters,
+    describePendingMaintenanceActions_maxRecords,
 
     -- * Destructuring the Response
     DescribePendingMaintenanceActionsResponse (..),
     newDescribePendingMaintenanceActionsResponse,
 
     -- * Response Lenses
-    describePendingMaintenanceActionsResponse_pendingMaintenanceActions,
     describePendingMaintenanceActionsResponse_marker,
+    describePendingMaintenanceActionsResponse_pendingMaintenanceActions,
     describePendingMaintenanceActionsResponse_httpStatus,
   )
 where
@@ -54,11 +54,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribePendingMaintenanceActions' smart constructor.
 data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
-  { filters :: Prelude.Maybe [Filter],
+  { -- | The Amazon Resource Name (ARN) of the replication instance.
+    replicationInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
+    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -67,9 +69,7 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceArn :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,11 +81,13 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'describePendingMaintenanceActions_filters' -
+-- 'replicationInstanceArn', 'describePendingMaintenanceActions_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
 --
 -- 'marker', 'describePendingMaintenanceActions_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
+--
+-- 'filters', 'describePendingMaintenanceActions_filters' -
 --
 -- 'maxRecords', 'describePendingMaintenanceActions_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -95,28 +97,30 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
---
--- 'replicationInstanceArn', 'describePendingMaintenanceActions_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
 newDescribePendingMaintenanceActions ::
   DescribePendingMaintenanceActions
 newDescribePendingMaintenanceActions =
   DescribePendingMaintenanceActions'
-    { filters =
+    { replicationInstanceArn =
         Prelude.Nothing,
       marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      replicationInstanceArn = Prelude.Nothing
+      filters = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
--- |
-describePendingMaintenanceActions_filters :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe [Filter])
-describePendingMaintenanceActions_filters = Lens.lens (\DescribePendingMaintenanceActions' {filters} -> filters) (\s@DescribePendingMaintenanceActions' {} a -> s {filters = a} :: DescribePendingMaintenanceActions) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the replication instance.
+describePendingMaintenanceActions_replicationInstanceArn :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
+describePendingMaintenanceActions_replicationInstanceArn = Lens.lens (\DescribePendingMaintenanceActions' {replicationInstanceArn} -> replicationInstanceArn) (\s@DescribePendingMaintenanceActions' {} a -> s {replicationInstanceArn = a} :: DescribePendingMaintenanceActions)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 describePendingMaintenanceActions_marker :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
 describePendingMaintenanceActions_marker = Lens.lens (\DescribePendingMaintenanceActions' {marker} -> marker) (\s@DescribePendingMaintenanceActions' {} a -> s {marker = a} :: DescribePendingMaintenanceActions)
+
+-- |
+describePendingMaintenanceActions_filters :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe [Filter])
+describePendingMaintenanceActions_filters = Lens.lens (\DescribePendingMaintenanceActions' {filters} -> filters) (\s@DescribePendingMaintenanceActions' {} a -> s {filters = a} :: DescribePendingMaintenanceActions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -128,10 +132,6 @@ describePendingMaintenanceActions_marker = Lens.lens (\DescribePendingMaintenanc
 -- Constraints: Minimum 20, maximum 100.
 describePendingMaintenanceActions_maxRecords :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe Prelude.Int)
 describePendingMaintenanceActions_maxRecords = Lens.lens (\DescribePendingMaintenanceActions' {maxRecords} -> maxRecords) (\s@DescribePendingMaintenanceActions' {} a -> s {maxRecords = a} :: DescribePendingMaintenanceActions)
-
--- | The Amazon Resource Name (ARN) of the replication instance.
-describePendingMaintenanceActions_replicationInstanceArn :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
-describePendingMaintenanceActions_replicationInstanceArn = Lens.lens (\DescribePendingMaintenanceActions' {replicationInstanceArn} -> replicationInstanceArn) (\s@DescribePendingMaintenanceActions' {} a -> s {replicationInstanceArn = a} :: DescribePendingMaintenanceActions)
 
 instance
   Core.AWSRequest
@@ -145,10 +145,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribePendingMaintenanceActionsResponse'
-            Prelude.<$> ( x Core..?> "PendingMaintenanceActions"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+              Prelude.<*> ( x Core..?> "PendingMaintenanceActions"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,20 +159,20 @@ instance
   hashWithSalt
     _salt
     DescribePendingMaintenanceActions' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` replicationInstanceArn
         `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxRecords
-        `Prelude.hashWithSalt` replicationInstanceArn
 
 instance
   Prelude.NFData
     DescribePendingMaintenanceActions
   where
   rnf DescribePendingMaintenanceActions' {..} =
-    Prelude.rnf filters
+    Prelude.rnf replicationInstanceArn
       `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf replicationInstanceArn
 
 instance
   Core.ToHeaders
@@ -199,11 +199,11 @@ instance
   toJSON DescribePendingMaintenanceActions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
+          [ ("ReplicationInstanceArn" Core..=)
+              Prelude.<$> replicationInstanceArn,
             ("Marker" Core..=) Prelude.<$> marker,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
-            ("ReplicationInstanceArn" Core..=)
-              Prelude.<$> replicationInstanceArn
+            ("Filters" Core..=) Prelude.<$> filters,
+            ("MaxRecords" Core..=) Prelude.<$> maxRecords
           ]
       )
 
@@ -223,12 +223,12 @@ instance
 --
 -- /See:/ 'newDescribePendingMaintenanceActionsResponse' smart constructor.
 data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'
-  { -- | The pending maintenance action.
-    pendingMaintenanceActions :: Prelude.Maybe [ResourcePendingMaintenanceActions],
-    -- | An optional pagination token provided by a previous request. If this
+  { -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The pending maintenance action.
+    pendingMaintenanceActions :: Prelude.Maybe [ResourcePendingMaintenanceActions],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -242,11 +242,11 @@ data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pendingMaintenanceActions', 'describePendingMaintenanceActionsResponse_pendingMaintenanceActions' - The pending maintenance action.
---
 -- 'marker', 'describePendingMaintenanceActionsResponse_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
+--
+-- 'pendingMaintenanceActions', 'describePendingMaintenanceActionsResponse_pendingMaintenanceActions' - The pending maintenance action.
 --
 -- 'httpStatus', 'describePendingMaintenanceActionsResponse_httpStatus' - The response's http status code.
 newDescribePendingMaintenanceActionsResponse ::
@@ -256,21 +256,22 @@ newDescribePendingMaintenanceActionsResponse ::
 newDescribePendingMaintenanceActionsResponse
   pHttpStatus_ =
     DescribePendingMaintenanceActionsResponse'
-      { pendingMaintenanceActions =
+      { marker =
           Prelude.Nothing,
-        marker = Prelude.Nothing,
+        pendingMaintenanceActions =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The pending maintenance action.
-describePendingMaintenanceActionsResponse_pendingMaintenanceActions :: Lens.Lens' DescribePendingMaintenanceActionsResponse (Prelude.Maybe [ResourcePendingMaintenanceActions])
-describePendingMaintenanceActionsResponse_pendingMaintenanceActions = Lens.lens (\DescribePendingMaintenanceActionsResponse' {pendingMaintenanceActions} -> pendingMaintenanceActions) (\s@DescribePendingMaintenanceActionsResponse' {} a -> s {pendingMaintenanceActions = a} :: DescribePendingMaintenanceActionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 describePendingMaintenanceActionsResponse_marker :: Lens.Lens' DescribePendingMaintenanceActionsResponse (Prelude.Maybe Prelude.Text)
 describePendingMaintenanceActionsResponse_marker = Lens.lens (\DescribePendingMaintenanceActionsResponse' {marker} -> marker) (\s@DescribePendingMaintenanceActionsResponse' {} a -> s {marker = a} :: DescribePendingMaintenanceActionsResponse)
+
+-- | The pending maintenance action.
+describePendingMaintenanceActionsResponse_pendingMaintenanceActions :: Lens.Lens' DescribePendingMaintenanceActionsResponse (Prelude.Maybe [ResourcePendingMaintenanceActions])
+describePendingMaintenanceActionsResponse_pendingMaintenanceActions = Lens.lens (\DescribePendingMaintenanceActionsResponse' {pendingMaintenanceActions} -> pendingMaintenanceActions) (\s@DescribePendingMaintenanceActionsResponse' {} a -> s {pendingMaintenanceActions = a} :: DescribePendingMaintenanceActionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describePendingMaintenanceActionsResponse_httpStatus :: Lens.Lens' DescribePendingMaintenanceActionsResponse Prelude.Int
@@ -281,6 +282,6 @@ instance
     DescribePendingMaintenanceActionsResponse
   where
   rnf DescribePendingMaintenanceActionsResponse' {..} =
-    Prelude.rnf pendingMaintenanceActions
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf pendingMaintenanceActions
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,8 +31,8 @@ module Amazonka.DMS.DescribeReplicationTaskIndividualAssessments
     newDescribeReplicationTaskIndividualAssessments,
 
     -- * Request Lenses
-    describeReplicationTaskIndividualAssessments_filters,
     describeReplicationTaskIndividualAssessments_marker,
+    describeReplicationTaskIndividualAssessments_filters,
     describeReplicationTaskIndividualAssessments_maxRecords,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.DMS.DescribeReplicationTaskIndividualAssessments
     newDescribeReplicationTaskIndividualAssessmentsResponse,
 
     -- * Response Lenses
-    describeReplicationTaskIndividualAssessmentsResponse_replicationTaskIndividualAssessments,
     describeReplicationTaskIndividualAssessmentsResponse_marker,
+    describeReplicationTaskIndividualAssessmentsResponse_replicationTaskIndividualAssessments,
     describeReplicationTaskIndividualAssessmentsResponse_httpStatus,
   )
 where
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeReplicationTaskIndividualAssessments' smart constructor.
 data DescribeReplicationTaskIndividualAssessments = DescribeReplicationTaskIndividualAssessments'
-  { -- | Filters applied to the individual assessments described in the form of
+  { -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Filters applied to the individual assessments described in the form of
     -- key-value pairs.
     --
     -- Valid filter names: @replication-task-assessment-run-arn@,
     -- @replication-task-arn@, @status@
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -83,15 +83,15 @@ data DescribeReplicationTaskIndividualAssessments = DescribeReplicationTaskIndiv
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'describeReplicationTaskIndividualAssessments_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
 -- 'filters', 'describeReplicationTaskIndividualAssessments_filters' - Filters applied to the individual assessments described in the form of
 -- key-value pairs.
 --
 -- Valid filter names: @replication-task-assessment-run-arn@,
 -- @replication-task-arn@, @status@
---
--- 'marker', 'describeReplicationTaskIndividualAssessments_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
 --
 -- 'maxRecords', 'describeReplicationTaskIndividualAssessments_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -101,11 +101,17 @@ newDescribeReplicationTaskIndividualAssessments ::
   DescribeReplicationTaskIndividualAssessments
 newDescribeReplicationTaskIndividualAssessments =
   DescribeReplicationTaskIndividualAssessments'
-    { filters =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxRecords = Prelude.Nothing
     }
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeReplicationTaskIndividualAssessments_marker :: Lens.Lens' DescribeReplicationTaskIndividualAssessments (Prelude.Maybe Prelude.Text)
+describeReplicationTaskIndividualAssessments_marker = Lens.lens (\DescribeReplicationTaskIndividualAssessments' {marker} -> marker) (\s@DescribeReplicationTaskIndividualAssessments' {} a -> s {marker = a} :: DescribeReplicationTaskIndividualAssessments)
 
 -- | Filters applied to the individual assessments described in the form of
 -- key-value pairs.
@@ -114,12 +120,6 @@ newDescribeReplicationTaskIndividualAssessments =
 -- @replication-task-arn@, @status@
 describeReplicationTaskIndividualAssessments_filters :: Lens.Lens' DescribeReplicationTaskIndividualAssessments (Prelude.Maybe [Filter])
 describeReplicationTaskIndividualAssessments_filters = Lens.lens (\DescribeReplicationTaskIndividualAssessments' {filters} -> filters) (\s@DescribeReplicationTaskIndividualAssessments' {} a -> s {filters = a} :: DescribeReplicationTaskIndividualAssessments) Prelude.. Lens.mapping Lens.coerced
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeReplicationTaskIndividualAssessments_marker :: Lens.Lens' DescribeReplicationTaskIndividualAssessments (Prelude.Maybe Prelude.Text)
-describeReplicationTaskIndividualAssessments_marker = Lens.lens (\DescribeReplicationTaskIndividualAssessments' {marker} -> marker) (\s@DescribeReplicationTaskIndividualAssessments' {} a -> s {marker = a} :: DescribeReplicationTaskIndividualAssessments)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -141,10 +141,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeReplicationTaskIndividualAssessmentsResponse'
-            Prelude.<$> ( x Core..?> "ReplicationTaskIndividualAssessments"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+              Prelude.<*> ( x Core..?> "ReplicationTaskIndividualAssessments"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,8 +155,8 @@ instance
   hashWithSalt
     _salt
     DescribeReplicationTaskIndividualAssessments' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` marker
+      _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxRecords
 
 instance
@@ -164,8 +164,8 @@ instance
     DescribeReplicationTaskIndividualAssessments
   where
   rnf DescribeReplicationTaskIndividualAssessments' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance
@@ -194,8 +194,8 @@ instance
     DescribeReplicationTaskIndividualAssessments' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Filters" Core..=) Prelude.<$> filters,
-              ("Marker" Core..=) Prelude.<$> marker,
+            [ ("Marker" Core..=) Prelude.<$> marker,
+              ("Filters" Core..=) Prelude.<$> filters,
               ("MaxRecords" Core..=) Prelude.<$> maxRecords
             ]
         )
@@ -216,13 +216,13 @@ instance
 --
 -- /See:/ 'newDescribeReplicationTaskIndividualAssessmentsResponse' smart constructor.
 data DescribeReplicationTaskIndividualAssessmentsResponse = DescribeReplicationTaskIndividualAssessmentsResponse'
-  { -- | One or more individual assessments as specified by @Filters@.
-    replicationTaskIndividualAssessments :: Prelude.Maybe [ReplicationTaskIndividualAssessment],
-    -- | A pagination token returned for you to pass to a subsequent request. If
+  { -- | A pagination token returned for you to pass to a subsequent request. If
     -- you pass this token as the @Marker@ value in a subsequent request, the
     -- response includes only records beyond the marker, up to the value
     -- specified in the request by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | One or more individual assessments as specified by @Filters@.
+    replicationTaskIndividualAssessments :: Prelude.Maybe [ReplicationTaskIndividualAssessment],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -236,12 +236,12 @@ data DescribeReplicationTaskIndividualAssessmentsResponse = DescribeReplicationT
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationTaskIndividualAssessments', 'describeReplicationTaskIndividualAssessmentsResponse_replicationTaskIndividualAssessments' - One or more individual assessments as specified by @Filters@.
---
 -- 'marker', 'describeReplicationTaskIndividualAssessmentsResponse_marker' - A pagination token returned for you to pass to a subsequent request. If
 -- you pass this token as the @Marker@ value in a subsequent request, the
 -- response includes only records beyond the marker, up to the value
 -- specified in the request by @MaxRecords@.
+--
+-- 'replicationTaskIndividualAssessments', 'describeReplicationTaskIndividualAssessmentsResponse_replicationTaskIndividualAssessments' - One or more individual assessments as specified by @Filters@.
 --
 -- 'httpStatus', 'describeReplicationTaskIndividualAssessmentsResponse_httpStatus' - The response's http status code.
 newDescribeReplicationTaskIndividualAssessmentsResponse ::
@@ -251,17 +251,13 @@ newDescribeReplicationTaskIndividualAssessmentsResponse ::
 newDescribeReplicationTaskIndividualAssessmentsResponse
   pHttpStatus_ =
     DescribeReplicationTaskIndividualAssessmentsResponse'
-      { replicationTaskIndividualAssessments =
+      { marker =
           Prelude.Nothing,
-        marker =
+        replicationTaskIndividualAssessments =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
-
--- | One or more individual assessments as specified by @Filters@.
-describeReplicationTaskIndividualAssessmentsResponse_replicationTaskIndividualAssessments :: Lens.Lens' DescribeReplicationTaskIndividualAssessmentsResponse (Prelude.Maybe [ReplicationTaskIndividualAssessment])
-describeReplicationTaskIndividualAssessmentsResponse_replicationTaskIndividualAssessments = Lens.lens (\DescribeReplicationTaskIndividualAssessmentsResponse' {replicationTaskIndividualAssessments} -> replicationTaskIndividualAssessments) (\s@DescribeReplicationTaskIndividualAssessmentsResponse' {} a -> s {replicationTaskIndividualAssessments = a} :: DescribeReplicationTaskIndividualAssessmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token returned for you to pass to a subsequent request. If
 -- you pass this token as the @Marker@ value in a subsequent request, the
@@ -269,6 +265,10 @@ describeReplicationTaskIndividualAssessmentsResponse_replicationTaskIndividualAs
 -- specified in the request by @MaxRecords@.
 describeReplicationTaskIndividualAssessmentsResponse_marker :: Lens.Lens' DescribeReplicationTaskIndividualAssessmentsResponse (Prelude.Maybe Prelude.Text)
 describeReplicationTaskIndividualAssessmentsResponse_marker = Lens.lens (\DescribeReplicationTaskIndividualAssessmentsResponse' {marker} -> marker) (\s@DescribeReplicationTaskIndividualAssessmentsResponse' {} a -> s {marker = a} :: DescribeReplicationTaskIndividualAssessmentsResponse)
+
+-- | One or more individual assessments as specified by @Filters@.
+describeReplicationTaskIndividualAssessmentsResponse_replicationTaskIndividualAssessments :: Lens.Lens' DescribeReplicationTaskIndividualAssessmentsResponse (Prelude.Maybe [ReplicationTaskIndividualAssessment])
+describeReplicationTaskIndividualAssessmentsResponse_replicationTaskIndividualAssessments = Lens.lens (\DescribeReplicationTaskIndividualAssessmentsResponse' {replicationTaskIndividualAssessments} -> replicationTaskIndividualAssessments) (\s@DescribeReplicationTaskIndividualAssessmentsResponse' {} a -> s {replicationTaskIndividualAssessments = a} :: DescribeReplicationTaskIndividualAssessmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeReplicationTaskIndividualAssessmentsResponse_httpStatus :: Lens.Lens' DescribeReplicationTaskIndividualAssessmentsResponse Prelude.Int
@@ -280,6 +280,6 @@ instance
   where
   rnf
     DescribeReplicationTaskIndividualAssessmentsResponse' {..} =
-      Prelude.rnf replicationTaskIndividualAssessments
-        `Prelude.seq` Prelude.rnf marker
+      Prelude.rnf marker
+        `Prelude.seq` Prelude.rnf replicationTaskIndividualAssessments
         `Prelude.seq` Prelude.rnf httpStatus

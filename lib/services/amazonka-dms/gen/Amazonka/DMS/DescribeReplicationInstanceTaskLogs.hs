@@ -36,9 +36,9 @@ module Amazonka.DMS.DescribeReplicationInstanceTaskLogs
     newDescribeReplicationInstanceTaskLogsResponse,
 
     -- * Response Lenses
-    describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs,
-    describeReplicationInstanceTaskLogsResponse_marker,
     describeReplicationInstanceTaskLogsResponse_replicationInstanceArn,
+    describeReplicationInstanceTaskLogsResponse_marker,
+    describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs,
     describeReplicationInstanceTaskLogsResponse_httpStatus,
   )
 where
@@ -139,11 +139,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeReplicationInstanceTaskLogsResponse'
-            Prelude.<$> ( x Core..?> "ReplicationInstanceTaskLogs"
-                            Core..!@ Prelude.mempty
-                        )
+            Prelude.<$> (x Core..?> "ReplicationInstanceArn")
               Prelude.<*> (x Core..?> "Marker")
-              Prelude.<*> (x Core..?> "ReplicationInstanceArn")
+              Prelude.<*> ( x Core..?> "ReplicationInstanceTaskLogs"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,15 +215,15 @@ instance
 
 -- | /See:/ 'newDescribeReplicationInstanceTaskLogsResponse' smart constructor.
 data DescribeReplicationInstanceTaskLogsResponse = DescribeReplicationInstanceTaskLogsResponse'
-  { -- | An array of replication task log metadata. Each member of the array
-    -- contains the replication task name, ARN, and task log size (in bytes).
-    replicationInstanceTaskLogs :: Prelude.Maybe [ReplicationInstanceTaskLog],
+  { -- | The Amazon Resource Name (ARN) of the replication instance.
+    replicationInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceArn :: Prelude.Maybe Prelude.Text,
+    -- | An array of replication task log metadata. Each member of the array
+    -- contains the replication task name, ARN, and task log size (in bytes).
+    replicationInstanceTaskLogs :: Prelude.Maybe [ReplicationInstanceTaskLog],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -237,14 +237,14 @@ data DescribeReplicationInstanceTaskLogsResponse = DescribeReplicationInstanceTa
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationInstanceTaskLogs', 'describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs' - An array of replication task log metadata. Each member of the array
--- contains the replication task name, ARN, and task log size (in bytes).
+-- 'replicationInstanceArn', 'describeReplicationInstanceTaskLogsResponse_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
 --
 -- 'marker', 'describeReplicationInstanceTaskLogsResponse_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 --
--- 'replicationInstanceArn', 'describeReplicationInstanceTaskLogsResponse_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
+-- 'replicationInstanceTaskLogs', 'describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs' - An array of replication task log metadata. Each member of the array
+-- contains the replication task name, ARN, and task log size (in bytes).
 --
 -- 'httpStatus', 'describeReplicationInstanceTaskLogsResponse_httpStatus' - The response's http status code.
 newDescribeReplicationInstanceTaskLogsResponse ::
@@ -254,18 +254,17 @@ newDescribeReplicationInstanceTaskLogsResponse ::
 newDescribeReplicationInstanceTaskLogsResponse
   pHttpStatus_ =
     DescribeReplicationInstanceTaskLogsResponse'
-      { replicationInstanceTaskLogs =
+      { replicationInstanceArn =
           Prelude.Nothing,
         marker = Prelude.Nothing,
-        replicationInstanceArn =
+        replicationInstanceTaskLogs =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | An array of replication task log metadata. Each member of the array
--- contains the replication task name, ARN, and task log size (in bytes).
-describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Prelude.Maybe [ReplicationInstanceTaskLog])
-describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs = Lens.lens (\DescribeReplicationInstanceTaskLogsResponse' {replicationInstanceTaskLogs} -> replicationInstanceTaskLogs) (\s@DescribeReplicationInstanceTaskLogsResponse' {} a -> s {replicationInstanceTaskLogs = a} :: DescribeReplicationInstanceTaskLogsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the replication instance.
+describeReplicationInstanceTaskLogsResponse_replicationInstanceArn :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Prelude.Maybe Prelude.Text)
+describeReplicationInstanceTaskLogsResponse_replicationInstanceArn = Lens.lens (\DescribeReplicationInstanceTaskLogsResponse' {replicationInstanceArn} -> replicationInstanceArn) (\s@DescribeReplicationInstanceTaskLogsResponse' {} a -> s {replicationInstanceArn = a} :: DescribeReplicationInstanceTaskLogsResponse)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -273,9 +272,10 @@ describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs = Lens.l
 describeReplicationInstanceTaskLogsResponse_marker :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Prelude.Maybe Prelude.Text)
 describeReplicationInstanceTaskLogsResponse_marker = Lens.lens (\DescribeReplicationInstanceTaskLogsResponse' {marker} -> marker) (\s@DescribeReplicationInstanceTaskLogsResponse' {} a -> s {marker = a} :: DescribeReplicationInstanceTaskLogsResponse)
 
--- | The Amazon Resource Name (ARN) of the replication instance.
-describeReplicationInstanceTaskLogsResponse_replicationInstanceArn :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Prelude.Maybe Prelude.Text)
-describeReplicationInstanceTaskLogsResponse_replicationInstanceArn = Lens.lens (\DescribeReplicationInstanceTaskLogsResponse' {replicationInstanceArn} -> replicationInstanceArn) (\s@DescribeReplicationInstanceTaskLogsResponse' {} a -> s {replicationInstanceArn = a} :: DescribeReplicationInstanceTaskLogsResponse)
+-- | An array of replication task log metadata. Each member of the array
+-- contains the replication task name, ARN, and task log size (in bytes).
+describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Prelude.Maybe [ReplicationInstanceTaskLog])
+describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs = Lens.lens (\DescribeReplicationInstanceTaskLogsResponse' {replicationInstanceTaskLogs} -> replicationInstanceTaskLogs) (\s@DescribeReplicationInstanceTaskLogsResponse' {} a -> s {replicationInstanceTaskLogs = a} :: DescribeReplicationInstanceTaskLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeReplicationInstanceTaskLogsResponse_httpStatus :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse Prelude.Int
@@ -286,7 +286,7 @@ instance
     DescribeReplicationInstanceTaskLogsResponse
   where
   rnf DescribeReplicationInstanceTaskLogsResponse' {..} =
-    Prelude.rnf replicationInstanceTaskLogs
+    Prelude.rnf replicationInstanceArn
       `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf replicationInstanceArn
+      `Prelude.seq` Prelude.rnf replicationInstanceTaskLogs
       `Prelude.seq` Prelude.rnf httpStatus

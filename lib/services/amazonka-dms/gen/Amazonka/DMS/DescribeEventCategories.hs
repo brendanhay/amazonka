@@ -31,8 +31,8 @@ module Amazonka.DMS.DescribeEventCategories
     newDescribeEventCategories,
 
     -- * Request Lenses
-    describeEventCategories_sourceType,
     describeEventCategories_filters,
+    describeEventCategories_sourceType,
 
     -- * Destructuring the Response
     DescribeEventCategoriesResponse (..),
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeEventCategories' smart constructor.
 data DescribeEventCategories = DescribeEventCategories'
-  { -- | The type of DMS resource that generates events.
+  { -- | Filters applied to the event categories.
+    filters :: Prelude.Maybe [Filter],
+    -- | The type of DMS resource that generates events.
     --
     -- Valid values: replication-instance | replication-task
-    sourceType :: Prelude.Maybe Prelude.Text,
-    -- | Filters applied to the event categories.
-    filters :: Prelude.Maybe [Filter]
+    sourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,29 +72,28 @@ data DescribeEventCategories = DescribeEventCategories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeEventCategories_filters' - Filters applied to the event categories.
+--
 -- 'sourceType', 'describeEventCategories_sourceType' - The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-task
---
--- 'filters', 'describeEventCategories_filters' - Filters applied to the event categories.
 newDescribeEventCategories ::
   DescribeEventCategories
 newDescribeEventCategories =
   DescribeEventCategories'
-    { sourceType =
-        Prelude.Nothing,
-      filters = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      sourceType = Prelude.Nothing
     }
+
+-- | Filters applied to the event categories.
+describeEventCategories_filters :: Lens.Lens' DescribeEventCategories (Prelude.Maybe [Filter])
+describeEventCategories_filters = Lens.lens (\DescribeEventCategories' {filters} -> filters) (\s@DescribeEventCategories' {} a -> s {filters = a} :: DescribeEventCategories) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-task
 describeEventCategories_sourceType :: Lens.Lens' DescribeEventCategories (Prelude.Maybe Prelude.Text)
 describeEventCategories_sourceType = Lens.lens (\DescribeEventCategories' {sourceType} -> sourceType) (\s@DescribeEventCategories' {} a -> s {sourceType = a} :: DescribeEventCategories)
-
--- | Filters applied to the event categories.
-describeEventCategories_filters :: Lens.Lens' DescribeEventCategories (Prelude.Maybe [Filter])
-describeEventCategories_filters = Lens.lens (\DescribeEventCategories' {filters} -> filters) (\s@DescribeEventCategories' {} a -> s {filters = a} :: DescribeEventCategories) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeEventCategories where
   type
@@ -113,13 +112,13 @@ instance Core.AWSRequest DescribeEventCategories where
 
 instance Prelude.Hashable DescribeEventCategories where
   hashWithSalt _salt DescribeEventCategories' {..} =
-    _salt `Prelude.hashWithSalt` sourceType
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` sourceType
 
 instance Prelude.NFData DescribeEventCategories where
   rnf DescribeEventCategories' {..} =
-    Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf sourceType
 
 instance Core.ToHeaders DescribeEventCategories where
   toHeaders =
@@ -140,8 +139,8 @@ instance Core.ToJSON DescribeEventCategories where
   toJSON DescribeEventCategories' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SourceType" Core..=) Prelude.<$> sourceType,
-            ("Filters" Core..=) Prelude.<$> filters
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("SourceType" Core..=) Prelude.<$> sourceType
           ]
       )
 

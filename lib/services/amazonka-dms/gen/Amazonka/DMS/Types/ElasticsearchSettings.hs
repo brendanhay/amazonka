@@ -27,7 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newElasticsearchSettings' smart constructor.
 data ElasticsearchSettings = ElasticsearchSettings'
-  { -- | The maximum percentage of records that can fail to be written before a
+  { -- | The maximum number of seconds for which DMS retries failed API requests
+    -- to the Elasticsearch cluster.
+    errorRetryDuration :: Prelude.Maybe Prelude.Int,
+    -- | The maximum percentage of records that can fail to be written before a
     -- full load operation stops.
     --
     -- To avoid early failure, this counter is only effective after 1000
@@ -36,9 +39,6 @@ data ElasticsearchSettings = ElasticsearchSettings'
     -- transfer of all records fail in the last 10 minutes, the full load
     -- operation stops.
     fullLoadErrorPercentage :: Prelude.Maybe Prelude.Int,
-    -- | The maximum number of seconds for which DMS retries failed API requests
-    -- to the Elasticsearch cluster.
-    errorRetryDuration :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) used by the service to access the IAM
     -- role. The role must allow the @iam:PassRole@ action.
     serviceAccessRoleArn :: Prelude.Text,
@@ -56,6 +56,9 @@ data ElasticsearchSettings = ElasticsearchSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorRetryDuration', 'elasticsearchSettings_errorRetryDuration' - The maximum number of seconds for which DMS retries failed API requests
+-- to the Elasticsearch cluster.
+--
 -- 'fullLoadErrorPercentage', 'elasticsearchSettings_fullLoadErrorPercentage' - The maximum percentage of records that can fail to be written before a
 -- full load operation stops.
 --
@@ -64,9 +67,6 @@ data ElasticsearchSettings = ElasticsearchSettings'
 -- monitoring during the last 10 minutes of an Observation Window. If
 -- transfer of all records fail in the last 10 minutes, the full load
 -- operation stops.
---
--- 'errorRetryDuration', 'elasticsearchSettings_errorRetryDuration' - The maximum number of seconds for which DMS retries failed API requests
--- to the Elasticsearch cluster.
 --
 -- 'serviceAccessRoleArn', 'elasticsearchSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service to access the IAM
 -- role. The role must allow the @iam:PassRole@ action.
@@ -83,12 +83,17 @@ newElasticsearchSettings
   pServiceAccessRoleArn_
   pEndpointUri_ =
     ElasticsearchSettings'
-      { fullLoadErrorPercentage =
+      { errorRetryDuration =
           Prelude.Nothing,
-        errorRetryDuration = Prelude.Nothing,
+        fullLoadErrorPercentage = Prelude.Nothing,
         serviceAccessRoleArn = pServiceAccessRoleArn_,
         endpointUri = pEndpointUri_
       }
+
+-- | The maximum number of seconds for which DMS retries failed API requests
+-- to the Elasticsearch cluster.
+elasticsearchSettings_errorRetryDuration :: Lens.Lens' ElasticsearchSettings (Prelude.Maybe Prelude.Int)
+elasticsearchSettings_errorRetryDuration = Lens.lens (\ElasticsearchSettings' {errorRetryDuration} -> errorRetryDuration) (\s@ElasticsearchSettings' {} a -> s {errorRetryDuration = a} :: ElasticsearchSettings)
 
 -- | The maximum percentage of records that can fail to be written before a
 -- full load operation stops.
@@ -100,11 +105,6 @@ newElasticsearchSettings
 -- operation stops.
 elasticsearchSettings_fullLoadErrorPercentage :: Lens.Lens' ElasticsearchSettings (Prelude.Maybe Prelude.Int)
 elasticsearchSettings_fullLoadErrorPercentage = Lens.lens (\ElasticsearchSettings' {fullLoadErrorPercentage} -> fullLoadErrorPercentage) (\s@ElasticsearchSettings' {} a -> s {fullLoadErrorPercentage = a} :: ElasticsearchSettings)
-
--- | The maximum number of seconds for which DMS retries failed API requests
--- to the Elasticsearch cluster.
-elasticsearchSettings_errorRetryDuration :: Lens.Lens' ElasticsearchSettings (Prelude.Maybe Prelude.Int)
-elasticsearchSettings_errorRetryDuration = Lens.lens (\ElasticsearchSettings' {errorRetryDuration} -> errorRetryDuration) (\s@ElasticsearchSettings' {} a -> s {errorRetryDuration = a} :: ElasticsearchSettings)
 
 -- | The Amazon Resource Name (ARN) used by the service to access the IAM
 -- role. The role must allow the @iam:PassRole@ action.
@@ -122,24 +122,23 @@ instance Core.FromJSON ElasticsearchSettings where
       "ElasticsearchSettings"
       ( \x ->
           ElasticsearchSettings'
-            Prelude.<$> (x Core..:? "FullLoadErrorPercentage")
-            Prelude.<*> (x Core..:? "ErrorRetryDuration")
+            Prelude.<$> (x Core..:? "ErrorRetryDuration")
+            Prelude.<*> (x Core..:? "FullLoadErrorPercentage")
             Prelude.<*> (x Core..: "ServiceAccessRoleArn")
             Prelude.<*> (x Core..: "EndpointUri")
       )
 
 instance Prelude.Hashable ElasticsearchSettings where
   hashWithSalt _salt ElasticsearchSettings' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` errorRetryDuration
       `Prelude.hashWithSalt` fullLoadErrorPercentage
-      `Prelude.hashWithSalt` errorRetryDuration
       `Prelude.hashWithSalt` serviceAccessRoleArn
       `Prelude.hashWithSalt` endpointUri
 
 instance Prelude.NFData ElasticsearchSettings where
   rnf ElasticsearchSettings' {..} =
-    Prelude.rnf fullLoadErrorPercentage
-      `Prelude.seq` Prelude.rnf errorRetryDuration
+    Prelude.rnf errorRetryDuration
+      `Prelude.seq` Prelude.rnf fullLoadErrorPercentage
       `Prelude.seq` Prelude.rnf serviceAccessRoleArn
       `Prelude.seq` Prelude.rnf endpointUri
 
@@ -147,10 +146,10 @@ instance Core.ToJSON ElasticsearchSettings where
   toJSON ElasticsearchSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FullLoadErrorPercentage" Core..=)
-              Prelude.<$> fullLoadErrorPercentage,
-            ("ErrorRetryDuration" Core..=)
+          [ ("ErrorRetryDuration" Core..=)
               Prelude.<$> errorRetryDuration,
+            ("FullLoadErrorPercentage" Core..=)
+              Prelude.<$> fullLoadErrorPercentage,
             Prelude.Just
               ( "ServiceAccessRoleArn"
                   Core..= serviceAccessRoleArn

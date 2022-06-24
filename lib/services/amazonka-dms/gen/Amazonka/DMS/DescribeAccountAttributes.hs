@@ -40,8 +40,8 @@ module Amazonka.DMS.DescribeAccountAttributes
     newDescribeAccountAttributesResponse,
 
     -- * Response Lenses
-    describeAccountAttributesResponse_accountQuotas,
     describeAccountAttributesResponse_uniqueAccountIdentifier,
+    describeAccountAttributesResponse_accountQuotas,
     describeAccountAttributesResponse_httpStatus,
   )
 where
@@ -79,8 +79,8 @@ instance Core.AWSRequest DescribeAccountAttributes where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Prelude.<$> (x Core..?> "AccountQuotas" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "UniqueAccountIdentifier")
+            Prelude.<$> (x Core..?> "UniqueAccountIdentifier")
+            Prelude.<*> (x Core..?> "AccountQuotas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,9 +119,7 @@ instance Core.ToQuery DescribeAccountAttributes where
 --
 -- /See:/ 'newDescribeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-  { -- | Account quota information.
-    accountQuotas :: Prelude.Maybe [AccountQuota],
-    -- | A unique DMS identifier for an account in a particular Amazon Web
+  { -- | A unique DMS identifier for an account in a particular Amazon Web
     -- Services Region. The value of this identifier has the following format:
     -- @c99999999999@. DMS uses this identifier to name artifacts. For example,
     -- DMS uses this identifier to name the default Amazon S3 bucket for
@@ -133,6 +131,8 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
     -- DMS supports the @UniqueAccountIdentifier@ parameter in versions 3.1.4
     -- and later.
     uniqueAccountIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | Account quota information.
+    accountQuotas :: Prelude.Maybe [AccountQuota],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -146,8 +146,6 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountQuotas', 'describeAccountAttributesResponse_accountQuotas' - Account quota information.
---
 -- 'uniqueAccountIdentifier', 'describeAccountAttributesResponse_uniqueAccountIdentifier' - A unique DMS identifier for an account in a particular Amazon Web
 -- Services Region. The value of this identifier has the following format:
 -- @c99999999999@. DMS uses this identifier to name artifacts. For example,
@@ -160,6 +158,8 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
 -- DMS supports the @UniqueAccountIdentifier@ parameter in versions 3.1.4
 -- and later.
 --
+-- 'accountQuotas', 'describeAccountAttributesResponse_accountQuotas' - Account quota information.
+--
 -- 'httpStatus', 'describeAccountAttributesResponse_httpStatus' - The response's http status code.
 newDescribeAccountAttributesResponse ::
   -- | 'httpStatus'
@@ -167,16 +167,11 @@ newDescribeAccountAttributesResponse ::
   DescribeAccountAttributesResponse
 newDescribeAccountAttributesResponse pHttpStatus_ =
   DescribeAccountAttributesResponse'
-    { accountQuotas =
+    { uniqueAccountIdentifier =
         Prelude.Nothing,
-      uniqueAccountIdentifier =
-        Prelude.Nothing,
+      accountQuotas = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Account quota information.
-describeAccountAttributesResponse_accountQuotas :: Lens.Lens' DescribeAccountAttributesResponse (Prelude.Maybe [AccountQuota])
-describeAccountAttributesResponse_accountQuotas = Lens.lens (\DescribeAccountAttributesResponse' {accountQuotas} -> accountQuotas) (\s@DescribeAccountAttributesResponse' {} a -> s {accountQuotas = a} :: DescribeAccountAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique DMS identifier for an account in a particular Amazon Web
 -- Services Region. The value of this identifier has the following format:
@@ -192,6 +187,10 @@ describeAccountAttributesResponse_accountQuotas = Lens.lens (\DescribeAccountAtt
 describeAccountAttributesResponse_uniqueAccountIdentifier :: Lens.Lens' DescribeAccountAttributesResponse (Prelude.Maybe Prelude.Text)
 describeAccountAttributesResponse_uniqueAccountIdentifier = Lens.lens (\DescribeAccountAttributesResponse' {uniqueAccountIdentifier} -> uniqueAccountIdentifier) (\s@DescribeAccountAttributesResponse' {} a -> s {uniqueAccountIdentifier = a} :: DescribeAccountAttributesResponse)
 
+-- | Account quota information.
+describeAccountAttributesResponse_accountQuotas :: Lens.Lens' DescribeAccountAttributesResponse (Prelude.Maybe [AccountQuota])
+describeAccountAttributesResponse_accountQuotas = Lens.lens (\DescribeAccountAttributesResponse' {accountQuotas} -> accountQuotas) (\s@DescribeAccountAttributesResponse' {} a -> s {accountQuotas = a} :: DescribeAccountAttributesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeAccountAttributesResponse_httpStatus :: Lens.Lens' DescribeAccountAttributesResponse Prelude.Int
 describeAccountAttributesResponse_httpStatus = Lens.lens (\DescribeAccountAttributesResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountAttributesResponse' {} a -> s {httpStatus = a} :: DescribeAccountAttributesResponse)
@@ -201,6 +200,6 @@ instance
     DescribeAccountAttributesResponse
   where
   rnf DescribeAccountAttributesResponse' {..} =
-    Prelude.rnf accountQuotas
-      `Prelude.seq` Prelude.rnf uniqueAccountIdentifier
+    Prelude.rnf uniqueAccountIdentifier
+      `Prelude.seq` Prelude.rnf accountQuotas
       `Prelude.seq` Prelude.rnf httpStatus

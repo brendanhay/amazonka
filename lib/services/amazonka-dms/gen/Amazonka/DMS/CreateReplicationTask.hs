@@ -27,13 +27,13 @@ module Amazonka.DMS.CreateReplicationTask
     newCreateReplicationTask,
 
     -- * Request Lenses
-    createReplicationTask_replicationTaskSettings,
-    createReplicationTask_cdcStartPosition,
-    createReplicationTask_taskData,
-    createReplicationTask_cdcStopPosition,
-    createReplicationTask_resourceIdentifier,
     createReplicationTask_tags,
     createReplicationTask_cdcStartTime,
+    createReplicationTask_taskData,
+    createReplicationTask_cdcStartPosition,
+    createReplicationTask_replicationTaskSettings,
+    createReplicationTask_resourceIdentifier,
+    createReplicationTask_cdcStopPosition,
     createReplicationTask_replicationTaskIdentifier,
     createReplicationTask_sourceEndpointArn,
     createReplicationTask_targetEndpointArn,
@@ -62,10 +62,19 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateReplicationTask' smart constructor.
 data CreateReplicationTask = CreateReplicationTask'
-  { -- | Overall settings for the task, in JSON format. For more information, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Specifying Task Settings for Database Migration Service Tasks>
+  { -- | One or more tags to be assigned to the replication task.
+    tags :: Prelude.Maybe [Tag],
+    -- | Indicates the start time for a change data capture (CDC) operation. Use
+    -- either CdcStartTime or CdcStartPosition to specify when you want a CDC
+    -- operation to start. Specifying both values results in an error.
+    --
+    -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+    cdcStartTime :: Prelude.Maybe Core.POSIX,
+    -- | Supplemental information that the task requires to migrate the data for
+    -- certain source and target endpoints. For more information, see
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
     -- in the /Database Migration Service User Guide./
-    replicationTaskSettings :: Prelude.Maybe Prelude.Text,
+    taskData :: Prelude.Maybe Prelude.Text,
     -- | Indicates when you want a change data capture (CDC) operation to start.
     -- Use either CdcStartPosition or CdcStartTime to specify when you want a
     -- CDC operation to start. Specifying both values results in an error.
@@ -86,20 +95,10 @@ data CreateReplicationTask = CreateReplicationTask'
     -- more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
     cdcStartPosition :: Prelude.Maybe Prelude.Text,
-    -- | Supplemental information that the task requires to migrate the data for
-    -- certain source and target endpoints. For more information, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
+    -- | Overall settings for the task, in JSON format. For more information, see
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Specifying Task Settings for Database Migration Service Tasks>
     -- in the /Database Migration Service User Guide./
-    taskData :: Prelude.Maybe Prelude.Text,
-    -- | Indicates when you want a change data capture (CDC) operation to stop.
-    -- The value can be either server time or commit time.
-    --
-    -- Server time example: --cdc-stop-position
-    -- “server_time:2018-02-09T12:12:12”
-    --
-    -- Commit time example: --cdc-stop-position “commit_time:
-    -- 2018-02-09T12:12:12 “
-    cdcStopPosition :: Prelude.Maybe Prelude.Text,
+    replicationTaskSettings :: Prelude.Maybe Prelude.Text,
     -- | A friendly name for the resource identifier at the end of the
     -- @EndpointArn@ response parameter that is returned in the created
     -- @Endpoint@ object. The value for this parameter can have up to 31
@@ -111,14 +110,15 @@ data CreateReplicationTask = CreateReplicationTask'
     -- specify a @ResourceIdentifier@ value, DMS generates a default identifier
     -- value for the end of @EndpointArn@.
     resourceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | One or more tags to be assigned to the replication task.
-    tags :: Prelude.Maybe [Tag],
-    -- | Indicates the start time for a change data capture (CDC) operation. Use
-    -- either CdcStartTime or CdcStartPosition to specify when you want a CDC
-    -- operation to start. Specifying both values results in an error.
+    -- | Indicates when you want a change data capture (CDC) operation to stop.
+    -- The value can be either server time or commit time.
     --
-    -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
-    cdcStartTime :: Prelude.Maybe Core.POSIX,
+    -- Server time example: --cdc-stop-position
+    -- “server_time:2018-02-09T12:12:12”
+    --
+    -- Commit time example: --cdc-stop-position “commit_time:
+    -- 2018-02-09T12:12:12 “
+    cdcStopPosition :: Prelude.Maybe Prelude.Text,
     -- | An identifier for the replication task.
     --
     -- Constraints:
@@ -156,8 +156,17 @@ data CreateReplicationTask = CreateReplicationTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationTaskSettings', 'createReplicationTask_replicationTaskSettings' - Overall settings for the task, in JSON format. For more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Specifying Task Settings for Database Migration Service Tasks>
+-- 'tags', 'createReplicationTask_tags' - One or more tags to be assigned to the replication task.
+--
+-- 'cdcStartTime', 'createReplicationTask_cdcStartTime' - Indicates the start time for a change data capture (CDC) operation. Use
+-- either CdcStartTime or CdcStartPosition to specify when you want a CDC
+-- operation to start. Specifying both values results in an error.
+--
+-- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+--
+-- 'taskData', 'createReplicationTask_taskData' - Supplemental information that the task requires to migrate the data for
+-- certain source and target endpoints. For more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
 -- in the /Database Migration Service User Guide./
 --
 -- 'cdcStartPosition', 'createReplicationTask_cdcStartPosition' - Indicates when you want a change data capture (CDC) operation to start.
@@ -180,19 +189,9 @@ data CreateReplicationTask = CreateReplicationTask'
 -- more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
 --
--- 'taskData', 'createReplicationTask_taskData' - Supplemental information that the task requires to migrate the data for
--- certain source and target endpoints. For more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
+-- 'replicationTaskSettings', 'createReplicationTask_replicationTaskSettings' - Overall settings for the task, in JSON format. For more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Specifying Task Settings for Database Migration Service Tasks>
 -- in the /Database Migration Service User Guide./
---
--- 'cdcStopPosition', 'createReplicationTask_cdcStopPosition' - Indicates when you want a change data capture (CDC) operation to stop.
--- The value can be either server time or commit time.
---
--- Server time example: --cdc-stop-position
--- “server_time:2018-02-09T12:12:12”
---
--- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
 --
 -- 'resourceIdentifier', 'createReplicationTask_resourceIdentifier' - A friendly name for the resource identifier at the end of the
 -- @EndpointArn@ response parameter that is returned in the created
@@ -205,13 +204,14 @@ data CreateReplicationTask = CreateReplicationTask'
 -- specify a @ResourceIdentifier@ value, DMS generates a default identifier
 -- value for the end of @EndpointArn@.
 --
--- 'tags', 'createReplicationTask_tags' - One or more tags to be assigned to the replication task.
+-- 'cdcStopPosition', 'createReplicationTask_cdcStopPosition' - Indicates when you want a change data capture (CDC) operation to stop.
+-- The value can be either server time or commit time.
 --
--- 'cdcStartTime', 'createReplicationTask_cdcStartTime' - Indicates the start time for a change data capture (CDC) operation. Use
--- either CdcStartTime or CdcStartPosition to specify when you want a CDC
--- operation to start. Specifying both values results in an error.
+-- Server time example: --cdc-stop-position
+-- “server_time:2018-02-09T12:12:12”
 --
--- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+-- Commit time example: --cdc-stop-position “commit_time:
+-- 2018-02-09T12:12:12 “
 --
 -- 'replicationTaskIdentifier', 'createReplicationTask_replicationTaskIdentifier' - An identifier for the replication task.
 --
@@ -260,14 +260,13 @@ newCreateReplicationTask
   pMigrationType_
   pTableMappings_ =
     CreateReplicationTask'
-      { replicationTaskSettings =
-          Prelude.Nothing,
-        cdcStartPosition = Prelude.Nothing,
-        taskData = Prelude.Nothing,
-        cdcStopPosition = Prelude.Nothing,
-        resourceIdentifier = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         cdcStartTime = Prelude.Nothing,
+        taskData = Prelude.Nothing,
+        cdcStartPosition = Prelude.Nothing,
+        replicationTaskSettings = Prelude.Nothing,
+        resourceIdentifier = Prelude.Nothing,
+        cdcStopPosition = Prelude.Nothing,
         replicationTaskIdentifier =
           pReplicationTaskIdentifier_,
         sourceEndpointArn = pSourceEndpointArn_,
@@ -277,11 +276,24 @@ newCreateReplicationTask
         tableMappings = pTableMappings_
       }
 
--- | Overall settings for the task, in JSON format. For more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Specifying Task Settings for Database Migration Service Tasks>
+-- | One or more tags to be assigned to the replication task.
+createReplicationTask_tags :: Lens.Lens' CreateReplicationTask (Prelude.Maybe [Tag])
+createReplicationTask_tags = Lens.lens (\CreateReplicationTask' {tags} -> tags) (\s@CreateReplicationTask' {} a -> s {tags = a} :: CreateReplicationTask) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates the start time for a change data capture (CDC) operation. Use
+-- either CdcStartTime or CdcStartPosition to specify when you want a CDC
+-- operation to start. Specifying both values results in an error.
+--
+-- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+createReplicationTask_cdcStartTime :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.UTCTime)
+createReplicationTask_cdcStartTime = Lens.lens (\CreateReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@CreateReplicationTask' {} a -> s {cdcStartTime = a} :: CreateReplicationTask) Prelude.. Lens.mapping Core._Time
+
+-- | Supplemental information that the task requires to migrate the data for
+-- certain source and target endpoints. For more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
 -- in the /Database Migration Service User Guide./
-createReplicationTask_replicationTaskSettings :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
-createReplicationTask_replicationTaskSettings = Lens.lens (\CreateReplicationTask' {replicationTaskSettings} -> replicationTaskSettings) (\s@CreateReplicationTask' {} a -> s {replicationTaskSettings = a} :: CreateReplicationTask)
+createReplicationTask_taskData :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
+createReplicationTask_taskData = Lens.lens (\CreateReplicationTask' {taskData} -> taskData) (\s@CreateReplicationTask' {} a -> s {taskData = a} :: CreateReplicationTask)
 
 -- | Indicates when you want a change data capture (CDC) operation to start.
 -- Use either CdcStartPosition or CdcStartTime to specify when you want a
@@ -305,23 +317,11 @@ createReplicationTask_replicationTaskSettings = Lens.lens (\CreateReplicationTas
 createReplicationTask_cdcStartPosition :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
 createReplicationTask_cdcStartPosition = Lens.lens (\CreateReplicationTask' {cdcStartPosition} -> cdcStartPosition) (\s@CreateReplicationTask' {} a -> s {cdcStartPosition = a} :: CreateReplicationTask)
 
--- | Supplemental information that the task requires to migrate the data for
--- certain source and target endpoints. For more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
+-- | Overall settings for the task, in JSON format. For more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Specifying Task Settings for Database Migration Service Tasks>
 -- in the /Database Migration Service User Guide./
-createReplicationTask_taskData :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
-createReplicationTask_taskData = Lens.lens (\CreateReplicationTask' {taskData} -> taskData) (\s@CreateReplicationTask' {} a -> s {taskData = a} :: CreateReplicationTask)
-
--- | Indicates when you want a change data capture (CDC) operation to stop.
--- The value can be either server time or commit time.
---
--- Server time example: --cdc-stop-position
--- “server_time:2018-02-09T12:12:12”
---
--- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
-createReplicationTask_cdcStopPosition :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
-createReplicationTask_cdcStopPosition = Lens.lens (\CreateReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@CreateReplicationTask' {} a -> s {cdcStopPosition = a} :: CreateReplicationTask)
+createReplicationTask_replicationTaskSettings :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
+createReplicationTask_replicationTaskSettings = Lens.lens (\CreateReplicationTask' {replicationTaskSettings} -> replicationTaskSettings) (\s@CreateReplicationTask' {} a -> s {replicationTaskSettings = a} :: CreateReplicationTask)
 
 -- | A friendly name for the resource identifier at the end of the
 -- @EndpointArn@ response parameter that is returned in the created
@@ -336,17 +336,16 @@ createReplicationTask_cdcStopPosition = Lens.lens (\CreateReplicationTask' {cdcS
 createReplicationTask_resourceIdentifier :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
 createReplicationTask_resourceIdentifier = Lens.lens (\CreateReplicationTask' {resourceIdentifier} -> resourceIdentifier) (\s@CreateReplicationTask' {} a -> s {resourceIdentifier = a} :: CreateReplicationTask)
 
--- | One or more tags to be assigned to the replication task.
-createReplicationTask_tags :: Lens.Lens' CreateReplicationTask (Prelude.Maybe [Tag])
-createReplicationTask_tags = Lens.lens (\CreateReplicationTask' {tags} -> tags) (\s@CreateReplicationTask' {} a -> s {tags = a} :: CreateReplicationTask) Prelude.. Lens.mapping Lens.coerced
-
--- | Indicates the start time for a change data capture (CDC) operation. Use
--- either CdcStartTime or CdcStartPosition to specify when you want a CDC
--- operation to start. Specifying both values results in an error.
+-- | Indicates when you want a change data capture (CDC) operation to stop.
+-- The value can be either server time or commit time.
 --
--- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
-createReplicationTask_cdcStartTime :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.UTCTime)
-createReplicationTask_cdcStartTime = Lens.lens (\CreateReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@CreateReplicationTask' {} a -> s {cdcStartTime = a} :: CreateReplicationTask) Prelude.. Lens.mapping Core._Time
+-- Server time example: --cdc-stop-position
+-- “server_time:2018-02-09T12:12:12”
+--
+-- Commit time example: --cdc-stop-position “commit_time:
+-- 2018-02-09T12:12:12 “
+createReplicationTask_cdcStopPosition :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
+createReplicationTask_cdcStopPosition = Lens.lens (\CreateReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@CreateReplicationTask' {} a -> s {cdcStopPosition = a} :: CreateReplicationTask)
 
 -- | An identifier for the replication task.
 --
@@ -401,14 +400,13 @@ instance Core.AWSRequest CreateReplicationTask where
 
 instance Prelude.Hashable CreateReplicationTask where
   hashWithSalt _salt CreateReplicationTask' {..} =
-    _salt
-      `Prelude.hashWithSalt` replicationTaskSettings
-      `Prelude.hashWithSalt` cdcStartPosition
-      `Prelude.hashWithSalt` taskData
-      `Prelude.hashWithSalt` cdcStopPosition
-      `Prelude.hashWithSalt` resourceIdentifier
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` cdcStartTime
+      `Prelude.hashWithSalt` taskData
+      `Prelude.hashWithSalt` cdcStartPosition
+      `Prelude.hashWithSalt` replicationTaskSettings
+      `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` cdcStopPosition
       `Prelude.hashWithSalt` replicationTaskIdentifier
       `Prelude.hashWithSalt` sourceEndpointArn
       `Prelude.hashWithSalt` targetEndpointArn
@@ -418,13 +416,13 @@ instance Prelude.Hashable CreateReplicationTask where
 
 instance Prelude.NFData CreateReplicationTask where
   rnf CreateReplicationTask' {..} =
-    Prelude.rnf replicationTaskSettings
-      `Prelude.seq` Prelude.rnf cdcStartPosition
-      `Prelude.seq` Prelude.rnf taskData
-      `Prelude.seq` Prelude.rnf cdcStopPosition
-      `Prelude.seq` Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf cdcStartTime
+      `Prelude.seq` Prelude.rnf taskData
+      `Prelude.seq` Prelude.rnf cdcStartPosition
+      `Prelude.seq` Prelude.rnf replicationTaskSettings
+      `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf cdcStopPosition
       `Prelude.seq` Prelude.rnf replicationTaskIdentifier
       `Prelude.seq` Prelude.rnf sourceEndpointArn
       `Prelude.seq` Prelude.rnf targetEndpointArn
@@ -451,17 +449,17 @@ instance Core.ToJSON CreateReplicationTask where
   toJSON CreateReplicationTask' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ReplicationTaskSettings" Core..=)
-              Prelude.<$> replicationTaskSettings,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("CdcStartTime" Core..=) Prelude.<$> cdcStartTime,
+            ("TaskData" Core..=) Prelude.<$> taskData,
             ("CdcStartPosition" Core..=)
               Prelude.<$> cdcStartPosition,
-            ("TaskData" Core..=) Prelude.<$> taskData,
-            ("CdcStopPosition" Core..=)
-              Prelude.<$> cdcStopPosition,
+            ("ReplicationTaskSettings" Core..=)
+              Prelude.<$> replicationTaskSettings,
             ("ResourceIdentifier" Core..=)
               Prelude.<$> resourceIdentifier,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("CdcStartTime" Core..=) Prelude.<$> cdcStartTime,
+            ("CdcStopPosition" Core..=)
+              Prelude.<$> cdcStopPosition,
             Prelude.Just
               ( "ReplicationTaskIdentifier"
                   Core..= replicationTaskIdentifier

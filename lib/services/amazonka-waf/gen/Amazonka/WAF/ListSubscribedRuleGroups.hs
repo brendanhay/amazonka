@@ -38,8 +38,8 @@ module Amazonka.WAF.ListSubscribedRuleGroups
     newListSubscribedRuleGroups,
 
     -- * Request Lenses
-    listSubscribedRuleGroups_nextMarker,
     listSubscribedRuleGroups_limit,
+    listSubscribedRuleGroups_nextMarker,
 
     -- * Destructuring the Response
     ListSubscribedRuleGroupsResponse (..),
@@ -61,19 +61,19 @@ import Amazonka.WAF.Types
 
 -- | /See:/ 'newListSubscribedRuleGroups' smart constructor.
 data ListSubscribedRuleGroups = ListSubscribedRuleGroups'
-  { -- | If you specify a value for @Limit@ and you have more
+  { -- | Specifies the number of subscribed rule groups that you want AWS WAF to
+    -- return for this request. If you have more objects than the number you
+    -- specify for @Limit@, the response includes a @NextMarker@ value that you
+    -- can use to get another batch of objects.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | If you specify a value for @Limit@ and you have more
     -- @ByteMatchSets@subscribed rule groups than the value of @Limit@, AWS WAF
     -- returns a @NextMarker@ value in the response that allows you to list
     -- another group of subscribed rule groups. For the second and subsequent
     -- @ListSubscribedRuleGroupsRequest@ requests, specify the value of
     -- @NextMarker@ from the previous response to get information about another
     -- batch of subscribed rule groups.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of subscribed rule groups that you want AWS WAF to
-    -- return for this request. If you have more objects than the number you
-    -- specify for @Limit@, the response includes a @NextMarker@ value that you
-    -- can use to get another batch of objects.
-    limit :: Prelude.Maybe Prelude.Natural
+    nextMarker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,6 +85,11 @@ data ListSubscribedRuleGroups = ListSubscribedRuleGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listSubscribedRuleGroups_limit' - Specifies the number of subscribed rule groups that you want AWS WAF to
+-- return for this request. If you have more objects than the number you
+-- specify for @Limit@, the response includes a @NextMarker@ value that you
+-- can use to get another batch of objects.
+--
 -- 'nextMarker', 'listSubscribedRuleGroups_nextMarker' - If you specify a value for @Limit@ and you have more
 -- @ByteMatchSets@subscribed rule groups than the value of @Limit@, AWS WAF
 -- returns a @NextMarker@ value in the response that allows you to list
@@ -92,19 +97,20 @@ data ListSubscribedRuleGroups = ListSubscribedRuleGroups'
 -- @ListSubscribedRuleGroupsRequest@ requests, specify the value of
 -- @NextMarker@ from the previous response to get information about another
 -- batch of subscribed rule groups.
---
--- 'limit', 'listSubscribedRuleGroups_limit' - Specifies the number of subscribed rule groups that you want AWS WAF to
--- return for this request. If you have more objects than the number you
--- specify for @Limit@, the response includes a @NextMarker@ value that you
--- can use to get another batch of objects.
 newListSubscribedRuleGroups ::
   ListSubscribedRuleGroups
 newListSubscribedRuleGroups =
   ListSubscribedRuleGroups'
-    { nextMarker =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      nextMarker = Prelude.Nothing
     }
+
+-- | Specifies the number of subscribed rule groups that you want AWS WAF to
+-- return for this request. If you have more objects than the number you
+-- specify for @Limit@, the response includes a @NextMarker@ value that you
+-- can use to get another batch of objects.
+listSubscribedRuleGroups_limit :: Lens.Lens' ListSubscribedRuleGroups (Prelude.Maybe Prelude.Natural)
+listSubscribedRuleGroups_limit = Lens.lens (\ListSubscribedRuleGroups' {limit} -> limit) (\s@ListSubscribedRuleGroups' {} a -> s {limit = a} :: ListSubscribedRuleGroups)
 
 -- | If you specify a value for @Limit@ and you have more
 -- @ByteMatchSets@subscribed rule groups than the value of @Limit@, AWS WAF
@@ -115,13 +121,6 @@ newListSubscribedRuleGroups =
 -- batch of subscribed rule groups.
 listSubscribedRuleGroups_nextMarker :: Lens.Lens' ListSubscribedRuleGroups (Prelude.Maybe Prelude.Text)
 listSubscribedRuleGroups_nextMarker = Lens.lens (\ListSubscribedRuleGroups' {nextMarker} -> nextMarker) (\s@ListSubscribedRuleGroups' {} a -> s {nextMarker = a} :: ListSubscribedRuleGroups)
-
--- | Specifies the number of subscribed rule groups that you want AWS WAF to
--- return for this request. If you have more objects than the number you
--- specify for @Limit@, the response includes a @NextMarker@ value that you
--- can use to get another batch of objects.
-listSubscribedRuleGroups_limit :: Lens.Lens' ListSubscribedRuleGroups (Prelude.Maybe Prelude.Natural)
-listSubscribedRuleGroups_limit = Lens.lens (\ListSubscribedRuleGroups' {limit} -> limit) (\s@ListSubscribedRuleGroups' {} a -> s {limit = a} :: ListSubscribedRuleGroups)
 
 instance Core.AWSPager ListSubscribedRuleGroups where
   page rq rs
@@ -161,13 +160,13 @@ instance Core.AWSRequest ListSubscribedRuleGroups where
 
 instance Prelude.Hashable ListSubscribedRuleGroups where
   hashWithSalt _salt ListSubscribedRuleGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextMarker
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListSubscribedRuleGroups where
   rnf ListSubscribedRuleGroups' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextMarker
 
 instance Core.ToHeaders ListSubscribedRuleGroups where
   toHeaders =
@@ -188,8 +187,8 @@ instance Core.ToJSON ListSubscribedRuleGroups where
   toJSON ListSubscribedRuleGroups' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("NextMarker" Core..=) Prelude.<$> nextMarker
           ]
       )
 

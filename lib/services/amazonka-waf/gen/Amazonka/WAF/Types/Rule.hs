@@ -50,16 +50,16 @@ import Amazonka.WAF.Types.Predicate
 --
 -- /See:/ 'newRule' smart constructor.
 data Rule = Rule'
-  { -- | A friendly name or description for the metrics for this @Rule@. The name
+  { -- | The friendly name or description for the @Rule@. You can\'t change the
+    -- name of a @Rule@ after you create it.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A friendly name or description for the metrics for this @Rule@. The name
     -- can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
     -- length 128 and minimum length one. It can\'t contain whitespace or
     -- metric names reserved for AWS WAF, including \"All\" and
     -- \"Default_Action.\" You can\'t change @MetricName@ after you create the
     -- @Rule@.
     metricName :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name or description for the @Rule@. You can\'t change the
-    -- name of a @Rule@ after you create it.
-    name :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a @Rule@. You use @RuleId@ to get more
     -- information about a @Rule@ (see GetRule), update a @Rule@ (see
     -- UpdateRule), insert a @Rule@ into a @WebACL@ or delete a one from a
@@ -83,15 +83,15 @@ data Rule = Rule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'rule_name' - The friendly name or description for the @Rule@. You can\'t change the
+-- name of a @Rule@ after you create it.
+--
 -- 'metricName', 'rule_metricName' - A friendly name or description for the metrics for this @Rule@. The name
 -- can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
 -- length 128 and minimum length one. It can\'t contain whitespace or
 -- metric names reserved for AWS WAF, including \"All\" and
 -- \"Default_Action.\" You can\'t change @MetricName@ after you create the
 -- @Rule@.
---
--- 'name', 'rule_name' - The friendly name or description for the @Rule@. You can\'t change the
--- name of a @Rule@ after you create it.
 --
 -- 'ruleId', 'rule_ruleId' - A unique identifier for a @Rule@. You use @RuleId@ to get more
 -- information about a @Rule@ (see GetRule), update a @Rule@ (see
@@ -110,11 +110,16 @@ newRule ::
   Rule
 newRule pRuleId_ =
   Rule'
-    { metricName = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      metricName = Prelude.Nothing,
       ruleId = pRuleId_,
       predicates = Prelude.mempty
     }
+
+-- | The friendly name or description for the @Rule@. You can\'t change the
+-- name of a @Rule@ after you create it.
+rule_name :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
+rule_name = Lens.lens (\Rule' {name} -> name) (\s@Rule' {} a -> s {name = a} :: Rule)
 
 -- | A friendly name or description for the metrics for this @Rule@. The name
 -- can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
@@ -124,11 +129,6 @@ newRule pRuleId_ =
 -- @Rule@.
 rule_metricName :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
 rule_metricName = Lens.lens (\Rule' {metricName} -> metricName) (\s@Rule' {} a -> s {metricName = a} :: Rule)
-
--- | The friendly name or description for the @Rule@. You can\'t change the
--- name of a @Rule@ after you create it.
-rule_name :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
-rule_name = Lens.lens (\Rule' {name} -> name) (\s@Rule' {} a -> s {name = a} :: Rule)
 
 -- | A unique identifier for a @Rule@. You use @RuleId@ to get more
 -- information about a @Rule@ (see GetRule), update a @Rule@ (see
@@ -152,22 +152,22 @@ instance Core.FromJSON Rule where
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "MetricName")
             Prelude.<*> (x Core..: "RuleId")
             Prelude.<*> (x Core..:? "Predicates" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` metricName
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` predicates
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf ruleId
       `Prelude.seq` Prelude.rnf predicates

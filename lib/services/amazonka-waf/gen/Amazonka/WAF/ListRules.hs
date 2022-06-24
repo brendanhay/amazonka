@@ -38,8 +38,8 @@ module Amazonka.WAF.ListRules
     newListRules,
 
     -- * Request Lenses
-    listRules_nextMarker,
     listRules_limit,
+    listRules_nextMarker,
 
     -- * Destructuring the Response
     ListRulesResponse (..),
@@ -61,17 +61,17 @@ import Amazonka.WAF.Types
 
 -- | /See:/ 'newListRules' smart constructor.
 data ListRules = ListRules'
-  { -- | If you specify a value for @Limit@ and you have more @Rules@ than the
+  { -- | Specifies the number of @Rules@ that you want AWS WAF to return for this
+    -- request. If you have more @Rules@ than the number that you specify for
+    -- @Limit@, the response includes a @NextMarker@ value that you can use to
+    -- get another batch of @Rules@.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | If you specify a value for @Limit@ and you have more @Rules@ than the
     -- value of @Limit@, AWS WAF returns a @NextMarker@ value in the response
     -- that allows you to list another group of @Rules@. For the second and
     -- subsequent @ListRules@ requests, specify the value of @NextMarker@ from
     -- the previous response to get information about another batch of @Rules@.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of @Rules@ that you want AWS WAF to return for this
-    -- request. If you have more @Rules@ than the number that you specify for
-    -- @Limit@, the response includes a @NextMarker@ value that you can use to
-    -- get another batch of @Rules@.
-    limit :: Prelude.Maybe Prelude.Natural
+    nextMarker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,23 +83,30 @@ data ListRules = ListRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listRules_limit' - Specifies the number of @Rules@ that you want AWS WAF to return for this
+-- request. If you have more @Rules@ than the number that you specify for
+-- @Limit@, the response includes a @NextMarker@ value that you can use to
+-- get another batch of @Rules@.
+--
 -- 'nextMarker', 'listRules_nextMarker' - If you specify a value for @Limit@ and you have more @Rules@ than the
 -- value of @Limit@, AWS WAF returns a @NextMarker@ value in the response
 -- that allows you to list another group of @Rules@. For the second and
 -- subsequent @ListRules@ requests, specify the value of @NextMarker@ from
 -- the previous response to get information about another batch of @Rules@.
---
--- 'limit', 'listRules_limit' - Specifies the number of @Rules@ that you want AWS WAF to return for this
--- request. If you have more @Rules@ than the number that you specify for
--- @Limit@, the response includes a @NextMarker@ value that you can use to
--- get another batch of @Rules@.
 newListRules ::
   ListRules
 newListRules =
   ListRules'
-    { nextMarker = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      nextMarker = Prelude.Nothing
     }
+
+-- | Specifies the number of @Rules@ that you want AWS WAF to return for this
+-- request. If you have more @Rules@ than the number that you specify for
+-- @Limit@, the response includes a @NextMarker@ value that you can use to
+-- get another batch of @Rules@.
+listRules_limit :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Natural)
+listRules_limit = Lens.lens (\ListRules' {limit} -> limit) (\s@ListRules' {} a -> s {limit = a} :: ListRules)
 
 -- | If you specify a value for @Limit@ and you have more @Rules@ than the
 -- value of @Limit@, AWS WAF returns a @NextMarker@ value in the response
@@ -108,13 +115,6 @@ newListRules =
 -- the previous response to get information about another batch of @Rules@.
 listRules_nextMarker :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
 listRules_nextMarker = Lens.lens (\ListRules' {nextMarker} -> nextMarker) (\s@ListRules' {} a -> s {nextMarker = a} :: ListRules)
-
--- | Specifies the number of @Rules@ that you want AWS WAF to return for this
--- request. If you have more @Rules@ than the number that you specify for
--- @Limit@, the response includes a @NextMarker@ value that you can use to
--- get another batch of @Rules@.
-listRules_limit :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Natural)
-listRules_limit = Lens.lens (\ListRules' {limit} -> limit) (\s@ListRules' {} a -> s {limit = a} :: ListRules)
 
 instance Core.AWSPager ListRules where
   page rq rs
@@ -149,13 +149,13 @@ instance Core.AWSRequest ListRules where
 
 instance Prelude.Hashable ListRules where
   hashWithSalt _salt ListRules' {..} =
-    _salt `Prelude.hashWithSalt` nextMarker
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListRules where
   rnf ListRules' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextMarker
 
 instance Core.ToHeaders ListRules where
   toHeaders =
@@ -174,8 +174,8 @@ instance Core.ToJSON ListRules where
   toJSON ListRules' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("NextMarker" Core..=) Prelude.<$> nextMarker
           ]
       )
 

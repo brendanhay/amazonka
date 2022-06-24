@@ -29,8 +29,8 @@ module Amazonka.AppMesh.ListVirtualGateways
     newListVirtualGateways,
 
     -- * Request Lenses
-    listVirtualGateways_meshOwner,
     listVirtualGateways_nextToken,
+    listVirtualGateways_meshOwner,
     listVirtualGateways_limit,
     listVirtualGateways_meshName,
 
@@ -54,16 +54,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListVirtualGateways' smart constructor.
 data ListVirtualGateways = ListVirtualGateways'
-  { -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
-    -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
-    meshOwner :: Prelude.Maybe Prelude.Text,
-    -- | The @nextToken@ value returned from a previous paginated
+  { -- | The @nextToken@ value returned from a previous paginated
     -- @ListVirtualGateways@ request where @limit@ was used and the results
     -- exceeded the value of that parameter. Pagination continues from the end
     -- of the previous results that returned the @nextToken@ value.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
+    -- not your own, then it\'s the ID of the account that shared the mesh with
+    -- your account. For more information about mesh sharing, see
+    -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+    meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results returned by @ListVirtualGateways@ in
     -- paginated output. When you use this parameter, @ListVirtualGateways@
     -- returns only @limit@ results in a single page along with a @nextToken@
@@ -86,15 +86,15 @@ data ListVirtualGateways = ListVirtualGateways'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'meshOwner', 'listVirtualGateways_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
--- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
---
 -- 'nextToken', 'listVirtualGateways_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @ListVirtualGateways@ request where @limit@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
 -- of the previous results that returned the @nextToken@ value.
+--
+-- 'meshOwner', 'listVirtualGateways_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
+-- not your own, then it\'s the ID of the account that shared the mesh with
+-- your account. For more information about mesh sharing, see
+-- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'limit', 'listVirtualGateways_limit' - The maximum number of results returned by @ListVirtualGateways@ in
 -- paginated output. When you use this parameter, @ListVirtualGateways@
@@ -112,18 +112,11 @@ newListVirtualGateways ::
   ListVirtualGateways
 newListVirtualGateways pMeshName_ =
   ListVirtualGateways'
-    { meshOwner = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      meshOwner = Prelude.Nothing,
       limit = Prelude.Nothing,
       meshName = pMeshName_
     }
-
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
--- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
-listVirtualGateways_meshOwner :: Lens.Lens' ListVirtualGateways (Prelude.Maybe Prelude.Text)
-listVirtualGateways_meshOwner = Lens.lens (\ListVirtualGateways' {meshOwner} -> meshOwner) (\s@ListVirtualGateways' {} a -> s {meshOwner = a} :: ListVirtualGateways)
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @ListVirtualGateways@ request where @limit@ was used and the results
@@ -131,6 +124,13 @@ listVirtualGateways_meshOwner = Lens.lens (\ListVirtualGateways' {meshOwner} -> 
 -- of the previous results that returned the @nextToken@ value.
 listVirtualGateways_nextToken :: Lens.Lens' ListVirtualGateways (Prelude.Maybe Prelude.Text)
 listVirtualGateways_nextToken = Lens.lens (\ListVirtualGateways' {nextToken} -> nextToken) (\s@ListVirtualGateways' {} a -> s {nextToken = a} :: ListVirtualGateways)
+
+-- | The AWS IAM account ID of the service mesh owner. If the account ID is
+-- not your own, then it\'s the ID of the account that shared the mesh with
+-- your account. For more information about mesh sharing, see
+-- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+listVirtualGateways_meshOwner :: Lens.Lens' ListVirtualGateways (Prelude.Maybe Prelude.Text)
+listVirtualGateways_meshOwner = Lens.lens (\ListVirtualGateways' {meshOwner} -> meshOwner) (\s@ListVirtualGateways' {} a -> s {meshOwner = a} :: ListVirtualGateways)
 
 -- | The maximum number of results returned by @ListVirtualGateways@ in
 -- paginated output. When you use this parameter, @ListVirtualGateways@
@@ -186,15 +186,15 @@ instance Core.AWSRequest ListVirtualGateways where
 
 instance Prelude.Hashable ListVirtualGateways where
   hashWithSalt _salt ListVirtualGateways' {..} =
-    _salt `Prelude.hashWithSalt` meshOwner
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` meshName
 
 instance Prelude.NFData ListVirtualGateways where
   rnf ListVirtualGateways' {..} =
-    Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf meshOwner
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf meshName
 
@@ -220,8 +220,8 @@ instance Core.ToPath ListVirtualGateways where
 instance Core.ToQuery ListVirtualGateways where
   toQuery ListVirtualGateways' {..} =
     Prelude.mconcat
-      [ "meshOwner" Core.=: meshOwner,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
+        "meshOwner" Core.=: meshOwner,
         "limit" Core.=: limit
       ]
 

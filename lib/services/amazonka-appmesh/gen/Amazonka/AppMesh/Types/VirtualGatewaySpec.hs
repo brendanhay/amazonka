@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVirtualGatewaySpec' smart constructor.
 data VirtualGatewaySpec = VirtualGatewaySpec'
-  { -- | A reference to an object that represents the defaults for backends.
+  { logging :: Prelude.Maybe VirtualGatewayLogging,
+    -- | A reference to an object that represents the defaults for backends.
     backendDefaults :: Prelude.Maybe VirtualGatewayBackendDefaults,
-    logging :: Prelude.Maybe VirtualGatewayLogging,
     -- | The listeners that the mesh endpoint is expected to receive inbound
     -- traffic from. You can specify one listener.
     listeners :: [VirtualGatewayListener]
@@ -47,9 +47,9 @@ data VirtualGatewaySpec = VirtualGatewaySpec'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'backendDefaults', 'virtualGatewaySpec_backendDefaults' - A reference to an object that represents the defaults for backends.
---
 -- 'logging', 'virtualGatewaySpec_logging' - Undocumented member.
+--
+-- 'backendDefaults', 'virtualGatewaySpec_backendDefaults' - A reference to an object that represents the defaults for backends.
 --
 -- 'listeners', 'virtualGatewaySpec_listeners' - The listeners that the mesh endpoint is expected to receive inbound
 -- traffic from. You can specify one listener.
@@ -57,19 +57,18 @@ newVirtualGatewaySpec ::
   VirtualGatewaySpec
 newVirtualGatewaySpec =
   VirtualGatewaySpec'
-    { backendDefaults =
-        Prelude.Nothing,
-      logging = Prelude.Nothing,
+    { logging = Prelude.Nothing,
+      backendDefaults = Prelude.Nothing,
       listeners = Prelude.mempty
     }
-
--- | A reference to an object that represents the defaults for backends.
-virtualGatewaySpec_backendDefaults :: Lens.Lens' VirtualGatewaySpec (Prelude.Maybe VirtualGatewayBackendDefaults)
-virtualGatewaySpec_backendDefaults = Lens.lens (\VirtualGatewaySpec' {backendDefaults} -> backendDefaults) (\s@VirtualGatewaySpec' {} a -> s {backendDefaults = a} :: VirtualGatewaySpec)
 
 -- | Undocumented member.
 virtualGatewaySpec_logging :: Lens.Lens' VirtualGatewaySpec (Prelude.Maybe VirtualGatewayLogging)
 virtualGatewaySpec_logging = Lens.lens (\VirtualGatewaySpec' {logging} -> logging) (\s@VirtualGatewaySpec' {} a -> s {logging = a} :: VirtualGatewaySpec)
+
+-- | A reference to an object that represents the defaults for backends.
+virtualGatewaySpec_backendDefaults :: Lens.Lens' VirtualGatewaySpec (Prelude.Maybe VirtualGatewayBackendDefaults)
+virtualGatewaySpec_backendDefaults = Lens.lens (\VirtualGatewaySpec' {backendDefaults} -> backendDefaults) (\s@VirtualGatewaySpec' {} a -> s {backendDefaults = a} :: VirtualGatewaySpec)
 
 -- | The listeners that the mesh endpoint is expected to receive inbound
 -- traffic from. You can specify one listener.
@@ -82,30 +81,30 @@ instance Core.FromJSON VirtualGatewaySpec where
       "VirtualGatewaySpec"
       ( \x ->
           VirtualGatewaySpec'
-            Prelude.<$> (x Core..:? "backendDefaults")
-            Prelude.<*> (x Core..:? "logging")
+            Prelude.<$> (x Core..:? "logging")
+            Prelude.<*> (x Core..:? "backendDefaults")
             Prelude.<*> (x Core..:? "listeners" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VirtualGatewaySpec where
   hashWithSalt _salt VirtualGatewaySpec' {..} =
-    _salt `Prelude.hashWithSalt` backendDefaults
-      `Prelude.hashWithSalt` logging
+    _salt `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` backendDefaults
       `Prelude.hashWithSalt` listeners
 
 instance Prelude.NFData VirtualGatewaySpec where
   rnf VirtualGatewaySpec' {..} =
-    Prelude.rnf backendDefaults
-      `Prelude.seq` Prelude.rnf logging
+    Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf backendDefaults
       `Prelude.seq` Prelude.rnf listeners
 
 instance Core.ToJSON VirtualGatewaySpec where
   toJSON VirtualGatewaySpec' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("backendDefaults" Core..=)
+          [ ("logging" Core..=) Prelude.<$> logging,
+            ("backendDefaults" Core..=)
               Prelude.<$> backendDefaults,
-            ("logging" Core..=) Prelude.<$> logging,
             Prelude.Just ("listeners" Core..= listeners)
           ]
       )

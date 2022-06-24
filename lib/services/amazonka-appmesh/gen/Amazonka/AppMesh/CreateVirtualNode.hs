@@ -57,9 +57,9 @@ module Amazonka.AppMesh.CreateVirtualNode
     newCreateVirtualNode,
 
     -- * Request Lenses
+    createVirtualNode_tags,
     createVirtualNode_clientToken,
     createVirtualNode_meshOwner,
-    createVirtualNode_tags,
     createVirtualNode_meshName,
     createVirtualNode_spec,
     createVirtualNode_virtualNodeName,
@@ -85,7 +85,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateVirtualNode' smart constructor.
 data CreateVirtualNode = CreateVirtualNode'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Optional metadata that you can apply to the virtual node to assist with
+    -- categorization and organization. Each tag consists of a key and an
+    -- optional value, both of which you define. Tag keys can have a maximum
+    -- character length of 128 characters, and tag values can have a maximum
+    -- length of 256 characters.
+    tags :: Prelude.Maybe [TagRef],
+    -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
     -- underscores are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -95,12 +101,6 @@ data CreateVirtualNode = CreateVirtualNode'
     -- more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
-    -- | Optional metadata that you can apply to the virtual node to assist with
-    -- categorization and organization. Each tag consists of a key and an
-    -- optional value, both of which you define. Tag keys can have a maximum
-    -- character length of 128 characters, and tag values can have a maximum
-    -- length of 256 characters.
-    tags :: Prelude.Maybe [TagRef],
     -- | The name of the service mesh to create the virtual node in.
     meshName :: Prelude.Text,
     -- | The virtual node specification to apply.
@@ -118,6 +118,12 @@ data CreateVirtualNode = CreateVirtualNode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createVirtualNode_tags' - Optional metadata that you can apply to the virtual node to assist with
+-- categorization and organization. Each tag consists of a key and an
+-- optional value, both of which you define. Tag keys can have a maximum
+-- character length of 128 characters, and tag values can have a maximum
+-- length of 256 characters.
+--
 -- 'clientToken', 'createVirtualNode_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
 -- underscores are allowed.
@@ -127,12 +133,6 @@ data CreateVirtualNode = CreateVirtualNode'
 -- your account before you can create the resource in the service mesh. For
 -- more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
---
--- 'tags', 'createVirtualNode_tags' - Optional metadata that you can apply to the virtual node to assist with
--- categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
 --
 -- 'meshName', 'createVirtualNode_meshName' - The name of the service mesh to create the virtual node in.
 --
@@ -152,13 +152,21 @@ newCreateVirtualNode
   pSpec_
   pVirtualNodeName_ =
     CreateVirtualNode'
-      { clientToken = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         meshOwner = Prelude.Nothing,
-        tags = Prelude.Nothing,
         meshName = pMeshName_,
         spec = pSpec_,
         virtualNodeName = pVirtualNodeName_
       }
+
+-- | Optional metadata that you can apply to the virtual node to assist with
+-- categorization and organization. Each tag consists of a key and an
+-- optional value, both of which you define. Tag keys can have a maximum
+-- character length of 128 characters, and tag values can have a maximum
+-- length of 256 characters.
+createVirtualNode_tags :: Lens.Lens' CreateVirtualNode (Prelude.Maybe [TagRef])
+createVirtualNode_tags = Lens.lens (\CreateVirtualNode' {tags} -> tags) (\s@CreateVirtualNode' {} a -> s {tags = a} :: CreateVirtualNode) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
@@ -173,14 +181,6 @@ createVirtualNode_clientToken = Lens.lens (\CreateVirtualNode' {clientToken} -> 
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 createVirtualNode_meshOwner :: Lens.Lens' CreateVirtualNode (Prelude.Maybe Prelude.Text)
 createVirtualNode_meshOwner = Lens.lens (\CreateVirtualNode' {meshOwner} -> meshOwner) (\s@CreateVirtualNode' {} a -> s {meshOwner = a} :: CreateVirtualNode)
-
--- | Optional metadata that you can apply to the virtual node to assist with
--- categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
-createVirtualNode_tags :: Lens.Lens' CreateVirtualNode (Prelude.Maybe [TagRef])
-createVirtualNode_tags = Lens.lens (\CreateVirtualNode' {tags} -> tags) (\s@CreateVirtualNode' {} a -> s {tags = a} :: CreateVirtualNode) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the service mesh to create the virtual node in.
 createVirtualNode_meshName :: Lens.Lens' CreateVirtualNode Prelude.Text
@@ -209,18 +209,18 @@ instance Core.AWSRequest CreateVirtualNode where
 
 instance Prelude.Hashable CreateVirtualNode where
   hashWithSalt _salt CreateVirtualNode' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` virtualNodeName
 
 instance Prelude.NFData CreateVirtualNode where
   rnf CreateVirtualNode' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf meshName
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf virtualNodeName
@@ -240,8 +240,8 @@ instance Core.ToJSON CreateVirtualNode where
   toJSON CreateVirtualNode' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
             Prelude.Just ("spec" Core..= spec),
             Prelude.Just
               ("virtualNodeName" Core..= virtualNodeName)

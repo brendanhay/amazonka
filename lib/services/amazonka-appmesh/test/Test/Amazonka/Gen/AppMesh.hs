@@ -27,421 +27,241 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeVirtualNode $
---             newDescribeVirtualNode
---
---         , requestDescribeVirtualGateway $
---             newDescribeVirtualGateway
---
---         , requestDescribeRoute $
---             newDescribeRoute
---
---         , requestDescribeVirtualRouter $
---             newDescribeVirtualRouter
---
---         , requestListMeshes $
---             newListMeshes
+--         [ requestCreateGatewayRoute $
+--             newCreateGatewayRoute
 --
 --         , requestCreateMesh $
 --             newCreateMesh
 --
---         , requestUpdateMesh $
---             newUpdateMesh
---
---         , requestDeleteMesh $
---             newDeleteMesh
---
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestCreateRoute $
+--             newCreateRoute
 --
 --         , requestCreateVirtualGateway $
 --             newCreateVirtualGateway
 --
---         , requestListVirtualServices $
---             newListVirtualServices
---
---         , requestDeleteVirtualService $
---             newDeleteVirtualService
---
---         , requestUpdateVirtualService $
---             newUpdateVirtualService
---
---         , requestUpdateVirtualGateway $
---             newUpdateVirtualGateway
---
---         , requestDeleteVirtualGateway $
---             newDeleteVirtualGateway
---
---         , requestDeleteRoute $
---             newDeleteRoute
---
---         , requestUpdateRoute $
---             newUpdateRoute
---
---         , requestCreateVirtualService $
---             newCreateVirtualService
---
---         , requestDeleteVirtualNode $
---             newDeleteVirtualNode
---
---         , requestUpdateVirtualNode $
---             newUpdateVirtualNode
---
---         , requestListGatewayRoutes $
---             newListGatewayRoutes
---
---         , requestListRoutes $
---             newListRoutes
---
---         , requestListVirtualNodes $
---             newListVirtualNodes
---
---         , requestDeleteVirtualRouter $
---             newDeleteVirtualRouter
---
---         , requestUpdateVirtualRouter $
---             newUpdateVirtualRouter
+--         , requestCreateVirtualNode $
+--             newCreateVirtualNode
 --
 --         , requestCreateVirtualRouter $
 --             newCreateVirtualRouter
 --
---         , requestDescribeVirtualService $
---             newDescribeVirtualService
---
---         , requestDescribeGatewayRoute $
---             newDescribeGatewayRoute
---
---         , requestCreateRoute $
---             newCreateRoute
---
---         , requestCreateVirtualNode $
---             newCreateVirtualNode
---
---         , requestCreateGatewayRoute $
---             newCreateGatewayRoute
---
---         , requestUpdateGatewayRoute $
---             newUpdateGatewayRoute
+--         , requestCreateVirtualService $
+--             newCreateVirtualService
 --
 --         , requestDeleteGatewayRoute $
 --             newDeleteGatewayRoute
 --
---         , requestTagResource $
---             newTagResource
+--         , requestDeleteMesh $
+--             newDeleteMesh
 --
---         , requestListVirtualGateways $
---             newListVirtualGateways
+--         , requestDeleteRoute $
+--             newDeleteRoute
 --
---         , requestListVirtualRouters $
---             newListVirtualRouters
+--         , requestDeleteVirtualGateway $
+--             newDeleteVirtualGateway
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestDeleteVirtualNode $
+--             newDeleteVirtualNode
+--
+--         , requestDeleteVirtualRouter $
+--             newDeleteVirtualRouter
+--
+--         , requestDeleteVirtualService $
+--             newDeleteVirtualService
+--
+--         , requestDescribeGatewayRoute $
+--             newDescribeGatewayRoute
 --
 --         , requestDescribeMesh $
 --             newDescribeMesh
 --
+--         , requestDescribeRoute $
+--             newDescribeRoute
+--
+--         , requestDescribeVirtualGateway $
+--             newDescribeVirtualGateway
+--
+--         , requestDescribeVirtualNode $
+--             newDescribeVirtualNode
+--
+--         , requestDescribeVirtualRouter $
+--             newDescribeVirtualRouter
+--
+--         , requestDescribeVirtualService $
+--             newDescribeVirtualService
+--
+--         , requestListGatewayRoutes $
+--             newListGatewayRoutes
+--
+--         , requestListMeshes $
+--             newListMeshes
+--
+--         , requestListRoutes $
+--             newListRoutes
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListVirtualGateways $
+--             newListVirtualGateways
+--
+--         , requestListVirtualNodes $
+--             newListVirtualNodes
+--
+--         , requestListVirtualRouters $
+--             newListVirtualRouters
+--
+--         , requestListVirtualServices $
+--             newListVirtualServices
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateGatewayRoute $
+--             newUpdateGatewayRoute
+--
+--         , requestUpdateMesh $
+--             newUpdateMesh
+--
+--         , requestUpdateRoute $
+--             newUpdateRoute
+--
+--         , requestUpdateVirtualGateway $
+--             newUpdateVirtualGateway
+--
+--         , requestUpdateVirtualNode $
+--             newUpdateVirtualNode
+--
+--         , requestUpdateVirtualRouter $
+--             newUpdateVirtualRouter
+--
+--         , requestUpdateVirtualService $
+--             newUpdateVirtualService
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeVirtualNode $
---             newDescribeVirtualNodeResponse
---
---         , responseDescribeVirtualGateway $
---             newDescribeVirtualGatewayResponse
---
---         , responseDescribeRoute $
---             newDescribeRouteResponse
---
---         , responseDescribeVirtualRouter $
---             newDescribeVirtualRouterResponse
---
---         , responseListMeshes $
---             newListMeshesResponse
+--         [ responseCreateGatewayRoute $
+--             newCreateGatewayRouteResponse
 --
 --         , responseCreateMesh $
 --             newCreateMeshResponse
 --
---         , responseUpdateMesh $
---             newUpdateMeshResponse
---
---         , responseDeleteMesh $
---             newDeleteMeshResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseCreateRoute $
+--             newCreateRouteResponse
 --
 --         , responseCreateVirtualGateway $
 --             newCreateVirtualGatewayResponse
 --
---         , responseListVirtualServices $
---             newListVirtualServicesResponse
---
---         , responseDeleteVirtualService $
---             newDeleteVirtualServiceResponse
---
---         , responseUpdateVirtualService $
---             newUpdateVirtualServiceResponse
---
---         , responseUpdateVirtualGateway $
---             newUpdateVirtualGatewayResponse
---
---         , responseDeleteVirtualGateway $
---             newDeleteVirtualGatewayResponse
---
---         , responseDeleteRoute $
---             newDeleteRouteResponse
---
---         , responseUpdateRoute $
---             newUpdateRouteResponse
---
---         , responseCreateVirtualService $
---             newCreateVirtualServiceResponse
---
---         , responseDeleteVirtualNode $
---             newDeleteVirtualNodeResponse
---
---         , responseUpdateVirtualNode $
---             newUpdateVirtualNodeResponse
---
---         , responseListGatewayRoutes $
---             newListGatewayRoutesResponse
---
---         , responseListRoutes $
---             newListRoutesResponse
---
---         , responseListVirtualNodes $
---             newListVirtualNodesResponse
---
---         , responseDeleteVirtualRouter $
---             newDeleteVirtualRouterResponse
---
---         , responseUpdateVirtualRouter $
---             newUpdateVirtualRouterResponse
+--         , responseCreateVirtualNode $
+--             newCreateVirtualNodeResponse
 --
 --         , responseCreateVirtualRouter $
 --             newCreateVirtualRouterResponse
 --
---         , responseDescribeVirtualService $
---             newDescribeVirtualServiceResponse
---
---         , responseDescribeGatewayRoute $
---             newDescribeGatewayRouteResponse
---
---         , responseCreateRoute $
---             newCreateRouteResponse
---
---         , responseCreateVirtualNode $
---             newCreateVirtualNodeResponse
---
---         , responseCreateGatewayRoute $
---             newCreateGatewayRouteResponse
---
---         , responseUpdateGatewayRoute $
---             newUpdateGatewayRouteResponse
+--         , responseCreateVirtualService $
+--             newCreateVirtualServiceResponse
 --
 --         , responseDeleteGatewayRoute $
 --             newDeleteGatewayRouteResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseDeleteMesh $
+--             newDeleteMeshResponse
+--
+--         , responseDeleteRoute $
+--             newDeleteRouteResponse
+--
+--         , responseDeleteVirtualGateway $
+--             newDeleteVirtualGatewayResponse
+--
+--         , responseDeleteVirtualNode $
+--             newDeleteVirtualNodeResponse
+--
+--         , responseDeleteVirtualRouter $
+--             newDeleteVirtualRouterResponse
+--
+--         , responseDeleteVirtualService $
+--             newDeleteVirtualServiceResponse
+--
+--         , responseDescribeGatewayRoute $
+--             newDescribeGatewayRouteResponse
+--
+--         , responseDescribeMesh $
+--             newDescribeMeshResponse
+--
+--         , responseDescribeRoute $
+--             newDescribeRouteResponse
+--
+--         , responseDescribeVirtualGateway $
+--             newDescribeVirtualGatewayResponse
+--
+--         , responseDescribeVirtualNode $
+--             newDescribeVirtualNodeResponse
+--
+--         , responseDescribeVirtualRouter $
+--             newDescribeVirtualRouterResponse
+--
+--         , responseDescribeVirtualService $
+--             newDescribeVirtualServiceResponse
+--
+--         , responseListGatewayRoutes $
+--             newListGatewayRoutesResponse
+--
+--         , responseListMeshes $
+--             newListMeshesResponse
+--
+--         , responseListRoutes $
+--             newListRoutesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseListVirtualGateways $
 --             newListVirtualGatewaysResponse
 --
+--         , responseListVirtualNodes $
+--             newListVirtualNodesResponse
+--
 --         , responseListVirtualRouters $
 --             newListVirtualRoutersResponse
+--
+--         , responseListVirtualServices $
+--             newListVirtualServicesResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDescribeMesh $
---             newDescribeMeshResponse
+--         , responseUpdateGatewayRoute $
+--             newUpdateGatewayRouteResponse
+--
+--         , responseUpdateMesh $
+--             newUpdateMeshResponse
+--
+--         , responseUpdateRoute $
+--             newUpdateRouteResponse
+--
+--         , responseUpdateVirtualGateway $
+--             newUpdateVirtualGatewayResponse
+--
+--         , responseUpdateVirtualNode $
+--             newUpdateVirtualNodeResponse
+--
+--         , responseUpdateVirtualRouter $
+--             newUpdateVirtualRouterResponse
+--
+--         , responseUpdateVirtualService $
+--             newUpdateVirtualServiceResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestDescribeVirtualNode :: DescribeVirtualNode -> TestTree
-requestDescribeVirtualNode =
-  req
-    "DescribeVirtualNode"
-    "fixture/DescribeVirtualNode.yaml"
-
-requestDescribeVirtualGateway :: DescribeVirtualGateway -> TestTree
-requestDescribeVirtualGateway =
-  req
-    "DescribeVirtualGateway"
-    "fixture/DescribeVirtualGateway.yaml"
-
-requestDescribeRoute :: DescribeRoute -> TestTree
-requestDescribeRoute =
-  req
-    "DescribeRoute"
-    "fixture/DescribeRoute.yaml"
-
-requestDescribeVirtualRouter :: DescribeVirtualRouter -> TestTree
-requestDescribeVirtualRouter =
-  req
-    "DescribeVirtualRouter"
-    "fixture/DescribeVirtualRouter.yaml"
-
-requestListMeshes :: ListMeshes -> TestTree
-requestListMeshes =
-  req
-    "ListMeshes"
-    "fixture/ListMeshes.yaml"
-
-requestCreateMesh :: CreateMesh -> TestTree
-requestCreateMesh =
-  req
-    "CreateMesh"
-    "fixture/CreateMesh.yaml"
-
-requestUpdateMesh :: UpdateMesh -> TestTree
-requestUpdateMesh =
-  req
-    "UpdateMesh"
-    "fixture/UpdateMesh.yaml"
-
-requestDeleteMesh :: DeleteMesh -> TestTree
-requestDeleteMesh =
-  req
-    "DeleteMesh"
-    "fixture/DeleteMesh.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestCreateVirtualGateway :: CreateVirtualGateway -> TestTree
-requestCreateVirtualGateway =
-  req
-    "CreateVirtualGateway"
-    "fixture/CreateVirtualGateway.yaml"
-
-requestListVirtualServices :: ListVirtualServices -> TestTree
-requestListVirtualServices =
-  req
-    "ListVirtualServices"
-    "fixture/ListVirtualServices.yaml"
-
-requestDeleteVirtualService :: DeleteVirtualService -> TestTree
-requestDeleteVirtualService =
-  req
-    "DeleteVirtualService"
-    "fixture/DeleteVirtualService.yaml"
-
-requestUpdateVirtualService :: UpdateVirtualService -> TestTree
-requestUpdateVirtualService =
-  req
-    "UpdateVirtualService"
-    "fixture/UpdateVirtualService.yaml"
-
-requestUpdateVirtualGateway :: UpdateVirtualGateway -> TestTree
-requestUpdateVirtualGateway =
-  req
-    "UpdateVirtualGateway"
-    "fixture/UpdateVirtualGateway.yaml"
-
-requestDeleteVirtualGateway :: DeleteVirtualGateway -> TestTree
-requestDeleteVirtualGateway =
-  req
-    "DeleteVirtualGateway"
-    "fixture/DeleteVirtualGateway.yaml"
-
-requestDeleteRoute :: DeleteRoute -> TestTree
-requestDeleteRoute =
-  req
-    "DeleteRoute"
-    "fixture/DeleteRoute.yaml"
-
-requestUpdateRoute :: UpdateRoute -> TestTree
-requestUpdateRoute =
-  req
-    "UpdateRoute"
-    "fixture/UpdateRoute.yaml"
-
-requestCreateVirtualService :: CreateVirtualService -> TestTree
-requestCreateVirtualService =
-  req
-    "CreateVirtualService"
-    "fixture/CreateVirtualService.yaml"
-
-requestDeleteVirtualNode :: DeleteVirtualNode -> TestTree
-requestDeleteVirtualNode =
-  req
-    "DeleteVirtualNode"
-    "fixture/DeleteVirtualNode.yaml"
-
-requestUpdateVirtualNode :: UpdateVirtualNode -> TestTree
-requestUpdateVirtualNode =
-  req
-    "UpdateVirtualNode"
-    "fixture/UpdateVirtualNode.yaml"
-
-requestListGatewayRoutes :: ListGatewayRoutes -> TestTree
-requestListGatewayRoutes =
-  req
-    "ListGatewayRoutes"
-    "fixture/ListGatewayRoutes.yaml"
-
-requestListRoutes :: ListRoutes -> TestTree
-requestListRoutes =
-  req
-    "ListRoutes"
-    "fixture/ListRoutes.yaml"
-
-requestListVirtualNodes :: ListVirtualNodes -> TestTree
-requestListVirtualNodes =
-  req
-    "ListVirtualNodes"
-    "fixture/ListVirtualNodes.yaml"
-
-requestDeleteVirtualRouter :: DeleteVirtualRouter -> TestTree
-requestDeleteVirtualRouter =
-  req
-    "DeleteVirtualRouter"
-    "fixture/DeleteVirtualRouter.yaml"
-
-requestUpdateVirtualRouter :: UpdateVirtualRouter -> TestTree
-requestUpdateVirtualRouter =
-  req
-    "UpdateVirtualRouter"
-    "fixture/UpdateVirtualRouter.yaml"
-
-requestCreateVirtualRouter :: CreateVirtualRouter -> TestTree
-requestCreateVirtualRouter =
-  req
-    "CreateVirtualRouter"
-    "fixture/CreateVirtualRouter.yaml"
-
-requestDescribeVirtualService :: DescribeVirtualService -> TestTree
-requestDescribeVirtualService =
-  req
-    "DescribeVirtualService"
-    "fixture/DescribeVirtualService.yaml"
-
-requestDescribeGatewayRoute :: DescribeGatewayRoute -> TestTree
-requestDescribeGatewayRoute =
-  req
-    "DescribeGatewayRoute"
-    "fixture/DescribeGatewayRoute.yaml"
-
-requestCreateRoute :: CreateRoute -> TestTree
-requestCreateRoute =
-  req
-    "CreateRoute"
-    "fixture/CreateRoute.yaml"
-
-requestCreateVirtualNode :: CreateVirtualNode -> TestTree
-requestCreateVirtualNode =
-  req
-    "CreateVirtualNode"
-    "fixture/CreateVirtualNode.yaml"
 
 requestCreateGatewayRoute :: CreateGatewayRoute -> TestTree
 requestCreateGatewayRoute =
@@ -449,11 +269,41 @@ requestCreateGatewayRoute =
     "CreateGatewayRoute"
     "fixture/CreateGatewayRoute.yaml"
 
-requestUpdateGatewayRoute :: UpdateGatewayRoute -> TestTree
-requestUpdateGatewayRoute =
+requestCreateMesh :: CreateMesh -> TestTree
+requestCreateMesh =
   req
-    "UpdateGatewayRoute"
-    "fixture/UpdateGatewayRoute.yaml"
+    "CreateMesh"
+    "fixture/CreateMesh.yaml"
+
+requestCreateRoute :: CreateRoute -> TestTree
+requestCreateRoute =
+  req
+    "CreateRoute"
+    "fixture/CreateRoute.yaml"
+
+requestCreateVirtualGateway :: CreateVirtualGateway -> TestTree
+requestCreateVirtualGateway =
+  req
+    "CreateVirtualGateway"
+    "fixture/CreateVirtualGateway.yaml"
+
+requestCreateVirtualNode :: CreateVirtualNode -> TestTree
+requestCreateVirtualNode =
+  req
+    "CreateVirtualNode"
+    "fixture/CreateVirtualNode.yaml"
+
+requestCreateVirtualRouter :: CreateVirtualRouter -> TestTree
+requestCreateVirtualRouter =
+  req
+    "CreateVirtualRouter"
+    "fixture/CreateVirtualRouter.yaml"
+
+requestCreateVirtualService :: CreateVirtualService -> TestTree
+requestCreateVirtualService =
+  req
+    "CreateVirtualService"
+    "fixture/CreateVirtualService.yaml"
 
 requestDeleteGatewayRoute :: DeleteGatewayRoute -> TestTree
 requestDeleteGatewayRoute =
@@ -461,29 +311,47 @@ requestDeleteGatewayRoute =
     "DeleteGatewayRoute"
     "fixture/DeleteGatewayRoute.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestDeleteMesh :: DeleteMesh -> TestTree
+requestDeleteMesh =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "DeleteMesh"
+    "fixture/DeleteMesh.yaml"
 
-requestListVirtualGateways :: ListVirtualGateways -> TestTree
-requestListVirtualGateways =
+requestDeleteRoute :: DeleteRoute -> TestTree
+requestDeleteRoute =
   req
-    "ListVirtualGateways"
-    "fixture/ListVirtualGateways.yaml"
+    "DeleteRoute"
+    "fixture/DeleteRoute.yaml"
 
-requestListVirtualRouters :: ListVirtualRouters -> TestTree
-requestListVirtualRouters =
+requestDeleteVirtualGateway :: DeleteVirtualGateway -> TestTree
+requestDeleteVirtualGateway =
   req
-    "ListVirtualRouters"
-    "fixture/ListVirtualRouters.yaml"
+    "DeleteVirtualGateway"
+    "fixture/DeleteVirtualGateway.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestDeleteVirtualNode :: DeleteVirtualNode -> TestTree
+requestDeleteVirtualNode =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "DeleteVirtualNode"
+    "fixture/DeleteVirtualNode.yaml"
+
+requestDeleteVirtualRouter :: DeleteVirtualRouter -> TestTree
+requestDeleteVirtualRouter =
+  req
+    "DeleteVirtualRouter"
+    "fixture/DeleteVirtualRouter.yaml"
+
+requestDeleteVirtualService :: DeleteVirtualService -> TestTree
+requestDeleteVirtualService =
+  req
+    "DeleteVirtualService"
+    "fixture/DeleteVirtualService.yaml"
+
+requestDescribeGatewayRoute :: DescribeGatewayRoute -> TestTree
+requestDescribeGatewayRoute =
+  req
+    "DescribeGatewayRoute"
+    "fixture/DescribeGatewayRoute.yaml"
 
 requestDescribeMesh :: DescribeMesh -> TestTree
 requestDescribeMesh =
@@ -491,247 +359,139 @@ requestDescribeMesh =
     "DescribeMesh"
     "fixture/DescribeMesh.yaml"
 
+requestDescribeRoute :: DescribeRoute -> TestTree
+requestDescribeRoute =
+  req
+    "DescribeRoute"
+    "fixture/DescribeRoute.yaml"
+
+requestDescribeVirtualGateway :: DescribeVirtualGateway -> TestTree
+requestDescribeVirtualGateway =
+  req
+    "DescribeVirtualGateway"
+    "fixture/DescribeVirtualGateway.yaml"
+
+requestDescribeVirtualNode :: DescribeVirtualNode -> TestTree
+requestDescribeVirtualNode =
+  req
+    "DescribeVirtualNode"
+    "fixture/DescribeVirtualNode.yaml"
+
+requestDescribeVirtualRouter :: DescribeVirtualRouter -> TestTree
+requestDescribeVirtualRouter =
+  req
+    "DescribeVirtualRouter"
+    "fixture/DescribeVirtualRouter.yaml"
+
+requestDescribeVirtualService :: DescribeVirtualService -> TestTree
+requestDescribeVirtualService =
+  req
+    "DescribeVirtualService"
+    "fixture/DescribeVirtualService.yaml"
+
+requestListGatewayRoutes :: ListGatewayRoutes -> TestTree
+requestListGatewayRoutes =
+  req
+    "ListGatewayRoutes"
+    "fixture/ListGatewayRoutes.yaml"
+
+requestListMeshes :: ListMeshes -> TestTree
+requestListMeshes =
+  req
+    "ListMeshes"
+    "fixture/ListMeshes.yaml"
+
+requestListRoutes :: ListRoutes -> TestTree
+requestListRoutes =
+  req
+    "ListRoutes"
+    "fixture/ListRoutes.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListVirtualGateways :: ListVirtualGateways -> TestTree
+requestListVirtualGateways =
+  req
+    "ListVirtualGateways"
+    "fixture/ListVirtualGateways.yaml"
+
+requestListVirtualNodes :: ListVirtualNodes -> TestTree
+requestListVirtualNodes =
+  req
+    "ListVirtualNodes"
+    "fixture/ListVirtualNodes.yaml"
+
+requestListVirtualRouters :: ListVirtualRouters -> TestTree
+requestListVirtualRouters =
+  req
+    "ListVirtualRouters"
+    "fixture/ListVirtualRouters.yaml"
+
+requestListVirtualServices :: ListVirtualServices -> TestTree
+requestListVirtualServices =
+  req
+    "ListVirtualServices"
+    "fixture/ListVirtualServices.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateGatewayRoute :: UpdateGatewayRoute -> TestTree
+requestUpdateGatewayRoute =
+  req
+    "UpdateGatewayRoute"
+    "fixture/UpdateGatewayRoute.yaml"
+
+requestUpdateMesh :: UpdateMesh -> TestTree
+requestUpdateMesh =
+  req
+    "UpdateMesh"
+    "fixture/UpdateMesh.yaml"
+
+requestUpdateRoute :: UpdateRoute -> TestTree
+requestUpdateRoute =
+  req
+    "UpdateRoute"
+    "fixture/UpdateRoute.yaml"
+
+requestUpdateVirtualGateway :: UpdateVirtualGateway -> TestTree
+requestUpdateVirtualGateway =
+  req
+    "UpdateVirtualGateway"
+    "fixture/UpdateVirtualGateway.yaml"
+
+requestUpdateVirtualNode :: UpdateVirtualNode -> TestTree
+requestUpdateVirtualNode =
+  req
+    "UpdateVirtualNode"
+    "fixture/UpdateVirtualNode.yaml"
+
+requestUpdateVirtualRouter :: UpdateVirtualRouter -> TestTree
+requestUpdateVirtualRouter =
+  req
+    "UpdateVirtualRouter"
+    "fixture/UpdateVirtualRouter.yaml"
+
+requestUpdateVirtualService :: UpdateVirtualService -> TestTree
+requestUpdateVirtualService =
+  req
+    "UpdateVirtualService"
+    "fixture/UpdateVirtualService.yaml"
+
 -- Responses
-
-responseDescribeVirtualNode :: DescribeVirtualNodeResponse -> TestTree
-responseDescribeVirtualNode =
-  res
-    "DescribeVirtualNodeResponse"
-    "fixture/DescribeVirtualNodeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualNode)
-
-responseDescribeVirtualGateway :: DescribeVirtualGatewayResponse -> TestTree
-responseDescribeVirtualGateway =
-  res
-    "DescribeVirtualGatewayResponse"
-    "fixture/DescribeVirtualGatewayResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualGateway)
-
-responseDescribeRoute :: DescribeRouteResponse -> TestTree
-responseDescribeRoute =
-  res
-    "DescribeRouteResponse"
-    "fixture/DescribeRouteResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeRoute)
-
-responseDescribeVirtualRouter :: DescribeVirtualRouterResponse -> TestTree
-responseDescribeVirtualRouter =
-  res
-    "DescribeVirtualRouterResponse"
-    "fixture/DescribeVirtualRouterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualRouter)
-
-responseListMeshes :: ListMeshesResponse -> TestTree
-responseListMeshes =
-  res
-    "ListMeshesResponse"
-    "fixture/ListMeshesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListMeshes)
-
-responseCreateMesh :: CreateMeshResponse -> TestTree
-responseCreateMesh =
-  res
-    "CreateMeshResponse"
-    "fixture/CreateMeshResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateMesh)
-
-responseUpdateMesh :: UpdateMeshResponse -> TestTree
-responseUpdateMesh =
-  res
-    "UpdateMeshResponse"
-    "fixture/UpdateMeshResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateMesh)
-
-responseDeleteMesh :: DeleteMeshResponse -> TestTree
-responseDeleteMesh =
-  res
-    "DeleteMeshResponse"
-    "fixture/DeleteMeshResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteMesh)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseCreateVirtualGateway :: CreateVirtualGatewayResponse -> TestTree
-responseCreateVirtualGateway =
-  res
-    "CreateVirtualGatewayResponse"
-    "fixture/CreateVirtualGatewayResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateVirtualGateway)
-
-responseListVirtualServices :: ListVirtualServicesResponse -> TestTree
-responseListVirtualServices =
-  res
-    "ListVirtualServicesResponse"
-    "fixture/ListVirtualServicesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListVirtualServices)
-
-responseDeleteVirtualService :: DeleteVirtualServiceResponse -> TestTree
-responseDeleteVirtualService =
-  res
-    "DeleteVirtualServiceResponse"
-    "fixture/DeleteVirtualServiceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualService)
-
-responseUpdateVirtualService :: UpdateVirtualServiceResponse -> TestTree
-responseUpdateVirtualService =
-  res
-    "UpdateVirtualServiceResponse"
-    "fixture/UpdateVirtualServiceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateVirtualService)
-
-responseUpdateVirtualGateway :: UpdateVirtualGatewayResponse -> TestTree
-responseUpdateVirtualGateway =
-  res
-    "UpdateVirtualGatewayResponse"
-    "fixture/UpdateVirtualGatewayResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateVirtualGateway)
-
-responseDeleteVirtualGateway :: DeleteVirtualGatewayResponse -> TestTree
-responseDeleteVirtualGateway =
-  res
-    "DeleteVirtualGatewayResponse"
-    "fixture/DeleteVirtualGatewayResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualGateway)
-
-responseDeleteRoute :: DeleteRouteResponse -> TestTree
-responseDeleteRoute =
-  res
-    "DeleteRouteResponse"
-    "fixture/DeleteRouteResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRoute)
-
-responseUpdateRoute :: UpdateRouteResponse -> TestTree
-responseUpdateRoute =
-  res
-    "UpdateRouteResponse"
-    "fixture/UpdateRouteResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRoute)
-
-responseCreateVirtualService :: CreateVirtualServiceResponse -> TestTree
-responseCreateVirtualService =
-  res
-    "CreateVirtualServiceResponse"
-    "fixture/CreateVirtualServiceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateVirtualService)
-
-responseDeleteVirtualNode :: DeleteVirtualNodeResponse -> TestTree
-responseDeleteVirtualNode =
-  res
-    "DeleteVirtualNodeResponse"
-    "fixture/DeleteVirtualNodeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualNode)
-
-responseUpdateVirtualNode :: UpdateVirtualNodeResponse -> TestTree
-responseUpdateVirtualNode =
-  res
-    "UpdateVirtualNodeResponse"
-    "fixture/UpdateVirtualNodeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateVirtualNode)
-
-responseListGatewayRoutes :: ListGatewayRoutesResponse -> TestTree
-responseListGatewayRoutes =
-  res
-    "ListGatewayRoutesResponse"
-    "fixture/ListGatewayRoutesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListGatewayRoutes)
-
-responseListRoutes :: ListRoutesResponse -> TestTree
-responseListRoutes =
-  res
-    "ListRoutesResponse"
-    "fixture/ListRoutesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRoutes)
-
-responseListVirtualNodes :: ListVirtualNodesResponse -> TestTree
-responseListVirtualNodes =
-  res
-    "ListVirtualNodesResponse"
-    "fixture/ListVirtualNodesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListVirtualNodes)
-
-responseDeleteVirtualRouter :: DeleteVirtualRouterResponse -> TestTree
-responseDeleteVirtualRouter =
-  res
-    "DeleteVirtualRouterResponse"
-    "fixture/DeleteVirtualRouterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualRouter)
-
-responseUpdateVirtualRouter :: UpdateVirtualRouterResponse -> TestTree
-responseUpdateVirtualRouter =
-  res
-    "UpdateVirtualRouterResponse"
-    "fixture/UpdateVirtualRouterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateVirtualRouter)
-
-responseCreateVirtualRouter :: CreateVirtualRouterResponse -> TestTree
-responseCreateVirtualRouter =
-  res
-    "CreateVirtualRouterResponse"
-    "fixture/CreateVirtualRouterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateVirtualRouter)
-
-responseDescribeVirtualService :: DescribeVirtualServiceResponse -> TestTree
-responseDescribeVirtualService =
-  res
-    "DescribeVirtualServiceResponse"
-    "fixture/DescribeVirtualServiceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualService)
-
-responseDescribeGatewayRoute :: DescribeGatewayRouteResponse -> TestTree
-responseDescribeGatewayRoute =
-  res
-    "DescribeGatewayRouteResponse"
-    "fixture/DescribeGatewayRouteResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeGatewayRoute)
-
-responseCreateRoute :: CreateRouteResponse -> TestTree
-responseCreateRoute =
-  res
-    "CreateRouteResponse"
-    "fixture/CreateRouteResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRoute)
-
-responseCreateVirtualNode :: CreateVirtualNodeResponse -> TestTree
-responseCreateVirtualNode =
-  res
-    "CreateVirtualNodeResponse"
-    "fixture/CreateVirtualNodeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateVirtualNode)
 
 responseCreateGatewayRoute :: CreateGatewayRouteResponse -> TestTree
 responseCreateGatewayRoute =
@@ -741,13 +501,53 @@ responseCreateGatewayRoute =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateGatewayRoute)
 
-responseUpdateGatewayRoute :: UpdateGatewayRouteResponse -> TestTree
-responseUpdateGatewayRoute =
+responseCreateMesh :: CreateMeshResponse -> TestTree
+responseCreateMesh =
   res
-    "UpdateGatewayRouteResponse"
-    "fixture/UpdateGatewayRouteResponse.proto"
+    "CreateMeshResponse"
+    "fixture/CreateMeshResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateGatewayRoute)
+    (Proxy.Proxy :: Proxy.Proxy CreateMesh)
+
+responseCreateRoute :: CreateRouteResponse -> TestTree
+responseCreateRoute =
+  res
+    "CreateRouteResponse"
+    "fixture/CreateRouteResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRoute)
+
+responseCreateVirtualGateway :: CreateVirtualGatewayResponse -> TestTree
+responseCreateVirtualGateway =
+  res
+    "CreateVirtualGatewayResponse"
+    "fixture/CreateVirtualGatewayResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVirtualGateway)
+
+responseCreateVirtualNode :: CreateVirtualNodeResponse -> TestTree
+responseCreateVirtualNode =
+  res
+    "CreateVirtualNodeResponse"
+    "fixture/CreateVirtualNodeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVirtualNode)
+
+responseCreateVirtualRouter :: CreateVirtualRouterResponse -> TestTree
+responseCreateVirtualRouter =
+  res
+    "CreateVirtualRouterResponse"
+    "fixture/CreateVirtualRouterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVirtualRouter)
+
+responseCreateVirtualService :: CreateVirtualServiceResponse -> TestTree
+responseCreateVirtualService =
+  res
+    "CreateVirtualServiceResponse"
+    "fixture/CreateVirtualServiceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVirtualService)
 
 responseDeleteGatewayRoute :: DeleteGatewayRouteResponse -> TestTree
 responseDeleteGatewayRoute =
@@ -757,13 +557,141 @@ responseDeleteGatewayRoute =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteGatewayRoute)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseDeleteMesh :: DeleteMeshResponse -> TestTree
+responseDeleteMesh =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "DeleteMeshResponse"
+    "fixture/DeleteMeshResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteMesh)
+
+responseDeleteRoute :: DeleteRouteResponse -> TestTree
+responseDeleteRoute =
+  res
+    "DeleteRouteResponse"
+    "fixture/DeleteRouteResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRoute)
+
+responseDeleteVirtualGateway :: DeleteVirtualGatewayResponse -> TestTree
+responseDeleteVirtualGateway =
+  res
+    "DeleteVirtualGatewayResponse"
+    "fixture/DeleteVirtualGatewayResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualGateway)
+
+responseDeleteVirtualNode :: DeleteVirtualNodeResponse -> TestTree
+responseDeleteVirtualNode =
+  res
+    "DeleteVirtualNodeResponse"
+    "fixture/DeleteVirtualNodeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualNode)
+
+responseDeleteVirtualRouter :: DeleteVirtualRouterResponse -> TestTree
+responseDeleteVirtualRouter =
+  res
+    "DeleteVirtualRouterResponse"
+    "fixture/DeleteVirtualRouterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualRouter)
+
+responseDeleteVirtualService :: DeleteVirtualServiceResponse -> TestTree
+responseDeleteVirtualService =
+  res
+    "DeleteVirtualServiceResponse"
+    "fixture/DeleteVirtualServiceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVirtualService)
+
+responseDescribeGatewayRoute :: DescribeGatewayRouteResponse -> TestTree
+responseDescribeGatewayRoute =
+  res
+    "DescribeGatewayRouteResponse"
+    "fixture/DescribeGatewayRouteResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeGatewayRoute)
+
+responseDescribeMesh :: DescribeMeshResponse -> TestTree
+responseDescribeMesh =
+  res
+    "DescribeMeshResponse"
+    "fixture/DescribeMeshResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeMesh)
+
+responseDescribeRoute :: DescribeRouteResponse -> TestTree
+responseDescribeRoute =
+  res
+    "DescribeRouteResponse"
+    "fixture/DescribeRouteResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRoute)
+
+responseDescribeVirtualGateway :: DescribeVirtualGatewayResponse -> TestTree
+responseDescribeVirtualGateway =
+  res
+    "DescribeVirtualGatewayResponse"
+    "fixture/DescribeVirtualGatewayResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualGateway)
+
+responseDescribeVirtualNode :: DescribeVirtualNodeResponse -> TestTree
+responseDescribeVirtualNode =
+  res
+    "DescribeVirtualNodeResponse"
+    "fixture/DescribeVirtualNodeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualNode)
+
+responseDescribeVirtualRouter :: DescribeVirtualRouterResponse -> TestTree
+responseDescribeVirtualRouter =
+  res
+    "DescribeVirtualRouterResponse"
+    "fixture/DescribeVirtualRouterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualRouter)
+
+responseDescribeVirtualService :: DescribeVirtualServiceResponse -> TestTree
+responseDescribeVirtualService =
+  res
+    "DescribeVirtualServiceResponse"
+    "fixture/DescribeVirtualServiceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVirtualService)
+
+responseListGatewayRoutes :: ListGatewayRoutesResponse -> TestTree
+responseListGatewayRoutes =
+  res
+    "ListGatewayRoutesResponse"
+    "fixture/ListGatewayRoutesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListGatewayRoutes)
+
+responseListMeshes :: ListMeshesResponse -> TestTree
+responseListMeshes =
+  res
+    "ListMeshesResponse"
+    "fixture/ListMeshesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMeshes)
+
+responseListRoutes :: ListRoutesResponse -> TestTree
+responseListRoutes =
+  res
+    "ListRoutesResponse"
+    "fixture/ListRoutesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRoutes)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListVirtualGateways :: ListVirtualGatewaysResponse -> TestTree
 responseListVirtualGateways =
@@ -773,6 +701,14 @@ responseListVirtualGateways =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListVirtualGateways)
 
+responseListVirtualNodes :: ListVirtualNodesResponse -> TestTree
+responseListVirtualNodes =
+  res
+    "ListVirtualNodesResponse"
+    "fixture/ListVirtualNodesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVirtualNodes)
+
 responseListVirtualRouters :: ListVirtualRoutersResponse -> TestTree
 responseListVirtualRouters =
   res
@@ -780,6 +716,22 @@ responseListVirtualRouters =
     "fixture/ListVirtualRoutersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListVirtualRouters)
+
+responseListVirtualServices :: ListVirtualServicesResponse -> TestTree
+responseListVirtualServices =
+  res
+    "ListVirtualServicesResponse"
+    "fixture/ListVirtualServicesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVirtualServices)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -789,10 +741,58 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseDescribeMesh :: DescribeMeshResponse -> TestTree
-responseDescribeMesh =
+responseUpdateGatewayRoute :: UpdateGatewayRouteResponse -> TestTree
+responseUpdateGatewayRoute =
   res
-    "DescribeMeshResponse"
-    "fixture/DescribeMeshResponse.proto"
+    "UpdateGatewayRouteResponse"
+    "fixture/UpdateGatewayRouteResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeMesh)
+    (Proxy.Proxy :: Proxy.Proxy UpdateGatewayRoute)
+
+responseUpdateMesh :: UpdateMeshResponse -> TestTree
+responseUpdateMesh =
+  res
+    "UpdateMeshResponse"
+    "fixture/UpdateMeshResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateMesh)
+
+responseUpdateRoute :: UpdateRouteResponse -> TestTree
+responseUpdateRoute =
+  res
+    "UpdateRouteResponse"
+    "fixture/UpdateRouteResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoute)
+
+responseUpdateVirtualGateway :: UpdateVirtualGatewayResponse -> TestTree
+responseUpdateVirtualGateway =
+  res
+    "UpdateVirtualGatewayResponse"
+    "fixture/UpdateVirtualGatewayResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVirtualGateway)
+
+responseUpdateVirtualNode :: UpdateVirtualNodeResponse -> TestTree
+responseUpdateVirtualNode =
+  res
+    "UpdateVirtualNodeResponse"
+    "fixture/UpdateVirtualNodeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVirtualNode)
+
+responseUpdateVirtualRouter :: UpdateVirtualRouterResponse -> TestTree
+responseUpdateVirtualRouter =
+  res
+    "UpdateVirtualRouterResponse"
+    "fixture/UpdateVirtualRouterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVirtualRouter)
+
+responseUpdateVirtualService :: UpdateVirtualServiceResponse -> TestTree
+responseUpdateVirtualService =
+  res
+    "UpdateVirtualServiceResponse"
+    "fixture/UpdateVirtualServiceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVirtualService)

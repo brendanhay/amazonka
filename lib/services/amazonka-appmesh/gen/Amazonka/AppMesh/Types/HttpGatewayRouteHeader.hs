@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHttpGatewayRouteHeader' smart constructor.
 data HttpGatewayRouteHeader = HttpGatewayRouteHeader'
-  { -- | Specify @True@ to match anything except the match criteria. The default
+  { match :: Prelude.Maybe HeaderMatchMethod,
+    -- | Specify @True@ to match anything except the match criteria. The default
     -- value is @False@.
     invert :: Prelude.Maybe Prelude.Bool,
-    match :: Prelude.Maybe HeaderMatchMethod,
     -- | A name for the HTTP header in the gateway route that will be matched on.
     name :: Prelude.Text
   }
@@ -45,10 +45,10 @@ data HttpGatewayRouteHeader = HttpGatewayRouteHeader'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'match', 'httpGatewayRouteHeader_match' - Undocumented member.
+--
 -- 'invert', 'httpGatewayRouteHeader_invert' - Specify @True@ to match anything except the match criteria. The default
 -- value is @False@.
---
--- 'match', 'httpGatewayRouteHeader_match' - Undocumented member.
 --
 -- 'name', 'httpGatewayRouteHeader_name' - A name for the HTTP header in the gateway route that will be matched on.
 newHttpGatewayRouteHeader ::
@@ -57,19 +57,19 @@ newHttpGatewayRouteHeader ::
   HttpGatewayRouteHeader
 newHttpGatewayRouteHeader pName_ =
   HttpGatewayRouteHeader'
-    { invert = Prelude.Nothing,
-      match = Prelude.Nothing,
+    { match = Prelude.Nothing,
+      invert = Prelude.Nothing,
       name = pName_
     }
+
+-- | Undocumented member.
+httpGatewayRouteHeader_match :: Lens.Lens' HttpGatewayRouteHeader (Prelude.Maybe HeaderMatchMethod)
+httpGatewayRouteHeader_match = Lens.lens (\HttpGatewayRouteHeader' {match} -> match) (\s@HttpGatewayRouteHeader' {} a -> s {match = a} :: HttpGatewayRouteHeader)
 
 -- | Specify @True@ to match anything except the match criteria. The default
 -- value is @False@.
 httpGatewayRouteHeader_invert :: Lens.Lens' HttpGatewayRouteHeader (Prelude.Maybe Prelude.Bool)
 httpGatewayRouteHeader_invert = Lens.lens (\HttpGatewayRouteHeader' {invert} -> invert) (\s@HttpGatewayRouteHeader' {} a -> s {invert = a} :: HttpGatewayRouteHeader)
-
--- | Undocumented member.
-httpGatewayRouteHeader_match :: Lens.Lens' HttpGatewayRouteHeader (Prelude.Maybe HeaderMatchMethod)
-httpGatewayRouteHeader_match = Lens.lens (\HttpGatewayRouteHeader' {match} -> match) (\s@HttpGatewayRouteHeader' {} a -> s {match = a} :: HttpGatewayRouteHeader)
 
 -- | A name for the HTTP header in the gateway route that will be matched on.
 httpGatewayRouteHeader_name :: Lens.Lens' HttpGatewayRouteHeader Prelude.Text
@@ -81,29 +81,29 @@ instance Core.FromJSON HttpGatewayRouteHeader where
       "HttpGatewayRouteHeader"
       ( \x ->
           HttpGatewayRouteHeader'
-            Prelude.<$> (x Core..:? "invert")
-            Prelude.<*> (x Core..:? "match")
+            Prelude.<$> (x Core..:? "match")
+            Prelude.<*> (x Core..:? "invert")
             Prelude.<*> (x Core..: "name")
       )
 
 instance Prelude.Hashable HttpGatewayRouteHeader where
   hashWithSalt _salt HttpGatewayRouteHeader' {..} =
-    _salt `Prelude.hashWithSalt` invert
-      `Prelude.hashWithSalt` match
+    _salt `Prelude.hashWithSalt` match
+      `Prelude.hashWithSalt` invert
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData HttpGatewayRouteHeader where
   rnf HttpGatewayRouteHeader' {..} =
-    Prelude.rnf invert
-      `Prelude.seq` Prelude.rnf match
+    Prelude.rnf match
+      `Prelude.seq` Prelude.rnf invert
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON HttpGatewayRouteHeader where
   toJSON HttpGatewayRouteHeader' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("invert" Core..=) Prelude.<$> invert,
-            ("match" Core..=) Prelude.<$> match,
+          [ ("match" Core..=) Prelude.<$> match,
+            ("invert" Core..=) Prelude.<$> invert,
             Prelude.Just ("name" Core..= name)
           ]
       )

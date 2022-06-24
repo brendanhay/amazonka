@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceDiscovery' smart constructor.
 data ServiceDiscovery = ServiceDiscovery'
-  { -- | Specifies any Cloud Map information for the virtual node.
-    awsCloudMap :: Prelude.Maybe AwsCloudMapServiceDiscovery,
-    -- | Specifies the DNS information for the virtual node.
-    dns :: Prelude.Maybe DnsServiceDiscovery
+  { -- | Specifies the DNS information for the virtual node.
+    dns :: Prelude.Maybe DnsServiceDiscovery,
+    -- | Specifies any Cloud Map information for the virtual node.
+    awsCloudMap :: Prelude.Maybe AwsCloudMapServiceDiscovery
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data ServiceDiscovery = ServiceDiscovery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsCloudMap', 'serviceDiscovery_awsCloudMap' - Specifies any Cloud Map information for the virtual node.
---
 -- 'dns', 'serviceDiscovery_dns' - Specifies the DNS information for the virtual node.
+--
+-- 'awsCloudMap', 'serviceDiscovery_awsCloudMap' - Specifies any Cloud Map information for the virtual node.
 newServiceDiscovery ::
   ServiceDiscovery
 newServiceDiscovery =
   ServiceDiscovery'
-    { awsCloudMap = Prelude.Nothing,
-      dns = Prelude.Nothing
+    { dns = Prelude.Nothing,
+      awsCloudMap = Prelude.Nothing
     }
-
--- | Specifies any Cloud Map information for the virtual node.
-serviceDiscovery_awsCloudMap :: Lens.Lens' ServiceDiscovery (Prelude.Maybe AwsCloudMapServiceDiscovery)
-serviceDiscovery_awsCloudMap = Lens.lens (\ServiceDiscovery' {awsCloudMap} -> awsCloudMap) (\s@ServiceDiscovery' {} a -> s {awsCloudMap = a} :: ServiceDiscovery)
 
 -- | Specifies the DNS information for the virtual node.
 serviceDiscovery_dns :: Lens.Lens' ServiceDiscovery (Prelude.Maybe DnsServiceDiscovery)
 serviceDiscovery_dns = Lens.lens (\ServiceDiscovery' {dns} -> dns) (\s@ServiceDiscovery' {} a -> s {dns = a} :: ServiceDiscovery)
+
+-- | Specifies any Cloud Map information for the virtual node.
+serviceDiscovery_awsCloudMap :: Lens.Lens' ServiceDiscovery (Prelude.Maybe AwsCloudMapServiceDiscovery)
+serviceDiscovery_awsCloudMap = Lens.lens (\ServiceDiscovery' {awsCloudMap} -> awsCloudMap) (\s@ServiceDiscovery' {} a -> s {awsCloudMap = a} :: ServiceDiscovery)
 
 instance Core.FromJSON ServiceDiscovery where
   parseJSON =
@@ -70,25 +70,25 @@ instance Core.FromJSON ServiceDiscovery where
       "ServiceDiscovery"
       ( \x ->
           ServiceDiscovery'
-            Prelude.<$> (x Core..:? "awsCloudMap")
-            Prelude.<*> (x Core..:? "dns")
+            Prelude.<$> (x Core..:? "dns")
+            Prelude.<*> (x Core..:? "awsCloudMap")
       )
 
 instance Prelude.Hashable ServiceDiscovery where
   hashWithSalt _salt ServiceDiscovery' {..} =
-    _salt `Prelude.hashWithSalt` awsCloudMap
-      `Prelude.hashWithSalt` dns
+    _salt `Prelude.hashWithSalt` dns
+      `Prelude.hashWithSalt` awsCloudMap
 
 instance Prelude.NFData ServiceDiscovery where
   rnf ServiceDiscovery' {..} =
-    Prelude.rnf awsCloudMap
-      `Prelude.seq` Prelude.rnf dns
+    Prelude.rnf dns
+      `Prelude.seq` Prelude.rnf awsCloudMap
 
 instance Core.ToJSON ServiceDiscovery where
   toJSON ServiceDiscovery' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("awsCloudMap" Core..=) Prelude.<$> awsCloudMap,
-            ("dns" Core..=) Prelude.<$> dns
+          [ ("dns" Core..=) Prelude.<$> dns,
+            ("awsCloudMap" Core..=) Prelude.<$> awsCloudMap
           ]
       )

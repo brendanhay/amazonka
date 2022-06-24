@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGrpcTimeout' smart constructor.
 data GrpcTimeout = GrpcTimeout'
-  { -- | An object that represents an idle timeout. An idle timeout bounds the
-    -- amount of time that a connection may be idle. The default value is none.
-    idle :: Prelude.Maybe Duration,
-    -- | An object that represents a per request timeout. The default value is 15
+  { -- | An object that represents a per request timeout. The default value is 15
     -- seconds. If you set a higher timeout, then make sure that the higher
     -- value is set for each App Mesh resource in a conversation. For example,
     -- if a virtual node backend uses a virtual router provider to route to
     -- another virtual node, then the timeout should be greater than 15 seconds
     -- for the source and destination virtual node and the route.
-    perRequest :: Prelude.Maybe Duration
+    perRequest :: Prelude.Maybe Duration,
+    -- | An object that represents an idle timeout. An idle timeout bounds the
+    -- amount of time that a connection may be idle. The default value is none.
+    idle :: Prelude.Maybe Duration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,27 +49,22 @@ data GrpcTimeout = GrpcTimeout'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'idle', 'grpcTimeout_idle' - An object that represents an idle timeout. An idle timeout bounds the
--- amount of time that a connection may be idle. The default value is none.
---
 -- 'perRequest', 'grpcTimeout_perRequest' - An object that represents a per request timeout. The default value is 15
 -- seconds. If you set a higher timeout, then make sure that the higher
 -- value is set for each App Mesh resource in a conversation. For example,
 -- if a virtual node backend uses a virtual router provider to route to
 -- another virtual node, then the timeout should be greater than 15 seconds
 -- for the source and destination virtual node and the route.
+--
+-- 'idle', 'grpcTimeout_idle' - An object that represents an idle timeout. An idle timeout bounds the
+-- amount of time that a connection may be idle. The default value is none.
 newGrpcTimeout ::
   GrpcTimeout
 newGrpcTimeout =
   GrpcTimeout'
-    { idle = Prelude.Nothing,
-      perRequest = Prelude.Nothing
+    { perRequest = Prelude.Nothing,
+      idle = Prelude.Nothing
     }
-
--- | An object that represents an idle timeout. An idle timeout bounds the
--- amount of time that a connection may be idle. The default value is none.
-grpcTimeout_idle :: Lens.Lens' GrpcTimeout (Prelude.Maybe Duration)
-grpcTimeout_idle = Lens.lens (\GrpcTimeout' {idle} -> idle) (\s@GrpcTimeout' {} a -> s {idle = a} :: GrpcTimeout)
 
 -- | An object that represents a per request timeout. The default value is 15
 -- seconds. If you set a higher timeout, then make sure that the higher
@@ -80,31 +75,36 @@ grpcTimeout_idle = Lens.lens (\GrpcTimeout' {idle} -> idle) (\s@GrpcTimeout' {} 
 grpcTimeout_perRequest :: Lens.Lens' GrpcTimeout (Prelude.Maybe Duration)
 grpcTimeout_perRequest = Lens.lens (\GrpcTimeout' {perRequest} -> perRequest) (\s@GrpcTimeout' {} a -> s {perRequest = a} :: GrpcTimeout)
 
+-- | An object that represents an idle timeout. An idle timeout bounds the
+-- amount of time that a connection may be idle. The default value is none.
+grpcTimeout_idle :: Lens.Lens' GrpcTimeout (Prelude.Maybe Duration)
+grpcTimeout_idle = Lens.lens (\GrpcTimeout' {idle} -> idle) (\s@GrpcTimeout' {} a -> s {idle = a} :: GrpcTimeout)
+
 instance Core.FromJSON GrpcTimeout where
   parseJSON =
     Core.withObject
       "GrpcTimeout"
       ( \x ->
           GrpcTimeout'
-            Prelude.<$> (x Core..:? "idle")
-            Prelude.<*> (x Core..:? "perRequest")
+            Prelude.<$> (x Core..:? "perRequest")
+            Prelude.<*> (x Core..:? "idle")
       )
 
 instance Prelude.Hashable GrpcTimeout where
   hashWithSalt _salt GrpcTimeout' {..} =
-    _salt `Prelude.hashWithSalt` idle
-      `Prelude.hashWithSalt` perRequest
+    _salt `Prelude.hashWithSalt` perRequest
+      `Prelude.hashWithSalt` idle
 
 instance Prelude.NFData GrpcTimeout where
   rnf GrpcTimeout' {..} =
-    Prelude.rnf idle
-      `Prelude.seq` Prelude.rnf perRequest
+    Prelude.rnf perRequest
+      `Prelude.seq` Prelude.rnf idle
 
 instance Core.ToJSON GrpcTimeout where
   toJSON GrpcTimeout' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("idle" Core..=) Prelude.<$> idle,
-            ("perRequest" Core..=) Prelude.<$> perRequest
+          [ ("perRequest" Core..=) Prelude.<$> perRequest,
+            ("idle" Core..=) Prelude.<$> idle
           ]
       )

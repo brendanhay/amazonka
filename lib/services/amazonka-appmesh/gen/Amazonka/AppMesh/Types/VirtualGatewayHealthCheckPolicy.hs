@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVirtualGatewayHealthCheckPolicy' smart constructor.
 data VirtualGatewayHealthCheckPolicy = VirtualGatewayHealthCheckPolicy'
-  { -- | The destination path for the health check request. This value is only
+  { -- | The destination port for the health check request. This port must match
+    -- the port defined in the PortMapping for the listener.
+    port :: Prelude.Maybe Prelude.Natural,
+    -- | The destination path for the health check request. This value is only
     -- used if the specified protocol is HTTP or HTTP\/2. For any other
     -- protocol, this value is ignored.
     path :: Prelude.Maybe Prelude.Text,
-    -- | The destination port for the health check request. This port must match
-    -- the port defined in the PortMapping for the listener.
-    port :: Prelude.Maybe Prelude.Natural,
     -- | The number of consecutive successful health checks that must occur
     -- before declaring the listener healthy.
     healthyThreshold :: Prelude.Natural,
@@ -62,12 +62,12 @@ data VirtualGatewayHealthCheckPolicy = VirtualGatewayHealthCheckPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'port', 'virtualGatewayHealthCheckPolicy_port' - The destination port for the health check request. This port must match
+-- the port defined in the PortMapping for the listener.
+--
 -- 'path', 'virtualGatewayHealthCheckPolicy_path' - The destination path for the health check request. This value is only
 -- used if the specified protocol is HTTP or HTTP\/2. For any other
 -- protocol, this value is ignored.
---
--- 'port', 'virtualGatewayHealthCheckPolicy_port' - The destination port for the health check request. This port must match
--- the port defined in the PortMapping for the listener.
 --
 -- 'healthyThreshold', 'virtualGatewayHealthCheckPolicy_healthyThreshold' - The number of consecutive successful health checks that must occur
 -- before declaring the listener healthy.
@@ -102,9 +102,9 @@ newVirtualGatewayHealthCheckPolicy
   pTimeoutMillis_
   pUnhealthyThreshold_ =
     VirtualGatewayHealthCheckPolicy'
-      { path =
+      { port =
           Prelude.Nothing,
-        port = Prelude.Nothing,
+        path = Prelude.Nothing,
         healthyThreshold = pHealthyThreshold_,
         intervalMillis = pIntervalMillis_,
         protocol = pProtocol_,
@@ -112,16 +112,16 @@ newVirtualGatewayHealthCheckPolicy
         unhealthyThreshold = pUnhealthyThreshold_
       }
 
+-- | The destination port for the health check request. This port must match
+-- the port defined in the PortMapping for the listener.
+virtualGatewayHealthCheckPolicy_port :: Lens.Lens' VirtualGatewayHealthCheckPolicy (Prelude.Maybe Prelude.Natural)
+virtualGatewayHealthCheckPolicy_port = Lens.lens (\VirtualGatewayHealthCheckPolicy' {port} -> port) (\s@VirtualGatewayHealthCheckPolicy' {} a -> s {port = a} :: VirtualGatewayHealthCheckPolicy)
+
 -- | The destination path for the health check request. This value is only
 -- used if the specified protocol is HTTP or HTTP\/2. For any other
 -- protocol, this value is ignored.
 virtualGatewayHealthCheckPolicy_path :: Lens.Lens' VirtualGatewayHealthCheckPolicy (Prelude.Maybe Prelude.Text)
 virtualGatewayHealthCheckPolicy_path = Lens.lens (\VirtualGatewayHealthCheckPolicy' {path} -> path) (\s@VirtualGatewayHealthCheckPolicy' {} a -> s {path = a} :: VirtualGatewayHealthCheckPolicy)
-
--- | The destination port for the health check request. This port must match
--- the port defined in the PortMapping for the listener.
-virtualGatewayHealthCheckPolicy_port :: Lens.Lens' VirtualGatewayHealthCheckPolicy (Prelude.Maybe Prelude.Natural)
-virtualGatewayHealthCheckPolicy_port = Lens.lens (\VirtualGatewayHealthCheckPolicy' {port} -> port) (\s@VirtualGatewayHealthCheckPolicy' {} a -> s {port = a} :: VirtualGatewayHealthCheckPolicy)
 
 -- | The number of consecutive successful health checks that must occur
 -- before declaring the listener healthy.
@@ -157,8 +157,8 @@ instance
       "VirtualGatewayHealthCheckPolicy"
       ( \x ->
           VirtualGatewayHealthCheckPolicy'
-            Prelude.<$> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "port")
+            Prelude.<$> (x Core..:? "port")
+            Prelude.<*> (x Core..:? "path")
             Prelude.<*> (x Core..: "healthyThreshold")
             Prelude.<*> (x Core..: "intervalMillis")
             Prelude.<*> (x Core..: "protocol")
@@ -173,8 +173,8 @@ instance
   hashWithSalt
     _salt
     VirtualGatewayHealthCheckPolicy' {..} =
-      _salt `Prelude.hashWithSalt` path
-        `Prelude.hashWithSalt` port
+      _salt `Prelude.hashWithSalt` port
+        `Prelude.hashWithSalt` path
         `Prelude.hashWithSalt` healthyThreshold
         `Prelude.hashWithSalt` intervalMillis
         `Prelude.hashWithSalt` protocol
@@ -186,8 +186,8 @@ instance
     VirtualGatewayHealthCheckPolicy
   where
   rnf VirtualGatewayHealthCheckPolicy' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf port
+    Prelude.rnf port
+      `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf healthyThreshold
       `Prelude.seq` Prelude.rnf intervalMillis
       `Prelude.seq` Prelude.rnf protocol
@@ -198,8 +198,8 @@ instance Core.ToJSON VirtualGatewayHealthCheckPolicy where
   toJSON VirtualGatewayHealthCheckPolicy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("path" Core..=) Prelude.<$> path,
-            ("port" Core..=) Prelude.<$> port,
+          [ ("port" Core..=) Prelude.<$> port,
+            ("path" Core..=) Prelude.<$> path,
             Prelude.Just
               ("healthyThreshold" Core..= healthyThreshold),
             Prelude.Just

@@ -39,32 +39,32 @@ module Amazonka.AppMesh
     -- ** TooManyTagsException
     _TooManyTagsException,
 
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
-
     -- ** NotFoundException
     _NotFoundException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
 
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters
@@ -72,35 +72,11 @@ module Amazonka.AppMesh
     -- * Operations
     -- $operations
 
-    -- ** DescribeVirtualNode
-    DescribeVirtualNode (DescribeVirtualNode'),
-    newDescribeVirtualNode,
-    DescribeVirtualNodeResponse (DescribeVirtualNodeResponse'),
-    newDescribeVirtualNodeResponse,
-
-    -- ** DescribeVirtualGateway
-    DescribeVirtualGateway (DescribeVirtualGateway'),
-    newDescribeVirtualGateway,
-    DescribeVirtualGatewayResponse (DescribeVirtualGatewayResponse'),
-    newDescribeVirtualGatewayResponse,
-
-    -- ** DescribeRoute
-    DescribeRoute (DescribeRoute'),
-    newDescribeRoute,
-    DescribeRouteResponse (DescribeRouteResponse'),
-    newDescribeRouteResponse,
-
-    -- ** DescribeVirtualRouter
-    DescribeVirtualRouter (DescribeVirtualRouter'),
-    newDescribeVirtualRouter,
-    DescribeVirtualRouterResponse (DescribeVirtualRouterResponse'),
-    newDescribeVirtualRouterResponse,
-
-    -- ** ListMeshes (Paginated)
-    ListMeshes (ListMeshes'),
-    newListMeshes,
-    ListMeshesResponse (ListMeshesResponse'),
-    newListMeshesResponse,
+    -- ** CreateGatewayRoute
+    CreateGatewayRoute (CreateGatewayRoute'),
+    newCreateGatewayRoute,
+    CreateGatewayRouteResponse (CreateGatewayRouteResponse'),
+    newCreateGatewayRouteResponse,
 
     -- ** CreateMesh
     CreateMesh (CreateMesh'),
@@ -108,23 +84,11 @@ module Amazonka.AppMesh
     CreateMeshResponse (CreateMeshResponse'),
     newCreateMeshResponse,
 
-    -- ** UpdateMesh
-    UpdateMesh (UpdateMesh'),
-    newUpdateMesh,
-    UpdateMeshResponse (UpdateMeshResponse'),
-    newUpdateMeshResponse,
-
-    -- ** DeleteMesh
-    DeleteMesh (DeleteMesh'),
-    newDeleteMesh,
-    DeleteMeshResponse (DeleteMeshResponse'),
-    newDeleteMeshResponse,
-
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** CreateRoute
+    CreateRoute (CreateRoute'),
+    newCreateRoute,
+    CreateRouteResponse (CreateRouteResponse'),
+    newCreateRouteResponse,
 
     -- ** CreateVirtualGateway
     CreateVirtualGateway (CreateVirtualGateway'),
@@ -132,95 +96,11 @@ module Amazonka.AppMesh
     CreateVirtualGatewayResponse (CreateVirtualGatewayResponse'),
     newCreateVirtualGatewayResponse,
 
-    -- ** ListVirtualServices (Paginated)
-    ListVirtualServices (ListVirtualServices'),
-    newListVirtualServices,
-    ListVirtualServicesResponse (ListVirtualServicesResponse'),
-    newListVirtualServicesResponse,
-
-    -- ** DeleteVirtualService
-    DeleteVirtualService (DeleteVirtualService'),
-    newDeleteVirtualService,
-    DeleteVirtualServiceResponse (DeleteVirtualServiceResponse'),
-    newDeleteVirtualServiceResponse,
-
-    -- ** UpdateVirtualService
-    UpdateVirtualService (UpdateVirtualService'),
-    newUpdateVirtualService,
-    UpdateVirtualServiceResponse (UpdateVirtualServiceResponse'),
-    newUpdateVirtualServiceResponse,
-
-    -- ** UpdateVirtualGateway
-    UpdateVirtualGateway (UpdateVirtualGateway'),
-    newUpdateVirtualGateway,
-    UpdateVirtualGatewayResponse (UpdateVirtualGatewayResponse'),
-    newUpdateVirtualGatewayResponse,
-
-    -- ** DeleteVirtualGateway
-    DeleteVirtualGateway (DeleteVirtualGateway'),
-    newDeleteVirtualGateway,
-    DeleteVirtualGatewayResponse (DeleteVirtualGatewayResponse'),
-    newDeleteVirtualGatewayResponse,
-
-    -- ** DeleteRoute
-    DeleteRoute (DeleteRoute'),
-    newDeleteRoute,
-    DeleteRouteResponse (DeleteRouteResponse'),
-    newDeleteRouteResponse,
-
-    -- ** UpdateRoute
-    UpdateRoute (UpdateRoute'),
-    newUpdateRoute,
-    UpdateRouteResponse (UpdateRouteResponse'),
-    newUpdateRouteResponse,
-
-    -- ** CreateVirtualService
-    CreateVirtualService (CreateVirtualService'),
-    newCreateVirtualService,
-    CreateVirtualServiceResponse (CreateVirtualServiceResponse'),
-    newCreateVirtualServiceResponse,
-
-    -- ** DeleteVirtualNode
-    DeleteVirtualNode (DeleteVirtualNode'),
-    newDeleteVirtualNode,
-    DeleteVirtualNodeResponse (DeleteVirtualNodeResponse'),
-    newDeleteVirtualNodeResponse,
-
-    -- ** UpdateVirtualNode
-    UpdateVirtualNode (UpdateVirtualNode'),
-    newUpdateVirtualNode,
-    UpdateVirtualNodeResponse (UpdateVirtualNodeResponse'),
-    newUpdateVirtualNodeResponse,
-
-    -- ** ListGatewayRoutes (Paginated)
-    ListGatewayRoutes (ListGatewayRoutes'),
-    newListGatewayRoutes,
-    ListGatewayRoutesResponse (ListGatewayRoutesResponse'),
-    newListGatewayRoutesResponse,
-
-    -- ** ListRoutes (Paginated)
-    ListRoutes (ListRoutes'),
-    newListRoutes,
-    ListRoutesResponse (ListRoutesResponse'),
-    newListRoutesResponse,
-
-    -- ** ListVirtualNodes (Paginated)
-    ListVirtualNodes (ListVirtualNodes'),
-    newListVirtualNodes,
-    ListVirtualNodesResponse (ListVirtualNodesResponse'),
-    newListVirtualNodesResponse,
-
-    -- ** DeleteVirtualRouter
-    DeleteVirtualRouter (DeleteVirtualRouter'),
-    newDeleteVirtualRouter,
-    DeleteVirtualRouterResponse (DeleteVirtualRouterResponse'),
-    newDeleteVirtualRouterResponse,
-
-    -- ** UpdateVirtualRouter
-    UpdateVirtualRouter (UpdateVirtualRouter'),
-    newUpdateVirtualRouter,
-    UpdateVirtualRouterResponse (UpdateVirtualRouterResponse'),
-    newUpdateVirtualRouterResponse,
+    -- ** CreateVirtualNode
+    CreateVirtualNode (CreateVirtualNode'),
+    newCreateVirtualNode,
+    CreateVirtualNodeResponse (CreateVirtualNodeResponse'),
+    newCreateVirtualNodeResponse,
 
     -- ** CreateVirtualRouter
     CreateVirtualRouter (CreateVirtualRouter'),
@@ -228,41 +108,11 @@ module Amazonka.AppMesh
     CreateVirtualRouterResponse (CreateVirtualRouterResponse'),
     newCreateVirtualRouterResponse,
 
-    -- ** DescribeVirtualService
-    DescribeVirtualService (DescribeVirtualService'),
-    newDescribeVirtualService,
-    DescribeVirtualServiceResponse (DescribeVirtualServiceResponse'),
-    newDescribeVirtualServiceResponse,
-
-    -- ** DescribeGatewayRoute
-    DescribeGatewayRoute (DescribeGatewayRoute'),
-    newDescribeGatewayRoute,
-    DescribeGatewayRouteResponse (DescribeGatewayRouteResponse'),
-    newDescribeGatewayRouteResponse,
-
-    -- ** CreateRoute
-    CreateRoute (CreateRoute'),
-    newCreateRoute,
-    CreateRouteResponse (CreateRouteResponse'),
-    newCreateRouteResponse,
-
-    -- ** CreateVirtualNode
-    CreateVirtualNode (CreateVirtualNode'),
-    newCreateVirtualNode,
-    CreateVirtualNodeResponse (CreateVirtualNodeResponse'),
-    newCreateVirtualNodeResponse,
-
-    -- ** CreateGatewayRoute
-    CreateGatewayRoute (CreateGatewayRoute'),
-    newCreateGatewayRoute,
-    CreateGatewayRouteResponse (CreateGatewayRouteResponse'),
-    newCreateGatewayRouteResponse,
-
-    -- ** UpdateGatewayRoute
-    UpdateGatewayRoute (UpdateGatewayRoute'),
-    newUpdateGatewayRoute,
-    UpdateGatewayRouteResponse (UpdateGatewayRouteResponse'),
-    newUpdateGatewayRouteResponse,
+    -- ** CreateVirtualService
+    CreateVirtualService (CreateVirtualService'),
+    newCreateVirtualService,
+    CreateVirtualServiceResponse (CreateVirtualServiceResponse'),
+    newCreateVirtualServiceResponse,
 
     -- ** DeleteGatewayRoute
     DeleteGatewayRoute (DeleteGatewayRoute'),
@@ -270,11 +120,107 @@ module Amazonka.AppMesh
     DeleteGatewayRouteResponse (DeleteGatewayRouteResponse'),
     newDeleteGatewayRouteResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** DeleteMesh
+    DeleteMesh (DeleteMesh'),
+    newDeleteMesh,
+    DeleteMeshResponse (DeleteMeshResponse'),
+    newDeleteMeshResponse,
+
+    -- ** DeleteRoute
+    DeleteRoute (DeleteRoute'),
+    newDeleteRoute,
+    DeleteRouteResponse (DeleteRouteResponse'),
+    newDeleteRouteResponse,
+
+    -- ** DeleteVirtualGateway
+    DeleteVirtualGateway (DeleteVirtualGateway'),
+    newDeleteVirtualGateway,
+    DeleteVirtualGatewayResponse (DeleteVirtualGatewayResponse'),
+    newDeleteVirtualGatewayResponse,
+
+    -- ** DeleteVirtualNode
+    DeleteVirtualNode (DeleteVirtualNode'),
+    newDeleteVirtualNode,
+    DeleteVirtualNodeResponse (DeleteVirtualNodeResponse'),
+    newDeleteVirtualNodeResponse,
+
+    -- ** DeleteVirtualRouter
+    DeleteVirtualRouter (DeleteVirtualRouter'),
+    newDeleteVirtualRouter,
+    DeleteVirtualRouterResponse (DeleteVirtualRouterResponse'),
+    newDeleteVirtualRouterResponse,
+
+    -- ** DeleteVirtualService
+    DeleteVirtualService (DeleteVirtualService'),
+    newDeleteVirtualService,
+    DeleteVirtualServiceResponse (DeleteVirtualServiceResponse'),
+    newDeleteVirtualServiceResponse,
+
+    -- ** DescribeGatewayRoute
+    DescribeGatewayRoute (DescribeGatewayRoute'),
+    newDescribeGatewayRoute,
+    DescribeGatewayRouteResponse (DescribeGatewayRouteResponse'),
+    newDescribeGatewayRouteResponse,
+
+    -- ** DescribeMesh
+    DescribeMesh (DescribeMesh'),
+    newDescribeMesh,
+    DescribeMeshResponse (DescribeMeshResponse'),
+    newDescribeMeshResponse,
+
+    -- ** DescribeRoute
+    DescribeRoute (DescribeRoute'),
+    newDescribeRoute,
+    DescribeRouteResponse (DescribeRouteResponse'),
+    newDescribeRouteResponse,
+
+    -- ** DescribeVirtualGateway
+    DescribeVirtualGateway (DescribeVirtualGateway'),
+    newDescribeVirtualGateway,
+    DescribeVirtualGatewayResponse (DescribeVirtualGatewayResponse'),
+    newDescribeVirtualGatewayResponse,
+
+    -- ** DescribeVirtualNode
+    DescribeVirtualNode (DescribeVirtualNode'),
+    newDescribeVirtualNode,
+    DescribeVirtualNodeResponse (DescribeVirtualNodeResponse'),
+    newDescribeVirtualNodeResponse,
+
+    -- ** DescribeVirtualRouter
+    DescribeVirtualRouter (DescribeVirtualRouter'),
+    newDescribeVirtualRouter,
+    DescribeVirtualRouterResponse (DescribeVirtualRouterResponse'),
+    newDescribeVirtualRouterResponse,
+
+    -- ** DescribeVirtualService
+    DescribeVirtualService (DescribeVirtualService'),
+    newDescribeVirtualService,
+    DescribeVirtualServiceResponse (DescribeVirtualServiceResponse'),
+    newDescribeVirtualServiceResponse,
+
+    -- ** ListGatewayRoutes (Paginated)
+    ListGatewayRoutes (ListGatewayRoutes'),
+    newListGatewayRoutes,
+    ListGatewayRoutesResponse (ListGatewayRoutesResponse'),
+    newListGatewayRoutesResponse,
+
+    -- ** ListMeshes (Paginated)
+    ListMeshes (ListMeshes'),
+    newListMeshes,
+    ListMeshesResponse (ListMeshesResponse'),
+    newListMeshesResponse,
+
+    -- ** ListRoutes (Paginated)
+    ListRoutes (ListRoutes'),
+    newListRoutes,
+    ListRoutesResponse (ListRoutesResponse'),
+    newListRoutesResponse,
+
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** ListVirtualGateways (Paginated)
     ListVirtualGateways (ListVirtualGateways'),
@@ -282,11 +228,29 @@ module Amazonka.AppMesh
     ListVirtualGatewaysResponse (ListVirtualGatewaysResponse'),
     newListVirtualGatewaysResponse,
 
+    -- ** ListVirtualNodes (Paginated)
+    ListVirtualNodes (ListVirtualNodes'),
+    newListVirtualNodes,
+    ListVirtualNodesResponse (ListVirtualNodesResponse'),
+    newListVirtualNodesResponse,
+
     -- ** ListVirtualRouters (Paginated)
     ListVirtualRouters (ListVirtualRouters'),
     newListVirtualRouters,
     ListVirtualRoutersResponse (ListVirtualRoutersResponse'),
     newListVirtualRoutersResponse,
+
+    -- ** ListVirtualServices (Paginated)
+    ListVirtualServices (ListVirtualServices'),
+    newListVirtualServices,
+    ListVirtualServicesResponse (ListVirtualServicesResponse'),
+    newListVirtualServicesResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -294,11 +258,47 @@ module Amazonka.AppMesh
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** DescribeMesh
-    DescribeMesh (DescribeMesh'),
-    newDescribeMesh,
-    DescribeMeshResponse (DescribeMeshResponse'),
-    newDescribeMeshResponse,
+    -- ** UpdateGatewayRoute
+    UpdateGatewayRoute (UpdateGatewayRoute'),
+    newUpdateGatewayRoute,
+    UpdateGatewayRouteResponse (UpdateGatewayRouteResponse'),
+    newUpdateGatewayRouteResponse,
+
+    -- ** UpdateMesh
+    UpdateMesh (UpdateMesh'),
+    newUpdateMesh,
+    UpdateMeshResponse (UpdateMeshResponse'),
+    newUpdateMeshResponse,
+
+    -- ** UpdateRoute
+    UpdateRoute (UpdateRoute'),
+    newUpdateRoute,
+    UpdateRouteResponse (UpdateRouteResponse'),
+    newUpdateRouteResponse,
+
+    -- ** UpdateVirtualGateway
+    UpdateVirtualGateway (UpdateVirtualGateway'),
+    newUpdateVirtualGateway,
+    UpdateVirtualGatewayResponse (UpdateVirtualGatewayResponse'),
+    newUpdateVirtualGatewayResponse,
+
+    -- ** UpdateVirtualNode
+    UpdateVirtualNode (UpdateVirtualNode'),
+    newUpdateVirtualNode,
+    UpdateVirtualNodeResponse (UpdateVirtualNodeResponse'),
+    newUpdateVirtualNodeResponse,
+
+    -- ** UpdateVirtualRouter
+    UpdateVirtualRouter (UpdateVirtualRouter'),
+    newUpdateVirtualRouter,
+    UpdateVirtualRouterResponse (UpdateVirtualRouterResponse'),
+    newUpdateVirtualRouterResponse,
+
+    -- ** UpdateVirtualService
+    UpdateVirtualService (UpdateVirtualService'),
+    newUpdateVirtualService,
+    UpdateVirtualServiceResponse (UpdateVirtualServiceResponse'),
+    newUpdateVirtualServiceResponse,
 
     -- * Types
 

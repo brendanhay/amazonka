@@ -32,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 data ClientPolicyTls = ClientPolicyTls'
   { -- | One or more ports that the policy is enforced for.
     ports :: Prelude.Maybe [Prelude.Natural],
-    -- | A reference to an object that represents a client\'s TLS certificate.
-    certificate :: Prelude.Maybe ClientTlsCertificate,
     -- | Whether the policy is enforced. The default is @True@, if a value isn\'t
     -- specified.
     enforce :: Prelude.Maybe Prelude.Bool,
+    -- | A reference to an object that represents a client\'s TLS certificate.
+    certificate :: Prelude.Maybe ClientTlsCertificate,
     -- | A reference to an object that represents a TLS validation context.
     validation :: TlsValidationContext
   }
@@ -52,10 +52,10 @@ data ClientPolicyTls = ClientPolicyTls'
 --
 -- 'ports', 'clientPolicyTls_ports' - One or more ports that the policy is enforced for.
 --
--- 'certificate', 'clientPolicyTls_certificate' - A reference to an object that represents a client\'s TLS certificate.
---
 -- 'enforce', 'clientPolicyTls_enforce' - Whether the policy is enforced. The default is @True@, if a value isn\'t
 -- specified.
+--
+-- 'certificate', 'clientPolicyTls_certificate' - A reference to an object that represents a client\'s TLS certificate.
 --
 -- 'validation', 'clientPolicyTls_validation' - A reference to an object that represents a TLS validation context.
 newClientPolicyTls ::
@@ -65,8 +65,8 @@ newClientPolicyTls ::
 newClientPolicyTls pValidation_ =
   ClientPolicyTls'
     { ports = Prelude.Nothing,
-      certificate = Prelude.Nothing,
       enforce = Prelude.Nothing,
+      certificate = Prelude.Nothing,
       validation = pValidation_
     }
 
@@ -74,14 +74,14 @@ newClientPolicyTls pValidation_ =
 clientPolicyTls_ports :: Lens.Lens' ClientPolicyTls (Prelude.Maybe [Prelude.Natural])
 clientPolicyTls_ports = Lens.lens (\ClientPolicyTls' {ports} -> ports) (\s@ClientPolicyTls' {} a -> s {ports = a} :: ClientPolicyTls) Prelude.. Lens.mapping Lens.coerced
 
--- | A reference to an object that represents a client\'s TLS certificate.
-clientPolicyTls_certificate :: Lens.Lens' ClientPolicyTls (Prelude.Maybe ClientTlsCertificate)
-clientPolicyTls_certificate = Lens.lens (\ClientPolicyTls' {certificate} -> certificate) (\s@ClientPolicyTls' {} a -> s {certificate = a} :: ClientPolicyTls)
-
 -- | Whether the policy is enforced. The default is @True@, if a value isn\'t
 -- specified.
 clientPolicyTls_enforce :: Lens.Lens' ClientPolicyTls (Prelude.Maybe Prelude.Bool)
 clientPolicyTls_enforce = Lens.lens (\ClientPolicyTls' {enforce} -> enforce) (\s@ClientPolicyTls' {} a -> s {enforce = a} :: ClientPolicyTls)
+
+-- | A reference to an object that represents a client\'s TLS certificate.
+clientPolicyTls_certificate :: Lens.Lens' ClientPolicyTls (Prelude.Maybe ClientTlsCertificate)
+clientPolicyTls_certificate = Lens.lens (\ClientPolicyTls' {certificate} -> certificate) (\s@ClientPolicyTls' {} a -> s {certificate = a} :: ClientPolicyTls)
 
 -- | A reference to an object that represents a TLS validation context.
 clientPolicyTls_validation :: Lens.Lens' ClientPolicyTls TlsValidationContext
@@ -94,23 +94,23 @@ instance Core.FromJSON ClientPolicyTls where
       ( \x ->
           ClientPolicyTls'
             Prelude.<$> (x Core..:? "ports" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "certificate")
             Prelude.<*> (x Core..:? "enforce")
+            Prelude.<*> (x Core..:? "certificate")
             Prelude.<*> (x Core..: "validation")
       )
 
 instance Prelude.Hashable ClientPolicyTls where
   hashWithSalt _salt ClientPolicyTls' {..} =
     _salt `Prelude.hashWithSalt` ports
-      `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` enforce
+      `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` validation
 
 instance Prelude.NFData ClientPolicyTls where
   rnf ClientPolicyTls' {..} =
     Prelude.rnf ports
-      `Prelude.seq` Prelude.rnf certificate
       `Prelude.seq` Prelude.rnf enforce
+      `Prelude.seq` Prelude.rnf certificate
       `Prelude.seq` Prelude.rnf validation
 
 instance Core.ToJSON ClientPolicyTls where
@@ -118,8 +118,8 @@ instance Core.ToJSON ClientPolicyTls where
     Core.object
       ( Prelude.catMaybes
           [ ("ports" Core..=) Prelude.<$> ports,
-            ("certificate" Core..=) Prelude.<$> certificate,
             ("enforce" Core..=) Prelude.<$> enforce,
+            ("certificate" Core..=) Prelude.<$> certificate,
             Prelude.Just ("validation" Core..= validation)
           ]
       )

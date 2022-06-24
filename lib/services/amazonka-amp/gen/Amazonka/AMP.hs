@@ -19,44 +19,38 @@ module Amazonka.AMP
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** WorkspaceDeleted
-    newWorkspaceDeleted,
-
     -- ** WorkspaceActive
     newWorkspaceActive,
 
+    -- ** WorkspaceDeleted
+    newWorkspaceDeleted,
+
     -- * Operations
     -- $operations
-
-    -- ** ListWorkspaces (Paginated)
-    ListWorkspaces (ListWorkspaces'),
-    newListWorkspaces,
-    ListWorkspacesResponse (ListWorkspacesResponse'),
-    newListWorkspacesResponse,
 
     -- ** CreateAlertManagerDefinition
     CreateAlertManagerDefinition (CreateAlertManagerDefinition'),
@@ -64,41 +58,17 @@ module Amazonka.AMP
     CreateAlertManagerDefinitionResponse (CreateAlertManagerDefinitionResponse'),
     newCreateAlertManagerDefinitionResponse,
 
-    -- ** DeleteWorkspace
-    DeleteWorkspace (DeleteWorkspace'),
-    newDeleteWorkspace,
-    DeleteWorkspaceResponse (DeleteWorkspaceResponse'),
-    newDeleteWorkspaceResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
     -- ** CreateRuleGroupsNamespace
     CreateRuleGroupsNamespace (CreateRuleGroupsNamespace'),
     newCreateRuleGroupsNamespace,
     CreateRuleGroupsNamespaceResponse (CreateRuleGroupsNamespaceResponse'),
     newCreateRuleGroupsNamespaceResponse,
 
-    -- ** DescribeAlertManagerDefinition
-    DescribeAlertManagerDefinition (DescribeAlertManagerDefinition'),
-    newDescribeAlertManagerDefinition,
-    DescribeAlertManagerDefinitionResponse (DescribeAlertManagerDefinitionResponse'),
-    newDescribeAlertManagerDefinitionResponse,
-
-    -- ** DescribeWorkspace
-    DescribeWorkspace (DescribeWorkspace'),
-    newDescribeWorkspace,
-    DescribeWorkspaceResponse (DescribeWorkspaceResponse'),
-    newDescribeWorkspaceResponse,
-
-    -- ** PutAlertManagerDefinition
-    PutAlertManagerDefinition (PutAlertManagerDefinition'),
-    newPutAlertManagerDefinition,
-    PutAlertManagerDefinitionResponse (PutAlertManagerDefinitionResponse'),
-    newPutAlertManagerDefinitionResponse,
+    -- ** CreateWorkspace
+    CreateWorkspace (CreateWorkspace'),
+    newCreateWorkspace,
+    CreateWorkspaceResponse (CreateWorkspaceResponse'),
+    newCreateWorkspaceResponse,
 
     -- ** DeleteAlertManagerDefinition
     DeleteAlertManagerDefinition (DeleteAlertManagerDefinition'),
@@ -106,35 +76,65 @@ module Amazonka.AMP
     DeleteAlertManagerDefinitionResponse (DeleteAlertManagerDefinitionResponse'),
     newDeleteAlertManagerDefinitionResponse,
 
-    -- ** DescribeRuleGroupsNamespace
-    DescribeRuleGroupsNamespace (DescribeRuleGroupsNamespace'),
-    newDescribeRuleGroupsNamespace,
-    DescribeRuleGroupsNamespaceResponse (DescribeRuleGroupsNamespaceResponse'),
-    newDescribeRuleGroupsNamespaceResponse,
-
-    -- ** UpdateWorkspaceAlias
-    UpdateWorkspaceAlias (UpdateWorkspaceAlias'),
-    newUpdateWorkspaceAlias,
-    UpdateWorkspaceAliasResponse (UpdateWorkspaceAliasResponse'),
-    newUpdateWorkspaceAliasResponse,
-
     -- ** DeleteRuleGroupsNamespace
     DeleteRuleGroupsNamespace (DeleteRuleGroupsNamespace'),
     newDeleteRuleGroupsNamespace,
     DeleteRuleGroupsNamespaceResponse (DeleteRuleGroupsNamespaceResponse'),
     newDeleteRuleGroupsNamespaceResponse,
 
-    -- ** PutRuleGroupsNamespace
-    PutRuleGroupsNamespace (PutRuleGroupsNamespace'),
-    newPutRuleGroupsNamespace,
-    PutRuleGroupsNamespaceResponse (PutRuleGroupsNamespaceResponse'),
-    newPutRuleGroupsNamespaceResponse,
+    -- ** DeleteWorkspace
+    DeleteWorkspace (DeleteWorkspace'),
+    newDeleteWorkspace,
+    DeleteWorkspaceResponse (DeleteWorkspaceResponse'),
+    newDeleteWorkspaceResponse,
+
+    -- ** DescribeAlertManagerDefinition
+    DescribeAlertManagerDefinition (DescribeAlertManagerDefinition'),
+    newDescribeAlertManagerDefinition,
+    DescribeAlertManagerDefinitionResponse (DescribeAlertManagerDefinitionResponse'),
+    newDescribeAlertManagerDefinitionResponse,
+
+    -- ** DescribeRuleGroupsNamespace
+    DescribeRuleGroupsNamespace (DescribeRuleGroupsNamespace'),
+    newDescribeRuleGroupsNamespace,
+    DescribeRuleGroupsNamespaceResponse (DescribeRuleGroupsNamespaceResponse'),
+    newDescribeRuleGroupsNamespaceResponse,
+
+    -- ** DescribeWorkspace
+    DescribeWorkspace (DescribeWorkspace'),
+    newDescribeWorkspace,
+    DescribeWorkspaceResponse (DescribeWorkspaceResponse'),
+    newDescribeWorkspaceResponse,
 
     -- ** ListRuleGroupsNamespaces (Paginated)
     ListRuleGroupsNamespaces (ListRuleGroupsNamespaces'),
     newListRuleGroupsNamespaces,
     ListRuleGroupsNamespacesResponse (ListRuleGroupsNamespacesResponse'),
     newListRuleGroupsNamespacesResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListWorkspaces (Paginated)
+    ListWorkspaces (ListWorkspaces'),
+    newListWorkspaces,
+    ListWorkspacesResponse (ListWorkspacesResponse'),
+    newListWorkspacesResponse,
+
+    -- ** PutAlertManagerDefinition
+    PutAlertManagerDefinition (PutAlertManagerDefinition'),
+    newPutAlertManagerDefinition,
+    PutAlertManagerDefinitionResponse (PutAlertManagerDefinitionResponse'),
+    newPutAlertManagerDefinitionResponse,
+
+    -- ** PutRuleGroupsNamespace
+    PutRuleGroupsNamespace (PutRuleGroupsNamespace'),
+    newPutRuleGroupsNamespace,
+    PutRuleGroupsNamespaceResponse (PutRuleGroupsNamespaceResponse'),
+    newPutRuleGroupsNamespaceResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -148,11 +148,11 @@ module Amazonka.AMP
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** CreateWorkspace
-    CreateWorkspace (CreateWorkspace'),
-    newCreateWorkspace,
-    CreateWorkspaceResponse (CreateWorkspaceResponse'),
-    newCreateWorkspaceResponse,
+    -- ** UpdateWorkspaceAlias
+    UpdateWorkspaceAlias (UpdateWorkspaceAlias'),
+    newUpdateWorkspaceAlias,
+    UpdateWorkspaceAliasResponse (UpdateWorkspaceAliasResponse'),
+    newUpdateWorkspaceAliasResponse,
 
     -- * Types
 

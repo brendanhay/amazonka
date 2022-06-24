@@ -34,12 +34,12 @@ module Amazonka.AppIntegrationS.GetEventIntegration
     newGetEventIntegrationResponse,
 
     -- * Response Lenses
+    getEventIntegrationResponse_tags,
+    getEventIntegrationResponse_name,
     getEventIntegrationResponse_eventBridgeBus,
     getEventIntegrationResponse_eventFilter,
-    getEventIntegrationResponse_eventIntegrationArn,
-    getEventIntegrationResponse_name,
     getEventIntegrationResponse_description,
-    getEventIntegrationResponse_tags,
+    getEventIntegrationResponse_eventIntegrationArn,
     getEventIntegrationResponse_httpStatus,
   )
 where
@@ -87,12 +87,12 @@ instance Core.AWSRequest GetEventIntegration where
     Response.receiveJSON
       ( \s h x ->
           GetEventIntegrationResponse'
-            Prelude.<$> (x Core..?> "EventBridgeBus")
-            Prelude.<*> (x Core..?> "EventFilter")
-            Prelude.<*> (x Core..?> "EventIntegrationArn")
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "EventBridgeBus")
+            Prelude.<*> (x Core..?> "EventFilter")
             Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "EventIntegrationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,18 +124,18 @@ instance Core.ToQuery GetEventIntegration where
 
 -- | /See:/ 'newGetEventIntegrationResponse' smart constructor.
 data GetEventIntegrationResponse = GetEventIntegrationResponse'
-  { -- | The EventBridge bus.
+  { -- | One or more tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the event integration.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The EventBridge bus.
     eventBridgeBus :: Prelude.Maybe Prelude.Text,
     -- | The event filter.
     eventFilter :: Prelude.Maybe EventFilter,
-    -- | The Amazon Resource Name (ARN) for the event integration.
-    eventIntegrationArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the event integration.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The description of the event integration.
     description :: Prelude.Maybe Prelude.Text,
-    -- | One or more tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Resource Name (ARN) for the event integration.
+    eventIntegrationArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -149,17 +149,17 @@ data GetEventIntegrationResponse = GetEventIntegrationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'getEventIntegrationResponse_tags' - One or more tags.
+--
+-- 'name', 'getEventIntegrationResponse_name' - The name of the event integration.
+--
 -- 'eventBridgeBus', 'getEventIntegrationResponse_eventBridgeBus' - The EventBridge bus.
 --
 -- 'eventFilter', 'getEventIntegrationResponse_eventFilter' - The event filter.
 --
--- 'eventIntegrationArn', 'getEventIntegrationResponse_eventIntegrationArn' - The Amazon Resource Name (ARN) for the event integration.
---
--- 'name', 'getEventIntegrationResponse_name' - The name of the event integration.
---
 -- 'description', 'getEventIntegrationResponse_description' - The description of the event integration.
 --
--- 'tags', 'getEventIntegrationResponse_tags' - One or more tags.
+-- 'eventIntegrationArn', 'getEventIntegrationResponse_eventIntegrationArn' - The Amazon Resource Name (ARN) for the event integration.
 --
 -- 'httpStatus', 'getEventIntegrationResponse_httpStatus' - The response's http status code.
 newGetEventIntegrationResponse ::
@@ -168,15 +168,23 @@ newGetEventIntegrationResponse ::
   GetEventIntegrationResponse
 newGetEventIntegrationResponse pHttpStatus_ =
   GetEventIntegrationResponse'
-    { eventBridgeBus =
+    { tags =
         Prelude.Nothing,
-      eventFilter = Prelude.Nothing,
-      eventIntegrationArn = Prelude.Nothing,
       name = Prelude.Nothing,
+      eventBridgeBus = Prelude.Nothing,
+      eventFilter = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      eventIntegrationArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | One or more tags.
+getEventIntegrationResponse_tags :: Lens.Lens' GetEventIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getEventIntegrationResponse_tags = Lens.lens (\GetEventIntegrationResponse' {tags} -> tags) (\s@GetEventIntegrationResponse' {} a -> s {tags = a} :: GetEventIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the event integration.
+getEventIntegrationResponse_name :: Lens.Lens' GetEventIntegrationResponse (Prelude.Maybe Prelude.Text)
+getEventIntegrationResponse_name = Lens.lens (\GetEventIntegrationResponse' {name} -> name) (\s@GetEventIntegrationResponse' {} a -> s {name = a} :: GetEventIntegrationResponse)
 
 -- | The EventBridge bus.
 getEventIntegrationResponse_eventBridgeBus :: Lens.Lens' GetEventIntegrationResponse (Prelude.Maybe Prelude.Text)
@@ -186,21 +194,13 @@ getEventIntegrationResponse_eventBridgeBus = Lens.lens (\GetEventIntegrationResp
 getEventIntegrationResponse_eventFilter :: Lens.Lens' GetEventIntegrationResponse (Prelude.Maybe EventFilter)
 getEventIntegrationResponse_eventFilter = Lens.lens (\GetEventIntegrationResponse' {eventFilter} -> eventFilter) (\s@GetEventIntegrationResponse' {} a -> s {eventFilter = a} :: GetEventIntegrationResponse)
 
--- | The Amazon Resource Name (ARN) for the event integration.
-getEventIntegrationResponse_eventIntegrationArn :: Lens.Lens' GetEventIntegrationResponse (Prelude.Maybe Prelude.Text)
-getEventIntegrationResponse_eventIntegrationArn = Lens.lens (\GetEventIntegrationResponse' {eventIntegrationArn} -> eventIntegrationArn) (\s@GetEventIntegrationResponse' {} a -> s {eventIntegrationArn = a} :: GetEventIntegrationResponse)
-
--- | The name of the event integration.
-getEventIntegrationResponse_name :: Lens.Lens' GetEventIntegrationResponse (Prelude.Maybe Prelude.Text)
-getEventIntegrationResponse_name = Lens.lens (\GetEventIntegrationResponse' {name} -> name) (\s@GetEventIntegrationResponse' {} a -> s {name = a} :: GetEventIntegrationResponse)
-
 -- | The description of the event integration.
 getEventIntegrationResponse_description :: Lens.Lens' GetEventIntegrationResponse (Prelude.Maybe Prelude.Text)
 getEventIntegrationResponse_description = Lens.lens (\GetEventIntegrationResponse' {description} -> description) (\s@GetEventIntegrationResponse' {} a -> s {description = a} :: GetEventIntegrationResponse)
 
--- | One or more tags.
-getEventIntegrationResponse_tags :: Lens.Lens' GetEventIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getEventIntegrationResponse_tags = Lens.lens (\GetEventIntegrationResponse' {tags} -> tags) (\s@GetEventIntegrationResponse' {} a -> s {tags = a} :: GetEventIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) for the event integration.
+getEventIntegrationResponse_eventIntegrationArn :: Lens.Lens' GetEventIntegrationResponse (Prelude.Maybe Prelude.Text)
+getEventIntegrationResponse_eventIntegrationArn = Lens.lens (\GetEventIntegrationResponse' {eventIntegrationArn} -> eventIntegrationArn) (\s@GetEventIntegrationResponse' {} a -> s {eventIntegrationArn = a} :: GetEventIntegrationResponse)
 
 -- | The response's http status code.
 getEventIntegrationResponse_httpStatus :: Lens.Lens' GetEventIntegrationResponse Prelude.Int
@@ -208,10 +208,10 @@ getEventIntegrationResponse_httpStatus = Lens.lens (\GetEventIntegrationResponse
 
 instance Prelude.NFData GetEventIntegrationResponse where
   rnf GetEventIntegrationResponse' {..} =
-    Prelude.rnf eventBridgeBus
-      `Prelude.seq` Prelude.rnf eventFilter
-      `Prelude.seq` Prelude.rnf eventIntegrationArn
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf eventBridgeBus
+      `Prelude.seq` Prelude.rnf eventFilter
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf eventIntegrationArn
       `Prelude.seq` Prelude.rnf httpStatus

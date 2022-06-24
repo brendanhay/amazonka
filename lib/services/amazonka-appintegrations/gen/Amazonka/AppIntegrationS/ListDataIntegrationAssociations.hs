@@ -42,8 +42,8 @@ module Amazonka.AppIntegrationS.ListDataIntegrationAssociations
     newListDataIntegrationAssociationsResponse,
 
     -- * Response Lenses
-    listDataIntegrationAssociationsResponse_dataIntegrationAssociations,
     listDataIntegrationAssociationsResponse_nextToken,
+    listDataIntegrationAssociationsResponse_dataIntegrationAssociations,
     listDataIntegrationAssociationsResponse_httpStatus,
   )
 where
@@ -123,8 +123,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDataIntegrationAssociationsResponse'
-            Prelude.<$> (x Core..?> "DataIntegrationAssociations")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "DataIntegrationAssociations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,12 +179,12 @@ instance Core.ToQuery ListDataIntegrationAssociations where
 
 -- | /See:/ 'newListDataIntegrationAssociationsResponse' smart constructor.
 data ListDataIntegrationAssociationsResponse = ListDataIntegrationAssociationsResponse'
-  { -- | The Amazon Resource Name (ARN) and unique ID of the DataIntegration
-    -- association.
-    dataIntegrationAssociations :: Prelude.Maybe (Prelude.NonEmpty DataIntegrationAssociationSummary),
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) and unique ID of the DataIntegration
+    -- association.
+    dataIntegrationAssociations :: Prelude.Maybe (Prelude.NonEmpty DataIntegrationAssociationSummary),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,11 +198,11 @@ data ListDataIntegrationAssociationsResponse = ListDataIntegrationAssociationsRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataIntegrationAssociations', 'listDataIntegrationAssociationsResponse_dataIntegrationAssociations' - The Amazon Resource Name (ARN) and unique ID of the DataIntegration
--- association.
---
 -- 'nextToken', 'listDataIntegrationAssociationsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
+--
+-- 'dataIntegrationAssociations', 'listDataIntegrationAssociationsResponse_dataIntegrationAssociations' - The Amazon Resource Name (ARN) and unique ID of the DataIntegration
+-- association.
 --
 -- 'httpStatus', 'listDataIntegrationAssociationsResponse_httpStatus' - The response's http status code.
 newListDataIntegrationAssociationsResponse ::
@@ -212,21 +212,22 @@ newListDataIntegrationAssociationsResponse ::
 newListDataIntegrationAssociationsResponse
   pHttpStatus_ =
     ListDataIntegrationAssociationsResponse'
-      { dataIntegrationAssociations =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        dataIntegrationAssociations =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The Amazon Resource Name (ARN) and unique ID of the DataIntegration
--- association.
-listDataIntegrationAssociationsResponse_dataIntegrationAssociations :: Lens.Lens' ListDataIntegrationAssociationsResponse (Prelude.Maybe (Prelude.NonEmpty DataIntegrationAssociationSummary))
-listDataIntegrationAssociationsResponse_dataIntegrationAssociations = Lens.lens (\ListDataIntegrationAssociationsResponse' {dataIntegrationAssociations} -> dataIntegrationAssociations) (\s@ListDataIntegrationAssociationsResponse' {} a -> s {dataIntegrationAssociations = a} :: ListDataIntegrationAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listDataIntegrationAssociationsResponse_nextToken :: Lens.Lens' ListDataIntegrationAssociationsResponse (Prelude.Maybe Prelude.Text)
 listDataIntegrationAssociationsResponse_nextToken = Lens.lens (\ListDataIntegrationAssociationsResponse' {nextToken} -> nextToken) (\s@ListDataIntegrationAssociationsResponse' {} a -> s {nextToken = a} :: ListDataIntegrationAssociationsResponse)
+
+-- | The Amazon Resource Name (ARN) and unique ID of the DataIntegration
+-- association.
+listDataIntegrationAssociationsResponse_dataIntegrationAssociations :: Lens.Lens' ListDataIntegrationAssociationsResponse (Prelude.Maybe (Prelude.NonEmpty DataIntegrationAssociationSummary))
+listDataIntegrationAssociationsResponse_dataIntegrationAssociations = Lens.lens (\ListDataIntegrationAssociationsResponse' {dataIntegrationAssociations} -> dataIntegrationAssociations) (\s@ListDataIntegrationAssociationsResponse' {} a -> s {dataIntegrationAssociations = a} :: ListDataIntegrationAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDataIntegrationAssociationsResponse_httpStatus :: Lens.Lens' ListDataIntegrationAssociationsResponse Prelude.Int
@@ -237,6 +238,6 @@ instance
     ListDataIntegrationAssociationsResponse
   where
   rnf ListDataIntegrationAssociationsResponse' {..} =
-    Prelude.rnf dataIntegrationAssociations
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dataIntegrationAssociations
       `Prelude.seq` Prelude.rnf httpStatus

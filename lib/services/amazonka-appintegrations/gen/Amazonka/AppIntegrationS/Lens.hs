@@ -14,92 +14,99 @@
 module Amazonka.AppIntegrationS.Lens
   ( -- * Operations
 
-    -- ** GetEventIntegration
-    getEventIntegration_name,
-    getEventIntegrationResponse_eventBridgeBus,
-    getEventIntegrationResponse_eventFilter,
-    getEventIntegrationResponse_eventIntegrationArn,
-    getEventIntegrationResponse_name,
-    getEventIntegrationResponse_description,
-    getEventIntegrationResponse_tags,
-    getEventIntegrationResponse_httpStatus,
-
-    -- ** ListDataIntegrations
-    listDataIntegrations_nextToken,
-    listDataIntegrations_maxResults,
-    listDataIntegrationsResponse_dataIntegrations,
-    listDataIntegrationsResponse_nextToken,
-    listDataIntegrationsResponse_httpStatus,
-
     -- ** CreateDataIntegration
-    createDataIntegration_scheduleConfig,
-    createDataIntegration_clientToken,
-    createDataIntegration_kmsKey,
-    createDataIntegration_sourceURI,
-    createDataIntegration_description,
     createDataIntegration_tags,
+    createDataIntegration_clientToken,
+    createDataIntegration_sourceURI,
+    createDataIntegration_scheduleConfig,
+    createDataIntegration_kmsKey,
+    createDataIntegration_description,
     createDataIntegration_name,
+    createDataIntegrationResponse_tags,
     createDataIntegrationResponse_clientToken,
+    createDataIntegrationResponse_name,
+    createDataIntegrationResponse_sourceURI,
+    createDataIntegrationResponse_scheduleConfiguration,
     createDataIntegrationResponse_kmsKey,
     createDataIntegrationResponse_arn,
-    createDataIntegrationResponse_scheduleConfiguration,
-    createDataIntegrationResponse_name,
     createDataIntegrationResponse_id,
-    createDataIntegrationResponse_sourceURI,
     createDataIntegrationResponse_description,
-    createDataIntegrationResponse_tags,
     createDataIntegrationResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** ListEventIntegrationAssociations
-    listEventIntegrationAssociations_nextToken,
-    listEventIntegrationAssociations_maxResults,
-    listEventIntegrationAssociations_eventIntegrationName,
-    listEventIntegrationAssociationsResponse_eventIntegrationAssociations,
-    listEventIntegrationAssociationsResponse_nextToken,
-    listEventIntegrationAssociationsResponse_httpStatus,
-
-    -- ** GetDataIntegration
-    getDataIntegration_identifier,
-    getDataIntegrationResponse_kmsKey,
-    getDataIntegrationResponse_arn,
-    getDataIntegrationResponse_scheduleConfiguration,
-    getDataIntegrationResponse_name,
-    getDataIntegrationResponse_id,
-    getDataIntegrationResponse_sourceURI,
-    getDataIntegrationResponse_description,
-    getDataIntegrationResponse_tags,
-    getDataIntegrationResponse_httpStatus,
-
-    -- ** ListEventIntegrations
-    listEventIntegrations_nextToken,
-    listEventIntegrations_maxResults,
-    listEventIntegrationsResponse_eventIntegrations,
-    listEventIntegrationsResponse_nextToken,
-    listEventIntegrationsResponse_httpStatus,
-
-    -- ** DeleteEventIntegration
-    deleteEventIntegration_name,
-    deleteEventIntegrationResponse_httpStatus,
-
-    -- ** UpdateEventIntegration
-    updateEventIntegration_description,
-    updateEventIntegration_name,
-    updateEventIntegrationResponse_httpStatus,
+    -- ** CreateEventIntegration
+    createEventIntegration_tags,
+    createEventIntegration_clientToken,
+    createEventIntegration_description,
+    createEventIntegration_name,
+    createEventIntegration_eventFilter,
+    createEventIntegration_eventBridgeBus,
+    createEventIntegrationResponse_eventIntegrationArn,
+    createEventIntegrationResponse_httpStatus,
 
     -- ** DeleteDataIntegration
     deleteDataIntegration_dataIntegrationIdentifier,
     deleteDataIntegrationResponse_httpStatus,
 
-    -- ** UpdateDataIntegration
-    updateDataIntegration_name,
-    updateDataIntegration_description,
-    updateDataIntegration_identifier,
-    updateDataIntegrationResponse_httpStatus,
+    -- ** DeleteEventIntegration
+    deleteEventIntegration_name,
+    deleteEventIntegrationResponse_httpStatus,
+
+    -- ** GetDataIntegration
+    getDataIntegration_identifier,
+    getDataIntegrationResponse_tags,
+    getDataIntegrationResponse_name,
+    getDataIntegrationResponse_sourceURI,
+    getDataIntegrationResponse_scheduleConfiguration,
+    getDataIntegrationResponse_kmsKey,
+    getDataIntegrationResponse_arn,
+    getDataIntegrationResponse_id,
+    getDataIntegrationResponse_description,
+    getDataIntegrationResponse_httpStatus,
+
+    -- ** GetEventIntegration
+    getEventIntegration_name,
+    getEventIntegrationResponse_tags,
+    getEventIntegrationResponse_name,
+    getEventIntegrationResponse_eventBridgeBus,
+    getEventIntegrationResponse_eventFilter,
+    getEventIntegrationResponse_description,
+    getEventIntegrationResponse_eventIntegrationArn,
+    getEventIntegrationResponse_httpStatus,
+
+    -- ** ListDataIntegrationAssociations
+    listDataIntegrationAssociations_nextToken,
+    listDataIntegrationAssociations_maxResults,
+    listDataIntegrationAssociations_dataIntegrationIdentifier,
+    listDataIntegrationAssociationsResponse_nextToken,
+    listDataIntegrationAssociationsResponse_dataIntegrationAssociations,
+    listDataIntegrationAssociationsResponse_httpStatus,
+
+    -- ** ListDataIntegrations
+    listDataIntegrations_nextToken,
+    listDataIntegrations_maxResults,
+    listDataIntegrationsResponse_nextToken,
+    listDataIntegrationsResponse_dataIntegrations,
+    listDataIntegrationsResponse_httpStatus,
+
+    -- ** ListEventIntegrationAssociations
+    listEventIntegrationAssociations_nextToken,
+    listEventIntegrationAssociations_maxResults,
+    listEventIntegrationAssociations_eventIntegrationName,
+    listEventIntegrationAssociationsResponse_nextToken,
+    listEventIntegrationAssociationsResponse_eventIntegrationAssociations,
+    listEventIntegrationAssociationsResponse_httpStatus,
+
+    -- ** ListEventIntegrations
+    listEventIntegrations_nextToken,
+    listEventIntegrations_maxResults,
+    listEventIntegrationsResponse_nextToken,
+    listEventIntegrationsResponse_eventIntegrations,
+    listEventIntegrationsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -111,58 +118,51 @@ module Amazonka.AppIntegrationS.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** ListDataIntegrationAssociations
-    listDataIntegrationAssociations_nextToken,
-    listDataIntegrationAssociations_maxResults,
-    listDataIntegrationAssociations_dataIntegrationIdentifier,
-    listDataIntegrationAssociationsResponse_dataIntegrationAssociations,
-    listDataIntegrationAssociationsResponse_nextToken,
-    listDataIntegrationAssociationsResponse_httpStatus,
+    -- ** UpdateDataIntegration
+    updateDataIntegration_name,
+    updateDataIntegration_description,
+    updateDataIntegration_identifier,
+    updateDataIntegrationResponse_httpStatus,
 
-    -- ** CreateEventIntegration
-    createEventIntegration_clientToken,
-    createEventIntegration_description,
-    createEventIntegration_tags,
-    createEventIntegration_name,
-    createEventIntegration_eventFilter,
-    createEventIntegration_eventBridgeBus,
-    createEventIntegrationResponse_eventIntegrationArn,
-    createEventIntegrationResponse_httpStatus,
+    -- ** UpdateEventIntegration
+    updateEventIntegration_description,
+    updateEventIntegration_name,
+    updateEventIntegrationResponse_httpStatus,
 
     -- * Types
 
     -- ** DataIntegrationAssociationSummary
     dataIntegrationAssociationSummary_clientId,
-    dataIntegrationAssociationSummary_dataIntegrationAssociationArn,
     dataIntegrationAssociationSummary_dataIntegrationArn,
+    dataIntegrationAssociationSummary_dataIntegrationAssociationArn,
 
     -- ** DataIntegrationSummary
-    dataIntegrationSummary_arn,
     dataIntegrationSummary_name,
     dataIntegrationSummary_sourceURI,
+    dataIntegrationSummary_arn,
 
     -- ** EventFilter
     eventFilter_source,
 
     -- ** EventIntegration
+    eventIntegration_tags,
+    eventIntegration_name,
     eventIntegration_eventBridgeBus,
     eventIntegration_eventFilter,
-    eventIntegration_eventIntegrationArn,
-    eventIntegration_name,
     eventIntegration_description,
-    eventIntegration_tags,
+    eventIntegration_eventIntegrationArn,
 
     -- ** EventIntegrationAssociation
+    eventIntegrationAssociation_eventBridgeRuleName,
     eventIntegrationAssociation_clientId,
     eventIntegrationAssociation_eventIntegrationName,
-    eventIntegrationAssociation_clientAssociationMetadata,
-    eventIntegrationAssociation_eventIntegrationAssociationId,
     eventIntegrationAssociation_eventIntegrationAssociationArn,
-    eventIntegrationAssociation_eventBridgeRuleName,
+    eventIntegrationAssociation_eventIntegrationAssociationId,
+    eventIntegrationAssociation_clientAssociationMetadata,
 
     -- ** ScheduleConfiguration
-    scheduleConfiguration_scheduleExpression,
     scheduleConfiguration_object,
+    scheduleConfiguration_scheduleExpression,
     scheduleConfiguration_firstExecutionFrom,
   )
 where

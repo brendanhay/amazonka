@@ -30,23 +30,23 @@ module Amazonka.AppIntegrationS
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
     -- ** DuplicateResourceException
     _DuplicateResourceException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ResourceQuotaExceededException
     _ResourceQuotaExceededException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
     -- ** InternalServiceError
     _InternalServiceError,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters
@@ -54,59 +54,17 @@ module Amazonka.AppIntegrationS
     -- * Operations
     -- $operations
 
-    -- ** GetEventIntegration
-    GetEventIntegration (GetEventIntegration'),
-    newGetEventIntegration,
-    GetEventIntegrationResponse (GetEventIntegrationResponse'),
-    newGetEventIntegrationResponse,
-
-    -- ** ListDataIntegrations
-    ListDataIntegrations (ListDataIntegrations'),
-    newListDataIntegrations,
-    ListDataIntegrationsResponse (ListDataIntegrationsResponse'),
-    newListDataIntegrationsResponse,
-
     -- ** CreateDataIntegration
     CreateDataIntegration (CreateDataIntegration'),
     newCreateDataIntegration,
     CreateDataIntegrationResponse (CreateDataIntegrationResponse'),
     newCreateDataIntegrationResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** ListEventIntegrationAssociations
-    ListEventIntegrationAssociations (ListEventIntegrationAssociations'),
-    newListEventIntegrationAssociations,
-    ListEventIntegrationAssociationsResponse (ListEventIntegrationAssociationsResponse'),
-    newListEventIntegrationAssociationsResponse,
-
-    -- ** GetDataIntegration
-    GetDataIntegration (GetDataIntegration'),
-    newGetDataIntegration,
-    GetDataIntegrationResponse (GetDataIntegrationResponse'),
-    newGetDataIntegrationResponse,
-
-    -- ** ListEventIntegrations
-    ListEventIntegrations (ListEventIntegrations'),
-    newListEventIntegrations,
-    ListEventIntegrationsResponse (ListEventIntegrationsResponse'),
-    newListEventIntegrationsResponse,
-
-    -- ** DeleteEventIntegration
-    DeleteEventIntegration (DeleteEventIntegration'),
-    newDeleteEventIntegration,
-    DeleteEventIntegrationResponse (DeleteEventIntegrationResponse'),
-    newDeleteEventIntegrationResponse,
-
-    -- ** UpdateEventIntegration
-    UpdateEventIntegration (UpdateEventIntegration'),
-    newUpdateEventIntegration,
-    UpdateEventIntegrationResponse (UpdateEventIntegrationResponse'),
-    newUpdateEventIntegrationResponse,
+    -- ** CreateEventIntegration
+    CreateEventIntegration (CreateEventIntegration'),
+    newCreateEventIntegration,
+    CreateEventIntegrationResponse (CreateEventIntegrationResponse'),
+    newCreateEventIntegrationResponse,
 
     -- ** DeleteDataIntegration
     DeleteDataIntegration (DeleteDataIntegration'),
@@ -114,11 +72,53 @@ module Amazonka.AppIntegrationS
     DeleteDataIntegrationResponse (DeleteDataIntegrationResponse'),
     newDeleteDataIntegrationResponse,
 
-    -- ** UpdateDataIntegration
-    UpdateDataIntegration (UpdateDataIntegration'),
-    newUpdateDataIntegration,
-    UpdateDataIntegrationResponse (UpdateDataIntegrationResponse'),
-    newUpdateDataIntegrationResponse,
+    -- ** DeleteEventIntegration
+    DeleteEventIntegration (DeleteEventIntegration'),
+    newDeleteEventIntegration,
+    DeleteEventIntegrationResponse (DeleteEventIntegrationResponse'),
+    newDeleteEventIntegrationResponse,
+
+    -- ** GetDataIntegration
+    GetDataIntegration (GetDataIntegration'),
+    newGetDataIntegration,
+    GetDataIntegrationResponse (GetDataIntegrationResponse'),
+    newGetDataIntegrationResponse,
+
+    -- ** GetEventIntegration
+    GetEventIntegration (GetEventIntegration'),
+    newGetEventIntegration,
+    GetEventIntegrationResponse (GetEventIntegrationResponse'),
+    newGetEventIntegrationResponse,
+
+    -- ** ListDataIntegrationAssociations
+    ListDataIntegrationAssociations (ListDataIntegrationAssociations'),
+    newListDataIntegrationAssociations,
+    ListDataIntegrationAssociationsResponse (ListDataIntegrationAssociationsResponse'),
+    newListDataIntegrationAssociationsResponse,
+
+    -- ** ListDataIntegrations
+    ListDataIntegrations (ListDataIntegrations'),
+    newListDataIntegrations,
+    ListDataIntegrationsResponse (ListDataIntegrationsResponse'),
+    newListDataIntegrationsResponse,
+
+    -- ** ListEventIntegrationAssociations
+    ListEventIntegrationAssociations (ListEventIntegrationAssociations'),
+    newListEventIntegrationAssociations,
+    ListEventIntegrationAssociationsResponse (ListEventIntegrationAssociationsResponse'),
+    newListEventIntegrationAssociationsResponse,
+
+    -- ** ListEventIntegrations
+    ListEventIntegrations (ListEventIntegrations'),
+    newListEventIntegrations,
+    ListEventIntegrationsResponse (ListEventIntegrationsResponse'),
+    newListEventIntegrationsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -132,17 +132,17 @@ module Amazonka.AppIntegrationS
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** ListDataIntegrationAssociations
-    ListDataIntegrationAssociations (ListDataIntegrationAssociations'),
-    newListDataIntegrationAssociations,
-    ListDataIntegrationAssociationsResponse (ListDataIntegrationAssociationsResponse'),
-    newListDataIntegrationAssociationsResponse,
+    -- ** UpdateDataIntegration
+    UpdateDataIntegration (UpdateDataIntegration'),
+    newUpdateDataIntegration,
+    UpdateDataIntegrationResponse (UpdateDataIntegrationResponse'),
+    newUpdateDataIntegrationResponse,
 
-    -- ** CreateEventIntegration
-    CreateEventIntegration (CreateEventIntegration'),
-    newCreateEventIntegration,
-    CreateEventIntegrationResponse (CreateEventIntegrationResponse'),
-    newCreateEventIntegrationResponse,
+    -- ** UpdateEventIntegration
+    UpdateEventIntegration (UpdateEventIntegration'),
+    newUpdateEventIntegration,
+    UpdateEventIntegrationResponse (UpdateEventIntegrationResponse'),
+    newUpdateEventIntegrationResponse,
 
     -- * Types
 

@@ -27,19 +27,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventIntegrationAssociation' smart constructor.
 data EventIntegrationAssociation = EventIntegrationAssociation'
-  { -- | The identifier for the client that is associated with the event
+  { -- | The name of the EventBridge rule.
+    eventBridgeRuleName :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the client that is associated with the event
     -- integration.
     clientId :: Prelude.Maybe Prelude.Text,
     -- | The name of the event integration.
     eventIntegrationName :: Prelude.Maybe Prelude.Text,
-    -- | The metadata associated with the client.
-    clientAssociationMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier for the event integration association.
-    eventIntegrationAssociationId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the event integration association.
     eventIntegrationAssociationArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the EventBridge rule.
-    eventBridgeRuleName :: Prelude.Maybe Prelude.Text
+    -- | The identifier for the event integration association.
+    eventIntegrationAssociationId :: Prelude.Maybe Prelude.Text,
+    -- | The metadata associated with the client.
+    clientAssociationMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,32 +51,36 @@ data EventIntegrationAssociation = EventIntegrationAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventBridgeRuleName', 'eventIntegrationAssociation_eventBridgeRuleName' - The name of the EventBridge rule.
+--
 -- 'clientId', 'eventIntegrationAssociation_clientId' - The identifier for the client that is associated with the event
 -- integration.
 --
 -- 'eventIntegrationName', 'eventIntegrationAssociation_eventIntegrationName' - The name of the event integration.
 --
--- 'clientAssociationMetadata', 'eventIntegrationAssociation_clientAssociationMetadata' - The metadata associated with the client.
+-- 'eventIntegrationAssociationArn', 'eventIntegrationAssociation_eventIntegrationAssociationArn' - The Amazon Resource Name (ARN) for the event integration association.
 --
 -- 'eventIntegrationAssociationId', 'eventIntegrationAssociation_eventIntegrationAssociationId' - The identifier for the event integration association.
 --
--- 'eventIntegrationAssociationArn', 'eventIntegrationAssociation_eventIntegrationAssociationArn' - The Amazon Resource Name (ARN) for the event integration association.
---
--- 'eventBridgeRuleName', 'eventIntegrationAssociation_eventBridgeRuleName' - The name of the EventBridge rule.
+-- 'clientAssociationMetadata', 'eventIntegrationAssociation_clientAssociationMetadata' - The metadata associated with the client.
 newEventIntegrationAssociation ::
   EventIntegrationAssociation
 newEventIntegrationAssociation =
   EventIntegrationAssociation'
-    { clientId =
+    { eventBridgeRuleName =
         Prelude.Nothing,
+      clientId = Prelude.Nothing,
       eventIntegrationName = Prelude.Nothing,
-      clientAssociationMetadata = Prelude.Nothing,
-      eventIntegrationAssociationId =
-        Prelude.Nothing,
       eventIntegrationAssociationArn =
         Prelude.Nothing,
-      eventBridgeRuleName = Prelude.Nothing
+      eventIntegrationAssociationId =
+        Prelude.Nothing,
+      clientAssociationMetadata = Prelude.Nothing
     }
+
+-- | The name of the EventBridge rule.
+eventIntegrationAssociation_eventBridgeRuleName :: Lens.Lens' EventIntegrationAssociation (Prelude.Maybe Prelude.Text)
+eventIntegrationAssociation_eventBridgeRuleName = Lens.lens (\EventIntegrationAssociation' {eventBridgeRuleName} -> eventBridgeRuleName) (\s@EventIntegrationAssociation' {} a -> s {eventBridgeRuleName = a} :: EventIntegrationAssociation)
 
 -- | The identifier for the client that is associated with the event
 -- integration.
@@ -87,21 +91,17 @@ eventIntegrationAssociation_clientId = Lens.lens (\EventIntegrationAssociation' 
 eventIntegrationAssociation_eventIntegrationName :: Lens.Lens' EventIntegrationAssociation (Prelude.Maybe Prelude.Text)
 eventIntegrationAssociation_eventIntegrationName = Lens.lens (\EventIntegrationAssociation' {eventIntegrationName} -> eventIntegrationName) (\s@EventIntegrationAssociation' {} a -> s {eventIntegrationName = a} :: EventIntegrationAssociation)
 
--- | The metadata associated with the client.
-eventIntegrationAssociation_clientAssociationMetadata :: Lens.Lens' EventIntegrationAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-eventIntegrationAssociation_clientAssociationMetadata = Lens.lens (\EventIntegrationAssociation' {clientAssociationMetadata} -> clientAssociationMetadata) (\s@EventIntegrationAssociation' {} a -> s {clientAssociationMetadata = a} :: EventIntegrationAssociation) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) for the event integration association.
+eventIntegrationAssociation_eventIntegrationAssociationArn :: Lens.Lens' EventIntegrationAssociation (Prelude.Maybe Prelude.Text)
+eventIntegrationAssociation_eventIntegrationAssociationArn = Lens.lens (\EventIntegrationAssociation' {eventIntegrationAssociationArn} -> eventIntegrationAssociationArn) (\s@EventIntegrationAssociation' {} a -> s {eventIntegrationAssociationArn = a} :: EventIntegrationAssociation)
 
 -- | The identifier for the event integration association.
 eventIntegrationAssociation_eventIntegrationAssociationId :: Lens.Lens' EventIntegrationAssociation (Prelude.Maybe Prelude.Text)
 eventIntegrationAssociation_eventIntegrationAssociationId = Lens.lens (\EventIntegrationAssociation' {eventIntegrationAssociationId} -> eventIntegrationAssociationId) (\s@EventIntegrationAssociation' {} a -> s {eventIntegrationAssociationId = a} :: EventIntegrationAssociation)
 
--- | The Amazon Resource Name (ARN) for the event integration association.
-eventIntegrationAssociation_eventIntegrationAssociationArn :: Lens.Lens' EventIntegrationAssociation (Prelude.Maybe Prelude.Text)
-eventIntegrationAssociation_eventIntegrationAssociationArn = Lens.lens (\EventIntegrationAssociation' {eventIntegrationAssociationArn} -> eventIntegrationAssociationArn) (\s@EventIntegrationAssociation' {} a -> s {eventIntegrationAssociationArn = a} :: EventIntegrationAssociation)
-
--- | The name of the EventBridge rule.
-eventIntegrationAssociation_eventBridgeRuleName :: Lens.Lens' EventIntegrationAssociation (Prelude.Maybe Prelude.Text)
-eventIntegrationAssociation_eventBridgeRuleName = Lens.lens (\EventIntegrationAssociation' {eventBridgeRuleName} -> eventBridgeRuleName) (\s@EventIntegrationAssociation' {} a -> s {eventBridgeRuleName = a} :: EventIntegrationAssociation)
+-- | The metadata associated with the client.
+eventIntegrationAssociation_clientAssociationMetadata :: Lens.Lens' EventIntegrationAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+eventIntegrationAssociation_clientAssociationMetadata = Lens.lens (\EventIntegrationAssociation' {clientAssociationMetadata} -> clientAssociationMetadata) (\s@EventIntegrationAssociation' {} a -> s {clientAssociationMetadata = a} :: EventIntegrationAssociation) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON EventIntegrationAssociation where
   parseJSON =
@@ -109,30 +109,30 @@ instance Core.FromJSON EventIntegrationAssociation where
       "EventIntegrationAssociation"
       ( \x ->
           EventIntegrationAssociation'
-            Prelude.<$> (x Core..:? "ClientId")
+            Prelude.<$> (x Core..:? "EventBridgeRuleName")
+            Prelude.<*> (x Core..:? "ClientId")
             Prelude.<*> (x Core..:? "EventIntegrationName")
+            Prelude.<*> (x Core..:? "EventIntegrationAssociationArn")
+            Prelude.<*> (x Core..:? "EventIntegrationAssociationId")
             Prelude.<*> ( x Core..:? "ClientAssociationMetadata"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EventIntegrationAssociationId")
-            Prelude.<*> (x Core..:? "EventIntegrationAssociationArn")
-            Prelude.<*> (x Core..:? "EventBridgeRuleName")
       )
 
 instance Prelude.Hashable EventIntegrationAssociation where
   hashWithSalt _salt EventIntegrationAssociation' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt `Prelude.hashWithSalt` eventBridgeRuleName
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` eventIntegrationName
-      `Prelude.hashWithSalt` clientAssociationMetadata
-      `Prelude.hashWithSalt` eventIntegrationAssociationId
       `Prelude.hashWithSalt` eventIntegrationAssociationArn
-      `Prelude.hashWithSalt` eventBridgeRuleName
+      `Prelude.hashWithSalt` eventIntegrationAssociationId
+      `Prelude.hashWithSalt` clientAssociationMetadata
 
 instance Prelude.NFData EventIntegrationAssociation where
   rnf EventIntegrationAssociation' {..} =
-    Prelude.rnf clientId
+    Prelude.rnf eventBridgeRuleName
+      `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf eventIntegrationName
-      `Prelude.seq` Prelude.rnf clientAssociationMetadata
-      `Prelude.seq` Prelude.rnf eventIntegrationAssociationId
       `Prelude.seq` Prelude.rnf eventIntegrationAssociationArn
-      `Prelude.seq` Prelude.rnf eventBridgeRuleName
+      `Prelude.seq` Prelude.rnf eventIntegrationAssociationId
+      `Prelude.seq` Prelude.rnf clientAssociationMetadata

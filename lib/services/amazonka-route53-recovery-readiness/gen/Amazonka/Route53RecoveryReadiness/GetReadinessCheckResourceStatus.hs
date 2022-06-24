@@ -40,9 +40,9 @@ module Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus
     newGetReadinessCheckResourceStatusResponse,
 
     -- * Response Lenses
-    getReadinessCheckResourceStatusResponse_rules,
-    getReadinessCheckResourceStatusResponse_readiness,
     getReadinessCheckResourceStatusResponse_nextToken,
+    getReadinessCheckResourceStatusResponse_readiness,
+    getReadinessCheckResourceStatusResponse_rules,
     getReadinessCheckResourceStatusResponse_httpStatus,
   )
 where
@@ -152,9 +152,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetReadinessCheckResourceStatusResponse'
-            Prelude.<$> (x Core..?> "rules" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "nextToken")
             Prelude.<*> (x Core..?> "readiness")
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "rules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,13 +213,13 @@ instance Core.ToQuery GetReadinessCheckResourceStatus where
 
 -- | /See:/ 'newGetReadinessCheckResourceStatusResponse' smart constructor.
 data GetReadinessCheckResourceStatusResponse = GetReadinessCheckResourceStatusResponse'
-  { -- | Details of the rules\'s results
-    rules :: Prelude.Maybe [RuleResult],
-    -- | The readiness at rule level.
-    readiness :: Prelude.Maybe Readiness,
-    -- | A token that can be used to resume pagination from the end of the
+  { -- | A token that can be used to resume pagination from the end of the
     -- collection.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The readiness at rule level.
+    readiness :: Prelude.Maybe Readiness,
+    -- | Details of the rules\'s results
+    rules :: Prelude.Maybe [RuleResult],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -233,12 +233,12 @@ data GetReadinessCheckResourceStatusResponse = GetReadinessCheckResourceStatusRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rules', 'getReadinessCheckResourceStatusResponse_rules' - Details of the rules\'s results
+-- 'nextToken', 'getReadinessCheckResourceStatusResponse_nextToken' - A token that can be used to resume pagination from the end of the
+-- collection.
 --
 -- 'readiness', 'getReadinessCheckResourceStatusResponse_readiness' - The readiness at rule level.
 --
--- 'nextToken', 'getReadinessCheckResourceStatusResponse_nextToken' - A token that can be used to resume pagination from the end of the
--- collection.
+-- 'rules', 'getReadinessCheckResourceStatusResponse_rules' - Details of the rules\'s results
 --
 -- 'httpStatus', 'getReadinessCheckResourceStatusResponse_httpStatus' - The response's http status code.
 newGetReadinessCheckResourceStatusResponse ::
@@ -248,25 +248,25 @@ newGetReadinessCheckResourceStatusResponse ::
 newGetReadinessCheckResourceStatusResponse
   pHttpStatus_ =
     GetReadinessCheckResourceStatusResponse'
-      { rules =
+      { nextToken =
           Prelude.Nothing,
         readiness = Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        rules = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Details of the rules\'s results
-getReadinessCheckResourceStatusResponse_rules :: Lens.Lens' GetReadinessCheckResourceStatusResponse (Prelude.Maybe [RuleResult])
-getReadinessCheckResourceStatusResponse_rules = Lens.lens (\GetReadinessCheckResourceStatusResponse' {rules} -> rules) (\s@GetReadinessCheckResourceStatusResponse' {} a -> s {rules = a} :: GetReadinessCheckResourceStatusResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The readiness at rule level.
-getReadinessCheckResourceStatusResponse_readiness :: Lens.Lens' GetReadinessCheckResourceStatusResponse (Prelude.Maybe Readiness)
-getReadinessCheckResourceStatusResponse_readiness = Lens.lens (\GetReadinessCheckResourceStatusResponse' {readiness} -> readiness) (\s@GetReadinessCheckResourceStatusResponse' {} a -> s {readiness = a} :: GetReadinessCheckResourceStatusResponse)
 
 -- | A token that can be used to resume pagination from the end of the
 -- collection.
 getReadinessCheckResourceStatusResponse_nextToken :: Lens.Lens' GetReadinessCheckResourceStatusResponse (Prelude.Maybe Prelude.Text)
 getReadinessCheckResourceStatusResponse_nextToken = Lens.lens (\GetReadinessCheckResourceStatusResponse' {nextToken} -> nextToken) (\s@GetReadinessCheckResourceStatusResponse' {} a -> s {nextToken = a} :: GetReadinessCheckResourceStatusResponse)
+
+-- | The readiness at rule level.
+getReadinessCheckResourceStatusResponse_readiness :: Lens.Lens' GetReadinessCheckResourceStatusResponse (Prelude.Maybe Readiness)
+getReadinessCheckResourceStatusResponse_readiness = Lens.lens (\GetReadinessCheckResourceStatusResponse' {readiness} -> readiness) (\s@GetReadinessCheckResourceStatusResponse' {} a -> s {readiness = a} :: GetReadinessCheckResourceStatusResponse)
+
+-- | Details of the rules\'s results
+getReadinessCheckResourceStatusResponse_rules :: Lens.Lens' GetReadinessCheckResourceStatusResponse (Prelude.Maybe [RuleResult])
+getReadinessCheckResourceStatusResponse_rules = Lens.lens (\GetReadinessCheckResourceStatusResponse' {rules} -> rules) (\s@GetReadinessCheckResourceStatusResponse' {} a -> s {rules = a} :: GetReadinessCheckResourceStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getReadinessCheckResourceStatusResponse_httpStatus :: Lens.Lens' GetReadinessCheckResourceStatusResponse Prelude.Int
@@ -277,7 +277,7 @@ instance
     GetReadinessCheckResourceStatusResponse
   where
   rnf GetReadinessCheckResourceStatusResponse' {..} =
-    Prelude.rnf rules
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf readiness
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf httpStatus

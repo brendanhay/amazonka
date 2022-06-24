@@ -37,8 +37,8 @@ module Amazonka.Route53RecoveryReadiness.ListReadinessChecks
     newListReadinessChecksResponse,
 
     -- * Response Lenses
-    listReadinessChecksResponse_readinessChecks,
     listReadinessChecksResponse_nextToken,
+    listReadinessChecksResponse_readinessChecks,
     listReadinessChecksResponse_httpStatus,
   )
 where
@@ -117,10 +117,10 @@ instance Core.AWSRequest ListReadinessChecks where
     Response.receiveJSON
       ( \s h x ->
           ListReadinessChecksResponse'
-            Prelude.<$> ( x Core..?> "readinessChecks"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "readinessChecks"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,11 +157,11 @@ instance Core.ToQuery ListReadinessChecks where
 
 -- | /See:/ 'newListReadinessChecksResponse' smart constructor.
 data ListReadinessChecksResponse = ListReadinessChecksResponse'
-  { -- | A list of ReadinessCheck associated with the account
-    readinessChecks :: Prelude.Maybe [ReadinessCheckOutput],
-    -- | A token that can be used to resume pagination from the end of the
+  { -- | A token that can be used to resume pagination from the end of the
     -- collection.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of ReadinessCheck associated with the account
+    readinessChecks :: Prelude.Maybe [ReadinessCheckOutput],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,10 +175,10 @@ data ListReadinessChecksResponse = ListReadinessChecksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readinessChecks', 'listReadinessChecksResponse_readinessChecks' - A list of ReadinessCheck associated with the account
---
 -- 'nextToken', 'listReadinessChecksResponse_nextToken' - A token that can be used to resume pagination from the end of the
 -- collection.
+--
+-- 'readinessChecks', 'listReadinessChecksResponse_readinessChecks' - A list of ReadinessCheck associated with the account
 --
 -- 'httpStatus', 'listReadinessChecksResponse_httpStatus' - The response's http status code.
 newListReadinessChecksResponse ::
@@ -187,20 +187,20 @@ newListReadinessChecksResponse ::
   ListReadinessChecksResponse
 newListReadinessChecksResponse pHttpStatus_ =
   ListReadinessChecksResponse'
-    { readinessChecks =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      readinessChecks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of ReadinessCheck associated with the account
-listReadinessChecksResponse_readinessChecks :: Lens.Lens' ListReadinessChecksResponse (Prelude.Maybe [ReadinessCheckOutput])
-listReadinessChecksResponse_readinessChecks = Lens.lens (\ListReadinessChecksResponse' {readinessChecks} -> readinessChecks) (\s@ListReadinessChecksResponse' {} a -> s {readinessChecks = a} :: ListReadinessChecksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to resume pagination from the end of the
 -- collection.
 listReadinessChecksResponse_nextToken :: Lens.Lens' ListReadinessChecksResponse (Prelude.Maybe Prelude.Text)
 listReadinessChecksResponse_nextToken = Lens.lens (\ListReadinessChecksResponse' {nextToken} -> nextToken) (\s@ListReadinessChecksResponse' {} a -> s {nextToken = a} :: ListReadinessChecksResponse)
+
+-- | A list of ReadinessCheck associated with the account
+listReadinessChecksResponse_readinessChecks :: Lens.Lens' ListReadinessChecksResponse (Prelude.Maybe [ReadinessCheckOutput])
+listReadinessChecksResponse_readinessChecks = Lens.lens (\ListReadinessChecksResponse' {readinessChecks} -> readinessChecks) (\s@ListReadinessChecksResponse' {} a -> s {readinessChecks = a} :: ListReadinessChecksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listReadinessChecksResponse_httpStatus :: Lens.Lens' ListReadinessChecksResponse Prelude.Int
@@ -208,6 +208,6 @@ listReadinessChecksResponse_httpStatus = Lens.lens (\ListReadinessChecksResponse
 
 instance Prelude.NFData ListReadinessChecksResponse where
   rnf ListReadinessChecksResponse' {..} =
-    Prelude.rnf readinessChecks
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf readinessChecks
       `Prelude.seq` Prelude.rnf httpStatus

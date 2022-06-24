@@ -35,10 +35,10 @@ module Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup
     newUpdateRecoveryGroupResponse,
 
     -- * Response Lenses
-    updateRecoveryGroupResponse_cells,
-    updateRecoveryGroupResponse_recoveryGroupName,
-    updateRecoveryGroupResponse_recoveryGroupArn,
     updateRecoveryGroupResponse_tags,
+    updateRecoveryGroupResponse_recoveryGroupArn,
+    updateRecoveryGroupResponse_recoveryGroupName,
+    updateRecoveryGroupResponse_cells,
     updateRecoveryGroupResponse_httpStatus,
   )
 where
@@ -100,10 +100,10 @@ instance Core.AWSRequest UpdateRecoveryGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateRecoveryGroupResponse'
-            Prelude.<$> (x Core..?> "cells" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "recoveryGroupName")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "recoveryGroupArn")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "recoveryGroupName")
+            Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,13 +145,13 @@ instance Core.ToQuery UpdateRecoveryGroup where
 
 -- | /See:/ 'newUpdateRecoveryGroupResponse' smart constructor.
 data UpdateRecoveryGroupResponse = UpdateRecoveryGroupResponse'
-  { -- | A list of Cell arns
-    cells :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the RecoveryGroup
-    recoveryGroupName :: Prelude.Maybe Prelude.Text,
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The arn for the RecoveryGroup
     recoveryGroupArn :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the RecoveryGroup
+    recoveryGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A list of Cell arns
+    cells :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,13 +165,13 @@ data UpdateRecoveryGroupResponse = UpdateRecoveryGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cells', 'updateRecoveryGroupResponse_cells' - A list of Cell arns
---
--- 'recoveryGroupName', 'updateRecoveryGroupResponse_recoveryGroupName' - The name of the RecoveryGroup
+-- 'tags', 'updateRecoveryGroupResponse_tags' - Undocumented member.
 --
 -- 'recoveryGroupArn', 'updateRecoveryGroupResponse_recoveryGroupArn' - The arn for the RecoveryGroup
 --
--- 'tags', 'updateRecoveryGroupResponse_tags' - Undocumented member.
+-- 'recoveryGroupName', 'updateRecoveryGroupResponse_recoveryGroupName' - The name of the RecoveryGroup
+--
+-- 'cells', 'updateRecoveryGroupResponse_cells' - A list of Cell arns
 --
 -- 'httpStatus', 'updateRecoveryGroupResponse_httpStatus' - The response's http status code.
 newUpdateRecoveryGroupResponse ::
@@ -180,29 +180,29 @@ newUpdateRecoveryGroupResponse ::
   UpdateRecoveryGroupResponse
 newUpdateRecoveryGroupResponse pHttpStatus_ =
   UpdateRecoveryGroupResponse'
-    { cells =
+    { tags =
         Prelude.Nothing,
-      recoveryGroupName = Prelude.Nothing,
       recoveryGroupArn = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      recoveryGroupName = Prelude.Nothing,
+      cells = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A list of Cell arns
-updateRecoveryGroupResponse_cells :: Lens.Lens' UpdateRecoveryGroupResponse (Prelude.Maybe [Prelude.Text])
-updateRecoveryGroupResponse_cells = Lens.lens (\UpdateRecoveryGroupResponse' {cells} -> cells) (\s@UpdateRecoveryGroupResponse' {} a -> s {cells = a} :: UpdateRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the RecoveryGroup
-updateRecoveryGroupResponse_recoveryGroupName :: Lens.Lens' UpdateRecoveryGroupResponse (Prelude.Maybe Prelude.Text)
-updateRecoveryGroupResponse_recoveryGroupName = Lens.lens (\UpdateRecoveryGroupResponse' {recoveryGroupName} -> recoveryGroupName) (\s@UpdateRecoveryGroupResponse' {} a -> s {recoveryGroupName = a} :: UpdateRecoveryGroupResponse)
+-- | Undocumented member.
+updateRecoveryGroupResponse_tags :: Lens.Lens' UpdateRecoveryGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateRecoveryGroupResponse_tags = Lens.lens (\UpdateRecoveryGroupResponse' {tags} -> tags) (\s@UpdateRecoveryGroupResponse' {} a -> s {tags = a} :: UpdateRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The arn for the RecoveryGroup
 updateRecoveryGroupResponse_recoveryGroupArn :: Lens.Lens' UpdateRecoveryGroupResponse (Prelude.Maybe Prelude.Text)
 updateRecoveryGroupResponse_recoveryGroupArn = Lens.lens (\UpdateRecoveryGroupResponse' {recoveryGroupArn} -> recoveryGroupArn) (\s@UpdateRecoveryGroupResponse' {} a -> s {recoveryGroupArn = a} :: UpdateRecoveryGroupResponse)
 
--- | Undocumented member.
-updateRecoveryGroupResponse_tags :: Lens.Lens' UpdateRecoveryGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateRecoveryGroupResponse_tags = Lens.lens (\UpdateRecoveryGroupResponse' {tags} -> tags) (\s@UpdateRecoveryGroupResponse' {} a -> s {tags = a} :: UpdateRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the RecoveryGroup
+updateRecoveryGroupResponse_recoveryGroupName :: Lens.Lens' UpdateRecoveryGroupResponse (Prelude.Maybe Prelude.Text)
+updateRecoveryGroupResponse_recoveryGroupName = Lens.lens (\UpdateRecoveryGroupResponse' {recoveryGroupName} -> recoveryGroupName) (\s@UpdateRecoveryGroupResponse' {} a -> s {recoveryGroupName = a} :: UpdateRecoveryGroupResponse)
+
+-- | A list of Cell arns
+updateRecoveryGroupResponse_cells :: Lens.Lens' UpdateRecoveryGroupResponse (Prelude.Maybe [Prelude.Text])
+updateRecoveryGroupResponse_cells = Lens.lens (\UpdateRecoveryGroupResponse' {cells} -> cells) (\s@UpdateRecoveryGroupResponse' {} a -> s {cells = a} :: UpdateRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 updateRecoveryGroupResponse_httpStatus :: Lens.Lens' UpdateRecoveryGroupResponse Prelude.Int
@@ -210,8 +210,8 @@ updateRecoveryGroupResponse_httpStatus = Lens.lens (\UpdateRecoveryGroupResponse
 
 instance Prelude.NFData UpdateRecoveryGroupResponse where
   rnf UpdateRecoveryGroupResponse' {..} =
-    Prelude.rnf cells
-      `Prelude.seq` Prelude.rnf recoveryGroupName
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf recoveryGroupArn
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf recoveryGroupName
+      `Prelude.seq` Prelude.rnf cells
       `Prelude.seq` Prelude.rnf httpStatus

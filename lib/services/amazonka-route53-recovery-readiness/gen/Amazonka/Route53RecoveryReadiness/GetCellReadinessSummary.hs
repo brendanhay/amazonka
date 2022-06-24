@@ -38,9 +38,9 @@ module Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary
     newGetCellReadinessSummaryResponse,
 
     -- * Response Lenses
-    getCellReadinessSummaryResponse_readinessChecks,
-    getCellReadinessSummaryResponse_readiness,
     getCellReadinessSummaryResponse_nextToken,
+    getCellReadinessSummaryResponse_readiness,
+    getCellReadinessSummaryResponse_readinessChecks,
     getCellReadinessSummaryResponse_httpStatus,
   )
 where
@@ -131,11 +131,11 @@ instance Core.AWSRequest GetCellReadinessSummary where
     Response.receiveJSON
       ( \s h x ->
           GetCellReadinessSummaryResponse'
-            Prelude.<$> ( x Core..?> "readinessChecks"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "readiness")
+            Prelude.<*> ( x Core..?> "readinessChecks"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "readiness")
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,13 +176,13 @@ instance Core.ToQuery GetCellReadinessSummary where
 
 -- | /See:/ 'newGetCellReadinessSummaryResponse' smart constructor.
 data GetCellReadinessSummaryResponse = GetCellReadinessSummaryResponse'
-  { -- | Summaries for the ReadinessChecks making up the Cell
-    readinessChecks :: Prelude.Maybe [ReadinessCheckSummary],
-    -- | The readiness at Cell level.
-    readiness :: Prelude.Maybe Readiness,
-    -- | A token that can be used to resume pagination from the end of the
+  { -- | A token that can be used to resume pagination from the end of the
     -- collection.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The readiness at Cell level.
+    readiness :: Prelude.Maybe Readiness,
+    -- | Summaries for the ReadinessChecks making up the Cell
+    readinessChecks :: Prelude.Maybe [ReadinessCheckSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,12 +196,12 @@ data GetCellReadinessSummaryResponse = GetCellReadinessSummaryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readinessChecks', 'getCellReadinessSummaryResponse_readinessChecks' - Summaries for the ReadinessChecks making up the Cell
+-- 'nextToken', 'getCellReadinessSummaryResponse_nextToken' - A token that can be used to resume pagination from the end of the
+-- collection.
 --
 -- 'readiness', 'getCellReadinessSummaryResponse_readiness' - The readiness at Cell level.
 --
--- 'nextToken', 'getCellReadinessSummaryResponse_nextToken' - A token that can be used to resume pagination from the end of the
--- collection.
+-- 'readinessChecks', 'getCellReadinessSummaryResponse_readinessChecks' - Summaries for the ReadinessChecks making up the Cell
 --
 -- 'httpStatus', 'getCellReadinessSummaryResponse_httpStatus' - The response's http status code.
 newGetCellReadinessSummaryResponse ::
@@ -210,25 +210,25 @@ newGetCellReadinessSummaryResponse ::
   GetCellReadinessSummaryResponse
 newGetCellReadinessSummaryResponse pHttpStatus_ =
   GetCellReadinessSummaryResponse'
-    { readinessChecks =
+    { nextToken =
         Prelude.Nothing,
       readiness = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      readinessChecks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Summaries for the ReadinessChecks making up the Cell
-getCellReadinessSummaryResponse_readinessChecks :: Lens.Lens' GetCellReadinessSummaryResponse (Prelude.Maybe [ReadinessCheckSummary])
-getCellReadinessSummaryResponse_readinessChecks = Lens.lens (\GetCellReadinessSummaryResponse' {readinessChecks} -> readinessChecks) (\s@GetCellReadinessSummaryResponse' {} a -> s {readinessChecks = a} :: GetCellReadinessSummaryResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The readiness at Cell level.
-getCellReadinessSummaryResponse_readiness :: Lens.Lens' GetCellReadinessSummaryResponse (Prelude.Maybe Readiness)
-getCellReadinessSummaryResponse_readiness = Lens.lens (\GetCellReadinessSummaryResponse' {readiness} -> readiness) (\s@GetCellReadinessSummaryResponse' {} a -> s {readiness = a} :: GetCellReadinessSummaryResponse)
 
 -- | A token that can be used to resume pagination from the end of the
 -- collection.
 getCellReadinessSummaryResponse_nextToken :: Lens.Lens' GetCellReadinessSummaryResponse (Prelude.Maybe Prelude.Text)
 getCellReadinessSummaryResponse_nextToken = Lens.lens (\GetCellReadinessSummaryResponse' {nextToken} -> nextToken) (\s@GetCellReadinessSummaryResponse' {} a -> s {nextToken = a} :: GetCellReadinessSummaryResponse)
+
+-- | The readiness at Cell level.
+getCellReadinessSummaryResponse_readiness :: Lens.Lens' GetCellReadinessSummaryResponse (Prelude.Maybe Readiness)
+getCellReadinessSummaryResponse_readiness = Lens.lens (\GetCellReadinessSummaryResponse' {readiness} -> readiness) (\s@GetCellReadinessSummaryResponse' {} a -> s {readiness = a} :: GetCellReadinessSummaryResponse)
+
+-- | Summaries for the ReadinessChecks making up the Cell
+getCellReadinessSummaryResponse_readinessChecks :: Lens.Lens' GetCellReadinessSummaryResponse (Prelude.Maybe [ReadinessCheckSummary])
+getCellReadinessSummaryResponse_readinessChecks = Lens.lens (\GetCellReadinessSummaryResponse' {readinessChecks} -> readinessChecks) (\s@GetCellReadinessSummaryResponse' {} a -> s {readinessChecks = a} :: GetCellReadinessSummaryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getCellReadinessSummaryResponse_httpStatus :: Lens.Lens' GetCellReadinessSummaryResponse Prelude.Int
@@ -239,7 +239,7 @@ instance
     GetCellReadinessSummaryResponse
   where
   rnf GetCellReadinessSummaryResponse' {..} =
-    Prelude.rnf readinessChecks
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf readiness
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf readinessChecks
       `Prelude.seq` Prelude.rnf httpStatus

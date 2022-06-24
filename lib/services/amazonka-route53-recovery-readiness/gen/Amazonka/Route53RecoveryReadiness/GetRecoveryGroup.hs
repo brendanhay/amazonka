@@ -34,10 +34,10 @@ module Amazonka.Route53RecoveryReadiness.GetRecoveryGroup
     newGetRecoveryGroupResponse,
 
     -- * Response Lenses
-    getRecoveryGroupResponse_cells,
-    getRecoveryGroupResponse_recoveryGroupName,
-    getRecoveryGroupResponse_recoveryGroupArn,
     getRecoveryGroupResponse_tags,
+    getRecoveryGroupResponse_recoveryGroupArn,
+    getRecoveryGroupResponse_recoveryGroupName,
+    getRecoveryGroupResponse_cells,
     getRecoveryGroupResponse_httpStatus,
   )
 where
@@ -88,10 +88,10 @@ instance Core.AWSRequest GetRecoveryGroup where
     Response.receiveJSON
       ( \s h x ->
           GetRecoveryGroupResponse'
-            Prelude.<$> (x Core..?> "cells" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "recoveryGroupName")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "recoveryGroupArn")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "recoveryGroupName")
+            Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,13 +124,13 @@ instance Core.ToQuery GetRecoveryGroup where
 
 -- | /See:/ 'newGetRecoveryGroupResponse' smart constructor.
 data GetRecoveryGroupResponse = GetRecoveryGroupResponse'
-  { -- | A list of Cell arns
-    cells :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the RecoveryGroup
-    recoveryGroupName :: Prelude.Maybe Prelude.Text,
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The arn for the RecoveryGroup
     recoveryGroupArn :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the RecoveryGroup
+    recoveryGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A list of Cell arns
+    cells :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -144,13 +144,13 @@ data GetRecoveryGroupResponse = GetRecoveryGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cells', 'getRecoveryGroupResponse_cells' - A list of Cell arns
---
--- 'recoveryGroupName', 'getRecoveryGroupResponse_recoveryGroupName' - The name of the RecoveryGroup
+-- 'tags', 'getRecoveryGroupResponse_tags' - Undocumented member.
 --
 -- 'recoveryGroupArn', 'getRecoveryGroupResponse_recoveryGroupArn' - The arn for the RecoveryGroup
 --
--- 'tags', 'getRecoveryGroupResponse_tags' - Undocumented member.
+-- 'recoveryGroupName', 'getRecoveryGroupResponse_recoveryGroupName' - The name of the RecoveryGroup
+--
+-- 'cells', 'getRecoveryGroupResponse_cells' - A list of Cell arns
 --
 -- 'httpStatus', 'getRecoveryGroupResponse_httpStatus' - The response's http status code.
 newGetRecoveryGroupResponse ::
@@ -159,28 +159,28 @@ newGetRecoveryGroupResponse ::
   GetRecoveryGroupResponse
 newGetRecoveryGroupResponse pHttpStatus_ =
   GetRecoveryGroupResponse'
-    { cells = Prelude.Nothing,
-      recoveryGroupName = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       recoveryGroupArn = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      recoveryGroupName = Prelude.Nothing,
+      cells = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A list of Cell arns
-getRecoveryGroupResponse_cells :: Lens.Lens' GetRecoveryGroupResponse (Prelude.Maybe [Prelude.Text])
-getRecoveryGroupResponse_cells = Lens.lens (\GetRecoveryGroupResponse' {cells} -> cells) (\s@GetRecoveryGroupResponse' {} a -> s {cells = a} :: GetRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the RecoveryGroup
-getRecoveryGroupResponse_recoveryGroupName :: Lens.Lens' GetRecoveryGroupResponse (Prelude.Maybe Prelude.Text)
-getRecoveryGroupResponse_recoveryGroupName = Lens.lens (\GetRecoveryGroupResponse' {recoveryGroupName} -> recoveryGroupName) (\s@GetRecoveryGroupResponse' {} a -> s {recoveryGroupName = a} :: GetRecoveryGroupResponse)
+-- | Undocumented member.
+getRecoveryGroupResponse_tags :: Lens.Lens' GetRecoveryGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getRecoveryGroupResponse_tags = Lens.lens (\GetRecoveryGroupResponse' {tags} -> tags) (\s@GetRecoveryGroupResponse' {} a -> s {tags = a} :: GetRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The arn for the RecoveryGroup
 getRecoveryGroupResponse_recoveryGroupArn :: Lens.Lens' GetRecoveryGroupResponse (Prelude.Maybe Prelude.Text)
 getRecoveryGroupResponse_recoveryGroupArn = Lens.lens (\GetRecoveryGroupResponse' {recoveryGroupArn} -> recoveryGroupArn) (\s@GetRecoveryGroupResponse' {} a -> s {recoveryGroupArn = a} :: GetRecoveryGroupResponse)
 
--- | Undocumented member.
-getRecoveryGroupResponse_tags :: Lens.Lens' GetRecoveryGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getRecoveryGroupResponse_tags = Lens.lens (\GetRecoveryGroupResponse' {tags} -> tags) (\s@GetRecoveryGroupResponse' {} a -> s {tags = a} :: GetRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the RecoveryGroup
+getRecoveryGroupResponse_recoveryGroupName :: Lens.Lens' GetRecoveryGroupResponse (Prelude.Maybe Prelude.Text)
+getRecoveryGroupResponse_recoveryGroupName = Lens.lens (\GetRecoveryGroupResponse' {recoveryGroupName} -> recoveryGroupName) (\s@GetRecoveryGroupResponse' {} a -> s {recoveryGroupName = a} :: GetRecoveryGroupResponse)
+
+-- | A list of Cell arns
+getRecoveryGroupResponse_cells :: Lens.Lens' GetRecoveryGroupResponse (Prelude.Maybe [Prelude.Text])
+getRecoveryGroupResponse_cells = Lens.lens (\GetRecoveryGroupResponse' {cells} -> cells) (\s@GetRecoveryGroupResponse' {} a -> s {cells = a} :: GetRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRecoveryGroupResponse_httpStatus :: Lens.Lens' GetRecoveryGroupResponse Prelude.Int
@@ -188,8 +188,8 @@ getRecoveryGroupResponse_httpStatus = Lens.lens (\GetRecoveryGroupResponse' {htt
 
 instance Prelude.NFData GetRecoveryGroupResponse where
   rnf GetRecoveryGroupResponse' {..} =
-    Prelude.rnf cells
-      `Prelude.seq` Prelude.rnf recoveryGroupName
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf recoveryGroupArn
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf recoveryGroupName
+      `Prelude.seq` Prelude.rnf cells
       `Prelude.seq` Prelude.rnf httpStatus

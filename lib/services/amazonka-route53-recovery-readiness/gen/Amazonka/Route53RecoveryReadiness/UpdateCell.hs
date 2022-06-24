@@ -35,11 +35,11 @@ module Amazonka.Route53RecoveryReadiness.UpdateCell
     newUpdateCellResponse,
 
     -- * Response Lenses
-    updateCellResponse_cells,
-    updateCellResponse_parentReadinessScopes,
-    updateCellResponse_cellName,
-    updateCellResponse_cellArn,
     updateCellResponse_tags,
+    updateCellResponse_parentReadinessScopes,
+    updateCellResponse_cellArn,
+    updateCellResponse_cellName,
+    updateCellResponse_cells,
     updateCellResponse_httpStatus,
   )
 where
@@ -98,13 +98,13 @@ instance Core.AWSRequest UpdateCell where
     Response.receiveJSON
       ( \s h x ->
           UpdateCellResponse'
-            Prelude.<$> (x Core..?> "cells" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Core..?> "parentReadinessScopes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "cellName")
             Prelude.<*> (x Core..?> "cellArn")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "cellName")
+            Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,15 +145,15 @@ instance Core.ToQuery UpdateCell where
 
 -- | /See:/ 'newUpdateCellResponse' smart constructor.
 data UpdateCellResponse = UpdateCellResponse'
-  { -- | A list of Cell arns
-    cells :: Prelude.Maybe [Prelude.Text],
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A list of Cell ARNs and\/or RecoveryGroup ARNs
     parentReadinessScopes :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the Cell
-    cellName :: Prelude.Maybe Prelude.Text,
     -- | The arn for the Cell
     cellArn :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the Cell
+    cellName :: Prelude.Maybe Prelude.Text,
+    -- | A list of Cell arns
+    cells :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,15 +167,15 @@ data UpdateCellResponse = UpdateCellResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cells', 'updateCellResponse_cells' - A list of Cell arns
+-- 'tags', 'updateCellResponse_tags' - Undocumented member.
 --
 -- 'parentReadinessScopes', 'updateCellResponse_parentReadinessScopes' - A list of Cell ARNs and\/or RecoveryGroup ARNs
 --
--- 'cellName', 'updateCellResponse_cellName' - The name of the Cell
---
 -- 'cellArn', 'updateCellResponse_cellArn' - The arn for the Cell
 --
--- 'tags', 'updateCellResponse_tags' - Undocumented member.
+-- 'cellName', 'updateCellResponse_cellName' - The name of the Cell
+--
+-- 'cells', 'updateCellResponse_cells' - A list of Cell arns
 --
 -- 'httpStatus', 'updateCellResponse_httpStatus' - The response's http status code.
 newUpdateCellResponse ::
@@ -184,33 +184,33 @@ newUpdateCellResponse ::
   UpdateCellResponse
 newUpdateCellResponse pHttpStatus_ =
   UpdateCellResponse'
-    { cells = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       parentReadinessScopes = Prelude.Nothing,
-      cellName = Prelude.Nothing,
       cellArn = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      cellName = Prelude.Nothing,
+      cells = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A list of Cell arns
-updateCellResponse_cells :: Lens.Lens' UpdateCellResponse (Prelude.Maybe [Prelude.Text])
-updateCellResponse_cells = Lens.lens (\UpdateCellResponse' {cells} -> cells) (\s@UpdateCellResponse' {} a -> s {cells = a} :: UpdateCellResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+updateCellResponse_tags :: Lens.Lens' UpdateCellResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateCellResponse_tags = Lens.lens (\UpdateCellResponse' {tags} -> tags) (\s@UpdateCellResponse' {} a -> s {tags = a} :: UpdateCellResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of Cell ARNs and\/or RecoveryGroup ARNs
 updateCellResponse_parentReadinessScopes :: Lens.Lens' UpdateCellResponse (Prelude.Maybe [Prelude.Text])
 updateCellResponse_parentReadinessScopes = Lens.lens (\UpdateCellResponse' {parentReadinessScopes} -> parentReadinessScopes) (\s@UpdateCellResponse' {} a -> s {parentReadinessScopes = a} :: UpdateCellResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the Cell
-updateCellResponse_cellName :: Lens.Lens' UpdateCellResponse (Prelude.Maybe Prelude.Text)
-updateCellResponse_cellName = Lens.lens (\UpdateCellResponse' {cellName} -> cellName) (\s@UpdateCellResponse' {} a -> s {cellName = a} :: UpdateCellResponse)
-
 -- | The arn for the Cell
 updateCellResponse_cellArn :: Lens.Lens' UpdateCellResponse (Prelude.Maybe Prelude.Text)
 updateCellResponse_cellArn = Lens.lens (\UpdateCellResponse' {cellArn} -> cellArn) (\s@UpdateCellResponse' {} a -> s {cellArn = a} :: UpdateCellResponse)
 
--- | Undocumented member.
-updateCellResponse_tags :: Lens.Lens' UpdateCellResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateCellResponse_tags = Lens.lens (\UpdateCellResponse' {tags} -> tags) (\s@UpdateCellResponse' {} a -> s {tags = a} :: UpdateCellResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the Cell
+updateCellResponse_cellName :: Lens.Lens' UpdateCellResponse (Prelude.Maybe Prelude.Text)
+updateCellResponse_cellName = Lens.lens (\UpdateCellResponse' {cellName} -> cellName) (\s@UpdateCellResponse' {} a -> s {cellName = a} :: UpdateCellResponse)
+
+-- | A list of Cell arns
+updateCellResponse_cells :: Lens.Lens' UpdateCellResponse (Prelude.Maybe [Prelude.Text])
+updateCellResponse_cells = Lens.lens (\UpdateCellResponse' {cells} -> cells) (\s@UpdateCellResponse' {} a -> s {cells = a} :: UpdateCellResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 updateCellResponse_httpStatus :: Lens.Lens' UpdateCellResponse Prelude.Int
@@ -218,9 +218,9 @@ updateCellResponse_httpStatus = Lens.lens (\UpdateCellResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateCellResponse where
   rnf UpdateCellResponse' {..} =
-    Prelude.rnf cells
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf parentReadinessScopes
-      `Prelude.seq` Prelude.rnf cellName
       `Prelude.seq` Prelude.rnf cellArn
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf cellName
+      `Prelude.seq` Prelude.rnf cells
       `Prelude.seq` Prelude.rnf httpStatus

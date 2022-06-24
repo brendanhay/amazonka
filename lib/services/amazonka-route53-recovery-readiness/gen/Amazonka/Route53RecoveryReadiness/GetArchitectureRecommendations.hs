@@ -37,9 +37,9 @@ module Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations
     newGetArchitectureRecommendationsResponse,
 
     -- * Response Lenses
-    getArchitectureRecommendationsResponse_lastAuditTimestamp,
     getArchitectureRecommendationsResponse_nextToken,
     getArchitectureRecommendationsResponse_recommendations,
+    getArchitectureRecommendationsResponse_lastAuditTimestamp,
     getArchitectureRecommendationsResponse_httpStatus,
   )
 where
@@ -114,11 +114,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetArchitectureRecommendationsResponse'
-            Prelude.<$> (x Core..?> "lastAuditTimestamp")
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
             Prelude.<*> ( x Core..?> "recommendations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "lastAuditTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,14 +173,14 @@ instance Core.ToQuery GetArchitectureRecommendations where
 
 -- | /See:/ 'newGetArchitectureRecommendationsResponse' smart constructor.
 data GetArchitectureRecommendationsResponse = GetArchitectureRecommendationsResponse'
-  { -- | The time a Recovery Group was last assessed for recommendations in UTC
-    -- ISO-8601 format.
-    lastAuditTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | A token that can be used to resume pagination from the end of the
+  { -- | A token that can be used to resume pagination from the end of the
     -- collection
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of recommendations for the customer\'s application
     recommendations :: Prelude.Maybe [Recommendation],
+    -- | The time a Recovery Group was last assessed for recommendations in UTC
+    -- ISO-8601 format.
+    lastAuditTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,13 +194,13 @@ data GetArchitectureRecommendationsResponse = GetArchitectureRecommendationsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastAuditTimestamp', 'getArchitectureRecommendationsResponse_lastAuditTimestamp' - The time a Recovery Group was last assessed for recommendations in UTC
--- ISO-8601 format.
---
 -- 'nextToken', 'getArchitectureRecommendationsResponse_nextToken' - A token that can be used to resume pagination from the end of the
 -- collection
 --
 -- 'recommendations', 'getArchitectureRecommendationsResponse_recommendations' - A list of recommendations for the customer\'s application
+--
+-- 'lastAuditTimestamp', 'getArchitectureRecommendationsResponse_lastAuditTimestamp' - The time a Recovery Group was last assessed for recommendations in UTC
+-- ISO-8601 format.
 --
 -- 'httpStatus', 'getArchitectureRecommendationsResponse_httpStatus' - The response's http status code.
 newGetArchitectureRecommendationsResponse ::
@@ -210,17 +210,13 @@ newGetArchitectureRecommendationsResponse ::
 newGetArchitectureRecommendationsResponse
   pHttpStatus_ =
     GetArchitectureRecommendationsResponse'
-      { lastAuditTimestamp =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
         recommendations = Prelude.Nothing,
+        lastAuditTimestamp =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The time a Recovery Group was last assessed for recommendations in UTC
--- ISO-8601 format.
-getArchitectureRecommendationsResponse_lastAuditTimestamp :: Lens.Lens' GetArchitectureRecommendationsResponse (Prelude.Maybe Prelude.UTCTime)
-getArchitectureRecommendationsResponse_lastAuditTimestamp = Lens.lens (\GetArchitectureRecommendationsResponse' {lastAuditTimestamp} -> lastAuditTimestamp) (\s@GetArchitectureRecommendationsResponse' {} a -> s {lastAuditTimestamp = a} :: GetArchitectureRecommendationsResponse) Prelude.. Lens.mapping Core._Time
 
 -- | A token that can be used to resume pagination from the end of the
 -- collection
@@ -231,6 +227,11 @@ getArchitectureRecommendationsResponse_nextToken = Lens.lens (\GetArchitectureRe
 getArchitectureRecommendationsResponse_recommendations :: Lens.Lens' GetArchitectureRecommendationsResponse (Prelude.Maybe [Recommendation])
 getArchitectureRecommendationsResponse_recommendations = Lens.lens (\GetArchitectureRecommendationsResponse' {recommendations} -> recommendations) (\s@GetArchitectureRecommendationsResponse' {} a -> s {recommendations = a} :: GetArchitectureRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The time a Recovery Group was last assessed for recommendations in UTC
+-- ISO-8601 format.
+getArchitectureRecommendationsResponse_lastAuditTimestamp :: Lens.Lens' GetArchitectureRecommendationsResponse (Prelude.Maybe Prelude.UTCTime)
+getArchitectureRecommendationsResponse_lastAuditTimestamp = Lens.lens (\GetArchitectureRecommendationsResponse' {lastAuditTimestamp} -> lastAuditTimestamp) (\s@GetArchitectureRecommendationsResponse' {} a -> s {lastAuditTimestamp = a} :: GetArchitectureRecommendationsResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The response's http status code.
 getArchitectureRecommendationsResponse_httpStatus :: Lens.Lens' GetArchitectureRecommendationsResponse Prelude.Int
 getArchitectureRecommendationsResponse_httpStatus = Lens.lens (\GetArchitectureRecommendationsResponse' {httpStatus} -> httpStatus) (\s@GetArchitectureRecommendationsResponse' {} a -> s {httpStatus = a} :: GetArchitectureRecommendationsResponse)
@@ -240,7 +241,7 @@ instance
     GetArchitectureRecommendationsResponse
   where
   rnf GetArchitectureRecommendationsResponse' {..} =
-    Prelude.rnf lastAuditTimestamp
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf recommendations
+      `Prelude.seq` Prelude.rnf lastAuditTimestamp
       `Prelude.seq` Prelude.rnf httpStatus

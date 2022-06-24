@@ -37,8 +37,8 @@ module Amazonka.Route53RecoveryReadiness.ListCells
     newListCellsResponse,
 
     -- * Response Lenses
-    listCellsResponse_cells,
     listCellsResponse_nextToken,
+    listCellsResponse_cells,
     listCellsResponse_httpStatus,
   )
 where
@@ -112,8 +112,8 @@ instance Core.AWSRequest ListCells where
     Response.receiveJSON
       ( \s h x ->
           ListCellsResponse'
-            Prelude.<$> (x Core..?> "cells" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,11 +150,11 @@ instance Core.ToQuery ListCells where
 
 -- | /See:/ 'newListCellsResponse' smart constructor.
 data ListCellsResponse = ListCellsResponse'
-  { -- | A list of Cells
-    cells :: Prelude.Maybe [CellOutput],
-    -- | A token that can be used to resume pagination from the end of the
+  { -- | A token that can be used to resume pagination from the end of the
     -- collection.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of Cells
+    cells :: Prelude.Maybe [CellOutput],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -168,10 +168,10 @@ data ListCellsResponse = ListCellsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cells', 'listCellsResponse_cells' - A list of Cells
---
 -- 'nextToken', 'listCellsResponse_nextToken' - A token that can be used to resume pagination from the end of the
 -- collection.
+--
+-- 'cells', 'listCellsResponse_cells' - A list of Cells
 --
 -- 'httpStatus', 'listCellsResponse_httpStatus' - The response's http status code.
 newListCellsResponse ::
@@ -180,19 +180,19 @@ newListCellsResponse ::
   ListCellsResponse
 newListCellsResponse pHttpStatus_ =
   ListCellsResponse'
-    { cells = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      cells = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of Cells
-listCellsResponse_cells :: Lens.Lens' ListCellsResponse (Prelude.Maybe [CellOutput])
-listCellsResponse_cells = Lens.lens (\ListCellsResponse' {cells} -> cells) (\s@ListCellsResponse' {} a -> s {cells = a} :: ListCellsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to resume pagination from the end of the
 -- collection.
 listCellsResponse_nextToken :: Lens.Lens' ListCellsResponse (Prelude.Maybe Prelude.Text)
 listCellsResponse_nextToken = Lens.lens (\ListCellsResponse' {nextToken} -> nextToken) (\s@ListCellsResponse' {} a -> s {nextToken = a} :: ListCellsResponse)
+
+-- | A list of Cells
+listCellsResponse_cells :: Lens.Lens' ListCellsResponse (Prelude.Maybe [CellOutput])
+listCellsResponse_cells = Lens.lens (\ListCellsResponse' {cells} -> cells) (\s@ListCellsResponse' {} a -> s {cells = a} :: ListCellsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCellsResponse_httpStatus :: Lens.Lens' ListCellsResponse Prelude.Int
@@ -200,6 +200,6 @@ listCellsResponse_httpStatus = Lens.lens (\ListCellsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListCellsResponse where
   rnf ListCellsResponse' {..} =
-    Prelude.rnf cells
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf cells
       `Prelude.seq` Prelude.rnf httpStatus

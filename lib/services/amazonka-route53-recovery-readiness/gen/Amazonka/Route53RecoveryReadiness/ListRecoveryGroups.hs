@@ -37,8 +37,8 @@ module Amazonka.Route53RecoveryReadiness.ListRecoveryGroups
     newListRecoveryGroupsResponse,
 
     -- * Response Lenses
-    listRecoveryGroupsResponse_recoveryGroups,
     listRecoveryGroupsResponse_nextToken,
+    listRecoveryGroupsResponse_recoveryGroups,
     listRecoveryGroupsResponse_httpStatus,
   )
 where
@@ -117,8 +117,8 @@ instance Core.AWSRequest ListRecoveryGroups where
     Response.receiveJSON
       ( \s h x ->
           ListRecoveryGroupsResponse'
-            Prelude.<$> (x Core..?> "recoveryGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "recoveryGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,11 +155,11 @@ instance Core.ToQuery ListRecoveryGroups where
 
 -- | /See:/ 'newListRecoveryGroupsResponse' smart constructor.
 data ListRecoveryGroupsResponse = ListRecoveryGroupsResponse'
-  { -- | A list of RecoveryGroups
-    recoveryGroups :: Prelude.Maybe [RecoveryGroupOutput],
-    -- | A token that can be used to resume pagination from the end of the
+  { -- | A token that can be used to resume pagination from the end of the
     -- collection.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of RecoveryGroups
+    recoveryGroups :: Prelude.Maybe [RecoveryGroupOutput],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,10 +173,10 @@ data ListRecoveryGroupsResponse = ListRecoveryGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recoveryGroups', 'listRecoveryGroupsResponse_recoveryGroups' - A list of RecoveryGroups
---
 -- 'nextToken', 'listRecoveryGroupsResponse_nextToken' - A token that can be used to resume pagination from the end of the
 -- collection.
+--
+-- 'recoveryGroups', 'listRecoveryGroupsResponse_recoveryGroups' - A list of RecoveryGroups
 --
 -- 'httpStatus', 'listRecoveryGroupsResponse_httpStatus' - The response's http status code.
 newListRecoveryGroupsResponse ::
@@ -185,20 +185,20 @@ newListRecoveryGroupsResponse ::
   ListRecoveryGroupsResponse
 newListRecoveryGroupsResponse pHttpStatus_ =
   ListRecoveryGroupsResponse'
-    { recoveryGroups =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      recoveryGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of RecoveryGroups
-listRecoveryGroupsResponse_recoveryGroups :: Lens.Lens' ListRecoveryGroupsResponse (Prelude.Maybe [RecoveryGroupOutput])
-listRecoveryGroupsResponse_recoveryGroups = Lens.lens (\ListRecoveryGroupsResponse' {recoveryGroups} -> recoveryGroups) (\s@ListRecoveryGroupsResponse' {} a -> s {recoveryGroups = a} :: ListRecoveryGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to resume pagination from the end of the
 -- collection.
 listRecoveryGroupsResponse_nextToken :: Lens.Lens' ListRecoveryGroupsResponse (Prelude.Maybe Prelude.Text)
 listRecoveryGroupsResponse_nextToken = Lens.lens (\ListRecoveryGroupsResponse' {nextToken} -> nextToken) (\s@ListRecoveryGroupsResponse' {} a -> s {nextToken = a} :: ListRecoveryGroupsResponse)
+
+-- | A list of RecoveryGroups
+listRecoveryGroupsResponse_recoveryGroups :: Lens.Lens' ListRecoveryGroupsResponse (Prelude.Maybe [RecoveryGroupOutput])
+listRecoveryGroupsResponse_recoveryGroups = Lens.lens (\ListRecoveryGroupsResponse' {recoveryGroups} -> recoveryGroups) (\s@ListRecoveryGroupsResponse' {} a -> s {recoveryGroups = a} :: ListRecoveryGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listRecoveryGroupsResponse_httpStatus :: Lens.Lens' ListRecoveryGroupsResponse Prelude.Int
@@ -206,6 +206,6 @@ listRecoveryGroupsResponse_httpStatus = Lens.lens (\ListRecoveryGroupsResponse' 
 
 instance Prelude.NFData ListRecoveryGroupsResponse where
   rnf ListRecoveryGroupsResponse' {..} =
-    Prelude.rnf recoveryGroups
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf recoveryGroups
       `Prelude.seq` Prelude.rnf httpStatus

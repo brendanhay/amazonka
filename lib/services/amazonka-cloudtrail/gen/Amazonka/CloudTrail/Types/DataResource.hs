@@ -78,7 +78,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataResource' smart constructor.
 data DataResource = DataResource'
-  { -- | An array of Amazon Resource Name (ARN) strings or partial ARN strings
+  { -- | The resource type in which you want to log data events. You can specify
+    -- @AWS::S3::Object@, @AWS::Lambda::Function@, or @AWS::DynamoDB::Table@
+    -- resources.
+    --
+    -- The @AWS::S3Outposts::Object@, @AWS::ManagedBlockchain::Node@,
+    -- @AWS::S3ObjectLambda::AccessPoint@, and @AWS::EC2::Snapshot@ resource
+    -- types are not valid in basic event selectors. To log data events on
+    -- these resource types, use advanced event selectors.
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | An array of Amazon Resource Name (ARN) strings or partial ARN strings
     -- for the specified objects.
     --
     -- -   To log data events for all objects in all S3 buckets in your Amazon
@@ -119,16 +128,7 @@ data DataResource = DataResource'
     --
     -- -   To log data events for all DynamoDB tables in your Amazon Web
     --     Services account, specify the prefix as @arn:aws:dynamodb@.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The resource type in which you want to log data events. You can specify
-    -- @AWS::S3::Object@, @AWS::Lambda::Function@, or @AWS::DynamoDB::Table@
-    -- resources.
-    --
-    -- The @AWS::S3Outposts::Object@, @AWS::ManagedBlockchain::Node@,
-    -- @AWS::S3ObjectLambda::AccessPoint@, and @AWS::EC2::Snapshot@ resource
-    -- types are not valid in basic event selectors. To log data events on
-    -- these resource types, use advanced event selectors.
-    type' :: Prelude.Maybe Prelude.Text
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -139,6 +139,15 @@ data DataResource = DataResource'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'type'', 'dataResource_type' - The resource type in which you want to log data events. You can specify
+-- @AWS::S3::Object@, @AWS::Lambda::Function@, or @AWS::DynamoDB::Table@
+-- resources.
+--
+-- The @AWS::S3Outposts::Object@, @AWS::ManagedBlockchain::Node@,
+-- @AWS::S3ObjectLambda::AccessPoint@, and @AWS::EC2::Snapshot@ resource
+-- types are not valid in basic event selectors. To log data events on
+-- these resource types, use advanced event selectors.
 --
 -- 'values', 'dataResource_values' - An array of Amazon Resource Name (ARN) strings or partial ARN strings
 -- for the specified objects.
@@ -181,8 +190,15 @@ data DataResource = DataResource'
 --
 -- -   To log data events for all DynamoDB tables in your Amazon Web
 --     Services account, specify the prefix as @arn:aws:dynamodb@.
---
--- 'type'', 'dataResource_type' - The resource type in which you want to log data events. You can specify
+newDataResource ::
+  DataResource
+newDataResource =
+  DataResource'
+    { type' = Prelude.Nothing,
+      values = Prelude.Nothing
+    }
+
+-- | The resource type in which you want to log data events. You can specify
 -- @AWS::S3::Object@, @AWS::Lambda::Function@, or @AWS::DynamoDB::Table@
 -- resources.
 --
@@ -190,13 +206,8 @@ data DataResource = DataResource'
 -- @AWS::S3ObjectLambda::AccessPoint@, and @AWS::EC2::Snapshot@ resource
 -- types are not valid in basic event selectors. To log data events on
 -- these resource types, use advanced event selectors.
-newDataResource ::
-  DataResource
-newDataResource =
-  DataResource'
-    { values = Prelude.Nothing,
-      type' = Prelude.Nothing
-    }
+dataResource_type :: Lens.Lens' DataResource (Prelude.Maybe Prelude.Text)
+dataResource_type = Lens.lens (\DataResource' {type'} -> type') (\s@DataResource' {} a -> s {type' = a} :: DataResource)
 
 -- | An array of Amazon Resource Name (ARN) strings or partial ARN strings
 -- for the specified objects.
@@ -242,41 +253,30 @@ newDataResource =
 dataResource_values :: Lens.Lens' DataResource (Prelude.Maybe [Prelude.Text])
 dataResource_values = Lens.lens (\DataResource' {values} -> values) (\s@DataResource' {} a -> s {values = a} :: DataResource) Prelude.. Lens.mapping Lens.coerced
 
--- | The resource type in which you want to log data events. You can specify
--- @AWS::S3::Object@, @AWS::Lambda::Function@, or @AWS::DynamoDB::Table@
--- resources.
---
--- The @AWS::S3Outposts::Object@, @AWS::ManagedBlockchain::Node@,
--- @AWS::S3ObjectLambda::AccessPoint@, and @AWS::EC2::Snapshot@ resource
--- types are not valid in basic event selectors. To log data events on
--- these resource types, use advanced event selectors.
-dataResource_type :: Lens.Lens' DataResource (Prelude.Maybe Prelude.Text)
-dataResource_type = Lens.lens (\DataResource' {type'} -> type') (\s@DataResource' {} a -> s {type' = a} :: DataResource)
-
 instance Core.FromJSON DataResource where
   parseJSON =
     Core.withObject
       "DataResource"
       ( \x ->
           DataResource'
-            Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DataResource where
   hashWithSalt _salt DataResource' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData DataResource where
   rnf DataResource' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON DataResource where
   toJSON DataResource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Values" Core..=) Prelude.<$> values,
-            ("Type" Core..=) Prelude.<$> type'
+          [ ("Type" Core..=) Prelude.<$> type',
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

@@ -49,9 +49,9 @@ module Amazonka.CloudTrail.GetEventSelectors
     newGetEventSelectorsResponse,
 
     -- * Response Lenses
-    getEventSelectorsResponse_trailARN,
-    getEventSelectorsResponse_eventSelectors,
     getEventSelectorsResponse_advancedEventSelectors,
+    getEventSelectorsResponse_eventSelectors,
+    getEventSelectorsResponse_trailARN,
     getEventSelectorsResponse_httpStatus,
   )
 where
@@ -150,11 +150,11 @@ instance Core.AWSRequest GetEventSelectors where
     Response.receiveJSON
       ( \s h x ->
           GetEventSelectorsResponse'
-            Prelude.<$> (x Core..?> "TrailARN")
-            Prelude.<*> (x Core..?> "EventSelectors" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "AdvancedEventSelectors"
+            Prelude.<$> ( x Core..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "EventSelectors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "TrailARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,12 +195,12 @@ instance Core.ToQuery GetEventSelectors where
 
 -- | /See:/ 'newGetEventSelectorsResponse' smart constructor.
 data GetEventSelectorsResponse = GetEventSelectorsResponse'
-  { -- | The specified trail ARN that has the event selectors.
-    trailARN :: Prelude.Maybe Prelude.Text,
+  { -- | The advanced event selectors that are configured for the trail.
+    advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
     -- | The event selectors that are configured for the trail.
     eventSelectors :: Prelude.Maybe [EventSelector],
-    -- | The advanced event selectors that are configured for the trail.
-    advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
+    -- | The specified trail ARN that has the event selectors.
+    trailARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,11 +214,11 @@ data GetEventSelectorsResponse = GetEventSelectorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trailARN', 'getEventSelectorsResponse_trailARN' - The specified trail ARN that has the event selectors.
+-- 'advancedEventSelectors', 'getEventSelectorsResponse_advancedEventSelectors' - The advanced event selectors that are configured for the trail.
 --
 -- 'eventSelectors', 'getEventSelectorsResponse_eventSelectors' - The event selectors that are configured for the trail.
 --
--- 'advancedEventSelectors', 'getEventSelectorsResponse_advancedEventSelectors' - The advanced event selectors that are configured for the trail.
+-- 'trailARN', 'getEventSelectorsResponse_trailARN' - The specified trail ARN that has the event selectors.
 --
 -- 'httpStatus', 'getEventSelectorsResponse_httpStatus' - The response's http status code.
 newGetEventSelectorsResponse ::
@@ -227,24 +227,24 @@ newGetEventSelectorsResponse ::
   GetEventSelectorsResponse
 newGetEventSelectorsResponse pHttpStatus_ =
   GetEventSelectorsResponse'
-    { trailARN =
+    { advancedEventSelectors =
         Prelude.Nothing,
       eventSelectors = Prelude.Nothing,
-      advancedEventSelectors = Prelude.Nothing,
+      trailARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The specified trail ARN that has the event selectors.
-getEventSelectorsResponse_trailARN :: Lens.Lens' GetEventSelectorsResponse (Prelude.Maybe Prelude.Text)
-getEventSelectorsResponse_trailARN = Lens.lens (\GetEventSelectorsResponse' {trailARN} -> trailARN) (\s@GetEventSelectorsResponse' {} a -> s {trailARN = a} :: GetEventSelectorsResponse)
+-- | The advanced event selectors that are configured for the trail.
+getEventSelectorsResponse_advancedEventSelectors :: Lens.Lens' GetEventSelectorsResponse (Prelude.Maybe [AdvancedEventSelector])
+getEventSelectorsResponse_advancedEventSelectors = Lens.lens (\GetEventSelectorsResponse' {advancedEventSelectors} -> advancedEventSelectors) (\s@GetEventSelectorsResponse' {} a -> s {advancedEventSelectors = a} :: GetEventSelectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The event selectors that are configured for the trail.
 getEventSelectorsResponse_eventSelectors :: Lens.Lens' GetEventSelectorsResponse (Prelude.Maybe [EventSelector])
 getEventSelectorsResponse_eventSelectors = Lens.lens (\GetEventSelectorsResponse' {eventSelectors} -> eventSelectors) (\s@GetEventSelectorsResponse' {} a -> s {eventSelectors = a} :: GetEventSelectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The advanced event selectors that are configured for the trail.
-getEventSelectorsResponse_advancedEventSelectors :: Lens.Lens' GetEventSelectorsResponse (Prelude.Maybe [AdvancedEventSelector])
-getEventSelectorsResponse_advancedEventSelectors = Lens.lens (\GetEventSelectorsResponse' {advancedEventSelectors} -> advancedEventSelectors) (\s@GetEventSelectorsResponse' {} a -> s {advancedEventSelectors = a} :: GetEventSelectorsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The specified trail ARN that has the event selectors.
+getEventSelectorsResponse_trailARN :: Lens.Lens' GetEventSelectorsResponse (Prelude.Maybe Prelude.Text)
+getEventSelectorsResponse_trailARN = Lens.lens (\GetEventSelectorsResponse' {trailARN} -> trailARN) (\s@GetEventSelectorsResponse' {} a -> s {trailARN = a} :: GetEventSelectorsResponse)
 
 -- | The response's http status code.
 getEventSelectorsResponse_httpStatus :: Lens.Lens' GetEventSelectorsResponse Prelude.Int
@@ -252,7 +252,7 @@ getEventSelectorsResponse_httpStatus = Lens.lens (\GetEventSelectorsResponse' {h
 
 instance Prelude.NFData GetEventSelectorsResponse where
   rnf GetEventSelectorsResponse' {..} =
-    Prelude.rnf trailARN
+    Prelude.rnf advancedEventSelectors
       `Prelude.seq` Prelude.rnf eventSelectors
-      `Prelude.seq` Prelude.rnf advancedEventSelectors
+      `Prelude.seq` Prelude.rnf trailARN
       `Prelude.seq` Prelude.rnf httpStatus

@@ -44,137 +44,137 @@ module Amazonka.CloudTrail
     -- * Errors
     -- $errors
 
-    -- ** InvalidTimeRangeException
-    _InvalidTimeRangeException,
-
-    -- ** InsufficientS3BucketPolicyException
-    _InsufficientS3BucketPolicyException,
-
-    -- ** MaximumNumberOfTrailsExceededException
-    _MaximumNumberOfTrailsExceededException,
-
-    -- ** InsufficientDependencyServiceAccessPermissionException
-    _InsufficientDependencyServiceAccessPermissionException,
-
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
-
-    -- ** InvalidEventCategoryException
-    _InvalidEventCategoryException,
-
-    -- ** KmsKeyDisabledException
-    _KmsKeyDisabledException,
-
-    -- ** InsufficientEncryptionPolicyException
-    _InsufficientEncryptionPolicyException,
-
-    -- ** InsufficientSnsTopicPolicyException
-    _InsufficientSnsTopicPolicyException,
-
-    -- ** InvalidCloudWatchLogsRoleArnException
-    _InvalidCloudWatchLogsRoleArnException,
-
-    -- ** CloudTrailAccessNotEnabledException
-    _CloudTrailAccessNotEnabledException,
-
-    -- ** TagsLimitExceededException
-    _TagsLimitExceededException,
-
-    -- ** CloudTrailARNInvalidException
-    _CloudTrailARNInvalidException,
-
-    -- ** InvalidLookupAttributesException
-    _InvalidLookupAttributesException,
-
-    -- ** InvalidTrailNameException
-    _InvalidTrailNameException,
-
-    -- ** InvalidSnsTopicNameException
-    _InvalidSnsTopicNameException,
-
-    -- ** ResourceTypeNotSupportedException
-    _ResourceTypeNotSupportedException,
-
-    -- ** CloudWatchLogsDeliveryUnavailableException
-    _CloudWatchLogsDeliveryUnavailableException,
-
-    -- ** OrganizationsNotInUseException
-    _OrganizationsNotInUseException,
-
-    -- ** KmsKeyNotFoundException
-    _KmsKeyNotFoundException,
-
-    -- ** TrailNotFoundException
-    _TrailNotFoundException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** InsightNotEnabledException
-    _InsightNotEnabledException,
-
-    -- ** NotOrganizationMasterAccountException
-    _NotOrganizationMasterAccountException,
-
-    -- ** InvalidEventSelectorsException
-    _InvalidEventSelectorsException,
-
-    -- ** TrailNotProvidedException
-    _TrailNotProvidedException,
-
-    -- ** InvalidS3BucketNameException
-    _InvalidS3BucketNameException,
-
-    -- ** InvalidCloudWatchLogsLogGroupArnException
-    _InvalidCloudWatchLogsLogGroupArnException,
-
-    -- ** KmsException
-    _KmsException,
-
-    -- ** CloudTrailInvalidClientTokenIdException
-    _CloudTrailInvalidClientTokenIdException,
-
-    -- ** S3BucketDoesNotExistException
-    _S3BucketDoesNotExistException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** InvalidTagParameterException
-    _InvalidTagParameterException,
-
-    -- ** OperationNotPermittedException
-    _OperationNotPermittedException,
+    -- ** InvalidS3PrefixException
+    _InvalidS3PrefixException,
 
     -- ** InvalidTokenException
     _InvalidTokenException,
 
-    -- ** InvalidMaxResultsException
-    _InvalidMaxResultsException,
-
-    -- ** TrailAlreadyExistsException
-    _TrailAlreadyExistsException,
+    -- ** CloudTrailARNInvalidException
+    _CloudTrailARNInvalidException,
 
     -- ** OrganizationNotInAllFeaturesModeException
     _OrganizationNotInAllFeaturesModeException,
 
-    -- ** InvalidInsightSelectorsException
-    _InvalidInsightSelectorsException,
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
 
-    -- ** InvalidS3PrefixException
-    _InvalidS3PrefixException,
+    -- ** TagsLimitExceededException
+    _TagsLimitExceededException,
+
+    -- ** TrailNotFoundException
+    _TrailNotFoundException,
+
+    -- ** InvalidCloudWatchLogsLogGroupArnException
+    _InvalidCloudWatchLogsLogGroupArnException,
+
+    -- ** InvalidCloudWatchLogsRoleArnException
+    _InvalidCloudWatchLogsRoleArnException,
+
+    -- ** InvalidHomeRegionException
+    _InvalidHomeRegionException,
+
+    -- ** InvalidS3BucketNameException
+    _InvalidS3BucketNameException,
+
+    -- ** CloudWatchLogsDeliveryUnavailableException
+    _CloudWatchLogsDeliveryUnavailableException,
+
+    -- ** ResourceTypeNotSupportedException
+    _ResourceTypeNotSupportedException,
+
+    -- ** InsufficientDependencyServiceAccessPermissionException
+    _InsufficientDependencyServiceAccessPermissionException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** CloudTrailAccessNotEnabledException
+    _CloudTrailAccessNotEnabledException,
+
+    -- ** S3BucketDoesNotExistException
+    _S3BucketDoesNotExistException,
+
+    -- ** InvalidTagParameterException
+    _InvalidTagParameterException,
+
+    -- ** InvalidMaxResultsException
+    _InvalidMaxResultsException,
+
     -- ** InvalidParameterCombinationException
     _InvalidParameterCombinationException,
+
+    -- ** CloudTrailInvalidClientTokenIdException
+    _CloudTrailInvalidClientTokenIdException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** KmsKeyNotFoundException
+    _KmsKeyNotFoundException,
+
+    -- ** InsightNotEnabledException
+    _InsightNotEnabledException,
+
+    -- ** InvalidEventCategoryException
+    _InvalidEventCategoryException,
+
+    -- ** TrailNotProvidedException
+    _TrailNotProvidedException,
+
+    -- ** InsufficientS3BucketPolicyException
+    _InsufficientS3BucketPolicyException,
+
+    -- ** InvalidInsightSelectorsException
+    _InvalidInsightSelectorsException,
+
+    -- ** KmsException
+    _KmsException,
+
+    -- ** InsufficientEncryptionPolicyException
+    _InsufficientEncryptionPolicyException,
+
+    -- ** InvalidTimeRangeException
+    _InvalidTimeRangeException,
+
+    -- ** InvalidLookupAttributesException
+    _InvalidLookupAttributesException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** InvalidTrailNameException
+    _InvalidTrailNameException,
+
+    -- ** InsufficientSnsTopicPolicyException
+    _InsufficientSnsTopicPolicyException,
 
     -- ** InvalidKmsKeyIdException
     _InvalidKmsKeyIdException,
 
-    -- ** InvalidHomeRegionException
-    _InvalidHomeRegionException,
+    -- ** MaximumNumberOfTrailsExceededException
+    _MaximumNumberOfTrailsExceededException,
+
+    -- ** TrailAlreadyExistsException
+    _TrailAlreadyExistsException,
+
+    -- ** InvalidEventSelectorsException
+    _InvalidEventSelectorsException,
+
+    -- ** InvalidSnsTopicNameException
+    _InvalidSnsTopicNameException,
+
+    -- ** NotOrganizationMasterAccountException
+    _NotOrganizationMasterAccountException,
+
+    -- ** KmsKeyDisabledException
+    _KmsKeyDisabledException,
+
+    -- ** OrganizationsNotInUseException
+    _OrganizationsNotInUseException,
 
     -- * Waiters
     -- $waiters
@@ -182,47 +182,11 @@ module Amazonka.CloudTrail
     -- * Operations
     -- $operations
 
-    -- ** DescribeTrails
-    DescribeTrails (DescribeTrails'),
-    newDescribeTrails,
-    DescribeTrailsResponse (DescribeTrailsResponse'),
-    newDescribeTrailsResponse,
-
-    -- ** ListPublicKeys (Paginated)
-    ListPublicKeys (ListPublicKeys'),
-    newListPublicKeys,
-    ListPublicKeysResponse (ListPublicKeysResponse'),
-    newListPublicKeysResponse,
-
-    -- ** RemoveTags
-    RemoveTags (RemoveTags'),
-    newRemoveTags,
-    RemoveTagsResponse (RemoveTagsResponse'),
-    newRemoveTagsResponse,
-
-    -- ** LookupEvents (Paginated)
-    LookupEvents (LookupEvents'),
-    newLookupEvents,
-    LookupEventsResponse (LookupEventsResponse'),
-    newLookupEventsResponse,
-
-    -- ** StopLogging
-    StopLogging (StopLogging'),
-    newStopLogging,
-    StopLoggingResponse (StopLoggingResponse'),
-    newStopLoggingResponse,
-
-    -- ** DeleteTrail
-    DeleteTrail (DeleteTrail'),
-    newDeleteTrail,
-    DeleteTrailResponse (DeleteTrailResponse'),
-    newDeleteTrailResponse,
-
-    -- ** UpdateTrail
-    UpdateTrail (UpdateTrail'),
-    newUpdateTrail,
-    UpdateTrailResponse (UpdateTrailResponse'),
-    newUpdateTrailResponse,
+    -- ** AddTags
+    AddTags (AddTags'),
+    newAddTags,
+    AddTagsResponse (AddTagsResponse'),
+    newAddTagsResponse,
 
     -- ** CreateTrail
     CreateTrail (CreateTrail'),
@@ -230,17 +194,29 @@ module Amazonka.CloudTrail
     CreateTrailResponse (CreateTrailResponse'),
     newCreateTrailResponse,
 
-    -- ** PutInsightSelectors
-    PutInsightSelectors (PutInsightSelectors'),
-    newPutInsightSelectors,
-    PutInsightSelectorsResponse (PutInsightSelectorsResponse'),
-    newPutInsightSelectorsResponse,
+    -- ** DeleteTrail
+    DeleteTrail (DeleteTrail'),
+    newDeleteTrail,
+    DeleteTrailResponse (DeleteTrailResponse'),
+    newDeleteTrailResponse,
+
+    -- ** DescribeTrails
+    DescribeTrails (DescribeTrails'),
+    newDescribeTrails,
+    DescribeTrailsResponse (DescribeTrailsResponse'),
+    newDescribeTrailsResponse,
 
     -- ** GetEventSelectors
     GetEventSelectors (GetEventSelectors'),
     newGetEventSelectors,
     GetEventSelectorsResponse (GetEventSelectorsResponse'),
     newGetEventSelectorsResponse,
+
+    -- ** GetInsightSelectors
+    GetInsightSelectors (GetInsightSelectors'),
+    newGetInsightSelectors,
+    GetInsightSelectorsResponse (GetInsightSelectorsResponse'),
+    newGetInsightSelectorsResponse,
 
     -- ** GetTrail
     GetTrail (GetTrail'),
@@ -254,11 +230,11 @@ module Amazonka.CloudTrail
     GetTrailStatusResponse (GetTrailStatusResponse'),
     newGetTrailStatusResponse,
 
-    -- ** AddTags
-    AddTags (AddTags'),
-    newAddTags,
-    AddTagsResponse (AddTagsResponse'),
-    newAddTagsResponse,
+    -- ** ListPublicKeys (Paginated)
+    ListPublicKeys (ListPublicKeys'),
+    newListPublicKeys,
+    ListPublicKeysResponse (ListPublicKeysResponse'),
+    newListPublicKeysResponse,
 
     -- ** ListTags (Paginated)
     ListTags (ListTags'),
@@ -266,11 +242,35 @@ module Amazonka.CloudTrail
     ListTagsResponse (ListTagsResponse'),
     newListTagsResponse,
 
+    -- ** ListTrails (Paginated)
+    ListTrails (ListTrails'),
+    newListTrails,
+    ListTrailsResponse (ListTrailsResponse'),
+    newListTrailsResponse,
+
+    -- ** LookupEvents (Paginated)
+    LookupEvents (LookupEvents'),
+    newLookupEvents,
+    LookupEventsResponse (LookupEventsResponse'),
+    newLookupEventsResponse,
+
     -- ** PutEventSelectors
     PutEventSelectors (PutEventSelectors'),
     newPutEventSelectors,
     PutEventSelectorsResponse (PutEventSelectorsResponse'),
     newPutEventSelectorsResponse,
+
+    -- ** PutInsightSelectors
+    PutInsightSelectors (PutInsightSelectors'),
+    newPutInsightSelectors,
+    PutInsightSelectorsResponse (PutInsightSelectorsResponse'),
+    newPutInsightSelectorsResponse,
+
+    -- ** RemoveTags
+    RemoveTags (RemoveTags'),
+    newRemoveTags,
+    RemoveTagsResponse (RemoveTagsResponse'),
+    newRemoveTagsResponse,
 
     -- ** StartLogging
     StartLogging (StartLogging'),
@@ -278,17 +278,17 @@ module Amazonka.CloudTrail
     StartLoggingResponse (StartLoggingResponse'),
     newStartLoggingResponse,
 
-    -- ** ListTrails (Paginated)
-    ListTrails (ListTrails'),
-    newListTrails,
-    ListTrailsResponse (ListTrailsResponse'),
-    newListTrailsResponse,
+    -- ** StopLogging
+    StopLogging (StopLogging'),
+    newStopLogging,
+    StopLoggingResponse (StopLoggingResponse'),
+    newStopLoggingResponse,
 
-    -- ** GetInsightSelectors
-    GetInsightSelectors (GetInsightSelectors'),
-    newGetInsightSelectors,
-    GetInsightSelectorsResponse (GetInsightSelectorsResponse'),
-    newGetInsightSelectorsResponse,
+    -- ** UpdateTrail
+    UpdateTrail (UpdateTrail'),
+    newUpdateTrail,
+    UpdateTrailResponse (UpdateTrailResponse'),
+    newUpdateTrailResponse,
 
     -- * Types
 

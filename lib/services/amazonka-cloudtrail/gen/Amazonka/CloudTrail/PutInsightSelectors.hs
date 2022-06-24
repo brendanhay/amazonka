@@ -39,8 +39,8 @@ module Amazonka.CloudTrail.PutInsightSelectors
     newPutInsightSelectorsResponse,
 
     -- * Response Lenses
-    putInsightSelectorsResponse_trailARN,
     putInsightSelectorsResponse_insightSelectors,
+    putInsightSelectorsResponse_trailARN,
     putInsightSelectorsResponse_httpStatus,
   )
 where
@@ -105,10 +105,10 @@ instance Core.AWSRequest PutInsightSelectors where
     Response.receiveJSON
       ( \s h x ->
           PutInsightSelectorsResponse'
-            Prelude.<$> (x Core..?> "TrailARN")
-            Prelude.<*> ( x Core..?> "InsightSelectors"
+            Prelude.<$> ( x Core..?> "InsightSelectors"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "TrailARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,13 +155,13 @@ instance Core.ToQuery PutInsightSelectors where
 
 -- | /See:/ 'newPutInsightSelectorsResponse' smart constructor.
 data PutInsightSelectorsResponse = PutInsightSelectorsResponse'
-  { -- | The Amazon Resource Name (ARN) of a trail for which you want to change
-    -- or add Insights selectors.
-    trailARN :: Prelude.Maybe Prelude.Text,
-    -- | A JSON string that contains the Insights event types that you want to
+  { -- | A JSON string that contains the Insights event types that you want to
     -- log on a trail. The valid Insights type in this release is
     -- @ApiCallRateInsight@.
     insightSelectors :: Prelude.Maybe [InsightSelector],
+    -- | The Amazon Resource Name (ARN) of a trail for which you want to change
+    -- or add Insights selectors.
+    trailARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,12 +175,12 @@ data PutInsightSelectorsResponse = PutInsightSelectorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trailARN', 'putInsightSelectorsResponse_trailARN' - The Amazon Resource Name (ARN) of a trail for which you want to change
--- or add Insights selectors.
---
 -- 'insightSelectors', 'putInsightSelectorsResponse_insightSelectors' - A JSON string that contains the Insights event types that you want to
 -- log on a trail. The valid Insights type in this release is
 -- @ApiCallRateInsight@.
+--
+-- 'trailARN', 'putInsightSelectorsResponse_trailARN' - The Amazon Resource Name (ARN) of a trail for which you want to change
+-- or add Insights selectors.
 --
 -- 'httpStatus', 'putInsightSelectorsResponse_httpStatus' - The response's http status code.
 newPutInsightSelectorsResponse ::
@@ -189,16 +189,11 @@ newPutInsightSelectorsResponse ::
   PutInsightSelectorsResponse
 newPutInsightSelectorsResponse pHttpStatus_ =
   PutInsightSelectorsResponse'
-    { trailARN =
+    { insightSelectors =
         Prelude.Nothing,
-      insightSelectors = Prelude.Nothing,
+      trailARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of a trail for which you want to change
--- or add Insights selectors.
-putInsightSelectorsResponse_trailARN :: Lens.Lens' PutInsightSelectorsResponse (Prelude.Maybe Prelude.Text)
-putInsightSelectorsResponse_trailARN = Lens.lens (\PutInsightSelectorsResponse' {trailARN} -> trailARN) (\s@PutInsightSelectorsResponse' {} a -> s {trailARN = a} :: PutInsightSelectorsResponse)
 
 -- | A JSON string that contains the Insights event types that you want to
 -- log on a trail. The valid Insights type in this release is
@@ -206,12 +201,17 @@ putInsightSelectorsResponse_trailARN = Lens.lens (\PutInsightSelectorsResponse' 
 putInsightSelectorsResponse_insightSelectors :: Lens.Lens' PutInsightSelectorsResponse (Prelude.Maybe [InsightSelector])
 putInsightSelectorsResponse_insightSelectors = Lens.lens (\PutInsightSelectorsResponse' {insightSelectors} -> insightSelectors) (\s@PutInsightSelectorsResponse' {} a -> s {insightSelectors = a} :: PutInsightSelectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Resource Name (ARN) of a trail for which you want to change
+-- or add Insights selectors.
+putInsightSelectorsResponse_trailARN :: Lens.Lens' PutInsightSelectorsResponse (Prelude.Maybe Prelude.Text)
+putInsightSelectorsResponse_trailARN = Lens.lens (\PutInsightSelectorsResponse' {trailARN} -> trailARN) (\s@PutInsightSelectorsResponse' {} a -> s {trailARN = a} :: PutInsightSelectorsResponse)
+
 -- | The response's http status code.
 putInsightSelectorsResponse_httpStatus :: Lens.Lens' PutInsightSelectorsResponse Prelude.Int
 putInsightSelectorsResponse_httpStatus = Lens.lens (\PutInsightSelectorsResponse' {httpStatus} -> httpStatus) (\s@PutInsightSelectorsResponse' {} a -> s {httpStatus = a} :: PutInsightSelectorsResponse)
 
 instance Prelude.NFData PutInsightSelectorsResponse where
   rnf PutInsightSelectorsResponse' {..} =
-    Prelude.rnf trailARN
-      `Prelude.seq` Prelude.rnf insightSelectors
+    Prelude.rnf insightSelectors
+      `Prelude.seq` Prelude.rnf trailARN
       `Prelude.seq` Prelude.rnf httpStatus

@@ -14,112 +14,61 @@
 module Amazonka.CloudTrail.Lens
   ( -- * Operations
 
-    -- ** DescribeTrails
-    describeTrails_includeShadowTrails,
-    describeTrails_trailNameList,
-    describeTrailsResponse_trailList,
-    describeTrailsResponse_httpStatus,
+    -- ** AddTags
+    addTags_tagsList,
+    addTags_resourceId,
+    addTagsResponse_httpStatus,
 
-    -- ** ListPublicKeys
-    listPublicKeys_startTime,
-    listPublicKeys_nextToken,
-    listPublicKeys_endTime,
-    listPublicKeysResponse_publicKeyList,
-    listPublicKeysResponse_nextToken,
-    listPublicKeysResponse_httpStatus,
-
-    -- ** RemoveTags
-    removeTags_tagsList,
-    removeTags_resourceId,
-    removeTagsResponse_httpStatus,
-
-    -- ** LookupEvents
-    lookupEvents_eventCategory,
-    lookupEvents_startTime,
-    lookupEvents_lookupAttributes,
-    lookupEvents_nextToken,
-    lookupEvents_endTime,
-    lookupEvents_maxResults,
-    lookupEventsResponse_nextToken,
-    lookupEventsResponse_events,
-    lookupEventsResponse_httpStatus,
-
-    -- ** StopLogging
-    stopLogging_name,
-    stopLoggingResponse_httpStatus,
+    -- ** CreateTrail
+    createTrail_s3KeyPrefix,
+    createTrail_snsTopicName,
+    createTrail_isOrganizationTrail,
+    createTrail_includeGlobalServiceEvents,
+    createTrail_tagsList,
+    createTrail_isMultiRegionTrail,
+    createTrail_kmsKeyId,
+    createTrail_enableLogFileValidation,
+    createTrail_cloudWatchLogsRoleArn,
+    createTrail_cloudWatchLogsLogGroupArn,
+    createTrail_name,
+    createTrail_s3BucketName,
+    createTrailResponse_s3KeyPrefix,
+    createTrailResponse_name,
+    createTrailResponse_logFileValidationEnabled,
+    createTrailResponse_snsTopicName,
+    createTrailResponse_isOrganizationTrail,
+    createTrailResponse_includeGlobalServiceEvents,
+    createTrailResponse_s3BucketName,
+    createTrailResponse_snsTopicARN,
+    createTrailResponse_isMultiRegionTrail,
+    createTrailResponse_kmsKeyId,
+    createTrailResponse_cloudWatchLogsRoleArn,
+    createTrailResponse_cloudWatchLogsLogGroupArn,
+    createTrailResponse_trailARN,
+    createTrailResponse_httpStatus,
 
     -- ** DeleteTrail
     deleteTrail_name,
     deleteTrailResponse_httpStatus,
 
-    -- ** UpdateTrail
-    updateTrail_s3KeyPrefix,
-    updateTrail_snsTopicName,
-    updateTrail_enableLogFileValidation,
-    updateTrail_cloudWatchLogsLogGroupArn,
-    updateTrail_kmsKeyId,
-    updateTrail_includeGlobalServiceEvents,
-    updateTrail_isOrganizationTrail,
-    updateTrail_cloudWatchLogsRoleArn,
-    updateTrail_s3BucketName,
-    updateTrail_isMultiRegionTrail,
-    updateTrail_name,
-    updateTrailResponse_logFileValidationEnabled,
-    updateTrailResponse_trailARN,
-    updateTrailResponse_s3KeyPrefix,
-    updateTrailResponse_snsTopicARN,
-    updateTrailResponse_snsTopicName,
-    updateTrailResponse_cloudWatchLogsLogGroupArn,
-    updateTrailResponse_kmsKeyId,
-    updateTrailResponse_name,
-    updateTrailResponse_includeGlobalServiceEvents,
-    updateTrailResponse_isOrganizationTrail,
-    updateTrailResponse_cloudWatchLogsRoleArn,
-    updateTrailResponse_s3BucketName,
-    updateTrailResponse_isMultiRegionTrail,
-    updateTrailResponse_httpStatus,
-
-    -- ** CreateTrail
-    createTrail_s3KeyPrefix,
-    createTrail_snsTopicName,
-    createTrail_enableLogFileValidation,
-    createTrail_cloudWatchLogsLogGroupArn,
-    createTrail_kmsKeyId,
-    createTrail_includeGlobalServiceEvents,
-    createTrail_tagsList,
-    createTrail_isOrganizationTrail,
-    createTrail_cloudWatchLogsRoleArn,
-    createTrail_isMultiRegionTrail,
-    createTrail_name,
-    createTrail_s3BucketName,
-    createTrailResponse_logFileValidationEnabled,
-    createTrailResponse_trailARN,
-    createTrailResponse_s3KeyPrefix,
-    createTrailResponse_snsTopicARN,
-    createTrailResponse_snsTopicName,
-    createTrailResponse_cloudWatchLogsLogGroupArn,
-    createTrailResponse_kmsKeyId,
-    createTrailResponse_name,
-    createTrailResponse_includeGlobalServiceEvents,
-    createTrailResponse_isOrganizationTrail,
-    createTrailResponse_cloudWatchLogsRoleArn,
-    createTrailResponse_s3BucketName,
-    createTrailResponse_isMultiRegionTrail,
-    createTrailResponse_httpStatus,
-
-    -- ** PutInsightSelectors
-    putInsightSelectors_trailName,
-    putInsightSelectors_insightSelectors,
-    putInsightSelectorsResponse_trailARN,
-    putInsightSelectorsResponse_insightSelectors,
-    putInsightSelectorsResponse_httpStatus,
+    -- ** DescribeTrails
+    describeTrails_trailNameList,
+    describeTrails_includeShadowTrails,
+    describeTrailsResponse_trailList,
+    describeTrailsResponse_httpStatus,
 
     -- ** GetEventSelectors
     getEventSelectors_trailName,
-    getEventSelectorsResponse_trailARN,
-    getEventSelectorsResponse_eventSelectors,
     getEventSelectorsResponse_advancedEventSelectors,
+    getEventSelectorsResponse_eventSelectors,
+    getEventSelectorsResponse_trailARN,
     getEventSelectorsResponse_httpStatus,
+
+    -- ** GetInsightSelectors
+    getInsightSelectors_trailName,
+    getInsightSelectorsResponse_insightSelectors,
+    getInsightSelectorsResponse_trailARN,
+    getInsightSelectorsResponse_httpStatus,
 
     -- ** GetTrail
     getTrail_name,
@@ -128,29 +77,32 @@ module Amazonka.CloudTrail.Lens
 
     -- ** GetTrailStatus
     getTrailStatus_name,
-    getTrailStatusResponse_timeLoggingStopped,
-    getTrailStatusResponse_latestDeliveryError,
-    getTrailStatusResponse_latestDigestDeliveryTime,
-    getTrailStatusResponse_latestNotificationAttemptSucceeded,
-    getTrailStatusResponse_startLoggingTime,
-    getTrailStatusResponse_latestNotificationError,
-    getTrailStatusResponse_latestDeliveryAttemptSucceeded,
-    getTrailStatusResponse_isLogging,
+    getTrailStatusResponse_latestCloudWatchLogsDeliveryTime,
+    getTrailStatusResponse_latestNotificationTime,
     getTrailStatusResponse_timeLoggingStarted,
+    getTrailStatusResponse_latestNotificationAttemptTime,
+    getTrailStatusResponse_startLoggingTime,
+    getTrailStatusResponse_latestCloudWatchLogsDeliveryError,
+    getTrailStatusResponse_latestDeliveryTime,
+    getTrailStatusResponse_latestDeliveryError,
+    getTrailStatusResponse_isLogging,
+    getTrailStatusResponse_latestNotificationAttemptSucceeded,
+    getTrailStatusResponse_latestNotificationError,
+    getTrailStatusResponse_stopLoggingTime,
+    getTrailStatusResponse_latestDigestDeliveryTime,
     getTrailStatusResponse_latestDigestDeliveryError,
     getTrailStatusResponse_latestDeliveryAttemptTime,
-    getTrailStatusResponse_latestDeliveryTime,
-    getTrailStatusResponse_latestCloudWatchLogsDeliveryTime,
-    getTrailStatusResponse_latestCloudWatchLogsDeliveryError,
-    getTrailStatusResponse_latestNotificationTime,
-    getTrailStatusResponse_latestNotificationAttemptTime,
-    getTrailStatusResponse_stopLoggingTime,
+    getTrailStatusResponse_timeLoggingStopped,
+    getTrailStatusResponse_latestDeliveryAttemptSucceeded,
     getTrailStatusResponse_httpStatus,
 
-    -- ** AddTags
-    addTags_tagsList,
-    addTags_resourceId,
-    addTagsResponse_httpStatus,
+    -- ** ListPublicKeys
+    listPublicKeys_nextToken,
+    listPublicKeys_endTime,
+    listPublicKeys_startTime,
+    listPublicKeysResponse_nextToken,
+    listPublicKeysResponse_publicKeyList,
+    listPublicKeysResponse_httpStatus,
 
     -- ** ListTags
     listTags_nextToken,
@@ -159,30 +111,78 @@ module Amazonka.CloudTrail.Lens
     listTagsResponse_resourceTagList,
     listTagsResponse_httpStatus,
 
-    -- ** PutEventSelectors
-    putEventSelectors_eventSelectors,
-    putEventSelectors_advancedEventSelectors,
-    putEventSelectors_trailName,
-    putEventSelectorsResponse_trailARN,
-    putEventSelectorsResponse_eventSelectors,
-    putEventSelectorsResponse_advancedEventSelectors,
-    putEventSelectorsResponse_httpStatus,
-
-    -- ** StartLogging
-    startLogging_name,
-    startLoggingResponse_httpStatus,
-
     -- ** ListTrails
     listTrails_nextToken,
     listTrailsResponse_nextToken,
     listTrailsResponse_trails,
     listTrailsResponse_httpStatus,
 
-    -- ** GetInsightSelectors
-    getInsightSelectors_trailName,
-    getInsightSelectorsResponse_trailARN,
-    getInsightSelectorsResponse_insightSelectors,
-    getInsightSelectorsResponse_httpStatus,
+    -- ** LookupEvents
+    lookupEvents_nextToken,
+    lookupEvents_lookupAttributes,
+    lookupEvents_endTime,
+    lookupEvents_maxResults,
+    lookupEvents_startTime,
+    lookupEvents_eventCategory,
+    lookupEventsResponse_nextToken,
+    lookupEventsResponse_events,
+    lookupEventsResponse_httpStatus,
+
+    -- ** PutEventSelectors
+    putEventSelectors_advancedEventSelectors,
+    putEventSelectors_eventSelectors,
+    putEventSelectors_trailName,
+    putEventSelectorsResponse_advancedEventSelectors,
+    putEventSelectorsResponse_eventSelectors,
+    putEventSelectorsResponse_trailARN,
+    putEventSelectorsResponse_httpStatus,
+
+    -- ** PutInsightSelectors
+    putInsightSelectors_trailName,
+    putInsightSelectors_insightSelectors,
+    putInsightSelectorsResponse_insightSelectors,
+    putInsightSelectorsResponse_trailARN,
+    putInsightSelectorsResponse_httpStatus,
+
+    -- ** RemoveTags
+    removeTags_tagsList,
+    removeTags_resourceId,
+    removeTagsResponse_httpStatus,
+
+    -- ** StartLogging
+    startLogging_name,
+    startLoggingResponse_httpStatus,
+
+    -- ** StopLogging
+    stopLogging_name,
+    stopLoggingResponse_httpStatus,
+
+    -- ** UpdateTrail
+    updateTrail_s3KeyPrefix,
+    updateTrail_snsTopicName,
+    updateTrail_isOrganizationTrail,
+    updateTrail_includeGlobalServiceEvents,
+    updateTrail_s3BucketName,
+    updateTrail_isMultiRegionTrail,
+    updateTrail_kmsKeyId,
+    updateTrail_enableLogFileValidation,
+    updateTrail_cloudWatchLogsRoleArn,
+    updateTrail_cloudWatchLogsLogGroupArn,
+    updateTrail_name,
+    updateTrailResponse_s3KeyPrefix,
+    updateTrailResponse_name,
+    updateTrailResponse_logFileValidationEnabled,
+    updateTrailResponse_snsTopicName,
+    updateTrailResponse_isOrganizationTrail,
+    updateTrailResponse_includeGlobalServiceEvents,
+    updateTrailResponse_s3BucketName,
+    updateTrailResponse_snsTopicARN,
+    updateTrailResponse_isMultiRegionTrail,
+    updateTrailResponse_kmsKeyId,
+    updateTrailResponse_cloudWatchLogsRoleArn,
+    updateTrailResponse_cloudWatchLogsLogGroupArn,
+    updateTrailResponse_trailARN,
+    updateTrailResponse_httpStatus,
 
     -- * Types
 
@@ -191,34 +191,34 @@ module Amazonka.CloudTrail.Lens
     advancedEventSelector_fieldSelectors,
 
     -- ** AdvancedFieldSelector
-    advancedFieldSelector_endsWith,
-    advancedFieldSelector_notStartsWith,
-    advancedFieldSelector_equals,
     advancedFieldSelector_notEquals,
-    advancedFieldSelector_notEndsWith,
+    advancedFieldSelector_equals,
+    advancedFieldSelector_endsWith,
     advancedFieldSelector_startsWith,
+    advancedFieldSelector_notEndsWith,
+    advancedFieldSelector_notStartsWith,
     advancedFieldSelector_field,
 
     -- ** DataResource
-    dataResource_values,
     dataResource_type,
+    dataResource_values,
 
     -- ** Event
     event_username,
+    event_readOnly,
+    event_eventName,
+    event_eventId,
     event_resources,
     event_eventTime,
     event_cloudTrailEvent,
-    event_eventName,
-    event_readOnly,
     event_accessKeyId,
     event_eventSource,
-    event_eventId,
 
     -- ** EventSelector
-    eventSelector_dataResources,
-    eventSelector_readWriteType,
     eventSelector_excludeManagementEventSources,
     eventSelector_includeManagementEvents,
+    eventSelector_dataResources,
+    eventSelector_readWriteType,
 
     -- ** InsightSelector
     insightSelector_insightType,
@@ -228,10 +228,10 @@ module Amazonka.CloudTrail.Lens
     lookupAttribute_attributeValue,
 
     -- ** PublicKey
-    publicKey_fingerprint,
-    publicKey_validityEndTime,
-    publicKey_value,
     publicKey_validityStartTime,
+    publicKey_validityEndTime,
+    publicKey_fingerprint,
+    publicKey_value,
 
     -- ** Resource
     resource_resourceType,
@@ -246,27 +246,27 @@ module Amazonka.CloudTrail.Lens
     tag_key,
 
     -- ** Trail
-    trail_logFileValidationEnabled,
-    trail_trailARN,
     trail_s3KeyPrefix,
-    trail_hasInsightSelectors,
-    trail_snsTopicARN,
-    trail_snsTopicName,
-    trail_cloudWatchLogsLogGroupArn,
-    trail_kmsKeyId,
-    trail_homeRegion,
     trail_name,
-    trail_includeGlobalServiceEvents,
-    trail_hasCustomEventSelectors,
+    trail_logFileValidationEnabled,
+    trail_snsTopicName,
     trail_isOrganizationTrail,
-    trail_cloudWatchLogsRoleArn,
+    trail_includeGlobalServiceEvents,
     trail_s3BucketName,
+    trail_hasCustomEventSelectors,
+    trail_snsTopicARN,
     trail_isMultiRegionTrail,
+    trail_kmsKeyId,
+    trail_cloudWatchLogsRoleArn,
+    trail_homeRegion,
+    trail_cloudWatchLogsLogGroupArn,
+    trail_hasInsightSelectors,
+    trail_trailARN,
 
     -- ** TrailInfo
-    trailInfo_trailARN,
-    trailInfo_homeRegion,
     trailInfo_name,
+    trailInfo_homeRegion,
+    trailInfo_trailARN,
   )
 where
 

@@ -17,50 +17,50 @@ module Amazonka.CloudTrail.Types
     defaultService,
 
     -- * Errors
-    _InvalidTimeRangeException,
-    _InsufficientS3BucketPolicyException,
-    _MaximumNumberOfTrailsExceededException,
-    _InsufficientDependencyServiceAccessPermissionException,
-    _UnsupportedOperationException,
-    _InvalidEventCategoryException,
-    _KmsKeyDisabledException,
-    _InsufficientEncryptionPolicyException,
-    _InsufficientSnsTopicPolicyException,
-    _InvalidCloudWatchLogsRoleArnException,
-    _CloudTrailAccessNotEnabledException,
-    _TagsLimitExceededException,
-    _CloudTrailARNInvalidException,
-    _InvalidLookupAttributesException,
-    _InvalidTrailNameException,
-    _InvalidSnsTopicNameException,
-    _ResourceTypeNotSupportedException,
-    _CloudWatchLogsDeliveryUnavailableException,
-    _OrganizationsNotInUseException,
-    _KmsKeyNotFoundException,
-    _TrailNotFoundException,
-    _ConflictException,
-    _InsightNotEnabledException,
-    _NotOrganizationMasterAccountException,
-    _InvalidEventSelectorsException,
-    _TrailNotProvidedException,
-    _InvalidS3BucketNameException,
-    _InvalidCloudWatchLogsLogGroupArnException,
-    _KmsException,
-    _CloudTrailInvalidClientTokenIdException,
-    _S3BucketDoesNotExistException,
-    _InvalidNextTokenException,
-    _InvalidTagParameterException,
-    _OperationNotPermittedException,
-    _InvalidTokenException,
-    _InvalidMaxResultsException,
-    _TrailAlreadyExistsException,
-    _OrganizationNotInAllFeaturesModeException,
-    _InvalidInsightSelectorsException,
     _InvalidS3PrefixException,
-    _ResourceNotFoundException,
-    _InvalidParameterCombinationException,
-    _InvalidKmsKeyIdException,
+    _InvalidTokenException,
+    _CloudTrailARNInvalidException,
+    _OrganizationNotInAllFeaturesModeException,
+    _UnsupportedOperationException,
+    _TagsLimitExceededException,
+    _TrailNotFoundException,
+    _InvalidCloudWatchLogsLogGroupArnException,
+    _InvalidCloudWatchLogsRoleArnException,
     _InvalidHomeRegionException,
+    _InvalidS3BucketNameException,
+    _CloudWatchLogsDeliveryUnavailableException,
+    _ResourceTypeNotSupportedException,
+    _InsufficientDependencyServiceAccessPermissionException,
+    _ResourceNotFoundException,
+    _CloudTrailAccessNotEnabledException,
+    _S3BucketDoesNotExistException,
+    _InvalidTagParameterException,
+    _InvalidMaxResultsException,
+    _InvalidParameterCombinationException,
+    _CloudTrailInvalidClientTokenIdException,
+    _InvalidNextTokenException,
+    _ConflictException,
+    _KmsKeyNotFoundException,
+    _InsightNotEnabledException,
+    _InvalidEventCategoryException,
+    _TrailNotProvidedException,
+    _InsufficientS3BucketPolicyException,
+    _InvalidInsightSelectorsException,
+    _KmsException,
+    _InsufficientEncryptionPolicyException,
+    _InvalidTimeRangeException,
+    _InvalidLookupAttributesException,
+    _OperationNotPermittedException,
+    _InvalidTrailNameException,
+    _InsufficientSnsTopicPolicyException,
+    _InvalidKmsKeyIdException,
+    _MaximumNumberOfTrailsExceededException,
+    _TrailAlreadyExistsException,
+    _InvalidEventSelectorsException,
+    _InvalidSnsTopicNameException,
+    _NotOrganizationMasterAccountException,
+    _KmsKeyDisabledException,
+    _OrganizationsNotInUseException,
 
     -- * EventCategory
     EventCategory (..),
@@ -83,40 +83,40 @@ module Amazonka.CloudTrail.Types
     -- * AdvancedFieldSelector
     AdvancedFieldSelector (..),
     newAdvancedFieldSelector,
-    advancedFieldSelector_endsWith,
-    advancedFieldSelector_notStartsWith,
-    advancedFieldSelector_equals,
     advancedFieldSelector_notEquals,
-    advancedFieldSelector_notEndsWith,
+    advancedFieldSelector_equals,
+    advancedFieldSelector_endsWith,
     advancedFieldSelector_startsWith,
+    advancedFieldSelector_notEndsWith,
+    advancedFieldSelector_notStartsWith,
     advancedFieldSelector_field,
 
     -- * DataResource
     DataResource (..),
     newDataResource,
-    dataResource_values,
     dataResource_type,
+    dataResource_values,
 
     -- * Event
     Event (..),
     newEvent,
     event_username,
+    event_readOnly,
+    event_eventName,
+    event_eventId,
     event_resources,
     event_eventTime,
     event_cloudTrailEvent,
-    event_eventName,
-    event_readOnly,
     event_accessKeyId,
     event_eventSource,
-    event_eventId,
 
     -- * EventSelector
     EventSelector (..),
     newEventSelector,
-    eventSelector_dataResources,
-    eventSelector_readWriteType,
     eventSelector_excludeManagementEventSources,
     eventSelector_includeManagementEvents,
+    eventSelector_dataResources,
+    eventSelector_readWriteType,
 
     -- * InsightSelector
     InsightSelector (..),
@@ -132,10 +132,10 @@ module Amazonka.CloudTrail.Types
     -- * PublicKey
     PublicKey (..),
     newPublicKey,
-    publicKey_fingerprint,
-    publicKey_validityEndTime,
-    publicKey_value,
     publicKey_validityStartTime,
+    publicKey_validityEndTime,
+    publicKey_fingerprint,
+    publicKey_value,
 
     -- * Resource
     Resource (..),
@@ -158,29 +158,29 @@ module Amazonka.CloudTrail.Types
     -- * Trail
     Trail (..),
     newTrail,
-    trail_logFileValidationEnabled,
-    trail_trailARN,
     trail_s3KeyPrefix,
-    trail_hasInsightSelectors,
-    trail_snsTopicARN,
-    trail_snsTopicName,
-    trail_cloudWatchLogsLogGroupArn,
-    trail_kmsKeyId,
-    trail_homeRegion,
     trail_name,
-    trail_includeGlobalServiceEvents,
-    trail_hasCustomEventSelectors,
+    trail_logFileValidationEnabled,
+    trail_snsTopicName,
     trail_isOrganizationTrail,
-    trail_cloudWatchLogsRoleArn,
+    trail_includeGlobalServiceEvents,
     trail_s3BucketName,
+    trail_hasCustomEventSelectors,
+    trail_snsTopicARN,
     trail_isMultiRegionTrail,
+    trail_kmsKeyId,
+    trail_cloudWatchLogsRoleArn,
+    trail_homeRegion,
+    trail_cloudWatchLogsLogGroupArn,
+    trail_hasInsightSelectors,
+    trail_trailARN,
 
     -- * TrailInfo
     TrailInfo (..),
     newTrailInfo,
-    trailInfo_trailARN,
-    trailInfo_homeRegion,
     trailInfo_name,
+    trailInfo_homeRegion,
+    trailInfo_trailARN,
   )
 where
 
@@ -232,35 +232,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -269,37 +242,142 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | Occurs if the timestamp values are not valid. Either the start time
--- occurs after the end time, or the time range is outside the range of
--- possible values.
-_InvalidTimeRangeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTimeRangeException =
+-- | This exception is thrown when the provided S3 prefix is not valid.
+_InvalidS3PrefixException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidS3PrefixException =
   Core._MatchServiceError
     defaultService
-    "InvalidTimeRangeException"
+    "InvalidS3PrefixException"
 
--- | This exception is thrown when the policy on the S3 bucket is not
--- sufficient.
-_InsufficientS3BucketPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InsufficientS3BucketPolicyException =
+-- | Reserved for future use.
+_InvalidTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTokenException =
   Core._MatchServiceError
     defaultService
-    "InsufficientS3BucketPolicyException"
+    "InvalidTokenException"
 
--- | This exception is thrown when the maximum number of trails is reached.
-_MaximumNumberOfTrailsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MaximumNumberOfTrailsExceededException =
+-- | This exception is thrown when an operation is called with a trail ARN
+-- that is not valid. The following is the format of a trail ARN.
+--
+-- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
+_CloudTrailARNInvalidException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudTrailARNInvalidException =
   Core._MatchServiceError
     defaultService
-    "MaximumNumberOfTrailsExceededException"
+    "CloudTrailARNInvalidException"
+
+-- | This exception is thrown when Organizations is not configured to support
+-- all features. All features must be enabled in Organizations to support
+-- creating an organization trail. For more information, see
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html Prepare For Creating a Trail For Your Organization>.
+_OrganizationNotInAllFeaturesModeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OrganizationNotInAllFeaturesModeException =
+  Core._MatchServiceError
+    defaultService
+    "OrganizationNotInAllFeaturesModeException"
+
+-- | This exception is thrown when the requested operation is not supported.
+_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperationException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedOperationException"
+
+-- | The number of tags per trail has exceeded the permitted amount.
+-- Currently, the limit is 50.
+_TagsLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagsLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "TagsLimitExceededException"
+
+-- | This exception is thrown when the trail with the given name is not
+-- found.
+_TrailNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TrailNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "TrailNotFoundException"
+
+-- | This exception is thrown when the provided CloudWatch Logs log group is
+-- not valid.
+_InvalidCloudWatchLogsLogGroupArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCloudWatchLogsLogGroupArnException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCloudWatchLogsLogGroupArnException"
+
+-- | This exception is thrown when the provided role is not valid.
+_InvalidCloudWatchLogsRoleArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCloudWatchLogsRoleArnException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCloudWatchLogsRoleArnException"
+
+-- | This exception is thrown when an operation is called on a trail from a
+-- region other than the region in which the trail was created.
+_InvalidHomeRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidHomeRegionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidHomeRegionException"
+
+-- | This exception is thrown when the provided S3 bucket name is not valid.
+_InvalidS3BucketNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidS3BucketNameException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidS3BucketNameException"
+
+-- | Cannot set a CloudWatch Logs delivery for this region.
+_CloudWatchLogsDeliveryUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudWatchLogsDeliveryUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "CloudWatchLogsDeliveryUnavailableException"
+
+-- | This exception is thrown when the specified resource type is not
+-- supported by CloudTrail.
+_ResourceTypeNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceTypeNotSupportedException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceTypeNotSupportedException"
 
 -- | This exception is thrown when the IAM user or role that is used to
 -- create the organization trail is lacking one or more required
@@ -312,50 +390,12 @@ _InsufficientDependencyServiceAccessPermissionException =
     defaultService
     "InsufficientDependencyServiceAccessPermissionException"
 
--- | This exception is thrown when the requested operation is not supported.
-_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedOperationException =
+-- | This exception is thrown when the specified resource is not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "UnsupportedOperationException"
-
--- | Occurs if an event category that is not valid is specified as a value of
--- @EventCategory@.
-_InvalidEventCategoryException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidEventCategoryException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidEventCategoryException"
-
--- | This exception is no longer in use.
-_KmsKeyDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KmsKeyDisabledException =
-  Core._MatchServiceError
-    defaultService
-    "KmsKeyDisabledException"
-
--- | This exception is thrown when the policy on the S3 bucket or KMS key is
--- not sufficient.
-_InsufficientEncryptionPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InsufficientEncryptionPolicyException =
-  Core._MatchServiceError
-    defaultService
-    "InsufficientEncryptionPolicyException"
-
--- | This exception is thrown when the policy on the Amazon SNS topic is not
--- sufficient.
-_InsufficientSnsTopicPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InsufficientSnsTopicPolicyException =
-  Core._MatchServiceError
-    defaultService
-    "InsufficientSnsTopicPolicyException"
-
--- | This exception is thrown when the provided role is not valid.
-_InvalidCloudWatchLogsRoleArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCloudWatchLogsRoleArnException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidCloudWatchLogsRoleArnException"
+    "ResourceNotFoundException"
 
 -- | This exception is thrown when trusted access has not been enabled
 -- between CloudTrail and Organizations. For more information, see
@@ -368,23 +408,142 @@ _CloudTrailAccessNotEnabledException =
     defaultService
     "CloudTrailAccessNotEnabledException"
 
--- | The number of tags per trail has exceeded the permitted amount.
--- Currently, the limit is 50.
-_TagsLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TagsLimitExceededException =
+-- | This exception is thrown when the specified S3 bucket does not exist.
+_S3BucketDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_S3BucketDoesNotExistException =
   Core._MatchServiceError
     defaultService
-    "TagsLimitExceededException"
+    "S3BucketDoesNotExistException"
 
--- | This exception is thrown when an operation is called with a trail ARN
--- that is not valid. The following is the format of a trail ARN.
---
--- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-_CloudTrailARNInvalidException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CloudTrailARNInvalidException =
+-- | This exception is thrown when the specified tag key or values are not
+-- valid. It can also occur if there are duplicate tags or too many tags on
+-- the resource.
+_InvalidTagParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTagParameterException =
   Core._MatchServiceError
     defaultService
-    "CloudTrailARNInvalidException"
+    "InvalidTagParameterException"
+
+-- | This exception is thrown if the limit specified is not valid.
+_InvalidMaxResultsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidMaxResultsException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidMaxResultsException"
+
+-- | This exception is thrown when the combination of parameters provided is
+-- not valid.
+_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterCombinationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterCombinationException"
+
+-- | This exception is thrown when a call results in the
+-- @InvalidClientTokenId@ error code. This can occur when you are creating
+-- or updating a trail to send notifications to an Amazon SNS topic that is
+-- in a suspended Amazon Web Services account.
+_CloudTrailInvalidClientTokenIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudTrailInvalidClientTokenIdException =
+  Core._MatchServiceError
+    defaultService
+    "CloudTrailInvalidClientTokenIdException"
+
+-- | A token that is not valid, or a token that was previously used in a
+-- request with different parameters. This exception is thrown if the token
+-- is not valid.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
+
+-- | This exception is thrown when the specified resource is not ready for an
+-- operation. This can occur when you try to run an operation on a trail
+-- before CloudTrail has time to fully load the trail. If this exception
+-- occurs, wait a few minutes, and then try the operation again.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+
+-- | This exception is thrown when the KMS key does not exist, when the S3
+-- bucket and the KMS key are not in the same region, or when the KMS key
+-- associated with the Amazon SNS topic either does not exist or is not in
+-- the same region.
+_KmsKeyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KmsKeyNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "KmsKeyNotFoundException"
+
+-- | If you run @GetInsightSelectors@ on a trail that does not have Insights
+-- events enabled, the operation throws the exception
+-- @InsightNotEnabledException@.
+_InsightNotEnabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsightNotEnabledException =
+  Core._MatchServiceError
+    defaultService
+    "InsightNotEnabledException"
+
+-- | Occurs if an event category that is not valid is specified as a value of
+-- @EventCategory@.
+_InvalidEventCategoryException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidEventCategoryException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidEventCategoryException"
+
+-- | This exception is no longer in use.
+_TrailNotProvidedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TrailNotProvidedException =
+  Core._MatchServiceError
+    defaultService
+    "TrailNotProvidedException"
+
+-- | This exception is thrown when the policy on the S3 bucket is not
+-- sufficient.
+_InsufficientS3BucketPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientS3BucketPolicyException =
+  Core._MatchServiceError
+    defaultService
+    "InsufficientS3BucketPolicyException"
+
+-- | The formatting or syntax of the @InsightSelectors@ JSON statement in
+-- your @PutInsightSelectors@ or @GetInsightSelectors@ request is not
+-- valid, or the specified insight type in the @InsightSelectors@ statement
+-- is not a valid insight type.
+_InvalidInsightSelectorsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInsightSelectorsException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidInsightSelectorsException"
+
+-- | This exception is thrown when there is an issue with the specified KMS
+-- key and the trail can’t be updated.
+_KmsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KmsException =
+  Core._MatchServiceError
+    defaultService
+    "KmsException"
+
+-- | This exception is thrown when the policy on the S3 bucket or KMS key is
+-- not sufficient.
+_InsufficientEncryptionPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientEncryptionPolicyException =
+  Core._MatchServiceError
+    defaultService
+    "InsufficientEncryptionPolicyException"
+
+-- | Occurs if the timestamp values are not valid. Either the start time
+-- occurs after the end time, or the time range is outside the range of
+-- possible values.
+_InvalidTimeRangeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTimeRangeException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTimeRangeException"
 
 -- | Occurs when a lookup attribute is specified that is not valid.
 _InvalidLookupAttributesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -392,6 +551,13 @@ _InvalidLookupAttributesException =
   Core._MatchServiceError
     defaultService
     "InvalidLookupAttributesException"
+
+-- | This exception is thrown when the requested operation is not permitted.
+_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotPermittedException =
+  Core._MatchServiceError
+    defaultService
+    "OperationNotPermittedException"
 
 -- | This exception is thrown when the provided trail name is not valid.
 -- Trail names must meet the following requirements:
@@ -413,84 +579,34 @@ _InvalidTrailNameException =
     defaultService
     "InvalidTrailNameException"
 
--- | This exception is thrown when the provided SNS topic name is not valid.
-_InvalidSnsTopicNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSnsTopicNameException =
+-- | This exception is thrown when the policy on the Amazon SNS topic is not
+-- sufficient.
+_InsufficientSnsTopicPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientSnsTopicPolicyException =
   Core._MatchServiceError
     defaultService
-    "InvalidSnsTopicNameException"
+    "InsufficientSnsTopicPolicyException"
 
--- | This exception is thrown when the specified resource type is not
--- supported by CloudTrail.
-_ResourceTypeNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceTypeNotSupportedException =
+-- | This exception is thrown when the KMS key ARN is not valid.
+_InvalidKmsKeyIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidKmsKeyIdException =
   Core._MatchServiceError
     defaultService
-    "ResourceTypeNotSupportedException"
+    "InvalidKmsKeyIdException"
 
--- | Cannot set a CloudWatch Logs delivery for this region.
-_CloudWatchLogsDeliveryUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CloudWatchLogsDeliveryUnavailableException =
+-- | This exception is thrown when the maximum number of trails is reached.
+_MaximumNumberOfTrailsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaximumNumberOfTrailsExceededException =
   Core._MatchServiceError
     defaultService
-    "CloudWatchLogsDeliveryUnavailableException"
+    "MaximumNumberOfTrailsExceededException"
 
--- | This exception is thrown when the request is made from an Amazon Web
--- Services account that is not a member of an organization. To make this
--- request, sign in using the credentials of an account that belongs to an
--- organization.
-_OrganizationsNotInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OrganizationsNotInUseException =
+-- | This exception is thrown when the specified trail already exists.
+_TrailAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TrailAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "OrganizationsNotInUseException"
-
--- | This exception is thrown when the KMS key does not exist, when the S3
--- bucket and the KMS key are not in the same region, or when the KMS key
--- associated with the Amazon SNS topic either does not exist or is not in
--- the same region.
-_KmsKeyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KmsKeyNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "KmsKeyNotFoundException"
-
--- | This exception is thrown when the trail with the given name is not
--- found.
-_TrailNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TrailNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "TrailNotFoundException"
-
--- | This exception is thrown when the specified resource is not ready for an
--- operation. This can occur when you try to run an operation on a trail
--- before CloudTrail has time to fully load the trail. If this exception
--- occurs, wait a few minutes, and then try the operation again.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-
--- | If you run @GetInsightSelectors@ on a trail that does not have Insights
--- events enabled, the operation throws the exception
--- @InsightNotEnabledException@.
-_InsightNotEnabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InsightNotEnabledException =
-  Core._MatchServiceError
-    defaultService
-    "InsightNotEnabledException"
-
--- | This exception is thrown when the Amazon Web Services account making the
--- request to create or update an organization trail is not the management
--- account for an organization in Organizations. For more information, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html Prepare For Creating a Trail For Your Organization>.
-_NotOrganizationMasterAccountException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotOrganizationMasterAccountException =
-  Core._MatchServiceError
-    defaultService
-    "NotOrganizationMasterAccountException"
+    "TrailAlreadyExistsException"
 
 -- | This exception is thrown when the @PutEventSelectors@ operation is
 -- called with a number of event selectors, advanced event selectors, or
@@ -523,152 +639,36 @@ _InvalidEventSelectorsException =
     defaultService
     "InvalidEventSelectorsException"
 
--- | This exception is no longer in use.
-_TrailNotProvidedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TrailNotProvidedException =
+-- | This exception is thrown when the provided SNS topic name is not valid.
+_InvalidSnsTopicNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSnsTopicNameException =
   Core._MatchServiceError
     defaultService
-    "TrailNotProvidedException"
+    "InvalidSnsTopicNameException"
 
--- | This exception is thrown when the provided S3 bucket name is not valid.
-_InvalidS3BucketNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidS3BucketNameException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidS3BucketNameException"
-
--- | This exception is thrown when the provided CloudWatch Logs log group is
--- not valid.
-_InvalidCloudWatchLogsLogGroupArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCloudWatchLogsLogGroupArnException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidCloudWatchLogsLogGroupArnException"
-
--- | This exception is thrown when there is an issue with the specified KMS
--- key and the trail can’t be updated.
-_KmsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KmsException =
-  Core._MatchServiceError
-    defaultService
-    "KmsException"
-
--- | This exception is thrown when a call results in the
--- @InvalidClientTokenId@ error code. This can occur when you are creating
--- or updating a trail to send notifications to an Amazon SNS topic that is
--- in a suspended Amazon Web Services account.
-_CloudTrailInvalidClientTokenIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CloudTrailInvalidClientTokenIdException =
-  Core._MatchServiceError
-    defaultService
-    "CloudTrailInvalidClientTokenIdException"
-
--- | This exception is thrown when the specified S3 bucket does not exist.
-_S3BucketDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_S3BucketDoesNotExistException =
-  Core._MatchServiceError
-    defaultService
-    "S3BucketDoesNotExistException"
-
--- | A token that is not valid, or a token that was previously used in a
--- request with different parameters. This exception is thrown if the token
--- is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
-
--- | This exception is thrown when the specified tag key or values are not
--- valid. It can also occur if there are duplicate tags or too many tags on
--- the resource.
-_InvalidTagParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTagParameterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidTagParameterException"
-
--- | This exception is thrown when the requested operation is not permitted.
-_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationNotPermittedException =
-  Core._MatchServiceError
-    defaultService
-    "OperationNotPermittedException"
-
--- | Reserved for future use.
-_InvalidTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidTokenException"
-
--- | This exception is thrown if the limit specified is not valid.
-_InvalidMaxResultsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidMaxResultsException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidMaxResultsException"
-
--- | This exception is thrown when the specified trail already exists.
-_TrailAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TrailAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "TrailAlreadyExistsException"
-
--- | This exception is thrown when Organizations is not configured to support
--- all features. All features must be enabled in Organizations to support
--- creating an organization trail. For more information, see
+-- | This exception is thrown when the Amazon Web Services account making the
+-- request to create or update an organization trail is not the management
+-- account for an organization in Organizations. For more information, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html Prepare For Creating a Trail For Your Organization>.
-_OrganizationNotInAllFeaturesModeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OrganizationNotInAllFeaturesModeException =
+_NotOrganizationMasterAccountException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotOrganizationMasterAccountException =
   Core._MatchServiceError
     defaultService
-    "OrganizationNotInAllFeaturesModeException"
+    "NotOrganizationMasterAccountException"
 
--- | The formatting or syntax of the @InsightSelectors@ JSON statement in
--- your @PutInsightSelectors@ or @GetInsightSelectors@ request is not
--- valid, or the specified insight type in the @InsightSelectors@ statement
--- is not a valid insight type.
-_InvalidInsightSelectorsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidInsightSelectorsException =
+-- | This exception is no longer in use.
+_KmsKeyDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KmsKeyDisabledException =
   Core._MatchServiceError
     defaultService
-    "InvalidInsightSelectorsException"
+    "KmsKeyDisabledException"
 
--- | This exception is thrown when the provided S3 prefix is not valid.
-_InvalidS3PrefixException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidS3PrefixException =
+-- | This exception is thrown when the request is made from an Amazon Web
+-- Services account that is not a member of an organization. To make this
+-- request, sign in using the credentials of an account that belongs to an
+-- organization.
+_OrganizationsNotInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OrganizationsNotInUseException =
   Core._MatchServiceError
     defaultService
-    "InvalidS3PrefixException"
-
--- | This exception is thrown when the specified resource is not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | This exception is thrown when the combination of parameters provided is
--- not valid.
-_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterCombinationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterCombinationException"
-
--- | This exception is thrown when the KMS key ARN is not valid.
-_InvalidKmsKeyIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidKmsKeyIdException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidKmsKeyIdException"
-
--- | This exception is thrown when an operation is called on a trail from a
--- region other than the region in which the trail was created.
-_InvalidHomeRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidHomeRegionException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidHomeRegionException"
+    "OrganizationsNotInUseException"

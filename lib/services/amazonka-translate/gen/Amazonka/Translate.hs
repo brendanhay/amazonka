@@ -20,44 +20,44 @@ module Amazonka.Translate
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** UnsupportedLanguagePairException
-    _UnsupportedLanguagePairException,
-
-    -- ** DetectedLanguageLowConfidenceException
-    _DetectedLanguageLowConfidenceException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
-
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** DetectedLanguageLowConfidenceException
+    _DetectedLanguageLowConfidenceException,
+
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
-
-    -- ** InvalidFilterException
-    _InvalidFilterException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** TextSizeLimitExceededException
-    _TextSizeLimitExceededException,
+    -- ** UnsupportedLanguagePairException
+    _UnsupportedLanguagePairException,
 
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** InvalidFilterException
+    _InvalidFilterException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** TextSizeLimitExceededException
+    _TextSizeLimitExceededException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
 
     -- * Waiters
     -- $waiters
@@ -65,35 +65,29 @@ module Amazonka.Translate
     -- * Operations
     -- $operations
 
-    -- ** DescribeTextTranslationJob
-    DescribeTextTranslationJob (DescribeTextTranslationJob'),
-    newDescribeTextTranslationJob,
-    DescribeTextTranslationJobResponse (DescribeTextTranslationJobResponse'),
-    newDescribeTextTranslationJobResponse,
-
-    -- ** ListTerminologies (Paginated)
-    ListTerminologies (ListTerminologies'),
-    newListTerminologies,
-    ListTerminologiesResponse (ListTerminologiesResponse'),
-    newListTerminologiesResponse,
-
     -- ** CreateParallelData
     CreateParallelData (CreateParallelData'),
     newCreateParallelData,
     CreateParallelDataResponse (CreateParallelDataResponse'),
     newCreateParallelDataResponse,
 
-    -- ** UpdateParallelData
-    UpdateParallelData (UpdateParallelData'),
-    newUpdateParallelData,
-    UpdateParallelDataResponse (UpdateParallelDataResponse'),
-    newUpdateParallelDataResponse,
-
     -- ** DeleteParallelData
     DeleteParallelData (DeleteParallelData'),
     newDeleteParallelData,
     DeleteParallelDataResponse (DeleteParallelDataResponse'),
     newDeleteParallelDataResponse,
+
+    -- ** DeleteTerminology
+    DeleteTerminology (DeleteTerminology'),
+    newDeleteTerminology,
+    DeleteTerminologyResponse (DeleteTerminologyResponse'),
+    newDeleteTerminologyResponse,
+
+    -- ** DescribeTextTranslationJob
+    DescribeTextTranslationJob (DescribeTextTranslationJob'),
+    newDescribeTextTranslationJob,
+    DescribeTextTranslationJobResponse (DescribeTextTranslationJobResponse'),
+    newDescribeTextTranslationJobResponse,
 
     -- ** GetParallelData
     GetParallelData (GetParallelData'),
@@ -107,29 +101,23 @@ module Amazonka.Translate
     GetTerminologyResponse (GetTerminologyResponse'),
     newGetTerminologyResponse,
 
-    -- ** TranslateText
-    TranslateText (TranslateText'),
-    newTranslateText,
-    TranslateTextResponse (TranslateTextResponse'),
-    newTranslateTextResponse,
-
     -- ** ImportTerminology
     ImportTerminology (ImportTerminology'),
     newImportTerminology,
     ImportTerminologyResponse (ImportTerminologyResponse'),
     newImportTerminologyResponse,
 
-    -- ** StopTextTranslationJob
-    StopTextTranslationJob (StopTextTranslationJob'),
-    newStopTextTranslationJob,
-    StopTextTranslationJobResponse (StopTextTranslationJobResponse'),
-    newStopTextTranslationJobResponse,
+    -- ** ListParallelData
+    ListParallelData (ListParallelData'),
+    newListParallelData,
+    ListParallelDataResponse (ListParallelDataResponse'),
+    newListParallelDataResponse,
 
-    -- ** DeleteTerminology
-    DeleteTerminology (DeleteTerminology'),
-    newDeleteTerminology,
-    DeleteTerminologyResponse (DeleteTerminologyResponse'),
-    newDeleteTerminologyResponse,
+    -- ** ListTerminologies (Paginated)
+    ListTerminologies (ListTerminologies'),
+    newListTerminologies,
+    ListTerminologiesResponse (ListTerminologiesResponse'),
+    newListTerminologiesResponse,
 
     -- ** ListTextTranslationJobs
     ListTextTranslationJobs (ListTextTranslationJobs'),
@@ -143,11 +131,23 @@ module Amazonka.Translate
     StartTextTranslationJobResponse (StartTextTranslationJobResponse'),
     newStartTextTranslationJobResponse,
 
-    -- ** ListParallelData
-    ListParallelData (ListParallelData'),
-    newListParallelData,
-    ListParallelDataResponse (ListParallelDataResponse'),
-    newListParallelDataResponse,
+    -- ** StopTextTranslationJob
+    StopTextTranslationJob (StopTextTranslationJob'),
+    newStopTextTranslationJob,
+    StopTextTranslationJobResponse (StopTextTranslationJobResponse'),
+    newStopTextTranslationJobResponse,
+
+    -- ** TranslateText
+    TranslateText (TranslateText'),
+    newTranslateText,
+    TranslateTextResponse (TranslateTextResponse'),
+    newTranslateTextResponse,
+
+    -- ** UpdateParallelData
+    UpdateParallelData (UpdateParallelData'),
+    newUpdateParallelData,
+    UpdateParallelDataResponse (UpdateParallelDataResponse'),
+    newUpdateParallelDataResponse,
 
     -- * Types
 

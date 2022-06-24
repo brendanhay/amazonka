@@ -36,8 +36,8 @@ module Amazonka.Translate.ListTextTranslationJobs
     newListTextTranslationJobsResponse,
 
     -- * Response Lenses
-    listTextTranslationJobsResponse_textTranslationJobPropertiesList,
     listTextTranslationJobsResponse_nextToken,
+    listTextTranslationJobsResponse_textTranslationJobPropertiesList,
     listTextTranslationJobsResponse_httpStatus,
   )
 where
@@ -113,10 +113,10 @@ instance Core.AWSRequest ListTextTranslationJobs where
     Response.receiveJSON
       ( \s h x ->
           ListTextTranslationJobsResponse'
-            Prelude.<$> ( x Core..?> "TextTranslationJobPropertiesList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "TextTranslationJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,11 +165,11 @@ instance Core.ToQuery ListTextTranslationJobs where
 
 -- | /See:/ 'newListTextTranslationJobsResponse' smart constructor.
 data ListTextTranslationJobsResponse = ListTextTranslationJobsResponse'
-  { -- | A list containing the properties of each job that is returned.
-    textTranslationJobPropertiesList :: Prelude.Maybe [TextTranslationJobProperties],
-    -- | The token to use to retreive the next page of results. This value is
+  { -- | The token to use to retreive the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list containing the properties of each job that is returned.
+    textTranslationJobPropertiesList :: Prelude.Maybe [TextTranslationJobProperties],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,10 +183,10 @@ data ListTextTranslationJobsResponse = ListTextTranslationJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'textTranslationJobPropertiesList', 'listTextTranslationJobsResponse_textTranslationJobPropertiesList' - A list containing the properties of each job that is returned.
---
 -- 'nextToken', 'listTextTranslationJobsResponse_nextToken' - The token to use to retreive the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'textTranslationJobPropertiesList', 'listTextTranslationJobsResponse_textTranslationJobPropertiesList' - A list containing the properties of each job that is returned.
 --
 -- 'httpStatus', 'listTextTranslationJobsResponse_httpStatus' - The response's http status code.
 newListTextTranslationJobsResponse ::
@@ -195,20 +195,21 @@ newListTextTranslationJobsResponse ::
   ListTextTranslationJobsResponse
 newListTextTranslationJobsResponse pHttpStatus_ =
   ListTextTranslationJobsResponse'
-    { textTranslationJobPropertiesList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      textTranslationJobPropertiesList =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list containing the properties of each job that is returned.
-listTextTranslationJobsResponse_textTranslationJobPropertiesList :: Lens.Lens' ListTextTranslationJobsResponse (Prelude.Maybe [TextTranslationJobProperties])
-listTextTranslationJobsResponse_textTranslationJobPropertiesList = Lens.lens (\ListTextTranslationJobsResponse' {textTranslationJobPropertiesList} -> textTranslationJobPropertiesList) (\s@ListTextTranslationJobsResponse' {} a -> s {textTranslationJobPropertiesList = a} :: ListTextTranslationJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retreive the next page of results. This value is
 -- @null@ when there are no more results to return.
 listTextTranslationJobsResponse_nextToken :: Lens.Lens' ListTextTranslationJobsResponse (Prelude.Maybe Prelude.Text)
 listTextTranslationJobsResponse_nextToken = Lens.lens (\ListTextTranslationJobsResponse' {nextToken} -> nextToken) (\s@ListTextTranslationJobsResponse' {} a -> s {nextToken = a} :: ListTextTranslationJobsResponse)
+
+-- | A list containing the properties of each job that is returned.
+listTextTranslationJobsResponse_textTranslationJobPropertiesList :: Lens.Lens' ListTextTranslationJobsResponse (Prelude.Maybe [TextTranslationJobProperties])
+listTextTranslationJobsResponse_textTranslationJobPropertiesList = Lens.lens (\ListTextTranslationJobsResponse' {textTranslationJobPropertiesList} -> textTranslationJobPropertiesList) (\s@ListTextTranslationJobsResponse' {} a -> s {textTranslationJobPropertiesList = a} :: ListTextTranslationJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTextTranslationJobsResponse_httpStatus :: Lens.Lens' ListTextTranslationJobsResponse Prelude.Int
@@ -219,6 +220,6 @@ instance
     ListTextTranslationJobsResponse
   where
   rnf ListTextTranslationJobsResponse' {..} =
-    Prelude.rnf textTranslationJobPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf textTranslationJobPropertiesList
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFrameworkControl' smart constructor.
 data FrameworkControl = FrameworkControl'
-  { -- | The scope of a control. The control scope defines what the control will
+  { -- | A list of @ParameterName@ and @ParameterValue@ pairs.
+    controlInputParameters :: Prelude.Maybe [ControlInputParameter],
+    -- | The scope of a control. The control scope defines what the control will
     -- evaluate. Three examples of control scopes are: a specific backup plan,
     -- all backup plans with a specific tag, or all backup plans. For more
     -- information, see @ControlScope@.
     controlScope :: Prelude.Maybe ControlScope,
-    -- | A list of @ParameterName@ and @ParameterValue@ pairs.
-    controlInputParameters :: Prelude.Maybe [ControlInputParameter],
     -- | The name of a control. This name is between 1 and 256 characters.
     controlName :: Prelude.Text
   }
@@ -50,12 +50,12 @@ data FrameworkControl = FrameworkControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'controlInputParameters', 'frameworkControl_controlInputParameters' - A list of @ParameterName@ and @ParameterValue@ pairs.
+--
 -- 'controlScope', 'frameworkControl_controlScope' - The scope of a control. The control scope defines what the control will
 -- evaluate. Three examples of control scopes are: a specific backup plan,
 -- all backup plans with a specific tag, or all backup plans. For more
 -- information, see @ControlScope@.
---
--- 'controlInputParameters', 'frameworkControl_controlInputParameters' - A list of @ParameterName@ and @ParameterValue@ pairs.
 --
 -- 'controlName', 'frameworkControl_controlName' - The name of a control. This name is between 1 and 256 characters.
 newFrameworkControl ::
@@ -64,10 +64,15 @@ newFrameworkControl ::
   FrameworkControl
 newFrameworkControl pControlName_ =
   FrameworkControl'
-    { controlScope = Prelude.Nothing,
-      controlInputParameters = Prelude.Nothing,
+    { controlInputParameters =
+        Prelude.Nothing,
+      controlScope = Prelude.Nothing,
       controlName = pControlName_
     }
+
+-- | A list of @ParameterName@ and @ParameterValue@ pairs.
+frameworkControl_controlInputParameters :: Lens.Lens' FrameworkControl (Prelude.Maybe [ControlInputParameter])
+frameworkControl_controlInputParameters = Lens.lens (\FrameworkControl' {controlInputParameters} -> controlInputParameters) (\s@FrameworkControl' {} a -> s {controlInputParameters = a} :: FrameworkControl) Prelude.. Lens.mapping Lens.coerced
 
 -- | The scope of a control. The control scope defines what the control will
 -- evaluate. Three examples of control scopes are: a specific backup plan,
@@ -75,10 +80,6 @@ newFrameworkControl pControlName_ =
 -- information, see @ControlScope@.
 frameworkControl_controlScope :: Lens.Lens' FrameworkControl (Prelude.Maybe ControlScope)
 frameworkControl_controlScope = Lens.lens (\FrameworkControl' {controlScope} -> controlScope) (\s@FrameworkControl' {} a -> s {controlScope = a} :: FrameworkControl)
-
--- | A list of @ParameterName@ and @ParameterValue@ pairs.
-frameworkControl_controlInputParameters :: Lens.Lens' FrameworkControl (Prelude.Maybe [ControlInputParameter])
-frameworkControl_controlInputParameters = Lens.lens (\FrameworkControl' {controlInputParameters} -> controlInputParameters) (\s@FrameworkControl' {} a -> s {controlInputParameters = a} :: FrameworkControl) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of a control. This name is between 1 and 256 characters.
 frameworkControl_controlName :: Lens.Lens' FrameworkControl Prelude.Text
@@ -90,32 +91,32 @@ instance Core.FromJSON FrameworkControl where
       "FrameworkControl"
       ( \x ->
           FrameworkControl'
-            Prelude.<$> (x Core..:? "ControlScope")
-            Prelude.<*> ( x Core..:? "ControlInputParameters"
+            Prelude.<$> ( x Core..:? "ControlInputParameters"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "ControlScope")
             Prelude.<*> (x Core..: "ControlName")
       )
 
 instance Prelude.Hashable FrameworkControl where
   hashWithSalt _salt FrameworkControl' {..} =
-    _salt `Prelude.hashWithSalt` controlScope
-      `Prelude.hashWithSalt` controlInputParameters
+    _salt `Prelude.hashWithSalt` controlInputParameters
+      `Prelude.hashWithSalt` controlScope
       `Prelude.hashWithSalt` controlName
 
 instance Prelude.NFData FrameworkControl where
   rnf FrameworkControl' {..} =
-    Prelude.rnf controlScope
-      `Prelude.seq` Prelude.rnf controlInputParameters
+    Prelude.rnf controlInputParameters
+      `Prelude.seq` Prelude.rnf controlScope
       `Prelude.seq` Prelude.rnf controlName
 
 instance Core.ToJSON FrameworkControl where
   toJSON FrameworkControl' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ControlScope" Core..=) Prelude.<$> controlScope,
-            ("ControlInputParameters" Core..=)
+          [ ("ControlInputParameters" Core..=)
               Prelude.<$> controlInputParameters,
+            ("ControlScope" Core..=) Prelude.<$> controlScope,
             Prelude.Just ("ControlName" Core..= controlName)
           ]
       )

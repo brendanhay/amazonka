@@ -40,8 +40,8 @@ module Amazonka.Backup.ListRecoveryPointsByResource
     newListRecoveryPointsByResourceResponse,
 
     -- * Response Lenses
-    listRecoveryPointsByResourceResponse_recoveryPoints,
     listRecoveryPointsByResourceResponse_nextToken,
+    listRecoveryPointsByResourceResponse_recoveryPoints,
     listRecoveryPointsByResourceResponse_httpStatus,
   )
 where
@@ -128,8 +128,8 @@ instance Core.AWSRequest ListRecoveryPointsByResource where
     Response.receiveJSON
       ( \s h x ->
           ListRecoveryPointsByResourceResponse'
-            Prelude.<$> (x Core..?> "RecoveryPoints" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RecoveryPoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,16 +176,16 @@ instance Core.ToQuery ListRecoveryPointsByResource where
 
 -- | /See:/ 'newListRecoveryPointsByResourceResponse' smart constructor.
 data ListRecoveryPointsByResourceResponse = ListRecoveryPointsByResourceResponse'
-  { -- | An array of objects that contain detailed information about recovery
-    -- points of the specified resource type.
-    --
-    -- Only Amazon EFS and Amazon EC2 recovery points return BackupVaultName.
-    recoveryPoints :: Prelude.Maybe [RecoveryPointByResource],
-    -- | The next item following a partial list of returned items. For example,
+  { -- | The next item following a partial list of returned items. For example,
     -- if a request is made to return @maxResults@ number of items, @NextToken@
     -- allows you to return more items in your list starting at the location
     -- pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that contain detailed information about recovery
+    -- points of the specified resource type.
+    --
+    -- Only Amazon EFS and Amazon EC2 recovery points return BackupVaultName.
+    recoveryPoints :: Prelude.Maybe [RecoveryPointByResource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,15 +199,15 @@ data ListRecoveryPointsByResourceResponse = ListRecoveryPointsByResourceResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recoveryPoints', 'listRecoveryPointsByResourceResponse_recoveryPoints' - An array of objects that contain detailed information about recovery
--- points of the specified resource type.
---
--- Only Amazon EFS and Amazon EC2 recovery points return BackupVaultName.
---
 -- 'nextToken', 'listRecoveryPointsByResourceResponse_nextToken' - The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
 -- allows you to return more items in your list starting at the location
 -- pointed to by the next token.
+--
+-- 'recoveryPoints', 'listRecoveryPointsByResourceResponse_recoveryPoints' - An array of objects that contain detailed information about recovery
+-- points of the specified resource type.
+--
+-- Only Amazon EFS and Amazon EC2 recovery points return BackupVaultName.
 --
 -- 'httpStatus', 'listRecoveryPointsByResourceResponse_httpStatus' - The response's http status code.
 newListRecoveryPointsByResourceResponse ::
@@ -216,18 +216,11 @@ newListRecoveryPointsByResourceResponse ::
   ListRecoveryPointsByResourceResponse
 newListRecoveryPointsByResourceResponse pHttpStatus_ =
   ListRecoveryPointsByResourceResponse'
-    { recoveryPoints =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      recoveryPoints = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects that contain detailed information about recovery
--- points of the specified resource type.
---
--- Only Amazon EFS and Amazon EC2 recovery points return BackupVaultName.
-listRecoveryPointsByResourceResponse_recoveryPoints :: Lens.Lens' ListRecoveryPointsByResourceResponse (Prelude.Maybe [RecoveryPointByResource])
-listRecoveryPointsByResourceResponse_recoveryPoints = Lens.lens (\ListRecoveryPointsByResourceResponse' {recoveryPoints} -> recoveryPoints) (\s@ListRecoveryPointsByResourceResponse' {} a -> s {recoveryPoints = a} :: ListRecoveryPointsByResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
@@ -235,6 +228,13 @@ listRecoveryPointsByResourceResponse_recoveryPoints = Lens.lens (\ListRecoveryPo
 -- pointed to by the next token.
 listRecoveryPointsByResourceResponse_nextToken :: Lens.Lens' ListRecoveryPointsByResourceResponse (Prelude.Maybe Prelude.Text)
 listRecoveryPointsByResourceResponse_nextToken = Lens.lens (\ListRecoveryPointsByResourceResponse' {nextToken} -> nextToken) (\s@ListRecoveryPointsByResourceResponse' {} a -> s {nextToken = a} :: ListRecoveryPointsByResourceResponse)
+
+-- | An array of objects that contain detailed information about recovery
+-- points of the specified resource type.
+--
+-- Only Amazon EFS and Amazon EC2 recovery points return BackupVaultName.
+listRecoveryPointsByResourceResponse_recoveryPoints :: Lens.Lens' ListRecoveryPointsByResourceResponse (Prelude.Maybe [RecoveryPointByResource])
+listRecoveryPointsByResourceResponse_recoveryPoints = Lens.lens (\ListRecoveryPointsByResourceResponse' {recoveryPoints} -> recoveryPoints) (\s@ListRecoveryPointsByResourceResponse' {} a -> s {recoveryPoints = a} :: ListRecoveryPointsByResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listRecoveryPointsByResourceResponse_httpStatus :: Lens.Lens' ListRecoveryPointsByResourceResponse Prelude.Int
@@ -245,6 +245,6 @@ instance
     ListRecoveryPointsByResourceResponse
   where
   rnf ListRecoveryPointsByResourceResponse' {..} =
-    Prelude.rnf recoveryPoints
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf recoveryPoints
       `Prelude.seq` Prelude.rnf httpStatus

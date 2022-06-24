@@ -37,11 +37,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLifecycle' smart constructor.
 data Lifecycle = Lifecycle'
   { -- | Specifies the number of days after creation that a recovery point is
-    -- moved to cold storage.
-    moveToColdStorageAfterDays :: Prelude.Maybe Prelude.Integer,
-    -- | Specifies the number of days after creation that a recovery point is
     -- deleted. Must be greater than 90 days plus @MoveToColdStorageAfterDays@.
-    deleteAfterDays :: Prelude.Maybe Prelude.Integer
+    deleteAfterDays :: Prelude.Maybe Prelude.Integer,
+    -- | Specifies the number of days after creation that a recovery point is
+    -- moved to cold storage.
+    moveToColdStorageAfterDays :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,29 +53,28 @@ data Lifecycle = Lifecycle'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'moveToColdStorageAfterDays', 'lifecycle_moveToColdStorageAfterDays' - Specifies the number of days after creation that a recovery point is
--- moved to cold storage.
---
 -- 'deleteAfterDays', 'lifecycle_deleteAfterDays' - Specifies the number of days after creation that a recovery point is
 -- deleted. Must be greater than 90 days plus @MoveToColdStorageAfterDays@.
+--
+-- 'moveToColdStorageAfterDays', 'lifecycle_moveToColdStorageAfterDays' - Specifies the number of days after creation that a recovery point is
+-- moved to cold storage.
 newLifecycle ::
   Lifecycle
 newLifecycle =
   Lifecycle'
-    { moveToColdStorageAfterDays =
-        Prelude.Nothing,
-      deleteAfterDays = Prelude.Nothing
+    { deleteAfterDays = Prelude.Nothing,
+      moveToColdStorageAfterDays = Prelude.Nothing
     }
-
--- | Specifies the number of days after creation that a recovery point is
--- moved to cold storage.
-lifecycle_moveToColdStorageAfterDays :: Lens.Lens' Lifecycle (Prelude.Maybe Prelude.Integer)
-lifecycle_moveToColdStorageAfterDays = Lens.lens (\Lifecycle' {moveToColdStorageAfterDays} -> moveToColdStorageAfterDays) (\s@Lifecycle' {} a -> s {moveToColdStorageAfterDays = a} :: Lifecycle)
 
 -- | Specifies the number of days after creation that a recovery point is
 -- deleted. Must be greater than 90 days plus @MoveToColdStorageAfterDays@.
 lifecycle_deleteAfterDays :: Lens.Lens' Lifecycle (Prelude.Maybe Prelude.Integer)
 lifecycle_deleteAfterDays = Lens.lens (\Lifecycle' {deleteAfterDays} -> deleteAfterDays) (\s@Lifecycle' {} a -> s {deleteAfterDays = a} :: Lifecycle)
+
+-- | Specifies the number of days after creation that a recovery point is
+-- moved to cold storage.
+lifecycle_moveToColdStorageAfterDays :: Lens.Lens' Lifecycle (Prelude.Maybe Prelude.Integer)
+lifecycle_moveToColdStorageAfterDays = Lens.lens (\Lifecycle' {moveToColdStorageAfterDays} -> moveToColdStorageAfterDays) (\s@Lifecycle' {} a -> s {moveToColdStorageAfterDays = a} :: Lifecycle)
 
 instance Core.FromJSON Lifecycle where
   parseJSON =
@@ -83,28 +82,27 @@ instance Core.FromJSON Lifecycle where
       "Lifecycle"
       ( \x ->
           Lifecycle'
-            Prelude.<$> (x Core..:? "MoveToColdStorageAfterDays")
-            Prelude.<*> (x Core..:? "DeleteAfterDays")
+            Prelude.<$> (x Core..:? "DeleteAfterDays")
+            Prelude.<*> (x Core..:? "MoveToColdStorageAfterDays")
       )
 
 instance Prelude.Hashable Lifecycle where
   hashWithSalt _salt Lifecycle' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` deleteAfterDays
       `Prelude.hashWithSalt` moveToColdStorageAfterDays
-      `Prelude.hashWithSalt` deleteAfterDays
 
 instance Prelude.NFData Lifecycle where
   rnf Lifecycle' {..} =
-    Prelude.rnf moveToColdStorageAfterDays
-      `Prelude.seq` Prelude.rnf deleteAfterDays
+    Prelude.rnf deleteAfterDays
+      `Prelude.seq` Prelude.rnf moveToColdStorageAfterDays
 
 instance Core.ToJSON Lifecycle where
   toJSON Lifecycle' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MoveToColdStorageAfterDays" Core..=)
-              Prelude.<$> moveToColdStorageAfterDays,
-            ("DeleteAfterDays" Core..=)
-              Prelude.<$> deleteAfterDays
+          [ ("DeleteAfterDays" Core..=)
+              Prelude.<$> deleteAfterDays,
+            ("MoveToColdStorageAfterDays" Core..=)
+              Prelude.<$> moveToColdStorageAfterDays
           ]
       )

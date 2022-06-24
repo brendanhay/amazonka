@@ -24,20 +24,11 @@ module Amazonka.Backup
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
     -- ** DependencyFailureException
     _DependencyFailureException,
 
     -- ** InvalidResourceStateException
     _InvalidResourceStateException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
 
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
@@ -51,8 +42,17 @@ module Amazonka.Backup
     -- ** LimitExceededException
     _LimitExceededException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** MissingParameterValueException
     _MissingParameterValueException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
 
     -- * Waiters
     -- $waiters
@@ -60,257 +60,11 @@ module Amazonka.Backup
     -- * Operations
     -- $operations
 
-    -- ** UpdateBackupPlan
-    UpdateBackupPlan (UpdateBackupPlan'),
-    newUpdateBackupPlan,
-    UpdateBackupPlanResponse (UpdateBackupPlanResponse'),
-    newUpdateBackupPlanResponse,
-
-    -- ** DeleteBackupPlan
-    DeleteBackupPlan (DeleteBackupPlan'),
-    newDeleteBackupPlan,
-    DeleteBackupPlanResponse (DeleteBackupPlanResponse'),
-    newDeleteBackupPlanResponse,
-
-    -- ** DescribeBackupJob
-    DescribeBackupJob (DescribeBackupJob'),
-    newDescribeBackupJob,
-    DescribeBackupJobResponse (DescribeBackupJobResponse'),
-    newDescribeBackupJobResponse,
-
-    -- ** ListBackupPlanTemplates
-    ListBackupPlanTemplates (ListBackupPlanTemplates'),
-    newListBackupPlanTemplates,
-    ListBackupPlanTemplatesResponse (ListBackupPlanTemplatesResponse'),
-    newListBackupPlanTemplatesResponse,
-
-    -- ** DeleteReportPlan
-    DeleteReportPlan (DeleteReportPlan'),
-    newDeleteReportPlan,
-    DeleteReportPlanResponse (DeleteReportPlanResponse'),
-    newDeleteReportPlanResponse,
-
-    -- ** UpdateReportPlan
-    UpdateReportPlan (UpdateReportPlan'),
-    newUpdateReportPlan,
-    UpdateReportPlanResponse (UpdateReportPlanResponse'),
-    newUpdateReportPlanResponse,
-
-    -- ** DescribeReportJob
-    DescribeReportJob (DescribeReportJob'),
-    newDescribeReportJob,
-    DescribeReportJobResponse (DescribeReportJobResponse'),
-    newDescribeReportJobResponse,
-
-    -- ** UpdateRegionSettings
-    UpdateRegionSettings (UpdateRegionSettings'),
-    newUpdateRegionSettings,
-    UpdateRegionSettingsResponse (UpdateRegionSettingsResponse'),
-    newUpdateRegionSettingsResponse,
-
-    -- ** UpdateGlobalSettings
-    UpdateGlobalSettings (UpdateGlobalSettings'),
-    newUpdateGlobalSettings,
-    UpdateGlobalSettingsResponse (UpdateGlobalSettingsResponse'),
-    newUpdateGlobalSettingsResponse,
-
-    -- ** DeleteBackupSelection
-    DeleteBackupSelection (DeleteBackupSelection'),
-    newDeleteBackupSelection,
-    DeleteBackupSelectionResponse (DeleteBackupSelectionResponse'),
-    newDeleteBackupSelectionResponse,
-
-    -- ** DescribeCopyJob
-    DescribeCopyJob (DescribeCopyJob'),
-    newDescribeCopyJob,
-    DescribeCopyJobResponse (DescribeCopyJobResponse'),
-    newDescribeCopyJobResponse,
-
-    -- ** DescribeRecoveryPoint
-    DescribeRecoveryPoint (DescribeRecoveryPoint'),
-    newDescribeRecoveryPoint,
-    DescribeRecoveryPointResponse (DescribeRecoveryPointResponse'),
-    newDescribeRecoveryPointResponse,
-
-    -- ** DescribeRestoreJob
-    DescribeRestoreJob (DescribeRestoreJob'),
-    newDescribeRestoreJob,
-    DescribeRestoreJobResponse (DescribeRestoreJobResponse'),
-    newDescribeRestoreJobResponse,
-
-    -- ** StartCopyJob
-    StartCopyJob (StartCopyJob'),
-    newStartCopyJob,
-    StartCopyJobResponse (StartCopyJobResponse'),
-    newStartCopyJobResponse,
-
-    -- ** GetBackupPlanFromTemplate
-    GetBackupPlanFromTemplate (GetBackupPlanFromTemplate'),
-    newGetBackupPlanFromTemplate,
-    GetBackupPlanFromTemplateResponse (GetBackupPlanFromTemplateResponse'),
-    newGetBackupPlanFromTemplateResponse,
-
-    -- ** DisassociateRecoveryPoint
-    DisassociateRecoveryPoint (DisassociateRecoveryPoint'),
-    newDisassociateRecoveryPoint,
-    DisassociateRecoveryPointResponse (DisassociateRecoveryPointResponse'),
-    newDisassociateRecoveryPointResponse,
-
-    -- ** DeleteBackupVault
-    DeleteBackupVault (DeleteBackupVault'),
-    newDeleteBackupVault,
-    DeleteBackupVaultResponse (DeleteBackupVaultResponse'),
-    newDeleteBackupVaultResponse,
-
-    -- ** DeleteFramework
-    DeleteFramework (DeleteFramework'),
-    newDeleteFramework,
-    DeleteFrameworkResponse (DeleteFrameworkResponse'),
-    newDeleteFrameworkResponse,
-
-    -- ** UpdateFramework
-    UpdateFramework (UpdateFramework'),
-    newUpdateFramework,
-    UpdateFrameworkResponse (UpdateFrameworkResponse'),
-    newUpdateFrameworkResponse,
-
-    -- ** ListReportJobs
-    ListReportJobs (ListReportJobs'),
-    newListReportJobs,
-    ListReportJobsResponse (ListReportJobsResponse'),
-    newListReportJobsResponse,
-
-    -- ** ListBackupJobs
-    ListBackupJobs (ListBackupJobs'),
-    newListBackupJobs,
-    ListBackupJobsResponse (ListBackupJobsResponse'),
-    newListBackupJobsResponse,
-
-    -- ** DescribeReportPlan
-    DescribeReportPlan (DescribeReportPlan'),
-    newDescribeReportPlan,
-    DescribeReportPlanResponse (DescribeReportPlanResponse'),
-    newDescribeReportPlanResponse,
-
-    -- ** DescribeRegionSettings
-    DescribeRegionSettings (DescribeRegionSettings'),
-    newDescribeRegionSettings,
-    DescribeRegionSettingsResponse (DescribeRegionSettingsResponse'),
-    newDescribeRegionSettingsResponse,
-
-    -- ** GetBackupPlan
-    GetBackupPlan (GetBackupPlan'),
-    newGetBackupPlan,
-    GetBackupPlanResponse (GetBackupPlanResponse'),
-    newGetBackupPlanResponse,
-
-    -- ** DescribeGlobalSettings
-    DescribeGlobalSettings (DescribeGlobalSettings'),
-    newDescribeGlobalSettings,
-    DescribeGlobalSettingsResponse (DescribeGlobalSettingsResponse'),
-    newDescribeGlobalSettingsResponse,
-
-    -- ** ListBackupPlanVersions
-    ListBackupPlanVersions (ListBackupPlanVersions'),
-    newListBackupPlanVersions,
-    ListBackupPlanVersionsResponse (ListBackupPlanVersionsResponse'),
-    newListBackupPlanVersionsResponse,
-
-    -- ** ListRestoreJobs
-    ListRestoreJobs (ListRestoreJobs'),
-    newListRestoreJobs,
-    ListRestoreJobsResponse (ListRestoreJobsResponse'),
-    newListRestoreJobsResponse,
-
-    -- ** CreateReportPlan
-    CreateReportPlan (CreateReportPlan'),
-    newCreateReportPlan,
-    CreateReportPlanResponse (CreateReportPlanResponse'),
-    newCreateReportPlanResponse,
-
-    -- ** ExportBackupPlanTemplate
-    ExportBackupPlanTemplate (ExportBackupPlanTemplate'),
-    newExportBackupPlanTemplate,
-    ExportBackupPlanTemplateResponse (ExportBackupPlanTemplateResponse'),
-    newExportBackupPlanTemplateResponse,
-
-    -- ** StartBackupJob
-    StartBackupJob (StartBackupJob'),
-    newStartBackupJob,
-    StartBackupJobResponse (StartBackupJobResponse'),
-    newStartBackupJobResponse,
-
-    -- ** DescribeFramework
-    DescribeFramework (DescribeFramework'),
-    newDescribeFramework,
-    DescribeFrameworkResponse (DescribeFrameworkResponse'),
-    newDescribeFrameworkResponse,
-
     -- ** CreateBackupPlan
     CreateBackupPlan (CreateBackupPlan'),
     newCreateBackupPlan,
     CreateBackupPlanResponse (CreateBackupPlanResponse'),
     newCreateBackupPlanResponse,
-
-    -- ** ListProtectedResources
-    ListProtectedResources (ListProtectedResources'),
-    newListProtectedResources,
-    ListProtectedResourcesResponse (ListProtectedResourcesResponse'),
-    newListProtectedResourcesResponse,
-
-    -- ** StartReportJob
-    StartReportJob (StartReportJob'),
-    newStartReportJob,
-    StartReportJobResponse (StartReportJobResponse'),
-    newStartReportJobResponse,
-
-    -- ** DescribeBackupVault
-    DescribeBackupVault (DescribeBackupVault'),
-    newDescribeBackupVault,
-    DescribeBackupVaultResponse (DescribeBackupVaultResponse'),
-    newDescribeBackupVaultResponse,
-
-    -- ** GetBackupVaultNotifications
-    GetBackupVaultNotifications (GetBackupVaultNotifications'),
-    newGetBackupVaultNotifications,
-    GetBackupVaultNotificationsResponse (GetBackupVaultNotificationsResponse'),
-    newGetBackupVaultNotificationsResponse,
-
-    -- ** ListReportPlans
-    ListReportPlans (ListReportPlans'),
-    newListReportPlans,
-    ListReportPlansResponse (ListReportPlansResponse'),
-    newListReportPlansResponse,
-
-    -- ** GetRecoveryPointRestoreMetadata
-    GetRecoveryPointRestoreMetadata (GetRecoveryPointRestoreMetadata'),
-    newGetRecoveryPointRestoreMetadata,
-    GetRecoveryPointRestoreMetadataResponse (GetRecoveryPointRestoreMetadataResponse'),
-    newGetRecoveryPointRestoreMetadataResponse,
-
-    -- ** ListBackupPlans
-    ListBackupPlans (ListBackupPlans'),
-    newListBackupPlans,
-    ListBackupPlansResponse (ListBackupPlansResponse'),
-    newListBackupPlansResponse,
-
-    -- ** StartRestoreJob
-    StartRestoreJob (StartRestoreJob'),
-    newStartRestoreJob,
-    StartRestoreJobResponse (StartRestoreJobResponse'),
-    newStartRestoreJobResponse,
-
-    -- ** ListBackupSelections
-    ListBackupSelections (ListBackupSelections'),
-    newListBackupSelections,
-    ListBackupSelectionsResponse (ListBackupSelectionsResponse'),
-    newListBackupSelectionsResponse,
-
-    -- ** ListRecoveryPointsByResource
-    ListRecoveryPointsByResource (ListRecoveryPointsByResource'),
-    newListRecoveryPointsByResource,
-    ListRecoveryPointsByResourceResponse (ListRecoveryPointsByResourceResponse'),
-    newListRecoveryPointsByResourceResponse,
 
     -- ** CreateBackupSelection
     CreateBackupSelection (CreateBackupSelection'),
@@ -318,53 +72,11 @@ module Amazonka.Backup
     CreateBackupSelectionResponse (CreateBackupSelectionResponse'),
     newCreateBackupSelectionResponse,
 
-    -- ** ListFrameworks
-    ListFrameworks (ListFrameworks'),
-    newListFrameworks,
-    ListFrameworksResponse (ListFrameworksResponse'),
-    newListFrameworksResponse,
-
-    -- ** DescribeProtectedResource
-    DescribeProtectedResource (DescribeProtectedResource'),
-    newDescribeProtectedResource,
-    DescribeProtectedResourceResponse (DescribeProtectedResourceResponse'),
-    newDescribeProtectedResourceResponse,
-
-    -- ** GetBackupPlanFromJSON
-    GetBackupPlanFromJSON (GetBackupPlanFromJSON'),
-    newGetBackupPlanFromJSON,
-    GetBackupPlanFromJSONResponse (GetBackupPlanFromJSONResponse'),
-    newGetBackupPlanFromJSONResponse,
-
-    -- ** ListBackupVaults
-    ListBackupVaults (ListBackupVaults'),
-    newListBackupVaults,
-    ListBackupVaultsResponse (ListBackupVaultsResponse'),
-    newListBackupVaultsResponse,
-
-    -- ** GetBackupSelection
-    GetBackupSelection (GetBackupSelection'),
-    newGetBackupSelection,
-    GetBackupSelectionResponse (GetBackupSelectionResponse'),
-    newGetBackupSelectionResponse,
-
     -- ** CreateBackupVault
     CreateBackupVault (CreateBackupVault'),
     newCreateBackupVault,
     CreateBackupVaultResponse (CreateBackupVaultResponse'),
     newCreateBackupVaultResponse,
-
-    -- ** UpdateRecoveryPointLifecycle
-    UpdateRecoveryPointLifecycle (UpdateRecoveryPointLifecycle'),
-    newUpdateRecoveryPointLifecycle,
-    UpdateRecoveryPointLifecycleResponse (UpdateRecoveryPointLifecycleResponse'),
-    newUpdateRecoveryPointLifecycleResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
 
     -- ** CreateFramework
     CreateFramework (CreateFramework'),
@@ -372,35 +84,35 @@ module Amazonka.Backup
     CreateFrameworkResponse (CreateFrameworkResponse'),
     newCreateFrameworkResponse,
 
-    -- ** PutBackupVaultNotifications
-    PutBackupVaultNotifications (PutBackupVaultNotifications'),
-    newPutBackupVaultNotifications,
-    PutBackupVaultNotificationsResponse (PutBackupVaultNotificationsResponse'),
-    newPutBackupVaultNotificationsResponse,
+    -- ** CreateReportPlan
+    CreateReportPlan (CreateReportPlan'),
+    newCreateReportPlan,
+    CreateReportPlanResponse (CreateReportPlanResponse'),
+    newCreateReportPlanResponse,
 
-    -- ** DeleteBackupVaultNotifications
-    DeleteBackupVaultNotifications (DeleteBackupVaultNotifications'),
-    newDeleteBackupVaultNotifications,
-    DeleteBackupVaultNotificationsResponse (DeleteBackupVaultNotificationsResponse'),
-    newDeleteBackupVaultNotificationsResponse,
+    -- ** DeleteBackupPlan
+    DeleteBackupPlan (DeleteBackupPlan'),
+    newDeleteBackupPlan,
+    DeleteBackupPlanResponse (DeleteBackupPlanResponse'),
+    newDeleteBackupPlanResponse,
 
-    -- ** ListTags
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
+    -- ** DeleteBackupSelection
+    DeleteBackupSelection (DeleteBackupSelection'),
+    newDeleteBackupSelection,
+    DeleteBackupSelectionResponse (DeleteBackupSelectionResponse'),
+    newDeleteBackupSelectionResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** DeleteBackupVault
+    DeleteBackupVault (DeleteBackupVault'),
+    newDeleteBackupVault,
+    DeleteBackupVaultResponse (DeleteBackupVaultResponse'),
+    newDeleteBackupVaultResponse,
 
-    -- ** ListCopyJobs
-    ListCopyJobs (ListCopyJobs'),
-    newListCopyJobs,
-    ListCopyJobsResponse (ListCopyJobsResponse'),
-    newListCopyJobsResponse,
+    -- ** DeleteBackupVaultAccessPolicy
+    DeleteBackupVaultAccessPolicy (DeleteBackupVaultAccessPolicy'),
+    newDeleteBackupVaultAccessPolicy,
+    DeleteBackupVaultAccessPolicyResponse (DeleteBackupVaultAccessPolicyResponse'),
+    newDeleteBackupVaultAccessPolicyResponse,
 
     -- ** DeleteBackupVaultLockConfiguration
     DeleteBackupVaultLockConfiguration (DeleteBackupVaultLockConfiguration'),
@@ -408,11 +120,17 @@ module Amazonka.Backup
     DeleteBackupVaultLockConfigurationResponse (DeleteBackupVaultLockConfigurationResponse'),
     newDeleteBackupVaultLockConfigurationResponse,
 
-    -- ** GetBackupVaultAccessPolicy
-    GetBackupVaultAccessPolicy (GetBackupVaultAccessPolicy'),
-    newGetBackupVaultAccessPolicy,
-    GetBackupVaultAccessPolicyResponse (GetBackupVaultAccessPolicyResponse'),
-    newGetBackupVaultAccessPolicyResponse,
+    -- ** DeleteBackupVaultNotifications
+    DeleteBackupVaultNotifications (DeleteBackupVaultNotifications'),
+    newDeleteBackupVaultNotifications,
+    DeleteBackupVaultNotificationsResponse (DeleteBackupVaultNotificationsResponse'),
+    newDeleteBackupVaultNotificationsResponse,
+
+    -- ** DeleteFramework
+    DeleteFramework (DeleteFramework'),
+    newDeleteFramework,
+    DeleteFrameworkResponse (DeleteFrameworkResponse'),
+    newDeleteFrameworkResponse,
 
     -- ** DeleteRecoveryPoint
     DeleteRecoveryPoint (DeleteRecoveryPoint'),
@@ -420,11 +138,131 @@ module Amazonka.Backup
     DeleteRecoveryPointResponse (DeleteRecoveryPointResponse'),
     newDeleteRecoveryPointResponse,
 
-    -- ** PutBackupVaultLockConfiguration
-    PutBackupVaultLockConfiguration (PutBackupVaultLockConfiguration'),
-    newPutBackupVaultLockConfiguration,
-    PutBackupVaultLockConfigurationResponse (PutBackupVaultLockConfigurationResponse'),
-    newPutBackupVaultLockConfigurationResponse,
+    -- ** DeleteReportPlan
+    DeleteReportPlan (DeleteReportPlan'),
+    newDeleteReportPlan,
+    DeleteReportPlanResponse (DeleteReportPlanResponse'),
+    newDeleteReportPlanResponse,
+
+    -- ** DescribeBackupJob
+    DescribeBackupJob (DescribeBackupJob'),
+    newDescribeBackupJob,
+    DescribeBackupJobResponse (DescribeBackupJobResponse'),
+    newDescribeBackupJobResponse,
+
+    -- ** DescribeBackupVault
+    DescribeBackupVault (DescribeBackupVault'),
+    newDescribeBackupVault,
+    DescribeBackupVaultResponse (DescribeBackupVaultResponse'),
+    newDescribeBackupVaultResponse,
+
+    -- ** DescribeCopyJob
+    DescribeCopyJob (DescribeCopyJob'),
+    newDescribeCopyJob,
+    DescribeCopyJobResponse (DescribeCopyJobResponse'),
+    newDescribeCopyJobResponse,
+
+    -- ** DescribeFramework
+    DescribeFramework (DescribeFramework'),
+    newDescribeFramework,
+    DescribeFrameworkResponse (DescribeFrameworkResponse'),
+    newDescribeFrameworkResponse,
+
+    -- ** DescribeGlobalSettings
+    DescribeGlobalSettings (DescribeGlobalSettings'),
+    newDescribeGlobalSettings,
+    DescribeGlobalSettingsResponse (DescribeGlobalSettingsResponse'),
+    newDescribeGlobalSettingsResponse,
+
+    -- ** DescribeProtectedResource
+    DescribeProtectedResource (DescribeProtectedResource'),
+    newDescribeProtectedResource,
+    DescribeProtectedResourceResponse (DescribeProtectedResourceResponse'),
+    newDescribeProtectedResourceResponse,
+
+    -- ** DescribeRecoveryPoint
+    DescribeRecoveryPoint (DescribeRecoveryPoint'),
+    newDescribeRecoveryPoint,
+    DescribeRecoveryPointResponse (DescribeRecoveryPointResponse'),
+    newDescribeRecoveryPointResponse,
+
+    -- ** DescribeRegionSettings
+    DescribeRegionSettings (DescribeRegionSettings'),
+    newDescribeRegionSettings,
+    DescribeRegionSettingsResponse (DescribeRegionSettingsResponse'),
+    newDescribeRegionSettingsResponse,
+
+    -- ** DescribeReportJob
+    DescribeReportJob (DescribeReportJob'),
+    newDescribeReportJob,
+    DescribeReportJobResponse (DescribeReportJobResponse'),
+    newDescribeReportJobResponse,
+
+    -- ** DescribeReportPlan
+    DescribeReportPlan (DescribeReportPlan'),
+    newDescribeReportPlan,
+    DescribeReportPlanResponse (DescribeReportPlanResponse'),
+    newDescribeReportPlanResponse,
+
+    -- ** DescribeRestoreJob
+    DescribeRestoreJob (DescribeRestoreJob'),
+    newDescribeRestoreJob,
+    DescribeRestoreJobResponse (DescribeRestoreJobResponse'),
+    newDescribeRestoreJobResponse,
+
+    -- ** DisassociateRecoveryPoint
+    DisassociateRecoveryPoint (DisassociateRecoveryPoint'),
+    newDisassociateRecoveryPoint,
+    DisassociateRecoveryPointResponse (DisassociateRecoveryPointResponse'),
+    newDisassociateRecoveryPointResponse,
+
+    -- ** ExportBackupPlanTemplate
+    ExportBackupPlanTemplate (ExportBackupPlanTemplate'),
+    newExportBackupPlanTemplate,
+    ExportBackupPlanTemplateResponse (ExportBackupPlanTemplateResponse'),
+    newExportBackupPlanTemplateResponse,
+
+    -- ** GetBackupPlan
+    GetBackupPlan (GetBackupPlan'),
+    newGetBackupPlan,
+    GetBackupPlanResponse (GetBackupPlanResponse'),
+    newGetBackupPlanResponse,
+
+    -- ** GetBackupPlanFromJSON
+    GetBackupPlanFromJSON (GetBackupPlanFromJSON'),
+    newGetBackupPlanFromJSON,
+    GetBackupPlanFromJSONResponse (GetBackupPlanFromJSONResponse'),
+    newGetBackupPlanFromJSONResponse,
+
+    -- ** GetBackupPlanFromTemplate
+    GetBackupPlanFromTemplate (GetBackupPlanFromTemplate'),
+    newGetBackupPlanFromTemplate,
+    GetBackupPlanFromTemplateResponse (GetBackupPlanFromTemplateResponse'),
+    newGetBackupPlanFromTemplateResponse,
+
+    -- ** GetBackupSelection
+    GetBackupSelection (GetBackupSelection'),
+    newGetBackupSelection,
+    GetBackupSelectionResponse (GetBackupSelectionResponse'),
+    newGetBackupSelectionResponse,
+
+    -- ** GetBackupVaultAccessPolicy
+    GetBackupVaultAccessPolicy (GetBackupVaultAccessPolicy'),
+    newGetBackupVaultAccessPolicy,
+    GetBackupVaultAccessPolicyResponse (GetBackupVaultAccessPolicyResponse'),
+    newGetBackupVaultAccessPolicyResponse,
+
+    -- ** GetBackupVaultNotifications
+    GetBackupVaultNotifications (GetBackupVaultNotifications'),
+    newGetBackupVaultNotifications,
+    GetBackupVaultNotificationsResponse (GetBackupVaultNotificationsResponse'),
+    newGetBackupVaultNotificationsResponse,
+
+    -- ** GetRecoveryPointRestoreMetadata
+    GetRecoveryPointRestoreMetadata (GetRecoveryPointRestoreMetadata'),
+    newGetRecoveryPointRestoreMetadata,
+    GetRecoveryPointRestoreMetadataResponse (GetRecoveryPointRestoreMetadataResponse'),
+    newGetRecoveryPointRestoreMetadataResponse,
 
     -- ** GetSupportedResourceTypes
     GetSupportedResourceTypes (GetSupportedResourceTypes'),
@@ -432,11 +270,59 @@ module Amazonka.Backup
     GetSupportedResourceTypesResponse (GetSupportedResourceTypesResponse'),
     newGetSupportedResourceTypesResponse,
 
-    -- ** StopBackupJob
-    StopBackupJob (StopBackupJob'),
-    newStopBackupJob,
-    StopBackupJobResponse (StopBackupJobResponse'),
-    newStopBackupJobResponse,
+    -- ** ListBackupJobs
+    ListBackupJobs (ListBackupJobs'),
+    newListBackupJobs,
+    ListBackupJobsResponse (ListBackupJobsResponse'),
+    newListBackupJobsResponse,
+
+    -- ** ListBackupPlanTemplates
+    ListBackupPlanTemplates (ListBackupPlanTemplates'),
+    newListBackupPlanTemplates,
+    ListBackupPlanTemplatesResponse (ListBackupPlanTemplatesResponse'),
+    newListBackupPlanTemplatesResponse,
+
+    -- ** ListBackupPlanVersions
+    ListBackupPlanVersions (ListBackupPlanVersions'),
+    newListBackupPlanVersions,
+    ListBackupPlanVersionsResponse (ListBackupPlanVersionsResponse'),
+    newListBackupPlanVersionsResponse,
+
+    -- ** ListBackupPlans
+    ListBackupPlans (ListBackupPlans'),
+    newListBackupPlans,
+    ListBackupPlansResponse (ListBackupPlansResponse'),
+    newListBackupPlansResponse,
+
+    -- ** ListBackupSelections
+    ListBackupSelections (ListBackupSelections'),
+    newListBackupSelections,
+    ListBackupSelectionsResponse (ListBackupSelectionsResponse'),
+    newListBackupSelectionsResponse,
+
+    -- ** ListBackupVaults
+    ListBackupVaults (ListBackupVaults'),
+    newListBackupVaults,
+    ListBackupVaultsResponse (ListBackupVaultsResponse'),
+    newListBackupVaultsResponse,
+
+    -- ** ListCopyJobs
+    ListCopyJobs (ListCopyJobs'),
+    newListCopyJobs,
+    ListCopyJobsResponse (ListCopyJobsResponse'),
+    newListCopyJobsResponse,
+
+    -- ** ListFrameworks
+    ListFrameworks (ListFrameworks'),
+    newListFrameworks,
+    ListFrameworksResponse (ListFrameworksResponse'),
+    newListFrameworksResponse,
+
+    -- ** ListProtectedResources
+    ListProtectedResources (ListProtectedResources'),
+    newListProtectedResources,
+    ListProtectedResourcesResponse (ListProtectedResourcesResponse'),
+    newListProtectedResourcesResponse,
 
     -- ** ListRecoveryPointsByBackupVault
     ListRecoveryPointsByBackupVault (ListRecoveryPointsByBackupVault'),
@@ -444,17 +330,131 @@ module Amazonka.Backup
     ListRecoveryPointsByBackupVaultResponse (ListRecoveryPointsByBackupVaultResponse'),
     newListRecoveryPointsByBackupVaultResponse,
 
+    -- ** ListRecoveryPointsByResource
+    ListRecoveryPointsByResource (ListRecoveryPointsByResource'),
+    newListRecoveryPointsByResource,
+    ListRecoveryPointsByResourceResponse (ListRecoveryPointsByResourceResponse'),
+    newListRecoveryPointsByResourceResponse,
+
+    -- ** ListReportJobs
+    ListReportJobs (ListReportJobs'),
+    newListReportJobs,
+    ListReportJobsResponse (ListReportJobsResponse'),
+    newListReportJobsResponse,
+
+    -- ** ListReportPlans
+    ListReportPlans (ListReportPlans'),
+    newListReportPlans,
+    ListReportPlansResponse (ListReportPlansResponse'),
+    newListReportPlansResponse,
+
+    -- ** ListRestoreJobs
+    ListRestoreJobs (ListRestoreJobs'),
+    newListRestoreJobs,
+    ListRestoreJobsResponse (ListRestoreJobsResponse'),
+    newListRestoreJobsResponse,
+
+    -- ** ListTags
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
+
     -- ** PutBackupVaultAccessPolicy
     PutBackupVaultAccessPolicy (PutBackupVaultAccessPolicy'),
     newPutBackupVaultAccessPolicy,
     PutBackupVaultAccessPolicyResponse (PutBackupVaultAccessPolicyResponse'),
     newPutBackupVaultAccessPolicyResponse,
 
-    -- ** DeleteBackupVaultAccessPolicy
-    DeleteBackupVaultAccessPolicy (DeleteBackupVaultAccessPolicy'),
-    newDeleteBackupVaultAccessPolicy,
-    DeleteBackupVaultAccessPolicyResponse (DeleteBackupVaultAccessPolicyResponse'),
-    newDeleteBackupVaultAccessPolicyResponse,
+    -- ** PutBackupVaultLockConfiguration
+    PutBackupVaultLockConfiguration (PutBackupVaultLockConfiguration'),
+    newPutBackupVaultLockConfiguration,
+    PutBackupVaultLockConfigurationResponse (PutBackupVaultLockConfigurationResponse'),
+    newPutBackupVaultLockConfigurationResponse,
+
+    -- ** PutBackupVaultNotifications
+    PutBackupVaultNotifications (PutBackupVaultNotifications'),
+    newPutBackupVaultNotifications,
+    PutBackupVaultNotificationsResponse (PutBackupVaultNotificationsResponse'),
+    newPutBackupVaultNotificationsResponse,
+
+    -- ** StartBackupJob
+    StartBackupJob (StartBackupJob'),
+    newStartBackupJob,
+    StartBackupJobResponse (StartBackupJobResponse'),
+    newStartBackupJobResponse,
+
+    -- ** StartCopyJob
+    StartCopyJob (StartCopyJob'),
+    newStartCopyJob,
+    StartCopyJobResponse (StartCopyJobResponse'),
+    newStartCopyJobResponse,
+
+    -- ** StartReportJob
+    StartReportJob (StartReportJob'),
+    newStartReportJob,
+    StartReportJobResponse (StartReportJobResponse'),
+    newStartReportJobResponse,
+
+    -- ** StartRestoreJob
+    StartRestoreJob (StartRestoreJob'),
+    newStartRestoreJob,
+    StartRestoreJobResponse (StartRestoreJobResponse'),
+    newStartRestoreJobResponse,
+
+    -- ** StopBackupJob
+    StopBackupJob (StopBackupJob'),
+    newStopBackupJob,
+    StopBackupJobResponse (StopBackupJobResponse'),
+    newStopBackupJobResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateBackupPlan
+    UpdateBackupPlan (UpdateBackupPlan'),
+    newUpdateBackupPlan,
+    UpdateBackupPlanResponse (UpdateBackupPlanResponse'),
+    newUpdateBackupPlanResponse,
+
+    -- ** UpdateFramework
+    UpdateFramework (UpdateFramework'),
+    newUpdateFramework,
+    UpdateFrameworkResponse (UpdateFrameworkResponse'),
+    newUpdateFrameworkResponse,
+
+    -- ** UpdateGlobalSettings
+    UpdateGlobalSettings (UpdateGlobalSettings'),
+    newUpdateGlobalSettings,
+    UpdateGlobalSettingsResponse (UpdateGlobalSettingsResponse'),
+    newUpdateGlobalSettingsResponse,
+
+    -- ** UpdateRecoveryPointLifecycle
+    UpdateRecoveryPointLifecycle (UpdateRecoveryPointLifecycle'),
+    newUpdateRecoveryPointLifecycle,
+    UpdateRecoveryPointLifecycleResponse (UpdateRecoveryPointLifecycleResponse'),
+    newUpdateRecoveryPointLifecycleResponse,
+
+    -- ** UpdateRegionSettings
+    UpdateRegionSettings (UpdateRegionSettings'),
+    newUpdateRegionSettings,
+    UpdateRegionSettingsResponse (UpdateRegionSettingsResponse'),
+    newUpdateRegionSettingsResponse,
+
+    -- ** UpdateReportPlan
+    UpdateReportPlan (UpdateReportPlan'),
+    newUpdateReportPlan,
+    UpdateReportPlanResponse (UpdateReportPlanResponse'),
+    newUpdateReportPlanResponse,
 
     -- * Types
 

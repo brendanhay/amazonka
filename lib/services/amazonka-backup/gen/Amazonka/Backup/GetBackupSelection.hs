@@ -36,11 +36,11 @@ module Amazonka.Backup.GetBackupSelection
     newGetBackupSelectionResponse,
 
     -- * Response Lenses
+    getBackupSelectionResponse_creationDate,
+    getBackupSelectionResponse_creatorRequestId,
+    getBackupSelectionResponse_backupSelection,
     getBackupSelectionResponse_selectionId,
     getBackupSelectionResponse_backupPlanId,
-    getBackupSelectionResponse_creatorRequestId,
-    getBackupSelectionResponse_creationDate,
-    getBackupSelectionResponse_backupSelection,
     getBackupSelectionResponse_httpStatus,
   )
 where
@@ -104,11 +104,11 @@ instance Core.AWSRequest GetBackupSelection where
     Response.receiveJSON
       ( \s h x ->
           GetBackupSelectionResponse'
-            Prelude.<$> (x Core..?> "SelectionId")
-            Prelude.<*> (x Core..?> "BackupPlanId")
+            Prelude.<$> (x Core..?> "CreationDate")
             Prelude.<*> (x Core..?> "CreatorRequestId")
-            Prelude.<*> (x Core..?> "CreationDate")
             Prelude.<*> (x Core..?> "BackupSelection")
+            Prelude.<*> (x Core..?> "SelectionId")
+            Prelude.<*> (x Core..?> "BackupPlanId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,22 +147,22 @@ instance Core.ToQuery GetBackupSelection where
 
 -- | /See:/ 'newGetBackupSelectionResponse' smart constructor.
 data GetBackupSelectionResponse = GetBackupSelectionResponse'
-  { -- | Uniquely identifies the body of a request to assign a set of resources
-    -- to a backup plan.
-    selectionId :: Prelude.Maybe Prelude.Text,
-    -- | Uniquely identifies a backup plan.
-    backupPlanId :: Prelude.Maybe Prelude.Text,
-    -- | A unique string that identifies the request and allows failed requests
-    -- to be retried without the risk of running the operation twice.
-    creatorRequestId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time a backup selection is created, in Unix format and
+  { -- | The date and time a backup selection is created, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
     creationDate :: Prelude.Maybe Core.POSIX,
+    -- | A unique string that identifies the request and allows failed requests
+    -- to be retried without the risk of running the operation twice.
+    creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the body of a request to assign a set of resources to a backup
     -- plan.
     backupSelection :: Prelude.Maybe BackupSelection,
+    -- | Uniquely identifies the body of a request to assign a set of resources
+    -- to a backup plan.
+    selectionId :: Prelude.Maybe Prelude.Text,
+    -- | Uniquely identifies a backup plan.
+    backupPlanId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,21 +176,21 @@ data GetBackupSelectionResponse = GetBackupSelectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'selectionId', 'getBackupSelectionResponse_selectionId' - Uniquely identifies the body of a request to assign a set of resources
--- to a backup plan.
---
--- 'backupPlanId', 'getBackupSelectionResponse_backupPlanId' - Uniquely identifies a backup plan.
---
--- 'creatorRequestId', 'getBackupSelectionResponse_creatorRequestId' - A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
---
 -- 'creationDate', 'getBackupSelectionResponse_creationDate' - The date and time a backup selection is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 --
+-- 'creatorRequestId', 'getBackupSelectionResponse_creatorRequestId' - A unique string that identifies the request and allows failed requests
+-- to be retried without the risk of running the operation twice.
+--
 -- 'backupSelection', 'getBackupSelectionResponse_backupSelection' - Specifies the body of a request to assign a set of resources to a backup
 -- plan.
+--
+-- 'selectionId', 'getBackupSelectionResponse_selectionId' - Uniquely identifies the body of a request to assign a set of resources
+-- to a backup plan.
+--
+-- 'backupPlanId', 'getBackupSelectionResponse_backupPlanId' - Uniquely identifies a backup plan.
 --
 -- 'httpStatus', 'getBackupSelectionResponse_httpStatus' - The response's http status code.
 newGetBackupSelectionResponse ::
@@ -199,14 +199,31 @@ newGetBackupSelectionResponse ::
   GetBackupSelectionResponse
 newGetBackupSelectionResponse pHttpStatus_ =
   GetBackupSelectionResponse'
-    { selectionId =
+    { creationDate =
         Prelude.Nothing,
-      backupPlanId = Prelude.Nothing,
       creatorRequestId = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
       backupSelection = Prelude.Nothing,
+      selectionId = Prelude.Nothing,
+      backupPlanId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The date and time a backup selection is created, in Unix format and
+-- Coordinated Universal Time (UTC). The value of @CreationDate@ is
+-- accurate to milliseconds. For example, the value 1516925490.087
+-- represents Friday, January 26, 2018 12:11:30.087 AM.
+getBackupSelectionResponse_creationDate :: Lens.Lens' GetBackupSelectionResponse (Prelude.Maybe Prelude.UTCTime)
+getBackupSelectionResponse_creationDate = Lens.lens (\GetBackupSelectionResponse' {creationDate} -> creationDate) (\s@GetBackupSelectionResponse' {} a -> s {creationDate = a} :: GetBackupSelectionResponse) Prelude.. Lens.mapping Core._Time
+
+-- | A unique string that identifies the request and allows failed requests
+-- to be retried without the risk of running the operation twice.
+getBackupSelectionResponse_creatorRequestId :: Lens.Lens' GetBackupSelectionResponse (Prelude.Maybe Prelude.Text)
+getBackupSelectionResponse_creatorRequestId = Lens.lens (\GetBackupSelectionResponse' {creatorRequestId} -> creatorRequestId) (\s@GetBackupSelectionResponse' {} a -> s {creatorRequestId = a} :: GetBackupSelectionResponse)
+
+-- | Specifies the body of a request to assign a set of resources to a backup
+-- plan.
+getBackupSelectionResponse_backupSelection :: Lens.Lens' GetBackupSelectionResponse (Prelude.Maybe BackupSelection)
+getBackupSelectionResponse_backupSelection = Lens.lens (\GetBackupSelectionResponse' {backupSelection} -> backupSelection) (\s@GetBackupSelectionResponse' {} a -> s {backupSelection = a} :: GetBackupSelectionResponse)
 
 -- | Uniquely identifies the body of a request to assign a set of resources
 -- to a backup plan.
@@ -217,32 +234,15 @@ getBackupSelectionResponse_selectionId = Lens.lens (\GetBackupSelectionResponse'
 getBackupSelectionResponse_backupPlanId :: Lens.Lens' GetBackupSelectionResponse (Prelude.Maybe Prelude.Text)
 getBackupSelectionResponse_backupPlanId = Lens.lens (\GetBackupSelectionResponse' {backupPlanId} -> backupPlanId) (\s@GetBackupSelectionResponse' {} a -> s {backupPlanId = a} :: GetBackupSelectionResponse)
 
--- | A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
-getBackupSelectionResponse_creatorRequestId :: Lens.Lens' GetBackupSelectionResponse (Prelude.Maybe Prelude.Text)
-getBackupSelectionResponse_creatorRequestId = Lens.lens (\GetBackupSelectionResponse' {creatorRequestId} -> creatorRequestId) (\s@GetBackupSelectionResponse' {} a -> s {creatorRequestId = a} :: GetBackupSelectionResponse)
-
--- | The date and time a backup selection is created, in Unix format and
--- Coordinated Universal Time (UTC). The value of @CreationDate@ is
--- accurate to milliseconds. For example, the value 1516925490.087
--- represents Friday, January 26, 2018 12:11:30.087 AM.
-getBackupSelectionResponse_creationDate :: Lens.Lens' GetBackupSelectionResponse (Prelude.Maybe Prelude.UTCTime)
-getBackupSelectionResponse_creationDate = Lens.lens (\GetBackupSelectionResponse' {creationDate} -> creationDate) (\s@GetBackupSelectionResponse' {} a -> s {creationDate = a} :: GetBackupSelectionResponse) Prelude.. Lens.mapping Core._Time
-
--- | Specifies the body of a request to assign a set of resources to a backup
--- plan.
-getBackupSelectionResponse_backupSelection :: Lens.Lens' GetBackupSelectionResponse (Prelude.Maybe BackupSelection)
-getBackupSelectionResponse_backupSelection = Lens.lens (\GetBackupSelectionResponse' {backupSelection} -> backupSelection) (\s@GetBackupSelectionResponse' {} a -> s {backupSelection = a} :: GetBackupSelectionResponse)
-
 -- | The response's http status code.
 getBackupSelectionResponse_httpStatus :: Lens.Lens' GetBackupSelectionResponse Prelude.Int
 getBackupSelectionResponse_httpStatus = Lens.lens (\GetBackupSelectionResponse' {httpStatus} -> httpStatus) (\s@GetBackupSelectionResponse' {} a -> s {httpStatus = a} :: GetBackupSelectionResponse)
 
 instance Prelude.NFData GetBackupSelectionResponse where
   rnf GetBackupSelectionResponse' {..} =
-    Prelude.rnf selectionId
-      `Prelude.seq` Prelude.rnf backupPlanId
+    Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf backupSelection
+      `Prelude.seq` Prelude.rnf selectionId
+      `Prelude.seq` Prelude.rnf backupPlanId
       `Prelude.seq` Prelude.rnf httpStatus

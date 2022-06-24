@@ -65,9 +65,9 @@ module Amazonka.Backup.CreateBackupSelection
     newCreateBackupSelectionResponse,
 
     -- * Response Lenses
+    createBackupSelectionResponse_creationDate,
     createBackupSelectionResponse_selectionId,
     createBackupSelectionResponse_backupPlanId,
-    createBackupSelectionResponse_creationDate,
     createBackupSelectionResponse_httpStatus,
   )
 where
@@ -149,9 +149,9 @@ instance Core.AWSRequest CreateBackupSelection where
     Response.receiveJSON
       ( \s h x ->
           CreateBackupSelectionResponse'
-            Prelude.<$> (x Core..?> "SelectionId")
+            Prelude.<$> (x Core..?> "CreationDate")
+            Prelude.<*> (x Core..?> "SelectionId")
             Prelude.<*> (x Core..?> "BackupPlanId")
-            Prelude.<*> (x Core..?> "CreationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,16 +202,16 @@ instance Core.ToQuery CreateBackupSelection where
 
 -- | /See:/ 'newCreateBackupSelectionResponse' smart constructor.
 data CreateBackupSelectionResponse = CreateBackupSelectionResponse'
-  { -- | Uniquely identifies the body of a request to assign a set of resources
-    -- to a backup plan.
-    selectionId :: Prelude.Maybe Prelude.Text,
-    -- | Uniquely identifies a backup plan.
-    backupPlanId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time a backup selection is created, in Unix format and
+  { -- | The date and time a backup selection is created, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
     creationDate :: Prelude.Maybe Core.POSIX,
+    -- | Uniquely identifies the body of a request to assign a set of resources
+    -- to a backup plan.
+    selectionId :: Prelude.Maybe Prelude.Text,
+    -- | Uniquely identifies a backup plan.
+    backupPlanId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,15 +225,15 @@ data CreateBackupSelectionResponse = CreateBackupSelectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'selectionId', 'createBackupSelectionResponse_selectionId' - Uniquely identifies the body of a request to assign a set of resources
--- to a backup plan.
---
--- 'backupPlanId', 'createBackupSelectionResponse_backupPlanId' - Uniquely identifies a backup plan.
---
 -- 'creationDate', 'createBackupSelectionResponse_creationDate' - The date and time a backup selection is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
+--
+-- 'selectionId', 'createBackupSelectionResponse_selectionId' - Uniquely identifies the body of a request to assign a set of resources
+-- to a backup plan.
+--
+-- 'backupPlanId', 'createBackupSelectionResponse_backupPlanId' - Uniquely identifies a backup plan.
 --
 -- 'httpStatus', 'createBackupSelectionResponse_httpStatus' - The response's http status code.
 newCreateBackupSelectionResponse ::
@@ -242,12 +242,19 @@ newCreateBackupSelectionResponse ::
   CreateBackupSelectionResponse
 newCreateBackupSelectionResponse pHttpStatus_ =
   CreateBackupSelectionResponse'
-    { selectionId =
+    { creationDate =
         Prelude.Nothing,
+      selectionId = Prelude.Nothing,
       backupPlanId = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The date and time a backup selection is created, in Unix format and
+-- Coordinated Universal Time (UTC). The value of @CreationDate@ is
+-- accurate to milliseconds. For example, the value 1516925490.087
+-- represents Friday, January 26, 2018 12:11:30.087 AM.
+createBackupSelectionResponse_creationDate :: Lens.Lens' CreateBackupSelectionResponse (Prelude.Maybe Prelude.UTCTime)
+createBackupSelectionResponse_creationDate = Lens.lens (\CreateBackupSelectionResponse' {creationDate} -> creationDate) (\s@CreateBackupSelectionResponse' {} a -> s {creationDate = a} :: CreateBackupSelectionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Uniquely identifies the body of a request to assign a set of resources
 -- to a backup plan.
@@ -258,20 +265,13 @@ createBackupSelectionResponse_selectionId = Lens.lens (\CreateBackupSelectionRes
 createBackupSelectionResponse_backupPlanId :: Lens.Lens' CreateBackupSelectionResponse (Prelude.Maybe Prelude.Text)
 createBackupSelectionResponse_backupPlanId = Lens.lens (\CreateBackupSelectionResponse' {backupPlanId} -> backupPlanId) (\s@CreateBackupSelectionResponse' {} a -> s {backupPlanId = a} :: CreateBackupSelectionResponse)
 
--- | The date and time a backup selection is created, in Unix format and
--- Coordinated Universal Time (UTC). The value of @CreationDate@ is
--- accurate to milliseconds. For example, the value 1516925490.087
--- represents Friday, January 26, 2018 12:11:30.087 AM.
-createBackupSelectionResponse_creationDate :: Lens.Lens' CreateBackupSelectionResponse (Prelude.Maybe Prelude.UTCTime)
-createBackupSelectionResponse_creationDate = Lens.lens (\CreateBackupSelectionResponse' {creationDate} -> creationDate) (\s@CreateBackupSelectionResponse' {} a -> s {creationDate = a} :: CreateBackupSelectionResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The response's http status code.
 createBackupSelectionResponse_httpStatus :: Lens.Lens' CreateBackupSelectionResponse Prelude.Int
 createBackupSelectionResponse_httpStatus = Lens.lens (\CreateBackupSelectionResponse' {httpStatus} -> httpStatus) (\s@CreateBackupSelectionResponse' {} a -> s {httpStatus = a} :: CreateBackupSelectionResponse)
 
 instance Prelude.NFData CreateBackupSelectionResponse where
   rnf CreateBackupSelectionResponse' {..} =
-    Prelude.rnf selectionId
+    Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf selectionId
       `Prelude.seq` Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf httpStatus

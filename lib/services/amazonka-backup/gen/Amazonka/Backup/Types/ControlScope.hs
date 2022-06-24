@@ -34,15 +34,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newControlScope' smart constructor.
 data ControlScope = ControlScope'
-  { -- | Describes whether the control scope includes one or more types of
-    -- resources, such as @EFS@ or @RDS@.
-    complianceResourceTypes :: Prelude.Maybe [Prelude.Text],
-    -- | Describes whether the control scope includes resources with one or more
+  { -- | Describes whether the control scope includes resources with one or more
     -- tags. Each tag is a key-value pair.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the only Amazon Web Services resource that you want your
     -- control scope to contain.
-    complianceResourceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    complianceResourceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Describes whether the control scope includes one or more types of
+    -- resources, such as @EFS@ or @RDS@.
+    complianceResourceTypes :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,28 +54,22 @@ data ControlScope = ControlScope'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'complianceResourceTypes', 'controlScope_complianceResourceTypes' - Describes whether the control scope includes one or more types of
--- resources, such as @EFS@ or @RDS@.
---
 -- 'tags', 'controlScope_tags' - Describes whether the control scope includes resources with one or more
 -- tags. Each tag is a key-value pair.
 --
 -- 'complianceResourceIds', 'controlScope_complianceResourceIds' - The ID of the only Amazon Web Services resource that you want your
 -- control scope to contain.
+--
+-- 'complianceResourceTypes', 'controlScope_complianceResourceTypes' - Describes whether the control scope includes one or more types of
+-- resources, such as @EFS@ or @RDS@.
 newControlScope ::
   ControlScope
 newControlScope =
   ControlScope'
-    { complianceResourceTypes =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
-      complianceResourceIds = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      complianceResourceIds = Prelude.Nothing,
+      complianceResourceTypes = Prelude.Nothing
     }
-
--- | Describes whether the control scope includes one or more types of
--- resources, such as @EFS@ or @RDS@.
-controlScope_complianceResourceTypes :: Lens.Lens' ControlScope (Prelude.Maybe [Prelude.Text])
-controlScope_complianceResourceTypes = Lens.lens (\ControlScope' {complianceResourceTypes} -> complianceResourceTypes) (\s@ControlScope' {} a -> s {complianceResourceTypes = a} :: ControlScope) Prelude.. Lens.mapping Lens.coerced
 
 -- | Describes whether the control scope includes resources with one or more
 -- tags. Each tag is a key-value pair.
@@ -87,40 +81,44 @@ controlScope_tags = Lens.lens (\ControlScope' {tags} -> tags) (\s@ControlScope' 
 controlScope_complianceResourceIds :: Lens.Lens' ControlScope (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 controlScope_complianceResourceIds = Lens.lens (\ControlScope' {complianceResourceIds} -> complianceResourceIds) (\s@ControlScope' {} a -> s {complianceResourceIds = a} :: ControlScope) Prelude.. Lens.mapping Lens.coerced
 
+-- | Describes whether the control scope includes one or more types of
+-- resources, such as @EFS@ or @RDS@.
+controlScope_complianceResourceTypes :: Lens.Lens' ControlScope (Prelude.Maybe [Prelude.Text])
+controlScope_complianceResourceTypes = Lens.lens (\ControlScope' {complianceResourceTypes} -> complianceResourceTypes) (\s@ControlScope' {} a -> s {complianceResourceTypes = a} :: ControlScope) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON ControlScope where
   parseJSON =
     Core.withObject
       "ControlScope"
       ( \x ->
           ControlScope'
-            Prelude.<$> ( x Core..:? "ComplianceResourceTypes"
+            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ComplianceResourceIds")
+            Prelude.<*> ( x Core..:? "ComplianceResourceTypes"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ComplianceResourceIds")
       )
 
 instance Prelude.Hashable ControlScope where
   hashWithSalt _salt ControlScope' {..} =
-    _salt
-      `Prelude.hashWithSalt` complianceResourceTypes
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` complianceResourceIds
+      `Prelude.hashWithSalt` complianceResourceTypes
 
 instance Prelude.NFData ControlScope where
   rnf ControlScope' {..} =
-    Prelude.rnf complianceResourceTypes
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf complianceResourceIds
+      `Prelude.seq` Prelude.rnf complianceResourceTypes
 
 instance Core.ToJSON ControlScope where
   toJSON ControlScope' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ComplianceResourceTypes" Core..=)
-              Prelude.<$> complianceResourceTypes,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("ComplianceResourceIds" Core..=)
-              Prelude.<$> complianceResourceIds
+              Prelude.<$> complianceResourceIds,
+            ("ComplianceResourceTypes" Core..=)
+              Prelude.<$> complianceResourceTypes
           ]
       )

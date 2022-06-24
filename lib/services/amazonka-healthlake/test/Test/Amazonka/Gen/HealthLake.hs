@@ -27,29 +27,38 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestStartFHIRImportJob $
---             newStartFHIRImportJob
---
---         , requestDescribeFHIRDatastore $
---             newDescribeFHIRDatastore
---
---         , requestDescribeFHIRImportJob $
---             newDescribeFHIRImportJob
---
---         , requestListTagsForResource $
---             newListTagsForResource
+--         [ requestCreateFHIRDatastore $
+--             newCreateFHIRDatastore
 --
 --         , requestDeleteFHIRDatastore $
 --             newDeleteFHIRDatastore
 --
+--         , requestDescribeFHIRDatastore $
+--             newDescribeFHIRDatastore
+--
 --         , requestDescribeFHIRExportJob $
 --             newDescribeFHIRExportJob
 --
---         , requestCreateFHIRDatastore $
---             newCreateFHIRDatastore
+--         , requestDescribeFHIRImportJob $
+--             newDescribeFHIRImportJob
+--
+--         , requestListFHIRDatastores $
+--             newListFHIRDatastores
 --
 --         , requestListFHIRExportJobs $
 --             newListFHIRExportJobs
+--
+--         , requestListFHIRImportJobs $
+--             newListFHIRImportJobs
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestStartFHIRExportJob $
+--             newStartFHIRExportJob
+--
+--         , requestStartFHIRImportJob $
+--             newStartFHIRImportJob
 --
 --         , requestTagResource $
 --             newTagResource
@@ -57,41 +66,41 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestListFHIRDatastores $
---             newListFHIRDatastores
---
---         , requestStartFHIRExportJob $
---             newStartFHIRExportJob
---
---         , requestListFHIRImportJobs $
---             newListFHIRImportJobs
---
 --           ]
 
 --     , testGroup "response"
---         [ responseStartFHIRImportJob $
---             newStartFHIRImportJobResponse
---
---         , responseDescribeFHIRDatastore $
---             newDescribeFHIRDatastoreResponse
---
---         , responseDescribeFHIRImportJob $
---             newDescribeFHIRImportJobResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         [ responseCreateFHIRDatastore $
+--             newCreateFHIRDatastoreResponse
 --
 --         , responseDeleteFHIRDatastore $
 --             newDeleteFHIRDatastoreResponse
 --
+--         , responseDescribeFHIRDatastore $
+--             newDescribeFHIRDatastoreResponse
+--
 --         , responseDescribeFHIRExportJob $
 --             newDescribeFHIRExportJobResponse
 --
---         , responseCreateFHIRDatastore $
---             newCreateFHIRDatastoreResponse
+--         , responseDescribeFHIRImportJob $
+--             newDescribeFHIRImportJobResponse
+--
+--         , responseListFHIRDatastores $
+--             newListFHIRDatastoresResponse
 --
 --         , responseListFHIRExportJobs $
 --             newListFHIRExportJobsResponse
+--
+--         , responseListFHIRImportJobs $
+--             newListFHIRImportJobsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseStartFHIRExportJob $
+--             newStartFHIRExportJobResponse
+--
+--         , responseStartFHIRImportJob $
+--             newStartFHIRImportJobResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -99,55 +108,10 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseListFHIRDatastores $
---             newListFHIRDatastoresResponse
---
---         , responseStartFHIRExportJob $
---             newStartFHIRExportJobResponse
---
---         , responseListFHIRImportJobs $
---             newListFHIRImportJobsResponse
---
 --           ]
 --     ]
 
 -- Requests
-
-requestStartFHIRImportJob :: StartFHIRImportJob -> TestTree
-requestStartFHIRImportJob =
-  req
-    "StartFHIRImportJob"
-    "fixture/StartFHIRImportJob.yaml"
-
-requestDescribeFHIRDatastore :: DescribeFHIRDatastore -> TestTree
-requestDescribeFHIRDatastore =
-  req
-    "DescribeFHIRDatastore"
-    "fixture/DescribeFHIRDatastore.yaml"
-
-requestDescribeFHIRImportJob :: DescribeFHIRImportJob -> TestTree
-requestDescribeFHIRImportJob =
-  req
-    "DescribeFHIRImportJob"
-    "fixture/DescribeFHIRImportJob.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDeleteFHIRDatastore :: DeleteFHIRDatastore -> TestTree
-requestDeleteFHIRDatastore =
-  req
-    "DeleteFHIRDatastore"
-    "fixture/DeleteFHIRDatastore.yaml"
-
-requestDescribeFHIRExportJob :: DescribeFHIRExportJob -> TestTree
-requestDescribeFHIRExportJob =
-  req
-    "DescribeFHIRExportJob"
-    "fixture/DescribeFHIRExportJob.yaml"
 
 requestCreateFHIRDatastore :: CreateFHIRDatastore -> TestTree
 requestCreateFHIRDatastore =
@@ -155,11 +119,65 @@ requestCreateFHIRDatastore =
     "CreateFHIRDatastore"
     "fixture/CreateFHIRDatastore.yaml"
 
+requestDeleteFHIRDatastore :: DeleteFHIRDatastore -> TestTree
+requestDeleteFHIRDatastore =
+  req
+    "DeleteFHIRDatastore"
+    "fixture/DeleteFHIRDatastore.yaml"
+
+requestDescribeFHIRDatastore :: DescribeFHIRDatastore -> TestTree
+requestDescribeFHIRDatastore =
+  req
+    "DescribeFHIRDatastore"
+    "fixture/DescribeFHIRDatastore.yaml"
+
+requestDescribeFHIRExportJob :: DescribeFHIRExportJob -> TestTree
+requestDescribeFHIRExportJob =
+  req
+    "DescribeFHIRExportJob"
+    "fixture/DescribeFHIRExportJob.yaml"
+
+requestDescribeFHIRImportJob :: DescribeFHIRImportJob -> TestTree
+requestDescribeFHIRImportJob =
+  req
+    "DescribeFHIRImportJob"
+    "fixture/DescribeFHIRImportJob.yaml"
+
+requestListFHIRDatastores :: ListFHIRDatastores -> TestTree
+requestListFHIRDatastores =
+  req
+    "ListFHIRDatastores"
+    "fixture/ListFHIRDatastores.yaml"
+
 requestListFHIRExportJobs :: ListFHIRExportJobs -> TestTree
 requestListFHIRExportJobs =
   req
     "ListFHIRExportJobs"
     "fixture/ListFHIRExportJobs.yaml"
+
+requestListFHIRImportJobs :: ListFHIRImportJobs -> TestTree
+requestListFHIRImportJobs =
+  req
+    "ListFHIRImportJobs"
+    "fixture/ListFHIRImportJobs.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestStartFHIRExportJob :: StartFHIRExportJob -> TestTree
+requestStartFHIRExportJob =
+  req
+    "StartFHIRExportJob"
+    "fixture/StartFHIRExportJob.yaml"
+
+requestStartFHIRImportJob :: StartFHIRImportJob -> TestTree
+requestStartFHIRImportJob =
+  req
+    "StartFHIRImportJob"
+    "fixture/StartFHIRImportJob.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -173,73 +191,7 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestListFHIRDatastores :: ListFHIRDatastores -> TestTree
-requestListFHIRDatastores =
-  req
-    "ListFHIRDatastores"
-    "fixture/ListFHIRDatastores.yaml"
-
-requestStartFHIRExportJob :: StartFHIRExportJob -> TestTree
-requestStartFHIRExportJob =
-  req
-    "StartFHIRExportJob"
-    "fixture/StartFHIRExportJob.yaml"
-
-requestListFHIRImportJobs :: ListFHIRImportJobs -> TestTree
-requestListFHIRImportJobs =
-  req
-    "ListFHIRImportJobs"
-    "fixture/ListFHIRImportJobs.yaml"
-
 -- Responses
-
-responseStartFHIRImportJob :: StartFHIRImportJobResponse -> TestTree
-responseStartFHIRImportJob =
-  res
-    "StartFHIRImportJobResponse"
-    "fixture/StartFHIRImportJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartFHIRImportJob)
-
-responseDescribeFHIRDatastore :: DescribeFHIRDatastoreResponse -> TestTree
-responseDescribeFHIRDatastore =
-  res
-    "DescribeFHIRDatastoreResponse"
-    "fixture/DescribeFHIRDatastoreResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFHIRDatastore)
-
-responseDescribeFHIRImportJob :: DescribeFHIRImportJobResponse -> TestTree
-responseDescribeFHIRImportJob =
-  res
-    "DescribeFHIRImportJobResponse"
-    "fixture/DescribeFHIRImportJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFHIRImportJob)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDeleteFHIRDatastore :: DeleteFHIRDatastoreResponse -> TestTree
-responseDeleteFHIRDatastore =
-  res
-    "DeleteFHIRDatastoreResponse"
-    "fixture/DeleteFHIRDatastoreResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFHIRDatastore)
-
-responseDescribeFHIRExportJob :: DescribeFHIRExportJobResponse -> TestTree
-responseDescribeFHIRExportJob =
-  res
-    "DescribeFHIRExportJobResponse"
-    "fixture/DescribeFHIRExportJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFHIRExportJob)
 
 responseCreateFHIRDatastore :: CreateFHIRDatastoreResponse -> TestTree
 responseCreateFHIRDatastore =
@@ -249,6 +201,46 @@ responseCreateFHIRDatastore =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateFHIRDatastore)
 
+responseDeleteFHIRDatastore :: DeleteFHIRDatastoreResponse -> TestTree
+responseDeleteFHIRDatastore =
+  res
+    "DeleteFHIRDatastoreResponse"
+    "fixture/DeleteFHIRDatastoreResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFHIRDatastore)
+
+responseDescribeFHIRDatastore :: DescribeFHIRDatastoreResponse -> TestTree
+responseDescribeFHIRDatastore =
+  res
+    "DescribeFHIRDatastoreResponse"
+    "fixture/DescribeFHIRDatastoreResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFHIRDatastore)
+
+responseDescribeFHIRExportJob :: DescribeFHIRExportJobResponse -> TestTree
+responseDescribeFHIRExportJob =
+  res
+    "DescribeFHIRExportJobResponse"
+    "fixture/DescribeFHIRExportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFHIRExportJob)
+
+responseDescribeFHIRImportJob :: DescribeFHIRImportJobResponse -> TestTree
+responseDescribeFHIRImportJob =
+  res
+    "DescribeFHIRImportJobResponse"
+    "fixture/DescribeFHIRImportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFHIRImportJob)
+
+responseListFHIRDatastores :: ListFHIRDatastoresResponse -> TestTree
+responseListFHIRDatastores =
+  res
+    "ListFHIRDatastoresResponse"
+    "fixture/ListFHIRDatastoresResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFHIRDatastores)
+
 responseListFHIRExportJobs :: ListFHIRExportJobsResponse -> TestTree
 responseListFHIRExportJobs =
   res
@@ -256,6 +248,38 @@ responseListFHIRExportJobs =
     "fixture/ListFHIRExportJobsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListFHIRExportJobs)
+
+responseListFHIRImportJobs :: ListFHIRImportJobsResponse -> TestTree
+responseListFHIRImportJobs =
+  res
+    "ListFHIRImportJobsResponse"
+    "fixture/ListFHIRImportJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFHIRImportJobs)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseStartFHIRExportJob :: StartFHIRExportJobResponse -> TestTree
+responseStartFHIRExportJob =
+  res
+    "StartFHIRExportJobResponse"
+    "fixture/StartFHIRExportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartFHIRExportJob)
+
+responseStartFHIRImportJob :: StartFHIRImportJobResponse -> TestTree
+responseStartFHIRImportJob =
+  res
+    "StartFHIRImportJobResponse"
+    "fixture/StartFHIRImportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartFHIRImportJob)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -272,27 +296,3 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseListFHIRDatastores :: ListFHIRDatastoresResponse -> TestTree
-responseListFHIRDatastores =
-  res
-    "ListFHIRDatastoresResponse"
-    "fixture/ListFHIRDatastoresResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFHIRDatastores)
-
-responseStartFHIRExportJob :: StartFHIRExportJobResponse -> TestTree
-responseStartFHIRExportJob =
-  res
-    "StartFHIRExportJobResponse"
-    "fixture/StartFHIRExportJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartFHIRExportJob)
-
-responseListFHIRImportJobs :: ListFHIRImportJobsResponse -> TestTree
-responseListFHIRImportJobs =
-  res
-    "ListFHIRImportJobsResponse"
-    "fixture/ListFHIRImportJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFHIRImportJobs)

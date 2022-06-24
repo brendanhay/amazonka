@@ -27,11 +27,11 @@ module Amazonka.HealthLake.CreateFHIRDatastore
     newCreateFHIRDatastore,
 
     -- * Request Lenses
-    createFHIRDatastore_clientToken,
-    createFHIRDatastore_sseConfiguration,
-    createFHIRDatastore_datastoreName,
-    createFHIRDatastore_preloadDataConfig,
     createFHIRDatastore_tags,
+    createFHIRDatastore_clientToken,
+    createFHIRDatastore_datastoreName,
+    createFHIRDatastore_sseConfiguration,
+    createFHIRDatastore_preloadDataConfig,
     createFHIRDatastore_datastoreTypeVersion,
 
     -- * Destructuring the Response
@@ -56,19 +56,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFHIRDatastore' smart constructor.
 data CreateFHIRDatastore = CreateFHIRDatastore'
-  { -- | Optional user provided token used for ensuring idempotency.
+  { -- | Resource tags that are applied to a Data Store when it is created.
+    tags :: Prelude.Maybe [Tag],
+    -- | Optional user provided token used for ensuring idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The user generated name for the Data Store.
+    datastoreName :: Prelude.Maybe Prelude.Text,
     -- | The server-side encryption key configuration for a customer provided
     -- encryption key specified for creating a Data Store.
     sseConfiguration :: Prelude.Maybe SseConfiguration,
-    -- | The user generated name for the Data Store.
-    datastoreName :: Prelude.Maybe Prelude.Text,
     -- | Optional parameter to preload data upon creation of the Data Store.
     -- Currently, the only supported preloaded data is synthetic data generated
     -- from Synthea.
     preloadDataConfig :: Prelude.Maybe PreloadDataConfig,
-    -- | Resource tags that are applied to a Data Store when it is created.
-    tags :: Prelude.Maybe [Tag],
     -- | The FHIR version of the Data Store. The only supported version is R4.
     datastoreTypeVersion :: FHIRVersion
   }
@@ -82,18 +82,18 @@ data CreateFHIRDatastore = CreateFHIRDatastore'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createFHIRDatastore_tags' - Resource tags that are applied to a Data Store when it is created.
+--
 -- 'clientToken', 'createFHIRDatastore_clientToken' - Optional user provided token used for ensuring idempotency.
+--
+-- 'datastoreName', 'createFHIRDatastore_datastoreName' - The user generated name for the Data Store.
 --
 -- 'sseConfiguration', 'createFHIRDatastore_sseConfiguration' - The server-side encryption key configuration for a customer provided
 -- encryption key specified for creating a Data Store.
 --
--- 'datastoreName', 'createFHIRDatastore_datastoreName' - The user generated name for the Data Store.
---
 -- 'preloadDataConfig', 'createFHIRDatastore_preloadDataConfig' - Optional parameter to preload data upon creation of the Data Store.
 -- Currently, the only supported preloaded data is synthetic data generated
 -- from Synthea.
---
--- 'tags', 'createFHIRDatastore_tags' - Resource tags that are applied to a Data Store when it is created.
 --
 -- 'datastoreTypeVersion', 'createFHIRDatastore_datastoreTypeVersion' - The FHIR version of the Data Store. The only supported version is R4.
 newCreateFHIRDatastore ::
@@ -102,36 +102,36 @@ newCreateFHIRDatastore ::
   CreateFHIRDatastore
 newCreateFHIRDatastore pDatastoreTypeVersion_ =
   CreateFHIRDatastore'
-    { clientToken = Prelude.Nothing,
-      sseConfiguration = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       datastoreName = Prelude.Nothing,
+      sseConfiguration = Prelude.Nothing,
       preloadDataConfig = Prelude.Nothing,
-      tags = Prelude.Nothing,
       datastoreTypeVersion = pDatastoreTypeVersion_
     }
+
+-- | Resource tags that are applied to a Data Store when it is created.
+createFHIRDatastore_tags :: Lens.Lens' CreateFHIRDatastore (Prelude.Maybe [Tag])
+createFHIRDatastore_tags = Lens.lens (\CreateFHIRDatastore' {tags} -> tags) (\s@CreateFHIRDatastore' {} a -> s {tags = a} :: CreateFHIRDatastore) Prelude.. Lens.mapping Lens.coerced
 
 -- | Optional user provided token used for ensuring idempotency.
 createFHIRDatastore_clientToken :: Lens.Lens' CreateFHIRDatastore (Prelude.Maybe Prelude.Text)
 createFHIRDatastore_clientToken = Lens.lens (\CreateFHIRDatastore' {clientToken} -> clientToken) (\s@CreateFHIRDatastore' {} a -> s {clientToken = a} :: CreateFHIRDatastore)
+
+-- | The user generated name for the Data Store.
+createFHIRDatastore_datastoreName :: Lens.Lens' CreateFHIRDatastore (Prelude.Maybe Prelude.Text)
+createFHIRDatastore_datastoreName = Lens.lens (\CreateFHIRDatastore' {datastoreName} -> datastoreName) (\s@CreateFHIRDatastore' {} a -> s {datastoreName = a} :: CreateFHIRDatastore)
 
 -- | The server-side encryption key configuration for a customer provided
 -- encryption key specified for creating a Data Store.
 createFHIRDatastore_sseConfiguration :: Lens.Lens' CreateFHIRDatastore (Prelude.Maybe SseConfiguration)
 createFHIRDatastore_sseConfiguration = Lens.lens (\CreateFHIRDatastore' {sseConfiguration} -> sseConfiguration) (\s@CreateFHIRDatastore' {} a -> s {sseConfiguration = a} :: CreateFHIRDatastore)
 
--- | The user generated name for the Data Store.
-createFHIRDatastore_datastoreName :: Lens.Lens' CreateFHIRDatastore (Prelude.Maybe Prelude.Text)
-createFHIRDatastore_datastoreName = Lens.lens (\CreateFHIRDatastore' {datastoreName} -> datastoreName) (\s@CreateFHIRDatastore' {} a -> s {datastoreName = a} :: CreateFHIRDatastore)
-
 -- | Optional parameter to preload data upon creation of the Data Store.
 -- Currently, the only supported preloaded data is synthetic data generated
 -- from Synthea.
 createFHIRDatastore_preloadDataConfig :: Lens.Lens' CreateFHIRDatastore (Prelude.Maybe PreloadDataConfig)
 createFHIRDatastore_preloadDataConfig = Lens.lens (\CreateFHIRDatastore' {preloadDataConfig} -> preloadDataConfig) (\s@CreateFHIRDatastore' {} a -> s {preloadDataConfig = a} :: CreateFHIRDatastore)
-
--- | Resource tags that are applied to a Data Store when it is created.
-createFHIRDatastore_tags :: Lens.Lens' CreateFHIRDatastore (Prelude.Maybe [Tag])
-createFHIRDatastore_tags = Lens.lens (\CreateFHIRDatastore' {tags} -> tags) (\s@CreateFHIRDatastore' {} a -> s {tags = a} :: CreateFHIRDatastore) Prelude.. Lens.mapping Lens.coerced
 
 -- | The FHIR version of the Data Store. The only supported version is R4.
 createFHIRDatastore_datastoreTypeVersion :: Lens.Lens' CreateFHIRDatastore FHIRVersion
@@ -155,20 +155,20 @@ instance Core.AWSRequest CreateFHIRDatastore where
 
 instance Prelude.Hashable CreateFHIRDatastore where
   hashWithSalt _salt CreateFHIRDatastore' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` sseConfiguration
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` datastoreName
+      `Prelude.hashWithSalt` sseConfiguration
       `Prelude.hashWithSalt` preloadDataConfig
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` datastoreTypeVersion
 
 instance Prelude.NFData CreateFHIRDatastore where
   rnf CreateFHIRDatastore' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf sseConfiguration
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf datastoreName
+      `Prelude.seq` Prelude.rnf sseConfiguration
       `Prelude.seq` Prelude.rnf preloadDataConfig
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf datastoreTypeVersion
 
 instance Core.ToHeaders CreateFHIRDatastore where
@@ -190,13 +190,13 @@ instance Core.ToJSON CreateFHIRDatastore where
   toJSON CreateFHIRDatastore' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("DatastoreName" Core..=) Prelude.<$> datastoreName,
             ("SseConfiguration" Core..=)
               Prelude.<$> sseConfiguration,
-            ("DatastoreName" Core..=) Prelude.<$> datastoreName,
             ("PreloadDataConfig" Core..=)
               Prelude.<$> preloadDataConfig,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ( "DatastoreTypeVersion"
                   Core..= datastoreTypeVersion

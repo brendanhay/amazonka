@@ -31,17 +31,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportJobProperties' smart constructor.
 data ImportJobProperties = ImportJobProperties'
-  { jobOutputDataConfig :: Prelude.Maybe OutputDataConfig,
+  { -- | An explanation of any errors that may have occurred during the FHIR
+    -- import job.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The user-generated name for an Import job.
     jobName :: Prelude.Maybe Prelude.Text,
-    -- | The time that the Import job was completed.
-    endTime :: Prelude.Maybe Core.POSIX,
+    jobOutputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The Amazon Resource Name (ARN) that gives Amazon HealthLake access to
     -- your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | An explanation of any errors that may have occurred during the FHIR
-    -- import job.
-    message :: Prelude.Maybe Prelude.Text,
+    -- | The time that the Import job was completed.
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The AWS-generated id number for the Import job.
     jobId :: Prelude.Text,
     -- | The job status for an Import job. Possible statuses are SUBMITTED,
@@ -65,17 +65,17 @@ data ImportJobProperties = ImportJobProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobOutputDataConfig', 'importJobProperties_jobOutputDataConfig' - Undocumented member.
+-- 'message', 'importJobProperties_message' - An explanation of any errors that may have occurred during the FHIR
+-- import job.
 --
 -- 'jobName', 'importJobProperties_jobName' - The user-generated name for an Import job.
 --
--- 'endTime', 'importJobProperties_endTime' - The time that the Import job was completed.
+-- 'jobOutputDataConfig', 'importJobProperties_jobOutputDataConfig' - Undocumented member.
 --
 -- 'dataAccessRoleArn', 'importJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) that gives Amazon HealthLake access to
 -- your input data.
 --
--- 'message', 'importJobProperties_message' - An explanation of any errors that may have occurred during the FHIR
--- import job.
+-- 'endTime', 'importJobProperties_endTime' - The time that the Import job was completed.
 --
 -- 'jobId', 'importJobProperties_jobId' - The AWS-generated id number for the Import job.
 --
@@ -107,12 +107,11 @@ newImportJobProperties
   pDatastoreId_
   pInputDataConfig_ =
     ImportJobProperties'
-      { jobOutputDataConfig =
-          Prelude.Nothing,
+      { message = Prelude.Nothing,
         jobName = Prelude.Nothing,
-        endTime = Prelude.Nothing,
+        jobOutputDataConfig = Prelude.Nothing,
         dataAccessRoleArn = Prelude.Nothing,
-        message = Prelude.Nothing,
+        endTime = Prelude.Nothing,
         jobId = pJobId_,
         jobStatus = pJobStatus_,
         submitTime = Core._Time Lens.# pSubmitTime_,
@@ -120,27 +119,27 @@ newImportJobProperties
         inputDataConfig = pInputDataConfig_
       }
 
--- | Undocumented member.
-importJobProperties_jobOutputDataConfig :: Lens.Lens' ImportJobProperties (Prelude.Maybe OutputDataConfig)
-importJobProperties_jobOutputDataConfig = Lens.lens (\ImportJobProperties' {jobOutputDataConfig} -> jobOutputDataConfig) (\s@ImportJobProperties' {} a -> s {jobOutputDataConfig = a} :: ImportJobProperties)
+-- | An explanation of any errors that may have occurred during the FHIR
+-- import job.
+importJobProperties_message :: Lens.Lens' ImportJobProperties (Prelude.Maybe Prelude.Text)
+importJobProperties_message = Lens.lens (\ImportJobProperties' {message} -> message) (\s@ImportJobProperties' {} a -> s {message = a} :: ImportJobProperties)
 
 -- | The user-generated name for an Import job.
 importJobProperties_jobName :: Lens.Lens' ImportJobProperties (Prelude.Maybe Prelude.Text)
 importJobProperties_jobName = Lens.lens (\ImportJobProperties' {jobName} -> jobName) (\s@ImportJobProperties' {} a -> s {jobName = a} :: ImportJobProperties)
 
--- | The time that the Import job was completed.
-importJobProperties_endTime :: Lens.Lens' ImportJobProperties (Prelude.Maybe Prelude.UTCTime)
-importJobProperties_endTime = Lens.lens (\ImportJobProperties' {endTime} -> endTime) (\s@ImportJobProperties' {} a -> s {endTime = a} :: ImportJobProperties) Prelude.. Lens.mapping Core._Time
+-- | Undocumented member.
+importJobProperties_jobOutputDataConfig :: Lens.Lens' ImportJobProperties (Prelude.Maybe OutputDataConfig)
+importJobProperties_jobOutputDataConfig = Lens.lens (\ImportJobProperties' {jobOutputDataConfig} -> jobOutputDataConfig) (\s@ImportJobProperties' {} a -> s {jobOutputDataConfig = a} :: ImportJobProperties)
 
 -- | The Amazon Resource Name (ARN) that gives Amazon HealthLake access to
 -- your input data.
 importJobProperties_dataAccessRoleArn :: Lens.Lens' ImportJobProperties (Prelude.Maybe Prelude.Text)
 importJobProperties_dataAccessRoleArn = Lens.lens (\ImportJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@ImportJobProperties' {} a -> s {dataAccessRoleArn = a} :: ImportJobProperties)
 
--- | An explanation of any errors that may have occurred during the FHIR
--- import job.
-importJobProperties_message :: Lens.Lens' ImportJobProperties (Prelude.Maybe Prelude.Text)
-importJobProperties_message = Lens.lens (\ImportJobProperties' {message} -> message) (\s@ImportJobProperties' {} a -> s {message = a} :: ImportJobProperties)
+-- | The time that the Import job was completed.
+importJobProperties_endTime :: Lens.Lens' ImportJobProperties (Prelude.Maybe Prelude.UTCTime)
+importJobProperties_endTime = Lens.lens (\ImportJobProperties' {endTime} -> endTime) (\s@ImportJobProperties' {} a -> s {endTime = a} :: ImportJobProperties) Prelude.. Lens.mapping Core._Time
 
 -- | The AWS-generated id number for the Import job.
 importJobProperties_jobId :: Lens.Lens' ImportJobProperties Prelude.Text
@@ -170,11 +169,11 @@ instance Core.FromJSON ImportJobProperties where
       "ImportJobProperties"
       ( \x ->
           ImportJobProperties'
-            Prelude.<$> (x Core..:? "JobOutputDataConfig")
+            Prelude.<$> (x Core..:? "Message")
             Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "JobOutputDataConfig")
             Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "EndTime")
             Prelude.<*> (x Core..: "JobId")
             Prelude.<*> (x Core..: "JobStatus")
             Prelude.<*> (x Core..: "SubmitTime")
@@ -184,11 +183,11 @@ instance Core.FromJSON ImportJobProperties where
 
 instance Prelude.Hashable ImportJobProperties where
   hashWithSalt _salt ImportJobProperties' {..} =
-    _salt `Prelude.hashWithSalt` jobOutputDataConfig
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` jobOutputDataConfig
       `Prelude.hashWithSalt` dataAccessRoleArn
-      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` submitTime
@@ -197,11 +196,11 @@ instance Prelude.Hashable ImportJobProperties where
 
 instance Prelude.NFData ImportJobProperties where
   rnf ImportJobProperties' {..} =
-    Prelude.rnf jobOutputDataConfig
+    Prelude.rnf message
       `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf jobOutputDataConfig
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf submitTime

@@ -21,17 +21,8 @@ module Amazonka.HealthLake
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
@@ -39,47 +30,20 @@ module Amazonka.HealthLake
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** StartFHIRImportJob
-    StartFHIRImportJob (StartFHIRImportJob'),
-    newStartFHIRImportJob,
-    StartFHIRImportJobResponse (StartFHIRImportJobResponse'),
-    newStartFHIRImportJobResponse,
-
-    -- ** DescribeFHIRDatastore
-    DescribeFHIRDatastore (DescribeFHIRDatastore'),
-    newDescribeFHIRDatastore,
-    DescribeFHIRDatastoreResponse (DescribeFHIRDatastoreResponse'),
-    newDescribeFHIRDatastoreResponse,
-
-    -- ** DescribeFHIRImportJob
-    DescribeFHIRImportJob (DescribeFHIRImportJob'),
-    newDescribeFHIRImportJob,
-    DescribeFHIRImportJobResponse (DescribeFHIRImportJobResponse'),
-    newDescribeFHIRImportJobResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DeleteFHIRDatastore
-    DeleteFHIRDatastore (DeleteFHIRDatastore'),
-    newDeleteFHIRDatastore,
-    DeleteFHIRDatastoreResponse (DeleteFHIRDatastoreResponse'),
-    newDeleteFHIRDatastoreResponse,
-
-    -- ** DescribeFHIRExportJob
-    DescribeFHIRExportJob (DescribeFHIRExportJob'),
-    newDescribeFHIRExportJob,
-    DescribeFHIRExportJobResponse (DescribeFHIRExportJobResponse'),
-    newDescribeFHIRExportJobResponse,
 
     -- ** CreateFHIRDatastore
     CreateFHIRDatastore (CreateFHIRDatastore'),
@@ -87,11 +51,65 @@ module Amazonka.HealthLake
     CreateFHIRDatastoreResponse (CreateFHIRDatastoreResponse'),
     newCreateFHIRDatastoreResponse,
 
+    -- ** DeleteFHIRDatastore
+    DeleteFHIRDatastore (DeleteFHIRDatastore'),
+    newDeleteFHIRDatastore,
+    DeleteFHIRDatastoreResponse (DeleteFHIRDatastoreResponse'),
+    newDeleteFHIRDatastoreResponse,
+
+    -- ** DescribeFHIRDatastore
+    DescribeFHIRDatastore (DescribeFHIRDatastore'),
+    newDescribeFHIRDatastore,
+    DescribeFHIRDatastoreResponse (DescribeFHIRDatastoreResponse'),
+    newDescribeFHIRDatastoreResponse,
+
+    -- ** DescribeFHIRExportJob
+    DescribeFHIRExportJob (DescribeFHIRExportJob'),
+    newDescribeFHIRExportJob,
+    DescribeFHIRExportJobResponse (DescribeFHIRExportJobResponse'),
+    newDescribeFHIRExportJobResponse,
+
+    -- ** DescribeFHIRImportJob
+    DescribeFHIRImportJob (DescribeFHIRImportJob'),
+    newDescribeFHIRImportJob,
+    DescribeFHIRImportJobResponse (DescribeFHIRImportJobResponse'),
+    newDescribeFHIRImportJobResponse,
+
+    -- ** ListFHIRDatastores
+    ListFHIRDatastores (ListFHIRDatastores'),
+    newListFHIRDatastores,
+    ListFHIRDatastoresResponse (ListFHIRDatastoresResponse'),
+    newListFHIRDatastoresResponse,
+
     -- ** ListFHIRExportJobs
     ListFHIRExportJobs (ListFHIRExportJobs'),
     newListFHIRExportJobs,
     ListFHIRExportJobsResponse (ListFHIRExportJobsResponse'),
     newListFHIRExportJobsResponse,
+
+    -- ** ListFHIRImportJobs
+    ListFHIRImportJobs (ListFHIRImportJobs'),
+    newListFHIRImportJobs,
+    ListFHIRImportJobsResponse (ListFHIRImportJobsResponse'),
+    newListFHIRImportJobsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** StartFHIRExportJob
+    StartFHIRExportJob (StartFHIRExportJob'),
+    newStartFHIRExportJob,
+    StartFHIRExportJobResponse (StartFHIRExportJobResponse'),
+    newStartFHIRExportJobResponse,
+
+    -- ** StartFHIRImportJob
+    StartFHIRImportJob (StartFHIRImportJob'),
+    newStartFHIRImportJob,
+    StartFHIRImportJobResponse (StartFHIRImportJobResponse'),
+    newStartFHIRImportJobResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -104,24 +122,6 @@ module Amazonka.HealthLake
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** ListFHIRDatastores
-    ListFHIRDatastores (ListFHIRDatastores'),
-    newListFHIRDatastores,
-    ListFHIRDatastoresResponse (ListFHIRDatastoresResponse'),
-    newListFHIRDatastoresResponse,
-
-    -- ** StartFHIRExportJob
-    StartFHIRExportJob (StartFHIRExportJob'),
-    newStartFHIRExportJob,
-    StartFHIRExportJobResponse (StartFHIRExportJobResponse'),
-    newStartFHIRExportJobResponse,
-
-    -- ** ListFHIRImportJobs
-    ListFHIRImportJobs (ListFHIRImportJobs'),
-    newListFHIRImportJobs,
-    ListFHIRImportJobsResponse (ListFHIRImportJobsResponse'),
-    newListFHIRImportJobsResponse,
 
     -- * Types
 

@@ -14,15 +14,40 @@
 module Amazonka.IoTEventsData.Lens
   ( -- * Operations
 
-    -- ** BatchSnoozeAlarm
-    batchSnoozeAlarm_snoozeActionRequests,
-    batchSnoozeAlarmResponse_errorEntries,
-    batchSnoozeAlarmResponse_httpStatus,
+    -- ** BatchAcknowledgeAlarm
+    batchAcknowledgeAlarm_acknowledgeActionRequests,
+    batchAcknowledgeAlarmResponse_errorEntries,
+    batchAcknowledgeAlarmResponse_httpStatus,
 
     -- ** BatchDisableAlarm
     batchDisableAlarm_disableActionRequests,
     batchDisableAlarmResponse_errorEntries,
     batchDisableAlarmResponse_httpStatus,
+
+    -- ** BatchEnableAlarm
+    batchEnableAlarm_enableActionRequests,
+    batchEnableAlarmResponse_errorEntries,
+    batchEnableAlarmResponse_httpStatus,
+
+    -- ** BatchPutMessage
+    batchPutMessage_messages,
+    batchPutMessageResponse_batchPutMessageErrorEntries,
+    batchPutMessageResponse_httpStatus,
+
+    -- ** BatchResetAlarm
+    batchResetAlarm_resetActionRequests,
+    batchResetAlarmResponse_errorEntries,
+    batchResetAlarmResponse_httpStatus,
+
+    -- ** BatchSnoozeAlarm
+    batchSnoozeAlarm_snoozeActionRequests,
+    batchSnoozeAlarmResponse_errorEntries,
+    batchSnoozeAlarmResponse_httpStatus,
+
+    -- ** BatchUpdateDetector
+    batchUpdateDetector_detectors,
+    batchUpdateDetectorResponse_batchUpdateDetectorErrorEntries,
+    batchUpdateDetectorResponse_httpStatus,
 
     -- ** DescribeAlarm
     describeAlarm_keyValue,
@@ -30,26 +55,11 @@ module Amazonka.IoTEventsData.Lens
     describeAlarmResponse_alarm,
     describeAlarmResponse_httpStatus,
 
-    -- ** BatchPutMessage
-    batchPutMessage_messages,
-    batchPutMessageResponse_batchPutMessageErrorEntries,
-    batchPutMessageResponse_httpStatus,
-
     -- ** DescribeDetector
     describeDetector_keyValue,
     describeDetector_detectorModelName,
     describeDetectorResponse_detector,
     describeDetectorResponse_httpStatus,
-
-    -- ** BatchUpdateDetector
-    batchUpdateDetector_detectors,
-    batchUpdateDetectorResponse_batchUpdateDetectorErrorEntries,
-    batchUpdateDetectorResponse_httpStatus,
-
-    -- ** BatchAcknowledgeAlarm
-    batchAcknowledgeAlarm_acknowledgeActionRequests,
-    batchAcknowledgeAlarmResponse_errorEntries,
-    batchAcknowledgeAlarmResponse_httpStatus,
 
     -- ** ListAlarms
     listAlarms_nextToken,
@@ -59,11 +69,6 @@ module Amazonka.IoTEventsData.Lens
     listAlarmsResponse_alarmSummaries,
     listAlarmsResponse_httpStatus,
 
-    -- ** BatchResetAlarm
-    batchResetAlarm_resetActionRequests,
-    batchResetAlarmResponse_errorEntries,
-    batchResetAlarmResponse_httpStatus,
-
     -- ** ListDetectors
     listDetectors_nextToken,
     listDetectors_stateName,
@@ -72,11 +77,6 @@ module Amazonka.IoTEventsData.Lens
     listDetectorsResponse_nextToken,
     listDetectorsResponse_detectorSummaries,
     listDetectorsResponse_httpStatus,
-
-    -- ** BatchEnableAlarm
-    batchEnableAlarm_enableActionRequests,
-    batchEnableAlarmResponse_errorEntries,
-    batchEnableAlarmResponse_httpStatus,
 
     -- * Types
 
@@ -90,57 +90,57 @@ module Amazonka.IoTEventsData.Lens
     acknowledgeAlarmActionRequest_alarmModelName,
 
     -- ** Alarm
+    alarm_alarmModelName,
+    alarm_alarmState,
+    alarm_severity,
+    alarm_alarmModelVersion,
     alarm_keyValue,
     alarm_creationTime,
-    alarm_alarmState,
-    alarm_alarmModelName,
-    alarm_severity,
     alarm_lastUpdateTime,
-    alarm_alarmModelVersion,
 
     -- ** AlarmState
-    alarmState_customerAction,
-    alarmState_stateName,
     alarmState_ruleEvaluation,
+    alarmState_stateName,
     alarmState_systemEvent,
+    alarmState_customerAction,
 
     -- ** AlarmSummary
+    alarmSummary_alarmModelName,
+    alarmSummary_alarmModelVersion,
+    alarmSummary_stateName,
     alarmSummary_keyValue,
     alarmSummary_creationTime,
-    alarmSummary_alarmModelName,
-    alarmSummary_stateName,
     alarmSummary_lastUpdateTime,
-    alarmSummary_alarmModelVersion,
 
     -- ** BatchAlarmActionErrorEntry
+    batchAlarmActionErrorEntry_errorMessage,
     batchAlarmActionErrorEntry_requestId,
     batchAlarmActionErrorEntry_errorCode,
-    batchAlarmActionErrorEntry_errorMessage,
 
     -- ** BatchPutMessageErrorEntry
-    batchPutMessageErrorEntry_errorCode,
     batchPutMessageErrorEntry_errorMessage,
     batchPutMessageErrorEntry_messageId,
+    batchPutMessageErrorEntry_errorCode,
 
     -- ** BatchUpdateDetectorErrorEntry
-    batchUpdateDetectorErrorEntry_errorCode,
     batchUpdateDetectorErrorEntry_errorMessage,
     batchUpdateDetectorErrorEntry_messageId,
+    batchUpdateDetectorErrorEntry_errorCode,
 
     -- ** CustomerAction
     customerAction_resetActionConfiguration,
     customerAction_actionName,
-    customerAction_snoozeActionConfiguration,
     customerAction_enableActionConfiguration,
     customerAction_disableActionConfiguration,
+    customerAction_snoozeActionConfiguration,
     customerAction_acknowledgeActionConfiguration,
 
     -- ** Detector
-    detector_keyValue,
-    detector_creationTime,
     detector_state,
     detector_detectorModelName,
     detector_detectorModelVersion,
+    detector_keyValue,
+    detector_creationTime,
     detector_lastUpdateTime,
 
     -- ** DetectorState
@@ -157,11 +157,11 @@ module Amazonka.IoTEventsData.Lens
     detectorStateSummary_stateName,
 
     -- ** DetectorSummary
-    detectorSummary_keyValue,
-    detectorSummary_creationTime,
     detectorSummary_state,
     detectorSummary_detectorModelName,
     detectorSummary_detectorModelVersion,
+    detectorSummary_keyValue,
+    detectorSummary_creationTime,
     detectorSummary_lastUpdateTime,
 
     -- ** DisableActionConfiguration

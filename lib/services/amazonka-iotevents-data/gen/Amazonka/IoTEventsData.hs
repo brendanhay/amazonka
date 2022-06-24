@@ -26,20 +26,20 @@ module Amazonka.IoTEventsData
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** InternalFailureException
-    _InternalFailureException,
-
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- * Waiters
     -- $waiters
@@ -47,11 +47,11 @@ module Amazonka.IoTEventsData
     -- * Operations
     -- $operations
 
-    -- ** BatchSnoozeAlarm
-    BatchSnoozeAlarm (BatchSnoozeAlarm'),
-    newBatchSnoozeAlarm,
-    BatchSnoozeAlarmResponse (BatchSnoozeAlarmResponse'),
-    newBatchSnoozeAlarmResponse,
+    -- ** BatchAcknowledgeAlarm
+    BatchAcknowledgeAlarm (BatchAcknowledgeAlarm'),
+    newBatchAcknowledgeAlarm,
+    BatchAcknowledgeAlarmResponse (BatchAcknowledgeAlarmResponse'),
+    newBatchAcknowledgeAlarmResponse,
 
     -- ** BatchDisableAlarm
     BatchDisableAlarm (BatchDisableAlarm'),
@@ -59,11 +59,11 @@ module Amazonka.IoTEventsData
     BatchDisableAlarmResponse (BatchDisableAlarmResponse'),
     newBatchDisableAlarmResponse,
 
-    -- ** DescribeAlarm
-    DescribeAlarm (DescribeAlarm'),
-    newDescribeAlarm,
-    DescribeAlarmResponse (DescribeAlarmResponse'),
-    newDescribeAlarmResponse,
+    -- ** BatchEnableAlarm
+    BatchEnableAlarm (BatchEnableAlarm'),
+    newBatchEnableAlarm,
+    BatchEnableAlarmResponse (BatchEnableAlarmResponse'),
+    newBatchEnableAlarmResponse,
 
     -- ** BatchPutMessage
     BatchPutMessage (BatchPutMessage'),
@@ -71,11 +71,17 @@ module Amazonka.IoTEventsData
     BatchPutMessageResponse (BatchPutMessageResponse'),
     newBatchPutMessageResponse,
 
-    -- ** DescribeDetector
-    DescribeDetector (DescribeDetector'),
-    newDescribeDetector,
-    DescribeDetectorResponse (DescribeDetectorResponse'),
-    newDescribeDetectorResponse,
+    -- ** BatchResetAlarm
+    BatchResetAlarm (BatchResetAlarm'),
+    newBatchResetAlarm,
+    BatchResetAlarmResponse (BatchResetAlarmResponse'),
+    newBatchResetAlarmResponse,
+
+    -- ** BatchSnoozeAlarm
+    BatchSnoozeAlarm (BatchSnoozeAlarm'),
+    newBatchSnoozeAlarm,
+    BatchSnoozeAlarmResponse (BatchSnoozeAlarmResponse'),
+    newBatchSnoozeAlarmResponse,
 
     -- ** BatchUpdateDetector
     BatchUpdateDetector (BatchUpdateDetector'),
@@ -83,11 +89,17 @@ module Amazonka.IoTEventsData
     BatchUpdateDetectorResponse (BatchUpdateDetectorResponse'),
     newBatchUpdateDetectorResponse,
 
-    -- ** BatchAcknowledgeAlarm
-    BatchAcknowledgeAlarm (BatchAcknowledgeAlarm'),
-    newBatchAcknowledgeAlarm,
-    BatchAcknowledgeAlarmResponse (BatchAcknowledgeAlarmResponse'),
-    newBatchAcknowledgeAlarmResponse,
+    -- ** DescribeAlarm
+    DescribeAlarm (DescribeAlarm'),
+    newDescribeAlarm,
+    DescribeAlarmResponse (DescribeAlarmResponse'),
+    newDescribeAlarmResponse,
+
+    -- ** DescribeDetector
+    DescribeDetector (DescribeDetector'),
+    newDescribeDetector,
+    DescribeDetectorResponse (DescribeDetectorResponse'),
+    newDescribeDetectorResponse,
 
     -- ** ListAlarms
     ListAlarms (ListAlarms'),
@@ -95,23 +107,11 @@ module Amazonka.IoTEventsData
     ListAlarmsResponse (ListAlarmsResponse'),
     newListAlarmsResponse,
 
-    -- ** BatchResetAlarm
-    BatchResetAlarm (BatchResetAlarm'),
-    newBatchResetAlarm,
-    BatchResetAlarmResponse (BatchResetAlarmResponse'),
-    newBatchResetAlarmResponse,
-
     -- ** ListDetectors
     ListDetectors (ListDetectors'),
     newListDetectors,
     ListDetectorsResponse (ListDetectorsResponse'),
     newListDetectorsResponse,
-
-    -- ** BatchEnableAlarm
-    BatchEnableAlarm (BatchEnableAlarm'),
-    newBatchEnableAlarm,
-    BatchEnableAlarmResponse (BatchEnableAlarmResponse'),
-    newBatchEnableAlarmResponse,
 
     -- * Types
 

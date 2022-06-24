@@ -17,11 +17,11 @@ module Amazonka.IoTEventsData.Types
     defaultService,
 
     -- * Errors
-    _InvalidRequestException,
-    _ThrottlingException,
-    _InternalFailureException,
     _ServiceUnavailableException,
     _ResourceNotFoundException,
+    _ThrottlingException,
+    _InvalidRequestException,
+    _InternalFailureException,
 
     -- * AlarmStateName
     AlarmStateName (..),
@@ -57,71 +57,71 @@ module Amazonka.IoTEventsData.Types
     -- * Alarm
     Alarm (..),
     newAlarm,
+    alarm_alarmModelName,
+    alarm_alarmState,
+    alarm_severity,
+    alarm_alarmModelVersion,
     alarm_keyValue,
     alarm_creationTime,
-    alarm_alarmState,
-    alarm_alarmModelName,
-    alarm_severity,
     alarm_lastUpdateTime,
-    alarm_alarmModelVersion,
 
     -- * AlarmState
     AlarmState (..),
     newAlarmState,
-    alarmState_customerAction,
-    alarmState_stateName,
     alarmState_ruleEvaluation,
+    alarmState_stateName,
     alarmState_systemEvent,
+    alarmState_customerAction,
 
     -- * AlarmSummary
     AlarmSummary (..),
     newAlarmSummary,
+    alarmSummary_alarmModelName,
+    alarmSummary_alarmModelVersion,
+    alarmSummary_stateName,
     alarmSummary_keyValue,
     alarmSummary_creationTime,
-    alarmSummary_alarmModelName,
-    alarmSummary_stateName,
     alarmSummary_lastUpdateTime,
-    alarmSummary_alarmModelVersion,
 
     -- * BatchAlarmActionErrorEntry
     BatchAlarmActionErrorEntry (..),
     newBatchAlarmActionErrorEntry,
+    batchAlarmActionErrorEntry_errorMessage,
     batchAlarmActionErrorEntry_requestId,
     batchAlarmActionErrorEntry_errorCode,
-    batchAlarmActionErrorEntry_errorMessage,
 
     -- * BatchPutMessageErrorEntry
     BatchPutMessageErrorEntry (..),
     newBatchPutMessageErrorEntry,
-    batchPutMessageErrorEntry_errorCode,
     batchPutMessageErrorEntry_errorMessage,
     batchPutMessageErrorEntry_messageId,
+    batchPutMessageErrorEntry_errorCode,
 
     -- * BatchUpdateDetectorErrorEntry
     BatchUpdateDetectorErrorEntry (..),
     newBatchUpdateDetectorErrorEntry,
-    batchUpdateDetectorErrorEntry_errorCode,
     batchUpdateDetectorErrorEntry_errorMessage,
     batchUpdateDetectorErrorEntry_messageId,
+    batchUpdateDetectorErrorEntry_errorCode,
 
     -- * CustomerAction
     CustomerAction (..),
     newCustomerAction,
     customerAction_resetActionConfiguration,
     customerAction_actionName,
-    customerAction_snoozeActionConfiguration,
     customerAction_enableActionConfiguration,
     customerAction_disableActionConfiguration,
+    customerAction_snoozeActionConfiguration,
     customerAction_acknowledgeActionConfiguration,
 
     -- * Detector
     Detector (..),
     newDetector,
-    detector_keyValue,
-    detector_creationTime,
     detector_state,
     detector_detectorModelName,
     detector_detectorModelVersion,
+    detector_keyValue,
+    detector_creationTime,
     detector_lastUpdateTime,
 
     -- * DetectorState
@@ -146,11 +146,11 @@ module Amazonka.IoTEventsData.Types
     -- * DetectorSummary
     DetectorSummary (..),
     newDetectorSummary,
-    detectorSummary_keyValue,
-    detectorSummary_creationTime,
     detectorSummary_state,
     detectorSummary_detectorModelName,
     detectorSummary_detectorModelVersion,
+    detectorSummary_keyValue,
+    detectorSummary_creationTime,
     detectorSummary_lastUpdateTime,
 
     -- * DisableActionConfiguration
@@ -347,35 +347,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -384,37 +357,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The request was invalid.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
-    Prelude.. Core.hasStatus 400
-
--- | The request could not be completed due to throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
-
--- | An internal failure occurred.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
-  Core._MatchServiceError
-    defaultService
-    "InternalFailureException"
-    Prelude.. Core.hasStatus 500
 
 -- | The service is currently unavailable.
 _ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -431,3 +407,27 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The request could not be completed due to throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- | The request was invalid.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | An internal failure occurred.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"
+    Prelude.. Core.hasStatus 500

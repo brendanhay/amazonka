@@ -42,12 +42,12 @@ module Amazonka.S3.PutObjectRetention
     newPutObjectRetention,
 
     -- * Request Lenses
+    putObjectRetention_contentMD5,
+    putObjectRetention_expectedBucketOwner,
+    putObjectRetention_requestPayer,
+    putObjectRetention_bypassGovernanceRetention,
     putObjectRetention_retention,
     putObjectRetention_versionId,
-    putObjectRetention_requestPayer,
-    putObjectRetention_contentMD5,
-    putObjectRetention_bypassGovernanceRetention,
-    putObjectRetention_expectedBucketOwner,
     putObjectRetention_bucket,
     putObjectRetention_key,
 
@@ -70,25 +70,25 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutObjectRetention' smart constructor.
 data PutObjectRetention = PutObjectRetention'
-  { -- | The container element for the Object Retention configuration.
-    retention :: Prelude.Maybe ObjectLockRetention,
-    -- | The version ID for the object that you want to apply this Object
-    -- Retention configuration to.
-    versionId :: Prelude.Maybe ObjectVersionId,
-    requestPayer :: Prelude.Maybe RequestPayer,
-    -- | The MD5 hash for the request body.
+  { -- | The MD5 hash for the request body.
     --
     -- For requests made using the Amazon Web Services Command Line Interface
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether this action should bypass Governance-mode
-    -- restrictions.
-    bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
+    -- | Indicates whether this action should bypass Governance-mode
+    -- restrictions.
+    bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
+    -- | The container element for the Object Retention configuration.
+    retention :: Prelude.Maybe ObjectLockRetention,
+    -- | The version ID for the object that you want to apply this Object
+    -- Retention configuration to.
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | The bucket name that contains the object you want to apply this Object
     -- Retention configuration to.
     --
@@ -115,25 +115,25 @@ data PutObjectRetention = PutObjectRetention'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'retention', 'putObjectRetention_retention' - The container element for the Object Retention configuration.
---
--- 'versionId', 'putObjectRetention_versionId' - The version ID for the object that you want to apply this Object
--- Retention configuration to.
---
--- 'requestPayer', 'putObjectRetention_requestPayer' - Undocumented member.
---
 -- 'contentMD5', 'putObjectRetention_contentMD5' - The MD5 hash for the request body.
 --
 -- For requests made using the Amazon Web Services Command Line Interface
 -- (CLI) or Amazon Web Services SDKs, this field is calculated
 -- automatically.
 --
--- 'bypassGovernanceRetention', 'putObjectRetention_bypassGovernanceRetention' - Indicates whether this action should bypass Governance-mode
--- restrictions.
---
 -- 'expectedBucketOwner', 'putObjectRetention_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
+--
+-- 'requestPayer', 'putObjectRetention_requestPayer' - Undocumented member.
+--
+-- 'bypassGovernanceRetention', 'putObjectRetention_bypassGovernanceRetention' - Indicates whether this action should bypass Governance-mode
+-- restrictions.
+--
+-- 'retention', 'putObjectRetention_retention' - The container element for the Object Retention configuration.
+--
+-- 'versionId', 'putObjectRetention_versionId' - The version ID for the object that you want to apply this Object
+-- Retention configuration to.
 --
 -- 'bucket', 'putObjectRetention_bucket' - The bucket name that contains the object you want to apply this Object
 -- Retention configuration to.
@@ -157,28 +157,15 @@ newPutObjectRetention ::
   PutObjectRetention
 newPutObjectRetention pBucket_ pKey_ =
   PutObjectRetention'
-    { retention = Prelude.Nothing,
-      versionId = Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
-      bypassGovernanceRetention = Prelude.Nothing,
+    { contentMD5 = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
+      bypassGovernanceRetention = Prelude.Nothing,
+      retention = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
-
--- | The container element for the Object Retention configuration.
-putObjectRetention_retention :: Lens.Lens' PutObjectRetention (Prelude.Maybe ObjectLockRetention)
-putObjectRetention_retention = Lens.lens (\PutObjectRetention' {retention} -> retention) (\s@PutObjectRetention' {} a -> s {retention = a} :: PutObjectRetention)
-
--- | The version ID for the object that you want to apply this Object
--- Retention configuration to.
-putObjectRetention_versionId :: Lens.Lens' PutObjectRetention (Prelude.Maybe ObjectVersionId)
-putObjectRetention_versionId = Lens.lens (\PutObjectRetention' {versionId} -> versionId) (\s@PutObjectRetention' {} a -> s {versionId = a} :: PutObjectRetention)
-
--- | Undocumented member.
-putObjectRetention_requestPayer :: Lens.Lens' PutObjectRetention (Prelude.Maybe RequestPayer)
-putObjectRetention_requestPayer = Lens.lens (\PutObjectRetention' {requestPayer} -> requestPayer) (\s@PutObjectRetention' {} a -> s {requestPayer = a} :: PutObjectRetention)
 
 -- | The MD5 hash for the request body.
 --
@@ -188,16 +175,29 @@ putObjectRetention_requestPayer = Lens.lens (\PutObjectRetention' {requestPayer}
 putObjectRetention_contentMD5 :: Lens.Lens' PutObjectRetention (Prelude.Maybe Prelude.Text)
 putObjectRetention_contentMD5 = Lens.lens (\PutObjectRetention' {contentMD5} -> contentMD5) (\s@PutObjectRetention' {} a -> s {contentMD5 = a} :: PutObjectRetention)
 
--- | Indicates whether this action should bypass Governance-mode
--- restrictions.
-putObjectRetention_bypassGovernanceRetention :: Lens.Lens' PutObjectRetention (Prelude.Maybe Prelude.Bool)
-putObjectRetention_bypassGovernanceRetention = Lens.lens (\PutObjectRetention' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@PutObjectRetention' {} a -> s {bypassGovernanceRetention = a} :: PutObjectRetention)
-
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putObjectRetention_expectedBucketOwner :: Lens.Lens' PutObjectRetention (Prelude.Maybe Prelude.Text)
 putObjectRetention_expectedBucketOwner = Lens.lens (\PutObjectRetention' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectRetention' {} a -> s {expectedBucketOwner = a} :: PutObjectRetention)
+
+-- | Undocumented member.
+putObjectRetention_requestPayer :: Lens.Lens' PutObjectRetention (Prelude.Maybe RequestPayer)
+putObjectRetention_requestPayer = Lens.lens (\PutObjectRetention' {requestPayer} -> requestPayer) (\s@PutObjectRetention' {} a -> s {requestPayer = a} :: PutObjectRetention)
+
+-- | Indicates whether this action should bypass Governance-mode
+-- restrictions.
+putObjectRetention_bypassGovernanceRetention :: Lens.Lens' PutObjectRetention (Prelude.Maybe Prelude.Bool)
+putObjectRetention_bypassGovernanceRetention = Lens.lens (\PutObjectRetention' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@PutObjectRetention' {} a -> s {bypassGovernanceRetention = a} :: PutObjectRetention)
+
+-- | The container element for the Object Retention configuration.
+putObjectRetention_retention :: Lens.Lens' PutObjectRetention (Prelude.Maybe ObjectLockRetention)
+putObjectRetention_retention = Lens.lens (\PutObjectRetention' {retention} -> retention) (\s@PutObjectRetention' {} a -> s {retention = a} :: PutObjectRetention)
+
+-- | The version ID for the object that you want to apply this Object
+-- Retention configuration to.
+putObjectRetention_versionId :: Lens.Lens' PutObjectRetention (Prelude.Maybe ObjectVersionId)
+putObjectRetention_versionId = Lens.lens (\PutObjectRetention' {versionId} -> versionId) (\s@PutObjectRetention' {} a -> s {versionId = a} :: PutObjectRetention)
 
 -- | The bucket name that contains the object you want to apply this Object
 -- Retention configuration to.
@@ -235,23 +235,23 @@ instance Core.AWSRequest PutObjectRetention where
 
 instance Prelude.Hashable PutObjectRetention where
   hashWithSalt _salt PutObjectRetention' {..} =
-    _salt `Prelude.hashWithSalt` retention
-      `Prelude.hashWithSalt` versionId
-      `Prelude.hashWithSalt` requestPayer
-      `Prelude.hashWithSalt` contentMD5
-      `Prelude.hashWithSalt` bypassGovernanceRetention
+    _salt `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` bypassGovernanceRetention
+      `Prelude.hashWithSalt` retention
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData PutObjectRetention where
   rnf PutObjectRetention' {..} =
-    Prelude.rnf retention
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf contentMD5
-      `Prelude.seq` Prelude.rnf bypassGovernanceRetention
+    Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf bypassGovernanceRetention
+      `Prelude.seq` Prelude.rnf retention
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
@@ -264,12 +264,12 @@ instance Core.ToElement PutObjectRetention where
 instance Core.ToHeaders PutObjectRetention where
   toHeaders PutObjectRetention' {..} =
     Prelude.mconcat
-      [ "x-amz-request-payer" Core.=# requestPayer,
-        "Content-MD5" Core.=# contentMD5,
-        "x-amz-bypass-governance-retention"
-          Core.=# bypassGovernanceRetention,
+      [ "Content-MD5" Core.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Core.=# expectedBucketOwner,
+        "x-amz-request-payer" Core.=# requestPayer,
+        "x-amz-bypass-governance-retention"
+          Core.=# bypassGovernanceRetention
       ]
 
 instance Core.ToPath PutObjectRetention where

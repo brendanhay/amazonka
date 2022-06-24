@@ -256,10 +256,10 @@ module Amazonka.S3.RestoreObject
     newRestoreObject,
 
     -- * Request Lenses
-    restoreObject_versionId,
-    restoreObject_requestPayer,
     restoreObject_expectedBucketOwner,
+    restoreObject_requestPayer,
     restoreObject_restoreRequest,
+    restoreObject_versionId,
     restoreObject_bucket,
     restoreObject_key,
 
@@ -283,14 +283,14 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newRestoreObject' smart constructor.
 data RestoreObject = RestoreObject'
-  { -- | VersionId used to reference a specific version of the object.
-    versionId :: Prelude.Maybe ObjectVersionId,
-    requestPayer :: Prelude.Maybe RequestPayer,
-    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
     restoreRequest :: Prelude.Maybe RestoreRequest,
+    -- | VersionId used to reference a specific version of the object.
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | The bucket name containing the object to restore.
     --
     -- When using this action with an access point, you must direct requests to
@@ -325,15 +325,15 @@ data RestoreObject = RestoreObject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionId', 'restoreObject_versionId' - VersionId used to reference a specific version of the object.
---
--- 'requestPayer', 'restoreObject_requestPayer' - Undocumented member.
---
 -- 'expectedBucketOwner', 'restoreObject_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
+-- 'requestPayer', 'restoreObject_requestPayer' - Undocumented member.
+--
 -- 'restoreRequest', 'restoreObject_restoreRequest' - Undocumented member.
+--
+-- 'versionId', 'restoreObject_versionId' - VersionId used to reference a specific version of the object.
 --
 -- 'bucket', 'restoreObject_bucket' - The bucket name containing the object to restore.
 --
@@ -365,21 +365,14 @@ newRestoreObject ::
   RestoreObject
 newRestoreObject pBucket_ pKey_ =
   RestoreObject'
-    { versionId = Prelude.Nothing,
+    { expectedBucketOwner =
+        Prelude.Nothing,
       requestPayer = Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
       restoreRequest = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
-
--- | VersionId used to reference a specific version of the object.
-restoreObject_versionId :: Lens.Lens' RestoreObject (Prelude.Maybe ObjectVersionId)
-restoreObject_versionId = Lens.lens (\RestoreObject' {versionId} -> versionId) (\s@RestoreObject' {} a -> s {versionId = a} :: RestoreObject)
-
--- | Undocumented member.
-restoreObject_requestPayer :: Lens.Lens' RestoreObject (Prelude.Maybe RequestPayer)
-restoreObject_requestPayer = Lens.lens (\RestoreObject' {requestPayer} -> requestPayer) (\s@RestoreObject' {} a -> s {requestPayer = a} :: RestoreObject)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
@@ -388,8 +381,16 @@ restoreObject_expectedBucketOwner :: Lens.Lens' RestoreObject (Prelude.Maybe Pre
 restoreObject_expectedBucketOwner = Lens.lens (\RestoreObject' {expectedBucketOwner} -> expectedBucketOwner) (\s@RestoreObject' {} a -> s {expectedBucketOwner = a} :: RestoreObject)
 
 -- | Undocumented member.
+restoreObject_requestPayer :: Lens.Lens' RestoreObject (Prelude.Maybe RequestPayer)
+restoreObject_requestPayer = Lens.lens (\RestoreObject' {requestPayer} -> requestPayer) (\s@RestoreObject' {} a -> s {requestPayer = a} :: RestoreObject)
+
+-- | Undocumented member.
 restoreObject_restoreRequest :: Lens.Lens' RestoreObject (Prelude.Maybe RestoreRequest)
 restoreObject_restoreRequest = Lens.lens (\RestoreObject' {restoreRequest} -> restoreRequest) (\s@RestoreObject' {} a -> s {restoreRequest = a} :: RestoreObject)
+
+-- | VersionId used to reference a specific version of the object.
+restoreObject_versionId :: Lens.Lens' RestoreObject (Prelude.Maybe ObjectVersionId)
+restoreObject_versionId = Lens.lens (\RestoreObject' {versionId} -> versionId) (\s@RestoreObject' {} a -> s {versionId = a} :: RestoreObject)
 
 -- | The bucket name containing the object to restore.
 --
@@ -436,19 +437,19 @@ instance Core.AWSRequest RestoreObject where
 
 instance Prelude.Hashable RestoreObject where
   hashWithSalt _salt RestoreObject' {..} =
-    _salt `Prelude.hashWithSalt` versionId
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
-      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` restoreRequest
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData RestoreObject where
   rnf RestoreObject' {..} =
-    Prelude.rnf versionId
+    Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf restoreRequest
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
@@ -461,9 +462,9 @@ instance Core.ToElement RestoreObject where
 instance Core.ToHeaders RestoreObject where
   toHeaders RestoreObject' {..} =
     Prelude.mconcat
-      [ "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+      [ "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner,
+        "x-amz-request-payer" Core.=# requestPayer
       ]
 
 instance Core.ToPath RestoreObject where

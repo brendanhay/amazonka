@@ -126,12 +126,12 @@ module Amazonka.S3.SelectObjectContent
     newSelectObjectContent,
 
     -- * Request Lenses
-    selectObjectContent_sSECustomerAlgorithm,
-    selectObjectContent_sSECustomerKey,
-    selectObjectContent_requestProgress,
-    selectObjectContent_sSECustomerKeyMD5,
-    selectObjectContent_scanRange,
     selectObjectContent_expectedBucketOwner,
+    selectObjectContent_requestProgress,
+    selectObjectContent_scanRange,
+    selectObjectContent_sSECustomerAlgorithm,
+    selectObjectContent_sSECustomerKeyMD5,
+    selectObjectContent_sSECustomerKey,
     selectObjectContent_bucket,
     selectObjectContent_key,
     selectObjectContent_expression,
@@ -167,17 +167,12 @@ import Amazonka.S3.Types
 --
 -- /See:/ 'newSelectObjectContent' smart constructor.
 data SelectObjectContent = SelectObjectContent'
-  { -- | The SSE Algorithm used to encrypt the object. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
-    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
-    -- | The SSE Customer Key. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
-    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies if periodic request progress information should be enabled.
     requestProgress :: Prelude.Maybe RequestProgress,
-    -- | The SSE Customer Key MD5. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
-    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | Specifies the byte range of the object to get the records from. A record
     -- is processed when its first byte is contained by the range. This
     -- parameter is optional, but when specified, it must not be empty. See RFC
@@ -196,10 +191,15 @@ data SelectObjectContent = SelectObjectContent'
     -- -   @\<scanrange>\<end>50\<\/end>\<\/scanrange>@ - process only the
     --     records within the last 50 bytes of the file.
     scanRange :: Prelude.Maybe ScanRange,
-    -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | The SSE Algorithm used to encrypt the object. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
+    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+    -- | The SSE Customer Key MD5. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
+    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
+    -- | The SSE Customer Key. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
+    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The S3 bucket.
     bucket :: BucketName,
     -- | The object key.
@@ -224,16 +224,11 @@ data SelectObjectContent = SelectObjectContent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sSECustomerAlgorithm', 'selectObjectContent_sSECustomerAlgorithm' - The SSE Algorithm used to encrypt the object. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
---
--- 'sSECustomerKey', 'selectObjectContent_sSECustomerKey' - The SSE Customer Key. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
+-- 'expectedBucketOwner', 'selectObjectContent_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'requestProgress', 'selectObjectContent_requestProgress' - Specifies if periodic request progress information should be enabled.
---
--- 'sSECustomerKeyMD5', 'selectObjectContent_sSECustomerKeyMD5' - The SSE Customer Key MD5. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
 --
 -- 'scanRange', 'selectObjectContent_scanRange' - Specifies the byte range of the object to get the records from. A record
 -- is processed when its first byte is contained by the range. This
@@ -253,9 +248,14 @@ data SelectObjectContent = SelectObjectContent'
 -- -   @\<scanrange>\<end>50\<\/end>\<\/scanrange>@ - process only the
 --     records within the last 50 bytes of the file.
 --
--- 'expectedBucketOwner', 'selectObjectContent_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- 'sSECustomerAlgorithm', 'selectObjectContent_sSECustomerAlgorithm' - The SSE Algorithm used to encrypt the object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
+--
+-- 'sSECustomerKeyMD5', 'selectObjectContent_sSECustomerKeyMD5' - The SSE Customer Key MD5. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
+--
+-- 'sSECustomerKey', 'selectObjectContent_sSECustomerKey' - The SSE Customer Key. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
 --
 -- 'bucket', 'selectObjectContent_bucket' - The S3 bucket.
 --
@@ -291,13 +291,13 @@ newSelectObjectContent
   pInputSerialization_
   pOutputSerialization_ =
     SelectObjectContent'
-      { sSECustomerAlgorithm =
+      { expectedBucketOwner =
           Prelude.Nothing,
-        sSECustomerKey = Prelude.Nothing,
         requestProgress = Prelude.Nothing,
-        sSECustomerKeyMD5 = Prelude.Nothing,
         scanRange = Prelude.Nothing,
-        expectedBucketOwner = Prelude.Nothing,
+        sSECustomerAlgorithm = Prelude.Nothing,
+        sSECustomerKeyMD5 = Prelude.Nothing,
+        sSECustomerKey = Prelude.Nothing,
         bucket = pBucket_,
         key = pKey_,
         expression = pExpression_,
@@ -306,24 +306,15 @@ newSelectObjectContent
         outputSerialization = pOutputSerialization_
       }
 
--- | The SSE Algorithm used to encrypt the object. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
-selectObjectContent_sSECustomerAlgorithm :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
-selectObjectContent_sSECustomerAlgorithm = Lens.lens (\SelectObjectContent' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@SelectObjectContent' {} a -> s {sSECustomerAlgorithm = a} :: SelectObjectContent)
-
--- | The SSE Customer Key. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
-selectObjectContent_sSECustomerKey :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
-selectObjectContent_sSECustomerKey = Lens.lens (\SelectObjectContent' {sSECustomerKey} -> sSECustomerKey) (\s@SelectObjectContent' {} a -> s {sSECustomerKey = a} :: SelectObjectContent) Prelude.. Lens.mapping Core._Sensitive
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+selectObjectContent_expectedBucketOwner :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
+selectObjectContent_expectedBucketOwner = Lens.lens (\SelectObjectContent' {expectedBucketOwner} -> expectedBucketOwner) (\s@SelectObjectContent' {} a -> s {expectedBucketOwner = a} :: SelectObjectContent)
 
 -- | Specifies if periodic request progress information should be enabled.
 selectObjectContent_requestProgress :: Lens.Lens' SelectObjectContent (Prelude.Maybe RequestProgress)
 selectObjectContent_requestProgress = Lens.lens (\SelectObjectContent' {requestProgress} -> requestProgress) (\s@SelectObjectContent' {} a -> s {requestProgress = a} :: SelectObjectContent)
-
--- | The SSE Customer Key MD5. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
-selectObjectContent_sSECustomerKeyMD5 :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
-selectObjectContent_sSECustomerKeyMD5 = Lens.lens (\SelectObjectContent' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@SelectObjectContent' {} a -> s {sSECustomerKeyMD5 = a} :: SelectObjectContent)
 
 -- | Specifies the byte range of the object to get the records from. A record
 -- is processed when its first byte is contained by the range. This
@@ -345,11 +336,20 @@ selectObjectContent_sSECustomerKeyMD5 = Lens.lens (\SelectObjectContent' {sSECus
 selectObjectContent_scanRange :: Lens.Lens' SelectObjectContent (Prelude.Maybe ScanRange)
 selectObjectContent_scanRange = Lens.lens (\SelectObjectContent' {scanRange} -> scanRange) (\s@SelectObjectContent' {} a -> s {scanRange = a} :: SelectObjectContent)
 
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-selectObjectContent_expectedBucketOwner :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
-selectObjectContent_expectedBucketOwner = Lens.lens (\SelectObjectContent' {expectedBucketOwner} -> expectedBucketOwner) (\s@SelectObjectContent' {} a -> s {expectedBucketOwner = a} :: SelectObjectContent)
+-- | The SSE Algorithm used to encrypt the object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
+selectObjectContent_sSECustomerAlgorithm :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
+selectObjectContent_sSECustomerAlgorithm = Lens.lens (\SelectObjectContent' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@SelectObjectContent' {} a -> s {sSECustomerAlgorithm = a} :: SelectObjectContent)
+
+-- | The SSE Customer Key MD5. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
+selectObjectContent_sSECustomerKeyMD5 :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
+selectObjectContent_sSECustomerKeyMD5 = Lens.lens (\SelectObjectContent' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@SelectObjectContent' {} a -> s {sSECustomerKeyMD5 = a} :: SelectObjectContent)
+
+-- | The SSE Customer Key. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
+selectObjectContent_sSECustomerKey :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
+selectObjectContent_sSECustomerKey = Lens.lens (\SelectObjectContent' {sSECustomerKey} -> sSECustomerKey) (\s@SelectObjectContent' {} a -> s {sSECustomerKey = a} :: SelectObjectContent) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The S3 bucket.
 selectObjectContent_bucket :: Lens.Lens' SelectObjectContent BucketName
@@ -393,12 +393,12 @@ instance Core.AWSRequest SelectObjectContent where
 
 instance Prelude.Hashable SelectObjectContent where
   hashWithSalt _salt SelectObjectContent' {..} =
-    _salt `Prelude.hashWithSalt` sSECustomerAlgorithm
-      `Prelude.hashWithSalt` sSECustomerKey
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestProgress
-      `Prelude.hashWithSalt` sSECustomerKeyMD5
       `Prelude.hashWithSalt` scanRange
-      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` sSECustomerAlgorithm
+      `Prelude.hashWithSalt` sSECustomerKeyMD5
+      `Prelude.hashWithSalt` sSECustomerKey
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` expression
@@ -408,12 +408,12 @@ instance Prelude.Hashable SelectObjectContent where
 
 instance Prelude.NFData SelectObjectContent where
   rnf SelectObjectContent' {..} =
-    Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf sSECustomerKey
+    Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf requestProgress
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
       `Prelude.seq` Prelude.rnf scanRange
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf sSECustomerKey
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf expression
@@ -429,14 +429,14 @@ instance Core.ToElement SelectObjectContent where
 instance Core.ToHeaders SelectObjectContent where
   toHeaders SelectObjectContent' {..} =
     Prelude.mconcat
-      [ "x-amz-server-side-encryption-customer-algorithm"
+      [ "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner,
+        "x-amz-server-side-encryption-customer-algorithm"
           Core.=# sSECustomerAlgorithm,
-        "x-amz-server-side-encryption-customer-key"
-          Core.=# sSECustomerKey,
         "x-amz-server-side-encryption-customer-key-MD5"
           Core.=# sSECustomerKeyMD5,
-        "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+        "x-amz-server-side-encryption-customer-key"
+          Core.=# sSECustomerKey
       ]
 
 instance Core.ToPath SelectObjectContent where

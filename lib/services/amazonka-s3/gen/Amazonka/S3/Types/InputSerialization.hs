@@ -32,15 +32,15 @@ import Amazonka.S3.Types.ParquetInput
 --
 -- /See:/ 'newInputSerialization' smart constructor.
 data InputSerialization = InputSerialization'
-  { -- | Specifies JSON as object\'s input serialization format.
-    json :: Prelude.Maybe JSONInput,
-    -- | Describes the serialization of a CSV-encoded object.
-    csv :: Prelude.Maybe CSVInput,
-    -- | Specifies Parquet as object\'s input serialization format.
+  { -- | Specifies Parquet as object\'s input serialization format.
     parquet :: Prelude.Maybe ParquetInput,
     -- | Specifies object\'s compression format. Valid values: NONE, GZIP, BZIP2.
     -- Default Value: NONE.
-    compressionType :: Prelude.Maybe CompressionType
+    compressionType :: Prelude.Maybe CompressionType,
+    -- | Specifies JSON as object\'s input serialization format.
+    json :: Prelude.Maybe JSONInput,
+    -- | Describes the serialization of a CSV-encoded object.
+    csv :: Prelude.Maybe CSVInput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,31 +52,23 @@ data InputSerialization = InputSerialization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'json', 'inputSerialization_json' - Specifies JSON as object\'s input serialization format.
---
--- 'csv', 'inputSerialization_csv' - Describes the serialization of a CSV-encoded object.
---
 -- 'parquet', 'inputSerialization_parquet' - Specifies Parquet as object\'s input serialization format.
 --
 -- 'compressionType', 'inputSerialization_compressionType' - Specifies object\'s compression format. Valid values: NONE, GZIP, BZIP2.
 -- Default Value: NONE.
+--
+-- 'json', 'inputSerialization_json' - Specifies JSON as object\'s input serialization format.
+--
+-- 'csv', 'inputSerialization_csv' - Describes the serialization of a CSV-encoded object.
 newInputSerialization ::
   InputSerialization
 newInputSerialization =
   InputSerialization'
-    { json = Prelude.Nothing,
-      csv = Prelude.Nothing,
-      parquet = Prelude.Nothing,
-      compressionType = Prelude.Nothing
+    { parquet = Prelude.Nothing,
+      compressionType = Prelude.Nothing,
+      json = Prelude.Nothing,
+      csv = Prelude.Nothing
     }
-
--- | Specifies JSON as object\'s input serialization format.
-inputSerialization_json :: Lens.Lens' InputSerialization (Prelude.Maybe JSONInput)
-inputSerialization_json = Lens.lens (\InputSerialization' {json} -> json) (\s@InputSerialization' {} a -> s {json = a} :: InputSerialization)
-
--- | Describes the serialization of a CSV-encoded object.
-inputSerialization_csv :: Lens.Lens' InputSerialization (Prelude.Maybe CSVInput)
-inputSerialization_csv = Lens.lens (\InputSerialization' {csv} -> csv) (\s@InputSerialization' {} a -> s {csv = a} :: InputSerialization)
 
 -- | Specifies Parquet as object\'s input serialization format.
 inputSerialization_parquet :: Lens.Lens' InputSerialization (Prelude.Maybe ParquetInput)
@@ -87,25 +79,33 @@ inputSerialization_parquet = Lens.lens (\InputSerialization' {parquet} -> parque
 inputSerialization_compressionType :: Lens.Lens' InputSerialization (Prelude.Maybe CompressionType)
 inputSerialization_compressionType = Lens.lens (\InputSerialization' {compressionType} -> compressionType) (\s@InputSerialization' {} a -> s {compressionType = a} :: InputSerialization)
 
+-- | Specifies JSON as object\'s input serialization format.
+inputSerialization_json :: Lens.Lens' InputSerialization (Prelude.Maybe JSONInput)
+inputSerialization_json = Lens.lens (\InputSerialization' {json} -> json) (\s@InputSerialization' {} a -> s {json = a} :: InputSerialization)
+
+-- | Describes the serialization of a CSV-encoded object.
+inputSerialization_csv :: Lens.Lens' InputSerialization (Prelude.Maybe CSVInput)
+inputSerialization_csv = Lens.lens (\InputSerialization' {csv} -> csv) (\s@InputSerialization' {} a -> s {csv = a} :: InputSerialization)
+
 instance Prelude.Hashable InputSerialization where
   hashWithSalt _salt InputSerialization' {..} =
-    _salt `Prelude.hashWithSalt` json
-      `Prelude.hashWithSalt` csv
-      `Prelude.hashWithSalt` parquet
+    _salt `Prelude.hashWithSalt` parquet
       `Prelude.hashWithSalt` compressionType
+      `Prelude.hashWithSalt` json
+      `Prelude.hashWithSalt` csv
 
 instance Prelude.NFData InputSerialization where
   rnf InputSerialization' {..} =
-    Prelude.rnf json
-      `Prelude.seq` Prelude.rnf csv
-      `Prelude.seq` Prelude.rnf parquet
+    Prelude.rnf parquet
       `Prelude.seq` Prelude.rnf compressionType
+      `Prelude.seq` Prelude.rnf json
+      `Prelude.seq` Prelude.rnf csv
 
 instance Core.ToXML InputSerialization where
   toXML InputSerialization' {..} =
     Prelude.mconcat
-      [ "JSON" Core.@= json,
-        "CSV" Core.@= csv,
-        "Parquet" Core.@= parquet,
-        "CompressionType" Core.@= compressionType
+      [ "Parquet" Core.@= parquet,
+        "CompressionType" Core.@= compressionType,
+        "JSON" Core.@= json,
+        "CSV" Core.@= csv
       ]

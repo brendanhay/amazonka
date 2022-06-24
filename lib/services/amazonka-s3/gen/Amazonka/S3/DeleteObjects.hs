@@ -70,10 +70,10 @@ module Amazonka.S3.DeleteObjects
     newDeleteObjects,
 
     -- * Request Lenses
-    deleteObjects_mfa,
+    deleteObjects_expectedBucketOwner,
     deleteObjects_requestPayer,
     deleteObjects_bypassGovernanceRetention,
-    deleteObjects_expectedBucketOwner,
+    deleteObjects_mfa,
     deleteObjects_bucket,
     deleteObjects_delete,
 
@@ -98,20 +98,20 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newDeleteObjects' smart constructor.
 data DeleteObjects = DeleteObjects'
-  { -- | The concatenation of the authentication device\'s serial number, a
-    -- space, and the value that is displayed on your authentication device.
-    -- Required to permanently delete a versioned object if versioning is
-    -- configured with MFA delete enabled.
-    mfa :: Prelude.Maybe Prelude.Text,
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | Specifies whether you want to delete this object even if it has a
     -- Governance-type Object Lock in place. To use this header, you must have
     -- the @s3:PutBucketPublicAccessBlock@ permission.
     bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
-    -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | The concatenation of the authentication device\'s serial number, a
+    -- space, and the value that is displayed on your authentication device.
+    -- Required to permanently delete a versioned object if versioning is
+    -- configured with MFA delete enabled.
+    mfa :: Prelude.Maybe Prelude.Text,
     -- | The bucket name containing the objects to delete.
     --
     -- When using this action with an access point, you must direct requests to
@@ -146,10 +146,9 @@ data DeleteObjects = DeleteObjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mfa', 'deleteObjects_mfa' - The concatenation of the authentication device\'s serial number, a
--- space, and the value that is displayed on your authentication device.
--- Required to permanently delete a versioned object if versioning is
--- configured with MFA delete enabled.
+-- 'expectedBucketOwner', 'deleteObjects_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'requestPayer', 'deleteObjects_requestPayer' - Undocumented member.
 --
@@ -157,9 +156,10 @@ data DeleteObjects = DeleteObjects'
 -- Governance-type Object Lock in place. To use this header, you must have
 -- the @s3:PutBucketPublicAccessBlock@ permission.
 --
--- 'expectedBucketOwner', 'deleteObjects_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- 'mfa', 'deleteObjects_mfa' - The concatenation of the authentication device\'s serial number, a
+-- space, and the value that is displayed on your authentication device.
+-- Required to permanently delete a versioned object if versioning is
+-- configured with MFA delete enabled.
 --
 -- 'bucket', 'deleteObjects_bucket' - The bucket name containing the objects to delete.
 --
@@ -191,20 +191,20 @@ newDeleteObjects ::
   DeleteObjects
 newDeleteObjects pBucket_ pDelete_ =
   DeleteObjects'
-    { mfa = Prelude.Nothing,
+    { expectedBucketOwner =
+        Prelude.Nothing,
       requestPayer = Prelude.Nothing,
       bypassGovernanceRetention = Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
+      mfa = Prelude.Nothing,
       bucket = pBucket_,
       delete' = pDelete_
     }
 
--- | The concatenation of the authentication device\'s serial number, a
--- space, and the value that is displayed on your authentication device.
--- Required to permanently delete a versioned object if versioning is
--- configured with MFA delete enabled.
-deleteObjects_mfa :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Text)
-deleteObjects_mfa = Lens.lens (\DeleteObjects' {mfa} -> mfa) (\s@DeleteObjects' {} a -> s {mfa = a} :: DeleteObjects)
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+deleteObjects_expectedBucketOwner :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Text)
+deleteObjects_expectedBucketOwner = Lens.lens (\DeleteObjects' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteObjects' {} a -> s {expectedBucketOwner = a} :: DeleteObjects)
 
 -- | Undocumented member.
 deleteObjects_requestPayer :: Lens.Lens' DeleteObjects (Prelude.Maybe RequestPayer)
@@ -216,11 +216,12 @@ deleteObjects_requestPayer = Lens.lens (\DeleteObjects' {requestPayer} -> reques
 deleteObjects_bypassGovernanceRetention :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Bool)
 deleteObjects_bypassGovernanceRetention = Lens.lens (\DeleteObjects' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@DeleteObjects' {} a -> s {bypassGovernanceRetention = a} :: DeleteObjects)
 
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-deleteObjects_expectedBucketOwner :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Text)
-deleteObjects_expectedBucketOwner = Lens.lens (\DeleteObjects' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteObjects' {} a -> s {expectedBucketOwner = a} :: DeleteObjects)
+-- | The concatenation of the authentication device\'s serial number, a
+-- space, and the value that is displayed on your authentication device.
+-- Required to permanently delete a versioned object if versioning is
+-- configured with MFA delete enabled.
+deleteObjects_mfa :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Text)
+deleteObjects_mfa = Lens.lens (\DeleteObjects' {mfa} -> mfa) (\s@DeleteObjects' {} a -> s {mfa = a} :: DeleteObjects)
 
 -- | The bucket name containing the objects to delete.
 --
@@ -269,19 +270,19 @@ instance Core.AWSRequest DeleteObjects where
 
 instance Prelude.Hashable DeleteObjects where
   hashWithSalt _salt DeleteObjects' {..} =
-    _salt `Prelude.hashWithSalt` mfa
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` bypassGovernanceRetention
-      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` mfa
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` delete'
 
 instance Prelude.NFData DeleteObjects where
   rnf DeleteObjects' {..} =
-    Prelude.rnf mfa
+    Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf bypassGovernanceRetention
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf mfa
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf delete'
 
@@ -294,12 +295,12 @@ instance Core.ToElement DeleteObjects where
 instance Core.ToHeaders DeleteObjects where
   toHeaders DeleteObjects' {..} =
     Prelude.mconcat
-      [ "x-amz-mfa" Core.=# mfa,
+      [ "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner,
         "x-amz-request-payer" Core.=# requestPayer,
         "x-amz-bypass-governance-retention"
           Core.=# bypassGovernanceRetention,
-        "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+        "x-amz-mfa" Core.=# mfa
       ]
 
 instance Core.ToPath DeleteObjects where

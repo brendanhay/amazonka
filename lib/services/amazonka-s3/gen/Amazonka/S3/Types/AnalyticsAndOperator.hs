@@ -32,11 +32,11 @@ import Amazonka.S3.Types.Tag
 --
 -- /See:/ 'newAnalyticsAndOperator' smart constructor.
 data AnalyticsAndOperator = AnalyticsAndOperator'
-  { -- | The prefix to use when evaluating an AND predicate: The prefix that an
+  { -- | The list of tags to use when evaluating an AND predicate.
+    tags :: Prelude.Maybe [Tag],
+    -- | The prefix to use when evaluating an AND predicate: The prefix that an
     -- object must have to be included in the metrics results.
-    prefix :: Prelude.Maybe Prelude.Text,
-    -- | The list of tags to use when evaluating an AND predicate.
-    tags :: Prelude.Maybe [Tag]
+    prefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,48 +48,48 @@ data AnalyticsAndOperator = AnalyticsAndOperator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'analyticsAndOperator_tags' - The list of tags to use when evaluating an AND predicate.
+--
 -- 'prefix', 'analyticsAndOperator_prefix' - The prefix to use when evaluating an AND predicate: The prefix that an
 -- object must have to be included in the metrics results.
---
--- 'tags', 'analyticsAndOperator_tags' - The list of tags to use when evaluating an AND predicate.
 newAnalyticsAndOperator ::
   AnalyticsAndOperator
 newAnalyticsAndOperator =
   AnalyticsAndOperator'
-    { prefix = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      prefix = Prelude.Nothing
     }
+
+-- | The list of tags to use when evaluating an AND predicate.
+analyticsAndOperator_tags :: Lens.Lens' AnalyticsAndOperator (Prelude.Maybe [Tag])
+analyticsAndOperator_tags = Lens.lens (\AnalyticsAndOperator' {tags} -> tags) (\s@AnalyticsAndOperator' {} a -> s {tags = a} :: AnalyticsAndOperator) Prelude.. Lens.mapping Lens.coerced
 
 -- | The prefix to use when evaluating an AND predicate: The prefix that an
 -- object must have to be included in the metrics results.
 analyticsAndOperator_prefix :: Lens.Lens' AnalyticsAndOperator (Prelude.Maybe Prelude.Text)
 analyticsAndOperator_prefix = Lens.lens (\AnalyticsAndOperator' {prefix} -> prefix) (\s@AnalyticsAndOperator' {} a -> s {prefix = a} :: AnalyticsAndOperator)
 
--- | The list of tags to use when evaluating an AND predicate.
-analyticsAndOperator_tags :: Lens.Lens' AnalyticsAndOperator (Prelude.Maybe [Tag])
-analyticsAndOperator_tags = Lens.lens (\AnalyticsAndOperator' {tags} -> tags) (\s@AnalyticsAndOperator' {} a -> s {tags = a} :: AnalyticsAndOperator) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromXML AnalyticsAndOperator where
   parseXML x =
     AnalyticsAndOperator'
-      Prelude.<$> (x Core..@? "Prefix")
-      Prelude.<*> ( x Core..@? "Tag" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "Tag" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
+      Prelude.<*> (x Core..@? "Prefix")
 
 instance Prelude.Hashable AnalyticsAndOperator where
   hashWithSalt _salt AnalyticsAndOperator' {..} =
-    _salt `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` prefix
 
 instance Prelude.NFData AnalyticsAndOperator where
   rnf AnalyticsAndOperator' {..} =
-    Prelude.rnf prefix `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToXML AnalyticsAndOperator where
   toXML AnalyticsAndOperator' {..} =
     Prelude.mconcat
-      [ "Prefix" Core.@= prefix,
-        "Tag"
-          Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> tags)
+      [ "Tag"
+          Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> tags),
+        "Prefix" Core.@= prefix
       ]

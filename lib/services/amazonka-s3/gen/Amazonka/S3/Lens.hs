@@ -14,131 +14,274 @@
 module Amazonka.S3.Lens
   ( -- * Operations
 
-    -- ** PutBucketRequestPayment
-    putBucketRequestPayment_contentMD5,
-    putBucketRequestPayment_expectedBucketOwner,
-    putBucketRequestPayment_bucket,
-    putBucketRequestPayment_requestPaymentConfiguration,
+    -- ** AbortMultipartUpload
+    abortMultipartUpload_expectedBucketOwner,
+    abortMultipartUpload_requestPayer,
+    abortMultipartUpload_bucket,
+    abortMultipartUpload_key,
+    abortMultipartUpload_uploadId,
+    abortMultipartUploadResponse_requestCharged,
+    abortMultipartUploadResponse_httpStatus,
 
-    -- ** PutObject
-    putObject_contentLength,
-    putObject_objectLockMode,
-    putObject_expires,
-    putObject_grantReadACP,
-    putObject_sSECustomerAlgorithm,
-    putObject_sSECustomerKey,
-    putObject_requestPayer,
-    putObject_grantWriteACP,
-    putObject_bucketKeyEnabled,
-    putObject_websiteRedirectLocation,
-    putObject_grantRead,
-    putObject_storageClass,
-    putObject_sSECustomerKeyMD5,
-    putObject_sSEKMSKeyId,
-    putObject_grantFullControl,
-    putObject_contentEncoding,
-    putObject_tagging,
-    putObject_contentMD5,
-    putObject_objectLockRetainUntilDate,
-    putObject_metadata,
-    putObject_sSEKMSEncryptionContext,
-    putObject_cacheControl,
-    putObject_contentLanguage,
-    putObject_objectLockLegalHoldStatus,
-    putObject_acl,
-    putObject_contentDisposition,
-    putObject_expectedBucketOwner,
-    putObject_serverSideEncryption,
-    putObject_contentType,
-    putObject_bucket,
-    putObject_key,
-    putObject_body,
-    putObjectResponse_requestCharged,
-    putObjectResponse_eTag,
-    putObjectResponse_versionId,
-    putObjectResponse_expiration,
-    putObjectResponse_sSECustomerAlgorithm,
-    putObjectResponse_bucketKeyEnabled,
-    putObjectResponse_sSECustomerKeyMD5,
-    putObjectResponse_sSEKMSKeyId,
-    putObjectResponse_sSEKMSEncryptionContext,
-    putObjectResponse_serverSideEncryption,
-    putObjectResponse_httpStatus,
+    -- ** CompleteMultipartUpload
+    completeMultipartUpload_expectedBucketOwner,
+    completeMultipartUpload_requestPayer,
+    completeMultipartUpload_multipartUpload,
+    completeMultipartUpload_bucket,
+    completeMultipartUpload_key,
+    completeMultipartUpload_uploadId,
+    completeMultipartUploadResponse_serverSideEncryption,
+    completeMultipartUploadResponse_key,
+    completeMultipartUploadResponse_bucketKeyEnabled,
+    completeMultipartUploadResponse_expiration,
+    completeMultipartUploadResponse_requestCharged,
+    completeMultipartUploadResponse_bucket,
+    completeMultipartUploadResponse_sSEKMSKeyId,
+    completeMultipartUploadResponse_location,
+    completeMultipartUploadResponse_eTag,
+    completeMultipartUploadResponse_versionId,
+    completeMultipartUploadResponse_httpStatus,
 
-    -- ** DeleteObject
-    deleteObject_versionId,
-    deleteObject_mfa,
-    deleteObject_requestPayer,
-    deleteObject_bypassGovernanceRetention,
-    deleteObject_expectedBucketOwner,
-    deleteObject_bucket,
-    deleteObject_key,
-    deleteObjectResponse_requestCharged,
-    deleteObjectResponse_versionId,
-    deleteObjectResponse_deleteMarker,
-    deleteObjectResponse_httpStatus,
+    -- ** CopyObject
+    copyObject_copySourceIfNoneMatch,
+    copyObject_serverSideEncryption,
+    copyObject_copySourceSSECustomerKey,
+    copyObject_copySourceSSECustomerKeyMD5,
+    copyObject_objectLockMode,
+    copyObject_bucketKeyEnabled,
+    copyObject_websiteRedirectLocation,
+    copyObject_grantWriteACP,
+    copyObject_objectLockRetainUntilDate,
+    copyObject_grantFullControl,
+    copyObject_acl,
+    copyObject_copySourceSSECustomerAlgorithm,
+    copyObject_expectedBucketOwner,
+    copyObject_metadata,
+    copyObject_contentLanguage,
+    copyObject_copySourceIfModifiedSince,
+    copyObject_sSEKMSKeyId,
+    copyObject_contentDisposition,
+    copyObject_objectLockLegalHoldStatus,
+    copyObject_requestPayer,
+    copyObject_taggingDirective,
+    copyObject_sSEKMSEncryptionContext,
+    copyObject_metadataDirective,
+    copyObject_copySourceIfUnmodifiedSince,
+    copyObject_expectedSourceBucketOwner,
+    copyObject_grantRead,
+    copyObject_sSECustomerAlgorithm,
+    copyObject_cacheControl,
+    copyObject_contentEncoding,
+    copyObject_tagging,
+    copyObject_sSECustomerKeyMD5,
+    copyObject_expires,
+    copyObject_copySourceIfMatch,
+    copyObject_storageClass,
+    copyObject_grantReadACP,
+    copyObject_contentType,
+    copyObject_sSECustomerKey,
+    copyObject_bucket,
+    copyObject_copySource,
+    copyObject_key,
+    copyObjectResponse_serverSideEncryption,
+    copyObjectResponse_bucketKeyEnabled,
+    copyObjectResponse_expiration,
+    copyObjectResponse_requestCharged,
+    copyObjectResponse_sSEKMSKeyId,
+    copyObjectResponse_sSEKMSEncryptionContext,
+    copyObjectResponse_copySourceVersionId,
+    copyObjectResponse_copyObjectResult,
+    copyObjectResponse_sSECustomerAlgorithm,
+    copyObjectResponse_sSECustomerKeyMD5,
+    copyObjectResponse_versionId,
+    copyObjectResponse_httpStatus,
 
-    -- ** PutBucketLogging
-    putBucketLogging_contentMD5,
-    putBucketLogging_expectedBucketOwner,
-    putBucketLogging_bucket,
-    putBucketLogging_bucketLoggingStatus,
+    -- ** CreateBucket
+    createBucket_grantWriteACP,
+    createBucket_grantFullControl,
+    createBucket_acl,
+    createBucket_objectLockEnabledForBucket,
+    createBucket_createBucketConfiguration,
+    createBucket_grantRead,
+    createBucket_grantWrite,
+    createBucket_grantReadACP,
+    createBucket_bucket,
+    createBucketResponse_location,
+    createBucketResponse_httpStatus,
 
-    -- ** GetBucketMetricsConfiguration
-    getBucketMetricsConfiguration_expectedBucketOwner,
-    getBucketMetricsConfiguration_bucket,
-    getBucketMetricsConfiguration_id,
-    getBucketMetricsConfigurationResponse_metricsConfiguration,
-    getBucketMetricsConfigurationResponse_httpStatus,
-
-    -- ** ListBuckets
-    listBucketsResponse_buckets,
-    listBucketsResponse_owner,
-    listBucketsResponse_httpStatus,
+    -- ** CreateMultipartUpload
+    createMultipartUpload_serverSideEncryption,
+    createMultipartUpload_objectLockMode,
+    createMultipartUpload_bucketKeyEnabled,
+    createMultipartUpload_websiteRedirectLocation,
+    createMultipartUpload_grantWriteACP,
+    createMultipartUpload_objectLockRetainUntilDate,
+    createMultipartUpload_grantFullControl,
+    createMultipartUpload_acl,
+    createMultipartUpload_expectedBucketOwner,
+    createMultipartUpload_metadata,
+    createMultipartUpload_contentLanguage,
+    createMultipartUpload_sSEKMSKeyId,
+    createMultipartUpload_contentDisposition,
+    createMultipartUpload_objectLockLegalHoldStatus,
+    createMultipartUpload_requestPayer,
+    createMultipartUpload_sSEKMSEncryptionContext,
+    createMultipartUpload_grantRead,
+    createMultipartUpload_sSECustomerAlgorithm,
+    createMultipartUpload_cacheControl,
+    createMultipartUpload_contentEncoding,
+    createMultipartUpload_tagging,
+    createMultipartUpload_sSECustomerKeyMD5,
+    createMultipartUpload_expires,
+    createMultipartUpload_storageClass,
+    createMultipartUpload_grantReadACP,
+    createMultipartUpload_contentType,
+    createMultipartUpload_sSECustomerKey,
+    createMultipartUpload_bucket,
+    createMultipartUpload_key,
+    createMultipartUploadResponse_serverSideEncryption,
+    createMultipartUploadResponse_key,
+    createMultipartUploadResponse_bucketKeyEnabled,
+    createMultipartUploadResponse_requestCharged,
+    createMultipartUploadResponse_bucket,
+    createMultipartUploadResponse_abortRuleId,
+    createMultipartUploadResponse_sSEKMSKeyId,
+    createMultipartUploadResponse_sSEKMSEncryptionContext,
+    createMultipartUploadResponse_abortDate,
+    createMultipartUploadResponse_sSECustomerAlgorithm,
+    createMultipartUploadResponse_sSECustomerKeyMD5,
+    createMultipartUploadResponse_httpStatus,
+    createMultipartUploadResponse_uploadId,
 
     -- ** DeleteBucket
     deleteBucket_expectedBucketOwner,
     deleteBucket_bucket,
 
-    -- ** CreateBucket
-    createBucket_grantReadACP,
-    createBucket_objectLockEnabledForBucket,
-    createBucket_grantWriteACP,
-    createBucket_grantRead,
-    createBucket_grantFullControl,
-    createBucket_createBucketConfiguration,
-    createBucket_grantWrite,
-    createBucket_acl,
-    createBucket_bucket,
-    createBucketResponse_location,
-    createBucketResponse_httpStatus,
+    -- ** DeleteBucketAnalyticsConfiguration
+    deleteBucketAnalyticsConfiguration_expectedBucketOwner,
+    deleteBucketAnalyticsConfiguration_bucket,
+    deleteBucketAnalyticsConfiguration_id,
+
+    -- ** DeleteBucketCors
+    deleteBucketCors_expectedBucketOwner,
+    deleteBucketCors_bucket,
+
+    -- ** DeleteBucketEncryption
+    deleteBucketEncryption_expectedBucketOwner,
+    deleteBucketEncryption_bucket,
+
+    -- ** DeleteBucketIntelligentTieringConfiguration
+    deleteBucketIntelligentTieringConfiguration_bucket,
+    deleteBucketIntelligentTieringConfiguration_id,
+
+    -- ** DeleteBucketInventoryConfiguration
+    deleteBucketInventoryConfiguration_expectedBucketOwner,
+    deleteBucketInventoryConfiguration_bucket,
+    deleteBucketInventoryConfiguration_id,
+
+    -- ** DeleteBucketLifecycle
+    deleteBucketLifecycle_expectedBucketOwner,
+    deleteBucketLifecycle_bucket,
+
+    -- ** DeleteBucketMetricsConfiguration
+    deleteBucketMetricsConfiguration_expectedBucketOwner,
+    deleteBucketMetricsConfiguration_bucket,
+    deleteBucketMetricsConfiguration_id,
+
+    -- ** DeleteBucketOwnershipControls
+    deleteBucketOwnershipControls_expectedBucketOwner,
+    deleteBucketOwnershipControls_bucket,
+
+    -- ** DeleteBucketPolicy
+    deleteBucketPolicy_expectedBucketOwner,
+    deleteBucketPolicy_bucket,
+
+    -- ** DeleteBucketReplication
+    deleteBucketReplication_expectedBucketOwner,
+    deleteBucketReplication_bucket,
 
     -- ** DeleteBucketTagging
     deleteBucketTagging_expectedBucketOwner,
     deleteBucketTagging_bucket,
 
-    -- ** PutObjectAcl
-    putObjectAcl_versionId,
-    putObjectAcl_grantReadACP,
-    putObjectAcl_requestPayer,
-    putObjectAcl_grantWriteACP,
-    putObjectAcl_grantRead,
-    putObjectAcl_grantFullControl,
-    putObjectAcl_contentMD5,
-    putObjectAcl_accessControlPolicy,
-    putObjectAcl_grantWrite,
-    putObjectAcl_acl,
-    putObjectAcl_expectedBucketOwner,
-    putObjectAcl_bucket,
-    putObjectAcl_key,
-    putObjectAclResponse_requestCharged,
-    putObjectAclResponse_httpStatus,
+    -- ** DeleteBucketWebsite
+    deleteBucketWebsite_expectedBucketOwner,
+    deleteBucketWebsite_bucket,
 
-    -- ** PutBucketTagging
-    putBucketTagging_contentMD5,
-    putBucketTagging_expectedBucketOwner,
-    putBucketTagging_bucket,
-    putBucketTagging_tagging,
+    -- ** DeleteObject
+    deleteObject_expectedBucketOwner,
+    deleteObject_requestPayer,
+    deleteObject_bypassGovernanceRetention,
+    deleteObject_mfa,
+    deleteObject_versionId,
+    deleteObject_bucket,
+    deleteObject_key,
+    deleteObjectResponse_requestCharged,
+    deleteObjectResponse_deleteMarker,
+    deleteObjectResponse_versionId,
+    deleteObjectResponse_httpStatus,
+
+    -- ** DeleteObjectTagging
+    deleteObjectTagging_expectedBucketOwner,
+    deleteObjectTagging_versionId,
+    deleteObjectTagging_bucket,
+    deleteObjectTagging_key,
+    deleteObjectTaggingResponse_versionId,
+    deleteObjectTaggingResponse_httpStatus,
+
+    -- ** DeleteObjects
+    deleteObjects_expectedBucketOwner,
+    deleteObjects_requestPayer,
+    deleteObjects_bypassGovernanceRetention,
+    deleteObjects_mfa,
+    deleteObjects_bucket,
+    deleteObjects_delete,
+    deleteObjectsResponse_requestCharged,
+    deleteObjectsResponse_deleted,
+    deleteObjectsResponse_errors,
+    deleteObjectsResponse_httpStatus,
+
+    -- ** DeletePublicAccessBlock
+    deletePublicAccessBlock_expectedBucketOwner,
+    deletePublicAccessBlock_bucket,
+
+    -- ** GetBucketAccelerateConfiguration
+    getBucketAccelerateConfiguration_expectedBucketOwner,
+    getBucketAccelerateConfiguration_bucket,
+    getBucketAccelerateConfigurationResponse_status,
+    getBucketAccelerateConfigurationResponse_httpStatus,
+
+    -- ** GetBucketAcl
+    getBucketAcl_expectedBucketOwner,
+    getBucketAcl_bucket,
+    getBucketAclResponse_grants,
+    getBucketAclResponse_owner,
+    getBucketAclResponse_httpStatus,
+
+    -- ** GetBucketAnalyticsConfiguration
+    getBucketAnalyticsConfiguration_expectedBucketOwner,
+    getBucketAnalyticsConfiguration_bucket,
+    getBucketAnalyticsConfiguration_id,
+    getBucketAnalyticsConfigurationResponse_analyticsConfiguration,
+    getBucketAnalyticsConfigurationResponse_httpStatus,
+
+    -- ** GetBucketCors
+    getBucketCors_expectedBucketOwner,
+    getBucketCors_bucket,
+    getBucketCorsResponse_cORSRules,
+    getBucketCorsResponse_httpStatus,
+
+    -- ** GetBucketEncryption
+    getBucketEncryption_expectedBucketOwner,
+    getBucketEncryption_bucket,
+    getBucketEncryptionResponse_serverSideEncryptionConfiguration,
+    getBucketEncryptionResponse_httpStatus,
+
+    -- ** GetBucketIntelligentTieringConfiguration
+    getBucketIntelligentTieringConfiguration_bucket,
+    getBucketIntelligentTieringConfiguration_id,
+    getBucketIntelligentTieringConfigurationResponse_intelligentTieringConfiguration,
+    getBucketIntelligentTieringConfigurationResponse_httpStatus,
 
     -- ** GetBucketInventoryConfiguration
     getBucketInventoryConfiguration_expectedBucketOwner,
@@ -147,15 +290,11 @@ module Amazonka.S3.Lens
     getBucketInventoryConfigurationResponse_inventoryConfiguration,
     getBucketInventoryConfigurationResponse_httpStatus,
 
-    -- ** DeletePublicAccessBlock
-    deletePublicAccessBlock_expectedBucketOwner,
-    deletePublicAccessBlock_bucket,
-
-    -- ** PutBucketInventoryConfiguration
-    putBucketInventoryConfiguration_expectedBucketOwner,
-    putBucketInventoryConfiguration_bucket,
-    putBucketInventoryConfiguration_id,
-    putBucketInventoryConfiguration_inventoryConfiguration,
+    -- ** GetBucketLifecycleConfiguration
+    getBucketLifecycleConfiguration_expectedBucketOwner,
+    getBucketLifecycleConfiguration_bucket,
+    getBucketLifecycleConfigurationResponse_rules,
+    getBucketLifecycleConfigurationResponse_httpStatus,
 
     -- ** GetBucketLocation
     getBucketLocation_expectedBucketOwner,
@@ -163,32 +302,18 @@ module Amazonka.S3.Lens
     getBucketLocationResponse_httpStatus,
     getBucketLocationResponse_locationConstraint,
 
-    -- ** ListBucketInventoryConfigurations
-    listBucketInventoryConfigurations_continuationToken,
-    listBucketInventoryConfigurations_expectedBucketOwner,
-    listBucketInventoryConfigurations_bucket,
-    listBucketInventoryConfigurationsResponse_continuationToken,
-    listBucketInventoryConfigurationsResponse_inventoryConfigurationList,
-    listBucketInventoryConfigurationsResponse_nextContinuationToken,
-    listBucketInventoryConfigurationsResponse_isTruncated,
-    listBucketInventoryConfigurationsResponse_httpStatus,
+    -- ** GetBucketLogging
+    getBucketLogging_expectedBucketOwner,
+    getBucketLogging_bucket,
+    getBucketLoggingResponse_loggingEnabled,
+    getBucketLoggingResponse_httpStatus,
 
-    -- ** PutPublicAccessBlock
-    putPublicAccessBlock_contentMD5,
-    putPublicAccessBlock_expectedBucketOwner,
-    putPublicAccessBlock_bucket,
-    putPublicAccessBlock_publicAccessBlockConfiguration,
-
-    -- ** DeleteBucketInventoryConfiguration
-    deleteBucketInventoryConfiguration_expectedBucketOwner,
-    deleteBucketInventoryConfiguration_bucket,
-    deleteBucketInventoryConfiguration_id,
-
-    -- ** GetBucketIntelligentTieringConfiguration
-    getBucketIntelligentTieringConfiguration_bucket,
-    getBucketIntelligentTieringConfiguration_id,
-    getBucketIntelligentTieringConfigurationResponse_intelligentTieringConfiguration,
-    getBucketIntelligentTieringConfigurationResponse_httpStatus,
+    -- ** GetBucketMetricsConfiguration
+    getBucketMetricsConfiguration_expectedBucketOwner,
+    getBucketMetricsConfiguration_bucket,
+    getBucketMetricsConfiguration_id,
+    getBucketMetricsConfigurationResponse_metricsConfiguration,
+    getBucketMetricsConfigurationResponse_httpStatus,
 
     -- ** GetBucketNotificationConfiguration
     getBucketNotificationConfiguration_expectedBucketOwner,
@@ -197,268 +322,17 @@ module Amazonka.S3.Lens
     notificationConfiguration_topicConfigurations,
     notificationConfiguration_lambdaFunctionConfigurations,
 
-    -- ** GetObjectLockConfiguration
-    getObjectLockConfiguration_expectedBucketOwner,
-    getObjectLockConfiguration_bucket,
-    getObjectLockConfigurationResponse_objectLockConfiguration,
-    getObjectLockConfigurationResponse_httpStatus,
+    -- ** GetBucketOwnershipControls
+    getBucketOwnershipControls_expectedBucketOwner,
+    getBucketOwnershipControls_bucket,
+    getBucketOwnershipControlsResponse_ownershipControls,
+    getBucketOwnershipControlsResponse_httpStatus,
 
-    -- ** PutObjectRetention
-    putObjectRetention_retention,
-    putObjectRetention_versionId,
-    putObjectRetention_requestPayer,
-    putObjectRetention_contentMD5,
-    putObjectRetention_bypassGovernanceRetention,
-    putObjectRetention_expectedBucketOwner,
-    putObjectRetention_bucket,
-    putObjectRetention_key,
-    putObjectRetentionResponse_requestCharged,
-    putObjectRetentionResponse_httpStatus,
-
-    -- ** PutBucketAccelerateConfiguration
-    putBucketAccelerateConfiguration_expectedBucketOwner,
-    putBucketAccelerateConfiguration_bucket,
-    putBucketAccelerateConfiguration_accelerateConfiguration,
-
-    -- ** PutObjectLegalHold
-    putObjectLegalHold_legalHold,
-    putObjectLegalHold_versionId,
-    putObjectLegalHold_requestPayer,
-    putObjectLegalHold_contentMD5,
-    putObjectLegalHold_expectedBucketOwner,
-    putObjectLegalHold_bucket,
-    putObjectLegalHold_key,
-    putObjectLegalHoldResponse_requestCharged,
-    putObjectLegalHoldResponse_httpStatus,
-
-    -- ** PutBucketOwnershipControls
-    putBucketOwnershipControls_contentMD5,
-    putBucketOwnershipControls_expectedBucketOwner,
-    putBucketOwnershipControls_bucket,
-    putBucketOwnershipControls_ownershipControls,
-
-    -- ** DeleteBucketOwnershipControls
-    deleteBucketOwnershipControls_expectedBucketOwner,
-    deleteBucketOwnershipControls_bucket,
-
-    -- ** PutBucketMetricsConfiguration
-    putBucketMetricsConfiguration_expectedBucketOwner,
-    putBucketMetricsConfiguration_bucket,
-    putBucketMetricsConfiguration_id,
-    putBucketMetricsConfiguration_metricsConfiguration,
-
-    -- ** DeleteBucketMetricsConfiguration
-    deleteBucketMetricsConfiguration_expectedBucketOwner,
-    deleteBucketMetricsConfiguration_bucket,
-    deleteBucketMetricsConfiguration_id,
-
-    -- ** ListObjectsV2
-    listObjectsV2_startAfter,
-    listObjectsV2_continuationToken,
-    listObjectsV2_fetchOwner,
-    listObjectsV2_prefix,
-    listObjectsV2_encodingType,
-    listObjectsV2_requestPayer,
-    listObjectsV2_maxKeys,
-    listObjectsV2_delimiter,
-    listObjectsV2_expectedBucketOwner,
-    listObjectsV2_bucket,
-    listObjectsV2Response_startAfter,
-    listObjectsV2Response_keyCount,
-    listObjectsV2Response_contents,
-    listObjectsV2Response_continuationToken,
-    listObjectsV2Response_prefix,
-    listObjectsV2Response_commonPrefixes,
-    listObjectsV2Response_encodingType,
-    listObjectsV2Response_name,
-    listObjectsV2Response_nextContinuationToken,
-    listObjectsV2Response_maxKeys,
-    listObjectsV2Response_isTruncated,
-    listObjectsV2Response_delimiter,
-    listObjectsV2Response_httpStatus,
-
-    -- ** GetObject
-    getObject_ifMatch,
-    getObject_versionId,
-    getObject_responseContentType,
-    getObject_responseContentDisposition,
-    getObject_responseContentLanguage,
-    getObject_sSECustomerAlgorithm,
-    getObject_sSECustomerKey,
-    getObject_requestPayer,
-    getObject_responseContentEncoding,
-    getObject_ifModifiedSince,
-    getObject_partNumber,
-    getObject_range,
-    getObject_ifUnmodifiedSince,
-    getObject_sSECustomerKeyMD5,
-    getObject_responseCacheControl,
-    getObject_responseExpires,
-    getObject_ifNoneMatch,
-    getObject_expectedBucketOwner,
-    getObject_bucket,
-    getObject_key,
-    getObjectResponse_requestCharged,
-    getObjectResponse_partsCount,
-    getObjectResponse_eTag,
-    getObjectResponse_versionId,
-    getObjectResponse_contentLength,
-    getObjectResponse_objectLockMode,
-    getObjectResponse_expires,
-    getObjectResponse_restore,
-    getObjectResponse_expiration,
-    getObjectResponse_deleteMarker,
-    getObjectResponse_sSECustomerAlgorithm,
-    getObjectResponse_tagCount,
-    getObjectResponse_missingMeta,
-    getObjectResponse_bucketKeyEnabled,
-    getObjectResponse_websiteRedirectLocation,
-    getObjectResponse_acceptRanges,
-    getObjectResponse_storageClass,
-    getObjectResponse_sSECustomerKeyMD5,
-    getObjectResponse_sSEKMSKeyId,
-    getObjectResponse_contentEncoding,
-    getObjectResponse_objectLockRetainUntilDate,
-    getObjectResponse_metadata,
-    getObjectResponse_replicationStatus,
-    getObjectResponse_cacheControl,
-    getObjectResponse_contentLanguage,
-    getObjectResponse_lastModified,
-    getObjectResponse_objectLockLegalHoldStatus,
-    getObjectResponse_contentDisposition,
-    getObjectResponse_contentRange,
-    getObjectResponse_serverSideEncryption,
-    getObjectResponse_contentType,
-    getObjectResponse_httpStatus,
-    getObjectResponse_body,
-
-    -- ** PutBucketReplication
-    putBucketReplication_token,
-    putBucketReplication_contentMD5,
-    putBucketReplication_expectedBucketOwner,
-    putBucketReplication_bucket,
-    putBucketReplication_replicationConfiguration,
-
-    -- ** GetBucketWebsite
-    getBucketWebsite_expectedBucketOwner,
-    getBucketWebsite_bucket,
-    getBucketWebsiteResponse_redirectAllRequestsTo,
-    getBucketWebsiteResponse_errorDocument,
-    getBucketWebsiteResponse_indexDocument,
-    getBucketWebsiteResponse_routingRules,
-    getBucketWebsiteResponse_httpStatus,
-
-    -- ** GetBucketRequestPayment
-    getBucketRequestPayment_expectedBucketOwner,
-    getBucketRequestPayment_bucket,
-    getBucketRequestPaymentResponse_payer,
-    getBucketRequestPaymentResponse_httpStatus,
-
-    -- ** DeleteBucketReplication
-    deleteBucketReplication_expectedBucketOwner,
-    deleteBucketReplication_bucket,
-
-    -- ** ListObjectVersions
-    listObjectVersions_keyMarker,
-    listObjectVersions_prefix,
-    listObjectVersions_encodingType,
-    listObjectVersions_versionIdMarker,
-    listObjectVersions_maxKeys,
-    listObjectVersions_delimiter,
-    listObjectVersions_expectedBucketOwner,
-    listObjectVersions_bucket,
-    listObjectVersionsResponse_nextVersionIdMarker,
-    listObjectVersionsResponse_keyMarker,
-    listObjectVersionsResponse_deleteMarkers,
-    listObjectVersionsResponse_prefix,
-    listObjectVersionsResponse_commonPrefixes,
-    listObjectVersionsResponse_encodingType,
-    listObjectVersionsResponse_versions,
-    listObjectVersionsResponse_name,
-    listObjectVersionsResponse_nextKeyMarker,
-    listObjectVersionsResponse_versionIdMarker,
-    listObjectVersionsResponse_maxKeys,
-    listObjectVersionsResponse_isTruncated,
-    listObjectVersionsResponse_delimiter,
-    listObjectVersionsResponse_httpStatus,
-
-    -- ** HeadBucket
-    headBucket_expectedBucketOwner,
-    headBucket_bucket,
-
-    -- ** DeleteBucketLifecycle
-    deleteBucketLifecycle_expectedBucketOwner,
-    deleteBucketLifecycle_bucket,
-
-    -- ** PutBucketLifecycleConfiguration
-    putBucketLifecycleConfiguration_lifecycleConfiguration,
-    putBucketLifecycleConfiguration_expectedBucketOwner,
-    putBucketLifecycleConfiguration_bucket,
-
-    -- ** PutBucketAnalyticsConfiguration
-    putBucketAnalyticsConfiguration_expectedBucketOwner,
-    putBucketAnalyticsConfiguration_bucket,
-    putBucketAnalyticsConfiguration_id,
-    putBucketAnalyticsConfiguration_analyticsConfiguration,
-
-    -- ** ListBucketAnalyticsConfigurations
-    listBucketAnalyticsConfigurations_continuationToken,
-    listBucketAnalyticsConfigurations_expectedBucketOwner,
-    listBucketAnalyticsConfigurations_bucket,
-    listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList,
-    listBucketAnalyticsConfigurationsResponse_continuationToken,
-    listBucketAnalyticsConfigurationsResponse_nextContinuationToken,
-    listBucketAnalyticsConfigurationsResponse_isTruncated,
-    listBucketAnalyticsConfigurationsResponse_httpStatus,
-
-    -- ** DeleteBucketAnalyticsConfiguration
-    deleteBucketAnalyticsConfiguration_expectedBucketOwner,
-    deleteBucketAnalyticsConfiguration_bucket,
-    deleteBucketAnalyticsConfiguration_id,
-
-    -- ** CreateMultipartUpload
-    createMultipartUpload_objectLockMode,
-    createMultipartUpload_expires,
-    createMultipartUpload_grantReadACP,
-    createMultipartUpload_sSECustomerAlgorithm,
-    createMultipartUpload_sSECustomerKey,
-    createMultipartUpload_requestPayer,
-    createMultipartUpload_grantWriteACP,
-    createMultipartUpload_bucketKeyEnabled,
-    createMultipartUpload_websiteRedirectLocation,
-    createMultipartUpload_grantRead,
-    createMultipartUpload_storageClass,
-    createMultipartUpload_sSECustomerKeyMD5,
-    createMultipartUpload_sSEKMSKeyId,
-    createMultipartUpload_grantFullControl,
-    createMultipartUpload_contentEncoding,
-    createMultipartUpload_tagging,
-    createMultipartUpload_objectLockRetainUntilDate,
-    createMultipartUpload_metadata,
-    createMultipartUpload_sSEKMSEncryptionContext,
-    createMultipartUpload_cacheControl,
-    createMultipartUpload_contentLanguage,
-    createMultipartUpload_objectLockLegalHoldStatus,
-    createMultipartUpload_acl,
-    createMultipartUpload_contentDisposition,
-    createMultipartUpload_expectedBucketOwner,
-    createMultipartUpload_serverSideEncryption,
-    createMultipartUpload_contentType,
-    createMultipartUpload_bucket,
-    createMultipartUpload_key,
-    createMultipartUploadResponse_requestCharged,
-    createMultipartUploadResponse_bucket,
-    createMultipartUploadResponse_sSECustomerAlgorithm,
-    createMultipartUploadResponse_abortDate,
-    createMultipartUploadResponse_abortRuleId,
-    createMultipartUploadResponse_bucketKeyEnabled,
-    createMultipartUploadResponse_key,
-    createMultipartUploadResponse_sSECustomerKeyMD5,
-    createMultipartUploadResponse_sSEKMSKeyId,
-    createMultipartUploadResponse_sSEKMSEncryptionContext,
-    createMultipartUploadResponse_serverSideEncryption,
-    createMultipartUploadResponse_httpStatus,
-    createMultipartUploadResponse_uploadId,
+    -- ** GetBucketPolicy
+    getBucketPolicy_expectedBucketOwner,
+    getBucketPolicy_bucket,
+    getBucketPolicyResponse_httpStatus,
+    getBucketPolicyResponse_policy,
 
     -- ** GetBucketPolicyStatus
     getBucketPolicyStatus_expectedBucketOwner,
@@ -466,35 +340,610 @@ module Amazonka.S3.Lens
     getBucketPolicyStatusResponse_policyStatus,
     getBucketPolicyStatusResponse_httpStatus,
 
-    -- ** UploadPart
-    uploadPart_contentLength,
-    uploadPart_sSECustomerAlgorithm,
-    uploadPart_sSECustomerKey,
-    uploadPart_requestPayer,
-    uploadPart_sSECustomerKeyMD5,
-    uploadPart_contentMD5,
-    uploadPart_expectedBucketOwner,
-    uploadPart_bucket,
-    uploadPart_key,
-    uploadPart_partNumber,
-    uploadPart_uploadId,
-    uploadPart_body,
-    uploadPartResponse_requestCharged,
-    uploadPartResponse_eTag,
-    uploadPartResponse_sSECustomerAlgorithm,
-    uploadPartResponse_bucketKeyEnabled,
-    uploadPartResponse_sSECustomerKeyMD5,
-    uploadPartResponse_sSEKMSKeyId,
-    uploadPartResponse_serverSideEncryption,
-    uploadPartResponse_httpStatus,
+    -- ** GetBucketReplication
+    getBucketReplication_expectedBucketOwner,
+    getBucketReplication_bucket,
+    getBucketReplicationResponse_replicationConfiguration,
+    getBucketReplicationResponse_httpStatus,
+
+    -- ** GetBucketRequestPayment
+    getBucketRequestPayment_expectedBucketOwner,
+    getBucketRequestPayment_bucket,
+    getBucketRequestPaymentResponse_payer,
+    getBucketRequestPaymentResponse_httpStatus,
+
+    -- ** GetBucketTagging
+    getBucketTagging_expectedBucketOwner,
+    getBucketTagging_bucket,
+    getBucketTaggingResponse_httpStatus,
+    getBucketTaggingResponse_tagSet,
+
+    -- ** GetBucketVersioning
+    getBucketVersioning_expectedBucketOwner,
+    getBucketVersioning_bucket,
+    getBucketVersioningResponse_mfaDelete,
+    getBucketVersioningResponse_status,
+    getBucketVersioningResponse_httpStatus,
+
+    -- ** GetBucketWebsite
+    getBucketWebsite_expectedBucketOwner,
+    getBucketWebsite_bucket,
+    getBucketWebsiteResponse_routingRules,
+    getBucketWebsiteResponse_errorDocument,
+    getBucketWebsiteResponse_redirectAllRequestsTo,
+    getBucketWebsiteResponse_indexDocument,
+    getBucketWebsiteResponse_httpStatus,
+
+    -- ** GetObject
+    getObject_responseCacheControl,
+    getObject_expectedBucketOwner,
+    getObject_partNumber,
+    getObject_responseContentType,
+    getObject_requestPayer,
+    getObject_ifUnmodifiedSince,
+    getObject_range,
+    getObject_sSECustomerAlgorithm,
+    getObject_sSECustomerKeyMD5,
+    getObject_responseContentLanguage,
+    getObject_responseExpires,
+    getObject_responseContentEncoding,
+    getObject_ifMatch,
+    getObject_ifModifiedSince,
+    getObject_ifNoneMatch,
+    getObject_responseContentDisposition,
+    getObject_versionId,
+    getObject_sSECustomerKey,
+    getObject_bucket,
+    getObject_key,
+    getObjectResponse_serverSideEncryption,
+    getObjectResponse_partsCount,
+    getObjectResponse_objectLockMode,
+    getObjectResponse_bucketKeyEnabled,
+    getObjectResponse_websiteRedirectLocation,
+    getObjectResponse_expiration,
+    getObjectResponse_requestCharged,
+    getObjectResponse_objectLockRetainUntilDate,
+    getObjectResponse_replicationStatus,
+    getObjectResponse_metadata,
+    getObjectResponse_restore,
+    getObjectResponse_contentLanguage,
+    getObjectResponse_sSEKMSKeyId,
+    getObjectResponse_contentDisposition,
+    getObjectResponse_objectLockLegalHoldStatus,
+    getObjectResponse_acceptRanges,
+    getObjectResponse_contentLength,
+    getObjectResponse_tagCount,
+    getObjectResponse_sSECustomerAlgorithm,
+    getObjectResponse_contentRange,
+    getObjectResponse_lastModified,
+    getObjectResponse_cacheControl,
+    getObjectResponse_contentEncoding,
+    getObjectResponse_missingMeta,
+    getObjectResponse_sSECustomerKeyMD5,
+    getObjectResponse_expires,
+    getObjectResponse_storageClass,
+    getObjectResponse_eTag,
+    getObjectResponse_deleteMarker,
+    getObjectResponse_contentType,
+    getObjectResponse_versionId,
+    getObjectResponse_httpStatus,
+    getObjectResponse_body,
+
+    -- ** GetObjectAcl
+    getObjectAcl_expectedBucketOwner,
+    getObjectAcl_requestPayer,
+    getObjectAcl_versionId,
+    getObjectAcl_bucket,
+    getObjectAcl_key,
+    getObjectAclResponse_requestCharged,
+    getObjectAclResponse_grants,
+    getObjectAclResponse_owner,
+    getObjectAclResponse_httpStatus,
+
+    -- ** GetObjectLegalHold
+    getObjectLegalHold_expectedBucketOwner,
+    getObjectLegalHold_requestPayer,
+    getObjectLegalHold_versionId,
+    getObjectLegalHold_bucket,
+    getObjectLegalHold_key,
+    getObjectLegalHoldResponse_legalHold,
+    getObjectLegalHoldResponse_httpStatus,
+
+    -- ** GetObjectLockConfiguration
+    getObjectLockConfiguration_expectedBucketOwner,
+    getObjectLockConfiguration_bucket,
+    getObjectLockConfigurationResponse_objectLockConfiguration,
+    getObjectLockConfigurationResponse_httpStatus,
+
+    -- ** GetObjectRetention
+    getObjectRetention_expectedBucketOwner,
+    getObjectRetention_requestPayer,
+    getObjectRetention_versionId,
+    getObjectRetention_bucket,
+    getObjectRetention_key,
+    getObjectRetentionResponse_retention,
+    getObjectRetentionResponse_httpStatus,
+
+    -- ** GetObjectTagging
+    getObjectTagging_expectedBucketOwner,
+    getObjectTagging_requestPayer,
+    getObjectTagging_versionId,
+    getObjectTagging_bucket,
+    getObjectTagging_key,
+    getObjectTaggingResponse_versionId,
+    getObjectTaggingResponse_httpStatus,
+    getObjectTaggingResponse_tagSet,
+
+    -- ** GetObjectTorrent
+    getObjectTorrent_expectedBucketOwner,
+    getObjectTorrent_requestPayer,
+    getObjectTorrent_bucket,
+    getObjectTorrent_key,
+    getObjectTorrentResponse_requestCharged,
+    getObjectTorrentResponse_httpStatus,
+    getObjectTorrentResponse_body,
+
+    -- ** GetPublicAccessBlock
+    getPublicAccessBlock_expectedBucketOwner,
+    getPublicAccessBlock_bucket,
+    getPublicAccessBlockResponse_publicAccessBlockConfiguration,
+    getPublicAccessBlockResponse_httpStatus,
+
+    -- ** HeadBucket
+    headBucket_expectedBucketOwner,
+    headBucket_bucket,
+
+    -- ** HeadObject
+    headObject_expectedBucketOwner,
+    headObject_partNumber,
+    headObject_requestPayer,
+    headObject_ifUnmodifiedSince,
+    headObject_range,
+    headObject_sSECustomerAlgorithm,
+    headObject_sSECustomerKeyMD5,
+    headObject_ifMatch,
+    headObject_ifModifiedSince,
+    headObject_ifNoneMatch,
+    headObject_versionId,
+    headObject_sSECustomerKey,
+    headObject_bucket,
+    headObject_key,
+    headObjectResponse_serverSideEncryption,
+    headObjectResponse_partsCount,
+    headObjectResponse_objectLockMode,
+    headObjectResponse_bucketKeyEnabled,
+    headObjectResponse_websiteRedirectLocation,
+    headObjectResponse_expiration,
+    headObjectResponse_requestCharged,
+    headObjectResponse_objectLockRetainUntilDate,
+    headObjectResponse_replicationStatus,
+    headObjectResponse_metadata,
+    headObjectResponse_restore,
+    headObjectResponse_contentLanguage,
+    headObjectResponse_sSEKMSKeyId,
+    headObjectResponse_contentDisposition,
+    headObjectResponse_objectLockLegalHoldStatus,
+    headObjectResponse_acceptRanges,
+    headObjectResponse_contentLength,
+    headObjectResponse_sSECustomerAlgorithm,
+    headObjectResponse_lastModified,
+    headObjectResponse_cacheControl,
+    headObjectResponse_contentEncoding,
+    headObjectResponse_missingMeta,
+    headObjectResponse_sSECustomerKeyMD5,
+    headObjectResponse_archiveStatus,
+    headObjectResponse_expires,
+    headObjectResponse_storageClass,
+    headObjectResponse_eTag,
+    headObjectResponse_deleteMarker,
+    headObjectResponse_contentType,
+    headObjectResponse_versionId,
+    headObjectResponse_httpStatus,
+
+    -- ** ListBucketAnalyticsConfigurations
+    listBucketAnalyticsConfigurations_expectedBucketOwner,
+    listBucketAnalyticsConfigurations_continuationToken,
+    listBucketAnalyticsConfigurations_bucket,
+    listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList,
+    listBucketAnalyticsConfigurationsResponse_isTruncated,
+    listBucketAnalyticsConfigurationsResponse_continuationToken,
+    listBucketAnalyticsConfigurationsResponse_nextContinuationToken,
+    listBucketAnalyticsConfigurationsResponse_httpStatus,
+
+    -- ** ListBucketIntelligentTieringConfigurations
+    listBucketIntelligentTieringConfigurations_continuationToken,
+    listBucketIntelligentTieringConfigurations_bucket,
+    listBucketIntelligentTieringConfigurationsResponse_isTruncated,
+    listBucketIntelligentTieringConfigurationsResponse_continuationToken,
+    listBucketIntelligentTieringConfigurationsResponse_nextContinuationToken,
+    listBucketIntelligentTieringConfigurationsResponse_intelligentTieringConfigurationList,
+    listBucketIntelligentTieringConfigurationsResponse_httpStatus,
+
+    -- ** ListBucketInventoryConfigurations
+    listBucketInventoryConfigurations_expectedBucketOwner,
+    listBucketInventoryConfigurations_continuationToken,
+    listBucketInventoryConfigurations_bucket,
+    listBucketInventoryConfigurationsResponse_inventoryConfigurationList,
+    listBucketInventoryConfigurationsResponse_isTruncated,
+    listBucketInventoryConfigurationsResponse_continuationToken,
+    listBucketInventoryConfigurationsResponse_nextContinuationToken,
+    listBucketInventoryConfigurationsResponse_httpStatus,
+
+    -- ** ListBucketMetricsConfigurations
+    listBucketMetricsConfigurations_expectedBucketOwner,
+    listBucketMetricsConfigurations_continuationToken,
+    listBucketMetricsConfigurations_bucket,
+    listBucketMetricsConfigurationsResponse_metricsConfigurationList,
+    listBucketMetricsConfigurationsResponse_isTruncated,
+    listBucketMetricsConfigurationsResponse_continuationToken,
+    listBucketMetricsConfigurationsResponse_nextContinuationToken,
+    listBucketMetricsConfigurationsResponse_httpStatus,
+
+    -- ** ListBuckets
+    listBucketsResponse_owner,
+    listBucketsResponse_buckets,
+    listBucketsResponse_httpStatus,
+
+    -- ** ListMultipartUploads
+    listMultipartUploads_expectedBucketOwner,
+    listMultipartUploads_maxUploads,
+    listMultipartUploads_keyMarker,
+    listMultipartUploads_delimiter,
+    listMultipartUploads_prefix,
+    listMultipartUploads_uploadIdMarker,
+    listMultipartUploads_encodingType,
+    listMultipartUploads_bucket,
+    listMultipartUploadsResponse_commonPrefixes,
+    listMultipartUploadsResponse_uploads,
+    listMultipartUploadsResponse_bucket,
+    listMultipartUploadsResponse_maxUploads,
+    listMultipartUploadsResponse_isTruncated,
+    listMultipartUploadsResponse_keyMarker,
+    listMultipartUploadsResponse_delimiter,
+    listMultipartUploadsResponse_nextUploadIdMarker,
+    listMultipartUploadsResponse_prefix,
+    listMultipartUploadsResponse_nextKeyMarker,
+    listMultipartUploadsResponse_uploadIdMarker,
+    listMultipartUploadsResponse_encodingType,
+    listMultipartUploadsResponse_httpStatus,
+
+    -- ** ListObjectVersions
+    listObjectVersions_maxKeys,
+    listObjectVersions_expectedBucketOwner,
+    listObjectVersions_keyMarker,
+    listObjectVersions_delimiter,
+    listObjectVersions_prefix,
+    listObjectVersions_encodingType,
+    listObjectVersions_versionIdMarker,
+    listObjectVersions_bucket,
+    listObjectVersionsResponse_maxKeys,
+    listObjectVersionsResponse_commonPrefixes,
+    listObjectVersionsResponse_name,
+    listObjectVersionsResponse_isTruncated,
+    listObjectVersionsResponse_keyMarker,
+    listObjectVersionsResponse_deleteMarkers,
+    listObjectVersionsResponse_delimiter,
+    listObjectVersionsResponse_versions,
+    listObjectVersionsResponse_prefix,
+    listObjectVersionsResponse_nextVersionIdMarker,
+    listObjectVersionsResponse_nextKeyMarker,
+    listObjectVersionsResponse_encodingType,
+    listObjectVersionsResponse_versionIdMarker,
+    listObjectVersionsResponse_httpStatus,
+
+    -- ** ListObjects
+    listObjects_maxKeys,
+    listObjects_marker,
+    listObjects_expectedBucketOwner,
+    listObjects_requestPayer,
+    listObjects_delimiter,
+    listObjects_prefix,
+    listObjects_encodingType,
+    listObjects_bucket,
+    listObjectsResponse_maxKeys,
+    listObjectsResponse_commonPrefixes,
+    listObjectsResponse_name,
+    listObjectsResponse_marker,
+    listObjectsResponse_contents,
+    listObjectsResponse_isTruncated,
+    listObjectsResponse_delimiter,
+    listObjectsResponse_nextMarker,
+    listObjectsResponse_prefix,
+    listObjectsResponse_encodingType,
+    listObjectsResponse_httpStatus,
+
+    -- ** ListObjectsV2
+    listObjectsV2_maxKeys,
+    listObjectsV2_startAfter,
+    listObjectsV2_expectedBucketOwner,
+    listObjectsV2_requestPayer,
+    listObjectsV2_fetchOwner,
+    listObjectsV2_continuationToken,
+    listObjectsV2_delimiter,
+    listObjectsV2_prefix,
+    listObjectsV2_encodingType,
+    listObjectsV2_bucket,
+    listObjectsV2Response_maxKeys,
+    listObjectsV2Response_commonPrefixes,
+    listObjectsV2Response_startAfter,
+    listObjectsV2Response_name,
+    listObjectsV2Response_keyCount,
+    listObjectsV2Response_contents,
+    listObjectsV2Response_isTruncated,
+    listObjectsV2Response_continuationToken,
+    listObjectsV2Response_nextContinuationToken,
+    listObjectsV2Response_delimiter,
+    listObjectsV2Response_prefix,
+    listObjectsV2Response_encodingType,
+    listObjectsV2Response_httpStatus,
+
+    -- ** ListParts
+    listParts_expectedBucketOwner,
+    listParts_requestPayer,
+    listParts_maxParts,
+    listParts_partNumberMarker,
+    listParts_bucket,
+    listParts_key,
+    listParts_uploadId,
+    listPartsResponse_uploadId,
+    listPartsResponse_key,
+    listPartsResponse_requestCharged,
+    listPartsResponse_parts,
+    listPartsResponse_bucket,
+    listPartsResponse_abortRuleId,
+    listPartsResponse_nextPartNumberMarker,
+    listPartsResponse_isTruncated,
+    listPartsResponse_owner,
+    listPartsResponse_abortDate,
+    listPartsResponse_maxParts,
+    listPartsResponse_partNumberMarker,
+    listPartsResponse_storageClass,
+    listPartsResponse_initiator,
+    listPartsResponse_httpStatus,
+
+    -- ** PutBucketAccelerateConfiguration
+    putBucketAccelerateConfiguration_expectedBucketOwner,
+    putBucketAccelerateConfiguration_bucket,
+    putBucketAccelerateConfiguration_accelerateConfiguration,
+
+    -- ** PutBucketAcl
+    putBucketAcl_grantWriteACP,
+    putBucketAcl_grantFullControl,
+    putBucketAcl_acl,
+    putBucketAcl_contentMD5,
+    putBucketAcl_expectedBucketOwner,
+    putBucketAcl_grantRead,
+    putBucketAcl_accessControlPolicy,
+    putBucketAcl_grantWrite,
+    putBucketAcl_grantReadACP,
+    putBucketAcl_bucket,
+
+    -- ** PutBucketAnalyticsConfiguration
+    putBucketAnalyticsConfiguration_expectedBucketOwner,
+    putBucketAnalyticsConfiguration_bucket,
+    putBucketAnalyticsConfiguration_id,
+    putBucketAnalyticsConfiguration_analyticsConfiguration,
+
+    -- ** PutBucketCors
+    putBucketCors_contentMD5,
+    putBucketCors_expectedBucketOwner,
+    putBucketCors_bucket,
+    putBucketCors_cORSConfiguration,
+
+    -- ** PutBucketEncryption
+    putBucketEncryption_contentMD5,
+    putBucketEncryption_expectedBucketOwner,
+    putBucketEncryption_bucket,
+    putBucketEncryption_serverSideEncryptionConfiguration,
+
+    -- ** PutBucketIntelligentTieringConfiguration
+    putBucketIntelligentTieringConfiguration_bucket,
+    putBucketIntelligentTieringConfiguration_id,
+    putBucketIntelligentTieringConfiguration_intelligentTieringConfiguration,
+
+    -- ** PutBucketInventoryConfiguration
+    putBucketInventoryConfiguration_expectedBucketOwner,
+    putBucketInventoryConfiguration_bucket,
+    putBucketInventoryConfiguration_id,
+    putBucketInventoryConfiguration_inventoryConfiguration,
+
+    -- ** PutBucketLifecycleConfiguration
+    putBucketLifecycleConfiguration_expectedBucketOwner,
+    putBucketLifecycleConfiguration_lifecycleConfiguration,
+    putBucketLifecycleConfiguration_bucket,
+
+    -- ** PutBucketLogging
+    putBucketLogging_contentMD5,
+    putBucketLogging_expectedBucketOwner,
+    putBucketLogging_bucket,
+    putBucketLogging_bucketLoggingStatus,
+
+    -- ** PutBucketMetricsConfiguration
+    putBucketMetricsConfiguration_expectedBucketOwner,
+    putBucketMetricsConfiguration_bucket,
+    putBucketMetricsConfiguration_id,
+    putBucketMetricsConfiguration_metricsConfiguration,
+
+    -- ** PutBucketNotificationConfiguration
+    putBucketNotificationConfiguration_expectedBucketOwner,
+    putBucketNotificationConfiguration_bucket,
+    putBucketNotificationConfiguration_notificationConfiguration,
+
+    -- ** PutBucketOwnershipControls
+    putBucketOwnershipControls_contentMD5,
+    putBucketOwnershipControls_expectedBucketOwner,
+    putBucketOwnershipControls_bucket,
+    putBucketOwnershipControls_ownershipControls,
+
+    -- ** PutBucketPolicy
+    putBucketPolicy_contentMD5,
+    putBucketPolicy_expectedBucketOwner,
+    putBucketPolicy_confirmRemoveSelfBucketAccess,
+    putBucketPolicy_bucket,
+    putBucketPolicy_policy,
+
+    -- ** PutBucketReplication
+    putBucketReplication_contentMD5,
+    putBucketReplication_expectedBucketOwner,
+    putBucketReplication_token,
+    putBucketReplication_bucket,
+    putBucketReplication_replicationConfiguration,
+
+    -- ** PutBucketRequestPayment
+    putBucketRequestPayment_contentMD5,
+    putBucketRequestPayment_expectedBucketOwner,
+    putBucketRequestPayment_bucket,
+    putBucketRequestPayment_requestPaymentConfiguration,
+
+    -- ** PutBucketTagging
+    putBucketTagging_contentMD5,
+    putBucketTagging_expectedBucketOwner,
+    putBucketTagging_bucket,
+    putBucketTagging_tagging,
+
+    -- ** PutBucketVersioning
+    putBucketVersioning_contentMD5,
+    putBucketVersioning_expectedBucketOwner,
+    putBucketVersioning_mfa,
+    putBucketVersioning_bucket,
+    putBucketVersioning_versioningConfiguration,
+
+    -- ** PutBucketWebsite
+    putBucketWebsite_contentMD5,
+    putBucketWebsite_expectedBucketOwner,
+    putBucketWebsite_bucket,
+    putBucketWebsite_websiteConfiguration,
+
+    -- ** PutObject
+    putObject_serverSideEncryption,
+    putObject_objectLockMode,
+    putObject_bucketKeyEnabled,
+    putObject_websiteRedirectLocation,
+    putObject_grantWriteACP,
+    putObject_objectLockRetainUntilDate,
+    putObject_grantFullControl,
+    putObject_acl,
+    putObject_contentMD5,
+    putObject_expectedBucketOwner,
+    putObject_metadata,
+    putObject_contentLanguage,
+    putObject_sSEKMSKeyId,
+    putObject_contentDisposition,
+    putObject_objectLockLegalHoldStatus,
+    putObject_requestPayer,
+    putObject_sSEKMSEncryptionContext,
+    putObject_contentLength,
+    putObject_grantRead,
+    putObject_sSECustomerAlgorithm,
+    putObject_cacheControl,
+    putObject_contentEncoding,
+    putObject_tagging,
+    putObject_sSECustomerKeyMD5,
+    putObject_expires,
+    putObject_storageClass,
+    putObject_grantReadACP,
+    putObject_contentType,
+    putObject_sSECustomerKey,
+    putObject_bucket,
+    putObject_key,
+    putObject_body,
+    putObjectResponse_serverSideEncryption,
+    putObjectResponse_bucketKeyEnabled,
+    putObjectResponse_expiration,
+    putObjectResponse_requestCharged,
+    putObjectResponse_sSEKMSKeyId,
+    putObjectResponse_sSEKMSEncryptionContext,
+    putObjectResponse_sSECustomerAlgorithm,
+    putObjectResponse_sSECustomerKeyMD5,
+    putObjectResponse_eTag,
+    putObjectResponse_versionId,
+    putObjectResponse_httpStatus,
+
+    -- ** PutObjectAcl
+    putObjectAcl_grantWriteACP,
+    putObjectAcl_grantFullControl,
+    putObjectAcl_acl,
+    putObjectAcl_contentMD5,
+    putObjectAcl_expectedBucketOwner,
+    putObjectAcl_requestPayer,
+    putObjectAcl_grantRead,
+    putObjectAcl_accessControlPolicy,
+    putObjectAcl_grantWrite,
+    putObjectAcl_grantReadACP,
+    putObjectAcl_versionId,
+    putObjectAcl_bucket,
+    putObjectAcl_key,
+    putObjectAclResponse_requestCharged,
+    putObjectAclResponse_httpStatus,
+
+    -- ** PutObjectLegalHold
+    putObjectLegalHold_contentMD5,
+    putObjectLegalHold_expectedBucketOwner,
+    putObjectLegalHold_requestPayer,
+    putObjectLegalHold_legalHold,
+    putObjectLegalHold_versionId,
+    putObjectLegalHold_bucket,
+    putObjectLegalHold_key,
+    putObjectLegalHoldResponse_requestCharged,
+    putObjectLegalHoldResponse_httpStatus,
+
+    -- ** PutObjectLockConfiguration
+    putObjectLockConfiguration_contentMD5,
+    putObjectLockConfiguration_expectedBucketOwner,
+    putObjectLockConfiguration_requestPayer,
+    putObjectLockConfiguration_objectLockConfiguration,
+    putObjectLockConfiguration_token,
+    putObjectLockConfiguration_bucket,
+    putObjectLockConfigurationResponse_requestCharged,
+    putObjectLockConfigurationResponse_httpStatus,
+
+    -- ** PutObjectRetention
+    putObjectRetention_contentMD5,
+    putObjectRetention_expectedBucketOwner,
+    putObjectRetention_requestPayer,
+    putObjectRetention_bypassGovernanceRetention,
+    putObjectRetention_retention,
+    putObjectRetention_versionId,
+    putObjectRetention_bucket,
+    putObjectRetention_key,
+    putObjectRetentionResponse_requestCharged,
+    putObjectRetentionResponse_httpStatus,
+
+    -- ** PutObjectTagging
+    putObjectTagging_contentMD5,
+    putObjectTagging_expectedBucketOwner,
+    putObjectTagging_requestPayer,
+    putObjectTagging_versionId,
+    putObjectTagging_bucket,
+    putObjectTagging_key,
+    putObjectTagging_tagging,
+    putObjectTaggingResponse_versionId,
+    putObjectTaggingResponse_httpStatus,
+
+    -- ** PutPublicAccessBlock
+    putPublicAccessBlock_contentMD5,
+    putPublicAccessBlock_expectedBucketOwner,
+    putPublicAccessBlock_bucket,
+    putPublicAccessBlock_publicAccessBlockConfiguration,
+
+    -- ** RestoreObject
+    restoreObject_expectedBucketOwner,
+    restoreObject_requestPayer,
+    restoreObject_restoreRequest,
+    restoreObject_versionId,
+    restoreObject_bucket,
+    restoreObject_key,
+    restoreObjectResponse_requestCharged,
+    restoreObjectResponse_restoreOutputPath,
+    restoreObjectResponse_httpStatus,
 
     -- ** SelectObjectContent
-    selectObjectContent_sSECustomerAlgorithm,
-    selectObjectContent_sSECustomerKey,
-    selectObjectContent_requestProgress,
-    selectObjectContent_sSECustomerKeyMD5,
-    selectObjectContent_scanRange,
     selectObjectContent_expectedBucketOwner,
+    selectObjectContent_requestProgress,
+    selectObjectContent_scanRange,
+    selectObjectContent_sSECustomerAlgorithm,
+    selectObjectContent_sSECustomerKeyMD5,
+    selectObjectContent_sSECustomerKey,
     selectObjectContent_bucket,
     selectObjectContent_key,
     selectObjectContent_expression,
@@ -504,544 +953,95 @@ module Amazonka.S3.Lens
     selectObjectContentResponse_payload,
     selectObjectContentResponse_httpStatus,
 
-    -- ** GetBucketReplication
-    getBucketReplication_expectedBucketOwner,
-    getBucketReplication_bucket,
-    getBucketReplicationResponse_replicationConfiguration,
-    getBucketReplicationResponse_httpStatus,
-
-    -- ** PutBucketWebsite
-    putBucketWebsite_contentMD5,
-    putBucketWebsite_expectedBucketOwner,
-    putBucketWebsite_bucket,
-    putBucketWebsite_websiteConfiguration,
-
-    -- ** DeleteBucketWebsite
-    deleteBucketWebsite_expectedBucketOwner,
-    deleteBucketWebsite_bucket,
-
-    -- ** CompleteMultipartUpload
-    completeMultipartUpload_requestPayer,
-    completeMultipartUpload_multipartUpload,
-    completeMultipartUpload_expectedBucketOwner,
-    completeMultipartUpload_bucket,
-    completeMultipartUpload_key,
-    completeMultipartUpload_uploadId,
-    completeMultipartUploadResponse_requestCharged,
-    completeMultipartUploadResponse_eTag,
-    completeMultipartUploadResponse_versionId,
-    completeMultipartUploadResponse_location,
-    completeMultipartUploadResponse_expiration,
-    completeMultipartUploadResponse_bucket,
-    completeMultipartUploadResponse_bucketKeyEnabled,
-    completeMultipartUploadResponse_key,
-    completeMultipartUploadResponse_sSEKMSKeyId,
-    completeMultipartUploadResponse_serverSideEncryption,
-    completeMultipartUploadResponse_httpStatus,
-
-    -- ** ListMultipartUploads
-    listMultipartUploads_keyMarker,
-    listMultipartUploads_prefix,
-    listMultipartUploads_encodingType,
-    listMultipartUploads_uploadIdMarker,
-    listMultipartUploads_maxUploads,
-    listMultipartUploads_delimiter,
-    listMultipartUploads_expectedBucketOwner,
-    listMultipartUploads_bucket,
-    listMultipartUploadsResponse_keyMarker,
-    listMultipartUploadsResponse_prefix,
-    listMultipartUploadsResponse_commonPrefixes,
-    listMultipartUploadsResponse_encodingType,
-    listMultipartUploadsResponse_bucket,
-    listMultipartUploadsResponse_uploadIdMarker,
-    listMultipartUploadsResponse_maxUploads,
-    listMultipartUploadsResponse_nextKeyMarker,
-    listMultipartUploadsResponse_uploads,
-    listMultipartUploadsResponse_isTruncated,
-    listMultipartUploadsResponse_nextUploadIdMarker,
-    listMultipartUploadsResponse_delimiter,
-    listMultipartUploadsResponse_httpStatus,
-
-    -- ** ListObjects
-    listObjects_prefix,
-    listObjects_encodingType,
-    listObjects_requestPayer,
-    listObjects_marker,
-    listObjects_maxKeys,
-    listObjects_delimiter,
-    listObjects_expectedBucketOwner,
-    listObjects_bucket,
-    listObjectsResponse_contents,
-    listObjectsResponse_prefix,
-    listObjectsResponse_commonPrefixes,
-    listObjectsResponse_encodingType,
-    listObjectsResponse_name,
-    listObjectsResponse_marker,
-    listObjectsResponse_nextMarker,
-    listObjectsResponse_maxKeys,
-    listObjectsResponse_isTruncated,
-    listObjectsResponse_delimiter,
-    listObjectsResponse_httpStatus,
-
-    -- ** GetBucketOwnershipControls
-    getBucketOwnershipControls_expectedBucketOwner,
-    getBucketOwnershipControls_bucket,
-    getBucketOwnershipControlsResponse_ownershipControls,
-    getBucketOwnershipControlsResponse_httpStatus,
-
-    -- ** GetObjectLegalHold
-    getObjectLegalHold_versionId,
-    getObjectLegalHold_requestPayer,
-    getObjectLegalHold_expectedBucketOwner,
-    getObjectLegalHold_bucket,
-    getObjectLegalHold_key,
-    getObjectLegalHoldResponse_legalHold,
-    getObjectLegalHoldResponse_httpStatus,
-
-    -- ** GetObjectRetention
-    getObjectRetention_versionId,
-    getObjectRetention_requestPayer,
-    getObjectRetention_expectedBucketOwner,
-    getObjectRetention_bucket,
-    getObjectRetention_key,
-    getObjectRetentionResponse_retention,
-    getObjectRetentionResponse_httpStatus,
-
-    -- ** DeleteBucketPolicy
-    deleteBucketPolicy_expectedBucketOwner,
-    deleteBucketPolicy_bucket,
-
-    -- ** GetBucketEncryption
-    getBucketEncryption_expectedBucketOwner,
-    getBucketEncryption_bucket,
-    getBucketEncryptionResponse_serverSideEncryptionConfiguration,
-    getBucketEncryptionResponse_httpStatus,
-
-    -- ** AbortMultipartUpload
-    abortMultipartUpload_requestPayer,
-    abortMultipartUpload_expectedBucketOwner,
-    abortMultipartUpload_bucket,
-    abortMultipartUpload_key,
-    abortMultipartUpload_uploadId,
-    abortMultipartUploadResponse_requestCharged,
-    abortMultipartUploadResponse_httpStatus,
-
-    -- ** PutBucketPolicy
-    putBucketPolicy_confirmRemoveSelfBucketAccess,
-    putBucketPolicy_contentMD5,
-    putBucketPolicy_expectedBucketOwner,
-    putBucketPolicy_bucket,
-    putBucketPolicy_policy,
-
-    -- ** GetBucketAccelerateConfiguration
-    getBucketAccelerateConfiguration_expectedBucketOwner,
-    getBucketAccelerateConfiguration_bucket,
-    getBucketAccelerateConfigurationResponse_status,
-    getBucketAccelerateConfigurationResponse_httpStatus,
-
-    -- ** GetObjectTorrent
-    getObjectTorrent_requestPayer,
-    getObjectTorrent_expectedBucketOwner,
-    getObjectTorrent_bucket,
-    getObjectTorrent_key,
-    getObjectTorrentResponse_requestCharged,
-    getObjectTorrentResponse_httpStatus,
-    getObjectTorrentResponse_body,
-
-    -- ** DeleteObjects
-    deleteObjects_mfa,
-    deleteObjects_requestPayer,
-    deleteObjects_bypassGovernanceRetention,
-    deleteObjects_expectedBucketOwner,
-    deleteObjects_bucket,
-    deleteObjects_delete,
-    deleteObjectsResponse_requestCharged,
-    deleteObjectsResponse_deleted,
-    deleteObjectsResponse_errors,
-    deleteObjectsResponse_httpStatus,
-
-    -- ** PutObjectLockConfiguration
-    putObjectLockConfiguration_token,
-    putObjectLockConfiguration_objectLockConfiguration,
-    putObjectLockConfiguration_requestPayer,
-    putObjectLockConfiguration_contentMD5,
-    putObjectLockConfiguration_expectedBucketOwner,
-    putObjectLockConfiguration_bucket,
-    putObjectLockConfigurationResponse_requestCharged,
-    putObjectLockConfigurationResponse_httpStatus,
-
-    -- ** PutBucketNotificationConfiguration
-    putBucketNotificationConfiguration_expectedBucketOwner,
-    putBucketNotificationConfiguration_bucket,
-    putBucketNotificationConfiguration_notificationConfiguration,
-
-    -- ** GetBucketVersioning
-    getBucketVersioning_expectedBucketOwner,
-    getBucketVersioning_bucket,
-    getBucketVersioningResponse_status,
-    getBucketVersioningResponse_mfaDelete,
-    getBucketVersioningResponse_httpStatus,
-
-    -- ** DeleteBucketCors
-    deleteBucketCors_expectedBucketOwner,
-    deleteBucketCors_bucket,
-
-    -- ** DeleteBucketIntelligentTieringConfiguration
-    deleteBucketIntelligentTieringConfiguration_bucket,
-    deleteBucketIntelligentTieringConfiguration_id,
-
-    -- ** ListBucketIntelligentTieringConfigurations
-    listBucketIntelligentTieringConfigurations_continuationToken,
-    listBucketIntelligentTieringConfigurations_bucket,
-    listBucketIntelligentTieringConfigurationsResponse_intelligentTieringConfigurationList,
-    listBucketIntelligentTieringConfigurationsResponse_continuationToken,
-    listBucketIntelligentTieringConfigurationsResponse_nextContinuationToken,
-    listBucketIntelligentTieringConfigurationsResponse_isTruncated,
-    listBucketIntelligentTieringConfigurationsResponse_httpStatus,
-
-    -- ** PutBucketCors
-    putBucketCors_contentMD5,
-    putBucketCors_expectedBucketOwner,
-    putBucketCors_bucket,
-    putBucketCors_cORSConfiguration,
-
-    -- ** GetPublicAccessBlock
-    getPublicAccessBlock_expectedBucketOwner,
-    getPublicAccessBlock_bucket,
-    getPublicAccessBlockResponse_publicAccessBlockConfiguration,
-    getPublicAccessBlockResponse_httpStatus,
-
-    -- ** PutBucketIntelligentTieringConfiguration
-    putBucketIntelligentTieringConfiguration_bucket,
-    putBucketIntelligentTieringConfiguration_id,
-    putBucketIntelligentTieringConfiguration_intelligentTieringConfiguration,
-
-    -- ** GetBucketCors
-    getBucketCors_expectedBucketOwner,
-    getBucketCors_bucket,
-    getBucketCorsResponse_cORSRules,
-    getBucketCorsResponse_httpStatus,
-
-    -- ** WriteGetObjectResponse
-    writeGetObjectResponse_requestCharged,
-    writeGetObjectResponse_partsCount,
-    writeGetObjectResponse_eTag,
-    writeGetObjectResponse_versionId,
-    writeGetObjectResponse_contentLength,
-    writeGetObjectResponse_objectLockMode,
-    writeGetObjectResponse_expires,
-    writeGetObjectResponse_restore,
-    writeGetObjectResponse_expiration,
-    writeGetObjectResponse_deleteMarker,
-    writeGetObjectResponse_sSECustomerAlgorithm,
-    writeGetObjectResponse_tagCount,
-    writeGetObjectResponse_missingMeta,
-    writeGetObjectResponse_bucketKeyEnabled,
-    writeGetObjectResponse_acceptRanges,
-    writeGetObjectResponse_storageClass,
-    writeGetObjectResponse_sSECustomerKeyMD5,
-    writeGetObjectResponse_sSEKMSKeyId,
-    writeGetObjectResponse_contentEncoding,
-    writeGetObjectResponse_errorCode,
-    writeGetObjectResponse_objectLockRetainUntilDate,
-    writeGetObjectResponse_metadata,
-    writeGetObjectResponse_replicationStatus,
-    writeGetObjectResponse_cacheControl,
-    writeGetObjectResponse_contentLanguage,
-    writeGetObjectResponse_errorMessage,
-    writeGetObjectResponse_lastModified,
-    writeGetObjectResponse_objectLockLegalHoldStatus,
-    writeGetObjectResponse_contentDisposition,
-    writeGetObjectResponse_contentRange,
-    writeGetObjectResponse_serverSideEncryption,
-    writeGetObjectResponse_contentType,
-    writeGetObjectResponse_statusCode,
-    writeGetObjectResponse_requestRoute,
-    writeGetObjectResponse_requestToken,
-    writeGetObjectResponse_body,
-
-    -- ** GetObjectAcl
-    getObjectAcl_versionId,
-    getObjectAcl_requestPayer,
-    getObjectAcl_expectedBucketOwner,
-    getObjectAcl_bucket,
-    getObjectAcl_key,
-    getObjectAclResponse_requestCharged,
-    getObjectAclResponse_grants,
-    getObjectAclResponse_owner,
-    getObjectAclResponse_httpStatus,
-
-    -- ** RestoreObject
-    restoreObject_versionId,
-    restoreObject_requestPayer,
-    restoreObject_expectedBucketOwner,
-    restoreObject_restoreRequest,
-    restoreObject_bucket,
-    restoreObject_key,
-    restoreObjectResponse_requestCharged,
-    restoreObjectResponse_restoreOutputPath,
-    restoreObjectResponse_httpStatus,
-
-    -- ** HeadObject
-    headObject_ifMatch,
-    headObject_versionId,
-    headObject_sSECustomerAlgorithm,
-    headObject_sSECustomerKey,
-    headObject_requestPayer,
-    headObject_ifModifiedSince,
-    headObject_partNumber,
-    headObject_range,
-    headObject_ifUnmodifiedSince,
-    headObject_sSECustomerKeyMD5,
-    headObject_ifNoneMatch,
-    headObject_expectedBucketOwner,
-    headObject_bucket,
-    headObject_key,
-    headObjectResponse_requestCharged,
-    headObjectResponse_partsCount,
-    headObjectResponse_eTag,
-    headObjectResponse_versionId,
-    headObjectResponse_contentLength,
-    headObjectResponse_objectLockMode,
-    headObjectResponse_expires,
-    headObjectResponse_restore,
-    headObjectResponse_expiration,
-    headObjectResponse_deleteMarker,
-    headObjectResponse_archiveStatus,
-    headObjectResponse_sSECustomerAlgorithm,
-    headObjectResponse_missingMeta,
-    headObjectResponse_bucketKeyEnabled,
-    headObjectResponse_websiteRedirectLocation,
-    headObjectResponse_acceptRanges,
-    headObjectResponse_storageClass,
-    headObjectResponse_sSECustomerKeyMD5,
-    headObjectResponse_sSEKMSKeyId,
-    headObjectResponse_contentEncoding,
-    headObjectResponse_objectLockRetainUntilDate,
-    headObjectResponse_metadata,
-    headObjectResponse_replicationStatus,
-    headObjectResponse_cacheControl,
-    headObjectResponse_contentLanguage,
-    headObjectResponse_lastModified,
-    headObjectResponse_objectLockLegalHoldStatus,
-    headObjectResponse_contentDisposition,
-    headObjectResponse_serverSideEncryption,
-    headObjectResponse_contentType,
-    headObjectResponse_httpStatus,
-
-    -- ** PutBucketVersioning
-    putBucketVersioning_mfa,
-    putBucketVersioning_contentMD5,
-    putBucketVersioning_expectedBucketOwner,
-    putBucketVersioning_bucket,
-    putBucketVersioning_versioningConfiguration,
-
-    -- ** GetBucketTagging
-    getBucketTagging_expectedBucketOwner,
-    getBucketTagging_bucket,
-    getBucketTaggingResponse_httpStatus,
-    getBucketTaggingResponse_tagSet,
-
-    -- ** CopyObject
-    copyObject_copySourceIfModifiedSince,
-    copyObject_copySourceIfUnmodifiedSince,
-    copyObject_copySourceSSECustomerKeyMD5,
-    copyObject_taggingDirective,
-    copyObject_metadataDirective,
-    copyObject_objectLockMode,
-    copyObject_expires,
-    copyObject_grantReadACP,
-    copyObject_copySourceIfNoneMatch,
-    copyObject_sSECustomerAlgorithm,
-    copyObject_sSECustomerKey,
-    copyObject_requestPayer,
-    copyObject_grantWriteACP,
-    copyObject_copySourceIfMatch,
-    copyObject_bucketKeyEnabled,
-    copyObject_websiteRedirectLocation,
-    copyObject_grantRead,
-    copyObject_expectedSourceBucketOwner,
-    copyObject_storageClass,
-    copyObject_sSECustomerKeyMD5,
-    copyObject_sSEKMSKeyId,
-    copyObject_grantFullControl,
-    copyObject_contentEncoding,
-    copyObject_tagging,
-    copyObject_objectLockRetainUntilDate,
-    copyObject_metadata,
-    copyObject_sSEKMSEncryptionContext,
-    copyObject_cacheControl,
-    copyObject_contentLanguage,
-    copyObject_copySourceSSECustomerKey,
-    copyObject_objectLockLegalHoldStatus,
-    copyObject_copySourceSSECustomerAlgorithm,
-    copyObject_acl,
-    copyObject_contentDisposition,
-    copyObject_expectedBucketOwner,
-    copyObject_serverSideEncryption,
-    copyObject_contentType,
-    copyObject_bucket,
-    copyObject_copySource,
-    copyObject_key,
-    copyObjectResponse_requestCharged,
-    copyObjectResponse_versionId,
-    copyObjectResponse_expiration,
-    copyObjectResponse_sSECustomerAlgorithm,
-    copyObjectResponse_bucketKeyEnabled,
-    copyObjectResponse_copySourceVersionId,
-    copyObjectResponse_sSECustomerKeyMD5,
-    copyObjectResponse_sSEKMSKeyId,
-    copyObjectResponse_sSEKMSEncryptionContext,
-    copyObjectResponse_serverSideEncryption,
-    copyObjectResponse_copyObjectResult,
-    copyObjectResponse_httpStatus,
-
-    -- ** ListBucketMetricsConfigurations
-    listBucketMetricsConfigurations_continuationToken,
-    listBucketMetricsConfigurations_expectedBucketOwner,
-    listBucketMetricsConfigurations_bucket,
-    listBucketMetricsConfigurationsResponse_continuationToken,
-    listBucketMetricsConfigurationsResponse_metricsConfigurationList,
-    listBucketMetricsConfigurationsResponse_nextContinuationToken,
-    listBucketMetricsConfigurationsResponse_isTruncated,
-    listBucketMetricsConfigurationsResponse_httpStatus,
-
-    -- ** GetBucketPolicy
-    getBucketPolicy_expectedBucketOwner,
-    getBucketPolicy_bucket,
-    getBucketPolicyResponse_httpStatus,
-    getBucketPolicyResponse_policy,
-
-    -- ** PutBucketEncryption
-    putBucketEncryption_contentMD5,
-    putBucketEncryption_expectedBucketOwner,
-    putBucketEncryption_bucket,
-    putBucketEncryption_serverSideEncryptionConfiguration,
-
-    -- ** DeleteBucketEncryption
-    deleteBucketEncryption_expectedBucketOwner,
-    deleteBucketEncryption_bucket,
-
-    -- ** GetBucketLogging
-    getBucketLogging_expectedBucketOwner,
-    getBucketLogging_bucket,
-    getBucketLoggingResponse_loggingEnabled,
-    getBucketLoggingResponse_httpStatus,
-
-    -- ** GetBucketAcl
-    getBucketAcl_expectedBucketOwner,
-    getBucketAcl_bucket,
-    getBucketAclResponse_grants,
-    getBucketAclResponse_owner,
-    getBucketAclResponse_httpStatus,
-
-    -- ** GetBucketLifecycleConfiguration
-    getBucketLifecycleConfiguration_expectedBucketOwner,
-    getBucketLifecycleConfiguration_bucket,
-    getBucketLifecycleConfigurationResponse_rules,
-    getBucketLifecycleConfigurationResponse_httpStatus,
-
-    -- ** GetBucketAnalyticsConfiguration
-    getBucketAnalyticsConfiguration_expectedBucketOwner,
-    getBucketAnalyticsConfiguration_bucket,
-    getBucketAnalyticsConfiguration_id,
-    getBucketAnalyticsConfigurationResponse_analyticsConfiguration,
-    getBucketAnalyticsConfigurationResponse_httpStatus,
-
-    -- ** GetObjectTagging
-    getObjectTagging_versionId,
-    getObjectTagging_requestPayer,
-    getObjectTagging_expectedBucketOwner,
-    getObjectTagging_bucket,
-    getObjectTagging_key,
-    getObjectTaggingResponse_versionId,
-    getObjectTaggingResponse_httpStatus,
-    getObjectTaggingResponse_tagSet,
-
-    -- ** ListParts
-    listParts_maxParts,
-    listParts_requestPayer,
-    listParts_partNumberMarker,
-    listParts_expectedBucketOwner,
-    listParts_bucket,
-    listParts_key,
-    listParts_uploadId,
-    listPartsResponse_parts,
-    listPartsResponse_requestCharged,
-    listPartsResponse_maxParts,
-    listPartsResponse_initiator,
-    listPartsResponse_bucket,
-    listPartsResponse_abortDate,
-    listPartsResponse_nextPartNumberMarker,
-    listPartsResponse_abortRuleId,
-    listPartsResponse_owner,
-    listPartsResponse_key,
-    listPartsResponse_storageClass,
-    listPartsResponse_isTruncated,
-    listPartsResponse_partNumberMarker,
-    listPartsResponse_uploadId,
-    listPartsResponse_httpStatus,
-
-    -- ** DeleteObjectTagging
-    deleteObjectTagging_versionId,
-    deleteObjectTagging_expectedBucketOwner,
-    deleteObjectTagging_bucket,
-    deleteObjectTagging_key,
-    deleteObjectTaggingResponse_versionId,
-    deleteObjectTaggingResponse_httpStatus,
+    -- ** UploadPart
+    uploadPart_contentMD5,
+    uploadPart_expectedBucketOwner,
+    uploadPart_requestPayer,
+    uploadPart_contentLength,
+    uploadPart_sSECustomerAlgorithm,
+    uploadPart_sSECustomerKeyMD5,
+    uploadPart_sSECustomerKey,
+    uploadPart_bucket,
+    uploadPart_key,
+    uploadPart_partNumber,
+    uploadPart_uploadId,
+    uploadPart_body,
+    uploadPartResponse_serverSideEncryption,
+    uploadPartResponse_bucketKeyEnabled,
+    uploadPartResponse_requestCharged,
+    uploadPartResponse_sSEKMSKeyId,
+    uploadPartResponse_sSECustomerAlgorithm,
+    uploadPartResponse_sSECustomerKeyMD5,
+    uploadPartResponse_eTag,
+    uploadPartResponse_httpStatus,
 
     -- ** UploadPartCopy
-    uploadPartCopy_copySourceIfModifiedSince,
-    uploadPartCopy_copySourceIfUnmodifiedSince,
-    uploadPartCopy_copySourceRange,
-    uploadPartCopy_copySourceSSECustomerKeyMD5,
     uploadPartCopy_copySourceIfNoneMatch,
-    uploadPartCopy_sSECustomerAlgorithm,
-    uploadPartCopy_sSECustomerKey,
-    uploadPartCopy_requestPayer,
-    uploadPartCopy_copySourceIfMatch,
-    uploadPartCopy_expectedSourceBucketOwner,
-    uploadPartCopy_sSECustomerKeyMD5,
     uploadPartCopy_copySourceSSECustomerKey,
+    uploadPartCopy_copySourceSSECustomerKeyMD5,
     uploadPartCopy_copySourceSSECustomerAlgorithm,
     uploadPartCopy_expectedBucketOwner,
+    uploadPartCopy_copySourceIfModifiedSince,
+    uploadPartCopy_requestPayer,
+    uploadPartCopy_copySourceIfUnmodifiedSince,
+    uploadPartCopy_expectedSourceBucketOwner,
+    uploadPartCopy_sSECustomerAlgorithm,
+    uploadPartCopy_copySourceRange,
+    uploadPartCopy_sSECustomerKeyMD5,
+    uploadPartCopy_copySourceIfMatch,
+    uploadPartCopy_sSECustomerKey,
     uploadPartCopy_bucket,
     uploadPartCopy_copySource,
     uploadPartCopy_key,
     uploadPartCopy_partNumber,
     uploadPartCopy_uploadId,
-    uploadPartCopyResponse_requestCharged,
-    uploadPartCopyResponse_copyPartResult,
-    uploadPartCopyResponse_sSECustomerAlgorithm,
-    uploadPartCopyResponse_bucketKeyEnabled,
-    uploadPartCopyResponse_copySourceVersionId,
-    uploadPartCopyResponse_sSECustomerKeyMD5,
-    uploadPartCopyResponse_sSEKMSKeyId,
     uploadPartCopyResponse_serverSideEncryption,
+    uploadPartCopyResponse_bucketKeyEnabled,
+    uploadPartCopyResponse_requestCharged,
+    uploadPartCopyResponse_sSEKMSKeyId,
+    uploadPartCopyResponse_copyPartResult,
+    uploadPartCopyResponse_copySourceVersionId,
+    uploadPartCopyResponse_sSECustomerAlgorithm,
+    uploadPartCopyResponse_sSECustomerKeyMD5,
     uploadPartCopyResponse_httpStatus,
 
-    -- ** PutObjectTagging
-    putObjectTagging_versionId,
-    putObjectTagging_requestPayer,
-    putObjectTagging_contentMD5,
-    putObjectTagging_expectedBucketOwner,
-    putObjectTagging_bucket,
-    putObjectTagging_key,
-    putObjectTagging_tagging,
-    putObjectTaggingResponse_versionId,
-    putObjectTaggingResponse_httpStatus,
-
-    -- ** PutBucketAcl
-    putBucketAcl_grantReadACP,
-    putBucketAcl_grantWriteACP,
-    putBucketAcl_grantRead,
-    putBucketAcl_grantFullControl,
-    putBucketAcl_contentMD5,
-    putBucketAcl_accessControlPolicy,
-    putBucketAcl_grantWrite,
-    putBucketAcl_acl,
-    putBucketAcl_expectedBucketOwner,
-    putBucketAcl_bucket,
+    -- ** WriteGetObjectResponse
+    writeGetObjectResponse_serverSideEncryption,
+    writeGetObjectResponse_partsCount,
+    writeGetObjectResponse_objectLockMode,
+    writeGetObjectResponse_bucketKeyEnabled,
+    writeGetObjectResponse_expiration,
+    writeGetObjectResponse_requestCharged,
+    writeGetObjectResponse_objectLockRetainUntilDate,
+    writeGetObjectResponse_replicationStatus,
+    writeGetObjectResponse_errorMessage,
+    writeGetObjectResponse_metadata,
+    writeGetObjectResponse_restore,
+    writeGetObjectResponse_contentLanguage,
+    writeGetObjectResponse_sSEKMSKeyId,
+    writeGetObjectResponse_contentDisposition,
+    writeGetObjectResponse_objectLockLegalHoldStatus,
+    writeGetObjectResponse_acceptRanges,
+    writeGetObjectResponse_contentLength,
+    writeGetObjectResponse_tagCount,
+    writeGetObjectResponse_sSECustomerAlgorithm,
+    writeGetObjectResponse_errorCode,
+    writeGetObjectResponse_contentRange,
+    writeGetObjectResponse_lastModified,
+    writeGetObjectResponse_cacheControl,
+    writeGetObjectResponse_contentEncoding,
+    writeGetObjectResponse_missingMeta,
+    writeGetObjectResponse_sSECustomerKeyMD5,
+    writeGetObjectResponse_expires,
+    writeGetObjectResponse_storageClass,
+    writeGetObjectResponse_statusCode,
+    writeGetObjectResponse_eTag,
+    writeGetObjectResponse_deleteMarker,
+    writeGetObjectResponse_contentType,
+    writeGetObjectResponse_versionId,
+    writeGetObjectResponse_requestRoute,
+    writeGetObjectResponse_requestToken,
+    writeGetObjectResponse_body,
 
     -- * Types
 
@@ -1059,8 +1059,8 @@ module Amazonka.S3.Lens
     accessControlTranslation_owner,
 
     -- ** AnalyticsAndOperator
-    analyticsAndOperator_prefix,
     analyticsAndOperator_tags,
+    analyticsAndOperator_prefix,
 
     -- ** AnalyticsConfiguration
     analyticsConfiguration_filter,
@@ -1095,28 +1095,28 @@ module Amazonka.S3.Lens
     cORSConfiguration_cORSRules,
 
     -- ** CORSRule
-    cORSRule_maxAgeSeconds,
     cORSRule_allowedHeaders,
-    cORSRule_exposeHeaders,
     cORSRule_id,
+    cORSRule_exposeHeaders,
+    cORSRule_maxAgeSeconds,
     cORSRule_allowedMethods,
     cORSRule_allowedOrigins,
 
     -- ** CSVInput
     cSVInput_quoteCharacter,
-    cSVInput_recordDelimiter,
     cSVInput_allowQuotedRecordDelimiter,
-    cSVInput_fileHeaderInfo,
-    cSVInput_quoteEscapeCharacter,
     cSVInput_comments,
+    cSVInput_quoteEscapeCharacter,
     cSVInput_fieldDelimiter,
+    cSVInput_recordDelimiter,
+    cSVInput_fileHeaderInfo,
 
     -- ** CSVOutput
     cSVOutput_quoteCharacter,
     cSVOutput_quoteFields,
-    cSVOutput_recordDelimiter,
     cSVOutput_quoteEscapeCharacter,
     cSVOutput_fieldDelimiter,
+    cSVOutput_recordDelimiter,
 
     -- ** CommonPrefix
     commonPrefix_prefix,
@@ -1129,59 +1129,59 @@ module Amazonka.S3.Lens
     completedPart_eTag,
 
     -- ** Condition
-    condition_keyPrefixEquals,
     condition_httpErrorCodeReturnedEquals,
+    condition_keyPrefixEquals,
 
     -- ** ContinuationEvent
 
     -- ** CopyObjectResult
-    copyObjectResult_eTag,
     copyObjectResult_lastModified,
+    copyObjectResult_eTag,
 
     -- ** CopyPartResult
-    copyPartResult_eTag,
     copyPartResult_lastModified,
+    copyPartResult_eTag,
 
     -- ** CreateBucketConfiguration
     createBucketConfiguration_locationConstraint,
 
     -- ** DefaultRetention
     defaultRetention_days,
-    defaultRetention_mode,
     defaultRetention_years,
+    defaultRetention_mode,
 
     -- ** Delete
     delete_quiet,
     delete_objects,
 
     -- ** DeleteMarkerEntry
-    deleteMarkerEntry_versionId,
+    deleteMarkerEntry_key,
     deleteMarkerEntry_isLatest,
     deleteMarkerEntry_owner,
-    deleteMarkerEntry_key,
     deleteMarkerEntry_lastModified,
+    deleteMarkerEntry_versionId,
 
     -- ** DeleteMarkerReplication
     deleteMarkerReplication_status,
 
     -- ** DeletedObject
-    deletedObject_versionId,
+    deletedObject_key,
     deletedObject_deleteMarker,
     deletedObject_deleteMarkerVersionId,
-    deletedObject_key,
+    deletedObject_versionId,
 
     -- ** Destination
-    destination_metrics,
-    destination_accessControlTranslation,
-    destination_account,
-    destination_storageClass,
-    destination_encryptionConfiguration,
     destination_replicationTime,
+    destination_account,
+    destination_metrics,
+    destination_encryptionConfiguration,
+    destination_accessControlTranslation,
+    destination_storageClass,
     destination_bucket,
 
     -- ** Encryption
-    encryption_kmsKeyId,
     encryption_kmsContext,
+    encryption_kmsKeyId,
     encryption_encryptionType,
 
     -- ** EncryptionConfiguration
@@ -1196,8 +1196,8 @@ module Amazonka.S3.Lens
     existingObjectReplication_status,
 
     -- ** FilterRule
-    filterRule_value,
     filterRule_name,
+    filterRule_value,
 
     -- ** GlacierJobParameters
     glacierJobParameters_tier,
@@ -1207,10 +1207,10 @@ module Amazonka.S3.Lens
     grant_grantee,
 
     -- ** Grantee
-    grantee_uri,
-    grantee_emailAddress,
     grantee_displayName,
+    grantee_uri,
     grantee_id,
+    grantee_emailAddress,
     grantee_type,
 
     -- ** IndexDocument
@@ -1221,14 +1221,14 @@ module Amazonka.S3.Lens
     initiator_id,
 
     -- ** InputSerialization
-    inputSerialization_json,
-    inputSerialization_csv,
     inputSerialization_parquet,
     inputSerialization_compressionType,
+    inputSerialization_json,
+    inputSerialization_csv,
 
     -- ** IntelligentTieringAndOperator
-    intelligentTieringAndOperator_prefix,
     intelligentTieringAndOperator_tags,
+    intelligentTieringAndOperator_prefix,
 
     -- ** IntelligentTieringConfiguration
     intelligentTieringConfiguration_filter,
@@ -1261,9 +1261,9 @@ module Amazonka.S3.Lens
     inventoryFilter_prefix,
 
     -- ** InventoryS3BucketDestination
-    inventoryS3BucketDestination_prefix,
     inventoryS3BucketDestination_accountId,
     inventoryS3BucketDestination_encryption,
+    inventoryS3BucketDestination_prefix,
     inventoryS3BucketDestination_bucket,
     inventoryS3BucketDestination_format,
 
@@ -1283,24 +1283,24 @@ module Amazonka.S3.Lens
     lambdaFunctionConfiguration_events,
 
     -- ** LifecycleExpiration
-    lifecycleExpiration_days,
-    lifecycleExpiration_date,
     lifecycleExpiration_expiredObjectDeleteMarker,
+    lifecycleExpiration_date,
+    lifecycleExpiration_days,
 
     -- ** LifecycleRule
     lifecycleRule_transitions,
-    lifecycleRule_noncurrentVersionExpiration,
-    lifecycleRule_prefix,
-    lifecycleRule_noncurrentVersionTransitions,
     lifecycleRule_expiration,
     lifecycleRule_id,
+    lifecycleRule_noncurrentVersionExpiration,
     lifecycleRule_filter,
+    lifecycleRule_noncurrentVersionTransitions,
     lifecycleRule_abortIncompleteMultipartUpload,
+    lifecycleRule_prefix,
     lifecycleRule_status,
 
     -- ** LifecycleRuleAndOperator
-    lifecycleRuleAndOperator_prefix,
     lifecycleRuleAndOperator_tags,
+    lifecycleRuleAndOperator_prefix,
 
     -- ** LifecycleRuleFilter
     lifecycleRuleFilter_tag,
@@ -1313,35 +1313,35 @@ module Amazonka.S3.Lens
     loggingEnabled_targetPrefix,
 
     -- ** MetadataEntry
-    metadataEntry_value,
     metadataEntry_name,
+    metadataEntry_value,
 
     -- ** Metrics
     metrics_eventThreshold,
     metrics_status,
 
     -- ** MetricsAndOperator
-    metricsAndOperator_prefix,
-    metricsAndOperator_accessPointArn,
     metricsAndOperator_tags,
+    metricsAndOperator_accessPointArn,
+    metricsAndOperator_prefix,
 
     -- ** MetricsConfiguration
     metricsConfiguration_filter,
     metricsConfiguration_id,
 
     -- ** MetricsFilter
+    metricsFilter_accessPointArn,
     metricsFilter_tag,
     metricsFilter_prefix,
     metricsFilter_and,
-    metricsFilter_accessPointArn,
 
     -- ** MultipartUpload
-    multipartUpload_initiated,
-    multipartUpload_initiator,
-    multipartUpload_owner,
-    multipartUpload_key,
-    multipartUpload_storageClass,
     multipartUpload_uploadId,
+    multipartUpload_key,
+    multipartUpload_owner,
+    multipartUpload_storageClass,
+    multipartUpload_initiator,
+    multipartUpload_initiated,
 
     -- ** NoncurrentVersionExpiration
     noncurrentVersionExpiration_noncurrentDays,
@@ -1385,14 +1385,14 @@ module Amazonka.S3.Lens
     objectLockRule_defaultRetention,
 
     -- ** ObjectVersion
+    objectVersion_key,
+    objectVersion_isLatest,
+    objectVersion_size,
+    objectVersion_owner,
+    objectVersion_lastModified,
+    objectVersion_storageClass,
     objectVersion_eTag,
     objectVersion_versionId,
-    objectVersion_size,
-    objectVersion_isLatest,
-    objectVersion_owner,
-    objectVersion_key,
-    objectVersion_storageClass,
-    objectVersion_lastModified,
 
     -- ** OutputLocation
     outputLocation_s3,
@@ -1414,27 +1414,27 @@ module Amazonka.S3.Lens
     -- ** ParquetInput
 
     -- ** Part
-    part_eTag,
-    part_size,
     part_partNumber,
+    part_size,
     part_lastModified,
+    part_eTag,
 
     -- ** PolicyStatus
     policyStatus_isPublic,
 
     -- ** Progress
-    progress_bytesReturned,
     progress_bytesScanned,
+    progress_bytesReturned,
     progress_bytesProcessed,
 
     -- ** ProgressEvent
     progressEvent_details,
 
     -- ** PublicAccessBlockConfiguration
-    publicAccessBlockConfiguration_ignorePublicAcls,
-    publicAccessBlockConfiguration_blockPublicAcls,
     publicAccessBlockConfiguration_restrictPublicBuckets,
+    publicAccessBlockConfiguration_ignorePublicAcls,
     publicAccessBlockConfiguration_blockPublicPolicy,
+    publicAccessBlockConfiguration_blockPublicAcls,
 
     -- ** QueueConfiguration
     queueConfiguration_id,
@@ -1447,10 +1447,10 @@ module Amazonka.S3.Lens
 
     -- ** Redirect
     redirect_hostName,
+    redirect_replaceKeyPrefixWith,
+    redirect_replaceKeyWith,
     redirect_protocol,
     redirect_httpRedirectCode,
-    redirect_replaceKeyWith,
-    redirect_replaceKeyPrefixWith,
 
     -- ** RedirectAllRequestsTo
     redirectAllRequestsTo_protocol,
@@ -1464,19 +1464,19 @@ module Amazonka.S3.Lens
     replicationConfiguration_rules,
 
     -- ** ReplicationRule
-    replicationRule_deleteMarkerReplication,
+    replicationRule_sourceSelectionCriteria,
+    replicationRule_id,
+    replicationRule_existingObjectReplication,
+    replicationRule_filter,
     replicationRule_priority,
     replicationRule_prefix,
-    replicationRule_existingObjectReplication,
-    replicationRule_id,
-    replicationRule_filter,
-    replicationRule_sourceSelectionCriteria,
+    replicationRule_deleteMarkerReplication,
     replicationRule_status,
     replicationRule_destination,
 
     -- ** ReplicationRuleAndOperator
-    replicationRuleAndOperator_prefix,
     replicationRuleAndOperator_tags,
+    replicationRuleAndOperator_prefix,
 
     -- ** ReplicationRuleFilter
     replicationRuleFilter_tag,
@@ -1497,13 +1497,13 @@ module Amazonka.S3.Lens
     requestProgress_enabled,
 
     -- ** RestoreRequest
-    restoreRequest_days,
-    restoreRequest_selectParameters,
-    restoreRequest_outputLocation,
-    restoreRequest_tier,
     restoreRequest_glacierJobParameters,
     restoreRequest_type,
+    restoreRequest_days,
+    restoreRequest_outputLocation,
+    restoreRequest_selectParameters,
     restoreRequest_description,
+    restoreRequest_tier,
 
     -- ** RoutingRule
     routingRule_condition,
@@ -1513,20 +1513,20 @@ module Amazonka.S3.Lens
     s3KeyFilter_filterRules,
 
     -- ** S3Location
-    s3Location_cannedACL,
     s3Location_accessControlList,
-    s3Location_userMetadata,
+    s3Location_tagging,
     s3Location_encryption,
     s3Location_storageClass,
-    s3Location_tagging,
+    s3Location_cannedACL,
+    s3Location_userMetadata,
     s3Location_bucketName,
     s3Location_prefix,
 
     -- ** S3ServiceError
-    s3ServiceError_versionId,
     s3ServiceError_key,
-    s3ServiceError_code,
     s3ServiceError_message,
+    s3ServiceError_code,
+    s3ServiceError_versionId,
 
     -- ** SSEKMS
     ssekms_keyId,
@@ -1540,9 +1540,9 @@ module Amazonka.S3.Lens
     -- ** SelectObjectContentEventStream
     selectObjectContentEventStream_progress,
     selectObjectContentEventStream_records,
-    selectObjectContentEventStream_cont,
     selectObjectContentEventStream_stats,
     selectObjectContentEventStream_end,
+    selectObjectContentEventStream_cont,
 
     -- ** SelectParameters
     selectParameters_inputSerialization,
@@ -1558,8 +1558,8 @@ module Amazonka.S3.Lens
     serverSideEncryptionConfiguration_rules,
 
     -- ** ServerSideEncryptionRule
-    serverSideEncryptionRule_applyServerSideEncryptionByDefault,
     serverSideEncryptionRule_bucketKeyEnabled,
+    serverSideEncryptionRule_applyServerSideEncryptionByDefault,
 
     -- ** SourceSelectionCriteria
     sourceSelectionCriteria_replicaModifications,
@@ -1569,8 +1569,8 @@ module Amazonka.S3.Lens
     sseKmsEncryptedObjects_status,
 
     -- ** Stats
-    stats_bytesReturned,
     stats_bytesScanned,
+    stats_bytesReturned,
     stats_bytesProcessed,
 
     -- ** StatsEvent
@@ -1605,19 +1605,19 @@ module Amazonka.S3.Lens
     topicConfiguration_events,
 
     -- ** Transition
-    transition_days,
     transition_date,
+    transition_days,
     transition_storageClass,
 
     -- ** VersioningConfiguration
-    versioningConfiguration_status,
     versioningConfiguration_mfaDelete,
+    versioningConfiguration_status,
 
     -- ** WebsiteConfiguration
-    websiteConfiguration_redirectAllRequestsTo,
-    websiteConfiguration_errorDocument,
-    websiteConfiguration_indexDocument,
     websiteConfiguration_routingRules,
+    websiteConfiguration_errorDocument,
+    websiteConfiguration_redirectAllRequestsTo,
+    websiteConfiguration_indexDocument,
   )
 where
 

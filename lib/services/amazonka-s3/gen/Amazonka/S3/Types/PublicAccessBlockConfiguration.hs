@@ -33,13 +33,30 @@ import Amazonka.S3.Internal
 --
 -- /See:/ 'newPublicAccessBlockConfiguration' smart constructor.
 data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
-  { -- | Specifies whether Amazon S3 should ignore public ACLs for this bucket
+  { -- | Specifies whether Amazon S3 should restrict public bucket policies for
+    -- this bucket. Setting this element to @TRUE@ restricts access to this
+    -- bucket to only Amazon Web Service principals and authorized users within
+    -- this account if the bucket has a public policy.
+    --
+    -- Enabling this setting doesn\'t affect previously stored bucket policies,
+    -- except that public and cross-account access within any public bucket
+    -- policy, including non-public delegation to specific accounts, is
+    -- blocked.
+    restrictPublicBuckets :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether Amazon S3 should ignore public ACLs for this bucket
     -- and objects in this bucket. Setting this element to @TRUE@ causes Amazon
     -- S3 to ignore all public ACLs on this bucket and objects in this bucket.
     --
     -- Enabling this setting doesn\'t affect the persistence of any existing
     -- ACLs and doesn\'t prevent new public ACLs from being set.
     ignorePublicAcls :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether Amazon S3 should block public bucket policies for this
+    -- bucket. Setting this element to @TRUE@ causes Amazon S3 to reject calls
+    -- to PUT Bucket policy if the specified bucket policy allows public
+    -- access.
+    --
+    -- Enabling this setting doesn\'t affect existing bucket policies.
+    blockPublicPolicy :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether Amazon S3 should block public access control lists
     -- (ACLs) for this bucket and objects in this bucket. Setting this element
     -- to @TRUE@ causes the following behavior:
@@ -52,24 +69,7 @@ data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
     -- -   PUT Bucket calls fail if the request includes a public ACL.
     --
     -- Enabling this setting doesn\'t affect existing policies or ACLs.
-    blockPublicAcls :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether Amazon S3 should restrict public bucket policies for
-    -- this bucket. Setting this element to @TRUE@ restricts access to this
-    -- bucket to only Amazon Web Service principals and authorized users within
-    -- this account if the bucket has a public policy.
-    --
-    -- Enabling this setting doesn\'t affect previously stored bucket policies,
-    -- except that public and cross-account access within any public bucket
-    -- policy, including non-public delegation to specific accounts, is
-    -- blocked.
-    restrictPublicBuckets :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether Amazon S3 should block public bucket policies for this
-    -- bucket. Setting this element to @TRUE@ causes Amazon S3 to reject calls
-    -- to PUT Bucket policy if the specified bucket policy allows public
-    -- access.
-    --
-    -- Enabling this setting doesn\'t affect existing bucket policies.
-    blockPublicPolicy :: Prelude.Maybe Prelude.Bool
+    blockPublicAcls :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,12 +81,29 @@ data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'restrictPublicBuckets', 'publicAccessBlockConfiguration_restrictPublicBuckets' - Specifies whether Amazon S3 should restrict public bucket policies for
+-- this bucket. Setting this element to @TRUE@ restricts access to this
+-- bucket to only Amazon Web Service principals and authorized users within
+-- this account if the bucket has a public policy.
+--
+-- Enabling this setting doesn\'t affect previously stored bucket policies,
+-- except that public and cross-account access within any public bucket
+-- policy, including non-public delegation to specific accounts, is
+-- blocked.
+--
 -- 'ignorePublicAcls', 'publicAccessBlockConfiguration_ignorePublicAcls' - Specifies whether Amazon S3 should ignore public ACLs for this bucket
 -- and objects in this bucket. Setting this element to @TRUE@ causes Amazon
 -- S3 to ignore all public ACLs on this bucket and objects in this bucket.
 --
 -- Enabling this setting doesn\'t affect the persistence of any existing
 -- ACLs and doesn\'t prevent new public ACLs from being set.
+--
+-- 'blockPublicPolicy', 'publicAccessBlockConfiguration_blockPublicPolicy' - Specifies whether Amazon S3 should block public bucket policies for this
+-- bucket. Setting this element to @TRUE@ causes Amazon S3 to reject calls
+-- to PUT Bucket policy if the specified bucket policy allows public
+-- access.
+--
+-- Enabling this setting doesn\'t affect existing bucket policies.
 --
 -- 'blockPublicAcls', 'publicAccessBlockConfiguration_blockPublicAcls' - Specifies whether Amazon S3 should block public access control lists
 -- (ACLs) for this bucket and objects in this bucket. Setting this element
@@ -100,8 +117,18 @@ data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
 -- -   PUT Bucket calls fail if the request includes a public ACL.
 --
 -- Enabling this setting doesn\'t affect existing policies or ACLs.
---
--- 'restrictPublicBuckets', 'publicAccessBlockConfiguration_restrictPublicBuckets' - Specifies whether Amazon S3 should restrict public bucket policies for
+newPublicAccessBlockConfiguration ::
+  PublicAccessBlockConfiguration
+newPublicAccessBlockConfiguration =
+  PublicAccessBlockConfiguration'
+    { restrictPublicBuckets =
+        Prelude.Nothing,
+      ignorePublicAcls = Prelude.Nothing,
+      blockPublicPolicy = Prelude.Nothing,
+      blockPublicAcls = Prelude.Nothing
+    }
+
+-- | Specifies whether Amazon S3 should restrict public bucket policies for
 -- this bucket. Setting this element to @TRUE@ restricts access to this
 -- bucket to only Amazon Web Service principals and authorized users within
 -- this account if the bucket has a public policy.
@@ -110,23 +137,8 @@ data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
 -- except that public and cross-account access within any public bucket
 -- policy, including non-public delegation to specific accounts, is
 -- blocked.
---
--- 'blockPublicPolicy', 'publicAccessBlockConfiguration_blockPublicPolicy' - Specifies whether Amazon S3 should block public bucket policies for this
--- bucket. Setting this element to @TRUE@ causes Amazon S3 to reject calls
--- to PUT Bucket policy if the specified bucket policy allows public
--- access.
---
--- Enabling this setting doesn\'t affect existing bucket policies.
-newPublicAccessBlockConfiguration ::
-  PublicAccessBlockConfiguration
-newPublicAccessBlockConfiguration =
-  PublicAccessBlockConfiguration'
-    { ignorePublicAcls =
-        Prelude.Nothing,
-      blockPublicAcls = Prelude.Nothing,
-      restrictPublicBuckets = Prelude.Nothing,
-      blockPublicPolicy = Prelude.Nothing
-    }
+publicAccessBlockConfiguration_restrictPublicBuckets :: Lens.Lens' PublicAccessBlockConfiguration (Prelude.Maybe Prelude.Bool)
+publicAccessBlockConfiguration_restrictPublicBuckets = Lens.lens (\PublicAccessBlockConfiguration' {restrictPublicBuckets} -> restrictPublicBuckets) (\s@PublicAccessBlockConfiguration' {} a -> s {restrictPublicBuckets = a} :: PublicAccessBlockConfiguration)
 
 -- | Specifies whether Amazon S3 should ignore public ACLs for this bucket
 -- and objects in this bucket. Setting this element to @TRUE@ causes Amazon
@@ -136,6 +148,15 @@ newPublicAccessBlockConfiguration =
 -- ACLs and doesn\'t prevent new public ACLs from being set.
 publicAccessBlockConfiguration_ignorePublicAcls :: Lens.Lens' PublicAccessBlockConfiguration (Prelude.Maybe Prelude.Bool)
 publicAccessBlockConfiguration_ignorePublicAcls = Lens.lens (\PublicAccessBlockConfiguration' {ignorePublicAcls} -> ignorePublicAcls) (\s@PublicAccessBlockConfiguration' {} a -> s {ignorePublicAcls = a} :: PublicAccessBlockConfiguration)
+
+-- | Specifies whether Amazon S3 should block public bucket policies for this
+-- bucket. Setting this element to @TRUE@ causes Amazon S3 to reject calls
+-- to PUT Bucket policy if the specified bucket policy allows public
+-- access.
+--
+-- Enabling this setting doesn\'t affect existing bucket policies.
+publicAccessBlockConfiguration_blockPublicPolicy :: Lens.Lens' PublicAccessBlockConfiguration (Prelude.Maybe Prelude.Bool)
+publicAccessBlockConfiguration_blockPublicPolicy = Lens.lens (\PublicAccessBlockConfiguration' {blockPublicPolicy} -> blockPublicPolicy) (\s@PublicAccessBlockConfiguration' {} a -> s {blockPublicPolicy = a} :: PublicAccessBlockConfiguration)
 
 -- | Specifies whether Amazon S3 should block public access control lists
 -- (ACLs) for this bucket and objects in this bucket. Setting this element
@@ -152,34 +173,13 @@ publicAccessBlockConfiguration_ignorePublicAcls = Lens.lens (\PublicAccessBlockC
 publicAccessBlockConfiguration_blockPublicAcls :: Lens.Lens' PublicAccessBlockConfiguration (Prelude.Maybe Prelude.Bool)
 publicAccessBlockConfiguration_blockPublicAcls = Lens.lens (\PublicAccessBlockConfiguration' {blockPublicAcls} -> blockPublicAcls) (\s@PublicAccessBlockConfiguration' {} a -> s {blockPublicAcls = a} :: PublicAccessBlockConfiguration)
 
--- | Specifies whether Amazon S3 should restrict public bucket policies for
--- this bucket. Setting this element to @TRUE@ restricts access to this
--- bucket to only Amazon Web Service principals and authorized users within
--- this account if the bucket has a public policy.
---
--- Enabling this setting doesn\'t affect previously stored bucket policies,
--- except that public and cross-account access within any public bucket
--- policy, including non-public delegation to specific accounts, is
--- blocked.
-publicAccessBlockConfiguration_restrictPublicBuckets :: Lens.Lens' PublicAccessBlockConfiguration (Prelude.Maybe Prelude.Bool)
-publicAccessBlockConfiguration_restrictPublicBuckets = Lens.lens (\PublicAccessBlockConfiguration' {restrictPublicBuckets} -> restrictPublicBuckets) (\s@PublicAccessBlockConfiguration' {} a -> s {restrictPublicBuckets = a} :: PublicAccessBlockConfiguration)
-
--- | Specifies whether Amazon S3 should block public bucket policies for this
--- bucket. Setting this element to @TRUE@ causes Amazon S3 to reject calls
--- to PUT Bucket policy if the specified bucket policy allows public
--- access.
---
--- Enabling this setting doesn\'t affect existing bucket policies.
-publicAccessBlockConfiguration_blockPublicPolicy :: Lens.Lens' PublicAccessBlockConfiguration (Prelude.Maybe Prelude.Bool)
-publicAccessBlockConfiguration_blockPublicPolicy = Lens.lens (\PublicAccessBlockConfiguration' {blockPublicPolicy} -> blockPublicPolicy) (\s@PublicAccessBlockConfiguration' {} a -> s {blockPublicPolicy = a} :: PublicAccessBlockConfiguration)
-
 instance Core.FromXML PublicAccessBlockConfiguration where
   parseXML x =
     PublicAccessBlockConfiguration'
-      Prelude.<$> (x Core..@? "IgnorePublicAcls")
-      Prelude.<*> (x Core..@? "BlockPublicAcls")
-      Prelude.<*> (x Core..@? "RestrictPublicBuckets")
+      Prelude.<$> (x Core..@? "RestrictPublicBuckets")
+      Prelude.<*> (x Core..@? "IgnorePublicAcls")
       Prelude.<*> (x Core..@? "BlockPublicPolicy")
+      Prelude.<*> (x Core..@? "BlockPublicAcls")
 
 instance
   Prelude.Hashable
@@ -188,27 +188,27 @@ instance
   hashWithSalt
     _salt
     PublicAccessBlockConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` ignorePublicAcls
-        `Prelude.hashWithSalt` blockPublicAcls
-        `Prelude.hashWithSalt` restrictPublicBuckets
+      _salt `Prelude.hashWithSalt` restrictPublicBuckets
+        `Prelude.hashWithSalt` ignorePublicAcls
         `Prelude.hashWithSalt` blockPublicPolicy
+        `Prelude.hashWithSalt` blockPublicAcls
 
 instance
   Prelude.NFData
     PublicAccessBlockConfiguration
   where
   rnf PublicAccessBlockConfiguration' {..} =
-    Prelude.rnf ignorePublicAcls
-      `Prelude.seq` Prelude.rnf blockPublicAcls
-      `Prelude.seq` Prelude.rnf restrictPublicBuckets
+    Prelude.rnf restrictPublicBuckets
+      `Prelude.seq` Prelude.rnf ignorePublicAcls
       `Prelude.seq` Prelude.rnf blockPublicPolicy
+      `Prelude.seq` Prelude.rnf blockPublicAcls
 
 instance Core.ToXML PublicAccessBlockConfiguration where
   toXML PublicAccessBlockConfiguration' {..} =
     Prelude.mconcat
-      [ "IgnorePublicAcls" Core.@= ignorePublicAcls,
-        "BlockPublicAcls" Core.@= blockPublicAcls,
-        "RestrictPublicBuckets"
+      [ "RestrictPublicBuckets"
           Core.@= restrictPublicBuckets,
-        "BlockPublicPolicy" Core.@= blockPublicPolicy
+        "IgnorePublicAcls" Core.@= ignorePublicAcls,
+        "BlockPublicPolicy" Core.@= blockPublicPolicy,
+        "BlockPublicAcls" Core.@= blockPublicAcls
       ]

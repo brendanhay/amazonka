@@ -28,17 +28,17 @@ import Amazonka.S3.Internal
 --
 -- /See:/ 'newLifecycleExpiration' smart constructor.
 data LifecycleExpiration = LifecycleExpiration'
-  { -- | Indicates the lifetime, in days, of the objects that are subject to the
-    -- rule. The value must be a non-zero positive integer.
-    days :: Prelude.Maybe Prelude.Int,
-    -- | Indicates at what date the object is to be moved or deleted. Should be
-    -- in GMT ISO 8601 Format.
-    date :: Prelude.Maybe Core.ISO8601,
-    -- | Indicates whether Amazon S3 will remove a delete marker with no
+  { -- | Indicates whether Amazon S3 will remove a delete marker with no
     -- noncurrent versions. If set to true, the delete marker will be expired;
     -- if set to false the policy takes no action. This cannot be specified
     -- with Days or Date in a Lifecycle Expiration Policy.
-    expiredObjectDeleteMarker :: Prelude.Maybe Prelude.Bool
+    expiredObjectDeleteMarker :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates at what date the object is to be moved or deleted. Should be
+    -- in GMT ISO 8601 Format.
+    date :: Prelude.Maybe Core.ISO8601,
+    -- | Indicates the lifetime, in days, of the objects that are subject to the
+    -- rule. The value must be a non-zero positive integer.
+    days :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,34 +50,25 @@ data LifecycleExpiration = LifecycleExpiration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'days', 'lifecycleExpiration_days' - Indicates the lifetime, in days, of the objects that are subject to the
--- rule. The value must be a non-zero positive integer.
---
--- 'date', 'lifecycleExpiration_date' - Indicates at what date the object is to be moved or deleted. Should be
--- in GMT ISO 8601 Format.
---
 -- 'expiredObjectDeleteMarker', 'lifecycleExpiration_expiredObjectDeleteMarker' - Indicates whether Amazon S3 will remove a delete marker with no
 -- noncurrent versions. If set to true, the delete marker will be expired;
 -- if set to false the policy takes no action. This cannot be specified
 -- with Days or Date in a Lifecycle Expiration Policy.
+--
+-- 'date', 'lifecycleExpiration_date' - Indicates at what date the object is to be moved or deleted. Should be
+-- in GMT ISO 8601 Format.
+--
+-- 'days', 'lifecycleExpiration_days' - Indicates the lifetime, in days, of the objects that are subject to the
+-- rule. The value must be a non-zero positive integer.
 newLifecycleExpiration ::
   LifecycleExpiration
 newLifecycleExpiration =
   LifecycleExpiration'
-    { days = Prelude.Nothing,
+    { expiredObjectDeleteMarker =
+        Prelude.Nothing,
       date = Prelude.Nothing,
-      expiredObjectDeleteMarker = Prelude.Nothing
+      days = Prelude.Nothing
     }
-
--- | Indicates the lifetime, in days, of the objects that are subject to the
--- rule. The value must be a non-zero positive integer.
-lifecycleExpiration_days :: Lens.Lens' LifecycleExpiration (Prelude.Maybe Prelude.Int)
-lifecycleExpiration_days = Lens.lens (\LifecycleExpiration' {days} -> days) (\s@LifecycleExpiration' {} a -> s {days = a} :: LifecycleExpiration)
-
--- | Indicates at what date the object is to be moved or deleted. Should be
--- in GMT ISO 8601 Format.
-lifecycleExpiration_date :: Lens.Lens' LifecycleExpiration (Prelude.Maybe Prelude.UTCTime)
-lifecycleExpiration_date = Lens.lens (\LifecycleExpiration' {date} -> date) (\s@LifecycleExpiration' {} a -> s {date = a} :: LifecycleExpiration) Prelude.. Lens.mapping Core._Time
 
 -- | Indicates whether Amazon S3 will remove a delete marker with no
 -- noncurrent versions. If set to true, the delete marker will be expired;
@@ -86,30 +77,41 @@ lifecycleExpiration_date = Lens.lens (\LifecycleExpiration' {date} -> date) (\s@
 lifecycleExpiration_expiredObjectDeleteMarker :: Lens.Lens' LifecycleExpiration (Prelude.Maybe Prelude.Bool)
 lifecycleExpiration_expiredObjectDeleteMarker = Lens.lens (\LifecycleExpiration' {expiredObjectDeleteMarker} -> expiredObjectDeleteMarker) (\s@LifecycleExpiration' {} a -> s {expiredObjectDeleteMarker = a} :: LifecycleExpiration)
 
+-- | Indicates at what date the object is to be moved or deleted. Should be
+-- in GMT ISO 8601 Format.
+lifecycleExpiration_date :: Lens.Lens' LifecycleExpiration (Prelude.Maybe Prelude.UTCTime)
+lifecycleExpiration_date = Lens.lens (\LifecycleExpiration' {date} -> date) (\s@LifecycleExpiration' {} a -> s {date = a} :: LifecycleExpiration) Prelude.. Lens.mapping Core._Time
+
+-- | Indicates the lifetime, in days, of the objects that are subject to the
+-- rule. The value must be a non-zero positive integer.
+lifecycleExpiration_days :: Lens.Lens' LifecycleExpiration (Prelude.Maybe Prelude.Int)
+lifecycleExpiration_days = Lens.lens (\LifecycleExpiration' {days} -> days) (\s@LifecycleExpiration' {} a -> s {days = a} :: LifecycleExpiration)
+
 instance Core.FromXML LifecycleExpiration where
   parseXML x =
     LifecycleExpiration'
-      Prelude.<$> (x Core..@? "Days")
+      Prelude.<$> (x Core..@? "ExpiredObjectDeleteMarker")
       Prelude.<*> (x Core..@? "Date")
-      Prelude.<*> (x Core..@? "ExpiredObjectDeleteMarker")
+      Prelude.<*> (x Core..@? "Days")
 
 instance Prelude.Hashable LifecycleExpiration where
   hashWithSalt _salt LifecycleExpiration' {..} =
-    _salt `Prelude.hashWithSalt` days
-      `Prelude.hashWithSalt` date
+    _salt
       `Prelude.hashWithSalt` expiredObjectDeleteMarker
+      `Prelude.hashWithSalt` date
+      `Prelude.hashWithSalt` days
 
 instance Prelude.NFData LifecycleExpiration where
   rnf LifecycleExpiration' {..} =
-    Prelude.rnf days
+    Prelude.rnf expiredObjectDeleteMarker
       `Prelude.seq` Prelude.rnf date
-      `Prelude.seq` Prelude.rnf expiredObjectDeleteMarker
+      `Prelude.seq` Prelude.rnf days
 
 instance Core.ToXML LifecycleExpiration where
   toXML LifecycleExpiration' {..} =
     Prelude.mconcat
-      [ "Days" Core.@= days,
+      [ "ExpiredObjectDeleteMarker"
+          Core.@= expiredObjectDeleteMarker,
         "Date" Core.@= date,
-        "ExpiredObjectDeleteMarker"
-          Core.@= expiredObjectDeleteMarker
+        "Days" Core.@= days
       ]

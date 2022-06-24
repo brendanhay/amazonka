@@ -126,13 +126,13 @@ module Amazonka.S3.UploadPart
     newUploadPart,
 
     -- * Request Lenses
-    uploadPart_contentLength,
-    uploadPart_sSECustomerAlgorithm,
-    uploadPart_sSECustomerKey,
-    uploadPart_requestPayer,
-    uploadPart_sSECustomerKeyMD5,
     uploadPart_contentMD5,
     uploadPart_expectedBucketOwner,
+    uploadPart_requestPayer,
+    uploadPart_contentLength,
+    uploadPart_sSECustomerAlgorithm,
+    uploadPart_sSECustomerKeyMD5,
+    uploadPart_sSECustomerKey,
     uploadPart_bucket,
     uploadPart_key,
     uploadPart_partNumber,
@@ -144,13 +144,13 @@ module Amazonka.S3.UploadPart
     newUploadPartResponse,
 
     -- * Response Lenses
-    uploadPartResponse_requestCharged,
-    uploadPartResponse_eTag,
-    uploadPartResponse_sSECustomerAlgorithm,
-    uploadPartResponse_bucketKeyEnabled,
-    uploadPartResponse_sSECustomerKeyMD5,
-    uploadPartResponse_sSEKMSKeyId,
     uploadPartResponse_serverSideEncryption,
+    uploadPartResponse_bucketKeyEnabled,
+    uploadPartResponse_requestCharged,
+    uploadPartResponse_sSEKMSKeyId,
+    uploadPartResponse_sSECustomerAlgorithm,
+    uploadPartResponse_sSECustomerKeyMD5,
+    uploadPartResponse_eTag,
     uploadPartResponse_httpStatus,
   )
 where
@@ -164,12 +164,25 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newUploadPart' smart constructor.
 data UploadPart = UploadPart'
-  { -- | Size of the body in bytes. This parameter is useful when the size of the
+  { -- | The base64-encoded 128-bit MD5 digest of the part data. This parameter
+    -- is auto-populated when using the command from the CLI. This parameter is
+    -- required if object lock parameters are specified.
+    contentMD5 :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
+    -- | Size of the body in bytes. This parameter is useful when the size of the
     -- body cannot be determined automatically.
     contentLength :: Prelude.Maybe Prelude.Integer,
     -- | Specifies the algorithm to use to when encrypting the object (for
     -- example, AES256).
     sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
+    -- 1321. Amazon S3 uses this header for a message integrity check to ensure
+    -- that the encryption key was transmitted without error.
+    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | Specifies the customer-provided encryption key for Amazon S3 to use in
     -- encrypting data. This value is used to store the object and then it is
     -- discarded; Amazon S3 does not store the encryption key. The key must be
@@ -178,19 +191,6 @@ data UploadPart = UploadPart'
     -- the same encryption key specified in the initiate multipart upload
     -- request.
     sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    requestPayer :: Prelude.Maybe RequestPayer,
-    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
-    -- 1321. Amazon S3 uses this header for a message integrity check to ensure
-    -- that the encryption key was transmitted without error.
-    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
-    -- | The base64-encoded 128-bit MD5 digest of the part data. This parameter
-    -- is auto-populated when using the command from the CLI. This parameter is
-    -- required if object lock parameters are specified.
-    contentMD5 :: Prelude.Maybe Prelude.Text,
-    -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket to which the multipart upload was initiated.
     --
     -- When using this action with an access point, you must direct requests to
@@ -232,11 +232,25 @@ data UploadPart = UploadPart'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contentMD5', 'uploadPart_contentMD5' - The base64-encoded 128-bit MD5 digest of the part data. This parameter
+-- is auto-populated when using the command from the CLI. This parameter is
+-- required if object lock parameters are specified.
+--
+-- 'expectedBucketOwner', 'uploadPart_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+--
+-- 'requestPayer', 'uploadPart_requestPayer' - Undocumented member.
+--
 -- 'contentLength', 'uploadPart_contentLength' - Size of the body in bytes. This parameter is useful when the size of the
 -- body cannot be determined automatically.
 --
 -- 'sSECustomerAlgorithm', 'uploadPart_sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for
 -- example, AES256).
+--
+-- 'sSECustomerKeyMD5', 'uploadPart_sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC
+-- 1321. Amazon S3 uses this header for a message integrity check to ensure
+-- that the encryption key was transmitted without error.
 --
 -- 'sSECustomerKey', 'uploadPart_sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
@@ -245,20 +259,6 @@ data UploadPart = UploadPart'
 -- @x-amz-server-side-encryption-customer-algorithm header@. This must be
 -- the same encryption key specified in the initiate multipart upload
 -- request.
---
--- 'requestPayer', 'uploadPart_requestPayer' - Undocumented member.
---
--- 'sSECustomerKeyMD5', 'uploadPart_sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- that the encryption key was transmitted without error.
---
--- 'contentMD5', 'uploadPart_contentMD5' - The base64-encoded 128-bit MD5 digest of the part data. This parameter
--- is auto-populated when using the command from the CLI. This parameter is
--- required if object lock parameters are specified.
---
--- 'expectedBucketOwner', 'uploadPart_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'uploadPart_bucket' - The name of the bucket to which the multipart upload was initiated.
 --
@@ -308,49 +308,19 @@ newUploadPart
   pUploadId_
   pBody_ =
     UploadPart'
-      { contentLength = Prelude.Nothing,
-        sSECustomerAlgorithm = Prelude.Nothing,
-        sSECustomerKey = Prelude.Nothing,
-        requestPayer = Prelude.Nothing,
-        sSECustomerKeyMD5 = Prelude.Nothing,
-        contentMD5 = Prelude.Nothing,
+      { contentMD5 = Prelude.Nothing,
         expectedBucketOwner = Prelude.Nothing,
+        requestPayer = Prelude.Nothing,
+        contentLength = Prelude.Nothing,
+        sSECustomerAlgorithm = Prelude.Nothing,
+        sSECustomerKeyMD5 = Prelude.Nothing,
+        sSECustomerKey = Prelude.Nothing,
         bucket = pBucket_,
         key = pKey_,
         partNumber = pPartNumber_,
         uploadId = pUploadId_,
         body = pBody_
       }
-
--- | Size of the body in bytes. This parameter is useful when the size of the
--- body cannot be determined automatically.
-uploadPart_contentLength :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Integer)
-uploadPart_contentLength = Lens.lens (\UploadPart' {contentLength} -> contentLength) (\s@UploadPart' {} a -> s {contentLength = a} :: UploadPart)
-
--- | Specifies the algorithm to use to when encrypting the object (for
--- example, AES256).
-uploadPart_sSECustomerAlgorithm :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
-uploadPart_sSECustomerAlgorithm = Lens.lens (\UploadPart' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@UploadPart' {} a -> s {sSECustomerAlgorithm = a} :: UploadPart)
-
--- | Specifies the customer-provided encryption key for Amazon S3 to use in
--- encrypting data. This value is used to store the object and then it is
--- discarded; Amazon S3 does not store the encryption key. The key must be
--- appropriate for use with the algorithm specified in the
--- @x-amz-server-side-encryption-customer-algorithm header@. This must be
--- the same encryption key specified in the initiate multipart upload
--- request.
-uploadPart_sSECustomerKey :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
-uploadPart_sSECustomerKey = Lens.lens (\UploadPart' {sSECustomerKey} -> sSECustomerKey) (\s@UploadPart' {} a -> s {sSECustomerKey = a} :: UploadPart) Prelude.. Lens.mapping Core._Sensitive
-
--- | Undocumented member.
-uploadPart_requestPayer :: Lens.Lens' UploadPart (Prelude.Maybe RequestPayer)
-uploadPart_requestPayer = Lens.lens (\UploadPart' {requestPayer} -> requestPayer) (\s@UploadPart' {} a -> s {requestPayer = a} :: UploadPart)
-
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- that the encryption key was transmitted without error.
-uploadPart_sSECustomerKeyMD5 :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
-uploadPart_sSECustomerKeyMD5 = Lens.lens (\UploadPart' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@UploadPart' {} a -> s {sSECustomerKeyMD5 = a} :: UploadPart)
 
 -- | The base64-encoded 128-bit MD5 digest of the part data. This parameter
 -- is auto-populated when using the command from the CLI. This parameter is
@@ -363,6 +333,36 @@ uploadPart_contentMD5 = Lens.lens (\UploadPart' {contentMD5} -> contentMD5) (\s@
 -- @403 (Access Denied)@ error.
 uploadPart_expectedBucketOwner :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
 uploadPart_expectedBucketOwner = Lens.lens (\UploadPart' {expectedBucketOwner} -> expectedBucketOwner) (\s@UploadPart' {} a -> s {expectedBucketOwner = a} :: UploadPart)
+
+-- | Undocumented member.
+uploadPart_requestPayer :: Lens.Lens' UploadPart (Prelude.Maybe RequestPayer)
+uploadPart_requestPayer = Lens.lens (\UploadPart' {requestPayer} -> requestPayer) (\s@UploadPart' {} a -> s {requestPayer = a} :: UploadPart)
+
+-- | Size of the body in bytes. This parameter is useful when the size of the
+-- body cannot be determined automatically.
+uploadPart_contentLength :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Integer)
+uploadPart_contentLength = Lens.lens (\UploadPart' {contentLength} -> contentLength) (\s@UploadPart' {} a -> s {contentLength = a} :: UploadPart)
+
+-- | Specifies the algorithm to use to when encrypting the object (for
+-- example, AES256).
+uploadPart_sSECustomerAlgorithm :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
+uploadPart_sSECustomerAlgorithm = Lens.lens (\UploadPart' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@UploadPart' {} a -> s {sSECustomerAlgorithm = a} :: UploadPart)
+
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
+-- 1321. Amazon S3 uses this header for a message integrity check to ensure
+-- that the encryption key was transmitted without error.
+uploadPart_sSECustomerKeyMD5 :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
+uploadPart_sSECustomerKeyMD5 = Lens.lens (\UploadPart' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@UploadPart' {} a -> s {sSECustomerKeyMD5 = a} :: UploadPart)
+
+-- | Specifies the customer-provided encryption key for Amazon S3 to use in
+-- encrypting data. This value is used to store the object and then it is
+-- discarded; Amazon S3 does not store the encryption key. The key must be
+-- appropriate for use with the algorithm specified in the
+-- @x-amz-server-side-encryption-customer-algorithm header@. This must be
+-- the same encryption key specified in the initiate multipart upload
+-- request.
+uploadPart_sSECustomerKey :: Lens.Lens' UploadPart (Prelude.Maybe Prelude.Text)
+uploadPart_sSECustomerKey = Lens.lens (\UploadPart' {sSECustomerKey} -> sSECustomerKey) (\s@UploadPart' {} a -> s {sSECustomerKey = a} :: UploadPart) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the bucket to which the multipart upload was initiated.
 --
@@ -413,21 +413,21 @@ instance Core.AWSRequest UploadPart where
     Response.receiveEmpty
       ( \s h x ->
           UploadPartResponse'
-            Prelude.<$> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (h Core..#? "x-amz-server-side-encryption")
+            Prelude.<*> ( h
+                            Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
+                        )
+            Prelude.<*> (h Core..#? "x-amz-request-charged")
+            Prelude.<*> ( h
+                            Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
+                        )
             Prelude.<*> ( h
                             Core..#? "x-amz-server-side-encryption-customer-algorithm"
                         )
             Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
-                        )
-            Prelude.<*> ( h
                             Core..#? "x-amz-server-side-encryption-customer-key-MD5"
                         )
-            Prelude.<*> ( h
-                            Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
-                        )
-            Prelude.<*> (h Core..#? "x-amz-server-side-encryption")
+            Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -437,17 +437,17 @@ instance Core.ToBody UploadPart where
 instance Core.ToHeaders UploadPart where
   toHeaders UploadPart' {..} =
     Prelude.mconcat
-      [ "Content-Length" Core.=# contentLength,
+      [ "Content-MD5" Core.=# contentMD5,
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner,
+        "x-amz-request-payer" Core.=# requestPayer,
+        "Content-Length" Core.=# contentLength,
         "x-amz-server-side-encryption-customer-algorithm"
           Core.=# sSECustomerAlgorithm,
-        "x-amz-server-side-encryption-customer-key"
-          Core.=# sSECustomerKey,
-        "x-amz-request-payer" Core.=# requestPayer,
         "x-amz-server-side-encryption-customer-key-MD5"
           Core.=# sSECustomerKeyMD5,
-        "Content-MD5" Core.=# contentMD5,
-        "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+        "x-amz-server-side-encryption-customer-key"
+          Core.=# sSECustomerKey
       ]
 
 instance Core.ToPath UploadPart where
@@ -464,27 +464,27 @@ instance Core.ToQuery UploadPart where
 
 -- | /See:/ 'newUploadPartResponse' smart constructor.
 data UploadPartResponse = UploadPartResponse'
-  { requestCharged :: Prelude.Maybe RequestCharged,
-    -- | Entity tag for the uploaded object.
-    eTag :: Prelude.Maybe ETag,
-    -- | If server-side encryption with a customer-provided encryption key was
-    -- requested, the response will include this header confirming the
-    -- encryption algorithm used.
-    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+  { -- | The server-side encryption algorithm used when storing this object in
+    -- Amazon S3 (for example, AES256, aws:kms).
+    serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | Indicates whether the multipart upload uses an S3 Bucket Key for
     -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
     bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | If server-side encryption with a customer-provided encryption key was
-    -- requested, the response will include this header to provide round-trip
-    -- message integrity verification of the customer-provided encryption key.
-    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
+    requestCharged :: Prelude.Maybe RequestCharged,
     -- | If present, specifies the ID of the Amazon Web Services Key Management
     -- Service (Amazon Web Services KMS) symmetric customer managed key was
     -- used for the object.
     sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The server-side encryption algorithm used when storing this object in
-    -- Amazon S3 (for example, AES256, aws:kms).
-    serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
+    -- | If server-side encryption with a customer-provided encryption key was
+    -- requested, the response will include this header confirming the
+    -- encryption algorithm used.
+    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+    -- | If server-side encryption with a customer-provided encryption key was
+    -- requested, the response will include this header to provide round-trip
+    -- message integrity verification of the customer-provided encryption key.
+    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
+    -- | Entity tag for the uploaded object.
+    eTag :: Prelude.Maybe ETag,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -498,27 +498,27 @@ data UploadPartResponse = UploadPartResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestCharged', 'uploadPartResponse_requestCharged' - Undocumented member.
---
--- 'eTag', 'uploadPartResponse_eTag' - Entity tag for the uploaded object.
---
--- 'sSECustomerAlgorithm', 'uploadPartResponse_sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
+-- 'serverSideEncryption', 'uploadPartResponse_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
+-- Amazon S3 (for example, AES256, aws:kms).
 --
 -- 'bucketKeyEnabled', 'uploadPartResponse_bucketKeyEnabled' - Indicates whether the multipart upload uses an S3 Bucket Key for
 -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
 --
--- 'sSECustomerKeyMD5', 'uploadPartResponse_sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header to provide round-trip
--- message integrity verification of the customer-provided encryption key.
+-- 'requestCharged', 'uploadPartResponse_requestCharged' - Undocumented member.
 --
 -- 'sSEKMSKeyId', 'uploadPartResponse_sSEKMSKeyId' - If present, specifies the ID of the Amazon Web Services Key Management
 -- Service (Amazon Web Services KMS) symmetric customer managed key was
 -- used for the object.
 --
--- 'serverSideEncryption', 'uploadPartResponse_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
+-- 'sSECustomerAlgorithm', 'uploadPartResponse_sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header confirming the
+-- encryption algorithm used.
+--
+-- 'sSECustomerKeyMD5', 'uploadPartResponse_sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header to provide round-trip
+-- message integrity verification of the customer-provided encryption key.
+--
+-- 'eTag', 'uploadPartResponse_eTag' - Entity tag for the uploaded object.
 --
 -- 'httpStatus', 'uploadPartResponse_httpStatus' - The response's http status code.
 newUploadPartResponse ::
@@ -527,41 +527,30 @@ newUploadPartResponse ::
   UploadPartResponse
 newUploadPartResponse pHttpStatus_ =
   UploadPartResponse'
-    { requestCharged =
+    { serverSideEncryption =
         Prelude.Nothing,
-      eTag = Prelude.Nothing,
-      sSECustomerAlgorithm = Prelude.Nothing,
       bucketKeyEnabled = Prelude.Nothing,
-      sSECustomerKeyMD5 = Prelude.Nothing,
+      requestCharged = Prelude.Nothing,
       sSEKMSKeyId = Prelude.Nothing,
-      serverSideEncryption = Prelude.Nothing,
+      sSECustomerAlgorithm = Prelude.Nothing,
+      sSECustomerKeyMD5 = Prelude.Nothing,
+      eTag = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
-uploadPartResponse_requestCharged :: Lens.Lens' UploadPartResponse (Prelude.Maybe RequestCharged)
-uploadPartResponse_requestCharged = Lens.lens (\UploadPartResponse' {requestCharged} -> requestCharged) (\s@UploadPartResponse' {} a -> s {requestCharged = a} :: UploadPartResponse)
-
--- | Entity tag for the uploaded object.
-uploadPartResponse_eTag :: Lens.Lens' UploadPartResponse (Prelude.Maybe ETag)
-uploadPartResponse_eTag = Lens.lens (\UploadPartResponse' {eTag} -> eTag) (\s@UploadPartResponse' {} a -> s {eTag = a} :: UploadPartResponse)
-
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
-uploadPartResponse_sSECustomerAlgorithm :: Lens.Lens' UploadPartResponse (Prelude.Maybe Prelude.Text)
-uploadPartResponse_sSECustomerAlgorithm = Lens.lens (\UploadPartResponse' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@UploadPartResponse' {} a -> s {sSECustomerAlgorithm = a} :: UploadPartResponse)
+-- | The server-side encryption algorithm used when storing this object in
+-- Amazon S3 (for example, AES256, aws:kms).
+uploadPartResponse_serverSideEncryption :: Lens.Lens' UploadPartResponse (Prelude.Maybe ServerSideEncryption)
+uploadPartResponse_serverSideEncryption = Lens.lens (\UploadPartResponse' {serverSideEncryption} -> serverSideEncryption) (\s@UploadPartResponse' {} a -> s {serverSideEncryption = a} :: UploadPartResponse)
 
 -- | Indicates whether the multipart upload uses an S3 Bucket Key for
 -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
 uploadPartResponse_bucketKeyEnabled :: Lens.Lens' UploadPartResponse (Prelude.Maybe Prelude.Bool)
 uploadPartResponse_bucketKeyEnabled = Lens.lens (\UploadPartResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@UploadPartResponse' {} a -> s {bucketKeyEnabled = a} :: UploadPartResponse)
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header to provide round-trip
--- message integrity verification of the customer-provided encryption key.
-uploadPartResponse_sSECustomerKeyMD5 :: Lens.Lens' UploadPartResponse (Prelude.Maybe Prelude.Text)
-uploadPartResponse_sSECustomerKeyMD5 = Lens.lens (\UploadPartResponse' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@UploadPartResponse' {} a -> s {sSECustomerKeyMD5 = a} :: UploadPartResponse)
+-- | Undocumented member.
+uploadPartResponse_requestCharged :: Lens.Lens' UploadPartResponse (Prelude.Maybe RequestCharged)
+uploadPartResponse_requestCharged = Lens.lens (\UploadPartResponse' {requestCharged} -> requestCharged) (\s@UploadPartResponse' {} a -> s {requestCharged = a} :: UploadPartResponse)
 
 -- | If present, specifies the ID of the Amazon Web Services Key Management
 -- Service (Amazon Web Services KMS) symmetric customer managed key was
@@ -569,10 +558,21 @@ uploadPartResponse_sSECustomerKeyMD5 = Lens.lens (\UploadPartResponse' {sSECusto
 uploadPartResponse_sSEKMSKeyId :: Lens.Lens' UploadPartResponse (Prelude.Maybe Prelude.Text)
 uploadPartResponse_sSEKMSKeyId = Lens.lens (\UploadPartResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@UploadPartResponse' {} a -> s {sSEKMSKeyId = a} :: UploadPartResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
-uploadPartResponse_serverSideEncryption :: Lens.Lens' UploadPartResponse (Prelude.Maybe ServerSideEncryption)
-uploadPartResponse_serverSideEncryption = Lens.lens (\UploadPartResponse' {serverSideEncryption} -> serverSideEncryption) (\s@UploadPartResponse' {} a -> s {serverSideEncryption = a} :: UploadPartResponse)
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header confirming the
+-- encryption algorithm used.
+uploadPartResponse_sSECustomerAlgorithm :: Lens.Lens' UploadPartResponse (Prelude.Maybe Prelude.Text)
+uploadPartResponse_sSECustomerAlgorithm = Lens.lens (\UploadPartResponse' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@UploadPartResponse' {} a -> s {sSECustomerAlgorithm = a} :: UploadPartResponse)
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header to provide round-trip
+-- message integrity verification of the customer-provided encryption key.
+uploadPartResponse_sSECustomerKeyMD5 :: Lens.Lens' UploadPartResponse (Prelude.Maybe Prelude.Text)
+uploadPartResponse_sSECustomerKeyMD5 = Lens.lens (\UploadPartResponse' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@UploadPartResponse' {} a -> s {sSECustomerKeyMD5 = a} :: UploadPartResponse)
+
+-- | Entity tag for the uploaded object.
+uploadPartResponse_eTag :: Lens.Lens' UploadPartResponse (Prelude.Maybe ETag)
+uploadPartResponse_eTag = Lens.lens (\UploadPartResponse' {eTag} -> eTag) (\s@UploadPartResponse' {} a -> s {eTag = a} :: UploadPartResponse)
 
 -- | The response's http status code.
 uploadPartResponse_httpStatus :: Lens.Lens' UploadPartResponse Prelude.Int
@@ -580,11 +580,11 @@ uploadPartResponse_httpStatus = Lens.lens (\UploadPartResponse' {httpStatus} -> 
 
 instance Prelude.NFData UploadPartResponse where
   rnf UploadPartResponse' {..} =
-    Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+    Prelude.rnf serverSideEncryption
       `Prelude.seq` Prelude.rnf bucketKeyEnabled
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf requestCharged
       `Prelude.seq` Prelude.rnf sSEKMSKeyId
-      `Prelude.seq` Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf httpStatus

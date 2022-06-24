@@ -33,13 +33,13 @@ import Amazonka.S3.Types.MFADelete
 --
 -- /See:/ 'newVersioningConfiguration' smart constructor.
 data VersioningConfiguration = VersioningConfiguration'
-  { -- | The versioning state of the bucket.
-    status :: Prelude.Maybe BucketVersioningStatus,
-    -- | Specifies whether MFA delete is enabled in the bucket versioning
+  { -- | Specifies whether MFA delete is enabled in the bucket versioning
     -- configuration. This element is only returned if the bucket has been
     -- configured with MFA delete. If the bucket has never been so configured,
     -- this element is not returned.
-    mfaDelete :: Prelude.Maybe MFADelete
+    mfaDelete :: Prelude.Maybe MFADelete,
+    -- | The versioning state of the bucket.
+    status :: Prelude.Maybe BucketVersioningStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,23 +51,20 @@ data VersioningConfiguration = VersioningConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'versioningConfiguration_status' - The versioning state of the bucket.
---
 -- 'mfaDelete', 'versioningConfiguration_mfaDelete' - Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
 -- configured with MFA delete. If the bucket has never been so configured,
 -- this element is not returned.
+--
+-- 'status', 'versioningConfiguration_status' - The versioning state of the bucket.
 newVersioningConfiguration ::
   VersioningConfiguration
 newVersioningConfiguration =
   VersioningConfiguration'
-    { status = Prelude.Nothing,
-      mfaDelete = Prelude.Nothing
+    { mfaDelete =
+        Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The versioning state of the bucket.
-versioningConfiguration_status :: Lens.Lens' VersioningConfiguration (Prelude.Maybe BucketVersioningStatus)
-versioningConfiguration_status = Lens.lens (\VersioningConfiguration' {status} -> status) (\s@VersioningConfiguration' {} a -> s {status = a} :: VersioningConfiguration)
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
@@ -76,19 +73,23 @@ versioningConfiguration_status = Lens.lens (\VersioningConfiguration' {status} -
 versioningConfiguration_mfaDelete :: Lens.Lens' VersioningConfiguration (Prelude.Maybe MFADelete)
 versioningConfiguration_mfaDelete = Lens.lens (\VersioningConfiguration' {mfaDelete} -> mfaDelete) (\s@VersioningConfiguration' {} a -> s {mfaDelete = a} :: VersioningConfiguration)
 
+-- | The versioning state of the bucket.
+versioningConfiguration_status :: Lens.Lens' VersioningConfiguration (Prelude.Maybe BucketVersioningStatus)
+versioningConfiguration_status = Lens.lens (\VersioningConfiguration' {status} -> status) (\s@VersioningConfiguration' {} a -> s {status = a} :: VersioningConfiguration)
+
 instance Prelude.Hashable VersioningConfiguration where
   hashWithSalt _salt VersioningConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` mfaDelete
+    _salt `Prelude.hashWithSalt` mfaDelete
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData VersioningConfiguration where
   rnf VersioningConfiguration' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf mfaDelete
+    Prelude.rnf mfaDelete
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToXML VersioningConfiguration where
   toXML VersioningConfiguration' {..} =
     Prelude.mconcat
-      [ "Status" Core.@= status,
-        "MfaDelete" Core.@= mfaDelete
+      [ "MfaDelete" Core.@= mfaDelete,
+        "Status" Core.@= status
       ]

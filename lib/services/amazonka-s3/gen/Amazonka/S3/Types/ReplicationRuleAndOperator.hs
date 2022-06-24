@@ -39,11 +39,11 @@ import Amazonka.S3.Types.Tag
 --
 -- /See:/ 'newReplicationRuleAndOperator' smart constructor.
 data ReplicationRuleAndOperator = ReplicationRuleAndOperator'
-  { -- | An object key name prefix that identifies the subset of objects to which
+  { -- | An array of tags containing key and value pairs.
+    tags :: Prelude.Maybe [Tag],
+    -- | An object key name prefix that identifies the subset of objects to which
     -- the rule applies.
-    prefix :: Prelude.Maybe Prelude.Text,
-    -- | An array of tags containing key and value pairs.
-    tags :: Prelude.Maybe [Tag]
+    prefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,49 +55,48 @@ data ReplicationRuleAndOperator = ReplicationRuleAndOperator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'replicationRuleAndOperator_tags' - An array of tags containing key and value pairs.
+--
 -- 'prefix', 'replicationRuleAndOperator_prefix' - An object key name prefix that identifies the subset of objects to which
 -- the rule applies.
---
--- 'tags', 'replicationRuleAndOperator_tags' - An array of tags containing key and value pairs.
 newReplicationRuleAndOperator ::
   ReplicationRuleAndOperator
 newReplicationRuleAndOperator =
   ReplicationRuleAndOperator'
-    { prefix =
-        Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      prefix = Prelude.Nothing
     }
+
+-- | An array of tags containing key and value pairs.
+replicationRuleAndOperator_tags :: Lens.Lens' ReplicationRuleAndOperator (Prelude.Maybe [Tag])
+replicationRuleAndOperator_tags = Lens.lens (\ReplicationRuleAndOperator' {tags} -> tags) (\s@ReplicationRuleAndOperator' {} a -> s {tags = a} :: ReplicationRuleAndOperator) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object key name prefix that identifies the subset of objects to which
 -- the rule applies.
 replicationRuleAndOperator_prefix :: Lens.Lens' ReplicationRuleAndOperator (Prelude.Maybe Prelude.Text)
 replicationRuleAndOperator_prefix = Lens.lens (\ReplicationRuleAndOperator' {prefix} -> prefix) (\s@ReplicationRuleAndOperator' {} a -> s {prefix = a} :: ReplicationRuleAndOperator)
 
--- | An array of tags containing key and value pairs.
-replicationRuleAndOperator_tags :: Lens.Lens' ReplicationRuleAndOperator (Prelude.Maybe [Tag])
-replicationRuleAndOperator_tags = Lens.lens (\ReplicationRuleAndOperator' {tags} -> tags) (\s@ReplicationRuleAndOperator' {} a -> s {tags = a} :: ReplicationRuleAndOperator) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromXML ReplicationRuleAndOperator where
   parseXML x =
     ReplicationRuleAndOperator'
-      Prelude.<$> (x Core..@? "Prefix")
-      Prelude.<*> ( x Core..@? "Tag" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "Tag" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
+      Prelude.<*> (x Core..@? "Prefix")
 
 instance Prelude.Hashable ReplicationRuleAndOperator where
   hashWithSalt _salt ReplicationRuleAndOperator' {..} =
-    _salt `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` prefix
 
 instance Prelude.NFData ReplicationRuleAndOperator where
   rnf ReplicationRuleAndOperator' {..} =
-    Prelude.rnf prefix `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToXML ReplicationRuleAndOperator where
   toXML ReplicationRuleAndOperator' {..} =
     Prelude.mconcat
-      [ "Prefix" Core.@= prefix,
-        "Tag"
-          Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> tags)
+      [ "Tag"
+          Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> tags),
+        "Prefix" Core.@= prefix
       ]

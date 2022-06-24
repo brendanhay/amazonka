@@ -37,12 +37,12 @@ data SelectObjectContentEventStream = SelectObjectContentEventStream'
     progress :: Prelude.Maybe ProgressEvent,
     -- | The Records Event.
     records :: Prelude.Maybe RecordsEvent,
-    -- | The Continuation Event.
-    cont :: Prelude.Maybe ContinuationEvent,
     -- | The Stats Event.
     stats :: Prelude.Maybe StatsEvent,
     -- | The End Event.
-    end :: Prelude.Maybe EndEvent
+    end :: Prelude.Maybe EndEvent,
+    -- | The Continuation Event.
+    cont :: Prelude.Maybe ContinuationEvent
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,11 +58,11 @@ data SelectObjectContentEventStream = SelectObjectContentEventStream'
 --
 -- 'records', 'selectObjectContentEventStream_records' - The Records Event.
 --
--- 'cont', 'selectObjectContentEventStream_cont' - The Continuation Event.
---
 -- 'stats', 'selectObjectContentEventStream_stats' - The Stats Event.
 --
 -- 'end', 'selectObjectContentEventStream_end' - The End Event.
+--
+-- 'cont', 'selectObjectContentEventStream_cont' - The Continuation Event.
 newSelectObjectContentEventStream ::
   SelectObjectContentEventStream
 newSelectObjectContentEventStream =
@@ -70,9 +70,9 @@ newSelectObjectContentEventStream =
     { progress =
         Prelude.Nothing,
       records = Prelude.Nothing,
-      cont = Prelude.Nothing,
       stats = Prelude.Nothing,
-      end = Prelude.Nothing
+      end = Prelude.Nothing,
+      cont = Prelude.Nothing
     }
 
 -- | The Progress Event.
@@ -83,10 +83,6 @@ selectObjectContentEventStream_progress = Lens.lens (\SelectObjectContentEventSt
 selectObjectContentEventStream_records :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe RecordsEvent)
 selectObjectContentEventStream_records = Lens.lens (\SelectObjectContentEventStream' {records} -> records) (\s@SelectObjectContentEventStream' {} a -> s {records = a} :: SelectObjectContentEventStream)
 
--- | The Continuation Event.
-selectObjectContentEventStream_cont :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe ContinuationEvent)
-selectObjectContentEventStream_cont = Lens.lens (\SelectObjectContentEventStream' {cont} -> cont) (\s@SelectObjectContentEventStream' {} a -> s {cont = a} :: SelectObjectContentEventStream)
-
 -- | The Stats Event.
 selectObjectContentEventStream_stats :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe StatsEvent)
 selectObjectContentEventStream_stats = Lens.lens (\SelectObjectContentEventStream' {stats} -> stats) (\s@SelectObjectContentEventStream' {} a -> s {stats = a} :: SelectObjectContentEventStream)
@@ -95,14 +91,18 @@ selectObjectContentEventStream_stats = Lens.lens (\SelectObjectContentEventStrea
 selectObjectContentEventStream_end :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe EndEvent)
 selectObjectContentEventStream_end = Lens.lens (\SelectObjectContentEventStream' {end} -> end) (\s@SelectObjectContentEventStream' {} a -> s {end = a} :: SelectObjectContentEventStream)
 
+-- | The Continuation Event.
+selectObjectContentEventStream_cont :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe ContinuationEvent)
+selectObjectContentEventStream_cont = Lens.lens (\SelectObjectContentEventStream' {cont} -> cont) (\s@SelectObjectContentEventStream' {} a -> s {cont = a} :: SelectObjectContentEventStream)
+
 instance Core.FromXML SelectObjectContentEventStream where
   parseXML x =
     SelectObjectContentEventStream'
       Prelude.<$> (x Core..@? "Progress")
       Prelude.<*> (x Core..@? "Records")
-      Prelude.<*> (x Core..@? "Cont")
       Prelude.<*> (x Core..@? "Stats")
       Prelude.<*> (x Core..@? "End")
+      Prelude.<*> (x Core..@? "Cont")
 
 instance
   Prelude.Hashable
@@ -113,9 +113,9 @@ instance
     SelectObjectContentEventStream' {..} =
       _salt `Prelude.hashWithSalt` progress
         `Prelude.hashWithSalt` records
-        `Prelude.hashWithSalt` cont
         `Prelude.hashWithSalt` stats
         `Prelude.hashWithSalt` end
+        `Prelude.hashWithSalt` cont
 
 instance
   Prelude.NFData
@@ -124,6 +124,6 @@ instance
   rnf SelectObjectContentEventStream' {..} =
     Prelude.rnf progress
       `Prelude.seq` Prelude.rnf records
-      `Prelude.seq` Prelude.rnf cont
       `Prelude.seq` Prelude.rnf stats
       `Prelude.seq` Prelude.rnf end
+      `Prelude.seq` Prelude.rnf cont

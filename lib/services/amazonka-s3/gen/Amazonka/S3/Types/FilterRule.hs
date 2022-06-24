@@ -30,15 +30,15 @@ import Amazonka.S3.Types.FilterRuleName
 --
 -- /See:/ 'newFilterRule' smart constructor.
 data FilterRule = FilterRule'
-  { -- | The value that the filter searches for in object key names.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The object key name prefix or suffix identifying one or more objects to
+  { -- | The object key name prefix or suffix identifying one or more objects to
     -- which the filtering rule applies. The maximum length is 1,024
     -- characters. Overlapping prefixes and suffixes are not supported. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
     -- in the /Amazon S3 User Guide/.
-    name :: Prelude.Maybe FilterRuleName
+    name :: Prelude.Maybe FilterRuleName,
+    -- | The value that the filter searches for in object key names.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,25 +50,21 @@ data FilterRule = FilterRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'filterRule_value' - The value that the filter searches for in object key names.
---
 -- 'name', 'filterRule_name' - The object key name prefix or suffix identifying one or more objects to
 -- which the filtering rule applies. The maximum length is 1,024
 -- characters. Overlapping prefixes and suffixes are not supported. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
 -- in the /Amazon S3 User Guide/.
+--
+-- 'value', 'filterRule_value' - The value that the filter searches for in object key names.
 newFilterRule ::
   FilterRule
 newFilterRule =
   FilterRule'
-    { value = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value that the filter searches for in object key names.
-filterRule_value :: Lens.Lens' FilterRule (Prelude.Maybe Prelude.Text)
-filterRule_value = Lens.lens (\FilterRule' {value} -> value) (\s@FilterRule' {} a -> s {value = a} :: FilterRule)
 
 -- | The object key name prefix or suffix identifying one or more objects to
 -- which the filtering rule applies. The maximum length is 1,024
@@ -79,21 +75,25 @@ filterRule_value = Lens.lens (\FilterRule' {value} -> value) (\s@FilterRule' {} 
 filterRule_name :: Lens.Lens' FilterRule (Prelude.Maybe FilterRuleName)
 filterRule_name = Lens.lens (\FilterRule' {name} -> name) (\s@FilterRule' {} a -> s {name = a} :: FilterRule)
 
+-- | The value that the filter searches for in object key names.
+filterRule_value :: Lens.Lens' FilterRule (Prelude.Maybe Prelude.Text)
+filterRule_value = Lens.lens (\FilterRule' {value} -> value) (\s@FilterRule' {} a -> s {value = a} :: FilterRule)
+
 instance Core.FromXML FilterRule where
   parseXML x =
     FilterRule'
-      Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Name")
+      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "Value")
 
 instance Prelude.Hashable FilterRule where
   hashWithSalt _salt FilterRule' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData FilterRule where
   rnf FilterRule' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToXML FilterRule where
   toXML FilterRule' {..} =
     Prelude.mconcat
-      ["Value" Core.@= value, "Name" Core.@= name]
+      ["Name" Core.@= name, "Value" Core.@= value]

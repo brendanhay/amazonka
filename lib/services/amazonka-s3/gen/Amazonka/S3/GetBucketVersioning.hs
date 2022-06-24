@@ -50,8 +50,8 @@ module Amazonka.S3.GetBucketVersioning
     newGetBucketVersioningResponse,
 
     -- * Response Lenses
-    getBucketVersioningResponse_status,
     getBucketVersioningResponse_mfaDelete,
+    getBucketVersioningResponse_status,
     getBucketVersioningResponse_httpStatus,
   )
 where
@@ -119,8 +119,8 @@ instance Core.AWSRequest GetBucketVersioning where
     Response.receiveXML
       ( \s h x ->
           GetBucketVersioningResponse'
-            Prelude.<$> (x Core..@? "Status")
-            Prelude.<*> (x Core..@? "MfaDelete")
+            Prelude.<$> (x Core..@? "MfaDelete")
+            Prelude.<*> (x Core..@? "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,13 +151,13 @@ instance Core.ToQuery GetBucketVersioning where
 
 -- | /See:/ 'newGetBucketVersioningResponse' smart constructor.
 data GetBucketVersioningResponse = GetBucketVersioningResponse'
-  { -- | The versioning state of the bucket.
-    status :: Prelude.Maybe BucketVersioningStatus,
-    -- | Specifies whether MFA delete is enabled in the bucket versioning
+  { -- | Specifies whether MFA delete is enabled in the bucket versioning
     -- configuration. This element is only returned if the bucket has been
     -- configured with MFA delete. If the bucket has never been so configured,
     -- this element is not returned.
     mfaDelete :: Prelude.Maybe MFADeleteStatus,
+    -- | The versioning state of the bucket.
+    status :: Prelude.Maybe BucketVersioningStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,12 +171,12 @@ data GetBucketVersioningResponse = GetBucketVersioningResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getBucketVersioningResponse_status' - The versioning state of the bucket.
---
 -- 'mfaDelete', 'getBucketVersioningResponse_mfaDelete' - Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
 -- configured with MFA delete. If the bucket has never been so configured,
 -- this element is not returned.
+--
+-- 'status', 'getBucketVersioningResponse_status' - The versioning state of the bucket.
 --
 -- 'httpStatus', 'getBucketVersioningResponse_httpStatus' - The response's http status code.
 newGetBucketVersioningResponse ::
@@ -185,15 +185,11 @@ newGetBucketVersioningResponse ::
   GetBucketVersioningResponse
 newGetBucketVersioningResponse pHttpStatus_ =
   GetBucketVersioningResponse'
-    { status =
+    { mfaDelete =
         Prelude.Nothing,
-      mfaDelete = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The versioning state of the bucket.
-getBucketVersioningResponse_status :: Lens.Lens' GetBucketVersioningResponse (Prelude.Maybe BucketVersioningStatus)
-getBucketVersioningResponse_status = Lens.lens (\GetBucketVersioningResponse' {status} -> status) (\s@GetBucketVersioningResponse' {} a -> s {status = a} :: GetBucketVersioningResponse)
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
@@ -202,12 +198,16 @@ getBucketVersioningResponse_status = Lens.lens (\GetBucketVersioningResponse' {s
 getBucketVersioningResponse_mfaDelete :: Lens.Lens' GetBucketVersioningResponse (Prelude.Maybe MFADeleteStatus)
 getBucketVersioningResponse_mfaDelete = Lens.lens (\GetBucketVersioningResponse' {mfaDelete} -> mfaDelete) (\s@GetBucketVersioningResponse' {} a -> s {mfaDelete = a} :: GetBucketVersioningResponse)
 
+-- | The versioning state of the bucket.
+getBucketVersioningResponse_status :: Lens.Lens' GetBucketVersioningResponse (Prelude.Maybe BucketVersioningStatus)
+getBucketVersioningResponse_status = Lens.lens (\GetBucketVersioningResponse' {status} -> status) (\s@GetBucketVersioningResponse' {} a -> s {status = a} :: GetBucketVersioningResponse)
+
 -- | The response's http status code.
 getBucketVersioningResponse_httpStatus :: Lens.Lens' GetBucketVersioningResponse Prelude.Int
 getBucketVersioningResponse_httpStatus = Lens.lens (\GetBucketVersioningResponse' {httpStatus} -> httpStatus) (\s@GetBucketVersioningResponse' {} a -> s {httpStatus = a} :: GetBucketVersioningResponse)
 
 instance Prelude.NFData GetBucketVersioningResponse where
   rnf GetBucketVersioningResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf mfaDelete
+    Prelude.rnf mfaDelete
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

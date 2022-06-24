@@ -44,9 +44,9 @@ module Amazonka.S3.GetObjectAcl
     newGetObjectAcl,
 
     -- * Request Lenses
-    getObjectAcl_versionId,
-    getObjectAcl_requestPayer,
     getObjectAcl_expectedBucketOwner,
+    getObjectAcl_requestPayer,
+    getObjectAcl_versionId,
     getObjectAcl_bucket,
     getObjectAcl_key,
 
@@ -71,13 +71,13 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newGetObjectAcl' smart constructor.
 data GetObjectAcl = GetObjectAcl'
-  { -- | VersionId used to reference a specific version of the object.
-    versionId :: Prelude.Maybe ObjectVersionId,
-    requestPayer :: Prelude.Maybe RequestPayer,
-    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
+    -- | VersionId used to reference a specific version of the object.
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | The bucket name that contains the object for which to get the ACL
     -- information.
     --
@@ -103,13 +103,13 @@ data GetObjectAcl = GetObjectAcl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionId', 'getObjectAcl_versionId' - VersionId used to reference a specific version of the object.
---
--- 'requestPayer', 'getObjectAcl_requestPayer' - Undocumented member.
---
 -- 'expectedBucketOwner', 'getObjectAcl_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
+--
+-- 'requestPayer', 'getObjectAcl_requestPayer' - Undocumented member.
+--
+-- 'versionId', 'getObjectAcl_versionId' - VersionId used to reference a specific version of the object.
 --
 -- 'bucket', 'getObjectAcl_bucket' - The bucket name that contains the object for which to get the ACL
 -- information.
@@ -132,26 +132,27 @@ newGetObjectAcl ::
   GetObjectAcl
 newGetObjectAcl pBucket_ pKey_ =
   GetObjectAcl'
-    { versionId = Prelude.Nothing,
+    { expectedBucketOwner =
+        Prelude.Nothing,
       requestPayer = Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
-
--- | VersionId used to reference a specific version of the object.
-getObjectAcl_versionId :: Lens.Lens' GetObjectAcl (Prelude.Maybe ObjectVersionId)
-getObjectAcl_versionId = Lens.lens (\GetObjectAcl' {versionId} -> versionId) (\s@GetObjectAcl' {} a -> s {versionId = a} :: GetObjectAcl)
-
--- | Undocumented member.
-getObjectAcl_requestPayer :: Lens.Lens' GetObjectAcl (Prelude.Maybe RequestPayer)
-getObjectAcl_requestPayer = Lens.lens (\GetObjectAcl' {requestPayer} -> requestPayer) (\s@GetObjectAcl' {} a -> s {requestPayer = a} :: GetObjectAcl)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getObjectAcl_expectedBucketOwner :: Lens.Lens' GetObjectAcl (Prelude.Maybe Prelude.Text)
 getObjectAcl_expectedBucketOwner = Lens.lens (\GetObjectAcl' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectAcl' {} a -> s {expectedBucketOwner = a} :: GetObjectAcl)
+
+-- | Undocumented member.
+getObjectAcl_requestPayer :: Lens.Lens' GetObjectAcl (Prelude.Maybe RequestPayer)
+getObjectAcl_requestPayer = Lens.lens (\GetObjectAcl' {requestPayer} -> requestPayer) (\s@GetObjectAcl' {} a -> s {requestPayer = a} :: GetObjectAcl)
+
+-- | VersionId used to reference a specific version of the object.
+getObjectAcl_versionId :: Lens.Lens' GetObjectAcl (Prelude.Maybe ObjectVersionId)
+getObjectAcl_versionId = Lens.lens (\GetObjectAcl' {versionId} -> versionId) (\s@GetObjectAcl' {} a -> s {versionId = a} :: GetObjectAcl)
 
 -- | The bucket name that contains the object for which to get the ACL
 -- information.
@@ -191,26 +192,26 @@ instance Core.AWSRequest GetObjectAcl where
 
 instance Prelude.Hashable GetObjectAcl where
   hashWithSalt _salt GetObjectAcl' {..} =
-    _salt `Prelude.hashWithSalt` versionId
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
-      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData GetObjectAcl where
   rnf GetObjectAcl' {..} =
-    Prelude.rnf versionId
+    Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders GetObjectAcl where
   toHeaders GetObjectAcl' {..} =
     Prelude.mconcat
-      [ "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+      [ "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner,
+        "x-amz-request-payer" Core.=# requestPayer
       ]
 
 instance Core.ToPath GetObjectAcl where

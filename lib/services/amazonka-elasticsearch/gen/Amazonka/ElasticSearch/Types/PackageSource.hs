@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageSource' smart constructor.
 data PackageSource = PackageSource'
-  { -- | Key (file name) of the package.
-    s3Key :: Prelude.Maybe Prelude.Text,
-    -- | Name of the bucket containing the package.
-    s3BucketName :: Prelude.Maybe Prelude.Text
+  { -- | Name of the bucket containing the package.
+    s3BucketName :: Prelude.Maybe Prelude.Text,
+    -- | Key (file name) of the package.
+    s3Key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,40 +43,40 @@ data PackageSource = PackageSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Key', 'packageSource_s3Key' - Key (file name) of the package.
---
 -- 's3BucketName', 'packageSource_s3BucketName' - Name of the bucket containing the package.
+--
+-- 's3Key', 'packageSource_s3Key' - Key (file name) of the package.
 newPackageSource ::
   PackageSource
 newPackageSource =
   PackageSource'
-    { s3Key = Prelude.Nothing,
-      s3BucketName = Prelude.Nothing
+    { s3BucketName = Prelude.Nothing,
+      s3Key = Prelude.Nothing
     }
-
--- | Key (file name) of the package.
-packageSource_s3Key :: Lens.Lens' PackageSource (Prelude.Maybe Prelude.Text)
-packageSource_s3Key = Lens.lens (\PackageSource' {s3Key} -> s3Key) (\s@PackageSource' {} a -> s {s3Key = a} :: PackageSource)
 
 -- | Name of the bucket containing the package.
 packageSource_s3BucketName :: Lens.Lens' PackageSource (Prelude.Maybe Prelude.Text)
 packageSource_s3BucketName = Lens.lens (\PackageSource' {s3BucketName} -> s3BucketName) (\s@PackageSource' {} a -> s {s3BucketName = a} :: PackageSource)
 
+-- | Key (file name) of the package.
+packageSource_s3Key :: Lens.Lens' PackageSource (Prelude.Maybe Prelude.Text)
+packageSource_s3Key = Lens.lens (\PackageSource' {s3Key} -> s3Key) (\s@PackageSource' {} a -> s {s3Key = a} :: PackageSource)
+
 instance Prelude.Hashable PackageSource where
   hashWithSalt _salt PackageSource' {..} =
-    _salt `Prelude.hashWithSalt` s3Key
-      `Prelude.hashWithSalt` s3BucketName
+    _salt `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` s3Key
 
 instance Prelude.NFData PackageSource where
   rnf PackageSource' {..} =
-    Prelude.rnf s3Key
-      `Prelude.seq` Prelude.rnf s3BucketName
+    Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf s3Key
 
 instance Core.ToJSON PackageSource where
   toJSON PackageSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("S3Key" Core..=) Prelude.<$> s3Key,
-            ("S3BucketName" Core..=) Prelude.<$> s3BucketName
+          [ ("S3BucketName" Core..=) Prelude.<$> s3BucketName,
+            ("S3Key" Core..=) Prelude.<$> s3Key
           ]
       )

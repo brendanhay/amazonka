@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoTuneOptionsOutput' smart constructor.
 data AutoTuneOptionsOutput = AutoTuneOptionsOutput'
-  { -- | Specifies the @AutoTuneState@ for the Elasticsearch domain.
-    state :: Prelude.Maybe AutoTuneState,
-    -- | Specifies the error message while enabling or disabling the Auto-Tune.
-    errorMessage :: Prelude.Maybe Prelude.Text
+  { -- | Specifies the error message while enabling or disabling the Auto-Tune.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the @AutoTuneState@ for the Elasticsearch domain.
+    state :: Prelude.Maybe AutoTuneState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,25 @@ data AutoTuneOptionsOutput = AutoTuneOptionsOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'autoTuneOptionsOutput_state' - Specifies the @AutoTuneState@ for the Elasticsearch domain.
---
 -- 'errorMessage', 'autoTuneOptionsOutput_errorMessage' - Specifies the error message while enabling or disabling the Auto-Tune.
+--
+-- 'state', 'autoTuneOptionsOutput_state' - Specifies the @AutoTuneState@ for the Elasticsearch domain.
 newAutoTuneOptionsOutput ::
   AutoTuneOptionsOutput
 newAutoTuneOptionsOutput =
   AutoTuneOptionsOutput'
-    { state = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+    { errorMessage =
+        Prelude.Nothing,
+      state = Prelude.Nothing
     }
-
--- | Specifies the @AutoTuneState@ for the Elasticsearch domain.
-autoTuneOptionsOutput_state :: Lens.Lens' AutoTuneOptionsOutput (Prelude.Maybe AutoTuneState)
-autoTuneOptionsOutput_state = Lens.lens (\AutoTuneOptionsOutput' {state} -> state) (\s@AutoTuneOptionsOutput' {} a -> s {state = a} :: AutoTuneOptionsOutput)
 
 -- | Specifies the error message while enabling or disabling the Auto-Tune.
 autoTuneOptionsOutput_errorMessage :: Lens.Lens' AutoTuneOptionsOutput (Prelude.Maybe Prelude.Text)
 autoTuneOptionsOutput_errorMessage = Lens.lens (\AutoTuneOptionsOutput' {errorMessage} -> errorMessage) (\s@AutoTuneOptionsOutput' {} a -> s {errorMessage = a} :: AutoTuneOptionsOutput)
+
+-- | Specifies the @AutoTuneState@ for the Elasticsearch domain.
+autoTuneOptionsOutput_state :: Lens.Lens' AutoTuneOptionsOutput (Prelude.Maybe AutoTuneState)
+autoTuneOptionsOutput_state = Lens.lens (\AutoTuneOptionsOutput' {state} -> state) (\s@AutoTuneOptionsOutput' {} a -> s {state = a} :: AutoTuneOptionsOutput)
 
 instance Core.FromJSON AutoTuneOptionsOutput where
   parseJSON =
@@ -69,16 +70,16 @@ instance Core.FromJSON AutoTuneOptionsOutput where
       "AutoTuneOptionsOutput"
       ( \x ->
           AutoTuneOptionsOutput'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "State")
       )
 
 instance Prelude.Hashable AutoTuneOptionsOutput where
   hashWithSalt _salt AutoTuneOptionsOutput' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData AutoTuneOptionsOutput where
   rnf AutoTuneOptionsOutput' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf state

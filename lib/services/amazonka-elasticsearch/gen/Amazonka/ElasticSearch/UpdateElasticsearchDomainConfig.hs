@@ -29,19 +29,19 @@ module Amazonka.ElasticSearch.UpdateElasticsearchDomainConfig
     newUpdateElasticsearchDomainConfig,
 
     -- * Request Lenses
-    updateElasticsearchDomainConfig_eBSOptions,
     updateElasticsearchDomainConfig_nodeToNodeEncryptionOptions,
-    updateElasticsearchDomainConfig_accessPolicies,
-    updateElasticsearchDomainConfig_autoTuneOptions,
-    updateElasticsearchDomainConfig_logPublishingOptions,
-    updateElasticsearchDomainConfig_advancedSecurityOptions,
+    updateElasticsearchDomainConfig_advancedOptions,
     updateElasticsearchDomainConfig_elasticsearchClusterConfig,
-    updateElasticsearchDomainConfig_snapshotOptions,
+    updateElasticsearchDomainConfig_advancedSecurityOptions,
     updateElasticsearchDomainConfig_cognitoOptions,
     updateElasticsearchDomainConfig_encryptionAtRestOptions,
+    updateElasticsearchDomainConfig_eBSOptions,
+    updateElasticsearchDomainConfig_accessPolicies,
     updateElasticsearchDomainConfig_vPCOptions,
+    updateElasticsearchDomainConfig_autoTuneOptions,
     updateElasticsearchDomainConfig_domainEndpointOptions,
-    updateElasticsearchDomainConfig_advancedOptions,
+    updateElasticsearchDomainConfig_snapshotOptions,
+    updateElasticsearchDomainConfig_logPublishingOptions,
     updateElasticsearchDomainConfig_domainName,
 
     -- * Destructuring the Response
@@ -67,44 +67,44 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateElasticsearchDomainConfig' smart constructor.
 data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
-  { -- | Specify the type and size of the EBS volume that you want to use.
-    eBSOptions :: Prelude.Maybe EBSOptions,
-    -- | Specifies the NodeToNodeEncryptionOptions.
+  { -- | Specifies the NodeToNodeEncryptionOptions.
     nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
-    -- | IAM access policy as a JSON-formatted string.
-    accessPolicies :: Prelude.Maybe Prelude.Text,
-    -- | Specifies Auto-Tune options.
-    autoTuneOptions :: Prelude.Maybe AutoTuneOptions,
-    -- | Map of @LogType@ and @LogPublishingOption@, each containing options to
-    -- publish a given type of Elasticsearch log.
-    logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
-    -- | Specifies advanced security options.
-    advancedSecurityOptions :: Prelude.Maybe AdvancedSecurityOptionsInput,
-    -- | The type and number of instances to instantiate for the domain cluster.
-    elasticsearchClusterConfig :: Prelude.Maybe ElasticsearchClusterConfig,
-    -- | Option to set the time, in UTC format, for the daily automated snapshot.
-    -- Default value is @0@ hours.
-    snapshotOptions :: Prelude.Maybe SnapshotOptions,
-    -- | Options to specify the Cognito user and identity pools for Kibana
-    -- authentication. For more information, see
-    -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana>.
-    cognitoOptions :: Prelude.Maybe CognitoOptions,
-    -- | Specifies the Encryption At Rest Options.
-    encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
-    -- | Options to specify the subnets and security groups for VPC endpoint. For
-    -- more information, see
-    -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC>
-    -- in /VPC Endpoints for Amazon Elasticsearch Service Domains/
-    vPCOptions :: Prelude.Maybe VPCOptions,
-    -- | Options to specify configuration that will be applied to the domain
-    -- endpoint.
-    domainEndpointOptions :: Prelude.Maybe DomainEndpointOptions,
     -- | Modifies the advanced option to allow references to indices in an HTTP
     -- request body. Must be @false@ when configuring access to individual
     -- sub-resources. By default, the value is @true@. See
     -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options>
     -- for more information.
     advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The type and number of instances to instantiate for the domain cluster.
+    elasticsearchClusterConfig :: Prelude.Maybe ElasticsearchClusterConfig,
+    -- | Specifies advanced security options.
+    advancedSecurityOptions :: Prelude.Maybe AdvancedSecurityOptionsInput,
+    -- | Options to specify the Cognito user and identity pools for Kibana
+    -- authentication. For more information, see
+    -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana>.
+    cognitoOptions :: Prelude.Maybe CognitoOptions,
+    -- | Specifies the Encryption At Rest Options.
+    encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
+    -- | Specify the type and size of the EBS volume that you want to use.
+    eBSOptions :: Prelude.Maybe EBSOptions,
+    -- | IAM access policy as a JSON-formatted string.
+    accessPolicies :: Prelude.Maybe Prelude.Text,
+    -- | Options to specify the subnets and security groups for VPC endpoint. For
+    -- more information, see
+    -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC>
+    -- in /VPC Endpoints for Amazon Elasticsearch Service Domains/
+    vPCOptions :: Prelude.Maybe VPCOptions,
+    -- | Specifies Auto-Tune options.
+    autoTuneOptions :: Prelude.Maybe AutoTuneOptions,
+    -- | Options to specify configuration that will be applied to the domain
+    -- endpoint.
+    domainEndpointOptions :: Prelude.Maybe DomainEndpointOptions,
+    -- | Option to set the time, in UTC format, for the daily automated snapshot.
+    -- Default value is @0@ hours.
+    snapshotOptions :: Prelude.Maybe SnapshotOptions,
+    -- | Map of @LogType@ and @LogPublishingOption@, each containing options to
+    -- publish a given type of Elasticsearch log.
+    logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
     -- | The name of the Elasticsearch domain that you are updating.
     domainName :: Prelude.Text
   }
@@ -118,23 +118,17 @@ data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eBSOptions', 'updateElasticsearchDomainConfig_eBSOptions' - Specify the type and size of the EBS volume that you want to use.
---
 -- 'nodeToNodeEncryptionOptions', 'updateElasticsearchDomainConfig_nodeToNodeEncryptionOptions' - Specifies the NodeToNodeEncryptionOptions.
 --
--- 'accessPolicies', 'updateElasticsearchDomainConfig_accessPolicies' - IAM access policy as a JSON-formatted string.
---
--- 'autoTuneOptions', 'updateElasticsearchDomainConfig_autoTuneOptions' - Specifies Auto-Tune options.
---
--- 'logPublishingOptions', 'updateElasticsearchDomainConfig_logPublishingOptions' - Map of @LogType@ and @LogPublishingOption@, each containing options to
--- publish a given type of Elasticsearch log.
---
--- 'advancedSecurityOptions', 'updateElasticsearchDomainConfig_advancedSecurityOptions' - Specifies advanced security options.
+-- 'advancedOptions', 'updateElasticsearchDomainConfig_advancedOptions' - Modifies the advanced option to allow references to indices in an HTTP
+-- request body. Must be @false@ when configuring access to individual
+-- sub-resources. By default, the value is @true@. See
+-- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options>
+-- for more information.
 --
 -- 'elasticsearchClusterConfig', 'updateElasticsearchDomainConfig_elasticsearchClusterConfig' - The type and number of instances to instantiate for the domain cluster.
 --
--- 'snapshotOptions', 'updateElasticsearchDomainConfig_snapshotOptions' - Option to set the time, in UTC format, for the daily automated snapshot.
--- Default value is @0@ hours.
+-- 'advancedSecurityOptions', 'updateElasticsearchDomainConfig_advancedSecurityOptions' - Specifies advanced security options.
 --
 -- 'cognitoOptions', 'updateElasticsearchDomainConfig_cognitoOptions' - Options to specify the Cognito user and identity pools for Kibana
 -- authentication. For more information, see
@@ -142,19 +136,25 @@ data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
 --
 -- 'encryptionAtRestOptions', 'updateElasticsearchDomainConfig_encryptionAtRestOptions' - Specifies the Encryption At Rest Options.
 --
+-- 'eBSOptions', 'updateElasticsearchDomainConfig_eBSOptions' - Specify the type and size of the EBS volume that you want to use.
+--
+-- 'accessPolicies', 'updateElasticsearchDomainConfig_accessPolicies' - IAM access policy as a JSON-formatted string.
+--
 -- 'vPCOptions', 'updateElasticsearchDomainConfig_vPCOptions' - Options to specify the subnets and security groups for VPC endpoint. For
 -- more information, see
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC>
 -- in /VPC Endpoints for Amazon Elasticsearch Service Domains/
 --
+-- 'autoTuneOptions', 'updateElasticsearchDomainConfig_autoTuneOptions' - Specifies Auto-Tune options.
+--
 -- 'domainEndpointOptions', 'updateElasticsearchDomainConfig_domainEndpointOptions' - Options to specify configuration that will be applied to the domain
 -- endpoint.
 --
--- 'advancedOptions', 'updateElasticsearchDomainConfig_advancedOptions' - Modifies the advanced option to allow references to indices in an HTTP
--- request body. Must be @false@ when configuring access to individual
--- sub-resources. By default, the value is @true@. See
--- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options>
--- for more information.
+-- 'snapshotOptions', 'updateElasticsearchDomainConfig_snapshotOptions' - Option to set the time, in UTC format, for the daily automated snapshot.
+-- Default value is @0@ hours.
+--
+-- 'logPublishingOptions', 'updateElasticsearchDomainConfig_logPublishingOptions' - Map of @LogType@ and @LogPublishingOption@, each containing options to
+-- publish a given type of Elasticsearch log.
 --
 -- 'domainName', 'updateElasticsearchDomainConfig_domainName' - The name of the Elasticsearch domain that you are updating.
 newUpdateElasticsearchDomainConfig ::
@@ -163,58 +163,43 @@ newUpdateElasticsearchDomainConfig ::
   UpdateElasticsearchDomainConfig
 newUpdateElasticsearchDomainConfig pDomainName_ =
   UpdateElasticsearchDomainConfig'
-    { eBSOptions =
+    { nodeToNodeEncryptionOptions =
         Prelude.Nothing,
-      nodeToNodeEncryptionOptions =
-        Prelude.Nothing,
-      accessPolicies = Prelude.Nothing,
-      autoTuneOptions = Prelude.Nothing,
-      logPublishingOptions = Prelude.Nothing,
-      advancedSecurityOptions = Prelude.Nothing,
+      advancedOptions = Prelude.Nothing,
       elasticsearchClusterConfig =
         Prelude.Nothing,
-      snapshotOptions = Prelude.Nothing,
+      advancedSecurityOptions = Prelude.Nothing,
       cognitoOptions = Prelude.Nothing,
       encryptionAtRestOptions = Prelude.Nothing,
+      eBSOptions = Prelude.Nothing,
+      accessPolicies = Prelude.Nothing,
       vPCOptions = Prelude.Nothing,
+      autoTuneOptions = Prelude.Nothing,
       domainEndpointOptions = Prelude.Nothing,
-      advancedOptions = Prelude.Nothing,
+      snapshotOptions = Prelude.Nothing,
+      logPublishingOptions = Prelude.Nothing,
       domainName = pDomainName_
     }
-
--- | Specify the type and size of the EBS volume that you want to use.
-updateElasticsearchDomainConfig_eBSOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe EBSOptions)
-updateElasticsearchDomainConfig_eBSOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {eBSOptions} -> eBSOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {eBSOptions = a} :: UpdateElasticsearchDomainConfig)
 
 -- | Specifies the NodeToNodeEncryptionOptions.
 updateElasticsearchDomainConfig_nodeToNodeEncryptionOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe NodeToNodeEncryptionOptions)
 updateElasticsearchDomainConfig_nodeToNodeEncryptionOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {nodeToNodeEncryptionOptions = a} :: UpdateElasticsearchDomainConfig)
 
--- | IAM access policy as a JSON-formatted string.
-updateElasticsearchDomainConfig_accessPolicies :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe Prelude.Text)
-updateElasticsearchDomainConfig_accessPolicies = Lens.lens (\UpdateElasticsearchDomainConfig' {accessPolicies} -> accessPolicies) (\s@UpdateElasticsearchDomainConfig' {} a -> s {accessPolicies = a} :: UpdateElasticsearchDomainConfig)
-
--- | Specifies Auto-Tune options.
-updateElasticsearchDomainConfig_autoTuneOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe AutoTuneOptions)
-updateElasticsearchDomainConfig_autoTuneOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {autoTuneOptions} -> autoTuneOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {autoTuneOptions = a} :: UpdateElasticsearchDomainConfig)
-
--- | Map of @LogType@ and @LogPublishingOption@, each containing options to
--- publish a given type of Elasticsearch log.
-updateElasticsearchDomainConfig_logPublishingOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
-updateElasticsearchDomainConfig_logPublishingOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {logPublishingOptions} -> logPublishingOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {logPublishingOptions = a} :: UpdateElasticsearchDomainConfig) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies advanced security options.
-updateElasticsearchDomainConfig_advancedSecurityOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe AdvancedSecurityOptionsInput)
-updateElasticsearchDomainConfig_advancedSecurityOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {advancedSecurityOptions} -> advancedSecurityOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {advancedSecurityOptions = a} :: UpdateElasticsearchDomainConfig)
+-- | Modifies the advanced option to allow references to indices in an HTTP
+-- request body. Must be @false@ when configuring access to individual
+-- sub-resources. By default, the value is @true@. See
+-- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options>
+-- for more information.
+updateElasticsearchDomainConfig_advancedOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateElasticsearchDomainConfig_advancedOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {advancedOptions} -> advancedOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {advancedOptions = a} :: UpdateElasticsearchDomainConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type and number of instances to instantiate for the domain cluster.
 updateElasticsearchDomainConfig_elasticsearchClusterConfig :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe ElasticsearchClusterConfig)
 updateElasticsearchDomainConfig_elasticsearchClusterConfig = Lens.lens (\UpdateElasticsearchDomainConfig' {elasticsearchClusterConfig} -> elasticsearchClusterConfig) (\s@UpdateElasticsearchDomainConfig' {} a -> s {elasticsearchClusterConfig = a} :: UpdateElasticsearchDomainConfig)
 
--- | Option to set the time, in UTC format, for the daily automated snapshot.
--- Default value is @0@ hours.
-updateElasticsearchDomainConfig_snapshotOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe SnapshotOptions)
-updateElasticsearchDomainConfig_snapshotOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {snapshotOptions} -> snapshotOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {snapshotOptions = a} :: UpdateElasticsearchDomainConfig)
+-- | Specifies advanced security options.
+updateElasticsearchDomainConfig_advancedSecurityOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe AdvancedSecurityOptionsInput)
+updateElasticsearchDomainConfig_advancedSecurityOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {advancedSecurityOptions} -> advancedSecurityOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {advancedSecurityOptions = a} :: UpdateElasticsearchDomainConfig)
 
 -- | Options to specify the Cognito user and identity pools for Kibana
 -- authentication. For more information, see
@@ -226,6 +211,14 @@ updateElasticsearchDomainConfig_cognitoOptions = Lens.lens (\UpdateElasticsearch
 updateElasticsearchDomainConfig_encryptionAtRestOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe EncryptionAtRestOptions)
 updateElasticsearchDomainConfig_encryptionAtRestOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {encryptionAtRestOptions} -> encryptionAtRestOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {encryptionAtRestOptions = a} :: UpdateElasticsearchDomainConfig)
 
+-- | Specify the type and size of the EBS volume that you want to use.
+updateElasticsearchDomainConfig_eBSOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe EBSOptions)
+updateElasticsearchDomainConfig_eBSOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {eBSOptions} -> eBSOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {eBSOptions = a} :: UpdateElasticsearchDomainConfig)
+
+-- | IAM access policy as a JSON-formatted string.
+updateElasticsearchDomainConfig_accessPolicies :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe Prelude.Text)
+updateElasticsearchDomainConfig_accessPolicies = Lens.lens (\UpdateElasticsearchDomainConfig' {accessPolicies} -> accessPolicies) (\s@UpdateElasticsearchDomainConfig' {} a -> s {accessPolicies = a} :: UpdateElasticsearchDomainConfig)
+
 -- | Options to specify the subnets and security groups for VPC endpoint. For
 -- more information, see
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC>
@@ -233,18 +226,24 @@ updateElasticsearchDomainConfig_encryptionAtRestOptions = Lens.lens (\UpdateElas
 updateElasticsearchDomainConfig_vPCOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe VPCOptions)
 updateElasticsearchDomainConfig_vPCOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {vPCOptions} -> vPCOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {vPCOptions = a} :: UpdateElasticsearchDomainConfig)
 
+-- | Specifies Auto-Tune options.
+updateElasticsearchDomainConfig_autoTuneOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe AutoTuneOptions)
+updateElasticsearchDomainConfig_autoTuneOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {autoTuneOptions} -> autoTuneOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {autoTuneOptions = a} :: UpdateElasticsearchDomainConfig)
+
 -- | Options to specify configuration that will be applied to the domain
 -- endpoint.
 updateElasticsearchDomainConfig_domainEndpointOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe DomainEndpointOptions)
 updateElasticsearchDomainConfig_domainEndpointOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {domainEndpointOptions} -> domainEndpointOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {domainEndpointOptions = a} :: UpdateElasticsearchDomainConfig)
 
--- | Modifies the advanced option to allow references to indices in an HTTP
--- request body. Must be @false@ when configuring access to individual
--- sub-resources. By default, the value is @true@. See
--- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options>
--- for more information.
-updateElasticsearchDomainConfig_advancedOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateElasticsearchDomainConfig_advancedOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {advancedOptions} -> advancedOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {advancedOptions = a} :: UpdateElasticsearchDomainConfig) Prelude.. Lens.mapping Lens.coerced
+-- | Option to set the time, in UTC format, for the daily automated snapshot.
+-- Default value is @0@ hours.
+updateElasticsearchDomainConfig_snapshotOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe SnapshotOptions)
+updateElasticsearchDomainConfig_snapshotOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {snapshotOptions} -> snapshotOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {snapshotOptions = a} :: UpdateElasticsearchDomainConfig)
+
+-- | Map of @LogType@ and @LogPublishingOption@, each containing options to
+-- publish a given type of Elasticsearch log.
+updateElasticsearchDomainConfig_logPublishingOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
+updateElasticsearchDomainConfig_logPublishingOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {logPublishingOptions} -> logPublishingOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {logPublishingOptions = a} :: UpdateElasticsearchDomainConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Elasticsearch domain that you are updating.
 updateElasticsearchDomainConfig_domainName :: Lens.Lens' UpdateElasticsearchDomainConfig Prelude.Text
@@ -273,19 +272,20 @@ instance
   hashWithSalt
     _salt
     UpdateElasticsearchDomainConfig' {..} =
-      _salt `Prelude.hashWithSalt` eBSOptions
+      _salt
         `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
-        `Prelude.hashWithSalt` accessPolicies
-        `Prelude.hashWithSalt` autoTuneOptions
-        `Prelude.hashWithSalt` logPublishingOptions
-        `Prelude.hashWithSalt` advancedSecurityOptions
+        `Prelude.hashWithSalt` advancedOptions
         `Prelude.hashWithSalt` elasticsearchClusterConfig
-        `Prelude.hashWithSalt` snapshotOptions
+        `Prelude.hashWithSalt` advancedSecurityOptions
         `Prelude.hashWithSalt` cognitoOptions
         `Prelude.hashWithSalt` encryptionAtRestOptions
+        `Prelude.hashWithSalt` eBSOptions
+        `Prelude.hashWithSalt` accessPolicies
         `Prelude.hashWithSalt` vPCOptions
+        `Prelude.hashWithSalt` autoTuneOptions
         `Prelude.hashWithSalt` domainEndpointOptions
-        `Prelude.hashWithSalt` advancedOptions
+        `Prelude.hashWithSalt` snapshotOptions
+        `Prelude.hashWithSalt` logPublishingOptions
         `Prelude.hashWithSalt` domainName
 
 instance
@@ -293,19 +293,19 @@ instance
     UpdateElasticsearchDomainConfig
   where
   rnf UpdateElasticsearchDomainConfig' {..} =
-    Prelude.rnf eBSOptions
-      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
-      `Prelude.seq` Prelude.rnf accessPolicies
-      `Prelude.seq` Prelude.rnf autoTuneOptions
-      `Prelude.seq` Prelude.rnf logPublishingOptions
-      `Prelude.seq` Prelude.rnf advancedSecurityOptions
+    Prelude.rnf nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf advancedOptions
       `Prelude.seq` Prelude.rnf elasticsearchClusterConfig
-      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf advancedSecurityOptions
       `Prelude.seq` Prelude.rnf cognitoOptions
       `Prelude.seq` Prelude.rnf encryptionAtRestOptions
+      `Prelude.seq` Prelude.rnf eBSOptions
+      `Prelude.seq` Prelude.rnf accessPolicies
       `Prelude.seq` Prelude.rnf vPCOptions
+      `Prelude.seq` Prelude.rnf autoTuneOptions
       `Prelude.seq` Prelude.rnf domainEndpointOptions
-      `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf logPublishingOptions
       `Prelude.seq` Prelude.rnf domainName
 
 instance
@@ -318,30 +318,30 @@ instance Core.ToJSON UpdateElasticsearchDomainConfig where
   toJSON UpdateElasticsearchDomainConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EBSOptions" Core..=) Prelude.<$> eBSOptions,
-            ("NodeToNodeEncryptionOptions" Core..=)
+          [ ("NodeToNodeEncryptionOptions" Core..=)
               Prelude.<$> nodeToNodeEncryptionOptions,
-            ("AccessPolicies" Core..=)
-              Prelude.<$> accessPolicies,
-            ("AutoTuneOptions" Core..=)
-              Prelude.<$> autoTuneOptions,
-            ("LogPublishingOptions" Core..=)
-              Prelude.<$> logPublishingOptions,
-            ("AdvancedSecurityOptions" Core..=)
-              Prelude.<$> advancedSecurityOptions,
+            ("AdvancedOptions" Core..=)
+              Prelude.<$> advancedOptions,
             ("ElasticsearchClusterConfig" Core..=)
               Prelude.<$> elasticsearchClusterConfig,
-            ("SnapshotOptions" Core..=)
-              Prelude.<$> snapshotOptions,
+            ("AdvancedSecurityOptions" Core..=)
+              Prelude.<$> advancedSecurityOptions,
             ("CognitoOptions" Core..=)
               Prelude.<$> cognitoOptions,
             ("EncryptionAtRestOptions" Core..=)
               Prelude.<$> encryptionAtRestOptions,
+            ("EBSOptions" Core..=) Prelude.<$> eBSOptions,
+            ("AccessPolicies" Core..=)
+              Prelude.<$> accessPolicies,
             ("VPCOptions" Core..=) Prelude.<$> vPCOptions,
+            ("AutoTuneOptions" Core..=)
+              Prelude.<$> autoTuneOptions,
             ("DomainEndpointOptions" Core..=)
               Prelude.<$> domainEndpointOptions,
-            ("AdvancedOptions" Core..=)
-              Prelude.<$> advancedOptions
+            ("SnapshotOptions" Core..=)
+              Prelude.<$> snapshotOptions,
+            ("LogPublishingOptions" Core..=)
+              Prelude.<$> logPublishingOptions
           ]
       )
 

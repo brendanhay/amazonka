@@ -38,8 +38,8 @@ module Amazonka.ElasticSearch.UpgradeElasticsearchDomain
 
     -- * Response Lenses
     upgradeElasticsearchDomainResponse_domainName,
-    upgradeElasticsearchDomainResponse_performCheckOnly,
     upgradeElasticsearchDomainResponse_targetVersion,
+    upgradeElasticsearchDomainResponse_performCheckOnly,
     upgradeElasticsearchDomainResponse_httpStatus,
   )
 where
@@ -118,8 +118,8 @@ instance Core.AWSRequest UpgradeElasticsearchDomain where
       ( \s h x ->
           UpgradeElasticsearchDomainResponse'
             Prelude.<$> (x Core..?> "DomainName")
-            Prelude.<*> (x Core..?> "PerformCheckOnly")
             Prelude.<*> (x Core..?> "TargetVersion")
+            Prelude.<*> (x Core..?> "PerformCheckOnly")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,11 +162,11 @@ instance Core.ToQuery UpgradeElasticsearchDomain where
 -- /See:/ 'newUpgradeElasticsearchDomainResponse' smart constructor.
 data UpgradeElasticsearchDomainResponse = UpgradeElasticsearchDomainResponse'
   { domainName :: Prelude.Maybe Prelude.Text,
+    -- | The version of Elasticsearch that you intend to upgrade the domain to.
+    targetVersion :: Prelude.Maybe Prelude.Text,
     -- | This flag, when set to True, indicates that an Upgrade Eligibility Check
     -- needs to be performed. This will not actually perform the Upgrade.
     performCheckOnly :: Prelude.Maybe Prelude.Bool,
-    -- | The version of Elasticsearch that you intend to upgrade the domain to.
-    targetVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,10 +182,10 @@ data UpgradeElasticsearchDomainResponse = UpgradeElasticsearchDomainResponse'
 --
 -- 'domainName', 'upgradeElasticsearchDomainResponse_domainName' - Undocumented member.
 --
+-- 'targetVersion', 'upgradeElasticsearchDomainResponse_targetVersion' - The version of Elasticsearch that you intend to upgrade the domain to.
+--
 -- 'performCheckOnly', 'upgradeElasticsearchDomainResponse_performCheckOnly' - This flag, when set to True, indicates that an Upgrade Eligibility Check
 -- needs to be performed. This will not actually perform the Upgrade.
---
--- 'targetVersion', 'upgradeElasticsearchDomainResponse_targetVersion' - The version of Elasticsearch that you intend to upgrade the domain to.
 --
 -- 'httpStatus', 'upgradeElasticsearchDomainResponse_httpStatus' - The response's http status code.
 newUpgradeElasticsearchDomainResponse ::
@@ -196,8 +196,8 @@ newUpgradeElasticsearchDomainResponse pHttpStatus_ =
   UpgradeElasticsearchDomainResponse'
     { domainName =
         Prelude.Nothing,
-      performCheckOnly = Prelude.Nothing,
       targetVersion = Prelude.Nothing,
+      performCheckOnly = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -205,14 +205,14 @@ newUpgradeElasticsearchDomainResponse pHttpStatus_ =
 upgradeElasticsearchDomainResponse_domainName :: Lens.Lens' UpgradeElasticsearchDomainResponse (Prelude.Maybe Prelude.Text)
 upgradeElasticsearchDomainResponse_domainName = Lens.lens (\UpgradeElasticsearchDomainResponse' {domainName} -> domainName) (\s@UpgradeElasticsearchDomainResponse' {} a -> s {domainName = a} :: UpgradeElasticsearchDomainResponse)
 
+-- | The version of Elasticsearch that you intend to upgrade the domain to.
+upgradeElasticsearchDomainResponse_targetVersion :: Lens.Lens' UpgradeElasticsearchDomainResponse (Prelude.Maybe Prelude.Text)
+upgradeElasticsearchDomainResponse_targetVersion = Lens.lens (\UpgradeElasticsearchDomainResponse' {targetVersion} -> targetVersion) (\s@UpgradeElasticsearchDomainResponse' {} a -> s {targetVersion = a} :: UpgradeElasticsearchDomainResponse)
+
 -- | This flag, when set to True, indicates that an Upgrade Eligibility Check
 -- needs to be performed. This will not actually perform the Upgrade.
 upgradeElasticsearchDomainResponse_performCheckOnly :: Lens.Lens' UpgradeElasticsearchDomainResponse (Prelude.Maybe Prelude.Bool)
 upgradeElasticsearchDomainResponse_performCheckOnly = Lens.lens (\UpgradeElasticsearchDomainResponse' {performCheckOnly} -> performCheckOnly) (\s@UpgradeElasticsearchDomainResponse' {} a -> s {performCheckOnly = a} :: UpgradeElasticsearchDomainResponse)
-
--- | The version of Elasticsearch that you intend to upgrade the domain to.
-upgradeElasticsearchDomainResponse_targetVersion :: Lens.Lens' UpgradeElasticsearchDomainResponse (Prelude.Maybe Prelude.Text)
-upgradeElasticsearchDomainResponse_targetVersion = Lens.lens (\UpgradeElasticsearchDomainResponse' {targetVersion} -> targetVersion) (\s@UpgradeElasticsearchDomainResponse' {} a -> s {targetVersion = a} :: UpgradeElasticsearchDomainResponse)
 
 -- | The response's http status code.
 upgradeElasticsearchDomainResponse_httpStatus :: Lens.Lens' UpgradeElasticsearchDomainResponse Prelude.Int
@@ -224,6 +224,6 @@ instance
   where
   rnf UpgradeElasticsearchDomainResponse' {..} =
     Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf performCheckOnly
       `Prelude.seq` Prelude.rnf targetVersion
+      `Prelude.seq` Prelude.rnf performCheckOnly
       `Prelude.seq` Prelude.rnf httpStatus

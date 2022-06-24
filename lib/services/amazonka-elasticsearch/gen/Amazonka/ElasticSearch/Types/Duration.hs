@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDuration' smart constructor.
 data Duration = Duration'
-  { -- | Integer to specify the value of a maintenance schedule duration. See the
-    -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
-    -- for more information.
-    value :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the unit of a maintenance schedule duration. Valid value is
+  { -- | Specifies the unit of a maintenance schedule duration. Valid value is
     -- HOURS. See the
     -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
     -- for more information.
-    unit :: Prelude.Maybe TimeUnit
+    unit :: Prelude.Maybe TimeUnit,
+    -- | Integer to specify the value of a maintenance schedule duration. See the
+    -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
+    -- for more information.
+    value :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,27 +51,21 @@ data Duration = Duration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'duration_value' - Integer to specify the value of a maintenance schedule duration. See the
+-- 'unit', 'duration_unit' - Specifies the unit of a maintenance schedule duration. Valid value is
+-- HOURS. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
 --
--- 'unit', 'duration_unit' - Specifies the unit of a maintenance schedule duration. Valid value is
--- HOURS. See the
+-- 'value', 'duration_value' - Integer to specify the value of a maintenance schedule duration. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
 newDuration ::
   Duration
 newDuration =
   Duration'
-    { value = Prelude.Nothing,
-      unit = Prelude.Nothing
+    { unit = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | Integer to specify the value of a maintenance schedule duration. See the
--- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
--- for more information.
-duration_value :: Lens.Lens' Duration (Prelude.Maybe Prelude.Natural)
-duration_value = Lens.lens (\Duration' {value} -> value) (\s@Duration' {} a -> s {value = a} :: Duration)
 
 -- | Specifies the unit of a maintenance schedule duration. Valid value is
 -- HOURS. See the
@@ -80,29 +74,35 @@ duration_value = Lens.lens (\Duration' {value} -> value) (\s@Duration' {} a -> s
 duration_unit :: Lens.Lens' Duration (Prelude.Maybe TimeUnit)
 duration_unit = Lens.lens (\Duration' {unit} -> unit) (\s@Duration' {} a -> s {unit = a} :: Duration)
 
+-- | Integer to specify the value of a maintenance schedule duration. See the
+-- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
+-- for more information.
+duration_value :: Lens.Lens' Duration (Prelude.Maybe Prelude.Natural)
+duration_value = Lens.lens (\Duration' {value} -> value) (\s@Duration' {} a -> s {value = a} :: Duration)
+
 instance Core.FromJSON Duration where
   parseJSON =
     Core.withObject
       "Duration"
       ( \x ->
           Duration'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Unit")
+            Prelude.<$> (x Core..:? "Unit") Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Duration where
   hashWithSalt _salt Duration' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` unit
+    _salt `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Duration where
   rnf Duration' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf unit `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Duration where
   toJSON Duration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Unit" Core..=) Prelude.<$> unit
+          [ ("Unit" Core..=) Prelude.<$> unit,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

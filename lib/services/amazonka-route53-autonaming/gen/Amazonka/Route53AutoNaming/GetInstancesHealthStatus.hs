@@ -31,8 +31,8 @@ module Amazonka.Route53AutoNaming.GetInstancesHealthStatus
     newGetInstancesHealthStatus,
 
     -- * Request Lenses
-    getInstancesHealthStatus_nextToken,
     getInstancesHealthStatus_instances,
+    getInstancesHealthStatus_nextToken,
     getInstancesHealthStatus_maxResults,
     getInstancesHealthStatus_serviceId,
 
@@ -41,8 +41,8 @@ module Amazonka.Route53AutoNaming.GetInstancesHealthStatus
     newGetInstancesHealthStatusResponse,
 
     -- * Response Lenses
-    getInstancesHealthStatusResponse_status,
     getInstancesHealthStatusResponse_nextToken,
+    getInstancesHealthStatusResponse_status,
     getInstancesHealthStatusResponse_httpStatus,
   )
 where
@@ -56,14 +56,7 @@ import Amazonka.Route53AutoNaming.Types
 
 -- | /See:/ 'newGetInstancesHealthStatus' smart constructor.
 data GetInstancesHealthStatus = GetInstancesHealthStatus'
-  { -- | For the first @GetInstancesHealthStatus@ request, omit this value.
-    --
-    -- If more than @MaxResults@ instances match the specified criteria, you
-    -- can submit another @GetInstancesHealthStatus@ request to get the next
-    -- group of results. Specify the value of @NextToken@ from the previous
-    -- response in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array that contains the IDs of all the instances that you want to get
+  { -- | An array that contains the IDs of all the instances that you want to get
     -- the health status for.
     --
     -- If you omit @Instances@, Cloud Map returns the health status for all the
@@ -74,6 +67,13 @@ data GetInstancesHealthStatus = GetInstancesHealthStatus'
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances>
     -- request.
     instances :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | For the first @GetInstancesHealthStatus@ request, omit this value.
+    --
+    -- If more than @MaxResults@ instances match the specified criteria, you
+    -- can submit another @GetInstancesHealthStatus@ request to get the next
+    -- group of results. Specify the value of @NextToken@ from the previous
+    -- response in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of instances that you want Cloud Map to return in the
     -- response to a @GetInstancesHealthStatus@ request. If you don\'t specify
     -- a value for @MaxResults@, Cloud Map returns up to 100 instances.
@@ -91,13 +91,6 @@ data GetInstancesHealthStatus = GetInstancesHealthStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getInstancesHealthStatus_nextToken' - For the first @GetInstancesHealthStatus@ request, omit this value.
---
--- If more than @MaxResults@ instances match the specified criteria, you
--- can submit another @GetInstancesHealthStatus@ request to get the next
--- group of results. Specify the value of @NextToken@ from the previous
--- response in the next request.
---
 -- 'instances', 'getInstancesHealthStatus_instances' - An array that contains the IDs of all the instances that you want to get
 -- the health status for.
 --
@@ -108,6 +101,13 @@ data GetInstancesHealthStatus = GetInstancesHealthStatus'
 -- specified service, submit a
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances>
 -- request.
+--
+-- 'nextToken', 'getInstancesHealthStatus_nextToken' - For the first @GetInstancesHealthStatus@ request, omit this value.
+--
+-- If more than @MaxResults@ instances match the specified criteria, you
+-- can submit another @GetInstancesHealthStatus@ request to get the next
+-- group of results. Specify the value of @NextToken@ from the previous
+-- response in the next request.
 --
 -- 'maxResults', 'getInstancesHealthStatus_maxResults' - The maximum number of instances that you want Cloud Map to return in the
 -- response to a @GetInstancesHealthStatus@ request. If you don\'t specify
@@ -120,21 +120,12 @@ newGetInstancesHealthStatus ::
   GetInstancesHealthStatus
 newGetInstancesHealthStatus pServiceId_ =
   GetInstancesHealthStatus'
-    { nextToken =
+    { instances =
         Prelude.Nothing,
-      instances = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       serviceId = pServiceId_
     }
-
--- | For the first @GetInstancesHealthStatus@ request, omit this value.
---
--- If more than @MaxResults@ instances match the specified criteria, you
--- can submit another @GetInstancesHealthStatus@ request to get the next
--- group of results. Specify the value of @NextToken@ from the previous
--- response in the next request.
-getInstancesHealthStatus_nextToken :: Lens.Lens' GetInstancesHealthStatus (Prelude.Maybe Prelude.Text)
-getInstancesHealthStatus_nextToken = Lens.lens (\GetInstancesHealthStatus' {nextToken} -> nextToken) (\s@GetInstancesHealthStatus' {} a -> s {nextToken = a} :: GetInstancesHealthStatus)
 
 -- | An array that contains the IDs of all the instances that you want to get
 -- the health status for.
@@ -148,6 +139,15 @@ getInstancesHealthStatus_nextToken = Lens.lens (\GetInstancesHealthStatus' {next
 -- request.
 getInstancesHealthStatus_instances :: Lens.Lens' GetInstancesHealthStatus (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getInstancesHealthStatus_instances = Lens.lens (\GetInstancesHealthStatus' {instances} -> instances) (\s@GetInstancesHealthStatus' {} a -> s {instances = a} :: GetInstancesHealthStatus) Prelude.. Lens.mapping Lens.coerced
+
+-- | For the first @GetInstancesHealthStatus@ request, omit this value.
+--
+-- If more than @MaxResults@ instances match the specified criteria, you
+-- can submit another @GetInstancesHealthStatus@ request to get the next
+-- group of results. Specify the value of @NextToken@ from the previous
+-- response in the next request.
+getInstancesHealthStatus_nextToken :: Lens.Lens' GetInstancesHealthStatus (Prelude.Maybe Prelude.Text)
+getInstancesHealthStatus_nextToken = Lens.lens (\GetInstancesHealthStatus' {nextToken} -> nextToken) (\s@GetInstancesHealthStatus' {} a -> s {nextToken = a} :: GetInstancesHealthStatus)
 
 -- | The maximum number of instances that you want Cloud Map to return in the
 -- response to a @GetInstancesHealthStatus@ request. If you don\'t specify
@@ -168,22 +168,22 @@ instance Core.AWSRequest GetInstancesHealthStatus where
     Response.receiveJSON
       ( \s h x ->
           GetInstancesHealthStatusResponse'
-            Prelude.<$> (x Core..?> "Status" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Status" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetInstancesHealthStatus where
   hashWithSalt _salt GetInstancesHealthStatus' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` instances
+    _salt `Prelude.hashWithSalt` instances
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` serviceId
 
 instance Prelude.NFData GetInstancesHealthStatus where
   rnf GetInstancesHealthStatus' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instances
+    Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serviceId
 
@@ -206,8 +206,8 @@ instance Core.ToJSON GetInstancesHealthStatus where
   toJSON GetInstancesHealthStatus' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Instances" Core..=) Prelude.<$> instances,
+          [ ("Instances" Core..=) Prelude.<$> instances,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("ServiceId" Core..= serviceId)
           ]
@@ -221,14 +221,14 @@ instance Core.ToQuery GetInstancesHealthStatus where
 
 -- | /See:/ 'newGetInstancesHealthStatusResponse' smart constructor.
 data GetInstancesHealthStatusResponse = GetInstancesHealthStatusResponse'
-  { -- | A complex type that contains the IDs and the health status of the
-    -- instances that you specified in the @GetInstancesHealthStatus@ request.
-    status :: Prelude.Maybe (Prelude.HashMap Prelude.Text HealthStatus),
-    -- | If more than @MaxResults@ instances match the specified criteria, you
+  { -- | If more than @MaxResults@ instances match the specified criteria, you
     -- can submit another @GetInstancesHealthStatus@ request to get the next
     -- group of results. Specify the value of @NextToken@ from the previous
     -- response in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A complex type that contains the IDs and the health status of the
+    -- instances that you specified in the @GetInstancesHealthStatus@ request.
+    status :: Prelude.Maybe (Prelude.HashMap Prelude.Text HealthStatus),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -242,13 +242,13 @@ data GetInstancesHealthStatusResponse = GetInstancesHealthStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getInstancesHealthStatusResponse_status' - A complex type that contains the IDs and the health status of the
--- instances that you specified in the @GetInstancesHealthStatus@ request.
---
 -- 'nextToken', 'getInstancesHealthStatusResponse_nextToken' - If more than @MaxResults@ instances match the specified criteria, you
 -- can submit another @GetInstancesHealthStatus@ request to get the next
 -- group of results. Specify the value of @NextToken@ from the previous
 -- response in the next request.
+--
+-- 'status', 'getInstancesHealthStatusResponse_status' - A complex type that contains the IDs and the health status of the
+-- instances that you specified in the @GetInstancesHealthStatus@ request.
 --
 -- 'httpStatus', 'getInstancesHealthStatusResponse_httpStatus' - The response's http status code.
 newGetInstancesHealthStatusResponse ::
@@ -257,16 +257,11 @@ newGetInstancesHealthStatusResponse ::
   GetInstancesHealthStatusResponse
 newGetInstancesHealthStatusResponse pHttpStatus_ =
   GetInstancesHealthStatusResponse'
-    { status =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A complex type that contains the IDs and the health status of the
--- instances that you specified in the @GetInstancesHealthStatus@ request.
-getInstancesHealthStatusResponse_status :: Lens.Lens' GetInstancesHealthStatusResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text HealthStatus))
-getInstancesHealthStatusResponse_status = Lens.lens (\GetInstancesHealthStatusResponse' {status} -> status) (\s@GetInstancesHealthStatusResponse' {} a -> s {status = a} :: GetInstancesHealthStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If more than @MaxResults@ instances match the specified criteria, you
 -- can submit another @GetInstancesHealthStatus@ request to get the next
@@ -274,6 +269,11 @@ getInstancesHealthStatusResponse_status = Lens.lens (\GetInstancesHealthStatusRe
 -- response in the next request.
 getInstancesHealthStatusResponse_nextToken :: Lens.Lens' GetInstancesHealthStatusResponse (Prelude.Maybe Prelude.Text)
 getInstancesHealthStatusResponse_nextToken = Lens.lens (\GetInstancesHealthStatusResponse' {nextToken} -> nextToken) (\s@GetInstancesHealthStatusResponse' {} a -> s {nextToken = a} :: GetInstancesHealthStatusResponse)
+
+-- | A complex type that contains the IDs and the health status of the
+-- instances that you specified in the @GetInstancesHealthStatus@ request.
+getInstancesHealthStatusResponse_status :: Lens.Lens' GetInstancesHealthStatusResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text HealthStatus))
+getInstancesHealthStatusResponse_status = Lens.lens (\GetInstancesHealthStatusResponse' {status} -> status) (\s@GetInstancesHealthStatusResponse' {} a -> s {status = a} :: GetInstancesHealthStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getInstancesHealthStatusResponse_httpStatus :: Lens.Lens' GetInstancesHealthStatusResponse Prelude.Int
@@ -284,6 +284,6 @@ instance
     GetInstancesHealthStatusResponse
   where
   rnf GetInstancesHealthStatusResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

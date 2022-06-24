@@ -39,8 +39,8 @@ module Amazonka.Route53AutoNaming.ListInstances
     newListInstancesResponse,
 
     -- * Response Lenses
-    listInstancesResponse_nextToken,
     listInstancesResponse_instances,
+    listInstancesResponse_nextToken,
     listInstancesResponse_httpStatus,
   )
 where
@@ -148,8 +148,8 @@ instance Core.AWSRequest ListInstances where
     Response.receiveJSON
       ( \s h x ->
           ListInstancesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Instances" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Instances" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,14 +198,14 @@ instance Core.ToQuery ListInstances where
 
 -- | /See:/ 'newListInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-  { -- | If more than @MaxResults@ instances match the specified criteria, you
+  { -- | Summary information about the instances that are associated with the
+    -- specified service.
+    instances :: Prelude.Maybe [InstanceSummary],
+    -- | If more than @MaxResults@ instances match the specified criteria, you
     -- can submit another @ListInstances@ request to get the next group of
     -- results. Specify the value of @NextToken@ from the previous response in
     -- the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Summary information about the instances that are associated with the
-    -- specified service.
-    instances :: Prelude.Maybe [InstanceSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,13 +219,13 @@ data ListInstancesResponse = ListInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instances', 'listInstancesResponse_instances' - Summary information about the instances that are associated with the
+-- specified service.
+--
 -- 'nextToken', 'listInstancesResponse_nextToken' - If more than @MaxResults@ instances match the specified criteria, you
 -- can submit another @ListInstances@ request to get the next group of
 -- results. Specify the value of @NextToken@ from the previous response in
 -- the next request.
---
--- 'instances', 'listInstancesResponse_instances' - Summary information about the instances that are associated with the
--- specified service.
 --
 -- 'httpStatus', 'listInstancesResponse_httpStatus' - The response's http status code.
 newListInstancesResponse ::
@@ -234,10 +234,15 @@ newListInstancesResponse ::
   ListInstancesResponse
 newListInstancesResponse pHttpStatus_ =
   ListInstancesResponse'
-    { nextToken = Prelude.Nothing,
-      instances = Prelude.Nothing,
+    { instances = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Summary information about the instances that are associated with the
+-- specified service.
+listInstancesResponse_instances :: Lens.Lens' ListInstancesResponse (Prelude.Maybe [InstanceSummary])
+listInstancesResponse_instances = Lens.lens (\ListInstancesResponse' {instances} -> instances) (\s@ListInstancesResponse' {} a -> s {instances = a} :: ListInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If more than @MaxResults@ instances match the specified criteria, you
 -- can submit another @ListInstances@ request to get the next group of
@@ -246,17 +251,12 @@ newListInstancesResponse pHttpStatus_ =
 listInstancesResponse_nextToken :: Lens.Lens' ListInstancesResponse (Prelude.Maybe Prelude.Text)
 listInstancesResponse_nextToken = Lens.lens (\ListInstancesResponse' {nextToken} -> nextToken) (\s@ListInstancesResponse' {} a -> s {nextToken = a} :: ListInstancesResponse)
 
--- | Summary information about the instances that are associated with the
--- specified service.
-listInstancesResponse_instances :: Lens.Lens' ListInstancesResponse (Prelude.Maybe [InstanceSummary])
-listInstancesResponse_instances = Lens.lens (\ListInstancesResponse' {instances} -> instances) (\s@ListInstancesResponse' {} a -> s {instances = a} :: ListInstancesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listInstancesResponse_httpStatus :: Lens.Lens' ListInstancesResponse Prelude.Int
 listInstancesResponse_httpStatus = Lens.lens (\ListInstancesResponse' {httpStatus} -> httpStatus) (\s@ListInstancesResponse' {} a -> s {httpStatus = a} :: ListInstancesResponse)
 
 instance Prelude.NFData ListInstancesResponse where
   rnf ListInstancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instances
+    Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

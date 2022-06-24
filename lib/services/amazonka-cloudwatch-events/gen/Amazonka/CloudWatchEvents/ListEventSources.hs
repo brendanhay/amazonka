@@ -31,8 +31,8 @@ module Amazonka.CloudWatchEvents.ListEventSources
 
     -- * Request Lenses
     listEventSources_nextToken,
-    listEventSources_namePrefix,
     listEventSources_limit,
+    listEventSources_namePrefix,
 
     -- * Destructuring the Response
     ListEventSourcesResponse (..),
@@ -57,13 +57,13 @@ data ListEventSources = ListEventSources'
   { -- | The token returned by a previous call to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifying this limits the results to only those partner event sources
-    -- with names that start with the specified prefix.
-    namePrefix :: Prelude.Maybe Prelude.Text,
     -- | Specifying this limits the number of results returned by this operation.
     -- The operation also returns a NextToken which you can use in a subsequent
     -- operation to retrieve the next set of results.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | Specifying this limits the results to only those partner event sources
+    -- with names that start with the specified prefix.
+    namePrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,19 +78,19 @@ data ListEventSources = ListEventSources'
 -- 'nextToken', 'listEventSources_nextToken' - The token returned by a previous call to retrieve the next set of
 -- results.
 --
--- 'namePrefix', 'listEventSources_namePrefix' - Specifying this limits the results to only those partner event sources
--- with names that start with the specified prefix.
---
 -- 'limit', 'listEventSources_limit' - Specifying this limits the number of results returned by this operation.
 -- The operation also returns a NextToken which you can use in a subsequent
 -- operation to retrieve the next set of results.
+--
+-- 'namePrefix', 'listEventSources_namePrefix' - Specifying this limits the results to only those partner event sources
+-- with names that start with the specified prefix.
 newListEventSources ::
   ListEventSources
 newListEventSources =
   ListEventSources'
     { nextToken = Prelude.Nothing,
-      namePrefix = Prelude.Nothing,
-      limit = Prelude.Nothing
+      limit = Prelude.Nothing,
+      namePrefix = Prelude.Nothing
     }
 
 -- | The token returned by a previous call to retrieve the next set of
@@ -98,16 +98,16 @@ newListEventSources =
 listEventSources_nextToken :: Lens.Lens' ListEventSources (Prelude.Maybe Prelude.Text)
 listEventSources_nextToken = Lens.lens (\ListEventSources' {nextToken} -> nextToken) (\s@ListEventSources' {} a -> s {nextToken = a} :: ListEventSources)
 
--- | Specifying this limits the results to only those partner event sources
--- with names that start with the specified prefix.
-listEventSources_namePrefix :: Lens.Lens' ListEventSources (Prelude.Maybe Prelude.Text)
-listEventSources_namePrefix = Lens.lens (\ListEventSources' {namePrefix} -> namePrefix) (\s@ListEventSources' {} a -> s {namePrefix = a} :: ListEventSources)
-
 -- | Specifying this limits the number of results returned by this operation.
 -- The operation also returns a NextToken which you can use in a subsequent
 -- operation to retrieve the next set of results.
 listEventSources_limit :: Lens.Lens' ListEventSources (Prelude.Maybe Prelude.Natural)
 listEventSources_limit = Lens.lens (\ListEventSources' {limit} -> limit) (\s@ListEventSources' {} a -> s {limit = a} :: ListEventSources)
+
+-- | Specifying this limits the results to only those partner event sources
+-- with names that start with the specified prefix.
+listEventSources_namePrefix :: Lens.Lens' ListEventSources (Prelude.Maybe Prelude.Text)
+listEventSources_namePrefix = Lens.lens (\ListEventSources' {namePrefix} -> namePrefix) (\s@ListEventSources' {} a -> s {namePrefix = a} :: ListEventSources)
 
 instance Core.AWSRequest ListEventSources where
   type
@@ -126,14 +126,14 @@ instance Core.AWSRequest ListEventSources where
 instance Prelude.Hashable ListEventSources where
   hashWithSalt _salt ListEventSources' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` namePrefix
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` namePrefix
 
 instance Prelude.NFData ListEventSources where
   rnf ListEventSources' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf namePrefix
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf namePrefix
 
 instance Core.ToHeaders ListEventSources where
   toHeaders =
@@ -153,8 +153,8 @@ instance Core.ToJSON ListEventSources where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NamePrefix" Core..=) Prelude.<$> namePrefix,
-            ("Limit" Core..=) Prelude.<$> limit
+            ("Limit" Core..=) Prelude.<$> limit,
+            ("NamePrefix" Core..=) Prelude.<$> namePrefix
           ]
       )
 

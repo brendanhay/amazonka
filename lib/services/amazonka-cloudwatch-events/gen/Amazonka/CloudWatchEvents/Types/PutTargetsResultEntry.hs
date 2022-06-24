@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 data PutTargetsResultEntry = PutTargetsResultEntry'
   { -- | The ID of the target.
     targetId :: Prelude.Maybe Prelude.Text,
+    -- | The error message that explains why the target addition failed.
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code that indicates why the target addition failed. If the
     -- value is @ConcurrentModificationException@, too many requests were made
     -- at the same time.
-    errorCode :: Prelude.Maybe Prelude.Text,
-    -- | The error message that explains why the target addition failed.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,33 +48,33 @@ data PutTargetsResultEntry = PutTargetsResultEntry'
 --
 -- 'targetId', 'putTargetsResultEntry_targetId' - The ID of the target.
 --
+-- 'errorMessage', 'putTargetsResultEntry_errorMessage' - The error message that explains why the target addition failed.
+--
 -- 'errorCode', 'putTargetsResultEntry_errorCode' - The error code that indicates why the target addition failed. If the
 -- value is @ConcurrentModificationException@, too many requests were made
 -- at the same time.
---
--- 'errorMessage', 'putTargetsResultEntry_errorMessage' - The error message that explains why the target addition failed.
 newPutTargetsResultEntry ::
   PutTargetsResultEntry
 newPutTargetsResultEntry =
   PutTargetsResultEntry'
     { targetId = Prelude.Nothing,
-      errorCode = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | The ID of the target.
 putTargetsResultEntry_targetId :: Lens.Lens' PutTargetsResultEntry (Prelude.Maybe Prelude.Text)
 putTargetsResultEntry_targetId = Lens.lens (\PutTargetsResultEntry' {targetId} -> targetId) (\s@PutTargetsResultEntry' {} a -> s {targetId = a} :: PutTargetsResultEntry)
 
+-- | The error message that explains why the target addition failed.
+putTargetsResultEntry_errorMessage :: Lens.Lens' PutTargetsResultEntry (Prelude.Maybe Prelude.Text)
+putTargetsResultEntry_errorMessage = Lens.lens (\PutTargetsResultEntry' {errorMessage} -> errorMessage) (\s@PutTargetsResultEntry' {} a -> s {errorMessage = a} :: PutTargetsResultEntry)
+
 -- | The error code that indicates why the target addition failed. If the
 -- value is @ConcurrentModificationException@, too many requests were made
 -- at the same time.
 putTargetsResultEntry_errorCode :: Lens.Lens' PutTargetsResultEntry (Prelude.Maybe Prelude.Text)
 putTargetsResultEntry_errorCode = Lens.lens (\PutTargetsResultEntry' {errorCode} -> errorCode) (\s@PutTargetsResultEntry' {} a -> s {errorCode = a} :: PutTargetsResultEntry)
-
--- | The error message that explains why the target addition failed.
-putTargetsResultEntry_errorMessage :: Lens.Lens' PutTargetsResultEntry (Prelude.Maybe Prelude.Text)
-putTargetsResultEntry_errorMessage = Lens.lens (\PutTargetsResultEntry' {errorMessage} -> errorMessage) (\s@PutTargetsResultEntry' {} a -> s {errorMessage = a} :: PutTargetsResultEntry)
 
 instance Core.FromJSON PutTargetsResultEntry where
   parseJSON =
@@ -83,18 +83,18 @@ instance Core.FromJSON PutTargetsResultEntry where
       ( \x ->
           PutTargetsResultEntry'
             Prelude.<$> (x Core..:? "TargetId")
-            Prelude.<*> (x Core..:? "ErrorCode")
             Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
 instance Prelude.Hashable PutTargetsResultEntry where
   hashWithSalt _salt PutTargetsResultEntry' {..} =
     _salt `Prelude.hashWithSalt` targetId
-      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData PutTargetsResultEntry where
   rnf PutTargetsResultEntry' {..} =
     Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

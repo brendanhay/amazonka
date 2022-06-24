@@ -43,8 +43,8 @@ module Amazonka.CloudWatchEvents.DeleteRule
     newDeleteRule,
 
     -- * Request Lenses
-    deleteRule_force,
     deleteRule_eventBusName,
+    deleteRule_force,
     deleteRule_name,
 
     -- * Destructuring the Response
@@ -62,15 +62,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRule' smart constructor.
 data DeleteRule = DeleteRule'
-  { -- | If this is a managed rule, created by an Amazon Web Services service on
+  { -- | The name or ARN of the event bus associated with the rule. If you omit
+    -- this, the default event bus is used.
+    eventBusName :: Prelude.Maybe Prelude.Text,
+    -- | If this is a managed rule, created by an Amazon Web Services service on
     -- your behalf, you must specify @Force@ as @True@ to delete the rule. This
     -- parameter is ignored for rules that are not managed rules. You can check
     -- whether a rule is a managed rule by using @DescribeRule@ or @ListRules@
     -- and checking the @ManagedBy@ field of the response.
     force :: Prelude.Maybe Prelude.Bool,
-    -- | The name or ARN of the event bus associated with the rule. If you omit
-    -- this, the default event bus is used.
-    eventBusName :: Prelude.Maybe Prelude.Text,
     -- | The name of the rule.
     name :: Prelude.Text
   }
@@ -84,14 +84,14 @@ data DeleteRule = DeleteRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventBusName', 'deleteRule_eventBusName' - The name or ARN of the event bus associated with the rule. If you omit
+-- this, the default event bus is used.
+--
 -- 'force', 'deleteRule_force' - If this is a managed rule, created by an Amazon Web Services service on
 -- your behalf, you must specify @Force@ as @True@ to delete the rule. This
 -- parameter is ignored for rules that are not managed rules. You can check
 -- whether a rule is a managed rule by using @DescribeRule@ or @ListRules@
 -- and checking the @ManagedBy@ field of the response.
---
--- 'eventBusName', 'deleteRule_eventBusName' - The name or ARN of the event bus associated with the rule. If you omit
--- this, the default event bus is used.
 --
 -- 'name', 'deleteRule_name' - The name of the rule.
 newDeleteRule ::
@@ -100,10 +100,15 @@ newDeleteRule ::
   DeleteRule
 newDeleteRule pName_ =
   DeleteRule'
-    { force = Prelude.Nothing,
-      eventBusName = Prelude.Nothing,
+    { eventBusName = Prelude.Nothing,
+      force = Prelude.Nothing,
       name = pName_
     }
+
+-- | The name or ARN of the event bus associated with the rule. If you omit
+-- this, the default event bus is used.
+deleteRule_eventBusName :: Lens.Lens' DeleteRule (Prelude.Maybe Prelude.Text)
+deleteRule_eventBusName = Lens.lens (\DeleteRule' {eventBusName} -> eventBusName) (\s@DeleteRule' {} a -> s {eventBusName = a} :: DeleteRule)
 
 -- | If this is a managed rule, created by an Amazon Web Services service on
 -- your behalf, you must specify @Force@ as @True@ to delete the rule. This
@@ -112,11 +117,6 @@ newDeleteRule pName_ =
 -- and checking the @ManagedBy@ field of the response.
 deleteRule_force :: Lens.Lens' DeleteRule (Prelude.Maybe Prelude.Bool)
 deleteRule_force = Lens.lens (\DeleteRule' {force} -> force) (\s@DeleteRule' {} a -> s {force = a} :: DeleteRule)
-
--- | The name or ARN of the event bus associated with the rule. If you omit
--- this, the default event bus is used.
-deleteRule_eventBusName :: Lens.Lens' DeleteRule (Prelude.Maybe Prelude.Text)
-deleteRule_eventBusName = Lens.lens (\DeleteRule' {eventBusName} -> eventBusName) (\s@DeleteRule' {} a -> s {eventBusName = a} :: DeleteRule)
 
 -- | The name of the rule.
 deleteRule_name :: Lens.Lens' DeleteRule Prelude.Text
@@ -129,14 +129,14 @@ instance Core.AWSRequest DeleteRule where
 
 instance Prelude.Hashable DeleteRule where
   hashWithSalt _salt DeleteRule' {..} =
-    _salt `Prelude.hashWithSalt` force
-      `Prelude.hashWithSalt` eventBusName
+    _salt `Prelude.hashWithSalt` eventBusName
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteRule where
   rnf DeleteRule' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf eventBusName
+    Prelude.rnf eventBusName
+      `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DeleteRule where
@@ -156,8 +156,8 @@ instance Core.ToJSON DeleteRule where
   toJSON DeleteRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Force" Core..=) Prelude.<$> force,
-            ("EventBusName" Core..=) Prelude.<$> eventBusName,
+          [ ("EventBusName" Core..=) Prelude.<$> eventBusName,
+            ("Force" Core..=) Prelude.<$> force,
             Prelude.Just ("Name" Core..= name)
           ]
       )

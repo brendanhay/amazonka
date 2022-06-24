@@ -36,11 +36,11 @@ module Amazonka.CloudWatchEvents.DeauthorizeConnection
     newDeauthorizeConnectionResponse,
 
     -- * Response Lenses
-    deauthorizeConnectionResponse_creationTime,
+    deauthorizeConnectionResponse_connectionState,
+    deauthorizeConnectionResponse_connectionArn,
     deauthorizeConnectionResponse_lastModifiedTime,
     deauthorizeConnectionResponse_lastAuthorizedTime,
-    deauthorizeConnectionResponse_connectionArn,
-    deauthorizeConnectionResponse_connectionState,
+    deauthorizeConnectionResponse_creationTime,
     deauthorizeConnectionResponse_httpStatus,
   )
 where
@@ -88,11 +88,11 @@ instance Core.AWSRequest DeauthorizeConnection where
     Response.receiveJSON
       ( \s h x ->
           DeauthorizeConnectionResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<$> (x Core..?> "ConnectionState")
+            Prelude.<*> (x Core..?> "ConnectionArn")
             Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "LastAuthorizedTime")
-            Prelude.<*> (x Core..?> "ConnectionArn")
-            Prelude.<*> (x Core..?> "ConnectionState")
+            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,16 +133,16 @@ instance Core.ToQuery DeauthorizeConnection where
 
 -- | /See:/ 'newDeauthorizeConnectionResponse' smart constructor.
 data DeauthorizeConnectionResponse = DeauthorizeConnectionResponse'
-  { -- | A time stamp for the time that the connection was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The state of the connection.
+    connectionState :: Prelude.Maybe ConnectionState,
+    -- | The ARN of the connection that authorization was removed from.
+    connectionArn :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the connection was last updated.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | A time stamp for the time that the connection was last authorized.
     lastAuthorizedTime :: Prelude.Maybe Core.POSIX,
-    -- | The ARN of the connection that authorization was removed from.
-    connectionArn :: Prelude.Maybe Prelude.Text,
-    -- | The state of the connection.
-    connectionState :: Prelude.Maybe ConnectionState,
+    -- | A time stamp for the time that the connection was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,15 +156,15 @@ data DeauthorizeConnectionResponse = DeauthorizeConnectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'deauthorizeConnectionResponse_creationTime' - A time stamp for the time that the connection was created.
+-- 'connectionState', 'deauthorizeConnectionResponse_connectionState' - The state of the connection.
+--
+-- 'connectionArn', 'deauthorizeConnectionResponse_connectionArn' - The ARN of the connection that authorization was removed from.
 --
 -- 'lastModifiedTime', 'deauthorizeConnectionResponse_lastModifiedTime' - A time stamp for the time that the connection was last updated.
 --
 -- 'lastAuthorizedTime', 'deauthorizeConnectionResponse_lastAuthorizedTime' - A time stamp for the time that the connection was last authorized.
 --
--- 'connectionArn', 'deauthorizeConnectionResponse_connectionArn' - The ARN of the connection that authorization was removed from.
---
--- 'connectionState', 'deauthorizeConnectionResponse_connectionState' - The state of the connection.
+-- 'creationTime', 'deauthorizeConnectionResponse_creationTime' - A time stamp for the time that the connection was created.
 --
 -- 'httpStatus', 'deauthorizeConnectionResponse_httpStatus' - The response's http status code.
 newDeauthorizeConnectionResponse ::
@@ -173,18 +173,22 @@ newDeauthorizeConnectionResponse ::
   DeauthorizeConnectionResponse
 newDeauthorizeConnectionResponse pHttpStatus_ =
   DeauthorizeConnectionResponse'
-    { creationTime =
+    { connectionState =
         Prelude.Nothing,
+      connectionArn = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       lastAuthorizedTime = Prelude.Nothing,
-      connectionArn = Prelude.Nothing,
-      connectionState = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A time stamp for the time that the connection was created.
-deauthorizeConnectionResponse_creationTime :: Lens.Lens' DeauthorizeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-deauthorizeConnectionResponse_creationTime = Lens.lens (\DeauthorizeConnectionResponse' {creationTime} -> creationTime) (\s@DeauthorizeConnectionResponse' {} a -> s {creationTime = a} :: DeauthorizeConnectionResponse) Prelude.. Lens.mapping Core._Time
+-- | The state of the connection.
+deauthorizeConnectionResponse_connectionState :: Lens.Lens' DeauthorizeConnectionResponse (Prelude.Maybe ConnectionState)
+deauthorizeConnectionResponse_connectionState = Lens.lens (\DeauthorizeConnectionResponse' {connectionState} -> connectionState) (\s@DeauthorizeConnectionResponse' {} a -> s {connectionState = a} :: DeauthorizeConnectionResponse)
+
+-- | The ARN of the connection that authorization was removed from.
+deauthorizeConnectionResponse_connectionArn :: Lens.Lens' DeauthorizeConnectionResponse (Prelude.Maybe Prelude.Text)
+deauthorizeConnectionResponse_connectionArn = Lens.lens (\DeauthorizeConnectionResponse' {connectionArn} -> connectionArn) (\s@DeauthorizeConnectionResponse' {} a -> s {connectionArn = a} :: DeauthorizeConnectionResponse)
 
 -- | A time stamp for the time that the connection was last updated.
 deauthorizeConnectionResponse_lastModifiedTime :: Lens.Lens' DeauthorizeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
@@ -194,13 +198,9 @@ deauthorizeConnectionResponse_lastModifiedTime = Lens.lens (\DeauthorizeConnecti
 deauthorizeConnectionResponse_lastAuthorizedTime :: Lens.Lens' DeauthorizeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
 deauthorizeConnectionResponse_lastAuthorizedTime = Lens.lens (\DeauthorizeConnectionResponse' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@DeauthorizeConnectionResponse' {} a -> s {lastAuthorizedTime = a} :: DeauthorizeConnectionResponse) Prelude.. Lens.mapping Core._Time
 
--- | The ARN of the connection that authorization was removed from.
-deauthorizeConnectionResponse_connectionArn :: Lens.Lens' DeauthorizeConnectionResponse (Prelude.Maybe Prelude.Text)
-deauthorizeConnectionResponse_connectionArn = Lens.lens (\DeauthorizeConnectionResponse' {connectionArn} -> connectionArn) (\s@DeauthorizeConnectionResponse' {} a -> s {connectionArn = a} :: DeauthorizeConnectionResponse)
-
--- | The state of the connection.
-deauthorizeConnectionResponse_connectionState :: Lens.Lens' DeauthorizeConnectionResponse (Prelude.Maybe ConnectionState)
-deauthorizeConnectionResponse_connectionState = Lens.lens (\DeauthorizeConnectionResponse' {connectionState} -> connectionState) (\s@DeauthorizeConnectionResponse' {} a -> s {connectionState = a} :: DeauthorizeConnectionResponse)
+-- | A time stamp for the time that the connection was created.
+deauthorizeConnectionResponse_creationTime :: Lens.Lens' DeauthorizeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
+deauthorizeConnectionResponse_creationTime = Lens.lens (\DeauthorizeConnectionResponse' {creationTime} -> creationTime) (\s@DeauthorizeConnectionResponse' {} a -> s {creationTime = a} :: DeauthorizeConnectionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 deauthorizeConnectionResponse_httpStatus :: Lens.Lens' DeauthorizeConnectionResponse Prelude.Int
@@ -208,9 +208,9 @@ deauthorizeConnectionResponse_httpStatus = Lens.lens (\DeauthorizeConnectionResp
 
 instance Prelude.NFData DeauthorizeConnectionResponse where
   rnf DeauthorizeConnectionResponse' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf connectionArn
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf lastAuthorizedTime
-      `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf httpStatus

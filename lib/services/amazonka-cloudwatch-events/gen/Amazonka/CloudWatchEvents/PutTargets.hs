@@ -172,8 +172,8 @@ module Amazonka.CloudWatchEvents.PutTargets
     newPutTargetsResponse,
 
     -- * Response Lenses
-    putTargetsResponse_failedEntryCount,
     putTargetsResponse_failedEntries,
+    putTargetsResponse_failedEntryCount,
     putTargetsResponse_httpStatus,
   )
 where
@@ -244,8 +244,8 @@ instance Core.AWSRequest PutTargets where
     Response.receiveJSON
       ( \s h x ->
           PutTargetsResponse'
-            Prelude.<$> (x Core..?> "FailedEntryCount")
-            Prelude.<*> (x Core..?> "FailedEntries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "FailedEntries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "FailedEntryCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -292,10 +292,10 @@ instance Core.ToQuery PutTargets where
 
 -- | /See:/ 'newPutTargetsResponse' smart constructor.
 data PutTargetsResponse = PutTargetsResponse'
-  { -- | The number of failed entries.
-    failedEntryCount :: Prelude.Maybe Prelude.Int,
-    -- | The failed target entries.
+  { -- | The failed target entries.
     failedEntries :: Prelude.Maybe [PutTargetsResultEntry],
+    -- | The number of failed entries.
+    failedEntryCount :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -309,9 +309,9 @@ data PutTargetsResponse = PutTargetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failedEntryCount', 'putTargetsResponse_failedEntryCount' - The number of failed entries.
---
 -- 'failedEntries', 'putTargetsResponse_failedEntries' - The failed target entries.
+--
+-- 'failedEntryCount', 'putTargetsResponse_failedEntryCount' - The number of failed entries.
 --
 -- 'httpStatus', 'putTargetsResponse_httpStatus' - The response's http status code.
 newPutTargetsResponse ::
@@ -320,19 +320,19 @@ newPutTargetsResponse ::
   PutTargetsResponse
 newPutTargetsResponse pHttpStatus_ =
   PutTargetsResponse'
-    { failedEntryCount =
+    { failedEntries =
         Prelude.Nothing,
-      failedEntries = Prelude.Nothing,
+      failedEntryCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The number of failed entries.
-putTargetsResponse_failedEntryCount :: Lens.Lens' PutTargetsResponse (Prelude.Maybe Prelude.Int)
-putTargetsResponse_failedEntryCount = Lens.lens (\PutTargetsResponse' {failedEntryCount} -> failedEntryCount) (\s@PutTargetsResponse' {} a -> s {failedEntryCount = a} :: PutTargetsResponse)
 
 -- | The failed target entries.
 putTargetsResponse_failedEntries :: Lens.Lens' PutTargetsResponse (Prelude.Maybe [PutTargetsResultEntry])
 putTargetsResponse_failedEntries = Lens.lens (\PutTargetsResponse' {failedEntries} -> failedEntries) (\s@PutTargetsResponse' {} a -> s {failedEntries = a} :: PutTargetsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of failed entries.
+putTargetsResponse_failedEntryCount :: Lens.Lens' PutTargetsResponse (Prelude.Maybe Prelude.Int)
+putTargetsResponse_failedEntryCount = Lens.lens (\PutTargetsResponse' {failedEntryCount} -> failedEntryCount) (\s@PutTargetsResponse' {} a -> s {failedEntryCount = a} :: PutTargetsResponse)
 
 -- | The response's http status code.
 putTargetsResponse_httpStatus :: Lens.Lens' PutTargetsResponse Prelude.Int
@@ -340,6 +340,6 @@ putTargetsResponse_httpStatus = Lens.lens (\PutTargetsResponse' {httpStatus} -> 
 
 instance Prelude.NFData PutTargetsResponse where
   rnf PutTargetsResponse' {..} =
-    Prelude.rnf failedEntryCount
-      `Prelude.seq` Prelude.rnf failedEntries
+    Prelude.rnf failedEntries
+      `Prelude.seq` Prelude.rnf failedEntryCount
       `Prelude.seq` Prelude.rnf httpStatus

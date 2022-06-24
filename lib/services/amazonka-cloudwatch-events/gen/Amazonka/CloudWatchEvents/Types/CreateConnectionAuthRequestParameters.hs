@@ -40,12 +40,12 @@ data CreateConnectionAuthRequestParameters = CreateConnectionAuthRequestParamete
     -- @HttpParameters@, including query strings, the parameters added for the
     -- connection take precedence.
     invocationHttpParameters :: Prelude.Maybe ConnectionHttpParameters,
-    -- | A @CreateConnectionApiKeyAuthRequestParameters@ object that contains the
-    -- API key authorization parameters to use for the connection.
-    apiKeyAuthParameters :: Prelude.Maybe CreateConnectionApiKeyAuthRequestParameters,
     -- | A @CreateConnectionBasicAuthRequestParameters@ object that contains the
     -- Basic authorization parameters to use for the connection.
-    basicAuthParameters :: Prelude.Maybe CreateConnectionBasicAuthRequestParameters
+    basicAuthParameters :: Prelude.Maybe CreateConnectionBasicAuthRequestParameters,
+    -- | A @CreateConnectionApiKeyAuthRequestParameters@ object that contains the
+    -- API key authorization parameters to use for the connection.
+    apiKeyAuthParameters :: Prelude.Maybe CreateConnectionApiKeyAuthRequestParameters
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,11 +66,11 @@ data CreateConnectionAuthRequestParameters = CreateConnectionAuthRequestParamete
 -- @HttpParameters@, including query strings, the parameters added for the
 -- connection take precedence.
 --
--- 'apiKeyAuthParameters', 'createConnectionAuthRequestParameters_apiKeyAuthParameters' - A @CreateConnectionApiKeyAuthRequestParameters@ object that contains the
--- API key authorization parameters to use for the connection.
---
 -- 'basicAuthParameters', 'createConnectionAuthRequestParameters_basicAuthParameters' - A @CreateConnectionBasicAuthRequestParameters@ object that contains the
 -- Basic authorization parameters to use for the connection.
+--
+-- 'apiKeyAuthParameters', 'createConnectionAuthRequestParameters_apiKeyAuthParameters' - A @CreateConnectionApiKeyAuthRequestParameters@ object that contains the
+-- API key authorization parameters to use for the connection.
 newCreateConnectionAuthRequestParameters ::
   CreateConnectionAuthRequestParameters
 newCreateConnectionAuthRequestParameters =
@@ -79,9 +79,9 @@ newCreateConnectionAuthRequestParameters =
         Prelude.Nothing,
       invocationHttpParameters =
         Prelude.Nothing,
-      apiKeyAuthParameters =
-        Prelude.Nothing,
       basicAuthParameters =
+        Prelude.Nothing,
+      apiKeyAuthParameters =
         Prelude.Nothing
     }
 
@@ -98,15 +98,15 @@ createConnectionAuthRequestParameters_oAuthParameters = Lens.lens (\CreateConnec
 createConnectionAuthRequestParameters_invocationHttpParameters :: Lens.Lens' CreateConnectionAuthRequestParameters (Prelude.Maybe ConnectionHttpParameters)
 createConnectionAuthRequestParameters_invocationHttpParameters = Lens.lens (\CreateConnectionAuthRequestParameters' {invocationHttpParameters} -> invocationHttpParameters) (\s@CreateConnectionAuthRequestParameters' {} a -> s {invocationHttpParameters = a} :: CreateConnectionAuthRequestParameters)
 
--- | A @CreateConnectionApiKeyAuthRequestParameters@ object that contains the
--- API key authorization parameters to use for the connection.
-createConnectionAuthRequestParameters_apiKeyAuthParameters :: Lens.Lens' CreateConnectionAuthRequestParameters (Prelude.Maybe CreateConnectionApiKeyAuthRequestParameters)
-createConnectionAuthRequestParameters_apiKeyAuthParameters = Lens.lens (\CreateConnectionAuthRequestParameters' {apiKeyAuthParameters} -> apiKeyAuthParameters) (\s@CreateConnectionAuthRequestParameters' {} a -> s {apiKeyAuthParameters = a} :: CreateConnectionAuthRequestParameters)
-
 -- | A @CreateConnectionBasicAuthRequestParameters@ object that contains the
 -- Basic authorization parameters to use for the connection.
 createConnectionAuthRequestParameters_basicAuthParameters :: Lens.Lens' CreateConnectionAuthRequestParameters (Prelude.Maybe CreateConnectionBasicAuthRequestParameters)
 createConnectionAuthRequestParameters_basicAuthParameters = Lens.lens (\CreateConnectionAuthRequestParameters' {basicAuthParameters} -> basicAuthParameters) (\s@CreateConnectionAuthRequestParameters' {} a -> s {basicAuthParameters = a} :: CreateConnectionAuthRequestParameters)
+
+-- | A @CreateConnectionApiKeyAuthRequestParameters@ object that contains the
+-- API key authorization parameters to use for the connection.
+createConnectionAuthRequestParameters_apiKeyAuthParameters :: Lens.Lens' CreateConnectionAuthRequestParameters (Prelude.Maybe CreateConnectionApiKeyAuthRequestParameters)
+createConnectionAuthRequestParameters_apiKeyAuthParameters = Lens.lens (\CreateConnectionAuthRequestParameters' {apiKeyAuthParameters} -> apiKeyAuthParameters) (\s@CreateConnectionAuthRequestParameters' {} a -> s {apiKeyAuthParameters = a} :: CreateConnectionAuthRequestParameters)
 
 instance
   Prelude.Hashable
@@ -117,8 +117,8 @@ instance
     CreateConnectionAuthRequestParameters' {..} =
       _salt `Prelude.hashWithSalt` oAuthParameters
         `Prelude.hashWithSalt` invocationHttpParameters
-        `Prelude.hashWithSalt` apiKeyAuthParameters
         `Prelude.hashWithSalt` basicAuthParameters
+        `Prelude.hashWithSalt` apiKeyAuthParameters
 
 instance
   Prelude.NFData
@@ -127,8 +127,8 @@ instance
   rnf CreateConnectionAuthRequestParameters' {..} =
     Prelude.rnf oAuthParameters
       `Prelude.seq` Prelude.rnf invocationHttpParameters
-      `Prelude.seq` Prelude.rnf apiKeyAuthParameters
       `Prelude.seq` Prelude.rnf basicAuthParameters
+      `Prelude.seq` Prelude.rnf apiKeyAuthParameters
 
 instance
   Core.ToJSON
@@ -141,9 +141,9 @@ instance
               Prelude.<$> oAuthParameters,
             ("InvocationHttpParameters" Core..=)
               Prelude.<$> invocationHttpParameters,
-            ("ApiKeyAuthParameters" Core..=)
-              Prelude.<$> apiKeyAuthParameters,
             ("BasicAuthParameters" Core..=)
-              Prelude.<$> basicAuthParameters
+              Prelude.<$> basicAuthParameters,
+            ("ApiKeyAuthParameters" Core..=)
+              Prelude.<$> apiKeyAuthParameters
           ]
       )

@@ -40,9 +40,9 @@ module Amazonka.CloudWatchEvents.CreateApiDestination
     newCreateApiDestinationResponse,
 
     -- * Response Lenses
-    createApiDestinationResponse_creationTime,
     createApiDestinationResponse_lastModifiedTime,
     createApiDestinationResponse_apiDestinationState,
+    createApiDestinationResponse_creationTime,
     createApiDestinationResponse_apiDestinationArn,
     createApiDestinationResponse_httpStatus,
   )
@@ -158,9 +158,9 @@ instance Core.AWSRequest CreateApiDestination where
     Response.receiveJSON
       ( \s h x ->
           CreateApiDestinationResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<$> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "ApiDestinationState")
+            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "ApiDestinationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -222,13 +222,13 @@ instance Core.ToQuery CreateApiDestination where
 
 -- | /See:/ 'newCreateApiDestinationResponse' smart constructor.
 data CreateApiDestinationResponse = CreateApiDestinationResponse'
-  { -- | A time stamp indicating the time that the API destination was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | A time stamp indicating the time that the API destination was last
+  { -- | A time stamp indicating the time that the API destination was last
     -- modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The state of the API destination that was created by the request.
     apiDestinationState :: Prelude.Maybe ApiDestinationState,
+    -- | A time stamp indicating the time that the API destination was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the API destination that was created by the request.
     apiDestinationArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -244,12 +244,12 @@ data CreateApiDestinationResponse = CreateApiDestinationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'createApiDestinationResponse_creationTime' - A time stamp indicating the time that the API destination was created.
---
 -- 'lastModifiedTime', 'createApiDestinationResponse_lastModifiedTime' - A time stamp indicating the time that the API destination was last
 -- modified.
 --
 -- 'apiDestinationState', 'createApiDestinationResponse_apiDestinationState' - The state of the API destination that was created by the request.
+--
+-- 'creationTime', 'createApiDestinationResponse_creationTime' - A time stamp indicating the time that the API destination was created.
 --
 -- 'apiDestinationArn', 'createApiDestinationResponse_apiDestinationArn' - The ARN of the API destination that was created by the request.
 --
@@ -260,17 +260,13 @@ newCreateApiDestinationResponse ::
   CreateApiDestinationResponse
 newCreateApiDestinationResponse pHttpStatus_ =
   CreateApiDestinationResponse'
-    { creationTime =
+    { lastModifiedTime =
         Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       apiDestinationState = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       apiDestinationArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A time stamp indicating the time that the API destination was created.
-createApiDestinationResponse_creationTime :: Lens.Lens' CreateApiDestinationResponse (Prelude.Maybe Prelude.UTCTime)
-createApiDestinationResponse_creationTime = Lens.lens (\CreateApiDestinationResponse' {creationTime} -> creationTime) (\s@CreateApiDestinationResponse' {} a -> s {creationTime = a} :: CreateApiDestinationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | A time stamp indicating the time that the API destination was last
 -- modified.
@@ -280,6 +276,10 @@ createApiDestinationResponse_lastModifiedTime = Lens.lens (\CreateApiDestination
 -- | The state of the API destination that was created by the request.
 createApiDestinationResponse_apiDestinationState :: Lens.Lens' CreateApiDestinationResponse (Prelude.Maybe ApiDestinationState)
 createApiDestinationResponse_apiDestinationState = Lens.lens (\CreateApiDestinationResponse' {apiDestinationState} -> apiDestinationState) (\s@CreateApiDestinationResponse' {} a -> s {apiDestinationState = a} :: CreateApiDestinationResponse)
+
+-- | A time stamp indicating the time that the API destination was created.
+createApiDestinationResponse_creationTime :: Lens.Lens' CreateApiDestinationResponse (Prelude.Maybe Prelude.UTCTime)
+createApiDestinationResponse_creationTime = Lens.lens (\CreateApiDestinationResponse' {creationTime} -> creationTime) (\s@CreateApiDestinationResponse' {} a -> s {creationTime = a} :: CreateApiDestinationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the API destination that was created by the request.
 createApiDestinationResponse_apiDestinationArn :: Lens.Lens' CreateApiDestinationResponse (Prelude.Maybe Prelude.Text)
@@ -291,8 +291,8 @@ createApiDestinationResponse_httpStatus = Lens.lens (\CreateApiDestinationRespon
 
 instance Prelude.NFData CreateApiDestinationResponse where
   rnf CreateApiDestinationResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf apiDestinationState
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf apiDestinationArn
       `Prelude.seq` Prelude.rnf httpStatus

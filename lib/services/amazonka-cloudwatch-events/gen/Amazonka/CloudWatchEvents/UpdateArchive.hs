@@ -37,9 +37,9 @@ module Amazonka.CloudWatchEvents.UpdateArchive
     newUpdateArchiveResponse,
 
     -- * Response Lenses
-    updateArchiveResponse_creationTime,
-    updateArchiveResponse_state,
     updateArchiveResponse_archiveArn,
+    updateArchiveResponse_state,
+    updateArchiveResponse_creationTime,
     updateArchiveResponse_stateReason,
     updateArchiveResponse_httpStatus,
   )
@@ -117,9 +117,9 @@ instance Core.AWSRequest UpdateArchive where
     Response.receiveJSON
       ( \s h x ->
           UpdateArchiveResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<$> (x Core..?> "ArchiveArn")
             Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "ArchiveArn")
+            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -170,12 +170,12 @@ instance Core.ToQuery UpdateArchive where
 
 -- | /See:/ 'newUpdateArchiveResponse' smart constructor.
 data UpdateArchiveResponse = UpdateArchiveResponse'
-  { -- | The time at which the archive was updated.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The ARN of the archive.
+    archiveArn :: Prelude.Maybe Prelude.Text,
     -- | The state of the archive.
     state :: Prelude.Maybe ArchiveState,
-    -- | The ARN of the archive.
-    archiveArn :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the archive was updated.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The reason that the archive is in the current state.
     stateReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -191,11 +191,11 @@ data UpdateArchiveResponse = UpdateArchiveResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'updateArchiveResponse_creationTime' - The time at which the archive was updated.
+-- 'archiveArn', 'updateArchiveResponse_archiveArn' - The ARN of the archive.
 --
 -- 'state', 'updateArchiveResponse_state' - The state of the archive.
 --
--- 'archiveArn', 'updateArchiveResponse_archiveArn' - The ARN of the archive.
+-- 'creationTime', 'updateArchiveResponse_creationTime' - The time at which the archive was updated.
 --
 -- 'stateReason', 'updateArchiveResponse_stateReason' - The reason that the archive is in the current state.
 --
@@ -206,25 +206,25 @@ newUpdateArchiveResponse ::
   UpdateArchiveResponse
 newUpdateArchiveResponse pHttpStatus_ =
   UpdateArchiveResponse'
-    { creationTime =
+    { archiveArn =
         Prelude.Nothing,
       state = Prelude.Nothing,
-      archiveArn = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       stateReason = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The time at which the archive was updated.
-updateArchiveResponse_creationTime :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.UTCTime)
-updateArchiveResponse_creationTime = Lens.lens (\UpdateArchiveResponse' {creationTime} -> creationTime) (\s@UpdateArchiveResponse' {} a -> s {creationTime = a} :: UpdateArchiveResponse) Prelude.. Lens.mapping Core._Time
+-- | The ARN of the archive.
+updateArchiveResponse_archiveArn :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.Text)
+updateArchiveResponse_archiveArn = Lens.lens (\UpdateArchiveResponse' {archiveArn} -> archiveArn) (\s@UpdateArchiveResponse' {} a -> s {archiveArn = a} :: UpdateArchiveResponse)
 
 -- | The state of the archive.
 updateArchiveResponse_state :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe ArchiveState)
 updateArchiveResponse_state = Lens.lens (\UpdateArchiveResponse' {state} -> state) (\s@UpdateArchiveResponse' {} a -> s {state = a} :: UpdateArchiveResponse)
 
--- | The ARN of the archive.
-updateArchiveResponse_archiveArn :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.Text)
-updateArchiveResponse_archiveArn = Lens.lens (\UpdateArchiveResponse' {archiveArn} -> archiveArn) (\s@UpdateArchiveResponse' {} a -> s {archiveArn = a} :: UpdateArchiveResponse)
+-- | The time at which the archive was updated.
+updateArchiveResponse_creationTime :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.UTCTime)
+updateArchiveResponse_creationTime = Lens.lens (\UpdateArchiveResponse' {creationTime} -> creationTime) (\s@UpdateArchiveResponse' {} a -> s {creationTime = a} :: UpdateArchiveResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The reason that the archive is in the current state.
 updateArchiveResponse_stateReason :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.Text)
@@ -236,8 +236,8 @@ updateArchiveResponse_httpStatus = Lens.lens (\UpdateArchiveResponse' {httpStatu
 
 instance Prelude.NFData UpdateArchiveResponse where
   rnf UpdateArchiveResponse' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf archiveArn
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf archiveArn
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf stateReason
       `Prelude.seq` Prelude.rnf httpStatus

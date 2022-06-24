@@ -27,11 +27,11 @@ module Amazonka.CloudWatchEvents.UpdateApiDestination
     newUpdateApiDestination,
 
     -- * Request Lenses
-    updateApiDestination_httpMethod,
-    updateApiDestination_invocationEndpoint,
     updateApiDestination_invocationRateLimitPerSecond,
-    updateApiDestination_connectionArn,
+    updateApiDestination_invocationEndpoint,
     updateApiDestination_description,
+    updateApiDestination_connectionArn,
+    updateApiDestination_httpMethod,
     updateApiDestination_name,
 
     -- * Destructuring the Response
@@ -39,9 +39,9 @@ module Amazonka.CloudWatchEvents.UpdateApiDestination
     newUpdateApiDestinationResponse,
 
     -- * Response Lenses
-    updateApiDestinationResponse_creationTime,
     updateApiDestinationResponse_lastModifiedTime,
     updateApiDestinationResponse_apiDestinationState,
+    updateApiDestinationResponse_creationTime,
     updateApiDestinationResponse_apiDestinationArn,
     updateApiDestinationResponse_httpStatus,
   )
@@ -56,17 +56,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateApiDestination' smart constructor.
 data UpdateApiDestination = UpdateApiDestination'
-  { -- | The method to use for the API destination.
-    httpMethod :: Prelude.Maybe ApiDestinationHttpMethod,
-    -- | The URL to the endpoint to use for the API destination.
-    invocationEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of invocations per second to send to the API
+  { -- | The maximum number of invocations per second to send to the API
     -- destination.
     invocationRateLimitPerSecond :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the connection to use for the API destination.
-    connectionArn :: Prelude.Maybe Prelude.Text,
+    -- | The URL to the endpoint to use for the API destination.
+    invocationEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The name of the API destination to update.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the connection to use for the API destination.
+    connectionArn :: Prelude.Maybe Prelude.Text,
+    -- | The method to use for the API destination.
+    httpMethod :: Prelude.Maybe ApiDestinationHttpMethod,
     -- | The name of the API destination to update.
     name :: Prelude.Text
   }
@@ -80,16 +80,16 @@ data UpdateApiDestination = UpdateApiDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpMethod', 'updateApiDestination_httpMethod' - The method to use for the API destination.
---
--- 'invocationEndpoint', 'updateApiDestination_invocationEndpoint' - The URL to the endpoint to use for the API destination.
---
 -- 'invocationRateLimitPerSecond', 'updateApiDestination_invocationRateLimitPerSecond' - The maximum number of invocations per second to send to the API
 -- destination.
 --
--- 'connectionArn', 'updateApiDestination_connectionArn' - The ARN of the connection to use for the API destination.
+-- 'invocationEndpoint', 'updateApiDestination_invocationEndpoint' - The URL to the endpoint to use for the API destination.
 --
 -- 'description', 'updateApiDestination_description' - The name of the API destination to update.
+--
+-- 'connectionArn', 'updateApiDestination_connectionArn' - The ARN of the connection to use for the API destination.
+--
+-- 'httpMethod', 'updateApiDestination_httpMethod' - The method to use for the API destination.
 --
 -- 'name', 'updateApiDestination_name' - The name of the API destination to update.
 newUpdateApiDestination ::
@@ -98,34 +98,35 @@ newUpdateApiDestination ::
   UpdateApiDestination
 newUpdateApiDestination pName_ =
   UpdateApiDestination'
-    { httpMethod = Prelude.Nothing,
+    { invocationRateLimitPerSecond =
+        Prelude.Nothing,
       invocationEndpoint = Prelude.Nothing,
-      invocationRateLimitPerSecond = Prelude.Nothing,
-      connectionArn = Prelude.Nothing,
       description = Prelude.Nothing,
+      connectionArn = Prelude.Nothing,
+      httpMethod = Prelude.Nothing,
       name = pName_
     }
-
--- | The method to use for the API destination.
-updateApiDestination_httpMethod :: Lens.Lens' UpdateApiDestination (Prelude.Maybe ApiDestinationHttpMethod)
-updateApiDestination_httpMethod = Lens.lens (\UpdateApiDestination' {httpMethod} -> httpMethod) (\s@UpdateApiDestination' {} a -> s {httpMethod = a} :: UpdateApiDestination)
-
--- | The URL to the endpoint to use for the API destination.
-updateApiDestination_invocationEndpoint :: Lens.Lens' UpdateApiDestination (Prelude.Maybe Prelude.Text)
-updateApiDestination_invocationEndpoint = Lens.lens (\UpdateApiDestination' {invocationEndpoint} -> invocationEndpoint) (\s@UpdateApiDestination' {} a -> s {invocationEndpoint = a} :: UpdateApiDestination)
 
 -- | The maximum number of invocations per second to send to the API
 -- destination.
 updateApiDestination_invocationRateLimitPerSecond :: Lens.Lens' UpdateApiDestination (Prelude.Maybe Prelude.Natural)
 updateApiDestination_invocationRateLimitPerSecond = Lens.lens (\UpdateApiDestination' {invocationRateLimitPerSecond} -> invocationRateLimitPerSecond) (\s@UpdateApiDestination' {} a -> s {invocationRateLimitPerSecond = a} :: UpdateApiDestination)
 
--- | The ARN of the connection to use for the API destination.
-updateApiDestination_connectionArn :: Lens.Lens' UpdateApiDestination (Prelude.Maybe Prelude.Text)
-updateApiDestination_connectionArn = Lens.lens (\UpdateApiDestination' {connectionArn} -> connectionArn) (\s@UpdateApiDestination' {} a -> s {connectionArn = a} :: UpdateApiDestination)
+-- | The URL to the endpoint to use for the API destination.
+updateApiDestination_invocationEndpoint :: Lens.Lens' UpdateApiDestination (Prelude.Maybe Prelude.Text)
+updateApiDestination_invocationEndpoint = Lens.lens (\UpdateApiDestination' {invocationEndpoint} -> invocationEndpoint) (\s@UpdateApiDestination' {} a -> s {invocationEndpoint = a} :: UpdateApiDestination)
 
 -- | The name of the API destination to update.
 updateApiDestination_description :: Lens.Lens' UpdateApiDestination (Prelude.Maybe Prelude.Text)
 updateApiDestination_description = Lens.lens (\UpdateApiDestination' {description} -> description) (\s@UpdateApiDestination' {} a -> s {description = a} :: UpdateApiDestination)
+
+-- | The ARN of the connection to use for the API destination.
+updateApiDestination_connectionArn :: Lens.Lens' UpdateApiDestination (Prelude.Maybe Prelude.Text)
+updateApiDestination_connectionArn = Lens.lens (\UpdateApiDestination' {connectionArn} -> connectionArn) (\s@UpdateApiDestination' {} a -> s {connectionArn = a} :: UpdateApiDestination)
+
+-- | The method to use for the API destination.
+updateApiDestination_httpMethod :: Lens.Lens' UpdateApiDestination (Prelude.Maybe ApiDestinationHttpMethod)
+updateApiDestination_httpMethod = Lens.lens (\UpdateApiDestination' {httpMethod} -> httpMethod) (\s@UpdateApiDestination' {} a -> s {httpMethod = a} :: UpdateApiDestination)
 
 -- | The name of the API destination to update.
 updateApiDestination_name :: Lens.Lens' UpdateApiDestination Prelude.Text
@@ -140,29 +141,30 @@ instance Core.AWSRequest UpdateApiDestination where
     Response.receiveJSON
       ( \s h x ->
           UpdateApiDestinationResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<$> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "ApiDestinationState")
+            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "ApiDestinationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateApiDestination where
   hashWithSalt _salt UpdateApiDestination' {..} =
-    _salt `Prelude.hashWithSalt` httpMethod
-      `Prelude.hashWithSalt` invocationEndpoint
+    _salt
       `Prelude.hashWithSalt` invocationRateLimitPerSecond
-      `Prelude.hashWithSalt` connectionArn
+      `Prelude.hashWithSalt` invocationEndpoint
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` connectionArn
+      `Prelude.hashWithSalt` httpMethod
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateApiDestination where
   rnf UpdateApiDestination' {..} =
-    Prelude.rnf httpMethod
+    Prelude.rnf invocationRateLimitPerSecond
       `Prelude.seq` Prelude.rnf invocationEndpoint
-      `Prelude.seq` Prelude.rnf invocationRateLimitPerSecond
-      `Prelude.seq` Prelude.rnf connectionArn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf httpMethod
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateApiDestination where
@@ -184,13 +186,13 @@ instance Core.ToJSON UpdateApiDestination where
   toJSON UpdateApiDestination' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("HttpMethod" Core..=) Prelude.<$> httpMethod,
+          [ ("InvocationRateLimitPerSecond" Core..=)
+              Prelude.<$> invocationRateLimitPerSecond,
             ("InvocationEndpoint" Core..=)
               Prelude.<$> invocationEndpoint,
-            ("InvocationRateLimitPerSecond" Core..=)
-              Prelude.<$> invocationRateLimitPerSecond,
-            ("ConnectionArn" Core..=) Prelude.<$> connectionArn,
             ("Description" Core..=) Prelude.<$> description,
+            ("ConnectionArn" Core..=) Prelude.<$> connectionArn,
+            ("HttpMethod" Core..=) Prelude.<$> httpMethod,
             Prelude.Just ("Name" Core..= name)
           ]
       )
@@ -203,12 +205,12 @@ instance Core.ToQuery UpdateApiDestination where
 
 -- | /See:/ 'newUpdateApiDestinationResponse' smart constructor.
 data UpdateApiDestinationResponse = UpdateApiDestinationResponse'
-  { -- | A time stamp for the time that the API destination was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | A time stamp for the time that the API destination was last modified.
+  { -- | A time stamp for the time that the API destination was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The state of the API destination that was updated.
     apiDestinationState :: Prelude.Maybe ApiDestinationState,
+    -- | A time stamp for the time that the API destination was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the API destination that was updated.
     apiDestinationArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -224,11 +226,11 @@ data UpdateApiDestinationResponse = UpdateApiDestinationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'updateApiDestinationResponse_creationTime' - A time stamp for the time that the API destination was created.
---
 -- 'lastModifiedTime', 'updateApiDestinationResponse_lastModifiedTime' - A time stamp for the time that the API destination was last modified.
 --
 -- 'apiDestinationState', 'updateApiDestinationResponse_apiDestinationState' - The state of the API destination that was updated.
+--
+-- 'creationTime', 'updateApiDestinationResponse_creationTime' - A time stamp for the time that the API destination was created.
 --
 -- 'apiDestinationArn', 'updateApiDestinationResponse_apiDestinationArn' - The ARN of the API destination that was updated.
 --
@@ -239,17 +241,13 @@ newUpdateApiDestinationResponse ::
   UpdateApiDestinationResponse
 newUpdateApiDestinationResponse pHttpStatus_ =
   UpdateApiDestinationResponse'
-    { creationTime =
+    { lastModifiedTime =
         Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       apiDestinationState = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       apiDestinationArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A time stamp for the time that the API destination was created.
-updateApiDestinationResponse_creationTime :: Lens.Lens' UpdateApiDestinationResponse (Prelude.Maybe Prelude.UTCTime)
-updateApiDestinationResponse_creationTime = Lens.lens (\UpdateApiDestinationResponse' {creationTime} -> creationTime) (\s@UpdateApiDestinationResponse' {} a -> s {creationTime = a} :: UpdateApiDestinationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | A time stamp for the time that the API destination was last modified.
 updateApiDestinationResponse_lastModifiedTime :: Lens.Lens' UpdateApiDestinationResponse (Prelude.Maybe Prelude.UTCTime)
@@ -258,6 +256,10 @@ updateApiDestinationResponse_lastModifiedTime = Lens.lens (\UpdateApiDestination
 -- | The state of the API destination that was updated.
 updateApiDestinationResponse_apiDestinationState :: Lens.Lens' UpdateApiDestinationResponse (Prelude.Maybe ApiDestinationState)
 updateApiDestinationResponse_apiDestinationState = Lens.lens (\UpdateApiDestinationResponse' {apiDestinationState} -> apiDestinationState) (\s@UpdateApiDestinationResponse' {} a -> s {apiDestinationState = a} :: UpdateApiDestinationResponse)
+
+-- | A time stamp for the time that the API destination was created.
+updateApiDestinationResponse_creationTime :: Lens.Lens' UpdateApiDestinationResponse (Prelude.Maybe Prelude.UTCTime)
+updateApiDestinationResponse_creationTime = Lens.lens (\UpdateApiDestinationResponse' {creationTime} -> creationTime) (\s@UpdateApiDestinationResponse' {} a -> s {creationTime = a} :: UpdateApiDestinationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the API destination that was updated.
 updateApiDestinationResponse_apiDestinationArn :: Lens.Lens' UpdateApiDestinationResponse (Prelude.Maybe Prelude.Text)
@@ -269,8 +271,8 @@ updateApiDestinationResponse_httpStatus = Lens.lens (\UpdateApiDestinationRespon
 
 instance Prelude.NFData UpdateApiDestinationResponse where
   rnf UpdateApiDestinationResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf apiDestinationState
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf apiDestinationArn
       `Prelude.seq` Prelude.rnf httpStatus

@@ -14,132 +14,304 @@
 module Amazonka.CloudWatchEvents.Lens
   ( -- * Operations
 
-    -- ** DeauthorizeConnection
-    deauthorizeConnection_name,
-    deauthorizeConnectionResponse_creationTime,
-    deauthorizeConnectionResponse_lastModifiedTime,
-    deauthorizeConnectionResponse_lastAuthorizedTime,
-    deauthorizeConnectionResponse_connectionArn,
-    deauthorizeConnectionResponse_connectionState,
-    deauthorizeConnectionResponse_httpStatus,
+    -- ** ActivateEventSource
+    activateEventSource_name,
 
-    -- ** RemoveTargets
-    removeTargets_force,
-    removeTargets_eventBusName,
-    removeTargets_rule,
-    removeTargets_ids,
-    removeTargetsResponse_failedEntryCount,
-    removeTargetsResponse_failedEntries,
-    removeTargetsResponse_httpStatus,
+    -- ** CancelReplay
+    cancelReplay_replayName,
+    cancelReplayResponse_replayArn,
+    cancelReplayResponse_state,
+    cancelReplayResponse_stateReason,
+    cancelReplayResponse_httpStatus,
 
-    -- ** DeleteRule
-    deleteRule_force,
-    deleteRule_eventBusName,
-    deleteRule_name,
+    -- ** CreateApiDestination
+    createApiDestination_invocationRateLimitPerSecond,
+    createApiDestination_description,
+    createApiDestination_name,
+    createApiDestination_connectionArn,
+    createApiDestination_invocationEndpoint,
+    createApiDestination_httpMethod,
+    createApiDestinationResponse_lastModifiedTime,
+    createApiDestinationResponse_apiDestinationState,
+    createApiDestinationResponse_creationTime,
+    createApiDestinationResponse_apiDestinationArn,
+    createApiDestinationResponse_httpStatus,
 
-    -- ** ListPartnerEventSourceAccounts
-    listPartnerEventSourceAccounts_nextToken,
-    listPartnerEventSourceAccounts_limit,
-    listPartnerEventSourceAccounts_eventSourceName,
-    listPartnerEventSourceAccountsResponse_partnerEventSourceAccounts,
-    listPartnerEventSourceAccountsResponse_nextToken,
-    listPartnerEventSourceAccountsResponse_httpStatus,
-
-    -- ** ListConnections
-    listConnections_nextToken,
-    listConnections_namePrefix,
-    listConnections_limit,
-    listConnections_connectionState,
-    listConnectionsResponse_connections,
-    listConnectionsResponse_nextToken,
-    listConnectionsResponse_httpStatus,
-
-    -- ** DeleteConnection
-    deleteConnection_name,
-    deleteConnectionResponse_creationTime,
-    deleteConnectionResponse_lastModifiedTime,
-    deleteConnectionResponse_lastAuthorizedTime,
-    deleteConnectionResponse_connectionArn,
-    deleteConnectionResponse_connectionState,
-    deleteConnectionResponse_httpStatus,
-
-    -- ** UpdateConnection
-    updateConnection_authParameters,
-    updateConnection_authorizationType,
-    updateConnection_description,
-    updateConnection_name,
-    updateConnectionResponse_creationTime,
-    updateConnectionResponse_lastModifiedTime,
-    updateConnectionResponse_lastAuthorizedTime,
-    updateConnectionResponse_connectionArn,
-    updateConnectionResponse_connectionState,
-    updateConnectionResponse_httpStatus,
-
-    -- ** ListRules
-    listRules_nextToken,
-    listRules_eventBusName,
-    listRules_namePrefix,
-    listRules_limit,
-    listRulesResponse_rules,
-    listRulesResponse_nextToken,
-    listRulesResponse_httpStatus,
-
-    -- ** PutRule
-    putRule_eventPattern,
-    putRule_state,
-    putRule_eventBusName,
-    putRule_scheduleExpression,
-    putRule_description,
-    putRule_tags,
-    putRule_roleArn,
-    putRule_name,
-    putRuleResponse_ruleArn,
-    putRuleResponse_httpStatus,
-
-    -- ** DisableRule
-    disableRule_eventBusName,
-    disableRule_name,
-
-    -- ** PutPermission
-    putPermission_action,
-    putPermission_eventBusName,
-    putPermission_principal,
-    putPermission_policy,
-    putPermission_statementId,
-    putPermission_condition,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** ListReplays
-    listReplays_eventSourceArn,
-    listReplays_state,
-    listReplays_nextToken,
-    listReplays_namePrefix,
-    listReplays_limit,
-    listReplaysResponse_replays,
-    listReplaysResponse_nextToken,
-    listReplaysResponse_httpStatus,
+    -- ** CreateArchive
+    createArchive_eventPattern,
+    createArchive_retentionDays,
+    createArchive_description,
+    createArchive_archiveName,
+    createArchive_eventSourceArn,
+    createArchiveResponse_archiveArn,
+    createArchiveResponse_state,
+    createArchiveResponse_creationTime,
+    createArchiveResponse_stateReason,
+    createArchiveResponse_httpStatus,
 
     -- ** CreateConnection
     createConnection_description,
     createConnection_name,
     createConnection_authorizationType,
     createConnection_authParameters,
-    createConnectionResponse_creationTime,
-    createConnectionResponse_lastModifiedTime,
-    createConnectionResponse_connectionArn,
     createConnectionResponse_connectionState,
+    createConnectionResponse_connectionArn,
+    createConnectionResponse_lastModifiedTime,
+    createConnectionResponse_creationTime,
     createConnectionResponse_httpStatus,
 
-    -- ** CancelReplay
-    cancelReplay_replayName,
-    cancelReplayResponse_state,
-    cancelReplayResponse_replayArn,
-    cancelReplayResponse_stateReason,
-    cancelReplayResponse_httpStatus,
+    -- ** CreateEventBus
+    createEventBus_tags,
+    createEventBus_eventSourceName,
+    createEventBus_name,
+    createEventBusResponse_eventBusArn,
+    createEventBusResponse_httpStatus,
+
+    -- ** CreatePartnerEventSource
+    createPartnerEventSource_name,
+    createPartnerEventSource_account,
+    createPartnerEventSourceResponse_eventSourceArn,
+    createPartnerEventSourceResponse_httpStatus,
+
+    -- ** DeactivateEventSource
+    deactivateEventSource_name,
+
+    -- ** DeauthorizeConnection
+    deauthorizeConnection_name,
+    deauthorizeConnectionResponse_connectionState,
+    deauthorizeConnectionResponse_connectionArn,
+    deauthorizeConnectionResponse_lastModifiedTime,
+    deauthorizeConnectionResponse_lastAuthorizedTime,
+    deauthorizeConnectionResponse_creationTime,
+    deauthorizeConnectionResponse_httpStatus,
+
+    -- ** DeleteApiDestination
+    deleteApiDestination_name,
+    deleteApiDestinationResponse_httpStatus,
+
+    -- ** DeleteArchive
+    deleteArchive_archiveName,
+    deleteArchiveResponse_httpStatus,
+
+    -- ** DeleteConnection
+    deleteConnection_name,
+    deleteConnectionResponse_connectionState,
+    deleteConnectionResponse_connectionArn,
+    deleteConnectionResponse_lastModifiedTime,
+    deleteConnectionResponse_lastAuthorizedTime,
+    deleteConnectionResponse_creationTime,
+    deleteConnectionResponse_httpStatus,
+
+    -- ** DeleteEventBus
+    deleteEventBus_name,
+
+    -- ** DeletePartnerEventSource
+    deletePartnerEventSource_name,
+    deletePartnerEventSource_account,
+
+    -- ** DeleteRule
+    deleteRule_eventBusName,
+    deleteRule_force,
+    deleteRule_name,
+
+    -- ** DescribeApiDestination
+    describeApiDestination_name,
+    describeApiDestinationResponse_name,
+    describeApiDestinationResponse_invocationRateLimitPerSecond,
+    describeApiDestinationResponse_invocationEndpoint,
+    describeApiDestinationResponse_description,
+    describeApiDestinationResponse_connectionArn,
+    describeApiDestinationResponse_httpMethod,
+    describeApiDestinationResponse_lastModifiedTime,
+    describeApiDestinationResponse_apiDestinationState,
+    describeApiDestinationResponse_creationTime,
+    describeApiDestinationResponse_apiDestinationArn,
+    describeApiDestinationResponse_httpStatus,
+
+    -- ** DescribeArchive
+    describeArchive_archiveName,
+    describeArchiveResponse_eventPattern,
+    describeArchiveResponse_retentionDays,
+    describeArchiveResponse_archiveArn,
+    describeArchiveResponse_sizeBytes,
+    describeArchiveResponse_state,
+    describeArchiveResponse_description,
+    describeArchiveResponse_eventCount,
+    describeArchiveResponse_archiveName,
+    describeArchiveResponse_eventSourceArn,
+    describeArchiveResponse_creationTime,
+    describeArchiveResponse_stateReason,
+    describeArchiveResponse_httpStatus,
+
+    -- ** DescribeConnection
+    describeConnection_name,
+    describeConnectionResponse_name,
+    describeConnectionResponse_authParameters,
+    describeConnectionResponse_connectionState,
+    describeConnectionResponse_description,
+    describeConnectionResponse_connectionArn,
+    describeConnectionResponse_lastModifiedTime,
+    describeConnectionResponse_secretArn,
+    describeConnectionResponse_lastAuthorizedTime,
+    describeConnectionResponse_creationTime,
+    describeConnectionResponse_authorizationType,
+    describeConnectionResponse_stateReason,
+    describeConnectionResponse_httpStatus,
+
+    -- ** DescribeEventBus
+    describeEventBus_name,
+    describeEventBusResponse_policy,
+    describeEventBusResponse_name,
+    describeEventBusResponse_arn,
+    describeEventBusResponse_httpStatus,
+
+    -- ** DescribeEventSource
+    describeEventSource_name,
+    describeEventSourceResponse_name,
+    describeEventSourceResponse_expirationTime,
+    describeEventSourceResponse_arn,
+    describeEventSourceResponse_state,
+    describeEventSourceResponse_creationTime,
+    describeEventSourceResponse_createdBy,
+    describeEventSourceResponse_httpStatus,
+
+    -- ** DescribePartnerEventSource
+    describePartnerEventSource_name,
+    describePartnerEventSourceResponse_name,
+    describePartnerEventSourceResponse_arn,
+    describePartnerEventSourceResponse_httpStatus,
+
+    -- ** DescribeReplay
+    describeReplay_replayName,
+    describeReplayResponse_destination,
+    describeReplayResponse_replayArn,
+    describeReplayResponse_state,
+    describeReplayResponse_eventLastReplayedTime,
+    describeReplayResponse_eventEndTime,
+    describeReplayResponse_description,
+    describeReplayResponse_eventSourceArn,
+    describeReplayResponse_replayEndTime,
+    describeReplayResponse_replayName,
+    describeReplayResponse_replayStartTime,
+    describeReplayResponse_stateReason,
+    describeReplayResponse_eventStartTime,
+    describeReplayResponse_httpStatus,
+
+    -- ** DescribeRule
+    describeRule_eventBusName,
+    describeRule_name,
+    describeRuleResponse_name,
+    describeRuleResponse_roleArn,
+    describeRuleResponse_eventPattern,
+    describeRuleResponse_eventBusName,
+    describeRuleResponse_arn,
+    describeRuleResponse_state,
+    describeRuleResponse_description,
+    describeRuleResponse_scheduleExpression,
+    describeRuleResponse_createdBy,
+    describeRuleResponse_managedBy,
+    describeRuleResponse_httpStatus,
+
+    -- ** DisableRule
+    disableRule_eventBusName,
+    disableRule_name,
+
+    -- ** EnableRule
+    enableRule_eventBusName,
+    enableRule_name,
+
+    -- ** ListApiDestinations
+    listApiDestinations_nextToken,
+    listApiDestinations_connectionArn,
+    listApiDestinations_limit,
+    listApiDestinations_namePrefix,
+    listApiDestinationsResponse_nextToken,
+    listApiDestinationsResponse_apiDestinations,
+    listApiDestinationsResponse_httpStatus,
+
+    -- ** ListArchives
+    listArchives_nextToken,
+    listArchives_state,
+    listArchives_limit,
+    listArchives_eventSourceArn,
+    listArchives_namePrefix,
+    listArchivesResponse_nextToken,
+    listArchivesResponse_archives,
+    listArchivesResponse_httpStatus,
+
+    -- ** ListConnections
+    listConnections_nextToken,
+    listConnections_connectionState,
+    listConnections_limit,
+    listConnections_namePrefix,
+    listConnectionsResponse_nextToken,
+    listConnectionsResponse_connections,
+    listConnectionsResponse_httpStatus,
+
+    -- ** ListEventBuses
+    listEventBuses_nextToken,
+    listEventBuses_limit,
+    listEventBuses_namePrefix,
+    listEventBusesResponse_nextToken,
+    listEventBusesResponse_eventBuses,
+    listEventBusesResponse_httpStatus,
+
+    -- ** ListEventSources
+    listEventSources_nextToken,
+    listEventSources_limit,
+    listEventSources_namePrefix,
+    listEventSourcesResponse_nextToken,
+    listEventSourcesResponse_eventSources,
+    listEventSourcesResponse_httpStatus,
+
+    -- ** ListPartnerEventSourceAccounts
+    listPartnerEventSourceAccounts_nextToken,
+    listPartnerEventSourceAccounts_limit,
+    listPartnerEventSourceAccounts_eventSourceName,
+    listPartnerEventSourceAccountsResponse_nextToken,
+    listPartnerEventSourceAccountsResponse_partnerEventSourceAccounts,
+    listPartnerEventSourceAccountsResponse_httpStatus,
+
+    -- ** ListPartnerEventSources
+    listPartnerEventSources_nextToken,
+    listPartnerEventSources_limit,
+    listPartnerEventSources_namePrefix,
+    listPartnerEventSourcesResponse_nextToken,
+    listPartnerEventSourcesResponse_partnerEventSources,
+    listPartnerEventSourcesResponse_httpStatus,
+
+    -- ** ListReplays
+    listReplays_nextToken,
+    listReplays_state,
+    listReplays_limit,
+    listReplays_eventSourceArn,
+    listReplays_namePrefix,
+    listReplaysResponse_nextToken,
+    listReplaysResponse_replays,
+    listReplaysResponse_httpStatus,
+
+    -- ** ListRuleNamesByTarget
+    listRuleNamesByTarget_nextToken,
+    listRuleNamesByTarget_eventBusName,
+    listRuleNamesByTarget_limit,
+    listRuleNamesByTarget_targetArn,
+    listRuleNamesByTargetResponse_nextToken,
+    listRuleNamesByTargetResponse_ruleNames,
+    listRuleNamesByTargetResponse_httpStatus,
+
+    -- ** ListRules
+    listRules_nextToken,
+    listRules_eventBusName,
+    listRules_limit,
+    listRules_namePrefix,
+    listRulesResponse_nextToken,
+    listRulesResponse_rules,
+    listRulesResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** ListTargetsByRule
     listTargetsByRule_nextToken,
@@ -150,98 +322,59 @@ module Amazonka.CloudWatchEvents.Lens
     listTargetsByRuleResponse_targets,
     listTargetsByRuleResponse_httpStatus,
 
-    -- ** RemovePermission
-    removePermission_eventBusName,
-    removePermission_removeAllPermissions,
-    removePermission_statementId,
-
-    -- ** ListApiDestinations
-    listApiDestinations_nextToken,
-    listApiDestinations_namePrefix,
-    listApiDestinations_limit,
-    listApiDestinations_connectionArn,
-    listApiDestinationsResponse_apiDestinations,
-    listApiDestinationsResponse_nextToken,
-    listApiDestinationsResponse_httpStatus,
-
-    -- ** UpdateApiDestination
-    updateApiDestination_httpMethod,
-    updateApiDestination_invocationEndpoint,
-    updateApiDestination_invocationRateLimitPerSecond,
-    updateApiDestination_connectionArn,
-    updateApiDestination_description,
-    updateApiDestination_name,
-    updateApiDestinationResponse_creationTime,
-    updateApiDestinationResponse_lastModifiedTime,
-    updateApiDestinationResponse_apiDestinationState,
-    updateApiDestinationResponse_apiDestinationArn,
-    updateApiDestinationResponse_httpStatus,
-
-    -- ** DeleteApiDestination
-    deleteApiDestination_name,
-    deleteApiDestinationResponse_httpStatus,
-
-    -- ** ActivateEventSource
-    activateEventSource_name,
-
-    -- ** CreateApiDestination
-    createApiDestination_invocationRateLimitPerSecond,
-    createApiDestination_description,
-    createApiDestination_name,
-    createApiDestination_connectionArn,
-    createApiDestination_invocationEndpoint,
-    createApiDestination_httpMethod,
-    createApiDestinationResponse_creationTime,
-    createApiDestinationResponse_lastModifiedTime,
-    createApiDestinationResponse_apiDestinationState,
-    createApiDestinationResponse_apiDestinationArn,
-    createApiDestinationResponse_httpStatus,
+    -- ** PutEvents
+    putEvents_entries,
+    putEventsResponse_entries,
+    putEventsResponse_failedEntryCount,
+    putEventsResponse_httpStatus,
 
     -- ** PutPartnerEvents
     putPartnerEvents_entries,
-    putPartnerEventsResponse_failedEntryCount,
     putPartnerEventsResponse_entries,
+    putPartnerEventsResponse_failedEntryCount,
     putPartnerEventsResponse_httpStatus,
 
-    -- ** DescribeConnection
-    describeConnection_name,
-    describeConnectionResponse_creationTime,
-    describeConnectionResponse_lastModifiedTime,
-    describeConnectionResponse_name,
-    describeConnectionResponse_authParameters,
-    describeConnectionResponse_lastAuthorizedTime,
-    describeConnectionResponse_authorizationType,
-    describeConnectionResponse_connectionArn,
-    describeConnectionResponse_stateReason,
-    describeConnectionResponse_secretArn,
-    describeConnectionResponse_description,
-    describeConnectionResponse_connectionState,
-    describeConnectionResponse_httpStatus,
+    -- ** PutPermission
+    putPermission_principal,
+    putPermission_policy,
+    putPermission_eventBusName,
+    putPermission_statementId,
+    putPermission_condition,
+    putPermission_action,
 
-    -- ** DescribeRule
-    describeRule_eventBusName,
-    describeRule_name,
-    describeRuleResponse_eventPattern,
-    describeRuleResponse_state,
-    describeRuleResponse_arn,
-    describeRuleResponse_createdBy,
-    describeRuleResponse_eventBusName,
-    describeRuleResponse_scheduleExpression,
-    describeRuleResponse_name,
-    describeRuleResponse_description,
-    describeRuleResponse_managedBy,
-    describeRuleResponse_roleArn,
-    describeRuleResponse_httpStatus,
+    -- ** PutRule
+    putRule_tags,
+    putRule_roleArn,
+    putRule_eventPattern,
+    putRule_eventBusName,
+    putRule_state,
+    putRule_description,
+    putRule_scheduleExpression,
+    putRule_name,
+    putRuleResponse_ruleArn,
+    putRuleResponse_httpStatus,
 
-    -- ** ListArchives
-    listArchives_eventSourceArn,
-    listArchives_state,
-    listArchives_nextToken,
-    listArchives_namePrefix,
-    listArchives_limit,
-    listArchivesResponse_archives,
-    listArchivesResponse_nextToken,
-    listArchivesResponse_httpStatus,
+    -- ** PutTargets
+    putTargets_eventBusName,
+    putTargets_rule,
+    putTargets_targets,
+    putTargetsResponse_failedEntries,
+    putTargetsResponse_failedEntryCount,
+    putTargetsResponse_httpStatus,
+
+    -- ** RemovePermission
+    removePermission_eventBusName,
+    removePermission_statementId,
+    removePermission_removeAllPermissions,
+
+    -- ** RemoveTargets
+    removeTargets_eventBusName,
+    removeTargets_force,
+    removeTargets_rule,
+    removeTargets_ids,
+    removeTargetsResponse_failedEntries,
+    removeTargetsResponse_failedEntryCount,
+    removeTargetsResponse_httpStatus,
 
     -- ** StartReplay
     startReplay_description,
@@ -250,98 +383,16 @@ module Amazonka.CloudWatchEvents.Lens
     startReplay_eventStartTime,
     startReplay_eventEndTime,
     startReplay_destination,
+    startReplayResponse_replayArn,
     startReplayResponse_state,
     startReplayResponse_replayStartTime,
-    startReplayResponse_replayArn,
     startReplayResponse_stateReason,
     startReplayResponse_httpStatus,
 
-    -- ** DeletePartnerEventSource
-    deletePartnerEventSource_name,
-    deletePartnerEventSource_account,
-
-    -- ** DescribeReplay
-    describeReplay_replayName,
-    describeReplayResponse_eventSourceArn,
-    describeReplayResponse_destination,
-    describeReplayResponse_state,
-    describeReplayResponse_eventEndTime,
-    describeReplayResponse_replayStartTime,
-    describeReplayResponse_replayArn,
-    describeReplayResponse_replayEndTime,
-    describeReplayResponse_eventLastReplayedTime,
-    describeReplayResponse_eventStartTime,
-    describeReplayResponse_replayName,
-    describeReplayResponse_stateReason,
-    describeReplayResponse_description,
-    describeReplayResponse_httpStatus,
-
-    -- ** DescribeApiDestination
-    describeApiDestination_name,
-    describeApiDestinationResponse_creationTime,
-    describeApiDestinationResponse_httpMethod,
-    describeApiDestinationResponse_invocationEndpoint,
-    describeApiDestinationResponse_lastModifiedTime,
-    describeApiDestinationResponse_name,
-    describeApiDestinationResponse_invocationRateLimitPerSecond,
-    describeApiDestinationResponse_apiDestinationState,
-    describeApiDestinationResponse_connectionArn,
-    describeApiDestinationResponse_description,
-    describeApiDestinationResponse_apiDestinationArn,
-    describeApiDestinationResponse_httpStatus,
-
-    -- ** ListEventBuses
-    listEventBuses_nextToken,
-    listEventBuses_namePrefix,
-    listEventBuses_limit,
-    listEventBusesResponse_eventBuses,
-    listEventBusesResponse_nextToken,
-    listEventBusesResponse_httpStatus,
-
-    -- ** CreateEventBus
-    createEventBus_eventSourceName,
-    createEventBus_tags,
-    createEventBus_name,
-    createEventBusResponse_eventBusArn,
-    createEventBusResponse_httpStatus,
-
-    -- ** DescribeEventSource
-    describeEventSource_name,
-    describeEventSourceResponse_creationTime,
-    describeEventSourceResponse_state,
-    describeEventSourceResponse_arn,
-    describeEventSourceResponse_createdBy,
-    describeEventSourceResponse_name,
-    describeEventSourceResponse_expirationTime,
-    describeEventSourceResponse_httpStatus,
-
-    -- ** DescribeArchive
-    describeArchive_archiveName,
-    describeArchiveResponse_creationTime,
-    describeArchiveResponse_sizeBytes,
-    describeArchiveResponse_eventSourceArn,
-    describeArchiveResponse_eventPattern,
-    describeArchiveResponse_state,
-    describeArchiveResponse_eventCount,
-    describeArchiveResponse_archiveName,
-    describeArchiveResponse_retentionDays,
-    describeArchiveResponse_archiveArn,
-    describeArchiveResponse_stateReason,
-    describeArchiveResponse_description,
-    describeArchiveResponse_httpStatus,
-
-    -- ** EnableRule
-    enableRule_eventBusName,
-    enableRule_name,
-
-    -- ** ListRuleNamesByTarget
-    listRuleNamesByTarget_nextToken,
-    listRuleNamesByTarget_eventBusName,
-    listRuleNamesByTarget_limit,
-    listRuleNamesByTarget_targetArn,
-    listRuleNamesByTargetResponse_ruleNames,
-    listRuleNamesByTargetResponse_nextToken,
-    listRuleNamesByTargetResponse_httpStatus,
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** TestEventPattern
     testEventPattern_eventPattern,
@@ -349,119 +400,68 @@ module Amazonka.CloudWatchEvents.Lens
     testEventPatternResponse_result,
     testEventPatternResponse_httpStatus,
 
-    -- ** DescribePartnerEventSource
-    describePartnerEventSource_name,
-    describePartnerEventSourceResponse_arn,
-    describePartnerEventSourceResponse_name,
-    describePartnerEventSourceResponse_httpStatus,
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
-    -- ** DescribeEventBus
-    describeEventBus_name,
-    describeEventBusResponse_arn,
-    describeEventBusResponse_name,
-    describeEventBusResponse_policy,
-    describeEventBusResponse_httpStatus,
-
-    -- ** ListEventSources
-    listEventSources_nextToken,
-    listEventSources_namePrefix,
-    listEventSources_limit,
-    listEventSourcesResponse_nextToken,
-    listEventSourcesResponse_eventSources,
-    listEventSourcesResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** CreatePartnerEventSource
-    createPartnerEventSource_name,
-    createPartnerEventSource_account,
-    createPartnerEventSourceResponse_eventSourceArn,
-    createPartnerEventSourceResponse_httpStatus,
-
-    -- ** PutTargets
-    putTargets_eventBusName,
-    putTargets_rule,
-    putTargets_targets,
-    putTargetsResponse_failedEntryCount,
-    putTargetsResponse_failedEntries,
-    putTargetsResponse_httpStatus,
+    -- ** UpdateApiDestination
+    updateApiDestination_invocationRateLimitPerSecond,
+    updateApiDestination_invocationEndpoint,
+    updateApiDestination_description,
+    updateApiDestination_connectionArn,
+    updateApiDestination_httpMethod,
+    updateApiDestination_name,
+    updateApiDestinationResponse_lastModifiedTime,
+    updateApiDestinationResponse_apiDestinationState,
+    updateApiDestinationResponse_creationTime,
+    updateApiDestinationResponse_apiDestinationArn,
+    updateApiDestinationResponse_httpStatus,
 
     -- ** UpdateArchive
     updateArchive_eventPattern,
     updateArchive_retentionDays,
     updateArchive_description,
     updateArchive_archiveName,
-    updateArchiveResponse_creationTime,
-    updateArchiveResponse_state,
     updateArchiveResponse_archiveArn,
+    updateArchiveResponse_state,
+    updateArchiveResponse_creationTime,
     updateArchiveResponse_stateReason,
     updateArchiveResponse_httpStatus,
 
-    -- ** DeleteArchive
-    deleteArchive_archiveName,
-    deleteArchiveResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** PutEvents
-    putEvents_entries,
-    putEventsResponse_failedEntryCount,
-    putEventsResponse_entries,
-    putEventsResponse_httpStatus,
-
-    -- ** ListPartnerEventSources
-    listPartnerEventSources_nextToken,
-    listPartnerEventSources_limit,
-    listPartnerEventSources_namePrefix,
-    listPartnerEventSourcesResponse_partnerEventSources,
-    listPartnerEventSourcesResponse_nextToken,
-    listPartnerEventSourcesResponse_httpStatus,
-
-    -- ** CreateArchive
-    createArchive_eventPattern,
-    createArchive_retentionDays,
-    createArchive_description,
-    createArchive_archiveName,
-    createArchive_eventSourceArn,
-    createArchiveResponse_creationTime,
-    createArchiveResponse_state,
-    createArchiveResponse_archiveArn,
-    createArchiveResponse_stateReason,
-    createArchiveResponse_httpStatus,
-
-    -- ** DeactivateEventSource
-    deactivateEventSource_name,
-
-    -- ** DeleteEventBus
-    deleteEventBus_name,
+    -- ** UpdateConnection
+    updateConnection_authParameters,
+    updateConnection_description,
+    updateConnection_authorizationType,
+    updateConnection_name,
+    updateConnectionResponse_connectionState,
+    updateConnectionResponse_connectionArn,
+    updateConnectionResponse_lastModifiedTime,
+    updateConnectionResponse_lastAuthorizedTime,
+    updateConnectionResponse_creationTime,
+    updateConnectionResponse_httpStatus,
 
     -- * Types
 
     -- ** ApiDestination
-    apiDestination_creationTime,
-    apiDestination_httpMethod,
-    apiDestination_invocationEndpoint,
-    apiDestination_lastModifiedTime,
     apiDestination_name,
     apiDestination_invocationRateLimitPerSecond,
-    apiDestination_apiDestinationState,
+    apiDestination_invocationEndpoint,
     apiDestination_connectionArn,
+    apiDestination_httpMethod,
+    apiDestination_lastModifiedTime,
+    apiDestination_apiDestinationState,
+    apiDestination_creationTime,
     apiDestination_apiDestinationArn,
 
     -- ** Archive
-    archive_creationTime,
+    archive_retentionDays,
     archive_sizeBytes,
-    archive_eventSourceArn,
     archive_state,
     archive_eventCount,
     archive_archiveName,
-    archive_retentionDays,
+    archive_eventSourceArn,
+    archive_creationTime,
     archive_stateReason,
 
     -- ** AwsVpcConfiguration
@@ -492,14 +492,14 @@ module Amazonka.CloudWatchEvents.Lens
     condition_value,
 
     -- ** Connection
-    connection_creationTime,
-    connection_lastModifiedTime,
     connection_name,
-    connection_lastAuthorizedTime,
-    connection_authorizationType,
-    connection_connectionArn,
-    connection_stateReason,
     connection_connectionState,
+    connection_connectionArn,
+    connection_lastModifiedTime,
+    connection_lastAuthorizedTime,
+    connection_creationTime,
+    connection_authorizationType,
+    connection_stateReason,
 
     -- ** ConnectionApiKeyAuthResponseParameters
     connectionApiKeyAuthResponseParameters_apiKeyName,
@@ -507,21 +507,21 @@ module Amazonka.CloudWatchEvents.Lens
     -- ** ConnectionAuthResponseParameters
     connectionAuthResponseParameters_oAuthParameters,
     connectionAuthResponseParameters_invocationHttpParameters,
-    connectionAuthResponseParameters_apiKeyAuthParameters,
     connectionAuthResponseParameters_basicAuthParameters,
+    connectionAuthResponseParameters_apiKeyAuthParameters,
 
     -- ** ConnectionBasicAuthResponseParameters
     connectionBasicAuthResponseParameters_username,
 
     -- ** ConnectionBodyParameter
+    connectionBodyParameter_key,
     connectionBodyParameter_isValueSecret,
     connectionBodyParameter_value,
-    connectionBodyParameter_key,
 
     -- ** ConnectionHeaderParameter
+    connectionHeaderParameter_key,
     connectionHeaderParameter_isValueSecret,
     connectionHeaderParameter_value,
-    connectionHeaderParameter_key,
 
     -- ** ConnectionHttpParameters
     connectionHttpParameters_queryStringParameters,
@@ -532,15 +532,15 @@ module Amazonka.CloudWatchEvents.Lens
     connectionOAuthClientResponseParameters_clientID,
 
     -- ** ConnectionOAuthResponseParameters
-    connectionOAuthResponseParameters_httpMethod,
-    connectionOAuthResponseParameters_clientParameters,
-    connectionOAuthResponseParameters_oAuthHttpParameters,
     connectionOAuthResponseParameters_authorizationEndpoint,
+    connectionOAuthResponseParameters_oAuthHttpParameters,
+    connectionOAuthResponseParameters_clientParameters,
+    connectionOAuthResponseParameters_httpMethod,
 
     -- ** ConnectionQueryStringParameter
+    connectionQueryStringParameter_key,
     connectionQueryStringParameter_isValueSecret,
     connectionQueryStringParameter_value,
-    connectionQueryStringParameter_key,
 
     -- ** CreateConnectionApiKeyAuthRequestParameters
     createConnectionApiKeyAuthRequestParameters_apiKeyName,
@@ -549,8 +549,8 @@ module Amazonka.CloudWatchEvents.Lens
     -- ** CreateConnectionAuthRequestParameters
     createConnectionAuthRequestParameters_oAuthParameters,
     createConnectionAuthRequestParameters_invocationHttpParameters,
-    createConnectionAuthRequestParameters_apiKeyAuthParameters,
     createConnectionAuthRequestParameters_basicAuthParameters,
+    createConnectionAuthRequestParameters_apiKeyAuthParameters,
 
     -- ** CreateConnectionBasicAuthRequestParameters
     createConnectionBasicAuthRequestParameters_username,
@@ -570,38 +570,38 @@ module Amazonka.CloudWatchEvents.Lens
     deadLetterConfig_arn,
 
     -- ** EcsParameters
-    ecsParameters_group,
+    ecsParameters_tags,
+    ecsParameters_placementStrategy,
+    ecsParameters_networkConfiguration,
+    ecsParameters_enableExecuteCommand,
+    ecsParameters_capacityProviderStrategy,
+    ecsParameters_placementConstraints,
     ecsParameters_propagateTags,
+    ecsParameters_referenceId,
+    ecsParameters_launchType,
     ecsParameters_platformVersion,
     ecsParameters_enableECSManagedTags,
-    ecsParameters_referenceId,
-    ecsParameters_placementConstraints,
-    ecsParameters_placementStrategy,
-    ecsParameters_launchType,
-    ecsParameters_capacityProviderStrategy,
+    ecsParameters_group,
     ecsParameters_taskCount,
-    ecsParameters_networkConfiguration,
-    ecsParameters_tags,
-    ecsParameters_enableExecuteCommand,
     ecsParameters_taskDefinitionArn,
 
     -- ** EventBus
-    eventBus_arn,
-    eventBus_name,
     eventBus_policy,
+    eventBus_name,
+    eventBus_arn,
 
     -- ** EventSource
-    eventSource_creationTime,
-    eventSource_state,
-    eventSource_arn,
-    eventSource_createdBy,
     eventSource_name,
     eventSource_expirationTime,
+    eventSource_arn,
+    eventSource_state,
+    eventSource_creationTime,
+    eventSource_createdBy,
 
     -- ** HttpParameters
-    httpParameters_pathParameterValues,
     httpParameters_queryStringParameters,
     httpParameters_headerParameters,
+    httpParameters_pathParameterValues,
 
     -- ** InputTransformer
     inputTransformer_inputPathsMap,
@@ -614,77 +614,77 @@ module Amazonka.CloudWatchEvents.Lens
     networkConfiguration_awsvpcConfiguration,
 
     -- ** PartnerEventSource
-    partnerEventSource_arn,
     partnerEventSource_name,
+    partnerEventSource_arn,
 
     -- ** PartnerEventSourceAccount
-    partnerEventSourceAccount_creationTime,
-    partnerEventSourceAccount_state,
-    partnerEventSourceAccount_account,
     partnerEventSourceAccount_expirationTime,
+    partnerEventSourceAccount_account,
+    partnerEventSourceAccount_state,
+    partnerEventSourceAccount_creationTime,
 
     -- ** PlacementConstraint
-    placementConstraint_expression,
     placementConstraint_type,
+    placementConstraint_expression,
 
     -- ** PlacementStrategy
-    placementStrategy_field,
     placementStrategy_type,
+    placementStrategy_field,
 
     -- ** PutEventsRequestEntry
-    putEventsRequestEntry_time,
     putEventsRequestEntry_detailType,
-    putEventsRequestEntry_resources,
     putEventsRequestEntry_eventBusName,
+    putEventsRequestEntry_time,
     putEventsRequestEntry_source,
+    putEventsRequestEntry_resources,
     putEventsRequestEntry_traceHeader,
     putEventsRequestEntry_detail,
 
     -- ** PutEventsResultEntry
-    putEventsResultEntry_errorCode,
     putEventsResultEntry_errorMessage,
     putEventsResultEntry_eventId,
+    putEventsResultEntry_errorCode,
 
     -- ** PutPartnerEventsRequestEntry
-    putPartnerEventsRequestEntry_time,
     putPartnerEventsRequestEntry_detailType,
-    putPartnerEventsRequestEntry_resources,
+    putPartnerEventsRequestEntry_time,
     putPartnerEventsRequestEntry_source,
+    putPartnerEventsRequestEntry_resources,
     putPartnerEventsRequestEntry_detail,
 
     -- ** PutPartnerEventsResultEntry
-    putPartnerEventsResultEntry_errorCode,
     putPartnerEventsResultEntry_errorMessage,
     putPartnerEventsResultEntry_eventId,
+    putPartnerEventsResultEntry_errorCode,
 
     -- ** PutTargetsResultEntry
     putTargetsResultEntry_targetId,
-    putTargetsResultEntry_errorCode,
     putTargetsResultEntry_errorMessage,
+    putTargetsResultEntry_errorCode,
 
     -- ** RedshiftDataParameters
-    redshiftDataParameters_dbUser,
     redshiftDataParameters_secretManagerArn,
     redshiftDataParameters_statementName,
     redshiftDataParameters_withEvent,
+    redshiftDataParameters_dbUser,
     redshiftDataParameters_database,
     redshiftDataParameters_sql,
 
     -- ** RemoveTargetsResultEntry
     removeTargetsResultEntry_targetId,
-    removeTargetsResultEntry_errorCode,
     removeTargetsResultEntry_errorMessage,
+    removeTargetsResultEntry_errorCode,
 
     -- ** Replay
-    replay_eventSourceArn,
     replay_state,
-    replay_eventEndTime,
-    replay_replayStartTime,
-    replay_replayEndTime,
     replay_eventLastReplayedTime,
-    replay_eventStartTime,
+    replay_eventEndTime,
+    replay_eventSourceArn,
+    replay_replayEndTime,
     replay_replayName,
+    replay_replayStartTime,
     replay_stateReason,
+    replay_eventStartTime,
 
     -- ** ReplayDestination
     replayDestination_filterArns,
@@ -695,15 +695,15 @@ module Amazonka.CloudWatchEvents.Lens
     retryPolicy_maximumRetryAttempts,
 
     -- ** Rule
-    rule_eventPattern,
-    rule_state,
-    rule_arn,
-    rule_eventBusName,
-    rule_scheduleExpression,
     rule_name,
-    rule_description,
-    rule_managedBy,
     rule_roleArn,
+    rule_eventPattern,
+    rule_eventBusName,
+    rule_arn,
+    rule_state,
+    rule_description,
+    rule_scheduleExpression,
+    rule_managedBy,
 
     -- ** RunCommandParameters
     runCommandParameters_runCommandTargets,
@@ -727,20 +727,20 @@ module Amazonka.CloudWatchEvents.Lens
     tag_value,
 
     -- ** Target
-    target_runCommandParameters,
-    target_httpParameters,
     target_kinesisParameters,
-    target_inputTransformer,
-    target_deadLetterConfig,
+    target_httpParameters,
+    target_roleArn,
+    target_inputPath,
     target_sageMakerPipelineParameters,
-    target_sqsParameters,
+    target_runCommandParameters,
     target_input,
-    target_batchParameters,
     target_redshiftDataParameters,
+    target_sqsParameters,
+    target_inputTransformer,
+    target_batchParameters,
     target_ecsParameters,
     target_retryPolicy,
-    target_inputPath,
-    target_roleArn,
+    target_deadLetterConfig,
     target_id,
     target_arn,
 
@@ -751,22 +751,22 @@ module Amazonka.CloudWatchEvents.Lens
     -- ** UpdateConnectionAuthRequestParameters
     updateConnectionAuthRequestParameters_oAuthParameters,
     updateConnectionAuthRequestParameters_invocationHttpParameters,
-    updateConnectionAuthRequestParameters_apiKeyAuthParameters,
     updateConnectionAuthRequestParameters_basicAuthParameters,
+    updateConnectionAuthRequestParameters_apiKeyAuthParameters,
 
     -- ** UpdateConnectionBasicAuthRequestParameters
-    updateConnectionBasicAuthRequestParameters_username,
     updateConnectionBasicAuthRequestParameters_password,
+    updateConnectionBasicAuthRequestParameters_username,
 
     -- ** UpdateConnectionOAuthClientRequestParameters
-    updateConnectionOAuthClientRequestParameters_clientID,
     updateConnectionOAuthClientRequestParameters_clientSecret,
+    updateConnectionOAuthClientRequestParameters_clientID,
 
     -- ** UpdateConnectionOAuthRequestParameters
-    updateConnectionOAuthRequestParameters_httpMethod,
-    updateConnectionOAuthRequestParameters_clientParameters,
-    updateConnectionOAuthRequestParameters_oAuthHttpParameters,
     updateConnectionOAuthRequestParameters_authorizationEndpoint,
+    updateConnectionOAuthRequestParameters_oAuthHttpParameters,
+    updateConnectionOAuthRequestParameters_clientParameters,
+    updateConnectionOAuthRequestParameters_httpMethod,
   )
 where
 

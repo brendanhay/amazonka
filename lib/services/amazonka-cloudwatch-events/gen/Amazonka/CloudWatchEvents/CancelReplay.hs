@@ -34,8 +34,8 @@ module Amazonka.CloudWatchEvents.CancelReplay
     newCancelReplayResponse,
 
     -- * Response Lenses
-    cancelReplayResponse_state,
     cancelReplayResponse_replayArn,
+    cancelReplayResponse_state,
     cancelReplayResponse_stateReason,
     cancelReplayResponse_httpStatus,
   )
@@ -82,8 +82,8 @@ instance Core.AWSRequest CancelReplay where
     Response.receiveJSON
       ( \s h x ->
           CancelReplayResponse'
-            Prelude.<$> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "ReplayArn")
+            Prelude.<$> (x Core..?> "ReplayArn")
+            Prelude.<*> (x Core..?> "State")
             Prelude.<*> (x Core..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -123,10 +123,10 @@ instance Core.ToQuery CancelReplay where
 
 -- | /See:/ 'newCancelReplayResponse' smart constructor.
 data CancelReplayResponse = CancelReplayResponse'
-  { -- | The current state of the replay.
-    state :: Prelude.Maybe ReplayState,
-    -- | The ARN of the replay to cancel.
+  { -- | The ARN of the replay to cancel.
     replayArn :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the replay.
+    state :: Prelude.Maybe ReplayState,
     -- | The reason that the replay is in the current state.
     stateReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -142,9 +142,9 @@ data CancelReplayResponse = CancelReplayResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'cancelReplayResponse_state' - The current state of the replay.
---
 -- 'replayArn', 'cancelReplayResponse_replayArn' - The ARN of the replay to cancel.
+--
+-- 'state', 'cancelReplayResponse_state' - The current state of the replay.
 --
 -- 'stateReason', 'cancelReplayResponse_stateReason' - The reason that the replay is in the current state.
 --
@@ -155,19 +155,19 @@ newCancelReplayResponse ::
   CancelReplayResponse
 newCancelReplayResponse pHttpStatus_ =
   CancelReplayResponse'
-    { state = Prelude.Nothing,
-      replayArn = Prelude.Nothing,
+    { replayArn = Prelude.Nothing,
+      state = Prelude.Nothing,
       stateReason = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The current state of the replay.
-cancelReplayResponse_state :: Lens.Lens' CancelReplayResponse (Prelude.Maybe ReplayState)
-cancelReplayResponse_state = Lens.lens (\CancelReplayResponse' {state} -> state) (\s@CancelReplayResponse' {} a -> s {state = a} :: CancelReplayResponse)
-
 -- | The ARN of the replay to cancel.
 cancelReplayResponse_replayArn :: Lens.Lens' CancelReplayResponse (Prelude.Maybe Prelude.Text)
 cancelReplayResponse_replayArn = Lens.lens (\CancelReplayResponse' {replayArn} -> replayArn) (\s@CancelReplayResponse' {} a -> s {replayArn = a} :: CancelReplayResponse)
+
+-- | The current state of the replay.
+cancelReplayResponse_state :: Lens.Lens' CancelReplayResponse (Prelude.Maybe ReplayState)
+cancelReplayResponse_state = Lens.lens (\CancelReplayResponse' {state} -> state) (\s@CancelReplayResponse' {} a -> s {state = a} :: CancelReplayResponse)
 
 -- | The reason that the replay is in the current state.
 cancelReplayResponse_stateReason :: Lens.Lens' CancelReplayResponse (Prelude.Maybe Prelude.Text)
@@ -179,7 +179,7 @@ cancelReplayResponse_httpStatus = Lens.lens (\CancelReplayResponse' {httpStatus}
 
 instance Prelude.NFData CancelReplayResponse where
   rnf CancelReplayResponse' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf replayArn
+    Prelude.rnf replayArn
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf stateReason
       `Prelude.seq` Prelude.rnf httpStatus

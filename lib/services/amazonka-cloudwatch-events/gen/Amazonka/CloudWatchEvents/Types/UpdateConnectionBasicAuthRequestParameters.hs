@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateConnectionBasicAuthRequestParameters' smart constructor.
 data UpdateConnectionBasicAuthRequestParameters = UpdateConnectionBasicAuthRequestParameters'
-  { -- | The user name to use for Basic authorization.
-    username :: Prelude.Maybe Prelude.Text,
-    -- | The password associated with the user name to use for Basic
+  { -- | The password associated with the user name to use for Basic
     -- authorization.
-    password :: Prelude.Maybe Prelude.Text
+    password :: Prelude.Maybe Prelude.Text,
+    -- | The user name to use for Basic authorization.
+    username :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,27 +43,27 @@ data UpdateConnectionBasicAuthRequestParameters = UpdateConnectionBasicAuthReque
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'username', 'updateConnectionBasicAuthRequestParameters_username' - The user name to use for Basic authorization.
---
 -- 'password', 'updateConnectionBasicAuthRequestParameters_password' - The password associated with the user name to use for Basic
 -- authorization.
+--
+-- 'username', 'updateConnectionBasicAuthRequestParameters_username' - The user name to use for Basic authorization.
 newUpdateConnectionBasicAuthRequestParameters ::
   UpdateConnectionBasicAuthRequestParameters
 newUpdateConnectionBasicAuthRequestParameters =
   UpdateConnectionBasicAuthRequestParameters'
-    { username =
+    { password =
         Prelude.Nothing,
-      password = Prelude.Nothing
+      username = Prelude.Nothing
     }
-
--- | The user name to use for Basic authorization.
-updateConnectionBasicAuthRequestParameters_username :: Lens.Lens' UpdateConnectionBasicAuthRequestParameters (Prelude.Maybe Prelude.Text)
-updateConnectionBasicAuthRequestParameters_username = Lens.lens (\UpdateConnectionBasicAuthRequestParameters' {username} -> username) (\s@UpdateConnectionBasicAuthRequestParameters' {} a -> s {username = a} :: UpdateConnectionBasicAuthRequestParameters)
 
 -- | The password associated with the user name to use for Basic
 -- authorization.
 updateConnectionBasicAuthRequestParameters_password :: Lens.Lens' UpdateConnectionBasicAuthRequestParameters (Prelude.Maybe Prelude.Text)
 updateConnectionBasicAuthRequestParameters_password = Lens.lens (\UpdateConnectionBasicAuthRequestParameters' {password} -> password) (\s@UpdateConnectionBasicAuthRequestParameters' {} a -> s {password = a} :: UpdateConnectionBasicAuthRequestParameters)
+
+-- | The user name to use for Basic authorization.
+updateConnectionBasicAuthRequestParameters_username :: Lens.Lens' UpdateConnectionBasicAuthRequestParameters (Prelude.Maybe Prelude.Text)
+updateConnectionBasicAuthRequestParameters_username = Lens.lens (\UpdateConnectionBasicAuthRequestParameters' {username} -> username) (\s@UpdateConnectionBasicAuthRequestParameters' {} a -> s {username = a} :: UpdateConnectionBasicAuthRequestParameters)
 
 instance
   Prelude.Hashable
@@ -72,16 +72,16 @@ instance
   hashWithSalt
     _salt
     UpdateConnectionBasicAuthRequestParameters' {..} =
-      _salt `Prelude.hashWithSalt` username
-        `Prelude.hashWithSalt` password
+      _salt `Prelude.hashWithSalt` password
+        `Prelude.hashWithSalt` username
 
 instance
   Prelude.NFData
     UpdateConnectionBasicAuthRequestParameters
   where
   rnf UpdateConnectionBasicAuthRequestParameters' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf password
+      `Prelude.seq` Prelude.rnf username
 
 instance
   Core.ToJSON
@@ -91,7 +91,7 @@ instance
     UpdateConnectionBasicAuthRequestParameters' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Username" Core..=) Prelude.<$> username,
-              ("Password" Core..=) Prelude.<$> password
+            [ ("Password" Core..=) Prelude.<$> password,
+              ("Username" Core..=) Prelude.<$> username
             ]
         )

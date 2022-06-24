@@ -51,12 +51,12 @@ module Amazonka.CloudWatchEvents.PutPermission
     newPutPermission,
 
     -- * Request Lenses
-    putPermission_action,
-    putPermission_eventBusName,
     putPermission_principal,
     putPermission_policy,
+    putPermission_eventBusName,
     putPermission_statementId,
     putPermission_condition,
+    putPermission_action,
 
     -- * Destructuring the Response
     PutPermissionResponse (..),
@@ -73,12 +73,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutPermission' smart constructor.
 data PutPermission = PutPermission'
-  { -- | The action that you are enabling the other account to perform.
-    action :: Prelude.Maybe Prelude.Text,
-    -- | The name of the event bus associated with the rule. If you omit this,
-    -- the default event bus is used.
-    eventBusName :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit Amazon Web Services account ID that you are permitting to
+  { -- | The 12-digit Amazon Web Services account ID that you are permitting to
     -- put events to your default event bus. Specify \"*\" to permit any
     -- account to put events to your default event bus.
     --
@@ -92,6 +87,9 @@ data PutPermission = PutPermission'
     -- include a @Policy@ parameter in the request instead of using the
     -- @StatementId@, @Action@, @Principal@, or @Condition@ parameters.
     policy :: Prelude.Maybe Prelude.Text,
+    -- | The name of the event bus associated with the rule. If you omit this,
+    -- the default event bus is used.
+    eventBusName :: Prelude.Maybe Prelude.Text,
     -- | An identifier string for the external account that you are granting
     -- permissions to. If you later want to revoke the permission for this
     -- external account, specify this @StatementId@ when you run
@@ -110,7 +108,9 @@ data PutPermission = PutPermission'
     --
     -- The @Condition@ is a JSON string which must contain @Type@, @Key@, and
     -- @Value@ fields.
-    condition :: Prelude.Maybe Condition
+    condition :: Prelude.Maybe Condition,
+    -- | The action that you are enabling the other account to perform.
+    action :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -121,11 +121,6 @@ data PutPermission = PutPermission'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'action', 'putPermission_action' - The action that you are enabling the other account to perform.
---
--- 'eventBusName', 'putPermission_eventBusName' - The name of the event bus associated with the rule. If you omit this,
--- the default event bus is used.
 --
 -- 'principal', 'putPermission_principal' - The 12-digit Amazon Web Services account ID that you are permitting to
 -- put events to your default event bus. Specify \"*\" to permit any
@@ -140,6 +135,9 @@ data PutPermission = PutPermission'
 -- 'policy', 'putPermission_policy' - A JSON string that describes the permission policy statement. You can
 -- include a @Policy@ parameter in the request instead of using the
 -- @StatementId@, @Action@, @Principal@, or @Condition@ parameters.
+--
+-- 'eventBusName', 'putPermission_eventBusName' - The name of the event bus associated with the rule. If you omit this,
+-- the default event bus is used.
 --
 -- 'statementId', 'putPermission_statementId' - An identifier string for the external account that you are granting
 -- permissions to. If you later want to revoke the permission for this
@@ -159,26 +157,19 @@ data PutPermission = PutPermission'
 --
 -- The @Condition@ is a JSON string which must contain @Type@, @Key@, and
 -- @Value@ fields.
+--
+-- 'action', 'putPermission_action' - The action that you are enabling the other account to perform.
 newPutPermission ::
   PutPermission
 newPutPermission =
   PutPermission'
-    { action = Prelude.Nothing,
-      eventBusName = Prelude.Nothing,
-      principal = Prelude.Nothing,
+    { principal = Prelude.Nothing,
       policy = Prelude.Nothing,
+      eventBusName = Prelude.Nothing,
       statementId = Prelude.Nothing,
-      condition = Prelude.Nothing
+      condition = Prelude.Nothing,
+      action = Prelude.Nothing
     }
-
--- | The action that you are enabling the other account to perform.
-putPermission_action :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
-putPermission_action = Lens.lens (\PutPermission' {action} -> action) (\s@PutPermission' {} a -> s {action = a} :: PutPermission)
-
--- | The name of the event bus associated with the rule. If you omit this,
--- the default event bus is used.
-putPermission_eventBusName :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
-putPermission_eventBusName = Lens.lens (\PutPermission' {eventBusName} -> eventBusName) (\s@PutPermission' {} a -> s {eventBusName = a} :: PutPermission)
 
 -- | The 12-digit Amazon Web Services account ID that you are permitting to
 -- put events to your default event bus. Specify \"*\" to permit any
@@ -197,6 +188,11 @@ putPermission_principal = Lens.lens (\PutPermission' {principal} -> principal) (
 -- @StatementId@, @Action@, @Principal@, or @Condition@ parameters.
 putPermission_policy :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
 putPermission_policy = Lens.lens (\PutPermission' {policy} -> policy) (\s@PutPermission' {} a -> s {policy = a} :: PutPermission)
+
+-- | The name of the event bus associated with the rule. If you omit this,
+-- the default event bus is used.
+putPermission_eventBusName :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
+putPermission_eventBusName = Lens.lens (\PutPermission' {eventBusName} -> eventBusName) (\s@PutPermission' {} a -> s {eventBusName = a} :: PutPermission)
 
 -- | An identifier string for the external account that you are granting
 -- permissions to. If you later want to revoke the permission for this
@@ -221,6 +217,10 @@ putPermission_statementId = Lens.lens (\PutPermission' {statementId} -> statemen
 putPermission_condition :: Lens.Lens' PutPermission (Prelude.Maybe Condition)
 putPermission_condition = Lens.lens (\PutPermission' {condition} -> condition) (\s@PutPermission' {} a -> s {condition = a} :: PutPermission)
 
+-- | The action that you are enabling the other account to perform.
+putPermission_action :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
+putPermission_action = Lens.lens (\PutPermission' {action} -> action) (\s@PutPermission' {} a -> s {action = a} :: PutPermission)
+
 instance Core.AWSRequest PutPermission where
   type
     AWSResponse PutPermission =
@@ -231,21 +231,21 @@ instance Core.AWSRequest PutPermission where
 
 instance Prelude.Hashable PutPermission where
   hashWithSalt _salt PutPermission' {..} =
-    _salt `Prelude.hashWithSalt` action
-      `Prelude.hashWithSalt` eventBusName
-      `Prelude.hashWithSalt` principal
+    _salt `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` statementId
       `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` action
 
 instance Prelude.NFData PutPermission where
   rnf PutPermission' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf principal
+    Prelude.rnf principal
       `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf eventBusName
       `Prelude.seq` Prelude.rnf statementId
       `Prelude.seq` Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf action
 
 instance Core.ToHeaders PutPermission where
   toHeaders =
@@ -264,12 +264,12 @@ instance Core.ToJSON PutPermission where
   toJSON PutPermission' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Action" Core..=) Prelude.<$> action,
-            ("EventBusName" Core..=) Prelude.<$> eventBusName,
-            ("Principal" Core..=) Prelude.<$> principal,
+          [ ("Principal" Core..=) Prelude.<$> principal,
             ("Policy" Core..=) Prelude.<$> policy,
+            ("EventBusName" Core..=) Prelude.<$> eventBusName,
             ("StatementId" Core..=) Prelude.<$> statementId,
-            ("Condition" Core..=) Prelude.<$> condition
+            ("Condition" Core..=) Prelude.<$> condition,
+            ("Action" Core..=) Prelude.<$> action
           ]
       )
 

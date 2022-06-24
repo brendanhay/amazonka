@@ -38,8 +38,8 @@ module Amazonka.AppSync.ListFunctions
     newListFunctionsResponse,
 
     -- * Response Lenses
-    listFunctionsResponse_nextToken,
     listFunctionsResponse_functions,
+    listFunctionsResponse_nextToken,
     listFunctionsResponse_httpStatus,
   )
 where
@@ -132,8 +132,8 @@ instance Core.AWSRequest ListFunctions where
     Response.receiveJSON
       ( \s h x ->
           ListFunctionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "functions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "functions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,12 +174,12 @@ instance Core.ToQuery ListFunctions where
 
 -- | /See:/ 'newListFunctionsResponse' smart constructor.
 data ListFunctionsResponse = ListFunctionsResponse'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | A list of @Function@ objects.
+    functions :: Prelude.Maybe [FunctionConfiguration],
+    -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @Function@ objects.
-    functions :: Prelude.Maybe [FunctionConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,11 +193,11 @@ data ListFunctionsResponse = ListFunctionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'functions', 'listFunctionsResponse_functions' - A list of @Function@ objects.
+--
 -- 'nextToken', 'listFunctionsResponse_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
---
--- 'functions', 'listFunctionsResponse_functions' - A list of @Function@ objects.
 --
 -- 'httpStatus', 'listFunctionsResponse_httpStatus' - The response's http status code.
 newListFunctionsResponse ::
@@ -206,10 +206,14 @@ newListFunctionsResponse ::
   ListFunctionsResponse
 newListFunctionsResponse pHttpStatus_ =
   ListFunctionsResponse'
-    { nextToken = Prelude.Nothing,
-      functions = Prelude.Nothing,
+    { functions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of @Function@ objects.
+listFunctionsResponse_functions :: Lens.Lens' ListFunctionsResponse (Prelude.Maybe [FunctionConfiguration])
+listFunctionsResponse_functions = Lens.lens (\ListFunctionsResponse' {functions} -> functions) (\s@ListFunctionsResponse' {} a -> s {functions = a} :: ListFunctionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
@@ -217,16 +221,12 @@ newListFunctionsResponse pHttpStatus_ =
 listFunctionsResponse_nextToken :: Lens.Lens' ListFunctionsResponse (Prelude.Maybe Prelude.Text)
 listFunctionsResponse_nextToken = Lens.lens (\ListFunctionsResponse' {nextToken} -> nextToken) (\s@ListFunctionsResponse' {} a -> s {nextToken = a} :: ListFunctionsResponse)
 
--- | A list of @Function@ objects.
-listFunctionsResponse_functions :: Lens.Lens' ListFunctionsResponse (Prelude.Maybe [FunctionConfiguration])
-listFunctionsResponse_functions = Lens.lens (\ListFunctionsResponse' {functions} -> functions) (\s@ListFunctionsResponse' {} a -> s {functions = a} :: ListFunctionsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listFunctionsResponse_httpStatus :: Lens.Lens' ListFunctionsResponse Prelude.Int
 listFunctionsResponse_httpStatus = Lens.lens (\ListFunctionsResponse' {httpStatus} -> httpStatus) (\s@ListFunctionsResponse' {} a -> s {httpStatus = a} :: ListFunctionsResponse)
 
 instance Prelude.NFData ListFunctionsResponse where
   rnf ListFunctionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf functions
+    Prelude.rnf functions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

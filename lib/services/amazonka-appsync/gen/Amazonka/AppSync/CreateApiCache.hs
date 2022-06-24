@@ -27,8 +27,8 @@ module Amazonka.AppSync.CreateApiCache
     newCreateApiCache,
 
     -- * Request Lenses
-    createApiCache_atRestEncryptionEnabled,
     createApiCache_transitEncryptionEnabled,
+    createApiCache_atRestEncryptionEnabled,
     createApiCache_apiId,
     createApiCache_ttl,
     createApiCache_apiCachingBehavior,
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateApiCache' smart constructor.
 data CreateApiCache = CreateApiCache'
-  { -- | At rest encryption flag for cache. This setting cannot be updated after
-    -- creation.
-    atRestEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Transit encryption flag when connecting to cache. This setting cannot be
+  { -- | Transit encryption flag when connecting to cache. This setting cannot be
     -- updated after creation.
     transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | At rest encryption flag for cache. This setting cannot be updated after
+    -- creation.
+    atRestEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The GraphQL API Id.
     apiId :: Prelude.Text,
     -- | TTL in seconds for cache entries.
@@ -124,11 +124,11 @@ data CreateApiCache = CreateApiCache'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'atRestEncryptionEnabled', 'createApiCache_atRestEncryptionEnabled' - At rest encryption flag for cache. This setting cannot be updated after
--- creation.
---
 -- 'transitEncryptionEnabled', 'createApiCache_transitEncryptionEnabled' - Transit encryption flag when connecting to cache. This setting cannot be
 -- updated after creation.
+--
+-- 'atRestEncryptionEnabled', 'createApiCache_atRestEncryptionEnabled' - At rest encryption flag for cache. This setting cannot be updated after
+-- creation.
 --
 -- 'apiId', 'createApiCache_apiId' - The GraphQL API Id.
 --
@@ -197,24 +197,24 @@ newCreateApiCache
   pApiCachingBehavior_
   pType_ =
     CreateApiCache'
-      { atRestEncryptionEnabled =
+      { transitEncryptionEnabled =
           Prelude.Nothing,
-        transitEncryptionEnabled = Prelude.Nothing,
+        atRestEncryptionEnabled = Prelude.Nothing,
         apiId = pApiId_,
         ttl = pTtl_,
         apiCachingBehavior = pApiCachingBehavior_,
         type' = pType_
       }
 
--- | At rest encryption flag for cache. This setting cannot be updated after
--- creation.
-createApiCache_atRestEncryptionEnabled :: Lens.Lens' CreateApiCache (Prelude.Maybe Prelude.Bool)
-createApiCache_atRestEncryptionEnabled = Lens.lens (\CreateApiCache' {atRestEncryptionEnabled} -> atRestEncryptionEnabled) (\s@CreateApiCache' {} a -> s {atRestEncryptionEnabled = a} :: CreateApiCache)
-
 -- | Transit encryption flag when connecting to cache. This setting cannot be
 -- updated after creation.
 createApiCache_transitEncryptionEnabled :: Lens.Lens' CreateApiCache (Prelude.Maybe Prelude.Bool)
 createApiCache_transitEncryptionEnabled = Lens.lens (\CreateApiCache' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@CreateApiCache' {} a -> s {transitEncryptionEnabled = a} :: CreateApiCache)
+
+-- | At rest encryption flag for cache. This setting cannot be updated after
+-- creation.
+createApiCache_atRestEncryptionEnabled :: Lens.Lens' CreateApiCache (Prelude.Maybe Prelude.Bool)
+createApiCache_atRestEncryptionEnabled = Lens.lens (\CreateApiCache' {atRestEncryptionEnabled} -> atRestEncryptionEnabled) (\s@CreateApiCache' {} a -> s {atRestEncryptionEnabled = a} :: CreateApiCache)
 
 -- | The GraphQL API Id.
 createApiCache_apiId :: Lens.Lens' CreateApiCache Prelude.Text
@@ -292,8 +292,8 @@ instance Core.AWSRequest CreateApiCache where
 instance Prelude.Hashable CreateApiCache where
   hashWithSalt _salt CreateApiCache' {..} =
     _salt
-      `Prelude.hashWithSalt` atRestEncryptionEnabled
       `Prelude.hashWithSalt` transitEncryptionEnabled
+      `Prelude.hashWithSalt` atRestEncryptionEnabled
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` ttl
       `Prelude.hashWithSalt` apiCachingBehavior
@@ -301,8 +301,8 @@ instance Prelude.Hashable CreateApiCache where
 
 instance Prelude.NFData CreateApiCache where
   rnf CreateApiCache' {..} =
-    Prelude.rnf atRestEncryptionEnabled
-      `Prelude.seq` Prelude.rnf transitEncryptionEnabled
+    Prelude.rnf transitEncryptionEnabled
+      `Prelude.seq` Prelude.rnf atRestEncryptionEnabled
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf ttl
       `Prelude.seq` Prelude.rnf apiCachingBehavior
@@ -323,10 +323,10 @@ instance Core.ToJSON CreateApiCache where
   toJSON CreateApiCache' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("atRestEncryptionEnabled" Core..=)
-              Prelude.<$> atRestEncryptionEnabled,
-            ("transitEncryptionEnabled" Core..=)
+          [ ("transitEncryptionEnabled" Core..=)
               Prelude.<$> transitEncryptionEnabled,
+            ("atRestEncryptionEnabled" Core..=)
+              Prelude.<$> atRestEncryptionEnabled,
             Prelude.Just ("ttl" Core..= ttl),
             Prelude.Just
               ("apiCachingBehavior" Core..= apiCachingBehavior),

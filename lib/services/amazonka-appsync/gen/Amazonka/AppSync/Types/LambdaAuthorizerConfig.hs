@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLambdaAuthorizerConfig' smart constructor.
 data LambdaAuthorizerConfig = LambdaAuthorizerConfig'
-  { -- | A regular expression for validation of tokens before the Lambda function
-    -- is called.
-    identityValidationExpression :: Prelude.Maybe Prelude.Text,
-    -- | The number of seconds a response should be cached for. The default is 5
+  { -- | The number of seconds a response should be cached for. The default is 5
     -- minutes (300 seconds). The Lambda function can override this by
     -- returning a @ttlOverride@ key in its response. A value of 0 disables
     -- caching of responses.
     authorizerResultTtlInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | A regular expression for validation of tokens before the Lambda function
+    -- is called.
+    identityValidationExpression :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the Lambda function to be called for authorization. This may
     -- be a standard Lambda ARN, a version ARN (@...\/v3@) or alias ARN.
     --
@@ -59,13 +59,13 @@ data LambdaAuthorizerConfig = LambdaAuthorizerConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identityValidationExpression', 'lambdaAuthorizerConfig_identityValidationExpression' - A regular expression for validation of tokens before the Lambda function
--- is called.
---
 -- 'authorizerResultTtlInSeconds', 'lambdaAuthorizerConfig_authorizerResultTtlInSeconds' - The number of seconds a response should be cached for. The default is 5
 -- minutes (300 seconds). The Lambda function can override this by
 -- returning a @ttlOverride@ key in its response. A value of 0 disables
 -- caching of responses.
+--
+-- 'identityValidationExpression', 'lambdaAuthorizerConfig_identityValidationExpression' - A regular expression for validation of tokens before the Lambda function
+-- is called.
 --
 -- 'authorizerUri', 'lambdaAuthorizerConfig_authorizerUri' - The ARN of the Lambda function to be called for authorization. This may
 -- be a standard Lambda ARN, a version ARN (@...\/v3@) or alias ARN.
@@ -82,16 +82,11 @@ newLambdaAuthorizerConfig ::
   LambdaAuthorizerConfig
 newLambdaAuthorizerConfig pAuthorizerUri_ =
   LambdaAuthorizerConfig'
-    { identityValidationExpression =
+    { authorizerResultTtlInSeconds =
         Prelude.Nothing,
-      authorizerResultTtlInSeconds = Prelude.Nothing,
+      identityValidationExpression = Prelude.Nothing,
       authorizerUri = pAuthorizerUri_
     }
-
--- | A regular expression for validation of tokens before the Lambda function
--- is called.
-lambdaAuthorizerConfig_identityValidationExpression :: Lens.Lens' LambdaAuthorizerConfig (Prelude.Maybe Prelude.Text)
-lambdaAuthorizerConfig_identityValidationExpression = Lens.lens (\LambdaAuthorizerConfig' {identityValidationExpression} -> identityValidationExpression) (\s@LambdaAuthorizerConfig' {} a -> s {identityValidationExpression = a} :: LambdaAuthorizerConfig)
 
 -- | The number of seconds a response should be cached for. The default is 5
 -- minutes (300 seconds). The Lambda function can override this by
@@ -99,6 +94,11 @@ lambdaAuthorizerConfig_identityValidationExpression = Lens.lens (\LambdaAuthoriz
 -- caching of responses.
 lambdaAuthorizerConfig_authorizerResultTtlInSeconds :: Lens.Lens' LambdaAuthorizerConfig (Prelude.Maybe Prelude.Natural)
 lambdaAuthorizerConfig_authorizerResultTtlInSeconds = Lens.lens (\LambdaAuthorizerConfig' {authorizerResultTtlInSeconds} -> authorizerResultTtlInSeconds) (\s@LambdaAuthorizerConfig' {} a -> s {authorizerResultTtlInSeconds = a} :: LambdaAuthorizerConfig)
+
+-- | A regular expression for validation of tokens before the Lambda function
+-- is called.
+lambdaAuthorizerConfig_identityValidationExpression :: Lens.Lens' LambdaAuthorizerConfig (Prelude.Maybe Prelude.Text)
+lambdaAuthorizerConfig_identityValidationExpression = Lens.lens (\LambdaAuthorizerConfig' {identityValidationExpression} -> identityValidationExpression) (\s@LambdaAuthorizerConfig' {} a -> s {identityValidationExpression = a} :: LambdaAuthorizerConfig)
 
 -- | The ARN of the Lambda function to be called for authorization. This may
 -- be a standard Lambda ARN, a version ARN (@...\/v3@) or alias ARN.
@@ -118,32 +118,32 @@ instance Core.FromJSON LambdaAuthorizerConfig where
       "LambdaAuthorizerConfig"
       ( \x ->
           LambdaAuthorizerConfig'
-            Prelude.<$> (x Core..:? "identityValidationExpression")
-            Prelude.<*> (x Core..:? "authorizerResultTtlInSeconds")
+            Prelude.<$> (x Core..:? "authorizerResultTtlInSeconds")
+            Prelude.<*> (x Core..:? "identityValidationExpression")
             Prelude.<*> (x Core..: "authorizerUri")
       )
 
 instance Prelude.Hashable LambdaAuthorizerConfig where
   hashWithSalt _salt LambdaAuthorizerConfig' {..} =
     _salt
-      `Prelude.hashWithSalt` identityValidationExpression
       `Prelude.hashWithSalt` authorizerResultTtlInSeconds
+      `Prelude.hashWithSalt` identityValidationExpression
       `Prelude.hashWithSalt` authorizerUri
 
 instance Prelude.NFData LambdaAuthorizerConfig where
   rnf LambdaAuthorizerConfig' {..} =
-    Prelude.rnf identityValidationExpression
-      `Prelude.seq` Prelude.rnf authorizerResultTtlInSeconds
+    Prelude.rnf authorizerResultTtlInSeconds
+      `Prelude.seq` Prelude.rnf identityValidationExpression
       `Prelude.seq` Prelude.rnf authorizerUri
 
 instance Core.ToJSON LambdaAuthorizerConfig where
   toJSON LambdaAuthorizerConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("identityValidationExpression" Core..=)
-              Prelude.<$> identityValidationExpression,
-            ("authorizerResultTtlInSeconds" Core..=)
+          [ ("authorizerResultTtlInSeconds" Core..=)
               Prelude.<$> authorizerResultTtlInSeconds,
+            ("identityValidationExpression" Core..=)
+              Prelude.<$> identityValidationExpression,
             Prelude.Just
               ("authorizerUri" Core..= authorizerUri)
           ]

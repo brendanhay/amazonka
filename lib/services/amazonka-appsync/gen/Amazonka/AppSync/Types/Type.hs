@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newType' smart constructor.
 data Type = Type'
-  { -- | The type ARN.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The type definition.
-    definition :: Prelude.Maybe Prelude.Text,
+  { -- | The type name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The type format: SDL or JSON.
     format :: Prelude.Maybe TypeDefinitionFormat,
-    -- | The type name.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The type ARN.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The type description.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The type definition.
+    definition :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,45 +49,45 @@ data Type = Type'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'type_arn' - The type ARN.
---
--- 'definition', 'type_definition' - The type definition.
+-- 'name', 'type_name' - The type name.
 --
 -- 'format', 'type_format' - The type format: SDL or JSON.
 --
--- 'name', 'type_name' - The type name.
+-- 'arn', 'type_arn' - The type ARN.
 --
 -- 'description', 'type_description' - The type description.
+--
+-- 'definition', 'type_definition' - The type definition.
 newType ::
   Type
 newType =
   Type'
-    { arn = Prelude.Nothing,
-      definition = Prelude.Nothing,
+    { name = Prelude.Nothing,
       format = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing
+      arn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      definition = Prelude.Nothing
     }
-
--- | The type ARN.
-type_arn :: Lens.Lens' Type (Prelude.Maybe Prelude.Text)
-type_arn = Lens.lens (\Type' {arn} -> arn) (\s@Type' {} a -> s {arn = a} :: Type)
-
--- | The type definition.
-type_definition :: Lens.Lens' Type (Prelude.Maybe Prelude.Text)
-type_definition = Lens.lens (\Type' {definition} -> definition) (\s@Type' {} a -> s {definition = a} :: Type)
-
--- | The type format: SDL or JSON.
-type_format :: Lens.Lens' Type (Prelude.Maybe TypeDefinitionFormat)
-type_format = Lens.lens (\Type' {format} -> format) (\s@Type' {} a -> s {format = a} :: Type)
 
 -- | The type name.
 type_name :: Lens.Lens' Type (Prelude.Maybe Prelude.Text)
 type_name = Lens.lens (\Type' {name} -> name) (\s@Type' {} a -> s {name = a} :: Type)
 
+-- | The type format: SDL or JSON.
+type_format :: Lens.Lens' Type (Prelude.Maybe TypeDefinitionFormat)
+type_format = Lens.lens (\Type' {format} -> format) (\s@Type' {} a -> s {format = a} :: Type)
+
+-- | The type ARN.
+type_arn :: Lens.Lens' Type (Prelude.Maybe Prelude.Text)
+type_arn = Lens.lens (\Type' {arn} -> arn) (\s@Type' {} a -> s {arn = a} :: Type)
+
 -- | The type description.
 type_description :: Lens.Lens' Type (Prelude.Maybe Prelude.Text)
 type_description = Lens.lens (\Type' {description} -> description) (\s@Type' {} a -> s {description = a} :: Type)
+
+-- | The type definition.
+type_definition :: Lens.Lens' Type (Prelude.Maybe Prelude.Text)
+type_definition = Lens.lens (\Type' {definition} -> definition) (\s@Type' {} a -> s {definition = a} :: Type)
 
 instance Core.FromJSON Type where
   parseJSON =
@@ -95,25 +95,25 @@ instance Core.FromJSON Type where
       "Type"
       ( \x ->
           Type'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "definition")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "definition")
       )
 
 instance Prelude.Hashable Type where
   hashWithSalt _salt Type' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` definition
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` format
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` definition
 
 instance Prelude.NFData Type where
   rnf Type' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf definition
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf definition

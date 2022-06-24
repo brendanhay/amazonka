@@ -27,8 +27,8 @@ module Amazonka.AppSync.UpdateApiKey
     newUpdateApiKey,
 
     -- * Request Lenses
-    updateApiKey_expires,
     updateApiKey_description,
+    updateApiKey_expires,
     updateApiKey_apiId,
     updateApiKey_id,
 
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateApiKey' smart constructor.
 data UpdateApiKey = UpdateApiKey'
-  { -- | The time from update time after which the API key expires. The date is
+  { -- | A description of the purpose of the API key.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The time from update time after which the API key expires. The date is
     -- represented as seconds since the epoch. For more information, see .
     expires :: Prelude.Maybe Prelude.Integer,
-    -- | A description of the purpose of the API key.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The ID for the GraphQL API.
     apiId :: Prelude.Text,
     -- | The API key ID.
@@ -71,10 +71,10 @@ data UpdateApiKey = UpdateApiKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateApiKey_description' - A description of the purpose of the API key.
+--
 -- 'expires', 'updateApiKey_expires' - The time from update time after which the API key expires. The date is
 -- represented as seconds since the epoch. For more information, see .
---
--- 'description', 'updateApiKey_description' - A description of the purpose of the API key.
 --
 -- 'apiId', 'updateApiKey_apiId' - The ID for the GraphQL API.
 --
@@ -87,20 +87,20 @@ newUpdateApiKey ::
   UpdateApiKey
 newUpdateApiKey pApiId_ pId_ =
   UpdateApiKey'
-    { expires = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      expires = Prelude.Nothing,
       apiId = pApiId_,
       id = pId_
     }
+
+-- | A description of the purpose of the API key.
+updateApiKey_description :: Lens.Lens' UpdateApiKey (Prelude.Maybe Prelude.Text)
+updateApiKey_description = Lens.lens (\UpdateApiKey' {description} -> description) (\s@UpdateApiKey' {} a -> s {description = a} :: UpdateApiKey)
 
 -- | The time from update time after which the API key expires. The date is
 -- represented as seconds since the epoch. For more information, see .
 updateApiKey_expires :: Lens.Lens' UpdateApiKey (Prelude.Maybe Prelude.Integer)
 updateApiKey_expires = Lens.lens (\UpdateApiKey' {expires} -> expires) (\s@UpdateApiKey' {} a -> s {expires = a} :: UpdateApiKey)
-
--- | A description of the purpose of the API key.
-updateApiKey_description :: Lens.Lens' UpdateApiKey (Prelude.Maybe Prelude.Text)
-updateApiKey_description = Lens.lens (\UpdateApiKey' {description} -> description) (\s@UpdateApiKey' {} a -> s {description = a} :: UpdateApiKey)
 
 -- | The ID for the GraphQL API.
 updateApiKey_apiId :: Lens.Lens' UpdateApiKey Prelude.Text
@@ -123,15 +123,15 @@ instance Core.AWSRequest UpdateApiKey where
 
 instance Prelude.Hashable UpdateApiKey where
   hashWithSalt _salt UpdateApiKey' {..} =
-    _salt `Prelude.hashWithSalt` expires
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` expires
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateApiKey where
   rnf UpdateApiKey' {..} =
-    Prelude.rnf expires
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf expires
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf id
 
@@ -150,8 +150,8 @@ instance Core.ToJSON UpdateApiKey where
   toJSON UpdateApiKey' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("expires" Core..=) Prelude.<$> expires,
-            ("description" Core..=) Prelude.<$> description
+          [ ("description" Core..=) Prelude.<$> description,
+            ("expires" Core..=) Prelude.<$> expires
           ]
       )
 

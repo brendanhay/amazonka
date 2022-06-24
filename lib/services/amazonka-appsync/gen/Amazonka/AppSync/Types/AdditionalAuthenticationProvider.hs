@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAdditionalAuthenticationProvider' smart constructor.
 data AdditionalAuthenticationProvider = AdditionalAuthenticationProvider'
-  { -- | The OpenID Connect configuration.
+  { -- | The authentication type: API key, Identity and Access Management, OIDC,
+    -- Amazon Cognito user pools, or Amazon Web Services Lambda.
+    authenticationType :: Prelude.Maybe AuthenticationType,
+    -- | The OpenID Connect configuration.
     openIDConnectConfig :: Prelude.Maybe OpenIDConnectConfig,
-    -- | Configuration for Amazon Web Services Lambda function authorization.
-    lambdaAuthorizerConfig :: Prelude.Maybe LambdaAuthorizerConfig,
     -- | The Amazon Cognito user pool configuration.
     userPoolConfig :: Prelude.Maybe CognitoUserPoolConfig,
-    -- | The authentication type: API key, Identity and Access Management, OIDC,
-    -- Amazon Cognito user pools, or Amazon Web Services Lambda.
-    authenticationType :: Prelude.Maybe AuthenticationType
+    -- | Configuration for Amazon Web Services Lambda function authorization.
+    lambdaAuthorizerConfig :: Prelude.Maybe LambdaAuthorizerConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,41 +51,41 @@ data AdditionalAuthenticationProvider = AdditionalAuthenticationProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'openIDConnectConfig', 'additionalAuthenticationProvider_openIDConnectConfig' - The OpenID Connect configuration.
+-- 'authenticationType', 'additionalAuthenticationProvider_authenticationType' - The authentication type: API key, Identity and Access Management, OIDC,
+-- Amazon Cognito user pools, or Amazon Web Services Lambda.
 --
--- 'lambdaAuthorizerConfig', 'additionalAuthenticationProvider_lambdaAuthorizerConfig' - Configuration for Amazon Web Services Lambda function authorization.
+-- 'openIDConnectConfig', 'additionalAuthenticationProvider_openIDConnectConfig' - The OpenID Connect configuration.
 --
 -- 'userPoolConfig', 'additionalAuthenticationProvider_userPoolConfig' - The Amazon Cognito user pool configuration.
 --
--- 'authenticationType', 'additionalAuthenticationProvider_authenticationType' - The authentication type: API key, Identity and Access Management, OIDC,
--- Amazon Cognito user pools, or Amazon Web Services Lambda.
+-- 'lambdaAuthorizerConfig', 'additionalAuthenticationProvider_lambdaAuthorizerConfig' - Configuration for Amazon Web Services Lambda function authorization.
 newAdditionalAuthenticationProvider ::
   AdditionalAuthenticationProvider
 newAdditionalAuthenticationProvider =
   AdditionalAuthenticationProvider'
-    { openIDConnectConfig =
+    { authenticationType =
         Prelude.Nothing,
-      lambdaAuthorizerConfig = Prelude.Nothing,
+      openIDConnectConfig = Prelude.Nothing,
       userPoolConfig = Prelude.Nothing,
-      authenticationType = Prelude.Nothing
+      lambdaAuthorizerConfig = Prelude.Nothing
     }
-
--- | The OpenID Connect configuration.
-additionalAuthenticationProvider_openIDConnectConfig :: Lens.Lens' AdditionalAuthenticationProvider (Prelude.Maybe OpenIDConnectConfig)
-additionalAuthenticationProvider_openIDConnectConfig = Lens.lens (\AdditionalAuthenticationProvider' {openIDConnectConfig} -> openIDConnectConfig) (\s@AdditionalAuthenticationProvider' {} a -> s {openIDConnectConfig = a} :: AdditionalAuthenticationProvider)
-
--- | Configuration for Amazon Web Services Lambda function authorization.
-additionalAuthenticationProvider_lambdaAuthorizerConfig :: Lens.Lens' AdditionalAuthenticationProvider (Prelude.Maybe LambdaAuthorizerConfig)
-additionalAuthenticationProvider_lambdaAuthorizerConfig = Lens.lens (\AdditionalAuthenticationProvider' {lambdaAuthorizerConfig} -> lambdaAuthorizerConfig) (\s@AdditionalAuthenticationProvider' {} a -> s {lambdaAuthorizerConfig = a} :: AdditionalAuthenticationProvider)
-
--- | The Amazon Cognito user pool configuration.
-additionalAuthenticationProvider_userPoolConfig :: Lens.Lens' AdditionalAuthenticationProvider (Prelude.Maybe CognitoUserPoolConfig)
-additionalAuthenticationProvider_userPoolConfig = Lens.lens (\AdditionalAuthenticationProvider' {userPoolConfig} -> userPoolConfig) (\s@AdditionalAuthenticationProvider' {} a -> s {userPoolConfig = a} :: AdditionalAuthenticationProvider)
 
 -- | The authentication type: API key, Identity and Access Management, OIDC,
 -- Amazon Cognito user pools, or Amazon Web Services Lambda.
 additionalAuthenticationProvider_authenticationType :: Lens.Lens' AdditionalAuthenticationProvider (Prelude.Maybe AuthenticationType)
 additionalAuthenticationProvider_authenticationType = Lens.lens (\AdditionalAuthenticationProvider' {authenticationType} -> authenticationType) (\s@AdditionalAuthenticationProvider' {} a -> s {authenticationType = a} :: AdditionalAuthenticationProvider)
+
+-- | The OpenID Connect configuration.
+additionalAuthenticationProvider_openIDConnectConfig :: Lens.Lens' AdditionalAuthenticationProvider (Prelude.Maybe OpenIDConnectConfig)
+additionalAuthenticationProvider_openIDConnectConfig = Lens.lens (\AdditionalAuthenticationProvider' {openIDConnectConfig} -> openIDConnectConfig) (\s@AdditionalAuthenticationProvider' {} a -> s {openIDConnectConfig = a} :: AdditionalAuthenticationProvider)
+
+-- | The Amazon Cognito user pool configuration.
+additionalAuthenticationProvider_userPoolConfig :: Lens.Lens' AdditionalAuthenticationProvider (Prelude.Maybe CognitoUserPoolConfig)
+additionalAuthenticationProvider_userPoolConfig = Lens.lens (\AdditionalAuthenticationProvider' {userPoolConfig} -> userPoolConfig) (\s@AdditionalAuthenticationProvider' {} a -> s {userPoolConfig = a} :: AdditionalAuthenticationProvider)
+
+-- | Configuration for Amazon Web Services Lambda function authorization.
+additionalAuthenticationProvider_lambdaAuthorizerConfig :: Lens.Lens' AdditionalAuthenticationProvider (Prelude.Maybe LambdaAuthorizerConfig)
+additionalAuthenticationProvider_lambdaAuthorizerConfig = Lens.lens (\AdditionalAuthenticationProvider' {lambdaAuthorizerConfig} -> lambdaAuthorizerConfig) (\s@AdditionalAuthenticationProvider' {} a -> s {lambdaAuthorizerConfig = a} :: AdditionalAuthenticationProvider)
 
 instance
   Core.FromJSON
@@ -96,10 +96,10 @@ instance
       "AdditionalAuthenticationProvider"
       ( \x ->
           AdditionalAuthenticationProvider'
-            Prelude.<$> (x Core..:? "openIDConnectConfig")
-            Prelude.<*> (x Core..:? "lambdaAuthorizerConfig")
+            Prelude.<$> (x Core..:? "authenticationType")
+            Prelude.<*> (x Core..:? "openIDConnectConfig")
             Prelude.<*> (x Core..:? "userPoolConfig")
-            Prelude.<*> (x Core..:? "authenticationType")
+            Prelude.<*> (x Core..:? "lambdaAuthorizerConfig")
       )
 
 instance
@@ -109,32 +109,32 @@ instance
   hashWithSalt
     _salt
     AdditionalAuthenticationProvider' {..} =
-      _salt `Prelude.hashWithSalt` openIDConnectConfig
-        `Prelude.hashWithSalt` lambdaAuthorizerConfig
+      _salt `Prelude.hashWithSalt` authenticationType
+        `Prelude.hashWithSalt` openIDConnectConfig
         `Prelude.hashWithSalt` userPoolConfig
-        `Prelude.hashWithSalt` authenticationType
+        `Prelude.hashWithSalt` lambdaAuthorizerConfig
 
 instance
   Prelude.NFData
     AdditionalAuthenticationProvider
   where
   rnf AdditionalAuthenticationProvider' {..} =
-    Prelude.rnf openIDConnectConfig
-      `Prelude.seq` Prelude.rnf lambdaAuthorizerConfig
+    Prelude.rnf authenticationType
+      `Prelude.seq` Prelude.rnf openIDConnectConfig
       `Prelude.seq` Prelude.rnf userPoolConfig
-      `Prelude.seq` Prelude.rnf authenticationType
+      `Prelude.seq` Prelude.rnf lambdaAuthorizerConfig
 
 instance Core.ToJSON AdditionalAuthenticationProvider where
   toJSON AdditionalAuthenticationProvider' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("openIDConnectConfig" Core..=)
+          [ ("authenticationType" Core..=)
+              Prelude.<$> authenticationType,
+            ("openIDConnectConfig" Core..=)
               Prelude.<$> openIDConnectConfig,
-            ("lambdaAuthorizerConfig" Core..=)
-              Prelude.<$> lambdaAuthorizerConfig,
             ("userPoolConfig" Core..=)
               Prelude.<$> userPoolConfig,
-            ("authenticationType" Core..=)
-              Prelude.<$> authenticationType
+            ("lambdaAuthorizerConfig" Core..=)
+              Prelude.<$> lambdaAuthorizerConfig
           ]
       )

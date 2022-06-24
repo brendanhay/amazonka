@@ -31,12 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResolver' smart constructor.
 data Resolver = Resolver'
-  { -- | The resolver type name.
-    typeName :: Prelude.Maybe Prelude.Text,
-    -- | The resolver data source name.
-    dataSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The request mapping template.
-    requestMappingTemplate :: Prelude.Maybe Prelude.Text,
+  { -- | The resolver ARN.
+    resolverArn :: Prelude.Maybe Prelude.Text,
+    -- | The resolver field name.
+    fieldName :: Prelude.Maybe Prelude.Text,
+    -- | The caching configuration for the resolver.
+    cachingConfig :: Prelude.Maybe CachingConfig,
+    -- | The @PipelineConfig@.
+    pipelineConfig :: Prelude.Maybe PipelineConfig,
     -- | The resolver type.
     --
     -- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default
@@ -48,18 +50,16 @@ data Resolver = Resolver'
     --     use a pipeline resolver to execute a GraphQL query against multiple
     --     data sources.
     kind :: Prelude.Maybe ResolverKind,
-    -- | The resolver ARN.
-    resolverArn :: Prelude.Maybe Prelude.Text,
-    -- | The caching configuration for the resolver.
-    cachingConfig :: Prelude.Maybe CachingConfig,
+    -- | The resolver type name.
+    typeName :: Prelude.Maybe Prelude.Text,
+    -- | The resolver data source name.
+    dataSourceName :: Prelude.Maybe Prelude.Text,
     -- | The response mapping template.
     responseMappingTemplate :: Prelude.Maybe Prelude.Text,
-    -- | The resolver field name.
-    fieldName :: Prelude.Maybe Prelude.Text,
     -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
     syncConfig :: Prelude.Maybe SyncConfig,
-    -- | The @PipelineConfig@.
-    pipelineConfig :: Prelude.Maybe PipelineConfig
+    -- | The request mapping template.
+    requestMappingTemplate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,11 +71,13 @@ data Resolver = Resolver'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'typeName', 'resolver_typeName' - The resolver type name.
+-- 'resolverArn', 'resolver_resolverArn' - The resolver ARN.
 --
--- 'dataSourceName', 'resolver_dataSourceName' - The resolver data source name.
+-- 'fieldName', 'resolver_fieldName' - The resolver field name.
 --
--- 'requestMappingTemplate', 'resolver_requestMappingTemplate' - The request mapping template.
+-- 'cachingConfig', 'resolver_cachingConfig' - The caching configuration for the resolver.
+--
+-- 'pipelineConfig', 'resolver_pipelineConfig' - The @PipelineConfig@.
 --
 -- 'kind', 'resolver_kind' - The resolver type.
 --
@@ -88,44 +90,46 @@ data Resolver = Resolver'
 --     use a pipeline resolver to execute a GraphQL query against multiple
 --     data sources.
 --
--- 'resolverArn', 'resolver_resolverArn' - The resolver ARN.
+-- 'typeName', 'resolver_typeName' - The resolver type name.
 --
--- 'cachingConfig', 'resolver_cachingConfig' - The caching configuration for the resolver.
+-- 'dataSourceName', 'resolver_dataSourceName' - The resolver data source name.
 --
 -- 'responseMappingTemplate', 'resolver_responseMappingTemplate' - The response mapping template.
 --
--- 'fieldName', 'resolver_fieldName' - The resolver field name.
---
 -- 'syncConfig', 'resolver_syncConfig' - The @SyncConfig@ for a resolver attached to a versioned datasource.
 --
--- 'pipelineConfig', 'resolver_pipelineConfig' - The @PipelineConfig@.
+-- 'requestMappingTemplate', 'resolver_requestMappingTemplate' - The request mapping template.
 newResolver ::
   Resolver
 newResolver =
   Resolver'
-    { typeName = Prelude.Nothing,
-      dataSourceName = Prelude.Nothing,
-      requestMappingTemplate = Prelude.Nothing,
-      kind = Prelude.Nothing,
-      resolverArn = Prelude.Nothing,
-      cachingConfig = Prelude.Nothing,
-      responseMappingTemplate = Prelude.Nothing,
+    { resolverArn = Prelude.Nothing,
       fieldName = Prelude.Nothing,
+      cachingConfig = Prelude.Nothing,
+      pipelineConfig = Prelude.Nothing,
+      kind = Prelude.Nothing,
+      typeName = Prelude.Nothing,
+      dataSourceName = Prelude.Nothing,
+      responseMappingTemplate = Prelude.Nothing,
       syncConfig = Prelude.Nothing,
-      pipelineConfig = Prelude.Nothing
+      requestMappingTemplate = Prelude.Nothing
     }
 
--- | The resolver type name.
-resolver_typeName :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
-resolver_typeName = Lens.lens (\Resolver' {typeName} -> typeName) (\s@Resolver' {} a -> s {typeName = a} :: Resolver)
+-- | The resolver ARN.
+resolver_resolverArn :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
+resolver_resolverArn = Lens.lens (\Resolver' {resolverArn} -> resolverArn) (\s@Resolver' {} a -> s {resolverArn = a} :: Resolver)
 
--- | The resolver data source name.
-resolver_dataSourceName :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
-resolver_dataSourceName = Lens.lens (\Resolver' {dataSourceName} -> dataSourceName) (\s@Resolver' {} a -> s {dataSourceName = a} :: Resolver)
+-- | The resolver field name.
+resolver_fieldName :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
+resolver_fieldName = Lens.lens (\Resolver' {fieldName} -> fieldName) (\s@Resolver' {} a -> s {fieldName = a} :: Resolver)
 
--- | The request mapping template.
-resolver_requestMappingTemplate :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
-resolver_requestMappingTemplate = Lens.lens (\Resolver' {requestMappingTemplate} -> requestMappingTemplate) (\s@Resolver' {} a -> s {requestMappingTemplate = a} :: Resolver)
+-- | The caching configuration for the resolver.
+resolver_cachingConfig :: Lens.Lens' Resolver (Prelude.Maybe CachingConfig)
+resolver_cachingConfig = Lens.lens (\Resolver' {cachingConfig} -> cachingConfig) (\s@Resolver' {} a -> s {cachingConfig = a} :: Resolver)
+
+-- | The @PipelineConfig@.
+resolver_pipelineConfig :: Lens.Lens' Resolver (Prelude.Maybe PipelineConfig)
+resolver_pipelineConfig = Lens.lens (\Resolver' {pipelineConfig} -> pipelineConfig) (\s@Resolver' {} a -> s {pipelineConfig = a} :: Resolver)
 
 -- | The resolver type.
 --
@@ -140,29 +144,25 @@ resolver_requestMappingTemplate = Lens.lens (\Resolver' {requestMappingTemplate}
 resolver_kind :: Lens.Lens' Resolver (Prelude.Maybe ResolverKind)
 resolver_kind = Lens.lens (\Resolver' {kind} -> kind) (\s@Resolver' {} a -> s {kind = a} :: Resolver)
 
--- | The resolver ARN.
-resolver_resolverArn :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
-resolver_resolverArn = Lens.lens (\Resolver' {resolverArn} -> resolverArn) (\s@Resolver' {} a -> s {resolverArn = a} :: Resolver)
+-- | The resolver type name.
+resolver_typeName :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
+resolver_typeName = Lens.lens (\Resolver' {typeName} -> typeName) (\s@Resolver' {} a -> s {typeName = a} :: Resolver)
 
--- | The caching configuration for the resolver.
-resolver_cachingConfig :: Lens.Lens' Resolver (Prelude.Maybe CachingConfig)
-resolver_cachingConfig = Lens.lens (\Resolver' {cachingConfig} -> cachingConfig) (\s@Resolver' {} a -> s {cachingConfig = a} :: Resolver)
+-- | The resolver data source name.
+resolver_dataSourceName :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
+resolver_dataSourceName = Lens.lens (\Resolver' {dataSourceName} -> dataSourceName) (\s@Resolver' {} a -> s {dataSourceName = a} :: Resolver)
 
 -- | The response mapping template.
 resolver_responseMappingTemplate :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
 resolver_responseMappingTemplate = Lens.lens (\Resolver' {responseMappingTemplate} -> responseMappingTemplate) (\s@Resolver' {} a -> s {responseMappingTemplate = a} :: Resolver)
 
--- | The resolver field name.
-resolver_fieldName :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
-resolver_fieldName = Lens.lens (\Resolver' {fieldName} -> fieldName) (\s@Resolver' {} a -> s {fieldName = a} :: Resolver)
-
 -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
 resolver_syncConfig :: Lens.Lens' Resolver (Prelude.Maybe SyncConfig)
 resolver_syncConfig = Lens.lens (\Resolver' {syncConfig} -> syncConfig) (\s@Resolver' {} a -> s {syncConfig = a} :: Resolver)
 
--- | The @PipelineConfig@.
-resolver_pipelineConfig :: Lens.Lens' Resolver (Prelude.Maybe PipelineConfig)
-resolver_pipelineConfig = Lens.lens (\Resolver' {pipelineConfig} -> pipelineConfig) (\s@Resolver' {} a -> s {pipelineConfig = a} :: Resolver)
+-- | The request mapping template.
+resolver_requestMappingTemplate :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
+resolver_requestMappingTemplate = Lens.lens (\Resolver' {requestMappingTemplate} -> requestMappingTemplate) (\s@Resolver' {} a -> s {requestMappingTemplate = a} :: Resolver)
 
 instance Core.FromJSON Resolver where
   parseJSON =
@@ -170,40 +170,40 @@ instance Core.FromJSON Resolver where
       "Resolver"
       ( \x ->
           Resolver'
-            Prelude.<$> (x Core..:? "typeName")
-            Prelude.<*> (x Core..:? "dataSourceName")
-            Prelude.<*> (x Core..:? "requestMappingTemplate")
-            Prelude.<*> (x Core..:? "kind")
-            Prelude.<*> (x Core..:? "resolverArn")
-            Prelude.<*> (x Core..:? "cachingConfig")
-            Prelude.<*> (x Core..:? "responseMappingTemplate")
+            Prelude.<$> (x Core..:? "resolverArn")
             Prelude.<*> (x Core..:? "fieldName")
-            Prelude.<*> (x Core..:? "syncConfig")
+            Prelude.<*> (x Core..:? "cachingConfig")
             Prelude.<*> (x Core..:? "pipelineConfig")
+            Prelude.<*> (x Core..:? "kind")
+            Prelude.<*> (x Core..:? "typeName")
+            Prelude.<*> (x Core..:? "dataSourceName")
+            Prelude.<*> (x Core..:? "responseMappingTemplate")
+            Prelude.<*> (x Core..:? "syncConfig")
+            Prelude.<*> (x Core..:? "requestMappingTemplate")
       )
 
 instance Prelude.Hashable Resolver where
   hashWithSalt _salt Resolver' {..} =
-    _salt `Prelude.hashWithSalt` typeName
-      `Prelude.hashWithSalt` dataSourceName
-      `Prelude.hashWithSalt` requestMappingTemplate
-      `Prelude.hashWithSalt` kind
-      `Prelude.hashWithSalt` resolverArn
-      `Prelude.hashWithSalt` cachingConfig
-      `Prelude.hashWithSalt` responseMappingTemplate
+    _salt `Prelude.hashWithSalt` resolverArn
       `Prelude.hashWithSalt` fieldName
-      `Prelude.hashWithSalt` syncConfig
+      `Prelude.hashWithSalt` cachingConfig
       `Prelude.hashWithSalt` pipelineConfig
+      `Prelude.hashWithSalt` kind
+      `Prelude.hashWithSalt` typeName
+      `Prelude.hashWithSalt` dataSourceName
+      `Prelude.hashWithSalt` responseMappingTemplate
+      `Prelude.hashWithSalt` syncConfig
+      `Prelude.hashWithSalt` requestMappingTemplate
 
 instance Prelude.NFData Resolver where
   rnf Resolver' {..} =
-    Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf dataSourceName
-      `Prelude.seq` Prelude.rnf requestMappingTemplate
-      `Prelude.seq` Prelude.rnf kind
-      `Prelude.seq` Prelude.rnf resolverArn
-      `Prelude.seq` Prelude.rnf cachingConfig
-      `Prelude.seq` Prelude.rnf responseMappingTemplate
+    Prelude.rnf resolverArn
       `Prelude.seq` Prelude.rnf fieldName
-      `Prelude.seq` Prelude.rnf syncConfig
+      `Prelude.seq` Prelude.rnf cachingConfig
       `Prelude.seq` Prelude.rnf pipelineConfig
+      `Prelude.seq` Prelude.rnf kind
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf dataSourceName
+      `Prelude.seq` Prelude.rnf responseMappingTemplate
+      `Prelude.seq` Prelude.rnf syncConfig
+      `Prelude.seq` Prelude.rnf requestMappingTemplate

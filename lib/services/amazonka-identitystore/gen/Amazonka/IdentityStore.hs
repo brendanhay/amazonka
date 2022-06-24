@@ -22,20 +22,20 @@ module Amazonka.IdentityStore
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -49,12 +49,6 @@ module Amazonka.IdentityStore
     DescribeGroupResponse (DescribeGroupResponse'),
     newDescribeGroupResponse,
 
-    -- ** ListUsers
-    ListUsers (ListUsers'),
-    newListUsers,
-    ListUsersResponse (ListUsersResponse'),
-    newListUsersResponse,
-
     -- ** DescribeUser
     DescribeUser (DescribeUser'),
     newDescribeUser,
@@ -66,6 +60,12 @@ module Amazonka.IdentityStore
     newListGroups,
     ListGroupsResponse (ListGroupsResponse'),
     newListGroupsResponse,
+
+    -- ** ListUsers
+    ListUsers (ListUsers'),
+    newListUsers,
+    ListUsersResponse (ListUsersResponse'),
+    newListUsersResponse,
 
     -- * Types
 

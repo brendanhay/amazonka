@@ -21,15 +21,6 @@ module Amazonka.IdentityStore.Lens
     describeGroupResponse_groupId,
     describeGroupResponse_displayName,
 
-    -- ** ListUsers
-    listUsers_filters,
-    listUsers_nextToken,
-    listUsers_maxResults,
-    listUsers_identityStoreId,
-    listUsersResponse_nextToken,
-    listUsersResponse_httpStatus,
-    listUsersResponse_users,
-
     -- ** DescribeUser
     describeUser_identityStoreId,
     describeUser_userId,
@@ -38,13 +29,22 @@ module Amazonka.IdentityStore.Lens
     describeUserResponse_userId,
 
     -- ** ListGroups
-    listGroups_filters,
     listGroups_nextToken,
+    listGroups_filters,
     listGroups_maxResults,
     listGroups_identityStoreId,
     listGroupsResponse_nextToken,
     listGroupsResponse_httpStatus,
     listGroupsResponse_groups,
+
+    -- ** ListUsers
+    listUsers_nextToken,
+    listUsers_filters,
+    listUsers_maxResults,
+    listUsers_identityStoreId,
+    listUsersResponse_nextToken,
+    listUsersResponse_httpStatus,
+    listUsersResponse_users,
 
     -- * Types
 

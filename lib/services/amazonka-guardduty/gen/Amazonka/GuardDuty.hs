@@ -51,29 +51,29 @@ module Amazonka.GuardDuty
     -- * Operations
     -- $operations
 
+    -- ** AcceptInvitation
+    AcceptInvitation (AcceptInvitation'),
+    newAcceptInvitation,
+    AcceptInvitationResponse (AcceptInvitationResponse'),
+    newAcceptInvitationResponse,
+
+    -- ** ArchiveFindings
+    ArchiveFindings (ArchiveFindings'),
+    newArchiveFindings,
+    ArchiveFindingsResponse (ArchiveFindingsResponse'),
+    newArchiveFindingsResponse,
+
+    -- ** CreateDetector
+    CreateDetector (CreateDetector'),
+    newCreateDetector,
+    CreateDetectorResponse (CreateDetectorResponse'),
+    newCreateDetectorResponse,
+
     -- ** CreateFilter
     CreateFilter (CreateFilter'),
     newCreateFilter,
     CreateFilterResponse (CreateFilterResponse'),
     newCreateFilterResponse,
-
-    -- ** EnableOrganizationAdminAccount
-    EnableOrganizationAdminAccount (EnableOrganizationAdminAccount'),
-    newEnableOrganizationAdminAccount,
-    EnableOrganizationAdminAccountResponse (EnableOrganizationAdminAccountResponse'),
-    newEnableOrganizationAdminAccountResponse,
-
-    -- ** ListFindings (Paginated)
-    ListFindings (ListFindings'),
-    newListFindings,
-    ListFindingsResponse (ListFindingsResponse'),
-    newListFindingsResponse,
-
-    -- ** ListOrganizationAdminAccounts (Paginated)
-    ListOrganizationAdminAccounts (ListOrganizationAdminAccounts'),
-    newListOrganizationAdminAccounts,
-    ListOrganizationAdminAccountsResponse (ListOrganizationAdminAccountsResponse'),
-    newListOrganizationAdminAccountsResponse,
 
     -- ** CreateIPSet
     CreateIPSet (CreateIPSet'),
@@ -81,29 +81,23 @@ module Amazonka.GuardDuty
     CreateIPSetResponse (CreateIPSetResponse'),
     newCreateIPSetResponse,
 
-    -- ** DeleteThreatIntelSet
-    DeleteThreatIntelSet (DeleteThreatIntelSet'),
-    newDeleteThreatIntelSet,
-    DeleteThreatIntelSetResponse (DeleteThreatIntelSetResponse'),
-    newDeleteThreatIntelSetResponse,
+    -- ** CreateMembers
+    CreateMembers (CreateMembers'),
+    newCreateMembers,
+    CreateMembersResponse (CreateMembersResponse'),
+    newCreateMembersResponse,
 
-    -- ** UpdateThreatIntelSet
-    UpdateThreatIntelSet (UpdateThreatIntelSet'),
-    newUpdateThreatIntelSet,
-    UpdateThreatIntelSetResponse (UpdateThreatIntelSetResponse'),
-    newUpdateThreatIntelSetResponse,
+    -- ** CreatePublishingDestination
+    CreatePublishingDestination (CreatePublishingDestination'),
+    newCreatePublishingDestination,
+    CreatePublishingDestinationResponse (CreatePublishingDestinationResponse'),
+    newCreatePublishingDestinationResponse,
 
-    -- ** StopMonitoringMembers
-    StopMonitoringMembers (StopMonitoringMembers'),
-    newStopMonitoringMembers,
-    StopMonitoringMembersResponse (StopMonitoringMembersResponse'),
-    newStopMonitoringMembersResponse,
-
-    -- ** ListThreatIntelSets (Paginated)
-    ListThreatIntelSets (ListThreatIntelSets'),
-    newListThreatIntelSets,
-    ListThreatIntelSetsResponse (ListThreatIntelSetsResponse'),
-    newListThreatIntelSetsResponse,
+    -- ** CreateSampleFindings
+    CreateSampleFindings (CreateSampleFindings'),
+    newCreateSampleFindings,
+    CreateSampleFindingsResponse (CreateSampleFindingsResponse'),
+    newCreateSampleFindingsResponse,
 
     -- ** CreateThreatIntelSet
     CreateThreatIntelSet (CreateThreatIntelSet'),
@@ -111,17 +105,107 @@ module Amazonka.GuardDuty
     CreateThreatIntelSetResponse (CreateThreatIntelSetResponse'),
     newCreateThreatIntelSetResponse,
 
+    -- ** DeclineInvitations
+    DeclineInvitations (DeclineInvitations'),
+    newDeclineInvitations,
+    DeclineInvitationsResponse (DeclineInvitationsResponse'),
+    newDeclineInvitationsResponse,
+
+    -- ** DeleteDetector
+    DeleteDetector (DeleteDetector'),
+    newDeleteDetector,
+    DeleteDetectorResponse (DeleteDetectorResponse'),
+    newDeleteDetectorResponse,
+
+    -- ** DeleteFilter
+    DeleteFilter (DeleteFilter'),
+    newDeleteFilter,
+    DeleteFilterResponse (DeleteFilterResponse'),
+    newDeleteFilterResponse,
+
+    -- ** DeleteIPSet
+    DeleteIPSet (DeleteIPSet'),
+    newDeleteIPSet,
+    DeleteIPSetResponse (DeleteIPSetResponse'),
+    newDeleteIPSetResponse,
+
+    -- ** DeleteInvitations
+    DeleteInvitations (DeleteInvitations'),
+    newDeleteInvitations,
+    DeleteInvitationsResponse (DeleteInvitationsResponse'),
+    newDeleteInvitationsResponse,
+
     -- ** DeleteMembers
     DeleteMembers (DeleteMembers'),
     newDeleteMembers,
     DeleteMembersResponse (DeleteMembersResponse'),
     newDeleteMembersResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** DeletePublishingDestination
+    DeletePublishingDestination (DeletePublishingDestination'),
+    newDeletePublishingDestination,
+    DeletePublishingDestinationResponse (DeletePublishingDestinationResponse'),
+    newDeletePublishingDestinationResponse,
+
+    -- ** DeleteThreatIntelSet
+    DeleteThreatIntelSet (DeleteThreatIntelSet'),
+    newDeleteThreatIntelSet,
+    DeleteThreatIntelSetResponse (DeleteThreatIntelSetResponse'),
+    newDeleteThreatIntelSetResponse,
+
+    -- ** DescribeOrganizationConfiguration
+    DescribeOrganizationConfiguration (DescribeOrganizationConfiguration'),
+    newDescribeOrganizationConfiguration,
+    DescribeOrganizationConfigurationResponse (DescribeOrganizationConfigurationResponse'),
+    newDescribeOrganizationConfigurationResponse,
+
+    -- ** DescribePublishingDestination
+    DescribePublishingDestination (DescribePublishingDestination'),
+    newDescribePublishingDestination,
+    DescribePublishingDestinationResponse (DescribePublishingDestinationResponse'),
+    newDescribePublishingDestinationResponse,
+
+    -- ** DisableOrganizationAdminAccount
+    DisableOrganizationAdminAccount (DisableOrganizationAdminAccount'),
+    newDisableOrganizationAdminAccount,
+    DisableOrganizationAdminAccountResponse (DisableOrganizationAdminAccountResponse'),
+    newDisableOrganizationAdminAccountResponse,
+
+    -- ** DisassociateFromMasterAccount
+    DisassociateFromMasterAccount (DisassociateFromMasterAccount'),
+    newDisassociateFromMasterAccount,
+    DisassociateFromMasterAccountResponse (DisassociateFromMasterAccountResponse'),
+    newDisassociateFromMasterAccountResponse,
+
+    -- ** DisassociateMembers
+    DisassociateMembers (DisassociateMembers'),
+    newDisassociateMembers,
+    DisassociateMembersResponse (DisassociateMembersResponse'),
+    newDisassociateMembersResponse,
+
+    -- ** EnableOrganizationAdminAccount
+    EnableOrganizationAdminAccount (EnableOrganizationAdminAccount'),
+    newEnableOrganizationAdminAccount,
+    EnableOrganizationAdminAccountResponse (EnableOrganizationAdminAccountResponse'),
+    newEnableOrganizationAdminAccountResponse,
+
+    -- ** GetDetector
+    GetDetector (GetDetector'),
+    newGetDetector,
+    GetDetectorResponse (GetDetectorResponse'),
+    newGetDetectorResponse,
+
+    -- ** GetFilter
+    GetFilter (GetFilter'),
+    newGetFilter,
+    GetFilterResponse (GetFilterResponse'),
+    newGetFilterResponse,
+
+    -- ** GetFindings
+    GetFindings (GetFindings'),
+    newGetFindings,
+    GetFindingsResponse (GetFindingsResponse'),
+    newGetFindingsResponse,
 
     -- ** GetFindingsStatistics
     GetFindingsStatistics (GetFindingsStatistics'),
@@ -135,29 +219,11 @@ module Amazonka.GuardDuty
     GetIPSetResponse (GetIPSetResponse'),
     newGetIPSetResponse,
 
-    -- ** ListInvitations (Paginated)
-    ListInvitations (ListInvitations'),
-    newListInvitations,
-    ListInvitationsResponse (ListInvitationsResponse'),
-    newListInvitationsResponse,
-
-    -- ** UpdateMemberDetectors
-    UpdateMemberDetectors (UpdateMemberDetectors'),
-    newUpdateMemberDetectors,
-    UpdateMemberDetectorsResponse (UpdateMemberDetectorsResponse'),
-    newUpdateMemberDetectorsResponse,
-
-    -- ** GetThreatIntelSet
-    GetThreatIntelSet (GetThreatIntelSet'),
-    newGetThreatIntelSet,
-    GetThreatIntelSetResponse (GetThreatIntelSetResponse'),
-    newGetThreatIntelSetResponse,
-
-    -- ** DeleteInvitations
-    DeleteInvitations (DeleteInvitations'),
-    newDeleteInvitations,
-    DeleteInvitationsResponse (DeleteInvitationsResponse'),
-    newDeleteInvitationsResponse,
+    -- ** GetInvitationsCount
+    GetInvitationsCount (GetInvitationsCount'),
+    newGetInvitationsCount,
+    GetInvitationsCountResponse (GetInvitationsCountResponse'),
+    newGetInvitationsCountResponse,
 
     -- ** GetMasterAccount
     GetMasterAccount (GetMasterAccount'),
@@ -165,173 +231,11 @@ module Amazonka.GuardDuty
     GetMasterAccountResponse (GetMasterAccountResponse'),
     newGetMasterAccountResponse,
 
-    -- ** GetUsageStatistics
-    GetUsageStatistics (GetUsageStatistics'),
-    newGetUsageStatistics,
-    GetUsageStatisticsResponse (GetUsageStatisticsResponse'),
-    newGetUsageStatisticsResponse,
-
-    -- ** CreateDetector
-    CreateDetector (CreateDetector'),
-    newCreateDetector,
-    CreateDetectorResponse (CreateDetectorResponse'),
-    newCreateDetectorResponse,
-
-    -- ** DeclineInvitations
-    DeclineInvitations (DeclineInvitations'),
-    newDeclineInvitations,
-    DeclineInvitationsResponse (DeclineInvitationsResponse'),
-    newDeclineInvitationsResponse,
-
-    -- ** DescribeOrganizationConfiguration
-    DescribeOrganizationConfiguration (DescribeOrganizationConfiguration'),
-    newDescribeOrganizationConfiguration,
-    DescribeOrganizationConfigurationResponse (DescribeOrganizationConfigurationResponse'),
-    newDescribeOrganizationConfigurationResponse,
-
-    -- ** CreatePublishingDestination
-    CreatePublishingDestination (CreatePublishingDestination'),
-    newCreatePublishingDestination,
-    CreatePublishingDestinationResponse (CreatePublishingDestinationResponse'),
-    newCreatePublishingDestinationResponse,
-
-    -- ** UpdateFilter
-    UpdateFilter (UpdateFilter'),
-    newUpdateFilter,
-    UpdateFilterResponse (UpdateFilterResponse'),
-    newUpdateFilterResponse,
-
-    -- ** DeleteFilter
-    DeleteFilter (DeleteFilter'),
-    newDeleteFilter,
-    DeleteFilterResponse (DeleteFilterResponse'),
-    newDeleteFilterResponse,
-
-    -- ** DisassociateMembers
-    DisassociateMembers (DisassociateMembers'),
-    newDisassociateMembers,
-    DisassociateMembersResponse (DisassociateMembersResponse'),
-    newDisassociateMembersResponse,
-
-    -- ** DisassociateFromMasterAccount
-    DisassociateFromMasterAccount (DisassociateFromMasterAccount'),
-    newDisassociateFromMasterAccount,
-    DisassociateFromMasterAccountResponse (DisassociateFromMasterAccountResponse'),
-    newDisassociateFromMasterAccountResponse,
-
-    -- ** AcceptInvitation
-    AcceptInvitation (AcceptInvitation'),
-    newAcceptInvitation,
-    AcceptInvitationResponse (AcceptInvitationResponse'),
-    newAcceptInvitationResponse,
-
-    -- ** ListFilters (Paginated)
-    ListFilters (ListFilters'),
-    newListFilters,
-    ListFiltersResponse (ListFiltersResponse'),
-    newListFiltersResponse,
-
-    -- ** ListMembers (Paginated)
-    ListMembers (ListMembers'),
-    newListMembers,
-    ListMembersResponse (ListMembersResponse'),
-    newListMembersResponse,
-
-    -- ** ListPublishingDestinations
-    ListPublishingDestinations (ListPublishingDestinations'),
-    newListPublishingDestinations,
-    ListPublishingDestinationsResponse (ListPublishingDestinationsResponse'),
-    newListPublishingDestinationsResponse,
-
-    -- ** DeletePublishingDestination
-    DeletePublishingDestination (DeletePublishingDestination'),
-    newDeletePublishingDestination,
-    DeletePublishingDestinationResponse (DeletePublishingDestinationResponse'),
-    newDeletePublishingDestinationResponse,
-
-    -- ** UpdatePublishingDestination
-    UpdatePublishingDestination (UpdatePublishingDestination'),
-    newUpdatePublishingDestination,
-    UpdatePublishingDestinationResponse (UpdatePublishingDestinationResponse'),
-    newUpdatePublishingDestinationResponse,
-
-    -- ** GetDetector
-    GetDetector (GetDetector'),
-    newGetDetector,
-    GetDetectorResponse (GetDetectorResponse'),
-    newGetDetectorResponse,
-
-    -- ** CreateSampleFindings
-    CreateSampleFindings (CreateSampleFindings'),
-    newCreateSampleFindings,
-    CreateSampleFindingsResponse (CreateSampleFindingsResponse'),
-    newCreateSampleFindingsResponse,
-
-    -- ** ArchiveFindings
-    ArchiveFindings (ArchiveFindings'),
-    newArchiveFindings,
-    ArchiveFindingsResponse (ArchiveFindingsResponse'),
-    newArchiveFindingsResponse,
-
-    -- ** CreateMembers
-    CreateMembers (CreateMembers'),
-    newCreateMembers,
-    CreateMembersResponse (CreateMembersResponse'),
-    newCreateMembersResponse,
-
-    -- ** UnarchiveFindings
-    UnarchiveFindings (UnarchiveFindings'),
-    newUnarchiveFindings,
-    UnarchiveFindingsResponse (UnarchiveFindingsResponse'),
-    newUnarchiveFindingsResponse,
-
     -- ** GetMemberDetectors
     GetMemberDetectors (GetMemberDetectors'),
     newGetMemberDetectors,
     GetMemberDetectorsResponse (GetMemberDetectorsResponse'),
     newGetMemberDetectorsResponse,
-
-    -- ** GetInvitationsCount
-    GetInvitationsCount (GetInvitationsCount'),
-    newGetInvitationsCount,
-    GetInvitationsCountResponse (GetInvitationsCountResponse'),
-    newGetInvitationsCountResponse,
-
-    -- ** StartMonitoringMembers
-    StartMonitoringMembers (StartMonitoringMembers'),
-    newStartMonitoringMembers,
-    StartMonitoringMembersResponse (StartMonitoringMembersResponse'),
-    newStartMonitoringMembersResponse,
-
-    -- ** UpdateOrganizationConfiguration
-    UpdateOrganizationConfiguration (UpdateOrganizationConfiguration'),
-    newUpdateOrganizationConfiguration,
-    UpdateOrganizationConfigurationResponse (UpdateOrganizationConfigurationResponse'),
-    newUpdateOrganizationConfigurationResponse,
-
-    -- ** InviteMembers
-    InviteMembers (InviteMembers'),
-    newInviteMembers,
-    InviteMembersResponse (InviteMembersResponse'),
-    newInviteMembersResponse,
-
-    -- ** DeleteIPSet
-    DeleteIPSet (DeleteIPSet'),
-    newDeleteIPSet,
-    DeleteIPSetResponse (DeleteIPSetResponse'),
-    newDeleteIPSetResponse,
-
-    -- ** UpdateIPSet
-    UpdateIPSet (UpdateIPSet'),
-    newUpdateIPSet,
-    UpdateIPSetResponse (UpdateIPSetResponse'),
-    newUpdateIPSetResponse,
-
-    -- ** ListIPSets (Paginated)
-    ListIPSets (ListIPSets'),
-    newListIPSets,
-    ListIPSetsResponse (ListIPSetsResponse'),
-    newListIPSetsResponse,
 
     -- ** GetMembers
     GetMembers (GetMembers'),
@@ -339,11 +243,95 @@ module Amazonka.GuardDuty
     GetMembersResponse (GetMembersResponse'),
     newGetMembersResponse,
 
-    -- ** DescribePublishingDestination
-    DescribePublishingDestination (DescribePublishingDestination'),
-    newDescribePublishingDestination,
-    DescribePublishingDestinationResponse (DescribePublishingDestinationResponse'),
-    newDescribePublishingDestinationResponse,
+    -- ** GetThreatIntelSet
+    GetThreatIntelSet (GetThreatIntelSet'),
+    newGetThreatIntelSet,
+    GetThreatIntelSetResponse (GetThreatIntelSetResponse'),
+    newGetThreatIntelSetResponse,
+
+    -- ** GetUsageStatistics
+    GetUsageStatistics (GetUsageStatistics'),
+    newGetUsageStatistics,
+    GetUsageStatisticsResponse (GetUsageStatisticsResponse'),
+    newGetUsageStatisticsResponse,
+
+    -- ** InviteMembers
+    InviteMembers (InviteMembers'),
+    newInviteMembers,
+    InviteMembersResponse (InviteMembersResponse'),
+    newInviteMembersResponse,
+
+    -- ** ListDetectors (Paginated)
+    ListDetectors (ListDetectors'),
+    newListDetectors,
+    ListDetectorsResponse (ListDetectorsResponse'),
+    newListDetectorsResponse,
+
+    -- ** ListFilters (Paginated)
+    ListFilters (ListFilters'),
+    newListFilters,
+    ListFiltersResponse (ListFiltersResponse'),
+    newListFiltersResponse,
+
+    -- ** ListFindings (Paginated)
+    ListFindings (ListFindings'),
+    newListFindings,
+    ListFindingsResponse (ListFindingsResponse'),
+    newListFindingsResponse,
+
+    -- ** ListIPSets (Paginated)
+    ListIPSets (ListIPSets'),
+    newListIPSets,
+    ListIPSetsResponse (ListIPSetsResponse'),
+    newListIPSetsResponse,
+
+    -- ** ListInvitations (Paginated)
+    ListInvitations (ListInvitations'),
+    newListInvitations,
+    ListInvitationsResponse (ListInvitationsResponse'),
+    newListInvitationsResponse,
+
+    -- ** ListMembers (Paginated)
+    ListMembers (ListMembers'),
+    newListMembers,
+    ListMembersResponse (ListMembersResponse'),
+    newListMembersResponse,
+
+    -- ** ListOrganizationAdminAccounts (Paginated)
+    ListOrganizationAdminAccounts (ListOrganizationAdminAccounts'),
+    newListOrganizationAdminAccounts,
+    ListOrganizationAdminAccountsResponse (ListOrganizationAdminAccountsResponse'),
+    newListOrganizationAdminAccountsResponse,
+
+    -- ** ListPublishingDestinations
+    ListPublishingDestinations (ListPublishingDestinations'),
+    newListPublishingDestinations,
+    ListPublishingDestinationsResponse (ListPublishingDestinationsResponse'),
+    newListPublishingDestinationsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListThreatIntelSets (Paginated)
+    ListThreatIntelSets (ListThreatIntelSets'),
+    newListThreatIntelSets,
+    ListThreatIntelSetsResponse (ListThreatIntelSetsResponse'),
+    newListThreatIntelSetsResponse,
+
+    -- ** StartMonitoringMembers
+    StartMonitoringMembers (StartMonitoringMembers'),
+    newStartMonitoringMembers,
+    StartMonitoringMembersResponse (StartMonitoringMembersResponse'),
+    newStartMonitoringMembersResponse,
+
+    -- ** StopMonitoringMembers
+    StopMonitoringMembers (StopMonitoringMembers'),
+    newStopMonitoringMembers,
+    StopMonitoringMembersResponse (StopMonitoringMembersResponse'),
+    newStopMonitoringMembersResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -351,17 +339,11 @@ module Amazonka.GuardDuty
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** GetFindings
-    GetFindings (GetFindings'),
-    newGetFindings,
-    GetFindingsResponse (GetFindingsResponse'),
-    newGetFindingsResponse,
-
-    -- ** ListDetectors (Paginated)
-    ListDetectors (ListDetectors'),
-    newListDetectors,
-    ListDetectorsResponse (ListDetectorsResponse'),
-    newListDetectorsResponse,
+    -- ** UnarchiveFindings
+    UnarchiveFindings (UnarchiveFindings'),
+    newUnarchiveFindings,
+    UnarchiveFindingsResponse (UnarchiveFindingsResponse'),
+    newUnarchiveFindingsResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -375,11 +357,11 @@ module Amazonka.GuardDuty
     UpdateDetectorResponse (UpdateDetectorResponse'),
     newUpdateDetectorResponse,
 
-    -- ** DeleteDetector
-    DeleteDetector (DeleteDetector'),
-    newDeleteDetector,
-    DeleteDetectorResponse (DeleteDetectorResponse'),
-    newDeleteDetectorResponse,
+    -- ** UpdateFilter
+    UpdateFilter (UpdateFilter'),
+    newUpdateFilter,
+    UpdateFilterResponse (UpdateFilterResponse'),
+    newUpdateFilterResponse,
 
     -- ** UpdateFindingsFeedback
     UpdateFindingsFeedback (UpdateFindingsFeedback'),
@@ -387,17 +369,35 @@ module Amazonka.GuardDuty
     UpdateFindingsFeedbackResponse (UpdateFindingsFeedbackResponse'),
     newUpdateFindingsFeedbackResponse,
 
-    -- ** GetFilter
-    GetFilter (GetFilter'),
-    newGetFilter,
-    GetFilterResponse (GetFilterResponse'),
-    newGetFilterResponse,
+    -- ** UpdateIPSet
+    UpdateIPSet (UpdateIPSet'),
+    newUpdateIPSet,
+    UpdateIPSetResponse (UpdateIPSetResponse'),
+    newUpdateIPSetResponse,
 
-    -- ** DisableOrganizationAdminAccount
-    DisableOrganizationAdminAccount (DisableOrganizationAdminAccount'),
-    newDisableOrganizationAdminAccount,
-    DisableOrganizationAdminAccountResponse (DisableOrganizationAdminAccountResponse'),
-    newDisableOrganizationAdminAccountResponse,
+    -- ** UpdateMemberDetectors
+    UpdateMemberDetectors (UpdateMemberDetectors'),
+    newUpdateMemberDetectors,
+    UpdateMemberDetectorsResponse (UpdateMemberDetectorsResponse'),
+    newUpdateMemberDetectorsResponse,
+
+    -- ** UpdateOrganizationConfiguration
+    UpdateOrganizationConfiguration (UpdateOrganizationConfiguration'),
+    newUpdateOrganizationConfiguration,
+    UpdateOrganizationConfigurationResponse (UpdateOrganizationConfigurationResponse'),
+    newUpdateOrganizationConfigurationResponse,
+
+    -- ** UpdatePublishingDestination
+    UpdatePublishingDestination (UpdatePublishingDestination'),
+    newUpdatePublishingDestination,
+    UpdatePublishingDestinationResponse (UpdatePublishingDestinationResponse'),
+    newUpdatePublishingDestinationResponse,
+
+    -- ** UpdateThreatIntelSet
+    UpdateThreatIntelSet (UpdateThreatIntelSet'),
+    newUpdateThreatIntelSet,
+    UpdateThreatIntelSetResponse (UpdateThreatIntelSetResponse'),
+    newUpdateThreatIntelSetResponse,
 
     -- * Types
 

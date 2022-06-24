@@ -31,10 +31,10 @@ module Amazonka.GuardDuty.CreateDetector
     newCreateDetector,
 
     -- * Request Lenses
-    createDetector_clientToken,
-    createDetector_findingPublishingFrequency,
-    createDetector_dataSources,
     createDetector_tags,
+    createDetector_clientToken,
+    createDetector_dataSources,
+    createDetector_findingPublishingFrequency,
     createDetector_enable,
 
     -- * Destructuring the Response
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDetector' smart constructor.
 data CreateDetector = CreateDetector'
-  { -- | The idempotency token for the create request.
+  { -- | The tags to be added to a new detector resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The idempotency token for the create request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A value that specifies how frequently updated findings are exported.
-    findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
     -- | Describes which data sources will be enabled for the detector.
     dataSources :: Prelude.Maybe DataSourceConfigurations,
-    -- | The tags to be added to a new detector resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A value that specifies how frequently updated findings are exported.
+    findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
     -- | A Boolean value that specifies whether the detector is to be enabled.
     enable :: Prelude.Bool
   }
@@ -77,13 +77,13 @@ data CreateDetector = CreateDetector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createDetector_clientToken' - The idempotency token for the create request.
+-- 'tags', 'createDetector_tags' - The tags to be added to a new detector resource.
 --
--- 'findingPublishingFrequency', 'createDetector_findingPublishingFrequency' - A value that specifies how frequently updated findings are exported.
+-- 'clientToken', 'createDetector_clientToken' - The idempotency token for the create request.
 --
 -- 'dataSources', 'createDetector_dataSources' - Describes which data sources will be enabled for the detector.
 --
--- 'tags', 'createDetector_tags' - The tags to be added to a new detector resource.
+-- 'findingPublishingFrequency', 'createDetector_findingPublishingFrequency' - A value that specifies how frequently updated findings are exported.
 --
 -- 'enable', 'createDetector_enable' - A Boolean value that specifies whether the detector is to be enabled.
 newCreateDetector ::
@@ -92,28 +92,28 @@ newCreateDetector ::
   CreateDetector
 newCreateDetector pEnable_ =
   CreateDetector'
-    { clientToken = Prelude.Nothing,
-      findingPublishingFrequency = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       dataSources = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      findingPublishingFrequency = Prelude.Nothing,
       enable = pEnable_
     }
+
+-- | The tags to be added to a new detector resource.
+createDetector_tags :: Lens.Lens' CreateDetector (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDetector_tags = Lens.lens (\CreateDetector' {tags} -> tags) (\s@CreateDetector' {} a -> s {tags = a} :: CreateDetector) Prelude.. Lens.mapping Lens.coerced
 
 -- | The idempotency token for the create request.
 createDetector_clientToken :: Lens.Lens' CreateDetector (Prelude.Maybe Prelude.Text)
 createDetector_clientToken = Lens.lens (\CreateDetector' {clientToken} -> clientToken) (\s@CreateDetector' {} a -> s {clientToken = a} :: CreateDetector)
 
--- | A value that specifies how frequently updated findings are exported.
-createDetector_findingPublishingFrequency :: Lens.Lens' CreateDetector (Prelude.Maybe FindingPublishingFrequency)
-createDetector_findingPublishingFrequency = Lens.lens (\CreateDetector' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@CreateDetector' {} a -> s {findingPublishingFrequency = a} :: CreateDetector)
-
 -- | Describes which data sources will be enabled for the detector.
 createDetector_dataSources :: Lens.Lens' CreateDetector (Prelude.Maybe DataSourceConfigurations)
 createDetector_dataSources = Lens.lens (\CreateDetector' {dataSources} -> dataSources) (\s@CreateDetector' {} a -> s {dataSources = a} :: CreateDetector)
 
--- | The tags to be added to a new detector resource.
-createDetector_tags :: Lens.Lens' CreateDetector (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDetector_tags = Lens.lens (\CreateDetector' {tags} -> tags) (\s@CreateDetector' {} a -> s {tags = a} :: CreateDetector) Prelude.. Lens.mapping Lens.coerced
+-- | A value that specifies how frequently updated findings are exported.
+createDetector_findingPublishingFrequency :: Lens.Lens' CreateDetector (Prelude.Maybe FindingPublishingFrequency)
+createDetector_findingPublishingFrequency = Lens.lens (\CreateDetector' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@CreateDetector' {} a -> s {findingPublishingFrequency = a} :: CreateDetector)
 
 -- | A Boolean value that specifies whether the detector is to be enabled.
 createDetector_enable :: Lens.Lens' CreateDetector Prelude.Bool
@@ -134,18 +134,18 @@ instance Core.AWSRequest CreateDetector where
 
 instance Prelude.Hashable CreateDetector where
   hashWithSalt _salt CreateDetector' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` findingPublishingFrequency
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dataSources
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` findingPublishingFrequency
       `Prelude.hashWithSalt` enable
 
 instance Prelude.NFData CreateDetector where
   rnf CreateDetector' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf findingPublishingFrequency
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf findingPublishingFrequency
       `Prelude.seq` Prelude.rnf enable
 
 instance Core.ToHeaders CreateDetector where
@@ -163,11 +163,11 @@ instance Core.ToJSON CreateDetector where
   toJSON CreateDetector' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("dataSources" Core..=) Prelude.<$> dataSources,
             ("findingPublishingFrequency" Core..=)
               Prelude.<$> findingPublishingFrequency,
-            ("dataSources" Core..=) Prelude.<$> dataSources,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("enable" Core..= enable)
           ]
       )

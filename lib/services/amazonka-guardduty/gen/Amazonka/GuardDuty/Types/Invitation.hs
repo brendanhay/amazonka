@@ -27,15 +27,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInvitation' smart constructor.
 data Invitation = Invitation'
-  { -- | The timestamp when the invitation was sent.
+  { -- | The ID of the account that the invitation was sent from.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the invitation was sent.
     invitedAt :: Prelude.Maybe Prelude.Text,
     -- | The status of the relationship between the inviter and invitee accounts.
     relationshipStatus :: Prelude.Maybe Prelude.Text,
     -- | The ID of the invitation. This value is used to validate the inviter
     -- account to the member account.
-    invitationId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the account that the invitation was sent from.
-    accountId :: Prelude.Maybe Prelude.Text
+    invitationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,23 +47,27 @@ data Invitation = Invitation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'invitation_accountId' - The ID of the account that the invitation was sent from.
+--
 -- 'invitedAt', 'invitation_invitedAt' - The timestamp when the invitation was sent.
 --
 -- 'relationshipStatus', 'invitation_relationshipStatus' - The status of the relationship between the inviter and invitee accounts.
 --
 -- 'invitationId', 'invitation_invitationId' - The ID of the invitation. This value is used to validate the inviter
 -- account to the member account.
---
--- 'accountId', 'invitation_accountId' - The ID of the account that the invitation was sent from.
 newInvitation ::
   Invitation
 newInvitation =
   Invitation'
-    { invitedAt = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
+      invitedAt = Prelude.Nothing,
       relationshipStatus = Prelude.Nothing,
-      invitationId = Prelude.Nothing,
-      accountId = Prelude.Nothing
+      invitationId = Prelude.Nothing
     }
+
+-- | The ID of the account that the invitation was sent from.
+invitation_accountId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
+invitation_accountId = Lens.lens (\Invitation' {accountId} -> accountId) (\s@Invitation' {} a -> s {accountId = a} :: Invitation)
 
 -- | The timestamp when the invitation was sent.
 invitation_invitedAt :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
@@ -78,32 +82,28 @@ invitation_relationshipStatus = Lens.lens (\Invitation' {relationshipStatus} -> 
 invitation_invitationId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
 invitation_invitationId = Lens.lens (\Invitation' {invitationId} -> invitationId) (\s@Invitation' {} a -> s {invitationId = a} :: Invitation)
 
--- | The ID of the account that the invitation was sent from.
-invitation_accountId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
-invitation_accountId = Lens.lens (\Invitation' {accountId} -> accountId) (\s@Invitation' {} a -> s {accountId = a} :: Invitation)
-
 instance Core.FromJSON Invitation where
   parseJSON =
     Core.withObject
       "Invitation"
       ( \x ->
           Invitation'
-            Prelude.<$> (x Core..:? "invitedAt")
+            Prelude.<$> (x Core..:? "accountId")
+            Prelude.<*> (x Core..:? "invitedAt")
             Prelude.<*> (x Core..:? "relationshipStatus")
             Prelude.<*> (x Core..:? "invitationId")
-            Prelude.<*> (x Core..:? "accountId")
       )
 
 instance Prelude.Hashable Invitation where
   hashWithSalt _salt Invitation' {..} =
-    _salt `Prelude.hashWithSalt` invitedAt
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` invitedAt
       `Prelude.hashWithSalt` relationshipStatus
       `Prelude.hashWithSalt` invitationId
-      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData Invitation where
   rnf Invitation' {..} =
-    Prelude.rnf invitedAt
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf invitedAt
       `Prelude.seq` Prelude.rnf relationshipStatus
       `Prelude.seq` Prelude.rnf invitationId
-      `Prelude.seq` Prelude.rnf accountId

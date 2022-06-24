@@ -32,16 +32,16 @@ data AwsApiCallAction = AwsApiCallAction'
   { -- | The remote IP information of the connection that initiated the AWS API
     -- call.
     remoteIpDetails :: Prelude.Maybe RemoteIpDetails,
-    -- | The AWS API caller type.
-    callerType :: Prelude.Maybe Prelude.Text,
     -- | The domain information for the AWS API call.
     domainDetails :: Prelude.Maybe DomainDetails,
-    -- | The AWS service name whose API was invoked.
-    serviceName :: Prelude.Maybe Prelude.Text,
+    -- | The AWS API name.
+    api :: Prelude.Maybe Prelude.Text,
     -- | The error code of the failed AWS API action.
     errorCode :: Prelude.Maybe Prelude.Text,
-    -- | The AWS API name.
-    api :: Prelude.Maybe Prelude.Text
+    -- | The AWS service name whose API was invoked.
+    serviceName :: Prelude.Maybe Prelude.Text,
+    -- | The AWS API caller type.
+    callerType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,26 +56,26 @@ data AwsApiCallAction = AwsApiCallAction'
 -- 'remoteIpDetails', 'awsApiCallAction_remoteIpDetails' - The remote IP information of the connection that initiated the AWS API
 -- call.
 --
--- 'callerType', 'awsApiCallAction_callerType' - The AWS API caller type.
---
 -- 'domainDetails', 'awsApiCallAction_domainDetails' - The domain information for the AWS API call.
 --
--- 'serviceName', 'awsApiCallAction_serviceName' - The AWS service name whose API was invoked.
+-- 'api', 'awsApiCallAction_api' - The AWS API name.
 --
 -- 'errorCode', 'awsApiCallAction_errorCode' - The error code of the failed AWS API action.
 --
--- 'api', 'awsApiCallAction_api' - The AWS API name.
+-- 'serviceName', 'awsApiCallAction_serviceName' - The AWS service name whose API was invoked.
+--
+-- 'callerType', 'awsApiCallAction_callerType' - The AWS API caller type.
 newAwsApiCallAction ::
   AwsApiCallAction
 newAwsApiCallAction =
   AwsApiCallAction'
     { remoteIpDetails =
         Prelude.Nothing,
-      callerType = Prelude.Nothing,
       domainDetails = Prelude.Nothing,
-      serviceName = Prelude.Nothing,
+      api = Prelude.Nothing,
       errorCode = Prelude.Nothing,
-      api = Prelude.Nothing
+      serviceName = Prelude.Nothing,
+      callerType = Prelude.Nothing
     }
 
 -- | The remote IP information of the connection that initiated the AWS API
@@ -83,25 +83,25 @@ newAwsApiCallAction =
 awsApiCallAction_remoteIpDetails :: Lens.Lens' AwsApiCallAction (Prelude.Maybe RemoteIpDetails)
 awsApiCallAction_remoteIpDetails = Lens.lens (\AwsApiCallAction' {remoteIpDetails} -> remoteIpDetails) (\s@AwsApiCallAction' {} a -> s {remoteIpDetails = a} :: AwsApiCallAction)
 
--- | The AWS API caller type.
-awsApiCallAction_callerType :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
-awsApiCallAction_callerType = Lens.lens (\AwsApiCallAction' {callerType} -> callerType) (\s@AwsApiCallAction' {} a -> s {callerType = a} :: AwsApiCallAction)
-
 -- | The domain information for the AWS API call.
 awsApiCallAction_domainDetails :: Lens.Lens' AwsApiCallAction (Prelude.Maybe DomainDetails)
 awsApiCallAction_domainDetails = Lens.lens (\AwsApiCallAction' {domainDetails} -> domainDetails) (\s@AwsApiCallAction' {} a -> s {domainDetails = a} :: AwsApiCallAction)
 
--- | The AWS service name whose API was invoked.
-awsApiCallAction_serviceName :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
-awsApiCallAction_serviceName = Lens.lens (\AwsApiCallAction' {serviceName} -> serviceName) (\s@AwsApiCallAction' {} a -> s {serviceName = a} :: AwsApiCallAction)
+-- | The AWS API name.
+awsApiCallAction_api :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
+awsApiCallAction_api = Lens.lens (\AwsApiCallAction' {api} -> api) (\s@AwsApiCallAction' {} a -> s {api = a} :: AwsApiCallAction)
 
 -- | The error code of the failed AWS API action.
 awsApiCallAction_errorCode :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
 awsApiCallAction_errorCode = Lens.lens (\AwsApiCallAction' {errorCode} -> errorCode) (\s@AwsApiCallAction' {} a -> s {errorCode = a} :: AwsApiCallAction)
 
--- | The AWS API name.
-awsApiCallAction_api :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
-awsApiCallAction_api = Lens.lens (\AwsApiCallAction' {api} -> api) (\s@AwsApiCallAction' {} a -> s {api = a} :: AwsApiCallAction)
+-- | The AWS service name whose API was invoked.
+awsApiCallAction_serviceName :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
+awsApiCallAction_serviceName = Lens.lens (\AwsApiCallAction' {serviceName} -> serviceName) (\s@AwsApiCallAction' {} a -> s {serviceName = a} :: AwsApiCallAction)
+
+-- | The AWS API caller type.
+awsApiCallAction_callerType :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
+awsApiCallAction_callerType = Lens.lens (\AwsApiCallAction' {callerType} -> callerType) (\s@AwsApiCallAction' {} a -> s {callerType = a} :: AwsApiCallAction)
 
 instance Core.FromJSON AwsApiCallAction where
   parseJSON =
@@ -110,27 +110,27 @@ instance Core.FromJSON AwsApiCallAction where
       ( \x ->
           AwsApiCallAction'
             Prelude.<$> (x Core..:? "remoteIpDetails")
-            Prelude.<*> (x Core..:? "callerType")
             Prelude.<*> (x Core..:? "domainDetails")
-            Prelude.<*> (x Core..:? "serviceName")
-            Prelude.<*> (x Core..:? "errorCode")
             Prelude.<*> (x Core..:? "api")
+            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<*> (x Core..:? "serviceName")
+            Prelude.<*> (x Core..:? "callerType")
       )
 
 instance Prelude.Hashable AwsApiCallAction where
   hashWithSalt _salt AwsApiCallAction' {..} =
     _salt `Prelude.hashWithSalt` remoteIpDetails
-      `Prelude.hashWithSalt` callerType
       `Prelude.hashWithSalt` domainDetails
-      `Prelude.hashWithSalt` serviceName
-      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` api
+      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` callerType
 
 instance Prelude.NFData AwsApiCallAction where
   rnf AwsApiCallAction' {..} =
     Prelude.rnf remoteIpDetails
-      `Prelude.seq` Prelude.rnf callerType
       `Prelude.seq` Prelude.rnf domainDetails
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf api
+      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf callerType

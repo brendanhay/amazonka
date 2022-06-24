@@ -30,8 +30,8 @@ module Amazonka.GuardDuty.InviteMembers
     newInviteMembers,
 
     -- * Request Lenses
-    inviteMembers_disableEmailNotification,
     inviteMembers_message,
+    inviteMembers_disableEmailNotification,
     inviteMembers_detectorId,
     inviteMembers_accountIds,
 
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newInviteMembers' smart constructor.
 data InviteMembers = InviteMembers'
-  { -- | A Boolean value that specifies whether you want to disable email
+  { -- | The invitation message that you want to send to the accounts that
+    -- you\'re inviting to GuardDuty as members.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value that specifies whether you want to disable email
     -- notification to the accounts that you are inviting to GuardDuty as
     -- members.
     disableEmailNotification :: Prelude.Maybe Prelude.Bool,
-    -- | The invitation message that you want to send to the accounts that
-    -- you\'re inviting to GuardDuty as members.
-    message :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the detector of the GuardDuty account that you want to
     -- invite members with.
     detectorId :: Prelude.Text,
@@ -78,12 +78,12 @@ data InviteMembers = InviteMembers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'message', 'inviteMembers_message' - The invitation message that you want to send to the accounts that
+-- you\'re inviting to GuardDuty as members.
+--
 -- 'disableEmailNotification', 'inviteMembers_disableEmailNotification' - A Boolean value that specifies whether you want to disable email
 -- notification to the accounts that you are inviting to GuardDuty as
 -- members.
---
--- 'message', 'inviteMembers_message' - The invitation message that you want to send to the accounts that
--- you\'re inviting to GuardDuty as members.
 --
 -- 'detectorId', 'inviteMembers_detectorId' - The unique ID of the detector of the GuardDuty account that you want to
 -- invite members with.
@@ -98,23 +98,22 @@ newInviteMembers ::
   InviteMembers
 newInviteMembers pDetectorId_ pAccountIds_ =
   InviteMembers'
-    { disableEmailNotification =
-        Prelude.Nothing,
-      message = Prelude.Nothing,
+    { message = Prelude.Nothing,
+      disableEmailNotification = Prelude.Nothing,
       detectorId = pDetectorId_,
       accountIds = Lens.coerced Lens.# pAccountIds_
     }
+
+-- | The invitation message that you want to send to the accounts that
+-- you\'re inviting to GuardDuty as members.
+inviteMembers_message :: Lens.Lens' InviteMembers (Prelude.Maybe Prelude.Text)
+inviteMembers_message = Lens.lens (\InviteMembers' {message} -> message) (\s@InviteMembers' {} a -> s {message = a} :: InviteMembers)
 
 -- | A Boolean value that specifies whether you want to disable email
 -- notification to the accounts that you are inviting to GuardDuty as
 -- members.
 inviteMembers_disableEmailNotification :: Lens.Lens' InviteMembers (Prelude.Maybe Prelude.Bool)
 inviteMembers_disableEmailNotification = Lens.lens (\InviteMembers' {disableEmailNotification} -> disableEmailNotification) (\s@InviteMembers' {} a -> s {disableEmailNotification = a} :: InviteMembers)
-
--- | The invitation message that you want to send to the accounts that
--- you\'re inviting to GuardDuty as members.
-inviteMembers_message :: Lens.Lens' InviteMembers (Prelude.Maybe Prelude.Text)
-inviteMembers_message = Lens.lens (\InviteMembers' {message} -> message) (\s@InviteMembers' {} a -> s {message = a} :: InviteMembers)
 
 -- | The unique ID of the detector of the GuardDuty account that you want to
 -- invite members with.
@@ -143,16 +142,15 @@ instance Core.AWSRequest InviteMembers where
 
 instance Prelude.Hashable InviteMembers where
   hashWithSalt _salt InviteMembers' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` disableEmailNotification
-      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData InviteMembers where
   rnf InviteMembers' {..} =
-    Prelude.rnf disableEmailNotification
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf disableEmailNotification
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf accountIds
 
@@ -171,9 +169,9 @@ instance Core.ToJSON InviteMembers where
   toJSON InviteMembers' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("disableEmailNotification" Core..=)
+          [ ("message" Core..=) Prelude.<$> message,
+            ("disableEmailNotification" Core..=)
               Prelude.<$> disableEmailNotification,
-            ("message" Core..=) Prelude.<$> message,
             Prelude.Just ("accountIds" Core..= accountIds)
           ]
       )

@@ -71,16 +71,16 @@ module Amazonka.GuardDuty.Types
     -- * AccessControlList
     AccessControlList (..),
     newAccessControlList,
-    accessControlList_allowsPublicWriteAccess,
     accessControlList_allowsPublicReadAccess,
+    accessControlList_allowsPublicWriteAccess,
 
     -- * AccessKeyDetails
     AccessKeyDetails (..),
     newAccessKeyDetails,
     accessKeyDetails_principalId,
     accessKeyDetails_userName,
-    accessKeyDetails_accessKeyId,
     accessKeyDetails_userType,
+    accessKeyDetails_accessKeyId,
 
     -- * AccountDetail
     AccountDetail (..),
@@ -96,11 +96,11 @@ module Amazonka.GuardDuty.Types
     -- * Action
     Action (..),
     newAction,
-    action_networkConnectionAction,
-    action_portProbeAction,
     action_actionType,
-    action_dnsRequestAction,
+    action_networkConnectionAction,
     action_awsApiCallAction,
+    action_dnsRequestAction,
+    action_portProbeAction,
 
     -- * AdminAccount
     AdminAccount (..),
@@ -112,19 +112,19 @@ module Amazonka.GuardDuty.Types
     AwsApiCallAction (..),
     newAwsApiCallAction,
     awsApiCallAction_remoteIpDetails,
-    awsApiCallAction_callerType,
     awsApiCallAction_domainDetails,
-    awsApiCallAction_serviceName,
-    awsApiCallAction_errorCode,
     awsApiCallAction_api,
+    awsApiCallAction_errorCode,
+    awsApiCallAction_serviceName,
+    awsApiCallAction_callerType,
 
     -- * BlockPublicAccess
     BlockPublicAccess (..),
     newBlockPublicAccess,
-    blockPublicAccess_ignorePublicAcls,
-    blockPublicAccess_blockPublicAcls,
     blockPublicAccess_restrictPublicBuckets,
+    blockPublicAccess_ignorePublicAcls,
     blockPublicAccess_blockPublicPolicy,
+    blockPublicAccess_blockPublicAcls,
 
     -- * BucketLevelPermissions
     BucketLevelPermissions (..),
@@ -136,8 +136,8 @@ module Amazonka.GuardDuty.Types
     -- * BucketPolicy
     BucketPolicy (..),
     newBucketPolicy,
-    bucketPolicy_allowsPublicWriteAccess,
     bucketPolicy_allowsPublicReadAccess,
+    bucketPolicy_allowsPublicWriteAccess,
 
     -- * City
     City (..),
@@ -152,17 +152,17 @@ module Amazonka.GuardDuty.Types
     -- * Condition
     Condition (..),
     newCondition,
-    condition_eq,
+    condition_notEquals,
+    condition_lessThanOrEqual,
+    condition_neq,
+    condition_equals,
     condition_lessThan,
     condition_lte,
-    condition_greaterThanOrEqual,
-    condition_lessThanOrEqual,
-    condition_gt,
-    condition_equals,
-    condition_neq,
-    condition_notEquals,
     condition_lt,
     condition_gte,
+    condition_eq,
+    condition_gt,
+    condition_greaterThanOrEqual,
     condition_greaterThan,
 
     -- * Country
@@ -226,11 +226,11 @@ module Amazonka.GuardDuty.Types
     -- * Finding
     Finding (..),
     newFinding,
-    finding_service,
     finding_confidence,
+    finding_description,
+    finding_service,
     finding_partition,
     finding_title,
-    finding_description,
     finding_accountId,
     finding_arn,
     finding_createdAt,
@@ -272,27 +272,27 @@ module Amazonka.GuardDuty.Types
     -- * InstanceDetails
     InstanceDetails (..),
     newInstanceDetails,
-    instanceDetails_instanceId,
-    instanceDetails_platform,
-    instanceDetails_launchTime,
-    instanceDetails_networkInterfaces,
-    instanceDetails_outpostArn,
-    instanceDetails_instanceType,
-    instanceDetails_availabilityZone,
-    instanceDetails_iamInstanceProfile,
-    instanceDetails_imageId,
-    instanceDetails_productCodes,
-    instanceDetails_instanceState,
     instanceDetails_tags,
+    instanceDetails_instanceState,
+    instanceDetails_iamInstanceProfile,
+    instanceDetails_outpostArn,
     instanceDetails_imageDescription,
+    instanceDetails_launchTime,
+    instanceDetails_productCodes,
+    instanceDetails_platform,
+    instanceDetails_availabilityZone,
+    instanceDetails_instanceType,
+    instanceDetails_instanceId,
+    instanceDetails_imageId,
+    instanceDetails_networkInterfaces,
 
     -- * Invitation
     Invitation (..),
     newInvitation,
+    invitation_accountId,
     invitation_invitedAt,
     invitation_relationshipStatus,
     invitation_invitationId,
-    invitation_accountId,
 
     -- * LocalIpDetails
     LocalIpDetails (..),
@@ -302,16 +302,16 @@ module Amazonka.GuardDuty.Types
     -- * LocalPortDetails
     LocalPortDetails (..),
     newLocalPortDetails,
-    localPortDetails_portName,
     localPortDetails_port,
+    localPortDetails_portName,
 
     -- * Master
     Master (..),
     newMaster,
+    master_accountId,
     master_invitedAt,
     master_relationshipStatus,
     master_invitationId,
-    master_accountId,
 
     -- * Member
     Member (..),
@@ -333,35 +333,35 @@ module Amazonka.GuardDuty.Types
     -- * NetworkConnectionAction
     NetworkConnectionAction (..),
     newNetworkConnectionAction,
-    networkConnectionAction_remoteIpDetails,
-    networkConnectionAction_protocol,
-    networkConnectionAction_localIpDetails,
-    networkConnectionAction_remotePortDetails,
-    networkConnectionAction_blocked,
     networkConnectionAction_connectionDirection,
+    networkConnectionAction_remoteIpDetails,
     networkConnectionAction_localPortDetails,
+    networkConnectionAction_localIpDetails,
+    networkConnectionAction_blocked,
+    networkConnectionAction_protocol,
+    networkConnectionAction_remotePortDetails,
 
     -- * NetworkInterface
     NetworkInterface (..),
     newNetworkInterface,
     networkInterface_privateIpAddresses,
+    networkInterface_subnetId,
+    networkInterface_publicIp,
+    networkInterface_networkInterfaceId,
     networkInterface_publicDnsName,
     networkInterface_securityGroups,
-    networkInterface_vpcId,
-    networkInterface_networkInterfaceId,
-    networkInterface_subnetId,
     networkInterface_privateIpAddress,
-    networkInterface_publicIp,
     networkInterface_privateDnsName,
+    networkInterface_vpcId,
     networkInterface_ipv6Addresses,
 
     -- * Organization
     Organization (..),
     newOrganization,
-    organization_org,
-    organization_asnOrg,
-    organization_asn,
     organization_isp,
+    organization_org,
+    organization_asn,
+    organization_asnOrg,
 
     -- * OrganizationDataSourceConfigurations
     OrganizationDataSourceConfigurations (..),
@@ -391,21 +391,21 @@ module Amazonka.GuardDuty.Types
     -- * PermissionConfiguration
     PermissionConfiguration (..),
     newPermissionConfiguration,
-    permissionConfiguration_bucketLevelPermissions,
     permissionConfiguration_accountLevelPermissions,
+    permissionConfiguration_bucketLevelPermissions,
 
     -- * PortProbeAction
     PortProbeAction (..),
     newPortProbeAction,
-    portProbeAction_portProbeDetails,
     portProbeAction_blocked,
+    portProbeAction_portProbeDetails,
 
     -- * PortProbeDetail
     PortProbeDetail (..),
     newPortProbeDetail,
     portProbeDetail_remoteIpDetails,
-    portProbeDetail_localIpDetails,
     portProbeDetail_localPortDetails,
+    portProbeDetail_localIpDetails,
 
     -- * PrivateIpAddressDetails
     PrivateIpAddressDetails (..),
@@ -416,8 +416,8 @@ module Amazonka.GuardDuty.Types
     -- * ProductCode
     ProductCode (..),
     newProductCode,
-    productCode_productType,
     productCode_code,
+    productCode_productType,
 
     -- * PublicAccess
     PublicAccess (..),
@@ -429,36 +429,36 @@ module Amazonka.GuardDuty.Types
     RemoteIpDetails (..),
     newRemoteIpDetails,
     remoteIpDetails_country,
-    remoteIpDetails_city,
     remoteIpDetails_ipAddressV4,
-    remoteIpDetails_geoLocation,
+    remoteIpDetails_city,
     remoteIpDetails_organization,
+    remoteIpDetails_geoLocation,
 
     -- * RemotePortDetails
     RemotePortDetails (..),
     newRemotePortDetails,
-    remotePortDetails_portName,
     remotePortDetails_port,
+    remotePortDetails_portName,
 
     -- * Resource
     Resource (..),
     newResource,
     resource_resourceType,
-    resource_s3BucketDetails,
     resource_instanceDetails,
+    resource_s3BucketDetails,
     resource_accessKeyDetails,
 
     -- * S3BucketDetail
     S3BucketDetail (..),
     newS3BucketDetail,
-    s3BucketDetail_arn,
-    s3BucketDetail_createdAt,
-    s3BucketDetail_owner,
-    s3BucketDetail_name,
-    s3BucketDetail_defaultServerSideEncryption,
-    s3BucketDetail_publicAccess,
-    s3BucketDetail_type,
     s3BucketDetail_tags,
+    s3BucketDetail_name,
+    s3BucketDetail_type,
+    s3BucketDetail_defaultServerSideEncryption,
+    s3BucketDetail_arn,
+    s3BucketDetail_publicAccess,
+    s3BucketDetail_owner,
+    s3BucketDetail_createdAt,
 
     -- * S3LogsConfiguration
     S3LogsConfiguration (..),
@@ -473,46 +473,46 @@ module Amazonka.GuardDuty.Types
     -- * SecurityGroup
     SecurityGroup (..),
     newSecurityGroup,
-    securityGroup_groupId,
     securityGroup_groupName,
+    securityGroup_groupId,
 
     -- * ServiceInfo
     ServiceInfo (..),
     newServiceInfo,
+    serviceInfo_resourceRole,
+    serviceInfo_evidence,
+    serviceInfo_userFeedback,
     serviceInfo_count,
     serviceInfo_eventFirstSeen,
+    serviceInfo_archived,
     serviceInfo_action,
     serviceInfo_detectorId,
     serviceInfo_serviceName,
-    serviceInfo_userFeedback,
-    serviceInfo_evidence,
     serviceInfo_eventLastSeen,
-    serviceInfo_resourceRole,
-    serviceInfo_archived,
 
     -- * SortCriteria
     SortCriteria (..),
     newSortCriteria,
-    sortCriteria_orderBy,
     sortCriteria_attributeName,
+    sortCriteria_orderBy,
 
     -- * Tag
     Tag (..),
     newTag,
-    tag_value,
     tag_key,
+    tag_value,
 
     -- * ThreatIntelligenceDetail
     ThreatIntelligenceDetail (..),
     newThreatIntelligenceDetail,
-    threatIntelligenceDetail_threatNames,
     threatIntelligenceDetail_threatListName,
+    threatIntelligenceDetail_threatNames,
 
     -- * Total
     Total (..),
     newTotal,
-    total_amount,
     total_unit,
+    total_amount,
 
     -- * UnprocessedAccount
     UnprocessedAccount (..),
@@ -523,8 +523,8 @@ module Amazonka.GuardDuty.Types
     -- * UsageAccountResult
     UsageAccountResult (..),
     newUsageAccountResult,
-    usageAccountResult_accountId,
     usageAccountResult_total,
+    usageAccountResult_accountId,
 
     -- * UsageCriteria
     UsageCriteria (..),
@@ -548,9 +548,9 @@ module Amazonka.GuardDuty.Types
     -- * UsageStatistics
     UsageStatistics (..),
     newUsageStatistics,
+    usageStatistics_sumByDataSource,
     usageStatistics_topResources,
     usageStatistics_sumByResource,
-    usageStatistics_sumByDataSource,
     usageStatistics_sumByAccount,
   )
 where
@@ -669,35 +669,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -706,12 +679,39 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An internal server error exception object.

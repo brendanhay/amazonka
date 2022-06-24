@@ -27,41 +27,83 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateFilter $
+--         [ requestAcceptInvitation $
+--             newAcceptInvitation
+--
+--         , requestArchiveFindings $
+--             newArchiveFindings
+--
+--         , requestCreateDetector $
+--             newCreateDetector
+--
+--         , requestCreateFilter $
 --             newCreateFilter
---
---         , requestEnableOrganizationAdminAccount $
---             newEnableOrganizationAdminAccount
---
---         , requestListFindings $
---             newListFindings
---
---         , requestListOrganizationAdminAccounts $
---             newListOrganizationAdminAccounts
 --
 --         , requestCreateIPSet $
 --             newCreateIPSet
 --
---         , requestDeleteThreatIntelSet $
---             newDeleteThreatIntelSet
+--         , requestCreateMembers $
+--             newCreateMembers
 --
---         , requestUpdateThreatIntelSet $
---             newUpdateThreatIntelSet
+--         , requestCreatePublishingDestination $
+--             newCreatePublishingDestination
 --
---         , requestStopMonitoringMembers $
---             newStopMonitoringMembers
---
---         , requestListThreatIntelSets $
---             newListThreatIntelSets
+--         , requestCreateSampleFindings $
+--             newCreateSampleFindings
 --
 --         , requestCreateThreatIntelSet $
 --             newCreateThreatIntelSet
 --
+--         , requestDeclineInvitations $
+--             newDeclineInvitations
+--
+--         , requestDeleteDetector $
+--             newDeleteDetector
+--
+--         , requestDeleteFilter $
+--             newDeleteFilter
+--
+--         , requestDeleteIPSet $
+--             newDeleteIPSet
+--
+--         , requestDeleteInvitations $
+--             newDeleteInvitations
+--
 --         , requestDeleteMembers $
 --             newDeleteMembers
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestDeletePublishingDestination $
+--             newDeletePublishingDestination
+--
+--         , requestDeleteThreatIntelSet $
+--             newDeleteThreatIntelSet
+--
+--         , requestDescribeOrganizationConfiguration $
+--             newDescribeOrganizationConfiguration
+--
+--         , requestDescribePublishingDestination $
+--             newDescribePublishingDestination
+--
+--         , requestDisableOrganizationAdminAccount $
+--             newDisableOrganizationAdminAccount
+--
+--         , requestDisassociateFromMasterAccount $
+--             newDisassociateFromMasterAccount
+--
+--         , requestDisassociateMembers $
+--             newDisassociateMembers
+--
+--         , requestEnableOrganizationAdminAccount $
+--             newEnableOrganizationAdminAccount
+--
+--         , requestGetDetector $
+--             newGetDetector
+--
+--         , requestGetFilter $
+--             newGetFilter
+--
+--         , requestGetFindings $
+--             newGetFindings
 --
 --         , requestGetFindingsStatistics $
 --             newGetFindingsStatistics
@@ -69,119 +111,68 @@ import Test.Tasty
 --         , requestGetIPSet $
 --             newGetIPSet
 --
---         , requestListInvitations $
---             newListInvitations
---
---         , requestUpdateMemberDetectors $
---             newUpdateMemberDetectors
---
---         , requestGetThreatIntelSet $
---             newGetThreatIntelSet
---
---         , requestDeleteInvitations $
---             newDeleteInvitations
+--         , requestGetInvitationsCount $
+--             newGetInvitationsCount
 --
 --         , requestGetMasterAccount $
 --             newGetMasterAccount
 --
---         , requestGetUsageStatistics $
---             newGetUsageStatistics
---
---         , requestCreateDetector $
---             newCreateDetector
---
---         , requestDeclineInvitations $
---             newDeclineInvitations
---
---         , requestDescribeOrganizationConfiguration $
---             newDescribeOrganizationConfiguration
---
---         , requestCreatePublishingDestination $
---             newCreatePublishingDestination
---
---         , requestUpdateFilter $
---             newUpdateFilter
---
---         , requestDeleteFilter $
---             newDeleteFilter
---
---         , requestDisassociateMembers $
---             newDisassociateMembers
---
---         , requestDisassociateFromMasterAccount $
---             newDisassociateFromMasterAccount
---
---         , requestAcceptInvitation $
---             newAcceptInvitation
---
---         , requestListFilters $
---             newListFilters
---
---         , requestListMembers $
---             newListMembers
---
---         , requestListPublishingDestinations $
---             newListPublishingDestinations
---
---         , requestDeletePublishingDestination $
---             newDeletePublishingDestination
---
---         , requestUpdatePublishingDestination $
---             newUpdatePublishingDestination
---
---         , requestGetDetector $
---             newGetDetector
---
---         , requestCreateSampleFindings $
---             newCreateSampleFindings
---
---         , requestArchiveFindings $
---             newArchiveFindings
---
---         , requestCreateMembers $
---             newCreateMembers
---
---         , requestUnarchiveFindings $
---             newUnarchiveFindings
---
 --         , requestGetMemberDetectors $
 --             newGetMemberDetectors
---
---         , requestGetInvitationsCount $
---             newGetInvitationsCount
---
---         , requestStartMonitoringMembers $
---             newStartMonitoringMembers
---
---         , requestUpdateOrganizationConfiguration $
---             newUpdateOrganizationConfiguration
---
---         , requestInviteMembers $
---             newInviteMembers
---
---         , requestDeleteIPSet $
---             newDeleteIPSet
---
---         , requestUpdateIPSet $
---             newUpdateIPSet
---
---         , requestListIPSets $
---             newListIPSets
 --
 --         , requestGetMembers $
 --             newGetMembers
 --
---         , requestDescribePublishingDestination $
---             newDescribePublishingDestination
+--         , requestGetThreatIntelSet $
+--             newGetThreatIntelSet
+--
+--         , requestGetUsageStatistics $
+--             newGetUsageStatistics
+--
+--         , requestInviteMembers $
+--             newInviteMembers
+--
+--         , requestListDetectors $
+--             newListDetectors
+--
+--         , requestListFilters $
+--             newListFilters
+--
+--         , requestListFindings $
+--             newListFindings
+--
+--         , requestListIPSets $
+--             newListIPSets
+--
+--         , requestListInvitations $
+--             newListInvitations
+--
+--         , requestListMembers $
+--             newListMembers
+--
+--         , requestListOrganizationAdminAccounts $
+--             newListOrganizationAdminAccounts
+--
+--         , requestListPublishingDestinations $
+--             newListPublishingDestinations
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListThreatIntelSets $
+--             newListThreatIntelSets
+--
+--         , requestStartMonitoringMembers $
+--             newStartMonitoringMembers
+--
+--         , requestStopMonitoringMembers $
+--             newStopMonitoringMembers
 --
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestGetFindings $
---             newGetFindings
---
---         , requestListDetectors $
---             newListDetectors
+--         , requestUnarchiveFindings $
+--             newUnarchiveFindings
 --
 --         , requestUntagResource $
 --             newUntagResource
@@ -189,56 +180,107 @@ import Test.Tasty
 --         , requestUpdateDetector $
 --             newUpdateDetector
 --
---         , requestDeleteDetector $
---             newDeleteDetector
+--         , requestUpdateFilter $
+--             newUpdateFilter
 --
 --         , requestUpdateFindingsFeedback $
 --             newUpdateFindingsFeedback
 --
---         , requestGetFilter $
---             newGetFilter
+--         , requestUpdateIPSet $
+--             newUpdateIPSet
 --
---         , requestDisableOrganizationAdminAccount $
---             newDisableOrganizationAdminAccount
+--         , requestUpdateMemberDetectors $
+--             newUpdateMemberDetectors
+--
+--         , requestUpdateOrganizationConfiguration $
+--             newUpdateOrganizationConfiguration
+--
+--         , requestUpdatePublishingDestination $
+--             newUpdatePublishingDestination
+--
+--         , requestUpdateThreatIntelSet $
+--             newUpdateThreatIntelSet
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateFilter $
+--         [ responseAcceptInvitation $
+--             newAcceptInvitationResponse
+--
+--         , responseArchiveFindings $
+--             newArchiveFindingsResponse
+--
+--         , responseCreateDetector $
+--             newCreateDetectorResponse
+--
+--         , responseCreateFilter $
 --             newCreateFilterResponse
---
---         , responseEnableOrganizationAdminAccount $
---             newEnableOrganizationAdminAccountResponse
---
---         , responseListFindings $
---             newListFindingsResponse
---
---         , responseListOrganizationAdminAccounts $
---             newListOrganizationAdminAccountsResponse
 --
 --         , responseCreateIPSet $
 --             newCreateIPSetResponse
 --
---         , responseDeleteThreatIntelSet $
---             newDeleteThreatIntelSetResponse
+--         , responseCreateMembers $
+--             newCreateMembersResponse
 --
---         , responseUpdateThreatIntelSet $
---             newUpdateThreatIntelSetResponse
+--         , responseCreatePublishingDestination $
+--             newCreatePublishingDestinationResponse
 --
---         , responseStopMonitoringMembers $
---             newStopMonitoringMembersResponse
---
---         , responseListThreatIntelSets $
---             newListThreatIntelSetsResponse
+--         , responseCreateSampleFindings $
+--             newCreateSampleFindingsResponse
 --
 --         , responseCreateThreatIntelSet $
 --             newCreateThreatIntelSetResponse
 --
+--         , responseDeclineInvitations $
+--             newDeclineInvitationsResponse
+--
+--         , responseDeleteDetector $
+--             newDeleteDetectorResponse
+--
+--         , responseDeleteFilter $
+--             newDeleteFilterResponse
+--
+--         , responseDeleteIPSet $
+--             newDeleteIPSetResponse
+--
+--         , responseDeleteInvitations $
+--             newDeleteInvitationsResponse
+--
 --         , responseDeleteMembers $
 --             newDeleteMembersResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseDeletePublishingDestination $
+--             newDeletePublishingDestinationResponse
+--
+--         , responseDeleteThreatIntelSet $
+--             newDeleteThreatIntelSetResponse
+--
+--         , responseDescribeOrganizationConfiguration $
+--             newDescribeOrganizationConfigurationResponse
+--
+--         , responseDescribePublishingDestination $
+--             newDescribePublishingDestinationResponse
+--
+--         , responseDisableOrganizationAdminAccount $
+--             newDisableOrganizationAdminAccountResponse
+--
+--         , responseDisassociateFromMasterAccount $
+--             newDisassociateFromMasterAccountResponse
+--
+--         , responseDisassociateMembers $
+--             newDisassociateMembersResponse
+--
+--         , responseEnableOrganizationAdminAccount $
+--             newEnableOrganizationAdminAccountResponse
+--
+--         , responseGetDetector $
+--             newGetDetectorResponse
+--
+--         , responseGetFilter $
+--             newGetFilterResponse
+--
+--         , responseGetFindings $
+--             newGetFindingsResponse
 --
 --         , responseGetFindingsStatistics $
 --             newGetFindingsStatisticsResponse
@@ -246,119 +288,68 @@ import Test.Tasty
 --         , responseGetIPSet $
 --             newGetIPSetResponse
 --
---         , responseListInvitations $
---             newListInvitationsResponse
---
---         , responseUpdateMemberDetectors $
---             newUpdateMemberDetectorsResponse
---
---         , responseGetThreatIntelSet $
---             newGetThreatIntelSetResponse
---
---         , responseDeleteInvitations $
---             newDeleteInvitationsResponse
+--         , responseGetInvitationsCount $
+--             newGetInvitationsCountResponse
 --
 --         , responseGetMasterAccount $
 --             newGetMasterAccountResponse
 --
---         , responseGetUsageStatistics $
---             newGetUsageStatisticsResponse
---
---         , responseCreateDetector $
---             newCreateDetectorResponse
---
---         , responseDeclineInvitations $
---             newDeclineInvitationsResponse
---
---         , responseDescribeOrganizationConfiguration $
---             newDescribeOrganizationConfigurationResponse
---
---         , responseCreatePublishingDestination $
---             newCreatePublishingDestinationResponse
---
---         , responseUpdateFilter $
---             newUpdateFilterResponse
---
---         , responseDeleteFilter $
---             newDeleteFilterResponse
---
---         , responseDisassociateMembers $
---             newDisassociateMembersResponse
---
---         , responseDisassociateFromMasterAccount $
---             newDisassociateFromMasterAccountResponse
---
---         , responseAcceptInvitation $
---             newAcceptInvitationResponse
---
---         , responseListFilters $
---             newListFiltersResponse
---
---         , responseListMembers $
---             newListMembersResponse
---
---         , responseListPublishingDestinations $
---             newListPublishingDestinationsResponse
---
---         , responseDeletePublishingDestination $
---             newDeletePublishingDestinationResponse
---
---         , responseUpdatePublishingDestination $
---             newUpdatePublishingDestinationResponse
---
---         , responseGetDetector $
---             newGetDetectorResponse
---
---         , responseCreateSampleFindings $
---             newCreateSampleFindingsResponse
---
---         , responseArchiveFindings $
---             newArchiveFindingsResponse
---
---         , responseCreateMembers $
---             newCreateMembersResponse
---
---         , responseUnarchiveFindings $
---             newUnarchiveFindingsResponse
---
 --         , responseGetMemberDetectors $
 --             newGetMemberDetectorsResponse
---
---         , responseGetInvitationsCount $
---             newGetInvitationsCountResponse
---
---         , responseStartMonitoringMembers $
---             newStartMonitoringMembersResponse
---
---         , responseUpdateOrganizationConfiguration $
---             newUpdateOrganizationConfigurationResponse
---
---         , responseInviteMembers $
---             newInviteMembersResponse
---
---         , responseDeleteIPSet $
---             newDeleteIPSetResponse
---
---         , responseUpdateIPSet $
---             newUpdateIPSetResponse
---
---         , responseListIPSets $
---             newListIPSetsResponse
 --
 --         , responseGetMembers $
 --             newGetMembersResponse
 --
---         , responseDescribePublishingDestination $
---             newDescribePublishingDestinationResponse
+--         , responseGetThreatIntelSet $
+--             newGetThreatIntelSetResponse
+--
+--         , responseGetUsageStatistics $
+--             newGetUsageStatisticsResponse
+--
+--         , responseInviteMembers $
+--             newInviteMembersResponse
+--
+--         , responseListDetectors $
+--             newListDetectorsResponse
+--
+--         , responseListFilters $
+--             newListFiltersResponse
+--
+--         , responseListFindings $
+--             newListFindingsResponse
+--
+--         , responseListIPSets $
+--             newListIPSetsResponse
+--
+--         , responseListInvitations $
+--             newListInvitationsResponse
+--
+--         , responseListMembers $
+--             newListMembersResponse
+--
+--         , responseListOrganizationAdminAccounts $
+--             newListOrganizationAdminAccountsResponse
+--
+--         , responseListPublishingDestinations $
+--             newListPublishingDestinationsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListThreatIntelSets $
+--             newListThreatIntelSetsResponse
+--
+--         , responseStartMonitoringMembers $
+--             newStartMonitoringMembersResponse
+--
+--         , responseStopMonitoringMembers $
+--             newStopMonitoringMembersResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseGetFindings $
---             newGetFindingsResponse
---
---         , responseListDetectors $
---             newListDetectorsResponse
+--         , responseUnarchiveFindings $
+--             newUnarchiveFindingsResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
@@ -366,22 +357,49 @@ import Test.Tasty
 --         , responseUpdateDetector $
 --             newUpdateDetectorResponse
 --
---         , responseDeleteDetector $
---             newDeleteDetectorResponse
+--         , responseUpdateFilter $
+--             newUpdateFilterResponse
 --
 --         , responseUpdateFindingsFeedback $
 --             newUpdateFindingsFeedbackResponse
 --
---         , responseGetFilter $
---             newGetFilterResponse
+--         , responseUpdateIPSet $
+--             newUpdateIPSetResponse
 --
---         , responseDisableOrganizationAdminAccount $
---             newDisableOrganizationAdminAccountResponse
+--         , responseUpdateMemberDetectors $
+--             newUpdateMemberDetectorsResponse
+--
+--         , responseUpdateOrganizationConfiguration $
+--             newUpdateOrganizationConfigurationResponse
+--
+--         , responseUpdatePublishingDestination $
+--             newUpdatePublishingDestinationResponse
+--
+--         , responseUpdateThreatIntelSet $
+--             newUpdateThreatIntelSetResponse
 --
 --           ]
 --     ]
 
 -- Requests
+
+requestAcceptInvitation :: AcceptInvitation -> TestTree
+requestAcceptInvitation =
+  req
+    "AcceptInvitation"
+    "fixture/AcceptInvitation.yaml"
+
+requestArchiveFindings :: ArchiveFindings -> TestTree
+requestArchiveFindings =
+  req
+    "ArchiveFindings"
+    "fixture/ArchiveFindings.yaml"
+
+requestCreateDetector :: CreateDetector -> TestTree
+requestCreateDetector =
+  req
+    "CreateDetector"
+    "fixture/CreateDetector.yaml"
 
 requestCreateFilter :: CreateFilter -> TestTree
 requestCreateFilter =
@@ -389,53 +407,29 @@ requestCreateFilter =
     "CreateFilter"
     "fixture/CreateFilter.yaml"
 
-requestEnableOrganizationAdminAccount :: EnableOrganizationAdminAccount -> TestTree
-requestEnableOrganizationAdminAccount =
-  req
-    "EnableOrganizationAdminAccount"
-    "fixture/EnableOrganizationAdminAccount.yaml"
-
-requestListFindings :: ListFindings -> TestTree
-requestListFindings =
-  req
-    "ListFindings"
-    "fixture/ListFindings.yaml"
-
-requestListOrganizationAdminAccounts :: ListOrganizationAdminAccounts -> TestTree
-requestListOrganizationAdminAccounts =
-  req
-    "ListOrganizationAdminAccounts"
-    "fixture/ListOrganizationAdminAccounts.yaml"
-
 requestCreateIPSet :: CreateIPSet -> TestTree
 requestCreateIPSet =
   req
     "CreateIPSet"
     "fixture/CreateIPSet.yaml"
 
-requestDeleteThreatIntelSet :: DeleteThreatIntelSet -> TestTree
-requestDeleteThreatIntelSet =
+requestCreateMembers :: CreateMembers -> TestTree
+requestCreateMembers =
   req
-    "DeleteThreatIntelSet"
-    "fixture/DeleteThreatIntelSet.yaml"
+    "CreateMembers"
+    "fixture/CreateMembers.yaml"
 
-requestUpdateThreatIntelSet :: UpdateThreatIntelSet -> TestTree
-requestUpdateThreatIntelSet =
+requestCreatePublishingDestination :: CreatePublishingDestination -> TestTree
+requestCreatePublishingDestination =
   req
-    "UpdateThreatIntelSet"
-    "fixture/UpdateThreatIntelSet.yaml"
+    "CreatePublishingDestination"
+    "fixture/CreatePublishingDestination.yaml"
 
-requestStopMonitoringMembers :: StopMonitoringMembers -> TestTree
-requestStopMonitoringMembers =
+requestCreateSampleFindings :: CreateSampleFindings -> TestTree
+requestCreateSampleFindings =
   req
-    "StopMonitoringMembers"
-    "fixture/StopMonitoringMembers.yaml"
-
-requestListThreatIntelSets :: ListThreatIntelSets -> TestTree
-requestListThreatIntelSets =
-  req
-    "ListThreatIntelSets"
-    "fixture/ListThreatIntelSets.yaml"
+    "CreateSampleFindings"
+    "fixture/CreateSampleFindings.yaml"
 
 requestCreateThreatIntelSet :: CreateThreatIntelSet -> TestTree
 requestCreateThreatIntelSet =
@@ -443,17 +437,107 @@ requestCreateThreatIntelSet =
     "CreateThreatIntelSet"
     "fixture/CreateThreatIntelSet.yaml"
 
+requestDeclineInvitations :: DeclineInvitations -> TestTree
+requestDeclineInvitations =
+  req
+    "DeclineInvitations"
+    "fixture/DeclineInvitations.yaml"
+
+requestDeleteDetector :: DeleteDetector -> TestTree
+requestDeleteDetector =
+  req
+    "DeleteDetector"
+    "fixture/DeleteDetector.yaml"
+
+requestDeleteFilter :: DeleteFilter -> TestTree
+requestDeleteFilter =
+  req
+    "DeleteFilter"
+    "fixture/DeleteFilter.yaml"
+
+requestDeleteIPSet :: DeleteIPSet -> TestTree
+requestDeleteIPSet =
+  req
+    "DeleteIPSet"
+    "fixture/DeleteIPSet.yaml"
+
+requestDeleteInvitations :: DeleteInvitations -> TestTree
+requestDeleteInvitations =
+  req
+    "DeleteInvitations"
+    "fixture/DeleteInvitations.yaml"
+
 requestDeleteMembers :: DeleteMembers -> TestTree
 requestDeleteMembers =
   req
     "DeleteMembers"
     "fixture/DeleteMembers.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestDeletePublishingDestination :: DeletePublishingDestination -> TestTree
+requestDeletePublishingDestination =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "DeletePublishingDestination"
+    "fixture/DeletePublishingDestination.yaml"
+
+requestDeleteThreatIntelSet :: DeleteThreatIntelSet -> TestTree
+requestDeleteThreatIntelSet =
+  req
+    "DeleteThreatIntelSet"
+    "fixture/DeleteThreatIntelSet.yaml"
+
+requestDescribeOrganizationConfiguration :: DescribeOrganizationConfiguration -> TestTree
+requestDescribeOrganizationConfiguration =
+  req
+    "DescribeOrganizationConfiguration"
+    "fixture/DescribeOrganizationConfiguration.yaml"
+
+requestDescribePublishingDestination :: DescribePublishingDestination -> TestTree
+requestDescribePublishingDestination =
+  req
+    "DescribePublishingDestination"
+    "fixture/DescribePublishingDestination.yaml"
+
+requestDisableOrganizationAdminAccount :: DisableOrganizationAdminAccount -> TestTree
+requestDisableOrganizationAdminAccount =
+  req
+    "DisableOrganizationAdminAccount"
+    "fixture/DisableOrganizationAdminAccount.yaml"
+
+requestDisassociateFromMasterAccount :: DisassociateFromMasterAccount -> TestTree
+requestDisassociateFromMasterAccount =
+  req
+    "DisassociateFromMasterAccount"
+    "fixture/DisassociateFromMasterAccount.yaml"
+
+requestDisassociateMembers :: DisassociateMembers -> TestTree
+requestDisassociateMembers =
+  req
+    "DisassociateMembers"
+    "fixture/DisassociateMembers.yaml"
+
+requestEnableOrganizationAdminAccount :: EnableOrganizationAdminAccount -> TestTree
+requestEnableOrganizationAdminAccount =
+  req
+    "EnableOrganizationAdminAccount"
+    "fixture/EnableOrganizationAdminAccount.yaml"
+
+requestGetDetector :: GetDetector -> TestTree
+requestGetDetector =
+  req
+    "GetDetector"
+    "fixture/GetDetector.yaml"
+
+requestGetFilter :: GetFilter -> TestTree
+requestGetFilter =
+  req
+    "GetFilter"
+    "fixture/GetFilter.yaml"
+
+requestGetFindings :: GetFindings -> TestTree
+requestGetFindings =
+  req
+    "GetFindings"
+    "fixture/GetFindings.yaml"
 
 requestGetFindingsStatistics :: GetFindingsStatistics -> TestTree
 requestGetFindingsStatistics =
@@ -467,29 +551,11 @@ requestGetIPSet =
     "GetIPSet"
     "fixture/GetIPSet.yaml"
 
-requestListInvitations :: ListInvitations -> TestTree
-requestListInvitations =
+requestGetInvitationsCount :: GetInvitationsCount -> TestTree
+requestGetInvitationsCount =
   req
-    "ListInvitations"
-    "fixture/ListInvitations.yaml"
-
-requestUpdateMemberDetectors :: UpdateMemberDetectors -> TestTree
-requestUpdateMemberDetectors =
-  req
-    "UpdateMemberDetectors"
-    "fixture/UpdateMemberDetectors.yaml"
-
-requestGetThreatIntelSet :: GetThreatIntelSet -> TestTree
-requestGetThreatIntelSet =
-  req
-    "GetThreatIntelSet"
-    "fixture/GetThreatIntelSet.yaml"
-
-requestDeleteInvitations :: DeleteInvitations -> TestTree
-requestDeleteInvitations =
-  req
-    "DeleteInvitations"
-    "fixture/DeleteInvitations.yaml"
+    "GetInvitationsCount"
+    "fixture/GetInvitationsCount.yaml"
 
 requestGetMasterAccount :: GetMasterAccount -> TestTree
 requestGetMasterAccount =
@@ -497,173 +563,11 @@ requestGetMasterAccount =
     "GetMasterAccount"
     "fixture/GetMasterAccount.yaml"
 
-requestGetUsageStatistics :: GetUsageStatistics -> TestTree
-requestGetUsageStatistics =
-  req
-    "GetUsageStatistics"
-    "fixture/GetUsageStatistics.yaml"
-
-requestCreateDetector :: CreateDetector -> TestTree
-requestCreateDetector =
-  req
-    "CreateDetector"
-    "fixture/CreateDetector.yaml"
-
-requestDeclineInvitations :: DeclineInvitations -> TestTree
-requestDeclineInvitations =
-  req
-    "DeclineInvitations"
-    "fixture/DeclineInvitations.yaml"
-
-requestDescribeOrganizationConfiguration :: DescribeOrganizationConfiguration -> TestTree
-requestDescribeOrganizationConfiguration =
-  req
-    "DescribeOrganizationConfiguration"
-    "fixture/DescribeOrganizationConfiguration.yaml"
-
-requestCreatePublishingDestination :: CreatePublishingDestination -> TestTree
-requestCreatePublishingDestination =
-  req
-    "CreatePublishingDestination"
-    "fixture/CreatePublishingDestination.yaml"
-
-requestUpdateFilter :: UpdateFilter -> TestTree
-requestUpdateFilter =
-  req
-    "UpdateFilter"
-    "fixture/UpdateFilter.yaml"
-
-requestDeleteFilter :: DeleteFilter -> TestTree
-requestDeleteFilter =
-  req
-    "DeleteFilter"
-    "fixture/DeleteFilter.yaml"
-
-requestDisassociateMembers :: DisassociateMembers -> TestTree
-requestDisassociateMembers =
-  req
-    "DisassociateMembers"
-    "fixture/DisassociateMembers.yaml"
-
-requestDisassociateFromMasterAccount :: DisassociateFromMasterAccount -> TestTree
-requestDisassociateFromMasterAccount =
-  req
-    "DisassociateFromMasterAccount"
-    "fixture/DisassociateFromMasterAccount.yaml"
-
-requestAcceptInvitation :: AcceptInvitation -> TestTree
-requestAcceptInvitation =
-  req
-    "AcceptInvitation"
-    "fixture/AcceptInvitation.yaml"
-
-requestListFilters :: ListFilters -> TestTree
-requestListFilters =
-  req
-    "ListFilters"
-    "fixture/ListFilters.yaml"
-
-requestListMembers :: ListMembers -> TestTree
-requestListMembers =
-  req
-    "ListMembers"
-    "fixture/ListMembers.yaml"
-
-requestListPublishingDestinations :: ListPublishingDestinations -> TestTree
-requestListPublishingDestinations =
-  req
-    "ListPublishingDestinations"
-    "fixture/ListPublishingDestinations.yaml"
-
-requestDeletePublishingDestination :: DeletePublishingDestination -> TestTree
-requestDeletePublishingDestination =
-  req
-    "DeletePublishingDestination"
-    "fixture/DeletePublishingDestination.yaml"
-
-requestUpdatePublishingDestination :: UpdatePublishingDestination -> TestTree
-requestUpdatePublishingDestination =
-  req
-    "UpdatePublishingDestination"
-    "fixture/UpdatePublishingDestination.yaml"
-
-requestGetDetector :: GetDetector -> TestTree
-requestGetDetector =
-  req
-    "GetDetector"
-    "fixture/GetDetector.yaml"
-
-requestCreateSampleFindings :: CreateSampleFindings -> TestTree
-requestCreateSampleFindings =
-  req
-    "CreateSampleFindings"
-    "fixture/CreateSampleFindings.yaml"
-
-requestArchiveFindings :: ArchiveFindings -> TestTree
-requestArchiveFindings =
-  req
-    "ArchiveFindings"
-    "fixture/ArchiveFindings.yaml"
-
-requestCreateMembers :: CreateMembers -> TestTree
-requestCreateMembers =
-  req
-    "CreateMembers"
-    "fixture/CreateMembers.yaml"
-
-requestUnarchiveFindings :: UnarchiveFindings -> TestTree
-requestUnarchiveFindings =
-  req
-    "UnarchiveFindings"
-    "fixture/UnarchiveFindings.yaml"
-
 requestGetMemberDetectors :: GetMemberDetectors -> TestTree
 requestGetMemberDetectors =
   req
     "GetMemberDetectors"
     "fixture/GetMemberDetectors.yaml"
-
-requestGetInvitationsCount :: GetInvitationsCount -> TestTree
-requestGetInvitationsCount =
-  req
-    "GetInvitationsCount"
-    "fixture/GetInvitationsCount.yaml"
-
-requestStartMonitoringMembers :: StartMonitoringMembers -> TestTree
-requestStartMonitoringMembers =
-  req
-    "StartMonitoringMembers"
-    "fixture/StartMonitoringMembers.yaml"
-
-requestUpdateOrganizationConfiguration :: UpdateOrganizationConfiguration -> TestTree
-requestUpdateOrganizationConfiguration =
-  req
-    "UpdateOrganizationConfiguration"
-    "fixture/UpdateOrganizationConfiguration.yaml"
-
-requestInviteMembers :: InviteMembers -> TestTree
-requestInviteMembers =
-  req
-    "InviteMembers"
-    "fixture/InviteMembers.yaml"
-
-requestDeleteIPSet :: DeleteIPSet -> TestTree
-requestDeleteIPSet =
-  req
-    "DeleteIPSet"
-    "fixture/DeleteIPSet.yaml"
-
-requestUpdateIPSet :: UpdateIPSet -> TestTree
-requestUpdateIPSet =
-  req
-    "UpdateIPSet"
-    "fixture/UpdateIPSet.yaml"
-
-requestListIPSets :: ListIPSets -> TestTree
-requestListIPSets =
-  req
-    "ListIPSets"
-    "fixture/ListIPSets.yaml"
 
 requestGetMembers :: GetMembers -> TestTree
 requestGetMembers =
@@ -671,11 +575,95 @@ requestGetMembers =
     "GetMembers"
     "fixture/GetMembers.yaml"
 
-requestDescribePublishingDestination :: DescribePublishingDestination -> TestTree
-requestDescribePublishingDestination =
+requestGetThreatIntelSet :: GetThreatIntelSet -> TestTree
+requestGetThreatIntelSet =
   req
-    "DescribePublishingDestination"
-    "fixture/DescribePublishingDestination.yaml"
+    "GetThreatIntelSet"
+    "fixture/GetThreatIntelSet.yaml"
+
+requestGetUsageStatistics :: GetUsageStatistics -> TestTree
+requestGetUsageStatistics =
+  req
+    "GetUsageStatistics"
+    "fixture/GetUsageStatistics.yaml"
+
+requestInviteMembers :: InviteMembers -> TestTree
+requestInviteMembers =
+  req
+    "InviteMembers"
+    "fixture/InviteMembers.yaml"
+
+requestListDetectors :: ListDetectors -> TestTree
+requestListDetectors =
+  req
+    "ListDetectors"
+    "fixture/ListDetectors.yaml"
+
+requestListFilters :: ListFilters -> TestTree
+requestListFilters =
+  req
+    "ListFilters"
+    "fixture/ListFilters.yaml"
+
+requestListFindings :: ListFindings -> TestTree
+requestListFindings =
+  req
+    "ListFindings"
+    "fixture/ListFindings.yaml"
+
+requestListIPSets :: ListIPSets -> TestTree
+requestListIPSets =
+  req
+    "ListIPSets"
+    "fixture/ListIPSets.yaml"
+
+requestListInvitations :: ListInvitations -> TestTree
+requestListInvitations =
+  req
+    "ListInvitations"
+    "fixture/ListInvitations.yaml"
+
+requestListMembers :: ListMembers -> TestTree
+requestListMembers =
+  req
+    "ListMembers"
+    "fixture/ListMembers.yaml"
+
+requestListOrganizationAdminAccounts :: ListOrganizationAdminAccounts -> TestTree
+requestListOrganizationAdminAccounts =
+  req
+    "ListOrganizationAdminAccounts"
+    "fixture/ListOrganizationAdminAccounts.yaml"
+
+requestListPublishingDestinations :: ListPublishingDestinations -> TestTree
+requestListPublishingDestinations =
+  req
+    "ListPublishingDestinations"
+    "fixture/ListPublishingDestinations.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListThreatIntelSets :: ListThreatIntelSets -> TestTree
+requestListThreatIntelSets =
+  req
+    "ListThreatIntelSets"
+    "fixture/ListThreatIntelSets.yaml"
+
+requestStartMonitoringMembers :: StartMonitoringMembers -> TestTree
+requestStartMonitoringMembers =
+  req
+    "StartMonitoringMembers"
+    "fixture/StartMonitoringMembers.yaml"
+
+requestStopMonitoringMembers :: StopMonitoringMembers -> TestTree
+requestStopMonitoringMembers =
+  req
+    "StopMonitoringMembers"
+    "fixture/StopMonitoringMembers.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -683,17 +671,11 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestGetFindings :: GetFindings -> TestTree
-requestGetFindings =
+requestUnarchiveFindings :: UnarchiveFindings -> TestTree
+requestUnarchiveFindings =
   req
-    "GetFindings"
-    "fixture/GetFindings.yaml"
-
-requestListDetectors :: ListDetectors -> TestTree
-requestListDetectors =
-  req
-    "ListDetectors"
-    "fixture/ListDetectors.yaml"
+    "UnarchiveFindings"
+    "fixture/UnarchiveFindings.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -707,11 +689,11 @@ requestUpdateDetector =
     "UpdateDetector"
     "fixture/UpdateDetector.yaml"
 
-requestDeleteDetector :: DeleteDetector -> TestTree
-requestDeleteDetector =
+requestUpdateFilter :: UpdateFilter -> TestTree
+requestUpdateFilter =
   req
-    "DeleteDetector"
-    "fixture/DeleteDetector.yaml"
+    "UpdateFilter"
+    "fixture/UpdateFilter.yaml"
 
 requestUpdateFindingsFeedback :: UpdateFindingsFeedback -> TestTree
 requestUpdateFindingsFeedback =
@@ -719,19 +701,61 @@ requestUpdateFindingsFeedback =
     "UpdateFindingsFeedback"
     "fixture/UpdateFindingsFeedback.yaml"
 
-requestGetFilter :: GetFilter -> TestTree
-requestGetFilter =
+requestUpdateIPSet :: UpdateIPSet -> TestTree
+requestUpdateIPSet =
   req
-    "GetFilter"
-    "fixture/GetFilter.yaml"
+    "UpdateIPSet"
+    "fixture/UpdateIPSet.yaml"
 
-requestDisableOrganizationAdminAccount :: DisableOrganizationAdminAccount -> TestTree
-requestDisableOrganizationAdminAccount =
+requestUpdateMemberDetectors :: UpdateMemberDetectors -> TestTree
+requestUpdateMemberDetectors =
   req
-    "DisableOrganizationAdminAccount"
-    "fixture/DisableOrganizationAdminAccount.yaml"
+    "UpdateMemberDetectors"
+    "fixture/UpdateMemberDetectors.yaml"
+
+requestUpdateOrganizationConfiguration :: UpdateOrganizationConfiguration -> TestTree
+requestUpdateOrganizationConfiguration =
+  req
+    "UpdateOrganizationConfiguration"
+    "fixture/UpdateOrganizationConfiguration.yaml"
+
+requestUpdatePublishingDestination :: UpdatePublishingDestination -> TestTree
+requestUpdatePublishingDestination =
+  req
+    "UpdatePublishingDestination"
+    "fixture/UpdatePublishingDestination.yaml"
+
+requestUpdateThreatIntelSet :: UpdateThreatIntelSet -> TestTree
+requestUpdateThreatIntelSet =
+  req
+    "UpdateThreatIntelSet"
+    "fixture/UpdateThreatIntelSet.yaml"
 
 -- Responses
+
+responseAcceptInvitation :: AcceptInvitationResponse -> TestTree
+responseAcceptInvitation =
+  res
+    "AcceptInvitationResponse"
+    "fixture/AcceptInvitationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AcceptInvitation)
+
+responseArchiveFindings :: ArchiveFindingsResponse -> TestTree
+responseArchiveFindings =
+  res
+    "ArchiveFindingsResponse"
+    "fixture/ArchiveFindingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ArchiveFindings)
+
+responseCreateDetector :: CreateDetectorResponse -> TestTree
+responseCreateDetector =
+  res
+    "CreateDetectorResponse"
+    "fixture/CreateDetectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDetector)
 
 responseCreateFilter :: CreateFilterResponse -> TestTree
 responseCreateFilter =
@@ -741,30 +765,6 @@ responseCreateFilter =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateFilter)
 
-responseEnableOrganizationAdminAccount :: EnableOrganizationAdminAccountResponse -> TestTree
-responseEnableOrganizationAdminAccount =
-  res
-    "EnableOrganizationAdminAccountResponse"
-    "fixture/EnableOrganizationAdminAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy EnableOrganizationAdminAccount)
-
-responseListFindings :: ListFindingsResponse -> TestTree
-responseListFindings =
-  res
-    "ListFindingsResponse"
-    "fixture/ListFindingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFindings)
-
-responseListOrganizationAdminAccounts :: ListOrganizationAdminAccountsResponse -> TestTree
-responseListOrganizationAdminAccounts =
-  res
-    "ListOrganizationAdminAccountsResponse"
-    "fixture/ListOrganizationAdminAccountsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListOrganizationAdminAccounts)
-
 responseCreateIPSet :: CreateIPSetResponse -> TestTree
 responseCreateIPSet =
   res
@@ -773,37 +773,29 @@ responseCreateIPSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateIPSet)
 
-responseDeleteThreatIntelSet :: DeleteThreatIntelSetResponse -> TestTree
-responseDeleteThreatIntelSet =
+responseCreateMembers :: CreateMembersResponse -> TestTree
+responseCreateMembers =
   res
-    "DeleteThreatIntelSetResponse"
-    "fixture/DeleteThreatIntelSetResponse.proto"
+    "CreateMembersResponse"
+    "fixture/CreateMembersResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteThreatIntelSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateMembers)
 
-responseUpdateThreatIntelSet :: UpdateThreatIntelSetResponse -> TestTree
-responseUpdateThreatIntelSet =
+responseCreatePublishingDestination :: CreatePublishingDestinationResponse -> TestTree
+responseCreatePublishingDestination =
   res
-    "UpdateThreatIntelSetResponse"
-    "fixture/UpdateThreatIntelSetResponse.proto"
+    "CreatePublishingDestinationResponse"
+    "fixture/CreatePublishingDestinationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateThreatIntelSet)
+    (Proxy.Proxy :: Proxy.Proxy CreatePublishingDestination)
 
-responseStopMonitoringMembers :: StopMonitoringMembersResponse -> TestTree
-responseStopMonitoringMembers =
+responseCreateSampleFindings :: CreateSampleFindingsResponse -> TestTree
+responseCreateSampleFindings =
   res
-    "StopMonitoringMembersResponse"
-    "fixture/StopMonitoringMembersResponse.proto"
+    "CreateSampleFindingsResponse"
+    "fixture/CreateSampleFindingsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopMonitoringMembers)
-
-responseListThreatIntelSets :: ListThreatIntelSetsResponse -> TestTree
-responseListThreatIntelSets =
-  res
-    "ListThreatIntelSetsResponse"
-    "fixture/ListThreatIntelSetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListThreatIntelSets)
+    (Proxy.Proxy :: Proxy.Proxy CreateSampleFindings)
 
 responseCreateThreatIntelSet :: CreateThreatIntelSetResponse -> TestTree
 responseCreateThreatIntelSet =
@@ -813,6 +805,46 @@ responseCreateThreatIntelSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateThreatIntelSet)
 
+responseDeclineInvitations :: DeclineInvitationsResponse -> TestTree
+responseDeclineInvitations =
+  res
+    "DeclineInvitationsResponse"
+    "fixture/DeclineInvitationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeclineInvitations)
+
+responseDeleteDetector :: DeleteDetectorResponse -> TestTree
+responseDeleteDetector =
+  res
+    "DeleteDetectorResponse"
+    "fixture/DeleteDetectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDetector)
+
+responseDeleteFilter :: DeleteFilterResponse -> TestTree
+responseDeleteFilter =
+  res
+    "DeleteFilterResponse"
+    "fixture/DeleteFilterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFilter)
+
+responseDeleteIPSet :: DeleteIPSetResponse -> TestTree
+responseDeleteIPSet =
+  res
+    "DeleteIPSetResponse"
+    "fixture/DeleteIPSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteIPSet)
+
+responseDeleteInvitations :: DeleteInvitationsResponse -> TestTree
+responseDeleteInvitations =
+  res
+    "DeleteInvitationsResponse"
+    "fixture/DeleteInvitationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteInvitations)
+
 responseDeleteMembers :: DeleteMembersResponse -> TestTree
 responseDeleteMembers =
   res
@@ -821,13 +853,93 @@ responseDeleteMembers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteMembers)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseDeletePublishingDestination :: DeletePublishingDestinationResponse -> TestTree
+responseDeletePublishingDestination =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "DeletePublishingDestinationResponse"
+    "fixture/DeletePublishingDestinationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy DeletePublishingDestination)
+
+responseDeleteThreatIntelSet :: DeleteThreatIntelSetResponse -> TestTree
+responseDeleteThreatIntelSet =
+  res
+    "DeleteThreatIntelSetResponse"
+    "fixture/DeleteThreatIntelSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteThreatIntelSet)
+
+responseDescribeOrganizationConfiguration :: DescribeOrganizationConfigurationResponse -> TestTree
+responseDescribeOrganizationConfiguration =
+  res
+    "DescribeOrganizationConfigurationResponse"
+    "fixture/DescribeOrganizationConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationConfiguration)
+
+responseDescribePublishingDestination :: DescribePublishingDestinationResponse -> TestTree
+responseDescribePublishingDestination =
+  res
+    "DescribePublishingDestinationResponse"
+    "fixture/DescribePublishingDestinationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribePublishingDestination)
+
+responseDisableOrganizationAdminAccount :: DisableOrganizationAdminAccountResponse -> TestTree
+responseDisableOrganizationAdminAccount =
+  res
+    "DisableOrganizationAdminAccountResponse"
+    "fixture/DisableOrganizationAdminAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisableOrganizationAdminAccount)
+
+responseDisassociateFromMasterAccount :: DisassociateFromMasterAccountResponse -> TestTree
+responseDisassociateFromMasterAccount =
+  res
+    "DisassociateFromMasterAccountResponse"
+    "fixture/DisassociateFromMasterAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateFromMasterAccount)
+
+responseDisassociateMembers :: DisassociateMembersResponse -> TestTree
+responseDisassociateMembers =
+  res
+    "DisassociateMembersResponse"
+    "fixture/DisassociateMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateMembers)
+
+responseEnableOrganizationAdminAccount :: EnableOrganizationAdminAccountResponse -> TestTree
+responseEnableOrganizationAdminAccount =
+  res
+    "EnableOrganizationAdminAccountResponse"
+    "fixture/EnableOrganizationAdminAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableOrganizationAdminAccount)
+
+responseGetDetector :: GetDetectorResponse -> TestTree
+responseGetDetector =
+  res
+    "GetDetectorResponse"
+    "fixture/GetDetectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDetector)
+
+responseGetFilter :: GetFilterResponse -> TestTree
+responseGetFilter =
+  res
+    "GetFilterResponse"
+    "fixture/GetFilterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetFilter)
+
+responseGetFindings :: GetFindingsResponse -> TestTree
+responseGetFindings =
+  res
+    "GetFindingsResponse"
+    "fixture/GetFindingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetFindings)
 
 responseGetFindingsStatistics :: GetFindingsStatisticsResponse -> TestTree
 responseGetFindingsStatistics =
@@ -845,37 +957,13 @@ responseGetIPSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetIPSet)
 
-responseListInvitations :: ListInvitationsResponse -> TestTree
-responseListInvitations =
+responseGetInvitationsCount :: GetInvitationsCountResponse -> TestTree
+responseGetInvitationsCount =
   res
-    "ListInvitationsResponse"
-    "fixture/ListInvitationsResponse.proto"
+    "GetInvitationsCountResponse"
+    "fixture/GetInvitationsCountResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInvitations)
-
-responseUpdateMemberDetectors :: UpdateMemberDetectorsResponse -> TestTree
-responseUpdateMemberDetectors =
-  res
-    "UpdateMemberDetectorsResponse"
-    "fixture/UpdateMemberDetectorsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateMemberDetectors)
-
-responseGetThreatIntelSet :: GetThreatIntelSetResponse -> TestTree
-responseGetThreatIntelSet =
-  res
-    "GetThreatIntelSetResponse"
-    "fixture/GetThreatIntelSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetThreatIntelSet)
-
-responseDeleteInvitations :: DeleteInvitationsResponse -> TestTree
-responseDeleteInvitations =
-  res
-    "DeleteInvitationsResponse"
-    "fixture/DeleteInvitationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteInvitations)
+    (Proxy.Proxy :: Proxy.Proxy GetInvitationsCount)
 
 responseGetMasterAccount :: GetMasterAccountResponse -> TestTree
 responseGetMasterAccount =
@@ -885,166 +973,6 @@ responseGetMasterAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMasterAccount)
 
-responseGetUsageStatistics :: GetUsageStatisticsResponse -> TestTree
-responseGetUsageStatistics =
-  res
-    "GetUsageStatisticsResponse"
-    "fixture/GetUsageStatisticsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetUsageStatistics)
-
-responseCreateDetector :: CreateDetectorResponse -> TestTree
-responseCreateDetector =
-  res
-    "CreateDetectorResponse"
-    "fixture/CreateDetectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDetector)
-
-responseDeclineInvitations :: DeclineInvitationsResponse -> TestTree
-responseDeclineInvitations =
-  res
-    "DeclineInvitationsResponse"
-    "fixture/DeclineInvitationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeclineInvitations)
-
-responseDescribeOrganizationConfiguration :: DescribeOrganizationConfigurationResponse -> TestTree
-responseDescribeOrganizationConfiguration =
-  res
-    "DescribeOrganizationConfigurationResponse"
-    "fixture/DescribeOrganizationConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationConfiguration)
-
-responseCreatePublishingDestination :: CreatePublishingDestinationResponse -> TestTree
-responseCreatePublishingDestination =
-  res
-    "CreatePublishingDestinationResponse"
-    "fixture/CreatePublishingDestinationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreatePublishingDestination)
-
-responseUpdateFilter :: UpdateFilterResponse -> TestTree
-responseUpdateFilter =
-  res
-    "UpdateFilterResponse"
-    "fixture/UpdateFilterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFilter)
-
-responseDeleteFilter :: DeleteFilterResponse -> TestTree
-responseDeleteFilter =
-  res
-    "DeleteFilterResponse"
-    "fixture/DeleteFilterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFilter)
-
-responseDisassociateMembers :: DisassociateMembersResponse -> TestTree
-responseDisassociateMembers =
-  res
-    "DisassociateMembersResponse"
-    "fixture/DisassociateMembersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateMembers)
-
-responseDisassociateFromMasterAccount :: DisassociateFromMasterAccountResponse -> TestTree
-responseDisassociateFromMasterAccount =
-  res
-    "DisassociateFromMasterAccountResponse"
-    "fixture/DisassociateFromMasterAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateFromMasterAccount)
-
-responseAcceptInvitation :: AcceptInvitationResponse -> TestTree
-responseAcceptInvitation =
-  res
-    "AcceptInvitationResponse"
-    "fixture/AcceptInvitationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AcceptInvitation)
-
-responseListFilters :: ListFiltersResponse -> TestTree
-responseListFilters =
-  res
-    "ListFiltersResponse"
-    "fixture/ListFiltersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFilters)
-
-responseListMembers :: ListMembersResponse -> TestTree
-responseListMembers =
-  res
-    "ListMembersResponse"
-    "fixture/ListMembersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListMembers)
-
-responseListPublishingDestinations :: ListPublishingDestinationsResponse -> TestTree
-responseListPublishingDestinations =
-  res
-    "ListPublishingDestinationsResponse"
-    "fixture/ListPublishingDestinationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPublishingDestinations)
-
-responseDeletePublishingDestination :: DeletePublishingDestinationResponse -> TestTree
-responseDeletePublishingDestination =
-  res
-    "DeletePublishingDestinationResponse"
-    "fixture/DeletePublishingDestinationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeletePublishingDestination)
-
-responseUpdatePublishingDestination :: UpdatePublishingDestinationResponse -> TestTree
-responseUpdatePublishingDestination =
-  res
-    "UpdatePublishingDestinationResponse"
-    "fixture/UpdatePublishingDestinationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdatePublishingDestination)
-
-responseGetDetector :: GetDetectorResponse -> TestTree
-responseGetDetector =
-  res
-    "GetDetectorResponse"
-    "fixture/GetDetectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDetector)
-
-responseCreateSampleFindings :: CreateSampleFindingsResponse -> TestTree
-responseCreateSampleFindings =
-  res
-    "CreateSampleFindingsResponse"
-    "fixture/CreateSampleFindingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateSampleFindings)
-
-responseArchiveFindings :: ArchiveFindingsResponse -> TestTree
-responseArchiveFindings =
-  res
-    "ArchiveFindingsResponse"
-    "fixture/ArchiveFindingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ArchiveFindings)
-
-responseCreateMembers :: CreateMembersResponse -> TestTree
-responseCreateMembers =
-  res
-    "CreateMembersResponse"
-    "fixture/CreateMembersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateMembers)
-
-responseUnarchiveFindings :: UnarchiveFindingsResponse -> TestTree
-responseUnarchiveFindings =
-  res
-    "UnarchiveFindingsResponse"
-    "fixture/UnarchiveFindingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UnarchiveFindings)
-
 responseGetMemberDetectors :: GetMemberDetectorsResponse -> TestTree
 responseGetMemberDetectors =
   res
@@ -1052,62 +980,6 @@ responseGetMemberDetectors =
     "fixture/GetMemberDetectorsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMemberDetectors)
-
-responseGetInvitationsCount :: GetInvitationsCountResponse -> TestTree
-responseGetInvitationsCount =
-  res
-    "GetInvitationsCountResponse"
-    "fixture/GetInvitationsCountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetInvitationsCount)
-
-responseStartMonitoringMembers :: StartMonitoringMembersResponse -> TestTree
-responseStartMonitoringMembers =
-  res
-    "StartMonitoringMembersResponse"
-    "fixture/StartMonitoringMembersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartMonitoringMembers)
-
-responseUpdateOrganizationConfiguration :: UpdateOrganizationConfigurationResponse -> TestTree
-responseUpdateOrganizationConfiguration =
-  res
-    "UpdateOrganizationConfigurationResponse"
-    "fixture/UpdateOrganizationConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateOrganizationConfiguration)
-
-responseInviteMembers :: InviteMembersResponse -> TestTree
-responseInviteMembers =
-  res
-    "InviteMembersResponse"
-    "fixture/InviteMembersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy InviteMembers)
-
-responseDeleteIPSet :: DeleteIPSetResponse -> TestTree
-responseDeleteIPSet =
-  res
-    "DeleteIPSetResponse"
-    "fixture/DeleteIPSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteIPSet)
-
-responseUpdateIPSet :: UpdateIPSetResponse -> TestTree
-responseUpdateIPSet =
-  res
-    "UpdateIPSetResponse"
-    "fixture/UpdateIPSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateIPSet)
-
-responseListIPSets :: ListIPSetsResponse -> TestTree
-responseListIPSets =
-  res
-    "ListIPSetsResponse"
-    "fixture/ListIPSetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListIPSets)
 
 responseGetMembers :: GetMembersResponse -> TestTree
 responseGetMembers =
@@ -1117,13 +989,125 @@ responseGetMembers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMembers)
 
-responseDescribePublishingDestination :: DescribePublishingDestinationResponse -> TestTree
-responseDescribePublishingDestination =
+responseGetThreatIntelSet :: GetThreatIntelSetResponse -> TestTree
+responseGetThreatIntelSet =
   res
-    "DescribePublishingDestinationResponse"
-    "fixture/DescribePublishingDestinationResponse.proto"
+    "GetThreatIntelSetResponse"
+    "fixture/GetThreatIntelSetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribePublishingDestination)
+    (Proxy.Proxy :: Proxy.Proxy GetThreatIntelSet)
+
+responseGetUsageStatistics :: GetUsageStatisticsResponse -> TestTree
+responseGetUsageStatistics =
+  res
+    "GetUsageStatisticsResponse"
+    "fixture/GetUsageStatisticsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetUsageStatistics)
+
+responseInviteMembers :: InviteMembersResponse -> TestTree
+responseInviteMembers =
+  res
+    "InviteMembersResponse"
+    "fixture/InviteMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy InviteMembers)
+
+responseListDetectors :: ListDetectorsResponse -> TestTree
+responseListDetectors =
+  res
+    "ListDetectorsResponse"
+    "fixture/ListDetectorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDetectors)
+
+responseListFilters :: ListFiltersResponse -> TestTree
+responseListFilters =
+  res
+    "ListFiltersResponse"
+    "fixture/ListFiltersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFilters)
+
+responseListFindings :: ListFindingsResponse -> TestTree
+responseListFindings =
+  res
+    "ListFindingsResponse"
+    "fixture/ListFindingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFindings)
+
+responseListIPSets :: ListIPSetsResponse -> TestTree
+responseListIPSets =
+  res
+    "ListIPSetsResponse"
+    "fixture/ListIPSetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListIPSets)
+
+responseListInvitations :: ListInvitationsResponse -> TestTree
+responseListInvitations =
+  res
+    "ListInvitationsResponse"
+    "fixture/ListInvitationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListInvitations)
+
+responseListMembers :: ListMembersResponse -> TestTree
+responseListMembers =
+  res
+    "ListMembersResponse"
+    "fixture/ListMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMembers)
+
+responseListOrganizationAdminAccounts :: ListOrganizationAdminAccountsResponse -> TestTree
+responseListOrganizationAdminAccounts =
+  res
+    "ListOrganizationAdminAccountsResponse"
+    "fixture/ListOrganizationAdminAccountsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListOrganizationAdminAccounts)
+
+responseListPublishingDestinations :: ListPublishingDestinationsResponse -> TestTree
+responseListPublishingDestinations =
+  res
+    "ListPublishingDestinationsResponse"
+    "fixture/ListPublishingDestinationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPublishingDestinations)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListThreatIntelSets :: ListThreatIntelSetsResponse -> TestTree
+responseListThreatIntelSets =
+  res
+    "ListThreatIntelSetsResponse"
+    "fixture/ListThreatIntelSetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListThreatIntelSets)
+
+responseStartMonitoringMembers :: StartMonitoringMembersResponse -> TestTree
+responseStartMonitoringMembers =
+  res
+    "StartMonitoringMembersResponse"
+    "fixture/StartMonitoringMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartMonitoringMembers)
+
+responseStopMonitoringMembers :: StopMonitoringMembersResponse -> TestTree
+responseStopMonitoringMembers =
+  res
+    "StopMonitoringMembersResponse"
+    "fixture/StopMonitoringMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopMonitoringMembers)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1133,21 +1117,13 @@ responseTagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
 
-responseGetFindings :: GetFindingsResponse -> TestTree
-responseGetFindings =
+responseUnarchiveFindings :: UnarchiveFindingsResponse -> TestTree
+responseUnarchiveFindings =
   res
-    "GetFindingsResponse"
-    "fixture/GetFindingsResponse.proto"
+    "UnarchiveFindingsResponse"
+    "fixture/UnarchiveFindingsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetFindings)
-
-responseListDetectors :: ListDetectorsResponse -> TestTree
-responseListDetectors =
-  res
-    "ListDetectorsResponse"
-    "fixture/ListDetectorsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDetectors)
+    (Proxy.Proxy :: Proxy.Proxy UnarchiveFindings)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1165,13 +1141,13 @@ responseUpdateDetector =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDetector)
 
-responseDeleteDetector :: DeleteDetectorResponse -> TestTree
-responseDeleteDetector =
+responseUpdateFilter :: UpdateFilterResponse -> TestTree
+responseUpdateFilter =
   res
-    "DeleteDetectorResponse"
-    "fixture/DeleteDetectorResponse.proto"
+    "UpdateFilterResponse"
+    "fixture/UpdateFilterResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDetector)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFilter)
 
 responseUpdateFindingsFeedback :: UpdateFindingsFeedbackResponse -> TestTree
 responseUpdateFindingsFeedback =
@@ -1181,18 +1157,42 @@ responseUpdateFindingsFeedback =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateFindingsFeedback)
 
-responseGetFilter :: GetFilterResponse -> TestTree
-responseGetFilter =
+responseUpdateIPSet :: UpdateIPSetResponse -> TestTree
+responseUpdateIPSet =
   res
-    "GetFilterResponse"
-    "fixture/GetFilterResponse.proto"
+    "UpdateIPSetResponse"
+    "fixture/UpdateIPSetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetFilter)
+    (Proxy.Proxy :: Proxy.Proxy UpdateIPSet)
 
-responseDisableOrganizationAdminAccount :: DisableOrganizationAdminAccountResponse -> TestTree
-responseDisableOrganizationAdminAccount =
+responseUpdateMemberDetectors :: UpdateMemberDetectorsResponse -> TestTree
+responseUpdateMemberDetectors =
   res
-    "DisableOrganizationAdminAccountResponse"
-    "fixture/DisableOrganizationAdminAccountResponse.proto"
+    "UpdateMemberDetectorsResponse"
+    "fixture/UpdateMemberDetectorsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisableOrganizationAdminAccount)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMemberDetectors)
+
+responseUpdateOrganizationConfiguration :: UpdateOrganizationConfigurationResponse -> TestTree
+responseUpdateOrganizationConfiguration =
+  res
+    "UpdateOrganizationConfigurationResponse"
+    "fixture/UpdateOrganizationConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateOrganizationConfiguration)
+
+responseUpdatePublishingDestination :: UpdatePublishingDestinationResponse -> TestTree
+responseUpdatePublishingDestination =
+  res
+    "UpdatePublishingDestinationResponse"
+    "fixture/UpdatePublishingDestinationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdatePublishingDestination)
+
+responseUpdateThreatIntelSet :: UpdateThreatIntelSetResponse -> TestTree
+responseUpdateThreatIntelSet =
+  res
+    "UpdateThreatIntelSetResponse"
+    "fixture/UpdateThreatIntelSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateThreatIntelSet)

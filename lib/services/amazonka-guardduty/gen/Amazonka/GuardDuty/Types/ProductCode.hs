@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProductCode' smart constructor.
 data ProductCode = ProductCode'
-  { -- | The product code type.
-    productType :: Prelude.Maybe Prelude.Text,
-    -- | The product code information.
-    code :: Prelude.Maybe Prelude.Text
+  { -- | The product code information.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | The product code type.
+    productType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data ProductCode = ProductCode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'productType', 'productCode_productType' - The product code type.
---
 -- 'code', 'productCode_code' - The product code information.
+--
+-- 'productType', 'productCode_productType' - The product code type.
 newProductCode ::
   ProductCode
 newProductCode =
   ProductCode'
-    { productType = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      productType = Prelude.Nothing
     }
-
--- | The product code type.
-productCode_productType :: Lens.Lens' ProductCode (Prelude.Maybe Prelude.Text)
-productCode_productType = Lens.lens (\ProductCode' {productType} -> productType) (\s@ProductCode' {} a -> s {productType = a} :: ProductCode)
 
 -- | The product code information.
 productCode_code :: Lens.Lens' ProductCode (Prelude.Maybe Prelude.Text)
 productCode_code = Lens.lens (\ProductCode' {code} -> code) (\s@ProductCode' {} a -> s {code = a} :: ProductCode)
+
+-- | The product code type.
+productCode_productType :: Lens.Lens' ProductCode (Prelude.Maybe Prelude.Text)
+productCode_productType = Lens.lens (\ProductCode' {productType} -> productType) (\s@ProductCode' {} a -> s {productType = a} :: ProductCode)
 
 instance Core.FromJSON ProductCode where
   parseJSON =
@@ -67,16 +67,16 @@ instance Core.FromJSON ProductCode where
       "ProductCode"
       ( \x ->
           ProductCode'
-            Prelude.<$> (x Core..:? "productType")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Core..:? "code")
+            Prelude.<*> (x Core..:? "productType")
       )
 
 instance Prelude.Hashable ProductCode where
   hashWithSalt _salt ProductCode' {..} =
-    _salt `Prelude.hashWithSalt` productType
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` productType
 
 instance Prelude.NFData ProductCode where
   rnf ProductCode' {..} =
-    Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code
+      `Prelude.seq` Prelude.rnf productType

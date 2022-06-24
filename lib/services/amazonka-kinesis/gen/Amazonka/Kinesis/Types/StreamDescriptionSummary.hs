@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamDescriptionSummary' smart constructor.
 data StreamDescriptionSummary = StreamDescriptionSummary'
-  { -- | The encryption type used. This value is one of the following:
+  { -- | The number of enhanced fan-out consumers registered with the stream.
+    consumerCount :: Prelude.Maybe Prelude.Natural,
+    -- | The encryption type used. This value is one of the following:
     --
     -- -   @KMS@
     --
@@ -55,8 +57,6 @@ data StreamDescriptionSummary = StreamDescriptionSummary'
     --
     -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
     keyId :: Prelude.Maybe Prelude.Text,
-    -- | The number of enhanced fan-out consumers registered with the stream.
-    consumerCount :: Prelude.Maybe Prelude.Natural,
     -- | The name of the stream being described.
     streamName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the stream being described.
@@ -98,6 +98,8 @@ data StreamDescriptionSummary = StreamDescriptionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'consumerCount', 'streamDescriptionSummary_consumerCount' - The number of enhanced fan-out consumers registered with the stream.
+--
 -- 'encryptionType', 'streamDescriptionSummary_encryptionType' - The encryption type used. This value is one of the following:
 --
 -- -   @KMS@
@@ -122,8 +124,6 @@ data StreamDescriptionSummary = StreamDescriptionSummary'
 -- -   Alias name example: @alias\/MyAliasName@
 --
 -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
---
--- 'consumerCount', 'streamDescriptionSummary_consumerCount' - The number of enhanced fan-out consumers registered with the stream.
 --
 -- 'streamName', 'streamDescriptionSummary_streamName' - The name of the stream being described.
 --
@@ -176,10 +176,10 @@ newStreamDescriptionSummary
   pStreamCreationTimestamp_
   pOpenShardCount_ =
     StreamDescriptionSummary'
-      { encryptionType =
+      { consumerCount =
           Prelude.Nothing,
+        encryptionType = Prelude.Nothing,
         keyId = Prelude.Nothing,
-        consumerCount = Prelude.Nothing,
         streamName = pStreamName_,
         streamARN = pStreamARN_,
         streamStatus = pStreamStatus_,
@@ -189,6 +189,10 @@ newStreamDescriptionSummary
         enhancedMonitoring = Prelude.mempty,
         openShardCount = pOpenShardCount_
       }
+
+-- | The number of enhanced fan-out consumers registered with the stream.
+streamDescriptionSummary_consumerCount :: Lens.Lens' StreamDescriptionSummary (Prelude.Maybe Prelude.Natural)
+streamDescriptionSummary_consumerCount = Lens.lens (\StreamDescriptionSummary' {consumerCount} -> consumerCount) (\s@StreamDescriptionSummary' {} a -> s {consumerCount = a} :: StreamDescriptionSummary)
 
 -- | The encryption type used. This value is one of the following:
 --
@@ -218,10 +222,6 @@ streamDescriptionSummary_encryptionType = Lens.lens (\StreamDescriptionSummary' 
 -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
 streamDescriptionSummary_keyId :: Lens.Lens' StreamDescriptionSummary (Prelude.Maybe Prelude.Text)
 streamDescriptionSummary_keyId = Lens.lens (\StreamDescriptionSummary' {keyId} -> keyId) (\s@StreamDescriptionSummary' {} a -> s {keyId = a} :: StreamDescriptionSummary)
-
--- | The number of enhanced fan-out consumers registered with the stream.
-streamDescriptionSummary_consumerCount :: Lens.Lens' StreamDescriptionSummary (Prelude.Maybe Prelude.Natural)
-streamDescriptionSummary_consumerCount = Lens.lens (\StreamDescriptionSummary' {consumerCount} -> consumerCount) (\s@StreamDescriptionSummary' {} a -> s {consumerCount = a} :: StreamDescriptionSummary)
 
 -- | The name of the stream being described.
 streamDescriptionSummary_streamName :: Lens.Lens' StreamDescriptionSummary Prelude.Text
@@ -273,9 +273,9 @@ instance Core.FromJSON StreamDescriptionSummary where
       "StreamDescriptionSummary"
       ( \x ->
           StreamDescriptionSummary'
-            Prelude.<$> (x Core..:? "EncryptionType")
+            Prelude.<$> (x Core..:? "ConsumerCount")
+            Prelude.<*> (x Core..:? "EncryptionType")
             Prelude.<*> (x Core..:? "KeyId")
-            Prelude.<*> (x Core..:? "ConsumerCount")
             Prelude.<*> (x Core..: "StreamName")
             Prelude.<*> (x Core..: "StreamARN")
             Prelude.<*> (x Core..: "StreamStatus")
@@ -289,9 +289,9 @@ instance Core.FromJSON StreamDescriptionSummary where
 
 instance Prelude.Hashable StreamDescriptionSummary where
   hashWithSalt _salt StreamDescriptionSummary' {..} =
-    _salt `Prelude.hashWithSalt` encryptionType
+    _salt `Prelude.hashWithSalt` consumerCount
+      `Prelude.hashWithSalt` encryptionType
       `Prelude.hashWithSalt` keyId
-      `Prelude.hashWithSalt` consumerCount
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamStatus
@@ -302,9 +302,9 @@ instance Prelude.Hashable StreamDescriptionSummary where
 
 instance Prelude.NFData StreamDescriptionSummary where
   rnf StreamDescriptionSummary' {..} =
-    Prelude.rnf encryptionType
+    Prelude.rnf consumerCount
+      `Prelude.seq` Prelude.rnf encryptionType
       `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf consumerCount
       `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf streamARN
       `Prelude.seq` Prelude.rnf streamStatus

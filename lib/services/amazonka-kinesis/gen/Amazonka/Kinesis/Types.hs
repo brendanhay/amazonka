@@ -17,20 +17,20 @@ module Amazonka.Kinesis.Types
     defaultService,
 
     -- * Errors
-    _KMSInvalidStateException,
-    _KMSThrottlingException,
-    _ExpiredIteratorException,
     _InvalidArgumentException,
-    _KMSOptInRequired,
-    _ProvisionedThroughputExceededException,
-    _KMSNotFoundException,
     _ExpiredNextTokenException,
-    _KMSDisabledException,
-    _InternalFailureException,
+    _ProvisionedThroughputExceededException,
     _ResourceNotFoundException,
     _KMSAccessDeniedException,
-    _LimitExceededException,
     _ResourceInUseException,
+    _LimitExceededException,
+    _KMSDisabledException,
+    _KMSInvalidStateException,
+    _ExpiredIteratorException,
+    _KMSNotFoundException,
+    _KMSThrottlingException,
+    _InternalFailureException,
+    _KMSOptInRequired,
 
     -- * ConsumerStatus
     ConsumerStatus (..),
@@ -105,10 +105,10 @@ module Amazonka.Kinesis.Types
     -- * PutRecordsResultEntry
     PutRecordsResultEntry (..),
     newPutRecordsResultEntry,
-    putRecordsResultEntry_sequenceNumber,
-    putRecordsResultEntry_errorCode,
     putRecordsResultEntry_errorMessage,
     putRecordsResultEntry_shardId,
+    putRecordsResultEntry_sequenceNumber,
+    putRecordsResultEntry_errorCode,
 
     -- * Record
     Record (..),
@@ -128,8 +128,8 @@ module Amazonka.Kinesis.Types
     -- * Shard
     Shard (..),
     newShard,
-    shard_adjacentParentShardId,
     shard_parentShardId,
+    shard_adjacentParentShardId,
     shard_shardId,
     shard_hashKeyRange,
     shard_sequenceNumberRange,
@@ -144,8 +144,8 @@ module Amazonka.Kinesis.Types
     -- * StartingPosition
     StartingPosition (..),
     newStartingPosition,
-    startingPosition_sequenceNumber,
     startingPosition_timestamp,
+    startingPosition_sequenceNumber,
     startingPosition_type,
 
     -- * StreamDescription
@@ -165,9 +165,9 @@ module Amazonka.Kinesis.Types
     -- * StreamDescriptionSummary
     StreamDescriptionSummary (..),
     newStreamDescriptionSummary,
+    streamDescriptionSummary_consumerCount,
     streamDescriptionSummary_encryptionType,
     streamDescriptionSummary_keyId,
-    streamDescriptionSummary_consumerCount,
     streamDescriptionSummary_streamName,
     streamDescriptionSummary_streamARN,
     streamDescriptionSummary_streamStatus,
@@ -246,6 +246,28 @@ defaultService =
           Core._retryCheck = check
         }
     check e
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -258,20 +280,14 @@ defaultService =
           )
           e =
         Prelude.Just "request_limit_exceeded"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -279,50 +295,7 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The request was rejected because the state of the specified resource
--- isn\'t valid for this request. For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
-_KMSInvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSInvalidStateException =
-  Core._MatchServiceError
-    defaultService
-    "KMSInvalidStateException"
-
--- | The request was denied due to request throttling. For more information
--- about throttling, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second Limits>
--- in the /AWS Key Management Service Developer Guide/.
-_KMSThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "KMSThrottlingException"
-
--- | The provided iterator exceeds the maximum age allowed.
-_ExpiredIteratorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ExpiredIteratorException =
-  Core._MatchServiceError
-    defaultService
-    "ExpiredIteratorException"
 
 -- | A specified parameter exceeds its restrictions, is not supported, or
 -- can\'t be used. For more information, see the returned message.
@@ -332,12 +305,12 @@ _InvalidArgumentException =
     defaultService
     "InvalidArgumentException"
 
--- | The AWS access key ID needs a subscription for the service.
-_KMSOptInRequired :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSOptInRequired =
+-- | The pagination token passed to the operation is expired.
+_ExpiredNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredNextTokenException =
   Core._MatchServiceError
     defaultService
-    "KMSOptInRequired"
+    "ExpiredNextTokenException"
 
 -- | The request rate for the stream is too high, or the requested data is
 -- too large for the available throughput. Reduce the frequency or size of
@@ -351,37 +324,6 @@ _ProvisionedThroughputExceededException =
   Core._MatchServiceError
     defaultService
     "ProvisionedThroughputExceededException"
-
--- | The request was rejected because the specified entity or resource can\'t
--- be found.
-_KMSNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "KMSNotFoundException"
-
--- | The pagination token passed to the operation is expired.
-_ExpiredNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ExpiredNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "ExpiredNextTokenException"
-
--- | The request was rejected because the specified customer master key (CMK)
--- isn\'t enabled.
-_KMSDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSDisabledException =
-  Core._MatchServiceError
-    defaultService
-    "KMSDisabledException"
-
--- | The processing of the request failed because of an unknown error,
--- exception, or failure.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
-  Core._MatchServiceError
-    defaultService
-    "InternalFailureException"
 
 -- | The requested resource could not be found. The stream might not be
 -- specified correctly.
@@ -399,6 +341,14 @@ _KMSAccessDeniedException =
     defaultService
     "KMSAccessDeniedException"
 
+-- | The resource is not available for this operation. For successful
+-- operation, the resource must be in the @ACTIVE@ state.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
 -- | The requested resource exceeds the maximum number allowed, or the number
 -- of concurrent stream requests exceeds the maximum number allowed.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -407,10 +357,60 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | The resource is not available for this operation. For successful
--- operation, the resource must be in the @ACTIVE@ state.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
+-- | The request was rejected because the specified customer master key (CMK)
+-- isn\'t enabled.
+_KMSDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSDisabledException =
   Core._MatchServiceError
     defaultService
-    "ResourceInUseException"
+    "KMSDisabledException"
+
+-- | The request was rejected because the state of the specified resource
+-- isn\'t valid for this request. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
+-- in the /AWS Key Management Service Developer Guide/.
+_KMSInvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSInvalidStateException =
+  Core._MatchServiceError
+    defaultService
+    "KMSInvalidStateException"
+
+-- | The provided iterator exceeds the maximum age allowed.
+_ExpiredIteratorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredIteratorException =
+  Core._MatchServiceError
+    defaultService
+    "ExpiredIteratorException"
+
+-- | The request was rejected because the specified entity or resource can\'t
+-- be found.
+_KMSNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "KMSNotFoundException"
+
+-- | The request was denied due to request throttling. For more information
+-- about throttling, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second Limits>
+-- in the /AWS Key Management Service Developer Guide/.
+_KMSThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "KMSThrottlingException"
+
+-- | The processing of the request failed because of an unknown error,
+-- exception, or failure.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"
+
+-- | The AWS access key ID needs a subscription for the service.
+_KMSOptInRequired :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSOptInRequired =
+  Core._MatchServiceError
+    defaultService
+    "KMSOptInRequired"

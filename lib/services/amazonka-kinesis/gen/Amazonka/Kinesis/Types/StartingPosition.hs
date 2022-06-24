@@ -28,11 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStartingPosition' smart constructor.
 data StartingPosition = StartingPosition'
-  { -- | The sequence number of the data record in the shard from which to start
-    -- streaming. To specify a sequence number, set @StartingPosition@ to
-    -- @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@.
-    sequenceNumber :: Prelude.Maybe Prelude.Text,
-    -- | The time stamp of the data record from which to start reading. To
+  { -- | The time stamp of the data record from which to start reading. To
     -- specify a time stamp, set @StartingPosition@ to @Type AT_TIMESTAMP@. A
     -- time stamp is the Unix epoch date with precision in milliseconds. For
     -- example, @2016-04-04T19:58:46.480-00:00@ or @1459799926.480@. If a
@@ -41,6 +37,10 @@ data StartingPosition = StartingPosition'
     -- the current trim horizon, records will be streamed from the oldest
     -- untrimmed data record (@TRIM_HORIZON@).
     timestamp :: Prelude.Maybe Core.POSIX,
+    -- | The sequence number of the data record in the shard from which to start
+    -- streaming. To specify a sequence number, set @StartingPosition@ to
+    -- @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@.
+    sequenceNumber :: Prelude.Maybe Prelude.Text,
     -- | You can set the starting position to one of the following values:
     --
     -- @AT_SEQUENCE_NUMBER@: Start streaming from the position denoted by the
@@ -69,10 +69,6 @@ data StartingPosition = StartingPosition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sequenceNumber', 'startingPosition_sequenceNumber' - The sequence number of the data record in the shard from which to start
--- streaming. To specify a sequence number, set @StartingPosition@ to
--- @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@.
---
 -- 'timestamp', 'startingPosition_timestamp' - The time stamp of the data record from which to start reading. To
 -- specify a time stamp, set @StartingPosition@ to @Type AT_TIMESTAMP@. A
 -- time stamp is the Unix epoch date with precision in milliseconds. For
@@ -81,6 +77,10 @@ data StartingPosition = StartingPosition'
 -- streamed from the next (later) record. If the time stamp is older than
 -- the current trim horizon, records will be streamed from the oldest
 -- untrimmed data record (@TRIM_HORIZON@).
+--
+-- 'sequenceNumber', 'startingPosition_sequenceNumber' - The sequence number of the data record in the shard from which to start
+-- streaming. To specify a sequence number, set @StartingPosition@ to
+-- @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@.
 --
 -- 'type'', 'startingPosition_type' - You can set the starting position to one of the following values:
 --
@@ -104,16 +104,10 @@ newStartingPosition ::
   StartingPosition
 newStartingPosition pType_ =
   StartingPosition'
-    { sequenceNumber = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
+    { timestamp = Prelude.Nothing,
+      sequenceNumber = Prelude.Nothing,
       type' = pType_
     }
-
--- | The sequence number of the data record in the shard from which to start
--- streaming. To specify a sequence number, set @StartingPosition@ to
--- @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@.
-startingPosition_sequenceNumber :: Lens.Lens' StartingPosition (Prelude.Maybe Prelude.Text)
-startingPosition_sequenceNumber = Lens.lens (\StartingPosition' {sequenceNumber} -> sequenceNumber) (\s@StartingPosition' {} a -> s {sequenceNumber = a} :: StartingPosition)
 
 -- | The time stamp of the data record from which to start reading. To
 -- specify a time stamp, set @StartingPosition@ to @Type AT_TIMESTAMP@. A
@@ -125,6 +119,12 @@ startingPosition_sequenceNumber = Lens.lens (\StartingPosition' {sequenceNumber}
 -- untrimmed data record (@TRIM_HORIZON@).
 startingPosition_timestamp :: Lens.Lens' StartingPosition (Prelude.Maybe Prelude.UTCTime)
 startingPosition_timestamp = Lens.lens (\StartingPosition' {timestamp} -> timestamp) (\s@StartingPosition' {} a -> s {timestamp = a} :: StartingPosition) Prelude.. Lens.mapping Core._Time
+
+-- | The sequence number of the data record in the shard from which to start
+-- streaming. To specify a sequence number, set @StartingPosition@ to
+-- @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@.
+startingPosition_sequenceNumber :: Lens.Lens' StartingPosition (Prelude.Maybe Prelude.Text)
+startingPosition_sequenceNumber = Lens.lens (\StartingPosition' {sequenceNumber} -> sequenceNumber) (\s@StartingPosition' {} a -> s {sequenceNumber = a} :: StartingPosition)
 
 -- | You can set the starting position to one of the following values:
 --
@@ -147,23 +147,23 @@ startingPosition_type = Lens.lens (\StartingPosition' {type'} -> type') (\s@Star
 
 instance Prelude.Hashable StartingPosition where
   hashWithSalt _salt StartingPosition' {..} =
-    _salt `Prelude.hashWithSalt` sequenceNumber
-      `Prelude.hashWithSalt` timestamp
+    _salt `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` sequenceNumber
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData StartingPosition where
   rnf StartingPosition' {..} =
-    Prelude.rnf sequenceNumber
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf sequenceNumber
       `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON StartingPosition where
   toJSON StartingPosition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SequenceNumber" Core..=)
+          [ ("Timestamp" Core..=) Prelude.<$> timestamp,
+            ("SequenceNumber" Core..=)
               Prelude.<$> sequenceNumber,
-            ("Timestamp" Core..=) Prelude.<$> timestamp,
             Prelude.Just ("Type" Core..= type')
           ]
       )

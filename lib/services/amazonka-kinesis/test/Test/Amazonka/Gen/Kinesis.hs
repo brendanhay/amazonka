@@ -27,277 +27,181 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPutRecord $
---             newPutRecord
---
---         , requestSubscribeToShard $
---             newSubscribeToShard
---
---         , requestDecreaseStreamRetentionPeriod $
---             newDecreaseStreamRetentionPeriod
---
---         , requestMergeShards $
---             newMergeShards
---
---         , requestDeregisterStreamConsumer $
---             newDeregisterStreamConsumer
---
---         , requestDescribeStreamSummary $
---             newDescribeStreamSummary
---
---         , requestGetShardIterator $
---             newGetShardIterator
---
---         , requestGetRecords $
---             newGetRecords
---
---         , requestStopStreamEncryption $
---             newStopStreamEncryption
---
---         , requestEnableEnhancedMonitoring $
---             newEnableEnhancedMonitoring
---
---         , requestDescribeLimits $
---             newDescribeLimits
---
---         , requestRegisterStreamConsumer $
---             newRegisterStreamConsumer
---
---         , requestDisableEnhancedMonitoring $
---             newDisableEnhancedMonitoring
---
---         , requestUpdateShardCount $
---             newUpdateShardCount
---
---         , requestListTagsForStream $
---             newListTagsForStream
---
---         , requestDescribeStreamConsumer $
---             newDescribeStreamConsumer
---
---         , requestAddTagsToStream $
+--         [ requestAddTagsToStream $
 --             newAddTagsToStream
---
---         , requestPutRecords $
---             newPutRecords
---
---         , requestListShards $
---             newListShards
---
---         , requestDeleteStream $
---             newDeleteStream
---
---         , requestRemoveTagsFromStream $
---             newRemoveTagsFromStream
---
---         , requestListStreams $
---             newListStreams
 --
 --         , requestCreateStream $
 --             newCreateStream
 --
---         , requestStartStreamEncryption $
---             newStartStreamEncryption
+--         , requestDecreaseStreamRetentionPeriod $
+--             newDecreaseStreamRetentionPeriod
 --
---         , requestListStreamConsumers $
---             newListStreamConsumers
+--         , requestDeleteStream $
+--             newDeleteStream
 --
---         , requestSplitShard $
---             newSplitShard
+--         , requestDeregisterStreamConsumer $
+--             newDeregisterStreamConsumer
 --
---         , requestIncreaseStreamRetentionPeriod $
---             newIncreaseStreamRetentionPeriod
+--         , requestDescribeLimits $
+--             newDescribeLimits
 --
 --         , requestDescribeStream $
 --             newDescribeStream
 --
+--         , requestDescribeStreamConsumer $
+--             newDescribeStreamConsumer
+--
+--         , requestDescribeStreamSummary $
+--             newDescribeStreamSummary
+--
+--         , requestDisableEnhancedMonitoring $
+--             newDisableEnhancedMonitoring
+--
+--         , requestEnableEnhancedMonitoring $
+--             newEnableEnhancedMonitoring
+--
+--         , requestGetRecords $
+--             newGetRecords
+--
+--         , requestGetShardIterator $
+--             newGetShardIterator
+--
+--         , requestIncreaseStreamRetentionPeriod $
+--             newIncreaseStreamRetentionPeriod
+--
+--         , requestListShards $
+--             newListShards
+--
+--         , requestListStreamConsumers $
+--             newListStreamConsumers
+--
+--         , requestListStreams $
+--             newListStreams
+--
+--         , requestListTagsForStream $
+--             newListTagsForStream
+--
+--         , requestMergeShards $
+--             newMergeShards
+--
+--         , requestPutRecord $
+--             newPutRecord
+--
+--         , requestPutRecords $
+--             newPutRecords
+--
+--         , requestRegisterStreamConsumer $
+--             newRegisterStreamConsumer
+--
+--         , requestRemoveTagsFromStream $
+--             newRemoveTagsFromStream
+--
+--         , requestSplitShard $
+--             newSplitShard
+--
+--         , requestStartStreamEncryption $
+--             newStartStreamEncryption
+--
+--         , requestStopStreamEncryption $
+--             newStopStreamEncryption
+--
+--         , requestSubscribeToShard $
+--             newSubscribeToShard
+--
+--         , requestUpdateShardCount $
+--             newUpdateShardCount
+--
 --           ]
 
 --     , testGroup "response"
---         [ responsePutRecord $
---             newPutRecordResponse
---
---         , responseSubscribeToShard $
---             newSubscribeToShardResponse
---
---         , responseDecreaseStreamRetentionPeriod $
---             newDecreaseStreamRetentionPeriodResponse
---
---         , responseMergeShards $
---             newMergeShardsResponse
---
---         , responseDeregisterStreamConsumer $
---             newDeregisterStreamConsumerResponse
---
---         , responseDescribeStreamSummary $
---             newDescribeStreamSummaryResponse
---
---         , responseGetShardIterator $
---             newGetShardIteratorResponse
---
---         , responseGetRecords $
---             newGetRecordsResponse
---
---         , responseStopStreamEncryption $
---             newStopStreamEncryptionResponse
---
---         , responseEnableEnhancedMonitoring $
---             newEnhancedMonitoringOutput
---
---         , responseDescribeLimits $
---             newDescribeLimitsResponse
---
---         , responseRegisterStreamConsumer $
---             newRegisterStreamConsumerResponse
---
---         , responseDisableEnhancedMonitoring $
---             newEnhancedMonitoringOutput
---
---         , responseUpdateShardCount $
---             newUpdateShardCountResponse
---
---         , responseListTagsForStream $
---             newListTagsForStreamResponse
---
---         , responseDescribeStreamConsumer $
---             newDescribeStreamConsumerResponse
---
---         , responseAddTagsToStream $
+--         [ responseAddTagsToStream $
 --             newAddTagsToStreamResponse
---
---         , responsePutRecords $
---             newPutRecordsResponse
---
---         , responseListShards $
---             newListShardsResponse
---
---         , responseDeleteStream $
---             newDeleteStreamResponse
---
---         , responseRemoveTagsFromStream $
---             newRemoveTagsFromStreamResponse
---
---         , responseListStreams $
---             newListStreamsResponse
 --
 --         , responseCreateStream $
 --             newCreateStreamResponse
 --
---         , responseStartStreamEncryption $
---             newStartStreamEncryptionResponse
+--         , responseDecreaseStreamRetentionPeriod $
+--             newDecreaseStreamRetentionPeriodResponse
 --
---         , responseListStreamConsumers $
---             newListStreamConsumersResponse
+--         , responseDeleteStream $
+--             newDeleteStreamResponse
 --
---         , responseSplitShard $
---             newSplitShardResponse
+--         , responseDeregisterStreamConsumer $
+--             newDeregisterStreamConsumerResponse
+--
+--         , responseDescribeLimits $
+--             newDescribeLimitsResponse
+--
+--         , responseDescribeStream $
+--             newDescribeStreamResponse
+--
+--         , responseDescribeStreamConsumer $
+--             newDescribeStreamConsumerResponse
+--
+--         , responseDescribeStreamSummary $
+--             newDescribeStreamSummaryResponse
+--
+--         , responseDisableEnhancedMonitoring $
+--             newEnhancedMonitoringOutput
+--
+--         , responseEnableEnhancedMonitoring $
+--             newEnhancedMonitoringOutput
+--
+--         , responseGetRecords $
+--             newGetRecordsResponse
+--
+--         , responseGetShardIterator $
+--             newGetShardIteratorResponse
 --
 --         , responseIncreaseStreamRetentionPeriod $
 --             newIncreaseStreamRetentionPeriodResponse
 --
---         , responseDescribeStream $
---             newDescribeStreamResponse
+--         , responseListShards $
+--             newListShardsResponse
+--
+--         , responseListStreamConsumers $
+--             newListStreamConsumersResponse
+--
+--         , responseListStreams $
+--             newListStreamsResponse
+--
+--         , responseListTagsForStream $
+--             newListTagsForStreamResponse
+--
+--         , responseMergeShards $
+--             newMergeShardsResponse
+--
+--         , responsePutRecord $
+--             newPutRecordResponse
+--
+--         , responsePutRecords $
+--             newPutRecordsResponse
+--
+--         , responseRegisterStreamConsumer $
+--             newRegisterStreamConsumerResponse
+--
+--         , responseRemoveTagsFromStream $
+--             newRemoveTagsFromStreamResponse
+--
+--         , responseSplitShard $
+--             newSplitShardResponse
+--
+--         , responseStartStreamEncryption $
+--             newStartStreamEncryptionResponse
+--
+--         , responseStopStreamEncryption $
+--             newStopStreamEncryptionResponse
+--
+--         , responseSubscribeToShard $
+--             newSubscribeToShardResponse
+--
+--         , responseUpdateShardCount $
+--             newUpdateShardCountResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestPutRecord :: PutRecord -> TestTree
-requestPutRecord =
-  req
-    "PutRecord"
-    "fixture/PutRecord.yaml"
-
-requestSubscribeToShard :: SubscribeToShard -> TestTree
-requestSubscribeToShard =
-  req
-    "SubscribeToShard"
-    "fixture/SubscribeToShard.yaml"
-
-requestDecreaseStreamRetentionPeriod :: DecreaseStreamRetentionPeriod -> TestTree
-requestDecreaseStreamRetentionPeriod =
-  req
-    "DecreaseStreamRetentionPeriod"
-    "fixture/DecreaseStreamRetentionPeriod.yaml"
-
-requestMergeShards :: MergeShards -> TestTree
-requestMergeShards =
-  req
-    "MergeShards"
-    "fixture/MergeShards.yaml"
-
-requestDeregisterStreamConsumer :: DeregisterStreamConsumer -> TestTree
-requestDeregisterStreamConsumer =
-  req
-    "DeregisterStreamConsumer"
-    "fixture/DeregisterStreamConsumer.yaml"
-
-requestDescribeStreamSummary :: DescribeStreamSummary -> TestTree
-requestDescribeStreamSummary =
-  req
-    "DescribeStreamSummary"
-    "fixture/DescribeStreamSummary.yaml"
-
-requestGetShardIterator :: GetShardIterator -> TestTree
-requestGetShardIterator =
-  req
-    "GetShardIterator"
-    "fixture/GetShardIterator.yaml"
-
-requestGetRecords :: GetRecords -> TestTree
-requestGetRecords =
-  req
-    "GetRecords"
-    "fixture/GetRecords.yaml"
-
-requestStopStreamEncryption :: StopStreamEncryption -> TestTree
-requestStopStreamEncryption =
-  req
-    "StopStreamEncryption"
-    "fixture/StopStreamEncryption.yaml"
-
-requestEnableEnhancedMonitoring :: EnableEnhancedMonitoring -> TestTree
-requestEnableEnhancedMonitoring =
-  req
-    "EnableEnhancedMonitoring"
-    "fixture/EnableEnhancedMonitoring.yaml"
-
-requestDescribeLimits :: DescribeLimits -> TestTree
-requestDescribeLimits =
-  req
-    "DescribeLimits"
-    "fixture/DescribeLimits.yaml"
-
-requestRegisterStreamConsumer :: RegisterStreamConsumer -> TestTree
-requestRegisterStreamConsumer =
-  req
-    "RegisterStreamConsumer"
-    "fixture/RegisterStreamConsumer.yaml"
-
-requestDisableEnhancedMonitoring :: DisableEnhancedMonitoring -> TestTree
-requestDisableEnhancedMonitoring =
-  req
-    "DisableEnhancedMonitoring"
-    "fixture/DisableEnhancedMonitoring.yaml"
-
-requestUpdateShardCount :: UpdateShardCount -> TestTree
-requestUpdateShardCount =
-  req
-    "UpdateShardCount"
-    "fixture/UpdateShardCount.yaml"
-
-requestListTagsForStream :: ListTagsForStream -> TestTree
-requestListTagsForStream =
-  req
-    "ListTagsForStream"
-    "fixture/ListTagsForStream.yaml"
-
-requestDescribeStreamConsumer :: DescribeStreamConsumer -> TestTree
-requestDescribeStreamConsumer =
-  req
-    "DescribeStreamConsumer"
-    "fixture/DescribeStreamConsumer.yaml"
 
 requestAddTagsToStream :: AddTagsToStream -> TestTree
 requestAddTagsToStream =
@@ -305,17 +209,17 @@ requestAddTagsToStream =
     "AddTagsToStream"
     "fixture/AddTagsToStream.yaml"
 
-requestPutRecords :: PutRecords -> TestTree
-requestPutRecords =
+requestCreateStream :: CreateStream -> TestTree
+requestCreateStream =
   req
-    "PutRecords"
-    "fixture/PutRecords.yaml"
+    "CreateStream"
+    "fixture/CreateStream.yaml"
 
-requestListShards :: ListShards -> TestTree
-requestListShards =
+requestDecreaseStreamRetentionPeriod :: DecreaseStreamRetentionPeriod -> TestTree
+requestDecreaseStreamRetentionPeriod =
   req
-    "ListShards"
-    "fixture/ListShards.yaml"
+    "DecreaseStreamRetentionPeriod"
+    "fixture/DecreaseStreamRetentionPeriod.yaml"
 
 requestDeleteStream :: DeleteStream -> TestTree
 requestDeleteStream =
@@ -323,47 +227,17 @@ requestDeleteStream =
     "DeleteStream"
     "fixture/DeleteStream.yaml"
 
-requestRemoveTagsFromStream :: RemoveTagsFromStream -> TestTree
-requestRemoveTagsFromStream =
+requestDeregisterStreamConsumer :: DeregisterStreamConsumer -> TestTree
+requestDeregisterStreamConsumer =
   req
-    "RemoveTagsFromStream"
-    "fixture/RemoveTagsFromStream.yaml"
+    "DeregisterStreamConsumer"
+    "fixture/DeregisterStreamConsumer.yaml"
 
-requestListStreams :: ListStreams -> TestTree
-requestListStreams =
+requestDescribeLimits :: DescribeLimits -> TestTree
+requestDescribeLimits =
   req
-    "ListStreams"
-    "fixture/ListStreams.yaml"
-
-requestCreateStream :: CreateStream -> TestTree
-requestCreateStream =
-  req
-    "CreateStream"
-    "fixture/CreateStream.yaml"
-
-requestStartStreamEncryption :: StartStreamEncryption -> TestTree
-requestStartStreamEncryption =
-  req
-    "StartStreamEncryption"
-    "fixture/StartStreamEncryption.yaml"
-
-requestListStreamConsumers :: ListStreamConsumers -> TestTree
-requestListStreamConsumers =
-  req
-    "ListStreamConsumers"
-    "fixture/ListStreamConsumers.yaml"
-
-requestSplitShard :: SplitShard -> TestTree
-requestSplitShard =
-  req
-    "SplitShard"
-    "fixture/SplitShard.yaml"
-
-requestIncreaseStreamRetentionPeriod :: IncreaseStreamRetentionPeriod -> TestTree
-requestIncreaseStreamRetentionPeriod =
-  req
-    "IncreaseStreamRetentionPeriod"
-    "fixture/IncreaseStreamRetentionPeriod.yaml"
+    "DescribeLimits"
+    "fixture/DescribeLimits.yaml"
 
 requestDescribeStream :: DescribeStream -> TestTree
 requestDescribeStream =
@@ -371,127 +245,133 @@ requestDescribeStream =
     "DescribeStream"
     "fixture/DescribeStream.yaml"
 
+requestDescribeStreamConsumer :: DescribeStreamConsumer -> TestTree
+requestDescribeStreamConsumer =
+  req
+    "DescribeStreamConsumer"
+    "fixture/DescribeStreamConsumer.yaml"
+
+requestDescribeStreamSummary :: DescribeStreamSummary -> TestTree
+requestDescribeStreamSummary =
+  req
+    "DescribeStreamSummary"
+    "fixture/DescribeStreamSummary.yaml"
+
+requestDisableEnhancedMonitoring :: DisableEnhancedMonitoring -> TestTree
+requestDisableEnhancedMonitoring =
+  req
+    "DisableEnhancedMonitoring"
+    "fixture/DisableEnhancedMonitoring.yaml"
+
+requestEnableEnhancedMonitoring :: EnableEnhancedMonitoring -> TestTree
+requestEnableEnhancedMonitoring =
+  req
+    "EnableEnhancedMonitoring"
+    "fixture/EnableEnhancedMonitoring.yaml"
+
+requestGetRecords :: GetRecords -> TestTree
+requestGetRecords =
+  req
+    "GetRecords"
+    "fixture/GetRecords.yaml"
+
+requestGetShardIterator :: GetShardIterator -> TestTree
+requestGetShardIterator =
+  req
+    "GetShardIterator"
+    "fixture/GetShardIterator.yaml"
+
+requestIncreaseStreamRetentionPeriod :: IncreaseStreamRetentionPeriod -> TestTree
+requestIncreaseStreamRetentionPeriod =
+  req
+    "IncreaseStreamRetentionPeriod"
+    "fixture/IncreaseStreamRetentionPeriod.yaml"
+
+requestListShards :: ListShards -> TestTree
+requestListShards =
+  req
+    "ListShards"
+    "fixture/ListShards.yaml"
+
+requestListStreamConsumers :: ListStreamConsumers -> TestTree
+requestListStreamConsumers =
+  req
+    "ListStreamConsumers"
+    "fixture/ListStreamConsumers.yaml"
+
+requestListStreams :: ListStreams -> TestTree
+requestListStreams =
+  req
+    "ListStreams"
+    "fixture/ListStreams.yaml"
+
+requestListTagsForStream :: ListTagsForStream -> TestTree
+requestListTagsForStream =
+  req
+    "ListTagsForStream"
+    "fixture/ListTagsForStream.yaml"
+
+requestMergeShards :: MergeShards -> TestTree
+requestMergeShards =
+  req
+    "MergeShards"
+    "fixture/MergeShards.yaml"
+
+requestPutRecord :: PutRecord -> TestTree
+requestPutRecord =
+  req
+    "PutRecord"
+    "fixture/PutRecord.yaml"
+
+requestPutRecords :: PutRecords -> TestTree
+requestPutRecords =
+  req
+    "PutRecords"
+    "fixture/PutRecords.yaml"
+
+requestRegisterStreamConsumer :: RegisterStreamConsumer -> TestTree
+requestRegisterStreamConsumer =
+  req
+    "RegisterStreamConsumer"
+    "fixture/RegisterStreamConsumer.yaml"
+
+requestRemoveTagsFromStream :: RemoveTagsFromStream -> TestTree
+requestRemoveTagsFromStream =
+  req
+    "RemoveTagsFromStream"
+    "fixture/RemoveTagsFromStream.yaml"
+
+requestSplitShard :: SplitShard -> TestTree
+requestSplitShard =
+  req
+    "SplitShard"
+    "fixture/SplitShard.yaml"
+
+requestStartStreamEncryption :: StartStreamEncryption -> TestTree
+requestStartStreamEncryption =
+  req
+    "StartStreamEncryption"
+    "fixture/StartStreamEncryption.yaml"
+
+requestStopStreamEncryption :: StopStreamEncryption -> TestTree
+requestStopStreamEncryption =
+  req
+    "StopStreamEncryption"
+    "fixture/StopStreamEncryption.yaml"
+
+requestSubscribeToShard :: SubscribeToShard -> TestTree
+requestSubscribeToShard =
+  req
+    "SubscribeToShard"
+    "fixture/SubscribeToShard.yaml"
+
+requestUpdateShardCount :: UpdateShardCount -> TestTree
+requestUpdateShardCount =
+  req
+    "UpdateShardCount"
+    "fixture/UpdateShardCount.yaml"
+
 -- Responses
-
-responsePutRecord :: PutRecordResponse -> TestTree
-responsePutRecord =
-  res
-    "PutRecordResponse"
-    "fixture/PutRecordResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutRecord)
-
-responseDecreaseStreamRetentionPeriod :: DecreaseStreamRetentionPeriodResponse -> TestTree
-responseDecreaseStreamRetentionPeriod =
-  res
-    "DecreaseStreamRetentionPeriodResponse"
-    "fixture/DecreaseStreamRetentionPeriodResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DecreaseStreamRetentionPeriod)
-
-responseMergeShards :: MergeShardsResponse -> TestTree
-responseMergeShards =
-  res
-    "MergeShardsResponse"
-    "fixture/MergeShardsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy MergeShards)
-
-responseDeregisterStreamConsumer :: DeregisterStreamConsumerResponse -> TestTree
-responseDeregisterStreamConsumer =
-  res
-    "DeregisterStreamConsumerResponse"
-    "fixture/DeregisterStreamConsumerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeregisterStreamConsumer)
-
-responseDescribeStreamSummary :: DescribeStreamSummaryResponse -> TestTree
-responseDescribeStreamSummary =
-  res
-    "DescribeStreamSummaryResponse"
-    "fixture/DescribeStreamSummaryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeStreamSummary)
-
-responseGetShardIterator :: GetShardIteratorResponse -> TestTree
-responseGetShardIterator =
-  res
-    "GetShardIteratorResponse"
-    "fixture/GetShardIteratorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetShardIterator)
-
-responseGetRecords :: GetRecordsResponse -> TestTree
-responseGetRecords =
-  res
-    "GetRecordsResponse"
-    "fixture/GetRecordsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRecords)
-
-responseStopStreamEncryption :: StopStreamEncryptionResponse -> TestTree
-responseStopStreamEncryption =
-  res
-    "StopStreamEncryptionResponse"
-    "fixture/StopStreamEncryptionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopStreamEncryption)
-
-responseEnableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
-responseEnableEnhancedMonitoring =
-  res
-    "EnableEnhancedMonitoringResponse"
-    "fixture/EnableEnhancedMonitoringResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy EnableEnhancedMonitoring)
-
-responseDescribeLimits :: DescribeLimitsResponse -> TestTree
-responseDescribeLimits =
-  res
-    "DescribeLimitsResponse"
-    "fixture/DescribeLimitsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeLimits)
-
-responseRegisterStreamConsumer :: RegisterStreamConsumerResponse -> TestTree
-responseRegisterStreamConsumer =
-  res
-    "RegisterStreamConsumerResponse"
-    "fixture/RegisterStreamConsumerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RegisterStreamConsumer)
-
-responseDisableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
-responseDisableEnhancedMonitoring =
-  res
-    "DisableEnhancedMonitoringResponse"
-    "fixture/DisableEnhancedMonitoringResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisableEnhancedMonitoring)
-
-responseUpdateShardCount :: UpdateShardCountResponse -> TestTree
-responseUpdateShardCount =
-  res
-    "UpdateShardCountResponse"
-    "fixture/UpdateShardCountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateShardCount)
-
-responseListTagsForStream :: ListTagsForStreamResponse -> TestTree
-responseListTagsForStream =
-  res
-    "ListTagsForStreamResponse"
-    "fixture/ListTagsForStreamResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForStream)
-
-responseDescribeStreamConsumer :: DescribeStreamConsumerResponse -> TestTree
-responseDescribeStreamConsumer =
-  res
-    "DescribeStreamConsumerResponse"
-    "fixture/DescribeStreamConsumerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeStreamConsumer)
 
 responseAddTagsToStream :: AddTagsToStreamResponse -> TestTree
 responseAddTagsToStream =
@@ -501,21 +381,21 @@ responseAddTagsToStream =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddTagsToStream)
 
-responsePutRecords :: PutRecordsResponse -> TestTree
-responsePutRecords =
+responseCreateStream :: CreateStreamResponse -> TestTree
+responseCreateStream =
   res
-    "PutRecordsResponse"
-    "fixture/PutRecordsResponse.proto"
+    "CreateStreamResponse"
+    "fixture/CreateStreamResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutRecords)
+    (Proxy.Proxy :: Proxy.Proxy CreateStream)
 
-responseListShards :: ListShardsResponse -> TestTree
-responseListShards =
+responseDecreaseStreamRetentionPeriod :: DecreaseStreamRetentionPeriodResponse -> TestTree
+responseDecreaseStreamRetentionPeriod =
   res
-    "ListShardsResponse"
-    "fixture/ListShardsResponse.proto"
+    "DecreaseStreamRetentionPeriodResponse"
+    "fixture/DecreaseStreamRetentionPeriodResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListShards)
+    (Proxy.Proxy :: Proxy.Proxy DecreaseStreamRetentionPeriod)
 
 responseDeleteStream :: DeleteStreamResponse -> TestTree
 responseDeleteStream =
@@ -525,53 +405,77 @@ responseDeleteStream =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteStream)
 
-responseRemoveTagsFromStream :: RemoveTagsFromStreamResponse -> TestTree
-responseRemoveTagsFromStream =
+responseDeregisterStreamConsumer :: DeregisterStreamConsumerResponse -> TestTree
+responseDeregisterStreamConsumer =
   res
-    "RemoveTagsFromStreamResponse"
-    "fixture/RemoveTagsFromStreamResponse.proto"
+    "DeregisterStreamConsumerResponse"
+    "fixture/DeregisterStreamConsumerResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromStream)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterStreamConsumer)
 
-responseListStreams :: ListStreamsResponse -> TestTree
-responseListStreams =
+responseDescribeLimits :: DescribeLimitsResponse -> TestTree
+responseDescribeLimits =
   res
-    "ListStreamsResponse"
-    "fixture/ListStreamsResponse.proto"
+    "DescribeLimitsResponse"
+    "fixture/DescribeLimitsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListStreams)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLimits)
 
-responseCreateStream :: CreateStreamResponse -> TestTree
-responseCreateStream =
+responseDescribeStream :: DescribeStreamResponse -> TestTree
+responseDescribeStream =
   res
-    "CreateStreamResponse"
-    "fixture/CreateStreamResponse.proto"
+    "DescribeStreamResponse"
+    "fixture/DescribeStreamResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateStream)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStream)
 
-responseStartStreamEncryption :: StartStreamEncryptionResponse -> TestTree
-responseStartStreamEncryption =
+responseDescribeStreamConsumer :: DescribeStreamConsumerResponse -> TestTree
+responseDescribeStreamConsumer =
   res
-    "StartStreamEncryptionResponse"
-    "fixture/StartStreamEncryptionResponse.proto"
+    "DescribeStreamConsumerResponse"
+    "fixture/DescribeStreamConsumerResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartStreamEncryption)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStreamConsumer)
 
-responseListStreamConsumers :: ListStreamConsumersResponse -> TestTree
-responseListStreamConsumers =
+responseDescribeStreamSummary :: DescribeStreamSummaryResponse -> TestTree
+responseDescribeStreamSummary =
   res
-    "ListStreamConsumersResponse"
-    "fixture/ListStreamConsumersResponse.proto"
+    "DescribeStreamSummaryResponse"
+    "fixture/DescribeStreamSummaryResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListStreamConsumers)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStreamSummary)
 
-responseSplitShard :: SplitShardResponse -> TestTree
-responseSplitShard =
+responseDisableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
+responseDisableEnhancedMonitoring =
   res
-    "SplitShardResponse"
-    "fixture/SplitShardResponse.proto"
+    "DisableEnhancedMonitoringResponse"
+    "fixture/DisableEnhancedMonitoringResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy SplitShard)
+    (Proxy.Proxy :: Proxy.Proxy DisableEnhancedMonitoring)
+
+responseEnableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
+responseEnableEnhancedMonitoring =
+  res
+    "EnableEnhancedMonitoringResponse"
+    "fixture/EnableEnhancedMonitoringResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableEnhancedMonitoring)
+
+responseGetRecords :: GetRecordsResponse -> TestTree
+responseGetRecords =
+  res
+    "GetRecordsResponse"
+    "fixture/GetRecordsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRecords)
+
+responseGetShardIterator :: GetShardIteratorResponse -> TestTree
+responseGetShardIterator =
+  res
+    "GetShardIteratorResponse"
+    "fixture/GetShardIteratorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetShardIterator)
 
 responseIncreaseStreamRetentionPeriod :: IncreaseStreamRetentionPeriodResponse -> TestTree
 responseIncreaseStreamRetentionPeriod =
@@ -581,10 +485,106 @@ responseIncreaseStreamRetentionPeriod =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy IncreaseStreamRetentionPeriod)
 
-responseDescribeStream :: DescribeStreamResponse -> TestTree
-responseDescribeStream =
+responseListShards :: ListShardsResponse -> TestTree
+responseListShards =
   res
-    "DescribeStreamResponse"
-    "fixture/DescribeStreamResponse.proto"
+    "ListShardsResponse"
+    "fixture/ListShardsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeStream)
+    (Proxy.Proxy :: Proxy.Proxy ListShards)
+
+responseListStreamConsumers :: ListStreamConsumersResponse -> TestTree
+responseListStreamConsumers =
+  res
+    "ListStreamConsumersResponse"
+    "fixture/ListStreamConsumersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStreamConsumers)
+
+responseListStreams :: ListStreamsResponse -> TestTree
+responseListStreams =
+  res
+    "ListStreamsResponse"
+    "fixture/ListStreamsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStreams)
+
+responseListTagsForStream :: ListTagsForStreamResponse -> TestTree
+responseListTagsForStream =
+  res
+    "ListTagsForStreamResponse"
+    "fixture/ListTagsForStreamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForStream)
+
+responseMergeShards :: MergeShardsResponse -> TestTree
+responseMergeShards =
+  res
+    "MergeShardsResponse"
+    "fixture/MergeShardsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy MergeShards)
+
+responsePutRecord :: PutRecordResponse -> TestTree
+responsePutRecord =
+  res
+    "PutRecordResponse"
+    "fixture/PutRecordResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutRecord)
+
+responsePutRecords :: PutRecordsResponse -> TestTree
+responsePutRecords =
+  res
+    "PutRecordsResponse"
+    "fixture/PutRecordsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutRecords)
+
+responseRegisterStreamConsumer :: RegisterStreamConsumerResponse -> TestTree
+responseRegisterStreamConsumer =
+  res
+    "RegisterStreamConsumerResponse"
+    "fixture/RegisterStreamConsumerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterStreamConsumer)
+
+responseRemoveTagsFromStream :: RemoveTagsFromStreamResponse -> TestTree
+responseRemoveTagsFromStream =
+  res
+    "RemoveTagsFromStreamResponse"
+    "fixture/RemoveTagsFromStreamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromStream)
+
+responseSplitShard :: SplitShardResponse -> TestTree
+responseSplitShard =
+  res
+    "SplitShardResponse"
+    "fixture/SplitShardResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SplitShard)
+
+responseStartStreamEncryption :: StartStreamEncryptionResponse -> TestTree
+responseStartStreamEncryption =
+  res
+    "StartStreamEncryptionResponse"
+    "fixture/StartStreamEncryptionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartStreamEncryption)
+
+responseStopStreamEncryption :: StopStreamEncryptionResponse -> TestTree
+responseStopStreamEncryption =
+  res
+    "StopStreamEncryptionResponse"
+    "fixture/StopStreamEncryptionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopStreamEncryption)
+
+responseUpdateShardCount :: UpdateShardCountResponse -> TestTree
+responseUpdateShardCount =
+  res
+    "UpdateShardCountResponse"
+    "fixture/UpdateShardCountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateShardCount)

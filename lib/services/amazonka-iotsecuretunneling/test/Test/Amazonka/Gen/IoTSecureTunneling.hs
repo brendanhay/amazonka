@@ -27,17 +27,20 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListTagsForResource $
---             newListTagsForResource
---
---         , requestCloseTunnel $
+--         [ requestCloseTunnel $
 --             newCloseTunnel
---
---         , requestOpenTunnel $
---             newOpenTunnel
 --
 --         , requestDescribeTunnel $
 --             newDescribeTunnel
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListTunnels $
+--             newListTunnels
+--
+--         , requestOpenTunnel $
+--             newOpenTunnel
 --
 --         , requestTagResource $
 --             newTagResource
@@ -45,23 +48,23 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestListTunnels $
---             newListTunnels
---
 --           ]
 
 --     , testGroup "response"
---         [ responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseCloseTunnel $
+--         [ responseCloseTunnel $
 --             newCloseTunnelResponse
---
---         , responseOpenTunnel $
---             newOpenTunnelResponse
 --
 --         , responseDescribeTunnel $
 --             newDescribeTunnelResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListTunnels $
+--             newListTunnelsResponse
+--
+--         , responseOpenTunnel $
+--             newOpenTunnelResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -69,19 +72,10 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseListTunnels $
---             newListTunnelsResponse
---
 --           ]
 --     ]
 
 -- Requests
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
 
 requestCloseTunnel :: CloseTunnel -> TestTree
 requestCloseTunnel =
@@ -89,17 +83,29 @@ requestCloseTunnel =
     "CloseTunnel"
     "fixture/CloseTunnel.yaml"
 
-requestOpenTunnel :: OpenTunnel -> TestTree
-requestOpenTunnel =
-  req
-    "OpenTunnel"
-    "fixture/OpenTunnel.yaml"
-
 requestDescribeTunnel :: DescribeTunnel -> TestTree
 requestDescribeTunnel =
   req
     "DescribeTunnel"
     "fixture/DescribeTunnel.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListTunnels :: ListTunnels -> TestTree
+requestListTunnels =
+  req
+    "ListTunnels"
+    "fixture/ListTunnels.yaml"
+
+requestOpenTunnel :: OpenTunnel -> TestTree
+requestOpenTunnel =
+  req
+    "OpenTunnel"
+    "fixture/OpenTunnel.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -113,21 +119,7 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestListTunnels :: ListTunnels -> TestTree
-requestListTunnels =
-  req
-    "ListTunnels"
-    "fixture/ListTunnels.yaml"
-
 -- Responses
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCloseTunnel :: CloseTunnelResponse -> TestTree
 responseCloseTunnel =
@@ -137,14 +129,6 @@ responseCloseTunnel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CloseTunnel)
 
-responseOpenTunnel :: OpenTunnelResponse -> TestTree
-responseOpenTunnel =
-  res
-    "OpenTunnelResponse"
-    "fixture/OpenTunnelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy OpenTunnel)
-
 responseDescribeTunnel :: DescribeTunnelResponse -> TestTree
 responseDescribeTunnel =
   res
@@ -152,6 +136,30 @@ responseDescribeTunnel =
     "fixture/DescribeTunnelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeTunnel)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListTunnels :: ListTunnelsResponse -> TestTree
+responseListTunnels =
+  res
+    "ListTunnelsResponse"
+    "fixture/ListTunnelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTunnels)
+
+responseOpenTunnel :: OpenTunnelResponse -> TestTree
+responseOpenTunnel =
+  res
+    "OpenTunnelResponse"
+    "fixture/OpenTunnelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy OpenTunnel)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -168,11 +176,3 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseListTunnels :: ListTunnelsResponse -> TestTree
-responseListTunnels =
-  res
-    "ListTunnelsResponse"
-    "fixture/ListTunnelsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTunnels)

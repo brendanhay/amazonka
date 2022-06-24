@@ -37,29 +37,35 @@ module Amazonka.IoTSecureTunneling
     -- * Operations
     -- $operations
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
     -- ** CloseTunnel
     CloseTunnel (CloseTunnel'),
     newCloseTunnel,
     CloseTunnelResponse (CloseTunnelResponse'),
     newCloseTunnelResponse,
 
-    -- ** OpenTunnel
-    OpenTunnel (OpenTunnel'),
-    newOpenTunnel,
-    OpenTunnelResponse (OpenTunnelResponse'),
-    newOpenTunnelResponse,
-
     -- ** DescribeTunnel
     DescribeTunnel (DescribeTunnel'),
     newDescribeTunnel,
     DescribeTunnelResponse (DescribeTunnelResponse'),
     newDescribeTunnelResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListTunnels
+    ListTunnels (ListTunnels'),
+    newListTunnels,
+    ListTunnelsResponse (ListTunnelsResponse'),
+    newListTunnelsResponse,
+
+    -- ** OpenTunnel
+    OpenTunnel (OpenTunnel'),
+    newOpenTunnel,
+    OpenTunnelResponse (OpenTunnelResponse'),
+    newOpenTunnelResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -72,12 +78,6 @@ module Amazonka.IoTSecureTunneling
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** ListTunnels
-    ListTunnels (ListTunnels'),
-    newListTunnels,
-    ListTunnelsResponse (ListTunnelsResponse'),
-    newListTunnelsResponse,
 
     -- * Types
 

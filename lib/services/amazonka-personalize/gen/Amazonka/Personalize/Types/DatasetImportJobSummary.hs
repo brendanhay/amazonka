@@ -28,24 +28,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatasetImportJobSummary' smart constructor.
 data DatasetImportJobSummary = DatasetImportJobSummary'
-  { -- | If a dataset import job fails, the reason behind the failure.
-    failureReason :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time (in Unix time) that the dataset import job was
+    -- created.
+    creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the dataset import job.
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The status of the dataset import job.
     --
     -- A dataset import job can be in one of the following states:
     --
     -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
     status :: Prelude.Maybe Prelude.Text,
-    -- | The name of the dataset import job.
-    jobName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the dataset import job.
+    datasetImportJobArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the dataset import job status was
     -- last updated.
     lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of the dataset import job.
-    datasetImportJobArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix time) that the dataset import job was
-    -- created.
-    creationDateTime :: Prelude.Maybe Core.POSIX
+    -- | If a dataset import job fails, the reason behind the failure.
+    failureReason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +57,10 @@ data DatasetImportJobSummary = DatasetImportJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureReason', 'datasetImportJobSummary_failureReason' - If a dataset import job fails, the reason behind the failure.
+-- 'creationDateTime', 'datasetImportJobSummary_creationDateTime' - The date and time (in Unix time) that the dataset import job was
+-- created.
+--
+-- 'jobName', 'datasetImportJobSummary_jobName' - The name of the dataset import job.
 --
 -- 'status', 'datasetImportJobSummary_status' - The status of the dataset import job.
 --
@@ -65,31 +68,33 @@ data DatasetImportJobSummary = DatasetImportJobSummary'
 --
 -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 --
--- 'jobName', 'datasetImportJobSummary_jobName' - The name of the dataset import job.
+-- 'datasetImportJobArn', 'datasetImportJobSummary_datasetImportJobArn' - The Amazon Resource Name (ARN) of the dataset import job.
 --
 -- 'lastUpdatedDateTime', 'datasetImportJobSummary_lastUpdatedDateTime' - The date and time (in Unix time) that the dataset import job status was
 -- last updated.
 --
--- 'datasetImportJobArn', 'datasetImportJobSummary_datasetImportJobArn' - The Amazon Resource Name (ARN) of the dataset import job.
---
--- 'creationDateTime', 'datasetImportJobSummary_creationDateTime' - The date and time (in Unix time) that the dataset import job was
--- created.
+-- 'failureReason', 'datasetImportJobSummary_failureReason' - If a dataset import job fails, the reason behind the failure.
 newDatasetImportJobSummary ::
   DatasetImportJobSummary
 newDatasetImportJobSummary =
   DatasetImportJobSummary'
-    { failureReason =
+    { creationDateTime =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       jobName = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       datasetImportJobArn = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing
+      lastUpdatedDateTime = Prelude.Nothing,
+      failureReason = Prelude.Nothing
     }
 
--- | If a dataset import job fails, the reason behind the failure.
-datasetImportJobSummary_failureReason :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
-datasetImportJobSummary_failureReason = Lens.lens (\DatasetImportJobSummary' {failureReason} -> failureReason) (\s@DatasetImportJobSummary' {} a -> s {failureReason = a} :: DatasetImportJobSummary)
+-- | The date and time (in Unix time) that the dataset import job was
+-- created.
+datasetImportJobSummary_creationDateTime :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.UTCTime)
+datasetImportJobSummary_creationDateTime = Lens.lens (\DatasetImportJobSummary' {creationDateTime} -> creationDateTime) (\s@DatasetImportJobSummary' {} a -> s {creationDateTime = a} :: DatasetImportJobSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the dataset import job.
+datasetImportJobSummary_jobName :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
+datasetImportJobSummary_jobName = Lens.lens (\DatasetImportJobSummary' {jobName} -> jobName) (\s@DatasetImportJobSummary' {} a -> s {jobName = a} :: DatasetImportJobSummary)
 
 -- | The status of the dataset import job.
 --
@@ -99,23 +104,18 @@ datasetImportJobSummary_failureReason = Lens.lens (\DatasetImportJobSummary' {fa
 datasetImportJobSummary_status :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
 datasetImportJobSummary_status = Lens.lens (\DatasetImportJobSummary' {status} -> status) (\s@DatasetImportJobSummary' {} a -> s {status = a} :: DatasetImportJobSummary)
 
--- | The name of the dataset import job.
-datasetImportJobSummary_jobName :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
-datasetImportJobSummary_jobName = Lens.lens (\DatasetImportJobSummary' {jobName} -> jobName) (\s@DatasetImportJobSummary' {} a -> s {jobName = a} :: DatasetImportJobSummary)
+-- | The Amazon Resource Name (ARN) of the dataset import job.
+datasetImportJobSummary_datasetImportJobArn :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
+datasetImportJobSummary_datasetImportJobArn = Lens.lens (\DatasetImportJobSummary' {datasetImportJobArn} -> datasetImportJobArn) (\s@DatasetImportJobSummary' {} a -> s {datasetImportJobArn = a} :: DatasetImportJobSummary)
 
 -- | The date and time (in Unix time) that the dataset import job status was
 -- last updated.
 datasetImportJobSummary_lastUpdatedDateTime :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.UTCTime)
 datasetImportJobSummary_lastUpdatedDateTime = Lens.lens (\DatasetImportJobSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetImportJobSummary' {} a -> s {lastUpdatedDateTime = a} :: DatasetImportJobSummary) Prelude.. Lens.mapping Core._Time
 
--- | The Amazon Resource Name (ARN) of the dataset import job.
-datasetImportJobSummary_datasetImportJobArn :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
-datasetImportJobSummary_datasetImportJobArn = Lens.lens (\DatasetImportJobSummary' {datasetImportJobArn} -> datasetImportJobArn) (\s@DatasetImportJobSummary' {} a -> s {datasetImportJobArn = a} :: DatasetImportJobSummary)
-
--- | The date and time (in Unix time) that the dataset import job was
--- created.
-datasetImportJobSummary_creationDateTime :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.UTCTime)
-datasetImportJobSummary_creationDateTime = Lens.lens (\DatasetImportJobSummary' {creationDateTime} -> creationDateTime) (\s@DatasetImportJobSummary' {} a -> s {creationDateTime = a} :: DatasetImportJobSummary) Prelude.. Lens.mapping Core._Time
+-- | If a dataset import job fails, the reason behind the failure.
+datasetImportJobSummary_failureReason :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
+datasetImportJobSummary_failureReason = Lens.lens (\DatasetImportJobSummary' {failureReason} -> failureReason) (\s@DatasetImportJobSummary' {} a -> s {failureReason = a} :: DatasetImportJobSummary)
 
 instance Core.FromJSON DatasetImportJobSummary where
   parseJSON =
@@ -123,28 +123,28 @@ instance Core.FromJSON DatasetImportJobSummary where
       "DatasetImportJobSummary"
       ( \x ->
           DatasetImportJobSummary'
-            Prelude.<$> (x Core..:? "failureReason")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "creationDateTime")
             Prelude.<*> (x Core..:? "jobName")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "datasetImportJobArn")
-            Prelude.<*> (x Core..:? "creationDateTime")
+            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Core..:? "failureReason")
       )
 
 instance Prelude.Hashable DatasetImportJobSummary where
   hashWithSalt _salt DatasetImportJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` datasetImportJobArn
-      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` failureReason
 
 instance Prelude.NFData DatasetImportJobSummary where
   rnf DatasetImportJobSummary' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf datasetImportJobArn
-      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf failureReason

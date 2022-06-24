@@ -32,13 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 data HPOConfig = HPOConfig'
   { -- | The hyperparameters and their allowable ranges.
     algorithmHyperParameterRanges :: Prelude.Maybe HyperParameterRanges,
-    -- | Describes the resource configuration for HPO.
-    hpoResourceConfig :: Prelude.Maybe HPOResourceConfig,
     -- | The metric to optimize during HPO.
     --
     -- Amazon Personalize doesn\'t support configuring the @hpoObjective@ at
     -- this time.
-    hpoObjective :: Prelude.Maybe HPOObjective
+    hpoObjective :: Prelude.Maybe HPOObjective,
+    -- | Describes the resource configuration for HPO.
+    hpoResourceConfig :: Prelude.Maybe HPOResourceConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,29 +52,25 @@ data HPOConfig = HPOConfig'
 --
 -- 'algorithmHyperParameterRanges', 'hPOConfig_algorithmHyperParameterRanges' - The hyperparameters and their allowable ranges.
 --
--- 'hpoResourceConfig', 'hPOConfig_hpoResourceConfig' - Describes the resource configuration for HPO.
---
 -- 'hpoObjective', 'hPOConfig_hpoObjective' - The metric to optimize during HPO.
 --
 -- Amazon Personalize doesn\'t support configuring the @hpoObjective@ at
 -- this time.
+--
+-- 'hpoResourceConfig', 'hPOConfig_hpoResourceConfig' - Describes the resource configuration for HPO.
 newHPOConfig ::
   HPOConfig
 newHPOConfig =
   HPOConfig'
     { algorithmHyperParameterRanges =
         Prelude.Nothing,
-      hpoResourceConfig = Prelude.Nothing,
-      hpoObjective = Prelude.Nothing
+      hpoObjective = Prelude.Nothing,
+      hpoResourceConfig = Prelude.Nothing
     }
 
 -- | The hyperparameters and their allowable ranges.
 hPOConfig_algorithmHyperParameterRanges :: Lens.Lens' HPOConfig (Prelude.Maybe HyperParameterRanges)
 hPOConfig_algorithmHyperParameterRanges = Lens.lens (\HPOConfig' {algorithmHyperParameterRanges} -> algorithmHyperParameterRanges) (\s@HPOConfig' {} a -> s {algorithmHyperParameterRanges = a} :: HPOConfig)
-
--- | Describes the resource configuration for HPO.
-hPOConfig_hpoResourceConfig :: Lens.Lens' HPOConfig (Prelude.Maybe HPOResourceConfig)
-hPOConfig_hpoResourceConfig = Lens.lens (\HPOConfig' {hpoResourceConfig} -> hpoResourceConfig) (\s@HPOConfig' {} a -> s {hpoResourceConfig = a} :: HPOConfig)
 
 -- | The metric to optimize during HPO.
 --
@@ -83,6 +79,10 @@ hPOConfig_hpoResourceConfig = Lens.lens (\HPOConfig' {hpoResourceConfig} -> hpoR
 hPOConfig_hpoObjective :: Lens.Lens' HPOConfig (Prelude.Maybe HPOObjective)
 hPOConfig_hpoObjective = Lens.lens (\HPOConfig' {hpoObjective} -> hpoObjective) (\s@HPOConfig' {} a -> s {hpoObjective = a} :: HPOConfig)
 
+-- | Describes the resource configuration for HPO.
+hPOConfig_hpoResourceConfig :: Lens.Lens' HPOConfig (Prelude.Maybe HPOResourceConfig)
+hPOConfig_hpoResourceConfig = Lens.lens (\HPOConfig' {hpoResourceConfig} -> hpoResourceConfig) (\s@HPOConfig' {} a -> s {hpoResourceConfig = a} :: HPOConfig)
+
 instance Core.FromJSON HPOConfig where
   parseJSON =
     Core.withObject
@@ -90,22 +90,22 @@ instance Core.FromJSON HPOConfig where
       ( \x ->
           HPOConfig'
             Prelude.<$> (x Core..:? "algorithmHyperParameterRanges")
-            Prelude.<*> (x Core..:? "hpoResourceConfig")
             Prelude.<*> (x Core..:? "hpoObjective")
+            Prelude.<*> (x Core..:? "hpoResourceConfig")
       )
 
 instance Prelude.Hashable HPOConfig where
   hashWithSalt _salt HPOConfig' {..} =
     _salt
       `Prelude.hashWithSalt` algorithmHyperParameterRanges
-      `Prelude.hashWithSalt` hpoResourceConfig
       `Prelude.hashWithSalt` hpoObjective
+      `Prelude.hashWithSalt` hpoResourceConfig
 
 instance Prelude.NFData HPOConfig where
   rnf HPOConfig' {..} =
     Prelude.rnf algorithmHyperParameterRanges
-      `Prelude.seq` Prelude.rnf hpoResourceConfig
       `Prelude.seq` Prelude.rnf hpoObjective
+      `Prelude.seq` Prelude.rnf hpoResourceConfig
 
 instance Core.ToJSON HPOConfig where
   toJSON HPOConfig' {..} =
@@ -113,8 +113,8 @@ instance Core.ToJSON HPOConfig where
       ( Prelude.catMaybes
           [ ("algorithmHyperParameterRanges" Core..=)
               Prelude.<$> algorithmHyperParameterRanges,
+            ("hpoObjective" Core..=) Prelude.<$> hpoObjective,
             ("hpoResourceConfig" Core..=)
-              Prelude.<$> hpoResourceConfig,
-            ("hpoObjective" Core..=) Prelude.<$> hpoObjective
+              Prelude.<$> hpoResourceConfig
           ]
       )

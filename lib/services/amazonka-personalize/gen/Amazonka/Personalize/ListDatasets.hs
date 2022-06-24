@@ -33,8 +33,8 @@ module Amazonka.Personalize.ListDatasets
 
     -- * Request Lenses
     listDatasets_nextToken,
-    listDatasets_datasetGroupArn,
     listDatasets_maxResults,
+    listDatasets_datasetGroupArn,
 
     -- * Destructuring the Response
     ListDatasetsResponse (..),
@@ -59,11 +59,11 @@ data ListDatasets = ListDatasets'
   { -- | A token returned from the previous call to @ListDatasetImportJobs@ for
     -- getting the next set of dataset import jobs (if they exist).
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of datasets to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the dataset group that contains the
     -- datasets to list.
-    datasetGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of datasets to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    datasetGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,17 +78,17 @@ data ListDatasets = ListDatasets'
 -- 'nextToken', 'listDatasets_nextToken' - A token returned from the previous call to @ListDatasetImportJobs@ for
 -- getting the next set of dataset import jobs (if they exist).
 --
+-- 'maxResults', 'listDatasets_maxResults' - The maximum number of datasets to return.
+--
 -- 'datasetGroupArn', 'listDatasets_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group that contains the
 -- datasets to list.
---
--- 'maxResults', 'listDatasets_maxResults' - The maximum number of datasets to return.
 newListDatasets ::
   ListDatasets
 newListDatasets =
   ListDatasets'
     { nextToken = Prelude.Nothing,
-      datasetGroupArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      datasetGroupArn = Prelude.Nothing
     }
 
 -- | A token returned from the previous call to @ListDatasetImportJobs@ for
@@ -96,14 +96,14 @@ newListDatasets =
 listDatasets_nextToken :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Text)
 listDatasets_nextToken = Lens.lens (\ListDatasets' {nextToken} -> nextToken) (\s@ListDatasets' {} a -> s {nextToken = a} :: ListDatasets)
 
+-- | The maximum number of datasets to return.
+listDatasets_maxResults :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Natural)
+listDatasets_maxResults = Lens.lens (\ListDatasets' {maxResults} -> maxResults) (\s@ListDatasets' {} a -> s {maxResults = a} :: ListDatasets)
+
 -- | The Amazon Resource Name (ARN) of the dataset group that contains the
 -- datasets to list.
 listDatasets_datasetGroupArn :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Text)
 listDatasets_datasetGroupArn = Lens.lens (\ListDatasets' {datasetGroupArn} -> datasetGroupArn) (\s@ListDatasets' {} a -> s {datasetGroupArn = a} :: ListDatasets)
-
--- | The maximum number of datasets to return.
-listDatasets_maxResults :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Natural)
-listDatasets_maxResults = Lens.lens (\ListDatasets' {maxResults} -> maxResults) (\s@ListDatasets' {} a -> s {maxResults = a} :: ListDatasets)
 
 instance Core.AWSPager ListDatasets where
   page rq rs
@@ -139,14 +139,14 @@ instance Core.AWSRequest ListDatasets where
 instance Prelude.Hashable ListDatasets where
   hashWithSalt _salt ListDatasets' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` datasetGroupArn
 
 instance Prelude.NFData ListDatasets where
   rnf ListDatasets' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf datasetGroupArn
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf datasetGroupArn
 
 instance Core.ToHeaders ListDatasets where
   toHeaders =
@@ -168,9 +168,9 @@ instance Core.ToJSON ListDatasets where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("datasetGroupArn" Core..=)
-              Prelude.<$> datasetGroupArn,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+              Prelude.<$> datasetGroupArn
           ]
       )
 

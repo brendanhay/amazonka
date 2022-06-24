@@ -34,8 +34,8 @@ module Amazonka.Personalize.ListDatasetImportJobs
     newListDatasetImportJobs,
 
     -- * Request Lenses
-    listDatasetImportJobs_datasetArn,
     listDatasetImportJobs_nextToken,
+    listDatasetImportJobs_datasetArn,
     listDatasetImportJobs_maxResults,
 
     -- * Destructuring the Response
@@ -43,8 +43,8 @@ module Amazonka.Personalize.ListDatasetImportJobs
     newListDatasetImportJobsResponse,
 
     -- * Response Lenses
-    listDatasetImportJobsResponse_datasetImportJobs,
     listDatasetImportJobsResponse_nextToken,
+    listDatasetImportJobsResponse_datasetImportJobs,
     listDatasetImportJobsResponse_httpStatus,
   )
 where
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDatasetImportJobs' smart constructor.
 data ListDatasetImportJobs = ListDatasetImportJobs'
-  { -- | The Amazon Resource Name (ARN) of the dataset to list the dataset import
-    -- jobs for.
-    datasetArn :: Prelude.Maybe Prelude.Text,
-    -- | A token returned from the previous call to @ListDatasetImportJobs@ for
+  { -- | A token returned from the previous call to @ListDatasetImportJobs@ for
     -- getting the next set of dataset import jobs (if they exist).
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the dataset to list the dataset import
+    -- jobs for.
+    datasetArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of dataset import jobs to return.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -77,32 +77,31 @@ data ListDatasetImportJobs = ListDatasetImportJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'datasetArn', 'listDatasetImportJobs_datasetArn' - The Amazon Resource Name (ARN) of the dataset to list the dataset import
--- jobs for.
---
 -- 'nextToken', 'listDatasetImportJobs_nextToken' - A token returned from the previous call to @ListDatasetImportJobs@ for
 -- getting the next set of dataset import jobs (if they exist).
+--
+-- 'datasetArn', 'listDatasetImportJobs_datasetArn' - The Amazon Resource Name (ARN) of the dataset to list the dataset import
+-- jobs for.
 --
 -- 'maxResults', 'listDatasetImportJobs_maxResults' - The maximum number of dataset import jobs to return.
 newListDatasetImportJobs ::
   ListDatasetImportJobs
 newListDatasetImportJobs =
   ListDatasetImportJobs'
-    { datasetArn =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      datasetArn = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the dataset to list the dataset import
--- jobs for.
-listDatasetImportJobs_datasetArn :: Lens.Lens' ListDatasetImportJobs (Prelude.Maybe Prelude.Text)
-listDatasetImportJobs_datasetArn = Lens.lens (\ListDatasetImportJobs' {datasetArn} -> datasetArn) (\s@ListDatasetImportJobs' {} a -> s {datasetArn = a} :: ListDatasetImportJobs)
 
 -- | A token returned from the previous call to @ListDatasetImportJobs@ for
 -- getting the next set of dataset import jobs (if they exist).
 listDatasetImportJobs_nextToken :: Lens.Lens' ListDatasetImportJobs (Prelude.Maybe Prelude.Text)
 listDatasetImportJobs_nextToken = Lens.lens (\ListDatasetImportJobs' {nextToken} -> nextToken) (\s@ListDatasetImportJobs' {} a -> s {nextToken = a} :: ListDatasetImportJobs)
+
+-- | The Amazon Resource Name (ARN) of the dataset to list the dataset import
+-- jobs for.
+listDatasetImportJobs_datasetArn :: Lens.Lens' ListDatasetImportJobs (Prelude.Maybe Prelude.Text)
+listDatasetImportJobs_datasetArn = Lens.lens (\ListDatasetImportJobs' {datasetArn} -> datasetArn) (\s@ListDatasetImportJobs' {} a -> s {datasetArn = a} :: ListDatasetImportJobs)
 
 -- | The maximum number of dataset import jobs to return.
 listDatasetImportJobs_maxResults :: Lens.Lens' ListDatasetImportJobs (Prelude.Maybe Prelude.Natural)
@@ -139,23 +138,23 @@ instance Core.AWSRequest ListDatasetImportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetImportJobsResponse'
-            Prelude.<$> ( x Core..?> "datasetImportJobs"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "datasetImportJobs"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDatasetImportJobs where
   hashWithSalt _salt ListDatasetImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` datasetArn
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListDatasetImportJobs where
   rnf ListDatasetImportJobs' {..} =
-    Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDatasetImportJobs where
@@ -177,8 +176,8 @@ instance Core.ToJSON ListDatasetImportJobs where
   toJSON ListDatasetImportJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("datasetArn" Core..=) Prelude.<$> datasetArn,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("datasetArn" Core..=) Prelude.<$> datasetArn,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -191,10 +190,10 @@ instance Core.ToQuery ListDatasetImportJobs where
 
 -- | /See:/ 'newListDatasetImportJobsResponse' smart constructor.
 data ListDatasetImportJobsResponse = ListDatasetImportJobsResponse'
-  { -- | The list of dataset import jobs.
-    datasetImportJobs :: Prelude.Maybe [DatasetImportJobSummary],
-    -- | A token for getting the next set of dataset import jobs (if they exist).
+  { -- | A token for getting the next set of dataset import jobs (if they exist).
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of dataset import jobs.
+    datasetImportJobs :: Prelude.Maybe [DatasetImportJobSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,9 +207,9 @@ data ListDatasetImportJobsResponse = ListDatasetImportJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'datasetImportJobs', 'listDatasetImportJobsResponse_datasetImportJobs' - The list of dataset import jobs.
---
 -- 'nextToken', 'listDatasetImportJobsResponse_nextToken' - A token for getting the next set of dataset import jobs (if they exist).
+--
+-- 'datasetImportJobs', 'listDatasetImportJobsResponse_datasetImportJobs' - The list of dataset import jobs.
 --
 -- 'httpStatus', 'listDatasetImportJobsResponse_httpStatus' - The response's http status code.
 newListDatasetImportJobsResponse ::
@@ -219,19 +218,19 @@ newListDatasetImportJobsResponse ::
   ListDatasetImportJobsResponse
 newListDatasetImportJobsResponse pHttpStatus_ =
   ListDatasetImportJobsResponse'
-    { datasetImportJobs =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      datasetImportJobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of dataset import jobs.
-listDatasetImportJobsResponse_datasetImportJobs :: Lens.Lens' ListDatasetImportJobsResponse (Prelude.Maybe [DatasetImportJobSummary])
-listDatasetImportJobsResponse_datasetImportJobs = Lens.lens (\ListDatasetImportJobsResponse' {datasetImportJobs} -> datasetImportJobs) (\s@ListDatasetImportJobsResponse' {} a -> s {datasetImportJobs = a} :: ListDatasetImportJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token for getting the next set of dataset import jobs (if they exist).
 listDatasetImportJobsResponse_nextToken :: Lens.Lens' ListDatasetImportJobsResponse (Prelude.Maybe Prelude.Text)
 listDatasetImportJobsResponse_nextToken = Lens.lens (\ListDatasetImportJobsResponse' {nextToken} -> nextToken) (\s@ListDatasetImportJobsResponse' {} a -> s {nextToken = a} :: ListDatasetImportJobsResponse)
+
+-- | The list of dataset import jobs.
+listDatasetImportJobsResponse_datasetImportJobs :: Lens.Lens' ListDatasetImportJobsResponse (Prelude.Maybe [DatasetImportJobSummary])
+listDatasetImportJobsResponse_datasetImportJobs = Lens.lens (\ListDatasetImportJobsResponse' {datasetImportJobs} -> datasetImportJobs) (\s@ListDatasetImportJobsResponse' {} a -> s {datasetImportJobs = a} :: ListDatasetImportJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDatasetImportJobsResponse_httpStatus :: Lens.Lens' ListDatasetImportJobsResponse Prelude.Int
@@ -239,6 +238,6 @@ listDatasetImportJobsResponse_httpStatus = Lens.lens (\ListDatasetImportJobsResp
 
 instance Prelude.NFData ListDatasetImportJobsResponse where
   rnf ListDatasetImportJobsResponse' {..} =
-    Prelude.rnf datasetImportJobs
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf datasetImportJobs
       `Prelude.seq` Prelude.rnf httpStatus

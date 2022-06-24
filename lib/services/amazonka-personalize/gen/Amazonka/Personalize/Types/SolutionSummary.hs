@@ -30,6 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data SolutionSummary = SolutionSummary'
   { -- | The Amazon Resource Name (ARN) of the solution.
     solutionArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the solution.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The date and time (in Unix time) that the solution was created.
+    creationDateTime :: Prelude.Maybe Core.POSIX,
     -- | The status of the solution.
     --
     -- A solution can be in one of the following states:
@@ -39,11 +43,7 @@ data SolutionSummary = SolutionSummary'
     -- -   DELETE PENDING > DELETE IN_PROGRESS
     status :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the solution was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the solution.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix time) that the solution was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,6 +57,10 @@ data SolutionSummary = SolutionSummary'
 --
 -- 'solutionArn', 'solutionSummary_solutionArn' - The Amazon Resource Name (ARN) of the solution.
 --
+-- 'name', 'solutionSummary_name' - The name of the solution.
+--
+-- 'creationDateTime', 'solutionSummary_creationDateTime' - The date and time (in Unix time) that the solution was created.
+--
 -- 'status', 'solutionSummary_status' - The status of the solution.
 --
 -- A solution can be in one of the following states:
@@ -66,24 +70,28 @@ data SolutionSummary = SolutionSummary'
 -- -   DELETE PENDING > DELETE IN_PROGRESS
 --
 -- 'lastUpdatedDateTime', 'solutionSummary_lastUpdatedDateTime' - The date and time (in Unix time) that the solution was last updated.
---
--- 'name', 'solutionSummary_name' - The name of the solution.
---
--- 'creationDateTime', 'solutionSummary_creationDateTime' - The date and time (in Unix time) that the solution was created.
 newSolutionSummary ::
   SolutionSummary
 newSolutionSummary =
   SolutionSummary'
     { solutionArn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing,
       name = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing
+      creationDateTime = Prelude.Nothing,
+      status = Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the solution.
 solutionSummary_solutionArn :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.Text)
 solutionSummary_solutionArn = Lens.lens (\SolutionSummary' {solutionArn} -> solutionArn) (\s@SolutionSummary' {} a -> s {solutionArn = a} :: SolutionSummary)
+
+-- | The name of the solution.
+solutionSummary_name :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.Text)
+solutionSummary_name = Lens.lens (\SolutionSummary' {name} -> name) (\s@SolutionSummary' {} a -> s {name = a} :: SolutionSummary)
+
+-- | The date and time (in Unix time) that the solution was created.
+solutionSummary_creationDateTime :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.UTCTime)
+solutionSummary_creationDateTime = Lens.lens (\SolutionSummary' {creationDateTime} -> creationDateTime) (\s@SolutionSummary' {} a -> s {creationDateTime = a} :: SolutionSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the solution.
 --
@@ -99,14 +107,6 @@ solutionSummary_status = Lens.lens (\SolutionSummary' {status} -> status) (\s@So
 solutionSummary_lastUpdatedDateTime :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.UTCTime)
 solutionSummary_lastUpdatedDateTime = Lens.lens (\SolutionSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SolutionSummary' {} a -> s {lastUpdatedDateTime = a} :: SolutionSummary) Prelude.. Lens.mapping Core._Time
 
--- | The name of the solution.
-solutionSummary_name :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.Text)
-solutionSummary_name = Lens.lens (\SolutionSummary' {name} -> name) (\s@SolutionSummary' {} a -> s {name = a} :: SolutionSummary)
-
--- | The date and time (in Unix time) that the solution was created.
-solutionSummary_creationDateTime :: Lens.Lens' SolutionSummary (Prelude.Maybe Prelude.UTCTime)
-solutionSummary_creationDateTime = Lens.lens (\SolutionSummary' {creationDateTime} -> creationDateTime) (\s@SolutionSummary' {} a -> s {creationDateTime = a} :: SolutionSummary) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON SolutionSummary where
   parseJSON =
     Core.withObject
@@ -114,24 +114,24 @@ instance Core.FromJSON SolutionSummary where
       ( \x ->
           SolutionSummary'
             Prelude.<$> (x Core..:? "solutionArn")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "creationDateTime")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable SolutionSummary where
   hashWithSalt _salt SolutionSummary' {..} =
     _salt `Prelude.hashWithSalt` solutionArn
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastUpdatedDateTime
 
 instance Prelude.NFData SolutionSummary where
   rnf SolutionSummary' {..} =
     Prelude.rnf solutionArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime

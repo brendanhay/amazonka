@@ -74,11 +74,11 @@ module Amazonka.Personalize.CreateSolution
     newCreateSolution,
 
     -- * Request Lenses
-    createSolution_performAutoML,
-    createSolution_recipeArn,
     createSolution_eventType,
-    createSolution_solutionConfig,
+    createSolution_performAutoML,
     createSolution_performHPO,
+    createSolution_solutionConfig,
+    createSolution_recipeArn,
     createSolution_name,
     createSolution_datasetGroupArn,
 
@@ -101,7 +101,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSolution' smart constructor.
 data CreateSolution = CreateSolution'
-  { -- | Whether to perform automated machine learning (AutoML). The default is
+  { -- | When your have multiple event types (using an @EVENT_TYPE@ schema
+    -- field), this parameter specifies which event type (for example,
+    -- \'click\' or \'like\') is used for training the model.
+    --
+    -- If you do not provide an @eventType@, Amazon Personalize will use all
+    -- interactions for training with equal weight regardless of type.
+    eventType :: Prelude.Maybe Prelude.Text,
+    -- | Whether to perform automated machine learning (AutoML). The default is
     -- @false@. For this case, you must specify @recipeArn@.
     --
     -- When set to @true@, Amazon Personalize analyzes your training data and
@@ -111,16 +118,12 @@ data CreateSolution = CreateSolution'
     -- hyperparameters. AutoML lengthens the training process as compared to
     -- selecting a specific recipe.
     performAutoML :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of the recipe to use for model training. Only specified when
-    -- @performAutoML@ is false.
-    recipeArn :: Prelude.Maybe Prelude.Text,
-    -- | When your have multiple event types (using an @EVENT_TYPE@ schema
-    -- field), this parameter specifies which event type (for example,
-    -- \'click\' or \'like\') is used for training the model.
+    -- | Whether to perform hyperparameter optimization (HPO) on the specified or
+    -- selected recipe. The default is @false@.
     --
-    -- If you do not provide an @eventType@, Amazon Personalize will use all
-    -- interactions for training with equal weight regardless of type.
-    eventType :: Prelude.Maybe Prelude.Text,
+    -- When performing AutoML, this parameter is always @true@ and you should
+    -- not set it to @false@.
+    performHPO :: Prelude.Maybe Prelude.Bool,
     -- | The configuration to use with the solution. When @performAutoML@ is set
     -- to true, Amazon Personalize only evaluates the @autoMLConfig@ section of
     -- the solution configuration.
@@ -128,12 +131,9 @@ data CreateSolution = CreateSolution'
     -- Amazon Personalize doesn\'t support configuring the @hpoObjective@ at
     -- this time.
     solutionConfig :: Prelude.Maybe SolutionConfig,
-    -- | Whether to perform hyperparameter optimization (HPO) on the specified or
-    -- selected recipe. The default is @false@.
-    --
-    -- When performing AutoML, this parameter is always @true@ and you should
-    -- not set it to @false@.
-    performHPO :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN of the recipe to use for model training. Only specified when
+    -- @performAutoML@ is false.
+    recipeArn :: Prelude.Maybe Prelude.Text,
     -- | The name for the solution.
     name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the dataset group that provides the
@@ -150,6 +150,13 @@ data CreateSolution = CreateSolution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventType', 'createSolution_eventType' - When your have multiple event types (using an @EVENT_TYPE@ schema
+-- field), this parameter specifies which event type (for example,
+-- \'click\' or \'like\') is used for training the model.
+--
+-- If you do not provide an @eventType@, Amazon Personalize will use all
+-- interactions for training with equal weight regardless of type.
+--
 -- 'performAutoML', 'createSolution_performAutoML' - Whether to perform automated machine learning (AutoML). The default is
 -- @false@. For this case, you must specify @recipeArn@.
 --
@@ -160,15 +167,11 @@ data CreateSolution = CreateSolution'
 -- hyperparameters. AutoML lengthens the training process as compared to
 -- selecting a specific recipe.
 --
--- 'recipeArn', 'createSolution_recipeArn' - The ARN of the recipe to use for model training. Only specified when
--- @performAutoML@ is false.
+-- 'performHPO', 'createSolution_performHPO' - Whether to perform hyperparameter optimization (HPO) on the specified or
+-- selected recipe. The default is @false@.
 --
--- 'eventType', 'createSolution_eventType' - When your have multiple event types (using an @EVENT_TYPE@ schema
--- field), this parameter specifies which event type (for example,
--- \'click\' or \'like\') is used for training the model.
---
--- If you do not provide an @eventType@, Amazon Personalize will use all
--- interactions for training with equal weight regardless of type.
+-- When performing AutoML, this parameter is always @true@ and you should
+-- not set it to @false@.
 --
 -- 'solutionConfig', 'createSolution_solutionConfig' - The configuration to use with the solution. When @performAutoML@ is set
 -- to true, Amazon Personalize only evaluates the @autoMLConfig@ section of
@@ -177,11 +180,8 @@ data CreateSolution = CreateSolution'
 -- Amazon Personalize doesn\'t support configuring the @hpoObjective@ at
 -- this time.
 --
--- 'performHPO', 'createSolution_performHPO' - Whether to perform hyperparameter optimization (HPO) on the specified or
--- selected recipe. The default is @false@.
---
--- When performing AutoML, this parameter is always @true@ and you should
--- not set it to @false@.
+-- 'recipeArn', 'createSolution_recipeArn' - The ARN of the recipe to use for model training. Only specified when
+-- @performAutoML@ is false.
 --
 -- 'name', 'createSolution_name' - The name for the solution.
 --
@@ -195,14 +195,23 @@ newCreateSolution ::
   CreateSolution
 newCreateSolution pName_ pDatasetGroupArn_ =
   CreateSolution'
-    { performAutoML = Prelude.Nothing,
-      recipeArn = Prelude.Nothing,
-      eventType = Prelude.Nothing,
-      solutionConfig = Prelude.Nothing,
+    { eventType = Prelude.Nothing,
+      performAutoML = Prelude.Nothing,
       performHPO = Prelude.Nothing,
+      solutionConfig = Prelude.Nothing,
+      recipeArn = Prelude.Nothing,
       name = pName_,
       datasetGroupArn = pDatasetGroupArn_
     }
+
+-- | When your have multiple event types (using an @EVENT_TYPE@ schema
+-- field), this parameter specifies which event type (for example,
+-- \'click\' or \'like\') is used for training the model.
+--
+-- If you do not provide an @eventType@, Amazon Personalize will use all
+-- interactions for training with equal weight regardless of type.
+createSolution_eventType :: Lens.Lens' CreateSolution (Prelude.Maybe Prelude.Text)
+createSolution_eventType = Lens.lens (\CreateSolution' {eventType} -> eventType) (\s@CreateSolution' {} a -> s {eventType = a} :: CreateSolution)
 
 -- | Whether to perform automated machine learning (AutoML). The default is
 -- @false@. For this case, you must specify @recipeArn@.
@@ -216,19 +225,13 @@ newCreateSolution pName_ pDatasetGroupArn_ =
 createSolution_performAutoML :: Lens.Lens' CreateSolution (Prelude.Maybe Prelude.Bool)
 createSolution_performAutoML = Lens.lens (\CreateSolution' {performAutoML} -> performAutoML) (\s@CreateSolution' {} a -> s {performAutoML = a} :: CreateSolution)
 
--- | The ARN of the recipe to use for model training. Only specified when
--- @performAutoML@ is false.
-createSolution_recipeArn :: Lens.Lens' CreateSolution (Prelude.Maybe Prelude.Text)
-createSolution_recipeArn = Lens.lens (\CreateSolution' {recipeArn} -> recipeArn) (\s@CreateSolution' {} a -> s {recipeArn = a} :: CreateSolution)
-
--- | When your have multiple event types (using an @EVENT_TYPE@ schema
--- field), this parameter specifies which event type (for example,
--- \'click\' or \'like\') is used for training the model.
+-- | Whether to perform hyperparameter optimization (HPO) on the specified or
+-- selected recipe. The default is @false@.
 --
--- If you do not provide an @eventType@, Amazon Personalize will use all
--- interactions for training with equal weight regardless of type.
-createSolution_eventType :: Lens.Lens' CreateSolution (Prelude.Maybe Prelude.Text)
-createSolution_eventType = Lens.lens (\CreateSolution' {eventType} -> eventType) (\s@CreateSolution' {} a -> s {eventType = a} :: CreateSolution)
+-- When performing AutoML, this parameter is always @true@ and you should
+-- not set it to @false@.
+createSolution_performHPO :: Lens.Lens' CreateSolution (Prelude.Maybe Prelude.Bool)
+createSolution_performHPO = Lens.lens (\CreateSolution' {performHPO} -> performHPO) (\s@CreateSolution' {} a -> s {performHPO = a} :: CreateSolution)
 
 -- | The configuration to use with the solution. When @performAutoML@ is set
 -- to true, Amazon Personalize only evaluates the @autoMLConfig@ section of
@@ -239,13 +242,10 @@ createSolution_eventType = Lens.lens (\CreateSolution' {eventType} -> eventType)
 createSolution_solutionConfig :: Lens.Lens' CreateSolution (Prelude.Maybe SolutionConfig)
 createSolution_solutionConfig = Lens.lens (\CreateSolution' {solutionConfig} -> solutionConfig) (\s@CreateSolution' {} a -> s {solutionConfig = a} :: CreateSolution)
 
--- | Whether to perform hyperparameter optimization (HPO) on the specified or
--- selected recipe. The default is @false@.
---
--- When performing AutoML, this parameter is always @true@ and you should
--- not set it to @false@.
-createSolution_performHPO :: Lens.Lens' CreateSolution (Prelude.Maybe Prelude.Bool)
-createSolution_performHPO = Lens.lens (\CreateSolution' {performHPO} -> performHPO) (\s@CreateSolution' {} a -> s {performHPO = a} :: CreateSolution)
+-- | The ARN of the recipe to use for model training. Only specified when
+-- @performAutoML@ is false.
+createSolution_recipeArn :: Lens.Lens' CreateSolution (Prelude.Maybe Prelude.Text)
+createSolution_recipeArn = Lens.lens (\CreateSolution' {recipeArn} -> recipeArn) (\s@CreateSolution' {} a -> s {recipeArn = a} :: CreateSolution)
 
 -- | The name for the solution.
 createSolution_name :: Lens.Lens' CreateSolution Prelude.Text
@@ -271,21 +271,21 @@ instance Core.AWSRequest CreateSolution where
 
 instance Prelude.Hashable CreateSolution where
   hashWithSalt _salt CreateSolution' {..} =
-    _salt `Prelude.hashWithSalt` performAutoML
-      `Prelude.hashWithSalt` recipeArn
-      `Prelude.hashWithSalt` eventType
-      `Prelude.hashWithSalt` solutionConfig
+    _salt `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` performAutoML
       `Prelude.hashWithSalt` performHPO
+      `Prelude.hashWithSalt` solutionConfig
+      `Prelude.hashWithSalt` recipeArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` datasetGroupArn
 
 instance Prelude.NFData CreateSolution where
   rnf CreateSolution' {..} =
-    Prelude.rnf performAutoML
-      `Prelude.seq` Prelude.rnf recipeArn
-      `Prelude.seq` Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf solutionConfig
+    Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf performAutoML
       `Prelude.seq` Prelude.rnf performHPO
+      `Prelude.seq` Prelude.rnf solutionConfig
+      `Prelude.seq` Prelude.rnf recipeArn
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf datasetGroupArn
 
@@ -308,12 +308,12 @@ instance Core.ToJSON CreateSolution where
   toJSON CreateSolution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("performAutoML" Core..=) Prelude.<$> performAutoML,
-            ("recipeArn" Core..=) Prelude.<$> recipeArn,
-            ("eventType" Core..=) Prelude.<$> eventType,
+          [ ("eventType" Core..=) Prelude.<$> eventType,
+            ("performAutoML" Core..=) Prelude.<$> performAutoML,
+            ("performHPO" Core..=) Prelude.<$> performHPO,
             ("solutionConfig" Core..=)
               Prelude.<$> solutionConfig,
-            ("performHPO" Core..=) Prelude.<$> performHPO,
+            ("recipeArn" Core..=) Prelude.<$> recipeArn,
             Prelude.Just ("name" Core..= name),
             Prelude.Just
               ("datasetGroupArn" Core..= datasetGroupArn)

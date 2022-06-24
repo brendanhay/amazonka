@@ -32,20 +32,20 @@ import qualified Amazonka.Prelude as Prelude
 data SolutionConfig = SolutionConfig'
   { -- | Lists the feature transformation parameters.
     featureTransformationParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Describes the properties for hyperparameter optimization (HPO).
-    hpoConfig :: Prelude.Maybe HPOConfig,
-    -- | Only events with a value greater than or equal to this threshold are
-    -- used for training a model.
-    eventValueThreshold :: Prelude.Maybe Prelude.Text,
-    -- | The AutoMLConfig object containing a list of recipes to search when
-    -- AutoML is performed.
-    autoMLConfig :: Prelude.Maybe AutoMLConfig,
-    -- | Lists the hyperparameter names and ranges.
-    algorithmHyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Describes the additional objective for the solution, such as maximizing
     -- streaming minutes or increasing revenue. For more information see
     -- <https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html Optimizing a solution>.
-    optimizationObjective :: Prelude.Maybe OptimizationObjective
+    optimizationObjective :: Prelude.Maybe OptimizationObjective,
+    -- | Lists the hyperparameter names and ranges.
+    algorithmHyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The AutoMLConfig object containing a list of recipes to search when
+    -- AutoML is performed.
+    autoMLConfig :: Prelude.Maybe AutoMLConfig,
+    -- | Only events with a value greater than or equal to this threshold are
+    -- used for training a model.
+    eventValueThreshold :: Prelude.Maybe Prelude.Text,
+    -- | Describes the properties for hyperparameter optimization (HPO).
+    hpoConfig :: Prelude.Maybe HPOConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,59 +59,59 @@ data SolutionConfig = SolutionConfig'
 --
 -- 'featureTransformationParameters', 'solutionConfig_featureTransformationParameters' - Lists the feature transformation parameters.
 --
--- 'hpoConfig', 'solutionConfig_hpoConfig' - Describes the properties for hyperparameter optimization (HPO).
+-- 'optimizationObjective', 'solutionConfig_optimizationObjective' - Describes the additional objective for the solution, such as maximizing
+-- streaming minutes or increasing revenue. For more information see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html Optimizing a solution>.
 --
--- 'eventValueThreshold', 'solutionConfig_eventValueThreshold' - Only events with a value greater than or equal to this threshold are
--- used for training a model.
+-- 'algorithmHyperParameters', 'solutionConfig_algorithmHyperParameters' - Lists the hyperparameter names and ranges.
 --
 -- 'autoMLConfig', 'solutionConfig_autoMLConfig' - The AutoMLConfig object containing a list of recipes to search when
 -- AutoML is performed.
 --
--- 'algorithmHyperParameters', 'solutionConfig_algorithmHyperParameters' - Lists the hyperparameter names and ranges.
+-- 'eventValueThreshold', 'solutionConfig_eventValueThreshold' - Only events with a value greater than or equal to this threshold are
+-- used for training a model.
 --
--- 'optimizationObjective', 'solutionConfig_optimizationObjective' - Describes the additional objective for the solution, such as maximizing
--- streaming minutes or increasing revenue. For more information see
--- <https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html Optimizing a solution>.
+-- 'hpoConfig', 'solutionConfig_hpoConfig' - Describes the properties for hyperparameter optimization (HPO).
 newSolutionConfig ::
   SolutionConfig
 newSolutionConfig =
   SolutionConfig'
     { featureTransformationParameters =
         Prelude.Nothing,
-      hpoConfig = Prelude.Nothing,
-      eventValueThreshold = Prelude.Nothing,
-      autoMLConfig = Prelude.Nothing,
+      optimizationObjective = Prelude.Nothing,
       algorithmHyperParameters = Prelude.Nothing,
-      optimizationObjective = Prelude.Nothing
+      autoMLConfig = Prelude.Nothing,
+      eventValueThreshold = Prelude.Nothing,
+      hpoConfig = Prelude.Nothing
     }
 
 -- | Lists the feature transformation parameters.
 solutionConfig_featureTransformationParameters :: Lens.Lens' SolutionConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 solutionConfig_featureTransformationParameters = Lens.lens (\SolutionConfig' {featureTransformationParameters} -> featureTransformationParameters) (\s@SolutionConfig' {} a -> s {featureTransformationParameters = a} :: SolutionConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | Describes the properties for hyperparameter optimization (HPO).
-solutionConfig_hpoConfig :: Lens.Lens' SolutionConfig (Prelude.Maybe HPOConfig)
-solutionConfig_hpoConfig = Lens.lens (\SolutionConfig' {hpoConfig} -> hpoConfig) (\s@SolutionConfig' {} a -> s {hpoConfig = a} :: SolutionConfig)
+-- | Describes the additional objective for the solution, such as maximizing
+-- streaming minutes or increasing revenue. For more information see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html Optimizing a solution>.
+solutionConfig_optimizationObjective :: Lens.Lens' SolutionConfig (Prelude.Maybe OptimizationObjective)
+solutionConfig_optimizationObjective = Lens.lens (\SolutionConfig' {optimizationObjective} -> optimizationObjective) (\s@SolutionConfig' {} a -> s {optimizationObjective = a} :: SolutionConfig)
 
--- | Only events with a value greater than or equal to this threshold are
--- used for training a model.
-solutionConfig_eventValueThreshold :: Lens.Lens' SolutionConfig (Prelude.Maybe Prelude.Text)
-solutionConfig_eventValueThreshold = Lens.lens (\SolutionConfig' {eventValueThreshold} -> eventValueThreshold) (\s@SolutionConfig' {} a -> s {eventValueThreshold = a} :: SolutionConfig)
+-- | Lists the hyperparameter names and ranges.
+solutionConfig_algorithmHyperParameters :: Lens.Lens' SolutionConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+solutionConfig_algorithmHyperParameters = Lens.lens (\SolutionConfig' {algorithmHyperParameters} -> algorithmHyperParameters) (\s@SolutionConfig' {} a -> s {algorithmHyperParameters = a} :: SolutionConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The AutoMLConfig object containing a list of recipes to search when
 -- AutoML is performed.
 solutionConfig_autoMLConfig :: Lens.Lens' SolutionConfig (Prelude.Maybe AutoMLConfig)
 solutionConfig_autoMLConfig = Lens.lens (\SolutionConfig' {autoMLConfig} -> autoMLConfig) (\s@SolutionConfig' {} a -> s {autoMLConfig = a} :: SolutionConfig)
 
--- | Lists the hyperparameter names and ranges.
-solutionConfig_algorithmHyperParameters :: Lens.Lens' SolutionConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-solutionConfig_algorithmHyperParameters = Lens.lens (\SolutionConfig' {algorithmHyperParameters} -> algorithmHyperParameters) (\s@SolutionConfig' {} a -> s {algorithmHyperParameters = a} :: SolutionConfig) Prelude.. Lens.mapping Lens.coerced
+-- | Only events with a value greater than or equal to this threshold are
+-- used for training a model.
+solutionConfig_eventValueThreshold :: Lens.Lens' SolutionConfig (Prelude.Maybe Prelude.Text)
+solutionConfig_eventValueThreshold = Lens.lens (\SolutionConfig' {eventValueThreshold} -> eventValueThreshold) (\s@SolutionConfig' {} a -> s {eventValueThreshold = a} :: SolutionConfig)
 
--- | Describes the additional objective for the solution, such as maximizing
--- streaming minutes or increasing revenue. For more information see
--- <https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html Optimizing a solution>.
-solutionConfig_optimizationObjective :: Lens.Lens' SolutionConfig (Prelude.Maybe OptimizationObjective)
-solutionConfig_optimizationObjective = Lens.lens (\SolutionConfig' {optimizationObjective} -> optimizationObjective) (\s@SolutionConfig' {} a -> s {optimizationObjective = a} :: SolutionConfig)
+-- | Describes the properties for hyperparameter optimization (HPO).
+solutionConfig_hpoConfig :: Lens.Lens' SolutionConfig (Prelude.Maybe HPOConfig)
+solutionConfig_hpoConfig = Lens.lens (\SolutionConfig' {hpoConfig} -> hpoConfig) (\s@SolutionConfig' {} a -> s {hpoConfig = a} :: SolutionConfig)
 
 instance Core.FromJSON SolutionConfig where
   parseJSON =
@@ -122,33 +122,33 @@ instance Core.FromJSON SolutionConfig where
             Prelude.<$> ( x Core..:? "featureTransformationParameters"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "hpoConfig")
-            Prelude.<*> (x Core..:? "eventValueThreshold")
-            Prelude.<*> (x Core..:? "autoMLConfig")
+            Prelude.<*> (x Core..:? "optimizationObjective")
             Prelude.<*> ( x Core..:? "algorithmHyperParameters"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "optimizationObjective")
+            Prelude.<*> (x Core..:? "autoMLConfig")
+            Prelude.<*> (x Core..:? "eventValueThreshold")
+            Prelude.<*> (x Core..:? "hpoConfig")
       )
 
 instance Prelude.Hashable SolutionConfig where
   hashWithSalt _salt SolutionConfig' {..} =
     _salt
       `Prelude.hashWithSalt` featureTransformationParameters
-      `Prelude.hashWithSalt` hpoConfig
-      `Prelude.hashWithSalt` eventValueThreshold
-      `Prelude.hashWithSalt` autoMLConfig
-      `Prelude.hashWithSalt` algorithmHyperParameters
       `Prelude.hashWithSalt` optimizationObjective
+      `Prelude.hashWithSalt` algorithmHyperParameters
+      `Prelude.hashWithSalt` autoMLConfig
+      `Prelude.hashWithSalt` eventValueThreshold
+      `Prelude.hashWithSalt` hpoConfig
 
 instance Prelude.NFData SolutionConfig where
   rnf SolutionConfig' {..} =
     Prelude.rnf featureTransformationParameters
-      `Prelude.seq` Prelude.rnf hpoConfig
-      `Prelude.seq` Prelude.rnf eventValueThreshold
-      `Prelude.seq` Prelude.rnf autoMLConfig
-      `Prelude.seq` Prelude.rnf algorithmHyperParameters
       `Prelude.seq` Prelude.rnf optimizationObjective
+      `Prelude.seq` Prelude.rnf algorithmHyperParameters
+      `Prelude.seq` Prelude.rnf autoMLConfig
+      `Prelude.seq` Prelude.rnf eventValueThreshold
+      `Prelude.seq` Prelude.rnf hpoConfig
 
 instance Core.ToJSON SolutionConfig where
   toJSON SolutionConfig' {..} =
@@ -156,13 +156,13 @@ instance Core.ToJSON SolutionConfig where
       ( Prelude.catMaybes
           [ ("featureTransformationParameters" Core..=)
               Prelude.<$> featureTransformationParameters,
-            ("hpoConfig" Core..=) Prelude.<$> hpoConfig,
-            ("eventValueThreshold" Core..=)
-              Prelude.<$> eventValueThreshold,
-            ("autoMLConfig" Core..=) Prelude.<$> autoMLConfig,
+            ("optimizationObjective" Core..=)
+              Prelude.<$> optimizationObjective,
             ("algorithmHyperParameters" Core..=)
               Prelude.<$> algorithmHyperParameters,
-            ("optimizationObjective" Core..=)
-              Prelude.<$> optimizationObjective
+            ("autoMLConfig" Core..=) Prelude.<$> autoMLConfig,
+            ("eventValueThreshold" Core..=)
+              Prelude.<$> eventValueThreshold,
+            ("hpoConfig" Core..=) Prelude.<$> hpoConfig
           ]
       )

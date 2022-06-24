@@ -42,8 +42,8 @@ module Amazonka.Personalize.ListCampaigns
     newListCampaignsResponse,
 
     -- * Response Lenses
-    listCampaignsResponse_campaigns,
     listCampaignsResponse_nextToken,
+    listCampaignsResponse_campaigns,
     listCampaignsResponse_httpStatus,
   )
 where
@@ -137,8 +137,8 @@ instance Core.AWSRequest ListCampaigns where
     Response.receiveJSON
       ( \s h x ->
           ListCampaignsResponse'
-            Prelude.<$> (x Core..?> "campaigns" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "campaigns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,10 +187,10 @@ instance Core.ToQuery ListCampaigns where
 
 -- | /See:/ 'newListCampaignsResponse' smart constructor.
 data ListCampaignsResponse = ListCampaignsResponse'
-  { -- | A list of the campaigns.
-    campaigns :: Prelude.Maybe [CampaignSummary],
-    -- | A token for getting the next set of campaigns (if they exist).
+  { -- | A token for getting the next set of campaigns (if they exist).
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of the campaigns.
+    campaigns :: Prelude.Maybe [CampaignSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -204,9 +204,9 @@ data ListCampaignsResponse = ListCampaignsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'campaigns', 'listCampaignsResponse_campaigns' - A list of the campaigns.
---
 -- 'nextToken', 'listCampaignsResponse_nextToken' - A token for getting the next set of campaigns (if they exist).
+--
+-- 'campaigns', 'listCampaignsResponse_campaigns' - A list of the campaigns.
 --
 -- 'httpStatus', 'listCampaignsResponse_httpStatus' - The response's http status code.
 newListCampaignsResponse ::
@@ -215,18 +215,18 @@ newListCampaignsResponse ::
   ListCampaignsResponse
 newListCampaignsResponse pHttpStatus_ =
   ListCampaignsResponse'
-    { campaigns = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      campaigns = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of the campaigns.
-listCampaignsResponse_campaigns :: Lens.Lens' ListCampaignsResponse (Prelude.Maybe [CampaignSummary])
-listCampaignsResponse_campaigns = Lens.lens (\ListCampaignsResponse' {campaigns} -> campaigns) (\s@ListCampaignsResponse' {} a -> s {campaigns = a} :: ListCampaignsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token for getting the next set of campaigns (if they exist).
 listCampaignsResponse_nextToken :: Lens.Lens' ListCampaignsResponse (Prelude.Maybe Prelude.Text)
 listCampaignsResponse_nextToken = Lens.lens (\ListCampaignsResponse' {nextToken} -> nextToken) (\s@ListCampaignsResponse' {} a -> s {nextToken = a} :: ListCampaignsResponse)
+
+-- | A list of the campaigns.
+listCampaignsResponse_campaigns :: Lens.Lens' ListCampaignsResponse (Prelude.Maybe [CampaignSummary])
+listCampaignsResponse_campaigns = Lens.lens (\ListCampaignsResponse' {campaigns} -> campaigns) (\s@ListCampaignsResponse' {} a -> s {campaigns = a} :: ListCampaignsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCampaignsResponse_httpStatus :: Lens.Lens' ListCampaignsResponse Prelude.Int
@@ -234,6 +234,6 @@ listCampaignsResponse_httpStatus = Lens.lens (\ListCampaignsResponse' {httpStatu
 
 instance Prelude.NFData ListCampaignsResponse where
   rnf ListCampaignsResponse' {..} =
-    Prelude.rnf campaigns
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf campaigns
       `Prelude.seq` Prelude.rnf httpStatus

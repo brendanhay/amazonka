@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOptimizationObjective' smart constructor.
 data OptimizationObjective = OptimizationObjective'
-  { -- | The numerical metadata column in an Items dataset related to the
+  { -- | Specifies how Amazon Personalize balances the importance of your
+    -- optimization objective versus relevance.
+    objectiveSensitivity :: Prelude.Maybe ObjectiveSensitivity,
+    -- | The numerical metadata column in an Items dataset related to the
     -- optimization objective. For example, VIDEO_LENGTH (to maximize streaming
     -- minutes), or PRICE (to maximize revenue).
-    itemAttribute :: Prelude.Maybe Prelude.Text,
-    -- | Specifies how Amazon Personalize balances the importance of your
-    -- optimization objective versus relevance.
-    objectiveSensitivity :: Prelude.Maybe ObjectiveSensitivity
+    itemAttribute :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,25 @@ data OptimizationObjective = OptimizationObjective'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'objectiveSensitivity', 'optimizationObjective_objectiveSensitivity' - Specifies how Amazon Personalize balances the importance of your
+-- optimization objective versus relevance.
+--
 -- 'itemAttribute', 'optimizationObjective_itemAttribute' - The numerical metadata column in an Items dataset related to the
 -- optimization objective. For example, VIDEO_LENGTH (to maximize streaming
 -- minutes), or PRICE (to maximize revenue).
---
--- 'objectiveSensitivity', 'optimizationObjective_objectiveSensitivity' - Specifies how Amazon Personalize balances the importance of your
--- optimization objective versus relevance.
 newOptimizationObjective ::
   OptimizationObjective
 newOptimizationObjective =
   OptimizationObjective'
-    { itemAttribute =
+    { objectiveSensitivity =
         Prelude.Nothing,
-      objectiveSensitivity = Prelude.Nothing
+      itemAttribute = Prelude.Nothing
     }
+
+-- | Specifies how Amazon Personalize balances the importance of your
+-- optimization objective versus relevance.
+optimizationObjective_objectiveSensitivity :: Lens.Lens' OptimizationObjective (Prelude.Maybe ObjectiveSensitivity)
+optimizationObjective_objectiveSensitivity = Lens.lens (\OptimizationObjective' {objectiveSensitivity} -> objectiveSensitivity) (\s@OptimizationObjective' {} a -> s {objectiveSensitivity = a} :: OptimizationObjective)
 
 -- | The numerical metadata column in an Items dataset related to the
 -- optimization objective. For example, VIDEO_LENGTH (to maximize streaming
@@ -69,37 +74,32 @@ newOptimizationObjective =
 optimizationObjective_itemAttribute :: Lens.Lens' OptimizationObjective (Prelude.Maybe Prelude.Text)
 optimizationObjective_itemAttribute = Lens.lens (\OptimizationObjective' {itemAttribute} -> itemAttribute) (\s@OptimizationObjective' {} a -> s {itemAttribute = a} :: OptimizationObjective)
 
--- | Specifies how Amazon Personalize balances the importance of your
--- optimization objective versus relevance.
-optimizationObjective_objectiveSensitivity :: Lens.Lens' OptimizationObjective (Prelude.Maybe ObjectiveSensitivity)
-optimizationObjective_objectiveSensitivity = Lens.lens (\OptimizationObjective' {objectiveSensitivity} -> objectiveSensitivity) (\s@OptimizationObjective' {} a -> s {objectiveSensitivity = a} :: OptimizationObjective)
-
 instance Core.FromJSON OptimizationObjective where
   parseJSON =
     Core.withObject
       "OptimizationObjective"
       ( \x ->
           OptimizationObjective'
-            Prelude.<$> (x Core..:? "itemAttribute")
-            Prelude.<*> (x Core..:? "objectiveSensitivity")
+            Prelude.<$> (x Core..:? "objectiveSensitivity")
+            Prelude.<*> (x Core..:? "itemAttribute")
       )
 
 instance Prelude.Hashable OptimizationObjective where
   hashWithSalt _salt OptimizationObjective' {..} =
-    _salt `Prelude.hashWithSalt` itemAttribute
-      `Prelude.hashWithSalt` objectiveSensitivity
+    _salt `Prelude.hashWithSalt` objectiveSensitivity
+      `Prelude.hashWithSalt` itemAttribute
 
 instance Prelude.NFData OptimizationObjective where
   rnf OptimizationObjective' {..} =
-    Prelude.rnf itemAttribute
-      `Prelude.seq` Prelude.rnf objectiveSensitivity
+    Prelude.rnf objectiveSensitivity
+      `Prelude.seq` Prelude.rnf itemAttribute
 
 instance Core.ToJSON OptimizationObjective where
   toJSON OptimizationObjective' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("itemAttribute" Core..=) Prelude.<$> itemAttribute,
-            ("objectiveSensitivity" Core..=)
-              Prelude.<$> objectiveSensitivity
+          [ ("objectiveSensitivity" Core..=)
+              Prelude.<$> objectiveSensitivity,
+            ("itemAttribute" Core..=) Prelude.<$> itemAttribute
           ]
       )

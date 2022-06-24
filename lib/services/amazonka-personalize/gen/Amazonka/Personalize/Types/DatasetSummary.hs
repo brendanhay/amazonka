@@ -28,20 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatasetSummary' smart constructor.
 data DatasetSummary = DatasetSummary'
-  { -- | The status of the dataset.
-    --
-    -- A dataset can be in one of the following states:
-    --
-    -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-    --
-    -- -   DELETE PENDING > DELETE IN_PROGRESS
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the dataset.
-    datasetArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix time) that the dataset was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the dataset.
+  { -- | The name of the dataset.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The date and time (in Unix time) that the dataset was created.
+    creationDateTime :: Prelude.Maybe Core.POSIX,
     -- | The dataset type. One of the following values:
     --
     -- -   Interactions
@@ -52,8 +42,18 @@ data DatasetSummary = DatasetSummary'
     --
     -- -   Event-Interactions
     datasetType :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix time) that the dataset was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX
+    -- | The status of the dataset.
+    --
+    -- A dataset can be in one of the following states:
+    --
+    -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+    --
+    -- -   DELETE PENDING > DELETE IN_PROGRESS
+    status :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the dataset.
+    datasetArn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time (in Unix time) that the dataset was last updated.
+    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,6 +64,20 @@ data DatasetSummary = DatasetSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'name', 'datasetSummary_name' - The name of the dataset.
+--
+-- 'creationDateTime', 'datasetSummary_creationDateTime' - The date and time (in Unix time) that the dataset was created.
+--
+-- 'datasetType', 'datasetSummary_datasetType' - The dataset type. One of the following values:
+--
+-- -   Interactions
+--
+-- -   Items
+--
+-- -   Users
+--
+-- -   Event-Interactions
 --
 -- 'status', 'datasetSummary_status' - The status of the dataset.
 --
@@ -76,10 +90,27 @@ data DatasetSummary = DatasetSummary'
 -- 'datasetArn', 'datasetSummary_datasetArn' - The Amazon Resource Name (ARN) of the dataset.
 --
 -- 'lastUpdatedDateTime', 'datasetSummary_lastUpdatedDateTime' - The date and time (in Unix time) that the dataset was last updated.
---
--- 'name', 'datasetSummary_name' - The name of the dataset.
---
--- 'datasetType', 'datasetSummary_datasetType' - The dataset type. One of the following values:
+newDatasetSummary ::
+  DatasetSummary
+newDatasetSummary =
+  DatasetSummary'
+    { name = Prelude.Nothing,
+      creationDateTime = Prelude.Nothing,
+      datasetType = Prelude.Nothing,
+      status = Prelude.Nothing,
+      datasetArn = Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing
+    }
+
+-- | The name of the dataset.
+datasetSummary_name :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.Text)
+datasetSummary_name = Lens.lens (\DatasetSummary' {name} -> name) (\s@DatasetSummary' {} a -> s {name = a} :: DatasetSummary)
+
+-- | The date and time (in Unix time) that the dataset was created.
+datasetSummary_creationDateTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
+datasetSummary_creationDateTime = Lens.lens (\DatasetSummary' {creationDateTime} -> creationDateTime) (\s@DatasetSummary' {} a -> s {creationDateTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The dataset type. One of the following values:
 --
 -- -   Interactions
 --
@@ -88,19 +119,8 @@ data DatasetSummary = DatasetSummary'
 -- -   Users
 --
 -- -   Event-Interactions
---
--- 'creationDateTime', 'datasetSummary_creationDateTime' - The date and time (in Unix time) that the dataset was created.
-newDatasetSummary ::
-  DatasetSummary
-newDatasetSummary =
-  DatasetSummary'
-    { status = Prelude.Nothing,
-      datasetArn = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing,
-      name = Prelude.Nothing,
-      datasetType = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing
-    }
+datasetSummary_datasetType :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.Text)
+datasetSummary_datasetType = Lens.lens (\DatasetSummary' {datasetType} -> datasetType) (\s@DatasetSummary' {} a -> s {datasetType = a} :: DatasetSummary)
 
 -- | The status of the dataset.
 --
@@ -120,54 +140,34 @@ datasetSummary_datasetArn = Lens.lens (\DatasetSummary' {datasetArn} -> datasetA
 datasetSummary_lastUpdatedDateTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
 datasetSummary_lastUpdatedDateTime = Lens.lens (\DatasetSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DatasetSummary' {} a -> s {lastUpdatedDateTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
 
--- | The name of the dataset.
-datasetSummary_name :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.Text)
-datasetSummary_name = Lens.lens (\DatasetSummary' {name} -> name) (\s@DatasetSummary' {} a -> s {name = a} :: DatasetSummary)
-
--- | The dataset type. One of the following values:
---
--- -   Interactions
---
--- -   Items
---
--- -   Users
---
--- -   Event-Interactions
-datasetSummary_datasetType :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.Text)
-datasetSummary_datasetType = Lens.lens (\DatasetSummary' {datasetType} -> datasetType) (\s@DatasetSummary' {} a -> s {datasetType = a} :: DatasetSummary)
-
--- | The date and time (in Unix time) that the dataset was created.
-datasetSummary_creationDateTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
-datasetSummary_creationDateTime = Lens.lens (\DatasetSummary' {creationDateTime} -> creationDateTime) (\s@DatasetSummary' {} a -> s {creationDateTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON DatasetSummary where
   parseJSON =
     Core.withObject
       "DatasetSummary"
       ( \x ->
           DatasetSummary'
-            Prelude.<$> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "creationDateTime")
+            Prelude.<*> (x Core..:? "datasetType")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "datasetArn")
             Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "datasetType")
-            Prelude.<*> (x Core..:? "creationDateTime")
       )
 
 instance Prelude.Hashable DatasetSummary where
   hashWithSalt _salt DatasetSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` datasetType
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` lastUpdatedDateTime
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` datasetType
-      `Prelude.hashWithSalt` creationDateTime
 
 instance Prelude.NFData DatasetSummary where
   rnf DatasetSummary' {..} =
-    Prelude.rnf status
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf datasetType
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf datasetType
-      `Prelude.seq` Prelude.rnf creationDateTime

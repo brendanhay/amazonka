@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDefaultContinuousHyperParameterRange' smart constructor.
 data DefaultContinuousHyperParameterRange = DefaultContinuousHyperParameterRange'
-  { -- | The maximum allowable value for the hyperparameter.
-    maxValue :: Prelude.Maybe Prelude.Double,
-    -- | Whether the hyperparameter is tunable.
-    isTunable :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the hyperparameter.
+  { -- | The name of the hyperparameter.
     name :: Prelude.Maybe Prelude.Text,
     -- | The minimum allowable value for the hyperparameter.
-    minValue :: Prelude.Maybe Prelude.Double
+    minValue :: Prelude.Maybe Prelude.Double,
+    -- | Whether the hyperparameter is tunable.
+    isTunable :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum allowable value for the hyperparameter.
+    maxValue :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,31 +48,23 @@ data DefaultContinuousHyperParameterRange = DefaultContinuousHyperParameterRange
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxValue', 'defaultContinuousHyperParameterRange_maxValue' - The maximum allowable value for the hyperparameter.
---
--- 'isTunable', 'defaultContinuousHyperParameterRange_isTunable' - Whether the hyperparameter is tunable.
---
 -- 'name', 'defaultContinuousHyperParameterRange_name' - The name of the hyperparameter.
 --
 -- 'minValue', 'defaultContinuousHyperParameterRange_minValue' - The minimum allowable value for the hyperparameter.
+--
+-- 'isTunable', 'defaultContinuousHyperParameterRange_isTunable' - Whether the hyperparameter is tunable.
+--
+-- 'maxValue', 'defaultContinuousHyperParameterRange_maxValue' - The maximum allowable value for the hyperparameter.
 newDefaultContinuousHyperParameterRange ::
   DefaultContinuousHyperParameterRange
 newDefaultContinuousHyperParameterRange =
   DefaultContinuousHyperParameterRange'
-    { maxValue =
+    { name =
         Prelude.Nothing,
+      minValue = Prelude.Nothing,
       isTunable = Prelude.Nothing,
-      name = Prelude.Nothing,
-      minValue = Prelude.Nothing
+      maxValue = Prelude.Nothing
     }
-
--- | The maximum allowable value for the hyperparameter.
-defaultContinuousHyperParameterRange_maxValue :: Lens.Lens' DefaultContinuousHyperParameterRange (Prelude.Maybe Prelude.Double)
-defaultContinuousHyperParameterRange_maxValue = Lens.lens (\DefaultContinuousHyperParameterRange' {maxValue} -> maxValue) (\s@DefaultContinuousHyperParameterRange' {} a -> s {maxValue = a} :: DefaultContinuousHyperParameterRange)
-
--- | Whether the hyperparameter is tunable.
-defaultContinuousHyperParameterRange_isTunable :: Lens.Lens' DefaultContinuousHyperParameterRange (Prelude.Maybe Prelude.Bool)
-defaultContinuousHyperParameterRange_isTunable = Lens.lens (\DefaultContinuousHyperParameterRange' {isTunable} -> isTunable) (\s@DefaultContinuousHyperParameterRange' {} a -> s {isTunable = a} :: DefaultContinuousHyperParameterRange)
 
 -- | The name of the hyperparameter.
 defaultContinuousHyperParameterRange_name :: Lens.Lens' DefaultContinuousHyperParameterRange (Prelude.Maybe Prelude.Text)
@@ -81,6 +73,14 @@ defaultContinuousHyperParameterRange_name = Lens.lens (\DefaultContinuousHyperPa
 -- | The minimum allowable value for the hyperparameter.
 defaultContinuousHyperParameterRange_minValue :: Lens.Lens' DefaultContinuousHyperParameterRange (Prelude.Maybe Prelude.Double)
 defaultContinuousHyperParameterRange_minValue = Lens.lens (\DefaultContinuousHyperParameterRange' {minValue} -> minValue) (\s@DefaultContinuousHyperParameterRange' {} a -> s {minValue = a} :: DefaultContinuousHyperParameterRange)
+
+-- | Whether the hyperparameter is tunable.
+defaultContinuousHyperParameterRange_isTunable :: Lens.Lens' DefaultContinuousHyperParameterRange (Prelude.Maybe Prelude.Bool)
+defaultContinuousHyperParameterRange_isTunable = Lens.lens (\DefaultContinuousHyperParameterRange' {isTunable} -> isTunable) (\s@DefaultContinuousHyperParameterRange' {} a -> s {isTunable = a} :: DefaultContinuousHyperParameterRange)
+
+-- | The maximum allowable value for the hyperparameter.
+defaultContinuousHyperParameterRange_maxValue :: Lens.Lens' DefaultContinuousHyperParameterRange (Prelude.Maybe Prelude.Double)
+defaultContinuousHyperParameterRange_maxValue = Lens.lens (\DefaultContinuousHyperParameterRange' {maxValue} -> maxValue) (\s@DefaultContinuousHyperParameterRange' {} a -> s {maxValue = a} :: DefaultContinuousHyperParameterRange)
 
 instance
   Core.FromJSON
@@ -91,10 +91,10 @@ instance
       "DefaultContinuousHyperParameterRange"
       ( \x ->
           DefaultContinuousHyperParameterRange'
-            Prelude.<$> (x Core..:? "maxValue")
-            Prelude.<*> (x Core..:? "isTunable")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "minValue")
+            Prelude.<*> (x Core..:? "isTunable")
+            Prelude.<*> (x Core..:? "maxValue")
       )
 
 instance
@@ -104,17 +104,17 @@ instance
   hashWithSalt
     _salt
     DefaultContinuousHyperParameterRange' {..} =
-      _salt `Prelude.hashWithSalt` maxValue
-        `Prelude.hashWithSalt` isTunable
-        `Prelude.hashWithSalt` name
+      _salt `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` minValue
+        `Prelude.hashWithSalt` isTunable
+        `Prelude.hashWithSalt` maxValue
 
 instance
   Prelude.NFData
     DefaultContinuousHyperParameterRange
   where
   rnf DefaultContinuousHyperParameterRange' {..} =
-    Prelude.rnf maxValue
-      `Prelude.seq` Prelude.rnf isTunable
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf minValue
+      `Prelude.seq` Prelude.rnf isTunable
+      `Prelude.seq` Prelude.rnf maxValue

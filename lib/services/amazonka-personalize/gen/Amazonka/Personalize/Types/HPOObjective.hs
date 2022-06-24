@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHPOObjective' smart constructor.
 data HPOObjective = HPOObjective'
-  { -- | The name of the metric.
-    metricName :: Prelude.Maybe Prelude.Text,
-    -- | The type of the metric. Valid values are @Maximize@ and @Minimize@.
+  { -- | The type of the metric. Valid values are @Maximize@ and @Minimize@.
     type' :: Prelude.Maybe Prelude.Text,
+    -- | The name of the metric.
+    metricName :: Prelude.Maybe Prelude.Text,
     -- | A regular expression for finding the metric in the training job logs.
     metricRegex :: Prelude.Maybe Prelude.Text
   }
@@ -47,27 +47,27 @@ data HPOObjective = HPOObjective'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricName', 'hPOObjective_metricName' - The name of the metric.
---
 -- 'type'', 'hPOObjective_type' - The type of the metric. Valid values are @Maximize@ and @Minimize@.
+--
+-- 'metricName', 'hPOObjective_metricName' - The name of the metric.
 --
 -- 'metricRegex', 'hPOObjective_metricRegex' - A regular expression for finding the metric in the training job logs.
 newHPOObjective ::
   HPOObjective
 newHPOObjective =
   HPOObjective'
-    { metricName = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { type' = Prelude.Nothing,
+      metricName = Prelude.Nothing,
       metricRegex = Prelude.Nothing
     }
-
--- | The name of the metric.
-hPOObjective_metricName :: Lens.Lens' HPOObjective (Prelude.Maybe Prelude.Text)
-hPOObjective_metricName = Lens.lens (\HPOObjective' {metricName} -> metricName) (\s@HPOObjective' {} a -> s {metricName = a} :: HPOObjective)
 
 -- | The type of the metric. Valid values are @Maximize@ and @Minimize@.
 hPOObjective_type :: Lens.Lens' HPOObjective (Prelude.Maybe Prelude.Text)
 hPOObjective_type = Lens.lens (\HPOObjective' {type'} -> type') (\s@HPOObjective' {} a -> s {type' = a} :: HPOObjective)
+
+-- | The name of the metric.
+hPOObjective_metricName :: Lens.Lens' HPOObjective (Prelude.Maybe Prelude.Text)
+hPOObjective_metricName = Lens.lens (\HPOObjective' {metricName} -> metricName) (\s@HPOObjective' {} a -> s {metricName = a} :: HPOObjective)
 
 -- | A regular expression for finding the metric in the training job logs.
 hPOObjective_metricRegex :: Lens.Lens' HPOObjective (Prelude.Maybe Prelude.Text)
@@ -79,29 +79,29 @@ instance Core.FromJSON HPOObjective where
       "HPOObjective"
       ( \x ->
           HPOObjective'
-            Prelude.<$> (x Core..:? "metricName")
-            Prelude.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "metricName")
             Prelude.<*> (x Core..:? "metricRegex")
       )
 
 instance Prelude.Hashable HPOObjective where
   hashWithSalt _salt HPOObjective' {..} =
-    _salt `Prelude.hashWithSalt` metricName
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` metricRegex
 
 instance Prelude.NFData HPOObjective where
   rnf HPOObjective' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf metricRegex
 
 instance Core.ToJSON HPOObjective where
   toJSON HPOObjective' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("metricName" Core..=) Prelude.<$> metricName,
-            ("type" Core..=) Prelude.<$> type',
+          [ ("type" Core..=) Prelude.<$> type',
+            ("metricName" Core..=) Prelude.<$> metricName,
             ("metricRegex" Core..=) Prelude.<$> metricRegex
           ]
       )

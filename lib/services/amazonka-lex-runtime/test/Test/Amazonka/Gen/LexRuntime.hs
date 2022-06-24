@@ -27,49 +27,43 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPutSession $
---             newPutSession
---
---         , requestDeleteSession $
+--         [ requestDeleteSession $
 --             newDeleteSession
---
---         , requestPostText $
---             newPostText
---
---         , requestPostContent $
---             newPostContent
 --
 --         , requestGetSession $
 --             newGetSession
 --
+--         , requestPostContent $
+--             newPostContent
+--
+--         , requestPostText $
+--             newPostText
+--
+--         , requestPutSession $
+--             newPutSession
+--
 --           ]
 
 --     , testGroup "response"
---         [ responsePutSession $
---             newPutSessionResponse
---
---         , responseDeleteSession $
+--         [ responseDeleteSession $
 --             newDeleteSessionResponse
 --
---         , responsePostText $
---             newPostTextResponse
+--         , responseGetSession $
+--             newGetSessionResponse
 --
 --         , responsePostContent $
 --             newPostContentResponse
 --
---         , responseGetSession $
---             newGetSessionResponse
+--         , responsePostText $
+--             newPostTextResponse
+--
+--         , responsePutSession $
+--             newPutSessionResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestPutSession :: PutSession -> TestTree
-requestPutSession =
-  req
-    "PutSession"
-    "fixture/PutSession.yaml"
 
 requestDeleteSession :: DeleteSession -> TestTree
 requestDeleteSession =
@@ -77,17 +71,23 @@ requestDeleteSession =
     "DeleteSession"
     "fixture/DeleteSession.yaml"
 
+requestGetSession :: GetSession -> TestTree
+requestGetSession =
+  req
+    "GetSession"
+    "fixture/GetSession.yaml"
+
 requestPostText :: PostText -> TestTree
 requestPostText =
   req
     "PostText"
     "fixture/PostText.yaml"
 
-requestGetSession :: GetSession -> TestTree
-requestGetSession =
+requestPutSession :: PutSession -> TestTree
+requestPutSession =
   req
-    "GetSession"
-    "fixture/GetSession.yaml"
+    "PutSession"
+    "fixture/PutSession.yaml"
 
 -- Responses
 
@@ -99,14 +99,6 @@ responseDeleteSession =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteSession)
 
-responsePostText :: PostTextResponse -> TestTree
-responsePostText =
-  res
-    "PostTextResponse"
-    "fixture/PostTextResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PostText)
-
 responseGetSession :: GetSessionResponse -> TestTree
 responseGetSession =
   res
@@ -114,3 +106,11 @@ responseGetSession =
     "fixture/GetSessionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetSession)
+
+responsePostText :: PostTextResponse -> TestTree
+responsePostText =
+  res
+    "PostTextResponse"
+    "fixture/PostTextResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PostText)

@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSentimentResponse' smart constructor.
 data SentimentResponse = SentimentResponse'
-  { -- | The likelihood that the sentiment was correctly inferred.
-    sentimentScore :: Prelude.Maybe Prelude.Text,
-    -- | The inferred sentiment that Amazon Comprehend has the highest confidence
+  { -- | The inferred sentiment that Amazon Comprehend has the highest confidence
     -- in.
-    sentimentLabel :: Prelude.Maybe Prelude.Text
+    sentimentLabel :: Prelude.Maybe Prelude.Text,
+    -- | The likelihood that the sentiment was correctly inferred.
+    sentimentScore :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,27 +47,27 @@ data SentimentResponse = SentimentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sentimentScore', 'sentimentResponse_sentimentScore' - The likelihood that the sentiment was correctly inferred.
---
 -- 'sentimentLabel', 'sentimentResponse_sentimentLabel' - The inferred sentiment that Amazon Comprehend has the highest confidence
 -- in.
+--
+-- 'sentimentScore', 'sentimentResponse_sentimentScore' - The likelihood that the sentiment was correctly inferred.
 newSentimentResponse ::
   SentimentResponse
 newSentimentResponse =
   SentimentResponse'
-    { sentimentScore =
+    { sentimentLabel =
         Prelude.Nothing,
-      sentimentLabel = Prelude.Nothing
+      sentimentScore = Prelude.Nothing
     }
-
--- | The likelihood that the sentiment was correctly inferred.
-sentimentResponse_sentimentScore :: Lens.Lens' SentimentResponse (Prelude.Maybe Prelude.Text)
-sentimentResponse_sentimentScore = Lens.lens (\SentimentResponse' {sentimentScore} -> sentimentScore) (\s@SentimentResponse' {} a -> s {sentimentScore = a} :: SentimentResponse)
 
 -- | The inferred sentiment that Amazon Comprehend has the highest confidence
 -- in.
 sentimentResponse_sentimentLabel :: Lens.Lens' SentimentResponse (Prelude.Maybe Prelude.Text)
 sentimentResponse_sentimentLabel = Lens.lens (\SentimentResponse' {sentimentLabel} -> sentimentLabel) (\s@SentimentResponse' {} a -> s {sentimentLabel = a} :: SentimentResponse)
+
+-- | The likelihood that the sentiment was correctly inferred.
+sentimentResponse_sentimentScore :: Lens.Lens' SentimentResponse (Prelude.Maybe Prelude.Text)
+sentimentResponse_sentimentScore = Lens.lens (\SentimentResponse' {sentimentScore} -> sentimentScore) (\s@SentimentResponse' {} a -> s {sentimentScore = a} :: SentimentResponse)
 
 instance Core.FromJSON SentimentResponse where
   parseJSON =
@@ -75,16 +75,16 @@ instance Core.FromJSON SentimentResponse where
       "SentimentResponse"
       ( \x ->
           SentimentResponse'
-            Prelude.<$> (x Core..:? "sentimentScore")
-            Prelude.<*> (x Core..:? "sentimentLabel")
+            Prelude.<$> (x Core..:? "sentimentLabel")
+            Prelude.<*> (x Core..:? "sentimentScore")
       )
 
 instance Prelude.Hashable SentimentResponse where
   hashWithSalt _salt SentimentResponse' {..} =
-    _salt `Prelude.hashWithSalt` sentimentScore
-      `Prelude.hashWithSalt` sentimentLabel
+    _salt `Prelude.hashWithSalt` sentimentLabel
+      `Prelude.hashWithSalt` sentimentScore
 
 instance Prelude.NFData SentimentResponse where
   rnf SentimentResponse' {..} =
-    Prelude.rnf sentimentScore
-      `Prelude.seq` Prelude.rnf sentimentLabel
+    Prelude.rnf sentimentLabel
+      `Prelude.seq` Prelude.rnf sentimentScore

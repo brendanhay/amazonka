@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPredictedIntent' smart constructor.
 data PredictedIntent = PredictedIntent'
-  { -- | Indicates how confident Amazon Lex is that an intent satisfies the
+  { -- | The name of the intent that Amazon Lex suggests satisfies the user\'s
+    -- intent.
+    intentName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates how confident Amazon Lex is that an intent satisfies the
     -- user\'s intent.
     nluIntentConfidence :: Prelude.Maybe IntentConfidence,
     -- | The slot and slot values associated with the predicted intent.
-    slots :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The name of the intent that Amazon Lex suggests satisfies the user\'s
-    -- intent.
-    intentName :: Prelude.Maybe Prelude.Text
+    slots :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -49,22 +49,26 @@ data PredictedIntent = PredictedIntent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'intentName', 'predictedIntent_intentName' - The name of the intent that Amazon Lex suggests satisfies the user\'s
+-- intent.
+--
 -- 'nluIntentConfidence', 'predictedIntent_nluIntentConfidence' - Indicates how confident Amazon Lex is that an intent satisfies the
 -- user\'s intent.
 --
 -- 'slots', 'predictedIntent_slots' - The slot and slot values associated with the predicted intent.
---
--- 'intentName', 'predictedIntent_intentName' - The name of the intent that Amazon Lex suggests satisfies the user\'s
--- intent.
 newPredictedIntent ::
   PredictedIntent
 newPredictedIntent =
   PredictedIntent'
-    { nluIntentConfidence =
-        Prelude.Nothing,
-      slots = Prelude.Nothing,
-      intentName = Prelude.Nothing
+    { intentName = Prelude.Nothing,
+      nluIntentConfidence = Prelude.Nothing,
+      slots = Prelude.Nothing
     }
+
+-- | The name of the intent that Amazon Lex suggests satisfies the user\'s
+-- intent.
+predictedIntent_intentName :: Lens.Lens' PredictedIntent (Prelude.Maybe Prelude.Text)
+predictedIntent_intentName = Lens.lens (\PredictedIntent' {intentName} -> intentName) (\s@PredictedIntent' {} a -> s {intentName = a} :: PredictedIntent)
 
 -- | Indicates how confident Amazon Lex is that an intent satisfies the
 -- user\'s intent.
@@ -75,30 +79,25 @@ predictedIntent_nluIntentConfidence = Lens.lens (\PredictedIntent' {nluIntentCon
 predictedIntent_slots :: Lens.Lens' PredictedIntent (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 predictedIntent_slots = Lens.lens (\PredictedIntent' {slots} -> slots) (\s@PredictedIntent' {} a -> s {slots = a} :: PredictedIntent) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
--- | The name of the intent that Amazon Lex suggests satisfies the user\'s
--- intent.
-predictedIntent_intentName :: Lens.Lens' PredictedIntent (Prelude.Maybe Prelude.Text)
-predictedIntent_intentName = Lens.lens (\PredictedIntent' {intentName} -> intentName) (\s@PredictedIntent' {} a -> s {intentName = a} :: PredictedIntent)
-
 instance Core.FromJSON PredictedIntent where
   parseJSON =
     Core.withObject
       "PredictedIntent"
       ( \x ->
           PredictedIntent'
-            Prelude.<$> (x Core..:? "nluIntentConfidence")
+            Prelude.<$> (x Core..:? "intentName")
+            Prelude.<*> (x Core..:? "nluIntentConfidence")
             Prelude.<*> (x Core..:? "slots" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "intentName")
       )
 
 instance Prelude.Hashable PredictedIntent where
   hashWithSalt _salt PredictedIntent' {..} =
-    _salt `Prelude.hashWithSalt` nluIntentConfidence
+    _salt `Prelude.hashWithSalt` intentName
+      `Prelude.hashWithSalt` nluIntentConfidence
       `Prelude.hashWithSalt` slots
-      `Prelude.hashWithSalt` intentName
 
 instance Prelude.NFData PredictedIntent where
   rnf PredictedIntent' {..} =
-    Prelude.rnf nluIntentConfidence
+    Prelude.rnf intentName
+      `Prelude.seq` Prelude.rnf nluIntentConfidence
       `Prelude.seq` Prelude.rnf slots
-      `Prelude.seq` Prelude.rnf intentName

@@ -14,37 +14,48 @@
 module Amazonka.EBS.Lens
   ( -- * Operations
 
-    -- ** StartSnapshot
-    startSnapshot_kmsKeyArn,
-    startSnapshot_clientToken,
-    startSnapshot_encrypted,
-    startSnapshot_parentSnapshotId,
-    startSnapshot_timeout,
-    startSnapshot_description,
-    startSnapshot_tags,
-    startSnapshot_volumeSize,
-    startSnapshotResponse_blockSize,
-    startSnapshotResponse_status,
-    startSnapshotResponse_kmsKeyArn,
-    startSnapshotResponse_startTime,
-    startSnapshotResponse_volumeSize,
-    startSnapshotResponse_ownerId,
-    startSnapshotResponse_parentSnapshotId,
-    startSnapshotResponse_description,
-    startSnapshotResponse_tags,
-    startSnapshotResponse_snapshotId,
-    startSnapshotResponse_httpStatus,
+    -- ** CompleteSnapshot
+    completeSnapshot_checksumAlgorithm,
+    completeSnapshot_checksumAggregationMethod,
+    completeSnapshot_checksum,
+    completeSnapshot_snapshotId,
+    completeSnapshot_changedBlocksCount,
+    completeSnapshotResponse_status,
+    completeSnapshotResponse_httpStatus,
+
+    -- ** GetSnapshotBlock
+    getSnapshotBlock_snapshotId,
+    getSnapshotBlock_blockIndex,
+    getSnapshotBlock_blockToken,
+    getSnapshotBlockResponse_checksumAlgorithm,
+    getSnapshotBlockResponse_checksum,
+    getSnapshotBlockResponse_dataLength,
+    getSnapshotBlockResponse_httpStatus,
+    getSnapshotBlockResponse_blockData,
+
+    -- ** ListChangedBlocks
+    listChangedBlocks_nextToken,
+    listChangedBlocks_startingBlockIndex,
+    listChangedBlocks_maxResults,
+    listChangedBlocks_firstSnapshotId,
+    listChangedBlocks_secondSnapshotId,
+    listChangedBlocksResponse_nextToken,
+    listChangedBlocksResponse_expiryTime,
+    listChangedBlocksResponse_volumeSize,
+    listChangedBlocksResponse_changedBlocks,
+    listChangedBlocksResponse_blockSize,
+    listChangedBlocksResponse_httpStatus,
 
     -- ** ListSnapshotBlocks
     listSnapshotBlocks_nextToken,
     listSnapshotBlocks_startingBlockIndex,
     listSnapshotBlocks_maxResults,
     listSnapshotBlocks_snapshotId,
-    listSnapshotBlocksResponse_blockSize,
-    listSnapshotBlocksResponse_blocks,
+    listSnapshotBlocksResponse_nextToken,
     listSnapshotBlocksResponse_expiryTime,
     listSnapshotBlocksResponse_volumeSize,
-    listSnapshotBlocksResponse_nextToken,
+    listSnapshotBlocksResponse_blockSize,
+    listSnapshotBlocksResponse_blocks,
     listSnapshotBlocksResponse_httpStatus,
 
     -- ** PutSnapshotBlock
@@ -59,52 +70,41 @@ module Amazonka.EBS.Lens
     putSnapshotBlockResponse_checksum,
     putSnapshotBlockResponse_httpStatus,
 
-    -- ** ListChangedBlocks
-    listChangedBlocks_nextToken,
-    listChangedBlocks_startingBlockIndex,
-    listChangedBlocks_firstSnapshotId,
-    listChangedBlocks_maxResults,
-    listChangedBlocks_secondSnapshotId,
-    listChangedBlocksResponse_blockSize,
-    listChangedBlocksResponse_expiryTime,
-    listChangedBlocksResponse_volumeSize,
-    listChangedBlocksResponse_changedBlocks,
-    listChangedBlocksResponse_nextToken,
-    listChangedBlocksResponse_httpStatus,
-
-    -- ** CompleteSnapshot
-    completeSnapshot_checksumAlgorithm,
-    completeSnapshot_checksum,
-    completeSnapshot_checksumAggregationMethod,
-    completeSnapshot_snapshotId,
-    completeSnapshot_changedBlocksCount,
-    completeSnapshotResponse_status,
-    completeSnapshotResponse_httpStatus,
-
-    -- ** GetSnapshotBlock
-    getSnapshotBlock_snapshotId,
-    getSnapshotBlock_blockIndex,
-    getSnapshotBlock_blockToken,
-    getSnapshotBlockResponse_dataLength,
-    getSnapshotBlockResponse_checksumAlgorithm,
-    getSnapshotBlockResponse_checksum,
-    getSnapshotBlockResponse_httpStatus,
-    getSnapshotBlockResponse_blockData,
+    -- ** StartSnapshot
+    startSnapshot_tags,
+    startSnapshot_timeout,
+    startSnapshot_clientToken,
+    startSnapshot_description,
+    startSnapshot_kmsKeyArn,
+    startSnapshot_parentSnapshotId,
+    startSnapshot_encrypted,
+    startSnapshot_volumeSize,
+    startSnapshotResponse_tags,
+    startSnapshotResponse_ownerId,
+    startSnapshotResponse_snapshotId,
+    startSnapshotResponse_status,
+    startSnapshotResponse_volumeSize,
+    startSnapshotResponse_description,
+    startSnapshotResponse_kmsKeyArn,
+    startSnapshotResponse_parentSnapshotId,
+    startSnapshotResponse_blockSize,
+    startSnapshotResponse_startTime,
+    startSnapshotResponse_httpStatus,
 
     -- * Types
 
     -- ** Block
-    block_blockIndex,
     block_blockToken,
+    block_blockIndex,
 
     -- ** ChangedBlock
-    changedBlock_blockIndex,
     changedBlock_secondBlockToken,
     changedBlock_firstBlockToken,
+    changedBlock_blockIndex,
 
     -- ** Tag
-    tag_value,
     tag_key,
+    tag_value,
   )
 where
 

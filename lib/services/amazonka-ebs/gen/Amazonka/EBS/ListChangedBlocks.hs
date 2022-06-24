@@ -31,8 +31,8 @@ module Amazonka.EBS.ListChangedBlocks
     -- * Request Lenses
     listChangedBlocks_nextToken,
     listChangedBlocks_startingBlockIndex,
-    listChangedBlocks_firstSnapshotId,
     listChangedBlocks_maxResults,
+    listChangedBlocks_firstSnapshotId,
     listChangedBlocks_secondSnapshotId,
 
     -- * Destructuring the Response
@@ -40,11 +40,11 @@ module Amazonka.EBS.ListChangedBlocks
     newListChangedBlocksResponse,
 
     -- * Response Lenses
-    listChangedBlocksResponse_blockSize,
+    listChangedBlocksResponse_nextToken,
     listChangedBlocksResponse_expiryTime,
     listChangedBlocksResponse_volumeSize,
     listChangedBlocksResponse_changedBlocks,
-    listChangedBlocksResponse_nextToken,
+    listChangedBlocksResponse_blockSize,
     listChangedBlocksResponse_httpStatus,
   )
 where
@@ -65,13 +65,13 @@ data ListChangedBlocks = ListChangedBlocks'
     -- The list in the response will start from this block index or the next
     -- valid block index in the snapshots.
     startingBlockIndex :: Prelude.Maybe Prelude.Natural,
+    -- | The number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the first snapshot to use for the comparison.
     --
     -- The @FirstSnapshotID@ parameter must be specified with a
     -- @SecondSnapshotId@ parameter; otherwise, an error occurs.
     firstSnapshotId :: Prelude.Maybe Prelude.Text,
-    -- | The number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the second snapshot to use for the comparison.
     --
     -- The @SecondSnapshotId@ parameter must be specified with a
@@ -95,12 +95,12 @@ data ListChangedBlocks = ListChangedBlocks'
 -- The list in the response will start from this block index or the next
 -- valid block index in the snapshots.
 --
+-- 'maxResults', 'listChangedBlocks_maxResults' - The number of results to return.
+--
 -- 'firstSnapshotId', 'listChangedBlocks_firstSnapshotId' - The ID of the first snapshot to use for the comparison.
 --
 -- The @FirstSnapshotID@ parameter must be specified with a
 -- @SecondSnapshotId@ parameter; otherwise, an error occurs.
---
--- 'maxResults', 'listChangedBlocks_maxResults' - The number of results to return.
 --
 -- 'secondSnapshotId', 'listChangedBlocks_secondSnapshotId' - The ID of the second snapshot to use for the comparison.
 --
@@ -114,8 +114,8 @@ newListChangedBlocks pSecondSnapshotId_ =
   ListChangedBlocks'
     { nextToken = Prelude.Nothing,
       startingBlockIndex = Prelude.Nothing,
-      firstSnapshotId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      firstSnapshotId = Prelude.Nothing,
       secondSnapshotId = pSecondSnapshotId_
     }
 
@@ -130,16 +130,16 @@ listChangedBlocks_nextToken = Lens.lens (\ListChangedBlocks' {nextToken} -> next
 listChangedBlocks_startingBlockIndex :: Lens.Lens' ListChangedBlocks (Prelude.Maybe Prelude.Natural)
 listChangedBlocks_startingBlockIndex = Lens.lens (\ListChangedBlocks' {startingBlockIndex} -> startingBlockIndex) (\s@ListChangedBlocks' {} a -> s {startingBlockIndex = a} :: ListChangedBlocks)
 
+-- | The number of results to return.
+listChangedBlocks_maxResults :: Lens.Lens' ListChangedBlocks (Prelude.Maybe Prelude.Natural)
+listChangedBlocks_maxResults = Lens.lens (\ListChangedBlocks' {maxResults} -> maxResults) (\s@ListChangedBlocks' {} a -> s {maxResults = a} :: ListChangedBlocks)
+
 -- | The ID of the first snapshot to use for the comparison.
 --
 -- The @FirstSnapshotID@ parameter must be specified with a
 -- @SecondSnapshotId@ parameter; otherwise, an error occurs.
 listChangedBlocks_firstSnapshotId :: Lens.Lens' ListChangedBlocks (Prelude.Maybe Prelude.Text)
 listChangedBlocks_firstSnapshotId = Lens.lens (\ListChangedBlocks' {firstSnapshotId} -> firstSnapshotId) (\s@ListChangedBlocks' {} a -> s {firstSnapshotId = a} :: ListChangedBlocks)
-
--- | The number of results to return.
-listChangedBlocks_maxResults :: Lens.Lens' ListChangedBlocks (Prelude.Maybe Prelude.Natural)
-listChangedBlocks_maxResults = Lens.lens (\ListChangedBlocks' {maxResults} -> maxResults) (\s@ListChangedBlocks' {} a -> s {maxResults = a} :: ListChangedBlocks)
 
 -- | The ID of the second snapshot to use for the comparison.
 --
@@ -157,11 +157,11 @@ instance Core.AWSRequest ListChangedBlocks where
     Response.receiveJSON
       ( \s h x ->
           ListChangedBlocksResponse'
-            Prelude.<$> (x Core..?> "BlockSize")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "ExpiryTime")
             Prelude.<*> (x Core..?> "VolumeSize")
             Prelude.<*> (x Core..?> "ChangedBlocks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "BlockSize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,16 +169,16 @@ instance Prelude.Hashable ListChangedBlocks where
   hashWithSalt _salt ListChangedBlocks' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startingBlockIndex
-      `Prelude.hashWithSalt` firstSnapshotId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` firstSnapshotId
       `Prelude.hashWithSalt` secondSnapshotId
 
 instance Prelude.NFData ListChangedBlocks where
   rnf ListChangedBlocks' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startingBlockIndex
-      `Prelude.seq` Prelude.rnf firstSnapshotId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf firstSnapshotId
       `Prelude.seq` Prelude.rnf secondSnapshotId
 
 instance Core.ToHeaders ListChangedBlocks where
@@ -205,23 +205,23 @@ instance Core.ToQuery ListChangedBlocks where
     Prelude.mconcat
       [ "pageToken" Core.=: nextToken,
         "startingBlockIndex" Core.=: startingBlockIndex,
-        "firstSnapshotId" Core.=: firstSnapshotId,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "firstSnapshotId" Core.=: firstSnapshotId
       ]
 
 -- | /See:/ 'newListChangedBlocksResponse' smart constructor.
 data ListChangedBlocksResponse = ListChangedBlocksResponse'
-  { -- | The size of the blocks in the snapshot, in bytes.
-    blockSize :: Prelude.Maybe Prelude.Int,
+  { -- | The token to use to retrieve the next page of results. This value is
+    -- null when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The time when the @BlockToken@ expires.
     expiryTime :: Prelude.Maybe Core.POSIX,
     -- | The size of the volume in GB.
     volumeSize :: Prelude.Maybe Prelude.Natural,
     -- | An array of objects containing information about the changed blocks.
     changedBlocks :: Prelude.Maybe [Core.Sensitive ChangedBlock],
-    -- | The token to use to retrieve the next page of results. This value is
-    -- null when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The size of the blocks in the snapshot, in bytes.
+    blockSize :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -235,7 +235,8 @@ data ListChangedBlocksResponse = ListChangedBlocksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'blockSize', 'listChangedBlocksResponse_blockSize' - The size of the blocks in the snapshot, in bytes.
+-- 'nextToken', 'listChangedBlocksResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 --
 -- 'expiryTime', 'listChangedBlocksResponse_expiryTime' - The time when the @BlockToken@ expires.
 --
@@ -243,8 +244,7 @@ data ListChangedBlocksResponse = ListChangedBlocksResponse'
 --
 -- 'changedBlocks', 'listChangedBlocksResponse_changedBlocks' - An array of objects containing information about the changed blocks.
 --
--- 'nextToken', 'listChangedBlocksResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- null when there are no more results to return.
+-- 'blockSize', 'listChangedBlocksResponse_blockSize' - The size of the blocks in the snapshot, in bytes.
 --
 -- 'httpStatus', 'listChangedBlocksResponse_httpStatus' - The response's http status code.
 newListChangedBlocksResponse ::
@@ -253,18 +253,19 @@ newListChangedBlocksResponse ::
   ListChangedBlocksResponse
 newListChangedBlocksResponse pHttpStatus_ =
   ListChangedBlocksResponse'
-    { blockSize =
+    { nextToken =
         Prelude.Nothing,
       expiryTime = Prelude.Nothing,
       volumeSize = Prelude.Nothing,
       changedBlocks = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      blockSize = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The size of the blocks in the snapshot, in bytes.
-listChangedBlocksResponse_blockSize :: Lens.Lens' ListChangedBlocksResponse (Prelude.Maybe Prelude.Int)
-listChangedBlocksResponse_blockSize = Lens.lens (\ListChangedBlocksResponse' {blockSize} -> blockSize) (\s@ListChangedBlocksResponse' {} a -> s {blockSize = a} :: ListChangedBlocksResponse)
+-- | The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
+listChangedBlocksResponse_nextToken :: Lens.Lens' ListChangedBlocksResponse (Prelude.Maybe Prelude.Text)
+listChangedBlocksResponse_nextToken = Lens.lens (\ListChangedBlocksResponse' {nextToken} -> nextToken) (\s@ListChangedBlocksResponse' {} a -> s {nextToken = a} :: ListChangedBlocksResponse)
 
 -- | The time when the @BlockToken@ expires.
 listChangedBlocksResponse_expiryTime :: Lens.Lens' ListChangedBlocksResponse (Prelude.Maybe Prelude.UTCTime)
@@ -278,10 +279,9 @@ listChangedBlocksResponse_volumeSize = Lens.lens (\ListChangedBlocksResponse' {v
 listChangedBlocksResponse_changedBlocks :: Lens.Lens' ListChangedBlocksResponse (Prelude.Maybe [ChangedBlock])
 listChangedBlocksResponse_changedBlocks = Lens.lens (\ListChangedBlocksResponse' {changedBlocks} -> changedBlocks) (\s@ListChangedBlocksResponse' {} a -> s {changedBlocks = a} :: ListChangedBlocksResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use to retrieve the next page of results. This value is
--- null when there are no more results to return.
-listChangedBlocksResponse_nextToken :: Lens.Lens' ListChangedBlocksResponse (Prelude.Maybe Prelude.Text)
-listChangedBlocksResponse_nextToken = Lens.lens (\ListChangedBlocksResponse' {nextToken} -> nextToken) (\s@ListChangedBlocksResponse' {} a -> s {nextToken = a} :: ListChangedBlocksResponse)
+-- | The size of the blocks in the snapshot, in bytes.
+listChangedBlocksResponse_blockSize :: Lens.Lens' ListChangedBlocksResponse (Prelude.Maybe Prelude.Int)
+listChangedBlocksResponse_blockSize = Lens.lens (\ListChangedBlocksResponse' {blockSize} -> blockSize) (\s@ListChangedBlocksResponse' {} a -> s {blockSize = a} :: ListChangedBlocksResponse)
 
 -- | The response's http status code.
 listChangedBlocksResponse_httpStatus :: Lens.Lens' ListChangedBlocksResponse Prelude.Int
@@ -289,9 +289,9 @@ listChangedBlocksResponse_httpStatus = Lens.lens (\ListChangedBlocksResponse' {h
 
 instance Prelude.NFData ListChangedBlocksResponse where
   rnf ListChangedBlocksResponse' {..} =
-    Prelude.rnf blockSize
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf expiryTime
       `Prelude.seq` Prelude.rnf volumeSize
       `Prelude.seq` Prelude.rnf changedBlocks
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf blockSize
       `Prelude.seq` Prelude.rnf httpStatus

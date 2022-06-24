@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChangedBlock' smart constructor.
 data ChangedBlock = ChangedBlock'
-  { -- | The block index.
-    blockIndex :: Prelude.Maybe Prelude.Natural,
-    -- | The block token for the block index of the @SecondSnapshotId@ specified
+  { -- | The block token for the block index of the @SecondSnapshotId@ specified
     -- in the @ListChangedBlocks@ operation.
     secondBlockToken :: Prelude.Maybe Prelude.Text,
     -- | The block token for the block index of the @FirstSnapshotId@ specified
     -- in the @ListChangedBlocks@ operation. This value is absent if the first
     -- snapshot does not have the changed block that is on the second snapshot.
-    firstBlockToken :: Prelude.Maybe Prelude.Text
+    firstBlockToken :: Prelude.Maybe Prelude.Text,
+    -- | The block index.
+    blockIndex :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,22 @@ data ChangedBlock = ChangedBlock'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'blockIndex', 'changedBlock_blockIndex' - The block index.
---
 -- 'secondBlockToken', 'changedBlock_secondBlockToken' - The block token for the block index of the @SecondSnapshotId@ specified
 -- in the @ListChangedBlocks@ operation.
 --
 -- 'firstBlockToken', 'changedBlock_firstBlockToken' - The block token for the block index of the @FirstSnapshotId@ specified
 -- in the @ListChangedBlocks@ operation. This value is absent if the first
 -- snapshot does not have the changed block that is on the second snapshot.
+--
+-- 'blockIndex', 'changedBlock_blockIndex' - The block index.
 newChangedBlock ::
   ChangedBlock
 newChangedBlock =
   ChangedBlock'
-    { blockIndex = Prelude.Nothing,
-      secondBlockToken = Prelude.Nothing,
-      firstBlockToken = Prelude.Nothing
+    { secondBlockToken = Prelude.Nothing,
+      firstBlockToken = Prelude.Nothing,
+      blockIndex = Prelude.Nothing
     }
-
--- | The block index.
-changedBlock_blockIndex :: Lens.Lens' ChangedBlock (Prelude.Maybe Prelude.Natural)
-changedBlock_blockIndex = Lens.lens (\ChangedBlock' {blockIndex} -> blockIndex) (\s@ChangedBlock' {} a -> s {blockIndex = a} :: ChangedBlock)
 
 -- | The block token for the block index of the @SecondSnapshotId@ specified
 -- in the @ListChangedBlocks@ operation.
@@ -80,25 +76,29 @@ changedBlock_secondBlockToken = Lens.lens (\ChangedBlock' {secondBlockToken} -> 
 changedBlock_firstBlockToken :: Lens.Lens' ChangedBlock (Prelude.Maybe Prelude.Text)
 changedBlock_firstBlockToken = Lens.lens (\ChangedBlock' {firstBlockToken} -> firstBlockToken) (\s@ChangedBlock' {} a -> s {firstBlockToken = a} :: ChangedBlock)
 
+-- | The block index.
+changedBlock_blockIndex :: Lens.Lens' ChangedBlock (Prelude.Maybe Prelude.Natural)
+changedBlock_blockIndex = Lens.lens (\ChangedBlock' {blockIndex} -> blockIndex) (\s@ChangedBlock' {} a -> s {blockIndex = a} :: ChangedBlock)
+
 instance Core.FromJSON ChangedBlock where
   parseJSON =
     Core.withObject
       "ChangedBlock"
       ( \x ->
           ChangedBlock'
-            Prelude.<$> (x Core..:? "BlockIndex")
-            Prelude.<*> (x Core..:? "SecondBlockToken")
+            Prelude.<$> (x Core..:? "SecondBlockToken")
             Prelude.<*> (x Core..:? "FirstBlockToken")
+            Prelude.<*> (x Core..:? "BlockIndex")
       )
 
 instance Prelude.Hashable ChangedBlock where
   hashWithSalt _salt ChangedBlock' {..} =
-    _salt `Prelude.hashWithSalt` blockIndex
-      `Prelude.hashWithSalt` secondBlockToken
+    _salt `Prelude.hashWithSalt` secondBlockToken
       `Prelude.hashWithSalt` firstBlockToken
+      `Prelude.hashWithSalt` blockIndex
 
 instance Prelude.NFData ChangedBlock where
   rnf ChangedBlock' {..} =
-    Prelude.rnf blockIndex
-      `Prelude.seq` Prelude.rnf secondBlockToken
+    Prelude.rnf secondBlockToken
       `Prelude.seq` Prelude.rnf firstBlockToken
+      `Prelude.seq` Prelude.rnf blockIndex

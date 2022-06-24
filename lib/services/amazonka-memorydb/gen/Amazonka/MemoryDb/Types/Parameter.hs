@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParameter' smart constructor.
 data Parameter = Parameter'
-  { -- | The value of the parameter
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The name of the parameter
+  { -- | The name of the parameter
     name :: Prelude.Maybe Prelude.Text,
+    -- | A description of the parameter
+    description :: Prelude.Maybe Prelude.Text,
     -- | The earliest engine version to which the parameter can apply.
     minimumEngineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The parameter\'s data type
-    dataType :: Prelude.Maybe Prelude.Text,
     -- | The valid range of values for the parameter.
     allowedValues :: Prelude.Maybe Prelude.Text,
-    -- | A description of the parameter
-    description :: Prelude.Maybe Prelude.Text
+    -- | The parameter\'s data type
+    dataType :: Prelude.Maybe Prelude.Text,
+    -- | The value of the parameter
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,52 +51,52 @@ data Parameter = Parameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'parameter_value' - The value of the parameter
---
 -- 'name', 'parameter_name' - The name of the parameter
+--
+-- 'description', 'parameter_description' - A description of the parameter
 --
 -- 'minimumEngineVersion', 'parameter_minimumEngineVersion' - The earliest engine version to which the parameter can apply.
 --
--- 'dataType', 'parameter_dataType' - The parameter\'s data type
---
 -- 'allowedValues', 'parameter_allowedValues' - The valid range of values for the parameter.
 --
--- 'description', 'parameter_description' - A description of the parameter
+-- 'dataType', 'parameter_dataType' - The parameter\'s data type
+--
+-- 'value', 'parameter_value' - The value of the parameter
 newParameter ::
   Parameter
 newParameter =
   Parameter'
-    { value = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      description = Prelude.Nothing,
       minimumEngineVersion = Prelude.Nothing,
-      dataType = Prelude.Nothing,
       allowedValues = Prelude.Nothing,
-      description = Prelude.Nothing
+      dataType = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the parameter
-parameter_value :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_value = Lens.lens (\Parameter' {value} -> value) (\s@Parameter' {} a -> s {value = a} :: Parameter)
 
 -- | The name of the parameter
 parameter_name :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_name = Lens.lens (\Parameter' {name} -> name) (\s@Parameter' {} a -> s {name = a} :: Parameter)
 
+-- | A description of the parameter
+parameter_description :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_description = Lens.lens (\Parameter' {description} -> description) (\s@Parameter' {} a -> s {description = a} :: Parameter)
+
 -- | The earliest engine version to which the parameter can apply.
 parameter_minimumEngineVersion :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_minimumEngineVersion = Lens.lens (\Parameter' {minimumEngineVersion} -> minimumEngineVersion) (\s@Parameter' {} a -> s {minimumEngineVersion = a} :: Parameter)
-
--- | The parameter\'s data type
-parameter_dataType :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_dataType = Lens.lens (\Parameter' {dataType} -> dataType) (\s@Parameter' {} a -> s {dataType = a} :: Parameter)
 
 -- | The valid range of values for the parameter.
 parameter_allowedValues :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_allowedValues = Lens.lens (\Parameter' {allowedValues} -> allowedValues) (\s@Parameter' {} a -> s {allowedValues = a} :: Parameter)
 
--- | A description of the parameter
-parameter_description :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_description = Lens.lens (\Parameter' {description} -> description) (\s@Parameter' {} a -> s {description = a} :: Parameter)
+-- | The parameter\'s data type
+parameter_dataType :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_dataType = Lens.lens (\Parameter' {dataType} -> dataType) (\s@Parameter' {} a -> s {dataType = a} :: Parameter)
+
+-- | The value of the parameter
+parameter_value :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_value = Lens.lens (\Parameter' {value} -> value) (\s@Parameter' {} a -> s {value = a} :: Parameter)
 
 instance Core.FromJSON Parameter where
   parseJSON =
@@ -104,28 +104,28 @@ instance Core.FromJSON Parameter where
       "Parameter"
       ( \x ->
           Parameter'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "MinimumEngineVersion")
-            Prelude.<*> (x Core..:? "DataType")
-            Prelude.<*> (x Core..:? "AllowedValues")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "MinimumEngineVersion")
+            Prelude.<*> (x Core..:? "AllowedValues")
+            Prelude.<*> (x Core..:? "DataType")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Parameter where
   hashWithSalt _salt Parameter' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` minimumEngineVersion
-      `Prelude.hashWithSalt` dataType
-      `Prelude.hashWithSalt` allowedValues
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` minimumEngineVersion
+      `Prelude.hashWithSalt` allowedValues
+      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Parameter where
   rnf Parameter' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf minimumEngineVersion
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf allowedValues
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf minimumEngineVersion
+      `Prelude.seq` Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf value

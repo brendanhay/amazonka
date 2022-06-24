@@ -37,8 +37,8 @@ module Amazonka.MemoryDb.DescribeSubnetGroups
     newDescribeSubnetGroupsResponse,
 
     -- * Response Lenses
-    describeSubnetGroupsResponse_subnetGroups,
     describeSubnetGroupsResponse_nextToken,
+    describeSubnetGroupsResponse_subnetGroups,
     describeSubnetGroupsResponse_httpStatus,
   )
 where
@@ -123,8 +123,8 @@ instance Core.AWSRequest DescribeSubnetGroups where
     Response.receiveJSON
       ( \s h x ->
           DescribeSubnetGroupsResponse'
-            Prelude.<$> (x Core..?> "SubnetGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "SubnetGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,15 +174,15 @@ instance Core.ToQuery DescribeSubnetGroups where
 
 -- | /See:/ 'newDescribeSubnetGroupsResponse' smart constructor.
 data DescribeSubnetGroupsResponse = DescribeSubnetGroupsResponse'
-  { -- | A list of subnet groups. Each element in the list contains detailed
-    -- information about one group.
-    subnetGroups :: Prelude.Maybe [SubnetGroup],
-    -- | An optional argument to pass in case the total number of records exceeds
+  { -- | An optional argument to pass in case the total number of records exceeds
     -- the value of MaxResults. If nextToken is returned, there are more
     -- results available. The value of nextToken is a unique pagination token
     -- for each page. Make the call again using the returned token to retrieve
     -- the next page. Keep all other arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of subnet groups. Each element in the list contains detailed
+    -- information about one group.
+    subnetGroups :: Prelude.Maybe [SubnetGroup],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,14 +196,14 @@ data DescribeSubnetGroupsResponse = DescribeSubnetGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subnetGroups', 'describeSubnetGroupsResponse_subnetGroups' - A list of subnet groups. Each element in the list contains detailed
--- information about one group.
---
 -- 'nextToken', 'describeSubnetGroupsResponse_nextToken' - An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
 -- results available. The value of nextToken is a unique pagination token
 -- for each page. Make the call again using the returned token to retrieve
 -- the next page. Keep all other arguments unchanged.
+--
+-- 'subnetGroups', 'describeSubnetGroupsResponse_subnetGroups' - A list of subnet groups. Each element in the list contains detailed
+-- information about one group.
 --
 -- 'httpStatus', 'describeSubnetGroupsResponse_httpStatus' - The response's http status code.
 newDescribeSubnetGroupsResponse ::
@@ -212,16 +212,11 @@ newDescribeSubnetGroupsResponse ::
   DescribeSubnetGroupsResponse
 newDescribeSubnetGroupsResponse pHttpStatus_ =
   DescribeSubnetGroupsResponse'
-    { subnetGroups =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      subnetGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of subnet groups. Each element in the list contains detailed
--- information about one group.
-describeSubnetGroupsResponse_subnetGroups :: Lens.Lens' DescribeSubnetGroupsResponse (Prelude.Maybe [SubnetGroup])
-describeSubnetGroupsResponse_subnetGroups = Lens.lens (\DescribeSubnetGroupsResponse' {subnetGroups} -> subnetGroups) (\s@DescribeSubnetGroupsResponse' {} a -> s {subnetGroups = a} :: DescribeSubnetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
@@ -231,12 +226,17 @@ describeSubnetGroupsResponse_subnetGroups = Lens.lens (\DescribeSubnetGroupsResp
 describeSubnetGroupsResponse_nextToken :: Lens.Lens' DescribeSubnetGroupsResponse (Prelude.Maybe Prelude.Text)
 describeSubnetGroupsResponse_nextToken = Lens.lens (\DescribeSubnetGroupsResponse' {nextToken} -> nextToken) (\s@DescribeSubnetGroupsResponse' {} a -> s {nextToken = a} :: DescribeSubnetGroupsResponse)
 
+-- | A list of subnet groups. Each element in the list contains detailed
+-- information about one group.
+describeSubnetGroupsResponse_subnetGroups :: Lens.Lens' DescribeSubnetGroupsResponse (Prelude.Maybe [SubnetGroup])
+describeSubnetGroupsResponse_subnetGroups = Lens.lens (\DescribeSubnetGroupsResponse' {subnetGroups} -> subnetGroups) (\s@DescribeSubnetGroupsResponse' {} a -> s {subnetGroups = a} :: DescribeSubnetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeSubnetGroupsResponse_httpStatus :: Lens.Lens' DescribeSubnetGroupsResponse Prelude.Int
 describeSubnetGroupsResponse_httpStatus = Lens.lens (\DescribeSubnetGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeSubnetGroupsResponse' {} a -> s {httpStatus = a} :: DescribeSubnetGroupsResponse)
 
 instance Prelude.NFData DescribeSubnetGroupsResponse where
   rnf DescribeSubnetGroupsResponse' {..} =
-    Prelude.rnf subnetGroups
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf subnetGroups
       `Prelude.seq` Prelude.rnf httpStatus

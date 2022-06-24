@@ -17,55 +17,55 @@ module Amazonka.MemoryDb.Types
     defaultService,
 
     -- * Errors
-    _InvalidNodeStateFault,
-    _SubnetQuotaExceededFault,
-    _ACLNotFoundFault,
-    _ParameterGroupNotFoundFault,
-    _InvalidParameterGroupStateFault,
-    _SubnetGroupInUseFault,
-    _ParameterGroupAlreadyExistsFault,
-    _InvalidSubnet,
-    _TagQuotaPerResourceExceeded,
-    _ACLAlreadyExistsFault,
-    _ShardNotFoundFault,
-    _UserAlreadyExistsFault,
-    _InvalidUserStateFault,
-    _SnapshotNotFoundFault,
-    _InvalidSnapshotStateFault,
-    _SnapshotAlreadyExistsFault,
-    _DefaultUserRequired,
-    _ClusterNotFoundFault,
-    _TagNotFoundFault,
-    _SnapshotQuotaExceededFault,
     _NodeQuotaForClusterExceededFault,
-    _APICallRateForCustomerExceededFault,
-    _InvalidClusterStateFault,
-    _ACLQuotaExceededFault,
+    _ClusterQuotaForCustomerExceededFault,
+    _SubnetQuotaExceededFault,
+    _SnapshotQuotaExceededFault,
+    _InvalidSubnet,
+    _ServiceUpdateNotFoundFault,
+    _UserNotFoundFault,
+    _ACLNotFoundFault,
+    _ShardNotFoundFault,
+    _ClusterNotFoundFault,
+    _InvalidSnapshotStateFault,
+    _NoOperationFault,
+    _UserAlreadyExistsFault,
+    _TagNotFoundFault,
+    _SubnetGroupInUseFault,
+    _ClusterAlreadyExistsFault,
+    _ACLAlreadyExistsFault,
+    _DefaultUserRequired,
+    _InvalidParameterCombinationException,
+    _ParameterGroupAlreadyExistsFault,
     _ServiceLinkedRoleNotFoundFault,
-    _InvalidKMSKeyFault,
-    _InsufficientClusterCapacityFault,
-    _ParameterGroupQuotaExceededFault,
-    _InvalidParameterValueException,
+    _ShardsPerClusterQuotaExceededFault,
+    _InvalidParameterGroupStateFault,
+    _UserQuotaExceededFault,
+    _DuplicateUserNameFault,
+    _ParameterGroupNotFoundFault,
+    _InvalidACLStateFault,
+    _TagQuotaPerResourceExceeded,
+    _InvalidARNFault,
+    _SnapshotAlreadyExistsFault,
+    _InvalidNodeStateFault,
     _TestFailoverNotAvailableFault,
-    _SubnetNotAllowedFault,
+    _NodeQuotaForCustomerExceededFault,
+    _SubnetGroupNotFoundFault,
     _InvalidVPCNetworkStateFault,
     _SubnetInUse,
-    _ClusterQuotaForCustomerExceededFault,
-    _InvalidACLStateFault,
-    _ShardsPerClusterQuotaExceededFault,
-    _ServiceUpdateNotFoundFault,
-    _SubnetGroupNotFoundFault,
+    _InvalidUserStateFault,
+    _SnapshotNotFoundFault,
+    _InvalidClusterStateFault,
+    _InvalidKMSKeyFault,
     _SubnetGroupAlreadyExistsFault,
-    _UserNotFoundFault,
-    _NodeQuotaForCustomerExceededFault,
-    _SubnetGroupQuotaExceededFault,
-    _DuplicateUserNameFault,
-    _ClusterAlreadyExistsFault,
-    _UserQuotaExceededFault,
-    _InvalidARNFault,
-    _NoOperationFault,
+    _ParameterGroupQuotaExceededFault,
+    _InsufficientClusterCapacityFault,
+    _ACLQuotaExceededFault,
+    _InvalidParameterValueException,
     _InvalidCredentialsException,
-    _InvalidParameterCombinationException,
+    _SubnetNotAllowedFault,
+    _APICallRateForCustomerExceededFault,
+    _SubnetGroupQuotaExceededFault,
 
     -- * AZStatus
     AZStatus (..),
@@ -88,19 +88,19 @@ module Amazonka.MemoryDb.Types
     -- * ACL
     ACL (..),
     newACL,
-    acl_status,
-    acl_userNames,
-    acl_arn,
     acl_name,
+    acl_arn,
     acl_pendingChanges,
-    acl_minimumEngineVersion,
     acl_clusters,
+    acl_userNames,
+    acl_status,
+    acl_minimumEngineVersion,
 
     -- * ACLPendingChanges
     ACLPendingChanges (..),
     newACLPendingChanges,
-    aCLPendingChanges_userNamesToAdd,
     aCLPendingChanges_userNamesToRemove,
+    aCLPendingChanges_userNamesToAdd,
 
     -- * ACLsUpdateStatus
     ACLsUpdateStatus (..),
@@ -110,8 +110,8 @@ module Amazonka.MemoryDb.Types
     -- * Authentication
     Authentication (..),
     newAuthentication,
-    authentication_passwordCount,
     authentication_type,
+    authentication_passwordCount,
 
     -- * AuthenticationMode
     AuthenticationMode (..),
@@ -127,77 +127,77 @@ module Amazonka.MemoryDb.Types
     -- * Cluster
     Cluster (..),
     newCluster,
-    cluster_engineVersion,
-    cluster_status,
-    cluster_autoMinorVersionUpgrade,
-    cluster_snsTopicArn,
-    cluster_securityGroups,
-    cluster_availabilityMode,
-    cluster_parameterGroupStatus,
-    cluster_arn,
-    cluster_pendingUpdates,
-    cluster_numberOfShards,
-    cluster_snapshotWindow,
     cluster_subnetGroupName,
-    cluster_tLSEnabled,
-    cluster_maintenanceWindow,
-    cluster_kmsKeyId,
-    cluster_shards,
-    cluster_name,
-    cluster_enginePatchVersion,
-    cluster_snapshotRetentionLimit,
-    cluster_nodeType,
-    cluster_snsTopicStatus,
-    cluster_description,
-    cluster_aCLName,
-    cluster_clusterEndpoint,
     cluster_parameterGroupName,
+    cluster_name,
+    cluster_aCLName,
+    cluster_autoMinorVersionUpgrade,
+    cluster_enginePatchVersion,
+    cluster_snsTopicStatus,
+    cluster_arn,
+    cluster_tLSEnabled,
+    cluster_clusterEndpoint,
+    cluster_availabilityMode,
+    cluster_status,
+    cluster_description,
+    cluster_nodeType,
+    cluster_maintenanceWindow,
+    cluster_snapshotWindow,
+    cluster_numberOfShards,
+    cluster_snapshotRetentionLimit,
+    cluster_snsTopicArn,
+    cluster_pendingUpdates,
+    cluster_securityGroups,
+    cluster_shards,
+    cluster_kmsKeyId,
+    cluster_parameterGroupStatus,
+    cluster_engineVersion,
 
     -- * ClusterConfiguration
     ClusterConfiguration (..),
     newClusterConfiguration,
-    clusterConfiguration_engineVersion,
-    clusterConfiguration_vpcId,
-    clusterConfiguration_snapshotWindow,
-    clusterConfiguration_subnetGroupName,
-    clusterConfiguration_numShards,
-    clusterConfiguration_maintenanceWindow,
-    clusterConfiguration_topicArn,
-    clusterConfiguration_shards,
-    clusterConfiguration_name,
-    clusterConfiguration_snapshotRetentionLimit,
-    clusterConfiguration_nodeType,
-    clusterConfiguration_description,
     clusterConfiguration_port,
+    clusterConfiguration_subnetGroupName,
     clusterConfiguration_parameterGroupName,
+    clusterConfiguration_name,
+    clusterConfiguration_topicArn,
+    clusterConfiguration_description,
+    clusterConfiguration_nodeType,
+    clusterConfiguration_maintenanceWindow,
+    clusterConfiguration_snapshotWindow,
+    clusterConfiguration_snapshotRetentionLimit,
+    clusterConfiguration_shards,
+    clusterConfiguration_numShards,
+    clusterConfiguration_vpcId,
+    clusterConfiguration_engineVersion,
 
     -- * ClusterPendingUpdates
     ClusterPendingUpdates (..),
     newClusterPendingUpdates,
-    clusterPendingUpdates_serviceUpdates,
     clusterPendingUpdates_resharding,
     clusterPendingUpdates_aCLs,
+    clusterPendingUpdates_serviceUpdates,
 
     -- * Endpoint
     Endpoint (..),
     newEndpoint,
-    endpoint_address,
     endpoint_port,
+    endpoint_address,
 
     -- * EngineVersionInfo
     EngineVersionInfo (..),
     newEngineVersionInfo,
-    engineVersionInfo_engineVersion,
-    engineVersionInfo_enginePatchVersion,
     engineVersionInfo_parameterGroupFamily,
+    engineVersionInfo_enginePatchVersion,
+    engineVersionInfo_engineVersion,
 
     -- * Event
     Event (..),
     newEvent,
-    event_sourceName,
-    event_sourceType,
-    event_date,
     event_message,
+    event_sourceName,
+    event_date,
+    event_sourceType,
 
     -- * Filter
     Filter (..),
@@ -208,29 +208,29 @@ module Amazonka.MemoryDb.Types
     -- * Node
     Node (..),
     newNode,
+    node_name,
     node_status,
     node_availabilityZone,
-    node_name,
-    node_endpoint,
     node_createTime,
+    node_endpoint,
 
     -- * Parameter
     Parameter (..),
     newParameter,
-    parameter_value,
     parameter_name,
-    parameter_minimumEngineVersion,
-    parameter_dataType,
-    parameter_allowedValues,
     parameter_description,
+    parameter_minimumEngineVersion,
+    parameter_allowedValues,
+    parameter_dataType,
+    parameter_value,
 
     -- * ParameterGroup
     ParameterGroup (..),
     newParameterGroup,
-    parameterGroup_arn,
-    parameterGroup_family,
     parameterGroup_name,
+    parameterGroup_arn,
     parameterGroup_description,
+    parameterGroup_family,
 
     -- * ParameterNameValue
     ParameterNameValue (..),
@@ -257,20 +257,20 @@ module Amazonka.MemoryDb.Types
     -- * SecurityGroupMembership
     SecurityGroupMembership (..),
     newSecurityGroupMembership,
-    securityGroupMembership_status,
     securityGroupMembership_securityGroupId,
+    securityGroupMembership_status,
 
     -- * ServiceUpdate
     ServiceUpdate (..),
     newServiceUpdate,
-    serviceUpdate_status,
-    serviceUpdate_autoUpdateStartDate,
-    serviceUpdate_serviceUpdateName,
-    serviceUpdate_nodesUpdated,
-    serviceUpdate_releaseDate,
-    serviceUpdate_clusterName,
     serviceUpdate_type,
+    serviceUpdate_releaseDate,
+    serviceUpdate_status,
     serviceUpdate_description,
+    serviceUpdate_serviceUpdateName,
+    serviceUpdate_autoUpdateStartDate,
+    serviceUpdate_clusterName,
+    serviceUpdate_nodesUpdated,
 
     -- * ServiceUpdateRequest
     ServiceUpdateRequest (..),
@@ -280,11 +280,11 @@ module Amazonka.MemoryDb.Types
     -- * Shard
     Shard (..),
     newShard,
-    shard_status,
-    shard_slots,
-    shard_numberOfNodes,
     shard_name,
     shard_nodes,
+    shard_status,
+    shard_numberOfNodes,
+    shard_slots,
 
     -- * ShardConfiguration
     ShardConfiguration (..),
@@ -300,10 +300,10 @@ module Amazonka.MemoryDb.Types
     -- * ShardDetail
     ShardDetail (..),
     newShardDetail,
-    shardDetail_size,
-    shardDetail_snapshotCreationTime,
     shardDetail_name,
     shardDetail_configuration,
+    shardDetail_snapshotCreationTime,
+    shardDetail_size,
 
     -- * SlotMigration
     SlotMigration (..),
@@ -313,51 +313,51 @@ module Amazonka.MemoryDb.Types
     -- * Snapshot
     Snapshot (..),
     newSnapshot,
-    snapshot_status,
-    snapshot_arn,
-    snapshot_kmsKeyId,
-    snapshot_name,
     snapshot_clusterConfiguration,
+    snapshot_name,
+    snapshot_arn,
+    snapshot_status,
     snapshot_source,
+    snapshot_kmsKeyId,
 
     -- * Subnet
     Subnet (..),
     newSubnet,
-    subnet_identifier,
     subnet_availabilityZone,
+    subnet_identifier,
 
     -- * SubnetGroup
     SubnetGroup (..),
     newSubnetGroup,
-    subnetGroup_arn,
-    subnetGroup_vpcId,
-    subnetGroup_subnets,
     subnetGroup_name,
+    subnetGroup_subnets,
+    subnetGroup_arn,
     subnetGroup_description,
+    subnetGroup_vpcId,
 
     -- * Tag
     Tag (..),
     newTag,
-    tag_value,
     tag_key,
+    tag_value,
 
     -- * UnprocessedCluster
     UnprocessedCluster (..),
     newUnprocessedCluster,
+    unprocessedCluster_errorMessage,
     unprocessedCluster_clusterName,
     unprocessedCluster_errorType,
-    unprocessedCluster_errorMessage,
 
     -- * User
     User (..),
     newUser,
-    user_status,
-    user_arn,
-    user_authentication,
     user_accessString,
+    user_authentication,
     user_name,
-    user_aCLNames,
+    user_arn,
+    user_status,
     user_minimumEngineVersion,
+    user_aCLNames,
   )
 where
 
@@ -431,35 +431,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -468,153 +441,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- |
-_InvalidNodeStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNodeStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNodeStateFault"
-
--- |
-_SubnetQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SubnetQuotaExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "SubnetQuotaExceededFault"
-
--- |
-_ACLNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ACLNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "ACLNotFoundFault"
-
--- |
-_ParameterGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ParameterGroupNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "ParameterGroupNotFoundFault"
-
--- |
-_InvalidParameterGroupStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterGroupStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterGroupStateFault"
-
--- |
-_SubnetGroupInUseFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SubnetGroupInUseFault =
-  Core._MatchServiceError
-    defaultService
-    "SubnetGroupInUseFault"
-
--- |
-_ParameterGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ParameterGroupAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "ParameterGroupAlreadyExistsFault"
-
--- |
-_InvalidSubnet :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSubnet =
-  Core._MatchServiceError
-    defaultService
-    "InvalidSubnet"
-
--- |
-_TagQuotaPerResourceExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TagQuotaPerResourceExceeded =
-  Core._MatchServiceError
-    defaultService
-    "TagQuotaPerResourceExceeded"
-
--- |
-_ACLAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ACLAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "ACLAlreadyExistsFault"
-
--- |
-_ShardNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ShardNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "ShardNotFoundFault"
-
--- |
-_UserAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "UserAlreadyExistsFault"
-
--- |
-_InvalidUserStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidUserStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidUserStateFault"
-
--- |
-_SnapshotNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SnapshotNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "SnapshotNotFoundFault"
-
--- |
-_InvalidSnapshotStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSnapshotStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidSnapshotStateFault"
-
--- |
-_SnapshotAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SnapshotAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "SnapshotAlreadyExistsFault"
-
--- |
-_DefaultUserRequired :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DefaultUserRequired =
-  Core._MatchServiceError
-    defaultService
-    "DefaultUserRequired"
-
--- |
-_ClusterNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "ClusterNotFoundFault"
-
--- |
-_TagNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TagNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "TagNotFoundFault"
-
--- |
-_SnapshotQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SnapshotQuotaExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "SnapshotQuotaExceededFault"
 
 -- |
 _NodeQuotaForClusterExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -624,25 +484,137 @@ _NodeQuotaForClusterExceededFault =
     "NodeQuotaForClusterExceededFault"
 
 -- |
-_APICallRateForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_APICallRateForCustomerExceededFault =
+_ClusterQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterQuotaForCustomerExceededFault =
   Core._MatchServiceError
     defaultService
-    "APICallRateForCustomerExceededFault"
+    "ClusterQuotaForCustomerExceededFault"
 
 -- |
-_InvalidClusterStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidClusterStateFault =
+_SubnetQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubnetQuotaExceededFault =
   Core._MatchServiceError
     defaultService
-    "InvalidClusterStateFault"
+    "SubnetQuotaExceededFault"
 
 -- |
-_ACLQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ACLQuotaExceededFault =
+_SnapshotQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SnapshotQuotaExceededFault =
   Core._MatchServiceError
     defaultService
-    "ACLQuotaExceededFault"
+    "SnapshotQuotaExceededFault"
+
+-- |
+_InvalidSubnet :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSubnet =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSubnet"
+
+-- |
+_ServiceUpdateNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUpdateNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUpdateNotFoundFault"
+
+-- |
+_UserNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "UserNotFoundFault"
+
+-- |
+_ACLNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ACLNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ACLNotFoundFault"
+
+-- |
+_ShardNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ShardNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ShardNotFoundFault"
+
+-- |
+_ClusterNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ClusterNotFoundFault"
+
+-- |
+_InvalidSnapshotStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSnapshotStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSnapshotStateFault"
+
+-- |
+_NoOperationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoOperationFault =
+  Core._MatchServiceError
+    defaultService
+    "NoOperationFault"
+
+-- |
+_UserAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "UserAlreadyExistsFault"
+
+-- |
+_TagNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "TagNotFoundFault"
+
+-- |
+_SubnetGroupInUseFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubnetGroupInUseFault =
+  Core._MatchServiceError
+    defaultService
+    "SubnetGroupInUseFault"
+
+-- |
+_ClusterAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "ClusterAlreadyExistsFault"
+
+-- |
+_ACLAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ACLAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "ACLAlreadyExistsFault"
+
+-- |
+_DefaultUserRequired :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DefaultUserRequired =
+  Core._MatchServiceError
+    defaultService
+    "DefaultUserRequired"
+
+-- |
+_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterCombinationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterCombinationException"
+
+-- |
+_ParameterGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterGroupAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "ParameterGroupAlreadyExistsFault"
 
 -- |
 _ServiceLinkedRoleNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -652,32 +624,74 @@ _ServiceLinkedRoleNotFoundFault =
     "ServiceLinkedRoleNotFoundFault"
 
 -- |
-_InvalidKMSKeyFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidKMSKeyFault =
+_ShardsPerClusterQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ShardsPerClusterQuotaExceededFault =
   Core._MatchServiceError
     defaultService
-    "InvalidKMSKeyFault"
+    "ShardsPerClusterQuotaExceededFault"
 
 -- |
-_InsufficientClusterCapacityFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InsufficientClusterCapacityFault =
+_InvalidParameterGroupStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterGroupStateFault =
   Core._MatchServiceError
     defaultService
-    "InsufficientClusterCapacityFault"
+    "InvalidParameterGroupStateFault"
 
 -- |
-_ParameterGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ParameterGroupQuotaExceededFault =
+_UserQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserQuotaExceededFault =
   Core._MatchServiceError
     defaultService
-    "ParameterGroupQuotaExceededFault"
+    "UserQuotaExceededFault"
 
 -- |
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterValueException =
+_DuplicateUserNameFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateUserNameFault =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterValueException"
+    "DuplicateUserNameFault"
+
+-- |
+_ParameterGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterGroupNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ParameterGroupNotFoundFault"
+
+-- |
+_InvalidACLStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidACLStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidACLStateFault"
+
+-- |
+_TagQuotaPerResourceExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagQuotaPerResourceExceeded =
+  Core._MatchServiceError
+    defaultService
+    "TagQuotaPerResourceExceeded"
+
+-- |
+_InvalidARNFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidARNFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidARNFault"
+
+-- |
+_SnapshotAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SnapshotAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "SnapshotAlreadyExistsFault"
+
+-- |
+_InvalidNodeStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNodeStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNodeStateFault"
 
 -- |
 _TestFailoverNotAvailableFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -687,11 +701,18 @@ _TestFailoverNotAvailableFault =
     "TestFailoverNotAvailableFault"
 
 -- |
-_SubnetNotAllowedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SubnetNotAllowedFault =
+_NodeQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NodeQuotaForCustomerExceededFault =
   Core._MatchServiceError
     defaultService
-    "SubnetNotAllowedFault"
+    "NodeQuotaForCustomerExceededFault"
+
+-- |
+_SubnetGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubnetGroupNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "SubnetGroupNotFoundFault"
 
 -- |
 _InvalidVPCNetworkStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -708,39 +729,32 @@ _SubnetInUse =
     "SubnetInUse"
 
 -- |
-_ClusterQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterQuotaForCustomerExceededFault =
+_InvalidUserStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidUserStateFault =
   Core._MatchServiceError
     defaultService
-    "ClusterQuotaForCustomerExceededFault"
+    "InvalidUserStateFault"
 
 -- |
-_InvalidACLStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidACLStateFault =
+_SnapshotNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SnapshotNotFoundFault =
   Core._MatchServiceError
     defaultService
-    "InvalidACLStateFault"
+    "SnapshotNotFoundFault"
 
 -- |
-_ShardsPerClusterQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ShardsPerClusterQuotaExceededFault =
+_InvalidClusterStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClusterStateFault =
   Core._MatchServiceError
     defaultService
-    "ShardsPerClusterQuotaExceededFault"
+    "InvalidClusterStateFault"
 
 -- |
-_ServiceUpdateNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUpdateNotFoundFault =
+_InvalidKMSKeyFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidKMSKeyFault =
   Core._MatchServiceError
     defaultService
-    "ServiceUpdateNotFoundFault"
-
--- |
-_SubnetGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SubnetGroupNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "SubnetGroupNotFoundFault"
+    "InvalidKMSKeyFault"
 
 -- |
 _SubnetGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -750,60 +764,32 @@ _SubnetGroupAlreadyExistsFault =
     "SubnetGroupAlreadyExistsFault"
 
 -- |
-_UserNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserNotFoundFault =
+_ParameterGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterGroupQuotaExceededFault =
   Core._MatchServiceError
     defaultService
-    "UserNotFoundFault"
+    "ParameterGroupQuotaExceededFault"
 
 -- |
-_NodeQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NodeQuotaForCustomerExceededFault =
+_InsufficientClusterCapacityFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientClusterCapacityFault =
   Core._MatchServiceError
     defaultService
-    "NodeQuotaForCustomerExceededFault"
+    "InsufficientClusterCapacityFault"
 
 -- |
-_SubnetGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SubnetGroupQuotaExceededFault =
+_ACLQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ACLQuotaExceededFault =
   Core._MatchServiceError
     defaultService
-    "SubnetGroupQuotaExceededFault"
+    "ACLQuotaExceededFault"
 
 -- |
-_DuplicateUserNameFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateUserNameFault =
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
-    "DuplicateUserNameFault"
-
--- |
-_ClusterAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "ClusterAlreadyExistsFault"
-
--- |
-_UserQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserQuotaExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "UserQuotaExceededFault"
-
--- |
-_InvalidARNFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidARNFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidARNFault"
-
--- |
-_NoOperationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoOperationFault =
-  Core._MatchServiceError
-    defaultService
-    "NoOperationFault"
+    "InvalidParameterValueException"
 
 -- |
 _InvalidCredentialsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -813,8 +799,22 @@ _InvalidCredentialsException =
     "InvalidCredentialsException"
 
 -- |
-_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterCombinationException =
+_SubnetNotAllowedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubnetNotAllowedFault =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterCombinationException"
+    "SubnetNotAllowedFault"
+
+-- |
+_APICallRateForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_APICallRateForCustomerExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "APICallRateForCustomerExceededFault"
+
+-- |
+_SubnetGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubnetGroupQuotaExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "SubnetGroupQuotaExceededFault"

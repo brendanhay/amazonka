@@ -29,10 +29,10 @@ module Amazonka.MemoryDb.DescribeClusters
     newDescribeClusters,
 
     -- * Request Lenses
-    describeClusters_showShardDetails,
     describeClusters_nextToken,
-    describeClusters_clusterName,
     describeClusters_maxResults,
+    describeClusters_showShardDetails,
+    describeClusters_clusterName,
 
     -- * Destructuring the Response
     DescribeClustersResponse (..),
@@ -54,21 +54,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-  { -- | An optional flag that can be included in the request to retrieve
-    -- information about the individual shard(s).
-    showShardDetails :: Prelude.Maybe Prelude.Bool,
-    -- | An optional argument to pass in case the total number of records exceeds
+  { -- | An optional argument to pass in case the total number of records exceeds
     -- the value of MaxResults. If nextToken is returned, there are more
     -- results available. The value of nextToken is a unique pagination token
     -- for each page. Make the call again using the returned token to retrieve
     -- the next page. Keep all other arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the cluster
-    clusterName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified MaxResults value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | An optional flag that can be included in the request to retrieve
+    -- information about the individual shard(s).
+    showShardDetails :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the cluster
+    clusterName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,35 +80,29 @@ data DescribeClusters = DescribeClusters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'showShardDetails', 'describeClusters_showShardDetails' - An optional flag that can be included in the request to retrieve
--- information about the individual shard(s).
---
 -- 'nextToken', 'describeClusters_nextToken' - An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
 -- results available. The value of nextToken is a unique pagination token
 -- for each page. Make the call again using the returned token to retrieve
 -- the next page. Keep all other arguments unchanged.
 --
--- 'clusterName', 'describeClusters_clusterName' - The name of the cluster
---
 -- 'maxResults', 'describeClusters_maxResults' - The maximum number of records to include in the response. If more
 -- records exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'showShardDetails', 'describeClusters_showShardDetails' - An optional flag that can be included in the request to retrieve
+-- information about the individual shard(s).
+--
+-- 'clusterName', 'describeClusters_clusterName' - The name of the cluster
 newDescribeClusters ::
   DescribeClusters
 newDescribeClusters =
   DescribeClusters'
-    { showShardDetails =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      clusterName = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      showShardDetails = Prelude.Nothing,
+      clusterName = Prelude.Nothing
     }
-
--- | An optional flag that can be included in the request to retrieve
--- information about the individual shard(s).
-describeClusters_showShardDetails :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Bool)
-describeClusters_showShardDetails = Lens.lens (\DescribeClusters' {showShardDetails} -> showShardDetails) (\s@DescribeClusters' {} a -> s {showShardDetails = a} :: DescribeClusters)
 
 -- | An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
@@ -118,15 +112,20 @@ describeClusters_showShardDetails = Lens.lens (\DescribeClusters' {showShardDeta
 describeClusters_nextToken :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Text)
 describeClusters_nextToken = Lens.lens (\DescribeClusters' {nextToken} -> nextToken) (\s@DescribeClusters' {} a -> s {nextToken = a} :: DescribeClusters)
 
--- | The name of the cluster
-describeClusters_clusterName :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Text)
-describeClusters_clusterName = Lens.lens (\DescribeClusters' {clusterName} -> clusterName) (\s@DescribeClusters' {} a -> s {clusterName = a} :: DescribeClusters)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
 describeClusters_maxResults :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Int)
 describeClusters_maxResults = Lens.lens (\DescribeClusters' {maxResults} -> maxResults) (\s@DescribeClusters' {} a -> s {maxResults = a} :: DescribeClusters)
+
+-- | An optional flag that can be included in the request to retrieve
+-- information about the individual shard(s).
+describeClusters_showShardDetails :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Bool)
+describeClusters_showShardDetails = Lens.lens (\DescribeClusters' {showShardDetails} -> showShardDetails) (\s@DescribeClusters' {} a -> s {showShardDetails = a} :: DescribeClusters)
+
+-- | The name of the cluster
+describeClusters_clusterName :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Text)
+describeClusters_clusterName = Lens.lens (\DescribeClusters' {clusterName} -> clusterName) (\s@DescribeClusters' {} a -> s {clusterName = a} :: DescribeClusters)
 
 instance Core.AWSRequest DescribeClusters where
   type
@@ -144,17 +143,17 @@ instance Core.AWSRequest DescribeClusters where
 
 instance Prelude.Hashable DescribeClusters where
   hashWithSalt _salt DescribeClusters' {..} =
-    _salt `Prelude.hashWithSalt` showShardDetails
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` clusterName
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` showShardDetails
+      `Prelude.hashWithSalt` clusterName
 
 instance Prelude.NFData DescribeClusters where
   rnf DescribeClusters' {..} =
-    Prelude.rnf showShardDetails
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf clusterName
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf showShardDetails
+      `Prelude.seq` Prelude.rnf clusterName
 
 instance Core.ToHeaders DescribeClusters where
   toHeaders =
@@ -175,11 +174,11 @@ instance Core.ToJSON DescribeClusters where
   toJSON DescribeClusters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ShowShardDetails" Core..=)
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ShowShardDetails" Core..=)
               Prelude.<$> showShardDetails,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ClusterName" Core..=) Prelude.<$> clusterName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("ClusterName" Core..=) Prelude.<$> clusterName
           ]
       )
 

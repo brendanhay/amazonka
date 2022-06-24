@@ -27,11 +27,11 @@ module Amazonka.MemoryDb.DescribeEngineVersions
     newDescribeEngineVersions,
 
     -- * Request Lenses
-    describeEngineVersions_engineVersion,
-    describeEngineVersions_defaultOnly,
     describeEngineVersions_nextToken,
     describeEngineVersions_parameterGroupFamily,
+    describeEngineVersions_defaultOnly,
     describeEngineVersions_maxResults,
+    describeEngineVersions_engineVersion,
 
     -- * Destructuring the Response
     DescribeEngineVersionsResponse (..),
@@ -53,12 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeEngineVersions' smart constructor.
 data DescribeEngineVersions = DescribeEngineVersions'
-  { -- | The Redis engine version
-    engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | If true, specifies that only the default version of the specified engine
-    -- or engine and major version combination is to be returned.
-    defaultOnly :: Prelude.Maybe Prelude.Bool,
-    -- | An optional argument to pass in case the total number of records exceeds
+  { -- | An optional argument to pass in case the total number of records exceeds
     -- the value of MaxResults. If nextToken is returned, there are more
     -- results available. The value of nextToken is a unique pagination token
     -- for each page. Make the call again using the returned token to retrieve
@@ -66,10 +61,15 @@ data DescribeEngineVersions = DescribeEngineVersions'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of a specific parameter group family to return details for.
     parameterGroupFamily :: Prelude.Maybe Prelude.Text,
+    -- | If true, specifies that only the default version of the specified engine
+    -- or engine and major version combination is to be returned.
+    defaultOnly :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified MaxResults value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The Redis engine version
+    engineVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,11 +81,6 @@ data DescribeEngineVersions = DescribeEngineVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineVersion', 'describeEngineVersions_engineVersion' - The Redis engine version
---
--- 'defaultOnly', 'describeEngineVersions_defaultOnly' - If true, specifies that only the default version of the specified engine
--- or engine and major version combination is to be returned.
---
 -- 'nextToken', 'describeEngineVersions_nextToken' - An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
 -- results available. The value of nextToken is a unique pagination token
@@ -94,29 +89,25 @@ data DescribeEngineVersions = DescribeEngineVersions'
 --
 -- 'parameterGroupFamily', 'describeEngineVersions_parameterGroupFamily' - The name of a specific parameter group family to return details for.
 --
+-- 'defaultOnly', 'describeEngineVersions_defaultOnly' - If true, specifies that only the default version of the specified engine
+-- or engine and major version combination is to be returned.
+--
 -- 'maxResults', 'describeEngineVersions_maxResults' - The maximum number of records to include in the response. If more
 -- records exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'engineVersion', 'describeEngineVersions_engineVersion' - The Redis engine version
 newDescribeEngineVersions ::
   DescribeEngineVersions
 newDescribeEngineVersions =
   DescribeEngineVersions'
-    { engineVersion =
+    { nextToken =
         Prelude.Nothing,
-      defaultOnly = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       parameterGroupFamily = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      defaultOnly = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      engineVersion = Prelude.Nothing
     }
-
--- | The Redis engine version
-describeEngineVersions_engineVersion :: Lens.Lens' DescribeEngineVersions (Prelude.Maybe Prelude.Text)
-describeEngineVersions_engineVersion = Lens.lens (\DescribeEngineVersions' {engineVersion} -> engineVersion) (\s@DescribeEngineVersions' {} a -> s {engineVersion = a} :: DescribeEngineVersions)
-
--- | If true, specifies that only the default version of the specified engine
--- or engine and major version combination is to be returned.
-describeEngineVersions_defaultOnly :: Lens.Lens' DescribeEngineVersions (Prelude.Maybe Prelude.Bool)
-describeEngineVersions_defaultOnly = Lens.lens (\DescribeEngineVersions' {defaultOnly} -> defaultOnly) (\s@DescribeEngineVersions' {} a -> s {defaultOnly = a} :: DescribeEngineVersions)
 
 -- | An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
@@ -130,11 +121,20 @@ describeEngineVersions_nextToken = Lens.lens (\DescribeEngineVersions' {nextToke
 describeEngineVersions_parameterGroupFamily :: Lens.Lens' DescribeEngineVersions (Prelude.Maybe Prelude.Text)
 describeEngineVersions_parameterGroupFamily = Lens.lens (\DescribeEngineVersions' {parameterGroupFamily} -> parameterGroupFamily) (\s@DescribeEngineVersions' {} a -> s {parameterGroupFamily = a} :: DescribeEngineVersions)
 
+-- | If true, specifies that only the default version of the specified engine
+-- or engine and major version combination is to be returned.
+describeEngineVersions_defaultOnly :: Lens.Lens' DescribeEngineVersions (Prelude.Maybe Prelude.Bool)
+describeEngineVersions_defaultOnly = Lens.lens (\DescribeEngineVersions' {defaultOnly} -> defaultOnly) (\s@DescribeEngineVersions' {} a -> s {defaultOnly = a} :: DescribeEngineVersions)
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
 describeEngineVersions_maxResults :: Lens.Lens' DescribeEngineVersions (Prelude.Maybe Prelude.Int)
 describeEngineVersions_maxResults = Lens.lens (\DescribeEngineVersions' {maxResults} -> maxResults) (\s@DescribeEngineVersions' {} a -> s {maxResults = a} :: DescribeEngineVersions)
+
+-- | The Redis engine version
+describeEngineVersions_engineVersion :: Lens.Lens' DescribeEngineVersions (Prelude.Maybe Prelude.Text)
+describeEngineVersions_engineVersion = Lens.lens (\DescribeEngineVersions' {engineVersion} -> engineVersion) (\s@DescribeEngineVersions' {} a -> s {engineVersion = a} :: DescribeEngineVersions)
 
 instance Core.AWSRequest DescribeEngineVersions where
   type
@@ -152,19 +152,19 @@ instance Core.AWSRequest DescribeEngineVersions where
 
 instance Prelude.Hashable DescribeEngineVersions where
   hashWithSalt _salt DescribeEngineVersions' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
-      `Prelude.hashWithSalt` defaultOnly
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` parameterGroupFamily
+      `Prelude.hashWithSalt` defaultOnly
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData DescribeEngineVersions where
   rnf DescribeEngineVersions' {..} =
-    Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf defaultOnly
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf parameterGroupFamily
+      `Prelude.seq` Prelude.rnf defaultOnly
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf engineVersion
 
 instance Core.ToHeaders DescribeEngineVersions where
   toHeaders =
@@ -185,12 +185,12 @@ instance Core.ToJSON DescribeEngineVersions where
   toJSON DescribeEngineVersions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            ("DefaultOnly" Core..=) Prelude.<$> defaultOnly,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("ParameterGroupFamily" Core..=)
               Prelude.<$> parameterGroupFamily,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("DefaultOnly" Core..=) Prelude.<$> defaultOnly,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("EngineVersion" Core..=) Prelude.<$> engineVersion
           ]
       )
 

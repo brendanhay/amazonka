@@ -28,8 +28,8 @@ module Amazonka.MemoryDb.DescribeACLs
 
     -- * Request Lenses
     describeACLs_nextToken,
-    describeACLs_maxResults,
     describeACLs_aCLName,
+    describeACLs_maxResults,
 
     -- * Destructuring the Response
     DescribeACLsResponse (..),
@@ -57,12 +57,12 @@ data DescribeACLs = DescribeACLs'
     -- for each page. Make the call again using the returned token to retrieve
     -- the next page. Keep all other arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the ACL
+    aCLName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified MaxResults value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The name of the ACL
-    aCLName :: Prelude.Maybe Prelude.Text
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,18 +80,18 @@ data DescribeACLs = DescribeACLs'
 -- for each page. Make the call again using the returned token to retrieve
 -- the next page. Keep all other arguments unchanged.
 --
+-- 'aCLName', 'describeACLs_aCLName' - The name of the ACL
+--
 -- 'maxResults', 'describeACLs_maxResults' - The maximum number of records to include in the response. If more
 -- records exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
---
--- 'aCLName', 'describeACLs_aCLName' - The name of the ACL
 newDescribeACLs ::
   DescribeACLs
 newDescribeACLs =
   DescribeACLs'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      aCLName = Prelude.Nothing
+      aCLName = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | An optional argument to pass in case the total number of records exceeds
@@ -102,15 +102,15 @@ newDescribeACLs =
 describeACLs_nextToken :: Lens.Lens' DescribeACLs (Prelude.Maybe Prelude.Text)
 describeACLs_nextToken = Lens.lens (\DescribeACLs' {nextToken} -> nextToken) (\s@DescribeACLs' {} a -> s {nextToken = a} :: DescribeACLs)
 
+-- | The name of the ACL
+describeACLs_aCLName :: Lens.Lens' DescribeACLs (Prelude.Maybe Prelude.Text)
+describeACLs_aCLName = Lens.lens (\DescribeACLs' {aCLName} -> aCLName) (\s@DescribeACLs' {} a -> s {aCLName = a} :: DescribeACLs)
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
 describeACLs_maxResults :: Lens.Lens' DescribeACLs (Prelude.Maybe Prelude.Int)
 describeACLs_maxResults = Lens.lens (\DescribeACLs' {maxResults} -> maxResults) (\s@DescribeACLs' {} a -> s {maxResults = a} :: DescribeACLs)
-
--- | The name of the ACL
-describeACLs_aCLName :: Lens.Lens' DescribeACLs (Prelude.Maybe Prelude.Text)
-describeACLs_aCLName = Lens.lens (\DescribeACLs' {aCLName} -> aCLName) (\s@DescribeACLs' {} a -> s {aCLName = a} :: DescribeACLs)
 
 instance Core.AWSRequest DescribeACLs where
   type AWSResponse DescribeACLs = DescribeACLsResponse
@@ -127,14 +127,14 @@ instance Core.AWSRequest DescribeACLs where
 instance Prelude.Hashable DescribeACLs where
   hashWithSalt _salt DescribeACLs' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` aCLName
+      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeACLs where
   rnf DescribeACLs' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf aCLName
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeACLs where
   toHeaders =
@@ -156,8 +156,8 @@ instance Core.ToJSON DescribeACLs where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ACLName" Core..=) Prelude.<$> aCLName
+            ("ACLName" Core..=) Prelude.<$> aCLName,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 

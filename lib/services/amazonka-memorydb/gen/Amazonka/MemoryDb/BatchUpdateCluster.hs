@@ -37,8 +37,8 @@ module Amazonka.MemoryDb.BatchUpdateCluster
     newBatchUpdateClusterResponse,
 
     -- * Response Lenses
-    batchUpdateClusterResponse_unprocessedClusters,
     batchUpdateClusterResponse_processedClusters,
+    batchUpdateClusterResponse_unprocessedClusters,
     batchUpdateClusterResponse_httpStatus,
   )
 where
@@ -96,10 +96,10 @@ instance Core.AWSRequest BatchUpdateCluster where
     Response.receiveJSON
       ( \s h x ->
           BatchUpdateClusterResponse'
-            Prelude.<$> ( x Core..?> "UnprocessedClusters"
+            Prelude.<$> ( x Core..?> "ProcessedClusters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "ProcessedClusters"
+            Prelude.<*> ( x Core..?> "UnprocessedClusters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -147,10 +147,10 @@ instance Core.ToQuery BatchUpdateCluster where
 
 -- | /See:/ 'newBatchUpdateClusterResponse' smart constructor.
 data BatchUpdateClusterResponse = BatchUpdateClusterResponse'
-  { -- | The list of clusters where updates have not been applied.
-    unprocessedClusters :: Prelude.Maybe [UnprocessedCluster],
-    -- | The list of clusters that have been updated.
+  { -- | The list of clusters that have been updated.
     processedClusters :: Prelude.Maybe [Cluster],
+    -- | The list of clusters where updates have not been applied.
+    unprocessedClusters :: Prelude.Maybe [UnprocessedCluster],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,9 +164,9 @@ data BatchUpdateClusterResponse = BatchUpdateClusterResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unprocessedClusters', 'batchUpdateClusterResponse_unprocessedClusters' - The list of clusters where updates have not been applied.
---
 -- 'processedClusters', 'batchUpdateClusterResponse_processedClusters' - The list of clusters that have been updated.
+--
+-- 'unprocessedClusters', 'batchUpdateClusterResponse_unprocessedClusters' - The list of clusters where updates have not been applied.
 --
 -- 'httpStatus', 'batchUpdateClusterResponse_httpStatus' - The response's http status code.
 newBatchUpdateClusterResponse ::
@@ -175,19 +175,19 @@ newBatchUpdateClusterResponse ::
   BatchUpdateClusterResponse
 newBatchUpdateClusterResponse pHttpStatus_ =
   BatchUpdateClusterResponse'
-    { unprocessedClusters =
+    { processedClusters =
         Prelude.Nothing,
-      processedClusters = Prelude.Nothing,
+      unprocessedClusters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of clusters where updates have not been applied.
-batchUpdateClusterResponse_unprocessedClusters :: Lens.Lens' BatchUpdateClusterResponse (Prelude.Maybe [UnprocessedCluster])
-batchUpdateClusterResponse_unprocessedClusters = Lens.lens (\BatchUpdateClusterResponse' {unprocessedClusters} -> unprocessedClusters) (\s@BatchUpdateClusterResponse' {} a -> s {unprocessedClusters = a} :: BatchUpdateClusterResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of clusters that have been updated.
 batchUpdateClusterResponse_processedClusters :: Lens.Lens' BatchUpdateClusterResponse (Prelude.Maybe [Cluster])
 batchUpdateClusterResponse_processedClusters = Lens.lens (\BatchUpdateClusterResponse' {processedClusters} -> processedClusters) (\s@BatchUpdateClusterResponse' {} a -> s {processedClusters = a} :: BatchUpdateClusterResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of clusters where updates have not been applied.
+batchUpdateClusterResponse_unprocessedClusters :: Lens.Lens' BatchUpdateClusterResponse (Prelude.Maybe [UnprocessedCluster])
+batchUpdateClusterResponse_unprocessedClusters = Lens.lens (\BatchUpdateClusterResponse' {unprocessedClusters} -> unprocessedClusters) (\s@BatchUpdateClusterResponse' {} a -> s {unprocessedClusters = a} :: BatchUpdateClusterResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchUpdateClusterResponse_httpStatus :: Lens.Lens' BatchUpdateClusterResponse Prelude.Int
@@ -195,6 +195,6 @@ batchUpdateClusterResponse_httpStatus = Lens.lens (\BatchUpdateClusterResponse' 
 
 instance Prelude.NFData BatchUpdateClusterResponse where
   rnf BatchUpdateClusterResponse' {..} =
-    Prelude.rnf unprocessedClusters
-      `Prelude.seq` Prelude.rnf processedClusters
+    Prelude.rnf processedClusters
+      `Prelude.seq` Prelude.rnf unprocessedClusters
       `Prelude.seq` Prelude.rnf httpStatus

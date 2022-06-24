@@ -28,8 +28,8 @@ module Amazonka.MemoryDb.CreateACL
     newCreateACL,
 
     -- * Request Lenses
-    createACL_userNames,
     createACL_tags,
+    createACL_userNames,
     createACL_aCLName,
 
     -- * Destructuring the Response
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateACL' smart constructor.
 data CreateACL = CreateACL'
-  { -- | The list of users that belong to the Access Control List.
-    userNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A list of tags to be added to this resource. A tag is a key-value pair.
+  { -- | A list of tags to be added to this resource. A tag is a key-value pair.
     -- A tag key must be accompanied by a tag value, although null is accepted.
     tags :: Prelude.Maybe [Tag],
+    -- | The list of users that belong to the Access Control List.
+    userNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the Access Control List.
     aCLName :: Prelude.Text
   }
@@ -69,10 +69,10 @@ data CreateACL = CreateACL'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userNames', 'createACL_userNames' - The list of users that belong to the Access Control List.
---
 -- 'tags', 'createACL_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
+--
+-- 'userNames', 'createACL_userNames' - The list of users that belong to the Access Control List.
 --
 -- 'aCLName', 'createACL_aCLName' - The name of the Access Control List.
 newCreateACL ::
@@ -81,19 +81,19 @@ newCreateACL ::
   CreateACL
 newCreateACL pACLName_ =
   CreateACL'
-    { userNames = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      userNames = Prelude.Nothing,
       aCLName = pACLName_
     }
-
--- | The list of users that belong to the Access Control List.
-createACL_userNames :: Lens.Lens' CreateACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createACL_userNames = Lens.lens (\CreateACL' {userNames} -> userNames) (\s@CreateACL' {} a -> s {userNames = a} :: CreateACL) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
 createACL_tags :: Lens.Lens' CreateACL (Prelude.Maybe [Tag])
 createACL_tags = Lens.lens (\CreateACL' {tags} -> tags) (\s@CreateACL' {} a -> s {tags = a} :: CreateACL) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of users that belong to the Access Control List.
+createACL_userNames :: Lens.Lens' CreateACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createACL_userNames = Lens.lens (\CreateACL' {userNames} -> userNames) (\s@CreateACL' {} a -> s {userNames = a} :: CreateACL) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Access Control List.
 createACL_aCLName :: Lens.Lens' CreateACL Prelude.Text
@@ -112,14 +112,14 @@ instance Core.AWSRequest CreateACL where
 
 instance Prelude.Hashable CreateACL where
   hashWithSalt _salt CreateACL' {..} =
-    _salt `Prelude.hashWithSalt` userNames
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` userNames
       `Prelude.hashWithSalt` aCLName
 
 instance Prelude.NFData CreateACL where
   rnf CreateACL' {..} =
-    Prelude.rnf userNames
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf userNames
       `Prelude.seq` Prelude.rnf aCLName
 
 instance Core.ToHeaders CreateACL where
@@ -139,8 +139,8 @@ instance Core.ToJSON CreateACL where
   toJSON CreateACL' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UserNames" Core..=) Prelude.<$> userNames,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("UserNames" Core..=) Prelude.<$> userNames,
             Prelude.Just ("ACLName" Core..= aCLName)
           ]
       )

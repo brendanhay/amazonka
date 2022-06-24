@@ -29,9 +29,9 @@ module Amazonka.MemoryDb.DescribeParameterGroups
     newDescribeParameterGroups,
 
     -- * Request Lenses
+    describeParameterGroups_parameterGroupName,
     describeParameterGroups_nextToken,
     describeParameterGroups_maxResults,
-    describeParameterGroups_parameterGroupName,
 
     -- * Destructuring the Response
     DescribeParameterGroupsResponse (..),
@@ -53,7 +53,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeParameterGroups' smart constructor.
 data DescribeParameterGroups = DescribeParameterGroups'
-  { -- | An optional argument to pass in case the total number of records exceeds
+  { -- | The name of a specific parameter group to return details for.
+    parameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | An optional argument to pass in case the total number of records exceeds
     -- the value of MaxResults. If nextToken is returned, there are more
     -- results available. The value of nextToken is a unique pagination token
     -- for each page. Make the call again using the returned token to retrieve
@@ -62,9 +64,7 @@ data DescribeParameterGroups = DescribeParameterGroups'
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified MaxResults value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The name of a specific parameter group to return details for.
-    parameterGroupName :: Prelude.Maybe Prelude.Text
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,6 +76,8 @@ data DescribeParameterGroups = DescribeParameterGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'parameterGroupName', 'describeParameterGroups_parameterGroupName' - The name of a specific parameter group to return details for.
+--
 -- 'nextToken', 'describeParameterGroups_nextToken' - An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
 -- results available. The value of nextToken is a unique pagination token
@@ -85,17 +87,19 @@ data DescribeParameterGroups = DescribeParameterGroups'
 -- 'maxResults', 'describeParameterGroups_maxResults' - The maximum number of records to include in the response. If more
 -- records exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
---
--- 'parameterGroupName', 'describeParameterGroups_parameterGroupName' - The name of a specific parameter group to return details for.
 newDescribeParameterGroups ::
   DescribeParameterGroups
 newDescribeParameterGroups =
   DescribeParameterGroups'
-    { nextToken =
+    { parameterGroupName =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      parameterGroupName = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | The name of a specific parameter group to return details for.
+describeParameterGroups_parameterGroupName :: Lens.Lens' DescribeParameterGroups (Prelude.Maybe Prelude.Text)
+describeParameterGroups_parameterGroupName = Lens.lens (\DescribeParameterGroups' {parameterGroupName} -> parameterGroupName) (\s@DescribeParameterGroups' {} a -> s {parameterGroupName = a} :: DescribeParameterGroups)
 
 -- | An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
@@ -110,10 +114,6 @@ describeParameterGroups_nextToken = Lens.lens (\DescribeParameterGroups' {nextTo
 -- in the response so that the remaining results can be retrieved.
 describeParameterGroups_maxResults :: Lens.Lens' DescribeParameterGroups (Prelude.Maybe Prelude.Int)
 describeParameterGroups_maxResults = Lens.lens (\DescribeParameterGroups' {maxResults} -> maxResults) (\s@DescribeParameterGroups' {} a -> s {maxResults = a} :: DescribeParameterGroups)
-
--- | The name of a specific parameter group to return details for.
-describeParameterGroups_parameterGroupName :: Lens.Lens' DescribeParameterGroups (Prelude.Maybe Prelude.Text)
-describeParameterGroups_parameterGroupName = Lens.lens (\DescribeParameterGroups' {parameterGroupName} -> parameterGroupName) (\s@DescribeParameterGroups' {} a -> s {parameterGroupName = a} :: DescribeParameterGroups)
 
 instance Core.AWSRequest DescribeParameterGroups where
   type
@@ -133,15 +133,15 @@ instance Core.AWSRequest DescribeParameterGroups where
 
 instance Prelude.Hashable DescribeParameterGroups where
   hashWithSalt _salt DescribeParameterGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` parameterGroupName
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` parameterGroupName
 
 instance Prelude.NFData DescribeParameterGroups where
   rnf DescribeParameterGroups' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf parameterGroupName
 
 instance Core.ToHeaders DescribeParameterGroups where
   toHeaders =
@@ -162,10 +162,10 @@ instance Core.ToJSON DescribeParameterGroups where
   toJSON DescribeParameterGroups' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ParameterGroupName" Core..=)
-              Prelude.<$> parameterGroupName
+          [ ("ParameterGroupName" Core..=)
+              Prelude.<$> parameterGroupName,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 

@@ -30,218 +30,218 @@ import Test.Tasty
 --         [ requestCreateApi $
 --             newCreateApi
 --
---         , requestGetDeployments $
---             newGetDeployments
---
---         , requestDeleteAccessLogSettings $
---             newDeleteAccessLogSettings
---
---         , requestGetRouteResponses $
---             newGetRouteResponses
---
---         , requestGetDeployment $
---             newGetDeployment
---
---         , requestGetTags $
---             newGetTags
---
---         , requestGetDomainNames $
---             newGetDomainNames
---
---         , requestReimportApi $
---             newReimportApi
---
---         , requestGetModels $
---             newGetModels
---
---         , requestCreateIntegration $
---             newCreateIntegration
---
---         , requestDeleteStage $
---             newDeleteStage
---
---         , requestUpdateStage $
---             newUpdateStage
---
---         , requestDeleteRouteSettings $
---             newDeleteRouteSettings
---
---         , requestCreateDeployment $
---             newCreateDeployment
---
---         , requestDeleteRoute $
---             newDeleteRoute
---
---         , requestUpdateRoute $
---             newUpdateRoute
---
---         , requestGetVpcLinks $
---             newGetVpcLinks
---
---         , requestGetIntegrationResponses $
---             newGetIntegrationResponses
---
---         , requestGetIntegration $
---             newGetIntegration
---
---         , requestDeleteDeployment $
---             newDeleteDeployment
---
---         , requestUpdateDeployment $
---             newUpdateDeployment
---
---         , requestDeleteRouteResponse $
---             newDeleteRouteResponse
---
---         , requestUpdateRouteResponse $
---             newUpdateRouteResponse
---
---         , requestGetVpcLink $
---             newGetVpcLink
---
---         , requestResetAuthorizersCache $
---             newResetAuthorizersCache
---
---         , requestCreateModel $
---             newCreateModel
---
---         , requestGetIntegrationResponse $
---             newGetIntegrationResponse
---
---         , requestCreateDomainName $
---             newCreateDomainName
---
---         , requestDeleteModel $
---             newDeleteModel
---
---         , requestUpdateModel $
---             newUpdateModel
---
---         , requestCreateRouteResponse $
---             newCreateRouteResponse
---
---         , requestGetStages $
---             newGetStages
---
---         , requestGetModel $
---             newGetModel
---
---         , requestGetApiMappings $
---             newGetApiMappings
---
---         , requestCreateIntegrationResponse $
---             newCreateIntegrationResponse
---
---         , requestGetDomainName $
---             newGetDomainName
---
---         , requestCreateVpcLink $
---             newCreateVpcLink
---
---         , requestGetAuthorizers $
---             newGetAuthorizers
---
---         , requestGetRouteResponse $
---             newGetRouteResponse
---
---         , requestExportApi $
---             newExportApi
---
---         , requestGetRoutes $
---             newGetRoutes
---
---         , requestDeleteCorsConfiguration $
---             newDeleteCorsConfiguration
---
---         , requestDeleteVpcLink $
---             newDeleteVpcLink
---
---         , requestUpdateVpcLink $
---             newUpdateVpcLink
---
---         , requestDeleteIntegrationResponse $
---             newDeleteIntegrationResponse
---
---         , requestUpdateIntegrationResponse $
---             newUpdateIntegrationResponse
---
---         , requestDeleteIntegration $
---             newDeleteIntegration
---
---         , requestUpdateIntegration $
---             newUpdateIntegration
---
---         , requestGetRoute $
---             newGetRoute
---
---         , requestGetAuthorizer $
---             newGetAuthorizer
---
---         , requestGetStage $
---             newGetStage
---
---         , requestGetApiMapping $
---             newGetApiMapping
---
---         , requestImportApi $
---             newImportApi
---
---         , requestGetApis $
---             newGetApis
---
---         , requestUpdateApiMapping $
---             newUpdateApiMapping
---
---         , requestDeleteApiMapping $
---             newDeleteApiMapping
---
---         , requestCreateRoute $
---             newCreateRoute
+--         , requestCreateApiMapping $
+--             newCreateApiMapping
 --
 --         , requestCreateAuthorizer $
 --             newCreateAuthorizer
 --
---         , requestUpdateAuthorizer $
---             newUpdateAuthorizer
+--         , requestCreateDeployment $
+--             newCreateDeployment
 --
---         , requestDeleteAuthorizer $
---             newDeleteAuthorizer
+--         , requestCreateDomainName $
+--             newCreateDomainName
 --
---         , requestCreateApiMapping $
---             newCreateApiMapping
+--         , requestCreateIntegration $
+--             newCreateIntegration
 --
---         , requestDeleteRouteRequestParameter $
---             newDeleteRouteRequestParameter
+--         , requestCreateIntegrationResponse $
+--             newCreateIntegrationResponse
 --
---         , requestTagResource $
---             newTagResource
+--         , requestCreateModel $
+--             newCreateModel
+--
+--         , requestCreateRoute $
+--             newCreateRoute
+--
+--         , requestCreateRouteResponse $
+--             newCreateRouteResponse
 --
 --         , requestCreateStage $
 --             newCreateStage
 --
---         , requestGetIntegrations $
---             newGetIntegrations
+--         , requestCreateVpcLink $
+--             newCreateVpcLink
 --
---         , requestUntagResource $
---             newUntagResource
---
---         , requestUpdateDomainName $
---             newUpdateDomainName
---
---         , requestDeleteDomainName $
---             newDeleteDomainName
---
---         , requestGetApi $
---             newGetApi
+--         , requestDeleteAccessLogSettings $
+--             newDeleteAccessLogSettings
 --
 --         , requestDeleteApi $
 --             newDeleteApi
 --
---         , requestUpdateApi $
---             newUpdateApi
+--         , requestDeleteApiMapping $
+--             newDeleteApiMapping
+--
+--         , requestDeleteAuthorizer $
+--             newDeleteAuthorizer
+--
+--         , requestDeleteCorsConfiguration $
+--             newDeleteCorsConfiguration
+--
+--         , requestDeleteDeployment $
+--             newDeleteDeployment
+--
+--         , requestDeleteDomainName $
+--             newDeleteDomainName
+--
+--         , requestDeleteIntegration $
+--             newDeleteIntegration
+--
+--         , requestDeleteIntegrationResponse $
+--             newDeleteIntegrationResponse
+--
+--         , requestDeleteModel $
+--             newDeleteModel
+--
+--         , requestDeleteRoute $
+--             newDeleteRoute
+--
+--         , requestDeleteRouteRequestParameter $
+--             newDeleteRouteRequestParameter
+--
+--         , requestDeleteRouteResponse $
+--             newDeleteRouteResponse
+--
+--         , requestDeleteRouteSettings $
+--             newDeleteRouteSettings
+--
+--         , requestDeleteStage $
+--             newDeleteStage
+--
+--         , requestDeleteVpcLink $
+--             newDeleteVpcLink
+--
+--         , requestExportApi $
+--             newExportApi
+--
+--         , requestGetApi $
+--             newGetApi
+--
+--         , requestGetApiMapping $
+--             newGetApiMapping
+--
+--         , requestGetApiMappings $
+--             newGetApiMappings
+--
+--         , requestGetApis $
+--             newGetApis
+--
+--         , requestGetAuthorizer $
+--             newGetAuthorizer
+--
+--         , requestGetAuthorizers $
+--             newGetAuthorizers
+--
+--         , requestGetDeployment $
+--             newGetDeployment
+--
+--         , requestGetDeployments $
+--             newGetDeployments
+--
+--         , requestGetDomainName $
+--             newGetDomainName
+--
+--         , requestGetDomainNames $
+--             newGetDomainNames
+--
+--         , requestGetIntegration $
+--             newGetIntegration
+--
+--         , requestGetIntegrationResponse $
+--             newGetIntegrationResponse
+--
+--         , requestGetIntegrationResponses $
+--             newGetIntegrationResponses
+--
+--         , requestGetIntegrations $
+--             newGetIntegrations
+--
+--         , requestGetModel $
+--             newGetModel
 --
 --         , requestGetModelTemplate $
 --             newGetModelTemplate
+--
+--         , requestGetModels $
+--             newGetModels
+--
+--         , requestGetRoute $
+--             newGetRoute
+--
+--         , requestGetRouteResponse $
+--             newGetRouteResponse
+--
+--         , requestGetRouteResponses $
+--             newGetRouteResponses
+--
+--         , requestGetRoutes $
+--             newGetRoutes
+--
+--         , requestGetStage $
+--             newGetStage
+--
+--         , requestGetStages $
+--             newGetStages
+--
+--         , requestGetTags $
+--             newGetTags
+--
+--         , requestGetVpcLink $
+--             newGetVpcLink
+--
+--         , requestGetVpcLinks $
+--             newGetVpcLinks
+--
+--         , requestImportApi $
+--             newImportApi
+--
+--         , requestReimportApi $
+--             newReimportApi
+--
+--         , requestResetAuthorizersCache $
+--             newResetAuthorizersCache
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateApi $
+--             newUpdateApi
+--
+--         , requestUpdateApiMapping $
+--             newUpdateApiMapping
+--
+--         , requestUpdateAuthorizer $
+--             newUpdateAuthorizer
+--
+--         , requestUpdateDeployment $
+--             newUpdateDeployment
+--
+--         , requestUpdateDomainName $
+--             newUpdateDomainName
+--
+--         , requestUpdateIntegration $
+--             newUpdateIntegration
+--
+--         , requestUpdateIntegrationResponse $
+--             newUpdateIntegrationResponse
+--
+--         , requestUpdateModel $
+--             newUpdateModel
+--
+--         , requestUpdateRoute $
+--             newUpdateRoute
+--
+--         , requestUpdateRouteResponse $
+--             newUpdateRouteResponse
+--
+--         , requestUpdateStage $
+--             newUpdateStage
+--
+--         , requestUpdateVpcLink $
+--             newUpdateVpcLink
 --
 --           ]
 
@@ -249,218 +249,218 @@ import Test.Tasty
 --         [ responseCreateApi $
 --             newCreateApiResponse
 --
---         , responseGetDeployments $
---             newGetDeploymentsResponse
---
---         , responseDeleteAccessLogSettings $
---             newDeleteAccessLogSettingsResponse
---
---         , responseGetRouteResponses $
---             newGetRouteResponsesResponse
---
---         , responseGetDeployment $
---             newGetDeploymentResponse
---
---         , responseGetTags $
---             newGetTagsResponse
---
---         , responseGetDomainNames $
---             newGetDomainNamesResponse
---
---         , responseReimportApi $
---             newReimportApiResponse
---
---         , responseGetModels $
---             newGetModelsResponse
---
---         , responseCreateIntegration $
---             newCreateIntegrationResponse'
---
---         , responseDeleteStage $
---             newDeleteStageResponse
---
---         , responseUpdateStage $
---             newUpdateStageResponse
---
---         , responseDeleteRouteSettings $
---             newDeleteRouteSettingsResponse
---
---         , responseCreateDeployment $
---             newCreateDeploymentResponse
---
---         , responseDeleteRoute $
---             newDeleteRouteResponse'
---
---         , responseUpdateRoute $
---             newUpdateRouteResponse'
---
---         , responseGetVpcLinks $
---             newGetVpcLinksResponse
---
---         , responseGetIntegrationResponses $
---             newGetIntegrationResponsesResponse
---
---         , responseGetIntegration $
---             newGetIntegrationResponse'
---
---         , responseDeleteDeployment $
---             newDeleteDeploymentResponse
---
---         , responseUpdateDeployment $
---             newUpdateDeploymentResponse
---
---         , responseDeleteRouteResponse $
---             newDeleteRouteResponseResponse
---
---         , responseUpdateRouteResponse $
---             newUpdateRouteResponseResponse
---
---         , responseGetVpcLink $
---             newGetVpcLinkResponse
---
---         , responseResetAuthorizersCache $
---             newResetAuthorizersCacheResponse
---
---         , responseCreateModel $
---             newCreateModelResponse
---
---         , responseGetIntegrationResponse $
---             newGetIntegrationResponseResponse
---
---         , responseCreateDomainName $
---             newCreateDomainNameResponse
---
---         , responseDeleteModel $
---             newDeleteModelResponse
---
---         , responseUpdateModel $
---             newUpdateModelResponse
---
---         , responseCreateRouteResponse $
---             newCreateRouteResponseResponse
---
---         , responseGetStages $
---             newGetStagesResponse
---
---         , responseGetModel $
---             newGetModelResponse
---
---         , responseGetApiMappings $
---             newGetApiMappingsResponse
---
---         , responseCreateIntegrationResponse $
---             newCreateIntegrationResponseResponse
---
---         , responseGetDomainName $
---             newGetDomainNameResponse
---
---         , responseCreateVpcLink $
---             newCreateVpcLinkResponse
---
---         , responseGetAuthorizers $
---             newGetAuthorizersResponse
---
---         , responseGetRouteResponse $
---             newGetRouteResponseResponse
---
---         , responseExportApi $
---             newExportApiResponse
---
---         , responseGetRoutes $
---             newGetRoutesResponse
---
---         , responseDeleteCorsConfiguration $
---             newDeleteCorsConfigurationResponse
---
---         , responseDeleteVpcLink $
---             newDeleteVpcLinkResponse
---
---         , responseUpdateVpcLink $
---             newUpdateVpcLinkResponse
---
---         , responseDeleteIntegrationResponse $
---             newDeleteIntegrationResponseResponse
---
---         , responseUpdateIntegrationResponse $
---             newUpdateIntegrationResponseResponse
---
---         , responseDeleteIntegration $
---             newDeleteIntegrationResponse'
---
---         , responseUpdateIntegration $
---             newUpdateIntegrationResponse'
---
---         , responseGetRoute $
---             newGetRouteResponse'
---
---         , responseGetAuthorizer $
---             newGetAuthorizerResponse
---
---         , responseGetStage $
---             newGetStageResponse
---
---         , responseGetApiMapping $
---             newGetApiMappingResponse
---
---         , responseImportApi $
---             newImportApiResponse
---
---         , responseGetApis $
---             newGetApisResponse
---
---         , responseUpdateApiMapping $
---             newUpdateApiMappingResponse
---
---         , responseDeleteApiMapping $
---             newDeleteApiMappingResponse
---
---         , responseCreateRoute $
---             newCreateRouteResponse'
+--         , responseCreateApiMapping $
+--             newCreateApiMappingResponse
 --
 --         , responseCreateAuthorizer $
 --             newCreateAuthorizerResponse
 --
---         , responseUpdateAuthorizer $
---             newUpdateAuthorizerResponse
+--         , responseCreateDeployment $
+--             newCreateDeploymentResponse
 --
---         , responseDeleteAuthorizer $
---             newDeleteAuthorizerResponse
+--         , responseCreateDomainName $
+--             newCreateDomainNameResponse
 --
---         , responseCreateApiMapping $
---             newCreateApiMappingResponse
+--         , responseCreateIntegration $
+--             newCreateIntegrationResponse'
 --
---         , responseDeleteRouteRequestParameter $
---             newDeleteRouteRequestParameterResponse
+--         , responseCreateIntegrationResponse $
+--             newCreateIntegrationResponseResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseCreateModel $
+--             newCreateModelResponse
+--
+--         , responseCreateRoute $
+--             newCreateRouteResponse'
+--
+--         , responseCreateRouteResponse $
+--             newCreateRouteResponseResponse
 --
 --         , responseCreateStage $
 --             newCreateStageResponse
 --
---         , responseGetIntegrations $
---             newGetIntegrationsResponse
+--         , responseCreateVpcLink $
+--             newCreateVpcLinkResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseUpdateDomainName $
---             newUpdateDomainNameResponse
---
---         , responseDeleteDomainName $
---             newDeleteDomainNameResponse
---
---         , responseGetApi $
---             newGetApiResponse
+--         , responseDeleteAccessLogSettings $
+--             newDeleteAccessLogSettingsResponse
 --
 --         , responseDeleteApi $
 --             newDeleteApiResponse
 --
---         , responseUpdateApi $
---             newUpdateApiResponse
+--         , responseDeleteApiMapping $
+--             newDeleteApiMappingResponse
+--
+--         , responseDeleteAuthorizer $
+--             newDeleteAuthorizerResponse
+--
+--         , responseDeleteCorsConfiguration $
+--             newDeleteCorsConfigurationResponse
+--
+--         , responseDeleteDeployment $
+--             newDeleteDeploymentResponse
+--
+--         , responseDeleteDomainName $
+--             newDeleteDomainNameResponse
+--
+--         , responseDeleteIntegration $
+--             newDeleteIntegrationResponse'
+--
+--         , responseDeleteIntegrationResponse $
+--             newDeleteIntegrationResponseResponse
+--
+--         , responseDeleteModel $
+--             newDeleteModelResponse
+--
+--         , responseDeleteRoute $
+--             newDeleteRouteResponse'
+--
+--         , responseDeleteRouteRequestParameter $
+--             newDeleteRouteRequestParameterResponse
+--
+--         , responseDeleteRouteResponse $
+--             newDeleteRouteResponseResponse
+--
+--         , responseDeleteRouteSettings $
+--             newDeleteRouteSettingsResponse
+--
+--         , responseDeleteStage $
+--             newDeleteStageResponse
+--
+--         , responseDeleteVpcLink $
+--             newDeleteVpcLinkResponse
+--
+--         , responseExportApi $
+--             newExportApiResponse
+--
+--         , responseGetApi $
+--             newGetApiResponse
+--
+--         , responseGetApiMapping $
+--             newGetApiMappingResponse
+--
+--         , responseGetApiMappings $
+--             newGetApiMappingsResponse
+--
+--         , responseGetApis $
+--             newGetApisResponse
+--
+--         , responseGetAuthorizer $
+--             newGetAuthorizerResponse
+--
+--         , responseGetAuthorizers $
+--             newGetAuthorizersResponse
+--
+--         , responseGetDeployment $
+--             newGetDeploymentResponse
+--
+--         , responseGetDeployments $
+--             newGetDeploymentsResponse
+--
+--         , responseGetDomainName $
+--             newGetDomainNameResponse
+--
+--         , responseGetDomainNames $
+--             newGetDomainNamesResponse
+--
+--         , responseGetIntegration $
+--             newGetIntegrationResponse'
+--
+--         , responseGetIntegrationResponse $
+--             newGetIntegrationResponseResponse
+--
+--         , responseGetIntegrationResponses $
+--             newGetIntegrationResponsesResponse
+--
+--         , responseGetIntegrations $
+--             newGetIntegrationsResponse
+--
+--         , responseGetModel $
+--             newGetModelResponse
 --
 --         , responseGetModelTemplate $
 --             newGetModelTemplateResponse
+--
+--         , responseGetModels $
+--             newGetModelsResponse
+--
+--         , responseGetRoute $
+--             newGetRouteResponse'
+--
+--         , responseGetRouteResponse $
+--             newGetRouteResponseResponse
+--
+--         , responseGetRouteResponses $
+--             newGetRouteResponsesResponse
+--
+--         , responseGetRoutes $
+--             newGetRoutesResponse
+--
+--         , responseGetStage $
+--             newGetStageResponse
+--
+--         , responseGetStages $
+--             newGetStagesResponse
+--
+--         , responseGetTags $
+--             newGetTagsResponse
+--
+--         , responseGetVpcLink $
+--             newGetVpcLinkResponse
+--
+--         , responseGetVpcLinks $
+--             newGetVpcLinksResponse
+--
+--         , responseImportApi $
+--             newImportApiResponse
+--
+--         , responseReimportApi $
+--             newReimportApiResponse
+--
+--         , responseResetAuthorizersCache $
+--             newResetAuthorizersCacheResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateApi $
+--             newUpdateApiResponse
+--
+--         , responseUpdateApiMapping $
+--             newUpdateApiMappingResponse
+--
+--         , responseUpdateAuthorizer $
+--             newUpdateAuthorizerResponse
+--
+--         , responseUpdateDeployment $
+--             newUpdateDeploymentResponse
+--
+--         , responseUpdateDomainName $
+--             newUpdateDomainNameResponse
+--
+--         , responseUpdateIntegration $
+--             newUpdateIntegrationResponse'
+--
+--         , responseUpdateIntegrationResponse $
+--             newUpdateIntegrationResponseResponse
+--
+--         , responseUpdateModel $
+--             newUpdateModelResponse
+--
+--         , responseUpdateRoute $
+--             newUpdateRouteResponse'
+--
+--         , responseUpdateRouteResponse $
+--             newUpdateRouteResponseResponse
+--
+--         , responseUpdateStage $
+--             newUpdateStageResponse
+--
+--         , responseUpdateVpcLink $
+--             newUpdateVpcLinkResponse
 --
 --           ]
 --     ]
@@ -473,341 +473,11 @@ requestCreateApi =
     "CreateApi"
     "fixture/CreateApi.yaml"
 
-requestGetDeployments :: GetDeployments -> TestTree
-requestGetDeployments =
+requestCreateApiMapping :: CreateApiMapping -> TestTree
+requestCreateApiMapping =
   req
-    "GetDeployments"
-    "fixture/GetDeployments.yaml"
-
-requestDeleteAccessLogSettings :: DeleteAccessLogSettings -> TestTree
-requestDeleteAccessLogSettings =
-  req
-    "DeleteAccessLogSettings"
-    "fixture/DeleteAccessLogSettings.yaml"
-
-requestGetRouteResponses :: GetRouteResponses -> TestTree
-requestGetRouteResponses =
-  req
-    "GetRouteResponses"
-    "fixture/GetRouteResponses.yaml"
-
-requestGetDeployment :: GetDeployment -> TestTree
-requestGetDeployment =
-  req
-    "GetDeployment"
-    "fixture/GetDeployment.yaml"
-
-requestGetTags :: GetTags -> TestTree
-requestGetTags =
-  req
-    "GetTags"
-    "fixture/GetTags.yaml"
-
-requestGetDomainNames :: GetDomainNames -> TestTree
-requestGetDomainNames =
-  req
-    "GetDomainNames"
-    "fixture/GetDomainNames.yaml"
-
-requestReimportApi :: ReimportApi -> TestTree
-requestReimportApi =
-  req
-    "ReimportApi"
-    "fixture/ReimportApi.yaml"
-
-requestGetModels :: GetModels -> TestTree
-requestGetModels =
-  req
-    "GetModels"
-    "fixture/GetModels.yaml"
-
-requestCreateIntegration :: CreateIntegration -> TestTree
-requestCreateIntegration =
-  req
-    "CreateIntegration"
-    "fixture/CreateIntegration.yaml"
-
-requestDeleteStage :: DeleteStage -> TestTree
-requestDeleteStage =
-  req
-    "DeleteStage"
-    "fixture/DeleteStage.yaml"
-
-requestUpdateStage :: UpdateStage -> TestTree
-requestUpdateStage =
-  req
-    "UpdateStage"
-    "fixture/UpdateStage.yaml"
-
-requestDeleteRouteSettings :: DeleteRouteSettings -> TestTree
-requestDeleteRouteSettings =
-  req
-    "DeleteRouteSettings"
-    "fixture/DeleteRouteSettings.yaml"
-
-requestCreateDeployment :: CreateDeployment -> TestTree
-requestCreateDeployment =
-  req
-    "CreateDeployment"
-    "fixture/CreateDeployment.yaml"
-
-requestDeleteRoute :: DeleteRoute -> TestTree
-requestDeleteRoute =
-  req
-    "DeleteRoute"
-    "fixture/DeleteRoute.yaml"
-
-requestUpdateRoute :: UpdateRoute -> TestTree
-requestUpdateRoute =
-  req
-    "UpdateRoute"
-    "fixture/UpdateRoute.yaml"
-
-requestGetVpcLinks :: GetVpcLinks -> TestTree
-requestGetVpcLinks =
-  req
-    "GetVpcLinks"
-    "fixture/GetVpcLinks.yaml"
-
-requestGetIntegrationResponses :: GetIntegrationResponses -> TestTree
-requestGetIntegrationResponses =
-  req
-    "GetIntegrationResponses"
-    "fixture/GetIntegrationResponses.yaml"
-
-requestGetIntegration :: GetIntegration -> TestTree
-requestGetIntegration =
-  req
-    "GetIntegration"
-    "fixture/GetIntegration.yaml"
-
-requestDeleteDeployment :: DeleteDeployment -> TestTree
-requestDeleteDeployment =
-  req
-    "DeleteDeployment"
-    "fixture/DeleteDeployment.yaml"
-
-requestUpdateDeployment :: UpdateDeployment -> TestTree
-requestUpdateDeployment =
-  req
-    "UpdateDeployment"
-    "fixture/UpdateDeployment.yaml"
-
-requestDeleteRouteResponse :: DeleteRouteResponse -> TestTree
-requestDeleteRouteResponse =
-  req
-    "DeleteRouteResponse"
-    "fixture/DeleteRouteResponse.yaml"
-
-requestUpdateRouteResponse :: UpdateRouteResponse -> TestTree
-requestUpdateRouteResponse =
-  req
-    "UpdateRouteResponse"
-    "fixture/UpdateRouteResponse.yaml"
-
-requestGetVpcLink :: GetVpcLink -> TestTree
-requestGetVpcLink =
-  req
-    "GetVpcLink"
-    "fixture/GetVpcLink.yaml"
-
-requestResetAuthorizersCache :: ResetAuthorizersCache -> TestTree
-requestResetAuthorizersCache =
-  req
-    "ResetAuthorizersCache"
-    "fixture/ResetAuthorizersCache.yaml"
-
-requestCreateModel :: CreateModel -> TestTree
-requestCreateModel =
-  req
-    "CreateModel"
-    "fixture/CreateModel.yaml"
-
-requestGetIntegrationResponse :: GetIntegrationResponse -> TestTree
-requestGetIntegrationResponse =
-  req
-    "GetIntegrationResponse"
-    "fixture/GetIntegrationResponse.yaml"
-
-requestCreateDomainName :: CreateDomainName -> TestTree
-requestCreateDomainName =
-  req
-    "CreateDomainName"
-    "fixture/CreateDomainName.yaml"
-
-requestDeleteModel :: DeleteModel -> TestTree
-requestDeleteModel =
-  req
-    "DeleteModel"
-    "fixture/DeleteModel.yaml"
-
-requestUpdateModel :: UpdateModel -> TestTree
-requestUpdateModel =
-  req
-    "UpdateModel"
-    "fixture/UpdateModel.yaml"
-
-requestCreateRouteResponse :: CreateRouteResponse -> TestTree
-requestCreateRouteResponse =
-  req
-    "CreateRouteResponse"
-    "fixture/CreateRouteResponse.yaml"
-
-requestGetStages :: GetStages -> TestTree
-requestGetStages =
-  req
-    "GetStages"
-    "fixture/GetStages.yaml"
-
-requestGetModel :: GetModel -> TestTree
-requestGetModel =
-  req
-    "GetModel"
-    "fixture/GetModel.yaml"
-
-requestGetApiMappings :: GetApiMappings -> TestTree
-requestGetApiMappings =
-  req
-    "GetApiMappings"
-    "fixture/GetApiMappings.yaml"
-
-requestCreateIntegrationResponse :: CreateIntegrationResponse -> TestTree
-requestCreateIntegrationResponse =
-  req
-    "CreateIntegrationResponse"
-    "fixture/CreateIntegrationResponse.yaml"
-
-requestGetDomainName :: GetDomainName -> TestTree
-requestGetDomainName =
-  req
-    "GetDomainName"
-    "fixture/GetDomainName.yaml"
-
-requestCreateVpcLink :: CreateVpcLink -> TestTree
-requestCreateVpcLink =
-  req
-    "CreateVpcLink"
-    "fixture/CreateVpcLink.yaml"
-
-requestGetAuthorizers :: GetAuthorizers -> TestTree
-requestGetAuthorizers =
-  req
-    "GetAuthorizers"
-    "fixture/GetAuthorizers.yaml"
-
-requestGetRouteResponse :: GetRouteResponse -> TestTree
-requestGetRouteResponse =
-  req
-    "GetRouteResponse"
-    "fixture/GetRouteResponse.yaml"
-
-requestExportApi :: ExportApi -> TestTree
-requestExportApi =
-  req
-    "ExportApi"
-    "fixture/ExportApi.yaml"
-
-requestGetRoutes :: GetRoutes -> TestTree
-requestGetRoutes =
-  req
-    "GetRoutes"
-    "fixture/GetRoutes.yaml"
-
-requestDeleteCorsConfiguration :: DeleteCorsConfiguration -> TestTree
-requestDeleteCorsConfiguration =
-  req
-    "DeleteCorsConfiguration"
-    "fixture/DeleteCorsConfiguration.yaml"
-
-requestDeleteVpcLink :: DeleteVpcLink -> TestTree
-requestDeleteVpcLink =
-  req
-    "DeleteVpcLink"
-    "fixture/DeleteVpcLink.yaml"
-
-requestUpdateVpcLink :: UpdateVpcLink -> TestTree
-requestUpdateVpcLink =
-  req
-    "UpdateVpcLink"
-    "fixture/UpdateVpcLink.yaml"
-
-requestDeleteIntegrationResponse :: DeleteIntegrationResponse -> TestTree
-requestDeleteIntegrationResponse =
-  req
-    "DeleteIntegrationResponse"
-    "fixture/DeleteIntegrationResponse.yaml"
-
-requestUpdateIntegrationResponse :: UpdateIntegrationResponse -> TestTree
-requestUpdateIntegrationResponse =
-  req
-    "UpdateIntegrationResponse"
-    "fixture/UpdateIntegrationResponse.yaml"
-
-requestDeleteIntegration :: DeleteIntegration -> TestTree
-requestDeleteIntegration =
-  req
-    "DeleteIntegration"
-    "fixture/DeleteIntegration.yaml"
-
-requestUpdateIntegration :: UpdateIntegration -> TestTree
-requestUpdateIntegration =
-  req
-    "UpdateIntegration"
-    "fixture/UpdateIntegration.yaml"
-
-requestGetRoute :: GetRoute -> TestTree
-requestGetRoute =
-  req
-    "GetRoute"
-    "fixture/GetRoute.yaml"
-
-requestGetAuthorizer :: GetAuthorizer -> TestTree
-requestGetAuthorizer =
-  req
-    "GetAuthorizer"
-    "fixture/GetAuthorizer.yaml"
-
-requestGetStage :: GetStage -> TestTree
-requestGetStage =
-  req
-    "GetStage"
-    "fixture/GetStage.yaml"
-
-requestGetApiMapping :: GetApiMapping -> TestTree
-requestGetApiMapping =
-  req
-    "GetApiMapping"
-    "fixture/GetApiMapping.yaml"
-
-requestImportApi :: ImportApi -> TestTree
-requestImportApi =
-  req
-    "ImportApi"
-    "fixture/ImportApi.yaml"
-
-requestGetApis :: GetApis -> TestTree
-requestGetApis =
-  req
-    "GetApis"
-    "fixture/GetApis.yaml"
-
-requestUpdateApiMapping :: UpdateApiMapping -> TestTree
-requestUpdateApiMapping =
-  req
-    "UpdateApiMapping"
-    "fixture/UpdateApiMapping.yaml"
-
-requestDeleteApiMapping :: DeleteApiMapping -> TestTree
-requestDeleteApiMapping =
-  req
-    "DeleteApiMapping"
-    "fixture/DeleteApiMapping.yaml"
-
-requestCreateRoute :: CreateRoute -> TestTree
-requestCreateRoute =
-  req
-    "CreateRoute"
-    "fixture/CreateRoute.yaml"
+    "CreateApiMapping"
+    "fixture/CreateApiMapping.yaml"
 
 requestCreateAuthorizer :: CreateAuthorizer -> TestTree
 requestCreateAuthorizer =
@@ -815,35 +485,47 @@ requestCreateAuthorizer =
     "CreateAuthorizer"
     "fixture/CreateAuthorizer.yaml"
 
-requestUpdateAuthorizer :: UpdateAuthorizer -> TestTree
-requestUpdateAuthorizer =
+requestCreateDeployment :: CreateDeployment -> TestTree
+requestCreateDeployment =
   req
-    "UpdateAuthorizer"
-    "fixture/UpdateAuthorizer.yaml"
+    "CreateDeployment"
+    "fixture/CreateDeployment.yaml"
 
-requestDeleteAuthorizer :: DeleteAuthorizer -> TestTree
-requestDeleteAuthorizer =
+requestCreateDomainName :: CreateDomainName -> TestTree
+requestCreateDomainName =
   req
-    "DeleteAuthorizer"
-    "fixture/DeleteAuthorizer.yaml"
+    "CreateDomainName"
+    "fixture/CreateDomainName.yaml"
 
-requestCreateApiMapping :: CreateApiMapping -> TestTree
-requestCreateApiMapping =
+requestCreateIntegration :: CreateIntegration -> TestTree
+requestCreateIntegration =
   req
-    "CreateApiMapping"
-    "fixture/CreateApiMapping.yaml"
+    "CreateIntegration"
+    "fixture/CreateIntegration.yaml"
 
-requestDeleteRouteRequestParameter :: DeleteRouteRequestParameter -> TestTree
-requestDeleteRouteRequestParameter =
+requestCreateIntegrationResponse :: CreateIntegrationResponse -> TestTree
+requestCreateIntegrationResponse =
   req
-    "DeleteRouteRequestParameter"
-    "fixture/DeleteRouteRequestParameter.yaml"
+    "CreateIntegrationResponse"
+    "fixture/CreateIntegrationResponse.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestCreateModel :: CreateModel -> TestTree
+requestCreateModel =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "CreateModel"
+    "fixture/CreateModel.yaml"
+
+requestCreateRoute :: CreateRoute -> TestTree
+requestCreateRoute =
+  req
+    "CreateRoute"
+    "fixture/CreateRoute.yaml"
+
+requestCreateRouteResponse :: CreateRouteResponse -> TestTree
+requestCreateRouteResponse =
+  req
+    "CreateRouteResponse"
+    "fixture/CreateRouteResponse.yaml"
 
 requestCreateStage :: CreateStage -> TestTree
 requestCreateStage =
@@ -851,35 +533,17 @@ requestCreateStage =
     "CreateStage"
     "fixture/CreateStage.yaml"
 
-requestGetIntegrations :: GetIntegrations -> TestTree
-requestGetIntegrations =
+requestCreateVpcLink :: CreateVpcLink -> TestTree
+requestCreateVpcLink =
   req
-    "GetIntegrations"
-    "fixture/GetIntegrations.yaml"
+    "CreateVpcLink"
+    "fixture/CreateVpcLink.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestDeleteAccessLogSettings :: DeleteAccessLogSettings -> TestTree
+requestDeleteAccessLogSettings =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestUpdateDomainName :: UpdateDomainName -> TestTree
-requestUpdateDomainName =
-  req
-    "UpdateDomainName"
-    "fixture/UpdateDomainName.yaml"
-
-requestDeleteDomainName :: DeleteDomainName -> TestTree
-requestDeleteDomainName =
-  req
-    "DeleteDomainName"
-    "fixture/DeleteDomainName.yaml"
-
-requestGetApi :: GetApi -> TestTree
-requestGetApi =
-  req
-    "GetApi"
-    "fixture/GetApi.yaml"
+    "DeleteAccessLogSettings"
+    "fixture/DeleteAccessLogSettings.yaml"
 
 requestDeleteApi :: DeleteApi -> TestTree
 requestDeleteApi =
@@ -887,17 +551,353 @@ requestDeleteApi =
     "DeleteApi"
     "fixture/DeleteApi.yaml"
 
-requestUpdateApi :: UpdateApi -> TestTree
-requestUpdateApi =
+requestDeleteApiMapping :: DeleteApiMapping -> TestTree
+requestDeleteApiMapping =
   req
-    "UpdateApi"
-    "fixture/UpdateApi.yaml"
+    "DeleteApiMapping"
+    "fixture/DeleteApiMapping.yaml"
+
+requestDeleteAuthorizer :: DeleteAuthorizer -> TestTree
+requestDeleteAuthorizer =
+  req
+    "DeleteAuthorizer"
+    "fixture/DeleteAuthorizer.yaml"
+
+requestDeleteCorsConfiguration :: DeleteCorsConfiguration -> TestTree
+requestDeleteCorsConfiguration =
+  req
+    "DeleteCorsConfiguration"
+    "fixture/DeleteCorsConfiguration.yaml"
+
+requestDeleteDeployment :: DeleteDeployment -> TestTree
+requestDeleteDeployment =
+  req
+    "DeleteDeployment"
+    "fixture/DeleteDeployment.yaml"
+
+requestDeleteDomainName :: DeleteDomainName -> TestTree
+requestDeleteDomainName =
+  req
+    "DeleteDomainName"
+    "fixture/DeleteDomainName.yaml"
+
+requestDeleteIntegration :: DeleteIntegration -> TestTree
+requestDeleteIntegration =
+  req
+    "DeleteIntegration"
+    "fixture/DeleteIntegration.yaml"
+
+requestDeleteIntegrationResponse :: DeleteIntegrationResponse -> TestTree
+requestDeleteIntegrationResponse =
+  req
+    "DeleteIntegrationResponse"
+    "fixture/DeleteIntegrationResponse.yaml"
+
+requestDeleteModel :: DeleteModel -> TestTree
+requestDeleteModel =
+  req
+    "DeleteModel"
+    "fixture/DeleteModel.yaml"
+
+requestDeleteRoute :: DeleteRoute -> TestTree
+requestDeleteRoute =
+  req
+    "DeleteRoute"
+    "fixture/DeleteRoute.yaml"
+
+requestDeleteRouteRequestParameter :: DeleteRouteRequestParameter -> TestTree
+requestDeleteRouteRequestParameter =
+  req
+    "DeleteRouteRequestParameter"
+    "fixture/DeleteRouteRequestParameter.yaml"
+
+requestDeleteRouteResponse :: DeleteRouteResponse -> TestTree
+requestDeleteRouteResponse =
+  req
+    "DeleteRouteResponse"
+    "fixture/DeleteRouteResponse.yaml"
+
+requestDeleteRouteSettings :: DeleteRouteSettings -> TestTree
+requestDeleteRouteSettings =
+  req
+    "DeleteRouteSettings"
+    "fixture/DeleteRouteSettings.yaml"
+
+requestDeleteStage :: DeleteStage -> TestTree
+requestDeleteStage =
+  req
+    "DeleteStage"
+    "fixture/DeleteStage.yaml"
+
+requestDeleteVpcLink :: DeleteVpcLink -> TestTree
+requestDeleteVpcLink =
+  req
+    "DeleteVpcLink"
+    "fixture/DeleteVpcLink.yaml"
+
+requestExportApi :: ExportApi -> TestTree
+requestExportApi =
+  req
+    "ExportApi"
+    "fixture/ExportApi.yaml"
+
+requestGetApi :: GetApi -> TestTree
+requestGetApi =
+  req
+    "GetApi"
+    "fixture/GetApi.yaml"
+
+requestGetApiMapping :: GetApiMapping -> TestTree
+requestGetApiMapping =
+  req
+    "GetApiMapping"
+    "fixture/GetApiMapping.yaml"
+
+requestGetApiMappings :: GetApiMappings -> TestTree
+requestGetApiMappings =
+  req
+    "GetApiMappings"
+    "fixture/GetApiMappings.yaml"
+
+requestGetApis :: GetApis -> TestTree
+requestGetApis =
+  req
+    "GetApis"
+    "fixture/GetApis.yaml"
+
+requestGetAuthorizer :: GetAuthorizer -> TestTree
+requestGetAuthorizer =
+  req
+    "GetAuthorizer"
+    "fixture/GetAuthorizer.yaml"
+
+requestGetAuthorizers :: GetAuthorizers -> TestTree
+requestGetAuthorizers =
+  req
+    "GetAuthorizers"
+    "fixture/GetAuthorizers.yaml"
+
+requestGetDeployment :: GetDeployment -> TestTree
+requestGetDeployment =
+  req
+    "GetDeployment"
+    "fixture/GetDeployment.yaml"
+
+requestGetDeployments :: GetDeployments -> TestTree
+requestGetDeployments =
+  req
+    "GetDeployments"
+    "fixture/GetDeployments.yaml"
+
+requestGetDomainName :: GetDomainName -> TestTree
+requestGetDomainName =
+  req
+    "GetDomainName"
+    "fixture/GetDomainName.yaml"
+
+requestGetDomainNames :: GetDomainNames -> TestTree
+requestGetDomainNames =
+  req
+    "GetDomainNames"
+    "fixture/GetDomainNames.yaml"
+
+requestGetIntegration :: GetIntegration -> TestTree
+requestGetIntegration =
+  req
+    "GetIntegration"
+    "fixture/GetIntegration.yaml"
+
+requestGetIntegrationResponse :: GetIntegrationResponse -> TestTree
+requestGetIntegrationResponse =
+  req
+    "GetIntegrationResponse"
+    "fixture/GetIntegrationResponse.yaml"
+
+requestGetIntegrationResponses :: GetIntegrationResponses -> TestTree
+requestGetIntegrationResponses =
+  req
+    "GetIntegrationResponses"
+    "fixture/GetIntegrationResponses.yaml"
+
+requestGetIntegrations :: GetIntegrations -> TestTree
+requestGetIntegrations =
+  req
+    "GetIntegrations"
+    "fixture/GetIntegrations.yaml"
+
+requestGetModel :: GetModel -> TestTree
+requestGetModel =
+  req
+    "GetModel"
+    "fixture/GetModel.yaml"
 
 requestGetModelTemplate :: GetModelTemplate -> TestTree
 requestGetModelTemplate =
   req
     "GetModelTemplate"
     "fixture/GetModelTemplate.yaml"
+
+requestGetModels :: GetModels -> TestTree
+requestGetModels =
+  req
+    "GetModels"
+    "fixture/GetModels.yaml"
+
+requestGetRoute :: GetRoute -> TestTree
+requestGetRoute =
+  req
+    "GetRoute"
+    "fixture/GetRoute.yaml"
+
+requestGetRouteResponse :: GetRouteResponse -> TestTree
+requestGetRouteResponse =
+  req
+    "GetRouteResponse"
+    "fixture/GetRouteResponse.yaml"
+
+requestGetRouteResponses :: GetRouteResponses -> TestTree
+requestGetRouteResponses =
+  req
+    "GetRouteResponses"
+    "fixture/GetRouteResponses.yaml"
+
+requestGetRoutes :: GetRoutes -> TestTree
+requestGetRoutes =
+  req
+    "GetRoutes"
+    "fixture/GetRoutes.yaml"
+
+requestGetStage :: GetStage -> TestTree
+requestGetStage =
+  req
+    "GetStage"
+    "fixture/GetStage.yaml"
+
+requestGetStages :: GetStages -> TestTree
+requestGetStages =
+  req
+    "GetStages"
+    "fixture/GetStages.yaml"
+
+requestGetTags :: GetTags -> TestTree
+requestGetTags =
+  req
+    "GetTags"
+    "fixture/GetTags.yaml"
+
+requestGetVpcLink :: GetVpcLink -> TestTree
+requestGetVpcLink =
+  req
+    "GetVpcLink"
+    "fixture/GetVpcLink.yaml"
+
+requestGetVpcLinks :: GetVpcLinks -> TestTree
+requestGetVpcLinks =
+  req
+    "GetVpcLinks"
+    "fixture/GetVpcLinks.yaml"
+
+requestImportApi :: ImportApi -> TestTree
+requestImportApi =
+  req
+    "ImportApi"
+    "fixture/ImportApi.yaml"
+
+requestReimportApi :: ReimportApi -> TestTree
+requestReimportApi =
+  req
+    "ReimportApi"
+    "fixture/ReimportApi.yaml"
+
+requestResetAuthorizersCache :: ResetAuthorizersCache -> TestTree
+requestResetAuthorizersCache =
+  req
+    "ResetAuthorizersCache"
+    "fixture/ResetAuthorizersCache.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateApi :: UpdateApi -> TestTree
+requestUpdateApi =
+  req
+    "UpdateApi"
+    "fixture/UpdateApi.yaml"
+
+requestUpdateApiMapping :: UpdateApiMapping -> TestTree
+requestUpdateApiMapping =
+  req
+    "UpdateApiMapping"
+    "fixture/UpdateApiMapping.yaml"
+
+requestUpdateAuthorizer :: UpdateAuthorizer -> TestTree
+requestUpdateAuthorizer =
+  req
+    "UpdateAuthorizer"
+    "fixture/UpdateAuthorizer.yaml"
+
+requestUpdateDeployment :: UpdateDeployment -> TestTree
+requestUpdateDeployment =
+  req
+    "UpdateDeployment"
+    "fixture/UpdateDeployment.yaml"
+
+requestUpdateDomainName :: UpdateDomainName -> TestTree
+requestUpdateDomainName =
+  req
+    "UpdateDomainName"
+    "fixture/UpdateDomainName.yaml"
+
+requestUpdateIntegration :: UpdateIntegration -> TestTree
+requestUpdateIntegration =
+  req
+    "UpdateIntegration"
+    "fixture/UpdateIntegration.yaml"
+
+requestUpdateIntegrationResponse :: UpdateIntegrationResponse -> TestTree
+requestUpdateIntegrationResponse =
+  req
+    "UpdateIntegrationResponse"
+    "fixture/UpdateIntegrationResponse.yaml"
+
+requestUpdateModel :: UpdateModel -> TestTree
+requestUpdateModel =
+  req
+    "UpdateModel"
+    "fixture/UpdateModel.yaml"
+
+requestUpdateRoute :: UpdateRoute -> TestTree
+requestUpdateRoute =
+  req
+    "UpdateRoute"
+    "fixture/UpdateRoute.yaml"
+
+requestUpdateRouteResponse :: UpdateRouteResponse -> TestTree
+requestUpdateRouteResponse =
+  req
+    "UpdateRouteResponse"
+    "fixture/UpdateRouteResponse.yaml"
+
+requestUpdateStage :: UpdateStage -> TestTree
+requestUpdateStage =
+  req
+    "UpdateStage"
+    "fixture/UpdateStage.yaml"
+
+requestUpdateVpcLink :: UpdateVpcLink -> TestTree
+requestUpdateVpcLink =
+  req
+    "UpdateVpcLink"
+    "fixture/UpdateVpcLink.yaml"
 
 -- Responses
 
@@ -909,453 +909,13 @@ responseCreateApi =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateApi)
 
-responseGetDeployments :: GetDeploymentsResponse -> TestTree
-responseGetDeployments =
+responseCreateApiMapping :: CreateApiMappingResponse -> TestTree
+responseCreateApiMapping =
   res
-    "GetDeploymentsResponse"
-    "fixture/GetDeploymentsResponse.proto"
+    "CreateApiMappingResponse"
+    "fixture/CreateApiMappingResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDeployments)
-
-responseDeleteAccessLogSettings :: DeleteAccessLogSettingsResponse -> TestTree
-responseDeleteAccessLogSettings =
-  res
-    "DeleteAccessLogSettingsResponse"
-    "fixture/DeleteAccessLogSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAccessLogSettings)
-
-responseGetRouteResponses :: GetRouteResponsesResponse -> TestTree
-responseGetRouteResponses =
-  res
-    "GetRouteResponsesResponse"
-    "fixture/GetRouteResponsesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRouteResponses)
-
-responseGetDeployment :: GetDeploymentResponse -> TestTree
-responseGetDeployment =
-  res
-    "GetDeploymentResponse"
-    "fixture/GetDeploymentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDeployment)
-
-responseGetTags :: GetTagsResponse -> TestTree
-responseGetTags =
-  res
-    "GetTagsResponse"
-    "fixture/GetTagsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetTags)
-
-responseGetDomainNames :: GetDomainNamesResponse -> TestTree
-responseGetDomainNames =
-  res
-    "GetDomainNamesResponse"
-    "fixture/GetDomainNamesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDomainNames)
-
-responseReimportApi :: ReimportApiResponse -> TestTree
-responseReimportApi =
-  res
-    "ReimportApiResponse"
-    "fixture/ReimportApiResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ReimportApi)
-
-responseGetModels :: GetModelsResponse -> TestTree
-responseGetModels =
-  res
-    "GetModelsResponse"
-    "fixture/GetModelsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetModels)
-
-responseCreateIntegration :: CreateIntegrationResponse' -> TestTree
-responseCreateIntegration =
-  res
-    "CreateIntegrationResponse"
-    "fixture/CreateIntegrationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateIntegration)
-
-responseDeleteStage :: DeleteStageResponse -> TestTree
-responseDeleteStage =
-  res
-    "DeleteStageResponse"
-    "fixture/DeleteStageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteStage)
-
-responseUpdateStage :: UpdateStageResponse -> TestTree
-responseUpdateStage =
-  res
-    "UpdateStageResponse"
-    "fixture/UpdateStageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateStage)
-
-responseDeleteRouteSettings :: DeleteRouteSettingsResponse -> TestTree
-responseDeleteRouteSettings =
-  res
-    "DeleteRouteSettingsResponse"
-    "fixture/DeleteRouteSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRouteSettings)
-
-responseCreateDeployment :: CreateDeploymentResponse -> TestTree
-responseCreateDeployment =
-  res
-    "CreateDeploymentResponse"
-    "fixture/CreateDeploymentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
-
-responseDeleteRoute :: DeleteRouteResponse' -> TestTree
-responseDeleteRoute =
-  res
-    "DeleteRouteResponse"
-    "fixture/DeleteRouteResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRoute)
-
-responseUpdateRoute :: UpdateRouteResponse' -> TestTree
-responseUpdateRoute =
-  res
-    "UpdateRouteResponse"
-    "fixture/UpdateRouteResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRoute)
-
-responseGetVpcLinks :: GetVpcLinksResponse -> TestTree
-responseGetVpcLinks =
-  res
-    "GetVpcLinksResponse"
-    "fixture/GetVpcLinksResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetVpcLinks)
-
-responseGetIntegrationResponses :: GetIntegrationResponsesResponse -> TestTree
-responseGetIntegrationResponses =
-  res
-    "GetIntegrationResponsesResponse"
-    "fixture/GetIntegrationResponsesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetIntegrationResponses)
-
-responseGetIntegration :: GetIntegrationResponse' -> TestTree
-responseGetIntegration =
-  res
-    "GetIntegrationResponse"
-    "fixture/GetIntegrationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetIntegration)
-
-responseDeleteDeployment :: DeleteDeploymentResponse -> TestTree
-responseDeleteDeployment =
-  res
-    "DeleteDeploymentResponse"
-    "fixture/DeleteDeploymentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDeployment)
-
-responseUpdateDeployment :: UpdateDeploymentResponse -> TestTree
-responseUpdateDeployment =
-  res
-    "UpdateDeploymentResponse"
-    "fixture/UpdateDeploymentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDeployment)
-
-responseDeleteRouteResponse :: DeleteRouteResponseResponse -> TestTree
-responseDeleteRouteResponse =
-  res
-    "DeleteRouteResponseResponse"
-    "fixture/DeleteRouteResponseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRouteResponse)
-
-responseUpdateRouteResponse :: UpdateRouteResponseResponse -> TestTree
-responseUpdateRouteResponse =
-  res
-    "UpdateRouteResponseResponse"
-    "fixture/UpdateRouteResponseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRouteResponse)
-
-responseGetVpcLink :: GetVpcLinkResponse -> TestTree
-responseGetVpcLink =
-  res
-    "GetVpcLinkResponse"
-    "fixture/GetVpcLinkResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetVpcLink)
-
-responseResetAuthorizersCache :: ResetAuthorizersCacheResponse -> TestTree
-responseResetAuthorizersCache =
-  res
-    "ResetAuthorizersCacheResponse"
-    "fixture/ResetAuthorizersCacheResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ResetAuthorizersCache)
-
-responseCreateModel :: CreateModelResponse -> TestTree
-responseCreateModel =
-  res
-    "CreateModelResponse"
-    "fixture/CreateModelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateModel)
-
-responseGetIntegrationResponse :: GetIntegrationResponseResponse -> TestTree
-responseGetIntegrationResponse =
-  res
-    "GetIntegrationResponseResponse"
-    "fixture/GetIntegrationResponseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetIntegrationResponse)
-
-responseCreateDomainName :: CreateDomainNameResponse -> TestTree
-responseCreateDomainName =
-  res
-    "CreateDomainNameResponse"
-    "fixture/CreateDomainNameResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDomainName)
-
-responseDeleteModel :: DeleteModelResponse -> TestTree
-responseDeleteModel =
-  res
-    "DeleteModelResponse"
-    "fixture/DeleteModelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteModel)
-
-responseUpdateModel :: UpdateModelResponse -> TestTree
-responseUpdateModel =
-  res
-    "UpdateModelResponse"
-    "fixture/UpdateModelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateModel)
-
-responseCreateRouteResponse :: CreateRouteResponseResponse -> TestTree
-responseCreateRouteResponse =
-  res
-    "CreateRouteResponseResponse"
-    "fixture/CreateRouteResponseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRouteResponse)
-
-responseGetStages :: GetStagesResponse -> TestTree
-responseGetStages =
-  res
-    "GetStagesResponse"
-    "fixture/GetStagesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetStages)
-
-responseGetModel :: GetModelResponse -> TestTree
-responseGetModel =
-  res
-    "GetModelResponse"
-    "fixture/GetModelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetModel)
-
-responseGetApiMappings :: GetApiMappingsResponse -> TestTree
-responseGetApiMappings =
-  res
-    "GetApiMappingsResponse"
-    "fixture/GetApiMappingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetApiMappings)
-
-responseCreateIntegrationResponse :: CreateIntegrationResponseResponse -> TestTree
-responseCreateIntegrationResponse =
-  res
-    "CreateIntegrationResponseResponse"
-    "fixture/CreateIntegrationResponseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateIntegrationResponse)
-
-responseGetDomainName :: GetDomainNameResponse -> TestTree
-responseGetDomainName =
-  res
-    "GetDomainNameResponse"
-    "fixture/GetDomainNameResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDomainName)
-
-responseCreateVpcLink :: CreateVpcLinkResponse -> TestTree
-responseCreateVpcLink =
-  res
-    "CreateVpcLinkResponse"
-    "fixture/CreateVpcLinkResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateVpcLink)
-
-responseGetAuthorizers :: GetAuthorizersResponse -> TestTree
-responseGetAuthorizers =
-  res
-    "GetAuthorizersResponse"
-    "fixture/GetAuthorizersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAuthorizers)
-
-responseGetRouteResponse :: GetRouteResponseResponse -> TestTree
-responseGetRouteResponse =
-  res
-    "GetRouteResponseResponse"
-    "fixture/GetRouteResponseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRouteResponse)
-
-responseExportApi :: ExportApiResponse -> TestTree
-responseExportApi =
-  res
-    "ExportApiResponse"
-    "fixture/ExportApiResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExportApi)
-
-responseGetRoutes :: GetRoutesResponse -> TestTree
-responseGetRoutes =
-  res
-    "GetRoutesResponse"
-    "fixture/GetRoutesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRoutes)
-
-responseDeleteCorsConfiguration :: DeleteCorsConfigurationResponse -> TestTree
-responseDeleteCorsConfiguration =
-  res
-    "DeleteCorsConfigurationResponse"
-    "fixture/DeleteCorsConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteCorsConfiguration)
-
-responseDeleteVpcLink :: DeleteVpcLinkResponse -> TestTree
-responseDeleteVpcLink =
-  res
-    "DeleteVpcLinkResponse"
-    "fixture/DeleteVpcLinkResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVpcLink)
-
-responseUpdateVpcLink :: UpdateVpcLinkResponse -> TestTree
-responseUpdateVpcLink =
-  res
-    "UpdateVpcLinkResponse"
-    "fixture/UpdateVpcLinkResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateVpcLink)
-
-responseDeleteIntegrationResponse :: DeleteIntegrationResponseResponse -> TestTree
-responseDeleteIntegrationResponse =
-  res
-    "DeleteIntegrationResponseResponse"
-    "fixture/DeleteIntegrationResponseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteIntegrationResponse)
-
-responseUpdateIntegrationResponse :: UpdateIntegrationResponseResponse -> TestTree
-responseUpdateIntegrationResponse =
-  res
-    "UpdateIntegrationResponseResponse"
-    "fixture/UpdateIntegrationResponseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateIntegrationResponse)
-
-responseDeleteIntegration :: DeleteIntegrationResponse' -> TestTree
-responseDeleteIntegration =
-  res
-    "DeleteIntegrationResponse"
-    "fixture/DeleteIntegrationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteIntegration)
-
-responseUpdateIntegration :: UpdateIntegrationResponse' -> TestTree
-responseUpdateIntegration =
-  res
-    "UpdateIntegrationResponse"
-    "fixture/UpdateIntegrationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateIntegration)
-
-responseGetRoute :: GetRouteResponse' -> TestTree
-responseGetRoute =
-  res
-    "GetRouteResponse"
-    "fixture/GetRouteResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRoute)
-
-responseGetAuthorizer :: GetAuthorizerResponse -> TestTree
-responseGetAuthorizer =
-  res
-    "GetAuthorizerResponse"
-    "fixture/GetAuthorizerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAuthorizer)
-
-responseGetStage :: GetStageResponse -> TestTree
-responseGetStage =
-  res
-    "GetStageResponse"
-    "fixture/GetStageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetStage)
-
-responseGetApiMapping :: GetApiMappingResponse -> TestTree
-responseGetApiMapping =
-  res
-    "GetApiMappingResponse"
-    "fixture/GetApiMappingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetApiMapping)
-
-responseImportApi :: ImportApiResponse -> TestTree
-responseImportApi =
-  res
-    "ImportApiResponse"
-    "fixture/ImportApiResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ImportApi)
-
-responseGetApis :: GetApisResponse -> TestTree
-responseGetApis =
-  res
-    "GetApisResponse"
-    "fixture/GetApisResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetApis)
-
-responseUpdateApiMapping :: UpdateApiMappingResponse -> TestTree
-responseUpdateApiMapping =
-  res
-    "UpdateApiMappingResponse"
-    "fixture/UpdateApiMappingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateApiMapping)
-
-responseDeleteApiMapping :: DeleteApiMappingResponse -> TestTree
-responseDeleteApiMapping =
-  res
-    "DeleteApiMappingResponse"
-    "fixture/DeleteApiMappingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteApiMapping)
-
-responseCreateRoute :: CreateRouteResponse' -> TestTree
-responseCreateRoute =
-  res
-    "CreateRouteResponse"
-    "fixture/CreateRouteResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRoute)
+    (Proxy.Proxy :: Proxy.Proxy CreateApiMapping)
 
 responseCreateAuthorizer :: CreateAuthorizerResponse -> TestTree
 responseCreateAuthorizer =
@@ -1365,45 +925,61 @@ responseCreateAuthorizer =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAuthorizer)
 
-responseUpdateAuthorizer :: UpdateAuthorizerResponse -> TestTree
-responseUpdateAuthorizer =
+responseCreateDeployment :: CreateDeploymentResponse -> TestTree
+responseCreateDeployment =
   res
-    "UpdateAuthorizerResponse"
-    "fixture/UpdateAuthorizerResponse.proto"
+    "CreateDeploymentResponse"
+    "fixture/CreateDeploymentResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAuthorizer)
+    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
 
-responseDeleteAuthorizer :: DeleteAuthorizerResponse -> TestTree
-responseDeleteAuthorizer =
+responseCreateDomainName :: CreateDomainNameResponse -> TestTree
+responseCreateDomainName =
   res
-    "DeleteAuthorizerResponse"
-    "fixture/DeleteAuthorizerResponse.proto"
+    "CreateDomainNameResponse"
+    "fixture/CreateDomainNameResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAuthorizer)
+    (Proxy.Proxy :: Proxy.Proxy CreateDomainName)
 
-responseCreateApiMapping :: CreateApiMappingResponse -> TestTree
-responseCreateApiMapping =
+responseCreateIntegration :: CreateIntegrationResponse' -> TestTree
+responseCreateIntegration =
   res
-    "CreateApiMappingResponse"
-    "fixture/CreateApiMappingResponse.proto"
+    "CreateIntegrationResponse"
+    "fixture/CreateIntegrationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateApiMapping)
+    (Proxy.Proxy :: Proxy.Proxy CreateIntegration)
 
-responseDeleteRouteRequestParameter :: DeleteRouteRequestParameterResponse -> TestTree
-responseDeleteRouteRequestParameter =
+responseCreateIntegrationResponse :: CreateIntegrationResponseResponse -> TestTree
+responseCreateIntegrationResponse =
   res
-    "DeleteRouteRequestParameterResponse"
-    "fixture/DeleteRouteRequestParameterResponse.proto"
+    "CreateIntegrationResponseResponse"
+    "fixture/CreateIntegrationResponseResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRouteRequestParameter)
+    (Proxy.Proxy :: Proxy.Proxy CreateIntegrationResponse)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseCreateModel :: CreateModelResponse -> TestTree
+responseCreateModel =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "CreateModelResponse"
+    "fixture/CreateModelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy CreateModel)
+
+responseCreateRoute :: CreateRouteResponse' -> TestTree
+responseCreateRoute =
+  res
+    "CreateRouteResponse"
+    "fixture/CreateRouteResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRoute)
+
+responseCreateRouteResponse :: CreateRouteResponseResponse -> TestTree
+responseCreateRouteResponse =
+  res
+    "CreateRouteResponseResponse"
+    "fixture/CreateRouteResponseResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRouteResponse)
 
 responseCreateStage :: CreateStageResponse -> TestTree
 responseCreateStage =
@@ -1413,45 +989,21 @@ responseCreateStage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateStage)
 
-responseGetIntegrations :: GetIntegrationsResponse -> TestTree
-responseGetIntegrations =
+responseCreateVpcLink :: CreateVpcLinkResponse -> TestTree
+responseCreateVpcLink =
   res
-    "GetIntegrationsResponse"
-    "fixture/GetIntegrationsResponse.proto"
+    "CreateVpcLinkResponse"
+    "fixture/CreateVpcLinkResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetIntegrations)
+    (Proxy.Proxy :: Proxy.Proxy CreateVpcLink)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseDeleteAccessLogSettings :: DeleteAccessLogSettingsResponse -> TestTree
+responseDeleteAccessLogSettings =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "DeleteAccessLogSettingsResponse"
+    "fixture/DeleteAccessLogSettingsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseUpdateDomainName :: UpdateDomainNameResponse -> TestTree
-responseUpdateDomainName =
-  res
-    "UpdateDomainNameResponse"
-    "fixture/UpdateDomainNameResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDomainName)
-
-responseDeleteDomainName :: DeleteDomainNameResponse -> TestTree
-responseDeleteDomainName =
-  res
-    "DeleteDomainNameResponse"
-    "fixture/DeleteDomainNameResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDomainName)
-
-responseGetApi :: GetApiResponse -> TestTree
-responseGetApi =
-  res
-    "GetApiResponse"
-    "fixture/GetApiResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetApi)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccessLogSettings)
 
 responseDeleteApi :: DeleteApiResponse -> TestTree
 responseDeleteApi =
@@ -1461,13 +1013,245 @@ responseDeleteApi =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteApi)
 
-responseUpdateApi :: UpdateApiResponse -> TestTree
-responseUpdateApi =
+responseDeleteApiMapping :: DeleteApiMappingResponse -> TestTree
+responseDeleteApiMapping =
   res
-    "UpdateApiResponse"
-    "fixture/UpdateApiResponse.proto"
+    "DeleteApiMappingResponse"
+    "fixture/DeleteApiMappingResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateApi)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApiMapping)
+
+responseDeleteAuthorizer :: DeleteAuthorizerResponse -> TestTree
+responseDeleteAuthorizer =
+  res
+    "DeleteAuthorizerResponse"
+    "fixture/DeleteAuthorizerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAuthorizer)
+
+responseDeleteCorsConfiguration :: DeleteCorsConfigurationResponse -> TestTree
+responseDeleteCorsConfiguration =
+  res
+    "DeleteCorsConfigurationResponse"
+    "fixture/DeleteCorsConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCorsConfiguration)
+
+responseDeleteDeployment :: DeleteDeploymentResponse -> TestTree
+responseDeleteDeployment =
+  res
+    "DeleteDeploymentResponse"
+    "fixture/DeleteDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeployment)
+
+responseDeleteDomainName :: DeleteDomainNameResponse -> TestTree
+responseDeleteDomainName =
+  res
+    "DeleteDomainNameResponse"
+    "fixture/DeleteDomainNameResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomainName)
+
+responseDeleteIntegration :: DeleteIntegrationResponse' -> TestTree
+responseDeleteIntegration =
+  res
+    "DeleteIntegrationResponse"
+    "fixture/DeleteIntegrationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteIntegration)
+
+responseDeleteIntegrationResponse :: DeleteIntegrationResponseResponse -> TestTree
+responseDeleteIntegrationResponse =
+  res
+    "DeleteIntegrationResponseResponse"
+    "fixture/DeleteIntegrationResponseResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteIntegrationResponse)
+
+responseDeleteModel :: DeleteModelResponse -> TestTree
+responseDeleteModel =
+  res
+    "DeleteModelResponse"
+    "fixture/DeleteModelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteModel)
+
+responseDeleteRoute :: DeleteRouteResponse' -> TestTree
+responseDeleteRoute =
+  res
+    "DeleteRouteResponse"
+    "fixture/DeleteRouteResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRoute)
+
+responseDeleteRouteRequestParameter :: DeleteRouteRequestParameterResponse -> TestTree
+responseDeleteRouteRequestParameter =
+  res
+    "DeleteRouteRequestParameterResponse"
+    "fixture/DeleteRouteRequestParameterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRouteRequestParameter)
+
+responseDeleteRouteResponse :: DeleteRouteResponseResponse -> TestTree
+responseDeleteRouteResponse =
+  res
+    "DeleteRouteResponseResponse"
+    "fixture/DeleteRouteResponseResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRouteResponse)
+
+responseDeleteRouteSettings :: DeleteRouteSettingsResponse -> TestTree
+responseDeleteRouteSettings =
+  res
+    "DeleteRouteSettingsResponse"
+    "fixture/DeleteRouteSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRouteSettings)
+
+responseDeleteStage :: DeleteStageResponse -> TestTree
+responseDeleteStage =
+  res
+    "DeleteStageResponse"
+    "fixture/DeleteStageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteStage)
+
+responseDeleteVpcLink :: DeleteVpcLinkResponse -> TestTree
+responseDeleteVpcLink =
+  res
+    "DeleteVpcLinkResponse"
+    "fixture/DeleteVpcLinkResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpcLink)
+
+responseExportApi :: ExportApiResponse -> TestTree
+responseExportApi =
+  res
+    "ExportApiResponse"
+    "fixture/ExportApiResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExportApi)
+
+responseGetApi :: GetApiResponse -> TestTree
+responseGetApi =
+  res
+    "GetApiResponse"
+    "fixture/GetApiResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetApi)
+
+responseGetApiMapping :: GetApiMappingResponse -> TestTree
+responseGetApiMapping =
+  res
+    "GetApiMappingResponse"
+    "fixture/GetApiMappingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetApiMapping)
+
+responseGetApiMappings :: GetApiMappingsResponse -> TestTree
+responseGetApiMappings =
+  res
+    "GetApiMappingsResponse"
+    "fixture/GetApiMappingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetApiMappings)
+
+responseGetApis :: GetApisResponse -> TestTree
+responseGetApis =
+  res
+    "GetApisResponse"
+    "fixture/GetApisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetApis)
+
+responseGetAuthorizer :: GetAuthorizerResponse -> TestTree
+responseGetAuthorizer =
+  res
+    "GetAuthorizerResponse"
+    "fixture/GetAuthorizerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAuthorizer)
+
+responseGetAuthorizers :: GetAuthorizersResponse -> TestTree
+responseGetAuthorizers =
+  res
+    "GetAuthorizersResponse"
+    "fixture/GetAuthorizersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAuthorizers)
+
+responseGetDeployment :: GetDeploymentResponse -> TestTree
+responseGetDeployment =
+  res
+    "GetDeploymentResponse"
+    "fixture/GetDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDeployment)
+
+responseGetDeployments :: GetDeploymentsResponse -> TestTree
+responseGetDeployments =
+  res
+    "GetDeploymentsResponse"
+    "fixture/GetDeploymentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDeployments)
+
+responseGetDomainName :: GetDomainNameResponse -> TestTree
+responseGetDomainName =
+  res
+    "GetDomainNameResponse"
+    "fixture/GetDomainNameResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDomainName)
+
+responseGetDomainNames :: GetDomainNamesResponse -> TestTree
+responseGetDomainNames =
+  res
+    "GetDomainNamesResponse"
+    "fixture/GetDomainNamesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDomainNames)
+
+responseGetIntegration :: GetIntegrationResponse' -> TestTree
+responseGetIntegration =
+  res
+    "GetIntegrationResponse"
+    "fixture/GetIntegrationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetIntegration)
+
+responseGetIntegrationResponse :: GetIntegrationResponseResponse -> TestTree
+responseGetIntegrationResponse =
+  res
+    "GetIntegrationResponseResponse"
+    "fixture/GetIntegrationResponseResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetIntegrationResponse)
+
+responseGetIntegrationResponses :: GetIntegrationResponsesResponse -> TestTree
+responseGetIntegrationResponses =
+  res
+    "GetIntegrationResponsesResponse"
+    "fixture/GetIntegrationResponsesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetIntegrationResponses)
+
+responseGetIntegrations :: GetIntegrationsResponse -> TestTree
+responseGetIntegrations =
+  res
+    "GetIntegrationsResponse"
+    "fixture/GetIntegrationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetIntegrations)
+
+responseGetModel :: GetModelResponse -> TestTree
+responseGetModel =
+  res
+    "GetModelResponse"
+    "fixture/GetModelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetModel)
 
 responseGetModelTemplate :: GetModelTemplateResponse -> TestTree
 responseGetModelTemplate =
@@ -1476,3 +1260,219 @@ responseGetModelTemplate =
     "fixture/GetModelTemplateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetModelTemplate)
+
+responseGetModels :: GetModelsResponse -> TestTree
+responseGetModels =
+  res
+    "GetModelsResponse"
+    "fixture/GetModelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetModels)
+
+responseGetRoute :: GetRouteResponse' -> TestTree
+responseGetRoute =
+  res
+    "GetRouteResponse"
+    "fixture/GetRouteResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRoute)
+
+responseGetRouteResponse :: GetRouteResponseResponse -> TestTree
+responseGetRouteResponse =
+  res
+    "GetRouteResponseResponse"
+    "fixture/GetRouteResponseResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRouteResponse)
+
+responseGetRouteResponses :: GetRouteResponsesResponse -> TestTree
+responseGetRouteResponses =
+  res
+    "GetRouteResponsesResponse"
+    "fixture/GetRouteResponsesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRouteResponses)
+
+responseGetRoutes :: GetRoutesResponse -> TestTree
+responseGetRoutes =
+  res
+    "GetRoutesResponse"
+    "fixture/GetRoutesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRoutes)
+
+responseGetStage :: GetStageResponse -> TestTree
+responseGetStage =
+  res
+    "GetStageResponse"
+    "fixture/GetStageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetStage)
+
+responseGetStages :: GetStagesResponse -> TestTree
+responseGetStages =
+  res
+    "GetStagesResponse"
+    "fixture/GetStagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetStages)
+
+responseGetTags :: GetTagsResponse -> TestTree
+responseGetTags =
+  res
+    "GetTagsResponse"
+    "fixture/GetTagsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTags)
+
+responseGetVpcLink :: GetVpcLinkResponse -> TestTree
+responseGetVpcLink =
+  res
+    "GetVpcLinkResponse"
+    "fixture/GetVpcLinkResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVpcLink)
+
+responseGetVpcLinks :: GetVpcLinksResponse -> TestTree
+responseGetVpcLinks =
+  res
+    "GetVpcLinksResponse"
+    "fixture/GetVpcLinksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVpcLinks)
+
+responseImportApi :: ImportApiResponse -> TestTree
+responseImportApi =
+  res
+    "ImportApiResponse"
+    "fixture/ImportApiResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportApi)
+
+responseReimportApi :: ReimportApiResponse -> TestTree
+responseReimportApi =
+  res
+    "ReimportApiResponse"
+    "fixture/ReimportApiResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ReimportApi)
+
+responseResetAuthorizersCache :: ResetAuthorizersCacheResponse -> TestTree
+responseResetAuthorizersCache =
+  res
+    "ResetAuthorizersCacheResponse"
+    "fixture/ResetAuthorizersCacheResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ResetAuthorizersCache)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateApi :: UpdateApiResponse -> TestTree
+responseUpdateApi =
+  res
+    "UpdateApiResponse"
+    "fixture/UpdateApiResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateApi)
+
+responseUpdateApiMapping :: UpdateApiMappingResponse -> TestTree
+responseUpdateApiMapping =
+  res
+    "UpdateApiMappingResponse"
+    "fixture/UpdateApiMappingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateApiMapping)
+
+responseUpdateAuthorizer :: UpdateAuthorizerResponse -> TestTree
+responseUpdateAuthorizer =
+  res
+    "UpdateAuthorizerResponse"
+    "fixture/UpdateAuthorizerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAuthorizer)
+
+responseUpdateDeployment :: UpdateDeploymentResponse -> TestTree
+responseUpdateDeployment =
+  res
+    "UpdateDeploymentResponse"
+    "fixture/UpdateDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDeployment)
+
+responseUpdateDomainName :: UpdateDomainNameResponse -> TestTree
+responseUpdateDomainName =
+  res
+    "UpdateDomainNameResponse"
+    "fixture/UpdateDomainNameResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainName)
+
+responseUpdateIntegration :: UpdateIntegrationResponse' -> TestTree
+responseUpdateIntegration =
+  res
+    "UpdateIntegrationResponse"
+    "fixture/UpdateIntegrationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateIntegration)
+
+responseUpdateIntegrationResponse :: UpdateIntegrationResponseResponse -> TestTree
+responseUpdateIntegrationResponse =
+  res
+    "UpdateIntegrationResponseResponse"
+    "fixture/UpdateIntegrationResponseResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateIntegrationResponse)
+
+responseUpdateModel :: UpdateModelResponse -> TestTree
+responseUpdateModel =
+  res
+    "UpdateModelResponse"
+    "fixture/UpdateModelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateModel)
+
+responseUpdateRoute :: UpdateRouteResponse' -> TestTree
+responseUpdateRoute =
+  res
+    "UpdateRouteResponse"
+    "fixture/UpdateRouteResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoute)
+
+responseUpdateRouteResponse :: UpdateRouteResponseResponse -> TestTree
+responseUpdateRouteResponse =
+  res
+    "UpdateRouteResponseResponse"
+    "fixture/UpdateRouteResponseResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRouteResponse)
+
+responseUpdateStage :: UpdateStageResponse -> TestTree
+responseUpdateStage =
+  res
+    "UpdateStageResponse"
+    "fixture/UpdateStageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateStage)
+
+responseUpdateVpcLink :: UpdateVpcLinkResponse -> TestTree
+responseUpdateVpcLink =
+  res
+    "UpdateVpcLinkResponse"
+    "fixture/UpdateVpcLinkResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVpcLink)

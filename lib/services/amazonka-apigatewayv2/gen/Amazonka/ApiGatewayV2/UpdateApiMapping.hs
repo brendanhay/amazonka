@@ -27,8 +27,8 @@ module Amazonka.ApiGatewayV2.UpdateApiMapping
     newUpdateApiMapping,
 
     -- * Request Lenses
-    updateApiMapping_stage,
     updateApiMapping_apiMappingKey,
+    updateApiMapping_stage,
     updateApiMapping_apiMappingId,
     updateApiMapping_apiId,
     updateApiMapping_domainName,
@@ -38,9 +38,9 @@ module Amazonka.ApiGatewayV2.UpdateApiMapping
     newUpdateApiMappingResponse,
 
     -- * Response Lenses
-    updateApiMappingResponse_stage,
     updateApiMappingResponse_apiId,
     updateApiMappingResponse_apiMappingKey,
+    updateApiMappingResponse_stage,
     updateApiMappingResponse_apiMappingId,
     updateApiMappingResponse_httpStatus,
   )
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateApiMapping' smart constructor.
 data UpdateApiMapping = UpdateApiMapping'
-  { -- | The API stage.
-    stage :: Prelude.Maybe Prelude.Text,
-    -- | The API mapping key.
+  { -- | The API mapping key.
     apiMappingKey :: Prelude.Maybe Prelude.Text,
+    -- | The API stage.
+    stage :: Prelude.Maybe Prelude.Text,
     -- | The API mapping identifier.
     apiMappingId :: Prelude.Text,
     -- | The API identifier.
@@ -78,9 +78,9 @@ data UpdateApiMapping = UpdateApiMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stage', 'updateApiMapping_stage' - The API stage.
---
 -- 'apiMappingKey', 'updateApiMapping_apiMappingKey' - The API mapping key.
+--
+-- 'stage', 'updateApiMapping_stage' - The API stage.
 --
 -- 'apiMappingId', 'updateApiMapping_apiMappingId' - The API mapping identifier.
 --
@@ -100,20 +100,20 @@ newUpdateApiMapping
   pApiId_
   pDomainName_ =
     UpdateApiMapping'
-      { stage = Prelude.Nothing,
-        apiMappingKey = Prelude.Nothing,
+      { apiMappingKey = Prelude.Nothing,
+        stage = Prelude.Nothing,
         apiMappingId = pApiMappingId_,
         apiId = pApiId_,
         domainName = pDomainName_
       }
 
--- | The API stage.
-updateApiMapping_stage :: Lens.Lens' UpdateApiMapping (Prelude.Maybe Prelude.Text)
-updateApiMapping_stage = Lens.lens (\UpdateApiMapping' {stage} -> stage) (\s@UpdateApiMapping' {} a -> s {stage = a} :: UpdateApiMapping)
-
 -- | The API mapping key.
 updateApiMapping_apiMappingKey :: Lens.Lens' UpdateApiMapping (Prelude.Maybe Prelude.Text)
 updateApiMapping_apiMappingKey = Lens.lens (\UpdateApiMapping' {apiMappingKey} -> apiMappingKey) (\s@UpdateApiMapping' {} a -> s {apiMappingKey = a} :: UpdateApiMapping)
+
+-- | The API stage.
+updateApiMapping_stage :: Lens.Lens' UpdateApiMapping (Prelude.Maybe Prelude.Text)
+updateApiMapping_stage = Lens.lens (\UpdateApiMapping' {stage} -> stage) (\s@UpdateApiMapping' {} a -> s {stage = a} :: UpdateApiMapping)
 
 -- | The API mapping identifier.
 updateApiMapping_apiMappingId :: Lens.Lens' UpdateApiMapping Prelude.Text
@@ -136,25 +136,25 @@ instance Core.AWSRequest UpdateApiMapping where
     Response.receiveJSON
       ( \s h x ->
           UpdateApiMappingResponse'
-            Prelude.<$> (x Core..?> "stage")
-            Prelude.<*> (x Core..?> "apiId")
+            Prelude.<$> (x Core..?> "apiId")
             Prelude.<*> (x Core..?> "apiMappingKey")
+            Prelude.<*> (x Core..?> "stage")
             Prelude.<*> (x Core..?> "apiMappingId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateApiMapping where
   hashWithSalt _salt UpdateApiMapping' {..} =
-    _salt `Prelude.hashWithSalt` stage
-      `Prelude.hashWithSalt` apiMappingKey
+    _salt `Prelude.hashWithSalt` apiMappingKey
+      `Prelude.hashWithSalt` stage
       `Prelude.hashWithSalt` apiMappingId
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData UpdateApiMapping where
   rnf UpdateApiMapping' {..} =
-    Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf apiMappingKey
+    Prelude.rnf apiMappingKey
+      `Prelude.seq` Prelude.rnf stage
       `Prelude.seq` Prelude.rnf apiMappingId
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf domainName
@@ -174,8 +174,8 @@ instance Core.ToJSON UpdateApiMapping where
   toJSON UpdateApiMapping' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("stage" Core..=) Prelude.<$> stage,
-            ("apiMappingKey" Core..=) Prelude.<$> apiMappingKey,
+          [ ("apiMappingKey" Core..=) Prelude.<$> apiMappingKey,
+            ("stage" Core..=) Prelude.<$> stage,
             Prelude.Just ("apiId" Core..= apiId)
           ]
       )
@@ -194,12 +194,12 @@ instance Core.ToQuery UpdateApiMapping where
 
 -- | /See:/ 'newUpdateApiMappingResponse' smart constructor.
 data UpdateApiMappingResponse = UpdateApiMappingResponse'
-  { -- | The API stage.
-    stage :: Prelude.Maybe Prelude.Text,
-    -- | The API identifier.
+  { -- | The API identifier.
     apiId :: Prelude.Maybe Prelude.Text,
     -- | The API mapping key.
     apiMappingKey :: Prelude.Maybe Prelude.Text,
+    -- | The API stage.
+    stage :: Prelude.Maybe Prelude.Text,
     -- | The API mapping identifier.
     apiMappingId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -215,11 +215,11 @@ data UpdateApiMappingResponse = UpdateApiMappingResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stage', 'updateApiMappingResponse_stage' - The API stage.
---
 -- 'apiId', 'updateApiMappingResponse_apiId' - The API identifier.
 --
 -- 'apiMappingKey', 'updateApiMappingResponse_apiMappingKey' - The API mapping key.
+--
+-- 'stage', 'updateApiMappingResponse_stage' - The API stage.
 --
 -- 'apiMappingId', 'updateApiMappingResponse_apiMappingId' - The API mapping identifier.
 --
@@ -230,16 +230,12 @@ newUpdateApiMappingResponse ::
   UpdateApiMappingResponse
 newUpdateApiMappingResponse pHttpStatus_ =
   UpdateApiMappingResponse'
-    { stage = Prelude.Nothing,
-      apiId = Prelude.Nothing,
+    { apiId = Prelude.Nothing,
       apiMappingKey = Prelude.Nothing,
+      stage = Prelude.Nothing,
       apiMappingId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The API stage.
-updateApiMappingResponse_stage :: Lens.Lens' UpdateApiMappingResponse (Prelude.Maybe Prelude.Text)
-updateApiMappingResponse_stage = Lens.lens (\UpdateApiMappingResponse' {stage} -> stage) (\s@UpdateApiMappingResponse' {} a -> s {stage = a} :: UpdateApiMappingResponse)
 
 -- | The API identifier.
 updateApiMappingResponse_apiId :: Lens.Lens' UpdateApiMappingResponse (Prelude.Maybe Prelude.Text)
@@ -248,6 +244,10 @@ updateApiMappingResponse_apiId = Lens.lens (\UpdateApiMappingResponse' {apiId} -
 -- | The API mapping key.
 updateApiMappingResponse_apiMappingKey :: Lens.Lens' UpdateApiMappingResponse (Prelude.Maybe Prelude.Text)
 updateApiMappingResponse_apiMappingKey = Lens.lens (\UpdateApiMappingResponse' {apiMappingKey} -> apiMappingKey) (\s@UpdateApiMappingResponse' {} a -> s {apiMappingKey = a} :: UpdateApiMappingResponse)
+
+-- | The API stage.
+updateApiMappingResponse_stage :: Lens.Lens' UpdateApiMappingResponse (Prelude.Maybe Prelude.Text)
+updateApiMappingResponse_stage = Lens.lens (\UpdateApiMappingResponse' {stage} -> stage) (\s@UpdateApiMappingResponse' {} a -> s {stage = a} :: UpdateApiMappingResponse)
 
 -- | The API mapping identifier.
 updateApiMappingResponse_apiMappingId :: Lens.Lens' UpdateApiMappingResponse (Prelude.Maybe Prelude.Text)
@@ -259,8 +259,8 @@ updateApiMappingResponse_httpStatus = Lens.lens (\UpdateApiMappingResponse' {htt
 
 instance Prelude.NFData UpdateApiMappingResponse where
   rnf UpdateApiMappingResponse' {..} =
-    Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf apiMappingKey
+      `Prelude.seq` Prelude.rnf stage
       `Prelude.seq` Prelude.rnf apiMappingId
       `Prelude.seq` Prelude.rnf httpStatus

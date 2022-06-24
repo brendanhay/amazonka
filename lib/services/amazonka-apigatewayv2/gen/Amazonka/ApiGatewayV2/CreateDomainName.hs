@@ -27,9 +27,9 @@ module Amazonka.ApiGatewayV2.CreateDomainName
     newCreateDomainName,
 
     -- * Request Lenses
-    createDomainName_domainNameConfigurations,
-    createDomainName_mutualTlsAuthentication,
     createDomainName_tags,
+    createDomainName_mutualTlsAuthentication,
+    createDomainName_domainNameConfigurations,
     createDomainName_domainName,
 
     -- * Destructuring the Response
@@ -37,11 +37,11 @@ module Amazonka.ApiGatewayV2.CreateDomainName
     newCreateDomainNameResponse,
 
     -- * Response Lenses
-    createDomainNameResponse_domainNameConfigurations,
-    createDomainNameResponse_domainName,
-    createDomainNameResponse_mutualTlsAuthentication,
-    createDomainNameResponse_apiMappingSelectionExpression,
     createDomainNameResponse_tags,
+    createDomainNameResponse_mutualTlsAuthentication,
+    createDomainNameResponse_domainName,
+    createDomainNameResponse_domainNameConfigurations,
+    createDomainNameResponse_apiMappingSelectionExpression,
     createDomainNameResponse_httpStatus,
   )
 where
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateDomainName' smart constructor.
 data CreateDomainName = CreateDomainName'
-  { -- | The domain name configurations.
-    domainNameConfigurations :: Prelude.Maybe [DomainNameConfiguration],
+  { -- | The collection of tags associated with a domain name.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The mutual TLS authentication configuration for a custom domain name.
     mutualTlsAuthentication :: Prelude.Maybe MutualTlsAuthenticationInput,
-    -- | The collection of tags associated with a domain name.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The domain name configurations.
+    domainNameConfigurations :: Prelude.Maybe [DomainNameConfiguration],
     -- | The domain name.
     domainName :: Prelude.Text
   }
@@ -76,11 +76,11 @@ data CreateDomainName = CreateDomainName'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainNameConfigurations', 'createDomainName_domainNameConfigurations' - The domain name configurations.
+-- 'tags', 'createDomainName_tags' - The collection of tags associated with a domain name.
 --
 -- 'mutualTlsAuthentication', 'createDomainName_mutualTlsAuthentication' - The mutual TLS authentication configuration for a custom domain name.
 --
--- 'tags', 'createDomainName_tags' - The collection of tags associated with a domain name.
+-- 'domainNameConfigurations', 'createDomainName_domainNameConfigurations' - The domain name configurations.
 --
 -- 'domainName', 'createDomainName_domainName' - The domain name.
 newCreateDomainName ::
@@ -89,24 +89,23 @@ newCreateDomainName ::
   CreateDomainName
 newCreateDomainName pDomainName_ =
   CreateDomainName'
-    { domainNameConfigurations =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
       mutualTlsAuthentication = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      domainNameConfigurations = Prelude.Nothing,
       domainName = pDomainName_
     }
 
--- | The domain name configurations.
-createDomainName_domainNameConfigurations :: Lens.Lens' CreateDomainName (Prelude.Maybe [DomainNameConfiguration])
-createDomainName_domainNameConfigurations = Lens.lens (\CreateDomainName' {domainNameConfigurations} -> domainNameConfigurations) (\s@CreateDomainName' {} a -> s {domainNameConfigurations = a} :: CreateDomainName) Prelude.. Lens.mapping Lens.coerced
+-- | The collection of tags associated with a domain name.
+createDomainName_tags :: Lens.Lens' CreateDomainName (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDomainName_tags = Lens.lens (\CreateDomainName' {tags} -> tags) (\s@CreateDomainName' {} a -> s {tags = a} :: CreateDomainName) Prelude.. Lens.mapping Lens.coerced
 
 -- | The mutual TLS authentication configuration for a custom domain name.
 createDomainName_mutualTlsAuthentication :: Lens.Lens' CreateDomainName (Prelude.Maybe MutualTlsAuthenticationInput)
 createDomainName_mutualTlsAuthentication = Lens.lens (\CreateDomainName' {mutualTlsAuthentication} -> mutualTlsAuthentication) (\s@CreateDomainName' {} a -> s {mutualTlsAuthentication = a} :: CreateDomainName)
 
--- | The collection of tags associated with a domain name.
-createDomainName_tags :: Lens.Lens' CreateDomainName (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDomainName_tags = Lens.lens (\CreateDomainName' {tags} -> tags) (\s@CreateDomainName' {} a -> s {tags = a} :: CreateDomainName) Prelude.. Lens.mapping Lens.coerced
+-- | The domain name configurations.
+createDomainName_domainNameConfigurations :: Lens.Lens' CreateDomainName (Prelude.Maybe [DomainNameConfiguration])
+createDomainName_domainNameConfigurations = Lens.lens (\CreateDomainName' {domainNameConfigurations} -> domainNameConfigurations) (\s@CreateDomainName' {} a -> s {domainNameConfigurations = a} :: CreateDomainName) Prelude.. Lens.mapping Lens.coerced
 
 -- | The domain name.
 createDomainName_domainName :: Lens.Lens' CreateDomainName Prelude.Text
@@ -121,29 +120,28 @@ instance Core.AWSRequest CreateDomainName where
     Response.receiveJSON
       ( \s h x ->
           CreateDomainNameResponse'
-            Prelude.<$> ( x Core..?> "domainNameConfigurations"
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "mutualTlsAuthentication")
+            Prelude.<*> (x Core..?> "domainName")
+            Prelude.<*> ( x Core..?> "domainNameConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "domainName")
-            Prelude.<*> (x Core..?> "mutualTlsAuthentication")
             Prelude.<*> (x Core..?> "apiMappingSelectionExpression")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateDomainName where
   hashWithSalt _salt CreateDomainName' {..} =
-    _salt
-      `Prelude.hashWithSalt` domainNameConfigurations
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` mutualTlsAuthentication
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` domainNameConfigurations
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData CreateDomainName where
   rnf CreateDomainName' {..} =
-    Prelude.rnf domainNameConfigurations
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf mutualTlsAuthentication
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf domainNameConfigurations
       `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders CreateDomainName where
@@ -161,11 +159,11 @@ instance Core.ToJSON CreateDomainName where
   toJSON CreateDomainName' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("domainNameConfigurations" Core..=)
-              Prelude.<$> domainNameConfigurations,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("mutualTlsAuthentication" Core..=)
               Prelude.<$> mutualTlsAuthentication,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("domainNameConfigurations" Core..=)
+              Prelude.<$> domainNameConfigurations,
             Prelude.Just ("domainName" Core..= domainName)
           ]
       )
@@ -178,16 +176,16 @@ instance Core.ToQuery CreateDomainName where
 
 -- | /See:/ 'newCreateDomainNameResponse' smart constructor.
 data CreateDomainNameResponse = CreateDomainNameResponse'
-  { -- | The domain name configurations.
-    domainNameConfigurations :: Prelude.Maybe [DomainNameConfiguration],
-    -- | The name of the DomainName resource.
-    domainName :: Prelude.Maybe Prelude.Text,
+  { -- | The collection of tags associated with a domain name.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The mutual TLS authentication configuration for a custom domain name.
     mutualTlsAuthentication :: Prelude.Maybe MutualTlsAuthentication,
+    -- | The name of the DomainName resource.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The domain name configurations.
+    domainNameConfigurations :: Prelude.Maybe [DomainNameConfiguration],
     -- | The API mapping selection expression.
     apiMappingSelectionExpression :: Prelude.Maybe Prelude.Text,
-    -- | The collection of tags associated with a domain name.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,15 +199,15 @@ data CreateDomainNameResponse = CreateDomainNameResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainNameConfigurations', 'createDomainNameResponse_domainNameConfigurations' - The domain name configurations.
---
--- 'domainName', 'createDomainNameResponse_domainName' - The name of the DomainName resource.
+-- 'tags', 'createDomainNameResponse_tags' - The collection of tags associated with a domain name.
 --
 -- 'mutualTlsAuthentication', 'createDomainNameResponse_mutualTlsAuthentication' - The mutual TLS authentication configuration for a custom domain name.
 --
--- 'apiMappingSelectionExpression', 'createDomainNameResponse_apiMappingSelectionExpression' - The API mapping selection expression.
+-- 'domainName', 'createDomainNameResponse_domainName' - The name of the DomainName resource.
 --
--- 'tags', 'createDomainNameResponse_tags' - The collection of tags associated with a domain name.
+-- 'domainNameConfigurations', 'createDomainNameResponse_domainNameConfigurations' - The domain name configurations.
+--
+-- 'apiMappingSelectionExpression', 'createDomainNameResponse_apiMappingSelectionExpression' - The API mapping selection expression.
 --
 -- 'httpStatus', 'createDomainNameResponse_httpStatus' - The response's http status code.
 newCreateDomainNameResponse ::
@@ -218,34 +216,33 @@ newCreateDomainNameResponse ::
   CreateDomainNameResponse
 newCreateDomainNameResponse pHttpStatus_ =
   CreateDomainNameResponse'
-    { domainNameConfigurations =
-        Prelude.Nothing,
-      domainName = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       mutualTlsAuthentication = Prelude.Nothing,
+      domainName = Prelude.Nothing,
+      domainNameConfigurations = Prelude.Nothing,
       apiMappingSelectionExpression = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The domain name configurations.
-createDomainNameResponse_domainNameConfigurations :: Lens.Lens' CreateDomainNameResponse (Prelude.Maybe [DomainNameConfiguration])
-createDomainNameResponse_domainNameConfigurations = Lens.lens (\CreateDomainNameResponse' {domainNameConfigurations} -> domainNameConfigurations) (\s@CreateDomainNameResponse' {} a -> s {domainNameConfigurations = a} :: CreateDomainNameResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the DomainName resource.
-createDomainNameResponse_domainName :: Lens.Lens' CreateDomainNameResponse (Prelude.Maybe Prelude.Text)
-createDomainNameResponse_domainName = Lens.lens (\CreateDomainNameResponse' {domainName} -> domainName) (\s@CreateDomainNameResponse' {} a -> s {domainName = a} :: CreateDomainNameResponse)
+-- | The collection of tags associated with a domain name.
+createDomainNameResponse_tags :: Lens.Lens' CreateDomainNameResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDomainNameResponse_tags = Lens.lens (\CreateDomainNameResponse' {tags} -> tags) (\s@CreateDomainNameResponse' {} a -> s {tags = a} :: CreateDomainNameResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The mutual TLS authentication configuration for a custom domain name.
 createDomainNameResponse_mutualTlsAuthentication :: Lens.Lens' CreateDomainNameResponse (Prelude.Maybe MutualTlsAuthentication)
 createDomainNameResponse_mutualTlsAuthentication = Lens.lens (\CreateDomainNameResponse' {mutualTlsAuthentication} -> mutualTlsAuthentication) (\s@CreateDomainNameResponse' {} a -> s {mutualTlsAuthentication = a} :: CreateDomainNameResponse)
 
+-- | The name of the DomainName resource.
+createDomainNameResponse_domainName :: Lens.Lens' CreateDomainNameResponse (Prelude.Maybe Prelude.Text)
+createDomainNameResponse_domainName = Lens.lens (\CreateDomainNameResponse' {domainName} -> domainName) (\s@CreateDomainNameResponse' {} a -> s {domainName = a} :: CreateDomainNameResponse)
+
+-- | The domain name configurations.
+createDomainNameResponse_domainNameConfigurations :: Lens.Lens' CreateDomainNameResponse (Prelude.Maybe [DomainNameConfiguration])
+createDomainNameResponse_domainNameConfigurations = Lens.lens (\CreateDomainNameResponse' {domainNameConfigurations} -> domainNameConfigurations) (\s@CreateDomainNameResponse' {} a -> s {domainNameConfigurations = a} :: CreateDomainNameResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The API mapping selection expression.
 createDomainNameResponse_apiMappingSelectionExpression :: Lens.Lens' CreateDomainNameResponse (Prelude.Maybe Prelude.Text)
 createDomainNameResponse_apiMappingSelectionExpression = Lens.lens (\CreateDomainNameResponse' {apiMappingSelectionExpression} -> apiMappingSelectionExpression) (\s@CreateDomainNameResponse' {} a -> s {apiMappingSelectionExpression = a} :: CreateDomainNameResponse)
-
--- | The collection of tags associated with a domain name.
-createDomainNameResponse_tags :: Lens.Lens' CreateDomainNameResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDomainNameResponse_tags = Lens.lens (\CreateDomainNameResponse' {tags} -> tags) (\s@CreateDomainNameResponse' {} a -> s {tags = a} :: CreateDomainNameResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createDomainNameResponse_httpStatus :: Lens.Lens' CreateDomainNameResponse Prelude.Int
@@ -253,9 +250,9 @@ createDomainNameResponse_httpStatus = Lens.lens (\CreateDomainNameResponse' {htt
 
 instance Prelude.NFData CreateDomainNameResponse where
   rnf CreateDomainNameResponse' {..} =
-    Prelude.rnf domainNameConfigurations
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf mutualTlsAuthentication
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf domainNameConfigurations
       `Prelude.seq` Prelude.rnf apiMappingSelectionExpression
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

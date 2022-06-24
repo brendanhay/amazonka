@@ -35,9 +35,9 @@ module Amazonka.ApiGatewayV2.GetApiMapping
     newGetApiMappingResponse,
 
     -- * Response Lenses
-    getApiMappingResponse_stage,
     getApiMappingResponse_apiId,
     getApiMappingResponse_apiMappingKey,
+    getApiMappingResponse_stage,
     getApiMappingResponse_apiMappingId,
     getApiMappingResponse_httpStatus,
   )
@@ -99,9 +99,9 @@ instance Core.AWSRequest GetApiMapping where
     Response.receiveJSON
       ( \s h x ->
           GetApiMappingResponse'
-            Prelude.<$> (x Core..?> "stage")
-            Prelude.<*> (x Core..?> "apiId")
+            Prelude.<$> (x Core..?> "apiId")
             Prelude.<*> (x Core..?> "apiMappingKey")
+            Prelude.<*> (x Core..?> "stage")
             Prelude.<*> (x Core..?> "apiMappingId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -141,12 +141,12 @@ instance Core.ToQuery GetApiMapping where
 
 -- | /See:/ 'newGetApiMappingResponse' smart constructor.
 data GetApiMappingResponse = GetApiMappingResponse'
-  { -- | The API stage.
-    stage :: Prelude.Maybe Prelude.Text,
-    -- | The API identifier.
+  { -- | The API identifier.
     apiId :: Prelude.Maybe Prelude.Text,
     -- | The API mapping key.
     apiMappingKey :: Prelude.Maybe Prelude.Text,
+    -- | The API stage.
+    stage :: Prelude.Maybe Prelude.Text,
     -- | The API mapping identifier.
     apiMappingId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -162,11 +162,11 @@ data GetApiMappingResponse = GetApiMappingResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stage', 'getApiMappingResponse_stage' - The API stage.
---
 -- 'apiId', 'getApiMappingResponse_apiId' - The API identifier.
 --
 -- 'apiMappingKey', 'getApiMappingResponse_apiMappingKey' - The API mapping key.
+--
+-- 'stage', 'getApiMappingResponse_stage' - The API stage.
 --
 -- 'apiMappingId', 'getApiMappingResponse_apiMappingId' - The API mapping identifier.
 --
@@ -177,16 +177,12 @@ newGetApiMappingResponse ::
   GetApiMappingResponse
 newGetApiMappingResponse pHttpStatus_ =
   GetApiMappingResponse'
-    { stage = Prelude.Nothing,
-      apiId = Prelude.Nothing,
+    { apiId = Prelude.Nothing,
       apiMappingKey = Prelude.Nothing,
+      stage = Prelude.Nothing,
       apiMappingId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The API stage.
-getApiMappingResponse_stage :: Lens.Lens' GetApiMappingResponse (Prelude.Maybe Prelude.Text)
-getApiMappingResponse_stage = Lens.lens (\GetApiMappingResponse' {stage} -> stage) (\s@GetApiMappingResponse' {} a -> s {stage = a} :: GetApiMappingResponse)
 
 -- | The API identifier.
 getApiMappingResponse_apiId :: Lens.Lens' GetApiMappingResponse (Prelude.Maybe Prelude.Text)
@@ -195,6 +191,10 @@ getApiMappingResponse_apiId = Lens.lens (\GetApiMappingResponse' {apiId} -> apiI
 -- | The API mapping key.
 getApiMappingResponse_apiMappingKey :: Lens.Lens' GetApiMappingResponse (Prelude.Maybe Prelude.Text)
 getApiMappingResponse_apiMappingKey = Lens.lens (\GetApiMappingResponse' {apiMappingKey} -> apiMappingKey) (\s@GetApiMappingResponse' {} a -> s {apiMappingKey = a} :: GetApiMappingResponse)
+
+-- | The API stage.
+getApiMappingResponse_stage :: Lens.Lens' GetApiMappingResponse (Prelude.Maybe Prelude.Text)
+getApiMappingResponse_stage = Lens.lens (\GetApiMappingResponse' {stage} -> stage) (\s@GetApiMappingResponse' {} a -> s {stage = a} :: GetApiMappingResponse)
 
 -- | The API mapping identifier.
 getApiMappingResponse_apiMappingId :: Lens.Lens' GetApiMappingResponse (Prelude.Maybe Prelude.Text)
@@ -206,8 +206,8 @@ getApiMappingResponse_httpStatus = Lens.lens (\GetApiMappingResponse' {httpStatu
 
 instance Prelude.NFData GetApiMappingResponse where
   rnf GetApiMappingResponse' {..} =
-    Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf apiId
+    Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf apiMappingKey
+      `Prelude.seq` Prelude.rnf stage
       `Prelude.seq` Prelude.rnf apiMappingId
       `Prelude.seq` Prelude.rnf httpStatus

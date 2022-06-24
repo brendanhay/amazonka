@@ -33,14 +33,14 @@ module Amazonka.CloudHSM
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
     -- ** CloudHsmServiceException
     _CloudHsmServiceException,
 
     -- ** CloudHsmInternalException
     _CloudHsmInternalException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters
@@ -48,41 +48,11 @@ module Amazonka.CloudHSM
     -- * Operations
     -- $operations
 
-    -- ** DeleteHapg
-    DeleteHapg (DeleteHapg'),
-    newDeleteHapg,
-    DeleteHapgResponse (DeleteHapgResponse'),
-    newDeleteHapgResponse,
-
-    -- ** ListHapgs (Paginated)
-    ListHapgs (ListHapgs'),
-    newListHapgs,
-    ListHapgsResponse (ListHapgsResponse'),
-    newListHapgsResponse,
-
-    -- ** ModifyLunaClient
-    ModifyLunaClient (ModifyLunaClient'),
-    newModifyLunaClient,
-    ModifyLunaClientResponse (ModifyLunaClientResponse'),
-    newModifyLunaClientResponse,
-
-    -- ** ListHsms (Paginated)
-    ListHsms (ListHsms'),
-    newListHsms,
-    ListHsmsResponse (ListHsmsResponse'),
-    newListHsmsResponse,
-
-    -- ** DescribeLunaClient
-    DescribeLunaClient (DescribeLunaClient'),
-    newDescribeLunaClient,
-    DescribeLunaClientResponse (DescribeLunaClientResponse'),
-    newDescribeLunaClientResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** AddTagsToResource
+    AddTagsToResource (AddTagsToResource'),
+    newAddTagsToResource,
+    AddTagsToResourceResponse (AddTagsToResourceResponse'),
+    newAddTagsToResourceResponse,
 
     -- ** CreateHapg
     CreateHapg (CreateHapg'),
@@ -96,41 +66,17 @@ module Amazonka.CloudHSM
     CreateHsmResponse (CreateHsmResponse'),
     newCreateHsmResponse,
 
-    -- ** RemoveTagsFromResource
-    RemoveTagsFromResource (RemoveTagsFromResource'),
-    newRemoveTagsFromResource,
-    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
-    newRemoveTagsFromResourceResponse,
-
-    -- ** DescribeHapg
-    DescribeHapg (DescribeHapg'),
-    newDescribeHapg,
-    DescribeHapgResponse (DescribeHapgResponse'),
-    newDescribeHapgResponse,
-
     -- ** CreateLunaClient
     CreateLunaClient (CreateLunaClient'),
     newCreateLunaClient,
     CreateLunaClientResponse (CreateLunaClientResponse'),
     newCreateLunaClientResponse,
 
-    -- ** ListLunaClients (Paginated)
-    ListLunaClients (ListLunaClients'),
-    newListLunaClients,
-    ListLunaClientsResponse (ListLunaClientsResponse'),
-    newListLunaClientsResponse,
-
-    -- ** AddTagsToResource
-    AddTagsToResource (AddTagsToResource'),
-    newAddTagsToResource,
-    AddTagsToResourceResponse (AddTagsToResourceResponse'),
-    newAddTagsToResourceResponse,
-
-    -- ** GetConfig
-    GetConfig (GetConfig'),
-    newGetConfig,
-    GetConfigResponse (GetConfigResponse'),
-    newGetConfigResponse,
+    -- ** DeleteHapg
+    DeleteHapg (DeleteHapg'),
+    newDeleteHapg,
+    DeleteHapgResponse (DeleteHapgResponse'),
+    newDeleteHapgResponse,
 
     -- ** DeleteHsm
     DeleteHsm (DeleteHsm'),
@@ -138,11 +84,65 @@ module Amazonka.CloudHSM
     DeleteHsmResponse (DeleteHsmResponse'),
     newDeleteHsmResponse,
 
+    -- ** DeleteLunaClient
+    DeleteLunaClient (DeleteLunaClient'),
+    newDeleteLunaClient,
+    DeleteLunaClientResponse (DeleteLunaClientResponse'),
+    newDeleteLunaClientResponse,
+
+    -- ** DescribeHapg
+    DescribeHapg (DescribeHapg'),
+    newDescribeHapg,
+    DescribeHapgResponse (DescribeHapgResponse'),
+    newDescribeHapgResponse,
+
     -- ** DescribeHsm
     DescribeHsm (DescribeHsm'),
     newDescribeHsm,
     DescribeHsmResponse (DescribeHsmResponse'),
     newDescribeHsmResponse,
+
+    -- ** DescribeLunaClient
+    DescribeLunaClient (DescribeLunaClient'),
+    newDescribeLunaClient,
+    DescribeLunaClientResponse (DescribeLunaClientResponse'),
+    newDescribeLunaClientResponse,
+
+    -- ** GetConfig
+    GetConfig (GetConfig'),
+    newGetConfig,
+    GetConfigResponse (GetConfigResponse'),
+    newGetConfigResponse,
+
+    -- ** ListAvailableZones
+    ListAvailableZones (ListAvailableZones'),
+    newListAvailableZones,
+    ListAvailableZonesResponse (ListAvailableZonesResponse'),
+    newListAvailableZonesResponse,
+
+    -- ** ListHapgs (Paginated)
+    ListHapgs (ListHapgs'),
+    newListHapgs,
+    ListHapgsResponse (ListHapgsResponse'),
+    newListHapgsResponse,
+
+    -- ** ListHsms (Paginated)
+    ListHsms (ListHsms'),
+    newListHsms,
+    ListHsmsResponse (ListHsmsResponse'),
+    newListHsmsResponse,
+
+    -- ** ListLunaClients (Paginated)
+    ListLunaClients (ListLunaClients'),
+    newListLunaClients,
+    ListLunaClientsResponse (ListLunaClientsResponse'),
+    newListLunaClientsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** ModifyHapg
     ModifyHapg (ModifyHapg'),
@@ -150,23 +150,23 @@ module Amazonka.CloudHSM
     ModifyHapgResponse (ModifyHapgResponse'),
     newModifyHapgResponse,
 
-    -- ** DeleteLunaClient
-    DeleteLunaClient (DeleteLunaClient'),
-    newDeleteLunaClient,
-    DeleteLunaClientResponse (DeleteLunaClientResponse'),
-    newDeleteLunaClientResponse,
-
     -- ** ModifyHsm
     ModifyHsm (ModifyHsm'),
     newModifyHsm,
     ModifyHsmResponse (ModifyHsmResponse'),
     newModifyHsmResponse,
 
-    -- ** ListAvailableZones
-    ListAvailableZones (ListAvailableZones'),
-    newListAvailableZones,
-    ListAvailableZonesResponse (ListAvailableZonesResponse'),
-    newListAvailableZonesResponse,
+    -- ** ModifyLunaClient
+    ModifyLunaClient (ModifyLunaClient'),
+    newModifyLunaClient,
+    ModifyLunaClientResponse (ModifyLunaClientResponse'),
+    newModifyLunaClientResponse,
+
+    -- ** RemoveTagsFromResource
+    RemoveTagsFromResource (RemoveTagsFromResource'),
+    newRemoveTagsFromResource,
+    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
+    newRemoveTagsFromResourceResponse,
 
     -- * Types
 

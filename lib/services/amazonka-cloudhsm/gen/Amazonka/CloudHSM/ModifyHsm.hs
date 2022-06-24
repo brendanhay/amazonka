@@ -47,11 +47,11 @@ module Amazonka.CloudHSM.ModifyHsm
     newModifyHsm,
 
     -- * Request Lenses
-    modifyHsm_iamRoleArn,
     modifyHsm_subnetId,
-    modifyHsm_syslogIp,
     modifyHsm_externalId,
+    modifyHsm_iamRoleArn,
     modifyHsm_eniIp,
+    modifyHsm_syslogIp,
     modifyHsm_hsmArn,
 
     -- * Destructuring the Response
@@ -75,16 +75,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newModifyHsm' smart constructor.
 data ModifyHsm = ModifyHsm'
-  { -- | The new IAM role ARN.
-    iamRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The new identifier of the subnet that the HSM is in. The new subnet must
+  { -- | The new identifier of the subnet that the HSM is in. The new subnet must
     -- be in the same Availability Zone as the current subnet.
     subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The new IP address for the syslog monitoring server. The AWS CloudHSM
-    -- service only supports one syslog monitoring server.
-    syslogIp :: Prelude.Maybe Prelude.Text,
     -- | The new external ID.
     externalId :: Prelude.Maybe Prelude.Text,
+    -- | The new IAM role ARN.
+    iamRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The new IP address for the elastic network interface (ENI) attached to
     -- the HSM.
     --
@@ -92,6 +89,9 @@ data ModifyHsm = ModifyHsm'
     -- specified, an IP address will be randomly chosen from the CIDR range of
     -- the new subnet.
     eniIp :: Prelude.Maybe Prelude.Text,
+    -- | The new IP address for the syslog monitoring server. The AWS CloudHSM
+    -- service only supports one syslog monitoring server.
+    syslogIp :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the HSM to modify.
     hsmArn :: Prelude.Text
   }
@@ -105,15 +105,12 @@ data ModifyHsm = ModifyHsm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'iamRoleArn', 'modifyHsm_iamRoleArn' - The new IAM role ARN.
---
 -- 'subnetId', 'modifyHsm_subnetId' - The new identifier of the subnet that the HSM is in. The new subnet must
 -- be in the same Availability Zone as the current subnet.
 --
--- 'syslogIp', 'modifyHsm_syslogIp' - The new IP address for the syslog monitoring server. The AWS CloudHSM
--- service only supports one syslog monitoring server.
---
 -- 'externalId', 'modifyHsm_externalId' - The new external ID.
+--
+-- 'iamRoleArn', 'modifyHsm_iamRoleArn' - The new IAM role ARN.
 --
 -- 'eniIp', 'modifyHsm_eniIp' - The new IP address for the elastic network interface (ENI) attached to
 -- the HSM.
@@ -122,6 +119,9 @@ data ModifyHsm = ModifyHsm'
 -- specified, an IP address will be randomly chosen from the CIDR range of
 -- the new subnet.
 --
+-- 'syslogIp', 'modifyHsm_syslogIp' - The new IP address for the syslog monitoring server. The AWS CloudHSM
+-- service only supports one syslog monitoring server.
+--
 -- 'hsmArn', 'modifyHsm_hsmArn' - The ARN of the HSM to modify.
 newModifyHsm ::
   -- | 'hsmArn'
@@ -129,31 +129,26 @@ newModifyHsm ::
   ModifyHsm
 newModifyHsm pHsmArn_ =
   ModifyHsm'
-    { iamRoleArn = Prelude.Nothing,
-      subnetId = Prelude.Nothing,
-      syslogIp = Prelude.Nothing,
+    { subnetId = Prelude.Nothing,
       externalId = Prelude.Nothing,
+      iamRoleArn = Prelude.Nothing,
       eniIp = Prelude.Nothing,
+      syslogIp = Prelude.Nothing,
       hsmArn = pHsmArn_
     }
-
--- | The new IAM role ARN.
-modifyHsm_iamRoleArn :: Lens.Lens' ModifyHsm (Prelude.Maybe Prelude.Text)
-modifyHsm_iamRoleArn = Lens.lens (\ModifyHsm' {iamRoleArn} -> iamRoleArn) (\s@ModifyHsm' {} a -> s {iamRoleArn = a} :: ModifyHsm)
 
 -- | The new identifier of the subnet that the HSM is in. The new subnet must
 -- be in the same Availability Zone as the current subnet.
 modifyHsm_subnetId :: Lens.Lens' ModifyHsm (Prelude.Maybe Prelude.Text)
 modifyHsm_subnetId = Lens.lens (\ModifyHsm' {subnetId} -> subnetId) (\s@ModifyHsm' {} a -> s {subnetId = a} :: ModifyHsm)
 
--- | The new IP address for the syslog monitoring server. The AWS CloudHSM
--- service only supports one syslog monitoring server.
-modifyHsm_syslogIp :: Lens.Lens' ModifyHsm (Prelude.Maybe Prelude.Text)
-modifyHsm_syslogIp = Lens.lens (\ModifyHsm' {syslogIp} -> syslogIp) (\s@ModifyHsm' {} a -> s {syslogIp = a} :: ModifyHsm)
-
 -- | The new external ID.
 modifyHsm_externalId :: Lens.Lens' ModifyHsm (Prelude.Maybe Prelude.Text)
 modifyHsm_externalId = Lens.lens (\ModifyHsm' {externalId} -> externalId) (\s@ModifyHsm' {} a -> s {externalId = a} :: ModifyHsm)
+
+-- | The new IAM role ARN.
+modifyHsm_iamRoleArn :: Lens.Lens' ModifyHsm (Prelude.Maybe Prelude.Text)
+modifyHsm_iamRoleArn = Lens.lens (\ModifyHsm' {iamRoleArn} -> iamRoleArn) (\s@ModifyHsm' {} a -> s {iamRoleArn = a} :: ModifyHsm)
 
 -- | The new IP address for the elastic network interface (ENI) attached to
 -- the HSM.
@@ -163,6 +158,11 @@ modifyHsm_externalId = Lens.lens (\ModifyHsm' {externalId} -> externalId) (\s@Mo
 -- the new subnet.
 modifyHsm_eniIp :: Lens.Lens' ModifyHsm (Prelude.Maybe Prelude.Text)
 modifyHsm_eniIp = Lens.lens (\ModifyHsm' {eniIp} -> eniIp) (\s@ModifyHsm' {} a -> s {eniIp = a} :: ModifyHsm)
+
+-- | The new IP address for the syslog monitoring server. The AWS CloudHSM
+-- service only supports one syslog monitoring server.
+modifyHsm_syslogIp :: Lens.Lens' ModifyHsm (Prelude.Maybe Prelude.Text)
+modifyHsm_syslogIp = Lens.lens (\ModifyHsm' {syslogIp} -> syslogIp) (\s@ModifyHsm' {} a -> s {syslogIp = a} :: ModifyHsm)
 
 -- | The ARN of the HSM to modify.
 modifyHsm_hsmArn :: Lens.Lens' ModifyHsm Prelude.Text
@@ -181,20 +181,20 @@ instance Core.AWSRequest ModifyHsm where
 
 instance Prelude.Hashable ModifyHsm where
   hashWithSalt _salt ModifyHsm' {..} =
-    _salt `Prelude.hashWithSalt` iamRoleArn
-      `Prelude.hashWithSalt` subnetId
-      `Prelude.hashWithSalt` syslogIp
+    _salt `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` iamRoleArn
       `Prelude.hashWithSalt` eniIp
+      `Prelude.hashWithSalt` syslogIp
       `Prelude.hashWithSalt` hsmArn
 
 instance Prelude.NFData ModifyHsm where
   rnf ModifyHsm' {..} =
-    Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf syslogIp
+    Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf iamRoleArn
       `Prelude.seq` Prelude.rnf eniIp
+      `Prelude.seq` Prelude.rnf syslogIp
       `Prelude.seq` Prelude.rnf hsmArn
 
 instance Core.ToHeaders ModifyHsm where
@@ -216,11 +216,11 @@ instance Core.ToJSON ModifyHsm where
   toJSON ModifyHsm' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
-            ("SubnetId" Core..=) Prelude.<$> subnetId,
-            ("SyslogIp" Core..=) Prelude.<$> syslogIp,
+          [ ("SubnetId" Core..=) Prelude.<$> subnetId,
             ("ExternalId" Core..=) Prelude.<$> externalId,
+            ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
             ("EniIp" Core..=) Prelude.<$> eniIp,
+            ("SyslogIp" Core..=) Prelude.<$> syslogIp,
             Prelude.Just ("HsmArn" Core..= hsmArn)
           ]
       )

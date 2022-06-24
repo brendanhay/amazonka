@@ -14,43 +14,11 @@
 module Amazonka.CloudHSM.Lens
   ( -- * Operations
 
-    -- ** DeleteHapg
-    deleteHapg_hapgArn,
-    deleteHapgResponse_httpStatus,
-    deleteHapgResponse_status,
-
-    -- ** ListHapgs
-    listHapgs_nextToken,
-    listHapgsResponse_nextToken,
-    listHapgsResponse_httpStatus,
-    listHapgsResponse_hapgList,
-
-    -- ** ModifyLunaClient
-    modifyLunaClient_clientArn,
-    modifyLunaClient_certificate,
-    modifyLunaClientResponse_clientArn,
-    modifyLunaClientResponse_httpStatus,
-
-    -- ** ListHsms
-    listHsms_nextToken,
-    listHsmsResponse_nextToken,
-    listHsmsResponse_hsmList,
-    listHsmsResponse_httpStatus,
-
-    -- ** DescribeLunaClient
-    describeLunaClient_clientArn,
-    describeLunaClient_certificateFingerprint,
-    describeLunaClientResponse_clientArn,
-    describeLunaClientResponse_lastModifiedTimestamp,
-    describeLunaClientResponse_certificateFingerprint,
-    describeLunaClientResponse_certificate,
-    describeLunaClientResponse_label,
-    describeLunaClientResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_httpStatus,
-    listTagsForResourceResponse_tagList,
+    -- ** AddTagsToResource
+    addTagsToResource_resourceArn,
+    addTagsToResource_tagList,
+    addTagsToResourceResponse_httpStatus,
+    addTagsToResourceResponse_status,
 
     -- ** CreateHapg
     createHapg_label,
@@ -59,9 +27,9 @@ module Amazonka.CloudHSM.Lens
 
     -- ** CreateHsm
     createHsm_clientToken,
-    createHsm_syslogIp,
     createHsm_externalId,
     createHsm_eniIp,
+    createHsm_syslogIp,
     createHsm_subnetId,
     createHsm_sshKey,
     createHsm_iamRoleArn,
@@ -69,30 +37,100 @@ module Amazonka.CloudHSM.Lens
     createHsmResponse_hsmArn,
     createHsmResponse_httpStatus,
 
-    -- ** RemoveTagsFromResource
-    removeTagsFromResource_resourceArn,
-    removeTagsFromResource_tagKeyList,
-    removeTagsFromResourceResponse_httpStatus,
-    removeTagsFromResourceResponse_status,
-
-    -- ** DescribeHapg
-    describeHapg_hapgArn,
-    describeHapgResponse_state,
-    describeHapgResponse_lastModifiedTimestamp,
-    describeHapgResponse_hsmsPendingRegistration,
-    describeHapgResponse_hsmsPendingDeletion,
-    describeHapgResponse_hapgSerial,
-    describeHapgResponse_hsmsLastActionFailed,
-    describeHapgResponse_partitionSerialList,
-    describeHapgResponse_hapgArn,
-    describeHapgResponse_label,
-    describeHapgResponse_httpStatus,
-
     -- ** CreateLunaClient
     createLunaClient_label,
     createLunaClient_certificate,
     createLunaClientResponse_clientArn,
     createLunaClientResponse_httpStatus,
+
+    -- ** DeleteHapg
+    deleteHapg_hapgArn,
+    deleteHapgResponse_httpStatus,
+    deleteHapgResponse_status,
+
+    -- ** DeleteHsm
+    deleteHsm_hsmArn,
+    deleteHsmResponse_httpStatus,
+    deleteHsmResponse_status,
+
+    -- ** DeleteLunaClient
+    deleteLunaClient_clientArn,
+    deleteLunaClientResponse_httpStatus,
+    deleteLunaClientResponse_status,
+
+    -- ** DescribeHapg
+    describeHapg_hapgArn,
+    describeHapgResponse_hsmsLastActionFailed,
+    describeHapgResponse_partitionSerialList,
+    describeHapgResponse_label,
+    describeHapgResponse_hsmsPendingRegistration,
+    describeHapgResponse_lastModifiedTimestamp,
+    describeHapgResponse_state,
+    describeHapgResponse_hapgArn,
+    describeHapgResponse_hapgSerial,
+    describeHapgResponse_hsmsPendingDeletion,
+    describeHapgResponse_httpStatus,
+
+    -- ** DescribeHsm
+    describeHsm_hsmSerialNumber,
+    describeHsm_hsmArn,
+    describeHsmResponse_serverCertUri,
+    describeHsmResponse_statusDetails,
+    describeHsmResponse_subnetId,
+    describeHsmResponse_hsmType,
+    describeHsmResponse_subscriptionType,
+    describeHsmResponse_sshPublicKey,
+    describeHsmResponse_status,
+    describeHsmResponse_sshKeyLastUpdated,
+    describeHsmResponse_availabilityZone,
+    describeHsmResponse_softwareVersion,
+    describeHsmResponse_hsmArn,
+    describeHsmResponse_iamRoleArn,
+    describeHsmResponse_partitions,
+    describeHsmResponse_subscriptionStartDate,
+    describeHsmResponse_serverCertLastUpdated,
+    describeHsmResponse_serialNumber,
+    describeHsmResponse_eniIp,
+    describeHsmResponse_vpcId,
+    describeHsmResponse_eniId,
+    describeHsmResponse_vendorName,
+    describeHsmResponse_subscriptionEndDate,
+    describeHsmResponse_httpStatus,
+
+    -- ** DescribeLunaClient
+    describeLunaClient_clientArn,
+    describeLunaClient_certificateFingerprint,
+    describeLunaClientResponse_label,
+    describeLunaClientResponse_lastModifiedTimestamp,
+    describeLunaClientResponse_clientArn,
+    describeLunaClientResponse_certificate,
+    describeLunaClientResponse_certificateFingerprint,
+    describeLunaClientResponse_httpStatus,
+
+    -- ** GetConfig
+    getConfig_clientArn,
+    getConfig_clientVersion,
+    getConfig_hapgList,
+    getConfigResponse_configCred,
+    getConfigResponse_configFile,
+    getConfigResponse_configType,
+    getConfigResponse_httpStatus,
+
+    -- ** ListAvailableZones
+    listAvailableZonesResponse_aZList,
+    listAvailableZonesResponse_httpStatus,
+
+    -- ** ListHapgs
+    listHapgs_nextToken,
+    listHapgsResponse_nextToken,
+    listHapgsResponse_httpStatus,
+    listHapgsResponse_hapgList,
+
+    -- ** ListHsms
+    listHsms_nextToken,
+    listHsmsResponse_nextToken,
+    listHsmsResponse_hsmList,
+    listHsmsResponse_httpStatus,
 
     -- ** ListLunaClients
     listLunaClients_nextToken,
@@ -100,51 +138,10 @@ module Amazonka.CloudHSM.Lens
     listLunaClientsResponse_httpStatus,
     listLunaClientsResponse_clientList,
 
-    -- ** AddTagsToResource
-    addTagsToResource_resourceArn,
-    addTagsToResource_tagList,
-    addTagsToResourceResponse_httpStatus,
-    addTagsToResourceResponse_status,
-
-    -- ** GetConfig
-    getConfig_clientArn,
-    getConfig_clientVersion,
-    getConfig_hapgList,
-    getConfigResponse_configFile,
-    getConfigResponse_configCred,
-    getConfigResponse_configType,
-    getConfigResponse_httpStatus,
-
-    -- ** DeleteHsm
-    deleteHsm_hsmArn,
-    deleteHsmResponse_httpStatus,
-    deleteHsmResponse_status,
-
-    -- ** DescribeHsm
-    describeHsm_hsmSerialNumber,
-    describeHsm_hsmArn,
-    describeHsmResponse_status,
-    describeHsmResponse_iamRoleArn,
-    describeHsmResponse_eniId,
-    describeHsmResponse_vpcId,
-    describeHsmResponse_sshKeyLastUpdated,
-    describeHsmResponse_subscriptionEndDate,
-    describeHsmResponse_serverCertUri,
-    describeHsmResponse_subscriptionType,
-    describeHsmResponse_sshPublicKey,
-    describeHsmResponse_subnetId,
-    describeHsmResponse_statusDetails,
-    describeHsmResponse_partitions,
-    describeHsmResponse_subscriptionStartDate,
-    describeHsmResponse_availabilityZone,
-    describeHsmResponse_serverCertLastUpdated,
-    describeHsmResponse_softwareVersion,
-    describeHsmResponse_vendorName,
-    describeHsmResponse_serialNumber,
-    describeHsmResponse_hsmArn,
-    describeHsmResponse_eniIp,
-    describeHsmResponse_hsmType,
-    describeHsmResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_httpStatus,
+    listTagsForResourceResponse_tagList,
 
     -- ** ModifyHapg
     modifyHapg_partitionSerialList,
@@ -153,24 +150,27 @@ module Amazonka.CloudHSM.Lens
     modifyHapgResponse_hapgArn,
     modifyHapgResponse_httpStatus,
 
-    -- ** DeleteLunaClient
-    deleteLunaClient_clientArn,
-    deleteLunaClientResponse_httpStatus,
-    deleteLunaClientResponse_status,
-
     -- ** ModifyHsm
-    modifyHsm_iamRoleArn,
     modifyHsm_subnetId,
-    modifyHsm_syslogIp,
     modifyHsm_externalId,
+    modifyHsm_iamRoleArn,
     modifyHsm_eniIp,
+    modifyHsm_syslogIp,
     modifyHsm_hsmArn,
     modifyHsmResponse_hsmArn,
     modifyHsmResponse_httpStatus,
 
-    -- ** ListAvailableZones
-    listAvailableZonesResponse_aZList,
-    listAvailableZonesResponse_httpStatus,
+    -- ** ModifyLunaClient
+    modifyLunaClient_clientArn,
+    modifyLunaClient_certificate,
+    modifyLunaClientResponse_clientArn,
+    modifyLunaClientResponse_httpStatus,
+
+    -- ** RemoveTagsFromResource
+    removeTagsFromResource_resourceArn,
+    removeTagsFromResource_tagKeyList,
+    removeTagsFromResourceResponse_httpStatus,
+    removeTagsFromResourceResponse_status,
 
     -- * Types
 

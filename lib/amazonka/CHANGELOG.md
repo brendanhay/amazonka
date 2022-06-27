@@ -65,6 +65,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 - Generator: Correctly generate `ToJSON` instances for requests which set a `"payload":` field in `"type": "structure"` definitions.
 [\#790](https://github.com/brendanhay/amazonka/pull/790)
   - Fixes some API calls in `amazonka-glacier` and `amazonka-pinpoint`
+- Background credential refresh now waits until five minutes before token expiry (or halfway to expiry if it expires sooner than that) to avoid the risk of expired credentials.
+[\#747](https://github.com/brendanhay/amazonka/pull/783)
 - Presigning URLs that are not for S3
 [\#767](https://github.com/brendanhay/amazonka/pull/767)
 - `amazonka-s3`/`amazonka-glacier`: treat upload IDs are a mandatory part of the `CreateMultipartUpload`/`InitiateMultipartUpload` responses.

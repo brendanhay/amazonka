@@ -34,7 +34,6 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
-
 - sso: replace `SessionTokenType` with `Core.SessionToken`
 [\#792](https://github.com/brendanhay/amazonka/pull/791)
 - `amazonka-sso`: Use `amazonka-core` types in `GetRoleCredentials` response
@@ -62,6 +61,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Fixed
 
+- `amazonka-core`: Correctly compute body length for `hashedFileRange`
+[\#794](https://github.com/brendanhay/amazonka/pull/794)
 - Generator: Correctly generate `ToJSON` instances for requests which set a `"payload":` field in `"type": "structure"` definitions.
 [\#790](https://github.com/brendanhay/amazonka/pull/790)
   - Fixes some API calls in `amazonka-glacier` and `amazonka-pinpoint`

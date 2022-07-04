@@ -96,6 +96,7 @@ library
         , lens                 >= 4.4
         , memory               >= 0.6
         , mtl                  >= 2.1.3.1
+        , regex-posix           >=0.96
         , resourcet            >= 1.1
         , scientific           >= 0.3
         , semigroups           >= 0.12

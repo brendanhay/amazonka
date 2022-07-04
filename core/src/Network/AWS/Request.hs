@@ -1,6 +1,7 @@
 {-# LANGUAGE ConstraintKinds   #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies #-}
 
 -- |
 -- Module      : Network.AWS.Request
@@ -39,6 +40,7 @@ module Network.AWS.Request
     -- ** Operation Plugins
     , contentMD5Header
     , expectHeader
+    , s3vhost
 
     -- ** Lenses
     , requestHeaders
@@ -61,6 +63,8 @@ import           Network.AWS.Types
 import qualified Network.HTTP.Conduit        as Client
 import           Network.HTTP.Types          (StdMethod (..))
 import qualified Network.HTTP.Types          as HTTP
+import qualified Data.ByteString.Char8 as B8
+import Text.Regex.Posix
 
 type ToRequest a = (ToPath a, ToQuery a, ToHeaders a)
 
@@ -164,3 +168,30 @@ contentMD5Header rq
 
 expectHeader :: Request a -> Request a
 expectHeader = rqHeaders %~ hdr hExpect "100-continue"
+
+-- Rewrite a request to use virtual-hosted-style buckets where
+-- possible.  A request to endpoint "s3.region.amazonaws.com" with
+-- path "/foo/bar" means "object bar in bucket foo". Rewrite it to
+-- endpoint "foo.s3.region.amazonaws.com" and path "/bar".
+--
+-- See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html
+s3vhost :: Request a -> Request a
+s3vhost rq = case _rqPath rq of
+  Raw [] -> rq -- Impossible?
+  Raw (bucketName : p) ->
+    let path = Raw p
+        bucketNameLen = B8.length bucketName
+
+        -- Inspired by:
+        -- https://github.com/boto/botocore/blob/04d1fae43b657952e49b21d16daa86378ddb4253/botocore/utils.py#L1067
+        rewritePossible
+          | '.' `B8.elem` bucketName = False
+          | bucketNameLen < 3 || bucketNameLen > 63 = False
+          | not $ bucketName =~ ("^[a-z0-9][a-z0-9\\-]*[a-z0-9]$" :: ByteString) = False
+          | otherwise = True
+     in if rewritePossible
+          then
+            rq
+              & rqService . serviceEndpoint . endpointHost %~ ((bucketName <> ".") <>)
+              & rqPath .~ path
+          else rq

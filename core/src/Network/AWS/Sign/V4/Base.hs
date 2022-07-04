@@ -30,7 +30,7 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Log
-import           Network.AWS.Data.Path
+import           Network.AWS.Data.Path hiding ( Path )
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Sensitive  (_Sensitive)
 import           Network.AWS.Data.Time

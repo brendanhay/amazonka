@@ -5,12 +5,14 @@
         "lens >= 4.4"
     ],
     "operationPlugins": {
-        "DeleteObjects": ["contentMD5Header"],
-        "PutBucketCORS": ["contentMD5Header"],
-        "PutBucketLifecycle": ["contentMD5Header"],
-        "PutBucketPolicy": ["contentMD5Header"],
-        "PutBucketTagging": ["contentMD5Header"],
-        "PutObject": ["expectHeader"]
+        "DeleteObjects": ["contentMD5Header", "s3vhost"],
+        "GetBucketLocation": [],
+        "PutBucketCORS": ["contentMD5Header", "s3vhost"],
+        "PutBucketLifecycle": ["contentMD5Header", "s3vhost"],
+        "PutBucketPolicy": ["contentMD5Header", "s3vhost"],
+        "PutBucketTagging": ["contentMD5Header", "s3vhost"],
+        "PutObject": ["expectHeader", "s3vhost"],
+        "*": ["s3vhost"]
     },
     "typeModules": [
         "Network.AWS.S3.Internal"

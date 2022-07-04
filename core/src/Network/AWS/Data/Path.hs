@@ -22,6 +22,7 @@ module Network.AWS.Data.Path
 
     -- * Constructing Paths
     , ToPath (..)
+    , Path (..)
     , rawPath
 
     -- * Manipulating Paths

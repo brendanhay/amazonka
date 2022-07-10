@@ -21,10 +21,7 @@ pkgs-x86_64-linux.nixosTest {
     # Note this machine will have IP 192.168.1.1
     s3 = { pkgs, ... }: {
       # Minio requires at least 1GiB of free disk space to run.
-      virtualisation = {
-        diskSize = 2 * 1024;
-        memorySize = 1024;
-      };
+      virtualisation.diskSize = 2 * 1024;
       networking.firewall.allowedTCPPorts = [ minioPort ];
       services.minio = {
         enable = true;

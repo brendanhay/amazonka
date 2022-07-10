@@ -8,21 +8,24 @@ let
   accessKey = "BKIKJAA5BMMU2RHO6IBB";
   secretKey = "V7f1CwQqAcwo80UEIJEjc5gVQUSSx5ohQ9GSrr12";
 
-  minioPort = "9000";
+  minioPort = 9000;
 
-  endpoint = "http://s3:${minioPort}";
+  endpoint = "http://s3:${toString minioPort}";
 
   bucket = "my-bucket";
 in
 pkgs-x86_64-linux.nixosTest {
   name = "test-s3";
   nodes = {
+    # A machine providing an S3 service using MinIO.
+    # Note this machine will have IP 192.168.1.1
     s3 = { pkgs, ... }: {
       # Minio requires at least 1GiB of free disk space to run.
       virtualisation = {
         diskSize = 2 * 1024;
         memorySize = 1024;
       };
+      networking.firewall.allowedTCPPorts = [ minioPort ];
       services.minio = {
         enable = true;
         rootCredentialsFile = pkgs.writeText "minio-credentials" ''
@@ -30,6 +33,11 @@ pkgs-x86_64-linux.nixosTest {
           MINIO_ROOT_PASSWORD=${secretKey}
         '';
       };
+    };
+    # A machine simulating a user (amazonka)
+    # interacting with the S3 service above.
+    # Note this machine will have IP 192.168.1.2
+    user = { pkgs, ... }: {
       environment.systemPackages = [
         pkgs.curl
         pkgs.minio-client
@@ -40,25 +48,25 @@ pkgs-x86_64-linux.nixosTest {
   };
   testScript = ''
     s3.start()
-    s3.wait_until_succeeds("curl --fail --silent '${endpoint}/minio/health/live'")
-    s3.succeed("mc config host add minio ${endpoint} ${accessKey} ${secretKey} --api S3v4")
-    s3.succeed("mc mb minio/${bucket}")
+    user.start()
+    user.wait_until_succeeds("curl --fail --silent '${endpoint}/minio/health/live'")
+    user.succeed("mc config host add minio ${endpoint} ${accessKey} ${secretKey} --api S3v4")
+    user.succeed("mc mb minio/${bucket}")
     print(
-      s3.succeed(
+      user.succeed(
         """
+          set -x
           echo 'Hello World!' > ./some-file
           export AWS_ACCESS_KEY_ID="${accessKey}"
           export AWS_SECRET_ACCESS_KEY="${secretKey}"
-          tcpdump -i lo -n -A > tcp.dump &
+          tcpdump -i eth1 -w http.cap &
           tcpdump_pid="$!"
           sleep 1
           amazonka-s3-test-app ./some-file ${endpoint} ${bucket} some-file || (
-            echo sleep 1
             sleep 1
-            echo Sending SIGINT to tcpdump at PID $tcpdump_pid...
             kill -s 2 $tcpdump_pid
-            echo cat ./tcp.dump
-            cat ./tcp.dump
+            tcpdump -r http.cap -n -A -s 0 \
+              'tcp port 9000 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
             exit 1
           )
         """

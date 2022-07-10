@@ -1,4 +1,5 @@
-# A NixOS test which runs amazonka-s3 against MinIO.
+# A NixOS test (https://nixos.org/manual/nixos/stable/#sec-nixos-tests)
+# which runs amazonka-s3 against MinIO.
 let
   # NixOS tests currently only run on Linux.
   pkgs-x86_64-linux = import ../nix/nixpkgs.nix { system = "x86_64-linux"; };
@@ -41,7 +42,6 @@ pkgs-x86_64-linux.nixosTest {
     s3.wait_until_succeeds("curl --fail --silent '${endpoint}/minio/health/live'")
     s3.succeed("mc config host add minio ${endpoint} ${accessKey} ${secretKey} --api S3v4")
     s3.succeed("mc mb minio/${bucket}")
-
     s3.succeed(
       """
         echo 'Hello World!' > ./some-file

@@ -1,21 +1,27 @@
 self: super: {
+  # haskellPackages extended/overridden with all the amazonka libraries from this repo.
   ourHaskellPackages = self.haskellPackages.override {
     overrides = hsSelf: hsSuper:
       let
         inherit (self) lib;
+        # Function that returns an attribute set mapping all haskell packages in
+        # the given directory to derivations for those packages.
         hsPkgsInDir = dir:
           let
-            isHsPkg = n: t:
+            # Function that dermines whether path $dir/$pkgDirName is a Haskell
+            # package by checking if it's a directoy and contains a .cabal file.
+            isHsPkg = pkgDirName: pkgDirType:
               let
-                pkgDir = builtins.readDir (dir + "/${n}");
+                pkgDir = builtins.readDir (dir + "/${pkgDirName}");
                 isCabalFile = pkgFileName: pkgFileType:
                   pkgFileType == "regular" &&
                   lib.hasSuffix ".cabal" pkgFileName;
               in
-              t == "directory" &&
+              pkgDirType == "directory" &&
               lib.filterAttrs isCabalFile pkgDir != { };
             hsPkgs = lib.filterAttrs isHsPkg (builtins.readDir dir);
-            toHsPkg = n: _t: hsSelf.callCabal2nix n (dir + "/${n}") { };
+            toHsPkg = pkgDirName: _pkgDirType:
+              hsSelf.callCabal2nix pkgDirName (dir + "/${pkgDirName}") { };
           in
             lib.mapAttrs toHsPkg hsPkgs;
       in

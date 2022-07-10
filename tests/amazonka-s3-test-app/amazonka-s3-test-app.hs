@@ -10,6 +10,7 @@ import Data.String (fromString)
 import qualified Data.Text as T
 import qualified Network.URL as URL
 import System.Environment (getArgs)
+import Text.Pretty.Simple (pPrint)
 
 main :: IO ()
 main = do
@@ -29,7 +30,8 @@ main = do
       putObject :: S3.PutObject
       putObject = S3.newPutObject bucketName objectKey rqBody
 
-  print putObject
+  pPrint endpoint
+  pPrint putObject
 
   _resp <- Amazonka.runResourceT $ Amazonka.send env putObject
   return ()

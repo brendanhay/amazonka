@@ -4,5 +4,12 @@ version:            0.0.0.0
 
 executable amazonka-s3-test-app
     main-is:          amazonka-s3-test-app.hs
-    build-depends:    base, bytestring, text, lens, url, amazonka, amazonka-s3
+    build-depends:    base,
+                      bytestring,
+                      text,
+                      lens,
+                      url,
+                      pretty-simple,
+                      amazonka,
+                      amazonka-s3
     default-language: Haskell2010

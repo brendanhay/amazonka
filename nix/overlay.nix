@@ -32,7 +32,4 @@ self: super: {
   amazonka-s3-test-app =
     self.haskell.lib.justStaticExecutables
       self.ourHaskellPackages.amazonka-s3-test-app;
-
-  # Override MinIO to use the latest release.
-  minio = super.callPackage ./minio { };
 }

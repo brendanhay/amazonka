@@ -5,5 +5,5 @@
 }:
 import sources.nixpkgs {
   inherit system config;
-  overlays = [ (import ./haskell.nix) ] ++ overlays;
+  overlays = [ (import ./overlay.nix) ] ++ overlays;
 }

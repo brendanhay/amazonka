@@ -58,6 +58,7 @@ pkgs-x86_64-linux.nixosTest {
           export AWS_SECRET_ACCESS_KEY="${secretKey}"
           tcpdump -i eth1 -w http.cap &
           tcpdump_pid="$!"
+          trap "kill $tcpdump_pid" EXIT
           sleep 1
           amazonka-s3-test-app ./some-file ${endpoint} ${bucket} some-file || (
             exit_code="$?"

@@ -8,7 +8,7 @@ self: super: {
         # the given directory to derivations for those packages.
         hsPkgsInDir = dir:
           let
-            # Function that dermines whether path $dir/$pkgDirName is a Haskell
+            # Function that determines whether path $dir/$pkgDirName is a Haskell
             # package by checking if it's a directoy and contains a .cabal file.
             isHsPkg = pkgDirName: pkgDirType:
               let

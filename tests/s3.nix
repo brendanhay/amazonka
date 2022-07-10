@@ -8,9 +8,9 @@ let
   accessKey = "BKIKJAA5BMMU2RHO6IBB";
   secretKey = "V7f1CwQqAcwo80UEIJEjc5gVQUSSx5ohQ9GSrr12";
 
-  minioPort = 9000;
+  minioPort = "9000";
 
-  endpoint = "http://s3:${toString minioPort}";
+  endpoint = "http://s3:${minioPort}";
 
   bucket = "my-bucket";
 in
@@ -33,6 +33,7 @@ pkgs-x86_64-linux.nixosTest {
       environment.systemPackages = [
         pkgs.curl
         pkgs.minio-client
+        pkgs.tcpdump
         pkgs.amazonka-s3-test-app
       ];
     };
@@ -42,13 +43,26 @@ pkgs-x86_64-linux.nixosTest {
     s3.wait_until_succeeds("curl --fail --silent '${endpoint}/minio/health/live'")
     s3.succeed("mc config host add minio ${endpoint} ${accessKey} ${secretKey} --api S3v4")
     s3.succeed("mc mb minio/${bucket}")
-    s3.succeed(
-      """
-        echo 'Hello World!' > ./some-file
-        export AWS_ACCESS_KEY_ID="${accessKey}"
-        export AWS_SECRET_ACCESS_KEY="${secretKey}"
-        amazonka-s3-test-app ./some-file ${endpoint} ${bucket} some-file
-      """
+    print(
+      s3.succeed(
+        """
+          echo 'Hello World!' > ./some-file
+          export AWS_ACCESS_KEY_ID="${accessKey}"
+          export AWS_SECRET_ACCESS_KEY="${secretKey}"
+          tcpdump -i lo -n -A > tcp.dump &
+          tcpdump_pid="$!"
+          sleep 1
+          amazonka-s3-test-app ./some-file ${endpoint} ${bucket} some-file || (
+            echo sleep 1
+            sleep 1
+            echo Sending SIGINT to tcpdump at PID $tcpdump_pid...
+            kill -s 2 $tcpdump_pid
+            echo cat ./tcp.dump
+            cat ./tcp.dump
+            exit 1
+          )
+        """
+      )
     )
   '';
 }

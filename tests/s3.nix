@@ -12,6 +12,10 @@ let
 
   endpoint = "http://s3:${toString minioPort}";
 
+  # Note that if you include a '.' in the bucket name like "my.bucket" the test
+  # succeeds. This is because in that case the function
+  # [s3vhost](/lib/amazonka-core/src/Amazonka/Request.hs#L169-L194) doesn't
+  # remove the bucket name from the request path.
   bucket = "my-bucket";
 in
 pkgs-x86_64-linux.nixosTest {

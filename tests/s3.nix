@@ -63,11 +63,12 @@ pkgs-x86_64-linux.nixosTest {
           tcpdump_pid="$!"
           sleep 1
           amazonka-s3-test-app ./some-file ${endpoint} ${bucket} some-file || (
+            exit_code="$?"
             sleep 1
             kill -s 2 $tcpdump_pid
             tcpdump -r http.cap -n -A -s 0 \
               'tcp port 9000 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
-            exit 1
+            exit $exit_code
           )
         """
       )

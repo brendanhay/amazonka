@@ -13,15 +13,25 @@ import System.Environment (getArgs)
 
 main :: IO ()
 main = do
-  [fp, endpointStr, bucket, key] <- getArgs
+  [fp, endpointStr, bucketNameStr, objectKeyStr] <- getArgs
+  rqBody <- Amazonka.chunkedFile (64 * 1024) fp
   defEnv <- Amazonka.newEnv Amazonka.Auth.fromKeysEnv
   let Just endpoint = parseEndpoint endpointStr
-  let env = Amazonka.override (Amazonka.serviceEndpoint .~ endpoint) defEnv
-  rqBody <- Amazonka.chunkedFile (64 * 1024) fp
-  _resp <-
-    Amazonka.runResourceT $
-      Amazonka.send env $
-        S3.newPutObject (fromString bucket) (S3.ObjectKey $ T.pack key) rqBody
+
+      env = Amazonka.override (Amazonka.serviceEndpoint .~ endpoint) defEnv
+
+      bucketName :: S3.BucketName
+      bucketName = fromString bucketNameStr
+
+      objectKey :: S3.ObjectKey
+      objectKey = fromString objectKeyStr
+
+      putObject :: S3.PutObject
+      putObject = S3.newPutObject bucketName objectKey rqBody
+
+  print putObject
+
+  _resp <- Amazonka.runResourceT $ Amazonka.send env putObject
   return ()
 
 parseEndpoint :: String -> Maybe Amazonka.Endpoint

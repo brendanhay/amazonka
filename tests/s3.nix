@@ -64,7 +64,8 @@ pkgs-x86_64-linux.nixosTest {
             sleep 1
             kill -s 2 $tcpdump_pid
             tcpdump -r http.cap -n -A -s 0 \
-              'tcp port 9000 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
+              'tcp port ${toString minioPort} and
+                (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
             exit $exit_code
           )
         """

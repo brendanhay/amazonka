@@ -42,7 +42,7 @@ module Amazonka.Request
 where
 
 import Amazonka.Core
-import Amazonka.Lens ((%~), (.~))
+import Amazonka.Lens ((%~), (.~), (^.))
 import Amazonka.Prelude
 import qualified Data.ByteString.Char8 as B8
 import qualified Network.HTTP.Client as Client
@@ -182,6 +182,7 @@ s3vhost rq = case _requestPath rq of
         -- Inspired by:
         -- https://github.com/boto/botocore/blob/04d1fae43b657952e49b21d16daa86378ddb4253/botocore/utils.py#L1067
         rewritePossible
+          | not $ rq ^. requestService . serviceRewriteS3VHost = False
           | '.' `B8.elem` bucketName = False
           | bucketNameLen < 3 || bucketNameLen > 63 = False
           | not $ bucketName =~ ("^[a-z0-9][a-z0-9\\-]*[a-z0-9]$" :: ByteString) = False

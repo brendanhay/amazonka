@@ -35,6 +35,7 @@ instance Arbitrary Service where
             _serviceSigner = v4,
             _serviceSigningName = Text.encodeUtf8 . Text.toLower $ toText abbrev,
             _serviceVersion = "2012-01-01",
+            _serviceRewriteS3VHost = False,
             _serviceEndpointPrefix = Text.encodeUtf8 . Text.toLower $ toText abbrev,
             _serviceEndpoint = defaultEndpoint (svc abbrev),
             _serviceTimeout = Nothing,

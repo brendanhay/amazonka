@@ -216,6 +216,7 @@ serviceD m r = Exts.patBindWhere (pvar n) rhs bs
           field (unqual "Core._serviceEndpointPrefix") (m ^. endpointPrefix . Lens.to str),
           field (unqual "Core._serviceSigningName") (m ^. signingName . Lens.to str),
           field (unqual "Core._serviceVersion") (m ^. apiVersion . Lens.to str),
+          field (unqual "Core._serviceRewriteS3VHost") (var "Prelude.True"),
           field (unqual "Core._serviceEndpoint") (Exts.app (var "Core.defaultEndpoint") (var n)),
           field (unqual "Core._serviceTimeout") (Exts.app justE (Exts.intE 70)),
           field (unqual "Core._serviceCheck") (var "Core.statusSuccess"),

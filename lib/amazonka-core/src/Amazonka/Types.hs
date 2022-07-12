@@ -36,6 +36,7 @@ module Amazonka.Types
     Abbrev,
     Service (..),
     serviceSigner,
+    serviceRewriteS3VHost,
     serviceEndpoint,
     serviceTimeout,
     serviceCheck,
@@ -447,6 +448,7 @@ data Service = Service
     _serviceSigner :: Signer,
     _serviceSigningName :: ByteString,
     _serviceVersion :: ByteString,
+    _serviceRewriteS3VHost :: Bool,
     _serviceEndpointPrefix :: ByteString,
     _serviceEndpoint :: (Region -> Endpoint),
     _serviceTimeout :: (Maybe Seconds),
@@ -458,6 +460,9 @@ data Service = Service
 
 serviceSigner :: Lens' Service Signer
 serviceSigner = Lens.lens _serviceSigner (\s a -> s {_serviceSigner = a})
+
+serviceRewriteS3VHost :: Lens' Service Bool
+serviceRewriteS3VHost = Lens.lens _serviceRewriteS3VHost (\s a -> s {_serviceRewriteS3VHost = a})
 
 serviceEndpoint :: Setter' Service Endpoint
 serviceEndpoint = Lens.sets (\f s -> s {_serviceEndpoint = \r -> f (_serviceEndpoint s r)})

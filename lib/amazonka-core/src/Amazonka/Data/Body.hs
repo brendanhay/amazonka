@@ -288,12 +288,14 @@ hashedFileRange ::
   -- | The maximum number of bytes to read.
   Integer ->
   m HashedBody
-hashedFileRange path (Just -> offset) (Just -> len) =
-  liftIO $
-    HashedStream
-      <$> runResourceT (Conduit.Binary.sourceFileRange path offset len `Conduit.connect` Crypto.sinkSHA256)
-      <*> getFileSize path
-      <*> pure (Conduit.Binary.sourceFileRange path offset len)
+hashedFileRange path offset len = do
+  size <- getFileSize path
+  let bytes = min len (size - offset)
+      sourceFileRange =
+        Conduit.Binary.sourceFileRange path (Just offset) (Just len)
+  digest <-
+    liftIO . runResourceT $ Conduit.connect sourceFileRange Crypto.sinkSHA256
+  pure $ HashedStream digest bytes sourceFileRange
 
 -- | Construct a 'HashedBody' from a 'Source', manually specifying the 'SHA256'
 -- hash and file size. It's left up to the caller to calculate these correctly,
